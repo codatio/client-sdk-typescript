@@ -1,0 +1,288 @@
+import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
+
+
+export class PushJournalPathParams extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  companyId: string;
+
+  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  connectionId: string;
+}
+
+export class PushJournalQueryParams extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=timeoutInMinutes" })
+  timeoutInMinutes?: number;
+}
+export enum PushJournalSourceModifiedDateStatusEnum {
+    Unknown = "Unknown",
+    Active = "Active",
+    Archived = "Archived"
+}
+
+// PushJournalSourceModifiedDateInput
+/** 
+ * > **Language tip:** For line items, or individual transactions, of a company's financial documents, refer to the [Journal entries](https://docs.codat.io/accounting-api#/schemas/JournalEntry) data type
+ * 
+ * > View the coverage for journals in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journals" target="_blank">Data coverage explorer</a>.
+ * 
+ * ## Overview
+ * 
+ * In accounting software, journals are used to record all the financial transactions of a company. Each transaction in a journal is represented by a separate [journal entry](https://docs.codat.io/accounting-api#/schemas/JournalEntry). These entries are used to create the general ledger, which is then used to create the financial statements of a business.
+ * 
+ * When a company records all their transactions in a single journal, it can become large and difficult to maintain and track. This is why large companies often use multiple journals (also known as subjournals) to categorize and manage journal entries.
+ * 
+ * Such journals can be divided into two categories:
+ * 
+ * - Special journals: journals used to record specific types of transactions; for example, a purchases journal, a sales journal, or a cash management journal.
+ * - General journals: journals used to record transactions that fall outside the scope of the special journals.
+ * 
+ * Multiple journals or subjournals are used in the following Codat integrations:
+ * 
+ * - [Sage Intacct](https://docs.codat.io/integrations/accounting/sage-intacct/accounting-sage-intacct)  (mandatory)
+ * - [Exact Online](https://docs.codat.io/integrations/accounting/exact-online/accounting-exact-online)  (mandatory)
+ * - [Oracle NetSuite](https://docs.codat.io/integrations/accounting/netsuite/accounting-netsuite) (optional)
+ * 
+ * > When pushing journal entries to an accounting platform that doesn’t support multiple journals (multi-book accounting), the entries will be linked to the platform-generic journal. The Journals data type will only include one object.
+ * 
+**/
+export class PushJournalSourceModifiedDateInput extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=createdOn" })
+  createdOn?: Date;
+
+  @SpeakeasyMetadata({ data: "json, name=hasChildren" })
+  hasChildren?: boolean;
+
+  @SpeakeasyMetadata({ data: "json, name=id" })
+  id?: string;
+
+  @SpeakeasyMetadata({ data: "json, name=journalCode" })
+  journalCode?: string;
+
+  @SpeakeasyMetadata({ data: "json, name=modifiedDate" })
+  modifiedDate?: Date;
+
+  @SpeakeasyMetadata({ data: "json, name=name" })
+  name?: string;
+
+  @SpeakeasyMetadata({ data: "json, name=parentId" })
+  parentId?: string;
+
+  @SpeakeasyMetadata({ data: "json, name=sourceModifiedDate" })
+  sourceModifiedDate?: Date;
+
+  @SpeakeasyMetadata({ data: "json, name=status" })
+  status?: PushJournalSourceModifiedDateStatusEnum;
+
+  @SpeakeasyMetadata({ data: "json, name=type" })
+  type?: string;
+}
+
+export class PushJournalSecurity extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header" })
+  apiKey: shared.SchemeAPIKey;
+}
+
+export class PushJournalRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: PushJournalPathParams;
+
+  @SpeakeasyMetadata()
+  queryParams: PushJournalQueryParams;
+
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  request?: PushJournalSourceModifiedDateInput;
+
+  @SpeakeasyMetadata()
+  security: PushJournalSecurity;
+}
+
+export class PushJournal200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=dataType" })
+  dataType?: string;
+
+  @SpeakeasyMetadata({ data: "json, name=id" })
+  id?: string;
+}
+export enum PushJournal200ApplicationJSONChangesTypeEnum {
+    Unknown = "Unknown",
+    Created = "Created",
+    Modified = "Modified",
+    Deleted = "Deleted",
+    AttachmentUploaded = "AttachmentUploaded"
+}
+
+export class PushJournal200ApplicationJSONChanges extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=attachmentId" })
+  attachmentId?: string;
+
+  @SpeakeasyMetadata({ data: "json, name=recordRef" })
+  recordRef?: PushJournal200ApplicationJSONChangesPushOperationRecordRef;
+
+  @SpeakeasyMetadata({ data: "json, name=type" })
+  type?: PushJournal200ApplicationJSONChangesTypeEnum;
+}
+
+// PushJournal200ApplicationJSONSourceModifiedDateMetadataMetadata
+/** 
+ * Additional information about the entity
+**/
+export class PushJournal200ApplicationJSONSourceModifiedDateMetadataMetadata extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=isDeleted" })
+  isDeleted?: boolean;
+}
+
+export class PushJournal200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=metadata" })
+  metadata?: PushJournal200ApplicationJSONSourceModifiedDateMetadataMetadata;
+}
+export enum PushJournal200ApplicationJSONSourceModifiedDateStatusEnum {
+    Unknown = "Unknown",
+    Active = "Active",
+    Archived = "Archived"
+}
+
+// PushJournal200ApplicationJSONSourceModifiedDate
+/** 
+ * > **Language tip:** For line items, or individual transactions, of a company's financial documents, refer to the [Journal entries](https://docs.codat.io/accounting-api#/schemas/JournalEntry) data type
+ * 
+ * > View the coverage for journals in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journals" target="_blank">Data coverage explorer</a>.
+ * 
+ * ## Overview
+ * 
+ * In accounting software, journals are used to record all the financial transactions of a company. Each transaction in a journal is represented by a separate [journal entry](https://docs.codat.io/accounting-api#/schemas/JournalEntry). These entries are used to create the general ledger, which is then used to create the financial statements of a business.
+ * 
+ * When a company records all their transactions in a single journal, it can become large and difficult to maintain and track. This is why large companies often use multiple journals (also known as subjournals) to categorize and manage journal entries.
+ * 
+ * Such journals can be divided into two categories:
+ * 
+ * - Special journals: journals used to record specific types of transactions; for example, a purchases journal, a sales journal, or a cash management journal.
+ * - General journals: journals used to record transactions that fall outside the scope of the special journals.
+ * 
+ * Multiple journals or subjournals are used in the following Codat integrations:
+ * 
+ * - [Sage Intacct](https://docs.codat.io/integrations/accounting/sage-intacct/accounting-sage-intacct)  (mandatory)
+ * - [Exact Online](https://docs.codat.io/integrations/accounting/exact-online/accounting-exact-online)  (mandatory)
+ * - [Oracle NetSuite](https://docs.codat.io/integrations/accounting/netsuite/accounting-netsuite) (optional)
+ * 
+ * > When pushing journal entries to an accounting platform that doesn’t support multiple journals (multi-book accounting), the entries will be linked to the platform-generic journal. The Journals data type will only include one object.
+ * 
+**/
+export class PushJournal200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=createdOn" })
+  createdOn?: Date;
+
+  @SpeakeasyMetadata({ data: "json, name=hasChildren" })
+  hasChildren?: boolean;
+
+  @SpeakeasyMetadata({ data: "json, name=id" })
+  id?: string;
+
+  @SpeakeasyMetadata({ data: "json, name=journalCode" })
+  journalCode?: string;
+
+  @SpeakeasyMetadata({ data: "json, name=metadata" })
+  metadata?: PushJournal200ApplicationJSONSourceModifiedDateMetadata;
+
+  @SpeakeasyMetadata({ data: "json, name=modifiedDate" })
+  modifiedDate?: Date;
+
+  @SpeakeasyMetadata({ data: "json, name=name" })
+  name?: string;
+
+  @SpeakeasyMetadata({ data: "json, name=parentId" })
+  parentId?: string;
+
+  @SpeakeasyMetadata({ data: "json, name=sourceModifiedDate" })
+  sourceModifiedDate?: Date;
+
+  @SpeakeasyMetadata({ data: "json, name=status" })
+  status?: PushJournal200ApplicationJSONSourceModifiedDateStatusEnum;
+
+  @SpeakeasyMetadata({ data: "json, name=type" })
+  type?: string;
+}
+export enum PushJournal200ApplicationJSONStatusEnum {
+    Pending = "Pending",
+    Failed = "Failed",
+    Success = "Success",
+    TimedOut = "TimedOut"
+}
+
+export class PushJournal200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=itemId" })
+  itemId?: string;
+
+  @SpeakeasyMetadata({ data: "json, name=message" })
+  message?: string;
+
+  @SpeakeasyMetadata({ data: "json, name=validatorName" })
+  validatorName?: string;
+}
+
+// PushJournal200ApplicationJSONValidation
+/** 
+ * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
+**/
+export class PushJournal200ApplicationJSONValidation extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=errors", elemType: PushJournal200ApplicationJSONValidationValidationItem })
+  errors?: PushJournal200ApplicationJSONValidationValidationItem[];
+
+  @SpeakeasyMetadata({ data: "json, name=warnings", elemType: PushJournal200ApplicationJSONValidationValidationItem })
+  warnings?: PushJournal200ApplicationJSONValidationValidationItem[];
+}
+
+export class PushJournal200ApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "json, name=changes", elemType: PushJournal200ApplicationJSONChanges })
+  changes?: PushJournal200ApplicationJSONChanges[];
+
+  @SpeakeasyMetadata({ data: "json, name=companyId" })
+  companyId: string;
+
+  @SpeakeasyMetadata({ data: "json, name=completedOnUtc" })
+  completedOnUtc?: Date;
+
+  @SpeakeasyMetadata({ data: "json, name=data" })
+  data?: PushJournal200ApplicationJSONSourceModifiedDate;
+
+  @SpeakeasyMetadata({ data: "json, name=dataConnectionKey" })
+  dataConnectionKey: string;
+
+  @SpeakeasyMetadata({ data: "json, name=dataType" })
+  dataType?: string;
+
+  @SpeakeasyMetadata({ data: "json, name=errorMessage" })
+  errorMessage?: string;
+
+  @SpeakeasyMetadata({ data: "json, name=pushOperationKey" })
+  pushOperationKey: string;
+
+  @SpeakeasyMetadata({ data: "json, name=requestedOnUtc" })
+  requestedOnUtc: Date;
+
+  @SpeakeasyMetadata({ data: "json, name=status" })
+  status: PushJournal200ApplicationJSONStatusEnum;
+
+  @SpeakeasyMetadata({ data: "json, name=statusCode" })
+  statusCode: number;
+
+  @SpeakeasyMetadata({ data: "json, name=timeoutInMinutes" })
+  timeoutInMinutes?: number;
+
+  @SpeakeasyMetadata({ data: "json, name=timeoutInSeconds" })
+  timeoutInSeconds?: number;
+
+  @SpeakeasyMetadata({ data: "json, name=validation" })
+  validation?: PushJournal200ApplicationJSONValidation;
+}
+
+export class PushJournalResponse extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  contentType: string;
+
+  @SpeakeasyMetadata()
+  statusCode: number;
+
+  @SpeakeasyMetadata()
+  pushJournal200ApplicationJSONObject?: PushJournal200ApplicationJSON;
+}
