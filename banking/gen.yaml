@@ -1,0 +1,7 @@
+configVersion: 1.0.0
+generation:
+  sdkClassName: codat
+  sdkFlattening: true
+typescript:
+  version: 0.0.1
+  packageName: "@codat/banking"
