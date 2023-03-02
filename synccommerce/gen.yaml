@@ -1,7 +1,13 @@
 configVersion: 1.0.0
+management:
+  docChecksum: 61f4faedb5cff207a308dde1b4192a48
+  docVersion: "1.1"
+  speakeasyVersion: 1.7.1
 generation:
+  telemetryEnabled: false
   sdkClassName: codat
   sdkFlattening: true
 typescript:
-  version: 0.0.1
-  packageName: "@codat/synccommerce"
+  version: 0.1.0
+  author: Speakeasy
+  packageName: '@codat/synccommerce'
