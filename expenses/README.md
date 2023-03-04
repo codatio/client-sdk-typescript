@@ -29,7 +29,7 @@ import { Codat } from "@codat/expenses";
 
 const sdk = new Codat({
   security: {
-    authorization: "YOUR_API_KEY_HERE",
+    authHeader: "YOUR_API_KEY_HERE",
   }
 });
     

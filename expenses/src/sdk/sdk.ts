@@ -23,7 +23,12 @@ export type SDKProps = {
   serverUrl?: string;
 }
 
-
+/* SDK Documentation: The API for Sync for Expenses.
+ * Sync for Expenses is an API and a set of supporting tools. It has been built to enable corporate card and expense management platforms to provide high-quality integrations with multiple accounting platforms through a standardized API.
+ * 
+ * [Read more...](https://docs.codat.io/sync-for-expenses/overview)
+ * 
+ * [See our OpenAPI spec](https://github.com/codatio/oas)*/
 export class Codat {
   public configuration: Configuration;
   public connections: Connections;
@@ -37,8 +42,8 @@ export class Codat {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.1.1";
-  private _genVersion = "1.7.1";
+  private _sdkVersion = "0.2.0";
+  private _genVersion = "1.8.2";
 
   constructor(props: SDKProps) {
     this._serverURL = props.serverUrl ?? ServerList[0];

@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
 
@@ -53,6 +54,9 @@ export class GetSyncTransactionResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata({ elemType: GetSyncTransaction200ApplicationJSON })
   getSyncTransaction200ApplicationJSONObjects?: GetSyncTransaction200ApplicationJSON[];
