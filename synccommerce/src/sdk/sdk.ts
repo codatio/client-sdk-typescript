@@ -21,7 +21,9 @@ export type SDKProps = {
   serverUrl?: string;
 }
 
-
+/* SDK Documentation: The API for Sync for Commerce. Sync for Commerce is an API and a set of supporting tools. It has been built to enable e-commerce, point of sale platforms to provide high-quality integrations with numerous accounting platform through standardized API, seamlessly transforming business sale's data into accounting artefacts.
+ * 
+ * [Read More...](https://docs.codat.io/sfc/overview)*/
 export class Codat {
   public companyManagement: CompanyManagement;
   public integrations: Integrations;
@@ -33,8 +35,8 @@ export class Codat {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.1.0";
-  private _genVersion = "1.7.1";
+  private _sdkVersion = "0.2.0";
+  private _genVersion = "1.8.2";
 
   constructor(props: SDKProps) {
     this._serverURL = props.serverUrl ?? ServerList[0];
