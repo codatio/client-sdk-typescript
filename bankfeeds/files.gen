@@ -17,10 +17,10 @@ src/internal/utils/utils.ts
 src/sdk/index.ts
 tsconfig.json
 src/sdk/models/operations/getbankaccountpushoptions.ts
-src/sdk/models/operations/listallbanktransactionscount.ts
+src/sdk/models/operations/listbankaccounttransactions.ts
 src/sdk/models/operations/postbanktransactions.ts
+src/sdk/models/operations/createbankfeed.ts
 src/sdk/models/operations/getbankfeeds.ts
-src/sdk/models/operations/putbankfeeds.ts
 src/sdk/models/operations/updatebankfeed.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/security.ts

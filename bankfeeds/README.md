@@ -29,14 +29,11 @@ import { Codat } from "@codat/bankfeeds";
 
 const sdk = new Codat({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    authHeader: "YOUR_API_KEY_HERE",
   }
 });
     
 const req: GetBankAccountPushOptionsRequest = {
-  security: {
-    apiKey: "YOUR_API_KEY_HERE",
-  },
   pathParams: {
     accountId: "unde",
     companyId: "deserunt",
@@ -63,13 +60,13 @@ sdk.bankAccountTransactions.getBankAccountPushOptions(req).then((res: GetBankAcc
 ### bankAccountTransactions
 
 * `getBankAccountPushOptions` - List push options for bank account bank transactions
-* `listAllBankTransactionscount` - List bank transactions for bank account
+* `listBankAccountTransactions` - List bank transactions for bank account
 * `postBankTransactions` - Create bank transactions
 
 ### bankFeedAccounts
 
+* `createBankFeed` - Create bank feed bank accounts
 * `getBankFeeds` - List bank feed bank accounts
-* `putBankFeeds` - Update bank feed bank accounts
 * `updateBankFeed` - Update bank feed bank account
 <!-- End SDK Available Operations -->
 

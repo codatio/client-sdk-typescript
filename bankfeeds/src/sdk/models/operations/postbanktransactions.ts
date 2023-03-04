@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -124,11 +125,6 @@ export class PostBankTransactionsRequestBody extends SpeakeasyBase {
   transactions?: PostBankTransactionsRequestBodyTransactions[];
 }
 
-export class PostBankTransactionsSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class PostBankTransactionsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: PostBankTransactionsPathParams;
@@ -138,9 +134,6 @@ export class PostBankTransactionsRequest extends SpeakeasyBase {
 
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
   request?: PostBankTransactionsRequestBody;
-
-  @SpeakeasyMetadata()
-  security: PostBankTransactionsSecurity;
 }
 
 export class PostBankTransactions200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
@@ -383,6 +376,9 @@ export class PostBankTransactionsResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   postBankTransactions200ApplicationJSONObject?: PostBankTransactions200ApplicationJSON;

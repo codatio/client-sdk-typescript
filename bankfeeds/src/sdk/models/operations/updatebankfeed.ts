@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -66,20 +67,12 @@ export class UpdateBankFeedBankFeedBankAccount extends SpeakeasyBase {
   status?: string;
 }
 
-export class UpdateBankFeedSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class UpdateBankFeedRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: UpdateBankFeedPathParams;
 
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
   request?: UpdateBankFeedBankFeedBankAccount;
-
-  @SpeakeasyMetadata()
-  security: UpdateBankFeedSecurity;
 }
 
 export class UpdateBankFeedResponse extends SpeakeasyBase {
@@ -91,4 +84,7 @@ export class UpdateBankFeedResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 }

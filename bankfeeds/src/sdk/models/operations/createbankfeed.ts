@@ -1,25 +1,26 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
-export class PutBankFeedsPathParams extends SpeakeasyBase {
+export class CreateBankFeedPathParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
   companyId: string;
 
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
   connectionId: string;
 }
-export enum PutBankFeedsBankFeedBankAccountAccountTypeEnum {
+export enum CreateBankFeedBankFeedBankAccountAccountTypeEnum {
     Unknown = "Unknown",
     Credit = "Credit",
     Debit = "Debit"
 }
 
-// PutBankFeedsBankFeedBankAccount
+// CreateBankFeedBankFeedBankAccount
 /** 
  * The target bank account in a supported accounting package for ingestion into a bank feed.
 **/
-export class PutBankFeedsBankFeedBankAccount extends SpeakeasyBase {
+export class CreateBankFeedBankFeedBankAccount extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountName" })
   accountName?: string;
@@ -30,7 +31,7 @@ export class PutBankFeedsBankFeedBankAccount extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "accountType" })
-  accountType?: PutBankFeedsBankFeedBankAccountAccountTypeEnum;
+  accountType?: CreateBankFeedBankFeedBankAccountAccountTypeEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "balance" })
@@ -63,29 +64,24 @@ export class PutBankFeedsBankFeedBankAccount extends SpeakeasyBase {
   status?: string;
 }
 
-export class PutBankFeedsSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
+export class CreateBankFeedRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: CreateBankFeedPathParams;
+
+  @SpeakeasyMetadata({ data: "request, media_type=application/json", elemType: CreateBankFeedBankFeedBankAccount })
+  request?: CreateBankFeedBankFeedBankAccount[];
 }
 
-export class PutBankFeedsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: PutBankFeedsPathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json", elemType: PutBankFeedsBankFeedBankAccount })
-  request?: PutBankFeedsBankFeedBankAccount[];
-
-  @SpeakeasyMetadata()
-  security: PutBankFeedsSecurity;
-}
-
-export class PutBankFeedsResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PutBankFeedsBankFeedBankAccount })
-  bankFeedBankAccounts?: PutBankFeedsBankFeedBankAccount[];
+export class CreateBankFeedResponse extends SpeakeasyBase {
+  @SpeakeasyMetadata({ elemType: CreateBankFeedBankFeedBankAccount })
+  bankFeedBankAccounts?: CreateBankFeedBankFeedBankAccount[];
 
   @SpeakeasyMetadata()
   contentType: string;
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 }

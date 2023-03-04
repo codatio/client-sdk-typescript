@@ -1,8 +1,9 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
-export class ListAllBankTransactionscountPathParams extends SpeakeasyBase {
+export class ListBankAccountTransactionsPathParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=accountId" })
   accountId: string;
 
@@ -13,7 +14,7 @@ export class ListAllBankTransactionscountPathParams extends SpeakeasyBase {
   connectionId: string;
 }
 
-export class ListAllBankTransactionscountQueryParams extends SpeakeasyBase {
+export class ListBankAccountTransactionsQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
   orderBy?: string;
 
@@ -27,68 +28,60 @@ export class ListAllBankTransactionscountQueryParams extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListAllBankTransactionscountSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
+export class ListBankAccountTransactionsRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: ListBankAccountTransactionsPathParams;
+
+  @SpeakeasyMetadata()
+  queryParams: ListBankAccountTransactionsQueryParams;
 }
 
-export class ListAllBankTransactionscountRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: ListAllBankTransactionscountPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: ListAllBankTransactionscountQueryParams;
-
-  @SpeakeasyMetadata()
-  security: ListAllBankTransactionscountSecurity;
-}
-
-export class ListAllBankTransactionscountLinksLinksCurrent extends SpeakeasyBase {
+export class ListBankAccountTransactionsLinksLinksCurrent extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href: string;
 }
 
-export class ListAllBankTransactionscountLinksLinksNext extends SpeakeasyBase {
+export class ListBankAccountTransactionsLinksLinksNext extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class ListAllBankTransactionscountLinksLinksPrevious extends SpeakeasyBase {
+export class ListBankAccountTransactionsLinksLinksPrevious extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class ListAllBankTransactionscountLinksLinksSelf extends SpeakeasyBase {
+export class ListBankAccountTransactionsLinksLinksSelf extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href: string;
 }
 
-export class ListAllBankTransactionscountLinksLinks extends SpeakeasyBase {
+export class ListBankAccountTransactionsLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListAllBankTransactionscountLinksLinksCurrent)
-  current: ListAllBankTransactionscountLinksLinksCurrent;
+  @Type(() => ListBankAccountTransactionsLinksLinksCurrent)
+  current: ListBankAccountTransactionsLinksLinksCurrent;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListAllBankTransactionscountLinksLinksNext)
-  next?: ListAllBankTransactionscountLinksLinksNext;
+  @Type(() => ListBankAccountTransactionsLinksLinksNext)
+  next?: ListBankAccountTransactionsLinksLinksNext;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListAllBankTransactionscountLinksLinksPrevious)
-  previous?: ListAllBankTransactionscountLinksLinksPrevious;
+  @Type(() => ListBankAccountTransactionsLinksLinksPrevious)
+  previous?: ListBankAccountTransactionsLinksLinksPrevious;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListAllBankTransactionscountLinksLinksSelf)
-  self: ListAllBankTransactionscountLinksLinksSelf;
+  @Type(() => ListBankAccountTransactionsLinksLinksSelf)
+  self: ListBankAccountTransactionsLinksLinksSelf;
 }
-export enum ListAllBankTransactionscountLinksResultsTransactionsTransactionTypeEnum {
+export enum ListBankAccountTransactionsLinksResultsTransactionsTransactionTypeEnum {
     Unknown = "Unknown",
     Credit = "Credit",
     Debit = "Debit",
@@ -109,7 +102,7 @@ export enum ListAllBankTransactionscountLinksResultsTransactionsTransactionTypeE
     Other = "Other"
 }
 
-export class ListAllBankTransactionscountLinksResultsTransactions extends SpeakeasyBase {
+export class ListBankAccountTransactionsLinksResultsTransactions extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "amount" })
   amount: number;
@@ -155,10 +148,10 @@ export class ListAllBankTransactionscountLinksResultsTransactions extends Speake
 
   @SpeakeasyMetadata()
   @Expose({ name: "transactionType" })
-  transactionType: ListAllBankTransactionscountLinksResultsTransactionsTransactionTypeEnum;
+  transactionType: ListBankAccountTransactionsLinksResultsTransactionsTransactionTypeEnum;
 }
 
-// ListAllBankTransactionscountLinksResults
+// ListBankAccountTransactionsLinksResults
 /** 
  * > **Accessing Bank Accounts through Banking API**
  * > 
@@ -177,7 +170,7 @@ export class ListAllBankTransactionscountLinksResultsTransactions extends Speake
  * * Current account balance.
  * * Transaction type, for example, credit, debit, or transfer.
 **/
-export class ListAllBankTransactionscountLinksResults extends SpeakeasyBase {
+export class ListBankAccountTransactionsLinksResults extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountId" })
   accountId?: string;
@@ -186,21 +179,21 @@ export class ListAllBankTransactionscountLinksResults extends SpeakeasyBase {
   @Expose({ name: "contractVersion" })
   contractVersion?: string;
 
-  @SpeakeasyMetadata({ elemType: ListAllBankTransactionscountLinksResultsTransactions })
+  @SpeakeasyMetadata({ elemType: ListBankAccountTransactionsLinksResultsTransactions })
   @Expose({ name: "transactions" })
-  @Type(() => ListAllBankTransactionscountLinksResultsTransactions)
-  transactions?: ListAllBankTransactionscountLinksResultsTransactions[];
+  @Type(() => ListBankAccountTransactionsLinksResultsTransactions)
+  transactions?: ListBankAccountTransactionsLinksResultsTransactions[];
 }
 
-// ListAllBankTransactionscountLinks
+// ListBankAccountTransactionsLinks
 /** 
  * Codat's Paging Model
 **/
-export class ListAllBankTransactionscountLinks extends SpeakeasyBase {
+export class ListBankAccountTransactionsLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => ListAllBankTransactionscountLinksLinks)
-  links: ListAllBankTransactionscountLinksLinks;
+  @Type(() => ListBankAccountTransactionsLinksLinks)
+  links: ListBankAccountTransactionsLinksLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -210,17 +203,17 @@ export class ListAllBankTransactionscountLinks extends SpeakeasyBase {
   @Expose({ name: "pageSize" })
   pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: ListAllBankTransactionscountLinksResults })
+  @SpeakeasyMetadata({ elemType: ListBankAccountTransactionsLinksResults })
   @Expose({ name: "results" })
-  @Type(() => ListAllBankTransactionscountLinksResults)
-  results?: ListAllBankTransactionscountLinksResults[];
+  @Type(() => ListBankAccountTransactionsLinksResults)
+  results?: ListBankAccountTransactionsLinksResults[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
   totalResults: number;
 }
 
-export class ListAllBankTransactionscountResponse extends SpeakeasyBase {
+export class ListBankAccountTransactionsResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
@@ -228,5 +221,8 @@ export class ListAllBankTransactionscountResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  links?: ListAllBankTransactionscountLinks;
+  rawResponse?: AxiosResponse;
+
+  @SpeakeasyMetadata()
+  links?: ListBankAccountTransactionsLinks;
 }

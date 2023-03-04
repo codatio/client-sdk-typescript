@@ -10,14 +10,11 @@ import { Codat } from "@codat/bankfeeds";
 
 const sdk = new Codat({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    authHeader: "YOUR_API_KEY_HERE",
   }
 });
     
 const req: GetBankAccountPushOptionsRequest = {
-  security: {
-    apiKey: "YOUR_API_KEY_HERE",
-  },
   pathParams: {
     accountId: "unde",
     companyId: "deserunt",
