@@ -36,7 +36,7 @@ export class DirectIncomes {
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/data/directIncomes/{directIncomeId}/attachments/{attachmentId}/download", req.pathParams);
     
-    const client: AxiosInstance = utils.createSecurityClient(this._defaultClient!, req.security)!;
+    const client: AxiosInstance = this._securityClient!;
     
     
     const r = client.request({
@@ -49,7 +49,7 @@ export class DirectIncomes {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.DownloadDirectIncomeAttachmentResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.DownloadDirectIncomeAttachmentResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             break;
@@ -76,7 +76,7 @@ export class DirectIncomes {
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/data/directIncomes/{directIncomeId}", req.pathParams);
     
-    const client: AxiosInstance = utils.createSecurityClient(this._defaultClient!, req.security)!;
+    const client: AxiosInstance = this._securityClient!;
     
     
     const r = client.request({
@@ -89,7 +89,7 @@ export class DirectIncomes {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetDirectIncomeResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.GetDirectIncomeResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -123,7 +123,7 @@ export class DirectIncomes {
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/data/directIncomes/{directIncomeId}/attachments/{attachmentId}", req.pathParams);
     
-    const client: AxiosInstance = utils.createSecurityClient(this._defaultClient!, req.security)!;
+    const client: AxiosInstance = this._securityClient!;
     
     const queryParams: string = utils.serializeQueryParams(req.queryParams);
     
@@ -137,7 +137,7 @@ export class DirectIncomes {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetDirectIncomeAttachmentResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.GetDirectIncomeAttachmentResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -171,7 +171,7 @@ export class DirectIncomes {
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/data/directIncomes", req.pathParams);
     
-    const client: AxiosInstance = utils.createSecurityClient(this._defaultClient!, req.security)!;
+    const client: AxiosInstance = this._securityClient!;
     
     const queryParams: string = utils.serializeQueryParams(req.queryParams);
     
@@ -185,7 +185,7 @@ export class DirectIncomes {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetDirectIncomesResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.GetDirectIncomesResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -219,7 +219,7 @@ export class DirectIncomes {
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/data/directIncomes/{directIncomeId}/attachments", req.pathParams);
     
-    const client: AxiosInstance = utils.createSecurityClient(this._defaultClient!, req.security)!;
+    const client: AxiosInstance = this._securityClient!;
     
     
     const r = client.request({
@@ -232,7 +232,7 @@ export class DirectIncomes {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListDirectIncomeAttachmentsResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.ListDirectIncomeAttachmentsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -280,7 +280,7 @@ export class DirectIncomes {
       }
     }
     
-    const client: AxiosInstance = utils.createSecurityClient(this._defaultClient!, req.security)!;
+    const client: AxiosInstance = this._securityClient!;
     
     const headers = {...reqBodyHeaders, ...config?.headers};
     const queryParams: string = utils.serializeQueryParams(req.queryParams);
@@ -297,7 +297,7 @@ export class DirectIncomes {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.PostDirectIncomeResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.PostDirectIncomeResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -331,7 +331,7 @@ export class DirectIncomes {
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/push/directIncomes/{directIncomeId}/attachment", req.pathParams);
     
-    const client: AxiosInstance = utils.createSecurityClient(this._defaultClient!, req.security)!;
+    const client: AxiosInstance = this._securityClient!;
     
     
     const r = client.request({
@@ -344,7 +344,7 @@ export class DirectIncomes {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.PostDirectIncomeAttachmentResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.PostDirectIncomeAttachmentResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             break;

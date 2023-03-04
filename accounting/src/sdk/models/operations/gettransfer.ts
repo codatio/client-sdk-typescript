@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -13,17 +14,9 @@ export class GetTransferPathParams extends SpeakeasyBase {
   transferId: string;
 }
 
-export class GetTransferSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class GetTransferRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: GetTransferPathParams;
-
-  @SpeakeasyMetadata()
-  security: GetTransferSecurity;
 }
 
 // GetTransferSourceModifiedDateContactRef
@@ -175,4 +168,7 @@ export class GetTransferResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 }

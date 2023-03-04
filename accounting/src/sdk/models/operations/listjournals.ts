@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -21,20 +22,12 @@ export class ListJournalsQueryParams extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListJournalsSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class ListJournalsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: ListJournalsPathParams;
 
   @SpeakeasyMetadata()
   queryParams: ListJournalsQueryParams;
-
-  @SpeakeasyMetadata()
-  security: ListJournalsSecurity;
 }
 
 export class ListJournalsLinksLinksCurrent extends SpeakeasyBase {
@@ -215,6 +208,9 @@ export class ListJournalsResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   links?: ListJournalsLinks;

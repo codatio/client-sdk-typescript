@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -13,17 +14,9 @@ export class GetCustomerAttachmentsPathParams extends SpeakeasyBase {
   customerId: string;
 }
 
-export class GetCustomerAttachmentsSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class GetCustomerAttachmentsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: GetCustomerAttachmentsPathParams;
-
-  @SpeakeasyMetadata()
-  security: GetCustomerAttachmentsSecurity;
 }
 
 export class GetCustomerAttachmentsAttachmentsAttachment extends SpeakeasyBase {
@@ -79,4 +72,7 @@ export class GetCustomerAttachmentsResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 }

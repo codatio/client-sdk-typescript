@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -150,20 +151,12 @@ export class PostTransferSourceModifiedDate extends SpeakeasyBase {
   trackingCategoryRefs?: PostTransferSourceModifiedDateTrackingCategoryRefs[];
 }
 
-export class PostTransferSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class PostTransferRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: PostTransferPathParams;
 
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
   request?: PostTransferSourceModifiedDate;
-
-  @SpeakeasyMetadata()
-  security: PostTransferSecurity;
 }
 
 export class PostTransfer200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
@@ -443,6 +436,9 @@ export class PostTransferResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   postTransfer200ApplicationJSONObject?: PostTransfer200ApplicationJSON;

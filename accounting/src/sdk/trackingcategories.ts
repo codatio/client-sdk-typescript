@@ -36,7 +36,7 @@ export class TrackingCategories {
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(baseURL, "/companies/{companyId}/data/trackingCategories/{trackingCategoryId}", req.pathParams);
     
-    const client: AxiosInstance = utils.createSecurityClient(this._defaultClient!, req.security)!;
+    const client: AxiosInstance = this._securityClient!;
     
     
     const r = client.request({
@@ -49,7 +49,7 @@ export class TrackingCategories {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetTrackingCategoryResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.GetTrackingCategoryResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -83,7 +83,7 @@ export class TrackingCategories {
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(baseURL, "/companies/{companyId}/data/trackingCategories", req.pathParams);
     
-    const client: AxiosInstance = utils.createSecurityClient(this._defaultClient!, req.security)!;
+    const client: AxiosInstance = this._securityClient!;
     
     const queryParams: string = utils.serializeQueryParams(req.queryParams);
     
@@ -97,7 +97,7 @@ export class TrackingCategories {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListTrackingCategoriesResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.ListTrackingCategoriesResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {

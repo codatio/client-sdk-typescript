@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -7,17 +8,9 @@ export class PostSyncInfoPathParams extends SpeakeasyBase {
   companyId: string;
 }
 
-export class PostSyncInfoSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class PostSyncInfoRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: PostSyncInfoPathParams;
-
-  @SpeakeasyMetadata()
-  security: PostSyncInfoSecurity;
 }
 export enum PostSyncInfo200ApplicationJSONStatusEnum {
     Initial = "Initial",
@@ -105,6 +98,9 @@ export class PostSyncInfoResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   postSyncInfo200ApplicationJSONObject?: PostSyncInfo200ApplicationJSON;

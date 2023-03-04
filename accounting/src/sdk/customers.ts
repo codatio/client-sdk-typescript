@@ -36,7 +36,7 @@ export class Customers {
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/data/customers/{customerId}/attachments/{attachmentId}/download", req.pathParams);
     
-    const client: AxiosInstance = utils.createSecurityClient(this._defaultClient!, req.security)!;
+    const client: AxiosInstance = this._securityClient!;
     
     
     const r = client.request({
@@ -49,7 +49,7 @@ export class Customers {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.DownloadCustomerAttachmentResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.DownloadCustomerAttachmentResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             break;
@@ -76,7 +76,7 @@ export class Customers {
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(baseURL, "/companies/{companyId}/data/customers/{customerId}", req.pathParams);
     
-    const client: AxiosInstance = utils.createSecurityClient(this._defaultClient!, req.security)!;
+    const client: AxiosInstance = this._securityClient!;
     
     
     const r = client.request({
@@ -89,7 +89,7 @@ export class Customers {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetCustomerResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.GetCustomerResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -123,7 +123,7 @@ export class Customers {
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/data/customers/{customerId}/attachments/{attachmentId}", req.pathParams);
     
-    const client: AxiosInstance = utils.createSecurityClient(this._defaultClient!, req.security)!;
+    const client: AxiosInstance = this._securityClient!;
     
     
     const r = client.request({
@@ -136,7 +136,7 @@ export class Customers {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetCustomerAttachmentResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.GetCustomerAttachmentResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -170,7 +170,7 @@ export class Customers {
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/data/customers/{customerId}/attachments", req.pathParams);
     
-    const client: AxiosInstance = utils.createSecurityClient(this._defaultClient!, req.security)!;
+    const client: AxiosInstance = this._securityClient!;
     
     
     const r = client.request({
@@ -183,7 +183,7 @@ export class Customers {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetCustomerAttachmentsResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.GetCustomerAttachmentsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -217,7 +217,7 @@ export class Customers {
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(baseURL, "/companies/{companyId}/data/customers", req.pathParams);
     
-    const client: AxiosInstance = utils.createSecurityClient(this._defaultClient!, req.security)!;
+    const client: AxiosInstance = this._securityClient!;
     
     const queryParams: string = utils.serializeQueryParams(req.queryParams);
     
@@ -231,7 +231,7 @@ export class Customers {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetCustomersResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.GetCustomersResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -279,7 +279,7 @@ export class Customers {
       }
     }
     
-    const client: AxiosInstance = utils.createSecurityClient(this._defaultClient!, req.security)!;
+    const client: AxiosInstance = this._securityClient!;
     
     const headers = {...reqBodyHeaders, ...config?.headers};
     const queryParams: string = utils.serializeQueryParams(req.queryParams);
@@ -296,7 +296,7 @@ export class Customers {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.PostCustomerResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.PostCustomerResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -344,7 +344,7 @@ export class Customers {
       }
     }
     
-    const client: AxiosInstance = utils.createSecurityClient(this._defaultClient!, req.security)!;
+    const client: AxiosInstance = this._securityClient!;
     
     const headers = {...reqBodyHeaders, ...config?.headers};
     const queryParams: string = utils.serializeQueryParams(req.queryParams);
@@ -361,7 +361,7 @@ export class Customers {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.UpdateCustomerResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.UpdateCustomerResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {

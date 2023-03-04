@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -13,17 +14,9 @@ export class ListDirectCostAttachmentsPathParams extends SpeakeasyBase {
   directCostId: string;
 }
 
-export class ListDirectCostAttachmentsSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class ListDirectCostAttachmentsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: ListDirectCostAttachmentsPathParams;
-
-  @SpeakeasyMetadata()
-  security: ListDirectCostAttachmentsSecurity;
 }
 
 export class ListDirectCostAttachmentsAttachmentsAttachment extends SpeakeasyBase {
@@ -79,4 +72,7 @@ export class ListDirectCostAttachmentsResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 }

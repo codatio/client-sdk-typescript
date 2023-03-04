@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -236,11 +237,6 @@ export class PostCustomerSourceModifiedDate extends SpeakeasyBase {
   taxNumber?: string;
 }
 
-export class PostCustomerSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class PostCustomerRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: PostCustomerPathParams;
@@ -250,9 +246,6 @@ export class PostCustomerRequest extends SpeakeasyBase {
 
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
   request?: PostCustomerSourceModifiedDate;
-
-  @SpeakeasyMetadata()
-  security: PostCustomerSecurity;
 }
 
 export class PostCustomer200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
@@ -613,6 +606,9 @@ export class PostCustomerResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   postCustomer200ApplicationJSONObject?: PostCustomer200ApplicationJSON;

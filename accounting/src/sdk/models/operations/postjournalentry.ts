@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -195,11 +196,6 @@ export class PostJournalEntrySourceModifiedDate extends SpeakeasyBase {
   updatedOn?: Date;
 }
 
-export class PostJournalEntrySecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class PostJournalEntryRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: PostJournalEntryPathParams;
@@ -209,9 +205,6 @@ export class PostJournalEntryRequest extends SpeakeasyBase {
 
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
   request?: PostJournalEntrySourceModifiedDate;
-
-  @SpeakeasyMetadata()
-  security: PostJournalEntrySecurity;
 }
 
 export class PostJournalEntry200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
@@ -531,6 +524,9 @@ export class PostJournalEntryResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   postJournalEntry200ApplicationJSONObject?: PostJournalEntry200ApplicationJSON;

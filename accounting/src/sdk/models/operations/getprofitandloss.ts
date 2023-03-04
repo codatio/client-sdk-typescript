@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -18,20 +19,12 @@ export class GetProfitAndLossQueryParams extends SpeakeasyBase {
   startMonth?: Date;
 }
 
-export class GetProfitAndLossSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class GetProfitAndLossRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: GetProfitAndLossPathParams;
 
   @SpeakeasyMetadata()
   queryParams: GetProfitAndLossQueryParams;
-
-  @SpeakeasyMetadata()
-  security: GetProfitAndLossSecurity;
 }
 export enum GetProfitAndLoss200ApplicationJSONReportBasisEnum {
     Unknown = "Unknown",
@@ -223,6 +216,9 @@ export class GetProfitAndLossResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   getProfitAndLoss200ApplicationJSONObject?: GetProfitAndLoss200ApplicationJSON;

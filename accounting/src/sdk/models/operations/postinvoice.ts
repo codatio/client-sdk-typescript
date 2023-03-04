@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -457,11 +458,6 @@ export class PostInvoiceSourceModifiedDate extends SpeakeasyBase {
   withholdingTax?: PostInvoiceSourceModifiedDateWithholdingTax[];
 }
 
-export class PostInvoiceSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class PostInvoiceRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: PostInvoicePathParams;
@@ -471,9 +467,6 @@ export class PostInvoiceRequest extends SpeakeasyBase {
 
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
   request?: PostInvoiceSourceModifiedDate;
-
-  @SpeakeasyMetadata()
-  security: PostInvoiceSecurity;
 }
 
 export class PostInvoice200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
@@ -1055,6 +1048,9 @@ export class PostInvoiceResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   postInvoice200ApplicationJSONObject?: PostInvoice200ApplicationJSON;

@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -10,17 +11,9 @@ export class GetTaxRatePathParams extends SpeakeasyBase {
   taxRateId: string;
 }
 
-export class GetTaxRateSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class GetTaxRateRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: GetTaxRatePathParams;
-
-  @SpeakeasyMetadata()
-  security: GetTaxRateSecurity;
 }
 
 export class GetTaxRate200ApplicationJSONComponents extends SpeakeasyBase {
@@ -180,6 +173,9 @@ export class GetTaxRateResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   getTaxRate200ApplicationJSONObject?: GetTaxRate200ApplicationJSON;

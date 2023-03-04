@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -333,11 +334,6 @@ export class UpdatePurchaseOrderSourceModifiedDate extends SpeakeasyBase {
   totalTaxAmount?: number;
 }
 
-export class UpdatePurchaseOrderSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class UpdatePurchaseOrderRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: UpdatePurchaseOrderPathParams;
@@ -347,9 +343,6 @@ export class UpdatePurchaseOrderRequest extends SpeakeasyBase {
 
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
   request?: UpdatePurchaseOrderSourceModifiedDate;
-
-  @SpeakeasyMetadata()
-  security: UpdatePurchaseOrderSecurity;
 }
 
 export class UpdatePurchaseOrder200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
@@ -801,6 +794,9 @@ export class UpdatePurchaseOrderResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   updatePurchaseOrder200ApplicationJSONObject?: UpdatePurchaseOrder200ApplicationJSON;

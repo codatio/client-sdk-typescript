@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -144,11 +145,6 @@ export class PutSupplierSourceModifiedDate extends SpeakeasyBase {
   taxNumber?: string;
 }
 
-export class PutSupplierSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class PutSupplierRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: PutSupplierPathParams;
@@ -158,9 +154,6 @@ export class PutSupplierRequest extends SpeakeasyBase {
 
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
   request?: PutSupplierSourceModifiedDate;
-
-  @SpeakeasyMetadata()
-  security: PutSupplierSecurity;
 }
 
 export class PutSupplier200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
@@ -423,6 +416,9 @@ export class PutSupplierResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   putSupplier200ApplicationJSONObject?: PutSupplier200ApplicationJSON;

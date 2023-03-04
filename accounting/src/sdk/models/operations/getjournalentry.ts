@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -10,17 +11,9 @@ export class GetJournalEntryPathParams extends SpeakeasyBase {
   journalEntryId: string;
 }
 
-export class GetJournalEntrySecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class GetJournalEntryRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: GetJournalEntryPathParams;
-
-  @SpeakeasyMetadata()
-  security: GetJournalEntrySecurity;
 }
 
 // GetJournalEntrySourceModifiedDateJournalLinesAccountRef
@@ -212,4 +205,7 @@ export class GetJournalEntryResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 }

@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -21,20 +22,12 @@ export class ListCreditNotesQueryParams extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListCreditNotesSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class ListCreditNotesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: ListCreditNotesPathParams;
 
   @SpeakeasyMetadata()
   queryParams: ListCreditNotesQueryParams;
-
-  @SpeakeasyMetadata()
-  security: ListCreditNotesSecurity;
 }
 
 export class ListCreditNotesLinksLinksCurrent extends SpeakeasyBase {
@@ -539,6 +532,9 @@ export class ListCreditNotesResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   links?: ListCreditNotesLinks;

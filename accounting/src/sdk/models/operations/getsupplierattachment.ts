@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -16,17 +17,9 @@ export class GetSupplierAttachmentPathParams extends SpeakeasyBase {
   supplierId: string;
 }
 
-export class GetSupplierAttachmentSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class GetSupplierAttachmentRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: GetSupplierAttachmentPathParams;
-
-  @SpeakeasyMetadata()
-  security: GetSupplierAttachmentSecurity;
 }
 
 export class GetSupplierAttachmentAttachment extends SpeakeasyBase {
@@ -75,4 +68,7 @@ export class GetSupplierAttachmentResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 }

@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -10,17 +11,9 @@ export class GetTrackingCategoryPathParams extends SpeakeasyBase {
   trackingCategoryId: string;
 }
 
-export class GetTrackingCategorySecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class GetTrackingCategoryRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: GetTrackingCategoryPathParams;
-
-  @SpeakeasyMetadata()
-  security: GetTrackingCategorySecurity;
 }
 export enum GetTrackingCategorySourceModifiedDateTrackingCategoryStatusEnum {
     Unknown = "Unknown",
@@ -191,4 +184,7 @@ export class GetTrackingCategoryResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 }

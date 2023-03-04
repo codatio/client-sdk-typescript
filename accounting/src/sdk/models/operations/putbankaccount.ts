@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -116,11 +117,6 @@ export class PutBankAccountSourceModifiedDate extends SpeakeasyBase {
   sourceModifiedDate?: Date;
 }
 
-export class PutBankAccountSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class PutBankAccountRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: PutBankAccountPathParams;
@@ -130,9 +126,6 @@ export class PutBankAccountRequest extends SpeakeasyBase {
 
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
   request?: PutBankAccountSourceModifiedDate;
-
-  @SpeakeasyMetadata()
-  security: PutBankAccountSecurity;
 }
 
 export class PutBankAccount200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
@@ -367,6 +360,9 @@ export class PutBankAccountResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   putBankAccount200ApplicationJSONObject?: PutBankAccount200ApplicationJSON;

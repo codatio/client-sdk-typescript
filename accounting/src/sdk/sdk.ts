@@ -42,7 +42,13 @@ export type SDKProps = {
   serverUrl?: string;
 }
 
-
+/* SDK Documentation: A flexible API for pulling accounting data, normalized and aggregated from 20 accounting integrations.
+ * 
+ * Standardize how you connect to your customers’ accounting software. View, create, update, and delete data in the same way for all the leading accounting platforms.
+ * 
+ * [Read more...](https://docs.codat.io/accounting-api/overview)
+ * 
+ * [See our OpenAPI spec](https://github.com/codatio/oas)    */
 export class Codat {
   public accountTransactions: AccountTransactions;
   public accounts: Accounts;
@@ -75,8 +81,8 @@ export class Codat {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.1.0";
-  private _genVersion = "1.7.1";
+  private _sdkVersion = "0.2.0";
+  private _genVersion = "1.8.2";
 
   constructor(props: SDKProps) {
     this._serverURL = props.serverUrl ?? ServerList[0];

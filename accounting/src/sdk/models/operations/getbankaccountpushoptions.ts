@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
 
@@ -27,20 +28,12 @@ export class GetBankAccountPushOptionsQueryParams extends SpeakeasyBase {
   query?: string;
 }
 
-export class GetBankAccountPushOptionsSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class GetBankAccountPushOptionsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: GetBankAccountPushOptionsPathParams;
 
   @SpeakeasyMetadata()
   queryParams: GetBankAccountPushOptionsQueryParams;
-
-  @SpeakeasyMetadata()
-  security: GetBankAccountPushOptionsSecurity;
 }
 export enum GetBankAccountPushOptionsPushOptionPushOptionChoicePushOptionChoicePushOptionChoicePushOptionChoiceOptionTypeEnum {
     Array = "Array",
@@ -403,4 +396,7 @@ export class GetBankAccountPushOptionsResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 }

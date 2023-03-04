@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -18,20 +19,12 @@ export class GetCashFlowStatementQueryParams extends SpeakeasyBase {
   startMonth?: Date;
 }
 
-export class GetCashFlowStatementSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class GetCashFlowStatementRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: GetCashFlowStatementPathParams;
 
   @SpeakeasyMetadata()
   queryParams: GetCashFlowStatementQueryParams;
-
-  @SpeakeasyMetadata()
-  security: GetCashFlowStatementSecurity;
 }
 export enum GetCashFlowStatement200ApplicationJSONReportBasisEnum {
     Unknown = "Unknown",
@@ -192,6 +185,9 @@ export class GetCashFlowStatementResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   getCashFlowStatement200ApplicationJSONObject?: GetCashFlowStatement200ApplicationJSON;

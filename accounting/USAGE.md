@@ -10,14 +10,11 @@ import { Codat } from "@codat/accounting";
 
 const sdk = new Codat({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    authHeader: "YOUR_API_KEY_HERE",
   }
 });
     
 const req: GetAccountTransactionRequest = {
-  security: {
-    apiKey: "YOUR_API_KEY_HERE",
-  },
   pathParams: {
     accountTransactionId: "unde",
     companyId: "deserunt",

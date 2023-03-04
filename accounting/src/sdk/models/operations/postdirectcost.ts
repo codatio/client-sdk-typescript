@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -343,11 +344,6 @@ export class PostDirectCostSourceModifiedDate extends SpeakeasyBase {
   totalAmount: number;
 }
 
-export class PostDirectCostSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class PostDirectCostRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: PostDirectCostPathParams;
@@ -357,9 +353,6 @@ export class PostDirectCostRequest extends SpeakeasyBase {
 
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
   request?: PostDirectCostSourceModifiedDate;
-
-  @SpeakeasyMetadata()
-  security: PostDirectCostSecurity;
 }
 
 export class PostDirectCost200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
@@ -827,6 +820,9 @@ export class PostDirectCostResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   postDirectCost200ApplicationJSONObject?: PostDirectCost200ApplicationJSON;

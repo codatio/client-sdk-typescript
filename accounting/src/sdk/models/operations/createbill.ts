@@ -1,8 +1,9 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
-export class PostBillPathParams extends SpeakeasyBase {
+export class CreateBillPathParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
   companyId: string;
 
@@ -10,16 +11,16 @@ export class PostBillPathParams extends SpeakeasyBase {
   connectionId: string;
 }
 
-export class PostBillQueryParams extends SpeakeasyBase {
+export class CreateBillQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=timeoutInMinutes" })
   timeoutInMinutes?: number;
 }
 
-// PostBillSourceModifiedDateLineItemsAccountRef
+// CreateBillSourceModifiedDateLineItemsAccountRef
 /** 
  * Reference to the account to which the line item is linked.
 **/
-export class PostBillSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
+export class CreateBillSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
@@ -29,11 +30,11 @@ export class PostBillSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase
   name?: string;
 }
 
-// PostBillSourceModifiedDateLineItemsItemRef
+// CreateBillSourceModifiedDateLineItemsItemRef
 /** 
  * Reference to the product, service type, or inventory item to which the line item is linked.
 **/
-export class PostBillSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
+export class CreateBillSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -43,11 +44,11 @@ export class PostBillSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
   name?: string;
 }
 
-// PostBillSourceModifiedDateLineItemsTaxRateRef
+// CreateBillSourceModifiedDateLineItemsTaxRateRef
 /** 
  * Reference to the tax rate to which the line item is linked.
 **/
-export class PostBillSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
+export class CreateBillSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
   effectiveTaxRate?: number;
@@ -61,7 +62,7 @@ export class PostBillSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase
   name?: string;
 }
 
-export class PostBillSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
+export class CreateBillSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -71,7 +72,7 @@ export class PostBillSourceModifiedDateLineItemsTrackingCategoryRefs extends Spe
   name?: string;
 }
 
-export class PostBillSourceModifiedDateLineItemsTrackingCustomerRef extends SpeakeasyBase {
+export class CreateBillSourceModifiedDateLineItemsTrackingCustomerRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
   companyName?: string;
@@ -80,20 +81,20 @@ export class PostBillSourceModifiedDateLineItemsTrackingCustomerRef extends Spea
   @Expose({ name: "id" })
   id: string;
 }
-export enum PostBillSourceModifiedDateLineItemsTrackingIsBilledToEnum {
+export enum CreateBillSourceModifiedDateLineItemsTrackingIsBilledToEnum {
     Unknown = "Unknown",
     NotApplicable = "NotApplicable",
     Customer = "Customer",
     Project = "Project"
 }
-export enum PostBillSourceModifiedDateLineItemsTrackingIsRebilledToEnum {
+export enum CreateBillSourceModifiedDateLineItemsTrackingIsRebilledToEnum {
     Unknown = "Unknown",
     NotApplicable = "NotApplicable",
     Customer = "Customer",
     Project = "Project"
 }
 
-export class PostBillSourceModifiedDateLineItemsTrackingProjectRef extends SpeakeasyBase {
+export class CreateBillSourceModifiedDateLineItemsTrackingProjectRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -103,36 +104,36 @@ export class PostBillSourceModifiedDateLineItemsTrackingProjectRef extends Speak
   name?: string;
 }
 
-export class PostBillSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PostBillSourceModifiedDateLineItemsTrackingCategoryRefs })
+export class CreateBillSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
+  @SpeakeasyMetadata({ elemType: CreateBillSourceModifiedDateLineItemsTrackingCategoryRefs })
   @Expose({ name: "categoryRefs" })
-  @Type(() => PostBillSourceModifiedDateLineItemsTrackingCategoryRefs)
-  categoryRefs: PostBillSourceModifiedDateLineItemsTrackingCategoryRefs[];
+  @Type(() => CreateBillSourceModifiedDateLineItemsTrackingCategoryRefs)
+  categoryRefs: CreateBillSourceModifiedDateLineItemsTrackingCategoryRefs[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "customerRef" })
-  @Type(() => PostBillSourceModifiedDateLineItemsTrackingCustomerRef)
-  customerRef?: PostBillSourceModifiedDateLineItemsTrackingCustomerRef;
+  @Type(() => CreateBillSourceModifiedDateLineItemsTrackingCustomerRef)
+  customerRef?: CreateBillSourceModifiedDateLineItemsTrackingCustomerRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "isBilledTo" })
-  isBilledTo: PostBillSourceModifiedDateLineItemsTrackingIsBilledToEnum;
+  isBilledTo: CreateBillSourceModifiedDateLineItemsTrackingIsBilledToEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "isRebilledTo" })
-  isRebilledTo: PostBillSourceModifiedDateLineItemsTrackingIsRebilledToEnum;
+  isRebilledTo: CreateBillSourceModifiedDateLineItemsTrackingIsRebilledToEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "projectRef" })
-  @Type(() => PostBillSourceModifiedDateLineItemsTrackingProjectRef)
-  projectRef?: PostBillSourceModifiedDateLineItemsTrackingProjectRef;
+  @Type(() => CreateBillSourceModifiedDateLineItemsTrackingProjectRef)
+  projectRef?: CreateBillSourceModifiedDateLineItemsTrackingProjectRef;
 }
 
-export class PostBillSourceModifiedDateLineItems extends SpeakeasyBase {
+export class CreateBillSourceModifiedDateLineItems extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => PostBillSourceModifiedDateLineItemsAccountRef)
-  accountRef?: PostBillSourceModifiedDateLineItemsAccountRef;
+  @Type(() => CreateBillSourceModifiedDateLineItemsAccountRef)
+  accountRef?: CreateBillSourceModifiedDateLineItemsAccountRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "description" })
@@ -152,8 +153,8 @@ export class PostBillSourceModifiedDateLineItems extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "itemRef" })
-  @Type(() => PostBillSourceModifiedDateLineItemsItemRef)
-  itemRef?: PostBillSourceModifiedDateLineItemsItemRef;
+  @Type(() => CreateBillSourceModifiedDateLineItemsItemRef)
+  itemRef?: CreateBillSourceModifiedDateLineItemsItemRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "quantity" })
@@ -169,8 +170,8 @@ export class PostBillSourceModifiedDateLineItems extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "taxRateRef" })
-  @Type(() => PostBillSourceModifiedDateLineItemsTaxRateRef)
-  taxRateRef?: PostBillSourceModifiedDateLineItemsTaxRateRef;
+  @Type(() => CreateBillSourceModifiedDateLineItemsTaxRateRef)
+  taxRateRef?: CreateBillSourceModifiedDateLineItemsTaxRateRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalAmount" })
@@ -178,26 +179,26 @@ export class PostBillSourceModifiedDateLineItems extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "tracking" })
-  @Type(() => PostBillSourceModifiedDateLineItemsTracking)
-  tracking?: PostBillSourceModifiedDateLineItemsTracking;
+  @Type(() => CreateBillSourceModifiedDateLineItemsTracking)
+  tracking?: CreateBillSourceModifiedDateLineItemsTracking;
 
-  @SpeakeasyMetadata({ elemType: PostBillSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({ elemType: CreateBillSourceModifiedDateLineItemsTrackingCategoryRefs })
   @Expose({ name: "trackingCategoryRefs" })
-  @Type(() => PostBillSourceModifiedDateLineItemsTrackingCategoryRefs)
-  trackingCategoryRefs?: PostBillSourceModifiedDateLineItemsTrackingCategoryRefs[];
+  @Type(() => CreateBillSourceModifiedDateLineItemsTrackingCategoryRefs)
+  trackingCategoryRefs?: CreateBillSourceModifiedDateLineItemsTrackingCategoryRefs[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "unitAmount" })
   unitAmount: number;
 }
 
-export class PostBillSourceModifiedDateMetadata extends SpeakeasyBase {
+export class CreateBillSourceModifiedDateMetadata extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
 }
 
-export class PostBillSourceModifiedDatePaymentAllocationsAllocation extends SpeakeasyBase {
+export class CreateBillSourceModifiedDatePaymentAllocationsAllocation extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "allocatedOnDate" })
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
@@ -216,11 +217,11 @@ export class PostBillSourceModifiedDatePaymentAllocationsAllocation extends Spea
   totalAmount?: number;
 }
 
-// PostBillSourceModifiedDatePaymentAllocationsPaymentAccountRef
+// CreateBillSourceModifiedDatePaymentAllocationsPaymentAccountRef
 /** 
  * The account that the allocated payment is made from or to.
 **/
-export class PostBillSourceModifiedDatePaymentAllocationsPaymentAccountRef extends SpeakeasyBase {
+export class CreateBillSourceModifiedDatePaymentAllocationsPaymentAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
@@ -230,11 +231,11 @@ export class PostBillSourceModifiedDatePaymentAllocationsPaymentAccountRef exten
   name?: string;
 }
 
-export class PostBillSourceModifiedDatePaymentAllocationsPayment extends SpeakeasyBase {
+export class CreateBillSourceModifiedDatePaymentAllocationsPayment extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => PostBillSourceModifiedDatePaymentAllocationsPaymentAccountRef)
-  accountRef?: PostBillSourceModifiedDatePaymentAllocationsPaymentAccountRef;
+  @Type(() => CreateBillSourceModifiedDatePaymentAllocationsPaymentAccountRef)
+  accountRef?: CreateBillSourceModifiedDatePaymentAllocationsPaymentAccountRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "currency" })
@@ -266,19 +267,19 @@ export class PostBillSourceModifiedDatePaymentAllocationsPayment extends Speakea
   totalAmount?: number;
 }
 
-export class PostBillSourceModifiedDatePaymentAllocations extends SpeakeasyBase {
+export class CreateBillSourceModifiedDatePaymentAllocations extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "allocation" })
-  @Type(() => PostBillSourceModifiedDatePaymentAllocationsAllocation)
-  allocation: PostBillSourceModifiedDatePaymentAllocationsAllocation;
+  @Type(() => CreateBillSourceModifiedDatePaymentAllocationsAllocation)
+  allocation: CreateBillSourceModifiedDatePaymentAllocationsAllocation;
 
   @SpeakeasyMetadata()
   @Expose({ name: "payment" })
-  @Type(() => PostBillSourceModifiedDatePaymentAllocationsPayment)
-  payment: PostBillSourceModifiedDatePaymentAllocationsPayment;
+  @Type(() => CreateBillSourceModifiedDatePaymentAllocationsPayment)
+  payment: CreateBillSourceModifiedDatePaymentAllocationsPayment;
 }
 
-export class PostBillSourceModifiedDatePurchaseOrderRefs extends SpeakeasyBase {
+export class CreateBillSourceModifiedDatePurchaseOrderRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
@@ -287,7 +288,7 @@ export class PostBillSourceModifiedDatePurchaseOrderRefs extends SpeakeasyBase {
   @Expose({ name: "purchaseOrderNumber" })
   purchaseOrderNumber?: string;
 }
-export enum PostBillSourceModifiedDateStatusEnum {
+export enum CreateBillSourceModifiedDateStatusEnum {
     Unknown = "Unknown",
     Open = "Open",
     PartiallyPaid = "PartiallyPaid",
@@ -296,17 +297,17 @@ export enum PostBillSourceModifiedDateStatusEnum {
     Draft = "Draft"
 }
 
-export class PostBillSourceModifiedDateSupplementalData extends SpeakeasyBase {
+export class CreateBillSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
   content?: Record<string, Record<string, any>>;
 }
 
-// PostBillSourceModifiedDateSupplierRef
+// CreateBillSourceModifiedDateSupplierRef
 /** 
  * Reference to the supplier the bill was received from.
 **/
-export class PostBillSourceModifiedDateSupplierRef extends SpeakeasyBase {
+export class CreateBillSourceModifiedDateSupplierRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -316,7 +317,7 @@ export class PostBillSourceModifiedDateSupplierRef extends SpeakeasyBase {
   supplierName?: string;
 }
 
-export class PostBillSourceModifiedDateWithholdingTax extends SpeakeasyBase {
+export class CreateBillSourceModifiedDateWithholdingTax extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "amount" })
   amount: number;
@@ -326,7 +327,7 @@ export class PostBillSourceModifiedDateWithholdingTax extends SpeakeasyBase {
   name: string;
 }
 
-// PostBillSourceModifiedDate
+// CreateBillSourceModifiedDate
 /** 
  * > **Invoices or bills?**
  * >
@@ -346,7 +347,7 @@ export class PostBillSourceModifiedDateWithholdingTax extends SpeakeasyBase {
  * 
  * You can find these types of transactions in our [Direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost) data model.
 **/
-export class PostBillSourceModifiedDate extends SpeakeasyBase {
+export class CreateBillSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "amountDue" })
   amountDue?: number;
@@ -373,15 +374,15 @@ export class PostBillSourceModifiedDate extends SpeakeasyBase {
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   issueDate: Date;
 
-  @SpeakeasyMetadata({ elemType: PostBillSourceModifiedDateLineItems })
+  @SpeakeasyMetadata({ elemType: CreateBillSourceModifiedDateLineItems })
   @Expose({ name: "lineItems" })
-  @Type(() => PostBillSourceModifiedDateLineItems)
-  lineItems?: PostBillSourceModifiedDateLineItems[];
+  @Type(() => CreateBillSourceModifiedDateLineItems)
+  lineItems?: CreateBillSourceModifiedDateLineItems[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => PostBillSourceModifiedDateMetadata)
-  metadata?: PostBillSourceModifiedDateMetadata;
+  @Type(() => CreateBillSourceModifiedDateMetadata)
+  metadata?: CreateBillSourceModifiedDateMetadata;
 
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
@@ -392,15 +393,15 @@ export class PostBillSourceModifiedDate extends SpeakeasyBase {
   @Expose({ name: "note" })
   note?: string;
 
-  @SpeakeasyMetadata({ elemType: PostBillSourceModifiedDatePaymentAllocations })
+  @SpeakeasyMetadata({ elemType: CreateBillSourceModifiedDatePaymentAllocations })
   @Expose({ name: "paymentAllocations" })
-  @Type(() => PostBillSourceModifiedDatePaymentAllocations)
-  paymentAllocations?: PostBillSourceModifiedDatePaymentAllocations[];
+  @Type(() => CreateBillSourceModifiedDatePaymentAllocations)
+  paymentAllocations?: CreateBillSourceModifiedDatePaymentAllocations[];
 
-  @SpeakeasyMetadata({ elemType: PostBillSourceModifiedDatePurchaseOrderRefs })
+  @SpeakeasyMetadata({ elemType: CreateBillSourceModifiedDatePurchaseOrderRefs })
   @Expose({ name: "purchaseOrderRefs" })
-  @Type(() => PostBillSourceModifiedDatePurchaseOrderRefs)
-  purchaseOrderRefs?: PostBillSourceModifiedDatePurchaseOrderRefs[];
+  @Type(() => CreateBillSourceModifiedDatePurchaseOrderRefs)
+  purchaseOrderRefs?: CreateBillSourceModifiedDatePurchaseOrderRefs[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "reference" })
@@ -413,7 +414,7 @@ export class PostBillSourceModifiedDate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: PostBillSourceModifiedDateStatusEnum;
+  status: CreateBillSourceModifiedDateStatusEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "subTotal" })
@@ -421,13 +422,13 @@ export class PostBillSourceModifiedDate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "supplementalData" })
-  @Type(() => PostBillSourceModifiedDateSupplementalData)
-  supplementalData?: PostBillSourceModifiedDateSupplementalData;
+  @Type(() => CreateBillSourceModifiedDateSupplementalData)
+  supplementalData?: CreateBillSourceModifiedDateSupplementalData;
 
   @SpeakeasyMetadata()
   @Expose({ name: "supplierRef" })
-  @Type(() => PostBillSourceModifiedDateSupplierRef)
-  supplierRef?: PostBillSourceModifiedDateSupplierRef;
+  @Type(() => CreateBillSourceModifiedDateSupplierRef)
+  supplierRef?: CreateBillSourceModifiedDateSupplierRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "taxAmount" })
@@ -437,32 +438,24 @@ export class PostBillSourceModifiedDate extends SpeakeasyBase {
   @Expose({ name: "totalAmount" })
   totalAmount: number;
 
-  @SpeakeasyMetadata({ elemType: PostBillSourceModifiedDateWithholdingTax })
+  @SpeakeasyMetadata({ elemType: CreateBillSourceModifiedDateWithholdingTax })
   @Expose({ name: "withholdingTax" })
-  @Type(() => PostBillSourceModifiedDateWithholdingTax)
-  withholdingTax?: PostBillSourceModifiedDateWithholdingTax[];
+  @Type(() => CreateBillSourceModifiedDateWithholdingTax)
+  withholdingTax?: CreateBillSourceModifiedDateWithholdingTax[];
 }
 
-export class PostBillSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
-export class PostBillRequest extends SpeakeasyBase {
+export class CreateBillRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
-  pathParams: PostBillPathParams;
+  pathParams: CreateBillPathParams;
 
   @SpeakeasyMetadata()
-  queryParams: PostBillQueryParams;
+  queryParams: CreateBillQueryParams;
 
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: PostBillSourceModifiedDate;
-
-  @SpeakeasyMetadata()
-  security: PostBillSecurity;
+  request?: CreateBillSourceModifiedDate;
 }
 
-export class PostBill200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
+export class CreateBill200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
   dataType?: string;
@@ -471,7 +464,7 @@ export class PostBill200ApplicationJSONChangesPushOperationRecordRef extends Spe
   @Expose({ name: "id" })
   id?: string;
 }
-export enum PostBill200ApplicationJSONChangesTypeEnum {
+export enum CreateBill200ApplicationJSONChangesTypeEnum {
     Unknown = "Unknown",
     Created = "Created",
     Modified = "Modified",
@@ -479,26 +472,26 @@ export enum PostBill200ApplicationJSONChangesTypeEnum {
     AttachmentUploaded = "AttachmentUploaded"
 }
 
-export class PostBill200ApplicationJSONChanges extends SpeakeasyBase {
+export class CreateBill200ApplicationJSONChanges extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "attachmentId" })
   attachmentId?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "recordRef" })
-  @Type(() => PostBill200ApplicationJSONChangesPushOperationRecordRef)
-  recordRef?: PostBill200ApplicationJSONChangesPushOperationRecordRef;
+  @Type(() => CreateBill200ApplicationJSONChangesPushOperationRecordRef)
+  recordRef?: CreateBill200ApplicationJSONChangesPushOperationRecordRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: PostBill200ApplicationJSONChangesTypeEnum;
+  type?: CreateBill200ApplicationJSONChangesTypeEnum;
 }
 
-// PostBill200ApplicationJSONSourceModifiedDateLineItemsAccountRef
+// CreateBill200ApplicationJSONSourceModifiedDateLineItemsAccountRef
 /** 
  * Reference to the account to which the line item is linked.
 **/
-export class PostBill200ApplicationJSONSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
+export class CreateBill200ApplicationJSONSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
@@ -508,11 +501,11 @@ export class PostBill200ApplicationJSONSourceModifiedDateLineItemsAccountRef ext
   name?: string;
 }
 
-// PostBill200ApplicationJSONSourceModifiedDateLineItemsItemRef
+// CreateBill200ApplicationJSONSourceModifiedDateLineItemsItemRef
 /** 
  * Reference to the product, service type, or inventory item to which the line item is linked.
 **/
-export class PostBill200ApplicationJSONSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
+export class CreateBill200ApplicationJSONSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -522,11 +515,11 @@ export class PostBill200ApplicationJSONSourceModifiedDateLineItemsItemRef extend
   name?: string;
 }
 
-// PostBill200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef
+// CreateBill200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef
 /** 
  * Reference to the tax rate to which the line item is linked.
 **/
-export class PostBill200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
+export class CreateBill200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
   effectiveTaxRate?: number;
@@ -540,7 +533,7 @@ export class PostBill200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef ext
   name?: string;
 }
 
-export class PostBill200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
+export class CreateBill200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -550,7 +543,7 @@ export class PostBill200ApplicationJSONSourceModifiedDateLineItemsTrackingCatego
   name?: string;
 }
 
-export class PostBill200ApplicationJSONSourceModifiedDateLineItemsTrackingCustomerRef extends SpeakeasyBase {
+export class CreateBill200ApplicationJSONSourceModifiedDateLineItemsTrackingCustomerRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
   companyName?: string;
@@ -559,20 +552,20 @@ export class PostBill200ApplicationJSONSourceModifiedDateLineItemsTrackingCustom
   @Expose({ name: "id" })
   id: string;
 }
-export enum PostBill200ApplicationJSONSourceModifiedDateLineItemsTrackingIsBilledToEnum {
+export enum CreateBill200ApplicationJSONSourceModifiedDateLineItemsTrackingIsBilledToEnum {
     Unknown = "Unknown",
     NotApplicable = "NotApplicable",
     Customer = "Customer",
     Project = "Project"
 }
-export enum PostBill200ApplicationJSONSourceModifiedDateLineItemsTrackingIsRebilledToEnum {
+export enum CreateBill200ApplicationJSONSourceModifiedDateLineItemsTrackingIsRebilledToEnum {
     Unknown = "Unknown",
     NotApplicable = "NotApplicable",
     Customer = "Customer",
     Project = "Project"
 }
 
-export class PostBill200ApplicationJSONSourceModifiedDateLineItemsTrackingProjectRef extends SpeakeasyBase {
+export class CreateBill200ApplicationJSONSourceModifiedDateLineItemsTrackingProjectRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -582,36 +575,36 @@ export class PostBill200ApplicationJSONSourceModifiedDateLineItemsTrackingProjec
   name?: string;
 }
 
-export class PostBill200ApplicationJSONSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PostBill200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs })
+export class CreateBill200ApplicationJSONSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
+  @SpeakeasyMetadata({ elemType: CreateBill200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs })
   @Expose({ name: "categoryRefs" })
-  @Type(() => PostBill200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs)
-  categoryRefs: PostBill200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs[];
+  @Type(() => CreateBill200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs)
+  categoryRefs: CreateBill200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "customerRef" })
-  @Type(() => PostBill200ApplicationJSONSourceModifiedDateLineItemsTrackingCustomerRef)
-  customerRef?: PostBill200ApplicationJSONSourceModifiedDateLineItemsTrackingCustomerRef;
+  @Type(() => CreateBill200ApplicationJSONSourceModifiedDateLineItemsTrackingCustomerRef)
+  customerRef?: CreateBill200ApplicationJSONSourceModifiedDateLineItemsTrackingCustomerRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "isBilledTo" })
-  isBilledTo: PostBill200ApplicationJSONSourceModifiedDateLineItemsTrackingIsBilledToEnum;
+  isBilledTo: CreateBill200ApplicationJSONSourceModifiedDateLineItemsTrackingIsBilledToEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "isRebilledTo" })
-  isRebilledTo: PostBill200ApplicationJSONSourceModifiedDateLineItemsTrackingIsRebilledToEnum;
+  isRebilledTo: CreateBill200ApplicationJSONSourceModifiedDateLineItemsTrackingIsRebilledToEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "projectRef" })
-  @Type(() => PostBill200ApplicationJSONSourceModifiedDateLineItemsTrackingProjectRef)
-  projectRef?: PostBill200ApplicationJSONSourceModifiedDateLineItemsTrackingProjectRef;
+  @Type(() => CreateBill200ApplicationJSONSourceModifiedDateLineItemsTrackingProjectRef)
+  projectRef?: CreateBill200ApplicationJSONSourceModifiedDateLineItemsTrackingProjectRef;
 }
 
-export class PostBill200ApplicationJSONSourceModifiedDateLineItems extends SpeakeasyBase {
+export class CreateBill200ApplicationJSONSourceModifiedDateLineItems extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => PostBill200ApplicationJSONSourceModifiedDateLineItemsAccountRef)
-  accountRef?: PostBill200ApplicationJSONSourceModifiedDateLineItemsAccountRef;
+  @Type(() => CreateBill200ApplicationJSONSourceModifiedDateLineItemsAccountRef)
+  accountRef?: CreateBill200ApplicationJSONSourceModifiedDateLineItemsAccountRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "description" })
@@ -631,8 +624,8 @@ export class PostBill200ApplicationJSONSourceModifiedDateLineItems extends Speak
 
   @SpeakeasyMetadata()
   @Expose({ name: "itemRef" })
-  @Type(() => PostBill200ApplicationJSONSourceModifiedDateLineItemsItemRef)
-  itemRef?: PostBill200ApplicationJSONSourceModifiedDateLineItemsItemRef;
+  @Type(() => CreateBill200ApplicationJSONSourceModifiedDateLineItemsItemRef)
+  itemRef?: CreateBill200ApplicationJSONSourceModifiedDateLineItemsItemRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "quantity" })
@@ -648,8 +641,8 @@ export class PostBill200ApplicationJSONSourceModifiedDateLineItems extends Speak
 
   @SpeakeasyMetadata()
   @Expose({ name: "taxRateRef" })
-  @Type(() => PostBill200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef)
-  taxRateRef?: PostBill200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef;
+  @Type(() => CreateBill200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef)
+  taxRateRef?: CreateBill200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalAmount" })
@@ -657,26 +650,26 @@ export class PostBill200ApplicationJSONSourceModifiedDateLineItems extends Speak
 
   @SpeakeasyMetadata()
   @Expose({ name: "tracking" })
-  @Type(() => PostBill200ApplicationJSONSourceModifiedDateLineItemsTracking)
-  tracking?: PostBill200ApplicationJSONSourceModifiedDateLineItemsTracking;
+  @Type(() => CreateBill200ApplicationJSONSourceModifiedDateLineItemsTracking)
+  tracking?: CreateBill200ApplicationJSONSourceModifiedDateLineItemsTracking;
 
-  @SpeakeasyMetadata({ elemType: PostBill200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({ elemType: CreateBill200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs })
   @Expose({ name: "trackingCategoryRefs" })
-  @Type(() => PostBill200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs)
-  trackingCategoryRefs?: PostBill200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs[];
+  @Type(() => CreateBill200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs)
+  trackingCategoryRefs?: CreateBill200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "unitAmount" })
   unitAmount: number;
 }
 
-export class PostBill200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+export class CreateBill200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
 }
 
-export class PostBill200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation extends SpeakeasyBase {
+export class CreateBill200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "allocatedOnDate" })
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
@@ -695,11 +688,11 @@ export class PostBill200ApplicationJSONSourceModifiedDatePaymentAllocationsAlloc
   totalAmount?: number;
 }
 
-// PostBill200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef
+// CreateBill200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef
 /** 
  * The account that the allocated payment is made from or to.
 **/
-export class PostBill200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef extends SpeakeasyBase {
+export class CreateBill200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
@@ -709,11 +702,11 @@ export class PostBill200ApplicationJSONSourceModifiedDatePaymentAllocationsPayme
   name?: string;
 }
 
-export class PostBill200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment extends SpeakeasyBase {
+export class CreateBill200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => PostBill200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef)
-  accountRef?: PostBill200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef;
+  @Type(() => CreateBill200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef)
+  accountRef?: CreateBill200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "currency" })
@@ -745,19 +738,19 @@ export class PostBill200ApplicationJSONSourceModifiedDatePaymentAllocationsPayme
   totalAmount?: number;
 }
 
-export class PostBill200ApplicationJSONSourceModifiedDatePaymentAllocations extends SpeakeasyBase {
+export class CreateBill200ApplicationJSONSourceModifiedDatePaymentAllocations extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "allocation" })
-  @Type(() => PostBill200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation)
-  allocation: PostBill200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation;
+  @Type(() => CreateBill200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation)
+  allocation: CreateBill200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation;
 
   @SpeakeasyMetadata()
   @Expose({ name: "payment" })
-  @Type(() => PostBill200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment)
-  payment: PostBill200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment;
+  @Type(() => CreateBill200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment)
+  payment: CreateBill200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment;
 }
 
-export class PostBill200ApplicationJSONSourceModifiedDatePurchaseOrderRefs extends SpeakeasyBase {
+export class CreateBill200ApplicationJSONSourceModifiedDatePurchaseOrderRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
@@ -766,7 +759,7 @@ export class PostBill200ApplicationJSONSourceModifiedDatePurchaseOrderRefs exten
   @Expose({ name: "purchaseOrderNumber" })
   purchaseOrderNumber?: string;
 }
-export enum PostBill200ApplicationJSONSourceModifiedDateStatusEnum {
+export enum CreateBill200ApplicationJSONSourceModifiedDateStatusEnum {
     Unknown = "Unknown",
     Open = "Open",
     PartiallyPaid = "PartiallyPaid",
@@ -775,17 +768,17 @@ export enum PostBill200ApplicationJSONSourceModifiedDateStatusEnum {
     Draft = "Draft"
 }
 
-export class PostBill200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
+export class CreateBill200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
   content?: Record<string, Record<string, any>>;
 }
 
-// PostBill200ApplicationJSONSourceModifiedDateSupplierRef
+// CreateBill200ApplicationJSONSourceModifiedDateSupplierRef
 /** 
  * Reference to the supplier the bill was received from.
 **/
-export class PostBill200ApplicationJSONSourceModifiedDateSupplierRef extends SpeakeasyBase {
+export class CreateBill200ApplicationJSONSourceModifiedDateSupplierRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -795,7 +788,7 @@ export class PostBill200ApplicationJSONSourceModifiedDateSupplierRef extends Spe
   supplierName?: string;
 }
 
-export class PostBill200ApplicationJSONSourceModifiedDateWithholdingTax extends SpeakeasyBase {
+export class CreateBill200ApplicationJSONSourceModifiedDateWithholdingTax extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "amount" })
   amount: number;
@@ -805,7 +798,7 @@ export class PostBill200ApplicationJSONSourceModifiedDateWithholdingTax extends 
   name: string;
 }
 
-// PostBill200ApplicationJSONSourceModifiedDate
+// CreateBill200ApplicationJSONSourceModifiedDate
 /** 
  * > **Invoices or bills?**
  * >
@@ -825,7 +818,7 @@ export class PostBill200ApplicationJSONSourceModifiedDateWithholdingTax extends 
  * 
  * You can find these types of transactions in our [Direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost) data model.
 **/
-export class PostBill200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
+export class CreateBill200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "amountDue" })
   amountDue?: number;
@@ -852,15 +845,15 @@ export class PostBill200ApplicationJSONSourceModifiedDate extends SpeakeasyBase 
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   issueDate: Date;
 
-  @SpeakeasyMetadata({ elemType: PostBill200ApplicationJSONSourceModifiedDateLineItems })
+  @SpeakeasyMetadata({ elemType: CreateBill200ApplicationJSONSourceModifiedDateLineItems })
   @Expose({ name: "lineItems" })
-  @Type(() => PostBill200ApplicationJSONSourceModifiedDateLineItems)
-  lineItems?: PostBill200ApplicationJSONSourceModifiedDateLineItems[];
+  @Type(() => CreateBill200ApplicationJSONSourceModifiedDateLineItems)
+  lineItems?: CreateBill200ApplicationJSONSourceModifiedDateLineItems[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => PostBill200ApplicationJSONSourceModifiedDateMetadata)
-  metadata?: PostBill200ApplicationJSONSourceModifiedDateMetadata;
+  @Type(() => CreateBill200ApplicationJSONSourceModifiedDateMetadata)
+  metadata?: CreateBill200ApplicationJSONSourceModifiedDateMetadata;
 
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
@@ -871,15 +864,15 @@ export class PostBill200ApplicationJSONSourceModifiedDate extends SpeakeasyBase 
   @Expose({ name: "note" })
   note?: string;
 
-  @SpeakeasyMetadata({ elemType: PostBill200ApplicationJSONSourceModifiedDatePaymentAllocations })
+  @SpeakeasyMetadata({ elemType: CreateBill200ApplicationJSONSourceModifiedDatePaymentAllocations })
   @Expose({ name: "paymentAllocations" })
-  @Type(() => PostBill200ApplicationJSONSourceModifiedDatePaymentAllocations)
-  paymentAllocations?: PostBill200ApplicationJSONSourceModifiedDatePaymentAllocations[];
+  @Type(() => CreateBill200ApplicationJSONSourceModifiedDatePaymentAllocations)
+  paymentAllocations?: CreateBill200ApplicationJSONSourceModifiedDatePaymentAllocations[];
 
-  @SpeakeasyMetadata({ elemType: PostBill200ApplicationJSONSourceModifiedDatePurchaseOrderRefs })
+  @SpeakeasyMetadata({ elemType: CreateBill200ApplicationJSONSourceModifiedDatePurchaseOrderRefs })
   @Expose({ name: "purchaseOrderRefs" })
-  @Type(() => PostBill200ApplicationJSONSourceModifiedDatePurchaseOrderRefs)
-  purchaseOrderRefs?: PostBill200ApplicationJSONSourceModifiedDatePurchaseOrderRefs[];
+  @Type(() => CreateBill200ApplicationJSONSourceModifiedDatePurchaseOrderRefs)
+  purchaseOrderRefs?: CreateBill200ApplicationJSONSourceModifiedDatePurchaseOrderRefs[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "reference" })
@@ -892,7 +885,7 @@ export class PostBill200ApplicationJSONSourceModifiedDate extends SpeakeasyBase 
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: PostBill200ApplicationJSONSourceModifiedDateStatusEnum;
+  status: CreateBill200ApplicationJSONSourceModifiedDateStatusEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "subTotal" })
@@ -900,13 +893,13 @@ export class PostBill200ApplicationJSONSourceModifiedDate extends SpeakeasyBase 
 
   @SpeakeasyMetadata()
   @Expose({ name: "supplementalData" })
-  @Type(() => PostBill200ApplicationJSONSourceModifiedDateSupplementalData)
-  supplementalData?: PostBill200ApplicationJSONSourceModifiedDateSupplementalData;
+  @Type(() => CreateBill200ApplicationJSONSourceModifiedDateSupplementalData)
+  supplementalData?: CreateBill200ApplicationJSONSourceModifiedDateSupplementalData;
 
   @SpeakeasyMetadata()
   @Expose({ name: "supplierRef" })
-  @Type(() => PostBill200ApplicationJSONSourceModifiedDateSupplierRef)
-  supplierRef?: PostBill200ApplicationJSONSourceModifiedDateSupplierRef;
+  @Type(() => CreateBill200ApplicationJSONSourceModifiedDateSupplierRef)
+  supplierRef?: CreateBill200ApplicationJSONSourceModifiedDateSupplierRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "taxAmount" })
@@ -916,19 +909,19 @@ export class PostBill200ApplicationJSONSourceModifiedDate extends SpeakeasyBase 
   @Expose({ name: "totalAmount" })
   totalAmount: number;
 
-  @SpeakeasyMetadata({ elemType: PostBill200ApplicationJSONSourceModifiedDateWithholdingTax })
+  @SpeakeasyMetadata({ elemType: CreateBill200ApplicationJSONSourceModifiedDateWithholdingTax })
   @Expose({ name: "withholdingTax" })
-  @Type(() => PostBill200ApplicationJSONSourceModifiedDateWithholdingTax)
-  withholdingTax?: PostBill200ApplicationJSONSourceModifiedDateWithholdingTax[];
+  @Type(() => CreateBill200ApplicationJSONSourceModifiedDateWithholdingTax)
+  withholdingTax?: CreateBill200ApplicationJSONSourceModifiedDateWithholdingTax[];
 }
-export enum PostBill200ApplicationJSONStatusEnum {
+export enum CreateBill200ApplicationJSONStatusEnum {
     Pending = "Pending",
     Failed = "Failed",
     Success = "Success",
     TimedOut = "TimedOut"
 }
 
-export class PostBill200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
+export class CreateBill200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "itemId" })
   itemId?: string;
@@ -942,27 +935,27 @@ export class PostBill200ApplicationJSONValidationValidationItem extends Speakeas
   validatorName?: string;
 }
 
-// PostBill200ApplicationJSONValidation
+// CreateBill200ApplicationJSONValidation
 /** 
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
 **/
-export class PostBill200ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PostBill200ApplicationJSONValidationValidationItem })
+export class CreateBill200ApplicationJSONValidation extends SpeakeasyBase {
+  @SpeakeasyMetadata({ elemType: CreateBill200ApplicationJSONValidationValidationItem })
   @Expose({ name: "errors" })
-  @Type(() => PostBill200ApplicationJSONValidationValidationItem)
-  errors?: PostBill200ApplicationJSONValidationValidationItem[];
+  @Type(() => CreateBill200ApplicationJSONValidationValidationItem)
+  errors?: CreateBill200ApplicationJSONValidationValidationItem[];
 
-  @SpeakeasyMetadata({ elemType: PostBill200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({ elemType: CreateBill200ApplicationJSONValidationValidationItem })
   @Expose({ name: "warnings" })
-  @Type(() => PostBill200ApplicationJSONValidationValidationItem)
-  warnings?: PostBill200ApplicationJSONValidationValidationItem[];
+  @Type(() => CreateBill200ApplicationJSONValidationValidationItem)
+  warnings?: CreateBill200ApplicationJSONValidationValidationItem[];
 }
 
-export class PostBill200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PostBill200ApplicationJSONChanges })
+export class CreateBill200ApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ elemType: CreateBill200ApplicationJSONChanges })
   @Expose({ name: "changes" })
-  @Type(() => PostBill200ApplicationJSONChanges)
-  changes?: PostBill200ApplicationJSONChanges[];
+  @Type(() => CreateBill200ApplicationJSONChanges)
+  changes?: CreateBill200ApplicationJSONChanges[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "companyId" })
@@ -975,8 +968,8 @@ export class PostBill200ApplicationJSON extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "data" })
-  @Type(() => PostBill200ApplicationJSONSourceModifiedDate)
-  data?: PostBill200ApplicationJSONSourceModifiedDate;
+  @Type(() => CreateBill200ApplicationJSONSourceModifiedDate)
+  data?: CreateBill200ApplicationJSONSourceModifiedDate;
 
   @SpeakeasyMetadata()
   @Expose({ name: "dataConnectionKey" })
@@ -1001,7 +994,7 @@ export class PostBill200ApplicationJSON extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: PostBill200ApplicationJSONStatusEnum;
+  status: CreateBill200ApplicationJSONStatusEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "statusCode" })
@@ -1017,11 +1010,11 @@ export class PostBill200ApplicationJSON extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => PostBill200ApplicationJSONValidation)
-  validation?: PostBill200ApplicationJSONValidation;
+  @Type(() => CreateBill200ApplicationJSONValidation)
+  validation?: CreateBill200ApplicationJSONValidation;
 }
 
-export class PostBillResponse extends SpeakeasyBase {
+export class CreateBillResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
@@ -1029,5 +1022,8 @@ export class PostBillResponse extends SpeakeasyBase {
   statusCode: number;
 
   @SpeakeasyMetadata()
-  postBill200ApplicationJSONObject?: PostBill200ApplicationJSON;
+  rawResponse?: AxiosResponse;
+
+  @SpeakeasyMetadata()
+  createBill200ApplicationJSONObject?: CreateBill200ApplicationJSON;
 }

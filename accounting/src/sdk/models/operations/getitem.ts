@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -10,17 +11,9 @@ export class GetItemPathParams extends SpeakeasyBase {
   itemId: string;
 }
 
-export class GetItemSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class GetItemRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: GetItemPathParams;
-
-  @SpeakeasyMetadata()
-  security: GetItemSecurity;
 }
 
 // GetItemSourceModifiedDateBillItemAccountRef
@@ -225,4 +218,7 @@ export class GetItemResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 }

@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -21,20 +22,12 @@ export class GetDirectIncomeAttachmentQueryParams extends SpeakeasyBase {
   timeoutInMinutes?: number;
 }
 
-export class GetDirectIncomeAttachmentSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class GetDirectIncomeAttachmentRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: GetDirectIncomeAttachmentPathParams;
 
   @SpeakeasyMetadata()
   queryParams: GetDirectIncomeAttachmentQueryParams;
-
-  @SpeakeasyMetadata()
-  security: GetDirectIncomeAttachmentSecurity;
 }
 
 export class GetDirectIncomeAttachmentAttachment extends SpeakeasyBase {
@@ -83,4 +76,7 @@ export class GetDirectIncomeAttachmentResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 }

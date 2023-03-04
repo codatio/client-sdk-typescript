@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Type } from "class-transformer";
 
 
@@ -16,17 +17,9 @@ export class DownloadDirectIncomeAttachmentPathParams extends SpeakeasyBase {
   directIncomeId: string;
 }
 
-export class DownloadDirectIncomeAttachmentSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class DownloadDirectIncomeAttachmentRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: DownloadDirectIncomeAttachmentPathParams;
-
-  @SpeakeasyMetadata()
-  security: DownloadDirectIncomeAttachmentSecurity;
 }
 
 export class DownloadDirectIncomeAttachmentResponse extends SpeakeasyBase {
@@ -35,4 +28,7 @@ export class DownloadDirectIncomeAttachmentResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 }

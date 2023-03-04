@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -113,11 +114,6 @@ export class PostBankAccountSourceModifiedDate extends SpeakeasyBase {
   sourceModifiedDate?: Date;
 }
 
-export class PostBankAccountSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class PostBankAccountRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: PostBankAccountPathParams;
@@ -127,9 +123,6 @@ export class PostBankAccountRequest extends SpeakeasyBase {
 
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
   request?: PostBankAccountSourceModifiedDate;
-
-  @SpeakeasyMetadata()
-  security: PostBankAccountSecurity;
 }
 
 export class PostBankAccount200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
@@ -364,6 +357,9 @@ export class PostBankAccountResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   postBankAccount200ApplicationJSONObject?: PostBankAccount200ApplicationJSON;

@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -13,17 +14,9 @@ export class GetDirectCostPathParams extends SpeakeasyBase {
   directCostId: string;
 }
 
-export class GetDirectCostSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class GetDirectCostRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: GetDirectCostPathParams;
-
-  @SpeakeasyMetadata()
-  security: GetDirectCostSecurity;
 }
 
 // GetDirectCostSourceModifiedDateContactRef
@@ -363,4 +356,7 @@ export class GetDirectCostResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 }

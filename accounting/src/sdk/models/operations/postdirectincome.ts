@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -329,11 +330,6 @@ export class PostDirectIncomeSourceModifiedDate extends SpeakeasyBase {
   totalAmount: number;
 }
 
-export class PostDirectIncomeSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class PostDirectIncomeRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: PostDirectIncomePathParams;
@@ -343,9 +339,6 @@ export class PostDirectIncomeRequest extends SpeakeasyBase {
 
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
   request?: PostDirectIncomeSourceModifiedDate;
-
-  @SpeakeasyMetadata()
-  security: PostDirectIncomeSecurity;
 }
 
 export class PostDirectIncome200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
@@ -799,6 +792,9 @@ export class PostDirectIncomeResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   postDirectIncome200ApplicationJSONObject?: PostDirectIncome200ApplicationJSON;

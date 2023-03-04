@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -10,17 +11,9 @@ export class GetPurchaseOrderPathParams extends SpeakeasyBase {
   purchaseOrderId: string;
 }
 
-export class GetPurchaseOrderSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class GetPurchaseOrderRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: GetPurchaseOrderPathParams;
-
-  @SpeakeasyMetadata()
-  security: GetPurchaseOrderSecurity;
 }
 
 // GetPurchaseOrderSourceModifiedDateLineItemsAccountRef
@@ -344,4 +337,7 @@ export class GetPurchaseOrderResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 }

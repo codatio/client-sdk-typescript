@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -18,20 +19,12 @@ export class GetBalanceSheetQueryParams extends SpeakeasyBase {
   startMonth?: Date;
 }
 
-export class GetBalanceSheetSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class GetBalanceSheetRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: GetBalanceSheetPathParams;
 
   @SpeakeasyMetadata()
   queryParams: GetBalanceSheetQueryParams;
-
-  @SpeakeasyMetadata()
-  security: GetBalanceSheetSecurity;
 }
 
 export class GetBalanceSheet200ApplicationJSONBalanceSheetReportLineReportLineReportLineReportLine extends SpeakeasyBase {
@@ -183,6 +176,9 @@ export class GetBalanceSheetResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   getBalanceSheet200ApplicationJSONObject?: GetBalanceSheet200ApplicationJSON;

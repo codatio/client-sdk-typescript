@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -437,11 +438,6 @@ export class PushCreditNoteSourceModifiedDate extends SpeakeasyBase {
   withholdingTax?: PushCreditNoteSourceModifiedDateWithholdingTax[];
 }
 
-export class PushCreditNoteSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class PushCreditNoteRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: PushCreditNotePathParams;
@@ -451,9 +447,6 @@ export class PushCreditNoteRequest extends SpeakeasyBase {
 
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
   request?: PushCreditNoteSourceModifiedDate;
-
-  @SpeakeasyMetadata()
-  security: PushCreditNoteSecurity;
 }
 
 export class PushCreditNote200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
@@ -1015,6 +1008,9 @@ export class PushCreditNoteResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   pushCreditNote200ApplicationJSONObject?: PushCreditNote200ApplicationJSON;

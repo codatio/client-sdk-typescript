@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -10,17 +11,9 @@ export class GetCreditNotePathParams extends SpeakeasyBase {
   creditNoteId: string;
 }
 
-export class GetCreditNoteSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class GetCreditNoteRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: GetCreditNotePathParams;
-
-  @SpeakeasyMetadata()
-  security: GetCreditNoteSecurity;
 }
 
 // GetCreditNoteSourceModifiedDateCustomerRef
@@ -454,4 +447,7 @@ export class GetCreditNoteResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 }

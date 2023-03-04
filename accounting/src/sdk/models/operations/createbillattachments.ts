@@ -1,8 +1,9 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Type } from "class-transformer";
 
 
-export class PostBillAttachmentsPathParams extends SpeakeasyBase {
+export class CreateBillAttachmentsPathParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=billId" })
   billId: string;
 
@@ -13,23 +14,18 @@ export class PostBillAttachmentsPathParams extends SpeakeasyBase {
   connectionId: string;
 }
 
-export class PostBillAttachmentsSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
+export class CreateBillAttachmentsRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: CreateBillAttachmentsPathParams;
 }
 
-export class PostBillAttachmentsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: PostBillAttachmentsPathParams;
-
-  @SpeakeasyMetadata()
-  security: PostBillAttachmentsSecurity;
-}
-
-export class PostBillAttachmentsResponse extends SpeakeasyBase {
+export class CreateBillAttachmentsResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 }

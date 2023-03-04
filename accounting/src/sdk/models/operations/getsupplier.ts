@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -10,17 +11,9 @@ export class GetSupplierPathParams extends SpeakeasyBase {
   supplierId: string;
 }
 
-export class GetSupplierSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class GetSupplierRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: GetSupplierPathParams;
-
-  @SpeakeasyMetadata()
-  security: GetSupplierSecurity;
 }
 export enum GetSupplierSourceModifiedDateAddressesTypeEnum {
     Unknown = "Unknown",
@@ -155,4 +148,7 @@ export class GetSupplierResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 }

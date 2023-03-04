@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -21,20 +22,12 @@ export class ListPurchaseOrdersQueryParams extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListPurchaseOrdersSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class ListPurchaseOrdersRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: ListPurchaseOrdersPathParams;
 
   @SpeakeasyMetadata()
   queryParams: ListPurchaseOrdersQueryParams;
-
-  @SpeakeasyMetadata()
-  security: ListPurchaseOrdersSecurity;
 }
 
 export class ListPurchaseOrdersLinksLinksCurrent extends SpeakeasyBase {
@@ -429,6 +422,9 @@ export class ListPurchaseOrdersResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   links?: ListPurchaseOrdersLinks;

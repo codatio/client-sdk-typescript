@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -15,20 +16,12 @@ export class GetAllBankAccountQueryParams extends SpeakeasyBase {
   query?: string;
 }
 
-export class GetAllBankAccountSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class GetAllBankAccountRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: GetAllBankAccountPathParams;
 
   @SpeakeasyMetadata()
   queryParams: GetAllBankAccountQueryParams;
-
-  @SpeakeasyMetadata()
-  security: GetAllBankAccountSecurity;
 }
 
 export class GetAllBankAccount200ApplicationJSON extends SpeakeasyBase {
@@ -103,6 +96,9 @@ export class GetAllBankAccountResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   getAllBankAccount200ApplicationJSONObject?: GetAllBankAccount200ApplicationJSON;

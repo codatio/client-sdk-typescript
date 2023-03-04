@@ -29,14 +29,11 @@ import { Codat } from "@codat/accounting";
 
 const sdk = new Codat({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    authHeader: "YOUR_API_KEY_HERE",
   }
 });
     
 const req: GetAccountTransactionRequest = {
-  security: {
-    apiKey: "YOUR_API_KEY_HERE",
-  },
   pathParams: {
     accountTransactionId: "unde",
     companyId: "deserunt",
@@ -68,7 +65,7 @@ sdk.accountTransactions.getAccountTransaction(req).then((res: GetAccountTransact
 ### bankAccountTransactions
 
 * `getBankAccountPushOptions` - List push options for bank account bank transactions
-* `listAllBankTransactionscount` - List bank transactions for bank account
+* `listBankAccountTransactions` - List bank transactions for bank account
 * `listBankTransactions` - List all bank transactions
 * `postBankTransactions` - Create bank transactions
 
@@ -82,26 +79,26 @@ sdk.accountTransactions.getAccountTransaction(req).then((res: GetAccountTransact
 
 ### billCreditNotes
 
+* `createBillCreditNote` - Create bill credit note
 * `getBillCreditNote` - Get bill credit note
 * `listBillCreditNotes` - List bill credit notes
-* `postBillCreditNote` - Create bill credit note
 * `updateBillCreditNote` - Update bill credit note
 
 ### billPayments
 
+* `createBillPayment` - Create bill payment
 * `getBillPayments` - Get bill payment
 * `listBillPayments` - List bill payments
-* `postBillPayment` - Create bill payment
 
 ### bills
 
+* `createBill` - Create bill
+* `createBillAttachments` - Create bill attachments
 * `downloadBillAttachment` - Download bill attachment
 * `getBill` - Get bill
 * `getBillAttachment` - Get bill attachment
 * `getBillAttachments` - List bill attachments
 * `listBills` - List bills
-* `postBill` - Create bill
-* `postBillAttachments` - Create bill attachments
 * `updateBill` - Update bill
 
 ### creditNotes
