@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -24,20 +25,12 @@ export class ListBankingAccountsQueryParams extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListBankingAccountsSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class ListBankingAccountsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: ListBankingAccountsPathParams;
 
   @SpeakeasyMetadata()
   queryParams: ListBankingAccountsQueryParams;
-
-  @SpeakeasyMetadata()
-  security: ListBankingAccountsSecurity;
 }
 
 export class ListBankingAccountsLinksLinksCurrent extends SpeakeasyBase {
@@ -257,6 +250,9 @@ export class ListBankingAccountsResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   links?: ListBankingAccountsLinks;

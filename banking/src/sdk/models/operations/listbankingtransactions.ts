@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -24,20 +25,12 @@ export class ListBankingTransactionsQueryParams extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListBankingTransactionsSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class ListBankingTransactionsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: ListBankingTransactionsPathParams;
 
   @SpeakeasyMetadata()
   queryParams: ListBankingTransactionsQueryParams;
-
-  @SpeakeasyMetadata()
-  security: ListBankingTransactionsSecurity;
 }
 export enum ListBankingTransactions200ApplicationJSONSourceModifiedDateCodeEnum {
     Unknown = "Unknown",
@@ -145,6 +138,9 @@ export class ListBankingTransactionsResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   listBankingTransactions200ApplicationJSONObject?: ListBankingTransactions200ApplicationJSON;

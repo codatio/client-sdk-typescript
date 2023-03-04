@@ -1,4 +1,4 @@
-export * from "./getbankaccount";
+export * from "./getbankingaccount";
 export * from "./getbankingtransaction";
 export * from "./getbanktransactioncategory";
 export * from "./listallbankingtransactions";

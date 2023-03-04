@@ -21,22 +21,22 @@ export class Accounts {
   }
   
   /**
-   * getBankAccount - Get bank account
+   * getBankingAccount - Get account
    *
    * Gets a specified bank account for a given company
   **/
-  getBankAccount(
-    req: operations.GetBankAccountRequest,
+  getBankingAccount(
+    req: operations.GetBankingAccountRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetBankAccountResponse> {
+  ): Promise<operations.GetBankingAccountResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetBankAccountRequest(req);
+      req = new operations.GetBankingAccountRequest(req);
     }
     
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/data/banking-accounts/{accountId}", req.pathParams);
     
-    const client: AxiosInstance = utils.createSecurityClient(this._defaultClient!, req.security)!;
+    const client: AxiosInstance = this._securityClient!;
     
     
     const r = client.request({
@@ -49,13 +49,13 @@ export class Accounts {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetBankAccountResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.GetBankingAccountResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
               res.sourceModifiedDate = plainToInstance(
-                operations.GetBankAccountSourceModifiedDate,
-                httpRes?.data as operations.GetBankAccountSourceModifiedDate,
+                operations.GetBankingAccountSourceModifiedDate,
+                httpRes?.data as operations.GetBankingAccountSourceModifiedDate,
                 { excludeExtraneousValues: true }
               );
             }
@@ -68,7 +68,7 @@ export class Accounts {
 
   
   /**
-   * listBankingAccounts - List bank accounts
+   * listBankingAccounts - List accounts
    *
    * Gets a list of all bank accounts of the SMB, with rich data like balances, account numbers and institutions holdingthe accounts.
   **/
@@ -83,7 +83,7 @@ export class Accounts {
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/data/banking-accounts", req.pathParams);
     
-    const client: AxiosInstance = utils.createSecurityClient(this._defaultClient!, req.security)!;
+    const client: AxiosInstance = this._securityClient!;
     
     const queryParams: string = utils.serializeQueryParams(req.queryParams);
     
@@ -97,7 +97,7 @@ export class Accounts {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListBankingAccountsResponse = {statusCode: httpRes.status, contentType: contentType};
+        const res: operations.ListBankingAccountsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {

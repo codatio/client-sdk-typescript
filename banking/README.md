@@ -29,14 +29,11 @@ import { Codat } from "@codat/banking";
 
 const sdk = new Codat({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    authHeader: "YOUR_API_KEY_HERE",
   }
 });
     
 const req: ListBankingAccountBalancesRequest = {
-  security: {
-    apiKey: "YOUR_API_KEY_HERE",
-  },
   pathParams: {
     companyId: "unde",
     connectionId: "deserunt",
@@ -61,12 +58,12 @@ sdk.accountBalances.listBankingAccountBalances(req).then((res: ListBankingAccoun
 
 ### accountBalances
 
-* `listBankingAccountBalances` - List bank balances
+* `listBankingAccountBalances` - List account balances
 
 ### accounts
 
-* `getBankAccount` - Get bank account
-* `listBankingAccounts` - List bank accounts
+* `getBankingAccount` - Get account
+* `listBankingAccounts` - List accounts
 
 ### transactionCategories
 

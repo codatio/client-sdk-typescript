@@ -19,7 +19,7 @@ src/internal/utils/utils.ts
 src/sdk/index.ts
 tsconfig.json
 src/sdk/models/operations/listbankingaccountbalances.ts
-src/sdk/models/operations/getbankaccount.ts
+src/sdk/models/operations/getbankingaccount.ts
 src/sdk/models/operations/listbankingaccounts.ts
 src/sdk/models/operations/getbanktransactioncategory.ts
 src/sdk/models/operations/listbanktransactioncategories.ts

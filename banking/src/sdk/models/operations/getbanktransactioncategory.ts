@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -13,17 +14,9 @@ export class GetBankTransactionCategoryPathParams extends SpeakeasyBase {
   transactionCategoryId: string;
 }
 
-export class GetBankTransactionCategorySecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class GetBankTransactionCategoryRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: GetBankTransactionCategoryPathParams;
-
-  @SpeakeasyMetadata()
-  security: GetBankTransactionCategorySecurity;
 }
 export enum GetBankTransactionCategorySourceModifiedDateStatusEnum {
     Unknown = "Unknown",
@@ -76,4 +69,7 @@ export class GetBankTransactionCategoryResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 }

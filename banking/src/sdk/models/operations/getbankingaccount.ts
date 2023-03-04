@@ -1,8 +1,9 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
-export class GetBankAccountPathParams extends SpeakeasyBase {
+export class GetBankingAccountPathParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=accountId" })
   accountId: string;
 
@@ -13,24 +14,16 @@ export class GetBankAccountPathParams extends SpeakeasyBase {
   connectionId: string;
 }
 
-export class GetBankAccountSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
+export class GetBankingAccountRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  pathParams: GetBankingAccountPathParams;
 }
 
-export class GetBankAccountRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetBankAccountPathParams;
-
-  @SpeakeasyMetadata()
-  security: GetBankAccountSecurity;
-}
-
-// GetBankAccountSourceModifiedDateAccountBalanceAmounts
+// GetBankingAccountSourceModifiedDateAccountBalanceAmounts
 /** 
  * An object containing bank balance data.
 **/
-export class GetBankAccountSourceModifiedDateAccountBalanceAmounts extends SpeakeasyBase {
+export class GetBankingAccountSourceModifiedDateAccountBalanceAmounts extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "available" })
   available?: number;
@@ -43,7 +36,7 @@ export class GetBankAccountSourceModifiedDateAccountBalanceAmounts extends Speak
   @Expose({ name: "limit" })
   limit?: number;
 }
-export enum GetBankAccountSourceModifiedDateAccountIdentifiersTypeEnum {
+export enum GetBankingAccountSourceModifiedDateAccountIdentifiersTypeEnum {
     Account = "Account",
     Card = "Card",
     Credit = "Credit",
@@ -53,11 +46,11 @@ export enum GetBankAccountSourceModifiedDateAccountIdentifiersTypeEnum {
     Other = "Other"
 }
 
-// GetBankAccountSourceModifiedDateAccountIdentifiers
+// GetBankingAccountSourceModifiedDateAccountIdentifiers
 /** 
  * An object containing bank account identification information.
 **/
-export class GetBankAccountSourceModifiedDateAccountIdentifiers extends SpeakeasyBase {
+export class GetBankingAccountSourceModifiedDateAccountIdentifiers extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "bankCode" })
   bankCode?: string;
@@ -84,14 +77,14 @@ export class GetBankAccountSourceModifiedDateAccountIdentifiers extends Speakeas
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: GetBankAccountSourceModifiedDateAccountIdentifiersTypeEnum;
+  type: GetBankingAccountSourceModifiedDateAccountIdentifiersTypeEnum;
 }
 
-// GetBankAccountSourceModifiedDateAccountInstitution
+// GetBankingAccountSourceModifiedDateAccountInstitution
 /** 
  * The bank or other financial institution providing the account.
 **/
-export class GetBankAccountSourceModifiedDateAccountInstitution extends SpeakeasyBase {
+export class GetBankingAccountSourceModifiedDateAccountInstitution extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
@@ -100,23 +93,23 @@ export class GetBankAccountSourceModifiedDateAccountInstitution extends Speakeas
   @Expose({ name: "name" })
   name?: string;
 }
-export enum GetBankAccountSourceModifiedDateTypeEnum {
+export enum GetBankingAccountSourceModifiedDateTypeEnum {
     Unknown = "Unknown",
     Credit = "Credit",
     Debit = "Debit"
 }
 
-// GetBankAccountSourceModifiedDate
+// GetBankingAccountSourceModifiedDate
 /** 
  * An account where payments are made or received, and bank transactions are recorded.
  * 
  * Explore our [data coverage](https://knowledge.codat.io/supported-features/banking?view=tab-by-data-type&dataType=banking-accounts).
 **/
-export class GetBankAccountSourceModifiedDate extends SpeakeasyBase {
+export class GetBankingAccountSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "balance" })
-  @Type(() => GetBankAccountSourceModifiedDateAccountBalanceAmounts)
-  balance: GetBankAccountSourceModifiedDateAccountBalanceAmounts;
+  @Type(() => GetBankingAccountSourceModifiedDateAccountBalanceAmounts)
+  balance: GetBankingAccountSourceModifiedDateAccountBalanceAmounts;
 
   @SpeakeasyMetadata()
   @Expose({ name: "currency" })
@@ -132,8 +125,8 @@ export class GetBankAccountSourceModifiedDate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "identifiers" })
-  @Type(() => GetBankAccountSourceModifiedDateAccountIdentifiers)
-  identifiers: GetBankAccountSourceModifiedDateAccountIdentifiers;
+  @Type(() => GetBankingAccountSourceModifiedDateAccountIdentifiers)
+  identifiers: GetBankingAccountSourceModifiedDateAccountIdentifiers;
 
   @SpeakeasyMetadata()
   @Expose({ name: "informalName" })
@@ -141,8 +134,8 @@ export class GetBankAccountSourceModifiedDate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "institution" })
-  @Type(() => GetBankAccountSourceModifiedDateAccountInstitution)
-  institution: GetBankAccountSourceModifiedDateAccountInstitution;
+  @Type(() => GetBankingAccountSourceModifiedDateAccountInstitution)
+  institution: GetBankingAccountSourceModifiedDateAccountInstitution;
 
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
@@ -160,16 +153,19 @@ export class GetBankAccountSourceModifiedDate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: GetBankAccountSourceModifiedDateTypeEnum;
+  type: GetBankingAccountSourceModifiedDateTypeEnum;
 }
 
-export class GetBankAccountResponse extends SpeakeasyBase {
+export class GetBankingAccountResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
   @SpeakeasyMetadata()
-  sourceModifiedDate?: GetBankAccountSourceModifiedDate;
+  sourceModifiedDate?: GetBankingAccountSourceModifiedDate;
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 }
