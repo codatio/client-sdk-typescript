@@ -25,7 +25,13 @@ export type SDKProps = {
   serverUrl?: string;
 }
 
-
+/* SDK Documentation: Codat's Commerce API allows you to access standardised data from over 11 commerce and POS systems.
+ * 
+ * Standardize how you connect to your customers’ payment, PoS, and eCommerce systems. Retrieve orders, payouts, payments, and product data in the same way for all the leading commerce platforms.
+ * 
+ * [Read more...](https://docs.codat.io/commerce-api/overview)
+ * 
+ * [See our OpenAPI spec](https://github.com/codatio/oas) */
 export class Codat {
   public companyInfo: CompanyInfo;
   public customers: Customers;
@@ -41,8 +47,8 @@ export class Codat {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.1.0";
-  private _genVersion = "1.7.1";
+  private _sdkVersion = "0.2.0";
+  private _genVersion = "1.8.2";
 
   constructor(props: SDKProps) {
     this._serverURL = props.serverUrl ?? ServerList[0];
