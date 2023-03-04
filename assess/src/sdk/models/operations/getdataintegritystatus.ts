@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 export enum GetDataIntegrityStatusDataTypeEnum {
@@ -135,6 +136,9 @@ export class GetDataIntegrityStatusResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
   getDataIntegrityStatus200ApplicationJSONObject?: GetDataIntegrityStatus200ApplicationJSON;

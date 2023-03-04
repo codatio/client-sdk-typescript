@@ -20,7 +20,11 @@ export type SDKProps = {
   serverUrl?: string;
 }
 
-
+/* SDK Documentation: Codat's Assess API enable you to make smarter credit decisions on your small business customers. Assess enriches your customer's accounting, commerce and banking data to surface actionable insights you didn't have before.
+ * 
+ * [Read more...](https://www.codat.io/assess/)
+ * 
+ * [See our OpenAPI spec](https://github.com/codatio/oas) */
 export class Codat {
   public categories: Categories;
   public dataIntegrity: DataIntegrity;
@@ -31,8 +35,8 @@ export class Codat {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.1.0";
-  private _genVersion = "1.7.1";
+  private _sdkVersion = "0.2.0";
+  private _genVersion = "1.8.2";
 
   constructor(props: SDKProps) {
     this._serverURL = props.serverUrl ?? ServerList[0];
