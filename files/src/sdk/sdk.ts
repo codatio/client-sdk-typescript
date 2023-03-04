@@ -17,7 +17,13 @@ export type SDKProps = {
   serverUrl?: string;
 }
 
-
+/* SDK Documentation: An API for uploading and downloading files from 'File Upload' Integrations.
+ * 
+ * The Accounting file upload, Banking file upload, and Business documents file upload integrations provide simple file upload functionality.
+ * 
+ * [Read more...](https://docs.codat.io/other/file-upload)
+ * 
+ * [See our OpenAPI spec](https://github.com/codatio/oas) */
 export class Codat {
   public files: Files;
 
@@ -25,8 +31,8 @@ export class Codat {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.1.0";
-  private _genVersion = "1.7.1";
+  private _sdkVersion = "0.2.0";
+  private _genVersion = "1.8.2";
 
   constructor(props: SDKProps) {
     this._serverURL = props.serverUrl ?? ServerList[0];

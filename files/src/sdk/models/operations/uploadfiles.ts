@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Type } from "class-transformer";
 
 
@@ -10,17 +11,9 @@ export class UploadFilesPathParams extends SpeakeasyBase {
   connectionId: string;
 }
 
-export class UploadFilesSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class UploadFilesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: UploadFilesPathParams;
-
-  @SpeakeasyMetadata()
-  security: UploadFilesSecurity;
 }
 
 export class UploadFilesResponse extends SpeakeasyBase {
@@ -29,4 +22,7 @@ export class UploadFilesResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 }

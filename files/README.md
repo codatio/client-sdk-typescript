@@ -29,19 +29,16 @@ import { Codat } from "@codat/files";
 
 const sdk = new Codat({
   security: {
-    apiKey: "YOUR_API_KEY_HERE",
+    authHeader: "YOUR_API_KEY_HERE",
   }
 });
     
 const req: DownloadFilesRequest = {
-  security: {
-    apiKey: "YOUR_API_KEY_HERE",
-  },
   pathParams: {
     companyId: "unde",
   },
   queryParams: {
-    date: "2022-07-28T15:07:03.415Z",
+    date: "2022-07-30T15:03:19.045Z",
   },
 };
 

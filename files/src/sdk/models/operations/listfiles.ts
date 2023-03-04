@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
@@ -7,17 +8,9 @@ export class ListFilesPathParams extends SpeakeasyBase {
   companyId: string;
 }
 
-export class ListFilesSecurity extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "security, scheme=true;type=apiKey;subtype=header;name=Authorization" })
-  apiKey: string;
-}
-
 export class ListFilesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: ListFilesPathParams;
-
-  @SpeakeasyMetadata()
-  security: ListFilesSecurity;
 }
 
 export class ListFilesFile extends SpeakeasyBase {
@@ -48,4 +41,7 @@ export class ListFilesResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 }
