@@ -143,7 +143,7 @@ export class Categories {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.listAvailableAccountCategoriesChartOfAccountCategoryAllOfs = httpRes?.data;
+              res.listAvailableAccountCategoriesChartOfAccountCategoryAnies = httpRes?.data;
             }
             break;
         }

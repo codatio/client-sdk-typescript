@@ -40,5 +40,5 @@ export class ListAvailableAccountCategoriesResponse extends SpeakeasyBase {
   rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata({ elemType: ListAvailableAccountCategoriesChartOfAccountCategory })
-  listAvailableAccountCategoriesChartOfAccountCategoryAllOfs?: ListAvailableAccountCategoriesChartOfAccountCategory[];
+  listAvailableAccountCategoriesChartOfAccountCategoryAnies?: ListAvailableAccountCategoriesChartOfAccountCategory[];
 }
