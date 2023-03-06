@@ -130,7 +130,7 @@ export class ListCommerceCustomersLinksSourceModifiedDate extends SpeakeasyBase 
 
   @SpeakeasyMetadata()
   @Expose({ name: "defaultCurrency" })
-  defaultCurrency?: Record<string, any>;
+  defaultCurrency?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "emailAddress" })
