@@ -19,7 +19,7 @@ const req: DownloadFilesRequest = {
     companyId: "unde",
   },
   queryParams: {
-    date: "2022-07-30T15:03:19.045Z",
+    date: "2022-08-01T15:05:30.814Z",
   },
 };
 
