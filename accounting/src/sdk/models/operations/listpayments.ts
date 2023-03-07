@@ -170,6 +170,10 @@ export class ListPaymentsLinksSourceModifiedDatePaymentMethodRef extends Speakea
   name?: string;
 }
 
+// ListPaymentsLinksSourceModifiedDateSupplementalData
+/** 
+ * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
+**/
 export class ListPaymentsLinksSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })

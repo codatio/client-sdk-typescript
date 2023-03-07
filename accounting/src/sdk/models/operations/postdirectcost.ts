@@ -242,6 +242,10 @@ export class PostDirectCostSourceModifiedDatePaymentAllocations extends Speakeas
   payment: PostDirectCostSourceModifiedDatePaymentAllocationsPayment;
 }
 
+// PostDirectCostSourceModifiedDateSupplementalData
+/** 
+ * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
+**/
 export class PostDirectCostSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -613,6 +617,10 @@ export class PostDirectCost200ApplicationJSONSourceModifiedDatePaymentAllocation
   payment: PostDirectCost200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment;
 }
 
+// PostDirectCost200ApplicationJSONSourceModifiedDateSupplementalData
+/** 
+ * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
+**/
 export class PostDirectCost200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })

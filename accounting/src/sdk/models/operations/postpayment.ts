@@ -110,6 +110,10 @@ export class PostPaymentSourceModifiedDatePaymentMethodRef extends SpeakeasyBase
   name?: string;
 }
 
+// PostPaymentSourceModifiedDateSupplementalData
+/** 
+ * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
+**/
 export class PostPaymentSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -1005,6 +1009,10 @@ export class PostPayment200ApplicationJSONSourceModifiedDatePaymentMethodRef ext
   name?: string;
 }
 
+// PostPayment200ApplicationJSONSourceModifiedDateSupplementalData
+/** 
+ * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
+**/
 export class PostPayment200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })

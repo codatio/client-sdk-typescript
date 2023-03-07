@@ -297,6 +297,10 @@ export enum CreateBillSourceModifiedDateStatusEnum {
     Draft = "Draft"
 }
 
+// CreateBillSourceModifiedDateSupplementalData
+/** 
+ * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
+**/
 export class CreateBillSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -768,6 +772,10 @@ export enum CreateBill200ApplicationJSONSourceModifiedDateStatusEnum {
     Draft = "Draft"
 }
 
+// CreateBill200ApplicationJSONSourceModifiedDateSupplementalData
+/** 
+ * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
+**/
 export class CreateBill200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })

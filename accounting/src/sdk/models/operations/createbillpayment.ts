@@ -96,6 +96,10 @@ export class CreateBillPaymentSourceModifiedDatePaymentMethodRef extends Speakea
   name?: string;
 }
 
+// CreateBillPaymentSourceModifiedDateSupplementalData
+/** 
+ * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
+**/
 export class CreateBillPaymentSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -126,7 +130,7 @@ export class CreateBillPaymentSourceModifiedDateSupplierRef extends SpeakeasyBas
  * 
  * ## Overview
  * 
- * Bill payments include all accounts payable transaction data. This includes [bills](https://docs.codat.io/accounting-api#/schemas/Bill) and [credit notes against bills](https://docs.codat.io/docs/datamodel-accounting-billcreditnotes).
+ * Bill payments include all accounts payable transaction data. This includes [bills](https://docs.codat.io/accounting-api#/schemas/Bill) and [credit notes against bills](https://docs.codat.io/accounting-api#/schemas/BillCreditNote).
  * 
  * A bill payment in Codat usually represents an allocation of money within any customer accounts payable account. This includes but is not strictly limited to:
  * 
@@ -462,6 +466,10 @@ export class CreateBillPayment200ApplicationJSONSourceModifiedDatePaymentMethodR
   name?: string;
 }
 
+// CreateBillPayment200ApplicationJSONSourceModifiedDateSupplementalData
+/** 
+ * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
+**/
 export class CreateBillPayment200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -492,7 +500,7 @@ export class CreateBillPayment200ApplicationJSONSourceModifiedDateSupplierRef ex
  * 
  * ## Overview
  * 
- * Bill payments include all accounts payable transaction data. This includes [bills](https://docs.codat.io/accounting-api#/schemas/Bill) and [credit notes against bills](https://docs.codat.io/docs/datamodel-accounting-billcreditnotes).
+ * Bill payments include all accounts payable transaction data. This includes [bills](https://docs.codat.io/accounting-api#/schemas/Bill) and [credit notes against bills](https://docs.codat.io/accounting-api#/schemas/BillCreditNote).
  * 
  * A bill payment in Codat usually represents an allocation of money within any customer accounts payable account. This includes but is not strictly limited to:
  * 

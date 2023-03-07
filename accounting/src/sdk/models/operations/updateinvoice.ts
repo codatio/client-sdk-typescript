@@ -305,6 +305,10 @@ export enum UpdateInvoiceSourceModifiedDateStatusEnum {
     Void = "Void"
 }
 
+// UpdateInvoiceSourceModifiedDateSupplementalData
+/** 
+ * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
+**/
 export class UpdateInvoiceSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -790,6 +794,10 @@ export enum UpdateInvoice200ApplicationJSONSourceModifiedDateStatusEnum {
     Void = "Void"
 }
 
+// UpdateInvoice200ApplicationJSONSourceModifiedDateSupplementalData
+/** 
+ * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
+**/
 export class UpdateInvoice200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })

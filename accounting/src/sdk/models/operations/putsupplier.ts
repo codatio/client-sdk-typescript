@@ -68,6 +68,10 @@ export enum PutSupplierSourceModifiedDateStatusEnum {
     Archived = "Archived"
 }
 
+// PutSupplierSourceModifiedDateSupplementalData
+/** 
+ * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
+**/
 export class PutSupplierSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -234,6 +238,10 @@ export enum PutSupplier200ApplicationJSONSourceModifiedDateStatusEnum {
     Archived = "Archived"
 }
 
+// PutSupplier200ApplicationJSONSourceModifiedDateSupplementalData
+/** 
+ * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
+**/
 export class PutSupplier200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })

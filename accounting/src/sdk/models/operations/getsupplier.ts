@@ -62,6 +62,10 @@ export enum GetSupplierSourceModifiedDateStatusEnum {
     Archived = "Archived"
 }
 
+// GetSupplierSourceModifiedDateSupplementalData
+/** 
+ * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
+**/
 export class GetSupplierSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })

@@ -305,6 +305,10 @@ export enum PostCreditNoteSourceModifiedDateStatusEnum {
     PartiallyPaid = "PartiallyPaid"
 }
 
+// PostCreditNoteSourceModifiedDateSupplementalData
+/** 
+ * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
+**/
 export class PostCreditNoteSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -770,6 +774,10 @@ export enum PostCreditNote200ApplicationJSONSourceModifiedDateStatusEnum {
     PartiallyPaid = "PartiallyPaid"
 }
 
+// PostCreditNote200ApplicationJSONSourceModifiedDateSupplementalData
+/** 
+ * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
+**/
 export class PostCreditNote200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })

@@ -105,6 +105,10 @@ export class PostJournalEntrySourceModifiedDateRecordRef extends SpeakeasyBase {
   id?: string;
 }
 
+// PostJournalEntrySourceModifiedDateSupplementalData
+/** 
+ * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
+**/
 export class PostJournalEntrySourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -328,6 +332,10 @@ export class PostJournalEntry200ApplicationJSONSourceModifiedDateRecordRef exten
   id?: string;
 }
 
+// PostJournalEntry200ApplicationJSONSourceModifiedDateSupplementalData
+/** 
+ * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
+**/
 export class PostJournalEntry200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })

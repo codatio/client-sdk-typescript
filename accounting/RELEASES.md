@@ -23,3 +23,11 @@ Based on:
 - Speakeasy CLI 1.8.4 https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [NPM v0.2.1] https://www.npmjs.com/package/@codat/accounting/v/0.2.1 - accounting
+
+## 2023-03-07 00:03:24
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Accounting.yaml
+- Speakeasy CLI 1.8.5 https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.2.2] https://www.npmjs.com/package/@codat/accounting/v/0.2.2 - accounting

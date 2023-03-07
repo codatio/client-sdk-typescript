@@ -212,6 +212,10 @@ export enum GetCustomersLinksSourceModifiedDateStatusEnum {
     Archived = "Archived"
 }
 
+// GetCustomersLinksSourceModifiedDateSupplementalData
+/** 
+ * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
+**/
 export class GetCustomersLinksSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
