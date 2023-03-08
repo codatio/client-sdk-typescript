@@ -31,3 +31,11 @@ Based on:
 - Speakeasy CLI 1.8.5 https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [NPM v0.2.2] https://www.npmjs.com/package/@codat/bankfeeds/v/0.2.2 - bankfeeds
+
+## 2023-03-08 00:04:20
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Bank-Feeds.yaml
+- Speakeasy CLI 1.8.6 https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.2.3] https://www.npmjs.com/package/@codat/bankfeeds/v/0.2.3 - bankfeeds
