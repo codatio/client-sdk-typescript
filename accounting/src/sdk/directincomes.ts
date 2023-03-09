@@ -21,6 +21,77 @@ export class DirectIncomes {
   }
   
   /**
+   * createDirectIncome - Create direct income
+   *
+   * Posts a new direct income to the accounting package for a given company.
+   * 
+   * Required data may vary by integration. To see what data to post, first call [Get create direct income model](https://docs.codat.io/accounting-api#/operations/get-create-directIncomes-model).
+   * 
+   * > **Supported Integrations**
+   * > 
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes) for integrations that support creating direct incomes.
+  **/
+  createDirectIncome(
+    req: operations.CreateDirectIncomeRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.CreateDirectIncomeResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.CreateDirectIncomeRequest(req);
+    }
+    
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/push/directIncomes", req.pathParams);
+
+    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+    try {
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new Error(`Error serializing request body, cause: ${e.message}`);
+      }
+    }
+    
+    const client: AxiosInstance = this._securityClient!;
+    
+    const headers = {...reqBodyHeaders, ...config?.headers};
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    
+    const r = client.request({
+      url: url + queryParams,
+      method: "post",
+      headers: headers,
+      data: reqBody, 
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
+        const res: operations.CreateDirectIncomeResponse =
+            new operations.CreateDirectIncomeResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
+        switch (true) {
+          case httpRes?.status == 200:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.createDirectIncome200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.CreateDirectIncome200ApplicationJSON,
+              );
+            }
+            break;
+        }
+
+        return res;
+      })
+  }
+
+  
+  /**
    * downloadDirectIncomeAttachment - Download direct income attachment
    *
    * Downloads an attachment for the specified direct income for a given company.
@@ -49,9 +120,71 @@ export class DirectIncomes {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.DownloadDirectIncomeAttachmentResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.DownloadDirectIncomeAttachmentResponse =
+            new operations.DownloadDirectIncomeAttachmentResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
+            break;
+        }
+
+        return res;
+      })
+  }
+
+  
+  /**
+   * getCreateDirectIncomesModel - Get create direct income model
+   *
+   * Get create direct income model. Returns the expected data for the request payload.
+   * 
+   * See the examples for integration-specific indicative models.
+   * 
+   * > **Supported Integrations**
+   * > 
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes) for integrations that support creating direct incomes.
+  **/
+  getCreateDirectIncomesModel(
+    req: operations.GetCreateDirectIncomesModelRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.GetCreateDirectIncomesModelResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.GetCreateDirectIncomesModelRequest(req);
+    }
+    
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/options/directIncomes", req.pathParams);
+    
+    const client: AxiosInstance = this._securityClient!;
+    
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
+        const res: operations.GetCreateDirectIncomesModelResponse =
+            new operations.GetCreateDirectIncomesModelResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
+        switch (true) {
+          case httpRes?.status == 200:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.pushOption = utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.GetCreateDirectIncomesModelPushOption,
+              );
+            }
             break;
         }
 
@@ -89,14 +222,18 @@ export class DirectIncomes {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetDirectIncomeResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetDirectIncomeResponse =
+            new operations.GetDirectIncomeResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.sourceModifiedDate = plainToInstance(
+              res.sourceModifiedDate = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetDirectIncomeSourceModifiedDate,
-                httpRes?.data as operations.GetDirectIncomeSourceModifiedDate,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -137,14 +274,18 @@ export class DirectIncomes {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetDirectIncomeAttachmentResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetDirectIncomeAttachmentResponse =
+            new operations.GetDirectIncomeAttachmentResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.attachment = plainToInstance(
+              res.attachment = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetDirectIncomeAttachmentAttachment,
-                httpRes?.data as operations.GetDirectIncomeAttachmentAttachment,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -185,14 +326,18 @@ export class DirectIncomes {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetDirectIncomesResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetDirectIncomesResponse =
+            new operations.GetDirectIncomesResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.links = plainToInstance(
+              res.links = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetDirectIncomesLinks,
-                httpRes?.data as operations.GetDirectIncomesLinks,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -232,79 +377,18 @@ export class DirectIncomes {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListDirectIncomeAttachmentsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListDirectIncomeAttachmentsResponse =
+            new operations.ListDirectIncomeAttachmentsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.attachments = plainToInstance(
+              res.attachments = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListDirectIncomeAttachmentsAttachments,
-                httpRes?.data as operations.ListDirectIncomeAttachmentsAttachments,
-                { excludeExtraneousValues: true }
-              );
-            }
-            break;
-        }
-
-        return res;
-      })
-  }
-
-  
-  /**
-   * postDirectIncome - Create direct income
-   *
-   * Posts a new direct income to the accounting package for a given company.
-   * 
-   * > **Supported Integrations**
-   * > 
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes) for integrations that support POST methods.
-  **/
-  postDirectIncome(
-    req: operations.PostDirectIncomeRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.PostDirectIncomeResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.PostDirectIncomeRequest(req);
-    }
-    
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/push/directIncomes", req.pathParams);
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-    
-    const client: AxiosInstance = this._securityClient!;
-    
-    const headers = {...reqBodyHeaders, ...config?.headers};
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
-    
-    const r = client.request({
-      url: url + queryParams,
-      method: "post",
-      headers: headers,
-      data: reqBody, 
-      ...config,
-    });
-    
-    return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.PostDirectIncomeResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.postDirectIncome200ApplicationJSONObject = plainToInstance(
-                operations.PostDirectIncome200ApplicationJSON,
-                httpRes?.data as operations.PostDirectIncome200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -344,7 +428,12 @@ export class DirectIncomes {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.PostDirectIncomeAttachmentResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.PostDirectIncomeAttachmentResponse =
+            new operations.PostDirectIncomeAttachmentResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             break;

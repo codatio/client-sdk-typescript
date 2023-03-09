@@ -21,6 +21,77 @@ export class Customers {
   }
   
   /**
+   * createCustomer - Create customer
+   *
+   * Posts an individual customer for a given company.
+   * 
+   * Required data may vary by integration. To see what data to post, first call [Get create/update customer model](https://docs.codat.io/accounting-api#/operations/get-create-update-customers-model).
+   * 
+   * > **Supported Integrations**
+   * > 
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support creating customers.
+  **/
+  createCustomer(
+    req: operations.CreateCustomerRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.CreateCustomerResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.CreateCustomerRequest(req);
+    }
+    
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/push/customers", req.pathParams);
+
+    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+    try {
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new Error(`Error serializing request body, cause: ${e.message}`);
+      }
+    }
+    
+    const client: AxiosInstance = this._securityClient!;
+    
+    const headers = {...reqBodyHeaders, ...config?.headers};
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    
+    const r = client.request({
+      url: url + queryParams,
+      method: "post",
+      headers: headers,
+      data: reqBody, 
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
+        const res: operations.CreateCustomerResponse =
+            new operations.CreateCustomerResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
+        switch (true) {
+          case httpRes?.status == 200:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.createCustomer200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.CreateCustomer200ApplicationJSON,
+              );
+            }
+            break;
+        }
+
+        return res;
+      })
+  }
+
+  
+  /**
    * downloadCustomerAttachment - Download customer attachment
    *
    * Download customer attachment
@@ -49,7 +120,12 @@ export class Customers {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.DownloadCustomerAttachmentResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.DownloadCustomerAttachmentResponse =
+            new operations.DownloadCustomerAttachmentResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             break;
@@ -61,9 +137,66 @@ export class Customers {
 
   
   /**
+   * getCreateUpdateCustomersModel - Get create/update customer model
+   *
+   * Get create/update customer model. Returns the expected data for the request payload.
+   * 
+   * See the examples for integration-specific indicative models.
+   * 
+   * > **Supported Integrations**
+   * > 
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support creating and updating customers.
+  **/
+  getCreateUpdateCustomersModel(
+    req: operations.GetCreateUpdateCustomersModelRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.GetCreateUpdateCustomersModelResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.GetCreateUpdateCustomersModelRequest(req);
+    }
+    
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/options/customers", req.pathParams);
+    
+    const client: AxiosInstance = this._securityClient!;
+    
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
+        const res: operations.GetCreateUpdateCustomersModelResponse =
+            new operations.GetCreateUpdateCustomersModelResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
+        switch (true) {
+          case httpRes?.status == 200:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.pushOption = utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.GetCreateUpdateCustomersModelPushOption,
+              );
+            }
+            break;
+        }
+
+        return res;
+      })
+  }
+
+  
+  /**
    * getCustomer - Get customer
    *
-   * Gets a single customer corresponding to the supplied Id
+   * Gets a single customer corresponding to the given Id
   **/
   getCustomer(
     req: operations.GetCustomerRequest,
@@ -89,14 +222,18 @@ export class Customers {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetCustomerResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetCustomerResponse =
+            new operations.GetCustomerResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.sourceModifiedDate = plainToInstance(
+              res.sourceModifiedDate = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCustomerSourceModifiedDate,
-                httpRes?.data as operations.GetCustomerSourceModifiedDate,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -136,14 +273,18 @@ export class Customers {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetCustomerAttachmentResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetCustomerAttachmentResponse =
+            new operations.GetCustomerAttachmentResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.attachment = plainToInstance(
+              res.attachment = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCustomerAttachmentAttachment,
-                httpRes?.data as operations.GetCustomerAttachmentAttachment,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -183,14 +324,18 @@ export class Customers {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetCustomerAttachmentsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetCustomerAttachmentsResponse =
+            new operations.GetCustomerAttachmentsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.attachments = plainToInstance(
+              res.attachments = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCustomerAttachmentsAttachments,
-                httpRes?.data as operations.GetCustomerAttachmentsAttachments,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -231,79 +376,18 @@ export class Customers {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetCustomersResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetCustomersResponse =
+            new operations.GetCustomersResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.links = plainToInstance(
+              res.links = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCustomersLinks,
-                httpRes?.data as operations.GetCustomersLinks,
-                { excludeExtraneousValues: true }
-              );
-            }
-            break;
-        }
-
-        return res;
-      })
-  }
-
-  
-  /**
-   * postCustomer - Create customer
-   *
-   * Posts an individual customer for a given company.
-   * 
-   * > **Supported Integrations**
-   * > 
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support POST methods.
-  **/
-  postCustomer(
-    req: operations.PostCustomerRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.PostCustomerResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.PostCustomerRequest(req);
-    }
-    
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/push/customers", req.pathParams);
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-    
-    const client: AxiosInstance = this._securityClient!;
-    
-    const headers = {...reqBodyHeaders, ...config?.headers};
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
-    
-    const r = client.request({
-      url: url + queryParams,
-      method: "post",
-      headers: headers,
-      data: reqBody, 
-      ...config,
-    });
-    
-    return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.PostCustomerResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.postCustomer200ApplicationJSONObject = plainToInstance(
-                operations.PostCustomer200ApplicationJSON,
-                httpRes?.data as operations.PostCustomer200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -319,9 +403,11 @@ export class Customers {
    *
    * Posts an updated customer for a given company.
    * 
+   * Required data may vary by integration. To see what data to post, first call [Get create/update customer model](https://docs.codat.io/accounting-api#/operations/get-create-update-customers-model).
+   * 
    * > **Supported Integrations**
    * > 
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support PUT methods.
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support updating customers.
   **/
   updateCustomer(
     req: operations.UpdateCustomerRequest,
@@ -361,14 +447,18 @@ export class Customers {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.UpdateCustomerResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.UpdateCustomerResponse =
+            new operations.UpdateCustomerResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.updateCustomer200ApplicationJSONObject = plainToInstance(
+              res.updateCustomer200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.UpdateCustomer200ApplicationJSON,
-                httpRes?.data as operations.UpdateCustomer200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;

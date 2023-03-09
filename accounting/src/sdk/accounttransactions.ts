@@ -21,16 +21,16 @@ export class AccountTransactions {
   }
   
   /**
-   * getAccountTransaction - Get account transaction
+   * getCreateUpdateAccountTransactionsModel - Get account transaction
    *
-   * Gets the account transactions for a given company.Gets the specified account transaction for a given company and connection.
+   * Get create/update account transactions model.
   **/
-  getAccountTransaction(
-    req: operations.GetAccountTransactionRequest,
+  getCreateUpdateAccountTransactionsModel(
+    req: operations.GetCreateUpdateAccountTransactionsModelRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetAccountTransactionResponse> {
+  ): Promise<operations.GetCreateUpdateAccountTransactionsModelResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetAccountTransactionRequest(req);
+      req = new operations.GetCreateUpdateAccountTransactionsModelRequest(req);
     }
     
     const baseURL: string = this._serverURL;
@@ -49,14 +49,18 @@ export class AccountTransactions {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetAccountTransactionResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetCreateUpdateAccountTransactionsModelResponse =
+            new operations.GetCreateUpdateAccountTransactionsModelResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.sourceModifiedDate = plainToInstance(
-                operations.GetAccountTransactionSourceModifiedDate,
-                httpRes?.data as operations.GetAccountTransactionSourceModifiedDate,
-                { excludeExtraneousValues: true }
+              res.sourceModifiedDate = utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.GetCreateUpdateAccountTransactionsModelSourceModifiedDate,
               );
             }
             break;
@@ -97,14 +101,18 @@ export class AccountTransactions {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListAccountTransactionsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListAccountTransactionsResponse =
+            new operations.ListAccountTransactionsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.links = plainToInstance(
+              res.links = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListAccountTransactionsLinks,
-                httpRes?.data as operations.ListAccountTransactionsLinks,
-                { excludeExtraneousValues: true }
               );
             }
             break;

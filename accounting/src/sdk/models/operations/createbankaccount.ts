@@ -3,7 +3,7 @@ import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
-export class PostBankAccountPathParams extends SpeakeasyBase {
+export class CreateBankAccountPathParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
   companyId: string;
 
@@ -11,26 +11,26 @@ export class PostBankAccountPathParams extends SpeakeasyBase {
   connectionId: string;
 }
 
-export class PostBankAccountQueryParams extends SpeakeasyBase {
+export class CreateBankAccountQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=allowSyncOnPushComplete" })
   allowSyncOnPushComplete?: boolean;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=timeoutInMinutes" })
   timeoutInMinutes?: number;
 }
-export enum PostBankAccountSourceModifiedDateAccountTypeEnum {
+export enum CreateBankAccountSourceModifiedDateAccountTypeEnum {
     Unknown = "Unknown",
     Credit = "Credit",
     Debit = "Debit"
 }
 
-export class PostBankAccountSourceModifiedDateMetadata extends SpeakeasyBase {
+export class CreateBankAccountSourceModifiedDateMetadata extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
 }
 
-// PostBankAccountSourceModifiedDate
+// CreateBankAccountSourceModifiedDate
 /** 
  * > **Accessing Bank Accounts through Banking API**
  * > 
@@ -49,7 +49,7 @@ export class PostBankAccountSourceModifiedDateMetadata extends SpeakeasyBase {
  * * The currency and balance of the account.
  * * The sort code and account number.
 **/
-export class PostBankAccountSourceModifiedDate extends SpeakeasyBase {
+export class CreateBankAccountSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountName" })
   accountName?: string;
@@ -60,7 +60,7 @@ export class PostBankAccountSourceModifiedDate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "accountType" })
-  accountType?: PostBankAccountSourceModifiedDateAccountTypeEnum;
+  accountType?: CreateBankAccountSourceModifiedDateAccountTypeEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "availableBalance" })
@@ -88,8 +88,8 @@ export class PostBankAccountSourceModifiedDate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => PostBankAccountSourceModifiedDateMetadata)
-  metadata?: PostBankAccountSourceModifiedDateMetadata;
+  @Type(() => CreateBankAccountSourceModifiedDateMetadata)
+  metadata?: CreateBankAccountSourceModifiedDateMetadata;
 
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
@@ -114,18 +114,18 @@ export class PostBankAccountSourceModifiedDate extends SpeakeasyBase {
   sourceModifiedDate?: Date;
 }
 
-export class PostBankAccountRequest extends SpeakeasyBase {
+export class CreateBankAccountRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
-  pathParams: PostBankAccountPathParams;
+  pathParams: CreateBankAccountPathParams;
 
   @SpeakeasyMetadata()
-  queryParams: PostBankAccountQueryParams;
+  queryParams: CreateBankAccountQueryParams;
 
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: PostBankAccountSourceModifiedDate;
+  request?: CreateBankAccountSourceModifiedDate;
 }
 
-export class PostBankAccount200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
+export class CreateBankAccount200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
   dataType?: string;
@@ -134,7 +134,7 @@ export class PostBankAccount200ApplicationJSONChangesPushOperationRecordRef exte
   @Expose({ name: "id" })
   id?: string;
 }
-export enum PostBankAccount200ApplicationJSONChangesTypeEnum {
+export enum CreateBankAccount200ApplicationJSONChangesTypeEnum {
     Unknown = "Unknown",
     Created = "Created",
     Modified = "Modified",
@@ -142,33 +142,33 @@ export enum PostBankAccount200ApplicationJSONChangesTypeEnum {
     AttachmentUploaded = "AttachmentUploaded"
 }
 
-export class PostBankAccount200ApplicationJSONChanges extends SpeakeasyBase {
+export class CreateBankAccount200ApplicationJSONChanges extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "attachmentId" })
   attachmentId?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "recordRef" })
-  @Type(() => PostBankAccount200ApplicationJSONChangesPushOperationRecordRef)
-  recordRef?: PostBankAccount200ApplicationJSONChangesPushOperationRecordRef;
+  @Type(() => CreateBankAccount200ApplicationJSONChangesPushOperationRecordRef)
+  recordRef?: CreateBankAccount200ApplicationJSONChangesPushOperationRecordRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: PostBankAccount200ApplicationJSONChangesTypeEnum;
+  type?: CreateBankAccount200ApplicationJSONChangesTypeEnum;
 }
-export enum PostBankAccount200ApplicationJSONSourceModifiedDateAccountTypeEnum {
+export enum CreateBankAccount200ApplicationJSONSourceModifiedDateAccountTypeEnum {
     Unknown = "Unknown",
     Credit = "Credit",
     Debit = "Debit"
 }
 
-export class PostBankAccount200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+export class CreateBankAccount200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
 }
 
-// PostBankAccount200ApplicationJSONSourceModifiedDate
+// CreateBankAccount200ApplicationJSONSourceModifiedDate
 /** 
  * > **Accessing Bank Accounts through Banking API**
  * > 
@@ -187,7 +187,7 @@ export class PostBankAccount200ApplicationJSONSourceModifiedDateMetadata extends
  * * The currency and balance of the account.
  * * The sort code and account number.
 **/
-export class PostBankAccount200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
+export class CreateBankAccount200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountName" })
   accountName?: string;
@@ -198,7 +198,7 @@ export class PostBankAccount200ApplicationJSONSourceModifiedDate extends Speakea
 
   @SpeakeasyMetadata()
   @Expose({ name: "accountType" })
-  accountType?: PostBankAccount200ApplicationJSONSourceModifiedDateAccountTypeEnum;
+  accountType?: CreateBankAccount200ApplicationJSONSourceModifiedDateAccountTypeEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "availableBalance" })
@@ -226,8 +226,8 @@ export class PostBankAccount200ApplicationJSONSourceModifiedDate extends Speakea
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => PostBankAccount200ApplicationJSONSourceModifiedDateMetadata)
-  metadata?: PostBankAccount200ApplicationJSONSourceModifiedDateMetadata;
+  @Type(() => CreateBankAccount200ApplicationJSONSourceModifiedDateMetadata)
+  metadata?: CreateBankAccount200ApplicationJSONSourceModifiedDateMetadata;
 
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
@@ -251,14 +251,14 @@ export class PostBankAccount200ApplicationJSONSourceModifiedDate extends Speakea
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   sourceModifiedDate?: Date;
 }
-export enum PostBankAccount200ApplicationJSONStatusEnum {
+export enum CreateBankAccount200ApplicationJSONStatusEnum {
     Pending = "Pending",
     Failed = "Failed",
     Success = "Success",
     TimedOut = "TimedOut"
 }
 
-export class PostBankAccount200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
+export class CreateBankAccount200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "itemId" })
   itemId?: string;
@@ -272,27 +272,27 @@ export class PostBankAccount200ApplicationJSONValidationValidationItem extends S
   validatorName?: string;
 }
 
-// PostBankAccount200ApplicationJSONValidation
+// CreateBankAccount200ApplicationJSONValidation
 /** 
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
 **/
-export class PostBankAccount200ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PostBankAccount200ApplicationJSONValidationValidationItem })
+export class CreateBankAccount200ApplicationJSONValidation extends SpeakeasyBase {
+  @SpeakeasyMetadata({ elemType: CreateBankAccount200ApplicationJSONValidationValidationItem })
   @Expose({ name: "errors" })
-  @Type(() => PostBankAccount200ApplicationJSONValidationValidationItem)
-  errors?: PostBankAccount200ApplicationJSONValidationValidationItem[];
+  @Type(() => CreateBankAccount200ApplicationJSONValidationValidationItem)
+  errors?: CreateBankAccount200ApplicationJSONValidationValidationItem[];
 
-  @SpeakeasyMetadata({ elemType: PostBankAccount200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({ elemType: CreateBankAccount200ApplicationJSONValidationValidationItem })
   @Expose({ name: "warnings" })
-  @Type(() => PostBankAccount200ApplicationJSONValidationValidationItem)
-  warnings?: PostBankAccount200ApplicationJSONValidationValidationItem[];
+  @Type(() => CreateBankAccount200ApplicationJSONValidationValidationItem)
+  warnings?: CreateBankAccount200ApplicationJSONValidationValidationItem[];
 }
 
-export class PostBankAccount200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PostBankAccount200ApplicationJSONChanges })
+export class CreateBankAccount200ApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ elemType: CreateBankAccount200ApplicationJSONChanges })
   @Expose({ name: "changes" })
-  @Type(() => PostBankAccount200ApplicationJSONChanges)
-  changes?: PostBankAccount200ApplicationJSONChanges[];
+  @Type(() => CreateBankAccount200ApplicationJSONChanges)
+  changes?: CreateBankAccount200ApplicationJSONChanges[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "companyId" })
@@ -305,8 +305,8 @@ export class PostBankAccount200ApplicationJSON extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "data" })
-  @Type(() => PostBankAccount200ApplicationJSONSourceModifiedDate)
-  data?: PostBankAccount200ApplicationJSONSourceModifiedDate;
+  @Type(() => CreateBankAccount200ApplicationJSONSourceModifiedDate)
+  data?: CreateBankAccount200ApplicationJSONSourceModifiedDate;
 
   @SpeakeasyMetadata()
   @Expose({ name: "dataConnectionKey" })
@@ -331,7 +331,7 @@ export class PostBankAccount200ApplicationJSON extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: PostBankAccount200ApplicationJSONStatusEnum;
+  status: CreateBankAccount200ApplicationJSONStatusEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "statusCode" })
@@ -347,11 +347,11 @@ export class PostBankAccount200ApplicationJSON extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => PostBankAccount200ApplicationJSONValidation)
-  validation?: PostBankAccount200ApplicationJSONValidation;
+  @Type(() => CreateBankAccount200ApplicationJSONValidation)
+  validation?: CreateBankAccount200ApplicationJSONValidation;
 }
 
-export class PostBankAccountResponse extends SpeakeasyBase {
+export class CreateBankAccountResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
@@ -362,5 +362,5 @@ export class PostBankAccountResponse extends SpeakeasyBase {
   rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
-  postBankAccount200ApplicationJSONObject?: PostBankAccount200ApplicationJSON;
+  createBankAccount200ApplicationJSONObject?: CreateBankAccount200ApplicationJSON;
 }

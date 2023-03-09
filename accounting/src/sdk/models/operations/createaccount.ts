@@ -3,7 +3,7 @@ import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
-export class PostAccountPathParams extends SpeakeasyBase {
+export class CreateAccountPathParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
   companyId: string;
 
@@ -11,23 +11,23 @@ export class PostAccountPathParams extends SpeakeasyBase {
   connectionId: string;
 }
 
-export class PostAccountQueryParams extends SpeakeasyBase {
+export class CreateAccountQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=timeoutInMinutes" })
   timeoutInMinutes?: number;
 }
 
-export class PostAccountSourceModifiedDateMetadata extends SpeakeasyBase {
+export class CreateAccountSourceModifiedDateMetadata extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
 }
-export enum PostAccountSourceModifiedDateStatusEnum {
+export enum CreateAccountSourceModifiedDateStatusEnum {
     Unknown = "Unknown",
     Active = "Active",
     Archived = "Archived",
     Pending = "Pending"
 }
-export enum PostAccountSourceModifiedDateTypeEnum {
+export enum CreateAccountSourceModifiedDateTypeEnum {
     Unknown = "Unknown",
     Asset = "Asset",
     Expense = "Expense",
@@ -36,7 +36,7 @@ export enum PostAccountSourceModifiedDateTypeEnum {
     Equity = "Equity"
 }
 
-// PostAccountSourceModifiedDateValidDataTypeLinks
+// CreateAccountSourceModifiedDateValidDataTypeLinks
 /** 
  * When querying Codat's data model, some data types return `validDatatypeLinks` metadata in the JSON response. This indicates where that object can be used as a reference—a _valid link_—when creating or updating other data.
  * 
@@ -79,7 +79,7 @@ export enum PostAccountSourceModifiedDateTypeEnum {
  * 
  * If you'd like us to extend support to more data types or integrations, suggest or vote for this on our <a href="https://portal.productboard.com/codat/5-product-roadmap">Product Roadmap</a>.
 **/
-export class PostAccountSourceModifiedDateValidDataTypeLinks extends SpeakeasyBase {
+export class CreateAccountSourceModifiedDateValidDataTypeLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "links" })
   links?: string[];
@@ -89,7 +89,7 @@ export class PostAccountSourceModifiedDateValidDataTypeLinks extends SpeakeasyBa
   property?: string;
 }
 
-// PostAccountSourceModifiedDate
+// CreateAccountSourceModifiedDate
 /** 
  * > **Language tip:** Accounts are also referred to as **chart of accounts**, **nominal accounts**, and **general ledger**.
  * 
@@ -114,7 +114,7 @@ export class PostAccountSourceModifiedDateValidDataTypeLinks extends SpeakeasyBa
  * > 
  * > This approach gives a true representation of the company's accounts whilst preventing distorting financials such as a company's profit and loss and balance sheet reports.
 **/
-export class PostAccountSourceModifiedDate extends SpeakeasyBase {
+export class CreateAccountSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "currency" })
   currency?: string;
@@ -145,8 +145,8 @@ export class PostAccountSourceModifiedDate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => PostAccountSourceModifiedDateMetadata)
-  metadata?: PostAccountSourceModifiedDateMetadata;
+  @Type(() => CreateAccountSourceModifiedDateMetadata)
+  metadata?: CreateAccountSourceModifiedDateMetadata;
 
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
@@ -168,30 +168,30 @@ export class PostAccountSourceModifiedDate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: PostAccountSourceModifiedDateStatusEnum;
+  status: CreateAccountSourceModifiedDateStatusEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: PostAccountSourceModifiedDateTypeEnum;
+  type: CreateAccountSourceModifiedDateTypeEnum;
 
-  @SpeakeasyMetadata({ elemType: PostAccountSourceModifiedDateValidDataTypeLinks })
+  @SpeakeasyMetadata({ elemType: CreateAccountSourceModifiedDateValidDataTypeLinks })
   @Expose({ name: "validDatatypeLinks" })
-  @Type(() => PostAccountSourceModifiedDateValidDataTypeLinks)
-  validDatatypeLinks?: PostAccountSourceModifiedDateValidDataTypeLinks[];
+  @Type(() => CreateAccountSourceModifiedDateValidDataTypeLinks)
+  validDatatypeLinks?: CreateAccountSourceModifiedDateValidDataTypeLinks[];
 }
 
-export class PostAccountRequest extends SpeakeasyBase {
+export class CreateAccountRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
-  pathParams: PostAccountPathParams;
+  pathParams: CreateAccountPathParams;
 
   @SpeakeasyMetadata()
-  queryParams: PostAccountQueryParams;
+  queryParams: CreateAccountQueryParams;
 
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: PostAccountSourceModifiedDate;
+  request?: CreateAccountSourceModifiedDate;
 }
 
-export class PostAccount200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
+export class CreateAccount200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
   dataType?: string;
@@ -200,7 +200,7 @@ export class PostAccount200ApplicationJSONChangesPushOperationRecordRef extends 
   @Expose({ name: "id" })
   id?: string;
 }
-export enum PostAccount200ApplicationJSONChangesTypeEnum {
+export enum CreateAccount200ApplicationJSONChangesTypeEnum {
     Unknown = "Unknown",
     Created = "Created",
     Modified = "Modified",
@@ -208,33 +208,33 @@ export enum PostAccount200ApplicationJSONChangesTypeEnum {
     AttachmentUploaded = "AttachmentUploaded"
 }
 
-export class PostAccount200ApplicationJSONChanges extends SpeakeasyBase {
+export class CreateAccount200ApplicationJSONChanges extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "attachmentId" })
   attachmentId?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "recordRef" })
-  @Type(() => PostAccount200ApplicationJSONChangesPushOperationRecordRef)
-  recordRef?: PostAccount200ApplicationJSONChangesPushOperationRecordRef;
+  @Type(() => CreateAccount200ApplicationJSONChangesPushOperationRecordRef)
+  recordRef?: CreateAccount200ApplicationJSONChangesPushOperationRecordRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: PostAccount200ApplicationJSONChangesTypeEnum;
+  type?: CreateAccount200ApplicationJSONChangesTypeEnum;
 }
 
-export class PostAccount200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+export class CreateAccount200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
 }
-export enum PostAccount200ApplicationJSONSourceModifiedDateStatusEnum {
+export enum CreateAccount200ApplicationJSONSourceModifiedDateStatusEnum {
     Unknown = "Unknown",
     Active = "Active",
     Archived = "Archived",
     Pending = "Pending"
 }
-export enum PostAccount200ApplicationJSONSourceModifiedDateTypeEnum {
+export enum CreateAccount200ApplicationJSONSourceModifiedDateTypeEnum {
     Unknown = "Unknown",
     Asset = "Asset",
     Expense = "Expense",
@@ -243,7 +243,7 @@ export enum PostAccount200ApplicationJSONSourceModifiedDateTypeEnum {
     Equity = "Equity"
 }
 
-// PostAccount200ApplicationJSONSourceModifiedDateValidDataTypeLinks
+// CreateAccount200ApplicationJSONSourceModifiedDateValidDataTypeLinks
 /** 
  * When querying Codat's data model, some data types return `validDatatypeLinks` metadata in the JSON response. This indicates where that object can be used as a reference—a _valid link_—when creating or updating other data.
  * 
@@ -286,7 +286,7 @@ export enum PostAccount200ApplicationJSONSourceModifiedDateTypeEnum {
  * 
  * If you'd like us to extend support to more data types or integrations, suggest or vote for this on our <a href="https://portal.productboard.com/codat/5-product-roadmap">Product Roadmap</a>.
 **/
-export class PostAccount200ApplicationJSONSourceModifiedDateValidDataTypeLinks extends SpeakeasyBase {
+export class CreateAccount200ApplicationJSONSourceModifiedDateValidDataTypeLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "links" })
   links?: string[];
@@ -296,7 +296,7 @@ export class PostAccount200ApplicationJSONSourceModifiedDateValidDataTypeLinks e
   property?: string;
 }
 
-// PostAccount200ApplicationJSONSourceModifiedDate
+// CreateAccount200ApplicationJSONSourceModifiedDate
 /** 
  * > **Language tip:** Accounts are also referred to as **chart of accounts**, **nominal accounts**, and **general ledger**.
  * 
@@ -321,7 +321,7 @@ export class PostAccount200ApplicationJSONSourceModifiedDateValidDataTypeLinks e
  * > 
  * > This approach gives a true representation of the company's accounts whilst preventing distorting financials such as a company's profit and loss and balance sheet reports.
 **/
-export class PostAccount200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
+export class CreateAccount200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "currency" })
   currency?: string;
@@ -352,8 +352,8 @@ export class PostAccount200ApplicationJSONSourceModifiedDate extends SpeakeasyBa
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => PostAccount200ApplicationJSONSourceModifiedDateMetadata)
-  metadata?: PostAccount200ApplicationJSONSourceModifiedDateMetadata;
+  @Type(() => CreateAccount200ApplicationJSONSourceModifiedDateMetadata)
+  metadata?: CreateAccount200ApplicationJSONSourceModifiedDateMetadata;
 
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
@@ -375,25 +375,25 @@ export class PostAccount200ApplicationJSONSourceModifiedDate extends SpeakeasyBa
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: PostAccount200ApplicationJSONSourceModifiedDateStatusEnum;
+  status: CreateAccount200ApplicationJSONSourceModifiedDateStatusEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: PostAccount200ApplicationJSONSourceModifiedDateTypeEnum;
+  type: CreateAccount200ApplicationJSONSourceModifiedDateTypeEnum;
 
-  @SpeakeasyMetadata({ elemType: PostAccount200ApplicationJSONSourceModifiedDateValidDataTypeLinks })
+  @SpeakeasyMetadata({ elemType: CreateAccount200ApplicationJSONSourceModifiedDateValidDataTypeLinks })
   @Expose({ name: "validDatatypeLinks" })
-  @Type(() => PostAccount200ApplicationJSONSourceModifiedDateValidDataTypeLinks)
-  validDatatypeLinks?: PostAccount200ApplicationJSONSourceModifiedDateValidDataTypeLinks[];
+  @Type(() => CreateAccount200ApplicationJSONSourceModifiedDateValidDataTypeLinks)
+  validDatatypeLinks?: CreateAccount200ApplicationJSONSourceModifiedDateValidDataTypeLinks[];
 }
-export enum PostAccount200ApplicationJSONStatusEnum {
+export enum CreateAccount200ApplicationJSONStatusEnum {
     Pending = "Pending",
     Failed = "Failed",
     Success = "Success",
     TimedOut = "TimedOut"
 }
 
-export class PostAccount200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
+export class CreateAccount200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "itemId" })
   itemId?: string;
@@ -407,27 +407,27 @@ export class PostAccount200ApplicationJSONValidationValidationItem extends Speak
   validatorName?: string;
 }
 
-// PostAccount200ApplicationJSONValidation
+// CreateAccount200ApplicationJSONValidation
 /** 
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
 **/
-export class PostAccount200ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PostAccount200ApplicationJSONValidationValidationItem })
+export class CreateAccount200ApplicationJSONValidation extends SpeakeasyBase {
+  @SpeakeasyMetadata({ elemType: CreateAccount200ApplicationJSONValidationValidationItem })
   @Expose({ name: "errors" })
-  @Type(() => PostAccount200ApplicationJSONValidationValidationItem)
-  errors?: PostAccount200ApplicationJSONValidationValidationItem[];
+  @Type(() => CreateAccount200ApplicationJSONValidationValidationItem)
+  errors?: CreateAccount200ApplicationJSONValidationValidationItem[];
 
-  @SpeakeasyMetadata({ elemType: PostAccount200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({ elemType: CreateAccount200ApplicationJSONValidationValidationItem })
   @Expose({ name: "warnings" })
-  @Type(() => PostAccount200ApplicationJSONValidationValidationItem)
-  warnings?: PostAccount200ApplicationJSONValidationValidationItem[];
+  @Type(() => CreateAccount200ApplicationJSONValidationValidationItem)
+  warnings?: CreateAccount200ApplicationJSONValidationValidationItem[];
 }
 
-export class PostAccount200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PostAccount200ApplicationJSONChanges })
+export class CreateAccount200ApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ elemType: CreateAccount200ApplicationJSONChanges })
   @Expose({ name: "changes" })
-  @Type(() => PostAccount200ApplicationJSONChanges)
-  changes?: PostAccount200ApplicationJSONChanges[];
+  @Type(() => CreateAccount200ApplicationJSONChanges)
+  changes?: CreateAccount200ApplicationJSONChanges[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "companyId" })
@@ -440,8 +440,8 @@ export class PostAccount200ApplicationJSON extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "data" })
-  @Type(() => PostAccount200ApplicationJSONSourceModifiedDate)
-  data?: PostAccount200ApplicationJSONSourceModifiedDate;
+  @Type(() => CreateAccount200ApplicationJSONSourceModifiedDate)
+  data?: CreateAccount200ApplicationJSONSourceModifiedDate;
 
   @SpeakeasyMetadata()
   @Expose({ name: "dataConnectionKey" })
@@ -466,7 +466,7 @@ export class PostAccount200ApplicationJSON extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: PostAccount200ApplicationJSONStatusEnum;
+  status: CreateAccount200ApplicationJSONStatusEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "statusCode" })
@@ -482,11 +482,11 @@ export class PostAccount200ApplicationJSON extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => PostAccount200ApplicationJSONValidation)
-  validation?: PostAccount200ApplicationJSONValidation;
+  @Type(() => CreateAccount200ApplicationJSONValidation)
+  validation?: CreateAccount200ApplicationJSONValidation;
 }
 
-export class PostAccountResponse extends SpeakeasyBase {
+export class CreateAccountResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
@@ -497,5 +497,5 @@ export class PostAccountResponse extends SpeakeasyBase {
   rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
-  postAccount200ApplicationJSONObject?: PostAccount200ApplicationJSON;
+  createAccount200ApplicationJSONObject?: CreateAccount200ApplicationJSON;
 }

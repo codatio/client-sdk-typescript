@@ -21,6 +21,134 @@ export class PurchaseOrders {
   }
   
   /**
+   * createPurchaseOrder - Create purchase order
+   *
+   * Posts a new purchase order to the accounting package for a given company.
+   * 
+   * Required data may vary by integration. To see what data to post, first call [Get create/update purchase order model](https://docs.codat.io/accounting-api#/operations/get-create-update-purchaseOrders-model).
+   * 
+   * > **Supported Integrations**
+   * > 
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=purchaseOrders) for integrations that support creating purchase orders.
+  **/
+  createPurchaseOrder(
+    req: operations.CreatePurchaseOrderRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.CreatePurchaseOrderResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.CreatePurchaseOrderRequest(req);
+    }
+    
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/push/purchaseOrders", req.pathParams);
+
+    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+    try {
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new Error(`Error serializing request body, cause: ${e.message}`);
+      }
+    }
+    
+    const client: AxiosInstance = this._securityClient!;
+    
+    const headers = {...reqBodyHeaders, ...config?.headers};
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    
+    const r = client.request({
+      url: url + queryParams,
+      method: "post",
+      headers: headers,
+      data: reqBody, 
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
+        const res: operations.CreatePurchaseOrderResponse =
+            new operations.CreatePurchaseOrderResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
+        switch (true) {
+          case httpRes?.status == 200:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.createPurchaseOrder200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.CreatePurchaseOrder200ApplicationJSON,
+              );
+            }
+            break;
+        }
+
+        return res;
+      })
+  }
+
+  
+  /**
+   * getCreateUpdatePurchaseOrdersModel - Get create/update purchase order model
+   *
+   * Get create/update purchase order model. Returns the expected data for the request payload.
+   * 
+   * See the examples for integration-specific indicative models.
+   * 
+   * > **Supported Integrations**
+   * > 
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=purchaseOrders) for integrations that support creating and updating purchase orders.
+  **/
+  getCreateUpdatePurchaseOrdersModel(
+    req: operations.GetCreateUpdatePurchaseOrdersModelRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.GetCreateUpdatePurchaseOrdersModelResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.GetCreateUpdatePurchaseOrdersModelRequest(req);
+    }
+    
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/options/purchaseOrders", req.pathParams);
+    
+    const client: AxiosInstance = this._securityClient!;
+    
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
+        const res: operations.GetCreateUpdatePurchaseOrdersModelResponse =
+            new operations.GetCreateUpdatePurchaseOrdersModelResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
+        switch (true) {
+          case httpRes?.status == 200:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.pushOption = utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.GetCreateUpdatePurchaseOrdersModelPushOption,
+              );
+            }
+            break;
+        }
+
+        return res;
+      })
+  }
+
+  
+  /**
    * getPurchaseOrder - Get purchase order
    *
    * Get purchase order
@@ -49,14 +177,18 @@ export class PurchaseOrders {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetPurchaseOrderResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetPurchaseOrderResponse =
+            new operations.GetPurchaseOrderResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.sourceModifiedDate = plainToInstance(
+              res.sourceModifiedDate = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetPurchaseOrderSourceModifiedDate,
-                httpRes?.data as operations.GetPurchaseOrderSourceModifiedDate,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -97,79 +229,18 @@ export class PurchaseOrders {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListPurchaseOrdersResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListPurchaseOrdersResponse =
+            new operations.ListPurchaseOrdersResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.links = plainToInstance(
+              res.links = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListPurchaseOrdersLinks,
-                httpRes?.data as operations.ListPurchaseOrdersLinks,
-                { excludeExtraneousValues: true }
-              );
-            }
-            break;
-        }
-
-        return res;
-      })
-  }
-
-  
-  /**
-   * postPurchaseOrder - Create purchase order
-   *
-   * Posts a new purchase order to the accounting package for a given company.
-   * 
-   * > **Supported Integrations**
-   * > 
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=purchaseOrders) for integrations that support POST methods.
-  **/
-  postPurchaseOrder(
-    req: operations.PostPurchaseOrderRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.PostPurchaseOrderResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.PostPurchaseOrderRequest(req);
-    }
-    
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/push/purchaseOrders", req.pathParams);
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-    
-    const client: AxiosInstance = this._securityClient!;
-    
-    const headers = {...reqBodyHeaders, ...config?.headers};
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
-    
-    const r = client.request({
-      url: url + queryParams,
-      method: "post",
-      headers: headers,
-      data: reqBody, 
-      ...config,
-    });
-    
-    return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.PostPurchaseOrderResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.postPurchaseOrder200ApplicationJSONObject = plainToInstance(
-                operations.PostPurchaseOrder200ApplicationJSON,
-                httpRes?.data as operations.PostPurchaseOrder200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -185,9 +256,11 @@ export class PurchaseOrders {
    *
    * Posts an updated purchase order to the accounting package for a given company.
    * 
+   * Required data may vary by integration. To see what data to post, first call []().
+   * 
    * > **Supported Integrations**
    * > 
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=purchaseOrders) for integrations that support PUT methods.
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=purchaseOrders) for integrations that support updating purchase orders.
   **/
   updatePurchaseOrder(
     req: operations.UpdatePurchaseOrderRequest,
@@ -227,14 +300,18 @@ export class PurchaseOrders {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.UpdatePurchaseOrderResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.UpdatePurchaseOrderResponse =
+            new operations.UpdatePurchaseOrderResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.updatePurchaseOrder200ApplicationJSONObject = plainToInstance(
+              res.updatePurchaseOrder200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.UpdatePurchaseOrder200ApplicationJSON,
-                httpRes?.data as operations.UpdatePurchaseOrder200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;

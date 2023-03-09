@@ -1,8 +1,8 @@
 <!-- Start SDK Example Usage -->
 ```typescript
 import {
-  GetAccountTransactionRequest,
-  GetAccountTransactionResponse 
+  GetCreateUpdateAccountTransactionsModelRequest,
+  GetCreateUpdateAccountTransactionsModelResponse 
 } from "@codat/accounting/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
@@ -14,7 +14,7 @@ const sdk = new Codat({
   }
 });
     
-const req: GetAccountTransactionRequest = {
+const req: GetCreateUpdateAccountTransactionsModelRequest = {
   pathParams: {
     accountTransactionId: "unde",
     companyId: "deserunt",
@@ -22,7 +22,7 @@ const req: GetAccountTransactionRequest = {
   },
 };
 
-sdk.accountTransactions.getAccountTransaction(req).then((res: GetAccountTransactionResponse | AxiosError) => {
+sdk.accountTransactions.getCreateUpdateAccountTransactionsModel(req).then((res: GetCreateUpdateAccountTransactionsModelResponse | AxiosError) => {
    // handle response
 });
 ```

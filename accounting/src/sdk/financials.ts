@@ -50,14 +50,18 @@ export class Financials {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetBalanceSheetResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetBalanceSheetResponse =
+            new operations.GetBalanceSheetResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getBalanceSheet200ApplicationJSONObject = plainToInstance(
+              res.getBalanceSheet200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetBalanceSheet200ApplicationJSON,
-                httpRes?.data as operations.GetBalanceSheet200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -98,14 +102,18 @@ export class Financials {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetCashFlowStatementResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetCashFlowStatementResponse =
+            new operations.GetCashFlowStatementResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getCashFlowStatement200ApplicationJSONObject = plainToInstance(
+              res.getCashFlowStatement200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCashFlowStatement200ApplicationJSON,
-                httpRes?.data as operations.GetCashFlowStatement200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -146,14 +154,18 @@ export class Financials {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetProfitAndLossResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetProfitAndLossResponse =
+            new operations.GetProfitAndLossResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getProfitAndLoss200ApplicationJSONObject = plainToInstance(
+              res.getProfitAndLoss200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetProfitAndLoss200ApplicationJSON,
-                httpRes?.data as operations.GetProfitAndLoss200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;

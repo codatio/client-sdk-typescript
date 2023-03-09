@@ -21,9 +21,80 @@ export class Accounts {
   }
   
   /**
+   * createAccount - Create account
+   *
+   * Creates a new account for a given company.
+   * 
+   * Required data may vary by integration. To see what data to post, first call [Get create account model](https://docs.codat.io/accounting-api#/operations/get-create-chartOfAccounts-model).
+   * 
+   * > **Supported Integrations**
+   * > 
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
+  **/
+  createAccount(
+    req: operations.CreateAccountRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.CreateAccountResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.CreateAccountRequest(req);
+    }
+    
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/push/accounts", req.pathParams);
+
+    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+    try {
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new Error(`Error serializing request body, cause: ${e.message}`);
+      }
+    }
+    
+    const client: AxiosInstance = this._securityClient!;
+    
+    const headers = {...reqBodyHeaders, ...config?.headers};
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    
+    const r = client.request({
+      url: url + queryParams,
+      method: "post",
+      headers: headers,
+      data: reqBody, 
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
+        const res: operations.CreateAccountResponse =
+            new operations.CreateAccountResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
+        switch (true) {
+          case httpRes?.status == 200:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.createAccount200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.CreateAccount200ApplicationJSON,
+              );
+            }
+            break;
+        }
+
+        return res;
+      })
+  }
+
+  
+  /**
    * getAccount - Get account
    *
-   * Gets a single account corresponding to the supplied Id
+   * Gets a single account corresponding to the given Id
   **/
   getAccount(
     req: operations.GetAccountRequest,
@@ -49,14 +120,18 @@ export class Accounts {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetAccountResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetAccountResponse =
+            new operations.GetAccountResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.sourceModifiedDate = plainToInstance(
+              res.sourceModifiedDate = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetAccountSourceModifiedDate,
-                httpRes?.data as operations.GetAccountSourceModifiedDate,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -97,14 +172,18 @@ export class Accounts {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetAccountsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetAccountsResponse =
+            new operations.GetAccountsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.links = plainToInstance(
+              res.links = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetAccountsLinks,
-                httpRes?.data as operations.GetAccountsLinks,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -116,45 +195,33 @@ export class Accounts {
 
   
   /**
-   * postAccount - Create account
+   * getCreateChartOfAccountsModel - Get create account model
    *
-   * Posts an individual account for a given company.
+   * Get create account model. Returns the expected data for the request payload.
+   * 
+   * See the examples for integration-specific indicative models.
    * 
    * > **Supported Integrations**
    * > 
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support POST methods.
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
   **/
-  postAccount(
-    req: operations.PostAccountRequest,
+  getCreateChartOfAccountsModel(
+    req: operations.GetCreateChartOfAccountsModelRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.PostAccountResponse> {
+  ): Promise<operations.GetCreateChartOfAccountsModelResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.PostAccountRequest(req);
+      req = new operations.GetCreateChartOfAccountsModelRequest(req);
     }
     
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/push/accounts", req.pathParams);
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/options/chartOfAccounts", req.pathParams);
     
     const client: AxiosInstance = this._securityClient!;
     
-    const headers = {...reqBodyHeaders, ...config?.headers};
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
     
     const r = client.request({
-      url: url + queryParams,
-      method: "post",
-      headers: headers,
-      data: reqBody, 
+      url: url,
+      method: "get",
       ...config,
     });
     
@@ -162,14 +229,18 @@ export class Accounts {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.PostAccountResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetCreateChartOfAccountsModelResponse =
+            new operations.GetCreateChartOfAccountsModelResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.postAccount200ApplicationJSONObject = plainToInstance(
-                operations.PostAccount200ApplicationJSON,
-                httpRes?.data as operations.PostAccount200ApplicationJSON,
-                { excludeExtraneousValues: true }
+              res.pushOption = utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.GetCreateChartOfAccountsModelPushOption,
               );
             }
             break;

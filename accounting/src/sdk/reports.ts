@@ -50,14 +50,18 @@ export class Reports {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetAgedCreditorsReportResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetAgedCreditorsReportResponse =
+            new operations.GetAgedCreditorsReportResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.agedCreditorsReport = plainToInstance(
+              res.agedCreditorsReport = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetAgedCreditorsReportAgedCreditorsReport,
-                httpRes?.data as operations.GetAgedCreditorsReportAgedCreditorsReport,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -98,14 +102,18 @@ export class Reports {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetAgedDebtorsReportResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetAgedDebtorsReportResponse =
+            new operations.GetAgedDebtorsReportResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.agedDebtorsReport = plainToInstance(
+              res.agedDebtorsReport = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetAgedDebtorsReportAgedDebtorsReport,
-                httpRes?.data as operations.GetAgedDebtorsReportAgedDebtorsReport,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -145,7 +153,12 @@ export class Reports {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.IsAgedCreditorsReportAvailableResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.IsAgedCreditorsReportAvailableResponse =
+            new operations.IsAgedCreditorsReportAvailableResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -188,7 +201,12 @@ export class Reports {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.IsAgedDebtorReportAvailableResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.IsAgedDebtorReportAvailableResponse =
+            new operations.IsAgedDebtorReportAvailableResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {

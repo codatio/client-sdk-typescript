@@ -3,7 +3,7 @@ import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
-export class PostCustomerPathParams extends SpeakeasyBase {
+export class CreateCustomerPathParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
   companyId: string;
 
@@ -11,17 +11,17 @@ export class PostCustomerPathParams extends SpeakeasyBase {
   connectionId: string;
 }
 
-export class PostCustomerQueryParams extends SpeakeasyBase {
+export class CreateCustomerQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=timeoutInMinutes" })
   timeoutInMinutes?: number;
 }
-export enum PostCustomerSourceModifiedDateAddressesTypeEnum {
+export enum CreateCustomerSourceModifiedDateAddressesTypeEnum {
     Unknown = "Unknown",
     Billing = "Billing",
     Delivery = "Delivery"
 }
 
-export class PostCustomerSourceModifiedDateAddresses extends SpeakeasyBase {
+export class CreateCustomerSourceModifiedDateAddresses extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "city" })
   city?: string;
@@ -48,19 +48,19 @@ export class PostCustomerSourceModifiedDateAddresses extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: PostCustomerSourceModifiedDateAddressesTypeEnum;
+  type: CreateCustomerSourceModifiedDateAddressesTypeEnum;
 }
-export enum PostCustomerSourceModifiedDateContactsAddressTypeEnum {
+export enum CreateCustomerSourceModifiedDateContactsAddressTypeEnum {
     Unknown = "Unknown",
     Billing = "Billing",
     Delivery = "Delivery"
 }
 
-// PostCustomerSourceModifiedDateContactsAddress
+// CreateCustomerSourceModifiedDateContactsAddress
 /** 
  * An object of Address information.
 **/
-export class PostCustomerSourceModifiedDateContactsAddress extends SpeakeasyBase {
+export class CreateCustomerSourceModifiedDateContactsAddress extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "city" })
   city?: string;
@@ -87,9 +87,9 @@ export class PostCustomerSourceModifiedDateContactsAddress extends SpeakeasyBase
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: PostCustomerSourceModifiedDateContactsAddressTypeEnum;
+  type: CreateCustomerSourceModifiedDateContactsAddressTypeEnum;
 }
-export enum PostCustomerSourceModifiedDateContactsPhoneTypeEnum {
+export enum CreateCustomerSourceModifiedDateContactsPhoneTypeEnum {
     Unknown = "Unknown",
     Primary = "Primary",
     Landline = "Landline",
@@ -97,26 +97,26 @@ export enum PostCustomerSourceModifiedDateContactsPhoneTypeEnum {
     Fax = "Fax"
 }
 
-export class PostCustomerSourceModifiedDateContactsPhone extends SpeakeasyBase {
+export class CreateCustomerSourceModifiedDateContactsPhone extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "number" })
   number?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: PostCustomerSourceModifiedDateContactsPhoneTypeEnum;
+  type: CreateCustomerSourceModifiedDateContactsPhoneTypeEnum;
 }
-export enum PostCustomerSourceModifiedDateContactsStatusEnum {
+export enum CreateCustomerSourceModifiedDateContactsStatusEnum {
     Unknown = "Unknown",
     Active = "Active",
     Archived = "Archived"
 }
 
-export class PostCustomerSourceModifiedDateContacts extends SpeakeasyBase {
+export class CreateCustomerSourceModifiedDateContacts extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "address" })
-  @Type(() => PostCustomerSourceModifiedDateContactsAddress)
-  address?: PostCustomerSourceModifiedDateContactsAddress;
+  @Type(() => CreateCustomerSourceModifiedDateContactsAddress)
+  address?: CreateCustomerSourceModifiedDateContactsAddress;
 
   @SpeakeasyMetadata()
   @Expose({ name: "email" })
@@ -131,38 +131,38 @@ export class PostCustomerSourceModifiedDateContacts extends SpeakeasyBase {
   @Expose({ name: "name" })
   name?: string;
 
-  @SpeakeasyMetadata({ elemType: PostCustomerSourceModifiedDateContactsPhone })
+  @SpeakeasyMetadata({ elemType: CreateCustomerSourceModifiedDateContactsPhone })
   @Expose({ name: "phone" })
-  @Type(() => PostCustomerSourceModifiedDateContactsPhone)
-  phone?: PostCustomerSourceModifiedDateContactsPhone[];
+  @Type(() => CreateCustomerSourceModifiedDateContactsPhone)
+  phone?: CreateCustomerSourceModifiedDateContactsPhone[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: PostCustomerSourceModifiedDateContactsStatusEnum;
+  status: CreateCustomerSourceModifiedDateContactsStatusEnum;
 }
 
-export class PostCustomerSourceModifiedDateMetadata extends SpeakeasyBase {
+export class CreateCustomerSourceModifiedDateMetadata extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
 }
-export enum PostCustomerSourceModifiedDateStatusEnum {
+export enum CreateCustomerSourceModifiedDateStatusEnum {
     Unknown = "Unknown",
     Active = "Active",
     Archived = "Archived"
 }
 
-// PostCustomerSourceModifiedDateSupplementalData
+// CreateCustomerSourceModifiedDateSupplementalData
 /** 
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
 **/
-export class PostCustomerSourceModifiedDateSupplementalData extends SpeakeasyBase {
+export class CreateCustomerSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
   content?: Record<string, Record<string, any>>;
 }
 
-// PostCustomerSourceModifiedDate
+// CreateCustomerSourceModifiedDate
 /** 
  * > View the coverage for customers in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers" target="_blank">Data coverage explorer</a>.
  * 
@@ -173,20 +173,20 @@ export class PostCustomerSourceModifiedDateSupplementalData extends SpeakeasyBas
  * Customers' data links to accounts receivable [invoices](https://docs.codat.io/accounting-api#/schemas/Invoice).
  * 
 **/
-export class PostCustomerSourceModifiedDate extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PostCustomerSourceModifiedDateAddresses })
+export class CreateCustomerSourceModifiedDate extends SpeakeasyBase {
+  @SpeakeasyMetadata({ elemType: CreateCustomerSourceModifiedDateAddresses })
   @Expose({ name: "addresses" })
-  @Type(() => PostCustomerSourceModifiedDateAddresses)
-  addresses?: PostCustomerSourceModifiedDateAddresses[];
+  @Type(() => CreateCustomerSourceModifiedDateAddresses)
+  addresses?: CreateCustomerSourceModifiedDateAddresses[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "contactName" })
   contactName?: string;
 
-  @SpeakeasyMetadata({ elemType: PostCustomerSourceModifiedDateContacts })
+  @SpeakeasyMetadata({ elemType: CreateCustomerSourceModifiedDateContacts })
   @Expose({ name: "contacts" })
-  @Type(() => PostCustomerSourceModifiedDateContacts)
-  contacts?: PostCustomerSourceModifiedDateContacts[];
+  @Type(() => CreateCustomerSourceModifiedDateContacts)
+  contacts?: CreateCustomerSourceModifiedDateContacts[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "customerName" })
@@ -206,8 +206,8 @@ export class PostCustomerSourceModifiedDate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => PostCustomerSourceModifiedDateMetadata)
-  metadata?: PostCustomerSourceModifiedDateMetadata;
+  @Type(() => CreateCustomerSourceModifiedDateMetadata)
+  metadata?: CreateCustomerSourceModifiedDateMetadata;
 
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
@@ -229,30 +229,30 @@ export class PostCustomerSourceModifiedDate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: PostCustomerSourceModifiedDateStatusEnum;
+  status: CreateCustomerSourceModifiedDateStatusEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "supplementalData" })
-  @Type(() => PostCustomerSourceModifiedDateSupplementalData)
-  supplementalData?: PostCustomerSourceModifiedDateSupplementalData;
+  @Type(() => CreateCustomerSourceModifiedDateSupplementalData)
+  supplementalData?: CreateCustomerSourceModifiedDateSupplementalData;
 
   @SpeakeasyMetadata()
   @Expose({ name: "taxNumber" })
   taxNumber?: string;
 }
 
-export class PostCustomerRequest extends SpeakeasyBase {
+export class CreateCustomerRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
-  pathParams: PostCustomerPathParams;
+  pathParams: CreateCustomerPathParams;
 
   @SpeakeasyMetadata()
-  queryParams: PostCustomerQueryParams;
+  queryParams: CreateCustomerQueryParams;
 
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: PostCustomerSourceModifiedDate;
+  request?: CreateCustomerSourceModifiedDate;
 }
 
-export class PostCustomer200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
+export class CreateCustomer200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
   dataType?: string;
@@ -261,7 +261,7 @@ export class PostCustomer200ApplicationJSONChangesPushOperationRecordRef extends
   @Expose({ name: "id" })
   id?: string;
 }
-export enum PostCustomer200ApplicationJSONChangesTypeEnum {
+export enum CreateCustomer200ApplicationJSONChangesTypeEnum {
     Unknown = "Unknown",
     Created = "Created",
     Modified = "Modified",
@@ -269,27 +269,27 @@ export enum PostCustomer200ApplicationJSONChangesTypeEnum {
     AttachmentUploaded = "AttachmentUploaded"
 }
 
-export class PostCustomer200ApplicationJSONChanges extends SpeakeasyBase {
+export class CreateCustomer200ApplicationJSONChanges extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "attachmentId" })
   attachmentId?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "recordRef" })
-  @Type(() => PostCustomer200ApplicationJSONChangesPushOperationRecordRef)
-  recordRef?: PostCustomer200ApplicationJSONChangesPushOperationRecordRef;
+  @Type(() => CreateCustomer200ApplicationJSONChangesPushOperationRecordRef)
+  recordRef?: CreateCustomer200ApplicationJSONChangesPushOperationRecordRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: PostCustomer200ApplicationJSONChangesTypeEnum;
+  type?: CreateCustomer200ApplicationJSONChangesTypeEnum;
 }
-export enum PostCustomer200ApplicationJSONSourceModifiedDateAddressesTypeEnum {
+export enum CreateCustomer200ApplicationJSONSourceModifiedDateAddressesTypeEnum {
     Unknown = "Unknown",
     Billing = "Billing",
     Delivery = "Delivery"
 }
 
-export class PostCustomer200ApplicationJSONSourceModifiedDateAddresses extends SpeakeasyBase {
+export class CreateCustomer200ApplicationJSONSourceModifiedDateAddresses extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "city" })
   city?: string;
@@ -316,19 +316,19 @@ export class PostCustomer200ApplicationJSONSourceModifiedDateAddresses extends S
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: PostCustomer200ApplicationJSONSourceModifiedDateAddressesTypeEnum;
+  type: CreateCustomer200ApplicationJSONSourceModifiedDateAddressesTypeEnum;
 }
-export enum PostCustomer200ApplicationJSONSourceModifiedDateContactsAddressTypeEnum {
+export enum CreateCustomer200ApplicationJSONSourceModifiedDateContactsAddressTypeEnum {
     Unknown = "Unknown",
     Billing = "Billing",
     Delivery = "Delivery"
 }
 
-// PostCustomer200ApplicationJSONSourceModifiedDateContactsAddress
+// CreateCustomer200ApplicationJSONSourceModifiedDateContactsAddress
 /** 
  * An object of Address information.
 **/
-export class PostCustomer200ApplicationJSONSourceModifiedDateContactsAddress extends SpeakeasyBase {
+export class CreateCustomer200ApplicationJSONSourceModifiedDateContactsAddress extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "city" })
   city?: string;
@@ -355,9 +355,9 @@ export class PostCustomer200ApplicationJSONSourceModifiedDateContactsAddress ext
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: PostCustomer200ApplicationJSONSourceModifiedDateContactsAddressTypeEnum;
+  type: CreateCustomer200ApplicationJSONSourceModifiedDateContactsAddressTypeEnum;
 }
-export enum PostCustomer200ApplicationJSONSourceModifiedDateContactsPhoneTypeEnum {
+export enum CreateCustomer200ApplicationJSONSourceModifiedDateContactsPhoneTypeEnum {
     Unknown = "Unknown",
     Primary = "Primary",
     Landline = "Landline",
@@ -365,26 +365,26 @@ export enum PostCustomer200ApplicationJSONSourceModifiedDateContactsPhoneTypeEnu
     Fax = "Fax"
 }
 
-export class PostCustomer200ApplicationJSONSourceModifiedDateContactsPhone extends SpeakeasyBase {
+export class CreateCustomer200ApplicationJSONSourceModifiedDateContactsPhone extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "number" })
   number?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: PostCustomer200ApplicationJSONSourceModifiedDateContactsPhoneTypeEnum;
+  type: CreateCustomer200ApplicationJSONSourceModifiedDateContactsPhoneTypeEnum;
 }
-export enum PostCustomer200ApplicationJSONSourceModifiedDateContactsStatusEnum {
+export enum CreateCustomer200ApplicationJSONSourceModifiedDateContactsStatusEnum {
     Unknown = "Unknown",
     Active = "Active",
     Archived = "Archived"
 }
 
-export class PostCustomer200ApplicationJSONSourceModifiedDateContacts extends SpeakeasyBase {
+export class CreateCustomer200ApplicationJSONSourceModifiedDateContacts extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "address" })
-  @Type(() => PostCustomer200ApplicationJSONSourceModifiedDateContactsAddress)
-  address?: PostCustomer200ApplicationJSONSourceModifiedDateContactsAddress;
+  @Type(() => CreateCustomer200ApplicationJSONSourceModifiedDateContactsAddress)
+  address?: CreateCustomer200ApplicationJSONSourceModifiedDateContactsAddress;
 
   @SpeakeasyMetadata()
   @Expose({ name: "email" })
@@ -399,38 +399,38 @@ export class PostCustomer200ApplicationJSONSourceModifiedDateContacts extends Sp
   @Expose({ name: "name" })
   name?: string;
 
-  @SpeakeasyMetadata({ elemType: PostCustomer200ApplicationJSONSourceModifiedDateContactsPhone })
+  @SpeakeasyMetadata({ elemType: CreateCustomer200ApplicationJSONSourceModifiedDateContactsPhone })
   @Expose({ name: "phone" })
-  @Type(() => PostCustomer200ApplicationJSONSourceModifiedDateContactsPhone)
-  phone?: PostCustomer200ApplicationJSONSourceModifiedDateContactsPhone[];
+  @Type(() => CreateCustomer200ApplicationJSONSourceModifiedDateContactsPhone)
+  phone?: CreateCustomer200ApplicationJSONSourceModifiedDateContactsPhone[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: PostCustomer200ApplicationJSONSourceModifiedDateContactsStatusEnum;
+  status: CreateCustomer200ApplicationJSONSourceModifiedDateContactsStatusEnum;
 }
 
-export class PostCustomer200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+export class CreateCustomer200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
 }
-export enum PostCustomer200ApplicationJSONSourceModifiedDateStatusEnum {
+export enum CreateCustomer200ApplicationJSONSourceModifiedDateStatusEnum {
     Unknown = "Unknown",
     Active = "Active",
     Archived = "Archived"
 }
 
-// PostCustomer200ApplicationJSONSourceModifiedDateSupplementalData
+// CreateCustomer200ApplicationJSONSourceModifiedDateSupplementalData
 /** 
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
 **/
-export class PostCustomer200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
+export class CreateCustomer200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
   content?: Record<string, Record<string, any>>;
 }
 
-// PostCustomer200ApplicationJSONSourceModifiedDate
+// CreateCustomer200ApplicationJSONSourceModifiedDate
 /** 
  * > View the coverage for customers in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers" target="_blank">Data coverage explorer</a>.
  * 
@@ -441,20 +441,20 @@ export class PostCustomer200ApplicationJSONSourceModifiedDateSupplementalData ex
  * Customers' data links to accounts receivable [invoices](https://docs.codat.io/accounting-api#/schemas/Invoice).
  * 
 **/
-export class PostCustomer200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PostCustomer200ApplicationJSONSourceModifiedDateAddresses })
+export class CreateCustomer200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
+  @SpeakeasyMetadata({ elemType: CreateCustomer200ApplicationJSONSourceModifiedDateAddresses })
   @Expose({ name: "addresses" })
-  @Type(() => PostCustomer200ApplicationJSONSourceModifiedDateAddresses)
-  addresses?: PostCustomer200ApplicationJSONSourceModifiedDateAddresses[];
+  @Type(() => CreateCustomer200ApplicationJSONSourceModifiedDateAddresses)
+  addresses?: CreateCustomer200ApplicationJSONSourceModifiedDateAddresses[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "contactName" })
   contactName?: string;
 
-  @SpeakeasyMetadata({ elemType: PostCustomer200ApplicationJSONSourceModifiedDateContacts })
+  @SpeakeasyMetadata({ elemType: CreateCustomer200ApplicationJSONSourceModifiedDateContacts })
   @Expose({ name: "contacts" })
-  @Type(() => PostCustomer200ApplicationJSONSourceModifiedDateContacts)
-  contacts?: PostCustomer200ApplicationJSONSourceModifiedDateContacts[];
+  @Type(() => CreateCustomer200ApplicationJSONSourceModifiedDateContacts)
+  contacts?: CreateCustomer200ApplicationJSONSourceModifiedDateContacts[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "customerName" })
@@ -474,8 +474,8 @@ export class PostCustomer200ApplicationJSONSourceModifiedDate extends SpeakeasyB
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => PostCustomer200ApplicationJSONSourceModifiedDateMetadata)
-  metadata?: PostCustomer200ApplicationJSONSourceModifiedDateMetadata;
+  @Type(() => CreateCustomer200ApplicationJSONSourceModifiedDateMetadata)
+  metadata?: CreateCustomer200ApplicationJSONSourceModifiedDateMetadata;
 
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
@@ -497,25 +497,25 @@ export class PostCustomer200ApplicationJSONSourceModifiedDate extends SpeakeasyB
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: PostCustomer200ApplicationJSONSourceModifiedDateStatusEnum;
+  status: CreateCustomer200ApplicationJSONSourceModifiedDateStatusEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "supplementalData" })
-  @Type(() => PostCustomer200ApplicationJSONSourceModifiedDateSupplementalData)
-  supplementalData?: PostCustomer200ApplicationJSONSourceModifiedDateSupplementalData;
+  @Type(() => CreateCustomer200ApplicationJSONSourceModifiedDateSupplementalData)
+  supplementalData?: CreateCustomer200ApplicationJSONSourceModifiedDateSupplementalData;
 
   @SpeakeasyMetadata()
   @Expose({ name: "taxNumber" })
   taxNumber?: string;
 }
-export enum PostCustomer200ApplicationJSONStatusEnum {
+export enum CreateCustomer200ApplicationJSONStatusEnum {
     Pending = "Pending",
     Failed = "Failed",
     Success = "Success",
     TimedOut = "TimedOut"
 }
 
-export class PostCustomer200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
+export class CreateCustomer200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "itemId" })
   itemId?: string;
@@ -529,27 +529,27 @@ export class PostCustomer200ApplicationJSONValidationValidationItem extends Spea
   validatorName?: string;
 }
 
-// PostCustomer200ApplicationJSONValidation
+// CreateCustomer200ApplicationJSONValidation
 /** 
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
 **/
-export class PostCustomer200ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PostCustomer200ApplicationJSONValidationValidationItem })
+export class CreateCustomer200ApplicationJSONValidation extends SpeakeasyBase {
+  @SpeakeasyMetadata({ elemType: CreateCustomer200ApplicationJSONValidationValidationItem })
   @Expose({ name: "errors" })
-  @Type(() => PostCustomer200ApplicationJSONValidationValidationItem)
-  errors?: PostCustomer200ApplicationJSONValidationValidationItem[];
+  @Type(() => CreateCustomer200ApplicationJSONValidationValidationItem)
+  errors?: CreateCustomer200ApplicationJSONValidationValidationItem[];
 
-  @SpeakeasyMetadata({ elemType: PostCustomer200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({ elemType: CreateCustomer200ApplicationJSONValidationValidationItem })
   @Expose({ name: "warnings" })
-  @Type(() => PostCustomer200ApplicationJSONValidationValidationItem)
-  warnings?: PostCustomer200ApplicationJSONValidationValidationItem[];
+  @Type(() => CreateCustomer200ApplicationJSONValidationValidationItem)
+  warnings?: CreateCustomer200ApplicationJSONValidationValidationItem[];
 }
 
-export class PostCustomer200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PostCustomer200ApplicationJSONChanges })
+export class CreateCustomer200ApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ elemType: CreateCustomer200ApplicationJSONChanges })
   @Expose({ name: "changes" })
-  @Type(() => PostCustomer200ApplicationJSONChanges)
-  changes?: PostCustomer200ApplicationJSONChanges[];
+  @Type(() => CreateCustomer200ApplicationJSONChanges)
+  changes?: CreateCustomer200ApplicationJSONChanges[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "companyId" })
@@ -562,8 +562,8 @@ export class PostCustomer200ApplicationJSON extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "data" })
-  @Type(() => PostCustomer200ApplicationJSONSourceModifiedDate)
-  data?: PostCustomer200ApplicationJSONSourceModifiedDate;
+  @Type(() => CreateCustomer200ApplicationJSONSourceModifiedDate)
+  data?: CreateCustomer200ApplicationJSONSourceModifiedDate;
 
   @SpeakeasyMetadata()
   @Expose({ name: "dataConnectionKey" })
@@ -588,7 +588,7 @@ export class PostCustomer200ApplicationJSON extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: PostCustomer200ApplicationJSONStatusEnum;
+  status: CreateCustomer200ApplicationJSONStatusEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "statusCode" })
@@ -604,11 +604,11 @@ export class PostCustomer200ApplicationJSON extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => PostCustomer200ApplicationJSONValidation)
-  validation?: PostCustomer200ApplicationJSONValidation;
+  @Type(() => CreateCustomer200ApplicationJSONValidation)
+  validation?: CreateCustomer200ApplicationJSONValidation;
 }
 
-export class PostCustomerResponse extends SpeakeasyBase {
+export class CreateCustomerResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
@@ -619,5 +619,5 @@ export class PostCustomerResponse extends SpeakeasyBase {
   rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
-  postCustomer200ApplicationJSONObject?: PostCustomer200ApplicationJSON;
+  createCustomer200ApplicationJSONObject?: CreateCustomer200ApplicationJSON;
 }

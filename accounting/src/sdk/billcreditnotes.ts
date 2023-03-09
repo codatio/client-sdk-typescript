@@ -25,9 +25,11 @@ export class BillCreditNotes {
    *
    * Posts a new billCreditNote to the accounting package for a given company.
    * 
+   * Required data may vary by integration. To see what data to post, first call [Get create/update bill credit note model](https://docs.codat.io/accounting-api#/operations/get-create-update-billCreditNotes-model).
+   * 
    * > **Supported Integrations**
    * > 
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billCreditNotes) for integrations that support POST methods.
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billCreditNotes) for integrations that support creating bill credit notes.
   **/
   createBillCreditNote(
     req: operations.CreateBillCreditNoteRequest,
@@ -67,14 +69,18 @@ export class BillCreditNotes {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateBillCreditNoteResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreateBillCreditNoteResponse =
+            new operations.CreateBillCreditNoteResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.createBillCreditNote200ApplicationJSONObject = plainToInstance(
+              res.createBillCreditNote200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.CreateBillCreditNote200ApplicationJSON,
-                httpRes?.data as operations.CreateBillCreditNote200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -88,7 +94,7 @@ export class BillCreditNotes {
   /**
    * getBillCreditNote - Get bill credit note
    *
-   * Gets a single billCreditNote corresponding to the supplied Id
+   * Gets a single billCreditNote corresponding to the given Id
   **/
   getBillCreditNote(
     req: operations.GetBillCreditNoteRequest,
@@ -114,14 +120,73 @@ export class BillCreditNotes {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetBillCreditNoteResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetBillCreditNoteResponse =
+            new operations.GetBillCreditNoteResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.sourceModifiedDate = plainToInstance(
+              res.sourceModifiedDate = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetBillCreditNoteSourceModifiedDate,
-                httpRes?.data as operations.GetBillCreditNoteSourceModifiedDate,
-                { excludeExtraneousValues: true }
+              );
+            }
+            break;
+        }
+
+        return res;
+      })
+  }
+
+  
+  /**
+   * getCreateUpdateBillCreditNotesModel - Get create/update bill credit note model
+   *
+   * Get create/update bill credit note model.
+   * 
+   * > **Supported Integrations**
+   * > 
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billCreditNotes) for integrations that support creating and updating bill credit notes.
+  **/
+  getCreateUpdateBillCreditNotesModel(
+    req: operations.GetCreateUpdateBillCreditNotesModelRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.GetCreateUpdateBillCreditNotesModelResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.GetCreateUpdateBillCreditNotesModelRequest(req);
+    }
+    
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/options/billCreditNotes", req.pathParams);
+    
+    const client: AxiosInstance = this._securityClient!;
+    
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
+        const res: operations.GetCreateUpdateBillCreditNotesModelResponse =
+            new operations.GetCreateUpdateBillCreditNotesModelResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
+        switch (true) {
+          case httpRes?.status == 200:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.pushOption = utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.GetCreateUpdateBillCreditNotesModelPushOption,
               );
             }
             break;
@@ -162,14 +227,18 @@ export class BillCreditNotes {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListBillCreditNotesResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListBillCreditNotesResponse =
+            new operations.ListBillCreditNotesResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.links = plainToInstance(
+              res.links = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListBillCreditNotesLinks,
-                httpRes?.data as operations.ListBillCreditNotesLinks,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -185,9 +254,11 @@ export class BillCreditNotes {
    *
    * Posts an updated billCreditNote to the accounting package for a given company.
    * 
+   * Required data may vary by integration. To see what data to post, first call [Get create/update bill credit note model](https://docs.codat.io/accounting-api#/operations/get-create-update-billCreditNotes-model).
+   * 
    * > **Supported Integrations**
    * > 
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billCreditNotes) for integrations that support PUT methods.
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billCreditNotes) for integrations that support updating bill credit notes.
   **/
   updateBillCreditNote(
     req: operations.UpdateBillCreditNoteRequest,
@@ -227,14 +298,18 @@ export class BillCreditNotes {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.UpdateBillCreditNoteResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.UpdateBillCreditNoteResponse =
+            new operations.UpdateBillCreditNoteResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.updateBillCreditNote200ApplicationJSONObject = plainToInstance(
+              res.updateBillCreditNote200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.UpdateBillCreditNote200ApplicationJSON,
-                httpRes?.data as operations.UpdateBillCreditNote200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;

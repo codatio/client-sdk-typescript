@@ -3,7 +3,7 @@ import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
-export class PostDirectIncomePathParams extends SpeakeasyBase {
+export class CreateDirectIncomePathParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
   companyId: string;
 
@@ -11,16 +11,16 @@ export class PostDirectIncomePathParams extends SpeakeasyBase {
   connectionId: string;
 }
 
-export class PostDirectIncomeQueryParams extends SpeakeasyBase {
+export class CreateDirectIncomeQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=timeoutInMinutes" })
   timeoutInMinutes?: number;
 }
 
-// PostDirectIncomeSourceModifiedDateContactRef
+// CreateDirectIncomeSourceModifiedDateContactRef
 /** 
  * A customer or supplier associated with the direct income.
 **/
-export class PostDirectIncomeSourceModifiedDateContactRef extends SpeakeasyBase {
+export class CreateDirectIncomeSourceModifiedDateContactRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
   dataType?: string;
@@ -30,11 +30,11 @@ export class PostDirectIncomeSourceModifiedDateContactRef extends SpeakeasyBase 
   id: string;
 }
 
-// PostDirectIncomeSourceModifiedDateLineItemsAccountRef
+// CreateDirectIncomeSourceModifiedDateLineItemsAccountRef
 /** 
  * Reference to the account to which the line item is linked.
 **/
-export class PostDirectIncomeSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
+export class CreateDirectIncomeSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
@@ -44,11 +44,11 @@ export class PostDirectIncomeSourceModifiedDateLineItemsAccountRef extends Speak
   name?: string;
 }
 
-// PostDirectIncomeSourceModifiedDateLineItemsItemRef
+// CreateDirectIncomeSourceModifiedDateLineItemsItemRef
 /** 
  * Reference to the product, service type, or inventory item to which the direct cost is linked.
 **/
-export class PostDirectIncomeSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
+export class CreateDirectIncomeSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -58,11 +58,11 @@ export class PostDirectIncomeSourceModifiedDateLineItemsItemRef extends Speakeas
   name?: string;
 }
 
-// PostDirectIncomeSourceModifiedDateLineItemsTaxRateRef
+// CreateDirectIncomeSourceModifiedDateLineItemsTaxRateRef
 /** 
  * Reference to the tax rate to which the line item is linked.
 **/
-export class PostDirectIncomeSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
+export class CreateDirectIncomeSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
   effectiveTaxRate?: number;
@@ -76,7 +76,7 @@ export class PostDirectIncomeSourceModifiedDateLineItemsTaxRateRef extends Speak
   name?: string;
 }
 
-export class PostDirectIncomeSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
+export class CreateDirectIncomeSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -86,11 +86,11 @@ export class PostDirectIncomeSourceModifiedDateLineItemsTrackingCategoryRefs ext
   name?: string;
 }
 
-export class PostDirectIncomeSourceModifiedDateLineItems extends SpeakeasyBase {
+export class CreateDirectIncomeSourceModifiedDateLineItems extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => PostDirectIncomeSourceModifiedDateLineItemsAccountRef)
-  accountRef?: PostDirectIncomeSourceModifiedDateLineItemsAccountRef;
+  @Type(() => CreateDirectIncomeSourceModifiedDateLineItemsAccountRef)
+  accountRef?: CreateDirectIncomeSourceModifiedDateLineItemsAccountRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "description" })
@@ -106,8 +106,8 @@ export class PostDirectIncomeSourceModifiedDateLineItems extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "itemRef" })
-  @Type(() => PostDirectIncomeSourceModifiedDateLineItemsItemRef)
-  itemRef?: PostDirectIncomeSourceModifiedDateLineItemsItemRef;
+  @Type(() => CreateDirectIncomeSourceModifiedDateLineItemsItemRef)
+  itemRef?: CreateDirectIncomeSourceModifiedDateLineItemsItemRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "quantity" })
@@ -123,30 +123,30 @@ export class PostDirectIncomeSourceModifiedDateLineItems extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "taxRateRef" })
-  @Type(() => PostDirectIncomeSourceModifiedDateLineItemsTaxRateRef)
-  taxRateRef?: PostDirectIncomeSourceModifiedDateLineItemsTaxRateRef;
+  @Type(() => CreateDirectIncomeSourceModifiedDateLineItemsTaxRateRef)
+  taxRateRef?: CreateDirectIncomeSourceModifiedDateLineItemsTaxRateRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalAmount" })
   totalAmount?: number;
 
-  @SpeakeasyMetadata({ elemType: PostDirectIncomeSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({ elemType: CreateDirectIncomeSourceModifiedDateLineItemsTrackingCategoryRefs })
   @Expose({ name: "trackingCategoryRefs" })
-  @Type(() => PostDirectIncomeSourceModifiedDateLineItemsTrackingCategoryRefs)
-  trackingCategoryRefs?: PostDirectIncomeSourceModifiedDateLineItemsTrackingCategoryRefs[];
+  @Type(() => CreateDirectIncomeSourceModifiedDateLineItemsTrackingCategoryRefs)
+  trackingCategoryRefs?: CreateDirectIncomeSourceModifiedDateLineItemsTrackingCategoryRefs[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "unitAmount" })
   unitAmount: number;
 }
 
-export class PostDirectIncomeSourceModifiedDateMetadata extends SpeakeasyBase {
+export class CreateDirectIncomeSourceModifiedDateMetadata extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
 }
 
-export class PostDirectIncomeSourceModifiedDatePaymentAllocationsAllocation extends SpeakeasyBase {
+export class CreateDirectIncomeSourceModifiedDatePaymentAllocationsAllocation extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "allocatedOnDate" })
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
@@ -165,11 +165,11 @@ export class PostDirectIncomeSourceModifiedDatePaymentAllocationsAllocation exte
   totalAmount?: number;
 }
 
-// PostDirectIncomeSourceModifiedDatePaymentAllocationsPaymentAccountRef
+// CreateDirectIncomeSourceModifiedDatePaymentAllocationsPaymentAccountRef
 /** 
  * The account that the allocated payment is made from or to.
 **/
-export class PostDirectIncomeSourceModifiedDatePaymentAllocationsPaymentAccountRef extends SpeakeasyBase {
+export class CreateDirectIncomeSourceModifiedDatePaymentAllocationsPaymentAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
@@ -179,11 +179,11 @@ export class PostDirectIncomeSourceModifiedDatePaymentAllocationsPaymentAccountR
   name?: string;
 }
 
-export class PostDirectIncomeSourceModifiedDatePaymentAllocationsPayment extends SpeakeasyBase {
+export class CreateDirectIncomeSourceModifiedDatePaymentAllocationsPayment extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => PostDirectIncomeSourceModifiedDatePaymentAllocationsPaymentAccountRef)
-  accountRef?: PostDirectIncomeSourceModifiedDatePaymentAllocationsPaymentAccountRef;
+  @Type(() => CreateDirectIncomeSourceModifiedDatePaymentAllocationsPaymentAccountRef)
+  accountRef?: CreateDirectIncomeSourceModifiedDatePaymentAllocationsPaymentAccountRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "currency" })
@@ -215,29 +215,29 @@ export class PostDirectIncomeSourceModifiedDatePaymentAllocationsPayment extends
   totalAmount?: number;
 }
 
-export class PostDirectIncomeSourceModifiedDatePaymentAllocations extends SpeakeasyBase {
+export class CreateDirectIncomeSourceModifiedDatePaymentAllocations extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "allocation" })
-  @Type(() => PostDirectIncomeSourceModifiedDatePaymentAllocationsAllocation)
-  allocation: PostDirectIncomeSourceModifiedDatePaymentAllocationsAllocation;
+  @Type(() => CreateDirectIncomeSourceModifiedDatePaymentAllocationsAllocation)
+  allocation: CreateDirectIncomeSourceModifiedDatePaymentAllocationsAllocation;
 
   @SpeakeasyMetadata()
   @Expose({ name: "payment" })
-  @Type(() => PostDirectIncomeSourceModifiedDatePaymentAllocationsPayment)
-  payment: PostDirectIncomeSourceModifiedDatePaymentAllocationsPayment;
+  @Type(() => CreateDirectIncomeSourceModifiedDatePaymentAllocationsPayment)
+  payment: CreateDirectIncomeSourceModifiedDatePaymentAllocationsPayment;
 }
 
-// PostDirectIncomeSourceModifiedDateSupplementalData
+// CreateDirectIncomeSourceModifiedDateSupplementalData
 /** 
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
 **/
-export class PostDirectIncomeSourceModifiedDateSupplementalData extends SpeakeasyBase {
+export class CreateDirectIncomeSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
   content?: Record<string, Record<string, any>>;
 }
 
-// PostDirectIncomeSourceModifiedDate
+// CreateDirectIncomeSourceModifiedDate
 /** 
  * > **Language tip:**  Direct incomes may also be referred to as **Receive transactions**, **Receive money transactions**, **Sales receipts**, or **Cash sales** in various accounting platforms.
  * 
@@ -260,11 +260,11 @@ export class PostDirectIncomeSourceModifiedDateSupplementalData extends Speakeas
  * Direct incomes is a child data type of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction).
  * 
 **/
-export class PostDirectIncomeSourceModifiedDate extends SpeakeasyBase {
+export class CreateDirectIncomeSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "contactRef" })
-  @Type(() => PostDirectIncomeSourceModifiedDateContactRef)
-  contactRef?: PostDirectIncomeSourceModifiedDateContactRef;
+  @Type(() => CreateDirectIncomeSourceModifiedDateContactRef)
+  contactRef?: CreateDirectIncomeSourceModifiedDateContactRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "currency" })
@@ -283,15 +283,15 @@ export class PostDirectIncomeSourceModifiedDate extends SpeakeasyBase {
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   issueDate: Date;
 
-  @SpeakeasyMetadata({ elemType: PostDirectIncomeSourceModifiedDateLineItems })
+  @SpeakeasyMetadata({ elemType: CreateDirectIncomeSourceModifiedDateLineItems })
   @Expose({ name: "lineItems" })
-  @Type(() => PostDirectIncomeSourceModifiedDateLineItems)
-  lineItems: PostDirectIncomeSourceModifiedDateLineItems[];
+  @Type(() => CreateDirectIncomeSourceModifiedDateLineItems)
+  lineItems: CreateDirectIncomeSourceModifiedDateLineItems[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => PostDirectIncomeSourceModifiedDateMetadata)
-  metadata?: PostDirectIncomeSourceModifiedDateMetadata;
+  @Type(() => CreateDirectIncomeSourceModifiedDateMetadata)
+  metadata?: CreateDirectIncomeSourceModifiedDateMetadata;
 
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
@@ -302,10 +302,10 @@ export class PostDirectIncomeSourceModifiedDate extends SpeakeasyBase {
   @Expose({ name: "note" })
   note?: string;
 
-  @SpeakeasyMetadata({ elemType: PostDirectIncomeSourceModifiedDatePaymentAllocations })
+  @SpeakeasyMetadata({ elemType: CreateDirectIncomeSourceModifiedDatePaymentAllocations })
   @Expose({ name: "paymentAllocations" })
-  @Type(() => PostDirectIncomeSourceModifiedDatePaymentAllocations)
-  paymentAllocations: PostDirectIncomeSourceModifiedDatePaymentAllocations[];
+  @Type(() => CreateDirectIncomeSourceModifiedDatePaymentAllocations)
+  paymentAllocations: CreateDirectIncomeSourceModifiedDatePaymentAllocations[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "reference" })
@@ -322,8 +322,8 @@ export class PostDirectIncomeSourceModifiedDate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "supplementalData" })
-  @Type(() => PostDirectIncomeSourceModifiedDateSupplementalData)
-  supplementalData?: PostDirectIncomeSourceModifiedDateSupplementalData;
+  @Type(() => CreateDirectIncomeSourceModifiedDateSupplementalData)
+  supplementalData?: CreateDirectIncomeSourceModifiedDateSupplementalData;
 
   @SpeakeasyMetadata()
   @Expose({ name: "taxAmount" })
@@ -334,18 +334,18 @@ export class PostDirectIncomeSourceModifiedDate extends SpeakeasyBase {
   totalAmount: number;
 }
 
-export class PostDirectIncomeRequest extends SpeakeasyBase {
+export class CreateDirectIncomeRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
-  pathParams: PostDirectIncomePathParams;
+  pathParams: CreateDirectIncomePathParams;
 
   @SpeakeasyMetadata()
-  queryParams: PostDirectIncomeQueryParams;
+  queryParams: CreateDirectIncomeQueryParams;
 
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: PostDirectIncomeSourceModifiedDate;
+  request?: CreateDirectIncomeSourceModifiedDate;
 }
 
-export class PostDirectIncome200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
+export class CreateDirectIncome200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
   dataType?: string;
@@ -354,7 +354,7 @@ export class PostDirectIncome200ApplicationJSONChangesPushOperationRecordRef ext
   @Expose({ name: "id" })
   id?: string;
 }
-export enum PostDirectIncome200ApplicationJSONChangesTypeEnum {
+export enum CreateDirectIncome200ApplicationJSONChangesTypeEnum {
     Unknown = "Unknown",
     Created = "Created",
     Modified = "Modified",
@@ -362,26 +362,26 @@ export enum PostDirectIncome200ApplicationJSONChangesTypeEnum {
     AttachmentUploaded = "AttachmentUploaded"
 }
 
-export class PostDirectIncome200ApplicationJSONChanges extends SpeakeasyBase {
+export class CreateDirectIncome200ApplicationJSONChanges extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "attachmentId" })
   attachmentId?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "recordRef" })
-  @Type(() => PostDirectIncome200ApplicationJSONChangesPushOperationRecordRef)
-  recordRef?: PostDirectIncome200ApplicationJSONChangesPushOperationRecordRef;
+  @Type(() => CreateDirectIncome200ApplicationJSONChangesPushOperationRecordRef)
+  recordRef?: CreateDirectIncome200ApplicationJSONChangesPushOperationRecordRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: PostDirectIncome200ApplicationJSONChangesTypeEnum;
+  type?: CreateDirectIncome200ApplicationJSONChangesTypeEnum;
 }
 
-// PostDirectIncome200ApplicationJSONSourceModifiedDateContactRef
+// CreateDirectIncome200ApplicationJSONSourceModifiedDateContactRef
 /** 
  * A customer or supplier associated with the direct income.
 **/
-export class PostDirectIncome200ApplicationJSONSourceModifiedDateContactRef extends SpeakeasyBase {
+export class CreateDirectIncome200ApplicationJSONSourceModifiedDateContactRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
   dataType?: string;
@@ -391,11 +391,11 @@ export class PostDirectIncome200ApplicationJSONSourceModifiedDateContactRef exte
   id: string;
 }
 
-// PostDirectIncome200ApplicationJSONSourceModifiedDateLineItemsAccountRef
+// CreateDirectIncome200ApplicationJSONSourceModifiedDateLineItemsAccountRef
 /** 
  * Reference to the account to which the line item is linked.
 **/
-export class PostDirectIncome200ApplicationJSONSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
+export class CreateDirectIncome200ApplicationJSONSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
@@ -405,11 +405,11 @@ export class PostDirectIncome200ApplicationJSONSourceModifiedDateLineItemsAccoun
   name?: string;
 }
 
-// PostDirectIncome200ApplicationJSONSourceModifiedDateLineItemsItemRef
+// CreateDirectIncome200ApplicationJSONSourceModifiedDateLineItemsItemRef
 /** 
  * Reference to the product, service type, or inventory item to which the direct cost is linked.
 **/
-export class PostDirectIncome200ApplicationJSONSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
+export class CreateDirectIncome200ApplicationJSONSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -419,11 +419,11 @@ export class PostDirectIncome200ApplicationJSONSourceModifiedDateLineItemsItemRe
   name?: string;
 }
 
-// PostDirectIncome200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef
+// CreateDirectIncome200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef
 /** 
  * Reference to the tax rate to which the line item is linked.
 **/
-export class PostDirectIncome200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
+export class CreateDirectIncome200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
   effectiveTaxRate?: number;
@@ -437,7 +437,7 @@ export class PostDirectIncome200ApplicationJSONSourceModifiedDateLineItemsTaxRat
   name?: string;
 }
 
-export class PostDirectIncome200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
+export class CreateDirectIncome200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -447,11 +447,11 @@ export class PostDirectIncome200ApplicationJSONSourceModifiedDateLineItemsTracki
   name?: string;
 }
 
-export class PostDirectIncome200ApplicationJSONSourceModifiedDateLineItems extends SpeakeasyBase {
+export class CreateDirectIncome200ApplicationJSONSourceModifiedDateLineItems extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => PostDirectIncome200ApplicationJSONSourceModifiedDateLineItemsAccountRef)
-  accountRef?: PostDirectIncome200ApplicationJSONSourceModifiedDateLineItemsAccountRef;
+  @Type(() => CreateDirectIncome200ApplicationJSONSourceModifiedDateLineItemsAccountRef)
+  accountRef?: CreateDirectIncome200ApplicationJSONSourceModifiedDateLineItemsAccountRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "description" })
@@ -467,8 +467,8 @@ export class PostDirectIncome200ApplicationJSONSourceModifiedDateLineItems exten
 
   @SpeakeasyMetadata()
   @Expose({ name: "itemRef" })
-  @Type(() => PostDirectIncome200ApplicationJSONSourceModifiedDateLineItemsItemRef)
-  itemRef?: PostDirectIncome200ApplicationJSONSourceModifiedDateLineItemsItemRef;
+  @Type(() => CreateDirectIncome200ApplicationJSONSourceModifiedDateLineItemsItemRef)
+  itemRef?: CreateDirectIncome200ApplicationJSONSourceModifiedDateLineItemsItemRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "quantity" })
@@ -484,30 +484,30 @@ export class PostDirectIncome200ApplicationJSONSourceModifiedDateLineItems exten
 
   @SpeakeasyMetadata()
   @Expose({ name: "taxRateRef" })
-  @Type(() => PostDirectIncome200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef)
-  taxRateRef?: PostDirectIncome200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef;
+  @Type(() => CreateDirectIncome200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef)
+  taxRateRef?: CreateDirectIncome200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalAmount" })
   totalAmount?: number;
 
-  @SpeakeasyMetadata({ elemType: PostDirectIncome200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({ elemType: CreateDirectIncome200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs })
   @Expose({ name: "trackingCategoryRefs" })
-  @Type(() => PostDirectIncome200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs)
-  trackingCategoryRefs?: PostDirectIncome200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs[];
+  @Type(() => CreateDirectIncome200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs)
+  trackingCategoryRefs?: CreateDirectIncome200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "unitAmount" })
   unitAmount: number;
 }
 
-export class PostDirectIncome200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+export class CreateDirectIncome200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
 }
 
-export class PostDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation extends SpeakeasyBase {
+export class CreateDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "allocatedOnDate" })
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
@@ -526,11 +526,11 @@ export class PostDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocati
   totalAmount?: number;
 }
 
-// PostDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef
+// CreateDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef
 /** 
  * The account that the allocated payment is made from or to.
 **/
-export class PostDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef extends SpeakeasyBase {
+export class CreateDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
@@ -540,11 +540,11 @@ export class PostDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocati
   name?: string;
 }
 
-export class PostDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment extends SpeakeasyBase {
+export class CreateDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => PostDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef)
-  accountRef?: PostDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef;
+  @Type(() => CreateDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef)
+  accountRef?: CreateDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "currency" })
@@ -576,29 +576,29 @@ export class PostDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocati
   totalAmount?: number;
 }
 
-export class PostDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocations extends SpeakeasyBase {
+export class CreateDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocations extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "allocation" })
-  @Type(() => PostDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation)
-  allocation: PostDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation;
+  @Type(() => CreateDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation)
+  allocation: CreateDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation;
 
   @SpeakeasyMetadata()
   @Expose({ name: "payment" })
-  @Type(() => PostDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment)
-  payment: PostDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment;
+  @Type(() => CreateDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment)
+  payment: CreateDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment;
 }
 
-// PostDirectIncome200ApplicationJSONSourceModifiedDateSupplementalData
+// CreateDirectIncome200ApplicationJSONSourceModifiedDateSupplementalData
 /** 
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
 **/
-export class PostDirectIncome200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
+export class CreateDirectIncome200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
   content?: Record<string, Record<string, any>>;
 }
 
-// PostDirectIncome200ApplicationJSONSourceModifiedDate
+// CreateDirectIncome200ApplicationJSONSourceModifiedDate
 /** 
  * > **Language tip:**  Direct incomes may also be referred to as **Receive transactions**, **Receive money transactions**, **Sales receipts**, or **Cash sales** in various accounting platforms.
  * 
@@ -621,11 +621,11 @@ export class PostDirectIncome200ApplicationJSONSourceModifiedDateSupplementalDat
  * Direct incomes is a child data type of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction).
  * 
 **/
-export class PostDirectIncome200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
+export class CreateDirectIncome200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "contactRef" })
-  @Type(() => PostDirectIncome200ApplicationJSONSourceModifiedDateContactRef)
-  contactRef?: PostDirectIncome200ApplicationJSONSourceModifiedDateContactRef;
+  @Type(() => CreateDirectIncome200ApplicationJSONSourceModifiedDateContactRef)
+  contactRef?: CreateDirectIncome200ApplicationJSONSourceModifiedDateContactRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "currency" })
@@ -644,15 +644,15 @@ export class PostDirectIncome200ApplicationJSONSourceModifiedDate extends Speake
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   issueDate: Date;
 
-  @SpeakeasyMetadata({ elemType: PostDirectIncome200ApplicationJSONSourceModifiedDateLineItems })
+  @SpeakeasyMetadata({ elemType: CreateDirectIncome200ApplicationJSONSourceModifiedDateLineItems })
   @Expose({ name: "lineItems" })
-  @Type(() => PostDirectIncome200ApplicationJSONSourceModifiedDateLineItems)
-  lineItems: PostDirectIncome200ApplicationJSONSourceModifiedDateLineItems[];
+  @Type(() => CreateDirectIncome200ApplicationJSONSourceModifiedDateLineItems)
+  lineItems: CreateDirectIncome200ApplicationJSONSourceModifiedDateLineItems[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => PostDirectIncome200ApplicationJSONSourceModifiedDateMetadata)
-  metadata?: PostDirectIncome200ApplicationJSONSourceModifiedDateMetadata;
+  @Type(() => CreateDirectIncome200ApplicationJSONSourceModifiedDateMetadata)
+  metadata?: CreateDirectIncome200ApplicationJSONSourceModifiedDateMetadata;
 
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
@@ -663,10 +663,10 @@ export class PostDirectIncome200ApplicationJSONSourceModifiedDate extends Speake
   @Expose({ name: "note" })
   note?: string;
 
-  @SpeakeasyMetadata({ elemType: PostDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocations })
+  @SpeakeasyMetadata({ elemType: CreateDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocations })
   @Expose({ name: "paymentAllocations" })
-  @Type(() => PostDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocations)
-  paymentAllocations: PostDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocations[];
+  @Type(() => CreateDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocations)
+  paymentAllocations: CreateDirectIncome200ApplicationJSONSourceModifiedDatePaymentAllocations[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "reference" })
@@ -683,8 +683,8 @@ export class PostDirectIncome200ApplicationJSONSourceModifiedDate extends Speake
 
   @SpeakeasyMetadata()
   @Expose({ name: "supplementalData" })
-  @Type(() => PostDirectIncome200ApplicationJSONSourceModifiedDateSupplementalData)
-  supplementalData?: PostDirectIncome200ApplicationJSONSourceModifiedDateSupplementalData;
+  @Type(() => CreateDirectIncome200ApplicationJSONSourceModifiedDateSupplementalData)
+  supplementalData?: CreateDirectIncome200ApplicationJSONSourceModifiedDateSupplementalData;
 
   @SpeakeasyMetadata()
   @Expose({ name: "taxAmount" })
@@ -694,14 +694,14 @@ export class PostDirectIncome200ApplicationJSONSourceModifiedDate extends Speake
   @Expose({ name: "totalAmount" })
   totalAmount: number;
 }
-export enum PostDirectIncome200ApplicationJSONStatusEnum {
+export enum CreateDirectIncome200ApplicationJSONStatusEnum {
     Pending = "Pending",
     Failed = "Failed",
     Success = "Success",
     TimedOut = "TimedOut"
 }
 
-export class PostDirectIncome200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
+export class CreateDirectIncome200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "itemId" })
   itemId?: string;
@@ -715,27 +715,27 @@ export class PostDirectIncome200ApplicationJSONValidationValidationItem extends 
   validatorName?: string;
 }
 
-// PostDirectIncome200ApplicationJSONValidation
+// CreateDirectIncome200ApplicationJSONValidation
 /** 
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
 **/
-export class PostDirectIncome200ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PostDirectIncome200ApplicationJSONValidationValidationItem })
+export class CreateDirectIncome200ApplicationJSONValidation extends SpeakeasyBase {
+  @SpeakeasyMetadata({ elemType: CreateDirectIncome200ApplicationJSONValidationValidationItem })
   @Expose({ name: "errors" })
-  @Type(() => PostDirectIncome200ApplicationJSONValidationValidationItem)
-  errors?: PostDirectIncome200ApplicationJSONValidationValidationItem[];
+  @Type(() => CreateDirectIncome200ApplicationJSONValidationValidationItem)
+  errors?: CreateDirectIncome200ApplicationJSONValidationValidationItem[];
 
-  @SpeakeasyMetadata({ elemType: PostDirectIncome200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({ elemType: CreateDirectIncome200ApplicationJSONValidationValidationItem })
   @Expose({ name: "warnings" })
-  @Type(() => PostDirectIncome200ApplicationJSONValidationValidationItem)
-  warnings?: PostDirectIncome200ApplicationJSONValidationValidationItem[];
+  @Type(() => CreateDirectIncome200ApplicationJSONValidationValidationItem)
+  warnings?: CreateDirectIncome200ApplicationJSONValidationValidationItem[];
 }
 
-export class PostDirectIncome200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PostDirectIncome200ApplicationJSONChanges })
+export class CreateDirectIncome200ApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ elemType: CreateDirectIncome200ApplicationJSONChanges })
   @Expose({ name: "changes" })
-  @Type(() => PostDirectIncome200ApplicationJSONChanges)
-  changes?: PostDirectIncome200ApplicationJSONChanges[];
+  @Type(() => CreateDirectIncome200ApplicationJSONChanges)
+  changes?: CreateDirectIncome200ApplicationJSONChanges[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "companyId" })
@@ -748,8 +748,8 @@ export class PostDirectIncome200ApplicationJSON extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "data" })
-  @Type(() => PostDirectIncome200ApplicationJSONSourceModifiedDate)
-  data?: PostDirectIncome200ApplicationJSONSourceModifiedDate;
+  @Type(() => CreateDirectIncome200ApplicationJSONSourceModifiedDate)
+  data?: CreateDirectIncome200ApplicationJSONSourceModifiedDate;
 
   @SpeakeasyMetadata()
   @Expose({ name: "dataConnectionKey" })
@@ -774,7 +774,7 @@ export class PostDirectIncome200ApplicationJSON extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: PostDirectIncome200ApplicationJSONStatusEnum;
+  status: CreateDirectIncome200ApplicationJSONStatusEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "statusCode" })
@@ -790,11 +790,11 @@ export class PostDirectIncome200ApplicationJSON extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => PostDirectIncome200ApplicationJSONValidation)
-  validation?: PostDirectIncome200ApplicationJSONValidation;
+  @Type(() => CreateDirectIncome200ApplicationJSONValidation)
+  validation?: CreateDirectIncome200ApplicationJSONValidation;
 }
 
-export class PostDirectIncomeResponse extends SpeakeasyBase {
+export class CreateDirectIncomeResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
@@ -805,5 +805,5 @@ export class PostDirectIncomeResponse extends SpeakeasyBase {
   rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
-  postDirectIncome200ApplicationJSONObject?: PostDirectIncome200ApplicationJSON;
+  createDirectIncome200ApplicationJSONObject?: CreateDirectIncome200ApplicationJSON;
 }

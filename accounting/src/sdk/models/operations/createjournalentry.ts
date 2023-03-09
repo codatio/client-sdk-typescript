@@ -3,7 +3,7 @@ import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
-export class PostJournalEntryPathParams extends SpeakeasyBase {
+export class CreateJournalEntryPathParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
   companyId: string;
 
@@ -11,16 +11,16 @@ export class PostJournalEntryPathParams extends SpeakeasyBase {
   connectionId: string;
 }
 
-export class PostJournalEntryQueryParams extends SpeakeasyBase {
+export class CreateJournalEntryQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=timeoutInMinutes" })
   timeoutInMinutes?: number;
 }
 
-// PostJournalEntrySourceModifiedDateJournalLinesAccountRef
+// CreateJournalEntrySourceModifiedDateJournalLinesAccountRef
 /** 
  * Data types that reference an account, for example bill and invoice line items, use an accountRef that includes the ID and name of the linked account.
 **/
-export class PostJournalEntrySourceModifiedDateJournalLinesAccountRef extends SpeakeasyBase {
+export class CreateJournalEntrySourceModifiedDateJournalLinesAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
@@ -30,21 +30,21 @@ export class PostJournalEntrySourceModifiedDateJournalLinesAccountRef extends Sp
   name?: string;
 }
 
-// PostJournalEntrySourceModifiedDateJournalLinesTracking
+// CreateJournalEntrySourceModifiedDateJournalLinesTracking
 /** 
  * List of record refs associated with the tracking information for the line (eg to a Tracking Category, or customer etc.)
 **/
-export class PostJournalEntrySourceModifiedDateJournalLinesTracking extends SpeakeasyBase {
+export class CreateJournalEntrySourceModifiedDateJournalLinesTracking extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "recordRefs" })
   recordRefs?: string[];
 }
 
-export class PostJournalEntrySourceModifiedDateJournalLines extends SpeakeasyBase {
+export class CreateJournalEntrySourceModifiedDateJournalLines extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => PostJournalEntrySourceModifiedDateJournalLinesAccountRef)
-  accountRef?: PostJournalEntrySourceModifiedDateJournalLinesAccountRef;
+  @Type(() => CreateJournalEntrySourceModifiedDateJournalLinesAccountRef)
+  accountRef?: CreateJournalEntrySourceModifiedDateJournalLinesAccountRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "currency" })
@@ -60,15 +60,15 @@ export class PostJournalEntrySourceModifiedDateJournalLines extends SpeakeasyBas
 
   @SpeakeasyMetadata()
   @Expose({ name: "tracking" })
-  @Type(() => PostJournalEntrySourceModifiedDateJournalLinesTracking)
-  tracking?: PostJournalEntrySourceModifiedDateJournalLinesTracking;
+  @Type(() => CreateJournalEntrySourceModifiedDateJournalLinesTracking)
+  tracking?: CreateJournalEntrySourceModifiedDateJournalLinesTracking;
 }
 
-// PostJournalEntrySourceModifiedDateJournalRef
+// CreateJournalEntrySourceModifiedDateJournalRef
 /** 
  * Links journal entries to the relevant journal in accounting integrations that use multi-book accounting (multiple journals).
 **/
-export class PostJournalEntrySourceModifiedDateJournalRef extends SpeakeasyBase {
+export class CreateJournalEntrySourceModifiedDateJournalRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -78,13 +78,13 @@ export class PostJournalEntrySourceModifiedDateJournalRef extends SpeakeasyBase 
   name?: string;
 }
 
-export class PostJournalEntrySourceModifiedDateMetadata extends SpeakeasyBase {
+export class CreateJournalEntrySourceModifiedDateMetadata extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
 }
 
-// PostJournalEntrySourceModifiedDateRecordRef
+// CreateJournalEntrySourceModifiedDateRecordRef
 /** 
  * Links to the underlying record or data type.
  * 
@@ -95,7 +95,7 @@ export class PostJournalEntrySourceModifiedDateMetadata extends SpeakeasyBase {
  * - Invoices
  * - Transfers
 **/
-export class PostJournalEntrySourceModifiedDateRecordRef extends SpeakeasyBase {
+export class CreateJournalEntrySourceModifiedDateRecordRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
   dataType?: string;
@@ -105,17 +105,17 @@ export class PostJournalEntrySourceModifiedDateRecordRef extends SpeakeasyBase {
   id?: string;
 }
 
-// PostJournalEntrySourceModifiedDateSupplementalData
+// CreateJournalEntrySourceModifiedDateSupplementalData
 /** 
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
 **/
-export class PostJournalEntrySourceModifiedDateSupplementalData extends SpeakeasyBase {
+export class CreateJournalEntrySourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
   content?: Record<string, Record<string, any>>;
 }
 
-// PostJournalEntrySourceModifiedDate
+// CreateJournalEntrySourceModifiedDate
 /** 
  * > **Language tip:** For the top-level record of a company's financial transactions, refer to the [Journals](https://docs.codat.io/accounting-api#/schemas/Journal) data type
  * 
@@ -140,7 +140,7 @@ export class PostJournalEntrySourceModifiedDateSupplementalData extends Speakeas
  * > **Pushing journal entries **  
  * > Codat only supports journal entries in the base currency of the company that are pushed into accounts denominated in the same base currency.
 **/
-export class PostJournalEntrySourceModifiedDate extends SpeakeasyBase {
+export class CreateJournalEntrySourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "createdOn" })
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
@@ -154,20 +154,20 @@ export class PostJournalEntrySourceModifiedDate extends SpeakeasyBase {
   @Expose({ name: "id" })
   id?: string;
 
-  @SpeakeasyMetadata({ elemType: PostJournalEntrySourceModifiedDateJournalLines })
+  @SpeakeasyMetadata({ elemType: CreateJournalEntrySourceModifiedDateJournalLines })
   @Expose({ name: "journalLines" })
-  @Type(() => PostJournalEntrySourceModifiedDateJournalLines)
-  journalLines?: PostJournalEntrySourceModifiedDateJournalLines[];
+  @Type(() => CreateJournalEntrySourceModifiedDateJournalLines)
+  journalLines?: CreateJournalEntrySourceModifiedDateJournalLines[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "journalRef" })
-  @Type(() => PostJournalEntrySourceModifiedDateJournalRef)
-  journalRef?: PostJournalEntrySourceModifiedDateJournalRef;
+  @Type(() => CreateJournalEntrySourceModifiedDateJournalRef)
+  journalRef?: CreateJournalEntrySourceModifiedDateJournalRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => PostJournalEntrySourceModifiedDateMetadata)
-  metadata?: PostJournalEntrySourceModifiedDateMetadata;
+  @Type(() => CreateJournalEntrySourceModifiedDateMetadata)
+  metadata?: CreateJournalEntrySourceModifiedDateMetadata;
 
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
@@ -181,8 +181,8 @@ export class PostJournalEntrySourceModifiedDate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "recordRef" })
-  @Type(() => PostJournalEntrySourceModifiedDateRecordRef)
-  recordRef?: PostJournalEntrySourceModifiedDateRecordRef;
+  @Type(() => CreateJournalEntrySourceModifiedDateRecordRef)
+  recordRef?: CreateJournalEntrySourceModifiedDateRecordRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
@@ -191,8 +191,8 @@ export class PostJournalEntrySourceModifiedDate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "supplementalData" })
-  @Type(() => PostJournalEntrySourceModifiedDateSupplementalData)
-  supplementalData?: PostJournalEntrySourceModifiedDateSupplementalData;
+  @Type(() => CreateJournalEntrySourceModifiedDateSupplementalData)
+  supplementalData?: CreateJournalEntrySourceModifiedDateSupplementalData;
 
   @SpeakeasyMetadata()
   @Expose({ name: "updatedOn" })
@@ -200,18 +200,18 @@ export class PostJournalEntrySourceModifiedDate extends SpeakeasyBase {
   updatedOn?: Date;
 }
 
-export class PostJournalEntryRequest extends SpeakeasyBase {
+export class CreateJournalEntryRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
-  pathParams: PostJournalEntryPathParams;
+  pathParams: CreateJournalEntryPathParams;
 
   @SpeakeasyMetadata()
-  queryParams: PostJournalEntryQueryParams;
+  queryParams: CreateJournalEntryQueryParams;
 
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: PostJournalEntrySourceModifiedDate;
+  request?: CreateJournalEntrySourceModifiedDate;
 }
 
-export class PostJournalEntry200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
+export class CreateJournalEntry200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
   dataType?: string;
@@ -220,7 +220,7 @@ export class PostJournalEntry200ApplicationJSONChangesPushOperationRecordRef ext
   @Expose({ name: "id" })
   id?: string;
 }
-export enum PostJournalEntry200ApplicationJSONChangesTypeEnum {
+export enum CreateJournalEntry200ApplicationJSONChangesTypeEnum {
     Unknown = "Unknown",
     Created = "Created",
     Modified = "Modified",
@@ -228,26 +228,26 @@ export enum PostJournalEntry200ApplicationJSONChangesTypeEnum {
     AttachmentUploaded = "AttachmentUploaded"
 }
 
-export class PostJournalEntry200ApplicationJSONChanges extends SpeakeasyBase {
+export class CreateJournalEntry200ApplicationJSONChanges extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "attachmentId" })
   attachmentId?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "recordRef" })
-  @Type(() => PostJournalEntry200ApplicationJSONChangesPushOperationRecordRef)
-  recordRef?: PostJournalEntry200ApplicationJSONChangesPushOperationRecordRef;
+  @Type(() => CreateJournalEntry200ApplicationJSONChangesPushOperationRecordRef)
+  recordRef?: CreateJournalEntry200ApplicationJSONChangesPushOperationRecordRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: PostJournalEntry200ApplicationJSONChangesTypeEnum;
+  type?: CreateJournalEntry200ApplicationJSONChangesTypeEnum;
 }
 
-// PostJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesAccountRef
+// CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesAccountRef
 /** 
  * Data types that reference an account, for example bill and invoice line items, use an accountRef that includes the ID and name of the linked account.
 **/
-export class PostJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesAccountRef extends SpeakeasyBase {
+export class CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
@@ -257,21 +257,21 @@ export class PostJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesAcc
   name?: string;
 }
 
-// PostJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesTracking
+// CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesTracking
 /** 
  * List of record refs associated with the tracking information for the line (eg to a Tracking Category, or customer etc.)
 **/
-export class PostJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesTracking extends SpeakeasyBase {
+export class CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesTracking extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "recordRefs" })
   recordRefs?: string[];
 }
 
-export class PostJournalEntry200ApplicationJSONSourceModifiedDateJournalLines extends SpeakeasyBase {
+export class CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLines extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => PostJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesAccountRef)
-  accountRef?: PostJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesAccountRef;
+  @Type(() => CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesAccountRef)
+  accountRef?: CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesAccountRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "currency" })
@@ -287,15 +287,15 @@ export class PostJournalEntry200ApplicationJSONSourceModifiedDateJournalLines ex
 
   @SpeakeasyMetadata()
   @Expose({ name: "tracking" })
-  @Type(() => PostJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesTracking)
-  tracking?: PostJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesTracking;
+  @Type(() => CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesTracking)
+  tracking?: CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesTracking;
 }
 
-// PostJournalEntry200ApplicationJSONSourceModifiedDateJournalRef
+// CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalRef
 /** 
  * Links journal entries to the relevant journal in accounting integrations that use multi-book accounting (multiple journals).
 **/
-export class PostJournalEntry200ApplicationJSONSourceModifiedDateJournalRef extends SpeakeasyBase {
+export class CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -305,13 +305,13 @@ export class PostJournalEntry200ApplicationJSONSourceModifiedDateJournalRef exte
   name?: string;
 }
 
-export class PostJournalEntry200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+export class CreateJournalEntry200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
 }
 
-// PostJournalEntry200ApplicationJSONSourceModifiedDateRecordRef
+// CreateJournalEntry200ApplicationJSONSourceModifiedDateRecordRef
 /** 
  * Links to the underlying record or data type.
  * 
@@ -322,7 +322,7 @@ export class PostJournalEntry200ApplicationJSONSourceModifiedDateMetadata extend
  * - Invoices
  * - Transfers
 **/
-export class PostJournalEntry200ApplicationJSONSourceModifiedDateRecordRef extends SpeakeasyBase {
+export class CreateJournalEntry200ApplicationJSONSourceModifiedDateRecordRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
   dataType?: string;
@@ -332,17 +332,17 @@ export class PostJournalEntry200ApplicationJSONSourceModifiedDateRecordRef exten
   id?: string;
 }
 
-// PostJournalEntry200ApplicationJSONSourceModifiedDateSupplementalData
+// CreateJournalEntry200ApplicationJSONSourceModifiedDateSupplementalData
 /** 
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
 **/
-export class PostJournalEntry200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
+export class CreateJournalEntry200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
   content?: Record<string, Record<string, any>>;
 }
 
-// PostJournalEntry200ApplicationJSONSourceModifiedDate
+// CreateJournalEntry200ApplicationJSONSourceModifiedDate
 /** 
  * > **Language tip:** For the top-level record of a company's financial transactions, refer to the [Journals](https://docs.codat.io/accounting-api#/schemas/Journal) data type
  * 
@@ -367,7 +367,7 @@ export class PostJournalEntry200ApplicationJSONSourceModifiedDateSupplementalDat
  * > **Pushing journal entries **  
  * > Codat only supports journal entries in the base currency of the company that are pushed into accounts denominated in the same base currency.
 **/
-export class PostJournalEntry200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
+export class CreateJournalEntry200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "createdOn" })
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
@@ -381,20 +381,20 @@ export class PostJournalEntry200ApplicationJSONSourceModifiedDate extends Speake
   @Expose({ name: "id" })
   id?: string;
 
-  @SpeakeasyMetadata({ elemType: PostJournalEntry200ApplicationJSONSourceModifiedDateJournalLines })
+  @SpeakeasyMetadata({ elemType: CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLines })
   @Expose({ name: "journalLines" })
-  @Type(() => PostJournalEntry200ApplicationJSONSourceModifiedDateJournalLines)
-  journalLines?: PostJournalEntry200ApplicationJSONSourceModifiedDateJournalLines[];
+  @Type(() => CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLines)
+  journalLines?: CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLines[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "journalRef" })
-  @Type(() => PostJournalEntry200ApplicationJSONSourceModifiedDateJournalRef)
-  journalRef?: PostJournalEntry200ApplicationJSONSourceModifiedDateJournalRef;
+  @Type(() => CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalRef)
+  journalRef?: CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => PostJournalEntry200ApplicationJSONSourceModifiedDateMetadata)
-  metadata?: PostJournalEntry200ApplicationJSONSourceModifiedDateMetadata;
+  @Type(() => CreateJournalEntry200ApplicationJSONSourceModifiedDateMetadata)
+  metadata?: CreateJournalEntry200ApplicationJSONSourceModifiedDateMetadata;
 
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
@@ -408,8 +408,8 @@ export class PostJournalEntry200ApplicationJSONSourceModifiedDate extends Speake
 
   @SpeakeasyMetadata()
   @Expose({ name: "recordRef" })
-  @Type(() => PostJournalEntry200ApplicationJSONSourceModifiedDateRecordRef)
-  recordRef?: PostJournalEntry200ApplicationJSONSourceModifiedDateRecordRef;
+  @Type(() => CreateJournalEntry200ApplicationJSONSourceModifiedDateRecordRef)
+  recordRef?: CreateJournalEntry200ApplicationJSONSourceModifiedDateRecordRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
@@ -418,22 +418,22 @@ export class PostJournalEntry200ApplicationJSONSourceModifiedDate extends Speake
 
   @SpeakeasyMetadata()
   @Expose({ name: "supplementalData" })
-  @Type(() => PostJournalEntry200ApplicationJSONSourceModifiedDateSupplementalData)
-  supplementalData?: PostJournalEntry200ApplicationJSONSourceModifiedDateSupplementalData;
+  @Type(() => CreateJournalEntry200ApplicationJSONSourceModifiedDateSupplementalData)
+  supplementalData?: CreateJournalEntry200ApplicationJSONSourceModifiedDateSupplementalData;
 
   @SpeakeasyMetadata()
   @Expose({ name: "updatedOn" })
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   updatedOn?: Date;
 }
-export enum PostJournalEntry200ApplicationJSONStatusEnum {
+export enum CreateJournalEntry200ApplicationJSONStatusEnum {
     Pending = "Pending",
     Failed = "Failed",
     Success = "Success",
     TimedOut = "TimedOut"
 }
 
-export class PostJournalEntry200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
+export class CreateJournalEntry200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "itemId" })
   itemId?: string;
@@ -447,27 +447,27 @@ export class PostJournalEntry200ApplicationJSONValidationValidationItem extends 
   validatorName?: string;
 }
 
-// PostJournalEntry200ApplicationJSONValidation
+// CreateJournalEntry200ApplicationJSONValidation
 /** 
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
 **/
-export class PostJournalEntry200ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PostJournalEntry200ApplicationJSONValidationValidationItem })
+export class CreateJournalEntry200ApplicationJSONValidation extends SpeakeasyBase {
+  @SpeakeasyMetadata({ elemType: CreateJournalEntry200ApplicationJSONValidationValidationItem })
   @Expose({ name: "errors" })
-  @Type(() => PostJournalEntry200ApplicationJSONValidationValidationItem)
-  errors?: PostJournalEntry200ApplicationJSONValidationValidationItem[];
+  @Type(() => CreateJournalEntry200ApplicationJSONValidationValidationItem)
+  errors?: CreateJournalEntry200ApplicationJSONValidationValidationItem[];
 
-  @SpeakeasyMetadata({ elemType: PostJournalEntry200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({ elemType: CreateJournalEntry200ApplicationJSONValidationValidationItem })
   @Expose({ name: "warnings" })
-  @Type(() => PostJournalEntry200ApplicationJSONValidationValidationItem)
-  warnings?: PostJournalEntry200ApplicationJSONValidationValidationItem[];
+  @Type(() => CreateJournalEntry200ApplicationJSONValidationValidationItem)
+  warnings?: CreateJournalEntry200ApplicationJSONValidationValidationItem[];
 }
 
-export class PostJournalEntry200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PostJournalEntry200ApplicationJSONChanges })
+export class CreateJournalEntry200ApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ elemType: CreateJournalEntry200ApplicationJSONChanges })
   @Expose({ name: "changes" })
-  @Type(() => PostJournalEntry200ApplicationJSONChanges)
-  changes?: PostJournalEntry200ApplicationJSONChanges[];
+  @Type(() => CreateJournalEntry200ApplicationJSONChanges)
+  changes?: CreateJournalEntry200ApplicationJSONChanges[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "companyId" })
@@ -480,8 +480,8 @@ export class PostJournalEntry200ApplicationJSON extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "data" })
-  @Type(() => PostJournalEntry200ApplicationJSONSourceModifiedDate)
-  data?: PostJournalEntry200ApplicationJSONSourceModifiedDate;
+  @Type(() => CreateJournalEntry200ApplicationJSONSourceModifiedDate)
+  data?: CreateJournalEntry200ApplicationJSONSourceModifiedDate;
 
   @SpeakeasyMetadata()
   @Expose({ name: "dataConnectionKey" })
@@ -506,7 +506,7 @@ export class PostJournalEntry200ApplicationJSON extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: PostJournalEntry200ApplicationJSONStatusEnum;
+  status: CreateJournalEntry200ApplicationJSONStatusEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "statusCode" })
@@ -522,11 +522,11 @@ export class PostJournalEntry200ApplicationJSON extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => PostJournalEntry200ApplicationJSONValidation)
-  validation?: PostJournalEntry200ApplicationJSONValidation;
+  @Type(() => CreateJournalEntry200ApplicationJSONValidation)
+  validation?: CreateJournalEntry200ApplicationJSONValidation;
 }
 
-export class PostJournalEntryResponse extends SpeakeasyBase {
+export class CreateJournalEntryResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
@@ -537,5 +537,5 @@ export class PostJournalEntryResponse extends SpeakeasyBase {
   rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
-  postJournalEntry200ApplicationJSONObject?: PostJournalEntry200ApplicationJSON;
+  createJournalEntry200ApplicationJSONObject?: CreateJournalEntry200ApplicationJSON;
 }

@@ -21,6 +21,77 @@ export class DirectCosts {
   }
   
   /**
+   * createDirectCost - Create direct cost
+   *
+   * Posts a new direct cost to the accounting package for a given company.
+   * 
+   * Required data may vary by integration. To see what data to post, first call [Get create direct cost model](https://docs.codat.io/accounting-api#/operations/get-create-directCosts-model).
+   * 
+   * > **Supported Integrations**
+   * > 
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support creating direct costs.
+  **/
+  createDirectCost(
+    req: operations.CreateDirectCostRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.CreateDirectCostResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.CreateDirectCostRequest(req);
+    }
+    
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/push/directCosts", req.pathParams);
+
+    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+    try {
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new Error(`Error serializing request body, cause: ${e.message}`);
+      }
+    }
+    
+    const client: AxiosInstance = this._securityClient!;
+    
+    const headers = {...reqBodyHeaders, ...config?.headers};
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    
+    const r = client.request({
+      url: url + queryParams,
+      method: "post",
+      headers: headers,
+      data: reqBody, 
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
+        const res: operations.CreateDirectCostResponse =
+            new operations.CreateDirectCostResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
+        switch (true) {
+          case httpRes?.status == 200:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.createDirectCost200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.CreateDirectCost200ApplicationJSON,
+              );
+            }
+            break;
+        }
+
+        return res;
+      })
+  }
+
+  
+  /**
    * downloadDirectCostAttachment - Download direct cost attachment
    *
    * Downloads an attachment for the specified direct cost for a given company.
@@ -49,9 +120,71 @@ export class DirectCosts {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.DownloadDirectCostAttachmentResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.DownloadDirectCostAttachmentResponse =
+            new operations.DownloadDirectCostAttachmentResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
+            break;
+        }
+
+        return res;
+      })
+  }
+
+  
+  /**
+   * getCreateDirectCostsModel - Get create direct cost model
+   *
+   * Get create direct cost model. Returns the expected data for the request payload.
+   * 
+   * See the examples for integration-specific indicative models.
+   * 
+   * > **Supported Integrations**
+   * > 
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support creating direct costs.
+  **/
+  getCreateDirectCostsModel(
+    req: operations.GetCreateDirectCostsModelRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.GetCreateDirectCostsModelResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.GetCreateDirectCostsModelRequest(req);
+    }
+    
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/options/directCosts", req.pathParams);
+    
+    const client: AxiosInstance = this._securityClient!;
+    
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
+        const res: operations.GetCreateDirectCostsModelResponse =
+            new operations.GetCreateDirectCostsModelResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
+        switch (true) {
+          case httpRes?.status == 200:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.pushOption = utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.GetCreateDirectCostsModelPushOption,
+              );
+            }
             break;
         }
 
@@ -89,14 +222,18 @@ export class DirectCosts {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetDirectCostResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetDirectCostResponse =
+            new operations.GetDirectCostResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.sourceModifiedDate = plainToInstance(
+              res.sourceModifiedDate = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetDirectCostSourceModifiedDate,
-                httpRes?.data as operations.GetDirectCostSourceModifiedDate,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -136,14 +273,18 @@ export class DirectCosts {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetDirectCostAttachmentResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetDirectCostAttachmentResponse =
+            new operations.GetDirectCostAttachmentResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.attachment = plainToInstance(
+              res.attachment = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetDirectCostAttachmentAttachment,
-                httpRes?.data as operations.GetDirectCostAttachmentAttachment,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -184,14 +325,18 @@ export class DirectCosts {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetDirectCostsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetDirectCostsResponse =
+            new operations.GetDirectCostsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.links = plainToInstance(
+              res.links = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetDirectCostsLinks,
-                httpRes?.data as operations.GetDirectCostsLinks,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -231,79 +376,18 @@ export class DirectCosts {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListDirectCostAttachmentsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListDirectCostAttachmentsResponse =
+            new operations.ListDirectCostAttachmentsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.attachments = plainToInstance(
+              res.attachments = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListDirectCostAttachmentsAttachments,
-                httpRes?.data as operations.ListDirectCostAttachmentsAttachments,
-                { excludeExtraneousValues: true }
-              );
-            }
-            break;
-        }
-
-        return res;
-      })
-  }
-
-  
-  /**
-   * postDirectCost - Create direct cost
-   *
-   * Posts a new direct cost to the accounting package for a given company.
-   * 
-   * > **Supported Integrations**
-   * > 
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support POST methods.
-  **/
-  postDirectCost(
-    req: operations.PostDirectCostRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.PostDirectCostResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.PostDirectCostRequest(req);
-    }
-    
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/push/directCosts", req.pathParams);
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-    
-    const client: AxiosInstance = this._securityClient!;
-    
-    const headers = {...reqBodyHeaders, ...config?.headers};
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
-    
-    const r = client.request({
-      url: url + queryParams,
-      method: "post",
-      headers: headers,
-      data: reqBody, 
-      ...config,
-    });
-    
-    return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.PostDirectCostResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.postDirectCost200ApplicationJSONObject = plainToInstance(
-                operations.PostDirectCost200ApplicationJSON,
-                httpRes?.data as operations.PostDirectCost200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -343,7 +427,12 @@ export class DirectCosts {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.PostDirectCostAttachmentResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.PostDirectCostAttachmentResponse =
+            new operations.PostDirectCostAttachmentResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             break;

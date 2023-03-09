@@ -3,7 +3,7 @@ import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 
-export class PostSuppliersPathParams extends SpeakeasyBase {
+export class CreateSuppliersPathParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
   companyId: string;
 
@@ -11,17 +11,17 @@ export class PostSuppliersPathParams extends SpeakeasyBase {
   connectionId: string;
 }
 
-export class PostSuppliersQueryParams extends SpeakeasyBase {
+export class CreateSuppliersQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=timeoutInMinutes" })
   timeoutInMinutes?: number;
 }
-export enum PostSuppliersSourceModifiedDateAddressesTypeEnum {
+export enum CreateSuppliersSourceModifiedDateAddressesTypeEnum {
     Unknown = "Unknown",
     Billing = "Billing",
     Delivery = "Delivery"
 }
 
-export class PostSuppliersSourceModifiedDateAddresses extends SpeakeasyBase {
+export class CreateSuppliersSourceModifiedDateAddresses extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "city" })
   city?: string;
@@ -48,31 +48,31 @@ export class PostSuppliersSourceModifiedDateAddresses extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: PostSuppliersSourceModifiedDateAddressesTypeEnum;
+  type: CreateSuppliersSourceModifiedDateAddressesTypeEnum;
 }
 
-export class PostSuppliersSourceModifiedDateMetadata extends SpeakeasyBase {
+export class CreateSuppliersSourceModifiedDateMetadata extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
 }
-export enum PostSuppliersSourceModifiedDateStatusEnum {
+export enum CreateSuppliersSourceModifiedDateStatusEnum {
     Unknown = "Unknown",
     Active = "Active",
     Archived = "Archived"
 }
 
-// PostSuppliersSourceModifiedDateSupplementalData
+// CreateSuppliersSourceModifiedDateSupplementalData
 /** 
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
 **/
-export class PostSuppliersSourceModifiedDateSupplementalData extends SpeakeasyBase {
+export class CreateSuppliersSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
   content?: Record<string, Record<string, any>>;
 }
 
-// PostSuppliersSourceModifiedDate
+// CreateSuppliersSourceModifiedDate
 /** 
  * > View the coverage for suppliers in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers" target="_blank">Data coverage explorer</a>.
  * 
@@ -80,11 +80,11 @@ export class PostSuppliersSourceModifiedDateSupplementalData extends SpeakeasyBa
  * 
  * From the **Suppliers** endpoints, you can retrieve a list of [all the suppliers for a company](https://api.codat.io/swagger/index.html#/Suppliers/get_companies__companyId__data_suppliers). Suppliers' data links to accounts payable [bills](https://docs.codat.io/accounting-api#/schemas/Bill).
 **/
-export class PostSuppliersSourceModifiedDate extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PostSuppliersSourceModifiedDateAddresses })
+export class CreateSuppliersSourceModifiedDate extends SpeakeasyBase {
+  @SpeakeasyMetadata({ elemType: CreateSuppliersSourceModifiedDateAddresses })
   @Expose({ name: "addresses" })
-  @Type(() => PostSuppliersSourceModifiedDateAddresses)
-  addresses?: PostSuppliersSourceModifiedDateAddresses[];
+  @Type(() => CreateSuppliersSourceModifiedDateAddresses)
+  addresses?: CreateSuppliersSourceModifiedDateAddresses[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "contactName" })
@@ -104,8 +104,8 @@ export class PostSuppliersSourceModifiedDate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => PostSuppliersSourceModifiedDateMetadata)
-  metadata?: PostSuppliersSourceModifiedDateMetadata;
+  @Type(() => CreateSuppliersSourceModifiedDateMetadata)
+  metadata?: CreateSuppliersSourceModifiedDateMetadata;
 
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
@@ -127,12 +127,12 @@ export class PostSuppliersSourceModifiedDate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: PostSuppliersSourceModifiedDateStatusEnum;
+  status: CreateSuppliersSourceModifiedDateStatusEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "supplementalData" })
-  @Type(() => PostSuppliersSourceModifiedDateSupplementalData)
-  supplementalData?: PostSuppliersSourceModifiedDateSupplementalData;
+  @Type(() => CreateSuppliersSourceModifiedDateSupplementalData)
+  supplementalData?: CreateSuppliersSourceModifiedDateSupplementalData;
 
   @SpeakeasyMetadata()
   @Expose({ name: "supplierName" })
@@ -143,18 +143,18 @@ export class PostSuppliersSourceModifiedDate extends SpeakeasyBase {
   taxNumber?: string;
 }
 
-export class PostSuppliersRequest extends SpeakeasyBase {
+export class CreateSuppliersRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
-  pathParams: PostSuppliersPathParams;
+  pathParams: CreateSuppliersPathParams;
 
   @SpeakeasyMetadata()
-  queryParams: PostSuppliersQueryParams;
+  queryParams: CreateSuppliersQueryParams;
 
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: PostSuppliersSourceModifiedDate;
+  request?: CreateSuppliersSourceModifiedDate;
 }
 
-export class PostSuppliers200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
+export class CreateSuppliers200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
   dataType?: string;
@@ -163,7 +163,7 @@ export class PostSuppliers200ApplicationJSONChangesPushOperationRecordRef extend
   @Expose({ name: "id" })
   id?: string;
 }
-export enum PostSuppliers200ApplicationJSONChangesTypeEnum {
+export enum CreateSuppliers200ApplicationJSONChangesTypeEnum {
     Unknown = "Unknown",
     Created = "Created",
     Modified = "Modified",
@@ -171,27 +171,27 @@ export enum PostSuppliers200ApplicationJSONChangesTypeEnum {
     AttachmentUploaded = "AttachmentUploaded"
 }
 
-export class PostSuppliers200ApplicationJSONChanges extends SpeakeasyBase {
+export class CreateSuppliers200ApplicationJSONChanges extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "attachmentId" })
   attachmentId?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "recordRef" })
-  @Type(() => PostSuppliers200ApplicationJSONChangesPushOperationRecordRef)
-  recordRef?: PostSuppliers200ApplicationJSONChangesPushOperationRecordRef;
+  @Type(() => CreateSuppliers200ApplicationJSONChangesPushOperationRecordRef)
+  recordRef?: CreateSuppliers200ApplicationJSONChangesPushOperationRecordRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: PostSuppliers200ApplicationJSONChangesTypeEnum;
+  type?: CreateSuppliers200ApplicationJSONChangesTypeEnum;
 }
-export enum PostSuppliers200ApplicationJSONSourceModifiedDateAddressesTypeEnum {
+export enum CreateSuppliers200ApplicationJSONSourceModifiedDateAddressesTypeEnum {
     Unknown = "Unknown",
     Billing = "Billing",
     Delivery = "Delivery"
 }
 
-export class PostSuppliers200ApplicationJSONSourceModifiedDateAddresses extends SpeakeasyBase {
+export class CreateSuppliers200ApplicationJSONSourceModifiedDateAddresses extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "city" })
   city?: string;
@@ -218,31 +218,31 @@ export class PostSuppliers200ApplicationJSONSourceModifiedDateAddresses extends 
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: PostSuppliers200ApplicationJSONSourceModifiedDateAddressesTypeEnum;
+  type: CreateSuppliers200ApplicationJSONSourceModifiedDateAddressesTypeEnum;
 }
 
-export class PostSuppliers200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+export class CreateSuppliers200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
 }
-export enum PostSuppliers200ApplicationJSONSourceModifiedDateStatusEnum {
+export enum CreateSuppliers200ApplicationJSONSourceModifiedDateStatusEnum {
     Unknown = "Unknown",
     Active = "Active",
     Archived = "Archived"
 }
 
-// PostSuppliers200ApplicationJSONSourceModifiedDateSupplementalData
+// CreateSuppliers200ApplicationJSONSourceModifiedDateSupplementalData
 /** 
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
 **/
-export class PostSuppliers200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
+export class CreateSuppliers200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
   content?: Record<string, Record<string, any>>;
 }
 
-// PostSuppliers200ApplicationJSONSourceModifiedDate
+// CreateSuppliers200ApplicationJSONSourceModifiedDate
 /** 
  * > View the coverage for suppliers in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers" target="_blank">Data coverage explorer</a>.
  * 
@@ -250,11 +250,11 @@ export class PostSuppliers200ApplicationJSONSourceModifiedDateSupplementalData e
  * 
  * From the **Suppliers** endpoints, you can retrieve a list of [all the suppliers for a company](https://api.codat.io/swagger/index.html#/Suppliers/get_companies__companyId__data_suppliers). Suppliers' data links to accounts payable [bills](https://docs.codat.io/accounting-api#/schemas/Bill).
 **/
-export class PostSuppliers200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PostSuppliers200ApplicationJSONSourceModifiedDateAddresses })
+export class CreateSuppliers200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
+  @SpeakeasyMetadata({ elemType: CreateSuppliers200ApplicationJSONSourceModifiedDateAddresses })
   @Expose({ name: "addresses" })
-  @Type(() => PostSuppliers200ApplicationJSONSourceModifiedDateAddresses)
-  addresses?: PostSuppliers200ApplicationJSONSourceModifiedDateAddresses[];
+  @Type(() => CreateSuppliers200ApplicationJSONSourceModifiedDateAddresses)
+  addresses?: CreateSuppliers200ApplicationJSONSourceModifiedDateAddresses[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "contactName" })
@@ -274,8 +274,8 @@ export class PostSuppliers200ApplicationJSONSourceModifiedDate extends Speakeasy
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => PostSuppliers200ApplicationJSONSourceModifiedDateMetadata)
-  metadata?: PostSuppliers200ApplicationJSONSourceModifiedDateMetadata;
+  @Type(() => CreateSuppliers200ApplicationJSONSourceModifiedDateMetadata)
+  metadata?: CreateSuppliers200ApplicationJSONSourceModifiedDateMetadata;
 
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
@@ -297,12 +297,12 @@ export class PostSuppliers200ApplicationJSONSourceModifiedDate extends Speakeasy
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: PostSuppliers200ApplicationJSONSourceModifiedDateStatusEnum;
+  status: CreateSuppliers200ApplicationJSONSourceModifiedDateStatusEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "supplementalData" })
-  @Type(() => PostSuppliers200ApplicationJSONSourceModifiedDateSupplementalData)
-  supplementalData?: PostSuppliers200ApplicationJSONSourceModifiedDateSupplementalData;
+  @Type(() => CreateSuppliers200ApplicationJSONSourceModifiedDateSupplementalData)
+  supplementalData?: CreateSuppliers200ApplicationJSONSourceModifiedDateSupplementalData;
 
   @SpeakeasyMetadata()
   @Expose({ name: "supplierName" })
@@ -312,14 +312,14 @@ export class PostSuppliers200ApplicationJSONSourceModifiedDate extends Speakeasy
   @Expose({ name: "taxNumber" })
   taxNumber?: string;
 }
-export enum PostSuppliers200ApplicationJSONStatusEnum {
+export enum CreateSuppliers200ApplicationJSONStatusEnum {
     Pending = "Pending",
     Failed = "Failed",
     Success = "Success",
     TimedOut = "TimedOut"
 }
 
-export class PostSuppliers200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
+export class CreateSuppliers200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "itemId" })
   itemId?: string;
@@ -333,27 +333,27 @@ export class PostSuppliers200ApplicationJSONValidationValidationItem extends Spe
   validatorName?: string;
 }
 
-// PostSuppliers200ApplicationJSONValidation
+// CreateSuppliers200ApplicationJSONValidation
 /** 
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
 **/
-export class PostSuppliers200ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PostSuppliers200ApplicationJSONValidationValidationItem })
+export class CreateSuppliers200ApplicationJSONValidation extends SpeakeasyBase {
+  @SpeakeasyMetadata({ elemType: CreateSuppliers200ApplicationJSONValidationValidationItem })
   @Expose({ name: "errors" })
-  @Type(() => PostSuppliers200ApplicationJSONValidationValidationItem)
-  errors?: PostSuppliers200ApplicationJSONValidationValidationItem[];
+  @Type(() => CreateSuppliers200ApplicationJSONValidationValidationItem)
+  errors?: CreateSuppliers200ApplicationJSONValidationValidationItem[];
 
-  @SpeakeasyMetadata({ elemType: PostSuppliers200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({ elemType: CreateSuppliers200ApplicationJSONValidationValidationItem })
   @Expose({ name: "warnings" })
-  @Type(() => PostSuppliers200ApplicationJSONValidationValidationItem)
-  warnings?: PostSuppliers200ApplicationJSONValidationValidationItem[];
+  @Type(() => CreateSuppliers200ApplicationJSONValidationValidationItem)
+  warnings?: CreateSuppliers200ApplicationJSONValidationValidationItem[];
 }
 
-export class PostSuppliers200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PostSuppliers200ApplicationJSONChanges })
+export class CreateSuppliers200ApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata({ elemType: CreateSuppliers200ApplicationJSONChanges })
   @Expose({ name: "changes" })
-  @Type(() => PostSuppliers200ApplicationJSONChanges)
-  changes?: PostSuppliers200ApplicationJSONChanges[];
+  @Type(() => CreateSuppliers200ApplicationJSONChanges)
+  changes?: CreateSuppliers200ApplicationJSONChanges[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "companyId" })
@@ -366,8 +366,8 @@ export class PostSuppliers200ApplicationJSON extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "data" })
-  @Type(() => PostSuppliers200ApplicationJSONSourceModifiedDate)
-  data?: PostSuppliers200ApplicationJSONSourceModifiedDate;
+  @Type(() => CreateSuppliers200ApplicationJSONSourceModifiedDate)
+  data?: CreateSuppliers200ApplicationJSONSourceModifiedDate;
 
   @SpeakeasyMetadata()
   @Expose({ name: "dataConnectionKey" })
@@ -392,7 +392,7 @@ export class PostSuppliers200ApplicationJSON extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: PostSuppliers200ApplicationJSONStatusEnum;
+  status: CreateSuppliers200ApplicationJSONStatusEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "statusCode" })
@@ -408,11 +408,11 @@ export class PostSuppliers200ApplicationJSON extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => PostSuppliers200ApplicationJSONValidation)
-  validation?: PostSuppliers200ApplicationJSONValidation;
+  @Type(() => CreateSuppliers200ApplicationJSONValidation)
+  validation?: CreateSuppliers200ApplicationJSONValidation;
 }
 
-export class PostSuppliersResponse extends SpeakeasyBase {
+export class CreateSuppliersResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
@@ -423,5 +423,5 @@ export class PostSuppliersResponse extends SpeakeasyBase {
   rawResponse?: AxiosResponse;
 
   @SpeakeasyMetadata()
-  postSuppliers200ApplicationJSONObject?: PostSuppliers200ApplicationJSON;
+  createSuppliers200ApplicationJSONObject?: CreateSuppliers200ApplicationJSON;
 }

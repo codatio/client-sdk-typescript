@@ -21,6 +21,77 @@ export class Suppliers {
   }
   
   /**
+   * createSuppliers - Create suppliers
+   *
+   * Push suppliers
+   * 
+   * Required data may vary by integration. To see what data to post, first call [Get create/update supplier model](https://docs.codat.io/accounting-api#/operations/get-create-update-suppliers-model).
+   * 
+   * > **Supported Integrations**
+   * > 
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support creating suppliers.
+  **/
+  createSuppliers(
+    req: operations.CreateSuppliersRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.CreateSuppliersResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.CreateSuppliersRequest(req);
+    }
+    
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/push/suppliers", req.pathParams);
+
+    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+    try {
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new Error(`Error serializing request body, cause: ${e.message}`);
+      }
+    }
+    
+    const client: AxiosInstance = this._securityClient!;
+    
+    const headers = {...reqBodyHeaders, ...config?.headers};
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    
+    const r = client.request({
+      url: url + queryParams,
+      method: "post",
+      headers: headers,
+      data: reqBody, 
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
+        const res: operations.CreateSuppliersResponse =
+            new operations.CreateSuppliersResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
+        switch (true) {
+          case httpRes?.status == 200:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.createSuppliers200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.CreateSuppliers200ApplicationJSON,
+              );
+            }
+            break;
+        }
+
+        return res;
+      })
+  }
+
+  
+  /**
    * downloadSupplierAttachment - Download supplier attachment
    *
    * Download supplier attachment
@@ -49,7 +120,12 @@ export class Suppliers {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.DownloadSupplierAttachmentResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.DownloadSupplierAttachmentResponse =
+            new operations.DownloadSupplierAttachmentResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             break;
@@ -61,9 +137,66 @@ export class Suppliers {
 
   
   /**
+   * getCreateUpdateSuppliersModel - Get create/update supplier model
+   *
+   * Get create/update supplier model. Returns the expected data for the request payload.
+   * 
+   * See the examples for integration-specific indicative models.
+   * 
+   * > **Supported Integrations**
+   * > 
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support creating and updating suppliers.
+  **/
+  getCreateUpdateSuppliersModel(
+    req: operations.GetCreateUpdateSuppliersModelRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.GetCreateUpdateSuppliersModelResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.GetCreateUpdateSuppliersModelRequest(req);
+    }
+    
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/options/suppliers", req.pathParams);
+    
+    const client: AxiosInstance = this._securityClient!;
+    
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
+        const res: operations.GetCreateUpdateSuppliersModelResponse =
+            new operations.GetCreateUpdateSuppliersModelResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
+        switch (true) {
+          case httpRes?.status == 200:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.pushOption = utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.GetCreateUpdateSuppliersModelPushOption,
+              );
+            }
+            break;
+        }
+
+        return res;
+      })
+  }
+
+  
+  /**
    * getSupplier - Get supplier
    *
-   * Gets a single supplier corresponding to the supplied Id
+   * Gets a single supplier corresponding to the given Id
   **/
   getSupplier(
     req: operations.GetSupplierRequest,
@@ -89,14 +222,18 @@ export class Suppliers {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetSupplierResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetSupplierResponse =
+            new operations.GetSupplierResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.sourceModifiedDate = plainToInstance(
+              res.sourceModifiedDate = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetSupplierSourceModifiedDate,
-                httpRes?.data as operations.GetSupplierSourceModifiedDate,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -136,14 +273,18 @@ export class Suppliers {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetSupplierAttachmentResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetSupplierAttachmentResponse =
+            new operations.GetSupplierAttachmentResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.attachment = plainToInstance(
+              res.attachment = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetSupplierAttachmentAttachment,
-                httpRes?.data as operations.GetSupplierAttachmentAttachment,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -183,14 +324,18 @@ export class Suppliers {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListSupplierAttachmentsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListSupplierAttachmentsResponse =
+            new operations.ListSupplierAttachmentsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.attachments = plainToInstance(
+              res.attachments = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListSupplierAttachmentsAttachments,
-                httpRes?.data as operations.ListSupplierAttachmentsAttachments,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -231,79 +376,18 @@ export class Suppliers {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListSuppliersResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListSuppliersResponse =
+            new operations.ListSuppliersResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.links = plainToInstance(
+              res.links = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListSuppliersLinks,
-                httpRes?.data as operations.ListSuppliersLinks,
-                { excludeExtraneousValues: true }
-              );
-            }
-            break;
-        }
-
-        return res;
-      })
-  }
-
-  
-  /**
-   * postSuppliers - Create suppliers
-   *
-   * Push suppliers
-   * 
-   * > **Supported Integrations**
-   * > 
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support POST methods.
-  **/
-  postSuppliers(
-    req: operations.PostSuppliersRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.PostSuppliersResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.PostSuppliersRequest(req);
-    }
-    
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/push/suppliers", req.pathParams);
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-    
-    const client: AxiosInstance = this._securityClient!;
-    
-    const headers = {...reqBodyHeaders, ...config?.headers};
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
-    
-    const r = client.request({
-      url: url + queryParams,
-      method: "post",
-      headers: headers,
-      data: reqBody, 
-      ...config,
-    });
-    
-    return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.PostSuppliersResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.postSuppliers200ApplicationJSONObject = plainToInstance(
-                operations.PostSuppliers200ApplicationJSON,
-                httpRes?.data as operations.PostSuppliers200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -319,9 +403,11 @@ export class Suppliers {
    *
    * Push supplier
    * 
+   * Required data may vary by integration. To see what data to post, first call [Get create/update supplier model](https://docs.codat.io/accounting-api#/operations/get-create-update-suppliers-model).
+   * 
    * > **Supported Integrations**
    * > 
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support PUT methods.
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support updating suppliers.
   **/
   putSupplier(
     req: operations.PutSupplierRequest,
@@ -361,14 +447,18 @@ export class Suppliers {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.PutSupplierResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.PutSupplierResponse =
+            new operations.PutSupplierResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.putSupplier200ApplicationJSONObject = plainToInstance(
+              res.putSupplier200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.PutSupplier200ApplicationJSON,
-                httpRes?.data as operations.PutSupplier200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;

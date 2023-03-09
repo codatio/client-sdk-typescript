@@ -25,9 +25,11 @@ export class Bills {
    *
    * Posts a new bill to the accounting package for a given company.
    * 
+   * Required data may vary by integration. To see what data to post, first call [Get create/update bill model](https://docs.codat.io/accounting-api#/operations/get-create-update-bills-model).
+   * 
    * > **Supported Integrations**
    * > 
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support POST methods.
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support creating a bill.
   **/
   createBill(
     req: operations.CreateBillRequest,
@@ -67,14 +69,18 @@ export class Bills {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateBillResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreateBillResponse =
+            new operations.CreateBillResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.createBill200ApplicationJSONObject = plainToInstance(
+              res.createBill200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.CreateBill200ApplicationJSON,
-                httpRes?.data as operations.CreateBill200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -114,9 +120,81 @@ export class Bills {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateBillAttachmentsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreateBillAttachmentsResponse =
+            new operations.CreateBillAttachmentsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
+            break;
+        }
+
+        return res;
+      })
+  }
+
+  
+  /**
+   * deleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId - Delete bill
+   *
+   * Deletes a bill from the accounting package for a given company.
+   * 
+   * > **Supported Integrations**
+   * > 
+   * > This functionality is currently only supported for our Oracle NetSuite integration. Check out our [public roadmap](https://portal.productboard.com/codat/7-public-product-roadmap/tabs/46-accounting-api) to see what we're building next, and to submit ideas for new features.
+  **/
+  deleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId(
+    req: operations.DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillIdRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillIdResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillIdRequest(req);
+    }
+    
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/push/bills/{billId}", req.pathParams);
+    
+    const client: AxiosInstance = this._securityClient!;
+    
+    
+    const r = client.request({
+      url: url,
+      method: "delete",
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
+        const res: operations.DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillIdResponse =
+            new operations.DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillIdResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
+        switch (true) {
+          case httpRes?.status == 200:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.deleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSON,
+              );
+            }
+            if (utils.matchContentType(contentType, `application/xml`)) {
+                const resBody: string = JSON.stringify(httpRes?.data, null, 0);
+                let out: Uint8Array = new Uint8Array(resBody.length);
+                for (let i: number = 0; i < resBody.length; i++) out[i] = resBody.charCodeAt(i);
+                res.body = out;
+            }
+            if (utils.matchContentType(contentType, `multipart/form-data`)) {
+                const resBody: string = JSON.stringify(httpRes?.data, null, 0);
+                let out: Uint8Array = new Uint8Array(resBody.length);
+                for (let i: number = 0; i < resBody.length; i++) out[i] = resBody.charCodeAt(i);
+                res.body = out;
+            }
             break;
         }
 
@@ -154,7 +232,12 @@ export class Bills {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.DownloadBillAttachmentResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.DownloadBillAttachmentResponse =
+            new operations.DownloadBillAttachmentResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             break;
@@ -194,14 +277,18 @@ export class Bills {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetBillResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetBillResponse =
+            new operations.GetBillResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.sourceModifiedDate = plainToInstance(
+              res.sourceModifiedDate = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetBillSourceModifiedDate,
-                httpRes?.data as operations.GetBillSourceModifiedDate,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -241,14 +328,18 @@ export class Bills {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetBillAttachmentResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetBillAttachmentResponse =
+            new operations.GetBillAttachmentResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.attachment = plainToInstance(
+              res.attachment = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetBillAttachmentAttachment,
-                httpRes?.data as operations.GetBillAttachmentAttachment,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -288,14 +379,73 @@ export class Bills {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetBillAttachmentsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetBillAttachmentsResponse =
+            new operations.GetBillAttachmentsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.attachments = plainToInstance(
+              res.attachments = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetBillAttachmentsAttachments,
-                httpRes?.data as operations.GetBillAttachmentsAttachments,
-                { excludeExtraneousValues: true }
+              );
+            }
+            break;
+        }
+
+        return res;
+      })
+  }
+
+  
+  /**
+   * getCreateUpdateBillsModel - Get create/update bill model
+   *
+   * Get create/update bill model.
+   * 
+   *  > **Supported Integrations**
+   * > 
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support creating and updating a bill.
+  **/
+  getCreateUpdateBillsModel(
+    req: operations.GetCreateUpdateBillsModelRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.GetCreateUpdateBillsModelResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.GetCreateUpdateBillsModelRequest(req);
+    }
+    
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/options/bills", req.pathParams);
+    
+    const client: AxiosInstance = this._securityClient!;
+    
+    
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...config,
+    });
+    
+    return r.then((httpRes: AxiosResponse) => {
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
+        const res: operations.GetCreateUpdateBillsModelResponse =
+            new operations.GetCreateUpdateBillsModelResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
+        switch (true) {
+          case httpRes?.status == 200:
+            if (utils.matchContentType(contentType, `application/json`)) {
+              res.pushOption = utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.GetCreateUpdateBillsModelPushOption,
               );
             }
             break;
@@ -336,14 +486,18 @@ export class Bills {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListBillsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListBillsResponse =
+            new operations.ListBillsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.links = plainToInstance(
+              res.links = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListBillsLinks,
-                httpRes?.data as operations.ListBillsLinks,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -359,9 +513,11 @@ export class Bills {
    *
    * Posts an updated bill to the accounting package for a given company.
    * 
+   * Required data may vary by integration. To see what data to post, first call [Get create/update bill model](https://docs.codat.io/accounting-api#/operations/get-create-update-bills-model).
+   * 
    * > **Supported Integrations**
    * > 
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support PUT methods.
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support updating a bill.
   **/
   updateBill(
     req: operations.UpdateBillRequest,
@@ -401,14 +557,18 @@ export class Bills {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.UpdateBillResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.UpdateBillResponse =
+            new operations.UpdateBillResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.updateBill200ApplicationJSONObject = plainToInstance(
+              res.updateBill200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.UpdateBill200ApplicationJSON,
-                httpRes?.data as operations.UpdateBill200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
