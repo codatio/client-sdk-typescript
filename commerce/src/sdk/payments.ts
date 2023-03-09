@@ -50,14 +50,18 @@ export class Payments {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListCommercePaymentMethodsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListCommercePaymentMethodsResponse =
+            new operations.ListCommercePaymentMethodsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.links = plainToInstance(
+              res.links = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListCommercePaymentMethodsLinks,
-                httpRes?.data as operations.ListCommercePaymentMethodsLinks,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -98,14 +102,18 @@ export class Payments {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListCommercePaymentsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListCommercePaymentsResponse =
+            new operations.ListCommercePaymentsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.links = plainToInstance(
+              res.links = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListCommercePaymentsLinks,
-                httpRes?.data as operations.ListCommercePaymentsLinks,
-                { excludeExtraneousValues: true }
               );
             }
             break;

@@ -50,14 +50,18 @@ export class Products {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListCommerceProductCategoriesResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListCommerceProductCategoriesResponse =
+            new operations.ListCommerceProductCategoriesResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.links = plainToInstance(
+              res.links = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListCommerceProductCategoriesLinks,
-                httpRes?.data as operations.ListCommerceProductCategoriesLinks,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -98,14 +102,18 @@ export class Products {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListCommerceProductsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListCommerceProductsResponse =
+            new operations.ListCommerceProductsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.links = plainToInstance(
+              res.links = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListCommerceProductsLinks,
-                httpRes?.data as operations.ListCommerceProductsLinks,
-                { excludeExtraneousValues: true }
               );
             }
             break;
