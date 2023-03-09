@@ -62,14 +62,18 @@ export class SyncConfiguration {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ConfigureSyncResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ConfigureSyncResponse =
+            new operations.ConfigureSyncResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.configureSync200ApplicationJSONObject = plainToInstance(
+              res.configureSync200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ConfigureSync200ApplicationJSON,
-                httpRes?.data as operations.ConfigureSync200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -109,7 +113,12 @@ export class SyncConfiguration {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetCompanyCommerceSyncStatusResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetCompanyCommerceSyncStatusResponse =
+            new operations.GetCompanyCommerceSyncStatusResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             break;
@@ -150,7 +159,12 @@ export class SyncConfiguration {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetSyncFlowUrlResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetSyncFlowUrlResponse =
+            new operations.GetSyncFlowUrlResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             break;
@@ -190,14 +204,18 @@ export class SyncConfiguration {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetSyncOptionsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetSyncOptionsResponse =
+            new operations.GetSyncOptionsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getSyncOptions200ApplicationJSONObject = plainToInstance(
+              res.getSyncOptions200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetSyncOptions200ApplicationJSON,
-                httpRes?.data as operations.GetSyncOptions200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;

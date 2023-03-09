@@ -49,7 +49,12 @@ export class SyncData {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CheckDataStatusResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CheckDataStatusResponse =
+            new operations.CheckDataStatusResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             break;
@@ -102,14 +107,18 @@ export class SyncData {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.SendOrdersDataResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.SendOrdersDataResponse =
+            new operations.SendOrdersDataResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.sendOrdersData200ApplicationJSONObject = plainToInstance(
+              res.sendOrdersData200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.SendOrdersData200ApplicationJSON,
-                httpRes?.data as operations.SendOrdersData200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -162,14 +171,18 @@ export class SyncData {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.SendPaymentsDataResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.SendPaymentsDataResponse =
+            new operations.SendPaymentsDataResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.sendPaymentsData200ApplicationJSONObject = plainToInstance(
+              res.sendPaymentsData200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.SendPaymentsData200ApplicationJSON,
-                httpRes?.data as operations.SendPaymentsData200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -222,14 +235,18 @@ export class SyncData {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.SendTransactionsDataResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.SendTransactionsDataResponse =
+            new operations.SendTransactionsDataResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.sendTransactionsData200ApplicationJSONObject = plainToInstance(
+              res.sendTransactionsData200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.SendTransactionsData200ApplicationJSON,
-                httpRes?.data as operations.SendTransactionsData200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;

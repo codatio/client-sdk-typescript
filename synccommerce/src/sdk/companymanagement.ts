@@ -62,14 +62,18 @@ export class CompanyManagement {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.AddDataConnectionResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.AddDataConnectionResponse =
+            new operations.AddDataConnectionResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.addDataConnection200ApplicationJSONObject = plainToInstance(
+              res.addDataConnection200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.AddDataConnection200ApplicationJSON,
-                httpRes?.data as operations.AddDataConnection200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -110,14 +114,18 @@ export class CompanyManagement {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CompaniesResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CompaniesResponse =
+            new operations.CompaniesResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.companies200ApplicationJSONObject = plainToInstance(
+              res.companies200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.Companies200ApplicationJSON,
-                httpRes?.data as operations.Companies200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -158,14 +166,18 @@ export class CompanyManagement {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetDataconnectionsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetDataconnectionsResponse =
+            new operations.GetDataconnectionsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getDataconnections200ApplicationJSONObject = plainToInstance(
+              res.getDataconnections200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetDataconnections200ApplicationJSON,
-                httpRes?.data as operations.GetDataconnections200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -218,14 +230,18 @@ export class CompanyManagement {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.PostCompaniesResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.PostCompaniesResponse =
+            new operations.PostCompaniesResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.postCompanies200ApplicationJSONObject = plainToInstance(
+              res.postCompanies200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.PostCompanies200ApplicationJSON,
-                httpRes?.data as operations.PostCompanies200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -278,14 +294,18 @@ export class CompanyManagement {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.UpdateDataConnectionResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.UpdateDataConnectionResponse =
+            new operations.UpdateDataConnectionResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.updateDataConnection200ApplicationJSONObject = plainToInstance(
+              res.updateDataConnection200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.UpdateDataConnection200ApplicationJSON,
-                httpRes?.data as operations.UpdateDataConnection200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
