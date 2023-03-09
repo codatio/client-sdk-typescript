@@ -49,14 +49,18 @@ export class TransactionCategories {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetBankTransactionCategoryResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetBankTransactionCategoryResponse =
+            new operations.GetBankTransactionCategoryResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.sourceModifiedDate = plainToInstance(
+              res.sourceModifiedDate = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetBankTransactionCategorySourceModifiedDate,
-                httpRes?.data as operations.GetBankTransactionCategorySourceModifiedDate,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -97,14 +101,18 @@ export class TransactionCategories {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListBankTransactionCategoriesResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListBankTransactionCategoriesResponse =
+            new operations.ListBankTransactionCategoriesResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.links = plainToInstance(
+              res.links = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListBankTransactionCategoriesLinks,
-                httpRes?.data as operations.ListBankTransactionCategoriesLinks,
-                { excludeExtraneousValues: true }
               );
             }
             break;

@@ -49,14 +49,18 @@ export class Transactions {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetBankingTransactionResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetBankingTransactionResponse =
+            new operations.GetBankingTransactionResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.sourceModifiedDate = plainToInstance(
+              res.sourceModifiedDate = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetBankingTransactionSourceModifiedDate,
-                httpRes?.data as operations.GetBankingTransactionSourceModifiedDate,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -97,14 +101,18 @@ export class Transactions {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListAllBankingTransactionsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListAllBankingTransactionsResponse =
+            new operations.ListAllBankingTransactionsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.listAllBankingTransactions200ApplicationJSONObject = plainToInstance(
+              res.listAllBankingTransactions200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListAllBankingTransactions200ApplicationJSON,
-                httpRes?.data as operations.ListAllBankingTransactions200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -145,14 +153,18 @@ export class Transactions {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListBankingTransactionsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListBankingTransactionsResponse =
+            new operations.ListBankingTransactionsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.listBankingTransactions200ApplicationJSONObject = plainToInstance(
+              res.listBankingTransactions200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListBankingTransactions200ApplicationJSON,
-                httpRes?.data as operations.ListBankingTransactions200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;

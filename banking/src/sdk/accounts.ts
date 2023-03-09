@@ -49,14 +49,18 @@ export class Accounts {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetBankingAccountResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetBankingAccountResponse =
+            new operations.GetBankingAccountResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.sourceModifiedDate = plainToInstance(
+              res.sourceModifiedDate = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetBankingAccountSourceModifiedDate,
-                httpRes?.data as operations.GetBankingAccountSourceModifiedDate,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -97,14 +101,18 @@ export class Accounts {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListBankingAccountsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListBankingAccountsResponse =
+            new operations.ListBankingAccountsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.links = plainToInstance(
+              res.links = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListBankingAccountsLinks,
-                httpRes?.data as operations.ListBankingAccountsLinks,
-                { excludeExtraneousValues: true }
               );
             }
             break;
