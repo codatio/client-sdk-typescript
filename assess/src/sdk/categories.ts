@@ -49,14 +49,18 @@ export class Categories {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetAccountCategoryResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetAccountCategoryResponse =
+            new operations.GetAccountCategoryResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.categorisedAccount = plainToInstance(
+              res.categorisedAccount = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetAccountCategoryCategorisedAccount,
-                httpRes?.data as operations.GetAccountCategoryCategorisedAccount,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -97,14 +101,18 @@ export class Categories {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListAccountsCategoriesResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListAccountsCategoriesResponse =
+            new operations.ListAccountsCategoriesResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.links = plainToInstance(
+              res.links = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListAccountsCategoriesLinks,
-                httpRes?.data as operations.ListAccountsCategoriesLinks,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -139,11 +147,22 @@ export class Categories {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListAvailableAccountCategoriesResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListAvailableAccountCategoriesResponse =
+            new operations.ListAvailableAccountCategoriesResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.listAvailableAccountCategoriesChartOfAccountCategoryAnies = httpRes?.data;
+              res.listAvailableAccountCategoriesChartOfAccountCategoryAnies = [];
+              const resFieldDepth: number = utils.getResFieldDepth(res);
+              res.listAvailableAccountCategoriesChartOfAccountCategoryAnies = utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.ListAvailableAccountCategoriesChartOfAccountCategory,
+                resFieldDepth
+              );
             }
             break;
         }
@@ -195,14 +214,18 @@ export class Categories {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.UpdateAccountCategoryResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.UpdateAccountCategoryResponse =
+            new operations.UpdateAccountCategoryResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.categorisedAccount = plainToInstance(
+              res.categorisedAccount = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.UpdateAccountCategoryCategorisedAccount,
-                httpRes?.data as operations.UpdateAccountCategoryCategorisedAccount,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -255,11 +278,22 @@ export class Categories {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.UpdateAccountsCategoriesResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.UpdateAccountsCategoriesResponse =
+            new operations.UpdateAccountsCategoriesResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.categorisedAccounts = httpRes?.data;
+              res.categorisedAccounts = [];
+              const resFieldDepth: number = utils.getResFieldDepth(res);
+              res.categorisedAccounts = utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.UpdateAccountsCategoriesCategorisedAccount,
+                resFieldDepth
+              );
             }
             break;
         }

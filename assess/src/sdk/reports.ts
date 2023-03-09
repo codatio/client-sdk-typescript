@@ -50,14 +50,18 @@ export class Reports {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetAccountsForEnhancedBalanceSheetResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetAccountsForEnhancedBalanceSheetResponse =
+            new operations.GetAccountsForEnhancedBalanceSheetResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.enhancedReport = plainToInstance(
+              res.enhancedReport = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetAccountsForEnhancedBalanceSheetEnhancedReport,
-                httpRes?.data as operations.GetAccountsForEnhancedBalanceSheetEnhancedReport,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -98,14 +102,18 @@ export class Reports {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetAccountsForEnhancedProfitAndLossResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetAccountsForEnhancedProfitAndLossResponse =
+            new operations.GetAccountsForEnhancedProfitAndLossResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.enhancedReport = plainToInstance(
+              res.enhancedReport = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetAccountsForEnhancedProfitAndLossEnhancedReport,
-                httpRes?.data as operations.GetAccountsForEnhancedProfitAndLossEnhancedReport,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -146,14 +154,18 @@ export class Reports {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetCommerceCustomerRetentionMetricsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetCommerceCustomerRetentionMetricsResponse =
+            new operations.GetCommerceCustomerRetentionMetricsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getCommerceCustomerRetentionMetrics200ApplicationJSONObject = plainToInstance(
+              res.getCommerceCustomerRetentionMetrics200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCommerceCustomerRetentionMetrics200ApplicationJSON,
-                httpRes?.data as operations.GetCommerceCustomerRetentionMetrics200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -194,14 +206,18 @@ export class Reports {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetCommerceLifetimeValueMetricsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetCommerceLifetimeValueMetricsResponse =
+            new operations.GetCommerceLifetimeValueMetricsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getCommerceLifetimeValueMetrics200ApplicationJSONObject = plainToInstance(
+              res.getCommerceLifetimeValueMetrics200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCommerceLifetimeValueMetrics200ApplicationJSON,
-                httpRes?.data as operations.GetCommerceLifetimeValueMetrics200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -242,14 +258,18 @@ export class Reports {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetCommerceOrdersMetricsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetCommerceOrdersMetricsResponse =
+            new operations.GetCommerceOrdersMetricsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getCommerceOrdersMetrics200ApplicationJSONObject = plainToInstance(
+              res.getCommerceOrdersMetrics200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCommerceOrdersMetrics200ApplicationJSON,
-                httpRes?.data as operations.GetCommerceOrdersMetrics200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -290,14 +310,18 @@ export class Reports {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetCommerceRefundsMetricsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetCommerceRefundsMetricsResponse =
+            new operations.GetCommerceRefundsMetricsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getCommerceRefundsMetrics200ApplicationJSONObject = plainToInstance(
+              res.getCommerceRefundsMetrics200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCommerceRefundsMetrics200ApplicationJSON,
-                httpRes?.data as operations.GetCommerceRefundsMetrics200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -338,14 +362,18 @@ export class Reports {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetCommerceRevenueMetricsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetCommerceRevenueMetricsResponse =
+            new operations.GetCommerceRevenueMetricsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getCommerceRevenueMetrics200ApplicationJSONObject = plainToInstance(
+              res.getCommerceRevenueMetrics200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCommerceRevenueMetrics200ApplicationJSON,
-                httpRes?.data as operations.GetCommerceRevenueMetrics200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -386,14 +414,18 @@ export class Reports {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetEnhancedBalanceSheetResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetEnhancedBalanceSheetResponse =
+            new operations.GetEnhancedBalanceSheetResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getEnhancedBalanceSheet200ApplicationJSONObject = plainToInstance(
+              res.getEnhancedBalanceSheet200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetEnhancedBalanceSheet200ApplicationJSON,
-                httpRes?.data as operations.GetEnhancedBalanceSheet200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -434,14 +466,18 @@ export class Reports {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetEnhancedCashFlowTransactionsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetEnhancedCashFlowTransactionsResponse =
+            new operations.GetEnhancedCashFlowTransactionsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.enhancedCashFlowTransactions = plainToInstance(
+              res.enhancedCashFlowTransactions = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactions,
-                httpRes?.data as operations.GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactions,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -482,14 +518,18 @@ export class Reports {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetEnhancedFinancialMetricsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetEnhancedFinancialMetricsResponse =
+            new operations.GetEnhancedFinancialMetricsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getEnhancedFinancialMetrics200ApplicationJSONObject = plainToInstance(
+              res.getEnhancedFinancialMetrics200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetEnhancedFinancialMetrics200ApplicationJSON,
-                httpRes?.data as operations.GetEnhancedFinancialMetrics200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -530,14 +570,18 @@ export class Reports {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetEnhancedProfitAndLossResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetEnhancedProfitAndLossResponse =
+            new operations.GetEnhancedProfitAndLossResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getEnhancedProfitAndLoss200ApplicationJSONObject = plainToInstance(
+              res.getEnhancedProfitAndLoss200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetEnhancedProfitAndLoss200ApplicationJSON,
-                httpRes?.data as operations.GetEnhancedProfitAndLoss200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -577,14 +621,18 @@ export class Reports {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetRecurringRevenueMetricsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetRecurringRevenueMetricsResponse =
+            new operations.GetRecurringRevenueMetricsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getRecurringRevenueMetrics200ApplicationJSONObject = plainToInstance(
+              res.getRecurringRevenueMetrics200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetRecurringRevenueMetrics200ApplicationJSON,
-                httpRes?.data as operations.GetRecurringRevenueMetrics200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -624,14 +672,18 @@ export class Reports {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.RequestRecurringRevenueMetricsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.RequestRecurringRevenueMetricsResponse =
+            new operations.RequestRecurringRevenueMetricsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.requestRecurringRevenueMetrics200ApplicationJSONObject = plainToInstance(
+              res.requestRecurringRevenueMetrics200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.RequestRecurringRevenueMetrics200ApplicationJSON,
-                httpRes?.data as operations.RequestRecurringRevenueMetrics200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;

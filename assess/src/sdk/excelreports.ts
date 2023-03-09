@@ -50,14 +50,18 @@ export class ExcelReports {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetAccountingMarketingMetricsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetAccountingMarketingMetricsResponse =
+            new operations.GetAccountingMarketingMetricsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getAccountingMarketingMetrics200ApplicationJSONObject = plainToInstance(
+              res.getAccountingMarketingMetrics200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetAccountingMarketingMetrics200ApplicationJSON,
-                httpRes?.data as operations.GetAccountingMarketingMetrics200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -98,7 +102,12 @@ export class ExcelReports {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetExcelReportResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetExcelReportResponse =
+            new operations.GetExcelReportResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/octet-stream`)) {
@@ -145,14 +154,18 @@ export class ExcelReports {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.MakeRequestToDownloadExcelReportResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.MakeRequestToDownloadExcelReportResponse =
+            new operations.MakeRequestToDownloadExcelReportResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.makeRequestToDownloadExcelReport200ApplicationJSONObject = plainToInstance(
+              res.makeRequestToDownloadExcelReport200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.MakeRequestToDownloadExcelReport200ApplicationJSON,
-                httpRes?.data as operations.MakeRequestToDownloadExcelReport200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -193,14 +206,18 @@ export class ExcelReports {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.RequestExcelReportForDownloadResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.RequestExcelReportForDownloadResponse =
+            new operations.RequestExcelReportForDownloadResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.requestExcelReportForDownload200ApplicationJSONObject = plainToInstance(
+              res.requestExcelReportForDownload200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.RequestExcelReportForDownload200ApplicationJSON,
-                httpRes?.data as operations.RequestExcelReportForDownload200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;

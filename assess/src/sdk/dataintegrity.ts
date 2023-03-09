@@ -50,14 +50,18 @@ export class DataIntegrity {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetDataIntegrityDetailsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetDataIntegrityDetailsResponse =
+            new operations.GetDataIntegrityDetailsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.links = plainToInstance(
+              res.links = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetDataIntegrityDetailsLinks,
-                httpRes?.data as operations.GetDataIntegrityDetailsLinks,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -97,14 +101,18 @@ export class DataIntegrity {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetDataIntegrityStatusResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetDataIntegrityStatusResponse =
+            new operations.GetDataIntegrityStatusResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getDataIntegrityStatus200ApplicationJSONObject = plainToInstance(
+              res.getDataIntegrityStatus200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetDataIntegrityStatus200ApplicationJSON,
-                httpRes?.data as operations.GetDataIntegrityStatus200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -145,14 +153,18 @@ export class DataIntegrity {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetDataIntegritySummariesResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetDataIntegritySummariesResponse =
+            new operations.GetDataIntegritySummariesResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getDataIntegritySummaries200ApplicationJSONObject = plainToInstance(
+              res.getDataIntegritySummaries200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetDataIntegritySummaries200ApplicationJSON,
-                httpRes?.data as operations.GetDataIntegritySummaries200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
