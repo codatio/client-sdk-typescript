@@ -62,41 +62,42 @@ export class Sync {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.IntiateSyncResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.IntiateSyncResponse =
+            new operations.IntiateSyncResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 202:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.intiateSync202ApplicationJSONObject = plainToInstance(
+              res.intiateSync202ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.IntiateSync202ApplicationJSON,
-                httpRes?.data as operations.IntiateSync202ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 400:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.intiateSync400ApplicationJSONObject = plainToInstance(
+              res.intiateSync400ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.IntiateSync400ApplicationJSON,
-                httpRes?.data as operations.IntiateSync400ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 404:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.intiateSync404ApplicationJSONObject = plainToInstance(
+              res.intiateSync404ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.IntiateSync404ApplicationJSON,
-                httpRes?.data as operations.IntiateSync404ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 422:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.intiateSync422ApplicationJSONObject = plainToInstance(
+              res.intiateSync422ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.IntiateSync422ApplicationJSON,
-                httpRes?.data as operations.IntiateSync422ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;

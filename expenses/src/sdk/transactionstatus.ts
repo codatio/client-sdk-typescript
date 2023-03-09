@@ -49,11 +49,22 @@ export class TransactionStatus {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetSyncTransactionResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetSyncTransactionResponse =
+            new operations.GetSyncTransactionResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getSyncTransaction200ApplicationJSONObjects = httpRes?.data;
+              res.getSyncTransaction200ApplicationJSONObjects = [];
+              const resFieldDepth: number = utils.getResFieldDepth(res);
+              res.getSyncTransaction200ApplicationJSONObjects = utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.GetSyncTransaction200ApplicationJSON,
+                resFieldDepth
+              );
             }
             break;
         }
@@ -93,14 +104,18 @@ export class TransactionStatus {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetSyncTransactionsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetSyncTransactionsResponse =
+            new operations.GetSyncTransactionsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getSyncTransactions200ApplicationJSONObject = plainToInstance(
+              res.getSyncTransactions200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetSyncTransactions200ApplicationJSON,
-                httpRes?.data as operations.GetSyncTransactions200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;

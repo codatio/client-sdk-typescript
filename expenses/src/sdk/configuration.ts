@@ -49,14 +49,18 @@ export class Configuration {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetCompanyConfigurationResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetCompanyConfigurationResponse =
+            new operations.GetCompanyConfigurationResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getCompanyConfiguration200ApplicationJSONObject = plainToInstance(
+              res.getCompanyConfiguration200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCompanyConfiguration200ApplicationJSON,
-                httpRes?.data as operations.GetCompanyConfiguration200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -109,23 +113,26 @@ export class Configuration {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.SaveCompanyConfigurationResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.SaveCompanyConfigurationResponse =
+            new operations.SaveCompanyConfigurationResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.saveCompanyConfiguration200ApplicationJSONObject = plainToInstance(
+              res.saveCompanyConfiguration200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.SaveCompanyConfiguration200ApplicationJSON,
-                httpRes?.data as operations.SaveCompanyConfiguration200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 400:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.saveCompanyConfiguration400ApplicationJSONObject = plainToInstance(
+              res.saveCompanyConfiguration400ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.SaveCompanyConfiguration400ApplicationJSON,
-                httpRes?.data as operations.SaveCompanyConfiguration400ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;

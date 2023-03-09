@@ -62,14 +62,18 @@ export class Expenses {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateExpenseDatasetResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreateExpenseDatasetResponse =
+            new operations.CreateExpenseDatasetResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.createExpenseDataset200ApplicationJSONObject = plainToInstance(
+              res.createExpenseDataset200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.CreateExpenseDataset200ApplicationJSON,
-                httpRes?.data as operations.CreateExpenseDataset200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -109,14 +113,18 @@ export class Expenses {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.UploadAttachmentResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.UploadAttachmentResponse =
+            new operations.UploadAttachmentResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.uploadAttachment200ApplicationJSONObject = plainToInstance(
+              res.uploadAttachment200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.UploadAttachment200ApplicationJSON,
-                httpRes?.data as operations.UploadAttachment200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;

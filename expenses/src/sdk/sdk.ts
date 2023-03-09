@@ -10,7 +10,7 @@ import { TransactionStatus } from "./transactionstatus";
 import axios, { AxiosInstance } from "axios";
 
 export const ServerList = [
-	"https://expensesync.codat.io",
+	"https://api.codat.io",
 ] as const;
 
 
@@ -42,8 +42,8 @@ export class Codat {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.2.3";
-  private _genVersion = "1.8.6";
+  private _sdkVersion = "0.2.4";
+  private _genVersion = "1.8.7";
 
   constructor(props: SDKProps) {
     this._serverURL = props.serverUrl ?? ServerList[0];

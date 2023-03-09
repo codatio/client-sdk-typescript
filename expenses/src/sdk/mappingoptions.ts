@@ -49,14 +49,18 @@ export class MappingOptions {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetMappingOptionsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetMappingOptionsResponse =
+            new operations.GetMappingOptionsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getMappingOptions200ApplicationJSONObject = plainToInstance(
+              res.getMappingOptions200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetMappingOptions200ApplicationJSON,
-                httpRes?.data as operations.GetMappingOptions200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
