@@ -62,11 +62,22 @@ export class BankFeedAccounts {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateBankFeedResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreateBankFeedResponse =
+            new operations.CreateBankFeedResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.bankFeedBankAccounts = httpRes?.data;
+              res.bankFeedBankAccounts = [];
+              const resFieldDepth: number = utils.getResFieldDepth(res);
+              res.bankFeedBankAccounts = utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.CreateBankFeedBankFeedBankAccount,
+                resFieldDepth
+              );
             }
             break;
         }
@@ -105,11 +116,22 @@ export class BankFeedAccounts {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetBankFeedsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetBankFeedsResponse =
+            new operations.GetBankFeedsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.bankFeedBankAccounts = httpRes?.data;
+              res.bankFeedBankAccounts = [];
+              const resFieldDepth: number = utils.getResFieldDepth(res);
+              res.bankFeedBankAccounts = utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.GetBankFeedsBankFeedBankAccount,
+                resFieldDepth
+              );
             }
             break;
         }
@@ -161,14 +183,18 @@ export class BankFeedAccounts {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.UpdateBankFeedResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.UpdateBankFeedResponse =
+            new operations.UpdateBankFeedResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.bankFeedBankAccount = plainToInstance(
+              res.bankFeedBankAccount = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.UpdateBankFeedBankFeedBankAccount,
-                httpRes?.data as operations.UpdateBankFeedBankFeedBankAccount,
-                { excludeExtraneousValues: true }
               );
             }
             break;
