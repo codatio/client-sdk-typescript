@@ -49,25 +49,28 @@ export class RefreshData {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateManyPullOperationsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreateManyPullOperationsResponse =
+            new operations.CreateManyPullOperationsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 204:
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.createManyPullOperations401ApplicationJSONObject = plainToInstance(
+              res.createManyPullOperations401ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.CreateManyPullOperations401ApplicationJSON,
-                httpRes?.data as operations.CreateManyPullOperations401ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 404:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.createManyPullOperations404ApplicationJSONObject = plainToInstance(
+              res.createManyPullOperations404ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.CreateManyPullOperations404ApplicationJSON,
-                httpRes?.data as operations.CreateManyPullOperations404ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -110,32 +113,34 @@ export class RefreshData {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreatePullOperationResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreatePullOperationResponse =
+            new operations.CreatePullOperationResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.pullOperation = plainToInstance(
+              res.pullOperation = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.CreatePullOperationPullOperation,
-                httpRes?.data as operations.CreatePullOperationPullOperation,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.createPullOperation401ApplicationJSONObject = plainToInstance(
+              res.createPullOperation401ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.CreatePullOperation401ApplicationJSON,
-                httpRes?.data as operations.CreatePullOperation401ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 404:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.createPullOperation404ApplicationJSONObject = plainToInstance(
+              res.createPullOperation404ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.CreatePullOperation404ApplicationJSON,
-                httpRes?.data as operations.CreatePullOperation404ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;

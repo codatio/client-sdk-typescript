@@ -62,23 +62,26 @@ export class Webhooks {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateRuleResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreateRuleResponse =
+            new operations.CreateRuleResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.webhook = plainToInstance(
+              res.webhook = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.CreateRuleWebhook,
-                httpRes?.data as operations.CreateRuleWebhook,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.createRule401ApplicationJSONObject = plainToInstance(
+              res.createRule401ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.CreateRule401ApplicationJSON,
-                httpRes?.data as operations.CreateRule401ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -118,32 +121,34 @@ export class Webhooks {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetWebhookResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetWebhookResponse =
+            new operations.GetWebhookResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.webhook = plainToInstance(
+              res.webhook = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetWebhookWebhook,
-                httpRes?.data as operations.GetWebhookWebhook,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getWebhook401ApplicationJSONObject = plainToInstance(
+              res.getWebhook401ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetWebhook401ApplicationJSON,
-                httpRes?.data as operations.GetWebhook401ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 404:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getWebhook404ApplicationJSONObject = plainToInstance(
+              res.getWebhook404ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetWebhook404ApplicationJSON,
-                httpRes?.data as operations.GetWebhook404ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -184,32 +189,34 @@ export class Webhooks {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListRulesResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListRulesResponse =
+            new operations.ListRulesResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.links = plainToInstance(
+              res.links = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListRulesLinks,
-                httpRes?.data as operations.ListRulesLinks,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 400:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.listRules400ApplicationJSONObject = plainToInstance(
+              res.listRules400ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListRules400ApplicationJSON,
-                httpRes?.data as operations.ListRules400ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.listRules401ApplicationJSONObject = plainToInstance(
+              res.listRules401ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListRules401ApplicationJSON,
-                httpRes?.data as operations.ListRules401ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;

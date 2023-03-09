@@ -23,9 +23,11 @@ export class PushData {
   /**
    * getCompaniesCompanyIdConnectionsConnectionIdPush - List push options
    *
+   * This is the generic documentation for creation and updating of data. See the equivalent endpoint for a given data type for more specific information. 
+   * 
    * Before pushing data into accounting software, it is often necessary to collect some details from the user as to how they would like the data to be inserted. This includes names and amounts on transactional entities, but also factors such as categorisation of entities, which is often handled differently between different accounting packages. A good example of this is specifying where on the balance sheet/profit and loss reports the user would like a newly-created nominal account to appear.
    * 
-   * Codat does not wish to limit users to pushing to a very limited number of standard categories, so we have implemented an "options" endpoint, which allows us to expose to our clients the fields which are required to be pushed for a specific linked company, and the options which may be selected for each field.
+   * Codat tries not to limit users to pushing to a very limited number of standard categories, so we have implemented "options" endpoints, which allow us to expose to our clients the fields which are required to be pushed for a specific linked company, and the options which may be selected for each field.
    * 
    * 
    * > **Supported Integrations**
@@ -56,14 +58,18 @@ export class PushData {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetCompaniesCompanyIdConnectionsConnectionIdPushResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetCompaniesCompanyIdConnectionsConnectionIdPushResponse =
+            new operations.GetCompaniesCompanyIdConnectionsConnectionIdPushResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.pushOption = plainToInstance(
+              res.pushOption = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCompaniesCompanyIdConnectionsConnectionIdPushPushOption,
-                httpRes?.data as operations.GetCompaniesCompanyIdConnectionsConnectionIdPushPushOption,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -104,14 +110,18 @@ export class PushData {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetCompaniesCompanyIdPushResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetCompaniesCompanyIdPushResponse =
+            new operations.GetCompaniesCompanyIdPushResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.links = plainToInstance(
+              res.links = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCompaniesCompanyIdPushLinks,
-                httpRes?.data as operations.GetCompaniesCompanyIdPushLinks,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -151,14 +161,18 @@ export class PushData {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetCompaniesCompanyIdPushPushOperationKeyResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetCompaniesCompanyIdPushPushOperationKeyResponse =
+            new operations.GetCompaniesCompanyIdPushPushOperationKeyResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getCompaniesCompanyIdPushPushOperationKey200ApplicationJSONObject = plainToInstance(
+              res.getCompaniesCompanyIdPushPushOperationKey200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSON,
-                httpRes?.data as operations.GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;

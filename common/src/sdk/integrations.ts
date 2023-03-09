@@ -49,32 +49,34 @@ export class Integrations {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetIntegrationsPlatformKeyResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetIntegrationsPlatformKeyResponse =
+            new operations.GetIntegrationsPlatformKeyResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.integration = plainToInstance(
+              res.integration = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetIntegrationsPlatformKeyIntegration,
-                httpRes?.data as operations.GetIntegrationsPlatformKeyIntegration,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getIntegrationsPlatformKey401ApplicationJSONObject = plainToInstance(
+              res.getIntegrationsPlatformKey401ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetIntegrationsPlatformKey401ApplicationJSON,
-                httpRes?.data as operations.GetIntegrationsPlatformKey401ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 404:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getIntegrationsPlatformKey404ApplicationJSONObject = plainToInstance(
+              res.getIntegrationsPlatformKey404ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetIntegrationsPlatformKey404ApplicationJSON,
-                httpRes?.data as operations.GetIntegrationsPlatformKey404ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -114,14 +116,18 @@ export class Integrations {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetIntegrationsPlatformKeyBrandingResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetIntegrationsPlatformKeyBrandingResponse =
+            new operations.GetIntegrationsPlatformKeyBrandingResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.branding = plainToInstance(
+              res.branding = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetIntegrationsPlatformKeyBrandingBranding,
-                httpRes?.data as operations.GetIntegrationsPlatformKeyBrandingBranding,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -162,32 +168,34 @@ export class Integrations {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListIntegrationsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListIntegrationsResponse =
+            new operations.ListIntegrationsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.links = plainToInstance(
+              res.links = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListIntegrationsLinks,
-                httpRes?.data as operations.ListIntegrationsLinks,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 400:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.listIntegrations400ApplicationJSONObject = plainToInstance(
+              res.listIntegrations400ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListIntegrations400ApplicationJSON,
-                httpRes?.data as operations.ListIntegrations400ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.listIntegrations401ApplicationJSONObject = plainToInstance(
+              res.listIntegrations401ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.ListIntegrations401ApplicationJSON,
-                httpRes?.data as operations.ListIntegrations401ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;

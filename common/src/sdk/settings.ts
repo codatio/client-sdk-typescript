@@ -44,23 +44,26 @@ export class Settings {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetProfileSyncSettingsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetProfileSyncSettingsResponse =
+            new operations.GetProfileSyncSettingsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getProfileSyncSettings200ApplicationJSONObject = plainToInstance(
+              res.getProfileSyncSettings200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetProfileSyncSettings200ApplicationJSON,
-                httpRes?.data as operations.GetProfileSyncSettings200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getProfileSyncSettings401ApplicationJSONObject = plainToInstance(
+              res.getProfileSyncSettings401ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetProfileSyncSettings401ApplicationJSON,
-                httpRes?.data as operations.GetProfileSyncSettings401ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -95,23 +98,26 @@ export class Settings {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetSettingsProfileResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetSettingsProfileResponse =
+            new operations.GetSettingsProfileResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.profile = plainToInstance(
+              res.profile = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetSettingsProfileProfile,
-                httpRes?.data as operations.GetSettingsProfileProfile,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getSettingsProfile401ApplicationJSONObject = plainToInstance(
+              res.getSettingsProfile401ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetSettingsProfile401ApplicationJSON,
-                httpRes?.data as operations.GetSettingsProfile401ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -164,16 +170,20 @@ export class Settings {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.PostProfileSyncSettingsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.PostProfileSyncSettingsResponse =
+            new operations.PostProfileSyncSettingsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 204:
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.postProfileSyncSettings401ApplicationJSONObject = plainToInstance(
+              res.postProfileSyncSettings401ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.PostProfileSyncSettings401ApplicationJSON,
-                httpRes?.data as operations.PostProfileSyncSettings401ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -226,23 +236,26 @@ export class Settings {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.PutProfileResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.PutProfileResponse =
+            new operations.PutProfileResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.profile = plainToInstance(
+              res.profile = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.PutProfileProfile,
-                httpRes?.data as operations.PutProfileProfile,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.putProfile401ApplicationJSONObject = plainToInstance(
+              res.putProfile401ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.PutProfile401ApplicationJSON,
-                httpRes?.data as operations.PutProfile401ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;

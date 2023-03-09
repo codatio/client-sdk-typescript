@@ -49,32 +49,34 @@ export class DataStatus {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetCompaniesCompanyIdDataStatusResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetCompaniesCompanyIdDataStatusResponse =
+            new operations.GetCompaniesCompanyIdDataStatusResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getCompaniesCompanyIdDataStatus200ApplicationJSONObject = plainToInstance(
+              res.getCompaniesCompanyIdDataStatus200ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCompaniesCompanyIdDataStatus200ApplicationJSON,
-                httpRes?.data as operations.GetCompaniesCompanyIdDataStatus200ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getCompaniesCompanyIdDataStatus401ApplicationJSONObject = plainToInstance(
+              res.getCompaniesCompanyIdDataStatus401ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCompaniesCompanyIdDataStatus401ApplicationJSON,
-                httpRes?.data as operations.GetCompaniesCompanyIdDataStatus401ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 404:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getCompaniesCompanyIdDataStatus404ApplicationJSONObject = plainToInstance(
+              res.getCompaniesCompanyIdDataStatus404ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCompaniesCompanyIdDataStatus404ApplicationJSON,
-                httpRes?.data as operations.GetCompaniesCompanyIdDataStatus404ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -115,41 +117,42 @@ export class DataStatus {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetCompanyDataHistoryResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetCompanyDataHistoryResponse =
+            new operations.GetCompanyDataHistoryResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.links = plainToInstance(
+              res.links = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCompanyDataHistoryLinks,
-                httpRes?.data as operations.GetCompanyDataHistoryLinks,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 400:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getCompanyDataHistory400ApplicationJSONObject = plainToInstance(
+              res.getCompanyDataHistory400ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCompanyDataHistory400ApplicationJSON,
-                httpRes?.data as operations.GetCompanyDataHistory400ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getCompanyDataHistory401ApplicationJSONObject = plainToInstance(
+              res.getCompanyDataHistory401ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCompanyDataHistory401ApplicationJSON,
-                httpRes?.data as operations.GetCompanyDataHistory401ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 404:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getCompanyDataHistory404ApplicationJSONObject = plainToInstance(
+              res.getCompanyDataHistory404ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetCompanyDataHistory404ApplicationJSON,
-                httpRes?.data as operations.GetCompanyDataHistory404ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -189,32 +192,34 @@ export class DataStatus {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetPullOperationResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.GetPullOperationResponse =
+            new operations.GetPullOperationResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.pullOperation = plainToInstance(
+              res.pullOperation = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetPullOperationPullOperation,
-                httpRes?.data as operations.GetPullOperationPullOperation,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 401:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getPullOperation401ApplicationJSONObject = plainToInstance(
+              res.getPullOperation401ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetPullOperation401ApplicationJSON,
-                httpRes?.data as operations.GetPullOperation401ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
           case httpRes?.status == 404:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.getPullOperation404ApplicationJSONObject = plainToInstance(
+              res.getPullOperation404ApplicationJSONObject = utils.deserializeJSONResponse(
+                httpRes?.data,
                 operations.GetPullOperation404ApplicationJSON,
-                httpRes?.data as operations.GetPullOperation404ApplicationJSON,
-                { excludeExtraneousValues: true }
               );
             }
             break;
