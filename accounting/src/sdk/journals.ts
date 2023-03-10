@@ -80,7 +80,7 @@ export class Journals {
   /**
    * getJournal - Get journal
    *
-   * Gets a single journal corresponding to the given Id
+   * Gets a single journal corresponding to the given ID.
   **/
   getJournal(
     req: operations.GetJournalRequest,

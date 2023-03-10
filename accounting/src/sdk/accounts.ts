@@ -94,7 +94,7 @@ export class Accounts {
   /**
    * getAccount - Get account
    *
-   * Gets a single account corresponding to the given Id
+   * Gets a single account corresponding to the given ID.
   **/
   getAccount(
     req: operations.GetAccountRequest,

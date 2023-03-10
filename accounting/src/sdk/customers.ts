@@ -196,7 +196,7 @@ export class Customers {
   /**
    * getCustomer - Get customer
    *
-   * Gets a single customer corresponding to the given Id
+   * Gets a single customer corresponding to the given ID.
   **/
   getCustomer(
     req: operations.GetCustomerRequest,

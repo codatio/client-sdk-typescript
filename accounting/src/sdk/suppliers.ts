@@ -196,7 +196,7 @@ export class Suppliers {
   /**
    * getSupplier - Get supplier
    *
-   * Gets a single supplier corresponding to the given Id
+   * Gets a single supplier corresponding to the given ID.
   **/
   getSupplier(
     req: operations.GetSupplierRequest,

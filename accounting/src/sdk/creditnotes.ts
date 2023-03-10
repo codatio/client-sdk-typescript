@@ -151,7 +151,7 @@ export class CreditNotes {
   /**
    * getCreditNote - Get credit note
    *
-   * Gets a single creditNote corresponding to the given Id
+   * Gets a single creditNote corresponding to the given ID.
   **/
   getCreditNote(
     req: operations.GetCreditNoteRequest,

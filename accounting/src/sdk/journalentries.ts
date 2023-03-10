@@ -151,7 +151,7 @@ export class JournalEntries {
   /**
    * getJournalEntry - Get journal entry
    *
-   * Gets a single JournalEntry corresponding to the given Id
+   * Gets a single JournalEntry corresponding to the given ID.
   **/
   getJournalEntry(
     req: operations.GetJournalEntryRequest,

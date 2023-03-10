@@ -94,7 +94,7 @@ export class BillCreditNotes {
   /**
    * getBillCreditNote - Get bill credit note
    *
-   * Gets a single billCreditNote corresponding to the given Id
+   * Gets a single billCreditNote corresponding to the given ID.
   **/
   getBillCreditNote(
     req: operations.GetBillCreditNoteRequest,
