@@ -37,8 +37,8 @@ export class Codat {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.2.4";
-  private _genVersion = "1.8.7";
+  private _sdkVersion = "0.3.0";
+  private _genVersion = "1.9.1";
 
   constructor(props: SDKProps) {
     this._serverURL = props.serverUrl ?? ServerList[0];
