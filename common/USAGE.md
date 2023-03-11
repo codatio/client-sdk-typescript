@@ -2,7 +2,7 @@
 ```typescript
 import {
   CreateCompanyRequest,
-  CreateCompanyResponse 
+  CreateCompanyResponse
 } from "@codat/common/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
