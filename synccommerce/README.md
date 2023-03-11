@@ -21,7 +21,7 @@ yarn add @codat/synccommerce
 ```typescript
 import {
   AddDataConnectionRequest,
-  AddDataConnectionResponse 
+  AddDataConnectionResponse
 } from "@codat/synccommerce/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
@@ -55,7 +55,7 @@ sdk.companyManagement.addDataConnection(req).then((res: AddDataConnectionRespons
 * `addDataConnection` - Create data connection
 * `companies` - List companies
 * `getDataconnections` - List connections
-* `postCompanies` - Create a Sync for commerce company
+* `postCompanies` - Create a Sync for Commerce company
 * `updateDataConnection` - Update data connection
 
 ### integrations

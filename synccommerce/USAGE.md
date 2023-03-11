@@ -2,7 +2,7 @@
 ```typescript
 import {
   AddDataConnectionRequest,
-  AddDataConnectionResponse 
+  AddDataConnectionResponse
 } from "@codat/synccommerce/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";

@@ -189,7 +189,7 @@ export class CompanyManagement {
 
   
   /**
-   * postCompanies - Create a Sync for commerce company
+   * postCompanies - Create a Sync for Commerce company
    *
    * Creates a Codat company with a commerce partner data connection.
   **/
