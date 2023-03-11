@@ -2,7 +2,7 @@
 ```typescript
 import {
   DownloadFilesRequest,
-  DownloadFilesResponse 
+  DownloadFilesResponse
 } from "@codat/files/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
@@ -19,7 +19,7 @@ const req: DownloadFilesRequest = {
     companyId: "unde",
   },
   queryParams: {
-    date: "2022-08-05T15:05:33.958Z",
+    date: "2022-08-06T15:01:42.868Z",
   },
 };
 
