@@ -2,7 +2,7 @@
 ```typescript
 import {
   GetCreateUpdateAccountTransactionsModelRequest,
-  GetCreateUpdateAccountTransactionsModelResponse 
+  GetCreateUpdateAccountTransactionsModelResponse
 } from "@codat/accounting/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";

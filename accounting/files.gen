@@ -5,12 +5,12 @@ src/sdk/bankaccounts.ts
 src/sdk/billcreditnotes.ts
 src/sdk/billpayments.ts
 src/sdk/bills.ts
+src/sdk/companyinfo.ts
 src/sdk/creditnotes.ts
 src/sdk/customers.ts
 src/sdk/directcosts.ts
 src/sdk/directincomes.ts
 src/sdk/financials.ts
-src/sdk/info.ts
 src/sdk/invoices.ts
 src/sdk/items.ts
 src/sdk/journalentries.ts
@@ -76,6 +76,8 @@ src/sdk/models/operations/getbillattachments.ts
 src/sdk/models/operations/getcreateupdatebillsmodel.ts
 src/sdk/models/operations/listbills.ts
 src/sdk/models/operations/updatebill.ts
+src/sdk/models/operations/getcompanyinfo.ts
+src/sdk/models/operations/postsyncinfo.ts
 src/sdk/models/operations/createcreditnote.ts
 src/sdk/models/operations/getcreateupdatecreditnotesmodel.ts
 src/sdk/models/operations/getcreditnote.ts
@@ -108,8 +110,6 @@ src/sdk/models/operations/postdirectincomeattachment.ts
 src/sdk/models/operations/getbalancesheet.ts
 src/sdk/models/operations/getcashflowstatement.ts
 src/sdk/models/operations/getprofitandloss.ts
-src/sdk/models/operations/getcompanyinfo.ts
-src/sdk/models/operations/postsyncinfo.ts
 src/sdk/models/operations/createinvoice.ts
 src/sdk/models/operations/donwloadinvoiceattachment.ts
 src/sdk/models/operations/getcreateupdateinvoicesmodel.ts

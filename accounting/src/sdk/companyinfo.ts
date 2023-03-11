@@ -3,7 +3,7 @@ import * as operations from "./models/operations";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import { plainToInstance } from "class-transformer";
 
-export class Info {
+export class CompanyInfo {
   _defaultClient: AxiosInstance;
   _securityClient: AxiosInstance;
   _serverURL: string;

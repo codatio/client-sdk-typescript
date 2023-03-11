@@ -21,7 +21,7 @@ yarn add @codat/accounting
 ```typescript
 import {
   GetCreateUpdateAccountTransactionsModelRequest,
-  GetCreateUpdateAccountTransactionsModelResponse 
+  GetCreateUpdateAccountTransactionsModelResponse
 } from "@codat/accounting/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
@@ -108,6 +108,11 @@ sdk.accountTransactions.getCreateUpdateAccountTransactionsModel(req).then((res: 
 * `listBills` - List bills
 * `updateBill` - Update bill
 
+### companyInfo
+
+* `getCompanyInfo` - Get company info
+* `postSyncInfo` - Refresh company info
+
 ### creditNotes
 
 * `createCreditNote` - Update creditNote
@@ -154,11 +159,6 @@ sdk.accountTransactions.getCreateUpdateAccountTransactionsModel(req).then((res: 
 * `getBalanceSheet` - Get balance sheet
 * `getCashFlowStatement` - Get cash flow statement
 * `getProfitAndLoss` - Get profit and loss
-
-### info
-
-* `getCompanyInfo` - Get company info
-* `postSyncInfo` - Refresh company info
 
 ### invoices
 

@@ -6,12 +6,12 @@ import { BankAccountTransactions } from "./bankaccounttransactions";
 import { BillCreditNotes } from "./billcreditnotes";
 import { BillPayments } from "./billpayments";
 import { Bills } from "./bills";
+import { CompanyInfo } from "./companyinfo";
 import { CreditNotes } from "./creditnotes";
 import { Customers } from "./customers";
 import { DirectCosts } from "./directcosts";
 import { DirectIncomes } from "./directincomes";
 import { Financials } from "./financials";
-import { Info } from "./info";
 import { Invoices } from "./invoices";
 import { Items } from "./items";
 import { JournalEntries } from "./journalentries";
@@ -57,12 +57,12 @@ export class Codat {
   public billCreditNotes: BillCreditNotes;
   public billPayments: BillPayments;
   public bills: Bills;
+  public companyInfo: CompanyInfo;
   public creditNotes: CreditNotes;
   public customers: Customers;
   public directCosts: DirectCosts;
   public directIncomes: DirectIncomes;
   public financials: Financials;
-  public info: Info;
   public invoices: Invoices;
   public items: Items;
   public journalEntries: JournalEntries;
@@ -81,14 +81,14 @@ export class Codat {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.3.0";
-  private _genVersion = "1.9.1";
+  private _sdkVersion = "0.3.1";
+  private _genVersion = "1.9.2";
 
-  constructor(props: SDKProps) {
-    this._serverURL = props.serverUrl ?? ServerList[0];
+  constructor(props?: SDKProps) {
+    this._serverURL = props?.serverUrl ?? ServerList[0];
 
-    this._defaultClient = props.defaultClient ?? axios.create({ baseURL: this._serverURL });
-    if (props.security) {
+    this._defaultClient = props?.defaultClient ?? axios.create({ baseURL: this._serverURL });
+    if (props?.security) {
       let security: shared.Security = props.security;
       if (!(props.security instanceof utils.SpeakeasyBase))
         security = new shared.Security(props.security);
@@ -163,6 +163,15 @@ export class Codat {
       this._genVersion
     );
     
+    this.companyInfo = new CompanyInfo(
+      this._defaultClient,
+      this._securityClient,
+      this._serverURL,
+      this._language,
+      this._sdkVersion,
+      this._genVersion
+    );
+    
     this.creditNotes = new CreditNotes(
       this._defaultClient,
       this._securityClient,
@@ -200,15 +209,6 @@ export class Codat {
     );
     
     this.financials = new Financials(
-      this._defaultClient,
-      this._securityClient,
-      this._serverURL,
-      this._language,
-      this._sdkVersion,
-      this._genVersion
-    );
-    
-    this.info = new Info(
       this._defaultClient,
       this._securityClient,
       this._serverURL,
