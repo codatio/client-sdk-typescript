@@ -21,7 +21,7 @@ yarn add @codat/commerce
 ```typescript
 import {
   GetCommerceInfoRequest,
-  GetCommerceInfoResponse 
+  GetCommerceInfoResponse
 } from "@codat/commerce/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
