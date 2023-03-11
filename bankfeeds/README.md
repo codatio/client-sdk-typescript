@@ -21,7 +21,7 @@ yarn add @codat/bankfeeds
 ```typescript
 import {
   GetBankAccountPushOptionsRequest,
-  GetBankAccountPushOptionsResponse 
+  GetBankAccountPushOptionsResponse
 } from "@codat/bankfeeds/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
