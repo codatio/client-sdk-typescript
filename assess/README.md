@@ -21,7 +21,7 @@ yarn add @codat/assess
 ```typescript
 import {
   GetAccountCategoryRequest,
-  GetAccountCategoryResponse 
+  GetAccountCategoryResponse
 } from "@codat/assess/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
