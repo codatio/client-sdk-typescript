@@ -2,7 +2,7 @@
 ```typescript
 import {
   ListBankingAccountBalancesRequest,
-  ListBankingAccountBalancesResponse 
+  ListBankingAccountBalancesResponse
 } from "@codat/banking/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
