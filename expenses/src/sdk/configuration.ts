@@ -21,7 +21,7 @@ export class Configuration {
   }
   
   /**
-   * getCompanyConfiguration - Get Company configuration
+   * getCompanyConfiguration - Get company configuration
    *
    * Gets a companies expense sync configuration
   **/
@@ -34,7 +34,7 @@ export class Configuration {
     }
     
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/config", req.pathParams);
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/sync/expenses/config", req.pathParams);
     
     const client: AxiosInstance = this._securityClient!;
     
@@ -72,7 +72,7 @@ export class Configuration {
 
   
   /**
-   * saveCompanyConfiguration - Set Company configuration
+   * saveCompanyConfiguration - Set company configuration
    *
    * Sets a companies expense sync configuration
   **/
@@ -85,7 +85,7 @@ export class Configuration {
     }
     
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/config", req.pathParams);
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/sync/expenses/config", req.pathParams);
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 

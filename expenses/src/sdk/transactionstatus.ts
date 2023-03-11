@@ -34,7 +34,7 @@ export class TransactionStatus {
     }
     
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/syncs/{syncId}/transactions/{transactionId}", req.pathParams);
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/sync/expenses/syncs/{syncId}/transactions/{transactionId}", req.pathParams);
     
     const client: AxiosInstance = this._securityClient!;
     
@@ -88,7 +88,7 @@ export class TransactionStatus {
     }
     
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/syncs/{syncId}/transactions", req.pathParams);
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/sync/expenses/syncs/{syncId}/transactions", req.pathParams);
     
     const client: AxiosInstance = this._securityClient!;
     

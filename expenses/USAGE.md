@@ -2,7 +2,7 @@
 ```typescript
 import {
   GetCompanyConfigurationRequest,
-  GetCompanyConfigurationResponse 
+  GetCompanyConfigurationResponse
 } from "@codat/expenses/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";

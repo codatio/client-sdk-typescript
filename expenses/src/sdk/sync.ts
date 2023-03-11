@@ -34,7 +34,7 @@ export class Sync {
     }
     
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/syncs", req.pathParams);
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/sync/expenses/syncs", req.pathParams);
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 

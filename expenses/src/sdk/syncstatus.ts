@@ -34,7 +34,7 @@ export class SyncStatus {
     }
     
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/syncs/lastSuccessful/status", req.pathParams);
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/sync/expenses/syncs/lastSuccessful/status", req.pathParams);
     
     const client: AxiosInstance = this._securityClient!;
     
@@ -85,7 +85,7 @@ export class SyncStatus {
     }
     
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/syncs/latest/status", req.pathParams);
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/sync/expenses/syncs/latest/status", req.pathParams);
     
     const client: AxiosInstance = this._securityClient!;
     
@@ -136,7 +136,7 @@ export class SyncStatus {
     }
     
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/syncs/{syncId}/status", req.pathParams);
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/sync/expenses/syncs/{syncId}/status", req.pathParams);
     
     const client: AxiosInstance = this._securityClient!;
     
@@ -187,7 +187,7 @@ export class SyncStatus {
     }
     
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/syncs/list/status", req.pathParams);
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/sync/expenses/syncs/list/status", req.pathParams);
     
     const client: AxiosInstance = this._securityClient!;
     

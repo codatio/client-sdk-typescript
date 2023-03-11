@@ -34,7 +34,7 @@ export class Expenses {
     }
     
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/data/expense-transactions", req.pathParams);
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/sync/expenses/data/expense-transactions", req.pathParams);
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
@@ -98,7 +98,7 @@ export class Expenses {
     }
     
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/syncs/{syncId}/transactions/{transactionId}/attachments", req.pathParams);
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/sync/expenses/syncs/{syncId}/transactions/{transactionId}/attachments", req.pathParams);
     
     const client: AxiosInstance = this._securityClient!;
     

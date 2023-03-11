@@ -21,7 +21,7 @@ yarn add @codat/expenses
 ```typescript
 import {
   GetCompanyConfigurationRequest,
-  GetCompanyConfigurationResponse 
+  GetCompanyConfigurationResponse
 } from "@codat/expenses/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
@@ -51,8 +51,8 @@ sdk.configuration.getCompanyConfiguration(req).then((res: GetCompanyConfiguratio
 
 ### configuration
 
-* `getCompanyConfiguration` - Get Company configuration
-* `saveCompanyConfiguration` - Set Company configuration
+* `getCompanyConfiguration` - Get company configuration
+* `saveCompanyConfiguration` - Set company configuration
 
 ### connections
 

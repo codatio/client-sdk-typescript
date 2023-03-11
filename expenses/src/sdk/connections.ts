@@ -34,7 +34,7 @@ export class Connections {
     }
     
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/partnerExpense", req.pathParams);
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/sync/expenses/connections/partnerExpense", req.pathParams);
     
     const client: AxiosInstance = this._securityClient!;
     

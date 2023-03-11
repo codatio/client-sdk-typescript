@@ -34,7 +34,7 @@ export class MappingOptions {
     }
     
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/mappingOptions", req.pathParams);
+    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/sync/expenses/mappingOptions", req.pathParams);
     
     const client: AxiosInstance = this._securityClient!;
     
