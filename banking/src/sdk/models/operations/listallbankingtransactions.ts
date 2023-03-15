@@ -2,20 +2,25 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListAllBankingTransactionsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
 export class ListAllBankingTransactionsQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -30,27 +35,27 @@ export class ListAllBankingTransactionsRequest extends SpeakeasyBase {
   queryParams: ListAllBankingTransactionsQueryParams;
 }
 export enum ListAllBankingTransactions200ApplicationJSONSourceModifiedDateCodeEnum {
-    Unknown = "Unknown",
-    Fee = "Fee",
-    Payment = "Payment",
-    Cash = "Cash",
-    Transfer = "Transfer",
-    Interest = "Interest",
-    Cashback = "Cashback",
-    Cheque = "Cheque",
-    DirectDebit = "DirectDebit",
-    Purchase = "Purchase",
-    StandingOrder = "StandingOrder",
-    Adjustment = "Adjustment",
-    Credit = "Credit",
-    Other = "Other",
-    NotSupported = "NotSupported"
+  Unknown = "Unknown",
+  Fee = "Fee",
+  Payment = "Payment",
+  Cash = "Cash",
+  Transfer = "Transfer",
+  Interest = "Interest",
+  Cashback = "Cashback",
+  Cheque = "Cheque",
+  DirectDebit = "DirectDebit",
+  Purchase = "Purchase",
+  StandingOrder = "StandingOrder",
+  Adjustment = "Adjustment",
+  Credit = "Credit",
+  Other = "Other",
+  NotSupported = "NotSupported",
 }
 
 // ListAllBankingTransactions200ApplicationJSONSourceModifiedDateTransactionCategoryRef
-/** 
+/**
  * An object of bank transaction category reference data.
-**/
+ **/
 export class ListAllBankingTransactions200ApplicationJSONSourceModifiedDateTransactionCategoryRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -62,11 +67,11 @@ export class ListAllBankingTransactions200ApplicationJSONSourceModifiedDateTrans
 }
 
 // ListAllBankingTransactions200ApplicationJSONSourceModifiedDate
-/** 
+/**
  * The Banking Transactions data type provides an immutable source of up-to-date information on income and expenditure.
- * 
+ *
  * View the coverage for banking transactions in the [Data Coverage Explorer](https://knowledge.codat.io/supported-features/banking?view=tab-by-data-type&dataType=banking-transactions).
-**/
+ **/
 export class ListAllBankingTransactions200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountId" })
@@ -118,7 +123,10 @@ export class ListAllBankingTransactions200ApplicationJSONSourceModifiedDate exte
 
   @SpeakeasyMetadata()
   @Expose({ name: "transactionCategoryRef" })
-  @Type(() => ListAllBankingTransactions200ApplicationJSONSourceModifiedDateTransactionCategoryRef)
+  @Type(
+    () =>
+      ListAllBankingTransactions200ApplicationJSONSourceModifiedDateTransactionCategoryRef
+  )
   transactionCategoryRef?: ListAllBankingTransactions200ApplicationJSONSourceModifiedDateTransactionCategoryRef;
 }
 

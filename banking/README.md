@@ -26,11 +26,10 @@ import {
 
 import { AxiosError } from "axios";
 import { Codat } from "@codat/banking";
-
 const sdk = new Codat({
   security: {
     authHeader: "YOUR_API_KEY_HERE",
-  }
+  },
 });
     
 const req: ListBankingAccountBalancesRequest = {

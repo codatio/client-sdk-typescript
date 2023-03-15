@@ -2,15 +2,20 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetBankTransactionCategoryPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=transactionCategoryId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=transactionCategoryId",
+  })
   transactionCategoryId: string;
 }
 
@@ -19,15 +24,15 @@ export class GetBankTransactionCategoryRequest extends SpeakeasyBase {
   pathParams: GetBankTransactionCategoryPathParams;
 }
 export enum GetBankTransactionCategorySourceModifiedDateStatusEnum {
-    Unknown = "Unknown",
-    Active = "Active",
-    Archived = "Archived"
+  Unknown = "Unknown",
+  Active = "Active",
+  Archived = "Archived",
 }
 
 // GetBankTransactionCategorySourceModifiedDate
-/** 
+/**
  * The Banking Transaction Categories data type provides a list of hierarchical categories associated with a transaction for greater contextual meaning to transaction activity.
-**/
+ **/
 export class GetBankTransactionCategorySourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "hasChildren" })

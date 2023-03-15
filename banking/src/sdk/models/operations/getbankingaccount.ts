@@ -2,15 +2,20 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetBankingAccountPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=accountId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=accountId",
+  })
   accountId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
@@ -20,9 +25,9 @@ export class GetBankingAccountRequest extends SpeakeasyBase {
 }
 
 // GetBankingAccountSourceModifiedDateAccountBalanceAmounts
-/** 
+/**
  * An object containing bank balance data.
-**/
+ **/
 export class GetBankingAccountSourceModifiedDateAccountBalanceAmounts extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "available" })
@@ -37,19 +42,19 @@ export class GetBankingAccountSourceModifiedDateAccountBalanceAmounts extends Sp
   limit?: number;
 }
 export enum GetBankingAccountSourceModifiedDateAccountIdentifiersTypeEnum {
-    Account = "Account",
-    Card = "Card",
-    Credit = "Credit",
-    Depository = "Depository",
-    Investment = "Investment",
-    Loan = "Loan",
-    Other = "Other"
+  Account = "Account",
+  Card = "Card",
+  Credit = "Credit",
+  Depository = "Depository",
+  Investment = "Investment",
+  Loan = "Loan",
+  Other = "Other",
 }
 
 // GetBankingAccountSourceModifiedDateAccountIdentifiers
-/** 
+/**
  * An object containing bank account identification information.
-**/
+ **/
 export class GetBankingAccountSourceModifiedDateAccountIdentifiers extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "bankCode" })
@@ -81,9 +86,9 @@ export class GetBankingAccountSourceModifiedDateAccountIdentifiers extends Speak
 }
 
 // GetBankingAccountSourceModifiedDateAccountInstitution
-/** 
+/**
  * The bank or other financial institution providing the account.
-**/
+ **/
 export class GetBankingAccountSourceModifiedDateAccountInstitution extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -94,17 +99,17 @@ export class GetBankingAccountSourceModifiedDateAccountInstitution extends Speak
   name?: string;
 }
 export enum GetBankingAccountSourceModifiedDateTypeEnum {
-    Unknown = "Unknown",
-    Credit = "Credit",
-    Debit = "Debit"
+  Unknown = "Unknown",
+  Credit = "Credit",
+  Debit = "Debit",
 }
 
 // GetBankingAccountSourceModifiedDate
-/** 
+/**
  * An account where payments are made or received, and bank transactions are recorded.
- * 
+ *
  * Explore our [data coverage](https://knowledge.codat.io/supported-features/banking?view=tab-by-data-type&dataType=banking-accounts).
-**/
+ **/
 export class GetBankingAccountSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "balance" })

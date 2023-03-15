@@ -2,23 +2,30 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListBankTransactionCategoriesPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
 export class ListBankTransactionCategoriesQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -79,15 +86,15 @@ export class ListBankTransactionCategoriesLinksLinks extends SpeakeasyBase {
   self: ListBankTransactionCategoriesLinksLinksSelf;
 }
 export enum ListBankTransactionCategoriesLinksSourceModifiedDateStatusEnum {
-    Unknown = "Unknown",
-    Active = "Active",
-    Archived = "Archived"
+  Unknown = "Unknown",
+  Active = "Active",
+  Archived = "Archived",
 }
 
 // ListBankTransactionCategoriesLinksSourceModifiedDate
-/** 
+/**
  * The Banking Transaction Categories data type provides a list of hierarchical categories associated with a transaction for greater contextual meaning to transaction activity.
-**/
+ **/
 export class ListBankTransactionCategoriesLinksSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "hasChildren" })
@@ -121,9 +128,9 @@ export class ListBankTransactionCategoriesLinksSourceModifiedDate extends Speake
 }
 
 // ListBankTransactionCategoriesLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class ListBankTransactionCategoriesLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })

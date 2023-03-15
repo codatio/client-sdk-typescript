@@ -2,23 +2,30 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListBankingAccountBalancesPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
 export class ListBankingAccountBalancesQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -80,9 +87,9 @@ export class ListBankingAccountBalancesLinksLinks extends SpeakeasyBase {
 }
 
 // ListBankingAccountBalancesLinksSourceModifiedDateBalance
-/** 
+/**
  * An object containing bank balance data.
-**/
+ **/
 export class ListBankingAccountBalancesLinksSourceModifiedDateBalance extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "available" })
@@ -98,9 +105,9 @@ export class ListBankingAccountBalancesLinksSourceModifiedDateBalance extends Sp
 }
 
 // ListBankingAccountBalancesLinksSourceModifiedDate
-/** 
+/**
  * The Banking Account Balances data type provides a list of balances for a bank account including end-of-day batch balance or running balances per transaction.
-**/
+ **/
 export class ListBankingAccountBalancesLinksSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountId" })
@@ -128,9 +135,9 @@ export class ListBankingAccountBalancesLinksSourceModifiedDate extends Speakeasy
 }
 
 // ListBankingAccountBalancesLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class ListBankingAccountBalancesLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
