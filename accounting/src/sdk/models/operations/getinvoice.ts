@@ -2,12 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetInvoicePathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=invoiceId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=invoiceId",
+  })
   invoiceId: string;
 }
 
@@ -17,9 +20,9 @@ export class GetInvoiceRequest extends SpeakeasyBase {
 }
 
 // GetInvoiceSourceModifiedDateCustomerRef
-/** 
+/**
  * Reference to the customer the invoice has been issued to.
-**/
+ **/
 export class GetInvoiceSourceModifiedDateCustomerRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
@@ -31,9 +34,9 @@ export class GetInvoiceSourceModifiedDateCustomerRef extends SpeakeasyBase {
 }
 
 // GetInvoiceSourceModifiedDateLineItemsAccountRef
-/** 
+/**
  * Reference to the account to which the line item is linked.
-**/
+ **/
 export class GetInvoiceSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -45,9 +48,9 @@ export class GetInvoiceSourceModifiedDateLineItemsAccountRef extends SpeakeasyBa
 }
 
 // GetInvoiceSourceModifiedDateLineItemsItemRef
-/** 
+/**
  * Reference to the item the line is linked to.
-**/
+ **/
 export class GetInvoiceSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -59,9 +62,9 @@ export class GetInvoiceSourceModifiedDateLineItemsItemRef extends SpeakeasyBase 
 }
 
 // GetInvoiceSourceModifiedDateLineItemsTaxRateRef
-/** 
+/**
  * Reference to the tax rate to which the line item is linked.
-**/
+ **/
 export class GetInvoiceSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -96,14 +99,14 @@ export class GetInvoiceSourceModifiedDateLineItemsTrackingCustomerRef extends Sp
   id: string;
 }
 export enum GetInvoiceSourceModifiedDateLineItemsTrackingIsBilledToEnum {
-    Unknown = "Unknown",
-    NotApplicable = "NotApplicable",
-    Project = "Project"
+  Unknown = "Unknown",
+  NotApplicable = "NotApplicable",
+  Project = "Project",
 }
 export enum GetInvoiceSourceModifiedDateLineItemsTrackingIsRebilledToEnum {
-    Unknown = "Unknown",
-    NotApplicable = "NotApplicable",
-    Project = "Project"
+  Unknown = "Unknown",
+  NotApplicable = "NotApplicable",
+  Project = "Project",
 }
 
 export class GetInvoiceSourceModifiedDateLineItemsTrackingProjectRef extends SpeakeasyBase {
@@ -117,7 +120,9 @@ export class GetInvoiceSourceModifiedDateLineItemsTrackingProjectRef extends Spe
 }
 
 export class GetInvoiceSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetInvoiceSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType: GetInvoiceSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "categoryRefs" })
   @Type(() => GetInvoiceSourceModifiedDateLineItemsTrackingCategoryRefs)
   categoryRefs: GetInvoiceSourceModifiedDateLineItemsTrackingCategoryRefs[];
@@ -194,7 +199,9 @@ export class GetInvoiceSourceModifiedDateLineItems extends SpeakeasyBase {
   @Type(() => GetInvoiceSourceModifiedDateLineItemsTracking)
   tracking?: GetInvoiceSourceModifiedDateLineItemsTracking;
 
-  @SpeakeasyMetadata({ elemType: GetInvoiceSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType: GetInvoiceSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "trackingCategoryRefs" })
   @Type(() => GetInvoiceSourceModifiedDateLineItemsTrackingCategoryRefs)
   trackingCategoryRefs?: GetInvoiceSourceModifiedDateLineItemsTrackingCategoryRefs[];
@@ -230,9 +237,9 @@ export class GetInvoiceSourceModifiedDatePaymentAllocationsAllocation extends Sp
 }
 
 // GetInvoiceSourceModifiedDatePaymentAllocationsPaymentAccountRef
-/** 
+/**
  * The account that the allocated payment is made from or to.
-**/
+ **/
 export class GetInvoiceSourceModifiedDatePaymentAllocationsPaymentAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -291,18 +298,18 @@ export class GetInvoiceSourceModifiedDatePaymentAllocations extends SpeakeasyBas
   payment: GetInvoiceSourceModifiedDatePaymentAllocationsPayment;
 }
 export enum GetInvoiceSourceModifiedDateStatusEnum {
-    Unknown = "Unknown",
-    Draft = "Draft",
-    Submitted = "Submitted",
-    PartiallyPaid = "PartiallyPaid",
-    Paid = "Paid",
-    Void = "Void"
+  Unknown = "Unknown",
+  Draft = "Draft",
+  Submitted = "Submitted",
+  PartiallyPaid = "PartiallyPaid",
+  Paid = "Paid",
+  Void = "Void",
 }
 
 // GetInvoiceSourceModifiedDateSupplementalData
-/** 
+/**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-**/
+ **/
 export class GetInvoiceSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -320,31 +327,31 @@ export class GetInvoiceSourceModifiedDateWithholdingTax extends SpeakeasyBase {
 }
 
 // GetInvoiceSourceModifiedDate
-/** 
+/**
  * > View the coverage for invoices in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=invoices" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * An invoice is an itemized record of goods sold or services provided to a [customer](https://docs.codat.io/accounting-api#/schemas/Customer).
- * 
+ *
  * In Codat, an invoice contains details of:
- * 
+ *
  * - The timeline of the invoice—when it was raised, marked as paid, last edited, and so on.
- * - How much the invoice is for, what portion of the invoice is tax or discounts, and what currency the amounts are represented in. 
+ * - How much the invoice is for, what portion of the invoice is tax or discounts, and what currency the amounts are represented in.
  * - Who the invoice has been raised to; the _customer_.
  * - The breakdown of what the invoice is for; the _line items_.
  * - Any [payments](https://docs.codat.io/accounting-api#/schemas/Payment) assigned to the invoice; the _payment allocations_.
- * 
- * > **Invoices or bills?**  
+ *
+ * > **Invoices or bills?**
  * >
  * > In Codat, invoices represent accounts receivable only. For accounts payable invoices, see [Bills](https://docs.codat.io/accounting-api#/schemas/Bill).
- * 
- * > **Invoice PDF downloads**  
+ *
+ * > **Invoice PDF downloads**
  * >
  * > You can <a className="external" href="https://api.codat.io/swagger/index.html#/Invoices/get_companies__companyId__data_invoices__invoiceId__pdf" target="_blank">download a PDF version</a> of an invoice for supported integrations.
- * > 
+ * >
  * > The filename will be invoice-{number}.pdf.
-**/
+ **/
 export class GetInvoiceSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "additionalTaxAmount" })
@@ -417,7 +424,9 @@ export class GetInvoiceSourceModifiedDate extends SpeakeasyBase {
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   paidOnDate?: Date;
 
-  @SpeakeasyMetadata({ elemType: GetInvoiceSourceModifiedDatePaymentAllocations })
+  @SpeakeasyMetadata({
+    elemType: GetInvoiceSourceModifiedDatePaymentAllocations,
+  })
   @Expose({ name: "paymentAllocations" })
   @Type(() => GetInvoiceSourceModifiedDatePaymentAllocations)
   paymentAllocations?: GetInvoiceSourceModifiedDatePaymentAllocations[];

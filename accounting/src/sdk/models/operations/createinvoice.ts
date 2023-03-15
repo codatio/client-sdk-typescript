@@ -2,24 +2,29 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class CreateInvoicePathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
 export class CreateInvoiceQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=timeoutInMinutes" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
   timeoutInMinutes?: number;
 }
 
 // CreateInvoiceSourceModifiedDateCustomerRef
-/** 
+/**
  * Reference to the customer the invoice has been issued to.
-**/
+ **/
 export class CreateInvoiceSourceModifiedDateCustomerRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
@@ -31,9 +36,9 @@ export class CreateInvoiceSourceModifiedDateCustomerRef extends SpeakeasyBase {
 }
 
 // CreateInvoiceSourceModifiedDateLineItemsAccountRef
-/** 
+/**
  * Reference to the account to which the line item is linked.
-**/
+ **/
 export class CreateInvoiceSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -45,9 +50,9 @@ export class CreateInvoiceSourceModifiedDateLineItemsAccountRef extends Speakeas
 }
 
 // CreateInvoiceSourceModifiedDateLineItemsItemRef
-/** 
+/**
  * Reference to the item the line is linked to.
-**/
+ **/
 export class CreateInvoiceSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -59,9 +64,9 @@ export class CreateInvoiceSourceModifiedDateLineItemsItemRef extends SpeakeasyBa
 }
 
 // CreateInvoiceSourceModifiedDateLineItemsTaxRateRef
-/** 
+/**
  * Reference to the tax rate to which the line item is linked.
-**/
+ **/
 export class CreateInvoiceSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -96,14 +101,14 @@ export class CreateInvoiceSourceModifiedDateLineItemsTrackingCustomerRef extends
   id: string;
 }
 export enum CreateInvoiceSourceModifiedDateLineItemsTrackingIsBilledToEnum {
-    Unknown = "Unknown",
-    NotApplicable = "NotApplicable",
-    Project = "Project"
+  Unknown = "Unknown",
+  NotApplicable = "NotApplicable",
+  Project = "Project",
 }
 export enum CreateInvoiceSourceModifiedDateLineItemsTrackingIsRebilledToEnum {
-    Unknown = "Unknown",
-    NotApplicable = "NotApplicable",
-    Project = "Project"
+  Unknown = "Unknown",
+  NotApplicable = "NotApplicable",
+  Project = "Project",
 }
 
 export class CreateInvoiceSourceModifiedDateLineItemsTrackingProjectRef extends SpeakeasyBase {
@@ -117,7 +122,9 @@ export class CreateInvoiceSourceModifiedDateLineItemsTrackingProjectRef extends 
 }
 
 export class CreateInvoiceSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: CreateInvoiceSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType: CreateInvoiceSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "categoryRefs" })
   @Type(() => CreateInvoiceSourceModifiedDateLineItemsTrackingCategoryRefs)
   categoryRefs: CreateInvoiceSourceModifiedDateLineItemsTrackingCategoryRefs[];
@@ -194,7 +201,9 @@ export class CreateInvoiceSourceModifiedDateLineItems extends SpeakeasyBase {
   @Type(() => CreateInvoiceSourceModifiedDateLineItemsTracking)
   tracking?: CreateInvoiceSourceModifiedDateLineItemsTracking;
 
-  @SpeakeasyMetadata({ elemType: CreateInvoiceSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType: CreateInvoiceSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "trackingCategoryRefs" })
   @Type(() => CreateInvoiceSourceModifiedDateLineItemsTrackingCategoryRefs)
   trackingCategoryRefs?: CreateInvoiceSourceModifiedDateLineItemsTrackingCategoryRefs[];
@@ -230,9 +239,9 @@ export class CreateInvoiceSourceModifiedDatePaymentAllocationsAllocation extends
 }
 
 // CreateInvoiceSourceModifiedDatePaymentAllocationsPaymentAccountRef
-/** 
+/**
  * The account that the allocated payment is made from or to.
-**/
+ **/
 export class CreateInvoiceSourceModifiedDatePaymentAllocationsPaymentAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -246,7 +255,9 @@ export class CreateInvoiceSourceModifiedDatePaymentAllocationsPaymentAccountRef 
 export class CreateInvoiceSourceModifiedDatePaymentAllocationsPayment extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => CreateInvoiceSourceModifiedDatePaymentAllocationsPaymentAccountRef)
+  @Type(
+    () => CreateInvoiceSourceModifiedDatePaymentAllocationsPaymentAccountRef
+  )
   accountRef?: CreateInvoiceSourceModifiedDatePaymentAllocationsPaymentAccountRef;
 
   @SpeakeasyMetadata()
@@ -291,18 +302,18 @@ export class CreateInvoiceSourceModifiedDatePaymentAllocations extends Speakeasy
   payment: CreateInvoiceSourceModifiedDatePaymentAllocationsPayment;
 }
 export enum CreateInvoiceSourceModifiedDateStatusEnum {
-    Unknown = "Unknown",
-    Draft = "Draft",
-    Submitted = "Submitted",
-    PartiallyPaid = "PartiallyPaid",
-    Paid = "Paid",
-    Void = "Void"
+  Unknown = "Unknown",
+  Draft = "Draft",
+  Submitted = "Submitted",
+  PartiallyPaid = "PartiallyPaid",
+  Paid = "Paid",
+  Void = "Void",
 }
 
 // CreateInvoiceSourceModifiedDateSupplementalData
-/** 
+/**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-**/
+ **/
 export class CreateInvoiceSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -320,31 +331,31 @@ export class CreateInvoiceSourceModifiedDateWithholdingTax extends SpeakeasyBase
 }
 
 // CreateInvoiceSourceModifiedDate
-/** 
+/**
  * > View the coverage for invoices in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=invoices" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * An invoice is an itemized record of goods sold or services provided to a [customer](https://docs.codat.io/accounting-api#/schemas/Customer).
- * 
+ *
  * In Codat, an invoice contains details of:
- * 
+ *
  * - The timeline of the invoice—when it was raised, marked as paid, last edited, and so on.
- * - How much the invoice is for, what portion of the invoice is tax or discounts, and what currency the amounts are represented in. 
+ * - How much the invoice is for, what portion of the invoice is tax or discounts, and what currency the amounts are represented in.
  * - Who the invoice has been raised to; the _customer_.
  * - The breakdown of what the invoice is for; the _line items_.
  * - Any [payments](https://docs.codat.io/accounting-api#/schemas/Payment) assigned to the invoice; the _payment allocations_.
- * 
- * > **Invoices or bills?**  
+ *
+ * > **Invoices or bills?**
  * >
  * > In Codat, invoices represent accounts receivable only. For accounts payable invoices, see [Bills](https://docs.codat.io/accounting-api#/schemas/Bill).
- * 
- * > **Invoice PDF downloads**  
+ *
+ * > **Invoice PDF downloads**
  * >
  * > You can <a className="external" href="https://api.codat.io/swagger/index.html#/Invoices/get_companies__companyId__data_invoices__invoiceId__pdf" target="_blank">download a PDF version</a> of an invoice for supported integrations.
- * > 
+ * >
  * > The filename will be invoice-{number}.pdf.
-**/
+ **/
 export class CreateInvoiceSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "additionalTaxAmount" })
@@ -417,7 +428,9 @@ export class CreateInvoiceSourceModifiedDate extends SpeakeasyBase {
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   paidOnDate?: Date;
 
-  @SpeakeasyMetadata({ elemType: CreateInvoiceSourceModifiedDatePaymentAllocations })
+  @SpeakeasyMetadata({
+    elemType: CreateInvoiceSourceModifiedDatePaymentAllocations,
+  })
   @Expose({ name: "paymentAllocations" })
   @Type(() => CreateInvoiceSourceModifiedDatePaymentAllocations)
   paymentAllocations?: CreateInvoiceSourceModifiedDatePaymentAllocations[];
@@ -456,7 +469,9 @@ export class CreateInvoiceSourceModifiedDate extends SpeakeasyBase {
   @Expose({ name: "totalTaxAmount" })
   totalTaxAmount: number;
 
-  @SpeakeasyMetadata({ elemType: CreateInvoiceSourceModifiedDateWithholdingTax })
+  @SpeakeasyMetadata({
+    elemType: CreateInvoiceSourceModifiedDateWithholdingTax,
+  })
   @Expose({ name: "withholdingTax" })
   @Type(() => CreateInvoiceSourceModifiedDateWithholdingTax)
   withholdingTax?: CreateInvoiceSourceModifiedDateWithholdingTax[];
@@ -483,11 +498,11 @@ export class CreateInvoice200ApplicationJSONChangesPushOperationRecordRef extend
   id?: string;
 }
 export enum CreateInvoice200ApplicationJSONChangesTypeEnum {
-    Unknown = "Unknown",
-    Created = "Created",
-    Modified = "Modified",
-    Deleted = "Deleted",
-    AttachmentUploaded = "AttachmentUploaded"
+  Unknown = "Unknown",
+  Created = "Created",
+  Modified = "Modified",
+  Deleted = "Deleted",
+  AttachmentUploaded = "AttachmentUploaded",
 }
 
 export class CreateInvoice200ApplicationJSONChanges extends SpeakeasyBase {
@@ -506,9 +521,9 @@ export class CreateInvoice200ApplicationJSONChanges extends SpeakeasyBase {
 }
 
 // CreateInvoice200ApplicationJSONSourceModifiedDateCustomerRef
-/** 
+/**
  * Reference to the customer the invoice has been issued to.
-**/
+ **/
 export class CreateInvoice200ApplicationJSONSourceModifiedDateCustomerRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
@@ -520,9 +535,9 @@ export class CreateInvoice200ApplicationJSONSourceModifiedDateCustomerRef extend
 }
 
 // CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsAccountRef
-/** 
+/**
  * Reference to the account to which the line item is linked.
-**/
+ **/
 export class CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -534,9 +549,9 @@ export class CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsAccountRe
 }
 
 // CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsItemRef
-/** 
+/**
  * Reference to the item the line is linked to.
-**/
+ **/
 export class CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -548,9 +563,9 @@ export class CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsItemRef e
 }
 
 // CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef
-/** 
+/**
  * Reference to the tax rate to which the line item is linked.
-**/
+ **/
 export class CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -585,14 +600,14 @@ export class CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTrackingC
   id: string;
 }
 export enum CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTrackingIsBilledToEnum {
-    Unknown = "Unknown",
-    NotApplicable = "NotApplicable",
-    Project = "Project"
+  Unknown = "Unknown",
+  NotApplicable = "NotApplicable",
+  Project = "Project",
 }
 export enum CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTrackingIsRebilledToEnum {
-    Unknown = "Unknown",
-    NotApplicable = "NotApplicable",
-    Project = "Project"
+  Unknown = "Unknown",
+  NotApplicable = "NotApplicable",
+  Project = "Project",
 }
 
 export class CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTrackingProjectRef extends SpeakeasyBase {
@@ -606,14 +621,23 @@ export class CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTrackingP
 }
 
 export class CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType:
+      CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "categoryRefs" })
-  @Type(() => CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs)
+  @Type(
+    () =>
+      CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs
+  )
   categoryRefs: CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "customerRef" })
-  @Type(() => CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTrackingCustomerRef)
+  @Type(
+    () =>
+      CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTrackingCustomerRef
+  )
   customerRef?: CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTrackingCustomerRef;
 
   @SpeakeasyMetadata()
@@ -626,14 +650,19 @@ export class CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTracking 
 
   @SpeakeasyMetadata()
   @Expose({ name: "projectRef" })
-  @Type(() => CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTrackingProjectRef)
+  @Type(
+    () =>
+      CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTrackingProjectRef
+  )
   projectRef?: CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTrackingProjectRef;
 }
 
 export class CreateInvoice200ApplicationJSONSourceModifiedDateLineItems extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsAccountRef)
+  @Type(
+    () => CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsAccountRef
+  )
   accountRef?: CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsAccountRef;
 
   @SpeakeasyMetadata()
@@ -671,7 +700,9 @@ export class CreateInvoice200ApplicationJSONSourceModifiedDateLineItems extends 
 
   @SpeakeasyMetadata()
   @Expose({ name: "taxRateRef" })
-  @Type(() => CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef)
+  @Type(
+    () => CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef
+  )
   taxRateRef?: CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef;
 
   @SpeakeasyMetadata()
@@ -680,12 +711,20 @@ export class CreateInvoice200ApplicationJSONSourceModifiedDateLineItems extends 
 
   @SpeakeasyMetadata()
   @Expose({ name: "tracking" })
-  @Type(() => CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTracking)
+  @Type(
+    () => CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTracking
+  )
   tracking?: CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTracking;
 
-  @SpeakeasyMetadata({ elemType: CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType:
+      CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "trackingCategoryRefs" })
-  @Type(() => CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs)
+  @Type(
+    () =>
+      CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs
+  )
   trackingCategoryRefs?: CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs[];
 
   @SpeakeasyMetadata()
@@ -719,9 +758,9 @@ export class CreateInvoice200ApplicationJSONSourceModifiedDatePaymentAllocations
 }
 
 // CreateInvoice200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef
-/** 
+/**
  * The account that the allocated payment is made from or to.
-**/
+ **/
 export class CreateInvoice200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -735,7 +774,10 @@ export class CreateInvoice200ApplicationJSONSourceModifiedDatePaymentAllocations
 export class CreateInvoice200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => CreateInvoice200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef)
+  @Type(
+    () =>
+      CreateInvoice200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef
+  )
   accountRef?: CreateInvoice200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef;
 
   @SpeakeasyMetadata()
@@ -771,27 +813,33 @@ export class CreateInvoice200ApplicationJSONSourceModifiedDatePaymentAllocations
 export class CreateInvoice200ApplicationJSONSourceModifiedDatePaymentAllocations extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "allocation" })
-  @Type(() => CreateInvoice200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation)
+  @Type(
+    () =>
+      CreateInvoice200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation
+  )
   allocation: CreateInvoice200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation;
 
   @SpeakeasyMetadata()
   @Expose({ name: "payment" })
-  @Type(() => CreateInvoice200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment)
+  @Type(
+    () =>
+      CreateInvoice200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment
+  )
   payment: CreateInvoice200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment;
 }
 export enum CreateInvoice200ApplicationJSONSourceModifiedDateStatusEnum {
-    Unknown = "Unknown",
-    Draft = "Draft",
-    Submitted = "Submitted",
-    PartiallyPaid = "PartiallyPaid",
-    Paid = "Paid",
-    Void = "Void"
+  Unknown = "Unknown",
+  Draft = "Draft",
+  Submitted = "Submitted",
+  PartiallyPaid = "PartiallyPaid",
+  Paid = "Paid",
+  Void = "Void",
 }
 
 // CreateInvoice200ApplicationJSONSourceModifiedDateSupplementalData
-/** 
+/**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-**/
+ **/
 export class CreateInvoice200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -809,31 +857,31 @@ export class CreateInvoice200ApplicationJSONSourceModifiedDateWithholdingTax ext
 }
 
 // CreateInvoice200ApplicationJSONSourceModifiedDate
-/** 
+/**
  * > View the coverage for invoices in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=invoices" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * An invoice is an itemized record of goods sold or services provided to a [customer](https://docs.codat.io/accounting-api#/schemas/Customer).
- * 
+ *
  * In Codat, an invoice contains details of:
- * 
+ *
  * - The timeline of the invoice—when it was raised, marked as paid, last edited, and so on.
- * - How much the invoice is for, what portion of the invoice is tax or discounts, and what currency the amounts are represented in. 
+ * - How much the invoice is for, what portion of the invoice is tax or discounts, and what currency the amounts are represented in.
  * - Who the invoice has been raised to; the _customer_.
  * - The breakdown of what the invoice is for; the _line items_.
  * - Any [payments](https://docs.codat.io/accounting-api#/schemas/Payment) assigned to the invoice; the _payment allocations_.
- * 
- * > **Invoices or bills?**  
+ *
+ * > **Invoices or bills?**
  * >
  * > In Codat, invoices represent accounts receivable only. For accounts payable invoices, see [Bills](https://docs.codat.io/accounting-api#/schemas/Bill).
- * 
- * > **Invoice PDF downloads**  
+ *
+ * > **Invoice PDF downloads**
  * >
  * > You can <a className="external" href="https://api.codat.io/swagger/index.html#/Invoices/get_companies__companyId__data_invoices__invoiceId__pdf" target="_blank">download a PDF version</a> of an invoice for supported integrations.
- * > 
+ * >
  * > The filename will be invoice-{number}.pdf.
-**/
+ **/
 export class CreateInvoice200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "additionalTaxAmount" })
@@ -882,7 +930,9 @@ export class CreateInvoice200ApplicationJSONSourceModifiedDate extends Speakeasy
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   issueDate: Date;
 
-  @SpeakeasyMetadata({ elemType: CreateInvoice200ApplicationJSONSourceModifiedDateLineItems })
+  @SpeakeasyMetadata({
+    elemType: CreateInvoice200ApplicationJSONSourceModifiedDateLineItems,
+  })
   @Expose({ name: "lineItems" })
   @Type(() => CreateInvoice200ApplicationJSONSourceModifiedDateLineItems)
   lineItems?: CreateInvoice200ApplicationJSONSourceModifiedDateLineItems[];
@@ -906,9 +956,14 @@ export class CreateInvoice200ApplicationJSONSourceModifiedDate extends Speakeasy
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   paidOnDate?: Date;
 
-  @SpeakeasyMetadata({ elemType: CreateInvoice200ApplicationJSONSourceModifiedDatePaymentAllocations })
+  @SpeakeasyMetadata({
+    elemType:
+      CreateInvoice200ApplicationJSONSourceModifiedDatePaymentAllocations,
+  })
   @Expose({ name: "paymentAllocations" })
-  @Type(() => CreateInvoice200ApplicationJSONSourceModifiedDatePaymentAllocations)
+  @Type(
+    () => CreateInvoice200ApplicationJSONSourceModifiedDatePaymentAllocations
+  )
   paymentAllocations?: CreateInvoice200ApplicationJSONSourceModifiedDatePaymentAllocations[];
 
   @SpeakeasyMetadata()
@@ -945,16 +1000,18 @@ export class CreateInvoice200ApplicationJSONSourceModifiedDate extends Speakeasy
   @Expose({ name: "totalTaxAmount" })
   totalTaxAmount: number;
 
-  @SpeakeasyMetadata({ elemType: CreateInvoice200ApplicationJSONSourceModifiedDateWithholdingTax })
+  @SpeakeasyMetadata({
+    elemType: CreateInvoice200ApplicationJSONSourceModifiedDateWithholdingTax,
+  })
   @Expose({ name: "withholdingTax" })
   @Type(() => CreateInvoice200ApplicationJSONSourceModifiedDateWithholdingTax)
   withholdingTax?: CreateInvoice200ApplicationJSONSourceModifiedDateWithholdingTax[];
 }
 export enum CreateInvoice200ApplicationJSONStatusEnum {
-    Pending = "Pending",
-    Failed = "Failed",
-    Success = "Success",
-    TimedOut = "TimedOut"
+  Pending = "Pending",
+  Failed = "Failed",
+  Success = "Success",
+  TimedOut = "TimedOut",
 }
 
 export class CreateInvoice200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
@@ -972,16 +1029,20 @@ export class CreateInvoice200ApplicationJSONValidationValidationItem extends Spe
 }
 
 // CreateInvoice200ApplicationJSONValidation
-/** 
+/**
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
-**/
+ **/
 export class CreateInvoice200ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: CreateInvoice200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType: CreateInvoice200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "errors" })
   @Type(() => CreateInvoice200ApplicationJSONValidationValidationItem)
   errors?: CreateInvoice200ApplicationJSONValidationValidationItem[];
 
-  @SpeakeasyMetadata({ elemType: CreateInvoice200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType: CreateInvoice200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "warnings" })
   @Type(() => CreateInvoice200ApplicationJSONValidationValidationItem)
   warnings?: CreateInvoice200ApplicationJSONValidationValidationItem[];

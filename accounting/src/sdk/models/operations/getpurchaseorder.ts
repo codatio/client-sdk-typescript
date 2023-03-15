@@ -2,12 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetPurchaseOrderPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=purchaseOrderId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=purchaseOrderId",
+  })
   purchaseOrderId: string;
 }
 
@@ -17,9 +20,9 @@ export class GetPurchaseOrderRequest extends SpeakeasyBase {
 }
 
 // GetPurchaseOrderSourceModifiedDateLineItemsAccountRef
-/** 
+/**
  * Reference to the account to which the line item is linked.
-**/
+ **/
 export class GetPurchaseOrderSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -31,9 +34,9 @@ export class GetPurchaseOrderSourceModifiedDateLineItemsAccountRef extends Speak
 }
 
 // GetPurchaseOrderSourceModifiedDateLineItemsItemRef
-/** 
+/**
  * Reference to the product or inventory item to which the line item is linked.
-**/
+ **/
 export class GetPurchaseOrderSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -45,9 +48,9 @@ export class GetPurchaseOrderSourceModifiedDateLineItemsItemRef extends Speakeas
 }
 
 // GetPurchaseOrderSourceModifiedDateLineItemsTaxRateRef
-/** 
+/**
  * Reference to the tax rate to which the line item is linked.
-**/
+ **/
 export class GetPurchaseOrderSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -116,7 +119,9 @@ export class GetPurchaseOrderSourceModifiedDateLineItems extends SpeakeasyBase {
   @Expose({ name: "totalAmount" })
   totalAmount?: number;
 
-  @SpeakeasyMetadata({ elemType: GetPurchaseOrderSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType: GetPurchaseOrderSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "trackingCategoryRefs" })
   @Type(() => GetPurchaseOrderSourceModifiedDateLineItemsTrackingCategoryRefs)
   trackingCategoryRefs?: GetPurchaseOrderSourceModifiedDateLineItemsTrackingCategoryRefs[];
@@ -132,15 +137,15 @@ export class GetPurchaseOrderSourceModifiedDateMetadata extends SpeakeasyBase {
   isDeleted?: boolean;
 }
 export enum GetPurchaseOrderSourceModifiedDateShipToAddressTypeEnum {
-    Unknown = "Unknown",
-    Billing = "Billing",
-    Delivery = "Delivery"
+  Unknown = "Unknown",
+  Billing = "Billing",
+  Delivery = "Delivery",
 }
 
 // GetPurchaseOrderSourceModifiedDateShipToAddress
-/** 
+/**
  * Delivery address for any goods that have been ordered.
-**/
+ **/
 export class GetPurchaseOrderSourceModifiedDateShipToAddress extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "city" })
@@ -172,9 +177,9 @@ export class GetPurchaseOrderSourceModifiedDateShipToAddress extends SpeakeasyBa
 }
 
 // GetPurchaseOrderSourceModifiedDateShipToContact
-/** 
+/**
  * Details of the named contact at the delivery address.
-**/
+ **/
 export class GetPurchaseOrderSourceModifiedDateShipToContact extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "email" })
@@ -190,9 +195,9 @@ export class GetPurchaseOrderSourceModifiedDateShipToContact extends SpeakeasyBa
 }
 
 // GetPurchaseOrderSourceModifiedDateShipTo
-/** 
+/**
  * Delivery details for any goods that have been ordered.
-**/
+ **/
 export class GetPurchaseOrderSourceModifiedDateShipTo extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "address" })
@@ -205,17 +210,17 @@ export class GetPurchaseOrderSourceModifiedDateShipTo extends SpeakeasyBase {
   contact?: GetPurchaseOrderSourceModifiedDateShipToContact;
 }
 export enum GetPurchaseOrderSourceModifiedDateStatusEnum {
-    Unknown = "Unknown",
-    Draft = "Draft",
-    Open = "Open",
-    Closed = "Closed",
-    Void = "Void"
+  Unknown = "Unknown",
+  Draft = "Draft",
+  Open = "Open",
+  Closed = "Closed",
+  Void = "Void",
 }
 
 // GetPurchaseOrderSourceModifiedDateSupplierRef
-/** 
+/**
  * Supplier that the purchase order is recorded against in the accounting system.
-**/
+ **/
 export class GetPurchaseOrderSourceModifiedDateSupplierRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -227,15 +232,15 @@ export class GetPurchaseOrderSourceModifiedDateSupplierRef extends SpeakeasyBase
 }
 
 // GetPurchaseOrderSourceModifiedDate
-/** 
+/**
  * > View the coverage for purchase orders in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=purchaseOrders" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
- * Purchase orders represent a business's intent to purchase goods or services from a supplier and normally include information such as expected delivery dates and shipping details.  
- * 
+ *
+ * Purchase orders represent a business's intent to purchase goods or services from a supplier and normally include information such as expected delivery dates and shipping details.
+ *
  * This information can be used to provide visibility on a business's expected payables and to track a purchase through the full procurement process.
-**/
+ **/
 export class GetPurchaseOrderSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "currency" })

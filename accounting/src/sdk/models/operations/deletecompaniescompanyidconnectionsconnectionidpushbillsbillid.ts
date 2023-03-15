@@ -2,15 +2,20 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillIdPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=billId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=billId",
+  })
   billId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
@@ -29,11 +34,11 @@ export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200Ap
   id?: string;
 }
 export enum DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONChangesTypeEnum {
-    Unknown = "Unknown",
-    Created = "Created",
-    Modified = "Modified",
-    Deleted = "Deleted",
-    AttachmentUploaded = "AttachmentUploaded"
+  Unknown = "Unknown",
+  Created = "Created",
+  Modified = "Modified",
+  Deleted = "Deleted",
+  AttachmentUploaded = "AttachmentUploaded",
 }
 
 export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONChanges extends SpeakeasyBase {
@@ -43,7 +48,10 @@ export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200Ap
 
   @SpeakeasyMetadata()
   @Expose({ name: "recordRef" })
-  @Type(() => DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONChangesPushOperationRecordRef)
+  @Type(
+    () =>
+      DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONChangesPushOperationRecordRef
+  )
   recordRef?: DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONChangesPushOperationRecordRef;
 
   @SpeakeasyMetadata()
@@ -51,10 +59,10 @@ export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200Ap
   type?: DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONChangesTypeEnum;
 }
 export enum DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONStatusEnum {
-    Pending = "Pending",
-    Failed = "Failed",
-    Success = "Success",
-    TimedOut = "TimedOut"
+  Pending = "Pending",
+  Failed = "Failed",
+  Success = "Success",
+  TimedOut = "TimedOut",
 }
 
 export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
@@ -72,25 +80,43 @@ export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200Ap
 }
 
 // DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONValidation
-/** 
+/**
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
-**/
+ **/
 export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType:
+      DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "errors" })
-  @Type(() => DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONValidationValidationItem)
+  @Type(
+    () =>
+      DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONValidationValidationItem
+  )
   errors?: DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONValidationValidationItem[];
 
-  @SpeakeasyMetadata({ elemType: DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType:
+      DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "warnings" })
-  @Type(() => DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONValidationValidationItem)
+  @Type(
+    () =>
+      DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONValidationValidationItem
+  )
   warnings?: DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONValidationValidationItem[];
 }
 
 export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONChanges })
+  @SpeakeasyMetadata({
+    elemType:
+      DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONChanges,
+  })
   @Expose({ name: "changes" })
-  @Type(() => DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONChanges)
+  @Type(
+    () =>
+      DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONChanges
+  )
   changes?: DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONChanges[];
 
   @SpeakeasyMetadata()
@@ -141,7 +167,10 @@ export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200Ap
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONValidation)
+  @Type(
+    () =>
+      DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONValidation
+  )
   validation?: DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONValidation;
 }
 

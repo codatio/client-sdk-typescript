@@ -2,20 +2,25 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListPaymentMethodsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
 export class ListPaymentMethodsQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -82,34 +87,34 @@ export class ListPaymentMethodsLinksSourceModifiedDateMetadata extends Speakeasy
   isDeleted?: boolean;
 }
 export enum ListPaymentMethodsLinksSourceModifiedDateStatusEnum {
-    Unknown = "Unknown",
-    Active = "Active",
-    Archived = "Archived"
+  Unknown = "Unknown",
+  Active = "Active",
+  Archived = "Archived",
 }
 export enum ListPaymentMethodsLinksSourceModifiedDateTypeEnum {
-    Unknown = "Unknown",
-    Cash = "Cash",
-    Check = "Check",
-    CreditCard = "CreditCard",
-    DebitCard = "DebitCard",
-    BankTransfer = "BankTransfer",
-    Other = "Other"
+  Unknown = "Unknown",
+  Cash = "Cash",
+  Check = "Check",
+  CreditCard = "CreditCard",
+  DebitCard = "DebitCard",
+  BankTransfer = "BankTransfer",
+  Other = "Other",
 }
 
 // ListPaymentMethodsLinksSourceModifiedDate
-/** 
+/**
  * > View the coverage for payment methods in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=paymentMethods" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * A Payment Method represents the payment method(s) used to pay a Bill. Payment Methods are referenced on [Bill Payments](https://docs.codat.io/accounting-api#/schemas/BillPayment) and [Payments](https://docs.codat.io/accounting-api#/schemas/Payment).
- * 
+ *
  * From the Payment Methods endpoints you can retrieve:
- * 
+ *
  * - A list of all the Payment Methods used by a company: `GET/companies/{companyId}/data/paymentMethods`.
- * - The details of an individual Payment Method:  
+ * - The details of an individual Payment Method:
  *   `GET /companies/{companyId}/data/paymentMethods/{paymentMethodId}`.
-**/
+ **/
 export class ListPaymentMethodsLinksSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -144,9 +149,9 @@ export class ListPaymentMethodsLinksSourceModifiedDate extends SpeakeasyBase {
 }
 
 // ListPaymentMethodsLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class ListPaymentMethodsLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })

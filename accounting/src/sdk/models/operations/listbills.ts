@@ -2,20 +2,25 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListBillsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
 export class ListBillsQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -77,9 +82,9 @@ export class ListBillsLinksLinks extends SpeakeasyBase {
 }
 
 // ListBillsLinksSourceModifiedDateLineItemsAccountRef
-/** 
+/**
  * Reference to the account to which the line item is linked.
-**/
+ **/
 export class ListBillsLinksSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -91,9 +96,9 @@ export class ListBillsLinksSourceModifiedDateLineItemsAccountRef extends Speakea
 }
 
 // ListBillsLinksSourceModifiedDateLineItemsItemRef
-/** 
+/**
  * Reference to the product, service type, or inventory item to which the line item is linked.
-**/
+ **/
 export class ListBillsLinksSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -105,9 +110,9 @@ export class ListBillsLinksSourceModifiedDateLineItemsItemRef extends SpeakeasyB
 }
 
 // ListBillsLinksSourceModifiedDateLineItemsTaxRateRef
-/** 
+/**
  * Reference to the tax rate to which the line item is linked.
-**/
+ **/
 export class ListBillsLinksSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -142,16 +147,16 @@ export class ListBillsLinksSourceModifiedDateLineItemsTrackingCustomerRef extend
   id: string;
 }
 export enum ListBillsLinksSourceModifiedDateLineItemsTrackingIsBilledToEnum {
-    Unknown = "Unknown",
-    NotApplicable = "NotApplicable",
-    Customer = "Customer",
-    Project = "Project"
+  Unknown = "Unknown",
+  NotApplicable = "NotApplicable",
+  Customer = "Customer",
+  Project = "Project",
 }
 export enum ListBillsLinksSourceModifiedDateLineItemsTrackingIsRebilledToEnum {
-    Unknown = "Unknown",
-    NotApplicable = "NotApplicable",
-    Customer = "Customer",
-    Project = "Project"
+  Unknown = "Unknown",
+  NotApplicable = "NotApplicable",
+  Customer = "Customer",
+  Project = "Project",
 }
 
 export class ListBillsLinksSourceModifiedDateLineItemsTrackingProjectRef extends SpeakeasyBase {
@@ -165,7 +170,9 @@ export class ListBillsLinksSourceModifiedDateLineItemsTrackingProjectRef extends
 }
 
 export class ListBillsLinksSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ListBillsLinksSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType: ListBillsLinksSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "categoryRefs" })
   @Type(() => ListBillsLinksSourceModifiedDateLineItemsTrackingCategoryRefs)
   categoryRefs: ListBillsLinksSourceModifiedDateLineItemsTrackingCategoryRefs[];
@@ -242,7 +249,9 @@ export class ListBillsLinksSourceModifiedDateLineItems extends SpeakeasyBase {
   @Type(() => ListBillsLinksSourceModifiedDateLineItemsTracking)
   tracking?: ListBillsLinksSourceModifiedDateLineItemsTracking;
 
-  @SpeakeasyMetadata({ elemType: ListBillsLinksSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType: ListBillsLinksSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "trackingCategoryRefs" })
   @Type(() => ListBillsLinksSourceModifiedDateLineItemsTrackingCategoryRefs)
   trackingCategoryRefs?: ListBillsLinksSourceModifiedDateLineItemsTrackingCategoryRefs[];
@@ -278,9 +287,9 @@ export class ListBillsLinksSourceModifiedDatePaymentAllocationsAllocation extend
 }
 
 // ListBillsLinksSourceModifiedDatePaymentAllocationsPaymentAccountRef
-/** 
+/**
  * The account that the allocated payment is made from or to.
-**/
+ **/
 export class ListBillsLinksSourceModifiedDatePaymentAllocationsPaymentAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -294,7 +303,9 @@ export class ListBillsLinksSourceModifiedDatePaymentAllocationsPaymentAccountRef
 export class ListBillsLinksSourceModifiedDatePaymentAllocationsPayment extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => ListBillsLinksSourceModifiedDatePaymentAllocationsPaymentAccountRef)
+  @Type(
+    () => ListBillsLinksSourceModifiedDatePaymentAllocationsPaymentAccountRef
+  )
   accountRef?: ListBillsLinksSourceModifiedDatePaymentAllocationsPaymentAccountRef;
 
   @SpeakeasyMetadata()
@@ -349,18 +360,18 @@ export class ListBillsLinksSourceModifiedDatePurchaseOrderRefs extends Speakeasy
   purchaseOrderNumber?: string;
 }
 export enum ListBillsLinksSourceModifiedDateStatusEnum {
-    Unknown = "Unknown",
-    Open = "Open",
-    PartiallyPaid = "PartiallyPaid",
-    Paid = "Paid",
-    Void = "Void",
-    Draft = "Draft"
+  Unknown = "Unknown",
+  Open = "Open",
+  PartiallyPaid = "PartiallyPaid",
+  Paid = "Paid",
+  Void = "Void",
+  Draft = "Draft",
 }
 
 // ListBillsLinksSourceModifiedDateSupplementalData
-/** 
+/**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-**/
+ **/
 export class ListBillsLinksSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -368,9 +379,9 @@ export class ListBillsLinksSourceModifiedDateSupplementalData extends SpeakeasyB
 }
 
 // ListBillsLinksSourceModifiedDateSupplierRef
-/** 
+/**
  * Reference to the supplier the bill was received from.
-**/
+ **/
 export class ListBillsLinksSourceModifiedDateSupplierRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -392,25 +403,25 @@ export class ListBillsLinksSourceModifiedDateWithholdingTax extends SpeakeasyBas
 }
 
 // ListBillsLinksSourceModifiedDate
-/** 
+/**
  * > **Invoices or bills?**
  * >
  * > In Codat, bills are for accounts payable only. For the accounts receivable equivalent of bills, see [Invoices](https://docs.codat.io/accounting-api#/schemas/Invoice).
- * 
+ *
  * View the coverage for bills in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * In Codat, a bill contains details of:
  * * When the bill was recorded in the accounting system.
  * * How much the bill is for and the currency of the amount.
  * * Who the bill was received from — the *supplier*.
  * * What the bill is for — the *line items*.
- * 
+ *
  * Some accounting platforms give a separate name to purchases where the payment is made immediately, such as something bought with a credit card or online payment. One example of this would be QuickBooks Online's *expenses*.
- * 
+ *
  * You can find these types of transactions in our [Direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost) data model.
-**/
+ **/
 export class ListBillsLinksSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "amountDue" })
@@ -457,12 +468,16 @@ export class ListBillsLinksSourceModifiedDate extends SpeakeasyBase {
   @Expose({ name: "note" })
   note?: string;
 
-  @SpeakeasyMetadata({ elemType: ListBillsLinksSourceModifiedDatePaymentAllocations })
+  @SpeakeasyMetadata({
+    elemType: ListBillsLinksSourceModifiedDatePaymentAllocations,
+  })
   @Expose({ name: "paymentAllocations" })
   @Type(() => ListBillsLinksSourceModifiedDatePaymentAllocations)
   paymentAllocations?: ListBillsLinksSourceModifiedDatePaymentAllocations[];
 
-  @SpeakeasyMetadata({ elemType: ListBillsLinksSourceModifiedDatePurchaseOrderRefs })
+  @SpeakeasyMetadata({
+    elemType: ListBillsLinksSourceModifiedDatePurchaseOrderRefs,
+  })
   @Expose({ name: "purchaseOrderRefs" })
   @Type(() => ListBillsLinksSourceModifiedDatePurchaseOrderRefs)
   purchaseOrderRefs?: ListBillsLinksSourceModifiedDatePurchaseOrderRefs[];
@@ -502,16 +517,18 @@ export class ListBillsLinksSourceModifiedDate extends SpeakeasyBase {
   @Expose({ name: "totalAmount" })
   totalAmount: number;
 
-  @SpeakeasyMetadata({ elemType: ListBillsLinksSourceModifiedDateWithholdingTax })
+  @SpeakeasyMetadata({
+    elemType: ListBillsLinksSourceModifiedDateWithholdingTax,
+  })
   @Expose({ name: "withholdingTax" })
   @Type(() => ListBillsLinksSourceModifiedDateWithholdingTax)
   withholdingTax?: ListBillsLinksSourceModifiedDateWithholdingTax[];
 }
 
 // ListBillsLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class ListBillsLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })

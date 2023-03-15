@@ -2,24 +2,29 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class CreateItemPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
 export class CreateItemQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=timeoutInMinutes" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
   timeoutInMinutes?: number;
 }
 
 // CreateItemSourceModifiedDateBillItemAccountRef
-/** 
+/**
  * Reference of the account to which the item is linked.
-**/
+ **/
 export class CreateItemSourceModifiedDateBillItemAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -31,9 +36,9 @@ export class CreateItemSourceModifiedDateBillItemAccountRef extends SpeakeasyBas
 }
 
 // CreateItemSourceModifiedDateBillItemTaxRateRef
-/** 
+/**
  * Reference of the tax rate to which the item is linked.
-**/
+ **/
 export class CreateItemSourceModifiedDateBillItemTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -49,9 +54,9 @@ export class CreateItemSourceModifiedDateBillItemTaxRateRef extends SpeakeasyBas
 }
 
 // CreateItemSourceModifiedDateBillItem
-/** 
+/**
  * Item details that are only for bills.
-**/
+ **/
 export class CreateItemSourceModifiedDateBillItem extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
@@ -73,9 +78,9 @@ export class CreateItemSourceModifiedDateBillItem extends SpeakeasyBase {
 }
 
 // CreateItemSourceModifiedDateInvoiceItemAccountRef
-/** 
+/**
  * Reference of the account to which the item is linked.
-**/
+ **/
 export class CreateItemSourceModifiedDateInvoiceItemAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -87,9 +92,9 @@ export class CreateItemSourceModifiedDateInvoiceItemAccountRef extends Speakeasy
 }
 
 // CreateItemSourceModifiedDateInvoiceItemTaxRateRef
-/** 
+/**
  * Reference of the tax rate to which the item is linked.
-**/
+ **/
 export class CreateItemSourceModifiedDateInvoiceItemTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -105,9 +110,9 @@ export class CreateItemSourceModifiedDateInvoiceItemTaxRateRef extends Speakeasy
 }
 
 // CreateItemSourceModifiedDateInvoiceItem
-/** 
+/**
  * Item details that are only for bills.
-**/
+ **/
 export class CreateItemSourceModifiedDateInvoiceItem extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
@@ -128,9 +133,9 @@ export class CreateItemSourceModifiedDateInvoiceItem extends SpeakeasyBase {
   unitPrice?: number;
 }
 export enum CreateItemSourceModifiedDateItemStatusEnum {
-    Unknown = "Unknown",
-    Active = "Active",
-    Archived = "Archived"
+  Unknown = "Unknown",
+  Active = "Active",
+  Archived = "Archived",
 }
 
 export class CreateItemSourceModifiedDateMetadata extends SpeakeasyBase {
@@ -139,21 +144,21 @@ export class CreateItemSourceModifiedDateMetadata extends SpeakeasyBase {
   isDeleted?: boolean;
 }
 export enum CreateItemSourceModifiedDateTypeEnum {
-    Unknown = "Unknown",
-    Inventory = "Inventory",
-    NonInventory = "NonInventory",
-    Service = "Service"
+  Unknown = "Unknown",
+  Inventory = "Inventory",
+  NonInventory = "NonInventory",
+  Service = "Service",
 }
 
 // CreateItemSourceModifiedDate
-/** 
+/**
  * > View the coverage for items in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=items" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * **Items** allow your customers to save and track details of the products and services that they buy and sell.
- * 
-**/
+ *
+ **/
 export class CreateItemSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "billItem" })
@@ -230,11 +235,11 @@ export class CreateItem200ApplicationJSONChangesPushOperationRecordRef extends S
   id?: string;
 }
 export enum CreateItem200ApplicationJSONChangesTypeEnum {
-    Unknown = "Unknown",
-    Created = "Created",
-    Modified = "Modified",
-    Deleted = "Deleted",
-    AttachmentUploaded = "AttachmentUploaded"
+  Unknown = "Unknown",
+  Created = "Created",
+  Modified = "Modified",
+  Deleted = "Deleted",
+  AttachmentUploaded = "AttachmentUploaded",
 }
 
 export class CreateItem200ApplicationJSONChanges extends SpeakeasyBase {
@@ -253,9 +258,9 @@ export class CreateItem200ApplicationJSONChanges extends SpeakeasyBase {
 }
 
 // CreateItem200ApplicationJSONSourceModifiedDateBillItemAccountRef
-/** 
+/**
  * Reference of the account to which the item is linked.
-**/
+ **/
 export class CreateItem200ApplicationJSONSourceModifiedDateBillItemAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -267,9 +272,9 @@ export class CreateItem200ApplicationJSONSourceModifiedDateBillItemAccountRef ex
 }
 
 // CreateItem200ApplicationJSONSourceModifiedDateBillItemTaxRateRef
-/** 
+/**
  * Reference of the tax rate to which the item is linked.
-**/
+ **/
 export class CreateItem200ApplicationJSONSourceModifiedDateBillItemTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -285,9 +290,9 @@ export class CreateItem200ApplicationJSONSourceModifiedDateBillItemTaxRateRef ex
 }
 
 // CreateItem200ApplicationJSONSourceModifiedDateBillItem
-/** 
+/**
  * Item details that are only for bills.
-**/
+ **/
 export class CreateItem200ApplicationJSONSourceModifiedDateBillItem extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
@@ -309,9 +314,9 @@ export class CreateItem200ApplicationJSONSourceModifiedDateBillItem extends Spea
 }
 
 // CreateItem200ApplicationJSONSourceModifiedDateInvoiceItemAccountRef
-/** 
+/**
  * Reference of the account to which the item is linked.
-**/
+ **/
 export class CreateItem200ApplicationJSONSourceModifiedDateInvoiceItemAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -323,9 +328,9 @@ export class CreateItem200ApplicationJSONSourceModifiedDateInvoiceItemAccountRef
 }
 
 // CreateItem200ApplicationJSONSourceModifiedDateInvoiceItemTaxRateRef
-/** 
+/**
  * Reference of the tax rate to which the item is linked.
-**/
+ **/
 export class CreateItem200ApplicationJSONSourceModifiedDateInvoiceItemTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -341,13 +346,15 @@ export class CreateItem200ApplicationJSONSourceModifiedDateInvoiceItemTaxRateRef
 }
 
 // CreateItem200ApplicationJSONSourceModifiedDateInvoiceItem
-/** 
+/**
  * Item details that are only for bills.
-**/
+ **/
 export class CreateItem200ApplicationJSONSourceModifiedDateInvoiceItem extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => CreateItem200ApplicationJSONSourceModifiedDateInvoiceItemAccountRef)
+  @Type(
+    () => CreateItem200ApplicationJSONSourceModifiedDateInvoiceItemAccountRef
+  )
   accountRef?: CreateItem200ApplicationJSONSourceModifiedDateInvoiceItemAccountRef;
 
   @SpeakeasyMetadata()
@@ -356,7 +363,9 @@ export class CreateItem200ApplicationJSONSourceModifiedDateInvoiceItem extends S
 
   @SpeakeasyMetadata()
   @Expose({ name: "taxRateRef" })
-  @Type(() => CreateItem200ApplicationJSONSourceModifiedDateInvoiceItemTaxRateRef)
+  @Type(
+    () => CreateItem200ApplicationJSONSourceModifiedDateInvoiceItemTaxRateRef
+  )
   taxRateRef?: CreateItem200ApplicationJSONSourceModifiedDateInvoiceItemTaxRateRef;
 
   @SpeakeasyMetadata()
@@ -364,9 +373,9 @@ export class CreateItem200ApplicationJSONSourceModifiedDateInvoiceItem extends S
   unitPrice?: number;
 }
 export enum CreateItem200ApplicationJSONSourceModifiedDateItemStatusEnum {
-    Unknown = "Unknown",
-    Active = "Active",
-    Archived = "Archived"
+  Unknown = "Unknown",
+  Active = "Active",
+  Archived = "Archived",
 }
 
 export class CreateItem200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
@@ -375,21 +384,21 @@ export class CreateItem200ApplicationJSONSourceModifiedDateMetadata extends Spea
   isDeleted?: boolean;
 }
 export enum CreateItem200ApplicationJSONSourceModifiedDateTypeEnum {
-    Unknown = "Unknown",
-    Inventory = "Inventory",
-    NonInventory = "NonInventory",
-    Service = "Service"
+  Unknown = "Unknown",
+  Inventory = "Inventory",
+  NonInventory = "NonInventory",
+  Service = "Service",
 }
 
 // CreateItem200ApplicationJSONSourceModifiedDate
-/** 
+/**
  * > View the coverage for items in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=items" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * **Items** allow your customers to save and track details of the products and services that they buy and sell.
- * 
-**/
+ *
+ **/
 export class CreateItem200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "billItem" })
@@ -445,10 +454,10 @@ export class CreateItem200ApplicationJSONSourceModifiedDate extends SpeakeasyBas
   type: CreateItem200ApplicationJSONSourceModifiedDateTypeEnum;
 }
 export enum CreateItem200ApplicationJSONStatusEnum {
-    Pending = "Pending",
-    Failed = "Failed",
-    Success = "Success",
-    TimedOut = "TimedOut"
+  Pending = "Pending",
+  Failed = "Failed",
+  Success = "Success",
+  TimedOut = "TimedOut",
 }
 
 export class CreateItem200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
@@ -466,16 +475,20 @@ export class CreateItem200ApplicationJSONValidationValidationItem extends Speake
 }
 
 // CreateItem200ApplicationJSONValidation
-/** 
+/**
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
-**/
+ **/
 export class CreateItem200ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: CreateItem200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType: CreateItem200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "errors" })
   @Type(() => CreateItem200ApplicationJSONValidationValidationItem)
   errors?: CreateItem200ApplicationJSONValidationValidationItem[];
 
-  @SpeakeasyMetadata({ elemType: CreateItem200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType: CreateItem200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "warnings" })
   @Type(() => CreateItem200ApplicationJSONValidationValidationItem)
   warnings?: CreateItem200ApplicationJSONValidationValidationItem[];

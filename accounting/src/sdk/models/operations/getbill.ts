@@ -2,12 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetBillPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=billId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=billId",
+  })
   billId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
@@ -17,9 +20,9 @@ export class GetBillRequest extends SpeakeasyBase {
 }
 
 // GetBillSourceModifiedDateLineItemsAccountRef
-/** 
+/**
  * Reference to the account to which the line item is linked.
-**/
+ **/
 export class GetBillSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -31,9 +34,9 @@ export class GetBillSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase 
 }
 
 // GetBillSourceModifiedDateLineItemsItemRef
-/** 
+/**
  * Reference to the product, service type, or inventory item to which the line item is linked.
-**/
+ **/
 export class GetBillSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -45,9 +48,9 @@ export class GetBillSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
 }
 
 // GetBillSourceModifiedDateLineItemsTaxRateRef
-/** 
+/**
  * Reference to the tax rate to which the line item is linked.
-**/
+ **/
 export class GetBillSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -82,16 +85,16 @@ export class GetBillSourceModifiedDateLineItemsTrackingCustomerRef extends Speak
   id: string;
 }
 export enum GetBillSourceModifiedDateLineItemsTrackingIsBilledToEnum {
-    Unknown = "Unknown",
-    NotApplicable = "NotApplicable",
-    Customer = "Customer",
-    Project = "Project"
+  Unknown = "Unknown",
+  NotApplicable = "NotApplicable",
+  Customer = "Customer",
+  Project = "Project",
 }
 export enum GetBillSourceModifiedDateLineItemsTrackingIsRebilledToEnum {
-    Unknown = "Unknown",
-    NotApplicable = "NotApplicable",
-    Customer = "Customer",
-    Project = "Project"
+  Unknown = "Unknown",
+  NotApplicable = "NotApplicable",
+  Customer = "Customer",
+  Project = "Project",
 }
 
 export class GetBillSourceModifiedDateLineItemsTrackingProjectRef extends SpeakeasyBase {
@@ -105,7 +108,9 @@ export class GetBillSourceModifiedDateLineItemsTrackingProjectRef extends Speake
 }
 
 export class GetBillSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetBillSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType: GetBillSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "categoryRefs" })
   @Type(() => GetBillSourceModifiedDateLineItemsTrackingCategoryRefs)
   categoryRefs: GetBillSourceModifiedDateLineItemsTrackingCategoryRefs[];
@@ -182,7 +187,9 @@ export class GetBillSourceModifiedDateLineItems extends SpeakeasyBase {
   @Type(() => GetBillSourceModifiedDateLineItemsTracking)
   tracking?: GetBillSourceModifiedDateLineItemsTracking;
 
-  @SpeakeasyMetadata({ elemType: GetBillSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType: GetBillSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "trackingCategoryRefs" })
   @Type(() => GetBillSourceModifiedDateLineItemsTrackingCategoryRefs)
   trackingCategoryRefs?: GetBillSourceModifiedDateLineItemsTrackingCategoryRefs[];
@@ -218,9 +225,9 @@ export class GetBillSourceModifiedDatePaymentAllocationsAllocation extends Speak
 }
 
 // GetBillSourceModifiedDatePaymentAllocationsPaymentAccountRef
-/** 
+/**
  * The account that the allocated payment is made from or to.
-**/
+ **/
 export class GetBillSourceModifiedDatePaymentAllocationsPaymentAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -289,18 +296,18 @@ export class GetBillSourceModifiedDatePurchaseOrderRefs extends SpeakeasyBase {
   purchaseOrderNumber?: string;
 }
 export enum GetBillSourceModifiedDateStatusEnum {
-    Unknown = "Unknown",
-    Open = "Open",
-    PartiallyPaid = "PartiallyPaid",
-    Paid = "Paid",
-    Void = "Void",
-    Draft = "Draft"
+  Unknown = "Unknown",
+  Open = "Open",
+  PartiallyPaid = "PartiallyPaid",
+  Paid = "Paid",
+  Void = "Void",
+  Draft = "Draft",
 }
 
 // GetBillSourceModifiedDateSupplementalData
-/** 
+/**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-**/
+ **/
 export class GetBillSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -308,9 +315,9 @@ export class GetBillSourceModifiedDateSupplementalData extends SpeakeasyBase {
 }
 
 // GetBillSourceModifiedDateSupplierRef
-/** 
+/**
  * Reference to the supplier the bill was received from.
-**/
+ **/
 export class GetBillSourceModifiedDateSupplierRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -332,25 +339,25 @@ export class GetBillSourceModifiedDateWithholdingTax extends SpeakeasyBase {
 }
 
 // GetBillSourceModifiedDate
-/** 
+/**
  * > **Invoices or bills?**
  * >
  * > In Codat, bills are for accounts payable only. For the accounts receivable equivalent of bills, see [Invoices](https://docs.codat.io/accounting-api#/schemas/Invoice).
- * 
+ *
  * View the coverage for bills in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * In Codat, a bill contains details of:
  * * When the bill was recorded in the accounting system.
  * * How much the bill is for and the currency of the amount.
  * * Who the bill was received from — the *supplier*.
  * * What the bill is for — the *line items*.
- * 
+ *
  * Some accounting platforms give a separate name to purchases where the payment is made immediately, such as something bought with a credit card or online payment. One example of this would be QuickBooks Online's *expenses*.
- * 
+ *
  * You can find these types of transactions in our [Direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost) data model.
-**/
+ **/
 export class GetBillSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "amountDue" })

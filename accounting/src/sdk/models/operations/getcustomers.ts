@@ -2,20 +2,25 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetCustomersPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
 export class GetCustomersQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -76,9 +81,9 @@ export class GetCustomersLinksLinks extends SpeakeasyBase {
   self: GetCustomersLinksLinksSelf;
 }
 export enum GetCustomersLinksSourceModifiedDateAddressesTypeEnum {
-    Unknown = "Unknown",
-    Billing = "Billing",
-    Delivery = "Delivery"
+  Unknown = "Unknown",
+  Billing = "Billing",
+  Delivery = "Delivery",
 }
 
 export class GetCustomersLinksSourceModifiedDateAddresses extends SpeakeasyBase {
@@ -111,15 +116,15 @@ export class GetCustomersLinksSourceModifiedDateAddresses extends SpeakeasyBase 
   type: GetCustomersLinksSourceModifiedDateAddressesTypeEnum;
 }
 export enum GetCustomersLinksSourceModifiedDateContactsAddressTypeEnum {
-    Unknown = "Unknown",
-    Billing = "Billing",
-    Delivery = "Delivery"
+  Unknown = "Unknown",
+  Billing = "Billing",
+  Delivery = "Delivery",
 }
 
 // GetCustomersLinksSourceModifiedDateContactsAddress
-/** 
+/**
  * An object of Address information.
-**/
+ **/
 export class GetCustomersLinksSourceModifiedDateContactsAddress extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "city" })
@@ -150,11 +155,11 @@ export class GetCustomersLinksSourceModifiedDateContactsAddress extends Speakeas
   type: GetCustomersLinksSourceModifiedDateContactsAddressTypeEnum;
 }
 export enum GetCustomersLinksSourceModifiedDateContactsPhoneTypeEnum {
-    Unknown = "Unknown",
-    Primary = "Primary",
-    Landline = "Landline",
-    Mobile = "Mobile",
-    Fax = "Fax"
+  Unknown = "Unknown",
+  Primary = "Primary",
+  Landline = "Landline",
+  Mobile = "Mobile",
+  Fax = "Fax",
 }
 
 export class GetCustomersLinksSourceModifiedDateContactsPhone extends SpeakeasyBase {
@@ -167,9 +172,9 @@ export class GetCustomersLinksSourceModifiedDateContactsPhone extends SpeakeasyB
   type: GetCustomersLinksSourceModifiedDateContactsPhoneTypeEnum;
 }
 export enum GetCustomersLinksSourceModifiedDateContactsStatusEnum {
-    Unknown = "Unknown",
-    Active = "Active",
-    Archived = "Archived"
+  Unknown = "Unknown",
+  Active = "Active",
+  Archived = "Archived",
 }
 
 export class GetCustomersLinksSourceModifiedDateContacts extends SpeakeasyBase {
@@ -191,7 +196,9 @@ export class GetCustomersLinksSourceModifiedDateContacts extends SpeakeasyBase {
   @Expose({ name: "name" })
   name?: string;
 
-  @SpeakeasyMetadata({ elemType: GetCustomersLinksSourceModifiedDateContactsPhone })
+  @SpeakeasyMetadata({
+    elemType: GetCustomersLinksSourceModifiedDateContactsPhone,
+  })
   @Expose({ name: "phone" })
   @Type(() => GetCustomersLinksSourceModifiedDateContactsPhone)
   phone?: GetCustomersLinksSourceModifiedDateContactsPhone[];
@@ -207,15 +214,15 @@ export class GetCustomersLinksSourceModifiedDateMetadata extends SpeakeasyBase {
   isDeleted?: boolean;
 }
 export enum GetCustomersLinksSourceModifiedDateStatusEnum {
-    Unknown = "Unknown",
-    Active = "Active",
-    Archived = "Archived"
+  Unknown = "Unknown",
+  Active = "Active",
+  Archived = "Archived",
 }
 
 // GetCustomersLinksSourceModifiedDateSupplementalData
-/** 
+/**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-**/
+ **/
 export class GetCustomersLinksSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -223,16 +230,16 @@ export class GetCustomersLinksSourceModifiedDateSupplementalData extends Speakea
 }
 
 // GetCustomersLinksSourceModifiedDate
-/** 
+/**
  * > View the coverage for customers in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * A customer is a person or organisation that buys goods or services. From the Customers endpoints, you can retrieve a [list of all the customers of a company](https://api.codat.io/swagger/index.html#/Customers/get_companies__companyId__data_customers).
- * 
+ *
  * Customers' data links to accounts receivable [invoices](https://docs.codat.io/accounting-api#/schemas/Invoice).
- * 
-**/
+ *
+ **/
 export class GetCustomersLinksSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata({ elemType: GetCustomersLinksSourceModifiedDateAddresses })
   @Expose({ name: "addresses" })
@@ -302,9 +309,9 @@ export class GetCustomersLinksSourceModifiedDate extends SpeakeasyBase {
 }
 
 // GetCustomersLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class GetCustomersLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })

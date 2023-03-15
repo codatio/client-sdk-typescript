@@ -2,12 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, plainToInstance, Transform, Type } from "class-transformer";
 
-
 export class GetCreateChartOfAccountsModelPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
@@ -16,14 +19,14 @@ export class GetCreateChartOfAccountsModelRequest extends SpeakeasyBase {
   pathParams: GetCreateChartOfAccountsModelPathParams;
 }
 export enum GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionChoiceOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionChoice extends SpeakeasyBase {
@@ -48,14 +51,14 @@ export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOption
   value?: string;
 }
 export enum GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoiceOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice extends SpeakeasyBase {
@@ -80,14 +83,14 @@ export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOption
   value?: string;
 }
 export enum GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoiceOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice extends SpeakeasyBase {
@@ -112,14 +115,14 @@ export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOption
   value?: string;
 }
 export enum GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoiceOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice extends SpeakeasyBase {
@@ -144,14 +147,14 @@ export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOption
   value?: string;
 }
 export enum GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation extends SpeakeasyBase {
@@ -169,14 +172,26 @@ export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOption
 }
 
 export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "information" })
-  @Type(() => GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   information?: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 
-  @SpeakeasyMetadata({ elemType: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "warnings" })
-  @Type(() => GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   warnings?: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 }
 
@@ -189,9 +204,15 @@ export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOption
   @Expose({ name: "displayName" })
   displayName: string;
 
-  @SpeakeasyMetadata({ elemType: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice,
+  })
   @Expose({ name: "options" })
-  @Type(() => GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice)
+  @Type(
+    () =>
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice
+  )
   options?: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice[];
 
   @SpeakeasyMetadata()
@@ -204,18 +225,21 @@ export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOption
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo)
+  @Type(
+    () =>
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo
+  )
   validation?: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo;
 }
 export enum GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation extends SpeakeasyBase {
@@ -233,14 +257,26 @@ export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOption
 }
 
 export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "information" })
-  @Type(() => GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   information?: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 
-  @SpeakeasyMetadata({ elemType: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "warnings" })
-  @Type(() => GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   warnings?: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 }
 
@@ -253,24 +289,45 @@ export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOption
   @Expose({ name: "displayName" })
   displayName: string;
 
-  @SpeakeasyMetadata({ elemType: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice,
+  })
   @Expose({ name: "options" })
-  @Type(() => GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice)
+  @Type(
+    () =>
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice
+  )
   options?: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice[];
 
-  @SpeakeasyMetadata({ elemType: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty,
+  })
   @Expose({ name: "properties" })
-  @Transform(({ value }) => {
-    const obj: Record<string, GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty,
-        value[key] as GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  properties?: Record<string, GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty,
+          value[
+            key
+          ] as GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  properties?: Record<
+    string,
+    GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty
+  >;
 
   @SpeakeasyMetadata()
   @Expose({ name: "required" })
@@ -282,18 +339,21 @@ export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOption
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo)
+  @Type(
+    () =>
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo
+  )
   validation?: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo;
 }
 export enum GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation extends SpeakeasyBase {
@@ -311,14 +371,26 @@ export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOption
 }
 
 export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfo extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "information" })
-  @Type(() => GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   information?: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 
-  @SpeakeasyMetadata({ elemType: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "warnings" })
-  @Type(() => GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   warnings?: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 }
 
@@ -331,24 +403,45 @@ export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOption
   @Expose({ name: "displayName" })
   displayName: string;
 
-  @SpeakeasyMetadata({ elemType: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice,
+  })
   @Expose({ name: "options" })
-  @Type(() => GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice)
+  @Type(
+    () =>
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice
+  )
   options?: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice[];
 
-  @SpeakeasyMetadata({ elemType: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty,
+  })
   @Expose({ name: "properties" })
-  @Transform(({ value }) => {
-    const obj: Record<string, GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty,
-        value[key] as GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  properties?: Record<string, GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty,
+          value[
+            key
+          ] as GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  properties?: Record<
+    string,
+    GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty
+  >;
 
   @SpeakeasyMetadata()
   @Expose({ name: "required" })
@@ -360,18 +453,21 @@ export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOption
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfo)
+  @Type(
+    () =>
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfo
+  )
   validation?: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfo;
 }
 export enum GetCreateChartOfAccountsModelPushOptionPushOptionPropertyOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation extends SpeakeasyBase {
@@ -389,14 +485,26 @@ export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushValida
 }
 
 export class GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushValidationInfo extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "information" })
-  @Type(() => GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   information?: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation[];
 
-  @SpeakeasyMetadata({ elemType: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "warnings" })
-  @Type(() => GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   warnings?: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation[];
 }
 
@@ -409,24 +517,45 @@ export class GetCreateChartOfAccountsModelPushOptionPushOptionProperty extends S
   @Expose({ name: "displayName" })
   displayName: string;
 
-  @SpeakeasyMetadata({ elemType: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionChoice })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionChoice,
+  })
   @Expose({ name: "options" })
-  @Type(() => GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionChoice)
+  @Type(
+    () =>
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionChoice
+  )
   options?: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionChoice[];
 
-  @SpeakeasyMetadata({ elemType: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionProperty })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionProperty,
+  })
   @Expose({ name: "properties" })
-  @Transform(({ value }) => {
-    const obj: Record<string, GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionProperty> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionProperty,
-        value[key] as GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionProperty,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  properties?: Record<string, GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionProperty>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionProperty
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionProperty,
+          value[
+            key
+          ] as GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionProperty,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  properties?: Record<
+    string,
+    GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionProperty
+  >;
 
   @SpeakeasyMetadata()
   @Expose({ name: "required" })
@@ -438,18 +567,21 @@ export class GetCreateChartOfAccountsModelPushOptionPushOptionProperty extends S
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushValidationInfo)
+  @Type(
+    () =>
+      GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushValidationInfo
+  )
   validation?: GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushValidationInfo;
 }
 export enum GetCreateChartOfAccountsModelPushOptionOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateChartOfAccountsModelPushOption extends SpeakeasyBase {
@@ -461,19 +593,33 @@ export class GetCreateChartOfAccountsModelPushOption extends SpeakeasyBase {
   @Expose({ name: "displayName" })
   displayName: string;
 
-  @SpeakeasyMetadata({ elemType: GetCreateChartOfAccountsModelPushOptionPushOptionProperty })
+  @SpeakeasyMetadata({
+    elemType: GetCreateChartOfAccountsModelPushOptionPushOptionProperty,
+  })
   @Expose({ name: "properties" })
-  @Transform(({ value }) => {
-    const obj: Record<string, GetCreateChartOfAccountsModelPushOptionPushOptionProperty> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(GetCreateChartOfAccountsModelPushOptionPushOptionProperty,
-        value[key] as GetCreateChartOfAccountsModelPushOptionPushOptionProperty,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  properties?: Record<string, GetCreateChartOfAccountsModelPushOptionPushOptionProperty>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        GetCreateChartOfAccountsModelPushOptionPushOptionProperty
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          GetCreateChartOfAccountsModelPushOptionPushOptionProperty,
+          value[
+            key
+          ] as GetCreateChartOfAccountsModelPushOptionPushOptionProperty,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  properties?: Record<
+    string,
+    GetCreateChartOfAccountsModelPushOptionPushOptionProperty
+  >;
 
   @SpeakeasyMetadata()
   @Expose({ name: "required" })

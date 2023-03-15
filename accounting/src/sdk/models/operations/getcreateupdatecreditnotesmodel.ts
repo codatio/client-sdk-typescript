@@ -2,12 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, plainToInstance, Transform, Type } from "class-transformer";
 
-
 export class GetCreateUpdateCreditNotesModelPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
@@ -16,14 +19,14 @@ export class GetCreateUpdateCreditNotesModelRequest extends SpeakeasyBase {
   pathParams: GetCreateUpdateCreditNotesModelPathParams;
 }
 export enum GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionChoiceOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionChoice extends SpeakeasyBase {
@@ -48,14 +51,14 @@ export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOpti
   value?: string;
 }
 export enum GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoiceOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice extends SpeakeasyBase {
@@ -80,14 +83,14 @@ export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOpti
   value?: string;
 }
 export enum GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoiceOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice extends SpeakeasyBase {
@@ -112,14 +115,14 @@ export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOpti
   value?: string;
 }
 export enum GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoiceOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice extends SpeakeasyBase {
@@ -144,14 +147,14 @@ export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOpti
   value?: string;
 }
 export enum GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation extends SpeakeasyBase {
@@ -169,14 +172,26 @@ export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOpti
 }
 
 export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "information" })
-  @Type(() => GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   information?: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 
-  @SpeakeasyMetadata({ elemType: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "warnings" })
-  @Type(() => GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   warnings?: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 }
 
@@ -189,9 +204,15 @@ export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOpti
   @Expose({ name: "displayName" })
   displayName: string;
 
-  @SpeakeasyMetadata({ elemType: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice,
+  })
   @Expose({ name: "options" })
-  @Type(() => GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice)
+  @Type(
+    () =>
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice
+  )
   options?: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice[];
 
   @SpeakeasyMetadata()
@@ -204,18 +225,21 @@ export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOpti
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo)
+  @Type(
+    () =>
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo
+  )
   validation?: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo;
 }
 export enum GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation extends SpeakeasyBase {
@@ -233,14 +257,26 @@ export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOpti
 }
 
 export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "information" })
-  @Type(() => GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   information?: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 
-  @SpeakeasyMetadata({ elemType: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "warnings" })
-  @Type(() => GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   warnings?: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 }
 
@@ -253,24 +289,45 @@ export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOpti
   @Expose({ name: "displayName" })
   displayName: string;
 
-  @SpeakeasyMetadata({ elemType: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice,
+  })
   @Expose({ name: "options" })
-  @Type(() => GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice)
+  @Type(
+    () =>
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice
+  )
   options?: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice[];
 
-  @SpeakeasyMetadata({ elemType: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty,
+  })
   @Expose({ name: "properties" })
-  @Transform(({ value }) => {
-    const obj: Record<string, GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty,
-        value[key] as GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  properties?: Record<string, GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty,
+          value[
+            key
+          ] as GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  properties?: Record<
+    string,
+    GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty
+  >;
 
   @SpeakeasyMetadata()
   @Expose({ name: "required" })
@@ -282,18 +339,21 @@ export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOpti
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo)
+  @Type(
+    () =>
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo
+  )
   validation?: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo;
 }
 export enum GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation extends SpeakeasyBase {
@@ -311,14 +371,26 @@ export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOpti
 }
 
 export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfo extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "information" })
-  @Type(() => GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   information?: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 
-  @SpeakeasyMetadata({ elemType: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "warnings" })
-  @Type(() => GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   warnings?: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 }
 
@@ -331,24 +403,45 @@ export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOpti
   @Expose({ name: "displayName" })
   displayName: string;
 
-  @SpeakeasyMetadata({ elemType: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice,
+  })
   @Expose({ name: "options" })
-  @Type(() => GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice)
+  @Type(
+    () =>
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice
+  )
   options?: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice[];
 
-  @SpeakeasyMetadata({ elemType: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty,
+  })
   @Expose({ name: "properties" })
-  @Transform(({ value }) => {
-    const obj: Record<string, GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty,
-        value[key] as GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  properties?: Record<string, GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty,
+          value[
+            key
+          ] as GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  properties?: Record<
+    string,
+    GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty
+  >;
 
   @SpeakeasyMetadata()
   @Expose({ name: "required" })
@@ -360,18 +453,21 @@ export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOpti
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfo)
+  @Type(
+    () =>
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfo
+  )
   validation?: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfo;
 }
 export enum GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation extends SpeakeasyBase {
@@ -389,14 +485,26 @@ export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushVali
 }
 
 export class GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushValidationInfo extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "information" })
-  @Type(() => GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   information?: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation[];
 
-  @SpeakeasyMetadata({ elemType: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "warnings" })
-  @Type(() => GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   warnings?: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation[];
 }
 
@@ -409,24 +517,45 @@ export class GetCreateUpdateCreditNotesModelPushOptionPushOptionProperty extends
   @Expose({ name: "displayName" })
   displayName: string;
 
-  @SpeakeasyMetadata({ elemType: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionChoice })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionChoice,
+  })
   @Expose({ name: "options" })
-  @Type(() => GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionChoice)
+  @Type(
+    () =>
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionChoice
+  )
   options?: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionChoice[];
 
-  @SpeakeasyMetadata({ elemType: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionProperty })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionProperty,
+  })
   @Expose({ name: "properties" })
-  @Transform(({ value }) => {
-    const obj: Record<string, GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionProperty> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionProperty,
-        value[key] as GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionProperty,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  properties?: Record<string, GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionProperty>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionProperty
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionProperty,
+          value[
+            key
+          ] as GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionProperty,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  properties?: Record<
+    string,
+    GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionProperty
+  >;
 
   @SpeakeasyMetadata()
   @Expose({ name: "required" })
@@ -438,18 +567,21 @@ export class GetCreateUpdateCreditNotesModelPushOptionPushOptionProperty extends
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushValidationInfo)
+  @Type(
+    () =>
+      GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushValidationInfo
+  )
   validation?: GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushValidationInfo;
 }
 export enum GetCreateUpdateCreditNotesModelPushOptionOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateUpdateCreditNotesModelPushOption extends SpeakeasyBase {
@@ -461,19 +593,33 @@ export class GetCreateUpdateCreditNotesModelPushOption extends SpeakeasyBase {
   @Expose({ name: "displayName" })
   displayName: string;
 
-  @SpeakeasyMetadata({ elemType: GetCreateUpdateCreditNotesModelPushOptionPushOptionProperty })
+  @SpeakeasyMetadata({
+    elemType: GetCreateUpdateCreditNotesModelPushOptionPushOptionProperty,
+  })
   @Expose({ name: "properties" })
-  @Transform(({ value }) => {
-    const obj: Record<string, GetCreateUpdateCreditNotesModelPushOptionPushOptionProperty> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(GetCreateUpdateCreditNotesModelPushOptionPushOptionProperty,
-        value[key] as GetCreateUpdateCreditNotesModelPushOptionPushOptionProperty,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  properties?: Record<string, GetCreateUpdateCreditNotesModelPushOptionPushOptionProperty>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        GetCreateUpdateCreditNotesModelPushOptionPushOptionProperty
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          GetCreateUpdateCreditNotesModelPushOptionPushOptionProperty,
+          value[
+            key
+          ] as GetCreateUpdateCreditNotesModelPushOptionPushOptionProperty,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  properties?: Record<
+    string,
+    GetCreateUpdateCreditNotesModelPushOptionPushOptionProperty
+  >;
 
   @SpeakeasyMetadata()
   @Expose({ name: "required" })

@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetCompanyInfoPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
@@ -13,9 +14,9 @@ export class GetCompanyInfoRequest extends SpeakeasyBase {
   pathParams: GetCompanyInfoPathParams;
 }
 export enum GetCompanyInfoCompanyInfoAddressesTypeEnum {
-    Unknown = "Unknown",
-    Billing = "Billing",
-    Delivery = "Delivery"
+  Unknown = "Unknown",
+  Billing = "Billing",
+  Delivery = "Delivery",
 }
 
 export class GetCompanyInfoCompanyInfoAddresses extends SpeakeasyBase {
@@ -48,11 +49,11 @@ export class GetCompanyInfoCompanyInfoAddresses extends SpeakeasyBase {
   type: GetCompanyInfoCompanyInfoAddressesTypeEnum;
 }
 export enum GetCompanyInfoCompanyInfoPhoneNumbersTypeEnum {
-    Unknown = "Unknown",
-    Primary = "Primary",
-    Landline = "Landline",
-    Mobile = "Mobile",
-    Fax = "Fax"
+  Unknown = "Unknown",
+  Primary = "Primary",
+  Landline = "Landline",
+  Mobile = "Mobile",
+  Fax = "Fax",
 }
 
 export class GetCompanyInfoCompanyInfoPhoneNumbers extends SpeakeasyBase {
@@ -65,9 +66,9 @@ export class GetCompanyInfoCompanyInfoPhoneNumbers extends SpeakeasyBase {
   type: GetCompanyInfoCompanyInfoPhoneNumbersTypeEnum;
 }
 export enum GetCompanyInfoCompanyInfoWebLinksTypeEnum {
-    Unknown = "Unknown",
-    Website = "Website",
-    Social = "Social"
+  Unknown = "Unknown",
+  Website = "Website",
+  Social = "Social",
 }
 
 export class GetCompanyInfoCompanyInfoWebLinks extends SpeakeasyBase {

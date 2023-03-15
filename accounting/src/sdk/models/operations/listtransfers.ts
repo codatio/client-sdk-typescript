@@ -2,23 +2,30 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListTransfersPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
 export class ListTransfersQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -80,9 +87,9 @@ export class ListTransfersLinksLinks extends SpeakeasyBase {
 }
 
 // ListTransfersLinksSourceModifiedDateContactRef
-/** 
+/**
  * The customer or supplier for the transfer, if available.
-**/
+ **/
 export class ListTransfersLinksSourceModifiedDateContactRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
@@ -94,9 +101,9 @@ export class ListTransfersLinksSourceModifiedDateContactRef extends SpeakeasyBas
 }
 
 // ListTransfersLinksSourceModifiedDateTransferAccountAccountRef
-/** 
+/**
  * The account that the transfer is moving from or to.
-**/
+ **/
 export class ListTransfersLinksSourceModifiedDateTransferAccountAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -108,9 +115,9 @@ export class ListTransfersLinksSourceModifiedDateTransferAccountAccountRef exten
 }
 
 // ListTransfersLinksSourceModifiedDateTransferAccount
-/** 
+/**
  * The details of the accounts the transfer is moving from.
-**/
+ **/
 export class ListTransfersLinksSourceModifiedDateTransferAccount extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
@@ -133,9 +140,9 @@ export class ListTransfersLinksSourceModifiedDateMetadata extends SpeakeasyBase 
 }
 
 // ListTransfersLinksSourceModifiedDateSupplementalData
-/** 
+/**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-**/
+ **/
 export class ListTransfersLinksSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -153,17 +160,17 @@ export class ListTransfersLinksSourceModifiedDateTrackingCategoryRefs extends Sp
 }
 
 // ListTransfersLinksSourceModifiedDate
-/** 
+/**
  * > View the coverage for transfers in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=transfers" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * From the **Transfers** endpoints, you can:
- * 
+ *
  * - [Retrieve a list of all transfers for a specified company](https://api.codat.io/swagger/index.html#/Transfers/get_companies__companyId__connections__connectionId__data_transfers)
- * - [Retrieve a single transfer for a specified company](https://api.codat.io/swagger/index.html#/Transfers/get_companies__companyId__connections__connectionId__data_transfers__transferId_) 
- * - [Add a new transfer for a specified company](https://api.codat.io/swagger/index.html#/Transfers/post_companies__companyId__connections__connectionId__push_transfers) 
- * 
+ * - [Retrieve a single transfer for a specified company](https://api.codat.io/swagger/index.html#/Transfers/get_companies__companyId__connections__connectionId__data_transfers__transferId_)
+ * - [Add a new transfer for a specified company](https://api.codat.io/swagger/index.html#/Transfers/post_companies__companyId__connections__connectionId__push_transfers)
+ *
  * **Transfers** is a child data type of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction).
-**/
+ **/
 export class ListTransfersLinksSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "contactRef" })
@@ -217,16 +224,18 @@ export class ListTransfersLinksSourceModifiedDate extends SpeakeasyBase {
   @Type(() => ListTransfersLinksSourceModifiedDateTransferAccount)
   to?: ListTransfersLinksSourceModifiedDateTransferAccount;
 
-  @SpeakeasyMetadata({ elemType: ListTransfersLinksSourceModifiedDateTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType: ListTransfersLinksSourceModifiedDateTrackingCategoryRefs,
+  })
   @Expose({ name: "trackingCategoryRefs" })
   @Type(() => ListTransfersLinksSourceModifiedDateTrackingCategoryRefs)
   trackingCategoryRefs?: ListTransfersLinksSourceModifiedDateTrackingCategoryRefs[];
 }
 
 // ListTransfersLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class ListTransfersLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })

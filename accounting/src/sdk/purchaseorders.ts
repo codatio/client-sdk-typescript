@@ -11,7 +11,14 @@ export class PurchaseOrders {
   _sdkVersion: string;
   _genVersion: string;
 
-  constructor(defaultClient: AxiosInstance, securityClient: AxiosInstance, serverURL: string, language: string, sdkVersion: string, genVersion: string) {
+  constructor(
+    defaultClient: AxiosInstance,
+    securityClient: AxiosInstance,
+    serverURL: string,
+    language: string,
+    sdkVersion: string,
+    genVersion: string
+  ) {
     this._defaultClient = defaultClient;
     this._securityClient = securityClient;
     this._serverURL = serverURL;
@@ -19,18 +26,18 @@ export class PurchaseOrders {
     this._sdkVersion = sdkVersion;
     this._genVersion = genVersion;
   }
-  
+
   /**
    * createPurchaseOrder - Create purchase order
    *
    * Posts a new purchase order to the accounting package for a given company.
-   * 
+   *
    * Required data may vary by integration. To see what data to post, first call [Get create/update purchase order model](https://docs.codat.io/accounting-api#/operations/get-create-update-purchaseOrders-model).
-   * 
+   *
    * > **Supported Integrations**
-   * > 
+   * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=purchaseOrders) for integrations that support creating purchase orders.
-  **/
+   **/
   createPurchaseOrder(
     req: operations.CreatePurchaseOrderRequest,
     config?: AxiosRequestConfig
@@ -38,9 +45,13 @@ export class PurchaseOrders {
     if (!(req instanceof utils.SpeakeasyBase)) {
       req = new operations.CreatePurchaseOrderRequest(req);
     }
-    
+
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/push/purchaseOrders", req.pathParams);
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/connections/{connectionId}/push/purchaseOrders",
+      req.pathParams
+    );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
@@ -51,57 +62,58 @@ export class PurchaseOrders {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
       }
     }
-    
+
     const client: AxiosInstance = this._securityClient!;
-    
-    const headers = {...reqBodyHeaders, ...config?.headers};
+
+    const headers = { ...reqBodyHeaders, ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req.queryParams);
-    
+
     const r = client.request({
       url: url + queryParams,
       method: "post",
       headers: headers,
-      data: reqBody, 
+      data: reqBody,
       ...config,
     });
-    
+
     return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreatePurchaseOrderResponse =
-            new operations.CreatePurchaseOrderResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes
-            });
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.createPurchaseOrder200ApplicationJSONObject = utils.deserializeJSONResponse(
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.CreatePurchaseOrderResponse =
+        new operations.CreatePurchaseOrderResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.createPurchaseOrder200ApplicationJSONObject =
+              utils.deserializeJSONResponse(
                 httpRes?.data,
-                operations.CreatePurchaseOrder200ApplicationJSON,
+                operations.CreatePurchaseOrder200ApplicationJSON
               );
-            }
-            break;
-        }
+          }
+          break;
+      }
 
-        return res;
-      })
+      return res;
+    });
   }
 
-  
   /**
    * getCreateUpdatePurchaseOrdersModel - Get create/update purchase order model
    *
    * Get create/update purchase order model. Returns the expected data for the request payload.
-   * 
+   *
    * See the examples for integration-specific indicative models.
-   * 
+   *
    * > **Supported Integrations**
-   * > 
+   * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=purchaseOrders) for integrations that support creating and updating purchase orders.
-  **/
+   **/
   getCreateUpdatePurchaseOrdersModel(
     req: operations.GetCreateUpdatePurchaseOrdersModelRequest,
     config?: AxiosRequestConfig
@@ -109,50 +121,53 @@ export class PurchaseOrders {
     if (!(req instanceof utils.SpeakeasyBase)) {
       req = new operations.GetCreateUpdatePurchaseOrdersModelRequest(req);
     }
-    
+
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/options/purchaseOrders", req.pathParams);
-    
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/connections/{connectionId}/options/purchaseOrders",
+      req.pathParams
+    );
+
     const client: AxiosInstance = this._securityClient!;
-    
-    
+
     const r = client.request({
       url: url,
       method: "get",
       ...config,
     });
-    
+
     return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetCreateUpdatePurchaseOrdersModelResponse =
-            new operations.GetCreateUpdatePurchaseOrdersModelResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes
-            });
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.pushOption = utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetCreateUpdatePurchaseOrdersModelPushOption,
-              );
-            }
-            break;
-        }
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.GetCreateUpdatePurchaseOrdersModelResponse =
+        new operations.GetCreateUpdatePurchaseOrdersModelResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.pushOption = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.GetCreateUpdatePurchaseOrdersModelPushOption
+            );
+          }
+          break;
+      }
 
-        return res;
-      })
+      return res;
+    });
   }
 
-  
   /**
    * getPurchaseOrder - Get purchase order
    *
    * Get purchase order
-  **/
+   **/
   getPurchaseOrder(
     req: operations.GetPurchaseOrderRequest,
     config?: AxiosRequestConfig
@@ -160,50 +175,53 @@ export class PurchaseOrders {
     if (!(req instanceof utils.SpeakeasyBase)) {
       req = new operations.GetPurchaseOrderRequest(req);
     }
-    
+
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/data/purchaseOrders/{purchaseOrderId}", req.pathParams);
-    
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/data/purchaseOrders/{purchaseOrderId}",
+      req.pathParams
+    );
+
     const client: AxiosInstance = this._securityClient!;
-    
-    
+
     const r = client.request({
       url: url,
       method: "get",
       ...config,
     });
-    
+
     return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetPurchaseOrderResponse =
-            new operations.GetPurchaseOrderResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes
-            });
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.sourceModifiedDate = utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetPurchaseOrderSourceModifiedDate,
-              );
-            }
-            break;
-        }
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.GetPurchaseOrderResponse =
+        new operations.GetPurchaseOrderResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.sourceModifiedDate = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.GetPurchaseOrderSourceModifiedDate
+            );
+          }
+          break;
+      }
 
-        return res;
-      })
+      return res;
+    });
   }
 
-  
   /**
    * listPurchaseOrders - List purchase orders
    *
    * Get purchase orders
-  **/
+   **/
   listPurchaseOrders(
     req: operations.ListPurchaseOrdersRequest,
     config?: AxiosRequestConfig
@@ -211,57 +229,61 @@ export class PurchaseOrders {
     if (!(req instanceof utils.SpeakeasyBase)) {
       req = new operations.ListPurchaseOrdersRequest(req);
     }
-    
+
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/data/purchaseOrders", req.pathParams);
-    
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/data/purchaseOrders",
+      req.pathParams
+    );
+
     const client: AxiosInstance = this._securityClient!;
-    
+
     const queryParams: string = utils.serializeQueryParams(req.queryParams);
-    
+
     const r = client.request({
       url: url + queryParams,
       method: "get",
       ...config,
     });
-    
+
     return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListPurchaseOrdersResponse =
-            new operations.ListPurchaseOrdersResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes
-            });
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.links = utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListPurchaseOrdersLinks,
-              );
-            }
-            break;
-        }
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.ListPurchaseOrdersResponse =
+        new operations.ListPurchaseOrdersResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.links = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.ListPurchaseOrdersLinks
+            );
+          }
+          break;
+      }
 
-        return res;
-      })
+      return res;
+    });
   }
 
-  
   /**
    * updatePurchaseOrder - Update purchase order
    *
    * Posts an updated purchase order to the accounting package for a given company.
-   * 
+   *
    * Required data may vary by integration. To see what data to post, first call []().
-   * 
+   *
    * > **Supported Integrations**
-   * > 
+   * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=purchaseOrders) for integrations that support updating purchase orders.
-  **/
+   **/
   updatePurchaseOrder(
     req: operations.UpdatePurchaseOrderRequest,
     config?: AxiosRequestConfig
@@ -269,9 +291,13 @@ export class PurchaseOrders {
     if (!(req instanceof utils.SpeakeasyBase)) {
       req = new operations.UpdatePurchaseOrderRequest(req);
     }
-    
+
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/push/purchaseOrders/{purchaseOrderId}", req.pathParams);
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/connections/{connectionId}/push/purchaseOrders/{purchaseOrderId}",
+      req.pathParams
+    );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
@@ -282,43 +308,44 @@ export class PurchaseOrders {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
       }
     }
-    
+
     const client: AxiosInstance = this._securityClient!;
-    
-    const headers = {...reqBodyHeaders, ...config?.headers};
+
+    const headers = { ...reqBodyHeaders, ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req.queryParams);
-    
+
     const r = client.request({
       url: url + queryParams,
       method: "put",
       headers: headers,
-      data: reqBody, 
+      data: reqBody,
       ...config,
     });
-    
+
     return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.UpdatePurchaseOrderResponse =
-            new operations.UpdatePurchaseOrderResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes
-            });
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.updatePurchaseOrder200ApplicationJSONObject = utils.deserializeJSONResponse(
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.UpdatePurchaseOrderResponse =
+        new operations.UpdatePurchaseOrderResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.updatePurchaseOrder200ApplicationJSONObject =
+              utils.deserializeJSONResponse(
                 httpRes?.data,
-                operations.UpdatePurchaseOrder200ApplicationJSON,
+                operations.UpdatePurchaseOrder200ApplicationJSON
               );
-            }
-            break;
-        }
+          }
+          break;
+      }
 
-        return res;
-      })
+      return res;
+    });
   }
-
 }

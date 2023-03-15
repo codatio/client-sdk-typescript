@@ -2,12 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, plainToInstance, Transform, Type } from "class-transformer";
 
-
 export class GetCreateItemsModelPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
@@ -16,14 +19,14 @@ export class GetCreateItemsModelRequest extends SpeakeasyBase {
   pathParams: GetCreateItemsModelPathParams;
 }
 export enum GetCreateItemsModelPushOptionPushOptionPropertyPushOptionChoiceOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateItemsModelPushOptionPushOptionPropertyPushOptionChoice extends SpeakeasyBase {
@@ -48,14 +51,14 @@ export class GetCreateItemsModelPushOptionPushOptionPropertyPushOptionChoice ext
   value?: string;
 }
 export enum GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoiceOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice extends SpeakeasyBase {
@@ -80,14 +83,14 @@ export class GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPu
   value?: string;
 }
 export enum GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoiceOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice extends SpeakeasyBase {
@@ -112,14 +115,14 @@ export class GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPu
   value?: string;
 }
 export enum GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoiceOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice extends SpeakeasyBase {
@@ -144,14 +147,14 @@ export class GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPu
   value?: string;
 }
 export enum GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation extends SpeakeasyBase {
@@ -169,14 +172,26 @@ export class GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPu
 }
 
 export class GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "information" })
-  @Type(() => GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   information?: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 
-  @SpeakeasyMetadata({ elemType: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "warnings" })
-  @Type(() => GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   warnings?: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 }
 
@@ -189,9 +204,15 @@ export class GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPu
   @Expose({ name: "displayName" })
   displayName: string;
 
-  @SpeakeasyMetadata({ elemType: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice,
+  })
   @Expose({ name: "options" })
-  @Type(() => GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice)
+  @Type(
+    () =>
+      GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice
+  )
   options?: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice[];
 
   @SpeakeasyMetadata()
@@ -204,18 +225,21 @@ export class GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPu
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo)
+  @Type(
+    () =>
+      GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo
+  )
   validation?: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo;
 }
 export enum GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation extends SpeakeasyBase {
@@ -233,14 +257,26 @@ export class GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPu
 }
 
 export class GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "information" })
-  @Type(() => GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   information?: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 
-  @SpeakeasyMetadata({ elemType: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "warnings" })
-  @Type(() => GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   warnings?: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 }
 
@@ -253,24 +289,45 @@ export class GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPu
   @Expose({ name: "displayName" })
   displayName: string;
 
-  @SpeakeasyMetadata({ elemType: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice,
+  })
   @Expose({ name: "options" })
-  @Type(() => GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice)
+  @Type(
+    () =>
+      GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice
+  )
   options?: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice[];
 
-  @SpeakeasyMetadata({ elemType: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty,
+  })
   @Expose({ name: "properties" })
-  @Transform(({ value }) => {
-    const obj: Record<string, GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty,
-        value[key] as GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  properties?: Record<string, GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty,
+          value[
+            key
+          ] as GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  properties?: Record<
+    string,
+    GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty
+  >;
 
   @SpeakeasyMetadata()
   @Expose({ name: "required" })
@@ -282,18 +339,21 @@ export class GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPu
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo)
+  @Type(
+    () =>
+      GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo
+  )
   validation?: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo;
 }
 export enum GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation extends SpeakeasyBase {
@@ -311,14 +371,26 @@ export class GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPu
 }
 
 export class GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfo extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "information" })
-  @Type(() => GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   information?: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 
-  @SpeakeasyMetadata({ elemType: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "warnings" })
-  @Type(() => GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   warnings?: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 }
 
@@ -331,24 +403,45 @@ export class GetCreateItemsModelPushOptionPushOptionPropertyPushOptionProperty e
   @Expose({ name: "displayName" })
   displayName: string;
 
-  @SpeakeasyMetadata({ elemType: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice,
+  })
   @Expose({ name: "options" })
-  @Type(() => GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice)
+  @Type(
+    () =>
+      GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice
+  )
   options?: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice[];
 
-  @SpeakeasyMetadata({ elemType: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty,
+  })
   @Expose({ name: "properties" })
-  @Transform(({ value }) => {
-    const obj: Record<string, GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty,
-        value[key] as GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  properties?: Record<string, GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty,
+          value[
+            key
+          ] as GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  properties?: Record<
+    string,
+    GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty
+  >;
 
   @SpeakeasyMetadata()
   @Expose({ name: "required" })
@@ -360,18 +453,21 @@ export class GetCreateItemsModelPushOptionPushOptionPropertyPushOptionProperty e
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfo)
+  @Type(
+    () =>
+      GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfo
+  )
   validation?: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfo;
 }
 export enum GetCreateItemsModelPushOptionPushOptionPropertyOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateItemsModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation extends SpeakeasyBase {
@@ -389,14 +485,26 @@ export class GetCreateItemsModelPushOptionPushOptionPropertyPushValidationInfoPu
 }
 
 export class GetCreateItemsModelPushOptionPushOptionPropertyPushValidationInfo extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCreateItemsModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateItemsModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "information" })
-  @Type(() => GetCreateItemsModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCreateItemsModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   information?: GetCreateItemsModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation[];
 
-  @SpeakeasyMetadata({ elemType: GetCreateItemsModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateItemsModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "warnings" })
-  @Type(() => GetCreateItemsModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCreateItemsModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   warnings?: GetCreateItemsModelPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation[];
 }
 
@@ -409,24 +517,40 @@ export class GetCreateItemsModelPushOptionPushOptionProperty extends SpeakeasyBa
   @Expose({ name: "displayName" })
   displayName: string;
 
-  @SpeakeasyMetadata({ elemType: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionChoice })
+  @SpeakeasyMetadata({
+    elemType: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionChoice,
+  })
   @Expose({ name: "options" })
   @Type(() => GetCreateItemsModelPushOptionPushOptionPropertyPushOptionChoice)
   options?: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionChoice[];
 
-  @SpeakeasyMetadata({ elemType: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionProperty })
+  @SpeakeasyMetadata({
+    elemType: GetCreateItemsModelPushOptionPushOptionPropertyPushOptionProperty,
+  })
   @Expose({ name: "properties" })
-  @Transform(({ value }) => {
-    const obj: Record<string, GetCreateItemsModelPushOptionPushOptionPropertyPushOptionProperty> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(GetCreateItemsModelPushOptionPushOptionPropertyPushOptionProperty,
-        value[key] as GetCreateItemsModelPushOptionPushOptionPropertyPushOptionProperty,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  properties?: Record<string, GetCreateItemsModelPushOptionPushOptionPropertyPushOptionProperty>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        GetCreateItemsModelPushOptionPushOptionPropertyPushOptionProperty
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          GetCreateItemsModelPushOptionPushOptionPropertyPushOptionProperty,
+          value[
+            key
+          ] as GetCreateItemsModelPushOptionPushOptionPropertyPushOptionProperty,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  properties?: Record<
+    string,
+    GetCreateItemsModelPushOptionPushOptionPropertyPushOptionProperty
+  >;
 
   @SpeakeasyMetadata()
   @Expose({ name: "required" })
@@ -442,14 +566,14 @@ export class GetCreateItemsModelPushOptionPushOptionProperty extends SpeakeasyBa
   validation?: GetCreateItemsModelPushOptionPushOptionPropertyPushValidationInfo;
 }
 export enum GetCreateItemsModelPushOptionOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCreateItemsModelPushOption extends SpeakeasyBase {
@@ -461,18 +585,27 @@ export class GetCreateItemsModelPushOption extends SpeakeasyBase {
   @Expose({ name: "displayName" })
   displayName: string;
 
-  @SpeakeasyMetadata({ elemType: GetCreateItemsModelPushOptionPushOptionProperty })
+  @SpeakeasyMetadata({
+    elemType: GetCreateItemsModelPushOptionPushOptionProperty,
+  })
   @Expose({ name: "properties" })
-  @Transform(({ value }) => {
-    const obj: Record<string, GetCreateItemsModelPushOptionPushOptionProperty> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(GetCreateItemsModelPushOptionPushOptionProperty,
-        value[key] as GetCreateItemsModelPushOptionPushOptionProperty,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        GetCreateItemsModelPushOptionPushOptionProperty
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          GetCreateItemsModelPushOptionPushOptionProperty,
+          value[key] as GetCreateItemsModelPushOptionPushOptionProperty,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
   properties?: Record<string, GetCreateItemsModelPushOptionPushOptionProperty>;
 
   @SpeakeasyMetadata()

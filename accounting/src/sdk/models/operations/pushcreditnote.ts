@@ -2,24 +2,29 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class PushCreditNotePathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
 export class PushCreditNoteQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=timeoutInMinutes" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
   timeoutInMinutes?: number;
 }
 
 // PushCreditNoteSourceModifiedDateCustomerRef
-/** 
+/**
  * Reference to the customer the credit note has been issued to.
-**/
+ **/
 export class PushCreditNoteSourceModifiedDateCustomerRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
@@ -31,9 +36,9 @@ export class PushCreditNoteSourceModifiedDateCustomerRef extends SpeakeasyBase {
 }
 
 // PushCreditNoteSourceModifiedDateLineItemsAccountRef
-/** 
+/**
  * Reference to the account to which the line item is linked.
-**/
+ **/
 export class PushCreditNoteSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -45,9 +50,9 @@ export class PushCreditNoteSourceModifiedDateLineItemsAccountRef extends Speakea
 }
 
 // PushCreditNoteSourceModifiedDateLineItemsItemRef
-/** 
+/**
  * Reference to the item the line is linked to.
-**/
+ **/
 export class PushCreditNoteSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -59,9 +64,9 @@ export class PushCreditNoteSourceModifiedDateLineItemsItemRef extends SpeakeasyB
 }
 
 // PushCreditNoteSourceModifiedDateLineItemsTaxRateRef
-/** 
+/**
  * Reference to the tax rate to which the line item is linked.
-**/
+ **/
 export class PushCreditNoteSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -96,14 +101,14 @@ export class PushCreditNoteSourceModifiedDateLineItemsTrackingCustomerRef extend
   id: string;
 }
 export enum PushCreditNoteSourceModifiedDateLineItemsTrackingIsBilledToEnum {
-    Unknown = "Unknown",
-    NotApplicable = "NotApplicable",
-    Project = "Project"
+  Unknown = "Unknown",
+  NotApplicable = "NotApplicable",
+  Project = "Project",
 }
 export enum PushCreditNoteSourceModifiedDateLineItemsTrackingIsRebilledToEnum {
-    Unknown = "Unknown",
-    NotApplicable = "NotApplicable",
-    Project = "Project"
+  Unknown = "Unknown",
+  NotApplicable = "NotApplicable",
+  Project = "Project",
 }
 
 export class PushCreditNoteSourceModifiedDateLineItemsTrackingProjectRef extends SpeakeasyBase {
@@ -117,7 +122,9 @@ export class PushCreditNoteSourceModifiedDateLineItemsTrackingProjectRef extends
 }
 
 export class PushCreditNoteSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PushCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType: PushCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "categoryRefs" })
   @Type(() => PushCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs)
   categoryRefs: PushCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs[];
@@ -194,7 +201,9 @@ export class PushCreditNoteSourceModifiedDateLineItems extends SpeakeasyBase {
   @Type(() => PushCreditNoteSourceModifiedDateLineItemsTracking)
   tracking?: PushCreditNoteSourceModifiedDateLineItemsTracking;
 
-  @SpeakeasyMetadata({ elemType: PushCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType: PushCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "trackingCategoryRefs" })
   @Type(() => PushCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs)
   trackingCategoryRefs?: PushCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs[];
@@ -230,9 +239,9 @@ export class PushCreditNoteSourceModifiedDatePaymentAllocationsAllocation extend
 }
 
 // PushCreditNoteSourceModifiedDatePaymentAllocationsPaymentAccountRef
-/** 
+/**
  * The account that the allocated payment is made from or to.
-**/
+ **/
 export class PushCreditNoteSourceModifiedDatePaymentAllocationsPaymentAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -246,7 +255,9 @@ export class PushCreditNoteSourceModifiedDatePaymentAllocationsPaymentAccountRef
 export class PushCreditNoteSourceModifiedDatePaymentAllocationsPayment extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => PushCreditNoteSourceModifiedDatePaymentAllocationsPaymentAccountRef)
+  @Type(
+    () => PushCreditNoteSourceModifiedDatePaymentAllocationsPaymentAccountRef
+  )
   accountRef?: PushCreditNoteSourceModifiedDatePaymentAllocationsPaymentAccountRef;
 
   @SpeakeasyMetadata()
@@ -291,18 +302,18 @@ export class PushCreditNoteSourceModifiedDatePaymentAllocations extends Speakeas
   payment: PushCreditNoteSourceModifiedDatePaymentAllocationsPayment;
 }
 export enum PushCreditNoteSourceModifiedDateStatusEnum {
-    Unknown = "Unknown",
-    Draft = "Draft",
-    Submitted = "Submitted",
-    Paid = "Paid",
-    Void = "Void",
-    PartiallyPaid = "PartiallyPaid"
+  Unknown = "Unknown",
+  Draft = "Draft",
+  Submitted = "Submitted",
+  Paid = "Paid",
+  Void = "Void",
+  PartiallyPaid = "PartiallyPaid",
 }
 
 // PushCreditNoteSourceModifiedDateSupplementalData
-/** 
+/**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-**/
+ **/
 export class PushCreditNoteSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -320,20 +331,20 @@ export class PushCreditNoteSourceModifiedDateWithholdingTax extends SpeakeasyBas
 }
 
 // PushCreditNoteSourceModifiedDate
-/** 
+/**
  * > View the coverage for credit notes in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=creditNotes" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * Think of a credit note as a voucher issued to a customer. It is a reduction that can be applied against one or multiple invoices. A credit note can either reduce the amount owed or cancel out an invoice entirely.
- * 
- * In the Codat system a credit note is issued to a [customer's](https://docs.codat.io/accounting-api#/schemas/Customer) accounts receivable. 
- * 
+ *
+ * In the Codat system a credit note is issued to a [customer's](https://docs.codat.io/accounting-api#/schemas/Customer) accounts receivable.
+ *
  * It contains details of:
  * * The amount of credit remaining and its status.
  * * Payment allocations against the payments type, in this case an invoice.
  * * Which customers the credit notes have been issued to.
-**/
+ **/
 export class PushCreditNoteSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "additionalTaxAmount" })
@@ -397,7 +408,9 @@ export class PushCreditNoteSourceModifiedDate extends SpeakeasyBase {
   @Expose({ name: "note" })
   note?: string;
 
-  @SpeakeasyMetadata({ elemType: PushCreditNoteSourceModifiedDatePaymentAllocations })
+  @SpeakeasyMetadata({
+    elemType: PushCreditNoteSourceModifiedDatePaymentAllocations,
+  })
   @Expose({ name: "paymentAllocations" })
   @Type(() => PushCreditNoteSourceModifiedDatePaymentAllocations)
   paymentAllocations?: PushCreditNoteSourceModifiedDatePaymentAllocations[];
@@ -436,7 +449,9 @@ export class PushCreditNoteSourceModifiedDate extends SpeakeasyBase {
   @Expose({ name: "totalTaxAmount" })
   totalTaxAmount: number;
 
-  @SpeakeasyMetadata({ elemType: PushCreditNoteSourceModifiedDateWithholdingTax })
+  @SpeakeasyMetadata({
+    elemType: PushCreditNoteSourceModifiedDateWithholdingTax,
+  })
   @Expose({ name: "withholdingTax" })
   @Type(() => PushCreditNoteSourceModifiedDateWithholdingTax)
   withholdingTax?: PushCreditNoteSourceModifiedDateWithholdingTax[];
@@ -463,11 +478,11 @@ export class PushCreditNote200ApplicationJSONChangesPushOperationRecordRef exten
   id?: string;
 }
 export enum PushCreditNote200ApplicationJSONChangesTypeEnum {
-    Unknown = "Unknown",
-    Created = "Created",
-    Modified = "Modified",
-    Deleted = "Deleted",
-    AttachmentUploaded = "AttachmentUploaded"
+  Unknown = "Unknown",
+  Created = "Created",
+  Modified = "Modified",
+  Deleted = "Deleted",
+  AttachmentUploaded = "AttachmentUploaded",
 }
 
 export class PushCreditNote200ApplicationJSONChanges extends SpeakeasyBase {
@@ -486,9 +501,9 @@ export class PushCreditNote200ApplicationJSONChanges extends SpeakeasyBase {
 }
 
 // PushCreditNote200ApplicationJSONSourceModifiedDateCustomerRef
-/** 
+/**
  * Reference to the customer the credit note has been issued to.
-**/
+ **/
 export class PushCreditNote200ApplicationJSONSourceModifiedDateCustomerRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
@@ -500,9 +515,9 @@ export class PushCreditNote200ApplicationJSONSourceModifiedDateCustomerRef exten
 }
 
 // PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsAccountRef
-/** 
+/**
  * Reference to the account to which the line item is linked.
-**/
+ **/
 export class PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -514,9 +529,9 @@ export class PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsAccountR
 }
 
 // PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsItemRef
-/** 
+/**
  * Reference to the item the line is linked to.
-**/
+ **/
 export class PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -528,9 +543,9 @@ export class PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsItemRef 
 }
 
 // PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef
-/** 
+/**
  * Reference to the tax rate to which the line item is linked.
-**/
+ **/
 export class PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -565,14 +580,14 @@ export class PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTracking
   id: string;
 }
 export enum PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingIsBilledToEnum {
-    Unknown = "Unknown",
-    NotApplicable = "NotApplicable",
-    Project = "Project"
+  Unknown = "Unknown",
+  NotApplicable = "NotApplicable",
+  Project = "Project",
 }
 export enum PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingIsRebilledToEnum {
-    Unknown = "Unknown",
-    NotApplicable = "NotApplicable",
-    Project = "Project"
+  Unknown = "Unknown",
+  NotApplicable = "NotApplicable",
+  Project = "Project",
 }
 
 export class PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingProjectRef extends SpeakeasyBase {
@@ -586,14 +601,23 @@ export class PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTracking
 }
 
 export class PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType:
+      PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "categoryRefs" })
-  @Type(() => PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs)
+  @Type(
+    () =>
+      PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs
+  )
   categoryRefs: PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "customerRef" })
-  @Type(() => PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCustomerRef)
+  @Type(
+    () =>
+      PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCustomerRef
+  )
   customerRef?: PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCustomerRef;
 
   @SpeakeasyMetadata()
@@ -606,14 +630,19 @@ export class PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTracking
 
   @SpeakeasyMetadata()
   @Expose({ name: "projectRef" })
-  @Type(() => PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingProjectRef)
+  @Type(
+    () =>
+      PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingProjectRef
+  )
   projectRef?: PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingProjectRef;
 }
 
 export class PushCreditNote200ApplicationJSONSourceModifiedDateLineItems extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsAccountRef)
+  @Type(
+    () => PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsAccountRef
+  )
   accountRef?: PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsAccountRef;
 
   @SpeakeasyMetadata()
@@ -634,7 +663,9 @@ export class PushCreditNote200ApplicationJSONSourceModifiedDateLineItems extends
 
   @SpeakeasyMetadata()
   @Expose({ name: "itemRef" })
-  @Type(() => PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsItemRef)
+  @Type(
+    () => PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsItemRef
+  )
   itemRef?: PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsItemRef;
 
   @SpeakeasyMetadata()
@@ -651,7 +682,9 @@ export class PushCreditNote200ApplicationJSONSourceModifiedDateLineItems extends
 
   @SpeakeasyMetadata()
   @Expose({ name: "taxRateRef" })
-  @Type(() => PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef)
+  @Type(
+    () => PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef
+  )
   taxRateRef?: PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef;
 
   @SpeakeasyMetadata()
@@ -660,12 +693,20 @@ export class PushCreditNote200ApplicationJSONSourceModifiedDateLineItems extends
 
   @SpeakeasyMetadata()
   @Expose({ name: "tracking" })
-  @Type(() => PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTracking)
+  @Type(
+    () => PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTracking
+  )
   tracking?: PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTracking;
 
-  @SpeakeasyMetadata({ elemType: PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType:
+      PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "trackingCategoryRefs" })
-  @Type(() => PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs)
+  @Type(
+    () =>
+      PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs
+  )
   trackingCategoryRefs?: PushCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs[];
 
   @SpeakeasyMetadata()
@@ -699,9 +740,9 @@ export class PushCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocation
 }
 
 // PushCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef
-/** 
+/**
  * The account that the allocated payment is made from or to.
-**/
+ **/
 export class PushCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -715,7 +756,10 @@ export class PushCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocation
 export class PushCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => PushCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef)
+  @Type(
+    () =>
+      PushCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef
+  )
   accountRef?: PushCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef;
 
   @SpeakeasyMetadata()
@@ -751,27 +795,33 @@ export class PushCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocation
 export class PushCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocations extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "allocation" })
-  @Type(() => PushCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation)
+  @Type(
+    () =>
+      PushCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation
+  )
   allocation: PushCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation;
 
   @SpeakeasyMetadata()
   @Expose({ name: "payment" })
-  @Type(() => PushCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment)
+  @Type(
+    () =>
+      PushCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment
+  )
   payment: PushCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment;
 }
 export enum PushCreditNote200ApplicationJSONSourceModifiedDateStatusEnum {
-    Unknown = "Unknown",
-    Draft = "Draft",
-    Submitted = "Submitted",
-    Paid = "Paid",
-    Void = "Void",
-    PartiallyPaid = "PartiallyPaid"
+  Unknown = "Unknown",
+  Draft = "Draft",
+  Submitted = "Submitted",
+  Paid = "Paid",
+  Void = "Void",
+  PartiallyPaid = "PartiallyPaid",
 }
 
 // PushCreditNote200ApplicationJSONSourceModifiedDateSupplementalData
-/** 
+/**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-**/
+ **/
 export class PushCreditNote200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -789,20 +839,20 @@ export class PushCreditNote200ApplicationJSONSourceModifiedDateWithholdingTax ex
 }
 
 // PushCreditNote200ApplicationJSONSourceModifiedDate
-/** 
+/**
  * > View the coverage for credit notes in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=creditNotes" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * Think of a credit note as a voucher issued to a customer. It is a reduction that can be applied against one or multiple invoices. A credit note can either reduce the amount owed or cancel out an invoice entirely.
- * 
- * In the Codat system a credit note is issued to a [customer's](https://docs.codat.io/accounting-api#/schemas/Customer) accounts receivable. 
- * 
+ *
+ * In the Codat system a credit note is issued to a [customer's](https://docs.codat.io/accounting-api#/schemas/Customer) accounts receivable.
+ *
  * It contains details of:
  * * The amount of credit remaining and its status.
  * * Payment allocations against the payments type, in this case an invoice.
  * * Which customers the credit notes have been issued to.
-**/
+ **/
 export class PushCreditNote200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "additionalTaxAmount" })
@@ -847,7 +897,9 @@ export class PushCreditNote200ApplicationJSONSourceModifiedDate extends Speakeas
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   issueDate?: Date;
 
-  @SpeakeasyMetadata({ elemType: PushCreditNote200ApplicationJSONSourceModifiedDateLineItems })
+  @SpeakeasyMetadata({
+    elemType: PushCreditNote200ApplicationJSONSourceModifiedDateLineItems,
+  })
   @Expose({ name: "lineItems" })
   @Type(() => PushCreditNote200ApplicationJSONSourceModifiedDateLineItems)
   lineItems?: PushCreditNote200ApplicationJSONSourceModifiedDateLineItems[];
@@ -866,9 +918,14 @@ export class PushCreditNote200ApplicationJSONSourceModifiedDate extends Speakeas
   @Expose({ name: "note" })
   note?: string;
 
-  @SpeakeasyMetadata({ elemType: PushCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocations })
+  @SpeakeasyMetadata({
+    elemType:
+      PushCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocations,
+  })
   @Expose({ name: "paymentAllocations" })
-  @Type(() => PushCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocations)
+  @Type(
+    () => PushCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocations
+  )
   paymentAllocations?: PushCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocations[];
 
   @SpeakeasyMetadata()
@@ -890,7 +947,9 @@ export class PushCreditNote200ApplicationJSONSourceModifiedDate extends Speakeas
 
   @SpeakeasyMetadata()
   @Expose({ name: "supplementalData" })
-  @Type(() => PushCreditNote200ApplicationJSONSourceModifiedDateSupplementalData)
+  @Type(
+    () => PushCreditNote200ApplicationJSONSourceModifiedDateSupplementalData
+  )
   supplementalData?: PushCreditNote200ApplicationJSONSourceModifiedDateSupplementalData;
 
   @SpeakeasyMetadata()
@@ -905,16 +964,18 @@ export class PushCreditNote200ApplicationJSONSourceModifiedDate extends Speakeas
   @Expose({ name: "totalTaxAmount" })
   totalTaxAmount: number;
 
-  @SpeakeasyMetadata({ elemType: PushCreditNote200ApplicationJSONSourceModifiedDateWithholdingTax })
+  @SpeakeasyMetadata({
+    elemType: PushCreditNote200ApplicationJSONSourceModifiedDateWithholdingTax,
+  })
   @Expose({ name: "withholdingTax" })
   @Type(() => PushCreditNote200ApplicationJSONSourceModifiedDateWithholdingTax)
   withholdingTax?: PushCreditNote200ApplicationJSONSourceModifiedDateWithholdingTax[];
 }
 export enum PushCreditNote200ApplicationJSONStatusEnum {
-    Pending = "Pending",
-    Failed = "Failed",
-    Success = "Success",
-    TimedOut = "TimedOut"
+  Pending = "Pending",
+  Failed = "Failed",
+  Success = "Success",
+  TimedOut = "TimedOut",
 }
 
 export class PushCreditNote200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
@@ -932,16 +993,20 @@ export class PushCreditNote200ApplicationJSONValidationValidationItem extends Sp
 }
 
 // PushCreditNote200ApplicationJSONValidation
-/** 
+/**
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
-**/
+ **/
 export class PushCreditNote200ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PushCreditNote200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType: PushCreditNote200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "errors" })
   @Type(() => PushCreditNote200ApplicationJSONValidationValidationItem)
   errors?: PushCreditNote200ApplicationJSONValidationValidationItem[];
 
-  @SpeakeasyMetadata({ elemType: PushCreditNote200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType: PushCreditNote200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "warnings" })
   @Type(() => PushCreditNote200ApplicationJSONValidationValidationItem)
   warnings?: PushCreditNote200ApplicationJSONValidationValidationItem[];

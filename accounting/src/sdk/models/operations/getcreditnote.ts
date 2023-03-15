@@ -2,12 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetCreditNotePathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=creditNoteId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=creditNoteId",
+  })
   creditNoteId: string;
 }
 
@@ -17,9 +20,9 @@ export class GetCreditNoteRequest extends SpeakeasyBase {
 }
 
 // GetCreditNoteSourceModifiedDateCustomerRef
-/** 
+/**
  * Reference to the customer the credit note has been issued to.
-**/
+ **/
 export class GetCreditNoteSourceModifiedDateCustomerRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
@@ -31,9 +34,9 @@ export class GetCreditNoteSourceModifiedDateCustomerRef extends SpeakeasyBase {
 }
 
 // GetCreditNoteSourceModifiedDateLineItemsAccountRef
-/** 
+/**
  * Reference to the account to which the line item is linked.
-**/
+ **/
 export class GetCreditNoteSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -45,9 +48,9 @@ export class GetCreditNoteSourceModifiedDateLineItemsAccountRef extends Speakeas
 }
 
 // GetCreditNoteSourceModifiedDateLineItemsItemRef
-/** 
+/**
  * Reference to the item the line is linked to.
-**/
+ **/
 export class GetCreditNoteSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -59,9 +62,9 @@ export class GetCreditNoteSourceModifiedDateLineItemsItemRef extends SpeakeasyBa
 }
 
 // GetCreditNoteSourceModifiedDateLineItemsTaxRateRef
-/** 
+/**
  * Reference to the tax rate to which the line item is linked.
-**/
+ **/
 export class GetCreditNoteSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -96,14 +99,14 @@ export class GetCreditNoteSourceModifiedDateLineItemsTrackingCustomerRef extends
   id: string;
 }
 export enum GetCreditNoteSourceModifiedDateLineItemsTrackingIsBilledToEnum {
-    Unknown = "Unknown",
-    NotApplicable = "NotApplicable",
-    Project = "Project"
+  Unknown = "Unknown",
+  NotApplicable = "NotApplicable",
+  Project = "Project",
 }
 export enum GetCreditNoteSourceModifiedDateLineItemsTrackingIsRebilledToEnum {
-    Unknown = "Unknown",
-    NotApplicable = "NotApplicable",
-    Project = "Project"
+  Unknown = "Unknown",
+  NotApplicable = "NotApplicable",
+  Project = "Project",
 }
 
 export class GetCreditNoteSourceModifiedDateLineItemsTrackingProjectRef extends SpeakeasyBase {
@@ -117,7 +120,9 @@ export class GetCreditNoteSourceModifiedDateLineItemsTrackingProjectRef extends 
 }
 
 export class GetCreditNoteSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType: GetCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "categoryRefs" })
   @Type(() => GetCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs)
   categoryRefs: GetCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs[];
@@ -194,7 +199,9 @@ export class GetCreditNoteSourceModifiedDateLineItems extends SpeakeasyBase {
   @Type(() => GetCreditNoteSourceModifiedDateLineItemsTracking)
   tracking?: GetCreditNoteSourceModifiedDateLineItemsTracking;
 
-  @SpeakeasyMetadata({ elemType: GetCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType: GetCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "trackingCategoryRefs" })
   @Type(() => GetCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs)
   trackingCategoryRefs?: GetCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs[];
@@ -230,9 +237,9 @@ export class GetCreditNoteSourceModifiedDatePaymentAllocationsAllocation extends
 }
 
 // GetCreditNoteSourceModifiedDatePaymentAllocationsPaymentAccountRef
-/** 
+/**
  * The account that the allocated payment is made from or to.
-**/
+ **/
 export class GetCreditNoteSourceModifiedDatePaymentAllocationsPaymentAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -246,7 +253,9 @@ export class GetCreditNoteSourceModifiedDatePaymentAllocationsPaymentAccountRef 
 export class GetCreditNoteSourceModifiedDatePaymentAllocationsPayment extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => GetCreditNoteSourceModifiedDatePaymentAllocationsPaymentAccountRef)
+  @Type(
+    () => GetCreditNoteSourceModifiedDatePaymentAllocationsPaymentAccountRef
+  )
   accountRef?: GetCreditNoteSourceModifiedDatePaymentAllocationsPaymentAccountRef;
 
   @SpeakeasyMetadata()
@@ -291,18 +300,18 @@ export class GetCreditNoteSourceModifiedDatePaymentAllocations extends Speakeasy
   payment: GetCreditNoteSourceModifiedDatePaymentAllocationsPayment;
 }
 export enum GetCreditNoteSourceModifiedDateStatusEnum {
-    Unknown = "Unknown",
-    Draft = "Draft",
-    Submitted = "Submitted",
-    Paid = "Paid",
-    Void = "Void",
-    PartiallyPaid = "PartiallyPaid"
+  Unknown = "Unknown",
+  Draft = "Draft",
+  Submitted = "Submitted",
+  Paid = "Paid",
+  Void = "Void",
+  PartiallyPaid = "PartiallyPaid",
 }
 
 // GetCreditNoteSourceModifiedDateSupplementalData
-/** 
+/**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-**/
+ **/
 export class GetCreditNoteSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -320,20 +329,20 @@ export class GetCreditNoteSourceModifiedDateWithholdingTax extends SpeakeasyBase
 }
 
 // GetCreditNoteSourceModifiedDate
-/** 
+/**
  * > View the coverage for credit notes in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=creditNotes" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * Think of a credit note as a voucher issued to a customer. It is a reduction that can be applied against one or multiple invoices. A credit note can either reduce the amount owed or cancel out an invoice entirely.
- * 
- * In the Codat system a credit note is issued to a [customer's](https://docs.codat.io/accounting-api#/schemas/Customer) accounts receivable. 
- * 
+ *
+ * In the Codat system a credit note is issued to a [customer's](https://docs.codat.io/accounting-api#/schemas/Customer) accounts receivable.
+ *
  * It contains details of:
  * * The amount of credit remaining and its status.
  * * Payment allocations against the payments type, in this case an invoice.
  * * Which customers the credit notes have been issued to.
-**/
+ **/
 export class GetCreditNoteSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "additionalTaxAmount" })
@@ -397,7 +406,9 @@ export class GetCreditNoteSourceModifiedDate extends SpeakeasyBase {
   @Expose({ name: "note" })
   note?: string;
 
-  @SpeakeasyMetadata({ elemType: GetCreditNoteSourceModifiedDatePaymentAllocations })
+  @SpeakeasyMetadata({
+    elemType: GetCreditNoteSourceModifiedDatePaymentAllocations,
+  })
   @Expose({ name: "paymentAllocations" })
   @Type(() => GetCreditNoteSourceModifiedDatePaymentAllocations)
   paymentAllocations?: GetCreditNoteSourceModifiedDatePaymentAllocations[];
@@ -436,7 +447,9 @@ export class GetCreditNoteSourceModifiedDate extends SpeakeasyBase {
   @Expose({ name: "totalTaxAmount" })
   totalTaxAmount: number;
 
-  @SpeakeasyMetadata({ elemType: GetCreditNoteSourceModifiedDateWithholdingTax })
+  @SpeakeasyMetadata({
+    elemType: GetCreditNoteSourceModifiedDateWithholdingTax,
+  })
   @Expose({ name: "withholdingTax" })
   @Type(() => GetCreditNoteSourceModifiedDateWithholdingTax)
   withholdingTax?: GetCreditNoteSourceModifiedDateWithholdingTax[];

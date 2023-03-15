@@ -2,15 +2,20 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetDirectIncomePathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=directIncomeId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=directIncomeId",
+  })
   directIncomeId: string;
 }
 
@@ -20,9 +25,9 @@ export class GetDirectIncomeRequest extends SpeakeasyBase {
 }
 
 // GetDirectIncomeSourceModifiedDateContactRef
-/** 
+/**
  * A customer or supplier associated with the direct income.
-**/
+ **/
 export class GetDirectIncomeSourceModifiedDateContactRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
@@ -34,9 +39,9 @@ export class GetDirectIncomeSourceModifiedDateContactRef extends SpeakeasyBase {
 }
 
 // GetDirectIncomeSourceModifiedDateLineItemsAccountRef
-/** 
+/**
  * Reference to the account to which the line item is linked.
-**/
+ **/
 export class GetDirectIncomeSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -48,9 +53,9 @@ export class GetDirectIncomeSourceModifiedDateLineItemsAccountRef extends Speake
 }
 
 // GetDirectIncomeSourceModifiedDateLineItemsItemRef
-/** 
+/**
  * Reference to the product, service type, or inventory item to which the direct cost is linked.
-**/
+ **/
 export class GetDirectIncomeSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -62,9 +67,9 @@ export class GetDirectIncomeSourceModifiedDateLineItemsItemRef extends Speakeasy
 }
 
 // GetDirectIncomeSourceModifiedDateLineItemsTaxRateRef
-/** 
+/**
  * Reference to the tax rate to which the line item is linked.
-**/
+ **/
 export class GetDirectIncomeSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -133,7 +138,9 @@ export class GetDirectIncomeSourceModifiedDateLineItems extends SpeakeasyBase {
   @Expose({ name: "totalAmount" })
   totalAmount?: number;
 
-  @SpeakeasyMetadata({ elemType: GetDirectIncomeSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType: GetDirectIncomeSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "trackingCategoryRefs" })
   @Type(() => GetDirectIncomeSourceModifiedDateLineItemsTrackingCategoryRefs)
   trackingCategoryRefs?: GetDirectIncomeSourceModifiedDateLineItemsTrackingCategoryRefs[];
@@ -169,9 +176,9 @@ export class GetDirectIncomeSourceModifiedDatePaymentAllocationsAllocation exten
 }
 
 // GetDirectIncomeSourceModifiedDatePaymentAllocationsPaymentAccountRef
-/** 
+/**
  * The account that the allocated payment is made from or to.
-**/
+ **/
 export class GetDirectIncomeSourceModifiedDatePaymentAllocationsPaymentAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -185,7 +192,9 @@ export class GetDirectIncomeSourceModifiedDatePaymentAllocationsPaymentAccountRe
 export class GetDirectIncomeSourceModifiedDatePaymentAllocationsPayment extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => GetDirectIncomeSourceModifiedDatePaymentAllocationsPaymentAccountRef)
+  @Type(
+    () => GetDirectIncomeSourceModifiedDatePaymentAllocationsPaymentAccountRef
+  )
   accountRef?: GetDirectIncomeSourceModifiedDatePaymentAllocationsPaymentAccountRef;
 
   @SpeakeasyMetadata()
@@ -231,9 +240,9 @@ export class GetDirectIncomeSourceModifiedDatePaymentAllocations extends Speakea
 }
 
 // GetDirectIncomeSourceModifiedDateSupplementalData
-/** 
+/**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-**/
+ **/
 export class GetDirectIncomeSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -241,28 +250,28 @@ export class GetDirectIncomeSourceModifiedDateSupplementalData extends Speakeasy
 }
 
 // GetDirectIncomeSourceModifiedDate
-/** 
+/**
  * > **Language tip:**  Direct incomes may also be referred to as **Receive transactions**, **Receive money transactions**, **Sales receipts**, or **Cash sales** in various accounting platforms.
- * 
+ *
  * > View the coverage for direct incomes in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
- * Direct incomes include: 
- * 
+ *
+ * Direct incomes include:
+ *
  * - Selling an item directly to a contact, and receiving payment at the point of the sale.
  * - Refunding an item in cash to a contact.
  * - Depositing money into a bank account.
- * 
- * From the Direct Incomes endpoints, you can: 
- * 
+ *
+ * From the Direct Incomes endpoints, you can:
+ *
  * - [Get a list of all direct incomes for a specific company](https://api-uat.codat.io/swagger/index.html#/DirectIncomes/get_companies__companyId__connections__connectionId__data_directIncomes)
  * - [Get a single direct income for a specific company and connection](https://api-uat.codat.io/swagger/index.html#/DirectIncomes/get_companies__companyId__connections__connectionId__data_directIncomes__directIncomeId_)
  * - [Add a new direct income to a specific company's accounting package](https://api-uat.codat.io/swagger/index.html#/DirectIncomes/post_companies__companyId__connections__connectionId__push_directIncomes)
- * 
+ *
  * Direct incomes is a child data type of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction).
- * 
-**/
+ *
+ **/
 export class GetDirectIncomeSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "contactRef" })
@@ -305,7 +314,9 @@ export class GetDirectIncomeSourceModifiedDate extends SpeakeasyBase {
   @Expose({ name: "note" })
   note?: string;
 
-  @SpeakeasyMetadata({ elemType: GetDirectIncomeSourceModifiedDatePaymentAllocations })
+  @SpeakeasyMetadata({
+    elemType: GetDirectIncomeSourceModifiedDatePaymentAllocations,
+  })
   @Expose({ name: "paymentAllocations" })
   @Type(() => GetDirectIncomeSourceModifiedDatePaymentAllocations)
   paymentAllocations: GetDirectIncomeSourceModifiedDatePaymentAllocations[];

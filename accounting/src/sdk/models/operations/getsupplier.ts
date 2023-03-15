@@ -2,12 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetSupplierPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=supplierId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=supplierId",
+  })
   supplierId: string;
 }
 
@@ -16,9 +19,9 @@ export class GetSupplierRequest extends SpeakeasyBase {
   pathParams: GetSupplierPathParams;
 }
 export enum GetSupplierSourceModifiedDateAddressesTypeEnum {
-    Unknown = "Unknown",
-    Billing = "Billing",
-    Delivery = "Delivery"
+  Unknown = "Unknown",
+  Billing = "Billing",
+  Delivery = "Delivery",
 }
 
 export class GetSupplierSourceModifiedDateAddresses extends SpeakeasyBase {
@@ -57,15 +60,15 @@ export class GetSupplierSourceModifiedDateMetadata extends SpeakeasyBase {
   isDeleted?: boolean;
 }
 export enum GetSupplierSourceModifiedDateStatusEnum {
-    Unknown = "Unknown",
-    Active = "Active",
-    Archived = "Archived"
+  Unknown = "Unknown",
+  Active = "Active",
+  Archived = "Archived",
 }
 
 // GetSupplierSourceModifiedDateSupplementalData
-/** 
+/**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-**/
+ **/
 export class GetSupplierSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -73,13 +76,13 @@ export class GetSupplierSourceModifiedDateSupplementalData extends SpeakeasyBase
 }
 
 // GetSupplierSourceModifiedDate
-/** 
+/**
  * > View the coverage for suppliers in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * From the **Suppliers** endpoints, you can retrieve a list of [all the suppliers for a company](https://api.codat.io/swagger/index.html#/Suppliers/get_companies__companyId__data_suppliers). Suppliers' data links to accounts payable [bills](https://docs.codat.io/accounting-api#/schemas/Bill).
-**/
+ **/
 export class GetSupplierSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata({ elemType: GetSupplierSourceModifiedDateAddresses })
   @Expose({ name: "addresses" })

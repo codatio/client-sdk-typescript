@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class PostSyncInfoPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
@@ -13,27 +14,27 @@ export class PostSyncInfoRequest extends SpeakeasyBase {
   pathParams: PostSyncInfoPathParams;
 }
 export enum PostSyncInfo200ApplicationJSONStatusEnum {
-    Initial = "Initial",
-    Queued = "Queued",
-    Fetching = "Fetching",
-    MapQueued = "MapQueued",
-    Mapping = "Mapping",
-    Complete = "Complete",
-    FetchError = "FetchError",
-    MapError = "MapError",
-    InternalError = "InternalError",
-    ProcessingQueued = "ProcessingQueued",
-    Processing = "Processing",
-    ProcessingError = "ProcessingError",
-    ValidationQueued = "ValidationQueued",
-    Validating = "Validating",
-    ValidationError = "ValidationError",
-    AuthError = "AuthError",
-    Cancelled = "Cancelled",
-    NotSupported = "NotSupported",
-    RateLimitError = "RateLimitError",
-    PermissionsError = "PermissionsError",
-    PrerequisiteNotMet = "PrerequisiteNotMet"
+  Initial = "Initial",
+  Queued = "Queued",
+  Fetching = "Fetching",
+  MapQueued = "MapQueued",
+  Mapping = "Mapping",
+  Complete = "Complete",
+  FetchError = "FetchError",
+  MapError = "MapError",
+  InternalError = "InternalError",
+  ProcessingQueued = "ProcessingQueued",
+  Processing = "Processing",
+  ProcessingError = "ProcessingError",
+  ValidationQueued = "ValidationQueued",
+  Validating = "Validating",
+  ValidationError = "ValidationError",
+  AuthError = "AuthError",
+  Cancelled = "Cancelled",
+  NotSupported = "NotSupported",
+  RateLimitError = "RateLimitError",
+  PermissionsError = "PermissionsError",
+  PrerequisiteNotMet = "PrerequisiteNotMet",
 }
 
 export class PostSyncInfo200ApplicationJSON extends SpeakeasyBase {

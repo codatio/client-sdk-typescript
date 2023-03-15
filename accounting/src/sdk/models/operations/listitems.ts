@@ -2,20 +2,25 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListItemsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
 export class ListItemsQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -77,9 +82,9 @@ export class ListItemsLinksLinks extends SpeakeasyBase {
 }
 
 // ListItemsLinksSourceModifiedDateBillItemAccountRef
-/** 
+/**
  * Reference of the account to which the item is linked.
-**/
+ **/
 export class ListItemsLinksSourceModifiedDateBillItemAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -91,9 +96,9 @@ export class ListItemsLinksSourceModifiedDateBillItemAccountRef extends Speakeas
 }
 
 // ListItemsLinksSourceModifiedDateBillItemTaxRateRef
-/** 
+/**
  * Reference of the tax rate to which the item is linked.
-**/
+ **/
 export class ListItemsLinksSourceModifiedDateBillItemTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -109,9 +114,9 @@ export class ListItemsLinksSourceModifiedDateBillItemTaxRateRef extends Speakeas
 }
 
 // ListItemsLinksSourceModifiedDateBillItem
-/** 
+/**
  * Item details that are only for bills.
-**/
+ **/
 export class ListItemsLinksSourceModifiedDateBillItem extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
@@ -133,9 +138,9 @@ export class ListItemsLinksSourceModifiedDateBillItem extends SpeakeasyBase {
 }
 
 // ListItemsLinksSourceModifiedDateInvoiceItemAccountRef
-/** 
+/**
  * Reference of the account to which the item is linked.
-**/
+ **/
 export class ListItemsLinksSourceModifiedDateInvoiceItemAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -147,9 +152,9 @@ export class ListItemsLinksSourceModifiedDateInvoiceItemAccountRef extends Speak
 }
 
 // ListItemsLinksSourceModifiedDateInvoiceItemTaxRateRef
-/** 
+/**
  * Reference of the tax rate to which the item is linked.
-**/
+ **/
 export class ListItemsLinksSourceModifiedDateInvoiceItemTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -165,9 +170,9 @@ export class ListItemsLinksSourceModifiedDateInvoiceItemTaxRateRef extends Speak
 }
 
 // ListItemsLinksSourceModifiedDateInvoiceItem
-/** 
+/**
  * Item details that are only for bills.
-**/
+ **/
 export class ListItemsLinksSourceModifiedDateInvoiceItem extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
@@ -188,9 +193,9 @@ export class ListItemsLinksSourceModifiedDateInvoiceItem extends SpeakeasyBase {
   unitPrice?: number;
 }
 export enum ListItemsLinksSourceModifiedDateItemStatusEnum {
-    Unknown = "Unknown",
-    Active = "Active",
-    Archived = "Archived"
+  Unknown = "Unknown",
+  Active = "Active",
+  Archived = "Archived",
 }
 
 export class ListItemsLinksSourceModifiedDateMetadata extends SpeakeasyBase {
@@ -199,21 +204,21 @@ export class ListItemsLinksSourceModifiedDateMetadata extends SpeakeasyBase {
   isDeleted?: boolean;
 }
 export enum ListItemsLinksSourceModifiedDateTypeEnum {
-    Unknown = "Unknown",
-    Inventory = "Inventory",
-    NonInventory = "NonInventory",
-    Service = "Service"
+  Unknown = "Unknown",
+  Inventory = "Inventory",
+  NonInventory = "NonInventory",
+  Service = "Service",
 }
 
 // ListItemsLinksSourceModifiedDate
-/** 
+/**
  * > View the coverage for items in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=items" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * **Items** allow your customers to save and track details of the products and services that they buy and sell.
- * 
-**/
+ *
+ **/
 export class ListItemsLinksSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "billItem" })
@@ -270,9 +275,9 @@ export class ListItemsLinksSourceModifiedDate extends SpeakeasyBase {
 }
 
 // ListItemsLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class ListItemsLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })

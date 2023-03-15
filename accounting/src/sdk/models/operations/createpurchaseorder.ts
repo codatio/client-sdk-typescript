@@ -2,24 +2,29 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class CreatePurchaseOrderPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
 export class CreatePurchaseOrderQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=timeoutInMinutes" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
   timeoutInMinutes?: number;
 }
 
 // CreatePurchaseOrderSourceModifiedDateLineItemsAccountRef
-/** 
+/**
  * Reference to the account to which the line item is linked.
-**/
+ **/
 export class CreatePurchaseOrderSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -31,9 +36,9 @@ export class CreatePurchaseOrderSourceModifiedDateLineItemsAccountRef extends Sp
 }
 
 // CreatePurchaseOrderSourceModifiedDateLineItemsItemRef
-/** 
+/**
  * Reference to the product or inventory item to which the line item is linked.
-**/
+ **/
 export class CreatePurchaseOrderSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -45,9 +50,9 @@ export class CreatePurchaseOrderSourceModifiedDateLineItemsItemRef extends Speak
 }
 
 // CreatePurchaseOrderSourceModifiedDateLineItemsTaxRateRef
-/** 
+/**
  * Reference to the tax rate to which the line item is linked.
-**/
+ **/
 export class CreatePurchaseOrderSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -116,9 +121,14 @@ export class CreatePurchaseOrderSourceModifiedDateLineItems extends SpeakeasyBas
   @Expose({ name: "totalAmount" })
   totalAmount?: number;
 
-  @SpeakeasyMetadata({ elemType: CreatePurchaseOrderSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType:
+      CreatePurchaseOrderSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "trackingCategoryRefs" })
-  @Type(() => CreatePurchaseOrderSourceModifiedDateLineItemsTrackingCategoryRefs)
+  @Type(
+    () => CreatePurchaseOrderSourceModifiedDateLineItemsTrackingCategoryRefs
+  )
   trackingCategoryRefs?: CreatePurchaseOrderSourceModifiedDateLineItemsTrackingCategoryRefs[];
 
   @SpeakeasyMetadata()
@@ -132,15 +142,15 @@ export class CreatePurchaseOrderSourceModifiedDateMetadata extends SpeakeasyBase
   isDeleted?: boolean;
 }
 export enum CreatePurchaseOrderSourceModifiedDateShipToAddressTypeEnum {
-    Unknown = "Unknown",
-    Billing = "Billing",
-    Delivery = "Delivery"
+  Unknown = "Unknown",
+  Billing = "Billing",
+  Delivery = "Delivery",
 }
 
 // CreatePurchaseOrderSourceModifiedDateShipToAddress
-/** 
+/**
  * Delivery address for any goods that have been ordered.
-**/
+ **/
 export class CreatePurchaseOrderSourceModifiedDateShipToAddress extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "city" })
@@ -172,9 +182,9 @@ export class CreatePurchaseOrderSourceModifiedDateShipToAddress extends Speakeas
 }
 
 // CreatePurchaseOrderSourceModifiedDateShipToContact
-/** 
+/**
  * Details of the named contact at the delivery address.
-**/
+ **/
 export class CreatePurchaseOrderSourceModifiedDateShipToContact extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "email" })
@@ -190,9 +200,9 @@ export class CreatePurchaseOrderSourceModifiedDateShipToContact extends Speakeas
 }
 
 // CreatePurchaseOrderSourceModifiedDateShipTo
-/** 
+/**
  * Delivery details for any goods that have been ordered.
-**/
+ **/
 export class CreatePurchaseOrderSourceModifiedDateShipTo extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "address" })
@@ -205,17 +215,17 @@ export class CreatePurchaseOrderSourceModifiedDateShipTo extends SpeakeasyBase {
   contact?: CreatePurchaseOrderSourceModifiedDateShipToContact;
 }
 export enum CreatePurchaseOrderSourceModifiedDateStatusEnum {
-    Unknown = "Unknown",
-    Draft = "Draft",
-    Open = "Open",
-    Closed = "Closed",
-    Void = "Void"
+  Unknown = "Unknown",
+  Draft = "Draft",
+  Open = "Open",
+  Closed = "Closed",
+  Void = "Void",
 }
 
 // CreatePurchaseOrderSourceModifiedDateSupplierRef
-/** 
+/**
  * Supplier that the purchase order is recorded against in the accounting system.
-**/
+ **/
 export class CreatePurchaseOrderSourceModifiedDateSupplierRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -227,15 +237,15 @@ export class CreatePurchaseOrderSourceModifiedDateSupplierRef extends SpeakeasyB
 }
 
 // CreatePurchaseOrderSourceModifiedDate
-/** 
+/**
  * > View the coverage for purchase orders in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=purchaseOrders" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
- * Purchase orders represent a business's intent to purchase goods or services from a supplier and normally include information such as expected delivery dates and shipping details.  
- * 
+ *
+ * Purchase orders represent a business's intent to purchase goods or services from a supplier and normally include information such as expected delivery dates and shipping details.
+ *
  * This information can be used to provide visibility on a business's expected payables and to track a purchase through the full procurement process.
-**/
+ **/
 export class CreatePurchaseOrderSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "currency" })
@@ -264,7 +274,9 @@ export class CreatePurchaseOrderSourceModifiedDate extends SpeakeasyBase {
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   issueDate?: Date;
 
-  @SpeakeasyMetadata({ elemType: CreatePurchaseOrderSourceModifiedDateLineItems })
+  @SpeakeasyMetadata({
+    elemType: CreatePurchaseOrderSourceModifiedDateLineItems,
+  })
   @Expose({ name: "lineItems" })
   @Type(() => CreatePurchaseOrderSourceModifiedDateLineItems)
   lineItems?: CreatePurchaseOrderSourceModifiedDateLineItems[];
@@ -349,11 +361,11 @@ export class CreatePurchaseOrder200ApplicationJSONChangesPushOperationRecordRef 
   id?: string;
 }
 export enum CreatePurchaseOrder200ApplicationJSONChangesTypeEnum {
-    Unknown = "Unknown",
-    Created = "Created",
-    Modified = "Modified",
-    Deleted = "Deleted",
-    AttachmentUploaded = "AttachmentUploaded"
+  Unknown = "Unknown",
+  Created = "Created",
+  Modified = "Modified",
+  Deleted = "Deleted",
+  AttachmentUploaded = "AttachmentUploaded",
 }
 
 export class CreatePurchaseOrder200ApplicationJSONChanges extends SpeakeasyBase {
@@ -363,7 +375,9 @@ export class CreatePurchaseOrder200ApplicationJSONChanges extends SpeakeasyBase 
 
   @SpeakeasyMetadata()
   @Expose({ name: "recordRef" })
-  @Type(() => CreatePurchaseOrder200ApplicationJSONChangesPushOperationRecordRef)
+  @Type(
+    () => CreatePurchaseOrder200ApplicationJSONChangesPushOperationRecordRef
+  )
   recordRef?: CreatePurchaseOrder200ApplicationJSONChangesPushOperationRecordRef;
 
   @SpeakeasyMetadata()
@@ -372,9 +386,9 @@ export class CreatePurchaseOrder200ApplicationJSONChanges extends SpeakeasyBase 
 }
 
 // CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsAccountRef
-/** 
+/**
  * Reference to the account to which the line item is linked.
-**/
+ **/
 export class CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -386,9 +400,9 @@ export class CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsAcc
 }
 
 // CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsItemRef
-/** 
+/**
  * Reference to the product or inventory item to which the line item is linked.
-**/
+ **/
 export class CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -400,9 +414,9 @@ export class CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsIte
 }
 
 // CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef
-/** 
+/**
  * Reference to the tax rate to which the line item is linked.
-**/
+ **/
 export class CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -430,7 +444,10 @@ export class CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsTra
 export class CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItems extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsAccountRef)
+  @Type(
+    () =>
+      CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsAccountRef
+  )
   accountRef?: CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsAccountRef;
 
   @SpeakeasyMetadata()
@@ -447,7 +464,10 @@ export class CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItems ex
 
   @SpeakeasyMetadata()
   @Expose({ name: "itemRef" })
-  @Type(() => CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsItemRef)
+  @Type(
+    () =>
+      CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsItemRef
+  )
   itemRef?: CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsItemRef;
 
   @SpeakeasyMetadata()
@@ -464,16 +484,25 @@ export class CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItems ex
 
   @SpeakeasyMetadata()
   @Expose({ name: "taxRateRef" })
-  @Type(() => CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef)
+  @Type(
+    () =>
+      CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef
+  )
   taxRateRef?: CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalAmount" })
   totalAmount?: number;
 
-  @SpeakeasyMetadata({ elemType: CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType:
+      CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "trackingCategoryRefs" })
-  @Type(() => CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs)
+  @Type(
+    () =>
+      CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs
+  )
   trackingCategoryRefs?: CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs[];
 
   @SpeakeasyMetadata()
@@ -487,15 +516,15 @@ export class CreatePurchaseOrder200ApplicationJSONSourceModifiedDateMetadata ext
   isDeleted?: boolean;
 }
 export enum CreatePurchaseOrder200ApplicationJSONSourceModifiedDateShipToAddressTypeEnum {
-    Unknown = "Unknown",
-    Billing = "Billing",
-    Delivery = "Delivery"
+  Unknown = "Unknown",
+  Billing = "Billing",
+  Delivery = "Delivery",
 }
 
 // CreatePurchaseOrder200ApplicationJSONSourceModifiedDateShipToAddress
-/** 
+/**
  * Delivery address for any goods that have been ordered.
-**/
+ **/
 export class CreatePurchaseOrder200ApplicationJSONSourceModifiedDateShipToAddress extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "city" })
@@ -527,9 +556,9 @@ export class CreatePurchaseOrder200ApplicationJSONSourceModifiedDateShipToAddres
 }
 
 // CreatePurchaseOrder200ApplicationJSONSourceModifiedDateShipToContact
-/** 
+/**
  * Details of the named contact at the delivery address.
-**/
+ **/
 export class CreatePurchaseOrder200ApplicationJSONSourceModifiedDateShipToContact extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "email" })
@@ -545,32 +574,36 @@ export class CreatePurchaseOrder200ApplicationJSONSourceModifiedDateShipToContac
 }
 
 // CreatePurchaseOrder200ApplicationJSONSourceModifiedDateShipTo
-/** 
+/**
  * Delivery details for any goods that have been ordered.
-**/
+ **/
 export class CreatePurchaseOrder200ApplicationJSONSourceModifiedDateShipTo extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "address" })
-  @Type(() => CreatePurchaseOrder200ApplicationJSONSourceModifiedDateShipToAddress)
+  @Type(
+    () => CreatePurchaseOrder200ApplicationJSONSourceModifiedDateShipToAddress
+  )
   address?: CreatePurchaseOrder200ApplicationJSONSourceModifiedDateShipToAddress;
 
   @SpeakeasyMetadata()
   @Expose({ name: "contact" })
-  @Type(() => CreatePurchaseOrder200ApplicationJSONSourceModifiedDateShipToContact)
+  @Type(
+    () => CreatePurchaseOrder200ApplicationJSONSourceModifiedDateShipToContact
+  )
   contact?: CreatePurchaseOrder200ApplicationJSONSourceModifiedDateShipToContact;
 }
 export enum CreatePurchaseOrder200ApplicationJSONSourceModifiedDateStatusEnum {
-    Unknown = "Unknown",
-    Draft = "Draft",
-    Open = "Open",
-    Closed = "Closed",
-    Void = "Void"
+  Unknown = "Unknown",
+  Draft = "Draft",
+  Open = "Open",
+  Closed = "Closed",
+  Void = "Void",
 }
 
 // CreatePurchaseOrder200ApplicationJSONSourceModifiedDateSupplierRef
-/** 
+/**
  * Supplier that the purchase order is recorded against in the accounting system.
-**/
+ **/
 export class CreatePurchaseOrder200ApplicationJSONSourceModifiedDateSupplierRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -582,15 +615,15 @@ export class CreatePurchaseOrder200ApplicationJSONSourceModifiedDateSupplierRef 
 }
 
 // CreatePurchaseOrder200ApplicationJSONSourceModifiedDate
-/** 
+/**
  * > View the coverage for purchase orders in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=purchaseOrders" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
- * Purchase orders represent a business's intent to purchase goods or services from a supplier and normally include information such as expected delivery dates and shipping details.  
- * 
+ *
+ * Purchase orders represent a business's intent to purchase goods or services from a supplier and normally include information such as expected delivery dates and shipping details.
+ *
  * This information can be used to provide visibility on a business's expected payables and to track a purchase through the full procurement process.
-**/
+ **/
 export class CreatePurchaseOrder200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "currency" })
@@ -619,7 +652,9 @@ export class CreatePurchaseOrder200ApplicationJSONSourceModifiedDate extends Spe
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   issueDate?: Date;
 
-  @SpeakeasyMetadata({ elemType: CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItems })
+  @SpeakeasyMetadata({
+    elemType: CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItems,
+  })
   @Expose({ name: "lineItems" })
   @Type(() => CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItems)
   lineItems?: CreatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItems[];
@@ -667,7 +702,9 @@ export class CreatePurchaseOrder200ApplicationJSONSourceModifiedDate extends Spe
 
   @SpeakeasyMetadata()
   @Expose({ name: "supplierRef" })
-  @Type(() => CreatePurchaseOrder200ApplicationJSONSourceModifiedDateSupplierRef)
+  @Type(
+    () => CreatePurchaseOrder200ApplicationJSONSourceModifiedDateSupplierRef
+  )
   supplierRef?: CreatePurchaseOrder200ApplicationJSONSourceModifiedDateSupplierRef;
 
   @SpeakeasyMetadata()
@@ -683,10 +720,10 @@ export class CreatePurchaseOrder200ApplicationJSONSourceModifiedDate extends Spe
   totalTaxAmount?: number;
 }
 export enum CreatePurchaseOrder200ApplicationJSONStatusEnum {
-    Pending = "Pending",
-    Failed = "Failed",
-    Success = "Success",
-    TimedOut = "TimedOut"
+  Pending = "Pending",
+  Failed = "Failed",
+  Success = "Success",
+  TimedOut = "TimedOut",
 }
 
 export class CreatePurchaseOrder200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
@@ -704,16 +741,20 @@ export class CreatePurchaseOrder200ApplicationJSONValidationValidationItem exten
 }
 
 // CreatePurchaseOrder200ApplicationJSONValidation
-/** 
+/**
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
-**/
+ **/
 export class CreatePurchaseOrder200ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: CreatePurchaseOrder200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType: CreatePurchaseOrder200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "errors" })
   @Type(() => CreatePurchaseOrder200ApplicationJSONValidationValidationItem)
   errors?: CreatePurchaseOrder200ApplicationJSONValidationValidationItem[];
 
-  @SpeakeasyMetadata({ elemType: CreatePurchaseOrder200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType: CreatePurchaseOrder200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "warnings" })
   @Type(() => CreatePurchaseOrder200ApplicationJSONValidationValidationItem)
   warnings?: CreatePurchaseOrder200ApplicationJSONValidationValidationItem[];

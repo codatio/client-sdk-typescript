@@ -2,24 +2,29 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class CreateJournalEntryPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
 export class CreateJournalEntryQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=timeoutInMinutes" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
   timeoutInMinutes?: number;
 }
 
 // CreateJournalEntrySourceModifiedDateJournalLinesAccountRef
-/** 
+/**
  * Data types that reference an account, for example bill and invoice line items, use an accountRef that includes the ID and name of the linked account.
-**/
+ **/
 export class CreateJournalEntrySourceModifiedDateJournalLinesAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -31,9 +36,9 @@ export class CreateJournalEntrySourceModifiedDateJournalLinesAccountRef extends 
 }
 
 // CreateJournalEntrySourceModifiedDateJournalLinesTracking
-/** 
+/**
  * List of record refs associated with the tracking information for the line (eg to a Tracking Category, or customer etc.)
-**/
+ **/
 export class CreateJournalEntrySourceModifiedDateJournalLinesTracking extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "recordRefs" })
@@ -65,9 +70,9 @@ export class CreateJournalEntrySourceModifiedDateJournalLines extends SpeakeasyB
 }
 
 // CreateJournalEntrySourceModifiedDateJournalRef
-/** 
+/**
  * Links journal entries to the relevant journal in accounting integrations that use multi-book accounting (multiple journals).
-**/
+ **/
 export class CreateJournalEntrySourceModifiedDateJournalRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -85,16 +90,16 @@ export class CreateJournalEntrySourceModifiedDateMetadata extends SpeakeasyBase 
 }
 
 // CreateJournalEntrySourceModifiedDateRecordRef
-/** 
+/**
  * Links to the underlying record or data type.
- * 
+ *
  * Found on:
- * 
+ *
  * - Journal entries
  * - Account transactions
  * - Invoices
  * - Transfers
-**/
+ **/
 export class CreateJournalEntrySourceModifiedDateRecordRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
@@ -106,9 +111,9 @@ export class CreateJournalEntrySourceModifiedDateRecordRef extends SpeakeasyBase
 }
 
 // CreateJournalEntrySourceModifiedDateSupplementalData
-/** 
+/**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-**/
+ **/
 export class CreateJournalEntrySourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -116,30 +121,30 @@ export class CreateJournalEntrySourceModifiedDateSupplementalData extends Speake
 }
 
 // CreateJournalEntrySourceModifiedDate
-/** 
+/**
  * > **Language tip:** For the top-level record of a company's financial transactions, refer to the [Journals](https://docs.codat.io/accounting-api#/schemas/Journal) data type
- * 
+ *
  * > View the coverage for journal entries in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journalEntries" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * A journal entry report shows the entries made in a company's general ledger, or [accounts](https://api.codat.io/swagger/index.html#/Accounts/get_companies__companyId__data_accounts), when transactions are approved. The journal line items for each journal entry should balance.
- * 
- * A journal entry line item is a single transaction line on the journal entry. For example: 
- * 
- * - When a journal entry is recording a receipt of cash, the credit to accounts receivable and the debit to cash are separate line items. 
+ *
+ * A journal entry line item is a single transaction line on the journal entry. For example:
+ *
+ * - When a journal entry is recording a receipt of cash, the credit to accounts receivable and the debit to cash are separate line items.
  * - When a company needs to recognise revenue from an annual contract on a monthly basis, on receipt of cash for month one, they make a debit to deferred income and a credit to revenue.
- * 
+ *
  * In Codat a journal entry contains details of:
- * 
+ *
  * - The date on which the entry was created and posted.
  * - Itemised lines, including amounts and currency.
  * - A reference to the associated accounts.
- * - A reference to the underlying record. For example, the invoice, bill, or other data type that triggered the posting of the journal entry to the general ledger. 
- * 
- * > **Pushing journal entries **  
+ * - A reference to the underlying record. For example, the invoice, bill, or other data type that triggered the posting of the journal entry to the general ledger.
+ *
+ * > **Pushing journal entries **
  * > Codat only supports journal entries in the base currency of the company that are pushed into accounts denominated in the same base currency.
-**/
+ **/
 export class CreateJournalEntrySourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "createdOn" })
@@ -154,7 +159,9 @@ export class CreateJournalEntrySourceModifiedDate extends SpeakeasyBase {
   @Expose({ name: "id" })
   id?: string;
 
-  @SpeakeasyMetadata({ elemType: CreateJournalEntrySourceModifiedDateJournalLines })
+  @SpeakeasyMetadata({
+    elemType: CreateJournalEntrySourceModifiedDateJournalLines,
+  })
   @Expose({ name: "journalLines" })
   @Type(() => CreateJournalEntrySourceModifiedDateJournalLines)
   journalLines?: CreateJournalEntrySourceModifiedDateJournalLines[];
@@ -221,11 +228,11 @@ export class CreateJournalEntry200ApplicationJSONChangesPushOperationRecordRef e
   id?: string;
 }
 export enum CreateJournalEntry200ApplicationJSONChangesTypeEnum {
-    Unknown = "Unknown",
-    Created = "Created",
-    Modified = "Modified",
-    Deleted = "Deleted",
-    AttachmentUploaded = "AttachmentUploaded"
+  Unknown = "Unknown",
+  Created = "Created",
+  Modified = "Modified",
+  Deleted = "Deleted",
+  AttachmentUploaded = "AttachmentUploaded",
 }
 
 export class CreateJournalEntry200ApplicationJSONChanges extends SpeakeasyBase {
@@ -244,9 +251,9 @@ export class CreateJournalEntry200ApplicationJSONChanges extends SpeakeasyBase {
 }
 
 // CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesAccountRef
-/** 
+/**
  * Data types that reference an account, for example bill and invoice line items, use an accountRef that includes the ID and name of the linked account.
-**/
+ **/
 export class CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -258,9 +265,9 @@ export class CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesA
 }
 
 // CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesTracking
-/** 
+/**
  * List of record refs associated with the tracking information for the line (eg to a Tracking Category, or customer etc.)
-**/
+ **/
 export class CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesTracking extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "recordRefs" })
@@ -270,7 +277,10 @@ export class CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesT
 export class CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLines extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesAccountRef)
+  @Type(
+    () =>
+      CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesAccountRef
+  )
   accountRef?: CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesAccountRef;
 
   @SpeakeasyMetadata()
@@ -287,14 +297,17 @@ export class CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLines 
 
   @SpeakeasyMetadata()
   @Expose({ name: "tracking" })
-  @Type(() => CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesTracking)
+  @Type(
+    () =>
+      CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesTracking
+  )
   tracking?: CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLinesTracking;
 }
 
 // CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalRef
-/** 
+/**
  * Links journal entries to the relevant journal in accounting integrations that use multi-book accounting (multiple journals).
-**/
+ **/
 export class CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -312,16 +325,16 @@ export class CreateJournalEntry200ApplicationJSONSourceModifiedDateMetadata exte
 }
 
 // CreateJournalEntry200ApplicationJSONSourceModifiedDateRecordRef
-/** 
+/**
  * Links to the underlying record or data type.
- * 
+ *
  * Found on:
- * 
+ *
  * - Journal entries
  * - Account transactions
  * - Invoices
  * - Transfers
-**/
+ **/
 export class CreateJournalEntry200ApplicationJSONSourceModifiedDateRecordRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
@@ -333,9 +346,9 @@ export class CreateJournalEntry200ApplicationJSONSourceModifiedDateRecordRef ext
 }
 
 // CreateJournalEntry200ApplicationJSONSourceModifiedDateSupplementalData
-/** 
+/**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-**/
+ **/
 export class CreateJournalEntry200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -343,30 +356,30 @@ export class CreateJournalEntry200ApplicationJSONSourceModifiedDateSupplementalD
 }
 
 // CreateJournalEntry200ApplicationJSONSourceModifiedDate
-/** 
+/**
  * > **Language tip:** For the top-level record of a company's financial transactions, refer to the [Journals](https://docs.codat.io/accounting-api#/schemas/Journal) data type
- * 
+ *
  * > View the coverage for journal entries in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journalEntries" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * A journal entry report shows the entries made in a company's general ledger, or [accounts](https://api.codat.io/swagger/index.html#/Accounts/get_companies__companyId__data_accounts), when transactions are approved. The journal line items for each journal entry should balance.
- * 
- * A journal entry line item is a single transaction line on the journal entry. For example: 
- * 
- * - When a journal entry is recording a receipt of cash, the credit to accounts receivable and the debit to cash are separate line items. 
+ *
+ * A journal entry line item is a single transaction line on the journal entry. For example:
+ *
+ * - When a journal entry is recording a receipt of cash, the credit to accounts receivable and the debit to cash are separate line items.
  * - When a company needs to recognise revenue from an annual contract on a monthly basis, on receipt of cash for month one, they make a debit to deferred income and a credit to revenue.
- * 
+ *
  * In Codat a journal entry contains details of:
- * 
+ *
  * - The date on which the entry was created and posted.
  * - Itemised lines, including amounts and currency.
  * - A reference to the associated accounts.
- * - A reference to the underlying record. For example, the invoice, bill, or other data type that triggered the posting of the journal entry to the general ledger. 
- * 
- * > **Pushing journal entries **  
+ * - A reference to the underlying record. For example, the invoice, bill, or other data type that triggered the posting of the journal entry to the general ledger.
+ *
+ * > **Pushing journal entries **
  * > Codat only supports journal entries in the base currency of the company that are pushed into accounts denominated in the same base currency.
-**/
+ **/
 export class CreateJournalEntry200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "createdOn" })
@@ -381,9 +394,14 @@ export class CreateJournalEntry200ApplicationJSONSourceModifiedDate extends Spea
   @Expose({ name: "id" })
   id?: string;
 
-  @SpeakeasyMetadata({ elemType: CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLines })
+  @SpeakeasyMetadata({
+    elemType:
+      CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLines,
+  })
   @Expose({ name: "journalLines" })
-  @Type(() => CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLines)
+  @Type(
+    () => CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLines
+  )
   journalLines?: CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalLines[];
 
   @SpeakeasyMetadata()
@@ -418,7 +436,9 @@ export class CreateJournalEntry200ApplicationJSONSourceModifiedDate extends Spea
 
   @SpeakeasyMetadata()
   @Expose({ name: "supplementalData" })
-  @Type(() => CreateJournalEntry200ApplicationJSONSourceModifiedDateSupplementalData)
+  @Type(
+    () => CreateJournalEntry200ApplicationJSONSourceModifiedDateSupplementalData
+  )
   supplementalData?: CreateJournalEntry200ApplicationJSONSourceModifiedDateSupplementalData;
 
   @SpeakeasyMetadata()
@@ -427,10 +447,10 @@ export class CreateJournalEntry200ApplicationJSONSourceModifiedDate extends Spea
   updatedOn?: Date;
 }
 export enum CreateJournalEntry200ApplicationJSONStatusEnum {
-    Pending = "Pending",
-    Failed = "Failed",
-    Success = "Success",
-    TimedOut = "TimedOut"
+  Pending = "Pending",
+  Failed = "Failed",
+  Success = "Success",
+  TimedOut = "TimedOut",
 }
 
 export class CreateJournalEntry200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
@@ -448,16 +468,20 @@ export class CreateJournalEntry200ApplicationJSONValidationValidationItem extend
 }
 
 // CreateJournalEntry200ApplicationJSONValidation
-/** 
+/**
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
-**/
+ **/
 export class CreateJournalEntry200ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: CreateJournalEntry200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType: CreateJournalEntry200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "errors" })
   @Type(() => CreateJournalEntry200ApplicationJSONValidationValidationItem)
   errors?: CreateJournalEntry200ApplicationJSONValidationValidationItem[];
 
-  @SpeakeasyMetadata({ elemType: CreateJournalEntry200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType: CreateJournalEntry200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "warnings" })
   @Type(() => CreateJournalEntry200ApplicationJSONValidationValidationItem)
   warnings?: CreateJournalEntry200ApplicationJSONValidationValidationItem[];

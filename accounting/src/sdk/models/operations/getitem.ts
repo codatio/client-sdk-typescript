@@ -2,12 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetItemPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=itemId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=itemId",
+  })
   itemId: string;
 }
 
@@ -17,9 +20,9 @@ export class GetItemRequest extends SpeakeasyBase {
 }
 
 // GetItemSourceModifiedDateBillItemAccountRef
-/** 
+/**
  * Reference of the account to which the item is linked.
-**/
+ **/
 export class GetItemSourceModifiedDateBillItemAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -31,9 +34,9 @@ export class GetItemSourceModifiedDateBillItemAccountRef extends SpeakeasyBase {
 }
 
 // GetItemSourceModifiedDateBillItemTaxRateRef
-/** 
+/**
  * Reference of the tax rate to which the item is linked.
-**/
+ **/
 export class GetItemSourceModifiedDateBillItemTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -49,9 +52,9 @@ export class GetItemSourceModifiedDateBillItemTaxRateRef extends SpeakeasyBase {
 }
 
 // GetItemSourceModifiedDateBillItem
-/** 
+/**
  * Item details that are only for bills.
-**/
+ **/
 export class GetItemSourceModifiedDateBillItem extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
@@ -73,9 +76,9 @@ export class GetItemSourceModifiedDateBillItem extends SpeakeasyBase {
 }
 
 // GetItemSourceModifiedDateInvoiceItemAccountRef
-/** 
+/**
  * Reference of the account to which the item is linked.
-**/
+ **/
 export class GetItemSourceModifiedDateInvoiceItemAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -87,9 +90,9 @@ export class GetItemSourceModifiedDateInvoiceItemAccountRef extends SpeakeasyBas
 }
 
 // GetItemSourceModifiedDateInvoiceItemTaxRateRef
-/** 
+/**
  * Reference of the tax rate to which the item is linked.
-**/
+ **/
 export class GetItemSourceModifiedDateInvoiceItemTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -105,9 +108,9 @@ export class GetItemSourceModifiedDateInvoiceItemTaxRateRef extends SpeakeasyBas
 }
 
 // GetItemSourceModifiedDateInvoiceItem
-/** 
+/**
  * Item details that are only for bills.
-**/
+ **/
 export class GetItemSourceModifiedDateInvoiceItem extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
@@ -128,9 +131,9 @@ export class GetItemSourceModifiedDateInvoiceItem extends SpeakeasyBase {
   unitPrice?: number;
 }
 export enum GetItemSourceModifiedDateItemStatusEnum {
-    Unknown = "Unknown",
-    Active = "Active",
-    Archived = "Archived"
+  Unknown = "Unknown",
+  Active = "Active",
+  Archived = "Archived",
 }
 
 export class GetItemSourceModifiedDateMetadata extends SpeakeasyBase {
@@ -139,21 +142,21 @@ export class GetItemSourceModifiedDateMetadata extends SpeakeasyBase {
   isDeleted?: boolean;
 }
 export enum GetItemSourceModifiedDateTypeEnum {
-    Unknown = "Unknown",
-    Inventory = "Inventory",
-    NonInventory = "NonInventory",
-    Service = "Service"
+  Unknown = "Unknown",
+  Inventory = "Inventory",
+  NonInventory = "NonInventory",
+  Service = "Service",
 }
 
 // GetItemSourceModifiedDate
-/** 
+/**
  * > View the coverage for items in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=items" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * **Items** allow your customers to save and track details of the products and services that they buy and sell.
- * 
-**/
+ *
+ **/
 export class GetItemSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "billItem" })

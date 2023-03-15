@@ -2,15 +2,20 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentIdPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=billPaymentId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=billPaymentId",
+  })
   billPaymentId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
@@ -29,11 +34,11 @@ export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBill
   id?: string;
 }
 export enum DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONChangesTypeEnum {
-    Unknown = "Unknown",
-    Created = "Created",
-    Modified = "Modified",
-    Deleted = "Deleted",
-    AttachmentUploaded = "AttachmentUploaded"
+  Unknown = "Unknown",
+  Created = "Created",
+  Modified = "Modified",
+  Deleted = "Deleted",
+  AttachmentUploaded = "AttachmentUploaded",
 }
 
 export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONChanges extends SpeakeasyBase {
@@ -43,7 +48,10 @@ export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBill
 
   @SpeakeasyMetadata()
   @Expose({ name: "recordRef" })
-  @Type(() => DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONChangesPushOperationRecordRef)
+  @Type(
+    () =>
+      DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONChangesPushOperationRecordRef
+  )
   recordRef?: DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONChangesPushOperationRecordRef;
 
   @SpeakeasyMetadata()
@@ -51,10 +59,10 @@ export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBill
   type?: DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONChangesTypeEnum;
 }
 export enum DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONStatusEnum {
-    Pending = "Pending",
-    Failed = "Failed",
-    Success = "Success",
-    TimedOut = "TimedOut"
+  Pending = "Pending",
+  Failed = "Failed",
+  Success = "Success",
+  TimedOut = "TimedOut",
 }
 
 export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
@@ -72,25 +80,43 @@ export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBill
 }
 
 // DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONValidation
-/** 
+/**
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
-**/
+ **/
 export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType:
+      DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "errors" })
-  @Type(() => DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONValidationValidationItem)
+  @Type(
+    () =>
+      DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONValidationValidationItem
+  )
   errors?: DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONValidationValidationItem[];
 
-  @SpeakeasyMetadata({ elemType: DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType:
+      DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "warnings" })
-  @Type(() => DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONValidationValidationItem)
+  @Type(
+    () =>
+      DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONValidationValidationItem
+  )
   warnings?: DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONValidationValidationItem[];
 }
 
 export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONChanges })
+  @SpeakeasyMetadata({
+    elemType:
+      DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONChanges,
+  })
   @Expose({ name: "changes" })
-  @Type(() => DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONChanges)
+  @Type(
+    () =>
+      DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONChanges
+  )
   changes?: DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONChanges[];
 
   @SpeakeasyMetadata()
@@ -141,7 +167,10 @@ export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBill
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONValidation)
+  @Type(
+    () =>
+      DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONValidation
+  )
   validation?: DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONValidation;
 }
 

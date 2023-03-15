@@ -2,20 +2,27 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetAgedCreditorsReportPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
 export class GetAgedCreditorsReportQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=numberOfPeriods" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=numberOfPeriods",
+  })
   numberOfPeriods?: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=periodLengthDays" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=periodLengthDays",
+  })
   periodLengthDays?: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=reportDate;dateTimeFormat=YYYY-MM-DD" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=reportDate;dateTimeFormat=YYYY-MM-DD",
+  })
   reportDate?: Date;
 }
 
@@ -42,9 +49,15 @@ export class GetAgedCreditorsReportAgedCreditorsReportAgedCreditorAgedCurrencyOu
   @Expose({ name: "amount" })
   amount?: number;
 
-  @SpeakeasyMetadata({ elemType: GetAgedCreditorsReportAgedCreditorsReportAgedCreditorAgedCurrencyOutstandingAgedOutstandingAmountAmountsOutstandingByDataType })
+  @SpeakeasyMetadata({
+    elemType:
+      GetAgedCreditorsReportAgedCreditorsReportAgedCreditorAgedCurrencyOutstandingAgedOutstandingAmountAmountsOutstandingByDataType,
+  })
   @Expose({ name: "details" })
-  @Type(() => GetAgedCreditorsReportAgedCreditorsReportAgedCreditorAgedCurrencyOutstandingAgedOutstandingAmountAmountsOutstandingByDataType)
+  @Type(
+    () =>
+      GetAgedCreditorsReportAgedCreditorsReportAgedCreditorAgedCurrencyOutstandingAgedOutstandingAmountAmountsOutstandingByDataType
+  )
   details?: GetAgedCreditorsReportAgedCreditorsReportAgedCreditorAgedCurrencyOutstandingAgedOutstandingAmountAmountsOutstandingByDataType[];
 
   @SpeakeasyMetadata()
@@ -59,9 +72,15 @@ export class GetAgedCreditorsReportAgedCreditorsReportAgedCreditorAgedCurrencyOu
 }
 
 export class GetAgedCreditorsReportAgedCreditorsReportAgedCreditorAgedCurrencyOutstanding extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetAgedCreditorsReportAgedCreditorsReportAgedCreditorAgedCurrencyOutstandingAgedOutstandingAmount })
+  @SpeakeasyMetadata({
+    elemType:
+      GetAgedCreditorsReportAgedCreditorsReportAgedCreditorAgedCurrencyOutstandingAgedOutstandingAmount,
+  })
   @Expose({ name: "agedOutstandingAmounts" })
-  @Type(() => GetAgedCreditorsReportAgedCreditorsReportAgedCreditorAgedCurrencyOutstandingAgedOutstandingAmount)
+  @Type(
+    () =>
+      GetAgedCreditorsReportAgedCreditorsReportAgedCreditorAgedCurrencyOutstandingAgedOutstandingAmount
+  )
   agedOutstandingAmounts?: GetAgedCreditorsReportAgedCreditorsReportAgedCreditorAgedCurrencyOutstandingAgedOutstandingAmount[];
 
   @SpeakeasyMetadata()
@@ -70,9 +89,15 @@ export class GetAgedCreditorsReportAgedCreditorsReportAgedCreditorAgedCurrencyOu
 }
 
 export class GetAgedCreditorsReportAgedCreditorsReportAgedCreditor extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetAgedCreditorsReportAgedCreditorsReportAgedCreditorAgedCurrencyOutstanding })
+  @SpeakeasyMetadata({
+    elemType:
+      GetAgedCreditorsReportAgedCreditorsReportAgedCreditorAgedCurrencyOutstanding,
+  })
   @Expose({ name: "agedCurrencyOutstanding" })
-  @Type(() => GetAgedCreditorsReportAgedCreditorsReportAgedCreditorAgedCurrencyOutstanding)
+  @Type(
+    () =>
+      GetAgedCreditorsReportAgedCreditorsReportAgedCreditorAgedCurrencyOutstanding
+  )
   agedCurrencyOutstanding?: GetAgedCreditorsReportAgedCreditorsReportAgedCreditorAgedCurrencyOutstanding[];
 
   @SpeakeasyMetadata()
@@ -85,7 +110,9 @@ export class GetAgedCreditorsReportAgedCreditorsReportAgedCreditor extends Speak
 }
 
 export class GetAgedCreditorsReportAgedCreditorsReport extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetAgedCreditorsReportAgedCreditorsReportAgedCreditor })
+  @SpeakeasyMetadata({
+    elemType: GetAgedCreditorsReportAgedCreditorsReportAgedCreditor,
+  })
   @Expose({ name: "data" })
   @Type(() => GetAgedCreditorsReportAgedCreditorsReportAgedCreditor)
   data?: GetAgedCreditorsReportAgedCreditorsReportAgedCreditor[];

@@ -2,24 +2,29 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class CreateDirectCostPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
 export class CreateDirectCostQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=timeoutInMinutes" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
   timeoutInMinutes?: number;
 }
 
 // CreateDirectCostSourceModifiedDateContactRef
-/** 
+/**
  * A customer or supplier associated with the direct cost.
-**/
+ **/
 export class CreateDirectCostSourceModifiedDateContactRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
@@ -31,9 +36,9 @@ export class CreateDirectCostSourceModifiedDateContactRef extends SpeakeasyBase 
 }
 
 // CreateDirectCostSourceModifiedDateLineItemsAccountRef
-/** 
+/**
  * Reference to the account to which the line item is linked.
-**/
+ **/
 export class CreateDirectCostSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -45,9 +50,9 @@ export class CreateDirectCostSourceModifiedDateLineItemsAccountRef extends Speak
 }
 
 // CreateDirectCostSourceModifiedDateLineItemsItemRef
-/** 
+/**
  * Reference to the product, service type, or inventory item to which the direct cost is linked.
-**/
+ **/
 export class CreateDirectCostSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -59,9 +64,9 @@ export class CreateDirectCostSourceModifiedDateLineItemsItemRef extends Speakeas
 }
 
 // CreateDirectCostSourceModifiedDateLineItemsTaxRateRef
-/** 
+/**
  * Reference to the tax rate to which the the line item is linked.
-**/
+ **/
 export class CreateDirectCostSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -145,7 +150,9 @@ export class CreateDirectCostSourceModifiedDateLineItems extends SpeakeasyBase {
   @Type(() => CreateDirectCostSourceModifiedDateLineItemsTracking)
   tracking?: CreateDirectCostSourceModifiedDateLineItemsTracking;
 
-  @SpeakeasyMetadata({ elemType: CreateDirectCostSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType: CreateDirectCostSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "trackingCategoryRefs" })
   @Type(() => CreateDirectCostSourceModifiedDateLineItemsTrackingCategoryRefs)
   trackingCategoryRefs?: CreateDirectCostSourceModifiedDateLineItemsTrackingCategoryRefs[];
@@ -181,9 +188,9 @@ export class CreateDirectCostSourceModifiedDatePaymentAllocationsAllocation exte
 }
 
 // CreateDirectCostSourceModifiedDatePaymentAllocationsPaymentAccountRef
-/** 
+/**
  * The account that the allocated payment is made from or to.
-**/
+ **/
 export class CreateDirectCostSourceModifiedDatePaymentAllocationsPaymentAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -197,7 +204,9 @@ export class CreateDirectCostSourceModifiedDatePaymentAllocationsPaymentAccountR
 export class CreateDirectCostSourceModifiedDatePaymentAllocationsPayment extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => CreateDirectCostSourceModifiedDatePaymentAllocationsPaymentAccountRef)
+  @Type(
+    () => CreateDirectCostSourceModifiedDatePaymentAllocationsPaymentAccountRef
+  )
   accountRef?: CreateDirectCostSourceModifiedDatePaymentAllocationsPaymentAccountRef;
 
   @SpeakeasyMetadata()
@@ -243,9 +252,9 @@ export class CreateDirectCostSourceModifiedDatePaymentAllocations extends Speake
 }
 
 // CreateDirectCostSourceModifiedDateSupplementalData
-/** 
+/**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-**/
+ **/
 export class CreateDirectCostSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -253,27 +262,27 @@ export class CreateDirectCostSourceModifiedDateSupplementalData extends Speakeas
 }
 
 // CreateDirectCostSourceModifiedDate
-/** 
+/**
  * > **Language tip: ** Direct costs may also be referred to as **Spend transactions**, **Spend money transactions**, or **Payments** in various accounting platforms.
- * 
+ *
  * > View the coverage for direct costs in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * Direct costs include:
  *   * Purchasing an item and paying it off at the point of the purchase
  *   * Receiving cash from a refunded item if the refund is made by the supplier
- *   * Withdrawing money from a bank account 
+ *   * Withdrawing money from a bank account
  *   * Writing a cheque
- * 
- * From the Direct Costs endpoints, you can: 
- * 
+ *
+ * From the Direct Costs endpoints, you can:
+ *
  *   * [Get a list of all direct costs for a specific company ](https://api.codat.io/swagger/index.html#/DirectCosts/get_companies__companyId__connections__connectionId__data_directCosts)
  *   * [Get a single direct cost for a specific company ](https://api.codat.io/swagger/index.html#/DirectCosts/get_companies__companyId__connections__connectionId__data_directCosts__directCostId_)
  *   * [Add a new direct cost to a specific company's accounting package](https://api.codat.io/swagger/index.html#/DirectCosts/post_companies__companyId__connections__connectionId__push_directCosts)
- * 
+ *
  * Direct costs is a child data type of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction).
-**/
+ **/
 export class CreateDirectCostSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "contactRef" })
@@ -316,7 +325,9 @@ export class CreateDirectCostSourceModifiedDate extends SpeakeasyBase {
   @Expose({ name: "note" })
   note?: string;
 
-  @SpeakeasyMetadata({ elemType: CreateDirectCostSourceModifiedDatePaymentAllocations })
+  @SpeakeasyMetadata({
+    elemType: CreateDirectCostSourceModifiedDatePaymentAllocations,
+  })
   @Expose({ name: "paymentAllocations" })
   @Type(() => CreateDirectCostSourceModifiedDatePaymentAllocations)
   paymentAllocations: CreateDirectCostSourceModifiedDatePaymentAllocations[];
@@ -369,11 +380,11 @@ export class CreateDirectCost200ApplicationJSONChangesPushOperationRecordRef ext
   id?: string;
 }
 export enum CreateDirectCost200ApplicationJSONChangesTypeEnum {
-    Unknown = "Unknown",
-    Created = "Created",
-    Modified = "Modified",
-    Deleted = "Deleted",
-    AttachmentUploaded = "AttachmentUploaded"
+  Unknown = "Unknown",
+  Created = "Created",
+  Modified = "Modified",
+  Deleted = "Deleted",
+  AttachmentUploaded = "AttachmentUploaded",
 }
 
 export class CreateDirectCost200ApplicationJSONChanges extends SpeakeasyBase {
@@ -392,9 +403,9 @@ export class CreateDirectCost200ApplicationJSONChanges extends SpeakeasyBase {
 }
 
 // CreateDirectCost200ApplicationJSONSourceModifiedDateContactRef
-/** 
+/**
  * A customer or supplier associated with the direct cost.
-**/
+ **/
 export class CreateDirectCost200ApplicationJSONSourceModifiedDateContactRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
@@ -406,9 +417,9 @@ export class CreateDirectCost200ApplicationJSONSourceModifiedDateContactRef exte
 }
 
 // CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsAccountRef
-/** 
+/**
  * Reference to the account to which the line item is linked.
-**/
+ **/
 export class CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -420,9 +431,9 @@ export class CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsAccoun
 }
 
 // CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsItemRef
-/** 
+/**
  * Reference to the product, service type, or inventory item to which the direct cost is linked.
-**/
+ **/
 export class CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -434,9 +445,9 @@ export class CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsItemRe
 }
 
 // CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef
-/** 
+/**
  * Reference to the tax rate to which the the line item is linked.
-**/
+ **/
 export class CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -474,7 +485,10 @@ export class CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsTracki
 export class CreateDirectCost200ApplicationJSONSourceModifiedDateLineItems extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsAccountRef)
+  @Type(
+    () =>
+      CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsAccountRef
+  )
   accountRef?: CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsAccountRef;
 
   @SpeakeasyMetadata()
@@ -491,7 +505,9 @@ export class CreateDirectCost200ApplicationJSONSourceModifiedDateLineItems exten
 
   @SpeakeasyMetadata()
   @Expose({ name: "itemRef" })
-  @Type(() => CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsItemRef)
+  @Type(
+    () => CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsItemRef
+  )
   itemRef?: CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsItemRef;
 
   @SpeakeasyMetadata()
@@ -508,7 +524,10 @@ export class CreateDirectCost200ApplicationJSONSourceModifiedDateLineItems exten
 
   @SpeakeasyMetadata()
   @Expose({ name: "taxRateRef" })
-  @Type(() => CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef)
+  @Type(
+    () =>
+      CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef
+  )
   taxRateRef?: CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef;
 
   @SpeakeasyMetadata()
@@ -517,12 +536,20 @@ export class CreateDirectCost200ApplicationJSONSourceModifiedDateLineItems exten
 
   @SpeakeasyMetadata()
   @Expose({ name: "tracking" })
-  @Type(() => CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsTracking)
+  @Type(
+    () => CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsTracking
+  )
   tracking?: CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsTracking;
 
-  @SpeakeasyMetadata({ elemType: CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType:
+      CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "trackingCategoryRefs" })
-  @Type(() => CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs)
+  @Type(
+    () =>
+      CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs
+  )
   trackingCategoryRefs?: CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs[];
 
   @SpeakeasyMetadata()
@@ -556,9 +583,9 @@ export class CreateDirectCost200ApplicationJSONSourceModifiedDatePaymentAllocati
 }
 
 // CreateDirectCost200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef
-/** 
+/**
  * The account that the allocated payment is made from or to.
-**/
+ **/
 export class CreateDirectCost200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -572,7 +599,10 @@ export class CreateDirectCost200ApplicationJSONSourceModifiedDatePaymentAllocati
 export class CreateDirectCost200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => CreateDirectCost200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef)
+  @Type(
+    () =>
+      CreateDirectCost200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef
+  )
   accountRef?: CreateDirectCost200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef;
 
   @SpeakeasyMetadata()
@@ -608,19 +638,25 @@ export class CreateDirectCost200ApplicationJSONSourceModifiedDatePaymentAllocati
 export class CreateDirectCost200ApplicationJSONSourceModifiedDatePaymentAllocations extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "allocation" })
-  @Type(() => CreateDirectCost200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation)
+  @Type(
+    () =>
+      CreateDirectCost200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation
+  )
   allocation: CreateDirectCost200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation;
 
   @SpeakeasyMetadata()
   @Expose({ name: "payment" })
-  @Type(() => CreateDirectCost200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment)
+  @Type(
+    () =>
+      CreateDirectCost200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment
+  )
   payment: CreateDirectCost200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment;
 }
 
 // CreateDirectCost200ApplicationJSONSourceModifiedDateSupplementalData
-/** 
+/**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-**/
+ **/
 export class CreateDirectCost200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -628,27 +664,27 @@ export class CreateDirectCost200ApplicationJSONSourceModifiedDateSupplementalDat
 }
 
 // CreateDirectCost200ApplicationJSONSourceModifiedDate
-/** 
+/**
  * > **Language tip: ** Direct costs may also be referred to as **Spend transactions**, **Spend money transactions**, or **Payments** in various accounting platforms.
- * 
+ *
  * > View the coverage for direct costs in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * Direct costs include:
  *   * Purchasing an item and paying it off at the point of the purchase
  *   * Receiving cash from a refunded item if the refund is made by the supplier
- *   * Withdrawing money from a bank account 
+ *   * Withdrawing money from a bank account
  *   * Writing a cheque
- * 
- * From the Direct Costs endpoints, you can: 
- * 
+ *
+ * From the Direct Costs endpoints, you can:
+ *
  *   * [Get a list of all direct costs for a specific company ](https://api.codat.io/swagger/index.html#/DirectCosts/get_companies__companyId__connections__connectionId__data_directCosts)
  *   * [Get a single direct cost for a specific company ](https://api.codat.io/swagger/index.html#/DirectCosts/get_companies__companyId__connections__connectionId__data_directCosts__directCostId_)
  *   * [Add a new direct cost to a specific company's accounting package](https://api.codat.io/swagger/index.html#/DirectCosts/post_companies__companyId__connections__connectionId__push_directCosts)
- * 
+ *
  * Direct costs is a child data type of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction).
-**/
+ **/
 export class CreateDirectCost200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "contactRef" })
@@ -672,7 +708,9 @@ export class CreateDirectCost200ApplicationJSONSourceModifiedDate extends Speake
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   issueDate: Date;
 
-  @SpeakeasyMetadata({ elemType: CreateDirectCost200ApplicationJSONSourceModifiedDateLineItems })
+  @SpeakeasyMetadata({
+    elemType: CreateDirectCost200ApplicationJSONSourceModifiedDateLineItems,
+  })
   @Expose({ name: "lineItems" })
   @Type(() => CreateDirectCost200ApplicationJSONSourceModifiedDateLineItems)
   lineItems: CreateDirectCost200ApplicationJSONSourceModifiedDateLineItems[];
@@ -691,9 +729,14 @@ export class CreateDirectCost200ApplicationJSONSourceModifiedDate extends Speake
   @Expose({ name: "note" })
   note?: string;
 
-  @SpeakeasyMetadata({ elemType: CreateDirectCost200ApplicationJSONSourceModifiedDatePaymentAllocations })
+  @SpeakeasyMetadata({
+    elemType:
+      CreateDirectCost200ApplicationJSONSourceModifiedDatePaymentAllocations,
+  })
   @Expose({ name: "paymentAllocations" })
-  @Type(() => CreateDirectCost200ApplicationJSONSourceModifiedDatePaymentAllocations)
+  @Type(
+    () => CreateDirectCost200ApplicationJSONSourceModifiedDatePaymentAllocations
+  )
   paymentAllocations: CreateDirectCost200ApplicationJSONSourceModifiedDatePaymentAllocations[];
 
   @SpeakeasyMetadata()
@@ -711,7 +754,9 @@ export class CreateDirectCost200ApplicationJSONSourceModifiedDate extends Speake
 
   @SpeakeasyMetadata()
   @Expose({ name: "supplementalData" })
-  @Type(() => CreateDirectCost200ApplicationJSONSourceModifiedDateSupplementalData)
+  @Type(
+    () => CreateDirectCost200ApplicationJSONSourceModifiedDateSupplementalData
+  )
   supplementalData?: CreateDirectCost200ApplicationJSONSourceModifiedDateSupplementalData;
 
   @SpeakeasyMetadata()
@@ -723,10 +768,10 @@ export class CreateDirectCost200ApplicationJSONSourceModifiedDate extends Speake
   totalAmount: number;
 }
 export enum CreateDirectCost200ApplicationJSONStatusEnum {
-    Pending = "Pending",
-    Failed = "Failed",
-    Success = "Success",
-    TimedOut = "TimedOut"
+  Pending = "Pending",
+  Failed = "Failed",
+  Success = "Success",
+  TimedOut = "TimedOut",
 }
 
 export class CreateDirectCost200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
@@ -744,16 +789,20 @@ export class CreateDirectCost200ApplicationJSONValidationValidationItem extends 
 }
 
 // CreateDirectCost200ApplicationJSONValidation
-/** 
+/**
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
-**/
+ **/
 export class CreateDirectCost200ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: CreateDirectCost200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType: CreateDirectCost200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "errors" })
   @Type(() => CreateDirectCost200ApplicationJSONValidationValidationItem)
   errors?: CreateDirectCost200ApplicationJSONValidationValidationItem[];
 
-  @SpeakeasyMetadata({ elemType: CreateDirectCost200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType: CreateDirectCost200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "warnings" })
   @Type(() => CreateDirectCost200ApplicationJSONValidationValidationItem)
   warnings?: CreateDirectCost200ApplicationJSONValidationValidationItem[];

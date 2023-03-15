@@ -2,26 +2,33 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class CreateBankAccountPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
 export class CreateBankAccountQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=allowSyncOnPushComplete" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=allowSyncOnPushComplete",
+  })
   allowSyncOnPushComplete?: boolean;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=timeoutInMinutes" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
   timeoutInMinutes?: number;
 }
 export enum CreateBankAccountSourceModifiedDateAccountTypeEnum {
-    Unknown = "Unknown",
-    Credit = "Credit",
-    Debit = "Debit"
+  Unknown = "Unknown",
+  Credit = "Credit",
+  Debit = "Debit",
 }
 
 export class CreateBankAccountSourceModifiedDateMetadata extends SpeakeasyBase {
@@ -31,24 +38,24 @@ export class CreateBankAccountSourceModifiedDateMetadata extends SpeakeasyBase {
 }
 
 // CreateBankAccountSourceModifiedDate
-/** 
+/**
  * > **Accessing Bank Accounts through Banking API**
- * > 
- * > This datatype was originally used for accessing bank account data both in accounting integrations and open banking aggregators. 
- * > 
+ * >
+ * > This datatype was originally used for accessing bank account data both in accounting integrations and open banking aggregators.
+ * >
  * > To view bank account data through the Banking API, please refer to the new datatype [here](https://docs.codat.io/banking-api#/schemas/Account)
- * 
+ *
  * > View the coverage for bank accounts in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * A list of bank accounts associated with a company and a specific [data connection](https://api.codat.io/swagger/index.html#/Connection/get_companies__companyId__connections__connectionId_).
- * 
+ *
  * Bank accounts data includes:
  * * The name and ID of the account in the accounting platform.
  * * The currency and balance of the account.
  * * The sort code and account number.
-**/
+ **/
 export class CreateBankAccountSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountName" })
@@ -135,11 +142,11 @@ export class CreateBankAccount200ApplicationJSONChangesPushOperationRecordRef ex
   id?: string;
 }
 export enum CreateBankAccount200ApplicationJSONChangesTypeEnum {
-    Unknown = "Unknown",
-    Created = "Created",
-    Modified = "Modified",
-    Deleted = "Deleted",
-    AttachmentUploaded = "AttachmentUploaded"
+  Unknown = "Unknown",
+  Created = "Created",
+  Modified = "Modified",
+  Deleted = "Deleted",
+  AttachmentUploaded = "AttachmentUploaded",
 }
 
 export class CreateBankAccount200ApplicationJSONChanges extends SpeakeasyBase {
@@ -157,9 +164,9 @@ export class CreateBankAccount200ApplicationJSONChanges extends SpeakeasyBase {
   type?: CreateBankAccount200ApplicationJSONChangesTypeEnum;
 }
 export enum CreateBankAccount200ApplicationJSONSourceModifiedDateAccountTypeEnum {
-    Unknown = "Unknown",
-    Credit = "Credit",
-    Debit = "Debit"
+  Unknown = "Unknown",
+  Credit = "Credit",
+  Debit = "Debit",
 }
 
 export class CreateBankAccount200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
@@ -169,24 +176,24 @@ export class CreateBankAccount200ApplicationJSONSourceModifiedDateMetadata exten
 }
 
 // CreateBankAccount200ApplicationJSONSourceModifiedDate
-/** 
+/**
  * > **Accessing Bank Accounts through Banking API**
- * > 
- * > This datatype was originally used for accessing bank account data both in accounting integrations and open banking aggregators. 
- * > 
+ * >
+ * > This datatype was originally used for accessing bank account data both in accounting integrations and open banking aggregators.
+ * >
  * > To view bank account data through the Banking API, please refer to the new datatype [here](https://docs.codat.io/banking-api#/schemas/Account)
- * 
+ *
  * > View the coverage for bank accounts in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * A list of bank accounts associated with a company and a specific [data connection](https://api.codat.io/swagger/index.html#/Connection/get_companies__companyId__connections__connectionId_).
- * 
+ *
  * Bank accounts data includes:
  * * The name and ID of the account in the accounting platform.
  * * The currency and balance of the account.
  * * The sort code and account number.
-**/
+ **/
 export class CreateBankAccount200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountName" })
@@ -252,10 +259,10 @@ export class CreateBankAccount200ApplicationJSONSourceModifiedDate extends Speak
   sourceModifiedDate?: Date;
 }
 export enum CreateBankAccount200ApplicationJSONStatusEnum {
-    Pending = "Pending",
-    Failed = "Failed",
-    Success = "Success",
-    TimedOut = "TimedOut"
+  Pending = "Pending",
+  Failed = "Failed",
+  Success = "Success",
+  TimedOut = "TimedOut",
 }
 
 export class CreateBankAccount200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
@@ -273,16 +280,20 @@ export class CreateBankAccount200ApplicationJSONValidationValidationItem extends
 }
 
 // CreateBankAccount200ApplicationJSONValidation
-/** 
+/**
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
-**/
+ **/
 export class CreateBankAccount200ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: CreateBankAccount200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType: CreateBankAccount200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "errors" })
   @Type(() => CreateBankAccount200ApplicationJSONValidationValidationItem)
   errors?: CreateBankAccount200ApplicationJSONValidationValidationItem[];
 
-  @SpeakeasyMetadata({ elemType: CreateBankAccount200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType: CreateBankAccount200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "warnings" })
   @Type(() => CreateBankAccount200ApplicationJSONValidationValidationItem)
   warnings?: CreateBankAccount200ApplicationJSONValidationValidationItem[];

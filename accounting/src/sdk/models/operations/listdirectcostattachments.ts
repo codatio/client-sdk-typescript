@@ -2,15 +2,20 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListDirectCostAttachmentsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=directCostId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=directCostId",
+  })
   directCostId: string;
 }
 
@@ -57,7 +62,9 @@ export class ListDirectCostAttachmentsAttachmentsAttachment extends SpeakeasyBas
 }
 
 export class ListDirectCostAttachmentsAttachments extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ListDirectCostAttachmentsAttachmentsAttachment })
+  @SpeakeasyMetadata({
+    elemType: ListDirectCostAttachmentsAttachmentsAttachment,
+  })
   @Expose({ name: "attachments" })
   @Type(() => ListDirectCostAttachmentsAttachmentsAttachment)
   attachments?: ListDirectCostAttachmentsAttachmentsAttachment[];

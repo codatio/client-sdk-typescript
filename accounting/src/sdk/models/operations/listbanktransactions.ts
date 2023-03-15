@@ -2,23 +2,30 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListBankTransactionsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=accountId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=accountId",
+  })
   accountId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
 export class ListBankTransactionsQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -79,24 +86,24 @@ export class ListBankTransactionsLinksLinks extends SpeakeasyBase {
   self: ListBankTransactionsLinksLinksSelf;
 }
 export enum ListBankTransactionsLinksResultsTransactionTypeEnum {
-    Unknown = "Unknown",
-    Credit = "Credit",
-    Debit = "Debit",
-    Int = "Int",
-    Div = "Div",
-    Fee = "Fee",
-    SerChg = "SerChg",
-    Dep = "Dep",
-    Atm = "Atm",
-    Pos = "Pos",
-    Xfer = "Xfer",
-    Check = "Check",
-    Payment = "Payment",
-    Cash = "Cash",
-    DirectDep = "DirectDep",
-    DirectDebit = "DirectDebit",
-    RepeatPmt = "RepeatPmt",
-    Other = "Other"
+  Unknown = "Unknown",
+  Credit = "Credit",
+  Debit = "Debit",
+  Int = "Int",
+  Div = "Div",
+  Fee = "Fee",
+  SerChg = "SerChg",
+  Dep = "Dep",
+  Atm = "Atm",
+  Pos = "Pos",
+  Xfer = "Xfer",
+  Check = "Check",
+  Payment = "Payment",
+  Cash = "Cash",
+  DirectDep = "DirectDep",
+  DirectDebit = "DirectDebit",
+  RepeatPmt = "RepeatPmt",
+  Other = "Other",
 }
 
 export class ListBankTransactionsLinksResults extends SpeakeasyBase {
@@ -149,9 +156,9 @@ export class ListBankTransactionsLinksResults extends SpeakeasyBase {
 }
 
 // ListBankTransactionsLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class ListBankTransactionsLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })

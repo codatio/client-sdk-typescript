@@ -7,11 +7,10 @@ import {
 
 import { AxiosError } from "axios";
 import { Codat } from "@codat/accounting";
-
 const sdk = new Codat({
   security: {
     authHeader: "YOUR_API_KEY_HERE",
-  }
+  },
 });
     
 const req: GetCreateUpdateAccountTransactionsModelRequest = {

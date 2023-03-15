@@ -2,23 +2,28 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class CreateCustomerPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
 export class CreateCustomerQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=timeoutInMinutes" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
   timeoutInMinutes?: number;
 }
 export enum CreateCustomerSourceModifiedDateAddressesTypeEnum {
-    Unknown = "Unknown",
-    Billing = "Billing",
-    Delivery = "Delivery"
+  Unknown = "Unknown",
+  Billing = "Billing",
+  Delivery = "Delivery",
 }
 
 export class CreateCustomerSourceModifiedDateAddresses extends SpeakeasyBase {
@@ -51,15 +56,15 @@ export class CreateCustomerSourceModifiedDateAddresses extends SpeakeasyBase {
   type: CreateCustomerSourceModifiedDateAddressesTypeEnum;
 }
 export enum CreateCustomerSourceModifiedDateContactsAddressTypeEnum {
-    Unknown = "Unknown",
-    Billing = "Billing",
-    Delivery = "Delivery"
+  Unknown = "Unknown",
+  Billing = "Billing",
+  Delivery = "Delivery",
 }
 
 // CreateCustomerSourceModifiedDateContactsAddress
-/** 
+/**
  * An object of Address information.
-**/
+ **/
 export class CreateCustomerSourceModifiedDateContactsAddress extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "city" })
@@ -90,11 +95,11 @@ export class CreateCustomerSourceModifiedDateContactsAddress extends SpeakeasyBa
   type: CreateCustomerSourceModifiedDateContactsAddressTypeEnum;
 }
 export enum CreateCustomerSourceModifiedDateContactsPhoneTypeEnum {
-    Unknown = "Unknown",
-    Primary = "Primary",
-    Landline = "Landline",
-    Mobile = "Mobile",
-    Fax = "Fax"
+  Unknown = "Unknown",
+  Primary = "Primary",
+  Landline = "Landline",
+  Mobile = "Mobile",
+  Fax = "Fax",
 }
 
 export class CreateCustomerSourceModifiedDateContactsPhone extends SpeakeasyBase {
@@ -107,9 +112,9 @@ export class CreateCustomerSourceModifiedDateContactsPhone extends SpeakeasyBase
   type: CreateCustomerSourceModifiedDateContactsPhoneTypeEnum;
 }
 export enum CreateCustomerSourceModifiedDateContactsStatusEnum {
-    Unknown = "Unknown",
-    Active = "Active",
-    Archived = "Archived"
+  Unknown = "Unknown",
+  Active = "Active",
+  Archived = "Archived",
 }
 
 export class CreateCustomerSourceModifiedDateContacts extends SpeakeasyBase {
@@ -131,7 +136,9 @@ export class CreateCustomerSourceModifiedDateContacts extends SpeakeasyBase {
   @Expose({ name: "name" })
   name?: string;
 
-  @SpeakeasyMetadata({ elemType: CreateCustomerSourceModifiedDateContactsPhone })
+  @SpeakeasyMetadata({
+    elemType: CreateCustomerSourceModifiedDateContactsPhone,
+  })
   @Expose({ name: "phone" })
   @Type(() => CreateCustomerSourceModifiedDateContactsPhone)
   phone?: CreateCustomerSourceModifiedDateContactsPhone[];
@@ -147,15 +154,15 @@ export class CreateCustomerSourceModifiedDateMetadata extends SpeakeasyBase {
   isDeleted?: boolean;
 }
 export enum CreateCustomerSourceModifiedDateStatusEnum {
-    Unknown = "Unknown",
-    Active = "Active",
-    Archived = "Archived"
+  Unknown = "Unknown",
+  Active = "Active",
+  Archived = "Archived",
 }
 
 // CreateCustomerSourceModifiedDateSupplementalData
-/** 
+/**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-**/
+ **/
 export class CreateCustomerSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -163,16 +170,16 @@ export class CreateCustomerSourceModifiedDateSupplementalData extends SpeakeasyB
 }
 
 // CreateCustomerSourceModifiedDate
-/** 
+/**
  * > View the coverage for customers in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * A customer is a person or organisation that buys goods or services. From the Customers endpoints, you can retrieve a [list of all the customers of a company](https://api.codat.io/swagger/index.html#/Customers/get_companies__companyId__data_customers).
- * 
+ *
  * Customers' data links to accounts receivable [invoices](https://docs.codat.io/accounting-api#/schemas/Invoice).
- * 
-**/
+ *
+ **/
 export class CreateCustomerSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata({ elemType: CreateCustomerSourceModifiedDateAddresses })
   @Expose({ name: "addresses" })
@@ -262,11 +269,11 @@ export class CreateCustomer200ApplicationJSONChangesPushOperationRecordRef exten
   id?: string;
 }
 export enum CreateCustomer200ApplicationJSONChangesTypeEnum {
-    Unknown = "Unknown",
-    Created = "Created",
-    Modified = "Modified",
-    Deleted = "Deleted",
-    AttachmentUploaded = "AttachmentUploaded"
+  Unknown = "Unknown",
+  Created = "Created",
+  Modified = "Modified",
+  Deleted = "Deleted",
+  AttachmentUploaded = "AttachmentUploaded",
 }
 
 export class CreateCustomer200ApplicationJSONChanges extends SpeakeasyBase {
@@ -284,9 +291,9 @@ export class CreateCustomer200ApplicationJSONChanges extends SpeakeasyBase {
   type?: CreateCustomer200ApplicationJSONChangesTypeEnum;
 }
 export enum CreateCustomer200ApplicationJSONSourceModifiedDateAddressesTypeEnum {
-    Unknown = "Unknown",
-    Billing = "Billing",
-    Delivery = "Delivery"
+  Unknown = "Unknown",
+  Billing = "Billing",
+  Delivery = "Delivery",
 }
 
 export class CreateCustomer200ApplicationJSONSourceModifiedDateAddresses extends SpeakeasyBase {
@@ -319,15 +326,15 @@ export class CreateCustomer200ApplicationJSONSourceModifiedDateAddresses extends
   type: CreateCustomer200ApplicationJSONSourceModifiedDateAddressesTypeEnum;
 }
 export enum CreateCustomer200ApplicationJSONSourceModifiedDateContactsAddressTypeEnum {
-    Unknown = "Unknown",
-    Billing = "Billing",
-    Delivery = "Delivery"
+  Unknown = "Unknown",
+  Billing = "Billing",
+  Delivery = "Delivery",
 }
 
 // CreateCustomer200ApplicationJSONSourceModifiedDateContactsAddress
-/** 
+/**
  * An object of Address information.
-**/
+ **/
 export class CreateCustomer200ApplicationJSONSourceModifiedDateContactsAddress extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "city" })
@@ -358,11 +365,11 @@ export class CreateCustomer200ApplicationJSONSourceModifiedDateContactsAddress e
   type: CreateCustomer200ApplicationJSONSourceModifiedDateContactsAddressTypeEnum;
 }
 export enum CreateCustomer200ApplicationJSONSourceModifiedDateContactsPhoneTypeEnum {
-    Unknown = "Unknown",
-    Primary = "Primary",
-    Landline = "Landline",
-    Mobile = "Mobile",
-    Fax = "Fax"
+  Unknown = "Unknown",
+  Primary = "Primary",
+  Landline = "Landline",
+  Mobile = "Mobile",
+  Fax = "Fax",
 }
 
 export class CreateCustomer200ApplicationJSONSourceModifiedDateContactsPhone extends SpeakeasyBase {
@@ -375,9 +382,9 @@ export class CreateCustomer200ApplicationJSONSourceModifiedDateContactsPhone ext
   type: CreateCustomer200ApplicationJSONSourceModifiedDateContactsPhoneTypeEnum;
 }
 export enum CreateCustomer200ApplicationJSONSourceModifiedDateContactsStatusEnum {
-    Unknown = "Unknown",
-    Active = "Active",
-    Archived = "Archived"
+  Unknown = "Unknown",
+  Active = "Active",
+  Archived = "Archived",
 }
 
 export class CreateCustomer200ApplicationJSONSourceModifiedDateContacts extends SpeakeasyBase {
@@ -399,7 +406,9 @@ export class CreateCustomer200ApplicationJSONSourceModifiedDateContacts extends 
   @Expose({ name: "name" })
   name?: string;
 
-  @SpeakeasyMetadata({ elemType: CreateCustomer200ApplicationJSONSourceModifiedDateContactsPhone })
+  @SpeakeasyMetadata({
+    elemType: CreateCustomer200ApplicationJSONSourceModifiedDateContactsPhone,
+  })
   @Expose({ name: "phone" })
   @Type(() => CreateCustomer200ApplicationJSONSourceModifiedDateContactsPhone)
   phone?: CreateCustomer200ApplicationJSONSourceModifiedDateContactsPhone[];
@@ -415,15 +424,15 @@ export class CreateCustomer200ApplicationJSONSourceModifiedDateMetadata extends 
   isDeleted?: boolean;
 }
 export enum CreateCustomer200ApplicationJSONSourceModifiedDateStatusEnum {
-    Unknown = "Unknown",
-    Active = "Active",
-    Archived = "Archived"
+  Unknown = "Unknown",
+  Active = "Active",
+  Archived = "Archived",
 }
 
 // CreateCustomer200ApplicationJSONSourceModifiedDateSupplementalData
-/** 
+/**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-**/
+ **/
 export class CreateCustomer200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -431,18 +440,20 @@ export class CreateCustomer200ApplicationJSONSourceModifiedDateSupplementalData 
 }
 
 // CreateCustomer200ApplicationJSONSourceModifiedDate
-/** 
+/**
  * > View the coverage for customers in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * A customer is a person or organisation that buys goods or services. From the Customers endpoints, you can retrieve a [list of all the customers of a company](https://api.codat.io/swagger/index.html#/Customers/get_companies__companyId__data_customers).
- * 
+ *
  * Customers' data links to accounts receivable [invoices](https://docs.codat.io/accounting-api#/schemas/Invoice).
- * 
-**/
+ *
+ **/
 export class CreateCustomer200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: CreateCustomer200ApplicationJSONSourceModifiedDateAddresses })
+  @SpeakeasyMetadata({
+    elemType: CreateCustomer200ApplicationJSONSourceModifiedDateAddresses,
+  })
   @Expose({ name: "addresses" })
   @Type(() => CreateCustomer200ApplicationJSONSourceModifiedDateAddresses)
   addresses?: CreateCustomer200ApplicationJSONSourceModifiedDateAddresses[];
@@ -451,7 +462,9 @@ export class CreateCustomer200ApplicationJSONSourceModifiedDate extends Speakeas
   @Expose({ name: "contactName" })
   contactName?: string;
 
-  @SpeakeasyMetadata({ elemType: CreateCustomer200ApplicationJSONSourceModifiedDateContacts })
+  @SpeakeasyMetadata({
+    elemType: CreateCustomer200ApplicationJSONSourceModifiedDateContacts,
+  })
   @Expose({ name: "contacts" })
   @Type(() => CreateCustomer200ApplicationJSONSourceModifiedDateContacts)
   contacts?: CreateCustomer200ApplicationJSONSourceModifiedDateContacts[];
@@ -501,7 +514,9 @@ export class CreateCustomer200ApplicationJSONSourceModifiedDate extends Speakeas
 
   @SpeakeasyMetadata()
   @Expose({ name: "supplementalData" })
-  @Type(() => CreateCustomer200ApplicationJSONSourceModifiedDateSupplementalData)
+  @Type(
+    () => CreateCustomer200ApplicationJSONSourceModifiedDateSupplementalData
+  )
   supplementalData?: CreateCustomer200ApplicationJSONSourceModifiedDateSupplementalData;
 
   @SpeakeasyMetadata()
@@ -509,10 +524,10 @@ export class CreateCustomer200ApplicationJSONSourceModifiedDate extends Speakeas
   taxNumber?: string;
 }
 export enum CreateCustomer200ApplicationJSONStatusEnum {
-    Pending = "Pending",
-    Failed = "Failed",
-    Success = "Success",
-    TimedOut = "TimedOut"
+  Pending = "Pending",
+  Failed = "Failed",
+  Success = "Success",
+  TimedOut = "TimedOut",
 }
 
 export class CreateCustomer200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
@@ -530,16 +545,20 @@ export class CreateCustomer200ApplicationJSONValidationValidationItem extends Sp
 }
 
 // CreateCustomer200ApplicationJSONValidation
-/** 
+/**
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
-**/
+ **/
 export class CreateCustomer200ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: CreateCustomer200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType: CreateCustomer200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "errors" })
   @Type(() => CreateCustomer200ApplicationJSONValidationValidationItem)
   errors?: CreateCustomer200ApplicationJSONValidationValidationItem[];
 
-  @SpeakeasyMetadata({ elemType: CreateCustomer200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType: CreateCustomer200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "warnings" })
   @Type(() => CreateCustomer200ApplicationJSONValidationValidationItem)
   warnings?: CreateCustomer200ApplicationJSONValidationValidationItem[];

@@ -2,20 +2,25 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListSalesOrdersPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
 export class ListSalesOrdersQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -77,9 +82,9 @@ export class ListSalesOrdersLinksLinks extends SpeakeasyBase {
 }
 
 // ListSalesOrdersLinksSourceModifiedDateCustomerRef
-/** 
+/**
  * The customer that the sales order is recorded against in the accounting system.
-**/
+ **/
 export class ListSalesOrdersLinksSourceModifiedDateCustomerRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
@@ -90,16 +95,16 @@ export class ListSalesOrdersLinksSourceModifiedDateCustomerRef extends Speakeasy
   id: string;
 }
 export enum ListSalesOrdersLinksSourceModifiedDateInvoicingStatusEnum {
-    Unknown = "Unknown",
-    PartiallyInvoiced = "PartiallyInvoiced",
-    Invoiced = "Invoiced",
-    NotInvoiced = "NotInvoiced"
+  Unknown = "Unknown",
+  PartiallyInvoiced = "PartiallyInvoiced",
+  Invoiced = "Invoiced",
+  NotInvoiced = "NotInvoiced",
 }
 
 // ListSalesOrdersLinksSourceModifiedDateLineItemsAccountRef
-/** 
+/**
  * Reference to the account to which the line item is linked.
-**/
+ **/
 export class ListSalesOrdersLinksSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -111,9 +116,9 @@ export class ListSalesOrdersLinksSourceModifiedDateLineItemsAccountRef extends S
 }
 
 // ListSalesOrdersLinksSourceModifiedDateLineItemsItemRef
-/** 
+/**
  * Reference to the product or inventory item to which the line item is linked.
-**/
+ **/
 export class ListSalesOrdersLinksSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -125,9 +130,9 @@ export class ListSalesOrdersLinksSourceModifiedDateLineItemsItemRef extends Spea
 }
 
 // ListSalesOrdersLinksSourceModifiedDateLineItemsTaxRateRef
-/** 
+/**
  * Reference to the tax rate to which the line item is linked.
-**/
+ **/
 export class ListSalesOrdersLinksSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -208,15 +213,15 @@ export class ListSalesOrdersLinksSourceModifiedDateMetadata extends SpeakeasyBas
   isDeleted?: boolean;
 }
 export enum ListSalesOrdersLinksSourceModifiedDateShipToAddressTypeEnum {
-    Unknown = "Unknown",
-    Billing = "Billing",
-    Delivery = "Delivery"
+  Unknown = "Unknown",
+  Billing = "Billing",
+  Delivery = "Delivery",
 }
 
 // ListSalesOrdersLinksSourceModifiedDateShipToAddress
-/** 
+/**
  * Delivery address for any goods that have been ordered.
-**/
+ **/
 export class ListSalesOrdersLinksSourceModifiedDateShipToAddress extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "city" })
@@ -248,9 +253,9 @@ export class ListSalesOrdersLinksSourceModifiedDateShipToAddress extends Speakea
 }
 
 // ListSalesOrdersLinksSourceModifiedDateShipToContact
-/** 
+/**
  * Details of the named contact at the delivery address.
-**/
+ **/
 export class ListSalesOrdersLinksSourceModifiedDateShipToContact extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "email" })
@@ -266,9 +271,9 @@ export class ListSalesOrdersLinksSourceModifiedDateShipToContact extends Speakea
 }
 
 // ListSalesOrdersLinksSourceModifiedDateShipTo
-/** 
+/**
  * Delivery details for any goods that have been ordered.
-**/
+ **/
 export class ListSalesOrdersLinksSourceModifiedDateShipTo extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "address" })
@@ -281,23 +286,23 @@ export class ListSalesOrdersLinksSourceModifiedDateShipTo extends SpeakeasyBase 
   contact?: ListSalesOrdersLinksSourceModifiedDateShipToContact;
 }
 export enum ListSalesOrdersLinksSourceModifiedDateStatusEnum {
-    Unknown = "Unknown",
-    Draft = "Draft",
-    Open = "Open",
-    Closed = "Closed",
-    Void = "Void"
+  Unknown = "Unknown",
+  Draft = "Draft",
+  Open = "Open",
+  Closed = "Closed",
+  Void = "Void",
 }
 
 // ListSalesOrdersLinksSourceModifiedDate
-/** 
+/**
  * > View the coverage for sales orders in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=salesOrders" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * A sales order represents a customer's intention to purchase goods or services from a seller and usually includes information such as the expected delivery date and shipping details. This information can be used to provide visibility on a business's expected receivables and to track sales through the full procurement process.
- * 
+ *
  * A sales order is typically converted to an [invoice](https://docs.codat.io/accounting-api#/schemas/Invoice) after approval.
-**/
+ **/
 export class ListSalesOrdersLinksSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "currency" })
@@ -334,7 +339,9 @@ export class ListSalesOrdersLinksSourceModifiedDate extends SpeakeasyBase {
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   issueDate?: Date;
 
-  @SpeakeasyMetadata({ elemType: ListSalesOrdersLinksSourceModifiedDateLineItems })
+  @SpeakeasyMetadata({
+    elemType: ListSalesOrdersLinksSourceModifiedDateLineItems,
+  })
   @Expose({ name: "lineItems" })
   @Type(() => ListSalesOrdersLinksSourceModifiedDateLineItems)
   lineItems?: ListSalesOrdersLinksSourceModifiedDateLineItems[];
@@ -389,9 +396,9 @@ export class ListSalesOrdersLinksSourceModifiedDate extends SpeakeasyBase {
 }
 
 // ListSalesOrdersLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class ListSalesOrdersLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })

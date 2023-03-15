@@ -2,19 +2,22 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class CreateTransferPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
 // CreateTransferSourceModifiedDateContactRef
-/** 
+/**
  * The customer or supplier for the transfer, if available.
-**/
+ **/
 export class CreateTransferSourceModifiedDateContactRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
@@ -26,9 +29,9 @@ export class CreateTransferSourceModifiedDateContactRef extends SpeakeasyBase {
 }
 
 // CreateTransferSourceModifiedDateTransferAccountAccountRef
-/** 
+/**
  * The account that the transfer is moving from or to.
-**/
+ **/
 export class CreateTransferSourceModifiedDateTransferAccountAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -40,9 +43,9 @@ export class CreateTransferSourceModifiedDateTransferAccountAccountRef extends S
 }
 
 // CreateTransferSourceModifiedDateTransferAccount
-/** 
+/**
  * The details of the accounts the transfer is moving from.
-**/
+ **/
 export class CreateTransferSourceModifiedDateTransferAccount extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
@@ -65,9 +68,9 @@ export class CreateTransferSourceModifiedDateMetadata extends SpeakeasyBase {
 }
 
 // CreateTransferSourceModifiedDateSupplementalData
-/** 
+/**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-**/
+ **/
 export class CreateTransferSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -85,17 +88,17 @@ export class CreateTransferSourceModifiedDateTrackingCategoryRefs extends Speake
 }
 
 // CreateTransferSourceModifiedDate
-/** 
+/**
  * > View the coverage for transfers in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=transfers" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * From the **Transfers** endpoints, you can:
- * 
+ *
  * - [Retrieve a list of all transfers for a specified company](https://api.codat.io/swagger/index.html#/Transfers/get_companies__companyId__connections__connectionId__data_transfers)
- * - [Retrieve a single transfer for a specified company](https://api.codat.io/swagger/index.html#/Transfers/get_companies__companyId__connections__connectionId__data_transfers__transferId_) 
- * - [Add a new transfer for a specified company](https://api.codat.io/swagger/index.html#/Transfers/post_companies__companyId__connections__connectionId__push_transfers) 
- * 
+ * - [Retrieve a single transfer for a specified company](https://api.codat.io/swagger/index.html#/Transfers/get_companies__companyId__connections__connectionId__data_transfers__transferId_)
+ * - [Add a new transfer for a specified company](https://api.codat.io/swagger/index.html#/Transfers/post_companies__companyId__connections__connectionId__push_transfers)
+ *
  * **Transfers** is a child data type of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction).
-**/
+ **/
 export class CreateTransferSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "contactRef" })
@@ -149,7 +152,9 @@ export class CreateTransferSourceModifiedDate extends SpeakeasyBase {
   @Type(() => CreateTransferSourceModifiedDateTransferAccount)
   to?: CreateTransferSourceModifiedDateTransferAccount;
 
-  @SpeakeasyMetadata({ elemType: CreateTransferSourceModifiedDateTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType: CreateTransferSourceModifiedDateTrackingCategoryRefs,
+  })
   @Expose({ name: "trackingCategoryRefs" })
   @Type(() => CreateTransferSourceModifiedDateTrackingCategoryRefs)
   trackingCategoryRefs?: CreateTransferSourceModifiedDateTrackingCategoryRefs[];
@@ -173,11 +178,11 @@ export class CreateTransfer200ApplicationJSONChangesPushOperationRecordRef exten
   id?: string;
 }
 export enum CreateTransfer200ApplicationJSONChangesTypeEnum {
-    Unknown = "Unknown",
-    Created = "Created",
-    Modified = "Modified",
-    Deleted = "Deleted",
-    AttachmentUploaded = "AttachmentUploaded"
+  Unknown = "Unknown",
+  Created = "Created",
+  Modified = "Modified",
+  Deleted = "Deleted",
+  AttachmentUploaded = "AttachmentUploaded",
 }
 
 export class CreateTransfer200ApplicationJSONChanges extends SpeakeasyBase {
@@ -196,9 +201,9 @@ export class CreateTransfer200ApplicationJSONChanges extends SpeakeasyBase {
 }
 
 // CreateTransfer200ApplicationJSONSourceModifiedDateContactRef
-/** 
+/**
  * The customer or supplier for the transfer, if available.
-**/
+ **/
 export class CreateTransfer200ApplicationJSONSourceModifiedDateContactRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
@@ -210,9 +215,9 @@ export class CreateTransfer200ApplicationJSONSourceModifiedDateContactRef extend
 }
 
 // CreateTransfer200ApplicationJSONSourceModifiedDateTransferAccountAccountRef
-/** 
+/**
  * The account that the transfer is moving from or to.
-**/
+ **/
 export class CreateTransfer200ApplicationJSONSourceModifiedDateTransferAccountAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -224,13 +229,16 @@ export class CreateTransfer200ApplicationJSONSourceModifiedDateTransferAccountAc
 }
 
 // CreateTransfer200ApplicationJSONSourceModifiedDateTransferAccount
-/** 
+/**
  * The details of the accounts the transfer is moving from.
-**/
+ **/
 export class CreateTransfer200ApplicationJSONSourceModifiedDateTransferAccount extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => CreateTransfer200ApplicationJSONSourceModifiedDateTransferAccountAccountRef)
+  @Type(
+    () =>
+      CreateTransfer200ApplicationJSONSourceModifiedDateTransferAccountAccountRef
+  )
   accountRef?: CreateTransfer200ApplicationJSONSourceModifiedDateTransferAccountAccountRef;
 
   @SpeakeasyMetadata()
@@ -249,9 +257,9 @@ export class CreateTransfer200ApplicationJSONSourceModifiedDateMetadata extends 
 }
 
 // CreateTransfer200ApplicationJSONSourceModifiedDateSupplementalData
-/** 
+/**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-**/
+ **/
 export class CreateTransfer200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -269,17 +277,17 @@ export class CreateTransfer200ApplicationJSONSourceModifiedDateTrackingCategoryR
 }
 
 // CreateTransfer200ApplicationJSONSourceModifiedDate
-/** 
+/**
  * > View the coverage for transfers in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=transfers" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * From the **Transfers** endpoints, you can:
- * 
+ *
  * - [Retrieve a list of all transfers for a specified company](https://api.codat.io/swagger/index.html#/Transfers/get_companies__companyId__connections__connectionId__data_transfers)
- * - [Retrieve a single transfer for a specified company](https://api.codat.io/swagger/index.html#/Transfers/get_companies__companyId__connections__connectionId__data_transfers__transferId_) 
- * - [Add a new transfer for a specified company](https://api.codat.io/swagger/index.html#/Transfers/post_companies__companyId__connections__connectionId__push_transfers) 
- * 
+ * - [Retrieve a single transfer for a specified company](https://api.codat.io/swagger/index.html#/Transfers/get_companies__companyId__connections__connectionId__data_transfers__transferId_)
+ * - [Add a new transfer for a specified company](https://api.codat.io/swagger/index.html#/Transfers/post_companies__companyId__connections__connectionId__push_transfers)
+ *
  * **Transfers** is a child data type of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction).
-**/
+ **/
 export class CreateTransfer200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "contactRef" })
@@ -325,7 +333,9 @@ export class CreateTransfer200ApplicationJSONSourceModifiedDate extends Speakeas
 
   @SpeakeasyMetadata()
   @Expose({ name: "supplementalData" })
-  @Type(() => CreateTransfer200ApplicationJSONSourceModifiedDateSupplementalData)
+  @Type(
+    () => CreateTransfer200ApplicationJSONSourceModifiedDateSupplementalData
+  )
   supplementalData?: CreateTransfer200ApplicationJSONSourceModifiedDateSupplementalData;
 
   @SpeakeasyMetadata()
@@ -333,16 +343,21 @@ export class CreateTransfer200ApplicationJSONSourceModifiedDate extends Speakeas
   @Type(() => CreateTransfer200ApplicationJSONSourceModifiedDateTransferAccount)
   to?: CreateTransfer200ApplicationJSONSourceModifiedDateTransferAccount;
 
-  @SpeakeasyMetadata({ elemType: CreateTransfer200ApplicationJSONSourceModifiedDateTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType:
+      CreateTransfer200ApplicationJSONSourceModifiedDateTrackingCategoryRefs,
+  })
   @Expose({ name: "trackingCategoryRefs" })
-  @Type(() => CreateTransfer200ApplicationJSONSourceModifiedDateTrackingCategoryRefs)
+  @Type(
+    () => CreateTransfer200ApplicationJSONSourceModifiedDateTrackingCategoryRefs
+  )
   trackingCategoryRefs?: CreateTransfer200ApplicationJSONSourceModifiedDateTrackingCategoryRefs[];
 }
 export enum CreateTransfer200ApplicationJSONStatusEnum {
-    Pending = "Pending",
-    Failed = "Failed",
-    Success = "Success",
-    TimedOut = "TimedOut"
+  Pending = "Pending",
+  Failed = "Failed",
+  Success = "Success",
+  TimedOut = "TimedOut",
 }
 
 export class CreateTransfer200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
@@ -360,16 +375,20 @@ export class CreateTransfer200ApplicationJSONValidationValidationItem extends Sp
 }
 
 // CreateTransfer200ApplicationJSONValidation
-/** 
+/**
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
-**/
+ **/
 export class CreateTransfer200ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: CreateTransfer200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType: CreateTransfer200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "errors" })
   @Type(() => CreateTransfer200ApplicationJSONValidationValidationItem)
   errors?: CreateTransfer200ApplicationJSONValidationValidationItem[];
 
-  @SpeakeasyMetadata({ elemType: CreateTransfer200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType: CreateTransfer200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "warnings" })
   @Type(() => CreateTransfer200ApplicationJSONValidationValidationItem)
   warnings?: CreateTransfer200ApplicationJSONValidationValidationItem[];

@@ -2,20 +2,25 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListSuppliersPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
 export class ListSuppliersQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -76,9 +81,9 @@ export class ListSuppliersLinksLinks extends SpeakeasyBase {
   self: ListSuppliersLinksLinksSelf;
 }
 export enum ListSuppliersLinksSourceModifiedDateAddressesTypeEnum {
-    Unknown = "Unknown",
-    Billing = "Billing",
-    Delivery = "Delivery"
+  Unknown = "Unknown",
+  Billing = "Billing",
+  Delivery = "Delivery",
 }
 
 export class ListSuppliersLinksSourceModifiedDateAddresses extends SpeakeasyBase {
@@ -117,15 +122,15 @@ export class ListSuppliersLinksSourceModifiedDateMetadata extends SpeakeasyBase 
   isDeleted?: boolean;
 }
 export enum ListSuppliersLinksSourceModifiedDateStatusEnum {
-    Unknown = "Unknown",
-    Active = "Active",
-    Archived = "Archived"
+  Unknown = "Unknown",
+  Active = "Active",
+  Archived = "Archived",
 }
 
 // ListSuppliersLinksSourceModifiedDateSupplementalData
-/** 
+/**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-**/
+ **/
 export class ListSuppliersLinksSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -133,15 +138,17 @@ export class ListSuppliersLinksSourceModifiedDateSupplementalData extends Speake
 }
 
 // ListSuppliersLinksSourceModifiedDate
-/** 
+/**
  * > View the coverage for suppliers in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * From the **Suppliers** endpoints, you can retrieve a list of [all the suppliers for a company](https://api.codat.io/swagger/index.html#/Suppliers/get_companies__companyId__data_suppliers). Suppliers' data links to accounts payable [bills](https://docs.codat.io/accounting-api#/schemas/Bill).
-**/
+ **/
 export class ListSuppliersLinksSourceModifiedDate extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ListSuppliersLinksSourceModifiedDateAddresses })
+  @SpeakeasyMetadata({
+    elemType: ListSuppliersLinksSourceModifiedDateAddresses,
+  })
   @Expose({ name: "addresses" })
   @Type(() => ListSuppliersLinksSourceModifiedDateAddresses)
   addresses?: ListSuppliersLinksSourceModifiedDateAddresses[];
@@ -204,9 +211,9 @@ export class ListSuppliersLinksSourceModifiedDate extends SpeakeasyBase {
 }
 
 // ListSuppliersLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class ListSuppliersLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })

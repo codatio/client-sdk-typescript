@@ -2,24 +2,29 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class CreateBillCreditNotePathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
 export class CreateBillCreditNoteQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=timeoutInMinutes" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
   timeoutInMinutes?: number;
 }
 
 // CreateBillCreditNoteSourceModifiedDateLineItemsAccountRef
-/** 
+/**
  * Reference to the account to which the line item is linked.
-**/
+ **/
 export class CreateBillCreditNoteSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -31,9 +36,9 @@ export class CreateBillCreditNoteSourceModifiedDateLineItemsAccountRef extends S
 }
 
 // CreateBillCreditNoteSourceModifiedDateLineItemsItemRef
-/** 
+/**
  * Reference to the item the line is linked to.
-**/
+ **/
 export class CreateBillCreditNoteSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -45,9 +50,9 @@ export class CreateBillCreditNoteSourceModifiedDateLineItemsItemRef extends Spea
 }
 
 // CreateBillCreditNoteSourceModifiedDateLineItemsTaxRateRef
-/** 
+/**
  * Reference to the tax rate to which the line item is linked.
-**/
+ **/
 export class CreateBillCreditNoteSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -82,16 +87,16 @@ export class CreateBillCreditNoteSourceModifiedDateLineItemsTrackingCustomerRef 
   id: string;
 }
 export enum CreateBillCreditNoteSourceModifiedDateLineItemsTrackingIsBilledToEnum {
-    Unknown = "Unknown",
-    NotApplicable = "NotApplicable",
-    Customer = "Customer",
-    Project = "Project"
+  Unknown = "Unknown",
+  NotApplicable = "NotApplicable",
+  Customer = "Customer",
+  Project = "Project",
 }
 export enum CreateBillCreditNoteSourceModifiedDateLineItemsTrackingIsRebilledToEnum {
-    Unknown = "Unknown",
-    NotApplicable = "NotApplicable",
-    Customer = "Customer",
-    Project = "Project"
+  Unknown = "Unknown",
+  NotApplicable = "NotApplicable",
+  Customer = "Customer",
+  Project = "Project",
 }
 
 export class CreateBillCreditNoteSourceModifiedDateLineItemsTrackingProjectRef extends SpeakeasyBase {
@@ -105,14 +110,21 @@ export class CreateBillCreditNoteSourceModifiedDateLineItemsTrackingProjectRef e
 }
 
 export class CreateBillCreditNoteSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: CreateBillCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType:
+      CreateBillCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "categoryRefs" })
-  @Type(() => CreateBillCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs)
+  @Type(
+    () => CreateBillCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs
+  )
   categoryRefs: CreateBillCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "customerRef" })
-  @Type(() => CreateBillCreditNoteSourceModifiedDateLineItemsTrackingCustomerRef)
+  @Type(
+    () => CreateBillCreditNoteSourceModifiedDateLineItemsTrackingCustomerRef
+  )
   customerRef?: CreateBillCreditNoteSourceModifiedDateLineItemsTrackingCustomerRef;
 
   @SpeakeasyMetadata()
@@ -178,9 +190,14 @@ export class CreateBillCreditNoteSourceModifiedDateLineItems extends SpeakeasyBa
   @Type(() => CreateBillCreditNoteSourceModifiedDateLineItemsTracking)
   tracking?: CreateBillCreditNoteSourceModifiedDateLineItemsTracking;
 
-  @SpeakeasyMetadata({ elemType: CreateBillCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType:
+      CreateBillCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "trackingCategoryRefs" })
-  @Type(() => CreateBillCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs)
+  @Type(
+    () => CreateBillCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs
+  )
   trackingCategoryRefs?: CreateBillCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs[];
 
   @SpeakeasyMetadata()
@@ -214,9 +231,9 @@ export class CreateBillCreditNoteSourceModifiedDatePaymentAllocationsAllocation 
 }
 
 // CreateBillCreditNoteSourceModifiedDatePaymentAllocationsPaymentAccountRef
-/** 
+/**
  * The account that the allocated payment is made from or to.
-**/
+ **/
 export class CreateBillCreditNoteSourceModifiedDatePaymentAllocationsPaymentAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -230,7 +247,10 @@ export class CreateBillCreditNoteSourceModifiedDatePaymentAllocationsPaymentAcco
 export class CreateBillCreditNoteSourceModifiedDatePaymentAllocationsPayment extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => CreateBillCreditNoteSourceModifiedDatePaymentAllocationsPaymentAccountRef)
+  @Type(
+    () =>
+      CreateBillCreditNoteSourceModifiedDatePaymentAllocationsPaymentAccountRef
+  )
   accountRef?: CreateBillCreditNoteSourceModifiedDatePaymentAllocationsPaymentAccountRef;
 
   @SpeakeasyMetadata()
@@ -266,7 +286,9 @@ export class CreateBillCreditNoteSourceModifiedDatePaymentAllocationsPayment ext
 export class CreateBillCreditNoteSourceModifiedDatePaymentAllocations extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "allocation" })
-  @Type(() => CreateBillCreditNoteSourceModifiedDatePaymentAllocationsAllocation)
+  @Type(
+    () => CreateBillCreditNoteSourceModifiedDatePaymentAllocationsAllocation
+  )
   allocation: CreateBillCreditNoteSourceModifiedDatePaymentAllocationsAllocation;
 
   @SpeakeasyMetadata()
@@ -275,18 +297,18 @@ export class CreateBillCreditNoteSourceModifiedDatePaymentAllocations extends Sp
   payment: CreateBillCreditNoteSourceModifiedDatePaymentAllocationsPayment;
 }
 export enum CreateBillCreditNoteSourceModifiedDateStatusEnum {
-    Unknown = "Unknown",
-    Draft = "Draft",
-    Submitted = "Submitted",
-    Paid = "Paid",
-    Void = "Void",
-    PartiallyPaid = "PartiallyPaid"
+  Unknown = "Unknown",
+  Draft = "Draft",
+  Submitted = "Submitted",
+  Paid = "Paid",
+  Void = "Void",
+  PartiallyPaid = "PartiallyPaid",
 }
 
 // CreateBillCreditNoteSourceModifiedDateSupplementalData
-/** 
+/**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-**/
+ **/
 export class CreateBillCreditNoteSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -294,9 +316,9 @@ export class CreateBillCreditNoteSourceModifiedDateSupplementalData extends Spea
 }
 
 // CreateBillCreditNoteSourceModifiedDateSupplierRef
-/** 
+/**
  * Supplier that issued the bill credit note.
-**/
+ **/
 export class CreateBillCreditNoteSourceModifiedDateSupplierRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -318,24 +340,24 @@ export class CreateBillCreditNoteSourceModifiedDateWithholdingTax extends Speake
 }
 
 // CreateBillCreditNoteSourceModifiedDate
-/** 
+/**
  * > **Bill credit notes or credit notes?**
- * > 
+ * >
  * > In Codat, bill credit notes represent accounts payable only. For accounts receivable, see [Credit notes](https://docs.codat.io/accounting-api#/schemas/CreditNote).
- * 
+ *
  * View the coverage for bill credit notes in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billCreditNotes" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * A bill credit note is issued by a supplier for the purpose of recording credit. For example, if a supplier was unable to fulfil an order that was placed by a business, or delivered damaged goods, they would issue a bill credit note. A bill credit note reduces the amount a business owes to the supplier. It can be refunded to the business or used to pay off future bills.
- * 
- * In the Codat API, a bill credit note is an accounts payable record issued by a [supplier](https://docs.codat.io/accounting-api#/schemas/Supplier). 
- * 
+ *
+ * In the Codat API, a bill credit note is an accounts payable record issued by a [supplier](https://docs.codat.io/accounting-api#/schemas/Supplier).
+ *
  * A bill credit note includes details of:
  * * The original and remaining credit.
  * * Any allocations of the credit against other records, such as [bills](https://docs.codat.io/accounting-api#/schemas/Bill).
  * * The supplier that issued the bill credit note.
-**/
+ **/
 export class CreateBillCreditNoteSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "allocatedOnDate" })
@@ -367,7 +389,9 @@ export class CreateBillCreditNoteSourceModifiedDate extends SpeakeasyBase {
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   issueDate?: Date;
 
-  @SpeakeasyMetadata({ elemType: CreateBillCreditNoteSourceModifiedDateLineItems })
+  @SpeakeasyMetadata({
+    elemType: CreateBillCreditNoteSourceModifiedDateLineItems,
+  })
   @Expose({ name: "lineItems" })
   @Type(() => CreateBillCreditNoteSourceModifiedDateLineItems)
   lineItems?: CreateBillCreditNoteSourceModifiedDateLineItems[];
@@ -386,7 +410,9 @@ export class CreateBillCreditNoteSourceModifiedDate extends SpeakeasyBase {
   @Expose({ name: "note" })
   note?: string;
 
-  @SpeakeasyMetadata({ elemType: CreateBillCreditNoteSourceModifiedDatePaymentAllocations })
+  @SpeakeasyMetadata({
+    elemType: CreateBillCreditNoteSourceModifiedDatePaymentAllocations,
+  })
   @Expose({ name: "paymentAllocations" })
   @Type(() => CreateBillCreditNoteSourceModifiedDatePaymentAllocations)
   paymentAllocations?: CreateBillCreditNoteSourceModifiedDatePaymentAllocations[];
@@ -430,7 +456,9 @@ export class CreateBillCreditNoteSourceModifiedDate extends SpeakeasyBase {
   @Expose({ name: "totalTaxAmount" })
   totalTaxAmount: number;
 
-  @SpeakeasyMetadata({ elemType: CreateBillCreditNoteSourceModifiedDateWithholdingTax })
+  @SpeakeasyMetadata({
+    elemType: CreateBillCreditNoteSourceModifiedDateWithholdingTax,
+  })
   @Expose({ name: "withholdingTax" })
   @Type(() => CreateBillCreditNoteSourceModifiedDateWithholdingTax)
   withholdingTax?: CreateBillCreditNoteSourceModifiedDateWithholdingTax[];
@@ -457,11 +485,11 @@ export class CreateBillCreditNote200ApplicationJSONChangesPushOperationRecordRef
   id?: string;
 }
 export enum CreateBillCreditNote200ApplicationJSONChangesTypeEnum {
-    Unknown = "Unknown",
-    Created = "Created",
-    Modified = "Modified",
-    Deleted = "Deleted",
-    AttachmentUploaded = "AttachmentUploaded"
+  Unknown = "Unknown",
+  Created = "Created",
+  Modified = "Modified",
+  Deleted = "Deleted",
+  AttachmentUploaded = "AttachmentUploaded",
 }
 
 export class CreateBillCreditNote200ApplicationJSONChanges extends SpeakeasyBase {
@@ -471,7 +499,9 @@ export class CreateBillCreditNote200ApplicationJSONChanges extends SpeakeasyBase
 
   @SpeakeasyMetadata()
   @Expose({ name: "recordRef" })
-  @Type(() => CreateBillCreditNote200ApplicationJSONChangesPushOperationRecordRef)
+  @Type(
+    () => CreateBillCreditNote200ApplicationJSONChangesPushOperationRecordRef
+  )
   recordRef?: CreateBillCreditNote200ApplicationJSONChangesPushOperationRecordRef;
 
   @SpeakeasyMetadata()
@@ -480,9 +510,9 @@ export class CreateBillCreditNote200ApplicationJSONChanges extends SpeakeasyBase
 }
 
 // CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsAccountRef
-/** 
+/**
  * Reference to the account to which the line item is linked.
-**/
+ **/
 export class CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -494,9 +524,9 @@ export class CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsAc
 }
 
 // CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsItemRef
-/** 
+/**
  * Reference to the item the line is linked to.
-**/
+ **/
 export class CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -508,9 +538,9 @@ export class CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsIt
 }
 
 // CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef
-/** 
+/**
  * Reference to the tax rate to which the line item is linked.
-**/
+ **/
 export class CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -545,16 +575,16 @@ export class CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTr
   id: string;
 }
 export enum CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingIsBilledToEnum {
-    Unknown = "Unknown",
-    NotApplicable = "NotApplicable",
-    Customer = "Customer",
-    Project = "Project"
+  Unknown = "Unknown",
+  NotApplicable = "NotApplicable",
+  Customer = "Customer",
+  Project = "Project",
 }
 export enum CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingIsRebilledToEnum {
-    Unknown = "Unknown",
-    NotApplicable = "NotApplicable",
-    Customer = "Customer",
-    Project = "Project"
+  Unknown = "Unknown",
+  NotApplicable = "NotApplicable",
+  Customer = "Customer",
+  Project = "Project",
 }
 
 export class CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingProjectRef extends SpeakeasyBase {
@@ -568,14 +598,23 @@ export class CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTr
 }
 
 export class CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType:
+      CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "categoryRefs" })
-  @Type(() => CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs)
+  @Type(
+    () =>
+      CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs
+  )
   categoryRefs: CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "customerRef" })
-  @Type(() => CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCustomerRef)
+  @Type(
+    () =>
+      CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCustomerRef
+  )
   customerRef?: CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCustomerRef;
 
   @SpeakeasyMetadata()
@@ -588,14 +627,20 @@ export class CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTr
 
   @SpeakeasyMetadata()
   @Expose({ name: "projectRef" })
-  @Type(() => CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingProjectRef)
+  @Type(
+    () =>
+      CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingProjectRef
+  )
   projectRef?: CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingProjectRef;
 }
 
 export class CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItems extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsAccountRef)
+  @Type(
+    () =>
+      CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsAccountRef
+  )
   accountRef?: CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsAccountRef;
 
   @SpeakeasyMetadata()
@@ -612,7 +657,10 @@ export class CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItems e
 
   @SpeakeasyMetadata()
   @Expose({ name: "itemRef" })
-  @Type(() => CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsItemRef)
+  @Type(
+    () =>
+      CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsItemRef
+  )
   itemRef?: CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsItemRef;
 
   @SpeakeasyMetadata()
@@ -629,7 +677,10 @@ export class CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItems e
 
   @SpeakeasyMetadata()
   @Expose({ name: "taxRateRef" })
-  @Type(() => CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef)
+  @Type(
+    () =>
+      CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef
+  )
   taxRateRef?: CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef;
 
   @SpeakeasyMetadata()
@@ -638,12 +689,21 @@ export class CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItems e
 
   @SpeakeasyMetadata()
   @Expose({ name: "tracking" })
-  @Type(() => CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTracking)
+  @Type(
+    () =>
+      CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTracking
+  )
   tracking?: CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTracking;
 
-  @SpeakeasyMetadata({ elemType: CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs })
+  @SpeakeasyMetadata({
+    elemType:
+      CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs,
+  })
   @Expose({ name: "trackingCategoryRefs" })
-  @Type(() => CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs)
+  @Type(
+    () =>
+      CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs
+  )
   trackingCategoryRefs?: CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs[];
 
   @SpeakeasyMetadata()
@@ -677,9 +737,9 @@ export class CreateBillCreditNote200ApplicationJSONSourceModifiedDatePaymentAllo
 }
 
 // CreateBillCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef
-/** 
+/**
  * The account that the allocated payment is made from or to.
-**/
+ **/
 export class CreateBillCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -693,7 +753,10 @@ export class CreateBillCreditNote200ApplicationJSONSourceModifiedDatePaymentAllo
 export class CreateBillCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => CreateBillCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef)
+  @Type(
+    () =>
+      CreateBillCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef
+  )
   accountRef?: CreateBillCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef;
 
   @SpeakeasyMetadata()
@@ -729,27 +792,33 @@ export class CreateBillCreditNote200ApplicationJSONSourceModifiedDatePaymentAllo
 export class CreateBillCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocations extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "allocation" })
-  @Type(() => CreateBillCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation)
+  @Type(
+    () =>
+      CreateBillCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation
+  )
   allocation: CreateBillCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation;
 
   @SpeakeasyMetadata()
   @Expose({ name: "payment" })
-  @Type(() => CreateBillCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment)
+  @Type(
+    () =>
+      CreateBillCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment
+  )
   payment: CreateBillCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment;
 }
 export enum CreateBillCreditNote200ApplicationJSONSourceModifiedDateStatusEnum {
-    Unknown = "Unknown",
-    Draft = "Draft",
-    Submitted = "Submitted",
-    Paid = "Paid",
-    Void = "Void",
-    PartiallyPaid = "PartiallyPaid"
+  Unknown = "Unknown",
+  Draft = "Draft",
+  Submitted = "Submitted",
+  Paid = "Paid",
+  Void = "Void",
+  PartiallyPaid = "PartiallyPaid",
 }
 
 // CreateBillCreditNote200ApplicationJSONSourceModifiedDateSupplementalData
-/** 
+/**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-**/
+ **/
 export class CreateBillCreditNote200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
@@ -757,9 +826,9 @@ export class CreateBillCreditNote200ApplicationJSONSourceModifiedDateSupplementa
 }
 
 // CreateBillCreditNote200ApplicationJSONSourceModifiedDateSupplierRef
-/** 
+/**
  * Supplier that issued the bill credit note.
-**/
+ **/
 export class CreateBillCreditNote200ApplicationJSONSourceModifiedDateSupplierRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -781,24 +850,24 @@ export class CreateBillCreditNote200ApplicationJSONSourceModifiedDateWithholding
 }
 
 // CreateBillCreditNote200ApplicationJSONSourceModifiedDate
-/** 
+/**
  * > **Bill credit notes or credit notes?**
- * > 
+ * >
  * > In Codat, bill credit notes represent accounts payable only. For accounts receivable, see [Credit notes](https://docs.codat.io/accounting-api#/schemas/CreditNote).
- * 
+ *
  * View the coverage for bill credit notes in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billCreditNotes" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * A bill credit note is issued by a supplier for the purpose of recording credit. For example, if a supplier was unable to fulfil an order that was placed by a business, or delivered damaged goods, they would issue a bill credit note. A bill credit note reduces the amount a business owes to the supplier. It can be refunded to the business or used to pay off future bills.
- * 
- * In the Codat API, a bill credit note is an accounts payable record issued by a [supplier](https://docs.codat.io/accounting-api#/schemas/Supplier). 
- * 
+ *
+ * In the Codat API, a bill credit note is an accounts payable record issued by a [supplier](https://docs.codat.io/accounting-api#/schemas/Supplier).
+ *
  * A bill credit note includes details of:
  * * The original and remaining credit.
  * * Any allocations of the credit against other records, such as [bills](https://docs.codat.io/accounting-api#/schemas/Bill).
  * * The supplier that issued the bill credit note.
-**/
+ **/
 export class CreateBillCreditNote200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "allocatedOnDate" })
@@ -830,7 +899,9 @@ export class CreateBillCreditNote200ApplicationJSONSourceModifiedDate extends Sp
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   issueDate?: Date;
 
-  @SpeakeasyMetadata({ elemType: CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItems })
+  @SpeakeasyMetadata({
+    elemType: CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItems,
+  })
   @Expose({ name: "lineItems" })
   @Type(() => CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItems)
   lineItems?: CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItems[];
@@ -849,9 +920,15 @@ export class CreateBillCreditNote200ApplicationJSONSourceModifiedDate extends Sp
   @Expose({ name: "note" })
   note?: string;
 
-  @SpeakeasyMetadata({ elemType: CreateBillCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocations })
+  @SpeakeasyMetadata({
+    elemType:
+      CreateBillCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocations,
+  })
   @Expose({ name: "paymentAllocations" })
-  @Type(() => CreateBillCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocations)
+  @Type(
+    () =>
+      CreateBillCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocations
+  )
   paymentAllocations?: CreateBillCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocations[];
 
   @SpeakeasyMetadata()
@@ -873,12 +950,17 @@ export class CreateBillCreditNote200ApplicationJSONSourceModifiedDate extends Sp
 
   @SpeakeasyMetadata()
   @Expose({ name: "supplementalData" })
-  @Type(() => CreateBillCreditNote200ApplicationJSONSourceModifiedDateSupplementalData)
+  @Type(
+    () =>
+      CreateBillCreditNote200ApplicationJSONSourceModifiedDateSupplementalData
+  )
   supplementalData?: CreateBillCreditNote200ApplicationJSONSourceModifiedDateSupplementalData;
 
   @SpeakeasyMetadata()
   @Expose({ name: "supplierRef" })
-  @Type(() => CreateBillCreditNote200ApplicationJSONSourceModifiedDateSupplierRef)
+  @Type(
+    () => CreateBillCreditNote200ApplicationJSONSourceModifiedDateSupplierRef
+  )
   supplierRef?: CreateBillCreditNote200ApplicationJSONSourceModifiedDateSupplierRef;
 
   @SpeakeasyMetadata()
@@ -893,16 +975,21 @@ export class CreateBillCreditNote200ApplicationJSONSourceModifiedDate extends Sp
   @Expose({ name: "totalTaxAmount" })
   totalTaxAmount: number;
 
-  @SpeakeasyMetadata({ elemType: CreateBillCreditNote200ApplicationJSONSourceModifiedDateWithholdingTax })
+  @SpeakeasyMetadata({
+    elemType:
+      CreateBillCreditNote200ApplicationJSONSourceModifiedDateWithholdingTax,
+  })
   @Expose({ name: "withholdingTax" })
-  @Type(() => CreateBillCreditNote200ApplicationJSONSourceModifiedDateWithholdingTax)
+  @Type(
+    () => CreateBillCreditNote200ApplicationJSONSourceModifiedDateWithholdingTax
+  )
   withholdingTax?: CreateBillCreditNote200ApplicationJSONSourceModifiedDateWithholdingTax[];
 }
 export enum CreateBillCreditNote200ApplicationJSONStatusEnum {
-    Pending = "Pending",
-    Failed = "Failed",
-    Success = "Success",
-    TimedOut = "TimedOut"
+  Pending = "Pending",
+  Failed = "Failed",
+  Success = "Success",
+  TimedOut = "TimedOut",
 }
 
 export class CreateBillCreditNote200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
@@ -920,23 +1007,29 @@ export class CreateBillCreditNote200ApplicationJSONValidationValidationItem exte
 }
 
 // CreateBillCreditNote200ApplicationJSONValidation
-/** 
+/**
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
-**/
+ **/
 export class CreateBillCreditNote200ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: CreateBillCreditNote200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType: CreateBillCreditNote200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "errors" })
   @Type(() => CreateBillCreditNote200ApplicationJSONValidationValidationItem)
   errors?: CreateBillCreditNote200ApplicationJSONValidationValidationItem[];
 
-  @SpeakeasyMetadata({ elemType: CreateBillCreditNote200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType: CreateBillCreditNote200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "warnings" })
   @Type(() => CreateBillCreditNote200ApplicationJSONValidationValidationItem)
   warnings?: CreateBillCreditNote200ApplicationJSONValidationValidationItem[];
 }
 
 export class CreateBillCreditNote200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: CreateBillCreditNote200ApplicationJSONChanges })
+  @SpeakeasyMetadata({
+    elemType: CreateBillCreditNote200ApplicationJSONChanges,
+  })
   @Expose({ name: "changes" })
   @Type(() => CreateBillCreditNote200ApplicationJSONChanges)
   changes?: CreateBillCreditNote200ApplicationJSONChanges[];

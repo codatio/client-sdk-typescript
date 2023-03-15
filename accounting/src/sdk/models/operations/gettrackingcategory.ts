@@ -2,12 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetTrackingCategoryPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=trackingCategoryId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=trackingCategoryId",
+  })
   trackingCategoryId: string;
 }
 
@@ -16,24 +19,24 @@ export class GetTrackingCategoryRequest extends SpeakeasyBase {
   pathParams: GetTrackingCategoryPathParams;
 }
 export enum GetTrackingCategorySourceModifiedDateTrackingCategoryStatusEnum {
-    Unknown = "Unknown",
-    Active = "Active",
-    Archived = "Archived"
+  Unknown = "Unknown",
+  Active = "Active",
+  Archived = "Archived",
 }
 export enum GetTrackingCategorySourceModifiedDateSourceModifiedDateTrackingCategoryStatusEnum {
-    Unknown = "Unknown",
-    Active = "Active",
-    Archived = "Archived"
+  Unknown = "Unknown",
+  Active = "Active",
+  Archived = "Archived",
 }
 export enum GetTrackingCategorySourceModifiedDateSourceModifiedDateSourceModifiedDateTrackingCategoryStatusEnum {
-    Unknown = "Unknown",
-    Active = "Active",
-    Archived = "Archived"
+  Unknown = "Unknown",
+  Active = "Active",
+  Archived = "Archived",
 }
 export enum GetTrackingCategorySourceModifiedDateSourceModifiedDateSourceModifiedDateSourceModifiedDateTrackingCategoryStatusEnum {
-    Unknown = "Unknown",
-    Active = "Active",
-    Archived = "Archived"
+  Unknown = "Unknown",
+  Active = "Active",
+  Archived = "Archived",
 }
 
 export class GetTrackingCategorySourceModifiedDateSourceModifiedDateSourceModifiedDateSourceModifiedDate extends SpeakeasyBase {
@@ -95,9 +98,15 @@ export class GetTrackingCategorySourceModifiedDateSourceModifiedDateSourceModifi
   @Expose({ name: "status" })
   status?: GetTrackingCategorySourceModifiedDateSourceModifiedDateSourceModifiedDateTrackingCategoryStatusEnum;
 
-  @SpeakeasyMetadata({ elemType: GetTrackingCategorySourceModifiedDateSourceModifiedDateSourceModifiedDateSourceModifiedDate })
+  @SpeakeasyMetadata({
+    elemType:
+      GetTrackingCategorySourceModifiedDateSourceModifiedDateSourceModifiedDateSourceModifiedDate,
+  })
   @Expose({ name: "subCategories" })
-  @Type(() => GetTrackingCategorySourceModifiedDateSourceModifiedDateSourceModifiedDateSourceModifiedDate)
+  @Type(
+    () =>
+      GetTrackingCategorySourceModifiedDateSourceModifiedDateSourceModifiedDateSourceModifiedDate
+  )
   subCategories?: GetTrackingCategorySourceModifiedDateSourceModifiedDateSourceModifiedDateSourceModifiedDate[];
 }
 
@@ -132,9 +141,15 @@ export class GetTrackingCategorySourceModifiedDateSourceModifiedDate extends Spe
   @Expose({ name: "status" })
   status?: GetTrackingCategorySourceModifiedDateSourceModifiedDateTrackingCategoryStatusEnum;
 
-  @SpeakeasyMetadata({ elemType: GetTrackingCategorySourceModifiedDateSourceModifiedDateSourceModifiedDate })
+  @SpeakeasyMetadata({
+    elemType:
+      GetTrackingCategorySourceModifiedDateSourceModifiedDateSourceModifiedDate,
+  })
   @Expose({ name: "subCategories" })
-  @Type(() => GetTrackingCategorySourceModifiedDateSourceModifiedDateSourceModifiedDate)
+  @Type(
+    () =>
+      GetTrackingCategorySourceModifiedDateSourceModifiedDateSourceModifiedDate
+  )
   subCategories?: GetTrackingCategorySourceModifiedDateSourceModifiedDateSourceModifiedDate[];
 }
 
@@ -169,7 +184,9 @@ export class GetTrackingCategorySourceModifiedDate extends SpeakeasyBase {
   @Expose({ name: "status" })
   status?: GetTrackingCategorySourceModifiedDateTrackingCategoryStatusEnum;
 
-  @SpeakeasyMetadata({ elemType: GetTrackingCategorySourceModifiedDateSourceModifiedDate })
+  @SpeakeasyMetadata({
+    elemType: GetTrackingCategorySourceModifiedDateSourceModifiedDate,
+  })
   @Expose({ name: "subCategories" })
   @Type(() => GetTrackingCategorySourceModifiedDateSourceModifiedDate)
   subCategories?: GetTrackingCategorySourceModifiedDateSourceModifiedDate[];
