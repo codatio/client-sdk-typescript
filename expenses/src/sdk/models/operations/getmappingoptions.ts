@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetMappingOptionsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
@@ -13,21 +14,21 @@ export class GetMappingOptionsRequest extends SpeakeasyBase {
   pathParams: GetMappingOptionsPathParams;
 }
 export enum GetMappingOptions200ApplicationJSONAccountsAccountTypeEnum {
-    Asset = "Asset",
-    Liability = "Liability",
-    Income = "Income",
-    Expense = "Expense",
-    Equity = "Equity"
+  Asset = "Asset",
+  Liability = "Liability",
+  Income = "Income",
+  Expense = "Expense",
+  Equity = "Equity",
 }
 export enum GetMappingOptions200ApplicationJSONAccountsValidTransactionTypesEnum {
-    Payment = "Payment",
-    Refund = "Refund",
-    Reward = "Reward",
-    Chargeback = "Chargeback",
-    TransferIn = "TransferIn",
-    TransferOut = "TransferOut",
-    AdjustmentIn = "AdjustmentIn",
-    AdjustmentOut = "AdjustmentOut"
+  Payment = "Payment",
+  Refund = "Refund",
+  Reward = "Reward",
+  Chargeback = "Chargeback",
+  TransferIn = "TransferIn",
+  TransferOut = "TransferOut",
+  AdjustmentIn = "AdjustmentIn",
+  AdjustmentOut = "AdjustmentOut",
 }
 
 export class GetMappingOptions200ApplicationJSONAccounts extends SpeakeasyBase {
@@ -52,14 +53,14 @@ export class GetMappingOptions200ApplicationJSONAccounts extends SpeakeasyBase {
   validTransactionTypes?: GetMappingOptions200ApplicationJSONAccountsValidTransactionTypesEnum[];
 }
 export enum GetMappingOptions200ApplicationJSONTaxRatesValidTransactionTypesEnum {
-    Payment = "Payment",
-    Refund = "Refund",
-    Reward = "Reward",
-    Chargeback = "Chargeback",
-    TransferIn = "TransferIn",
-    TransferOut = "TransferOut",
-    AdjustmentIn = "AdjustmentIn",
-    AdjustmentOut = "AdjustmentOut"
+  Payment = "Payment",
+  Refund = "Refund",
+  Reward = "Reward",
+  Chargeback = "Chargeback",
+  TransferIn = "TransferIn",
+  TransferOut = "TransferOut",
+  AdjustmentIn = "AdjustmentIn",
+  AdjustmentOut = "AdjustmentOut",
 }
 
 export class GetMappingOptions200ApplicationJSONTaxRates extends SpeakeasyBase {
@@ -126,7 +127,9 @@ export class GetMappingOptions200ApplicationJSON extends SpeakeasyBase {
   @Type(() => GetMappingOptions200ApplicationJSONTaxRates)
   taxRates?: GetMappingOptions200ApplicationJSONTaxRates[];
 
-  @SpeakeasyMetadata({ elemType: GetMappingOptions200ApplicationJSONTrackingCategories })
+  @SpeakeasyMetadata({
+    elemType: GetMappingOptions200ApplicationJSONTrackingCategories,
+  })
   @Expose({ name: "trackingCategories" })
   @Type(() => GetMappingOptions200ApplicationJSONTrackingCategories)
   trackingCategories?: GetMappingOptions200ApplicationJSONTrackingCategories[];

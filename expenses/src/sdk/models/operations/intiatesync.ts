@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class IntiateSyncPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
@@ -77,7 +78,9 @@ export class IntiateSync422ApplicationJSONValidationWarnings extends SpeakeasyBa
 }
 
 export class IntiateSync422ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: IntiateSync422ApplicationJSONValidationErrors })
+  @SpeakeasyMetadata({
+    elemType: IntiateSync422ApplicationJSONValidationErrors,
+  })
   @Expose({ name: "errors" })
   @Type(() => IntiateSync422ApplicationJSONValidationErrors)
   errors?: IntiateSync422ApplicationJSONValidationErrors[];
@@ -94,12 +97,16 @@ export class IntiateSync422ApplicationJSONValidation extends SpeakeasyBase {
   @Expose({ name: "hasWarnings" })
   hasWarnings?: boolean;
 
-  @SpeakeasyMetadata({ elemType: IntiateSync422ApplicationJSONValidationInternals })
+  @SpeakeasyMetadata({
+    elemType: IntiateSync422ApplicationJSONValidationInternals,
+  })
   @Expose({ name: "internals" })
   @Type(() => IntiateSync422ApplicationJSONValidationInternals)
   internals?: IntiateSync422ApplicationJSONValidationInternals[];
 
-  @SpeakeasyMetadata({ elemType: IntiateSync422ApplicationJSONValidationWarnings })
+  @SpeakeasyMetadata({
+    elemType: IntiateSync422ApplicationJSONValidationWarnings,
+  })
   @Expose({ name: "warnings" })
   @Type(() => IntiateSync422ApplicationJSONValidationWarnings)
   warnings?: IntiateSync422ApplicationJSONValidationWarnings[];
@@ -195,7 +202,9 @@ export class IntiateSync404ApplicationJSONValidationWarnings extends SpeakeasyBa
 }
 
 export class IntiateSync404ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: IntiateSync404ApplicationJSONValidationErrors })
+  @SpeakeasyMetadata({
+    elemType: IntiateSync404ApplicationJSONValidationErrors,
+  })
   @Expose({ name: "errors" })
   @Type(() => IntiateSync404ApplicationJSONValidationErrors)
   errors?: IntiateSync404ApplicationJSONValidationErrors[];
@@ -212,12 +221,16 @@ export class IntiateSync404ApplicationJSONValidation extends SpeakeasyBase {
   @Expose({ name: "hasWarnings" })
   hasWarnings?: boolean;
 
-  @SpeakeasyMetadata({ elemType: IntiateSync404ApplicationJSONValidationInternals })
+  @SpeakeasyMetadata({
+    elemType: IntiateSync404ApplicationJSONValidationInternals,
+  })
   @Expose({ name: "internals" })
   @Type(() => IntiateSync404ApplicationJSONValidationInternals)
   internals?: IntiateSync404ApplicationJSONValidationInternals[];
 
-  @SpeakeasyMetadata({ elemType: IntiateSync404ApplicationJSONValidationWarnings })
+  @SpeakeasyMetadata({
+    elemType: IntiateSync404ApplicationJSONValidationWarnings,
+  })
   @Expose({ name: "warnings" })
   @Type(() => IntiateSync404ApplicationJSONValidationWarnings)
   warnings?: IntiateSync404ApplicationJSONValidationWarnings[];
@@ -313,7 +326,9 @@ export class IntiateSync400ApplicationJSONValidationWarnings extends SpeakeasyBa
 }
 
 export class IntiateSync400ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: IntiateSync400ApplicationJSONValidationErrors })
+  @SpeakeasyMetadata({
+    elemType: IntiateSync400ApplicationJSONValidationErrors,
+  })
   @Expose({ name: "errors" })
   @Type(() => IntiateSync400ApplicationJSONValidationErrors)
   errors?: IntiateSync400ApplicationJSONValidationErrors[];
@@ -330,12 +345,16 @@ export class IntiateSync400ApplicationJSONValidation extends SpeakeasyBase {
   @Expose({ name: "hasWarnings" })
   hasWarnings?: boolean;
 
-  @SpeakeasyMetadata({ elemType: IntiateSync400ApplicationJSONValidationInternals })
+  @SpeakeasyMetadata({
+    elemType: IntiateSync400ApplicationJSONValidationInternals,
+  })
   @Expose({ name: "internals" })
   @Type(() => IntiateSync400ApplicationJSONValidationInternals)
   internals?: IntiateSync400ApplicationJSONValidationInternals[];
 
-  @SpeakeasyMetadata({ elemType: IntiateSync400ApplicationJSONValidationWarnings })
+  @SpeakeasyMetadata({
+    elemType: IntiateSync400ApplicationJSONValidationWarnings,
+  })
   @Expose({ name: "warnings" })
   @Type(() => IntiateSync400ApplicationJSONValidationWarnings)
   warnings?: IntiateSync400ApplicationJSONValidationWarnings[];

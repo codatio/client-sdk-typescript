@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class CreateExpenseDatasetPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
@@ -33,20 +34,22 @@ export class CreateExpenseDatasetRequestBodyItemsLines extends SpeakeasyBase {
   @Type(() => CreateExpenseDatasetRequestBodyItemsLinesRecordRef)
   taxRateRef?: CreateExpenseDatasetRequestBodyItemsLinesRecordRef;
 
-  @SpeakeasyMetadata({ elemType: CreateExpenseDatasetRequestBodyItemsLinesRecordRef })
+  @SpeakeasyMetadata({
+    elemType: CreateExpenseDatasetRequestBodyItemsLinesRecordRef,
+  })
   @Expose({ name: "trackingRefs" })
   @Type(() => CreateExpenseDatasetRequestBodyItemsLinesRecordRef)
   trackingRefs?: CreateExpenseDatasetRequestBodyItemsLinesRecordRef[];
 }
 export enum CreateExpenseDatasetRequestBodyItemsTypeEnum {
-    Payment = "Payment",
-    Refund = "Refund",
-    Reward = "Reward",
-    Chargeback = "Chargeback",
-    TransferIn = "TransferIn",
-    TransferOut = "TransferOut",
-    AdjustmentIn = "AdjustmentIn",
-    AdjustmentOut = "AdjustmentOut"
+  Payment = "Payment",
+  Refund = "Refund",
+  Reward = "Reward",
+  Chargeback = "Chargeback",
+  TransferIn = "TransferIn",
+  TransferOut = "TransferOut",
+  AdjustmentIn = "AdjustmentIn",
+  AdjustmentOut = "AdjustmentOut",
 }
 
 export class CreateExpenseDatasetRequestBodyItems extends SpeakeasyBase {

@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class SaveCompanyConfigurationPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
@@ -106,7 +107,9 @@ export class SaveCompanyConfiguration400ApplicationJSONValidationWarnings extend
 }
 
 export class SaveCompanyConfiguration400ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: SaveCompanyConfiguration400ApplicationJSONValidationErrors })
+  @SpeakeasyMetadata({
+    elemType: SaveCompanyConfiguration400ApplicationJSONValidationErrors,
+  })
   @Expose({ name: "errors" })
   @Type(() => SaveCompanyConfiguration400ApplicationJSONValidationErrors)
   errors?: SaveCompanyConfiguration400ApplicationJSONValidationErrors[];
@@ -123,12 +126,16 @@ export class SaveCompanyConfiguration400ApplicationJSONValidation extends Speake
   @Expose({ name: "hasWarnings" })
   hasWarnings?: boolean;
 
-  @SpeakeasyMetadata({ elemType: SaveCompanyConfiguration400ApplicationJSONValidationInternals })
+  @SpeakeasyMetadata({
+    elemType: SaveCompanyConfiguration400ApplicationJSONValidationInternals,
+  })
   @Expose({ name: "internals" })
   @Type(() => SaveCompanyConfiguration400ApplicationJSONValidationInternals)
   internals?: SaveCompanyConfiguration400ApplicationJSONValidationInternals[];
 
-  @SpeakeasyMetadata({ elemType: SaveCompanyConfiguration400ApplicationJSONValidationWarnings })
+  @SpeakeasyMetadata({
+    elemType: SaveCompanyConfiguration400ApplicationJSONValidationWarnings,
+  })
   @Expose({ name: "warnings" })
   @Type(() => SaveCompanyConfiguration400ApplicationJSONValidationWarnings)
   warnings?: SaveCompanyConfiguration400ApplicationJSONValidationWarnings[];

@@ -2,12 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, plainToInstance, Transform, Type } from "class-transformer";
 
-
 export class GetSyncTransactionsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=syncId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=syncId",
+  })
   syncId: string;
 }
 
@@ -15,7 +18,9 @@ export class GetSyncTransactionsQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 }
 
@@ -33,15 +38,15 @@ export class GetSyncTransactions200ApplicationJSONHalLink extends SpeakeasyBase 
   href?: string;
 }
 export enum GetSyncTransactions200ApplicationJSONResultsIntegrationTypeEnum {
-    Expenses = "expenses",
-    Bankfeeds = "bankfeeds"
+  Expenses = "expenses",
+  Bankfeeds = "bankfeeds",
 }
 export enum GetSyncTransactions200ApplicationJSONResultsStatusEnum {
-    Unknown = "Unknown",
-    Pending = "Pending",
-    ValidationError = "ValidationError",
-    Completed = "Completed",
-    PushError = "PushError"
+  Unknown = "Unknown",
+  Pending = "Pending",
+  ValidationError = "ValidationError",
+  Completed = "Completed",
+  PushError = "PushError",
 }
 
 export class GetSyncTransactions200ApplicationJSONResults extends SpeakeasyBase {
@@ -65,16 +70,21 @@ export class GetSyncTransactions200ApplicationJSONResults extends SpeakeasyBase 
 export class GetSyncTransactions200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata({ elemType: GetSyncTransactions200ApplicationJSONHalLink })
   @Expose({ name: "links" })
-  @Transform(({ value }) => {
-    const obj: Record<string, GetSyncTransactions200ApplicationJSONHalLink> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(GetSyncTransactions200ApplicationJSONHalLink,
-        value[key] as GetSyncTransactions200ApplicationJSONHalLink,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
+  @Transform(
+    ({ value }) => {
+      const obj: Record<string, GetSyncTransactions200ApplicationJSONHalLink> =
+        {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          GetSyncTransactions200ApplicationJSONHalLink,
+          value[key] as GetSyncTransactions200ApplicationJSONHalLink,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
   links?: Record<string, GetSyncTransactions200ApplicationJSONHalLink>;
 
   @SpeakeasyMetadata()
