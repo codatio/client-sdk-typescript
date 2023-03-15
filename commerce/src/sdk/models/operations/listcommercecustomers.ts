@@ -2,23 +2,30 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListCommerceCustomersPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
 export class ListCommerceCustomersQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -110,11 +117,13 @@ export class ListCommerceCustomersLinksSourceModifiedDateAddress extends Speakea
 }
 
 // ListCommerceCustomersLinksSourceModifiedDate
-/** 
+/**
  * Represents a customer who has placed an order in the commerce system"
-**/
+ **/
 export class ListCommerceCustomersLinksSourceModifiedDate extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ListCommerceCustomersLinksSourceModifiedDateAddress })
+  @SpeakeasyMetadata({
+    elemType: ListCommerceCustomersLinksSourceModifiedDateAddress,
+  })
   @Expose({ name: "addresses" })
   @Type(() => ListCommerceCustomersLinksSourceModifiedDateAddress)
   addresses?: ListCommerceCustomersLinksSourceModifiedDateAddress[];
@@ -160,9 +169,9 @@ export class ListCommerceCustomersLinksSourceModifiedDate extends SpeakeasyBase 
 }
 
 // ListCommerceCustomersLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class ListCommerceCustomersLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })

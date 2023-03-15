@@ -2,12 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetCompaniesCompanyIdConnectionsConnectionIdDataCommerceTaxComponentsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
@@ -45,9 +48,15 @@ export class GetCompaniesCompanyIdConnectionsConnectionIdDataCommerceTaxComponen
 }
 
 export class GetCompaniesCompanyIdConnectionsConnectionIdDataCommerceTaxComponents200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCompaniesCompanyIdConnectionsConnectionIdDataCommerceTaxComponents200ApplicationJSONSourceModifiedDate })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCompaniesCompanyIdConnectionsConnectionIdDataCommerceTaxComponents200ApplicationJSONSourceModifiedDate,
+  })
   @Expose({ name: "taxComponents" })
-  @Type(() => GetCompaniesCompanyIdConnectionsConnectionIdDataCommerceTaxComponents200ApplicationJSONSourceModifiedDate)
+  @Type(
+    () =>
+      GetCompaniesCompanyIdConnectionsConnectionIdDataCommerceTaxComponents200ApplicationJSONSourceModifiedDate
+  )
   taxComponents?: GetCompaniesCompanyIdConnectionsConnectionIdDataCommerceTaxComponents200ApplicationJSONSourceModifiedDate[];
 }
 

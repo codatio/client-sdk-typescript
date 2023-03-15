@@ -2,23 +2,30 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListCommerceOrdersPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
 export class ListCommerceOrdersQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -110,9 +117,15 @@ export class ListCommerceOrdersLinksSourceModifiedDateOrderLineItemsNameRef exte
 }
 
 export class ListCommerceOrdersLinksSourceModifiedDateOrderLineItems extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ListCommerceOrdersLinksSourceModifiedDateOrderLineItemsDiscountAllocations })
+  @SpeakeasyMetadata({
+    elemType:
+      ListCommerceOrdersLinksSourceModifiedDateOrderLineItemsDiscountAllocations,
+  })
   @Expose({ name: "discountAllocations" })
-  @Type(() => ListCommerceOrdersLinksSourceModifiedDateOrderLineItemsDiscountAllocations)
+  @Type(
+    () =>
+      ListCommerceOrdersLinksSourceModifiedDateOrderLineItemsDiscountAllocations
+  )
   discountAllocations?: ListCommerceOrdersLinksSourceModifiedDateOrderLineItemsDiscountAllocations[];
 
   @SpeakeasyMetadata()
@@ -154,26 +167,26 @@ export class ListCommerceOrdersLinksSourceModifiedDateOrderLineItems extends Spe
   unitPrice?: number;
 }
 export enum ListCommerceOrdersLinksSourceModifiedDateSourceModifiedDateStatusEnum {
-    Pending = "Pending",
-    Authorized = "Authorized",
-    Paid = "Paid",
-    Failed = "Failed",
-    Cancelled = "Cancelled",
-    Unknown = "Unknown"
+  Pending = "Pending",
+  Authorized = "Authorized",
+  Paid = "Paid",
+  Failed = "Failed",
+  Cancelled = "Cancelled",
+  Unknown = "Unknown",
 }
 export enum ListCommerceOrdersLinksSourceModifiedDateSourceModifiedDateTypeEnum {
-    Cash = "Cash",
-    Card = "Card",
-    Invoice = "Invoice",
-    OnlineCard = "OnlineCard",
-    Swish = "Swish",
-    Vipps = "Vipps",
-    Mobile = "Mobile",
-    StoreCredit = "StoreCredit",
-    Paypal = "Paypal",
-    Custom = "Custom",
-    Prepaid = "Prepaid",
-    Unknown = "Unknown"
+  Cash = "Cash",
+  Card = "Card",
+  Invoice = "Invoice",
+  OnlineCard = "OnlineCard",
+  Swish = "Swish",
+  Vipps = "Vipps",
+  Mobile = "Mobile",
+  StoreCredit = "StoreCredit",
+  Paypal = "Paypal",
+  Custom = "Custom",
+  Prepaid = "Prepaid",
+  Unknown = "Unknown",
 }
 
 export class ListCommerceOrdersLinksSourceModifiedDateSourceModifiedDate extends SpeakeasyBase {
@@ -222,10 +235,10 @@ export class ListCommerceOrdersLinksSourceModifiedDateSourceModifiedDate extends
   type?: ListCommerceOrdersLinksSourceModifiedDateSourceModifiedDateTypeEnum;
 }
 export enum ListCommerceOrdersLinksSourceModifiedDateServiceChargesTypeEnum {
-    Generic = "Generic",
-    Shipping = "Shipping",
-    Overpayment = "Overpayment",
-    Unknown = "Unknown"
+  Generic = "Generic",
+  Shipping = "Shipping",
+  Overpayment = "Overpayment",
+  Unknown = "Unknown",
 }
 
 export class ListCommerceOrdersLinksSourceModifiedDateServiceCharges extends SpeakeasyBase {
@@ -259,18 +272,18 @@ export class ListCommerceOrdersLinksSourceModifiedDateServiceCharges extends Spe
 }
 
 // ListCommerceOrdersLinksSourceModifiedDate
-/** 
+/**
  * Orders contain the transaction details for all products sold by the company, and include details of any payments, service charges, or refunds related to each order.
- * 
+ *
  * From the Orders endpoints you can retrieve:
- * 
+ *
  * A list of all the orders for a commerce company:
  * `GET /companies/{companyId}/connections/{connectionId}/data/commerce-orders`.
  * The details of an individual order:
  * `GET /companies/{companyId}/connections/{connectionId}/data/commerce-orders/{orderId}`.
  * Note that for refunds `quantity` is a negative value and `unitPrice` is a positive value.
- * 
-**/
+ *
+ **/
 export class ListCommerceOrdersLinksSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "closedDate" })
@@ -309,7 +322,9 @@ export class ListCommerceOrdersLinksSourceModifiedDate extends SpeakeasyBase {
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   modifiedDate?: Date;
 
-  @SpeakeasyMetadata({ elemType: ListCommerceOrdersLinksSourceModifiedDateOrderLineItems })
+  @SpeakeasyMetadata({
+    elemType: ListCommerceOrdersLinksSourceModifiedDateOrderLineItems,
+  })
   @Expose({ name: "orderLineItems" })
   @Type(() => ListCommerceOrdersLinksSourceModifiedDateOrderLineItems)
   orderLineItems?: ListCommerceOrdersLinksSourceModifiedDateOrderLineItems[];
@@ -318,12 +333,16 @@ export class ListCommerceOrdersLinksSourceModifiedDate extends SpeakeasyBase {
   @Expose({ name: "orderNumber" })
   orderNumber?: string;
 
-  @SpeakeasyMetadata({ elemType: ListCommerceOrdersLinksSourceModifiedDateSourceModifiedDate })
+  @SpeakeasyMetadata({
+    elemType: ListCommerceOrdersLinksSourceModifiedDateSourceModifiedDate,
+  })
   @Expose({ name: "payments" })
   @Type(() => ListCommerceOrdersLinksSourceModifiedDateSourceModifiedDate)
   payments?: ListCommerceOrdersLinksSourceModifiedDateSourceModifiedDate[];
 
-  @SpeakeasyMetadata({ elemType: ListCommerceOrdersLinksSourceModifiedDateServiceCharges })
+  @SpeakeasyMetadata({
+    elemType: ListCommerceOrdersLinksSourceModifiedDateServiceCharges,
+  })
   @Expose({ name: "serviceCharges" })
   @Type(() => ListCommerceOrdersLinksSourceModifiedDateServiceCharges)
   serviceCharges?: ListCommerceOrdersLinksSourceModifiedDateServiceCharges[];
@@ -355,9 +374,9 @@ export class ListCommerceOrdersLinksSourceModifiedDate extends SpeakeasyBase {
 }
 
 // ListCommerceOrdersLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class ListCommerceOrdersLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })

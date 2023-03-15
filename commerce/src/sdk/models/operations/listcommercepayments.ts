@@ -2,23 +2,30 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListCommercePaymentsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
 export class ListCommercePaymentsQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -80,9 +87,9 @@ export class ListCommercePaymentsLinksLinks extends SpeakeasyBase {
 }
 
 // ListCommercePaymentsLinksSourceModifiedDateNameRef
-/** 
+/**
  * The payment method the payment is linked to in the commerce platform.
-**/
+ **/
 export class ListCommercePaymentsLinksSourceModifiedDateNameRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -93,18 +100,18 @@ export class ListCommercePaymentsLinksSourceModifiedDateNameRef extends Speakeas
   name: string;
 }
 export enum ListCommercePaymentsLinksSourceModifiedDateStatusEnum {
-    Pending = "Pending",
-    Authorized = "Authorized",
-    Paid = "Paid",
-    Failed = "Failed",
-    Cancelled = "Cancelled",
-    Unknown = "Unknown"
+  Pending = "Pending",
+  Authorized = "Authorized",
+  Paid = "Paid",
+  Failed = "Failed",
+  Cancelled = "Cancelled",
+  Unknown = "Unknown",
 }
 
 // ListCommercePaymentsLinksSourceModifiedDate
-/** 
+/**
  * A payment made in a commerce platform
-**/
+ **/
 export class ListCommercePaymentsLinksSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "amount" })
@@ -153,9 +160,9 @@ export class ListCommercePaymentsLinksSourceModifiedDate extends SpeakeasyBase {
 }
 
 // ListCommercePaymentsLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class ListCommercePaymentsLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })

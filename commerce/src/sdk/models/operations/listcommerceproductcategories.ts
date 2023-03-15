@@ -2,23 +2,30 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListCommerceProductCategoriesPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
 export class ListCommerceProductCategoriesQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -90,11 +97,13 @@ export class ListCommerceProductCategoriesLinksProductCategoryRecordRef extends 
 }
 
 // ListCommerceProductCategoriesLinksProductCategory
-/** 
+/**
  * Product categories are used to classify a group of products together, either by type (eg "Furniture"), or sometimes by tax profile.
-**/
+ **/
 export class ListCommerceProductCategoriesLinksProductCategory extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ListCommerceProductCategoriesLinksProductCategoryRecordRef })
+  @SpeakeasyMetadata({
+    elemType: ListCommerceProductCategoriesLinksProductCategoryRecordRef,
+  })
   @Expose({ name: "ancestorRefs" })
   @Type(() => ListCommerceProductCategoriesLinksProductCategoryRecordRef)
   ancestorRefs?: ListCommerceProductCategoriesLinksProductCategoryRecordRef[];
@@ -123,9 +132,9 @@ export class ListCommerceProductCategoriesLinksProductCategory extends Speakeasy
 }
 
 // ListCommerceProductCategoriesLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class ListCommerceProductCategoriesLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
@@ -140,7 +149,9 @@ export class ListCommerceProductCategoriesLinks extends SpeakeasyBase {
   @Expose({ name: "pageSize" })
   pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: ListCommerceProductCategoriesLinksProductCategory })
+  @SpeakeasyMetadata({
+    elemType: ListCommerceProductCategoriesLinksProductCategory,
+  })
   @Expose({ name: "results" })
   @Type(() => ListCommerceProductCategoriesLinksProductCategory)
   results?: ListCommerceProductCategoriesLinksProductCategory[];

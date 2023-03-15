@@ -2,23 +2,30 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListCommerceTransactionsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
 export class ListCommerceTransactionsQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -89,20 +96,20 @@ export class ListCommerceTransactionsLinksSourceModifiedDateRecordRef extends Sp
   type: any;
 }
 export enum ListCommerceTransactionsLinksSourceModifiedDateTypeEnum {
-    Payment = "Payment",
-    Refund = "Refund",
-    Payout = "Payout",
-    FailedPayout = "FailedPayout",
-    Transfer = "Transfer",
-    PaymentFee = "PaymentFee",
-    PaymentFeeRefund = "PaymentFeeRefund",
-    Unknown = "Unknown"
+  Payment = "Payment",
+  Refund = "Refund",
+  Payout = "Payout",
+  FailedPayout = "FailedPayout",
+  Transfer = "Transfer",
+  PaymentFee = "PaymentFee",
+  PaymentFeeRefund = "PaymentFeeRefund",
+  Unknown = "Unknown",
 }
 
 // ListCommerceTransactionsLinksSourceModifiedDate
-/** 
+/**
  * A financial transaction recorded in the commerce or point of sale system
-**/
+ **/
 export class ListCommerceTransactionsLinksSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "createdDate" })
@@ -151,9 +158,9 @@ export class ListCommerceTransactionsLinksSourceModifiedDate extends SpeakeasyBa
 }
 
 // ListCommerceTransactionsLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class ListCommerceTransactionsLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
@@ -168,7 +175,9 @@ export class ListCommerceTransactionsLinks extends SpeakeasyBase {
   @Expose({ name: "pageSize" })
   pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: ListCommerceTransactionsLinksSourceModifiedDate })
+  @SpeakeasyMetadata({
+    elemType: ListCommerceTransactionsLinksSourceModifiedDate,
+  })
   @Expose({ name: "results" })
   @Type(() => ListCommerceTransactionsLinksSourceModifiedDate)
   results?: ListCommerceTransactionsLinksSourceModifiedDate[];

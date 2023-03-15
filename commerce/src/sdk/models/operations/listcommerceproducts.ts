@@ -2,23 +2,30 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListCommerceProductsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
 export class ListCommerceProductsQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -79,17 +86,17 @@ export class ListCommerceProductsLinksLinks extends SpeakeasyBase {
   self: ListCommerceProductsLinksLinksSelf;
 }
 export enum ListCommerceProductsLinksProductSourceModifiedDateStatusEnum {
-    Unknown = "Unknown",
-    Published = "Published",
-    Unpublished = "Unpublished"
+  Unknown = "Unknown",
+  Published = "Published",
+  Unpublished = "Unpublished",
 }
 
 // ListCommerceProductsLinksProductSourceModifiedDate
-/** 
+/**
  * Represents a variation of a product available for sale, for example an item of clothing
  * may be available for sale in multiple sizes and colors
- * 
-**/
+ *
+ **/
 export class ListCommerceProductsLinksProductSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "barcode" })
@@ -156,11 +163,11 @@ export class ListCommerceProductsLinksProductSourceModifiedDate extends Speakeas
 }
 
 // ListCommerceProductsLinksProduct
-/** 
+/**
  * A Product is an item in the company's inventory, and includes information
  * about the price and quantity of all products, and variants thereof, available for sale
- * 
-**/
+ *
+ **/
 export class ListCommerceProductsLinksProduct extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "categorization" })
@@ -182,16 +189,18 @@ export class ListCommerceProductsLinksProduct extends SpeakeasyBase {
   @Expose({ name: "name" })
   name?: string;
 
-  @SpeakeasyMetadata({ elemType: ListCommerceProductsLinksProductSourceModifiedDate })
+  @SpeakeasyMetadata({
+    elemType: ListCommerceProductsLinksProductSourceModifiedDate,
+  })
   @Expose({ name: "variants" })
   @Type(() => ListCommerceProductsLinksProductSourceModifiedDate)
   variants?: ListCommerceProductsLinksProductSourceModifiedDate[];
 }
 
 // ListCommerceProductsLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class ListCommerceProductsLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })

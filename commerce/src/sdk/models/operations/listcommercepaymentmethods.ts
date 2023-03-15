@@ -2,23 +2,30 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListCommercePaymentMethodsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
 export class ListCommercePaymentMethodsQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -79,9 +86,9 @@ export class ListCommercePaymentMethodsLinksLinks extends SpeakeasyBase {
   self: ListCommercePaymentMethodsLinksLinksSelf;
 }
 export enum ListCommercePaymentMethodsLinksSourceModifiedDateStatusEnum {
-    Active = "Active",
-    Archived = "Archived",
-    Unknown = "Unknown"
+  Active = "Active",
+  Archived = "Archived",
+  Unknown = "Unknown",
 }
 
 export class ListCommercePaymentMethodsLinksSourceModifiedDate extends SpeakeasyBase {
@@ -109,9 +116,9 @@ export class ListCommercePaymentMethodsLinksSourceModifiedDate extends Speakeasy
 }
 
 // ListCommercePaymentMethodsLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class ListCommercePaymentMethodsLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
@@ -126,7 +133,9 @@ export class ListCommercePaymentMethodsLinks extends SpeakeasyBase {
   @Expose({ name: "pageSize" })
   pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: ListCommercePaymentMethodsLinksSourceModifiedDate })
+  @SpeakeasyMetadata({
+    elemType: ListCommercePaymentMethodsLinksSourceModifiedDate,
+  })
   @Expose({ name: "results" })
   @Type(() => ListCommercePaymentMethodsLinksSourceModifiedDate)
   results?: ListCommercePaymentMethodsLinksSourceModifiedDate[];

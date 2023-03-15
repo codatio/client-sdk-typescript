@@ -2,12 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListCommerceLocationsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
@@ -63,9 +66,9 @@ export class ListCommerceLocationsLinksLinks extends SpeakeasyBase {
 }
 
 // ListCommerceLocationsLinksSourceModifiedDateAddress
-/** 
+/**
  * Address associated with the location
-**/
+ **/
 export class ListCommerceLocationsLinksSourceModifiedDateAddress extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "city" })
@@ -97,17 +100,17 @@ export class ListCommerceLocationsLinksSourceModifiedDateAddress extends Speakea
 }
 
 // ListCommerceLocationsLinksSourceModifiedDate
-/** 
+/**
  * The Locations datatype holds information on geographic locations at which stocks of products may be held, as referenced in the Products data type.
- * 
+ *
  * Locations also holds information on geographic locations where orders were placed, as referenced in the Orders data type.
- * 
+ *
  * From the Locations endpoints you can retrieve:
- * 
+ *
  * A list of all the Locations of a commerce company: `GET /companies/{companyId}/connections/{connectionId}/data/commerce-locations`.
  * The details of an individual location: `GET /companies/{companyId}/connections/{connectionId}/data/commerce-locations/{locationId}`.
- * 
-**/
+ *
+ **/
 export class ListCommerceLocationsLinksSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "address" })
@@ -134,9 +137,9 @@ export class ListCommerceLocationsLinksSourceModifiedDate extends SpeakeasyBase 
 }
 
 // ListCommerceLocationsLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class ListCommerceLocationsLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })

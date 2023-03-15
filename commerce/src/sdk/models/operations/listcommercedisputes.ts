@@ -2,23 +2,30 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListCommerceDisputesPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
 export class ListCommerceDisputesQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -89,17 +96,17 @@ export class ListCommerceDisputesLinksSourceModifiedDateRecordRef extends Speake
   type: any;
 }
 export enum ListCommerceDisputesLinksSourceModifiedDateStatusEnum {
-    Won = "Won",
-    Lost = "Lost",
-    Accepted = "Accepted",
-    Processing = "Processing",
-    ChargeRefunded = "ChargeRefunded",
-    EvidenceRequired = "EvidenceRequired",
-    InquiryEvidenceRequired = "InquiryEvidenceRequired",
-    InquiryProcessing = "InquiryProcessing",
-    InquiryClosed = "InquiryClosed",
-    WaitingThirdParty = "WaitingThirdParty",
-    Unknown = "Unknown"
+  Won = "Won",
+  Lost = "Lost",
+  Accepted = "Accepted",
+  Processing = "Processing",
+  ChargeRefunded = "ChargeRefunded",
+  EvidenceRequired = "EvidenceRequired",
+  InquiryEvidenceRequired = "InquiryEvidenceRequired",
+  InquiryProcessing = "InquiryProcessing",
+  InquiryClosed = "InquiryClosed",
+  WaitingThirdParty = "WaitingThirdParty",
+  Unknown = "Unknown",
 }
 
 export class ListCommerceDisputesLinksSourceModifiedDate extends SpeakeasyBase {
@@ -150,9 +157,9 @@ export class ListCommerceDisputesLinksSourceModifiedDate extends SpeakeasyBase {
 }
 
 // ListCommerceDisputesLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class ListCommerceDisputesLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })

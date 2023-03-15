@@ -2,12 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetCommerceInfoPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
@@ -64,11 +67,11 @@ export class GetCommerceInfoSourceModifiedDateAddress extends SpeakeasyBase {
   type?: any;
 }
 export enum GetCommerceInfoSourceModifiedDatePhoneNumbersTypeEnum {
-    Primary = "Primary",
-    Landline = "Landline",
-    Mobile = "Mobile",
-    Fax = "Fax",
-    Unknown = "Unknown"
+  Primary = "Primary",
+  Landline = "Landline",
+  Mobile = "Mobile",
+  Fax = "Fax",
+  Unknown = "Unknown",
 }
 
 export class GetCommerceInfoSourceModifiedDatePhoneNumbers extends SpeakeasyBase {
@@ -82,13 +85,15 @@ export class GetCommerceInfoSourceModifiedDatePhoneNumbers extends SpeakeasyBase
 }
 
 // GetCommerceInfoSourceModifiedDate
-/** 
- * In the Codat system, company information includes standard commercial details about 
+/**
+ * In the Codat system, company information includes standard commercial details about
  * a linked company, such as their address, phone number, and company registration.
- * 
-**/
+ *
+ **/
 export class GetCommerceInfoSourceModifiedDate extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCommerceInfoSourceModifiedDateAccountBalances })
+  @SpeakeasyMetadata({
+    elemType: GetCommerceInfoSourceModifiedDateAccountBalances,
+  })
   @Expose({ name: "accountBalances" })
   @Type(() => GetCommerceInfoSourceModifiedDateAccountBalances)
   accountBalances?: GetCommerceInfoSourceModifiedDateAccountBalances[];
@@ -124,7 +129,9 @@ export class GetCommerceInfoSourceModifiedDate extends SpeakeasyBase {
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   modifiedDate?: Date;
 
-  @SpeakeasyMetadata({ elemType: GetCommerceInfoSourceModifiedDatePhoneNumbers })
+  @SpeakeasyMetadata({
+    elemType: GetCommerceInfoSourceModifiedDatePhoneNumbers,
+  })
   @Expose({ name: "phoneNumbers" })
   @Type(() => GetCommerceInfoSourceModifiedDatePhoneNumbers)
   phoneNumbers?: GetCommerceInfoSourceModifiedDatePhoneNumbers[];
