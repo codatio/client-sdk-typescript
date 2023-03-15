@@ -2,12 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetBankFeedsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
@@ -16,15 +19,15 @@ export class GetBankFeedsRequest extends SpeakeasyBase {
   pathParams: GetBankFeedsPathParams;
 }
 export enum GetBankFeedsBankFeedBankAccountAccountTypeEnum {
-    Unknown = "Unknown",
-    Credit = "Credit",
-    Debit = "Debit"
+  Unknown = "Unknown",
+  Credit = "Credit",
+  Debit = "Debit",
 }
 
 // GetBankFeedsBankFeedBankAccount
-/** 
+/**
  * The target bank account in a supported accounting package for ingestion into a bank feed.
-**/
+ **/
 export class GetBankFeedsBankFeedBankAccount extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountName" })

@@ -2,26 +2,35 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, plainToInstance, Transform, Type } from "class-transformer";
 
-
 export class GetBankAccountPushOptionsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=accountId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=accountId",
+  })
   accountId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
 export class GetBankAccountPushOptionsQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -36,14 +45,14 @@ export class GetBankAccountPushOptionsRequest extends SpeakeasyBase {
   queryParams: GetBankAccountPushOptionsQueryParams;
 }
 export enum GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionChoiceOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionChoice extends SpeakeasyBase {
@@ -68,14 +77,14 @@ export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionChoi
   value?: string;
 }
 export enum GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoiceOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice extends SpeakeasyBase {
@@ -100,14 +109,14 @@ export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionProp
   value?: string;
 }
 export enum GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoiceOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice extends SpeakeasyBase {
@@ -132,14 +141,14 @@ export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionProp
   value?: string;
 }
 export enum GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoiceOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice extends SpeakeasyBase {
@@ -164,14 +173,14 @@ export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionProp
   value?: string;
 }
 export enum GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation extends SpeakeasyBase {
@@ -189,14 +198,26 @@ export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionProp
 }
 
 export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "information" })
-  @Type(() => GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   information?: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 
-  @SpeakeasyMetadata({ elemType: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "warnings" })
-  @Type(() => GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   warnings?: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 }
 
@@ -209,9 +230,15 @@ export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionProp
   @Expose({ name: "displayName" })
   displayName: string;
 
-  @SpeakeasyMetadata({ elemType: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice })
+  @SpeakeasyMetadata({
+    elemType:
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice,
+  })
   @Expose({ name: "options" })
-  @Type(() => GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice)
+  @Type(
+    () =>
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice
+  )
   options?: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice[];
 
   @SpeakeasyMetadata()
@@ -224,18 +251,21 @@ export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionProp
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo)
+  @Type(
+    () =>
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo
+  )
   validation?: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo;
 }
 export enum GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation extends SpeakeasyBase {
@@ -253,14 +283,26 @@ export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionProp
 }
 
 export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "information" })
-  @Type(() => GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   information?: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 
-  @SpeakeasyMetadata({ elemType: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "warnings" })
-  @Type(() => GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   warnings?: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 }
 
@@ -273,24 +315,45 @@ export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionProp
   @Expose({ name: "displayName" })
   displayName: string;
 
-  @SpeakeasyMetadata({ elemType: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice })
+  @SpeakeasyMetadata({
+    elemType:
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice,
+  })
   @Expose({ name: "options" })
-  @Type(() => GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice)
+  @Type(
+    () =>
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice
+  )
   options?: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice[];
 
-  @SpeakeasyMetadata({ elemType: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty })
+  @SpeakeasyMetadata({
+    elemType:
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty,
+  })
   @Expose({ name: "properties" })
-  @Transform(({ value }) => {
-    const obj: Record<string, GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty,
-        value[key] as GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  properties?: Record<string, GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty,
+          value[
+            key
+          ] as GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  properties?: Record<
+    string,
+    GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty
+  >;
 
   @SpeakeasyMetadata()
   @Expose({ name: "required" })
@@ -302,18 +365,21 @@ export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionProp
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo)
+  @Type(
+    () =>
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo
+  )
   validation?: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo;
 }
 export enum GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation extends SpeakeasyBase {
@@ -331,14 +397,26 @@ export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionProp
 }
 
 export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfo extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "information" })
-  @Type(() => GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   information?: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 
-  @SpeakeasyMetadata({ elemType: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "warnings" })
-  @Type(() => GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   warnings?: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 }
 
@@ -351,24 +429,45 @@ export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionProp
   @Expose({ name: "displayName" })
   displayName: string;
 
-  @SpeakeasyMetadata({ elemType: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice })
+  @SpeakeasyMetadata({
+    elemType:
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice,
+  })
   @Expose({ name: "options" })
-  @Type(() => GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice)
+  @Type(
+    () =>
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice
+  )
   options?: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice[];
 
-  @SpeakeasyMetadata({ elemType: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty })
+  @SpeakeasyMetadata({
+    elemType:
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty,
+  })
   @Expose({ name: "properties" })
-  @Transform(({ value }) => {
-    const obj: Record<string, GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty,
-        value[key] as GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  properties?: Record<string, GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty,
+          value[
+            key
+          ] as GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  properties?: Record<
+    string,
+    GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty
+  >;
 
   @SpeakeasyMetadata()
   @Expose({ name: "required" })
@@ -380,18 +479,21 @@ export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionProp
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfo)
+  @Type(
+    () =>
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfo
+  )
   validation?: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfo;
 }
 export enum GetBankAccountPushOptionsPushOptionPushOptionPropertyOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation extends SpeakeasyBase {
@@ -409,14 +511,26 @@ export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushValidation
 }
 
 export class GetBankAccountPushOptionsPushOptionPushOptionPropertyPushValidationInfo extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "information" })
-  @Type(() => GetBankAccountPushOptionsPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   information?: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation[];
 
-  @SpeakeasyMetadata({ elemType: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "warnings" })
-  @Type(() => GetBankAccountPushOptionsPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   warnings?: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation[];
 }
 
@@ -429,24 +543,44 @@ export class GetBankAccountPushOptionsPushOptionPushOptionProperty extends Speak
   @Expose({ name: "displayName" })
   displayName: string;
 
-  @SpeakeasyMetadata({ elemType: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionChoice })
+  @SpeakeasyMetadata({
+    elemType:
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionChoice,
+  })
   @Expose({ name: "options" })
-  @Type(() => GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionChoice)
+  @Type(
+    () => GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionChoice
+  )
   options?: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionChoice[];
 
-  @SpeakeasyMetadata({ elemType: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionProperty })
+  @SpeakeasyMetadata({
+    elemType:
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionProperty,
+  })
   @Expose({ name: "properties" })
-  @Transform(({ value }) => {
-    const obj: Record<string, GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionProperty> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionProperty,
-        value[key] as GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionProperty,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  properties?: Record<string, GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionProperty>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionProperty
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionProperty,
+          value[
+            key
+          ] as GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionProperty,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  properties?: Record<
+    string,
+    GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionProperty
+  >;
 
   @SpeakeasyMetadata()
   @Expose({ name: "required" })
@@ -458,18 +592,21 @@ export class GetBankAccountPushOptionsPushOptionPushOptionProperty extends Speak
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => GetBankAccountPushOptionsPushOptionPushOptionPropertyPushValidationInfo)
+  @Type(
+    () =>
+      GetBankAccountPushOptionsPushOptionPushOptionPropertyPushValidationInfo
+  )
   validation?: GetBankAccountPushOptionsPushOptionPushOptionPropertyPushValidationInfo;
 }
 export enum GetBankAccountPushOptionsPushOptionOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetBankAccountPushOptionsPushOption extends SpeakeasyBase {
@@ -481,19 +618,31 @@ export class GetBankAccountPushOptionsPushOption extends SpeakeasyBase {
   @Expose({ name: "displayName" })
   displayName: string;
 
-  @SpeakeasyMetadata({ elemType: GetBankAccountPushOptionsPushOptionPushOptionProperty })
+  @SpeakeasyMetadata({
+    elemType: GetBankAccountPushOptionsPushOptionPushOptionProperty,
+  })
   @Expose({ name: "properties" })
-  @Transform(({ value }) => {
-    const obj: Record<string, GetBankAccountPushOptionsPushOptionPushOptionProperty> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(GetBankAccountPushOptionsPushOptionPushOptionProperty,
-        value[key] as GetBankAccountPushOptionsPushOptionPushOptionProperty,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  properties?: Record<string, GetBankAccountPushOptionsPushOptionPushOptionProperty>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        GetBankAccountPushOptionsPushOptionPushOptionProperty
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          GetBankAccountPushOptionsPushOptionPushOptionProperty,
+          value[key] as GetBankAccountPushOptionsPushOptionPushOptionProperty,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  properties?: Record<
+    string,
+    GetBankAccountPushOptionsPushOptionPushOptionProperty
+  >;
 
   @SpeakeasyMetadata()
   @Expose({ name: "required" })

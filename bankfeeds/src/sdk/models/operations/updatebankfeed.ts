@@ -2,27 +2,32 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class UpdateBankFeedPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=bankAccountId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=bankAccountId",
+  })
   bankAccountId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 export enum UpdateBankFeedBankFeedBankAccountAccountTypeEnum {
-    Unknown = "Unknown",
-    Credit = "Credit",
-    Debit = "Debit"
+  Unknown = "Unknown",
+  Credit = "Credit",
+  Debit = "Debit",
 }
 
 // UpdateBankFeedBankFeedBankAccount
-/** 
+/**
  * The target bank account in a supported accounting package for ingestion into a bank feed.
-**/
+ **/
 export class UpdateBankFeedBankFeedBankAccount extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountName" })

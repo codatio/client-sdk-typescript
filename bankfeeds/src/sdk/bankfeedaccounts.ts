@@ -11,7 +11,14 @@ export class BankFeedAccounts {
   _sdkVersion: string;
   _genVersion: string;
 
-  constructor(defaultClient: AxiosInstance, securityClient: AxiosInstance, serverURL: string, language: string, sdkVersion: string, genVersion: string) {
+  constructor(
+    defaultClient: AxiosInstance,
+    securityClient: AxiosInstance,
+    serverURL: string,
+    language: string,
+    sdkVersion: string,
+    genVersion: string
+  ) {
     this._defaultClient = defaultClient;
     this._securityClient = securityClient;
     this._serverURL = serverURL;
@@ -19,12 +26,12 @@ export class BankFeedAccounts {
     this._sdkVersion = sdkVersion;
     this._genVersion = genVersion;
   }
-  
+
   /**
    * createBankFeed - Create bank feed bank accounts
    *
    * Put BankFeed BankAccounts for a single data source connected to a single company.
-  **/
+   **/
   createBankFeed(
     req: operations.CreateBankFeedRequest,
     config?: AxiosRequestConfig
@@ -32,9 +39,13 @@ export class BankFeedAccounts {
     if (!(req instanceof utils.SpeakeasyBase)) {
       req = new operations.CreateBankFeedRequest(req);
     }
-    
+
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts", req.pathParams);
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts",
+      req.pathParams
+    );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
@@ -45,53 +56,53 @@ export class BankFeedAccounts {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
       }
     }
-    
+
     const client: AxiosInstance = this._securityClient!;
-    
-    const headers = {...reqBodyHeaders, ...config?.headers};
-    
+
+    const headers = { ...reqBodyHeaders, ...config?.headers };
+
     const r = client.request({
       url: url,
       method: "put",
       headers: headers,
-      data: reqBody, 
+      data: reqBody,
       ...config,
     });
-    
+
     return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateBankFeedResponse =
-            new operations.CreateBankFeedResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes
-            });
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.bankFeedBankAccounts = [];
-              const resFieldDepth: number = utils.getResFieldDepth(res);
-              res.bankFeedBankAccounts = utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreateBankFeedBankFeedBankAccount,
-                resFieldDepth
-              );
-            }
-            break;
-        }
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.CreateBankFeedResponse =
+        new operations.CreateBankFeedResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.bankFeedBankAccounts = [];
+            const resFieldDepth: number = utils.getResFieldDepth(res);
+            res.bankFeedBankAccounts = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.CreateBankFeedBankFeedBankAccount,
+              resFieldDepth
+            );
+          }
+          break;
+      }
 
-        return res;
-      })
+      return res;
+    });
   }
 
-  
   /**
    * getBankFeeds - List bank feed bank accounts
    *
    * Get BankFeed BankAccounts for a single data source connected to a single company.
-  **/
+   **/
   getBankFeeds(
     req: operations.GetBankFeedsRequest,
     config?: AxiosRequestConfig
@@ -99,53 +110,56 @@ export class BankFeedAccounts {
     if (!(req instanceof utils.SpeakeasyBase)) {
       req = new operations.GetBankFeedsRequest(req);
     }
-    
+
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts", req.pathParams);
-    
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts",
+      req.pathParams
+    );
+
     const client: AxiosInstance = this._securityClient!;
-    
-    
+
     const r = client.request({
       url: url,
       method: "get",
       ...config,
     });
-    
+
     return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.GetBankFeedsResponse =
-            new operations.GetBankFeedsResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes
-            });
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.bankFeedBankAccounts = [];
-              const resFieldDepth: number = utils.getResFieldDepth(res);
-              res.bankFeedBankAccounts = utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetBankFeedsBankFeedBankAccount,
-                resFieldDepth
-              );
-            }
-            break;
-        }
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.GetBankFeedsResponse =
+        new operations.GetBankFeedsResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.bankFeedBankAccounts = [];
+            const resFieldDepth: number = utils.getResFieldDepth(res);
+            res.bankFeedBankAccounts = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.GetBankFeedsBankFeedBankAccount,
+              resFieldDepth
+            );
+          }
+          break;
+      }
 
-        return res;
-      })
+      return res;
+    });
   }
 
-  
   /**
    * updateBankFeed - Update bank feed bank account
    *
    * Update a single BankFeed BankAccount for a single data source connected to a single company.
-  **/
+   **/
   updateBankFeed(
     req: operations.UpdateBankFeedRequest,
     config?: AxiosRequestConfig
@@ -153,9 +167,13 @@ export class BankFeedAccounts {
     if (!(req instanceof utils.SpeakeasyBase)) {
       req = new operations.UpdateBankFeedRequest(req);
     }
-    
+
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/{bankAccountId}", req.pathParams);
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/{bankAccountId}",
+      req.pathParams
+    );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
@@ -166,42 +184,42 @@ export class BankFeedAccounts {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
       }
     }
-    
+
     const client: AxiosInstance = this._securityClient!;
-    
-    const headers = {...reqBodyHeaders, ...config?.headers};
-    
+
+    const headers = { ...reqBodyHeaders, ...config?.headers };
+
     const r = client.request({
       url: url,
       method: "patch",
       headers: headers,
-      data: reqBody, 
+      data: reqBody,
       ...config,
     });
-    
+
     return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.UpdateBankFeedResponse =
-            new operations.UpdateBankFeedResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes
-            });
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.bankFeedBankAccount = utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.UpdateBankFeedBankFeedBankAccount,
-              );
-            }
-            break;
-        }
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.UpdateBankFeedResponse =
+        new operations.UpdateBankFeedResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.bankFeedBankAccount = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.UpdateBankFeedBankFeedBankAccount
+            );
+          }
+          break;
+      }
 
-        return res;
-      })
+      return res;
+    });
   }
-
 }

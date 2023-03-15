@@ -2,26 +2,35 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListBankAccountTransactionsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=accountId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=accountId",
+  })
   accountId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
 export class ListBankAccountTransactionsQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -82,24 +91,24 @@ export class ListBankAccountTransactionsLinksLinks extends SpeakeasyBase {
   self: ListBankAccountTransactionsLinksLinksSelf;
 }
 export enum ListBankAccountTransactionsLinksResultsTransactionsTransactionTypeEnum {
-    Unknown = "Unknown",
-    Credit = "Credit",
-    Debit = "Debit",
-    Int = "Int",
-    Div = "Div",
-    Fee = "Fee",
-    SerChg = "SerChg",
-    Dep = "Dep",
-    Atm = "Atm",
-    Pos = "Pos",
-    Xfer = "Xfer",
-    Check = "Check",
-    Payment = "Payment",
-    Cash = "Cash",
-    DirectDep = "DirectDep",
-    DirectDebit = "DirectDebit",
-    RepeatPmt = "RepeatPmt",
-    Other = "Other"
+  Unknown = "Unknown",
+  Credit = "Credit",
+  Debit = "Debit",
+  Int = "Int",
+  Div = "Div",
+  Fee = "Fee",
+  SerChg = "SerChg",
+  Dep = "Dep",
+  Atm = "Atm",
+  Pos = "Pos",
+  Xfer = "Xfer",
+  Check = "Check",
+  Payment = "Payment",
+  Cash = "Cash",
+  DirectDep = "DirectDep",
+  DirectDebit = "DirectDebit",
+  RepeatPmt = "RepeatPmt",
+  Other = "Other",
 }
 
 export class ListBankAccountTransactionsLinksResultsTransactions extends SpeakeasyBase {
@@ -152,24 +161,24 @@ export class ListBankAccountTransactionsLinksResultsTransactions extends Speakea
 }
 
 // ListBankAccountTransactionsLinksResults
-/** 
+/**
  * > **Accessing Bank Accounts through Banking API**
- * > 
- * > This datatype was originally used for accessing bank account data both in accounting integrations and open banking aggregators. 
+ * >
+ * > This datatype was originally used for accessing bank account data both in accounting integrations and open banking aggregators.
  * >
  * > To view bank account data through the Banking API, please refer to the new datatype [here](https://docs.codat.io/banking-api#/operations/list-all-banking-transactions)
- * 
+ *
  * > View the coverage for bank transactions in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankTransactions" target="_blank">Data coverage explorer</a>.
- * 
+ *
  * ## Overview
- * 
+ *
  * Transactional banking data for a specific company and account.
- * 
+ *
  * Bank transactions include the:
  * * Amount of the transaction.
  * * Current account balance.
  * * Transaction type, for example, credit, debit, or transfer.
-**/
+ **/
 export class ListBankAccountTransactionsLinksResults extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountId" })
@@ -179,16 +188,18 @@ export class ListBankAccountTransactionsLinksResults extends SpeakeasyBase {
   @Expose({ name: "contractVersion" })
   contractVersion?: string;
 
-  @SpeakeasyMetadata({ elemType: ListBankAccountTransactionsLinksResultsTransactions })
+  @SpeakeasyMetadata({
+    elemType: ListBankAccountTransactionsLinksResultsTransactions,
+  })
   @Expose({ name: "transactions" })
   @Type(() => ListBankAccountTransactionsLinksResultsTransactions)
   transactions?: ListBankAccountTransactionsLinksResultsTransactions[];
 }
 
 // ListBankAccountTransactionsLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class ListBankAccountTransactionsLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })

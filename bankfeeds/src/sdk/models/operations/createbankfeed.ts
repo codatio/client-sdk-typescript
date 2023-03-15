@@ -2,24 +2,27 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class CreateBankFeedPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 export enum CreateBankFeedBankFeedBankAccountAccountTypeEnum {
-    Unknown = "Unknown",
-    Credit = "Credit",
-    Debit = "Debit"
+  Unknown = "Unknown",
+  Credit = "Credit",
+  Debit = "Debit",
 }
 
 // CreateBankFeedBankFeedBankAccount
-/** 
+/**
  * The target bank account in a supported accounting package for ingestion into a bank feed.
-**/
+ **/
 export class CreateBankFeedBankFeedBankAccount extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountName" })
@@ -68,7 +71,10 @@ export class CreateBankFeedRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   pathParams: CreateBankFeedPathParams;
 
-  @SpeakeasyMetadata({ data: "request, media_type=application/json", elemType: CreateBankFeedBankFeedBankAccount })
+  @SpeakeasyMetadata({
+    data: "request, media_type=application/json",
+    elemType: CreateBankFeedBankFeedBankAccount,
+  })
   request?: CreateBankFeedBankFeedBankAccount[];
 }
 
