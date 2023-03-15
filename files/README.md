@@ -26,11 +26,10 @@ import {
 
 import { AxiosError } from "axios";
 import { Codat } from "@codat/files";
-
 const sdk = new Codat({
   security: {
     authHeader: "YOUR_API_KEY_HERE",
-  }
+  },
 });
     
 const req: DownloadFilesRequest = {
@@ -38,7 +37,7 @@ const req: DownloadFilesRequest = {
     companyId: "unde",
   },
   queryParams: {
-    date: "2022-08-06T15:01:42.868Z",
+    date: "2022-08-10T15:04:26.022Z",
   },
 };
 
