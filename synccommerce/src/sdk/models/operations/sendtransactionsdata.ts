@@ -2,17 +2,18 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class SendTransactionsDataPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 export enum SendTransactionsDataRequestBodyTransactionsTransactionSourceRefTypeEnum {
-    Unknown = "Unknown",
-    Fee = "Fee",
-    Order = "Order",
-    Payment = "Payment",
-    ServiceCharge = "ServiceCharge"
+  Unknown = "Unknown",
+  Fee = "Fee",
+  Order = "Order",
+  Payment = "Payment",
+  ServiceCharge = "ServiceCharge",
 }
 
 export class SendTransactionsDataRequestBodyTransactionsTransactionSourceRef extends SpeakeasyBase {
@@ -25,14 +26,14 @@ export class SendTransactionsDataRequestBodyTransactionsTransactionSourceRef ext
   type?: SendTransactionsDataRequestBodyTransactionsTransactionSourceRefTypeEnum;
 }
 export enum SendTransactionsDataRequestBodyTransactionsTypeEnum {
-    Unknown = "Unknown",
-    Payment = "Payment",
-    Refund = "Refund",
-    Payout = "Payout",
-    FailedPayout = "FailedPayout",
-    Transfer = "Transfer",
-    PaymentFee = "PaymentFee",
-    PaymentFeeRefund = "PaymentFeeRefund"
+  Unknown = "Unknown",
+  Payment = "Payment",
+  Refund = "Refund",
+  Payout = "Payout",
+  FailedPayout = "FailedPayout",
+  Transfer = "Transfer",
+  PaymentFee = "PaymentFee",
+  PaymentFeeRefund = "PaymentFeeRefund",
 }
 
 export class SendTransactionsDataRequestBodyTransactions extends SpeakeasyBase {
@@ -96,11 +97,11 @@ export class SendTransactionsDataRequest extends SpeakeasyBase {
   request?: SendTransactionsDataRequestBody;
 }
 export enum SendTransactionsData200ApplicationJSONDataTransactionsTransactionSourceRefTypeEnum {
-    Unknown = "Unknown",
-    Fee = "Fee",
-    Order = "Order",
-    Payment = "Payment",
-    ServiceCharge = "ServiceCharge"
+  Unknown = "Unknown",
+  Fee = "Fee",
+  Order = "Order",
+  Payment = "Payment",
+  ServiceCharge = "ServiceCharge",
 }
 
 export class SendTransactionsData200ApplicationJSONDataTransactionsTransactionSourceRef extends SpeakeasyBase {
@@ -113,14 +114,14 @@ export class SendTransactionsData200ApplicationJSONDataTransactionsTransactionSo
   type?: SendTransactionsData200ApplicationJSONDataTransactionsTransactionSourceRefTypeEnum;
 }
 export enum SendTransactionsData200ApplicationJSONDataTransactionsTypeEnum {
-    Unknown = "Unknown",
-    Payment = "Payment",
-    Refund = "Refund",
-    Payout = "Payout",
-    FailedPayout = "FailedPayout",
-    Transfer = "Transfer",
-    PaymentFee = "PaymentFee",
-    PaymentFeeRefund = "PaymentFeeRefund"
+  Unknown = "Unknown",
+  Payment = "Payment",
+  Refund = "Refund",
+  Payout = "Payout",
+  FailedPayout = "FailedPayout",
+  Transfer = "Transfer",
+  PaymentFee = "PaymentFee",
+  PaymentFeeRefund = "PaymentFeeRefund",
 }
 
 export class SendTransactionsData200ApplicationJSONDataTransactions extends SpeakeasyBase {
@@ -157,7 +158,10 @@ export class SendTransactionsData200ApplicationJSONDataTransactions extends Spea
 
   @SpeakeasyMetadata()
   @Expose({ name: "transactionSourceRef" })
-  @Type(() => SendTransactionsData200ApplicationJSONDataTransactionsTransactionSourceRef)
+  @Type(
+    () =>
+      SendTransactionsData200ApplicationJSONDataTransactionsTransactionSourceRef
+  )
   transactionSourceRef?: SendTransactionsData200ApplicationJSONDataTransactionsTransactionSourceRef;
 
   @SpeakeasyMetadata()
@@ -170,7 +174,9 @@ export class SendTransactionsData200ApplicationJSONData extends SpeakeasyBase {
   @Expose({ name: "contractVersion" })
   contractVersion?: string;
 
-  @SpeakeasyMetadata({ elemType: SendTransactionsData200ApplicationJSONDataTransactions })
+  @SpeakeasyMetadata({
+    elemType: SendTransactionsData200ApplicationJSONDataTransactions,
+  })
   @Expose({ name: "transactions" })
   @Type(() => SendTransactionsData200ApplicationJSONDataTransactions)
   transactions?: SendTransactionsData200ApplicationJSONDataTransactions[];

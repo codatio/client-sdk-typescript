@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, plainToInstance, Transform, Type } from "class-transformer";
 
-
 export class ConfigureSyncPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
@@ -27,7 +28,9 @@ export class ConfigureSyncRequestBodyConfigurationFeesAccountsAccountOptions ext
 }
 
 export class ConfigureSyncRequestBodyConfigurationFeesAccounts extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ConfigureSyncRequestBodyConfigurationFeesAccountsAccountOptions })
+  @SpeakeasyMetadata({
+    elemType: ConfigureSyncRequestBodyConfigurationFeesAccountsAccountOptions,
+  })
   @Expose({ name: "accountOptions" })
   @Type(() => ConfigureSyncRequestBodyConfigurationFeesAccountsAccountOptions)
   accountOptions?: ConfigureSyncRequestBodyConfigurationFeesAccountsAccountOptions[];
@@ -64,25 +67,39 @@ export class ConfigureSyncRequestBodyConfigurationFeesFeesSupplier extends Speak
   @Expose({ name: "selectedSupplierId" })
   selectedSupplierId?: string;
 
-  @SpeakeasyMetadata({ elemType: ConfigureSyncRequestBodyConfigurationFeesFeesSupplierSupplierOptions })
+  @SpeakeasyMetadata({
+    elemType:
+      ConfigureSyncRequestBodyConfigurationFeesFeesSupplierSupplierOptions,
+  })
   @Expose({ name: "supplierOptions" })
-  @Type(() => ConfigureSyncRequestBodyConfigurationFeesFeesSupplierSupplierOptions)
+  @Type(
+    () => ConfigureSyncRequestBodyConfigurationFeesFeesSupplierSupplierOptions
+  )
   supplierOptions?: ConfigureSyncRequestBodyConfigurationFeesFeesSupplierSupplierOptions[];
 }
 
 export class ConfigureSyncRequestBodyConfigurationFees extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ConfigureSyncRequestBodyConfigurationFeesAccounts })
+  @SpeakeasyMetadata({
+    elemType: ConfigureSyncRequestBodyConfigurationFeesAccounts,
+  })
   @Expose({ name: "accounts" })
-  @Transform(({ value }) => {
-    const obj: Record<string, ConfigureSyncRequestBodyConfigurationFeesAccounts> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(ConfigureSyncRequestBodyConfigurationFeesAccounts,
-        value[key] as ConfigureSyncRequestBodyConfigurationFeesAccounts,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        ConfigureSyncRequestBodyConfigurationFeesAccounts
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          ConfigureSyncRequestBodyConfigurationFeesAccounts,
+          value[key] as ConfigureSyncRequestBodyConfigurationFeesAccounts,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
   accounts?: Record<string, ConfigureSyncRequestBodyConfigurationFeesAccounts>;
 
   @SpeakeasyMetadata()
@@ -114,9 +131,14 @@ export class ConfigureSyncRequestBodyConfigurationNewPaymentsAccountsAccountOpti
 }
 
 export class ConfigureSyncRequestBodyConfigurationNewPaymentsAccounts extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ConfigureSyncRequestBodyConfigurationNewPaymentsAccountsAccountOptions })
+  @SpeakeasyMetadata({
+    elemType:
+      ConfigureSyncRequestBodyConfigurationNewPaymentsAccountsAccountOptions,
+  })
   @Expose({ name: "accountOptions" })
-  @Type(() => ConfigureSyncRequestBodyConfigurationNewPaymentsAccountsAccountOptions)
+  @Type(
+    () => ConfigureSyncRequestBodyConfigurationNewPaymentsAccountsAccountOptions
+  )
   accountOptions?: ConfigureSyncRequestBodyConfigurationNewPaymentsAccountsAccountOptions[];
 
   @SpeakeasyMetadata()
@@ -137,19 +159,33 @@ export class ConfigureSyncRequestBodyConfigurationNewPaymentsAccounts extends Sp
 }
 
 export class ConfigureSyncRequestBodyConfigurationNewPayments extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ConfigureSyncRequestBodyConfigurationNewPaymentsAccounts })
+  @SpeakeasyMetadata({
+    elemType: ConfigureSyncRequestBodyConfigurationNewPaymentsAccounts,
+  })
   @Expose({ name: "accounts" })
-  @Transform(({ value }) => {
-    const obj: Record<string, ConfigureSyncRequestBodyConfigurationNewPaymentsAccounts> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(ConfigureSyncRequestBodyConfigurationNewPaymentsAccounts,
-        value[key] as ConfigureSyncRequestBodyConfigurationNewPaymentsAccounts,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  accounts?: Record<string, ConfigureSyncRequestBodyConfigurationNewPaymentsAccounts>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        ConfigureSyncRequestBodyConfigurationNewPaymentsAccounts
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          ConfigureSyncRequestBodyConfigurationNewPaymentsAccounts,
+          value[
+            key
+          ] as ConfigureSyncRequestBodyConfigurationNewPaymentsAccounts,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  accounts?: Record<
+    string,
+    ConfigureSyncRequestBodyConfigurationNewPaymentsAccounts
+  >;
 
   @SpeakeasyMetadata()
   @Expose({ name: "syncPayments" })
@@ -175,9 +211,14 @@ export class ConfigureSyncRequestBodyConfigurationPaymentsAccountsAccountOptions
 }
 
 export class ConfigureSyncRequestBodyConfigurationPaymentsAccounts extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ConfigureSyncRequestBodyConfigurationPaymentsAccountsAccountOptions })
+  @SpeakeasyMetadata({
+    elemType:
+      ConfigureSyncRequestBodyConfigurationPaymentsAccountsAccountOptions,
+  })
   @Expose({ name: "accountOptions" })
-  @Type(() => ConfigureSyncRequestBodyConfigurationPaymentsAccountsAccountOptions)
+  @Type(
+    () => ConfigureSyncRequestBodyConfigurationPaymentsAccountsAccountOptions
+  )
   accountOptions?: ConfigureSyncRequestBodyConfigurationPaymentsAccountsAccountOptions[];
 
   @SpeakeasyMetadata()
@@ -198,19 +239,31 @@ export class ConfigureSyncRequestBodyConfigurationPaymentsAccounts extends Speak
 }
 
 export class ConfigureSyncRequestBodyConfigurationPayments extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ConfigureSyncRequestBodyConfigurationPaymentsAccounts })
+  @SpeakeasyMetadata({
+    elemType: ConfigureSyncRequestBodyConfigurationPaymentsAccounts,
+  })
   @Expose({ name: "accounts" })
-  @Transform(({ value }) => {
-    const obj: Record<string, ConfigureSyncRequestBodyConfigurationPaymentsAccounts> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(ConfigureSyncRequestBodyConfigurationPaymentsAccounts,
-        value[key] as ConfigureSyncRequestBodyConfigurationPaymentsAccounts,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  accounts?: Record<string, ConfigureSyncRequestBodyConfigurationPaymentsAccounts>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        ConfigureSyncRequestBodyConfigurationPaymentsAccounts
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          ConfigureSyncRequestBodyConfigurationPaymentsAccounts,
+          value[key] as ConfigureSyncRequestBodyConfigurationPaymentsAccounts,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  accounts?: Record<
+    string,
+    ConfigureSyncRequestBodyConfigurationPaymentsAccounts
+  >;
 
   @SpeakeasyMetadata()
   @Expose({ name: "syncPayments" })
@@ -236,7 +289,9 @@ export class ConfigureSyncRequestBodyConfigurationSalesAccountsAccountOptions ex
 }
 
 export class ConfigureSyncRequestBodyConfigurationSalesAccounts extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ConfigureSyncRequestBodyConfigurationSalesAccountsAccountOptions })
+  @SpeakeasyMetadata({
+    elemType: ConfigureSyncRequestBodyConfigurationSalesAccountsAccountOptions,
+  })
   @Expose({ name: "accountOptions" })
   @Type(() => ConfigureSyncRequestBodyConfigurationSalesAccountsAccountOptions)
   accountOptions?: ConfigureSyncRequestBodyConfigurationSalesAccountsAccountOptions[];
@@ -281,12 +336,18 @@ export class ConfigureSyncRequestBodyConfigurationSalesGroupingGroupingLevelsInv
 export class ConfigureSyncRequestBodyConfigurationSalesGroupingGroupingLevels extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "invoiceLevel" })
-  @Type(() => ConfigureSyncRequestBodyConfigurationSalesGroupingGroupingLevelsInvoiceLevel)
+  @Type(
+    () =>
+      ConfigureSyncRequestBodyConfigurationSalesGroupingGroupingLevelsInvoiceLevel
+  )
   invoiceLevel?: ConfigureSyncRequestBodyConfigurationSalesGroupingGroupingLevelsInvoiceLevel;
 
   @SpeakeasyMetadata()
   @Expose({ name: "invoiceLineLevel" })
-  @Type(() => ConfigureSyncRequestBodyConfigurationSalesGroupingGroupingLevelsInvoiceLineLevel)
+  @Type(
+    () =>
+      ConfigureSyncRequestBodyConfigurationSalesGroupingGroupingLevelsInvoiceLineLevel
+  )
   invoiceLineLevel?: ConfigureSyncRequestBodyConfigurationSalesGroupingGroupingLevelsInvoiceLineLevel;
 }
 
@@ -363,28 +424,51 @@ export class ConfigureSyncRequestBodyConfigurationSalesNewTaxRatesTaxRateMapping
 }
 
 export class ConfigureSyncRequestBodyConfigurationSalesNewTaxRates extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ConfigureSyncRequestBodyConfigurationSalesNewTaxRatesAccountingTaxRateOptions })
+  @SpeakeasyMetadata({
+    elemType:
+      ConfigureSyncRequestBodyConfigurationSalesNewTaxRatesAccountingTaxRateOptions,
+  })
   @Expose({ name: "accountingTaxRateOptions" })
-  @Type(() => ConfigureSyncRequestBodyConfigurationSalesNewTaxRatesAccountingTaxRateOptions)
+  @Type(
+    () =>
+      ConfigureSyncRequestBodyConfigurationSalesNewTaxRatesAccountingTaxRateOptions
+  )
   accountingTaxRateOptions?: ConfigureSyncRequestBodyConfigurationSalesNewTaxRatesAccountingTaxRateOptions[];
 
-  @SpeakeasyMetadata({ elemType: ConfigureSyncRequestBodyConfigurationSalesNewTaxRatesCommerceTaxRateOptions })
+  @SpeakeasyMetadata({
+    elemType:
+      ConfigureSyncRequestBodyConfigurationSalesNewTaxRatesCommerceTaxRateOptions,
+  })
   @Expose({ name: "commerceTaxRateOptions" })
-  @Type(() => ConfigureSyncRequestBodyConfigurationSalesNewTaxRatesCommerceTaxRateOptions)
+  @Type(
+    () =>
+      ConfigureSyncRequestBodyConfigurationSalesNewTaxRatesCommerceTaxRateOptions
+  )
   commerceTaxRateOptions?: ConfigureSyncRequestBodyConfigurationSalesNewTaxRatesCommerceTaxRateOptions[];
 
-  @SpeakeasyMetadata({ elemType: ConfigureSyncRequestBodyConfigurationSalesNewTaxRatesDefaultZeroTaxRateOptions })
+  @SpeakeasyMetadata({
+    elemType:
+      ConfigureSyncRequestBodyConfigurationSalesNewTaxRatesDefaultZeroTaxRateOptions,
+  })
   @Expose({ name: "defaultZeroTaxRateOptions" })
-  @Type(() => ConfigureSyncRequestBodyConfigurationSalesNewTaxRatesDefaultZeroTaxRateOptions)
+  @Type(
+    () =>
+      ConfigureSyncRequestBodyConfigurationSalesNewTaxRatesDefaultZeroTaxRateOptions
+  )
   defaultZeroTaxRateOptions?: ConfigureSyncRequestBodyConfigurationSalesNewTaxRatesDefaultZeroTaxRateOptions[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "selectedDefaultZeroTaxRateId" })
   selectedDefaultZeroTaxRateId?: string;
 
-  @SpeakeasyMetadata({ elemType: ConfigureSyncRequestBodyConfigurationSalesNewTaxRatesTaxRateMappings })
+  @SpeakeasyMetadata({
+    elemType:
+      ConfigureSyncRequestBodyConfigurationSalesNewTaxRatesTaxRateMappings,
+  })
   @Expose({ name: "taxRateMappings" })
-  @Type(() => ConfigureSyncRequestBodyConfigurationSalesNewTaxRatesTaxRateMappings)
+  @Type(
+    () => ConfigureSyncRequestBodyConfigurationSalesNewTaxRatesTaxRateMappings
+  )
   taxRateMappings?: ConfigureSyncRequestBodyConfigurationSalesNewTaxRatesTaxRateMappings[];
 }
 
@@ -399,9 +483,14 @@ export class ConfigureSyncRequestBodyConfigurationSalesSalesCustomerCustomerOpti
 }
 
 export class ConfigureSyncRequestBodyConfigurationSalesSalesCustomer extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ConfigureSyncRequestBodyConfigurationSalesSalesCustomerCustomerOptions })
+  @SpeakeasyMetadata({
+    elemType:
+      ConfigureSyncRequestBodyConfigurationSalesSalesCustomerCustomerOptions,
+  })
   @Expose({ name: "customerOptions" })
-  @Type(() => ConfigureSyncRequestBodyConfigurationSalesSalesCustomerCustomerOptions)
+  @Type(
+    () => ConfigureSyncRequestBodyConfigurationSalesSalesCustomerCustomerOptions
+  )
   customerOptions?: ConfigureSyncRequestBodyConfigurationSalesSalesCustomerCustomerOptions[];
 
   @SpeakeasyMetadata()
@@ -424,25 +513,36 @@ export class ConfigureSyncRequestBodyConfigurationSalesTaxRates extends Speakeas
   @Expose({ name: "selectedTaxRateId" })
   selectedTaxRateId?: string;
 
-  @SpeakeasyMetadata({ elemType: ConfigureSyncRequestBodyConfigurationSalesTaxRatesTaxRateOptions })
+  @SpeakeasyMetadata({
+    elemType: ConfigureSyncRequestBodyConfigurationSalesTaxRatesTaxRateOptions,
+  })
   @Expose({ name: "taxRateOptions" })
   @Type(() => ConfigureSyncRequestBodyConfigurationSalesTaxRatesTaxRateOptions)
   taxRateOptions?: ConfigureSyncRequestBodyConfigurationSalesTaxRatesTaxRateOptions[];
 }
 
 export class ConfigureSyncRequestBodyConfigurationSales extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ConfigureSyncRequestBodyConfigurationSalesAccounts })
+  @SpeakeasyMetadata({
+    elemType: ConfigureSyncRequestBodyConfigurationSalesAccounts,
+  })
   @Expose({ name: "accounts" })
-  @Transform(({ value }) => {
-    const obj: Record<string, ConfigureSyncRequestBodyConfigurationSalesAccounts> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(ConfigureSyncRequestBodyConfigurationSalesAccounts,
-        value[key] as ConfigureSyncRequestBodyConfigurationSalesAccounts,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        ConfigureSyncRequestBodyConfigurationSalesAccounts
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          ConfigureSyncRequestBodyConfigurationSalesAccounts,
+          value[key] as ConfigureSyncRequestBodyConfigurationSalesAccounts,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
   accounts?: Record<string, ConfigureSyncRequestBodyConfigurationSalesAccounts>;
 
   @SpeakeasyMetadata()
@@ -469,18 +569,27 @@ export class ConfigureSyncRequestBodyConfigurationSales extends SpeakeasyBase {
   @Expose({ name: "syncSales" })
   syncSales?: boolean;
 
-  @SpeakeasyMetadata({ elemType: ConfigureSyncRequestBodyConfigurationSalesTaxRates })
+  @SpeakeasyMetadata({
+    elemType: ConfigureSyncRequestBodyConfigurationSalesTaxRates,
+  })
   @Expose({ name: "taxRates" })
-  @Transform(({ value }) => {
-    const obj: Record<string, ConfigureSyncRequestBodyConfigurationSalesTaxRates> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(ConfigureSyncRequestBodyConfigurationSalesTaxRates,
-        value[key] as ConfigureSyncRequestBodyConfigurationSalesTaxRates,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        ConfigureSyncRequestBodyConfigurationSalesTaxRates
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          ConfigureSyncRequestBodyConfigurationSalesTaxRates,
+          value[key] as ConfigureSyncRequestBodyConfigurationSalesTaxRates,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
   taxRates?: Record<string, ConfigureSyncRequestBodyConfigurationSalesTaxRates>;
 }
 
@@ -584,9 +693,14 @@ export class ConfigureSync200ApplicationJSONConfigurationFeesAccountsAccountOpti
 }
 
 export class ConfigureSync200ApplicationJSONConfigurationFeesAccounts extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ConfigureSync200ApplicationJSONConfigurationFeesAccountsAccountOptions })
+  @SpeakeasyMetadata({
+    elemType:
+      ConfigureSync200ApplicationJSONConfigurationFeesAccountsAccountOptions,
+  })
   @Expose({ name: "accountOptions" })
-  @Type(() => ConfigureSync200ApplicationJSONConfigurationFeesAccountsAccountOptions)
+  @Type(
+    () => ConfigureSync200ApplicationJSONConfigurationFeesAccountsAccountOptions
+  )
   accountOptions?: ConfigureSync200ApplicationJSONConfigurationFeesAccountsAccountOptions[];
 
   @SpeakeasyMetadata()
@@ -621,26 +735,46 @@ export class ConfigureSync200ApplicationJSONConfigurationFeesFeesSupplier extend
   @Expose({ name: "selectedSupplierId" })
   selectedSupplierId?: string;
 
-  @SpeakeasyMetadata({ elemType: ConfigureSync200ApplicationJSONConfigurationFeesFeesSupplierSupplierOptions })
+  @SpeakeasyMetadata({
+    elemType:
+      ConfigureSync200ApplicationJSONConfigurationFeesFeesSupplierSupplierOptions,
+  })
   @Expose({ name: "supplierOptions" })
-  @Type(() => ConfigureSync200ApplicationJSONConfigurationFeesFeesSupplierSupplierOptions)
+  @Type(
+    () =>
+      ConfigureSync200ApplicationJSONConfigurationFeesFeesSupplierSupplierOptions
+  )
   supplierOptions?: ConfigureSync200ApplicationJSONConfigurationFeesFeesSupplierSupplierOptions[];
 }
 
 export class ConfigureSync200ApplicationJSONConfigurationFees extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ConfigureSync200ApplicationJSONConfigurationFeesAccounts })
+  @SpeakeasyMetadata({
+    elemType: ConfigureSync200ApplicationJSONConfigurationFeesAccounts,
+  })
   @Expose({ name: "accounts" })
-  @Transform(({ value }) => {
-    const obj: Record<string, ConfigureSync200ApplicationJSONConfigurationFeesAccounts> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(ConfigureSync200ApplicationJSONConfigurationFeesAccounts,
-        value[key] as ConfigureSync200ApplicationJSONConfigurationFeesAccounts,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  accounts?: Record<string, ConfigureSync200ApplicationJSONConfigurationFeesAccounts>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        ConfigureSync200ApplicationJSONConfigurationFeesAccounts
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          ConfigureSync200ApplicationJSONConfigurationFeesAccounts,
+          value[
+            key
+          ] as ConfigureSync200ApplicationJSONConfigurationFeesAccounts,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  accounts?: Record<
+    string,
+    ConfigureSync200ApplicationJSONConfigurationFeesAccounts
+  >;
 
   @SpeakeasyMetadata()
   @Expose({ name: "feesSupplier" })
@@ -671,9 +805,15 @@ export class ConfigureSync200ApplicationJSONConfigurationNewPaymentsAccountsAcco
 }
 
 export class ConfigureSync200ApplicationJSONConfigurationNewPaymentsAccounts extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ConfigureSync200ApplicationJSONConfigurationNewPaymentsAccountsAccountOptions })
+  @SpeakeasyMetadata({
+    elemType:
+      ConfigureSync200ApplicationJSONConfigurationNewPaymentsAccountsAccountOptions,
+  })
   @Expose({ name: "accountOptions" })
-  @Type(() => ConfigureSync200ApplicationJSONConfigurationNewPaymentsAccountsAccountOptions)
+  @Type(
+    () =>
+      ConfigureSync200ApplicationJSONConfigurationNewPaymentsAccountsAccountOptions
+  )
   accountOptions?: ConfigureSync200ApplicationJSONConfigurationNewPaymentsAccountsAccountOptions[];
 
   @SpeakeasyMetadata()
@@ -694,19 +834,33 @@ export class ConfigureSync200ApplicationJSONConfigurationNewPaymentsAccounts ext
 }
 
 export class ConfigureSync200ApplicationJSONConfigurationNewPayments extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ConfigureSync200ApplicationJSONConfigurationNewPaymentsAccounts })
+  @SpeakeasyMetadata({
+    elemType: ConfigureSync200ApplicationJSONConfigurationNewPaymentsAccounts,
+  })
   @Expose({ name: "accounts" })
-  @Transform(({ value }) => {
-    const obj: Record<string, ConfigureSync200ApplicationJSONConfigurationNewPaymentsAccounts> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(ConfigureSync200ApplicationJSONConfigurationNewPaymentsAccounts,
-        value[key] as ConfigureSync200ApplicationJSONConfigurationNewPaymentsAccounts,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  accounts?: Record<string, ConfigureSync200ApplicationJSONConfigurationNewPaymentsAccounts>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        ConfigureSync200ApplicationJSONConfigurationNewPaymentsAccounts
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          ConfigureSync200ApplicationJSONConfigurationNewPaymentsAccounts,
+          value[
+            key
+          ] as ConfigureSync200ApplicationJSONConfigurationNewPaymentsAccounts,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  accounts?: Record<
+    string,
+    ConfigureSync200ApplicationJSONConfigurationNewPaymentsAccounts
+  >;
 
   @SpeakeasyMetadata()
   @Expose({ name: "syncPayments" })
@@ -732,9 +886,15 @@ export class ConfigureSync200ApplicationJSONConfigurationPaymentsAccountsAccount
 }
 
 export class ConfigureSync200ApplicationJSONConfigurationPaymentsAccounts extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ConfigureSync200ApplicationJSONConfigurationPaymentsAccountsAccountOptions })
+  @SpeakeasyMetadata({
+    elemType:
+      ConfigureSync200ApplicationJSONConfigurationPaymentsAccountsAccountOptions,
+  })
   @Expose({ name: "accountOptions" })
-  @Type(() => ConfigureSync200ApplicationJSONConfigurationPaymentsAccountsAccountOptions)
+  @Type(
+    () =>
+      ConfigureSync200ApplicationJSONConfigurationPaymentsAccountsAccountOptions
+  )
   accountOptions?: ConfigureSync200ApplicationJSONConfigurationPaymentsAccountsAccountOptions[];
 
   @SpeakeasyMetadata()
@@ -755,19 +915,33 @@ export class ConfigureSync200ApplicationJSONConfigurationPaymentsAccounts extend
 }
 
 export class ConfigureSync200ApplicationJSONConfigurationPayments extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ConfigureSync200ApplicationJSONConfigurationPaymentsAccounts })
+  @SpeakeasyMetadata({
+    elemType: ConfigureSync200ApplicationJSONConfigurationPaymentsAccounts,
+  })
   @Expose({ name: "accounts" })
-  @Transform(({ value }) => {
-    const obj: Record<string, ConfigureSync200ApplicationJSONConfigurationPaymentsAccounts> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(ConfigureSync200ApplicationJSONConfigurationPaymentsAccounts,
-        value[key] as ConfigureSync200ApplicationJSONConfigurationPaymentsAccounts,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  accounts?: Record<string, ConfigureSync200ApplicationJSONConfigurationPaymentsAccounts>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        ConfigureSync200ApplicationJSONConfigurationPaymentsAccounts
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          ConfigureSync200ApplicationJSONConfigurationPaymentsAccounts,
+          value[
+            key
+          ] as ConfigureSync200ApplicationJSONConfigurationPaymentsAccounts,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  accounts?: Record<
+    string,
+    ConfigureSync200ApplicationJSONConfigurationPaymentsAccounts
+  >;
 
   @SpeakeasyMetadata()
   @Expose({ name: "syncPayments" })
@@ -793,9 +967,15 @@ export class ConfigureSync200ApplicationJSONConfigurationSalesAccountsAccountOpt
 }
 
 export class ConfigureSync200ApplicationJSONConfigurationSalesAccounts extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ConfigureSync200ApplicationJSONConfigurationSalesAccountsAccountOptions })
+  @SpeakeasyMetadata({
+    elemType:
+      ConfigureSync200ApplicationJSONConfigurationSalesAccountsAccountOptions,
+  })
   @Expose({ name: "accountOptions" })
-  @Type(() => ConfigureSync200ApplicationJSONConfigurationSalesAccountsAccountOptions)
+  @Type(
+    () =>
+      ConfigureSync200ApplicationJSONConfigurationSalesAccountsAccountOptions
+  )
   accountOptions?: ConfigureSync200ApplicationJSONConfigurationSalesAccountsAccountOptions[];
 
   @SpeakeasyMetadata()
@@ -838,12 +1018,18 @@ export class ConfigureSync200ApplicationJSONConfigurationSalesGroupingGroupingLe
 export class ConfigureSync200ApplicationJSONConfigurationSalesGroupingGroupingLevels extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "invoiceLevel" })
-  @Type(() => ConfigureSync200ApplicationJSONConfigurationSalesGroupingGroupingLevelsInvoiceLevel)
+  @Type(
+    () =>
+      ConfigureSync200ApplicationJSONConfigurationSalesGroupingGroupingLevelsInvoiceLevel
+  )
   invoiceLevel?: ConfigureSync200ApplicationJSONConfigurationSalesGroupingGroupingLevelsInvoiceLevel;
 
   @SpeakeasyMetadata()
   @Expose({ name: "invoiceLineLevel" })
-  @Type(() => ConfigureSync200ApplicationJSONConfigurationSalesGroupingGroupingLevelsInvoiceLineLevel)
+  @Type(
+    () =>
+      ConfigureSync200ApplicationJSONConfigurationSalesGroupingGroupingLevelsInvoiceLineLevel
+  )
   invoiceLineLevel?: ConfigureSync200ApplicationJSONConfigurationSalesGroupingGroupingLevelsInvoiceLineLevel;
 }
 
@@ -860,12 +1046,18 @@ export class ConfigureSync200ApplicationJSONConfigurationSalesGroupingGroupingPe
 export class ConfigureSync200ApplicationJSONConfigurationSalesGrouping extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "groupingLevels" })
-  @Type(() => ConfigureSync200ApplicationJSONConfigurationSalesGroupingGroupingLevels)
+  @Type(
+    () =>
+      ConfigureSync200ApplicationJSONConfigurationSalesGroupingGroupingLevels
+  )
   groupingLevels?: ConfigureSync200ApplicationJSONConfigurationSalesGroupingGroupingLevels;
 
   @SpeakeasyMetadata()
   @Expose({ name: "groupingPeriod" })
-  @Type(() => ConfigureSync200ApplicationJSONConfigurationSalesGroupingGroupingPeriod)
+  @Type(
+    () =>
+      ConfigureSync200ApplicationJSONConfigurationSalesGroupingGroupingPeriod
+  )
   groupingPeriod?: ConfigureSync200ApplicationJSONConfigurationSalesGroupingGroupingPeriod;
 }
 
@@ -920,28 +1112,52 @@ export class ConfigureSync200ApplicationJSONConfigurationSalesNewTaxRatesTaxRate
 }
 
 export class ConfigureSync200ApplicationJSONConfigurationSalesNewTaxRates extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ConfigureSync200ApplicationJSONConfigurationSalesNewTaxRatesAccountingTaxRateOptions })
+  @SpeakeasyMetadata({
+    elemType:
+      ConfigureSync200ApplicationJSONConfigurationSalesNewTaxRatesAccountingTaxRateOptions,
+  })
   @Expose({ name: "accountingTaxRateOptions" })
-  @Type(() => ConfigureSync200ApplicationJSONConfigurationSalesNewTaxRatesAccountingTaxRateOptions)
+  @Type(
+    () =>
+      ConfigureSync200ApplicationJSONConfigurationSalesNewTaxRatesAccountingTaxRateOptions
+  )
   accountingTaxRateOptions?: ConfigureSync200ApplicationJSONConfigurationSalesNewTaxRatesAccountingTaxRateOptions[];
 
-  @SpeakeasyMetadata({ elemType: ConfigureSync200ApplicationJSONConfigurationSalesNewTaxRatesCommerceTaxRateOptions })
+  @SpeakeasyMetadata({
+    elemType:
+      ConfigureSync200ApplicationJSONConfigurationSalesNewTaxRatesCommerceTaxRateOptions,
+  })
   @Expose({ name: "commerceTaxRateOptions" })
-  @Type(() => ConfigureSync200ApplicationJSONConfigurationSalesNewTaxRatesCommerceTaxRateOptions)
+  @Type(
+    () =>
+      ConfigureSync200ApplicationJSONConfigurationSalesNewTaxRatesCommerceTaxRateOptions
+  )
   commerceTaxRateOptions?: ConfigureSync200ApplicationJSONConfigurationSalesNewTaxRatesCommerceTaxRateOptions[];
 
-  @SpeakeasyMetadata({ elemType: ConfigureSync200ApplicationJSONConfigurationSalesNewTaxRatesDefaultZeroTaxRateOptions })
+  @SpeakeasyMetadata({
+    elemType:
+      ConfigureSync200ApplicationJSONConfigurationSalesNewTaxRatesDefaultZeroTaxRateOptions,
+  })
   @Expose({ name: "defaultZeroTaxRateOptions" })
-  @Type(() => ConfigureSync200ApplicationJSONConfigurationSalesNewTaxRatesDefaultZeroTaxRateOptions)
+  @Type(
+    () =>
+      ConfigureSync200ApplicationJSONConfigurationSalesNewTaxRatesDefaultZeroTaxRateOptions
+  )
   defaultZeroTaxRateOptions?: ConfigureSync200ApplicationJSONConfigurationSalesNewTaxRatesDefaultZeroTaxRateOptions[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "selectedDefaultZeroTaxRateId" })
   selectedDefaultZeroTaxRateId?: string;
 
-  @SpeakeasyMetadata({ elemType: ConfigureSync200ApplicationJSONConfigurationSalesNewTaxRatesTaxRateMappings })
+  @SpeakeasyMetadata({
+    elemType:
+      ConfigureSync200ApplicationJSONConfigurationSalesNewTaxRatesTaxRateMappings,
+  })
   @Expose({ name: "taxRateMappings" })
-  @Type(() => ConfigureSync200ApplicationJSONConfigurationSalesNewTaxRatesTaxRateMappings)
+  @Type(
+    () =>
+      ConfigureSync200ApplicationJSONConfigurationSalesNewTaxRatesTaxRateMappings
+  )
   taxRateMappings?: ConfigureSync200ApplicationJSONConfigurationSalesNewTaxRatesTaxRateMappings[];
 }
 
@@ -956,9 +1172,15 @@ export class ConfigureSync200ApplicationJSONConfigurationSalesSalesCustomerCusto
 }
 
 export class ConfigureSync200ApplicationJSONConfigurationSalesSalesCustomer extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ConfigureSync200ApplicationJSONConfigurationSalesSalesCustomerCustomerOptions })
+  @SpeakeasyMetadata({
+    elemType:
+      ConfigureSync200ApplicationJSONConfigurationSalesSalesCustomerCustomerOptions,
+  })
   @Expose({ name: "customerOptions" })
-  @Type(() => ConfigureSync200ApplicationJSONConfigurationSalesSalesCustomerCustomerOptions)
+  @Type(
+    () =>
+      ConfigureSync200ApplicationJSONConfigurationSalesSalesCustomerCustomerOptions
+  )
   customerOptions?: ConfigureSync200ApplicationJSONConfigurationSalesSalesCustomerCustomerOptions[];
 
   @SpeakeasyMetadata()
@@ -981,26 +1203,46 @@ export class ConfigureSync200ApplicationJSONConfigurationSalesTaxRates extends S
   @Expose({ name: "selectedTaxRateId" })
   selectedTaxRateId?: string;
 
-  @SpeakeasyMetadata({ elemType: ConfigureSync200ApplicationJSONConfigurationSalesTaxRatesTaxRateOptions })
+  @SpeakeasyMetadata({
+    elemType:
+      ConfigureSync200ApplicationJSONConfigurationSalesTaxRatesTaxRateOptions,
+  })
   @Expose({ name: "taxRateOptions" })
-  @Type(() => ConfigureSync200ApplicationJSONConfigurationSalesTaxRatesTaxRateOptions)
+  @Type(
+    () =>
+      ConfigureSync200ApplicationJSONConfigurationSalesTaxRatesTaxRateOptions
+  )
   taxRateOptions?: ConfigureSync200ApplicationJSONConfigurationSalesTaxRatesTaxRateOptions[];
 }
 
 export class ConfigureSync200ApplicationJSONConfigurationSales extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ConfigureSync200ApplicationJSONConfigurationSalesAccounts })
+  @SpeakeasyMetadata({
+    elemType: ConfigureSync200ApplicationJSONConfigurationSalesAccounts,
+  })
   @Expose({ name: "accounts" })
-  @Transform(({ value }) => {
-    const obj: Record<string, ConfigureSync200ApplicationJSONConfigurationSalesAccounts> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(ConfigureSync200ApplicationJSONConfigurationSalesAccounts,
-        value[key] as ConfigureSync200ApplicationJSONConfigurationSalesAccounts,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  accounts?: Record<string, ConfigureSync200ApplicationJSONConfigurationSalesAccounts>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        ConfigureSync200ApplicationJSONConfigurationSalesAccounts
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          ConfigureSync200ApplicationJSONConfigurationSalesAccounts,
+          value[
+            key
+          ] as ConfigureSync200ApplicationJSONConfigurationSalesAccounts,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  accounts?: Record<
+    string,
+    ConfigureSync200ApplicationJSONConfigurationSalesAccounts
+  >;
 
   @SpeakeasyMetadata()
   @Expose({ name: "grouping" })
@@ -1026,19 +1268,33 @@ export class ConfigureSync200ApplicationJSONConfigurationSales extends Speakeasy
   @Expose({ name: "syncSales" })
   syncSales?: boolean;
 
-  @SpeakeasyMetadata({ elemType: ConfigureSync200ApplicationJSONConfigurationSalesTaxRates })
+  @SpeakeasyMetadata({
+    elemType: ConfigureSync200ApplicationJSONConfigurationSalesTaxRates,
+  })
   @Expose({ name: "taxRates" })
-  @Transform(({ value }) => {
-    const obj: Record<string, ConfigureSync200ApplicationJSONConfigurationSalesTaxRates> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(ConfigureSync200ApplicationJSONConfigurationSalesTaxRates,
-        value[key] as ConfigureSync200ApplicationJSONConfigurationSalesTaxRates,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  taxRates?: Record<string, ConfigureSync200ApplicationJSONConfigurationSalesTaxRates>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        ConfigureSync200ApplicationJSONConfigurationSalesTaxRates
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          ConfigureSync200ApplicationJSONConfigurationSalesTaxRates,
+          value[
+            key
+          ] as ConfigureSync200ApplicationJSONConfigurationSalesTaxRates,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  taxRates?: Record<
+    string,
+    ConfigureSync200ApplicationJSONConfigurationSalesTaxRates
+  >;
 }
 
 export class ConfigureSync200ApplicationJSONConfiguration extends SpeakeasyBase {

@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class SendOrdersDataPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
@@ -59,7 +60,9 @@ export class SendOrdersDataRequestBodyOrdersOrderLineItemsProductVariantRef exte
 }
 
 export class SendOrdersDataRequestBodyOrdersOrderLineItems extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: SendOrdersDataRequestBodyOrdersOrderLineItemsDiscountAllocations })
+  @SpeakeasyMetadata({
+    elemType: SendOrdersDataRequestBodyOrdersOrderLineItemsDiscountAllocations,
+  })
   @Expose({ name: "discountAllocations" })
   @Type(() => SendOrdersDataRequestBodyOrdersOrderLineItemsDiscountAllocations)
   discountAllocations?: SendOrdersDataRequestBodyOrdersOrderLineItemsDiscountAllocations[];
@@ -99,26 +102,26 @@ export class SendOrdersDataRequestBodyOrdersOrderLineItems extends SpeakeasyBase
   unitPrice?: number;
 }
 export enum SendOrdersDataRequestBodyOrdersPaymentsStatusEnum {
-    Unknown = "Unknown",
-    Pending = "Pending",
-    Authorized = "Authorized",
-    Paid = "Paid",
-    Failed = "Failed",
-    Cancelled = "Cancelled"
+  Unknown = "Unknown",
+  Pending = "Pending",
+  Authorized = "Authorized",
+  Paid = "Paid",
+  Failed = "Failed",
+  Cancelled = "Cancelled",
 }
 export enum SendOrdersDataRequestBodyOrdersPaymentsTypeEnum {
-    Unknown = "Unknown",
-    Cash = "Cash",
-    Card = "Card",
-    Invoice = "Invoice",
-    OnlineCard = "OnlineCard",
-    Swish = "Swish",
-    Vipps = "Vipps",
-    Mobile = "Mobile",
-    StoreCredit = "StoreCredit",
-    Paypal = "Paypal",
-    Custom = "Custom",
-    Prepaid = "Prepaid"
+  Unknown = "Unknown",
+  Cash = "Cash",
+  Card = "Card",
+  Invoice = "Invoice",
+  OnlineCard = "OnlineCard",
+  Swish = "Swish",
+  Vipps = "Vipps",
+  Mobile = "Mobile",
+  StoreCredit = "StoreCredit",
+  Paypal = "Paypal",
+  Custom = "Custom",
+  Prepaid = "Prepaid",
 }
 
 export class SendOrdersDataRequestBodyOrdersPayments extends SpeakeasyBase {
@@ -167,10 +170,10 @@ export class SendOrdersDataRequestBodyOrdersPayments extends SpeakeasyBase {
   type?: SendOrdersDataRequestBodyOrdersPaymentsTypeEnum;
 }
 export enum SendOrdersDataRequestBodyOrdersServiceChargesTypeEnum {
-    Unknown = "Unknown",
-    Generic = "Generic",
-    Shipping = "Shipping",
-    Overpayment = "Overpayment"
+  Unknown = "Unknown",
+  Generic = "Generic",
+  Shipping = "Shipping",
+  Overpayment = "Overpayment",
 }
 
 export class SendOrdersDataRequestBodyOrdersServiceCharges extends SpeakeasyBase {
@@ -237,7 +240,9 @@ export class SendOrdersDataRequestBodyOrders extends SpeakeasyBase {
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   modifiedDate?: Date;
 
-  @SpeakeasyMetadata({ elemType: SendOrdersDataRequestBodyOrdersOrderLineItems })
+  @SpeakeasyMetadata({
+    elemType: SendOrdersDataRequestBodyOrdersOrderLineItems,
+  })
   @Expose({ name: "orderLineItems" })
   @Type(() => SendOrdersDataRequestBodyOrdersOrderLineItems)
   orderLineItems?: SendOrdersDataRequestBodyOrdersOrderLineItems[];
@@ -251,7 +256,9 @@ export class SendOrdersDataRequestBodyOrders extends SpeakeasyBase {
   @Type(() => SendOrdersDataRequestBodyOrdersPayments)
   payments?: SendOrdersDataRequestBodyOrdersPayments[];
 
-  @SpeakeasyMetadata({ elemType: SendOrdersDataRequestBodyOrdersServiceCharges })
+  @SpeakeasyMetadata({
+    elemType: SendOrdersDataRequestBodyOrdersServiceCharges,
+  })
   @Expose({ name: "serviceCharges" })
   @Type(() => SendOrdersDataRequestBodyOrdersServiceCharges)
   serviceCharges?: SendOrdersDataRequestBodyOrdersServiceCharges[];
@@ -352,9 +359,15 @@ export class SendOrdersData200ApplicationJSONDataOrdersOrderLineItemsProductVari
 }
 
 export class SendOrdersData200ApplicationJSONDataOrdersOrderLineItems extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: SendOrdersData200ApplicationJSONDataOrdersOrderLineItemsDiscountAllocations })
+  @SpeakeasyMetadata({
+    elemType:
+      SendOrdersData200ApplicationJSONDataOrdersOrderLineItemsDiscountAllocations,
+  })
   @Expose({ name: "discountAllocations" })
-  @Type(() => SendOrdersData200ApplicationJSONDataOrdersOrderLineItemsDiscountAllocations)
+  @Type(
+    () =>
+      SendOrdersData200ApplicationJSONDataOrdersOrderLineItemsDiscountAllocations
+  )
   discountAllocations?: SendOrdersData200ApplicationJSONDataOrdersOrderLineItemsDiscountAllocations[];
 
   @SpeakeasyMetadata()
@@ -363,12 +376,17 @@ export class SendOrdersData200ApplicationJSONDataOrdersOrderLineItems extends Sp
 
   @SpeakeasyMetadata()
   @Expose({ name: "productRef" })
-  @Type(() => SendOrdersData200ApplicationJSONDataOrdersOrderLineItemsProductRef)
+  @Type(
+    () => SendOrdersData200ApplicationJSONDataOrdersOrderLineItemsProductRef
+  )
   productRef?: SendOrdersData200ApplicationJSONDataOrdersOrderLineItemsProductRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "productVariantRef" })
-  @Type(() => SendOrdersData200ApplicationJSONDataOrdersOrderLineItemsProductVariantRef)
+  @Type(
+    () =>
+      SendOrdersData200ApplicationJSONDataOrdersOrderLineItemsProductVariantRef
+  )
   productVariantRef?: SendOrdersData200ApplicationJSONDataOrdersOrderLineItemsProductVariantRef;
 
   @SpeakeasyMetadata()
@@ -392,26 +410,26 @@ export class SendOrdersData200ApplicationJSONDataOrdersOrderLineItems extends Sp
   unitPrice?: number;
 }
 export enum SendOrdersData200ApplicationJSONDataOrdersPaymentsStatusEnum {
-    Unknown = "Unknown",
-    Pending = "Pending",
-    Authorized = "Authorized",
-    Paid = "Paid",
-    Failed = "Failed",
-    Cancelled = "Cancelled"
+  Unknown = "Unknown",
+  Pending = "Pending",
+  Authorized = "Authorized",
+  Paid = "Paid",
+  Failed = "Failed",
+  Cancelled = "Cancelled",
 }
 export enum SendOrdersData200ApplicationJSONDataOrdersPaymentsTypeEnum {
-    Unknown = "Unknown",
-    Cash = "Cash",
-    Card = "Card",
-    Invoice = "Invoice",
-    OnlineCard = "OnlineCard",
-    Swish = "Swish",
-    Vipps = "Vipps",
-    Mobile = "Mobile",
-    StoreCredit = "StoreCredit",
-    Paypal = "Paypal",
-    Custom = "Custom",
-    Prepaid = "Prepaid"
+  Unknown = "Unknown",
+  Cash = "Cash",
+  Card = "Card",
+  Invoice = "Invoice",
+  OnlineCard = "OnlineCard",
+  Swish = "Swish",
+  Vipps = "Vipps",
+  Mobile = "Mobile",
+  StoreCredit = "StoreCredit",
+  Paypal = "Paypal",
+  Custom = "Custom",
+  Prepaid = "Prepaid",
 }
 
 export class SendOrdersData200ApplicationJSONDataOrdersPayments extends SpeakeasyBase {
@@ -460,10 +478,10 @@ export class SendOrdersData200ApplicationJSONDataOrdersPayments extends Speakeas
   type?: SendOrdersData200ApplicationJSONDataOrdersPaymentsTypeEnum;
 }
 export enum SendOrdersData200ApplicationJSONDataOrdersServiceChargesTypeEnum {
-    Unknown = "Unknown",
-    Generic = "Generic",
-    Shipping = "Shipping",
-    Overpayment = "Overpayment"
+  Unknown = "Unknown",
+  Generic = "Generic",
+  Shipping = "Shipping",
+  Overpayment = "Overpayment",
 }
 
 export class SendOrdersData200ApplicationJSONDataOrdersServiceCharges extends SpeakeasyBase {
@@ -530,7 +548,9 @@ export class SendOrdersData200ApplicationJSONDataOrders extends SpeakeasyBase {
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   modifiedDate?: Date;
 
-  @SpeakeasyMetadata({ elemType: SendOrdersData200ApplicationJSONDataOrdersOrderLineItems })
+  @SpeakeasyMetadata({
+    elemType: SendOrdersData200ApplicationJSONDataOrdersOrderLineItems,
+  })
   @Expose({ name: "orderLineItems" })
   @Type(() => SendOrdersData200ApplicationJSONDataOrdersOrderLineItems)
   orderLineItems?: SendOrdersData200ApplicationJSONDataOrdersOrderLineItems[];
@@ -539,12 +559,16 @@ export class SendOrdersData200ApplicationJSONDataOrders extends SpeakeasyBase {
   @Expose({ name: "orderNumber" })
   orderNumber?: string;
 
-  @SpeakeasyMetadata({ elemType: SendOrdersData200ApplicationJSONDataOrdersPayments })
+  @SpeakeasyMetadata({
+    elemType: SendOrdersData200ApplicationJSONDataOrdersPayments,
+  })
   @Expose({ name: "payments" })
   @Type(() => SendOrdersData200ApplicationJSONDataOrdersPayments)
   payments?: SendOrdersData200ApplicationJSONDataOrdersPayments[];
 
-  @SpeakeasyMetadata({ elemType: SendOrdersData200ApplicationJSONDataOrdersServiceCharges })
+  @SpeakeasyMetadata({
+    elemType: SendOrdersData200ApplicationJSONDataOrdersServiceCharges,
+  })
   @Expose({ name: "serviceCharges" })
   @Type(() => SendOrdersData200ApplicationJSONDataOrdersServiceCharges)
   serviceCharges?: SendOrdersData200ApplicationJSONDataOrdersServiceCharges[];

@@ -2,15 +2,18 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class GetIntegrationsQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -83,29 +86,37 @@ export class GetIntegrations200ApplicationJSONResultsDatatypeFeatures extends Sp
   @Expose({ name: "datatype" })
   datatype?: string;
 
-  @SpeakeasyMetadata({ elemType: GetIntegrations200ApplicationJSONResultsDatatypeFeaturesSupportedFeatures })
+  @SpeakeasyMetadata({
+    elemType:
+      GetIntegrations200ApplicationJSONResultsDatatypeFeaturesSupportedFeatures,
+  })
   @Expose({ name: "supportedFeatures" })
-  @Type(() => GetIntegrations200ApplicationJSONResultsDatatypeFeaturesSupportedFeatures)
+  @Type(
+    () =>
+      GetIntegrations200ApplicationJSONResultsDatatypeFeaturesSupportedFeatures
+  )
   supportedFeatures?: GetIntegrations200ApplicationJSONResultsDatatypeFeaturesSupportedFeatures[];
 }
 export enum GetIntegrations200ApplicationJSONResultsSourceTypeEnum {
-    Unknown = "Unknown",
-    Accounting = "Accounting",
-    Banking = "Banking",
-    BankFeed = "BankFeed",
-    Commerce = "Commerce",
-    Expense = "Expense",
-    Other = "Other"
+  Unknown = "Unknown",
+  Accounting = "Accounting",
+  Banking = "Banking",
+  BankFeed = "BankFeed",
+  Commerce = "Commerce",
+  Expense = "Expense",
+  Other = "Other",
 }
 export enum GetIntegrations200ApplicationJSONResultsSupportedEnvironmentsEnum {
-    Unknown = "Unknown",
-    SandboxOnly = "SandboxOnly",
-    LiveOnly = "LiveOnly",
-    LiveAndSandbox = "LiveAndSandbox"
+  Unknown = "Unknown",
+  SandboxOnly = "SandboxOnly",
+  LiveOnly = "LiveOnly",
+  LiveAndSandbox = "LiveAndSandbox",
 }
 
 export class GetIntegrations200ApplicationJSONResults extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetIntegrations200ApplicationJSONResultsDatatypeFeatures })
+  @SpeakeasyMetadata({
+    elemType: GetIntegrations200ApplicationJSONResultsDatatypeFeatures,
+  })
   @Expose({ name: "datatypeFeatures" })
   @Type(() => GetIntegrations200ApplicationJSONResultsDatatypeFeatures)
   datatypeFeatures?: GetIntegrations200ApplicationJSONResultsDatatypeFeatures[];
@@ -160,10 +171,10 @@ export class GetIntegrations200ApplicationJSONResults extends SpeakeasyBase {
 }
 
 // GetIntegrations200ApplicationJSON
-/** 
+/**
  * Used to represent what can be returned by an endpoint that supports paging.
  * Usable with the [ProducesResponseType] attribute on a controller action.
-**/
+ **/
 export class GetIntegrations200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })

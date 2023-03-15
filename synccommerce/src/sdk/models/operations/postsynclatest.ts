@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class PostSyncLatestPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
@@ -48,9 +49,14 @@ export class PostSyncLatest200ApplicationJSONDataConnections extends SpeakeasyBa
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   created?: Date;
 
-  @SpeakeasyMetadata({ elemType: PostSyncLatest200ApplicationJSONDataConnectionsDataConnectionErrors })
+  @SpeakeasyMetadata({
+    elemType:
+      PostSyncLatest200ApplicationJSONDataConnectionsDataConnectionErrors,
+  })
   @Expose({ name: "dataConnectionErrors" })
-  @Type(() => PostSyncLatest200ApplicationJSONDataConnectionsDataConnectionErrors)
+  @Type(
+    () => PostSyncLatest200ApplicationJSONDataConnectionsDataConnectionErrors
+  )
   dataConnectionErrors?: PostSyncLatest200ApplicationJSONDataConnectionsDataConnectionErrors[];
 
   @SpeakeasyMetadata()
@@ -108,7 +114,9 @@ export class PostSyncLatest200ApplicationJSON extends SpeakeasyBase {
   @Expose({ name: "companyId" })
   companyId?: string;
 
-  @SpeakeasyMetadata({ elemType: PostSyncLatest200ApplicationJSONDataConnections })
+  @SpeakeasyMetadata({
+    elemType: PostSyncLatest200ApplicationJSONDataConnections,
+  })
   @Expose({ name: "dataConnections" })
   @Type(() => PostSyncLatest200ApplicationJSONDataConnections)
   dataConnections?: PostSyncLatest200ApplicationJSONDataConnections[];

@@ -11,7 +11,14 @@ export class Sync {
   _sdkVersion: string;
   _genVersion: string;
 
-  constructor(defaultClient: AxiosInstance, securityClient: AxiosInstance, serverURL: string, language: string, sdkVersion: string, genVersion: string) {
+  constructor(
+    defaultClient: AxiosInstance,
+    securityClient: AxiosInstance,
+    serverURL: string,
+    language: string,
+    sdkVersion: string,
+    genVersion: string
+  ) {
     this._defaultClient = defaultClient;
     this._securityClient = securityClient;
     this._serverURL = serverURL;
@@ -19,13 +26,13 @@ export class Sync {
     this._sdkVersion = sdkVersion;
     this._genVersion = genVersion;
   }
-  
+
   /**
    * postSyncLatest - Sync commerce data
    *
    * Run a Commerce sync from the last successful sync up to the date provided (optional), otherwise UtcNow is used.
    * If there was no previously successful sync, the start date in the config is used.
-  **/
+   **/
   postSyncLatest(
     req: operations.PostSyncLatestRequest,
     config?: AxiosRequestConfig
@@ -33,9 +40,13 @@ export class Sync {
     if (!(req instanceof utils.SpeakeasyBase)) {
       req = new operations.PostSyncLatestRequest(req);
     }
-    
+
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(baseURL, "/companies/{companyId}/sync/commerce/latest", req.pathParams);
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/sync/commerce/latest",
+      req.pathParams
+    );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
@@ -46,42 +57,43 @@ export class Sync {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
       }
     }
-    
+
     const client: AxiosInstance = this._securityClient!;
-    
-    const headers = {...reqBodyHeaders, ...config?.headers};
-    
+
+    const headers = { ...reqBodyHeaders, ...config?.headers };
+
     const r = client.request({
       url: url,
       method: "post",
       headers: headers,
-      data: reqBody, 
+      data: reqBody,
       ...config,
     });
-    
+
     return r.then((httpRes: AxiosResponse) => {
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-        if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.PostSyncLatestResponse =
-            new operations.PostSyncLatestResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes
-            });
-        switch (true) {
-          case httpRes?.status == 200:
-            if (utils.matchContentType(contentType, `application/json`)) {
-              res.postSyncLatest200ApplicationJSONObject = utils.deserializeJSONResponse(
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.PostSyncLatestResponse =
+        new operations.PostSyncLatestResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.postSyncLatest200ApplicationJSONObject =
+              utils.deserializeJSONResponse(
                 httpRes?.data,
-                operations.PostSyncLatest200ApplicationJSON,
+                operations.PostSyncLatest200ApplicationJSON
               );
-            }
-            break;
-        }
+          }
+          break;
+      }
 
-        return res;
-      })
+      return res;
+    });
   }
-
 }

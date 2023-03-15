@@ -7,23 +7,18 @@ import { SyncConfiguration } from "./syncconfiguration";
 import { SyncData } from "./syncdata";
 import axios, { AxiosInstance } from "axios";
 
-export const ServerList = [
-	"https://api.codat.io",
-] as const;
-
-
+export const ServerList = ["https://api.codat.io"] as const;
 
 export type SDKProps = {
-  defaultClient?: AxiosInstance;
-
   security?: shared.Security;
-
+  defaultClient?: AxiosInstance;
   serverUrl?: string;
-}
+};
 
 /* SDK Documentation: The API for Sync for Commerce. Sync for Commerce is an API and a set of supporting tools. It has been built to enable e-commerce, point of sale platforms to provide high-quality integrations with numerous accounting platform through standardized API, seamlessly transforming business sale's data into accounting artefacts.
- * 
- * [Read More...](https://docs.codat.io/sfc/overview)*/
+ *
+ * [Read More...](https://docs.codat.io/sfc/overview)
+ */
 export class Codat {
   public companyManagement: CompanyManagement;
   public integrations: Integrations;
@@ -35,13 +30,15 @@ export class Codat {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.3.1";
-  private _genVersion = "1.9.2";
+  private _sdkVersion = "0.4.0";
+  private _genVersion = "1.11.0";
+  private _globals: any;
 
   constructor(props?: SDKProps) {
     this._serverURL = props?.serverUrl ?? ServerList[0];
 
-    this._defaultClient = props?.defaultClient ?? axios.create({ baseURL: this._serverURL });
+    this._defaultClient =
+      props?.defaultClient ?? axios.create({ baseURL: this._serverURL });
     if (props?.security) {
       let security: shared.Security = props.security;
       if (!(props.security instanceof utils.SpeakeasyBase))
@@ -53,7 +50,7 @@ export class Codat {
     } else {
       this._securityClient = this._defaultClient;
     }
-    
+
     this.companyManagement = new CompanyManagement(
       this._defaultClient,
       this._securityClient,
@@ -62,7 +59,7 @@ export class Codat {
       this._sdkVersion,
       this._genVersion
     );
-    
+
     this.integrations = new Integrations(
       this._defaultClient,
       this._securityClient,
@@ -71,7 +68,7 @@ export class Codat {
       this._sdkVersion,
       this._genVersion
     );
-    
+
     this.sync = new Sync(
       this._defaultClient,
       this._securityClient,
@@ -80,7 +77,7 @@ export class Codat {
       this._sdkVersion,
       this._genVersion
     );
-    
+
     this.syncConfiguration = new SyncConfiguration(
       this._defaultClient,
       this._securityClient,
@@ -89,7 +86,7 @@ export class Codat {
       this._sdkVersion,
       this._genVersion
     );
-    
+
     this.syncData = new SyncData(
       this._defaultClient,
       this._securityClient,
@@ -99,5 +96,4 @@ export class Codat {
       this._genVersion
     );
   }
-  
 }

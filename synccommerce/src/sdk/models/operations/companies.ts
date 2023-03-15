@@ -2,15 +2,18 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class CompaniesQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -93,9 +96,14 @@ export class Companies200ApplicationJSONResultsDataConnections extends Speakeasy
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   created?: Date;
 
-  @SpeakeasyMetadata({ elemType: Companies200ApplicationJSONResultsDataConnectionsDataConnectionErrors })
+  @SpeakeasyMetadata({
+    elemType:
+      Companies200ApplicationJSONResultsDataConnectionsDataConnectionErrors,
+  })
   @Expose({ name: "dataConnectionErrors" })
-  @Type(() => Companies200ApplicationJSONResultsDataConnectionsDataConnectionErrors)
+  @Type(
+    () => Companies200ApplicationJSONResultsDataConnectionsDataConnectionErrors
+  )
   dataConnectionErrors?: Companies200ApplicationJSONResultsDataConnectionsDataConnectionErrors[];
 
   @SpeakeasyMetadata()
@@ -142,7 +150,9 @@ export class Companies200ApplicationJSONResults extends SpeakeasyBase {
   @Expose({ name: "createdByUserName" })
   createdByUserName?: string;
 
-  @SpeakeasyMetadata({ elemType: Companies200ApplicationJSONResultsDataConnections })
+  @SpeakeasyMetadata({
+    elemType: Companies200ApplicationJSONResultsDataConnections,
+  })
   @Expose({ name: "dataConnections" })
   @Type(() => Companies200ApplicationJSONResultsDataConnections)
   dataConnections: Companies200ApplicationJSONResultsDataConnections[];
@@ -170,10 +180,10 @@ export class Companies200ApplicationJSONResults extends SpeakeasyBase {
 }
 
 // Companies200ApplicationJSON
-/** 
+/**
  * Used to represent what can be returned by an endpoint that supports paging.
  * Usable with the [ProducesResponseType] attribute on a controller action.
-**/
+ **/
 export class Companies200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })

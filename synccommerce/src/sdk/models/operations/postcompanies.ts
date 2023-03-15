@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class PostCompaniesRequestBody extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
@@ -39,9 +38,14 @@ export class PostCompanies200ApplicationJSONDataConnections extends SpeakeasyBas
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   created?: Date;
 
-  @SpeakeasyMetadata({ elemType: PostCompanies200ApplicationJSONDataConnectionsDataConnectionErrors })
+  @SpeakeasyMetadata({
+    elemType:
+      PostCompanies200ApplicationJSONDataConnectionsDataConnectionErrors,
+  })
   @Expose({ name: "dataConnectionErrors" })
-  @Type(() => PostCompanies200ApplicationJSONDataConnectionsDataConnectionErrors)
+  @Type(
+    () => PostCompanies200ApplicationJSONDataConnectionsDataConnectionErrors
+  )
   dataConnectionErrors?: PostCompanies200ApplicationJSONDataConnectionsDataConnectionErrors[];
 
   @SpeakeasyMetadata()
@@ -88,7 +92,9 @@ export class PostCompanies200ApplicationJSON extends SpeakeasyBase {
   @Expose({ name: "createdByUserName" })
   createdByUserName?: string;
 
-  @SpeakeasyMetadata({ elemType: PostCompanies200ApplicationJSONDataConnections })
+  @SpeakeasyMetadata({
+    elemType: PostCompanies200ApplicationJSONDataConnections,
+  })
   @Expose({ name: "dataConnections" })
   @Type(() => PostCompanies200ApplicationJSONDataConnections)
   dataConnections: PostCompanies200ApplicationJSONDataConnections[];

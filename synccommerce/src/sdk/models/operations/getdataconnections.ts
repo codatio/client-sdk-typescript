@@ -2,20 +2,25 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetDataconnectionsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
 export class GetDataconnectionsQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -101,7 +106,9 @@ export class GetDataconnections200ApplicationJSONResults extends SpeakeasyBase {
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   created?: Date;
 
-  @SpeakeasyMetadata({ elemType: GetDataconnections200ApplicationJSONResultsDataConnectionErrors })
+  @SpeakeasyMetadata({
+    elemType: GetDataconnections200ApplicationJSONResultsDataConnectionErrors,
+  })
   @Expose({ name: "dataConnectionErrors" })
   @Type(() => GetDataconnections200ApplicationJSONResultsDataConnectionErrors)
   dataConnectionErrors?: GetDataconnections200ApplicationJSONResultsDataConnectionErrors[];
@@ -141,10 +148,10 @@ export class GetDataconnections200ApplicationJSONResults extends SpeakeasyBase {
 }
 
 // GetDataconnections200ApplicationJSON
-/** 
+/**
  * Used to represent what can be returned by an endpoint that supports paging.
  * Usable with the [ProducesResponseType] attribute on a controller action.
-**/
+ **/
 export class GetDataconnections200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
