@@ -2,11 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 // PostProfileSyncSettingsRequestBodySyncSetting
-/** 
+/**
  * Describes how often, and how much history, should be fetched for the given data type when a pull operation is queued.
-**/
+ **/
 export class PostProfileSyncSettingsRequestBodySyncSetting extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
@@ -51,7 +50,9 @@ export class PostProfileSyncSettingsRequestBody extends SpeakeasyBase {
   @Expose({ name: "overridesDefaults" })
   overridesDefaults: boolean;
 
-  @SpeakeasyMetadata({ elemType: PostProfileSyncSettingsRequestBodySyncSetting })
+  @SpeakeasyMetadata({
+    elemType: PostProfileSyncSettingsRequestBodySyncSetting,
+  })
   @Expose({ name: "settings" })
   @Type(() => PostProfileSyncSettingsRequestBodySyncSetting)
   settings: PostProfileSyncSettingsRequestBodySyncSetting[];

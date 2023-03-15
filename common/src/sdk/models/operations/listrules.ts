@@ -2,15 +2,18 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class ListRulesQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -131,9 +134,9 @@ export class ListRulesLinksWebhookNotifiers extends SpeakeasyBase {
 }
 
 // ListRulesLinksWebhook
-/** 
+/**
  * Configuration to alert to a url or list of email addresses based on the given type / condition.
-**/
+ **/
 export class ListRulesLinksWebhook extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "companyId" })
@@ -154,9 +157,9 @@ export class ListRulesLinksWebhook extends SpeakeasyBase {
 }
 
 // ListRulesLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class ListRulesLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })

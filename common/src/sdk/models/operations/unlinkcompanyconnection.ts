@@ -2,12 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class UnlinkCompanyConnectionPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
@@ -110,23 +113,23 @@ export class UnlinkCompanyConnectionConnectionDataConnectionErrors extends Speak
   statusText?: string;
 }
 export enum UnlinkCompanyConnectionConnectionSourceTypeEnum {
-    Accounting = "Accounting",
-    Banking = "Banking",
-    Commerce = "Commerce",
-    Other = "Other",
-    Unknown = "Unknown"
+  Accounting = "Accounting",
+  Banking = "Banking",
+  Commerce = "Commerce",
+  Other = "Other",
+  Unknown = "Unknown",
 }
 export enum UnlinkCompanyConnectionConnectionDataConnectionStatusEnum {
-    PendingAuth = "PendingAuth",
-    Linked = "Linked",
-    Unlinked = "Unlinked",
-    Deauthorized = "Deauthorized"
+  PendingAuth = "PendingAuth",
+  Linked = "Linked",
+  Unlinked = "Unlinked",
+  Deauthorized = "Deauthorized",
 }
 
 // UnlinkCompanyConnectionConnection
-/** 
+/**
  * A connection represents the link between a `company` and a source of data.
-**/
+ **/
 export class UnlinkCompanyConnectionConnection extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "connectionInfo" })
@@ -138,7 +141,9 @@ export class UnlinkCompanyConnectionConnection extends SpeakeasyBase {
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   created: Date;
 
-  @SpeakeasyMetadata({ elemType: UnlinkCompanyConnectionConnectionDataConnectionErrors })
+  @SpeakeasyMetadata({
+    elemType: UnlinkCompanyConnectionConnectionDataConnectionErrors,
+  })
   @Expose({ name: "dataConnectionErrors" })
   @Type(() => UnlinkCompanyConnectionConnectionDataConnectionErrors)
   dataConnectionErrors?: UnlinkCompanyConnectionConnectionDataConnectionErrors[];

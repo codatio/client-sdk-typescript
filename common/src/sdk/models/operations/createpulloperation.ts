@@ -3,27 +3,33 @@ import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 export enum CreatePullOperationDataTypeEnum {
-    Invoices = "invoices",
-    Accounts = "accounts",
-    CommercePayments = "commerce-payments",
-    BankingAccounts = "banking-accounts",
-    Company = "company",
-    ProfitAndLoss = "profitAndLoss",
-    CommerceTransactions = "commerce-transactions",
-    Bills = "bills",
-    Customers = "customers"
+  Invoices = "invoices",
+  Accounts = "accounts",
+  CommercePayments = "commerce-payments",
+  BankingAccounts = "banking-accounts",
+  Company = "company",
+  ProfitAndLoss = "profitAndLoss",
+  CommerceTransactions = "commerce-transactions",
+  Bills = "bills",
+  Customers = "customers",
 }
 
 export class CreatePullOperationPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=dataType" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=dataType",
+  })
   dataType: CreatePullOperationDataTypeEnum;
 }
 
 export class CreatePullOperationQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=connectionId",
+  })
   connectionId?: string;
 }
 
@@ -87,36 +93,36 @@ export class CreatePullOperation401ApplicationJSON extends SpeakeasyBase {
   statusCode?: number;
 }
 export enum CreatePullOperationPullOperationStatusEnum {
-    Initial = "Initial",
-    Queued = "Queued",
-    Fetching = "Fetching",
-    MapQueued = "MapQueued",
-    Mapping = "Mapping",
-    Complete = "Complete",
-    FetchError = "FetchError",
-    MapError = "MapError",
-    InternalError = "InternalError",
-    ProcessingQueued = "ProcessingQueued",
-    Processing = "Processing",
-    ProcessingError = "ProcessingError",
-    ValidationQueued = "ValidationQueued",
-    Validating = "Validating",
-    ValidationError = "ValidationError",
-    AuthError = "AuthError",
-    Cancelled = "Cancelled",
-    Routing = "Routing",
-    RoutingError = "RoutingError",
-    NotSupported = "NotSupported",
-    RateLimitError = "RateLimitError",
-    PermissionsError = "PermissionsError",
-    PrerequisiteNotMet = "PrerequisiteNotMet"
+  Initial = "Initial",
+  Queued = "Queued",
+  Fetching = "Fetching",
+  MapQueued = "MapQueued",
+  Mapping = "Mapping",
+  Complete = "Complete",
+  FetchError = "FetchError",
+  MapError = "MapError",
+  InternalError = "InternalError",
+  ProcessingQueued = "ProcessingQueued",
+  Processing = "Processing",
+  ProcessingError = "ProcessingError",
+  ValidationQueued = "ValidationQueued",
+  Validating = "Validating",
+  ValidationError = "ValidationError",
+  AuthError = "AuthError",
+  Cancelled = "Cancelled",
+  Routing = "Routing",
+  RoutingError = "RoutingError",
+  NotSupported = "NotSupported",
+  RateLimitError = "RateLimitError",
+  PermissionsError = "PermissionsError",
+  PrerequisiteNotMet = "PrerequisiteNotMet",
 }
 
 // CreatePullOperationPullOperation
-/** 
+/**
  * Information about a queued, in progress or completed pull operation.
  * *Formally called `dataset`*
-**/
+ **/
 export class CreatePullOperationPullOperation extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "companyId" })

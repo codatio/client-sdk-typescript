@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class GetIntegrationsPlatformKeyPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=platformKey" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=platformKey",
+  })
   platformKey: string;
 }
 
@@ -65,23 +66,23 @@ export class GetIntegrationsPlatformKey401ApplicationJSON extends SpeakeasyBase 
   statusCode?: number;
 }
 export enum GetIntegrationsPlatformKeyIntegrationDatatypeFeatureSupportedFeaturesFeatureStateEnum {
-    Release = "Release",
-    Beta = "Beta",
-    Deprecated = "Deprecated",
-    NotSupported = "NotSupported",
-    NotImplemented = "NotImplemented"
+  Release = "Release",
+  Beta = "Beta",
+  Deprecated = "Deprecated",
+  NotSupported = "NotSupported",
+  NotImplemented = "NotImplemented",
 }
 export enum GetIntegrationsPlatformKeyIntegrationDatatypeFeatureSupportedFeaturesFeatureTypeEnum {
-    Get = "Get",
-    Post = "Post",
-    Categorization = "Categorization",
-    Delete = "Delete",
-    Put = "Put",
-    GetAsPdf = "GetAsPdf",
-    DownloadAttachment = "DownloadAttachment",
-    GetAttachment = "GetAttachment",
-    GetAttachments = "GetAttachments",
-    UploadAttachment = "UploadAttachment"
+  Get = "Get",
+  Post = "Post",
+  Categorization = "Categorization",
+  Delete = "Delete",
+  Put = "Put",
+  GetAsPdf = "GetAsPdf",
+  DownloadAttachment = "DownloadAttachment",
+  GetAttachment = "GetAttachment",
+  GetAttachments = "GetAttachments",
+  UploadAttachment = "UploadAttachment",
 }
 
 export class GetIntegrationsPlatformKeyIntegrationDatatypeFeatureSupportedFeatures extends SpeakeasyBase {
@@ -95,37 +96,44 @@ export class GetIntegrationsPlatformKeyIntegrationDatatypeFeatureSupportedFeatur
 }
 
 // GetIntegrationsPlatformKeyIntegrationDatatypeFeature
-/** 
+/**
  * Describes support for a given datatype and associated operations
-**/
+ **/
 export class GetIntegrationsPlatformKeyIntegrationDatatypeFeature extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "datatype" })
   datatype: string;
 
-  @SpeakeasyMetadata({ elemType: GetIntegrationsPlatformKeyIntegrationDatatypeFeatureSupportedFeatures })
+  @SpeakeasyMetadata({
+    elemType:
+      GetIntegrationsPlatformKeyIntegrationDatatypeFeatureSupportedFeatures,
+  })
   @Expose({ name: "supportedFeatures" })
-  @Type(() => GetIntegrationsPlatformKeyIntegrationDatatypeFeatureSupportedFeatures)
+  @Type(
+    () => GetIntegrationsPlatformKeyIntegrationDatatypeFeatureSupportedFeatures
+  )
   supportedFeatures: GetIntegrationsPlatformKeyIntegrationDatatypeFeatureSupportedFeatures[];
 }
 export enum GetIntegrationsPlatformKeyIntegrationSourceTypeEnum {
-    Accounting = "Accounting",
-    Banking = "Banking",
-    Commerce = "Commerce",
-    Other = "Other",
-    Unknown = "Unknown"
+  Accounting = "Accounting",
+  Banking = "Banking",
+  Commerce = "Commerce",
+  Other = "Other",
+  Unknown = "Unknown",
 }
 
 // GetIntegrationsPlatformKeyIntegration
-/** 
+/**
  * An integration that Codat supports
-**/
+ **/
 export class GetIntegrationsPlatformKeyIntegration extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataProvidedBy" })
   dataProvidedBy?: string;
 
-  @SpeakeasyMetadata({ elemType: GetIntegrationsPlatformKeyIntegrationDatatypeFeature })
+  @SpeakeasyMetadata({
+    elemType: GetIntegrationsPlatformKeyIntegrationDatatypeFeature,
+  })
   @Expose({ name: "datatypeFeatures" })
   @Type(() => GetIntegrationsPlatformKeyIntegrationDatatypeFeature)
   datatypeFeatures?: GetIntegrationsPlatformKeyIntegrationDatatypeFeature[];

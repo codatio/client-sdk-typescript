@@ -2,20 +2,25 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetCompanyDataHistoryPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
 export class GetCompanyDataHistoryQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -154,36 +159,36 @@ export class GetCompanyDataHistoryLinksLinks extends SpeakeasyBase {
   self: GetCompanyDataHistoryLinksLinksSelf;
 }
 export enum GetCompanyDataHistoryLinksPullOperationStatusEnum {
-    Initial = "Initial",
-    Queued = "Queued",
-    Fetching = "Fetching",
-    MapQueued = "MapQueued",
-    Mapping = "Mapping",
-    Complete = "Complete",
-    FetchError = "FetchError",
-    MapError = "MapError",
-    InternalError = "InternalError",
-    ProcessingQueued = "ProcessingQueued",
-    Processing = "Processing",
-    ProcessingError = "ProcessingError",
-    ValidationQueued = "ValidationQueued",
-    Validating = "Validating",
-    ValidationError = "ValidationError",
-    AuthError = "AuthError",
-    Cancelled = "Cancelled",
-    Routing = "Routing",
-    RoutingError = "RoutingError",
-    NotSupported = "NotSupported",
-    RateLimitError = "RateLimitError",
-    PermissionsError = "PermissionsError",
-    PrerequisiteNotMet = "PrerequisiteNotMet"
+  Initial = "Initial",
+  Queued = "Queued",
+  Fetching = "Fetching",
+  MapQueued = "MapQueued",
+  Mapping = "Mapping",
+  Complete = "Complete",
+  FetchError = "FetchError",
+  MapError = "MapError",
+  InternalError = "InternalError",
+  ProcessingQueued = "ProcessingQueued",
+  Processing = "Processing",
+  ProcessingError = "ProcessingError",
+  ValidationQueued = "ValidationQueued",
+  Validating = "Validating",
+  ValidationError = "ValidationError",
+  AuthError = "AuthError",
+  Cancelled = "Cancelled",
+  Routing = "Routing",
+  RoutingError = "RoutingError",
+  NotSupported = "NotSupported",
+  RateLimitError = "RateLimitError",
+  PermissionsError = "PermissionsError",
+  PrerequisiteNotMet = "PrerequisiteNotMet",
 }
 
 // GetCompanyDataHistoryLinksPullOperation
-/** 
+/**
  * Information about a queued, in progress or completed pull operation.
  * *Formally called `dataset`*
-**/
+ **/
 export class GetCompanyDataHistoryLinksPullOperation extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "companyId" })
@@ -224,9 +229,9 @@ export class GetCompanyDataHistoryLinksPullOperation extends SpeakeasyBase {
 }
 
 // GetCompanyDataHistoryLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class GetCompanyDataHistoryLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })

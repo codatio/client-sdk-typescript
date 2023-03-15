@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class PushOperationHasTimedOutResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -25,9 +24,9 @@ export class PushOperationHasTimedOutPushOperationTimedOutWebhookData extends Sp
 }
 
 // PushOperationHasTimedOutPushOperationTimedOutWebhook
-/** 
+/**
  * Webhook request body notifying that a push push operation has timed out.
-**/
+ **/
 export class PushOperationHasTimedOutPushOperationTimedOutWebhook extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "alertId" })

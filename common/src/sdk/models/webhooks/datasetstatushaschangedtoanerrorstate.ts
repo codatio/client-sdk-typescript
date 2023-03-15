@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class DatasetStatusHasChangedToAnErrorStateResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -29,9 +28,9 @@ export class DatasetStatusHasChangedToAnErrorStateDatasetDataErrorWebhookData ex
 }
 
 // DatasetStatusHasChangedToAnErrorStateDatasetDataErrorWebhook
-/** 
+/**
  * Webhook request body to notify that a data synchronization has completed.
-**/
+ **/
 export class DatasetStatusHasChangedToAnErrorStateDatasetDataErrorWebhook extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "alertId" })

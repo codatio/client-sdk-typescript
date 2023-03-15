@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetCompaniesCompanyIdDataStatusPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
@@ -66,9 +67,9 @@ export class GetCompaniesCompanyIdDataStatus401ApplicationJSON extends Speakeasy
 }
 
 // GetCompaniesCompanyIdDataStatus200ApplicationJSONDataStatus
-/** 
+/**
  * Describes the state of data in the Codat cache for a company and data type
-**/
+ **/
 export class GetCompaniesCompanyIdDataStatus200ApplicationJSONDataStatus extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "currentStatus" })

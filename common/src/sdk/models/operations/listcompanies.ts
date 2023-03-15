@@ -2,15 +2,18 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListCompaniesQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -153,23 +156,23 @@ export class ListCompaniesLinksCompanyConnectionDataConnectionErrors extends Spe
   statusText?: string;
 }
 export enum ListCompaniesLinksCompanyConnectionSourceTypeEnum {
-    Accounting = "Accounting",
-    Banking = "Banking",
-    Commerce = "Commerce",
-    Other = "Other",
-    Unknown = "Unknown"
+  Accounting = "Accounting",
+  Banking = "Banking",
+  Commerce = "Commerce",
+  Other = "Other",
+  Unknown = "Unknown",
 }
 export enum ListCompaniesLinksCompanyConnectionDataConnectionStatusEnum {
-    PendingAuth = "PendingAuth",
-    Linked = "Linked",
-    Unlinked = "Unlinked",
-    Deauthorized = "Deauthorized"
+  PendingAuth = "PendingAuth",
+  Linked = "Linked",
+  Unlinked = "Unlinked",
+  Deauthorized = "Deauthorized",
 }
 
 // ListCompaniesLinksCompanyConnection
-/** 
+/**
  * A connection represents the link between a `company` and a source of data.
-**/
+ **/
 export class ListCompaniesLinksCompanyConnection extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "connectionInfo" })
@@ -181,7 +184,9 @@ export class ListCompaniesLinksCompanyConnection extends SpeakeasyBase {
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   created: Date;
 
-  @SpeakeasyMetadata({ elemType: ListCompaniesLinksCompanyConnectionDataConnectionErrors })
+  @SpeakeasyMetadata({
+    elemType: ListCompaniesLinksCompanyConnectionDataConnectionErrors,
+  })
   @Expose({ name: "dataConnectionErrors" })
   @Type(() => ListCompaniesLinksCompanyConnectionDataConnectionErrors)
   dataConnectionErrors?: ListCompaniesLinksCompanyConnectionDataConnectionErrors[];
@@ -225,9 +230,9 @@ export class ListCompaniesLinksCompanyConnection extends SpeakeasyBase {
 }
 
 // ListCompaniesLinksCompany
-/** 
+/**
  * A company in Codat represent a small or medium sized business, whose data you wish to share
-**/
+ **/
 export class ListCompaniesLinksCompany extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "created" })
@@ -270,9 +275,9 @@ export class ListCompaniesLinksCompany extends SpeakeasyBase {
 }
 
 // ListCompaniesLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class ListCompaniesLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })

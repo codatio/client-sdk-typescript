@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetProfileSyncSettings401ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
@@ -30,9 +29,9 @@ export class GetProfileSyncSettings401ApplicationJSON extends SpeakeasyBase {
 }
 
 // GetProfileSyncSettings200ApplicationJSONSyncSetting
-/** 
+/**
  * Describes how often, and how much history, should be fetched for the given data type when a pull operation is queued.
-**/
+ **/
 export class GetProfileSyncSettings200ApplicationJSONSyncSetting extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
@@ -77,7 +76,9 @@ export class GetProfileSyncSettings200ApplicationJSON extends SpeakeasyBase {
   @Expose({ name: "overridesDefaults" })
   overridesDefaults?: boolean;
 
-  @SpeakeasyMetadata({ elemType: GetProfileSyncSettings200ApplicationJSONSyncSetting })
+  @SpeakeasyMetadata({
+    elemType: GetProfileSyncSettings200ApplicationJSONSyncSetting,
+  })
   @Expose({ name: "settings" })
   @Type(() => GetProfileSyncSettings200ApplicationJSONSyncSetting)
   settings?: GetProfileSyncSettings200ApplicationJSONSyncSetting[];

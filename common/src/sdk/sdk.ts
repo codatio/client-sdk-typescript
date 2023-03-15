@@ -10,27 +10,22 @@ import { Settings } from "./settings";
 import { Webhooks } from "./webhooks";
 import axios, { AxiosInstance } from "axios";
 
-export const ServerList = [
-	"https://api.codat.io",
-] as const;
-
-
+export const ServerList = ["https://api.codat.io"] as const;
 
 export type SDKProps = {
-  defaultClient?: AxiosInstance;
-
   security?: shared.Security;
-
+  defaultClient?: AxiosInstance;
   serverUrl?: string;
-}
+};
 
 /* SDK Documentation: An API for the common components of all of Codat's products.
- * 
+ *
  * These end points cover creating and managing your companies, data connections, and integrations.
- * 
+ *
  * [Read about the building blocks of Codat...](https://docs.codat.io/core-concepts/companies)
- * 
- * [See our OpenAPI spec](https://github.com/codatio/oas) */
+ *
+ * [See our OpenAPI spec](https://github.com/codatio/oas)
+ */
 export class Codat {
   public companies: Companies;
   public connections: Connections;
@@ -45,13 +40,15 @@ export class Codat {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.2.1";
-  private _genVersion = "1.9.2";
+  private _sdkVersion = "0.3.0";
+  private _genVersion = "1.11.0";
+  private _globals: any;
 
   constructor(props?: SDKProps) {
     this._serverURL = props?.serverUrl ?? ServerList[0];
 
-    this._defaultClient = props?.defaultClient ?? axios.create({ baseURL: this._serverURL });
+    this._defaultClient =
+      props?.defaultClient ?? axios.create({ baseURL: this._serverURL });
     if (props?.security) {
       let security: shared.Security = props.security;
       if (!(props.security instanceof utils.SpeakeasyBase))
@@ -63,7 +60,7 @@ export class Codat {
     } else {
       this._securityClient = this._defaultClient;
     }
-    
+
     this.companies = new Companies(
       this._defaultClient,
       this._securityClient,
@@ -72,7 +69,7 @@ export class Codat {
       this._sdkVersion,
       this._genVersion
     );
-    
+
     this.connections = new Connections(
       this._defaultClient,
       this._securityClient,
@@ -81,7 +78,7 @@ export class Codat {
       this._sdkVersion,
       this._genVersion
     );
-    
+
     this.dataStatus = new DataStatus(
       this._defaultClient,
       this._securityClient,
@@ -90,7 +87,7 @@ export class Codat {
       this._sdkVersion,
       this._genVersion
     );
-    
+
     this.integrations = new Integrations(
       this._defaultClient,
       this._securityClient,
@@ -99,7 +96,7 @@ export class Codat {
       this._sdkVersion,
       this._genVersion
     );
-    
+
     this.pushData = new PushData(
       this._defaultClient,
       this._securityClient,
@@ -108,7 +105,7 @@ export class Codat {
       this._sdkVersion,
       this._genVersion
     );
-    
+
     this.refreshData = new RefreshData(
       this._defaultClient,
       this._securityClient,
@@ -117,7 +114,7 @@ export class Codat {
       this._sdkVersion,
       this._genVersion
     );
-    
+
     this.settings = new Settings(
       this._defaultClient,
       this._securityClient,
@@ -126,7 +123,7 @@ export class Codat {
       this._sdkVersion,
       this._genVersion
     );
-    
+
     this.webhooks = new Webhooks(
       this._defaultClient,
       this._securityClient,
@@ -136,5 +133,4 @@ export class Codat {
       this._genVersion
     );
   }
-  
 }

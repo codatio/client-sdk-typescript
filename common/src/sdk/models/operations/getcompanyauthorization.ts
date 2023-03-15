@@ -2,12 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetCompanyAuthorizationPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
@@ -66,23 +69,23 @@ export class GetCompanyAuthorizationConnectionDataConnectionErrors extends Speak
   statusText?: string;
 }
 export enum GetCompanyAuthorizationConnectionSourceTypeEnum {
-    Accounting = "Accounting",
-    Banking = "Banking",
-    Commerce = "Commerce",
-    Other = "Other",
-    Unknown = "Unknown"
+  Accounting = "Accounting",
+  Banking = "Banking",
+  Commerce = "Commerce",
+  Other = "Other",
+  Unknown = "Unknown",
 }
 export enum GetCompanyAuthorizationConnectionDataConnectionStatusEnum {
-    PendingAuth = "PendingAuth",
-    Linked = "Linked",
-    Unlinked = "Unlinked",
-    Deauthorized = "Deauthorized"
+  PendingAuth = "PendingAuth",
+  Linked = "Linked",
+  Unlinked = "Unlinked",
+  Deauthorized = "Deauthorized",
 }
 
 // GetCompanyAuthorizationConnection
-/** 
+/**
  * A connection represents the link between a `company` and a source of data.
-**/
+ **/
 export class GetCompanyAuthorizationConnection extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "connectionInfo" })
@@ -94,7 +97,9 @@ export class GetCompanyAuthorizationConnection extends SpeakeasyBase {
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   created: Date;
 
-  @SpeakeasyMetadata({ elemType: GetCompanyAuthorizationConnectionDataConnectionErrors })
+  @SpeakeasyMetadata({
+    elemType: GetCompanyAuthorizationConnectionDataConnectionErrors,
+  })
   @Expose({ name: "dataConnectionErrors" })
   @Type(() => GetCompanyAuthorizationConnectionDataConnectionErrors)
   dataConnectionErrors?: GetCompanyAuthorizationConnectionDataConnectionErrors[];

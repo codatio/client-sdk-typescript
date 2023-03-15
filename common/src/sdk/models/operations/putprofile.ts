@@ -2,11 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 // PutProfileProfile
-/** 
+/**
  * Describes your Codat client instance
-**/
+ **/
 export class PutProfileProfile extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "alertAuthHeader" })

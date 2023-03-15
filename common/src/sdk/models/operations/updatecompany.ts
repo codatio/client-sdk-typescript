@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class UpdateCompanyPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
@@ -85,23 +86,23 @@ export class UpdateCompanyCompanyConnectionDataConnectionErrors extends Speakeas
   statusText?: string;
 }
 export enum UpdateCompanyCompanyConnectionSourceTypeEnum {
-    Accounting = "Accounting",
-    Banking = "Banking",
-    Commerce = "Commerce",
-    Other = "Other",
-    Unknown = "Unknown"
+  Accounting = "Accounting",
+  Banking = "Banking",
+  Commerce = "Commerce",
+  Other = "Other",
+  Unknown = "Unknown",
 }
 export enum UpdateCompanyCompanyConnectionDataConnectionStatusEnum {
-    PendingAuth = "PendingAuth",
-    Linked = "Linked",
-    Unlinked = "Unlinked",
-    Deauthorized = "Deauthorized"
+  PendingAuth = "PendingAuth",
+  Linked = "Linked",
+  Unlinked = "Unlinked",
+  Deauthorized = "Deauthorized",
 }
 
 // UpdateCompanyCompanyConnection
-/** 
+/**
  * A connection represents the link between a `company` and a source of data.
-**/
+ **/
 export class UpdateCompanyCompanyConnection extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "connectionInfo" })
@@ -113,7 +114,9 @@ export class UpdateCompanyCompanyConnection extends SpeakeasyBase {
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   created: Date;
 
-  @SpeakeasyMetadata({ elemType: UpdateCompanyCompanyConnectionDataConnectionErrors })
+  @SpeakeasyMetadata({
+    elemType: UpdateCompanyCompanyConnectionDataConnectionErrors,
+  })
   @Expose({ name: "dataConnectionErrors" })
   @Type(() => UpdateCompanyCompanyConnectionDataConnectionErrors)
   dataConnectionErrors?: UpdateCompanyCompanyConnectionDataConnectionErrors[];
@@ -157,9 +160,9 @@ export class UpdateCompanyCompanyConnection extends SpeakeasyBase {
 }
 
 // UpdateCompanyCompany
-/** 
+/**
  * A company in Codat represent a small or medium sized business, whose data you wish to share
-**/
+ **/
 export class UpdateCompanyCompany extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "created" })

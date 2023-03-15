@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class PushOperationStatusHasChangedResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -29,9 +28,9 @@ export class PushOperationStatusHasChangedPushOperationStatusChangedWebhookData 
 }
 
 // PushOperationStatusHasChangedPushOperationStatusChangedWebhook
-/** 
+/**
  * Webhook request body for a push operation status change.
-**/
+ **/
 export class PushOperationStatusHasChangedPushOperationStatusChangedWebhook extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "alertId" })
@@ -43,7 +42,9 @@ export class PushOperationStatusHasChangedPushOperationStatusChangedWebhook exte
 
   @SpeakeasyMetadata()
   @Expose({ name: "data" })
-  @Type(() => PushOperationStatusHasChangedPushOperationStatusChangedWebhookData)
+  @Type(
+    () => PushOperationStatusHasChangedPushOperationStatusChangedWebhookData
+  )
   data?: PushOperationStatusHasChangedPushOperationStatusChangedWebhookData;
 
   @SpeakeasyMetadata()

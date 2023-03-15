@@ -2,15 +2,18 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class ListIntegrationsQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -120,23 +123,23 @@ export class ListIntegrationsLinksLinks extends SpeakeasyBase {
   self: ListIntegrationsLinksLinksSelf;
 }
 export enum ListIntegrationsLinksIntegrationDatatypeFeatureSupportedFeaturesFeatureStateEnum {
-    Release = "Release",
-    Beta = "Beta",
-    Deprecated = "Deprecated",
-    NotSupported = "NotSupported",
-    NotImplemented = "NotImplemented"
+  Release = "Release",
+  Beta = "Beta",
+  Deprecated = "Deprecated",
+  NotSupported = "NotSupported",
+  NotImplemented = "NotImplemented",
 }
 export enum ListIntegrationsLinksIntegrationDatatypeFeatureSupportedFeaturesFeatureTypeEnum {
-    Get = "Get",
-    Post = "Post",
-    Categorization = "Categorization",
-    Delete = "Delete",
-    Put = "Put",
-    GetAsPdf = "GetAsPdf",
-    DownloadAttachment = "DownloadAttachment",
-    GetAttachment = "GetAttachment",
-    GetAttachments = "GetAttachments",
-    UploadAttachment = "UploadAttachment"
+  Get = "Get",
+  Post = "Post",
+  Categorization = "Categorization",
+  Delete = "Delete",
+  Put = "Put",
+  GetAsPdf = "GetAsPdf",
+  DownloadAttachment = "DownloadAttachment",
+  GetAttachment = "GetAttachment",
+  GetAttachments = "GetAttachments",
+  UploadAttachment = "UploadAttachment",
 }
 
 export class ListIntegrationsLinksIntegrationDatatypeFeatureSupportedFeatures extends SpeakeasyBase {
@@ -150,37 +153,41 @@ export class ListIntegrationsLinksIntegrationDatatypeFeatureSupportedFeatures ex
 }
 
 // ListIntegrationsLinksIntegrationDatatypeFeature
-/** 
+/**
  * Describes support for a given datatype and associated operations
-**/
+ **/
 export class ListIntegrationsLinksIntegrationDatatypeFeature extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "datatype" })
   datatype: string;
 
-  @SpeakeasyMetadata({ elemType: ListIntegrationsLinksIntegrationDatatypeFeatureSupportedFeatures })
+  @SpeakeasyMetadata({
+    elemType: ListIntegrationsLinksIntegrationDatatypeFeatureSupportedFeatures,
+  })
   @Expose({ name: "supportedFeatures" })
   @Type(() => ListIntegrationsLinksIntegrationDatatypeFeatureSupportedFeatures)
   supportedFeatures: ListIntegrationsLinksIntegrationDatatypeFeatureSupportedFeatures[];
 }
 export enum ListIntegrationsLinksIntegrationSourceTypeEnum {
-    Accounting = "Accounting",
-    Banking = "Banking",
-    Commerce = "Commerce",
-    Other = "Other",
-    Unknown = "Unknown"
+  Accounting = "Accounting",
+  Banking = "Banking",
+  Commerce = "Commerce",
+  Other = "Other",
+  Unknown = "Unknown",
 }
 
 // ListIntegrationsLinksIntegration
-/** 
+/**
  * An integration that Codat supports
-**/
+ **/
 export class ListIntegrationsLinksIntegration extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataProvidedBy" })
   dataProvidedBy?: string;
 
-  @SpeakeasyMetadata({ elemType: ListIntegrationsLinksIntegrationDatatypeFeature })
+  @SpeakeasyMetadata({
+    elemType: ListIntegrationsLinksIntegrationDatatypeFeature,
+  })
   @Expose({ name: "datatypeFeatures" })
   @Type(() => ListIntegrationsLinksIntegrationDatatypeFeature)
   datatypeFeatures?: ListIntegrationsLinksIntegrationDatatypeFeature[];
@@ -223,9 +230,9 @@ export class ListIntegrationsLinksIntegration extends SpeakeasyBase {
 }
 
 // ListIntegrationsLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class ListIntegrationsLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })

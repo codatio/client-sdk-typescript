@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class CreateRuleWebhookNotifiers extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "emails" })
@@ -14,9 +13,9 @@ export class CreateRuleWebhookNotifiers extends SpeakeasyBase {
 }
 
 // CreateRuleWebhook
-/** 
+/**
  * Configuration to alert to a url or list of email addresses based on the given type / condition.
-**/
+ **/
 export class CreateRuleWebhook extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "companyId" })

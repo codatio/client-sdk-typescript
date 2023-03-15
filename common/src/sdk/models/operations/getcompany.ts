@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetCompanyPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
@@ -72,23 +73,23 @@ export class GetCompanyCompanyConnectionDataConnectionErrors extends SpeakeasyBa
   statusText?: string;
 }
 export enum GetCompanyCompanyConnectionSourceTypeEnum {
-    Accounting = "Accounting",
-    Banking = "Banking",
-    Commerce = "Commerce",
-    Other = "Other",
-    Unknown = "Unknown"
+  Accounting = "Accounting",
+  Banking = "Banking",
+  Commerce = "Commerce",
+  Other = "Other",
+  Unknown = "Unknown",
 }
 export enum GetCompanyCompanyConnectionDataConnectionStatusEnum {
-    PendingAuth = "PendingAuth",
-    Linked = "Linked",
-    Unlinked = "Unlinked",
-    Deauthorized = "Deauthorized"
+  PendingAuth = "PendingAuth",
+  Linked = "Linked",
+  Unlinked = "Unlinked",
+  Deauthorized = "Deauthorized",
 }
 
 // GetCompanyCompanyConnection
-/** 
+/**
  * A connection represents the link between a `company` and a source of data.
-**/
+ **/
 export class GetCompanyCompanyConnection extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "connectionInfo" })
@@ -100,7 +101,9 @@ export class GetCompanyCompanyConnection extends SpeakeasyBase {
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   created: Date;
 
-  @SpeakeasyMetadata({ elemType: GetCompanyCompanyConnectionDataConnectionErrors })
+  @SpeakeasyMetadata({
+    elemType: GetCompanyCompanyConnectionDataConnectionErrors,
+  })
   @Expose({ name: "dataConnectionErrors" })
   @Type(() => GetCompanyCompanyConnectionDataConnectionErrors)
   dataConnectionErrors?: GetCompanyCompanyConnectionDataConnectionErrors[];
@@ -144,9 +147,9 @@ export class GetCompanyCompanyConnection extends SpeakeasyBase {
 }
 
 // GetCompanyCompany
-/** 
+/**
  * A company in Codat represent a small or medium sized business, whose data you wish to share
-**/
+ **/
 export class GetCompanyCompany extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "created" })

@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class GetSettingsProfile401ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
@@ -30,9 +29,9 @@ export class GetSettingsProfile401ApplicationJSON extends SpeakeasyBase {
 }
 
 // GetSettingsProfileProfile
-/** 
+/**
  * Describes your Codat client instance
-**/
+ **/
 export class GetSettingsProfileProfile extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "alertAuthHeader" })

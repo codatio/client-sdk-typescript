@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class NewCompanySynchronizedResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -15,9 +14,9 @@ export class NewCompanySynchronizedResponse extends SpeakeasyBase {
 }
 
 // NewCompanySynchronizedNewCompanySynchronizedWebhook
-/** 
+/**
  * Webhook request body to notify that a new company has successfully synchronized at least one dataType for the first time.
-**/
+ **/
 export class NewCompanySynchronizedNewCompanySynchronizedWebhook extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "alertId" })

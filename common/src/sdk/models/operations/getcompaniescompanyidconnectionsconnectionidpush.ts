@@ -3,25 +3,31 @@ import { AxiosResponse } from "axios";
 import { Expose, plainToInstance, Transform, Type } from "class-transformer";
 
 export enum GetCompaniesCompanyIdConnectionsConnectionIdPushDataTypeEnum {
-    Invoices = "invoices",
-    Accounts = "accounts",
-    CommercePayments = "commerce-payments",
-    BankingAccounts = "banking-accounts",
-    Company = "company",
-    ProfitAndLoss = "profitAndLoss",
-    CommerceTransactions = "commerce-transactions",
-    Bills = "bills",
-    Customers = "customers"
+  Invoices = "invoices",
+  Accounts = "accounts",
+  CommercePayments = "commerce-payments",
+  BankingAccounts = "banking-accounts",
+  Company = "company",
+  ProfitAndLoss = "profitAndLoss",
+  CommerceTransactions = "commerce-transactions",
+  Bills = "bills",
+  Customers = "customers",
 }
 
 export class GetCompaniesCompanyIdConnectionsConnectionIdPushPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=dataType" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=dataType",
+  })
   dataType: GetCompaniesCompanyIdConnectionsConnectionIdPushDataTypeEnum;
 }
 
@@ -30,14 +36,14 @@ export class GetCompaniesCompanyIdConnectionsConnectionIdPushRequest extends Spe
   pathParams: GetCompaniesCompanyIdConnectionsConnectionIdPushPathParams;
 }
 export enum GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionChoiceOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionChoice extends SpeakeasyBase {
@@ -62,14 +68,14 @@ export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptio
   value?: string;
 }
 export enum GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoiceOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice extends SpeakeasyBase {
@@ -94,14 +100,14 @@ export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptio
   value?: string;
 }
 export enum GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoiceOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice extends SpeakeasyBase {
@@ -126,14 +132,14 @@ export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptio
   value?: string;
 }
 export enum GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoiceOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice extends SpeakeasyBase {
@@ -158,14 +164,14 @@ export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptio
   value?: string;
 }
 export enum GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation extends SpeakeasyBase {
@@ -183,14 +189,26 @@ export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptio
 }
 
 export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "information" })
-  @Type(() => GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   information?: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 
-  @SpeakeasyMetadata({ elemType: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "warnings" })
-  @Type(() => GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   warnings?: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 }
 
@@ -203,9 +221,15 @@ export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptio
   @Expose({ name: "displayName" })
   displayName: string;
 
-  @SpeakeasyMetadata({ elemType: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice,
+  })
   @Expose({ name: "options" })
-  @Type(() => GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice)
+  @Type(
+    () =>
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice
+  )
   options?: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice[];
 
   @SpeakeasyMetadata()
@@ -218,18 +242,21 @@ export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptio
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo)
+  @Type(
+    () =>
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo
+  )
   validation?: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo;
 }
 export enum GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation extends SpeakeasyBase {
@@ -247,14 +274,26 @@ export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptio
 }
 
 export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "information" })
-  @Type(() => GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   information?: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 
-  @SpeakeasyMetadata({ elemType: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "warnings" })
-  @Type(() => GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   warnings?: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 }
 
@@ -267,24 +306,45 @@ export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptio
   @Expose({ name: "displayName" })
   displayName: string;
 
-  @SpeakeasyMetadata({ elemType: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice,
+  })
   @Expose({ name: "options" })
-  @Type(() => GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice)
+  @Type(
+    () =>
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice
+  )
   options?: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionChoice[];
 
-  @SpeakeasyMetadata({ elemType: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty,
+  })
   @Expose({ name: "properties" })
-  @Transform(({ value }) => {
-    const obj: Record<string, GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty,
-        value[key] as GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  properties?: Record<string, GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty,
+          value[
+            key
+          ] as GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  properties?: Record<
+    string,
+    GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushOptionProperty
+  >;
 
   @SpeakeasyMetadata()
   @Expose({ name: "required" })
@@ -296,18 +356,21 @@ export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptio
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo)
+  @Type(
+    () =>
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo
+  )
   validation?: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionPropertyPushValidationInfo;
 }
 export enum GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation extends SpeakeasyBase {
@@ -325,14 +388,26 @@ export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptio
 }
 
 export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfo extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "information" })
-  @Type(() => GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   information?: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 
-  @SpeakeasyMetadata({ elemType: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "warnings" })
-  @Type(() => GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   warnings?: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfoPushFieldValidation[];
 }
 
@@ -345,24 +420,45 @@ export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptio
   @Expose({ name: "displayName" })
   displayName: string;
 
-  @SpeakeasyMetadata({ elemType: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice,
+  })
   @Expose({ name: "options" })
-  @Type(() => GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice)
+  @Type(
+    () =>
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice
+  )
   options?: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionChoice[];
 
-  @SpeakeasyMetadata({ elemType: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty,
+  })
   @Expose({ name: "properties" })
-  @Transform(({ value }) => {
-    const obj: Record<string, GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty,
-        value[key] as GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  properties?: Record<string, GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty,
+          value[
+            key
+          ] as GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  properties?: Record<
+    string,
+    GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushOptionProperty
+  >;
 
   @SpeakeasyMetadata()
   @Expose({ name: "required" })
@@ -374,18 +470,21 @@ export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptio
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfo)
+  @Type(
+    () =>
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfo
+  )
   validation?: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionPropertyPushValidationInfo;
 }
 export enum GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation extends SpeakeasyBase {
@@ -403,14 +502,26 @@ export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptio
 }
 
 export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushValidationInfo extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "information" })
-  @Type(() => GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   information?: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation[];
 
-  @SpeakeasyMetadata({ elemType: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation,
+  })
   @Expose({ name: "warnings" })
-  @Type(() => GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation)
+  @Type(
+    () =>
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation
+  )
   warnings?: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushValidationInfoPushFieldValidation[];
 }
 
@@ -423,24 +534,45 @@ export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptio
   @Expose({ name: "displayName" })
   displayName: string;
 
-  @SpeakeasyMetadata({ elemType: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionChoice })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionChoice,
+  })
   @Expose({ name: "options" })
-  @Type(() => GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionChoice)
+  @Type(
+    () =>
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionChoice
+  )
   options?: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionChoice[];
 
-  @SpeakeasyMetadata({ elemType: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionProperty })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionProperty,
+  })
   @Expose({ name: "properties" })
-  @Transform(({ value }) => {
-    const obj: Record<string, GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionProperty> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionProperty,
-        value[key] as GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionProperty,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  properties?: Record<string, GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionProperty>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionProperty
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionProperty,
+          value[
+            key
+          ] as GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionProperty,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  properties?: Record<
+    string,
+    GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionProperty
+  >;
 
   @SpeakeasyMetadata()
   @Expose({ name: "required" })
@@ -452,18 +584,21 @@ export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptio
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushValidationInfo)
+  @Type(
+    () =>
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushValidationInfo
+  )
   validation?: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushValidationInfo;
 }
 export enum GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionOptionTypeEnum {
-    Array = "Array",
-    Object = "Object",
-    String = "String",
-    Number = "Number",
-    Boolean = "Boolean",
-    DateTime = "DateTime",
-    File = "File",
-    MultiPart = "MultiPart"
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
 }
 
 export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOption extends SpeakeasyBase {
@@ -475,19 +610,34 @@ export class GetCompaniesCompanyIdConnectionsConnectionIdPushPushOption extends 
   @Expose({ name: "displayName" })
   displayName: string;
 
-  @SpeakeasyMetadata({ elemType: GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionProperty })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionProperty,
+  })
   @Expose({ name: "properties" })
-  @Transform(({ value }) => {
-    const obj: Record<string, GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionProperty> = {};
-    for (const key in value) {
-      obj[key] = plainToInstance(GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionProperty,
-        value[key] as GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionProperty,
-        { excludeExtraneousValues: true }
-      );
-    }
-    return obj;
-  }, { toClassOnly: true })
-  properties?: Record<string, GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionProperty>;
+  @Transform(
+    ({ value }) => {
+      const obj: Record<
+        string,
+        GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionProperty
+      > = {};
+      for (const key in value) {
+        obj[key] = plainToInstance(
+          GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionProperty,
+          value[
+            key
+          ] as GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionProperty,
+          { excludeExtraneousValues: true }
+        );
+      }
+      return obj;
+    },
+    { toClassOnly: true }
+  )
+  properties?: Record<
+    string,
+    GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionProperty
+  >;
 
   @SpeakeasyMetadata()
   @Expose({ name: "required" })

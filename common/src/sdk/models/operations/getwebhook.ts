@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class GetWebhookPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=ruleId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=ruleId",
+  })
   ruleId: string;
 }
 
@@ -76,9 +77,9 @@ export class GetWebhookWebhookNotifiers extends SpeakeasyBase {
 }
 
 // GetWebhookWebhook
-/** 
+/**
  * Configuration to alert to a url or list of email addresses based on the given type / condition.
-**/
+ **/
 export class GetWebhookWebhook extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "companyId" })

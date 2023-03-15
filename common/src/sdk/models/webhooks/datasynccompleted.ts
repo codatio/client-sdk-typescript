@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class DataSyncCompletedResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -25,9 +24,9 @@ export class DataSyncCompletedDataSyncCompleteWebhookData extends SpeakeasyBase 
 }
 
 // DataSyncCompletedDataSyncCompleteWebhook
-/** 
+/**
  * Webhook request body to notify the completion of a data sync.
-**/
+ **/
 export class DataSyncCompletedDataSyncCompleteWebhook extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "alertId" })

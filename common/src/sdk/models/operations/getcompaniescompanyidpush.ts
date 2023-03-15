@@ -2,20 +2,25 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetCompaniesCompanyIdPushPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
 export class GetCompaniesCompanyIdPushQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -86,11 +91,11 @@ export class GetCompaniesCompanyIdPushLinksResultsChangesPushOperationRecordRef 
   id?: string;
 }
 export enum GetCompaniesCompanyIdPushLinksResultsChangesTypeEnum {
-    Unknown = "Unknown",
-    Created = "Created",
-    Modified = "Modified",
-    Deleted = "Deleted",
-    AttachmentUploaded = "AttachmentUploaded"
+  Unknown = "Unknown",
+  Created = "Created",
+  Modified = "Modified",
+  Deleted = "Deleted",
+  AttachmentUploaded = "AttachmentUploaded",
 }
 
 export class GetCompaniesCompanyIdPushLinksResultsChanges extends SpeakeasyBase {
@@ -100,7 +105,9 @@ export class GetCompaniesCompanyIdPushLinksResultsChanges extends SpeakeasyBase 
 
   @SpeakeasyMetadata()
   @Expose({ name: "recordRef" })
-  @Type(() => GetCompaniesCompanyIdPushLinksResultsChangesPushOperationRecordRef)
+  @Type(
+    () => GetCompaniesCompanyIdPushLinksResultsChangesPushOperationRecordRef
+  )
   recordRef?: GetCompaniesCompanyIdPushLinksResultsChangesPushOperationRecordRef;
 
   @SpeakeasyMetadata()
@@ -108,10 +115,10 @@ export class GetCompaniesCompanyIdPushLinksResultsChanges extends SpeakeasyBase 
   type?: GetCompaniesCompanyIdPushLinksResultsChangesTypeEnum;
 }
 export enum GetCompaniesCompanyIdPushLinksResultsStatusEnum {
-    Pending = "Pending",
-    Failed = "Failed",
-    Success = "Success",
-    TimedOut = "TimedOut"
+  Pending = "Pending",
+  Failed = "Failed",
+  Success = "Success",
+  TimedOut = "TimedOut",
 }
 
 export class GetCompaniesCompanyIdPushLinksResultsValidationValidationItem extends SpeakeasyBase {
@@ -129,16 +136,20 @@ export class GetCompaniesCompanyIdPushLinksResultsValidationValidationItem exten
 }
 
 // GetCompaniesCompanyIdPushLinksResultsValidation
-/** 
+/**
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
-**/
+ **/
 export class GetCompaniesCompanyIdPushLinksResultsValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCompaniesCompanyIdPushLinksResultsValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType: GetCompaniesCompanyIdPushLinksResultsValidationValidationItem,
+  })
   @Expose({ name: "errors" })
   @Type(() => GetCompaniesCompanyIdPushLinksResultsValidationValidationItem)
   errors?: GetCompaniesCompanyIdPushLinksResultsValidationValidationItem[];
 
-  @SpeakeasyMetadata({ elemType: GetCompaniesCompanyIdPushLinksResultsValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType: GetCompaniesCompanyIdPushLinksResultsValidationValidationItem,
+  })
   @Expose({ name: "warnings" })
   @Type(() => GetCompaniesCompanyIdPushLinksResultsValidationValidationItem)
   warnings?: GetCompaniesCompanyIdPushLinksResultsValidationValidationItem[];
@@ -203,9 +214,9 @@ export class GetCompaniesCompanyIdPushLinksResults extends SpeakeasyBase {
 }
 
 // GetCompaniesCompanyIdPushLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class GetCompaniesCompanyIdPushLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })

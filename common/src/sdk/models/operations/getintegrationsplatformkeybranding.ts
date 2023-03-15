@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class GetIntegrationsPlatformKeyBrandingPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=platformKey" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=platformKey",
+  })
   platformKey: string;
 }
 
@@ -14,9 +15,9 @@ export class GetIntegrationsPlatformKeyBrandingRequest extends SpeakeasyBase {
 }
 
 // GetIntegrationsPlatformKeyBrandingBrandingLogoBrandingImageImage
-/** 
+/**
  * Image reference.
-**/
+ **/
 export class GetIntegrationsPlatformKeyBrandingBrandingLogoBrandingImageImage extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "alt" })
@@ -35,9 +36,9 @@ export class GetIntegrationsPlatformKeyBrandingBrandingLogoBrandingImage extends
 }
 
 // GetIntegrationsPlatformKeyBrandingBrandingLogo
-/** 
+/**
  * Logo branding references.
-**/
+ **/
 export class GetIntegrationsPlatformKeyBrandingBrandingLogo extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "full" })

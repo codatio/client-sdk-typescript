@@ -2,12 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetCompaniesCompanyIdPushPushOperationKeyPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=pushOperationKey" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=pushOperationKey",
+  })
   pushOperationKey: string;
 }
 
@@ -26,11 +29,11 @@ export class GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONChangesP
   id?: string;
 }
 export enum GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONChangesTypeEnum {
-    Unknown = "Unknown",
-    Created = "Created",
-    Modified = "Modified",
-    Deleted = "Deleted",
-    AttachmentUploaded = "AttachmentUploaded"
+  Unknown = "Unknown",
+  Created = "Created",
+  Modified = "Modified",
+  Deleted = "Deleted",
+  AttachmentUploaded = "AttachmentUploaded",
 }
 
 export class GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONChanges extends SpeakeasyBase {
@@ -40,7 +43,10 @@ export class GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONChanges 
 
   @SpeakeasyMetadata()
   @Expose({ name: "recordRef" })
-  @Type(() => GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONChangesPushOperationRecordRef)
+  @Type(
+    () =>
+      GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONChangesPushOperationRecordRef
+  )
   recordRef?: GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONChangesPushOperationRecordRef;
 
   @SpeakeasyMetadata()
@@ -48,10 +54,10 @@ export class GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONChanges 
   type?: GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONChangesTypeEnum;
 }
 export enum GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONStatusEnum {
-    Pending = "Pending",
-    Failed = "Failed",
-    Success = "Success",
-    TimedOut = "TimedOut"
+  Pending = "Pending",
+  Failed = "Failed",
+  Success = "Success",
+  TimedOut = "TimedOut",
 }
 
 export class GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
@@ -69,25 +75,42 @@ export class GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONValidati
 }
 
 // GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONValidation
-/** 
+/**
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
-**/
+ **/
 export class GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "errors" })
-  @Type(() => GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONValidationValidationItem)
+  @Type(
+    () =>
+      GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONValidationValidationItem
+  )
   errors?: GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONValidationValidationItem[];
 
-  @SpeakeasyMetadata({ elemType: GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONValidationValidationItem })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONValidationValidationItem,
+  })
   @Expose({ name: "warnings" })
-  @Type(() => GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONValidationValidationItem)
+  @Type(
+    () =>
+      GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONValidationValidationItem
+  )
   warnings?: GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONValidationValidationItem[];
 }
 
 export class GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONChanges })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONChanges,
+  })
   @Expose({ name: "changes" })
-  @Type(() => GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONChanges)
+  @Type(
+    () => GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONChanges
+  )
   changes?: GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONChanges[];
 
   @SpeakeasyMetadata()
@@ -142,7 +165,9 @@ export class GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSON extends
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONValidation)
+  @Type(
+    () => GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONValidation
+  )
   validation?: GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONValidation;
 }
 
