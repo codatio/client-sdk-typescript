@@ -2,35 +2,48 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class GetCommerceCustomerRetentionMetricsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 export enum GetCommerceCustomerRetentionMetricsPeriodUnitEnum {
-    Day = "Day",
-    Week = "Week",
-    Month = "Month",
-    Year = "Year"
+  Day = "Day",
+  Week = "Week",
+  Month = "Month",
+  Year = "Year",
 }
 
 export class GetCommerceCustomerRetentionMetricsQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=includeDisplayNames" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=includeDisplayNames",
+  })
   includeDisplayNames?: boolean;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=numberOfPeriods" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=numberOfPeriods",
+  })
   numberOfPeriods: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=periodLength" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=periodLength",
+  })
   periodLength: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=periodUnit" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=periodUnit",
+  })
   periodUnit: GetCommerceCustomerRetentionMetricsPeriodUnitEnum;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=reportDate" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=reportDate",
+  })
   reportDate: string;
 }
 
@@ -57,9 +70,14 @@ export class GetCommerceCustomerRetentionMetrics200ApplicationJSONDimensions ext
   @Expose({ name: "index" })
   index?: number;
 
-  @SpeakeasyMetadata({ elemType: GetCommerceCustomerRetentionMetrics200ApplicationJSONDimensionsItems })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCommerceCustomerRetentionMetrics200ApplicationJSONDimensionsItems,
+  })
   @Expose({ name: "items" })
-  @Type(() => GetCommerceCustomerRetentionMetrics200ApplicationJSONDimensionsItems)
+  @Type(
+    () => GetCommerceCustomerRetentionMetrics200ApplicationJSONDimensionsItems
+  )
   items?: GetCommerceCustomerRetentionMetrics200ApplicationJSONDimensionsItems[];
 
   @SpeakeasyMetadata()
@@ -84,7 +102,9 @@ export class GetCommerceCustomerRetentionMetrics200ApplicationJSONErrorsDetails 
 export class GetCommerceCustomerRetentionMetrics200ApplicationJSONErrors extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "details" })
-  @Type(() => GetCommerceCustomerRetentionMetrics200ApplicationJSONErrorsDetails)
+  @Type(
+    () => GetCommerceCustomerRetentionMetrics200ApplicationJSONErrorsDetails
+  )
   details?: GetCommerceCustomerRetentionMetrics200ApplicationJSONErrorsDetails;
 
   @SpeakeasyMetadata()
@@ -145,9 +165,15 @@ export class GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensio
   @Expose({ name: "itemDisplayName" })
   itemDisplayName?: string;
 
-  @SpeakeasyMetadata({ elemType: GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresMeasures })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresMeasures,
+  })
   @Expose({ name: "measures" })
-  @Type(() => GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresMeasures)
+  @Type(
+    () =>
+      GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresMeasures
+  )
   measures?: GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresMeasures[];
 }
 
@@ -166,9 +192,15 @@ export class GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensio
 }
 
 export class GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasures extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresReportComponentMeasures })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresReportComponentMeasures,
+  })
   @Expose({ name: "components" })
-  @Type(() => GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresReportComponentMeasures)
+  @Type(
+    () =>
+      GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresReportComponentMeasures
+  )
   components?: GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresReportComponentMeasures[];
 
   @SpeakeasyMetadata()
@@ -187,9 +219,15 @@ export class GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensio
   @Expose({ name: "itemDisplayName" })
   itemDisplayName?: string;
 
-  @SpeakeasyMetadata({ elemType: GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresMeasures })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresMeasures,
+  })
   @Expose({ name: "measures" })
-  @Type(() => GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresMeasures)
+  @Type(
+    () =>
+      GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresMeasures
+  )
   measures?: GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresMeasures[];
 }
 
@@ -208,9 +246,15 @@ export class GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensio
 }
 
 export class GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasures extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasures })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasures,
+  })
   @Expose({ name: "components" })
-  @Type(() => GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasures)
+  @Type(
+    () =>
+      GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasures
+  )
   components?: GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasures[];
 
   @SpeakeasyMetadata()
@@ -229,9 +273,15 @@ export class GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensio
   @Expose({ name: "itemDisplayName" })
   itemDisplayName?: string;
 
-  @SpeakeasyMetadata({ elemType: GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresMeasures })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresMeasures,
+  })
   @Expose({ name: "measures" })
-  @Type(() => GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresMeasures)
+  @Type(
+    () =>
+      GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresMeasures
+  )
   measures?: GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresMeasures[];
 }
 
@@ -250,9 +300,15 @@ export class GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensio
 }
 
 export class GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasures extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasures })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasures,
+  })
   @Expose({ name: "components" })
-  @Type(() => GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasures)
+  @Type(
+    () =>
+      GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasures
+  )
   components?: GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasures[];
 
   @SpeakeasyMetadata()
@@ -271,16 +327,28 @@ export class GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensio
   @Expose({ name: "itemDisplayName" })
   itemDisplayName?: string;
 
-  @SpeakeasyMetadata({ elemType: GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresMeasures })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresMeasures,
+  })
   @Expose({ name: "measures" })
-  @Type(() => GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresMeasures)
+  @Type(
+    () =>
+      GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresMeasures
+  )
   measures?: GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresMeasures[];
 }
 
 export class GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItems extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasures })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasures,
+  })
   @Expose({ name: "components" })
-  @Type(() => GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasures)
+  @Type(
+    () =>
+      GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasures
+  )
   components?: GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasures[];
 
   @SpeakeasyMetadata()
@@ -315,9 +383,9 @@ export class GetCommerceCustomerRetentionMetrics200ApplicationJSONReportInfo ext
 }
 
 // GetCommerceCustomerRetentionMetrics200ApplicationJSON
-/** 
+/**
  * Assess reports follow a consistent structure. Reports contain four sections of information:
- * 
+ *
  * 1. Report definition information such as:
  *   a. The report info (e.g. enhanced_profit_and_loss).
  *   b. The display name of the report (e.g. Enhanced Profit and Loss).
@@ -330,34 +398,46 @@ export class GetCommerceCustomerRetentionMetrics200ApplicationJSONReportInfo ext
  *   b. The type of the measure (e.g. currency, percentage).
  *   c. The unit of the measure (e.g. %, GBP).
  * 4. The data for the report. When the *includeDisplayName* parameter is set to *true*, it shows the *dimensionDisplayName* and *itemDisplayName* to make the data human-readable. The default setting for *includeDisplayName* is *false*.
- * 
+ *
  * Reports can be rendered as follows (ordering is implicit rather than explicit):
- * 
+ *
  * ![A table showing an example of how a report can be rendered](https://files.readme.io/1fa20ca-Report1.png)
- * 
+ *
  * # Data model
- * 
+ *
  * ## Dimensions
-**/
+ **/
 export class GetCommerceCustomerRetentionMetrics200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCommerceCustomerRetentionMetrics200ApplicationJSONDimensions })
+  @SpeakeasyMetadata({
+    elemType: GetCommerceCustomerRetentionMetrics200ApplicationJSONDimensions,
+  })
   @Expose({ name: "dimensions" })
   @Type(() => GetCommerceCustomerRetentionMetrics200ApplicationJSONDimensions)
   dimensions?: GetCommerceCustomerRetentionMetrics200ApplicationJSONDimensions[];
 
-  @SpeakeasyMetadata({ elemType: GetCommerceCustomerRetentionMetrics200ApplicationJSONErrors })
+  @SpeakeasyMetadata({
+    elemType: GetCommerceCustomerRetentionMetrics200ApplicationJSONErrors,
+  })
   @Expose({ name: "errors" })
   @Type(() => GetCommerceCustomerRetentionMetrics200ApplicationJSONErrors)
   errors?: GetCommerceCustomerRetentionMetrics200ApplicationJSONErrors[];
 
-  @SpeakeasyMetadata({ elemType: GetCommerceCustomerRetentionMetrics200ApplicationJSONMeasures })
+  @SpeakeasyMetadata({
+    elemType: GetCommerceCustomerRetentionMetrics200ApplicationJSONMeasures,
+  })
   @Expose({ name: "measures" })
   @Type(() => GetCommerceCustomerRetentionMetrics200ApplicationJSONMeasures)
   measures?: GetCommerceCustomerRetentionMetrics200ApplicationJSONMeasures[];
 
-  @SpeakeasyMetadata({ elemType: GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItems })
+  @SpeakeasyMetadata({
+    elemType:
+      GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItems,
+  })
   @Expose({ name: "reportData" })
-  @Type(() => GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItems)
+  @Type(
+    () =>
+      GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItems
+  )
   reportData?: GetCommerceCustomerRetentionMetrics200ApplicationJSONReportDimensionsItems[];
 
   @SpeakeasyMetadata()

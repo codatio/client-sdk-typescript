@@ -2,23 +2,30 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class ListAccountsCategoriesPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
 export class ListAccountsCategoriesQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -80,9 +87,9 @@ export class ListAccountsCategoriesLinksLinks extends SpeakeasyBase {
 }
 
 // ListAccountsCategoriesLinksCategorisedAccountAccountRef
-/** 
+/**
  * An object containing account reference data.
-**/
+ **/
 export class ListAccountsCategoriesLinksCategorisedAccountAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -130,9 +137,9 @@ export class ListAccountsCategoriesLinksCategorisedAccount extends SpeakeasyBase
 }
 
 // ListAccountsCategoriesLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class ListAccountsCategoriesLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
@@ -147,7 +154,9 @@ export class ListAccountsCategoriesLinks extends SpeakeasyBase {
   @Expose({ name: "pageSize" })
   pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: ListAccountsCategoriesLinksCategorisedAccount })
+  @SpeakeasyMetadata({
+    elemType: ListAccountsCategoriesLinksCategorisedAccount,
+  })
   @Expose({ name: "results" })
   @Type(() => ListAccountsCategoriesLinksCategorisedAccount)
   results?: ListAccountsCategoriesLinksCategorisedAccount[];

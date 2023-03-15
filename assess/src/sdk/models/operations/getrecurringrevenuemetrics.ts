@@ -2,12 +2,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class GetRecurringRevenueMetricsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
@@ -31,7 +34,9 @@ export class GetRecurringRevenueMetrics200ApplicationJSONDimensions extends Spea
   @Expose({ name: "index" })
   index?: number;
 
-  @SpeakeasyMetadata({ elemType: GetRecurringRevenueMetrics200ApplicationJSONDimensionsItems })
+  @SpeakeasyMetadata({
+    elemType: GetRecurringRevenueMetrics200ApplicationJSONDimensionsItems,
+  })
   @Expose({ name: "items" })
   @Type(() => GetRecurringRevenueMetrics200ApplicationJSONDimensionsItems)
   items?: GetRecurringRevenueMetrics200ApplicationJSONDimensionsItems[];
@@ -119,9 +124,15 @@ export class GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsRe
   @Expose({ name: "itemDisplayName" })
   itemDisplayName?: string;
 
-  @SpeakeasyMetadata({ elemType: GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresMeasures })
+  @SpeakeasyMetadata({
+    elemType:
+      GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresMeasures,
+  })
   @Expose({ name: "measures" })
-  @Type(() => GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresMeasures)
+  @Type(
+    () =>
+      GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresMeasures
+  )
   measures?: GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresMeasures[];
 }
 
@@ -140,9 +151,15 @@ export class GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsRe
 }
 
 export class GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasures extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresReportComponentMeasures })
+  @SpeakeasyMetadata({
+    elemType:
+      GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresReportComponentMeasures,
+  })
   @Expose({ name: "components" })
-  @Type(() => GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresReportComponentMeasures)
+  @Type(
+    () =>
+      GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresReportComponentMeasures
+  )
   components?: GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresReportComponentMeasures[];
 
   @SpeakeasyMetadata()
@@ -161,9 +178,15 @@ export class GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsRe
   @Expose({ name: "itemDisplayName" })
   itemDisplayName?: string;
 
-  @SpeakeasyMetadata({ elemType: GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresMeasures })
+  @SpeakeasyMetadata({
+    elemType:
+      GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresMeasures,
+  })
   @Expose({ name: "measures" })
-  @Type(() => GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresMeasures)
+  @Type(
+    () =>
+      GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresMeasures
+  )
   measures?: GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasuresMeasures[];
 }
 
@@ -182,9 +205,15 @@ export class GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsRe
 }
 
 export class GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasures extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasures })
+  @SpeakeasyMetadata({
+    elemType:
+      GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasures,
+  })
   @Expose({ name: "components" })
-  @Type(() => GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasures)
+  @Type(
+    () =>
+      GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasures
+  )
   components?: GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresReportComponentMeasures[];
 
   @SpeakeasyMetadata()
@@ -203,9 +232,15 @@ export class GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsRe
   @Expose({ name: "itemDisplayName" })
   itemDisplayName?: string;
 
-  @SpeakeasyMetadata({ elemType: GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresMeasures })
+  @SpeakeasyMetadata({
+    elemType:
+      GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresMeasures,
+  })
   @Expose({ name: "measures" })
-  @Type(() => GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresMeasures)
+  @Type(
+    () =>
+      GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresMeasures
+  )
   measures?: GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasuresMeasures[];
 }
 
@@ -224,9 +259,15 @@ export class GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsRe
 }
 
 export class GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasures extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasures })
+  @SpeakeasyMetadata({
+    elemType:
+      GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasures,
+  })
   @Expose({ name: "components" })
-  @Type(() => GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasures)
+  @Type(
+    () =>
+      GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasures
+  )
   components?: GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresReportComponentMeasures[];
 
   @SpeakeasyMetadata()
@@ -245,16 +286,28 @@ export class GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsRe
   @Expose({ name: "itemDisplayName" })
   itemDisplayName?: string;
 
-  @SpeakeasyMetadata({ elemType: GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresMeasures })
+  @SpeakeasyMetadata({
+    elemType:
+      GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresMeasures,
+  })
   @Expose({ name: "measures" })
-  @Type(() => GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresMeasures)
+  @Type(
+    () =>
+      GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresMeasures
+  )
   measures?: GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasuresMeasures[];
 }
 
 export class GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItems extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasures })
+  @SpeakeasyMetadata({
+    elemType:
+      GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasures,
+  })
   @Expose({ name: "components" })
-  @Type(() => GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasures)
+  @Type(
+    () =>
+      GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasures
+  )
   components?: GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItemsReportComponentMeasures[];
 
   @SpeakeasyMetadata()
@@ -289,9 +342,9 @@ export class GetRecurringRevenueMetrics200ApplicationJSONReportInfo extends Spea
 }
 
 // GetRecurringRevenueMetrics200ApplicationJSON
-/** 
+/**
  * Assess reports follow a consistent structure. Reports contain four sections of information:
- * 
+ *
  * 1. Report definition information such as:
  *   a. The report info (e.g. enhanced_profit_and_loss).
  *   b. The display name of the report (e.g. Enhanced Profit and Loss).
@@ -304,32 +357,40 @@ export class GetRecurringRevenueMetrics200ApplicationJSONReportInfo extends Spea
  *   b. The type of the measure (e.g. currency, percentage).
  *   c. The unit of the measure (e.g. %, GBP).
  * 4. The data for the report. When the *includeDisplayName* parameter is set to *true*, it shows the *dimensionDisplayName* and *itemDisplayName* to make the data human-readable. The default setting for *includeDisplayName* is *false*.
- * 
+ *
  * Reports can be rendered as follows (ordering is implicit rather than explicit):
- * 
+ *
  * ![A table showing an example of how a report can be rendered](https://files.readme.io/1fa20ca-Report1.png)
- * 
+ *
  * # Data model
- * 
+ *
  * ## Dimensions
-**/
+ **/
 export class GetRecurringRevenueMetrics200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetRecurringRevenueMetrics200ApplicationJSONDimensions })
+  @SpeakeasyMetadata({
+    elemType: GetRecurringRevenueMetrics200ApplicationJSONDimensions,
+  })
   @Expose({ name: "dimensions" })
   @Type(() => GetRecurringRevenueMetrics200ApplicationJSONDimensions)
   dimensions?: GetRecurringRevenueMetrics200ApplicationJSONDimensions[];
 
-  @SpeakeasyMetadata({ elemType: GetRecurringRevenueMetrics200ApplicationJSONErrors })
+  @SpeakeasyMetadata({
+    elemType: GetRecurringRevenueMetrics200ApplicationJSONErrors,
+  })
   @Expose({ name: "errors" })
   @Type(() => GetRecurringRevenueMetrics200ApplicationJSONErrors)
   errors?: GetRecurringRevenueMetrics200ApplicationJSONErrors[];
 
-  @SpeakeasyMetadata({ elemType: GetRecurringRevenueMetrics200ApplicationJSONMeasures })
+  @SpeakeasyMetadata({
+    elemType: GetRecurringRevenueMetrics200ApplicationJSONMeasures,
+  })
   @Expose({ name: "measures" })
   @Type(() => GetRecurringRevenueMetrics200ApplicationJSONMeasures)
   measures?: GetRecurringRevenueMetrics200ApplicationJSONMeasures[];
 
-  @SpeakeasyMetadata({ elemType: GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItems })
+  @SpeakeasyMetadata({
+    elemType: GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItems,
+  })
   @Expose({ name: "reportData" })
   @Type(() => GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItems)
   reportData?: GetRecurringRevenueMetrics200ApplicationJSONReportDimensionsItems[];

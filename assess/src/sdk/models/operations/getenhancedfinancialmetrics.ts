@@ -2,26 +2,37 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetEnhancedFinancialMetricsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
 export class GetEnhancedFinancialMetricsQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=numberOfPeriods" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=numberOfPeriods",
+  })
   numberOfPeriods: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=periodLength" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=periodLength",
+  })
   periodLength: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=reportDate" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=reportDate",
+  })
   reportDate: string;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=showMetricInputs" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=showMetricInputs",
+  })
   showMetricInputs?: boolean;
 }
 
@@ -33,10 +44,10 @@ export class GetEnhancedFinancialMetricsRequest extends SpeakeasyBase {
   queryParams: GetEnhancedFinancialMetricsQueryParams;
 }
 export enum GetEnhancedFinancialMetrics200ApplicationJSONErrorsTypeEnum {
-    DataNotSynced = "DataNotSynced",
-    DataNotSupported = "DataNotSupported",
-    DataSyncFailed = "DataSyncFailed",
-    DataTypeNotEnabled = "DataTypeNotEnabled"
+  DataNotSynced = "DataNotSynced",
+  DataNotSupported = "DataNotSupported",
+  DataSyncFailed = "DataSyncFailed",
+  DataTypeNotEnabled = "DataTypeNotEnabled",
 }
 
 export class GetEnhancedFinancialMetrics200ApplicationJSONErrors extends SpeakeasyBase {
@@ -50,9 +61,9 @@ export class GetEnhancedFinancialMetrics200ApplicationJSONErrors extends Speakea
 }
 
 // GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricErrorsAssessErrorDetails
-/** 
+/**
  * Dictionary list outlining the missing properties or allowed values.
-**/
+ **/
 export class GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricErrorsAssessErrorDetails extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "propertyDetail1" })
@@ -67,15 +78,18 @@ export class GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricErrorsA
   propertyDetailN?: string[];
 }
 export enum GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricErrorsTypeEnum {
-    UncategorizedAccounts = "UncategorizedAccounts",
-    MissingInputData = "MissingInputData",
-    InputDataError = "InputDataError"
+  UncategorizedAccounts = "UncategorizedAccounts",
+  MissingInputData = "MissingInputData",
+  InputDataError = "InputDataError",
 }
 
 export class GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricErrors extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "details" })
-  @Type(() => GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricErrorsAssessErrorDetails)
+  @Type(
+    () =>
+      GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricErrorsAssessErrorDetails
+  )
   details?: GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricErrorsAssessErrorDetails;
 
   @SpeakeasyMetadata()
@@ -87,37 +101,37 @@ export class GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricErrors 
   type?: GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricErrorsTypeEnum;
 }
 export enum GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricKeyEnum {
-    Unknown = "Unknown",
-    Ebitda = "EBITDA",
-    DebtServiceCoverageRatio = "DebtServiceCoverageRatio",
-    CurrentRatioQuickRatio = "CurrentRatio QuickRatio",
-    GrossProfitMargin = "GrossProfitMargin",
-    FixedChargeCoverageRatio = "FixedChargeCoverageRatio",
-    WorkingCapital = "WorkingCapital",
-    FreeCashFlow = "FreeCashFlow",
-    NetProfitMargin = "NetProfitMargin",
-    ReturnOnAssetsRatio = "ReturnOnAssetsRatio",
-    ReturnOnEquityRatio = "ReturnOnEquityRatio",
-    OperatingProfitMargin = "OperatingProfitMargin",
-    DeptToEquity = "DeptToEquity",
-    DebtToAssets = "DebtToAssets",
-    InterestCoverageRatio = "InterestCoverageRatio",
-    CashRatio = "CashRatio",
-    InventoryTurnoverRatio = "InventoryTurnoverRatio",
-    AssetTurnoverRatio = "AssetTurnoverRatio",
-    WorkingCapitalTurnoverRatio = "WorkingCapitalTurnoverRatio",
-    DaysSalesOutstanding = "DaysSalesOutstanding",
-    DaysPayablesOutstanding = "DaysPayablesOutstanding"
+  Unknown = "Unknown",
+  Ebitda = "EBITDA",
+  DebtServiceCoverageRatio = "DebtServiceCoverageRatio",
+  CurrentRatioQuickRatio = "CurrentRatio QuickRatio",
+  GrossProfitMargin = "GrossProfitMargin",
+  FixedChargeCoverageRatio = "FixedChargeCoverageRatio",
+  WorkingCapital = "WorkingCapital",
+  FreeCashFlow = "FreeCashFlow",
+  NetProfitMargin = "NetProfitMargin",
+  ReturnOnAssetsRatio = "ReturnOnAssetsRatio",
+  ReturnOnEquityRatio = "ReturnOnEquityRatio",
+  OperatingProfitMargin = "OperatingProfitMargin",
+  DeptToEquity = "DeptToEquity",
+  DebtToAssets = "DebtToAssets",
+  InterestCoverageRatio = "InterestCoverageRatio",
+  CashRatio = "CashRatio",
+  InventoryTurnoverRatio = "InventoryTurnoverRatio",
+  AssetTurnoverRatio = "AssetTurnoverRatio",
+  WorkingCapitalTurnoverRatio = "WorkingCapitalTurnoverRatio",
+  DaysSalesOutstanding = "DaysSalesOutstanding",
+  DaysPayablesOutstanding = "DaysPayablesOutstanding",
 }
 export enum GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricMetricUnitEnum {
-    Ratio = "Ratio",
-    Money = "Money"
+  Ratio = "Ratio",
+  Money = "Money",
 }
 
 // GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriodsErrorsAssessErrorDetails
-/** 
+/**
  * Dictionary list outlining the missing properties or allowed values.
-**/
+ **/
 export class GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriodsErrorsAssessErrorDetails extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "propertyDetail1" })
@@ -132,14 +146,17 @@ export class GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriods
   propertyDetailN?: string[];
 }
 export enum GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriodsErrorsTypeEnum {
-    MissingAccountData = "MissingAccountData",
-    DatesOutOfRange = "DatesOutOfRange"
+  MissingAccountData = "MissingAccountData",
+  DatesOutOfRange = "DatesOutOfRange",
 }
 
 export class GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriodsErrors extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "details" })
-  @Type(() => GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriodsErrorsAssessErrorDetails)
+  @Type(
+    () =>
+      GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriodsErrorsAssessErrorDetails
+  )
   details?: GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriodsErrorsAssessErrorDetails;
 
   @SpeakeasyMetadata()
@@ -162,9 +179,15 @@ export class GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriods
 }
 
 export class GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriods extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriodsErrors })
+  @SpeakeasyMetadata({
+    elemType:
+      GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriodsErrors,
+  })
   @Expose({ name: "errors" })
-  @Type(() => GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriodsErrors)
+  @Type(
+    () =>
+      GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriodsErrors
+  )
   errors?: GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriodsErrors[];
 
   @SpeakeasyMetadata()
@@ -172,9 +195,15 @@ export class GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriods
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   fromDate?: Date;
 
-  @SpeakeasyMetadata({ elemType: GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriodsInputs })
+  @SpeakeasyMetadata({
+    elemType:
+      GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriodsInputs,
+  })
   @Expose({ name: "inputs" })
-  @Type(() => GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriodsInputs)
+  @Type(
+    () =>
+      GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriodsInputs
+  )
   inputs?: GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriodsInputs[];
 
   @SpeakeasyMetadata()
@@ -188,9 +217,14 @@ export class GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriods
 }
 
 export class GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetric extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricErrors })
+  @SpeakeasyMetadata({
+    elemType:
+      GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricErrors,
+  })
   @Expose({ name: "errors" })
-  @Type(() => GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricErrors)
+  @Type(
+    () => GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricErrors
+  )
   errors?: GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricErrors[];
 
   @SpeakeasyMetadata()
@@ -205,15 +239,20 @@ export class GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetric extend
   @Expose({ name: "name" })
   name?: string;
 
-  @SpeakeasyMetadata({ elemType: GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriods })
+  @SpeakeasyMetadata({
+    elemType:
+      GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriods,
+  })
   @Expose({ name: "periods" })
-  @Type(() => GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriods)
+  @Type(
+    () => GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriods
+  )
   periods?: GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetricPeriods[];
 }
 export enum GetEnhancedFinancialMetrics200ApplicationJSONPeriodUnitEnum {
-    Month = "Month",
-    Week = "Week",
-    Day = "Day"
+  Month = "Month",
+  Week = "Week",
+  Day = "Day",
 }
 
 export class GetEnhancedFinancialMetrics200ApplicationJSON extends SpeakeasyBase {
@@ -221,12 +260,16 @@ export class GetEnhancedFinancialMetrics200ApplicationJSON extends SpeakeasyBase
   @Expose({ name: "currency" })
   currency?: string;
 
-  @SpeakeasyMetadata({ elemType: GetEnhancedFinancialMetrics200ApplicationJSONErrors })
+  @SpeakeasyMetadata({
+    elemType: GetEnhancedFinancialMetrics200ApplicationJSONErrors,
+  })
   @Expose({ name: "errors" })
   @Type(() => GetEnhancedFinancialMetrics200ApplicationJSONErrors)
   errors?: GetEnhancedFinancialMetrics200ApplicationJSONErrors[];
 
-  @SpeakeasyMetadata({ elemType: GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetric })
+  @SpeakeasyMetadata({
+    elemType: GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetric,
+  })
   @Expose({ name: "metrics" })
   @Type(() => GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetric)
   metrics?: GetEnhancedFinancialMetrics200ApplicationJSONFinancialMetric[];

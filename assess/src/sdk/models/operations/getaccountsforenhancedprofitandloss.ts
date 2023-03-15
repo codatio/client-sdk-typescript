@@ -2,17 +2,22 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetAccountsForEnhancedProfitAndLossPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
 export class GetAccountsForEnhancedProfitAndLossQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=numberOfPeriods" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=numberOfPeriods",
+  })
   numberOfPeriods: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=reportDate" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=reportDate",
+  })
   reportDate: string;
 }
 
@@ -54,9 +59,15 @@ export class GetAccountsForEnhancedProfitAndLossEnhancedReportReportItemsAccount
 }
 
 export class GetAccountsForEnhancedProfitAndLossEnhancedReportReportItemsAccountCategory extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetAccountsForEnhancedProfitAndLossEnhancedReportReportItemsAccountCategoryLevels })
+  @SpeakeasyMetadata({
+    elemType:
+      GetAccountsForEnhancedProfitAndLossEnhancedReportReportItemsAccountCategoryLevels,
+  })
   @Expose({ name: "levels" })
-  @Type(() => GetAccountsForEnhancedProfitAndLossEnhancedReportReportItemsAccountCategoryLevels)
+  @Type(
+    () =>
+      GetAccountsForEnhancedProfitAndLossEnhancedReportReportItemsAccountCategoryLevels
+  )
   levels?: GetAccountsForEnhancedProfitAndLossEnhancedReportReportItemsAccountCategoryLevels[];
 
   @SpeakeasyMetadata()
@@ -67,7 +78,10 @@ export class GetAccountsForEnhancedProfitAndLossEnhancedReportReportItemsAccount
 export class GetAccountsForEnhancedProfitAndLossEnhancedReportReportItems extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountCategory" })
-  @Type(() => GetAccountsForEnhancedProfitAndLossEnhancedReportReportItemsAccountCategory)
+  @Type(
+    () =>
+      GetAccountsForEnhancedProfitAndLossEnhancedReportReportItemsAccountCategory
+  )
   accountCategory?: GetAccountsForEnhancedProfitAndLossEnhancedReportReportItemsAccountCategory;
 
   @SpeakeasyMetadata()
@@ -94,7 +108,9 @@ export class GetAccountsForEnhancedProfitAndLossEnhancedReport extends Speakeasy
   @Type(() => GetAccountsForEnhancedProfitAndLossEnhancedReportReportInfo)
   reportInfo?: GetAccountsForEnhancedProfitAndLossEnhancedReportReportInfo;
 
-  @SpeakeasyMetadata({ elemType: GetAccountsForEnhancedProfitAndLossEnhancedReportReportItems })
+  @SpeakeasyMetadata({
+    elemType: GetAccountsForEnhancedProfitAndLossEnhancedReportReportItems,
+  })
   @Expose({ name: "reportItems" })
   @Type(() => GetAccountsForEnhancedProfitAndLossEnhancedReportReportItems)
   reportItems?: GetAccountsForEnhancedProfitAndLossEnhancedReportReportItems[];

@@ -3,28 +3,36 @@ import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 export enum GetDataIntegrityDetailsDataTypeEnum {
-    BankingAccounts = "banking-accounts",
-    BankingTransactions = "banking-transactions",
-    BankAccounts = "bankAccounts",
-    AccountTransactions = "accountTransactions"
+  BankingAccounts = "banking-accounts",
+  BankingTransactions = "banking-transactions",
+  BankAccounts = "bankAccounts",
+  AccountTransactions = "accountTransactions",
 }
 
 export class GetDataIntegrityDetailsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=dataType" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=dataType",
+  })
   dataType: GetDataIntegrityDetailsDataTypeEnum;
 }
 
 export class GetDataIntegrityDetailsQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=orderBy",
+  })
   orderBy?: string;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -141,7 +149,9 @@ export class GetDataIntegrityDetailsLinksDataIntegrityDetails extends SpeakeasyB
   @Expose({ name: "id" })
   id?: string;
 
-  @SpeakeasyMetadata({ elemType: GetDataIntegrityDetailsLinksDataIntegrityDetailsMatches })
+  @SpeakeasyMetadata({
+    elemType: GetDataIntegrityDetailsLinksDataIntegrityDetailsMatches,
+  })
   @Expose({ name: "matches" })
   @Type(() => GetDataIntegrityDetailsLinksDataIntegrityDetailsMatches)
   matches?: GetDataIntegrityDetailsLinksDataIntegrityDetailsMatches[];
@@ -152,9 +162,9 @@ export class GetDataIntegrityDetailsLinksDataIntegrityDetails extends SpeakeasyB
 }
 
 // GetDataIntegrityDetailsLinks
-/** 
+/**
  * Codat's Paging Model
-**/
+ **/
 export class GetDataIntegrityDetailsLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
@@ -169,7 +179,9 @@ export class GetDataIntegrityDetailsLinks extends SpeakeasyBase {
   @Expose({ name: "pageSize" })
   pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: GetDataIntegrityDetailsLinksDataIntegrityDetails })
+  @SpeakeasyMetadata({
+    elemType: GetDataIntegrityDetailsLinksDataIntegrityDetails,
+  })
   @Expose({ name: "results" })
   @Type(() => GetDataIntegrityDetailsLinksDataIntegrityDetails)
   results?: GetDataIntegrityDetailsLinksDataIntegrityDetails[];

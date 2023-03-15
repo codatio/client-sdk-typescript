@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class GetEnhancedCashFlowTransactionsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 }
 
@@ -12,7 +13,9 @@ export class GetEnhancedCashFlowTransactionsQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
   pageSize?: number;
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
@@ -60,14 +63,23 @@ export class GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsDataSour
 
   @SpeakeasyMetadata()
   @Expose({ name: "sourceRef" })
-  @Type(() => GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsDataSourcesAccountsReportSourceRef)
+  @Type(
+    () =>
+      GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsDataSourcesAccountsReportSourceRef
+  )
   sourceRef?: GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsDataSourcesAccountsReportSourceRef;
 }
 
 export class GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsDataSources extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsDataSourcesAccounts })
+  @SpeakeasyMetadata({
+    elemType:
+      GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsDataSourcesAccounts,
+  })
   @Expose({ name: "accounts" })
-  @Type(() => GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsDataSourcesAccounts)
+  @Type(
+    () =>
+      GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsDataSourcesAccounts
+  )
   accounts?: GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsDataSourcesAccounts[];
 }
 
@@ -137,36 +149,60 @@ export class GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsReportIt
 
   @SpeakeasyMetadata()
   @Expose({ name: "sourceRef" })
-  @Type(() => GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsReportItemsTransactionsReportSourceRef)
+  @Type(
+    () =>
+      GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsReportItemsTransactionsReportSourceRef
+  )
   sourceRef?: GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsReportItemsTransactionsReportSourceRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "transactionCategory" })
-  @Type(() => GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsReportItemsTransactionsTransactionCategory)
+  @Type(
+    () =>
+      GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsReportItemsTransactionsTransactionCategory
+  )
   transactionCategory?: GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsReportItemsTransactionsTransactionCategory;
 }
 
 export class GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsReportItems extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsReportItemsTransactions })
+  @SpeakeasyMetadata({
+    elemType:
+      GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsReportItemsTransactions,
+  })
   @Expose({ name: "transactions" })
-  @Type(() => GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsReportItemsTransactions)
+  @Type(
+    () =>
+      GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsReportItemsTransactions
+  )
   transactions?: GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsReportItemsTransactions[];
 }
 
 export class GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactions extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsDataSources })
+  @SpeakeasyMetadata({
+    elemType:
+      GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsDataSources,
+  })
   @Expose({ name: "dataSources" })
-  @Type(() => GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsDataSources)
+  @Type(
+    () => GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsDataSources
+  )
   dataSources?: GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsDataSources[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "reportInfo" })
-  @Type(() => GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsReportInfo)
+  @Type(
+    () => GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsReportInfo
+  )
   reportInfo?: GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsReportInfo;
 
-  @SpeakeasyMetadata({ elemType: GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsReportItems })
+  @SpeakeasyMetadata({
+    elemType:
+      GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsReportItems,
+  })
   @Expose({ name: "reportItems" })
-  @Type(() => GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsReportItems)
+  @Type(
+    () => GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsReportItems
+  )
   reportItems?: GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsReportItems[];
 }
 

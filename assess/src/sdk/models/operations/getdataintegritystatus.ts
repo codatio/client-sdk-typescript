@@ -3,17 +3,21 @@ import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
 export enum GetDataIntegrityStatusDataTypeEnum {
-    BankingAccounts = "banking-accounts",
-    BankingTransactions = "banking-transactions",
-    BankAccounts = "bankAccounts",
-    AccountTransactions = "accountTransactions"
+  BankingAccounts = "banking-accounts",
+  BankingTransactions = "banking-transactions",
+  BankAccounts = "bankAccounts",
+  AccountTransactions = "accountTransactions",
 }
 
 export class GetDataIntegrityStatusPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=dataType" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=dataType",
+  })
   dataType: GetDataIntegrityStatusDataTypeEnum;
 }
 
@@ -23,9 +27,9 @@ export class GetDataIntegrityStatusRequest extends SpeakeasyBase {
 }
 
 // GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeAmounts
-/** 
+/**
  * Only returned for transactions. For accounts, there is nothing returned.
-**/
+ **/
 export class GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeAmounts extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "currency" })
@@ -51,9 +55,9 @@ export class GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeConnection
 }
 
 // GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeDates
-/** 
+/**
  * Only returned for transactions. For accounts, there is nothing returned.
-**/
+ **/
 export class GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeDates extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "maxDate" })
@@ -76,10 +80,10 @@ export class GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeDates exte
   minOverlappingDate?: Date;
 }
 export enum GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeStatusInfoCurrentStatusEnum {
-    Unknown = "Unknown",
-    DoesNotExist = "DoesNotExist",
-    Error = "Error",
-    Complete = "Complete"
+  Unknown = "Unknown",
+  DoesNotExist = "DoesNotExist",
+  Error = "Error",
+  Complete = "Complete",
 }
 
 export class GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeStatusInfo extends SpeakeasyBase {
@@ -105,7 +109,9 @@ export class GetDataIntegrityStatus200ApplicationJSONDataIntegrityType extends S
 
   @SpeakeasyMetadata()
   @Expose({ name: "connectionIds" })
-  @Type(() => GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeConnectionIds)
+  @Type(
+    () => GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeConnectionIds
+  )
   connectionIds?: GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeConnectionIds;
 
   @SpeakeasyMetadata()
@@ -115,7 +121,9 @@ export class GetDataIntegrityStatus200ApplicationJSONDataIntegrityType extends S
 
   @SpeakeasyMetadata()
   @Expose({ name: "statusInfo" })
-  @Type(() => GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeStatusInfo)
+  @Type(
+    () => GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeStatusInfo
+  )
   statusInfo?: GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeStatusInfo;
 
   @SpeakeasyMetadata()
@@ -124,7 +132,9 @@ export class GetDataIntegrityStatus200ApplicationJSONDataIntegrityType extends S
 }
 
 export class GetDataIntegrityStatus200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetDataIntegrityStatus200ApplicationJSONDataIntegrityType })
+  @SpeakeasyMetadata({
+    elemType: GetDataIntegrityStatus200ApplicationJSONDataIntegrityType,
+  })
   @Expose({ name: "metadata" })
   @Type(() => GetDataIntegrityStatus200ApplicationJSONDataIntegrityType)
   metadata?: GetDataIntegrityStatus200ApplicationJSONDataIntegrityType[];

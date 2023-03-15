@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-
 export class ListAvailableAccountCategoriesChartOfAccountCategory extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "detailType" })
@@ -39,6 +38,8 @@ export class ListAvailableAccountCategoriesResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
 
-  @SpeakeasyMetadata({ elemType: ListAvailableAccountCategoriesChartOfAccountCategory })
+  @SpeakeasyMetadata({
+    elemType: ListAvailableAccountCategoriesChartOfAccountCategory,
+  })
   listAvailableAccountCategoriesChartOfAccountCategoryAnies?: ListAvailableAccountCategoriesChartOfAccountCategory[];
 }

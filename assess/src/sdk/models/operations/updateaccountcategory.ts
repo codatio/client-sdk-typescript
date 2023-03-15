@@ -2,15 +2,20 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class UpdateAccountCategoryPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=accountId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=accountId",
+  })
   accountId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
   connectionId: string;
 }
 
@@ -44,9 +49,9 @@ export class UpdateAccountCategoryRequest extends SpeakeasyBase {
 }
 
 // UpdateAccountCategoryCategorisedAccountAccountRef
-/** 
+/**
  * An object containing account reference data.
-**/
+ **/
 export class UpdateAccountCategoryCategorisedAccountAccountRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })

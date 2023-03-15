@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-
 export class AccountCategoriesUpdatedResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -22,9 +21,9 @@ export class AccountCategoriesUpdatedAccountCategoriesUpdatedWebhookData extends
 }
 
 // AccountCategoriesUpdatedAccountCategoriesUpdatedWebhook
-/** 
+/**
  * Webhook request body for account categories updated.
-**/
+ **/
 export class AccountCategoriesUpdatedAccountCategoriesUpdatedWebhook extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "alertId" })

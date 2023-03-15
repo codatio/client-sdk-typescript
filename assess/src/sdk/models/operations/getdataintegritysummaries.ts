@@ -3,17 +3,21 @@ import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
 export enum GetDataIntegritySummariesDataTypeEnum {
-    BankingAccounts = "banking-accounts",
-    BankingTransactions = "banking-transactions",
-    BankAccounts = "bankAccounts",
-    AccountTransactions = "accountTransactions"
+  BankingAccounts = "banking-accounts",
+  BankingTransactions = "banking-transactions",
+  BankAccounts = "bankAccounts",
+  AccountTransactions = "accountTransactions",
 }
 
 export class GetDataIntegritySummariesPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
   companyId: string;
 
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=dataType" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=dataType",
+  })
   dataType: GetDataIntegritySummariesDataTypeEnum;
 }
 
@@ -73,12 +77,16 @@ export class GetDataIntegritySummaries200ApplicationJSONDataIntegrityTypeByCount
 export class GetDataIntegritySummaries200ApplicationJSONDataIntegrityType extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "byAmount" })
-  @Type(() => GetDataIntegritySummaries200ApplicationJSONDataIntegrityTypeByAmount)
+  @Type(
+    () => GetDataIntegritySummaries200ApplicationJSONDataIntegrityTypeByAmount
+  )
   byAmount?: GetDataIntegritySummaries200ApplicationJSONDataIntegrityTypeByAmount;
 
   @SpeakeasyMetadata()
   @Expose({ name: "byCount" })
-  @Type(() => GetDataIntegritySummaries200ApplicationJSONDataIntegrityTypeByCount)
+  @Type(
+    () => GetDataIntegritySummaries200ApplicationJSONDataIntegrityTypeByCount
+  )
   byCount?: GetDataIntegritySummaries200ApplicationJSONDataIntegrityTypeByCount;
 
   @SpeakeasyMetadata()
@@ -87,7 +95,9 @@ export class GetDataIntegritySummaries200ApplicationJSONDataIntegrityType extend
 }
 
 export class GetDataIntegritySummaries200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetDataIntegritySummaries200ApplicationJSONDataIntegrityType })
+  @SpeakeasyMetadata({
+    elemType: GetDataIntegritySummaries200ApplicationJSONDataIntegrityType,
+  })
   @Expose({ name: "summaries" })
   @Type(() => GetDataIntegritySummaries200ApplicationJSONDataIntegrityType)
   summaries?: GetDataIntegritySummaries200ApplicationJSONDataIntegrityType[];
