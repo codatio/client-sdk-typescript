@@ -44,12 +44,12 @@ export class Files {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/files/download",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -94,7 +94,7 @@ export class Files {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/files",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
@@ -151,7 +151,7 @@ export class Files {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/connections/{connectionId}/files",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
