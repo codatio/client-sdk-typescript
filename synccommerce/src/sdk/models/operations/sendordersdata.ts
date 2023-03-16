@@ -2,13 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class SendOrdersDataPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-}
-
 export class SendOrdersDataRequestBodyOrdersCustomerRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -301,11 +294,13 @@ export class SendOrdersDataRequestBody extends SpeakeasyBase {
 }
 
 export class SendOrdersDataRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: SendOrdersDataPathParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: SendOrdersDataRequestBody;
+  requestBody?: SendOrdersDataRequestBody;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
 }
 
 export class SendOrdersData200ApplicationJSONDataOrdersCustomerRef extends SpeakeasyBase {

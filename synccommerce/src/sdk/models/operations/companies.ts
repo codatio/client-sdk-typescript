@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class CompaniesQueryParams extends SpeakeasyBase {
+export class CompaniesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=orderBy",
   })
@@ -18,11 +18,6 @@ export class CompaniesQueryParams extends SpeakeasyBase {
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
   query?: string;
-}
-
-export class CompaniesRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  queryParams: CompaniesQueryParams;
 }
 
 export class Companies200ApplicationJSONLinksCurrent extends SpeakeasyBase {

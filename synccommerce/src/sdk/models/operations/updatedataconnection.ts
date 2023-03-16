@@ -2,7 +2,16 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class UpdateDataConnectionPathParams extends SpeakeasyBase {
+export class UpdateDataConnectionRequestBody extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  @Expose({ name: "status" })
+  status?: string;
+}
+
+export class UpdateDataConnectionRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  requestBody?: UpdateDataConnectionRequestBody;
+
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -12,20 +21,6 @@ export class UpdateDataConnectionPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=connectionId",
   })
   connectionId: string;
-}
-
-export class UpdateDataConnectionRequestBody extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status?: string;
-}
-
-export class UpdateDataConnectionRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: UpdateDataConnectionPathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: UpdateDataConnectionRequestBody;
 }
 
 export class UpdateDataConnection200ApplicationJSONDataConnectionErrors extends SpeakeasyBase {

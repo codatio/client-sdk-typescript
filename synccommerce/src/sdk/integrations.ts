@@ -44,7 +44,7 @@ export class Integrations {
     const url: string = utils.generateURL(
       baseURL,
       "/config/integrations/{platformKey}/branding",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
@@ -93,7 +93,7 @@ export class Integrations {
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,

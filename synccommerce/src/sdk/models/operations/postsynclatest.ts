@@ -2,13 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class PostSyncLatestPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-}
-
 export class PostSyncLatestRequestBody extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "syncTo" })
@@ -17,11 +10,13 @@ export class PostSyncLatestRequestBody extends SpeakeasyBase {
 }
 
 export class PostSyncLatestRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: PostSyncLatestPathParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: PostSyncLatestRequestBody;
+  requestBody?: PostSyncLatestRequestBody;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
 }
 
 export class PostSyncLatest200ApplicationJSONDataConnectionsDataConnectionErrors extends SpeakeasyBase {

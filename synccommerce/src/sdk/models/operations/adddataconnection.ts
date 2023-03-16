@@ -2,19 +2,14 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class AddDataConnectionPathParams extends SpeakeasyBase {
+export class AddDataConnectionRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  requestBody?: string;
+
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
-}
-
-export class AddDataConnectionRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: AddDataConnectionPathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: string;
 }
 
 export class AddDataConnection200ApplicationJSONDataConnectionErrors extends SpeakeasyBase {

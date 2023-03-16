@@ -2,12 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class SendPaymentsDataPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-}
 export enum SendPaymentsDataRequestBodyPaymentsStatusEnum {
   Unknown = "Unknown",
   Pending = "Pending",
@@ -89,11 +83,13 @@ export class SendPaymentsDataRequestBody extends SpeakeasyBase {
 }
 
 export class SendPaymentsDataRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: SendPaymentsDataPathParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: SendPaymentsDataRequestBody;
+  requestBody?: SendPaymentsDataRequestBody;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
 }
 export enum SendPaymentsData200ApplicationJSONDataPaymentsStatusEnum {
   Unknown = "Unknown",

@@ -44,13 +44,17 @@ export class SyncConfiguration {
     const url: string = utils.generateURL(
       baseURL,
       "/config/companies/{companyId}/sync/commerce",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "requestBody",
+        "json"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -113,7 +117,7 @@ export class SyncConfiguration {
     const url: string = utils.generateURL(
       baseURL,
       "/meta/companies/{companyId}/sync/commerce/status",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
@@ -161,12 +165,12 @@ export class SyncConfiguration {
     const url: string = utils.generateURL(
       baseURL,
       "/config/sync/commerce/{commerceKey}/{accountingKey}/start",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -211,7 +215,7 @@ export class SyncConfiguration {
     const url: string = utils.generateURL(
       baseURL,
       "/config/companies/{companyId}/sync/commerce",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;

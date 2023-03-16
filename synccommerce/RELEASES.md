@@ -71,3 +71,11 @@ Based on:
 - Speakeasy CLI 1.11.0 https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [NPM v0.4.0] https://www.npmjs.com/package/@codat/synccommerce/v/0.4.0 - synccommerce
+
+## 2023-03-16 00:01:15
+### Changes
+Based on:
+- OpenAPI Doc 1.1 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Commerce.yaml
+- Speakeasy CLI 1.12.0 https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.5.0] https://www.npmjs.com/package/@codat/synccommerce/v/0.5.0 - synccommerce

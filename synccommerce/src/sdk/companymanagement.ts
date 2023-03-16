@@ -44,13 +44,17 @@ export class CompanyManagement {
     const url: string = utils.generateURL(
       baseURL,
       "/meta/companies/{companyId}/connections",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "requestBody",
+        "string"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -114,7 +118,7 @@ export class CompanyManagement {
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -166,12 +170,12 @@ export class CompanyManagement {
     const url: string = utils.generateURL(
       baseURL,
       "/meta/companies/{companyId}/connections",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -212,11 +216,11 @@ export class CompanyManagement {
    * Creates a Codat company with a commerce partner data connection.
    **/
   postCompanies(
-    req: operations.PostCompaniesRequest,
+    req: operations.PostCompaniesRequestBody,
     config?: AxiosRequestConfig
   ): Promise<operations.PostCompaniesResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.PostCompaniesRequest(req);
+      req = new operations.PostCompaniesRequestBody(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -225,7 +229,11 @@ export class CompanyManagement {
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "request",
+        "json"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -288,13 +296,17 @@ export class CompanyManagement {
     const url: string = utils.generateURL(
       baseURL,
       "/meta/companies/{companyId}/connections/{connectionId}",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "requestBody",
+        "json"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
