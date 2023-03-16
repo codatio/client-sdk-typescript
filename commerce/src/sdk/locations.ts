@@ -46,7 +46,7 @@ export class Locations {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/connections/{connectionId}/data/commerce-locations",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;

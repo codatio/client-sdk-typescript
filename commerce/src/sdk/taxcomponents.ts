@@ -47,7 +47,7 @@ export class TaxComponents {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/connections/{connectionId}/data/commerce-taxComponents",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;

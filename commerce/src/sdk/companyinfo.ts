@@ -46,7 +46,7 @@ export class CompanyInfo {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/connections/{connectionId}/data/commerce-info",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;

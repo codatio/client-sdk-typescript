@@ -12,12 +12,10 @@ const sdk = new Codat({
     authHeader: "YOUR_API_KEY_HERE",
   },
 });
-    
+
 const req: GetCommerceInfoRequest = {
-  pathParams: {
-    companyId: "unde",
-    connectionId: "deserunt",
-  },
+  companyId: "unde",
+  connectionId: "deserunt",
 };
 
 sdk.companyInfo.getCommerceInfo(req).then((res: GetCommerceInfoResponse | AxiosError) => {
