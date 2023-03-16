@@ -2,14 +2,12 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetAccountsForEnhancedProfitAndLossPathParams extends SpeakeasyBase {
+export class GetAccountsForEnhancedProfitAndLossRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
-}
 
-export class GetAccountsForEnhancedProfitAndLossQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=numberOfPeriods",
   })
@@ -19,14 +17,6 @@ export class GetAccountsForEnhancedProfitAndLossQueryParams extends SpeakeasyBas
     data: "queryParam, style=form;explode=true;name=reportDate",
   })
   reportDate: string;
-}
-
-export class GetAccountsForEnhancedProfitAndLossRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetAccountsForEnhancedProfitAndLossPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: GetAccountsForEnhancedProfitAndLossQueryParams;
 }
 
 export class GetAccountsForEnhancedProfitAndLossEnhancedReportReportInfo extends SpeakeasyBase {

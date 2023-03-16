@@ -44,12 +44,12 @@ export class Reports {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/reports/enhancedBalanceSheet/accounts",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -100,12 +100,12 @@ export class Reports {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/reports/enhancedProfitAndLoss/accounts",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -156,12 +156,12 @@ export class Reports {
     const url: string = utils.generateURL(
       baseURL,
       "/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/customerRetention",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -213,12 +213,12 @@ export class Reports {
     const url: string = utils.generateURL(
       baseURL,
       "/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/lifetimeValue",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -270,12 +270,12 @@ export class Reports {
     const url: string = utils.generateURL(
       baseURL,
       "/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/orders",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -327,12 +327,12 @@ export class Reports {
     const url: string = utils.generateURL(
       baseURL,
       "/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/refunds",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -384,12 +384,12 @@ export class Reports {
     const url: string = utils.generateURL(
       baseURL,
       "/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/revenue",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -441,12 +441,12 @@ export class Reports {
     const url: string = utils.generateURL(
       baseURL,
       "/data/companies/{companyId}/connections/{connectionId}/assess/enhancedBalanceSheet",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -498,12 +498,12 @@ export class Reports {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/reports/enhancedCashFlow/transactions",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -554,12 +554,12 @@ export class Reports {
     const url: string = utils.generateURL(
       baseURL,
       "/data/companies/{companyId}/connections/{connectionId}/assess/financialMetrics",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -611,12 +611,12 @@ export class Reports {
     const url: string = utils.generateURL(
       baseURL,
       "/data/companies/{companyId}/connections/{connectionId}/assess/enhancedProfitAndLoss",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -668,7 +668,7 @@ export class Reports {
     const url: string = utils.generateURL(
       baseURL,
       "/data/companies/{companyId}/connections/{connectionId}/assess/subscriptions/mrr",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
@@ -723,7 +723,7 @@ export class Reports {
     const url: string = utils.generateURL(
       baseURL,
       "/data/companies/{companyId}/connections/{connectionId}/assess/subscriptions/process",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;

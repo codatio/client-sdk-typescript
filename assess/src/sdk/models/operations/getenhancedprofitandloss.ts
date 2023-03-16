@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-export class GetEnhancedProfitAndLossPathParams extends SpeakeasyBase {
+export class GetEnhancedProfitAndLossRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -12,9 +12,7 @@ export class GetEnhancedProfitAndLossPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=connectionId",
   })
   connectionId: string;
-}
 
-export class GetEnhancedProfitAndLossQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=includeDisplayNames",
   })
@@ -34,14 +32,6 @@ export class GetEnhancedProfitAndLossQueryParams extends SpeakeasyBase {
     data: "queryParam, style=form;explode=true;name=reportDate",
   })
   reportDate: string;
-}
-
-export class GetEnhancedProfitAndLossRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetEnhancedProfitAndLossPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: GetEnhancedProfitAndLossQueryParams;
 }
 
 export class GetEnhancedProfitAndLoss200ApplicationJSONDimensionsItems extends SpeakeasyBase {

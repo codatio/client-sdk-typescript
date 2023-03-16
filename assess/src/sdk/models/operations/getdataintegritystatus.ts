@@ -9,7 +9,7 @@ export enum GetDataIntegrityStatusDataTypeEnum {
   AccountTransactions = "accountTransactions",
 }
 
-export class GetDataIntegrityStatusPathParams extends SpeakeasyBase {
+export class GetDataIntegrityStatusRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -19,11 +19,6 @@ export class GetDataIntegrityStatusPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=dataType",
   })
   dataType: GetDataIntegrityStatusDataTypeEnum;
-}
-
-export class GetDataIntegrityStatusRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetDataIntegrityStatusPathParams;
 }
 
 // GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeAmounts

@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-export class GetEnhancedBalanceSheetPathParams extends SpeakeasyBase {
+export class GetEnhancedBalanceSheetRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -12,9 +12,7 @@ export class GetEnhancedBalanceSheetPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=connectionId",
   })
   connectionId: string;
-}
 
-export class GetEnhancedBalanceSheetQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=includeDisplayNames",
   })
@@ -34,14 +32,6 @@ export class GetEnhancedBalanceSheetQueryParams extends SpeakeasyBase {
     data: "queryParam, style=form;explode=true;name=reportDate",
   })
   reportDate: string;
-}
-
-export class GetEnhancedBalanceSheetRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetEnhancedBalanceSheetPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: GetEnhancedBalanceSheetQueryParams;
 }
 
 export class GetEnhancedBalanceSheet200ApplicationJSONDimensionsItems extends SpeakeasyBase {

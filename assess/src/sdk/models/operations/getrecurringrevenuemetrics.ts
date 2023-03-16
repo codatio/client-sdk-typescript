@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-export class GetRecurringRevenueMetricsPathParams extends SpeakeasyBase {
+export class GetRecurringRevenueMetricsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -12,11 +12,6 @@ export class GetRecurringRevenueMetricsPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=connectionId",
   })
   connectionId: string;
-}
-
-export class GetRecurringRevenueMetricsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetRecurringRevenueMetricsPathParams;
 }
 
 export class GetRecurringRevenueMetrics200ApplicationJSONDimensionsItems extends SpeakeasyBase {

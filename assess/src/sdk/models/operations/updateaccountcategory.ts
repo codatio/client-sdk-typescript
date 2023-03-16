@@ -2,23 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class UpdateAccountCategoryPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=accountId",
-  })
-  accountId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
-}
-
 export class UpdateAccountCategoryRequestBodyChartOfAccountCategory extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "detailType" })
@@ -41,11 +24,23 @@ export class UpdateAccountCategoryRequestBody extends SpeakeasyBase {
 }
 
 export class UpdateAccountCategoryRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: UpdateAccountCategoryPathParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: UpdateAccountCategoryRequestBody;
+  requestBody?: UpdateAccountCategoryRequestBody;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=accountId",
+  })
+  accountId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
 }
 
 // UpdateAccountCategoryCategorisedAccountAccountRef

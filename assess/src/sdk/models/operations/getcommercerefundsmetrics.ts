@@ -2,7 +2,14 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-export class GetCommerceRefundsMetricsPathParams extends SpeakeasyBase {
+export enum GetCommerceRefundsMetricsPeriodUnitEnum {
+  Day = "Day",
+  Week = "Week",
+  Month = "Month",
+  Year = "Year",
+}
+
+export class GetCommerceRefundsMetricsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -12,15 +19,7 @@ export class GetCommerceRefundsMetricsPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=connectionId",
   })
   connectionId: string;
-}
-export enum GetCommerceRefundsMetricsPeriodUnitEnum {
-  Day = "Day",
-  Week = "Week",
-  Month = "Month",
-  Year = "Year",
-}
 
-export class GetCommerceRefundsMetricsQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=includeDisplayNames",
   })
@@ -45,14 +44,6 @@ export class GetCommerceRefundsMetricsQueryParams extends SpeakeasyBase {
     data: "queryParam, style=form;explode=true;name=reportDate",
   })
   reportDate: string;
-}
-
-export class GetCommerceRefundsMetricsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetCommerceRefundsMetricsPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: GetCommerceRefundsMetricsQueryParams;
 }
 
 export class GetCommerceRefundsMetrics200ApplicationJSONDimensionsItems extends SpeakeasyBase {

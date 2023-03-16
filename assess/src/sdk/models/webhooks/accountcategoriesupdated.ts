@@ -62,8 +62,3 @@ export class AccountCategoriesUpdatedAccountCategoriesUpdatedWebhook extends Spe
   @Expose({ name: "ruleType" })
   ruleType?: string;
 }
-
-export class AccountCategoriesUpdatedRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: AccountCategoriesUpdatedAccountCategoriesUpdatedWebhook;
-}

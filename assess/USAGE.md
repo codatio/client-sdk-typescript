@@ -12,13 +12,11 @@ const sdk = new Codat({
     authHeader: "YOUR_API_KEY_HERE",
   },
 });
-    
+
 const req: GetAccountCategoryRequest = {
-  pathParams: {
-    accountId: "unde",
-    companyId: "deserunt",
-    connectionId: "porro",
-  },
+  accountId: "unde",
+  companyId: "deserunt",
+  connectionId: "porro",
 };
 
 sdk.categories.getAccountCategory(req).then((res: GetAccountCategoryResponse | AxiosError) => {

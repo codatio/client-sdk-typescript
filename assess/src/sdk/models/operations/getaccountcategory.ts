@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetAccountCategoryPathParams extends SpeakeasyBase {
+export class GetAccountCategoryRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=accountId",
   })
@@ -17,11 +17,6 @@ export class GetAccountCategoryPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=connectionId",
   })
   connectionId: string;
-}
-
-export class GetAccountCategoryRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetAccountCategoryPathParams;
 }
 
 // GetAccountCategoryCategorisedAccountAccountRef
