@@ -31,18 +31,14 @@ const sdk = new Codat({
     authHeader: "YOUR_API_KEY_HERE",
   },
 });
-    
+
 const req: ListBankingAccountBalancesRequest = {
-  pathParams: {
-    companyId: "unde",
-    connectionId: "deserunt",
-  },
-  queryParams: {
-    orderBy: "porro",
-    page: 8442.66,
-    pageSize: 6027.63,
-    query: "vero",
-  },
+  companyId: "unde",
+  connectionId: "deserunt",
+  orderBy: "porro",
+  page: 8442.66,
+  pageSize: 6027.63,
+  query: "vero",
 };
 
 sdk.accountBalances.listBankingAccountBalances(req).then((res: ListBankingAccountBalancesResponse | AxiosError) => {

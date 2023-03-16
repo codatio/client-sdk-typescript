@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class ListBankingTransactionsPathParams extends SpeakeasyBase {
+export class ListBankingTransactionsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -12,9 +12,7 @@ export class ListBankingTransactionsPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=connectionId",
   })
   connectionId: string;
-}
 
-export class ListBankingTransactionsQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=orderBy",
   })
@@ -30,14 +28,6 @@ export class ListBankingTransactionsQueryParams extends SpeakeasyBase {
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
   query?: string;
-}
-
-export class ListBankingTransactionsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: ListBankingTransactionsPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: ListBankingTransactionsQueryParams;
 }
 export enum ListBankingTransactions200ApplicationJSONSourceModifiedDateCodeEnum {
   Unknown = "Unknown",
