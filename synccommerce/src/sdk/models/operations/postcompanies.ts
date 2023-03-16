@@ -8,11 +8,6 @@ export class PostCompaniesRequestBody extends SpeakeasyBase {
   name: string;
 }
 
-export class PostCompaniesRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: PostCompaniesRequestBody;
-}
-
 export class PostCompanies200ApplicationJSONDataConnectionsDataConnectionErrors extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "errorMessage" })

@@ -31,12 +31,10 @@ const sdk = new Codat({
     authHeader: "YOUR_API_KEY_HERE",
   },
 });
-    
+
 const req: AddDataConnectionRequest = {
-  pathParams: {
-    companyId: "unde",
-  },
-  request: "deserunt",
+  requestBody: "unde",
+  companyId: "deserunt",
 };
 
 sdk.companyManagement.addDataConnection(req).then((res: AddDataConnectionResponse | AxiosError) => {

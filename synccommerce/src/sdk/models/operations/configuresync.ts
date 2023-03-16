@@ -2,13 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, plainToInstance, Transform, Type } from "class-transformer";
 
-export class ConfigureSyncPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-}
-
 export class ConfigureSyncRequestBodyConfigurationFeesAccountsAccountOptions extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "classification" })
@@ -667,11 +660,13 @@ export class ConfigureSyncRequestBody extends SpeakeasyBase {
 }
 
 export class ConfigureSyncRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: ConfigureSyncPathParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: ConfigureSyncRequestBody;
+  requestBody?: ConfigureSyncRequestBody;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
 }
 
 export class ConfigureSync200ApplicationJSONConfigurationFeesAccountsAccountOptions extends SpeakeasyBase {

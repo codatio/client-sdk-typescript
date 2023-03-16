@@ -1,8 +1,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Type } from "class-transformer";
 
-export class CheckDataStatusPathParams extends SpeakeasyBase {
+export class CheckDataStatusRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -12,11 +11,6 @@ export class CheckDataStatusPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=datasetId",
   })
   datasetId: string;
-}
-
-export class CheckDataStatusRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: CheckDataStatusPathParams;
 }
 
 export class CheckDataStatusResponse extends SpeakeasyBase {

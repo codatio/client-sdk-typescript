@@ -2,14 +2,12 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetDataconnectionsPathParams extends SpeakeasyBase {
+export class GetDataconnectionsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
-}
 
-export class GetDataconnectionsQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=orderBy",
   })
@@ -25,14 +23,6 @@ export class GetDataconnectionsQueryParams extends SpeakeasyBase {
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
   query?: string;
-}
-
-export class GetDataconnectionsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetDataconnectionsPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: GetDataconnectionsQueryParams;
 }
 
 export class GetDataconnections200ApplicationJSONLinksCurrent extends SpeakeasyBase {

@@ -1,8 +1,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Type } from "class-transformer";
 
-export class GetSyncFlowUrlPathParams extends SpeakeasyBase {
+export class GetSyncFlowUrlRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=accountingKey",
   })
@@ -12,21 +11,11 @@ export class GetSyncFlowUrlPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=commerceKey",
   })
   commerceKey: string;
-}
 
-export class GetSyncFlowUrlQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=merchantIdentifier",
   })
   merchantIdentifier?: string;
-}
-
-export class GetSyncFlowUrlRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetSyncFlowUrlPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: GetSyncFlowUrlQueryParams;
 }
 
 export class GetSyncFlowUrlResponse extends SpeakeasyBase {
