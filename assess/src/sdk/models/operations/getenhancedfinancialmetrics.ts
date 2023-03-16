@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetEnhancedFinancialMetricsPathParams extends SpeakeasyBase {
+export class GetEnhancedFinancialMetricsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -12,9 +12,7 @@ export class GetEnhancedFinancialMetricsPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=connectionId",
   })
   connectionId: string;
-}
 
-export class GetEnhancedFinancialMetricsQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=numberOfPeriods",
   })
@@ -34,14 +32,6 @@ export class GetEnhancedFinancialMetricsQueryParams extends SpeakeasyBase {
     data: "queryParam, style=form;explode=true;name=showMetricInputs",
   })
   showMetricInputs?: boolean;
-}
-
-export class GetEnhancedFinancialMetricsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetEnhancedFinancialMetricsPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: GetEnhancedFinancialMetricsQueryParams;
 }
 export enum GetEnhancedFinancialMetrics200ApplicationJSONErrorsTypeEnum {
   DataNotSynced = "DataNotSynced",

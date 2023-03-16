@@ -9,7 +9,7 @@ export enum GetDataIntegrityDetailsDataTypeEnum {
   AccountTransactions = "accountTransactions",
 }
 
-export class GetDataIntegrityDetailsPathParams extends SpeakeasyBase {
+export class GetDataIntegrityDetailsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -19,9 +19,7 @@ export class GetDataIntegrityDetailsPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=dataType",
   })
   dataType: GetDataIntegrityDetailsDataTypeEnum;
-}
 
-export class GetDataIntegrityDetailsQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=orderBy",
   })
@@ -37,14 +35,6 @@ export class GetDataIntegrityDetailsQueryParams extends SpeakeasyBase {
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
   query?: string;
-}
-
-export class GetDataIntegrityDetailsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetDataIntegrityDetailsPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: GetDataIntegrityDetailsQueryParams;
 }
 
 export class GetDataIntegrityDetailsLinksLinksCurrent extends SpeakeasyBase {

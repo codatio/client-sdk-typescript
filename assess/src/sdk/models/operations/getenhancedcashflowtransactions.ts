@@ -2,14 +2,12 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetEnhancedCashFlowTransactionsPathParams extends SpeakeasyBase {
+export class GetEnhancedCashFlowTransactionsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
-}
 
-export class GetEnhancedCashFlowTransactionsQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
@@ -20,14 +18,6 @@ export class GetEnhancedCashFlowTransactionsQueryParams extends SpeakeasyBase {
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
   query?: string;
-}
-
-export class GetEnhancedCashFlowTransactionsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetEnhancedCashFlowTransactionsPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: GetEnhancedCashFlowTransactionsQueryParams;
 }
 
 export class GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsDataSourcesAccountsReportSourceRef extends SpeakeasyBase {

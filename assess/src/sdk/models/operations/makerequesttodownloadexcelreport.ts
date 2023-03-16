@@ -2,29 +2,20 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class MakeRequestToDownloadExcelReportPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-}
 export enum MakeRequestToDownloadExcelReportReportTypeEnum {
   Audit = "audit",
 }
 
-export class MakeRequestToDownloadExcelReportQueryParams extends SpeakeasyBase {
+export class MakeRequestToDownloadExcelReportRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=reportType",
   })
   reportType: MakeRequestToDownloadExcelReportReportTypeEnum;
-}
-
-export class MakeRequestToDownloadExcelReportRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: MakeRequestToDownloadExcelReportPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: MakeRequestToDownloadExcelReportQueryParams;
 }
 
 export class MakeRequestToDownloadExcelReport200ApplicationJSON extends SpeakeasyBase {

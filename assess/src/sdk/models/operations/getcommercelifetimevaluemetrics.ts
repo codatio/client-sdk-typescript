@@ -2,7 +2,14 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-export class GetCommerceLifetimeValueMetricsPathParams extends SpeakeasyBase {
+export enum GetCommerceLifetimeValueMetricsPeriodUnitEnum {
+  Day = "Day",
+  Week = "Week",
+  Month = "Month",
+  Year = "Year",
+}
+
+export class GetCommerceLifetimeValueMetricsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -12,15 +19,7 @@ export class GetCommerceLifetimeValueMetricsPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=connectionId",
   })
   connectionId: string;
-}
-export enum GetCommerceLifetimeValueMetricsPeriodUnitEnum {
-  Day = "Day",
-  Week = "Week",
-  Month = "Month",
-  Year = "Year",
-}
 
-export class GetCommerceLifetimeValueMetricsQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=includeDisplayNames",
   })
@@ -45,14 +44,6 @@ export class GetCommerceLifetimeValueMetricsQueryParams extends SpeakeasyBase {
     data: "queryParam, style=form;explode=true;name=reportDate",
   })
   reportDate: string;
-}
-
-export class GetCommerceLifetimeValueMetricsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetCommerceLifetimeValueMetricsPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: GetCommerceLifetimeValueMetricsQueryParams;
 }
 
 export class GetCommerceLifetimeValueMetrics200ApplicationJSONDimensionsItems extends SpeakeasyBase {

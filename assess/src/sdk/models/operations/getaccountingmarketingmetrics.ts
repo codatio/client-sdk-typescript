@@ -2,7 +2,14 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-export class GetAccountingMarketingMetricsPathParams extends SpeakeasyBase {
+export enum GetAccountingMarketingMetricsPeriodUnitEnum {
+  Day = "Day",
+  Week = "Week",
+  Month = "Month",
+  Year = "Year",
+}
+
+export class GetAccountingMarketingMetricsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -12,15 +19,7 @@ export class GetAccountingMarketingMetricsPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=connectionId",
   })
   connectionId: string;
-}
-export enum GetAccountingMarketingMetricsPeriodUnitEnum {
-  Day = "Day",
-  Week = "Week",
-  Month = "Month",
-  Year = "Year",
-}
 
-export class GetAccountingMarketingMetricsQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=includeDisplayNames",
   })
@@ -50,14 +49,6 @@ export class GetAccountingMarketingMetricsQueryParams extends SpeakeasyBase {
     data: "queryParam, style=form;explode=true;name=showInputValues",
   })
   showInputValues?: boolean;
-}
-
-export class GetAccountingMarketingMetricsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetAccountingMarketingMetricsPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: GetAccountingMarketingMetricsQueryParams;
 }
 
 export class GetAccountingMarketingMetrics200ApplicationJSONDimensionsItems extends SpeakeasyBase {

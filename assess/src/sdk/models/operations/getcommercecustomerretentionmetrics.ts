@@ -2,7 +2,14 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-export class GetCommerceCustomerRetentionMetricsPathParams extends SpeakeasyBase {
+export enum GetCommerceCustomerRetentionMetricsPeriodUnitEnum {
+  Day = "Day",
+  Week = "Week",
+  Month = "Month",
+  Year = "Year",
+}
+
+export class GetCommerceCustomerRetentionMetricsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -12,15 +19,7 @@ export class GetCommerceCustomerRetentionMetricsPathParams extends SpeakeasyBase
     data: "pathParam, style=simple;explode=false;name=connectionId",
   })
   connectionId: string;
-}
-export enum GetCommerceCustomerRetentionMetricsPeriodUnitEnum {
-  Day = "Day",
-  Week = "Week",
-  Month = "Month",
-  Year = "Year",
-}
 
-export class GetCommerceCustomerRetentionMetricsQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=includeDisplayNames",
   })
@@ -45,14 +44,6 @@ export class GetCommerceCustomerRetentionMetricsQueryParams extends SpeakeasyBas
     data: "queryParam, style=form;explode=true;name=reportDate",
   })
   reportDate: string;
-}
-
-export class GetCommerceCustomerRetentionMetricsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetCommerceCustomerRetentionMetricsPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: GetCommerceCustomerRetentionMetricsQueryParams;
 }
 
 export class GetCommerceCustomerRetentionMetrics200ApplicationJSONDimensionsItems extends SpeakeasyBase {

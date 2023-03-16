@@ -44,12 +44,12 @@ export class ExcelReports {
     const url: string = utils.generateURL(
       baseURL,
       "/data/companies/{companyId}/connections/{connectionId}/assess/accountingMetrics/marketing",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -101,12 +101,12 @@ export class ExcelReports {
     const url: string = utils.generateURL(
       baseURL,
       "/data/companies/{companyId}/assess/excel/download",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -158,12 +158,12 @@ export class ExcelReports {
     const url: string = utils.generateURL(
       baseURL,
       "/data/companies/{companyId}/assess/excel",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -215,12 +215,12 @@ export class ExcelReports {
     const url: string = utils.generateURL(
       baseURL,
       "/data/companies/{companyId}/assess/excel",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
