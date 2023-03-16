@@ -14,7 +14,7 @@ export enum GetCompaniesCompanyIdConnectionsConnectionIdPushDataTypeEnum {
   Customers = "customers",
 }
 
-export class GetCompaniesCompanyIdConnectionsConnectionIdPushPathParams extends SpeakeasyBase {
+export class GetCompaniesCompanyIdConnectionsConnectionIdPushRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -29,11 +29,6 @@ export class GetCompaniesCompanyIdConnectionsConnectionIdPushPathParams extends 
     data: "pathParam, style=simple;explode=false;name=dataType",
   })
   dataType: GetCompaniesCompanyIdConnectionsConnectionIdPushDataTypeEnum;
-}
-
-export class GetCompaniesCompanyIdConnectionsConnectionIdPushRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetCompaniesCompanyIdConnectionsConnectionIdPushPathParams;
 }
 export enum GetCompaniesCompanyIdConnectionsConnectionIdPushPushOptionPushOptionPropertyPushOptionChoiceOptionTypeEnum {
   Array = "Array",

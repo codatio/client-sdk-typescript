@@ -2,7 +2,16 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class UnlinkCompanyConnectionPathParams extends SpeakeasyBase {
+export class UnlinkCompanyConnectionRequestBody extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  @Expose({ name: "status" })
+  status?: string;
+}
+
+export class UnlinkCompanyConnectionRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  requestBody?: UnlinkCompanyConnectionRequestBody;
+
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -12,20 +21,6 @@ export class UnlinkCompanyConnectionPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=connectionId",
   })
   connectionId: string;
-}
-
-export class UnlinkCompanyConnectionRequestBody extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status?: string;
-}
-
-export class UnlinkCompanyConnectionRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: UnlinkCompanyConnectionPathParams;
-
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: UnlinkCompanyConnectionRequestBody;
 }
 
 export class UnlinkCompanyConnection404ApplicationJSON extends SpeakeasyBase {

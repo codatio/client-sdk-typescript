@@ -33,11 +33,11 @@ export class Companies {
    * Create a new company
    **/
   createCompany(
-    req: operations.CreateCompanyRequest,
+    req: operations.CreateCompanyRequestBody,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateCompanyResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CreateCompanyRequest(req);
+      req = new operations.CreateCompanyRequestBody(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -46,7 +46,11 @@ export class Companies {
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "request",
+        "json"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -119,7 +123,7 @@ export class Companies {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
@@ -176,7 +180,7 @@ export class Companies {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
@@ -240,7 +244,7 @@ export class Companies {
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -309,13 +313,17 @@ export class Companies {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "requestBody",
+        "json"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);

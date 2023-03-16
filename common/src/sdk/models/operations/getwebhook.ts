@@ -2,16 +2,11 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-export class GetWebhookPathParams extends SpeakeasyBase {
+export class GetWebhookRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=ruleId",
   })
   ruleId: string;
-}
-
-export class GetWebhookRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetWebhookPathParams;
 }
 
 export class GetWebhook404ApplicationJSON extends SpeakeasyBase {

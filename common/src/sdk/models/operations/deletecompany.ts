@@ -2,16 +2,11 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-export class DeleteCompanyPathParams extends SpeakeasyBase {
+export class DeleteCompanyRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
-}
-
-export class DeleteCompanyRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: DeleteCompanyPathParams;
 }
 
 export class DeleteCompany401ApplicationJSON extends SpeakeasyBase {

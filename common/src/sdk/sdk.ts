@@ -40,8 +40,8 @@ export class Codat {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.3.0";
-  private _genVersion = "1.11.0";
+  private _sdkVersion = "0.4.0";
+  private _genVersion = "1.12.0";
   private _globals: any;
 
   constructor(props?: SDKProps) {

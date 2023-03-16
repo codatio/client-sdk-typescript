@@ -53,8 +53,3 @@ export class DatasetDataChangedDatasetDataChangedWebhook extends SpeakeasyBase {
   @Expose({ name: "ruleType" })
   ruleType?: string;
 }
-
-export class DatasetDataChangedRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: DatasetDataChangedDatasetDataChangedWebhook;
-}

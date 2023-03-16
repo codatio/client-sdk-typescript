@@ -2,16 +2,11 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-export class GetIntegrationsPlatformKeyPathParams extends SpeakeasyBase {
+export class GetIntegrationsPlatformKeyRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=platformKey",
   })
   platformKey: string;
-}
-
-export class GetIntegrationsPlatformKeyRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetIntegrationsPlatformKeyPathParams;
 }
 
 export class GetIntegrationsPlatformKey404ApplicationJSON extends SpeakeasyBase {
