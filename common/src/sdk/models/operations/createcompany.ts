@@ -12,11 +12,6 @@ export class CreateCompanyRequestBody extends SpeakeasyBase {
   name: string;
 }
 
-export class CreateCompanyRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: CreateCompanyRequestBody;
-}
-
 export class CreateCompany401ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })

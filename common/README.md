@@ -20,7 +20,7 @@ yarn add @codat/common
 <!-- Start SDK Example Usage -->
 ```typescript
 import {
-  CreateCompanyRequest,
+  CreateCompanyRequestBody,
   CreateCompanyResponse
 } from "@codat/common/dist/sdk/models/operations";
 
@@ -31,12 +31,10 @@ const sdk = new Codat({
     authHeader: "YOUR_API_KEY_HERE",
   },
 });
-    
-const req: CreateCompanyRequest = {
-  request: {
-    description: "unde",
-    name: "deserunt",
-  },
+
+const req: CreateCompanyRequestBody = {
+  description: "unde",
+  name: "deserunt",
 };
 
 sdk.companies.createCompany(req).then((res: CreateCompanyResponse | AxiosError) => {

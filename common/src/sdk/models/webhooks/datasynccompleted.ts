@@ -65,8 +65,3 @@ export class DataSyncCompletedDataSyncCompleteWebhook extends SpeakeasyBase {
   @Expose({ name: "ruleType" })
   ruleType?: string;
 }
-
-export class DataSyncCompletedRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: DataSyncCompletedDataSyncCompleteWebhook;
-}

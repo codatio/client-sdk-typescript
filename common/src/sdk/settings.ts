@@ -142,11 +142,11 @@ export class Settings {
    * Update sync settings for all data types.
    **/
   postProfileSyncSettings(
-    req: operations.PostProfileSyncSettingsRequest,
+    req: operations.PostProfileSyncSettingsRequestBody,
     config?: AxiosRequestConfig
   ): Promise<operations.PostProfileSyncSettingsResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.PostProfileSyncSettingsRequest(req);
+      req = new operations.PostProfileSyncSettingsRequestBody(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -155,7 +155,11 @@ export class Settings {
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "request",
+        "json"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -209,11 +213,11 @@ export class Settings {
    * Update your Codat profile
    **/
   putProfile(
-    req: operations.PutProfileRequest,
+    req: operations.PutProfileProfile,
     config?: AxiosRequestConfig
   ): Promise<operations.PutProfileResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.PutProfileRequest(req);
+      req = new operations.PutProfileProfile(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -222,7 +226,11 @@ export class Settings {
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "request",
+        "json"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);

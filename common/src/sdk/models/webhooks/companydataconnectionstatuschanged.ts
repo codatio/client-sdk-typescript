@@ -70,8 +70,3 @@ export class CompanyDataConnectionStatusChangedCompanyDataConnectionStatusChange
   @Expose({ name: "ruleType" })
   ruleType?: string;
 }
-
-export class CompanyDataConnectionStatusChangedRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: CompanyDataConnectionStatusChangedCompanyDataConnectionStatusChangedWebhook;
-}

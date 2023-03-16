@@ -1,6 +1,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Type } from "class-transformer";
+import { Expose } from "class-transformer";
 
 export class NewCompanySynchronizedResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -37,9 +37,4 @@ export class NewCompanySynchronizedNewCompanySynchronizedWebhook extends Speakea
   @SpeakeasyMetadata()
   @Expose({ name: "ruleType" })
   ruleType?: string;
-}
-
-export class NewCompanySynchronizedRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: NewCompanySynchronizedNewCompanySynchronizedWebhook;
 }

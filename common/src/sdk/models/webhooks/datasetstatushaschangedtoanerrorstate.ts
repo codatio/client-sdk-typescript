@@ -57,8 +57,3 @@ export class DatasetStatusHasChangedToAnErrorStateDatasetDataErrorWebhook extend
   @Expose({ name: "ruleType" })
   ruleType?: string;
 }
-
-export class DatasetStatusHasChangedToAnErrorStateRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: DatasetStatusHasChangedToAnErrorStateDatasetDataErrorWebhook;
-}

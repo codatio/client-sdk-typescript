@@ -2,18 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetCompanyAuthorizationPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
-}
-
 export class GetCompanyAuthorizationRequestBody extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "property1" })
@@ -29,11 +17,18 @@ export class GetCompanyAuthorizationRequestBody extends SpeakeasyBase {
 }
 
 export class GetCompanyAuthorizationRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetCompanyAuthorizationPathParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: GetCompanyAuthorizationRequestBody;
+  requestBody?: GetCompanyAuthorizationRequestBody;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
 }
 
 export class GetCompanyAuthorizationConnectionConnectionInfo extends SpeakeasyBase {

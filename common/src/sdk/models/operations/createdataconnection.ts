@@ -2,16 +2,11 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class CreateDataConnectionPathParams extends SpeakeasyBase {
+export class CreateDataConnectionRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
-}
-
-export class CreateDataConnectionRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: CreateDataConnectionPathParams;
 }
 
 export class CreateDataConnectionConnectionConnectionInfo extends SpeakeasyBase {

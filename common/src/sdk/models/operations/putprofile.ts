@@ -40,11 +40,6 @@ export class PutProfileProfile extends SpeakeasyBase {
   whiteListUrls?: string[];
 }
 
-export class PutProfileRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: PutProfileProfile;
-}
-
 export class PutProfile401ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })

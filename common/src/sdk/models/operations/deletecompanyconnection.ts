@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-export class DeleteCompanyConnectionPathParams extends SpeakeasyBase {
+export class DeleteCompanyConnectionRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -12,11 +12,6 @@ export class DeleteCompanyConnectionPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=connectionId",
   })
   connectionId: string;
-}
-
-export class DeleteCompanyConnectionRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: DeleteCompanyConnectionPathParams;
 }
 
 export class DeleteCompanyConnection404ApplicationJSON extends SpeakeasyBase {

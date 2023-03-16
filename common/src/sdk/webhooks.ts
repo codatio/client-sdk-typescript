@@ -33,11 +33,11 @@ export class Webhooks {
    * Create a new webhook configuration
    **/
   createRule(
-    req: operations.CreateRuleRequest,
+    req: operations.CreateRuleWebhook,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateRuleResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CreateRuleRequest(req);
+      req = new operations.CreateRuleWebhook(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -46,7 +46,11 @@ export class Webhooks {
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "request",
+        "json"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -114,11 +118,7 @@ export class Webhooks {
     }
 
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/rules/{ruleId}",
-      req.pathParams
-    );
+    const url: string = utils.generateURL(baseURL, "/rules/{ruleId}", req);
 
     const client: AxiosInstance = this._securityClient!;
 
@@ -190,7 +190,7 @@ export class Webhooks {
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,

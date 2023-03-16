@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetCompaniesCompanyIdPushPushOperationKeyPathParams extends SpeakeasyBase {
+export class GetCompaniesCompanyIdPushPushOperationKeyRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -12,11 +12,6 @@ export class GetCompaniesCompanyIdPushPushOperationKeyPathParams extends Speakea
     data: "pathParam, style=simple;explode=false;name=pushOperationKey",
   })
   pushOperationKey: string;
-}
-
-export class GetCompaniesCompanyIdPushPushOperationKeyRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetCompaniesCompanyIdPushPushOperationKeyPathParams;
 }
 
 export class GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {

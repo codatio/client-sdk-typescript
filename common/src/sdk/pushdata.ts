@@ -56,7 +56,7 @@ export class PushData {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/connections/{connectionId}/options/{dataType}",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
@@ -112,12 +112,12 @@ export class PushData {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/push",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -170,7 +170,7 @@ export class PushData {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/push/{pushOperationKey}",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;

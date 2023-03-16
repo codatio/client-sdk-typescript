@@ -58,11 +58,6 @@ export class PostProfileSyncSettingsRequestBody extends SpeakeasyBase {
   settings: PostProfileSyncSettingsRequestBodySyncSetting[];
 }
 
-export class PostProfileSyncSettingsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: PostProfileSyncSettingsRequestBody;
-}
-
 export class PostProfileSyncSettings401ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })

@@ -53,8 +53,3 @@ export class PushOperationHasTimedOutPushOperationTimedOutWebhook extends Speake
   @Expose({ name: "ruleType" })
   ruleType?: string;
 }
-
-export class PushOperationHasTimedOutRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: PushOperationHasTimedOutPushOperationTimedOutWebhook;
-}

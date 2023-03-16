@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-export class ListRulesQueryParams extends SpeakeasyBase {
+export class ListRulesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=orderBy",
   })
@@ -18,11 +18,6 @@ export class ListRulesQueryParams extends SpeakeasyBase {
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
   query?: string;
-}
-
-export class ListRulesRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  queryParams: ListRulesQueryParams;
 }
 
 export class ListRules401ApplicationJSON extends SpeakeasyBase {

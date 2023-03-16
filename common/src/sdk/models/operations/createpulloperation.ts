@@ -14,31 +14,21 @@ export enum CreatePullOperationDataTypeEnum {
   Customers = "customers",
 }
 
-export class CreatePullOperationPathParams extends SpeakeasyBase {
+export class CreatePullOperationRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
 
   @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=dataType",
-  })
-  dataType: CreatePullOperationDataTypeEnum;
-}
-
-export class CreatePullOperationQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=connectionId",
   })
   connectionId?: string;
-}
 
-export class CreatePullOperationRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: CreatePullOperationPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: CreatePullOperationQueryParams;
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=dataType",
+  })
+  dataType: CreatePullOperationDataTypeEnum;
 }
 
 export class CreatePullOperation404ApplicationJSON extends SpeakeasyBase {

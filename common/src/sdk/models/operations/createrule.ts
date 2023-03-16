@@ -35,11 +35,6 @@ export class CreateRuleWebhook extends SpeakeasyBase {
   type: string;
 }
 
-export class CreateRuleRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: CreateRuleWebhook;
-}
-
 export class CreateRule401ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
