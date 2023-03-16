@@ -31,14 +31,10 @@ const sdk = new Codat({
     authHeader: "YOUR_API_KEY_HERE",
   },
 });
-    
+
 const req: DownloadFilesRequest = {
-  pathParams: {
-    companyId: "unde",
-  },
-  queryParams: {
-    date: "2022-08-10T15:04:26.022Z",
-  },
+  companyId: "unde",
+  date: "2022-08-11T15:05:46.370Z",
 };
 
 sdk.files.downloadFiles(req).then((res: DownloadFilesResponse | AxiosError) => {
