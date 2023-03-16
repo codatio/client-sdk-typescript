@@ -2,22 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class UpdateBankFeedPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=bankAccountId",
-  })
-  bankAccountId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
-}
 export enum UpdateBankFeedBankFeedBankAccountAccountTypeEnum {
   Unknown = "Unknown",
   Credit = "Credit",
@@ -73,11 +57,23 @@ export class UpdateBankFeedBankFeedBankAccount extends SpeakeasyBase {
 }
 
 export class UpdateBankFeedRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: UpdateBankFeedPathParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: UpdateBankFeedBankFeedBankAccount;
+  requestBody?: UpdateBankFeedBankFeedBankAccount;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=bankAccountId",
+  })
+  bankAccountId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
 }
 
 export class UpdateBankFeedResponse extends SpeakeasyBase {

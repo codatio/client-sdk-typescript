@@ -31,19 +31,15 @@ const sdk = new Codat({
     authHeader: "YOUR_API_KEY_HERE",
   },
 });
-    
+
 const req: GetBankAccountPushOptionsRequest = {
-  pathParams: {
-    accountId: "unde",
-    companyId: "deserunt",
-    connectionId: "porro",
-  },
-  queryParams: {
-    orderBy: "nulla",
-    page: 6027.63,
-    pageSize: 8579.46,
-    query: "perspiciatis",
-  },
+  accountId: "unde",
+  companyId: "deserunt",
+  connectionId: "porro",
+  orderBy: "nulla",
+  page: 6027.63,
+  pageSize: 8579.46,
+  query: "perspiciatis",
 };
 
 sdk.bankAccountTransactions.getBankAccountPushOptions(req).then((res: GetBankAccountPushOptionsResponse | AxiosError) => {
