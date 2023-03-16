@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-export class UploadAttachmentPathParams extends SpeakeasyBase {
+export class UploadAttachmentRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -17,11 +17,6 @@ export class UploadAttachmentPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=transactionId",
   })
   transactionId: string;
-}
-
-export class UploadAttachmentRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: UploadAttachmentPathParams;
 }
 
 export class UploadAttachment200ApplicationJSON extends SpeakeasyBase {

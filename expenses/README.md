@@ -31,11 +31,9 @@ const sdk = new Codat({
     authHeader: "YOUR_API_KEY_HERE",
   },
 });
-    
+
 const req: GetCompanyConfigurationRequest = {
-  pathParams: {
-    companyId: "unde",
-  },
+  companyId: "unde",
 };
 
 sdk.configuration.getCompanyConfiguration(req).then((res: GetCompanyConfigurationResponse | AxiosError) => {

@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetSyncByIdPathParams extends SpeakeasyBase {
+export class GetSyncByIdRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -12,11 +12,6 @@ export class GetSyncByIdPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=syncId",
   })
   syncId: string;
-}
-
-export class GetSyncByIdRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetSyncByIdPathParams;
 }
 
 export class GetSyncById200ApplicationJSON extends SpeakeasyBase {

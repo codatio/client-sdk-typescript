@@ -44,7 +44,7 @@ export class SyncStatus {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/sync/expenses/syncs/lastSuccessful/status",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
@@ -99,7 +99,7 @@ export class SyncStatus {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/sync/expenses/syncs/latest/status",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
@@ -154,7 +154,7 @@ export class SyncStatus {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/sync/expenses/syncs/{syncId}/status",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
@@ -209,7 +209,7 @@ export class SyncStatus {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/sync/expenses/syncs/list/status",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;

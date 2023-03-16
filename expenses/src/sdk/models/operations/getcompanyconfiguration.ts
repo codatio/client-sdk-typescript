@@ -2,16 +2,11 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-export class GetCompanyConfigurationPathParams extends SpeakeasyBase {
+export class GetCompanyConfigurationRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
-}
-
-export class GetCompanyConfigurationRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetCompanyConfigurationPathParams;
 }
 
 export class GetCompanyConfiguration200ApplicationJSONBankAccount extends SpeakeasyBase {

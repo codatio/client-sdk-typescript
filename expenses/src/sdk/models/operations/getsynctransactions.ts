@@ -2,19 +2,12 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, plainToInstance, Transform, Type } from "class-transformer";
 
-export class GetSyncTransactionsPathParams extends SpeakeasyBase {
+export class GetSyncTransactionsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=syncId",
-  })
-  syncId: string;
-}
-
-export class GetSyncTransactionsQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
   page: number;
 
@@ -22,14 +15,11 @@ export class GetSyncTransactionsQueryParams extends SpeakeasyBase {
     data: "queryParam, style=form;explode=true;name=pageSize",
   })
   pageSize?: number;
-}
 
-export class GetSyncTransactionsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetSyncTransactionsPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: GetSyncTransactionsQueryParams;
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=syncId",
+  })
+  syncId: string;
 }
 
 export class GetSyncTransactions200ApplicationJSONHalLink extends SpeakeasyBase {

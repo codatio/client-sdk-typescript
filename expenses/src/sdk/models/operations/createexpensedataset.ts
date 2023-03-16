@@ -2,13 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class CreateExpenseDatasetPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-}
-
 export class CreateExpenseDatasetRequestBodyItemsLinesRecordRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -96,11 +89,13 @@ export class CreateExpenseDatasetRequestBody extends SpeakeasyBase {
 }
 
 export class CreateExpenseDatasetRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: CreateExpenseDatasetPathParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: CreateExpenseDatasetRequestBody;
+  requestBody?: CreateExpenseDatasetRequestBody;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
 }
 
 export class CreateExpenseDataset200ApplicationJSON extends SpeakeasyBase {
