@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetCreditNotePathParams extends SpeakeasyBase {
+export class GetCreditNoteRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -12,11 +12,6 @@ export class GetCreditNotePathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=creditNoteId",
   })
   creditNoteId: string;
-}
-
-export class GetCreditNoteRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetCreditNotePathParams;
 }
 
 // GetCreditNoteSourceModifiedDateCustomerRef

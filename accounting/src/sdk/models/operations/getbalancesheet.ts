@@ -2,14 +2,12 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetBalanceSheetPathParams extends SpeakeasyBase {
+export class GetBalanceSheetRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
-}
 
-export class GetBalanceSheetQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=periodLength",
   })
@@ -24,14 +22,6 @@ export class GetBalanceSheetQueryParams extends SpeakeasyBase {
     data: "queryParam, style=form;explode=true;name=startMonth;dateTimeFormat=YYYY-MM-DDThh:mm:ss.sssZ",
   })
   startMonth?: Date;
-}
-
-export class GetBalanceSheetRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetBalanceSheetPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: GetBalanceSheetQueryParams;
 }
 
 export class GetBalanceSheet200ApplicationJSONBalanceSheetReportLineReportLineReportLineReportLine extends SpeakeasyBase {

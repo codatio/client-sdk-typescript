@@ -2,16 +2,11 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class PostSyncInfoPathParams extends SpeakeasyBase {
+export class PostSyncInfoRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
-}
-
-export class PostSyncInfoRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: PostSyncInfoPathParams;
 }
 export enum PostSyncInfo200ApplicationJSONStatusEnum {
   Initial = "Initial",

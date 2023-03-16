@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, plainToInstance, Transform, Type } from "class-transformer";
 
-export class GetCreateUpdatePurchaseOrdersModelPathParams extends SpeakeasyBase {
+export class GetCreateUpdatePurchaseOrdersModelRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -12,11 +12,6 @@ export class GetCreateUpdatePurchaseOrdersModelPathParams extends SpeakeasyBase 
     data: "pathParam, style=simple;explode=false;name=connectionId",
   })
   connectionId: string;
-}
-
-export class GetCreateUpdatePurchaseOrdersModelRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetCreateUpdatePurchaseOrdersModelPathParams;
 }
 export enum GetCreateUpdatePurchaseOrdersModelPushOptionPushOptionPropertyPushOptionChoiceOptionTypeEnum {
   Array = "Array",

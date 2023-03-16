@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetTrackingCategoryPathParams extends SpeakeasyBase {
+export class GetTrackingCategoryRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -12,11 +12,6 @@ export class GetTrackingCategoryPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=trackingCategoryId",
   })
   trackingCategoryId: string;
-}
-
-export class GetTrackingCategoryRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetTrackingCategoryPathParams;
 }
 export enum GetTrackingCategorySourceModifiedDateTrackingCategoryStatusEnum {
   Unknown = "Unknown",

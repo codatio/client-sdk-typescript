@@ -1,8 +1,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Type } from "class-transformer";
 
-export class PostDirectIncomeAttachmentPathParams extends SpeakeasyBase {
+export class PostDirectIncomeAttachmentRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -17,11 +16,6 @@ export class PostDirectIncomeAttachmentPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=directIncomeId",
   })
   directIncomeId: string;
-}
-
-export class PostDirectIncomeAttachmentRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: PostDirectIncomeAttachmentPathParams;
 }
 
 export class PostDirectIncomeAttachmentResponse extends SpeakeasyBase {

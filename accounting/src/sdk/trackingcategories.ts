@@ -44,7 +44,7 @@ export class TrackingCategories {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/data/trackingCategories/{trackingCategoryId}",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
@@ -98,12 +98,12 @@ export class TrackingCategories {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/data/trackingCategories",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,

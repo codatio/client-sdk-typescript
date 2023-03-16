@@ -44,7 +44,7 @@ export class SalesOrders {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/data/salesOrders/{salesOrderId}",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
@@ -98,12 +98,12 @@ export class SalesOrders {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/data/salesOrders",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,

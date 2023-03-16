@@ -44,7 +44,7 @@ export class PaymentMethods {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/data/paymentMethods/{paymentMethodId}",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
@@ -98,12 +98,12 @@ export class PaymentMethods {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/data/paymentMethods",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,

@@ -2,18 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class CreateTransferPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
-}
-
 // CreateTransferSourceModifiedDateContactRef
 /**
  * The customer or supplier for the transfer, if available.
@@ -161,11 +149,18 @@ export class CreateTransferSourceModifiedDate extends SpeakeasyBase {
 }
 
 export class CreateTransferRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: CreateTransferPathParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: CreateTransferSourceModifiedDate;
+  requestBody?: CreateTransferSourceModifiedDate;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
 }
 
 export class CreateTransfer200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {

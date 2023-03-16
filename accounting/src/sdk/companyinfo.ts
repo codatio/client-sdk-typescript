@@ -44,7 +44,7 @@ export class CompanyInfo {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/data/info",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
@@ -98,7 +98,7 @@ export class CompanyInfo {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/data/info",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;

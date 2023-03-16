@@ -2,25 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class CreateItemPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
-}
-
-export class CreateItemQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
-  })
-  timeoutInMinutes?: number;
-}
-
 // CreateItemSourceModifiedDateBillItemAccountRef
 /**
  * Reference of the account to which the item is linked.
@@ -215,14 +196,23 @@ export class CreateItemSourceModifiedDate extends SpeakeasyBase {
 }
 
 export class CreateItemRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: CreateItemPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: CreateItemQueryParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: CreateItemSourceModifiedDate;
+  requestBody?: CreateItemSourceModifiedDate;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
+  timeoutInMinutes?: number;
 }
 
 export class CreateItem200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {

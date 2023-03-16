@@ -2,25 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class PushCreditNotePathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
-}
-
-export class PushCreditNoteQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
-  })
-  timeoutInMinutes?: number;
-}
-
 // PushCreditNoteSourceModifiedDateCustomerRef
 /**
  * Reference to the customer the credit note has been issued to.
@@ -458,14 +439,23 @@ export class PushCreditNoteSourceModifiedDate extends SpeakeasyBase {
 }
 
 export class PushCreditNoteRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: PushCreditNotePathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: PushCreditNoteQueryParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: PushCreditNoteSourceModifiedDate;
+  requestBody?: PushCreditNoteSourceModifiedDate;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
+  timeoutInMinutes?: number;
 }
 
 export class PushCreditNote200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {

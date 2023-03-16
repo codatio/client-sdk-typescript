@@ -2,14 +2,12 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetAgedDebtorsReportPathParams extends SpeakeasyBase {
+export class GetAgedDebtorsReportRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
-}
 
-export class GetAgedDebtorsReportQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=numberOfPeriods",
   })
@@ -24,14 +22,6 @@ export class GetAgedDebtorsReportQueryParams extends SpeakeasyBase {
     data: "queryParam, style=form;explode=true;name=reportDate;dateTimeFormat=YYYY-MM-DD",
   })
   reportDate?: Date;
-}
-
-export class GetAgedDebtorsReportRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetAgedDebtorsReportPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: GetAgedDebtorsReportQueryParams;
 }
 
 export class GetAgedDebtorsReportAgedDebtorsReportAgedDebtorAgedCurrencyOutstandingAgedOutstandingAmountAmountsOutstandingByDataType extends SpeakeasyBase {

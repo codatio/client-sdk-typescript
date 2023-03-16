@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetDirectCostPathParams extends SpeakeasyBase {
+export class GetDirectCostRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -17,11 +17,6 @@ export class GetDirectCostPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=directCostId",
   })
   directCostId: string;
-}
-
-export class GetDirectCostRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetDirectCostPathParams;
 }
 
 // GetDirectCostSourceModifiedDateContactRef

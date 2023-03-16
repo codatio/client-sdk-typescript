@@ -2,25 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class CreateBillPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
-}
-
-export class CreateBillQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
-  })
-  timeoutInMinutes?: number;
-}
-
 // CreateBillSourceModifiedDateLineItemsAccountRef
 /**
  * Reference to the account to which the line item is linked.
@@ -462,14 +443,23 @@ export class CreateBillSourceModifiedDate extends SpeakeasyBase {
 }
 
 export class CreateBillRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: CreateBillPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: CreateBillQueryParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: CreateBillSourceModifiedDate;
+  requestBody?: CreateBillSourceModifiedDate;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
+  timeoutInMinutes?: number;
 }
 
 export class CreateBill200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {

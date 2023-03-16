@@ -2,25 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class CreateJournalEntryPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
-}
-
-export class CreateJournalEntryQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
-  })
-  timeoutInMinutes?: number;
-}
-
 // CreateJournalEntrySourceModifiedDateJournalLinesAccountRef
 /**
  * Data types that reference an account, for example bill and invoice line items, use an accountRef that includes the ID and name of the linked account.
@@ -208,14 +189,23 @@ export class CreateJournalEntrySourceModifiedDate extends SpeakeasyBase {
 }
 
 export class CreateJournalEntryRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: CreateJournalEntryPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: CreateJournalEntryQueryParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: CreateJournalEntrySourceModifiedDate;
+  requestBody?: CreateJournalEntrySourceModifiedDate;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
+  timeoutInMinutes?: number;
 }
 
 export class CreateJournalEntry200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {

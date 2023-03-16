@@ -2,14 +2,12 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class ListPaymentMethodsPathParams extends SpeakeasyBase {
+export class ListPaymentMethodsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
-}
 
-export class ListPaymentMethodsQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=orderBy",
   })
@@ -25,14 +23,6 @@ export class ListPaymentMethodsQueryParams extends SpeakeasyBase {
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
   query?: string;
-}
-
-export class ListPaymentMethodsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: ListPaymentMethodsPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: ListPaymentMethodsQueryParams;
 }
 
 export class ListPaymentMethodsLinksLinksCurrent extends SpeakeasyBase {

@@ -2,35 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class UpdateBillPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=billId",
-  })
-  billId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
-}
-
-export class UpdateBillQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=forceUpdate",
-  })
-  forceUpdate?: boolean;
-
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
-  })
-  timeoutInMinutes?: number;
-}
-
 // UpdateBillSourceModifiedDateLineItemsAccountRef
 /**
  * Reference to the account to which the line item is linked.
@@ -472,14 +443,33 @@ export class UpdateBillSourceModifiedDate extends SpeakeasyBase {
 }
 
 export class UpdateBillRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: UpdateBillPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: UpdateBillQueryParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: UpdateBillSourceModifiedDate;
+  requestBody?: UpdateBillSourceModifiedDate;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=billId",
+  })
+  billId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=forceUpdate",
+  })
+  forceUpdate?: boolean;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
+  timeoutInMinutes?: number;
 }
 
 export class UpdateBill200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {

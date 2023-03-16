@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetAllBankAccountPathParams extends SpeakeasyBase {
+export class GetAllBankAccountRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=accountId",
   })
@@ -12,19 +12,9 @@ export class GetAllBankAccountPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
-}
 
-export class GetAllBankAccountQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
   query?: string;
-}
-
-export class GetAllBankAccountRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetAllBankAccountPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: GetAllBankAccountQueryParams;
 }
 
 export class GetAllBankAccount200ApplicationJSON extends SpeakeasyBase {

@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, plainToInstance, Transform, Type } from "class-transformer";
 
-export class GetBankAccountPushOptionsPathParams extends SpeakeasyBase {
+export class GetBankAccountPushOptionsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=accountId",
   })
@@ -17,9 +17,7 @@ export class GetBankAccountPushOptionsPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=connectionId",
   })
   connectionId: string;
-}
 
-export class GetBankAccountPushOptionsQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=orderBy",
   })
@@ -35,14 +33,6 @@ export class GetBankAccountPushOptionsQueryParams extends SpeakeasyBase {
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
   query?: string;
-}
-
-export class GetBankAccountPushOptionsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetBankAccountPushOptionsPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: GetBankAccountPushOptionsQueryParams;
 }
 export enum GetBankAccountPushOptionsPushOptionPushOptionPropertyPushOptionChoiceOptionTypeEnum {
   Array = "Array",

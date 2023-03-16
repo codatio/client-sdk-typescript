@@ -2,24 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class CreateSuppliersPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
-}
-
-export class CreateSuppliersQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
-  })
-  timeoutInMinutes?: number;
-}
 export enum CreateSuppliersSourceModifiedDateAddressesTypeEnum {
   Unknown = "Unknown",
   Billing = "Billing",
@@ -149,14 +131,23 @@ export class CreateSuppliersSourceModifiedDate extends SpeakeasyBase {
 }
 
 export class CreateSuppliersRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: CreateSuppliersPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: CreateSuppliersQueryParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: CreateSuppliersSourceModifiedDate;
+  requestBody?: CreateSuppliersSourceModifiedDate;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
+  timeoutInMinutes?: number;
 }
 
 export class CreateSuppliers200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {

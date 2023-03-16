@@ -2,35 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class UpdateInvoicePathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=invoiceId",
-  })
-  invoiceId: string;
-}
-
-export class UpdateInvoiceQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=forceUpdate",
-  })
-  forceUpdate?: boolean;
-
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
-  })
-  timeoutInMinutes?: number;
-}
-
 // UpdateInvoiceSourceModifiedDateCustomerRef
 /**
  * Reference to the customer the invoice has been issued to.
@@ -488,14 +459,33 @@ export class UpdateInvoiceSourceModifiedDate extends SpeakeasyBase {
 }
 
 export class UpdateInvoiceRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: UpdateInvoicePathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: UpdateInvoiceQueryParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: UpdateInvoiceSourceModifiedDate;
+  requestBody?: UpdateInvoiceSourceModifiedDate;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=forceUpdate",
+  })
+  forceUpdate?: boolean;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=invoiceId",
+  })
+  invoiceId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
+  timeoutInMinutes?: number;
 }
 
 export class UpdateInvoice200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {

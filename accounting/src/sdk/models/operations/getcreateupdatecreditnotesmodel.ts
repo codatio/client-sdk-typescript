@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, plainToInstance, Transform, Type } from "class-transformer";
 
-export class GetCreateUpdateCreditNotesModelPathParams extends SpeakeasyBase {
+export class GetCreateUpdateCreditNotesModelRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -12,11 +12,6 @@ export class GetCreateUpdateCreditNotesModelPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=connectionId",
   })
   connectionId: string;
-}
-
-export class GetCreateUpdateCreditNotesModelRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetCreateUpdateCreditNotesModelPathParams;
 }
 export enum GetCreateUpdateCreditNotesModelPushOptionPushOptionPropertyPushOptionChoiceOptionTypeEnum {
   Array = "Array",

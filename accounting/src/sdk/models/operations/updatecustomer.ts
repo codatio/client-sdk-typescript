@@ -2,34 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class UpdateCustomerPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=customerId",
-  })
-  customerId: string;
-}
-
-export class UpdateCustomerQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=forceUpdate",
-  })
-  forceUpdate?: boolean;
-
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
-  })
-  timeoutInMinutes?: number;
-}
 export enum UpdateCustomerSourceModifiedDateAddressesTypeEnum {
   Unknown = "Unknown",
   Billing = "Billing",
@@ -259,14 +231,33 @@ export class UpdateCustomerSourceModifiedDate extends SpeakeasyBase {
 }
 
 export class UpdateCustomerRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: UpdateCustomerPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: UpdateCustomerQueryParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: UpdateCustomerSourceModifiedDate;
+  requestBody?: UpdateCustomerSourceModifiedDate;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=customerId",
+  })
+  customerId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=forceUpdate",
+  })
+  forceUpdate?: boolean;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
+  timeoutInMinutes?: number;
 }
 
 export class UpdateCustomer200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {

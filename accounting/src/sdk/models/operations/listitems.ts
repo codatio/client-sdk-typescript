@@ -2,14 +2,12 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class ListItemsPathParams extends SpeakeasyBase {
+export class ListItemsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
-}
 
-export class ListItemsQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=orderBy",
   })
@@ -25,14 +23,6 @@ export class ListItemsQueryParams extends SpeakeasyBase {
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
   query?: string;
-}
-
-export class ListItemsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: ListItemsPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: ListItemsQueryParams;
 }
 
 export class ListItemsLinksLinksCurrent extends SpeakeasyBase {

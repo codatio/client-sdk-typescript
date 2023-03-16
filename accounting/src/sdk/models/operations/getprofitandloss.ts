@@ -2,14 +2,12 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetProfitAndLossPathParams extends SpeakeasyBase {
+export class GetProfitAndLossRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
-}
 
-export class GetProfitAndLossQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=periodLength",
   })
@@ -24,14 +22,6 @@ export class GetProfitAndLossQueryParams extends SpeakeasyBase {
     data: "queryParam, style=form;explode=true;name=startMonth;dateTimeFormat=YYYY-MM-DDThh:mm:ss.sssZ",
   })
   startMonth?: Date;
-}
-
-export class GetProfitAndLossRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetProfitAndLossPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: GetProfitAndLossQueryParams;
 }
 export enum GetProfitAndLoss200ApplicationJSONReportBasisEnum {
   Unknown = "Unknown",

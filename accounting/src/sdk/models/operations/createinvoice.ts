@@ -2,25 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class CreateInvoicePathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
-}
-
-export class CreateInvoiceQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
-  })
-  timeoutInMinutes?: number;
-}
-
 // CreateInvoiceSourceModifiedDateCustomerRef
 /**
  * Reference to the customer the invoice has been issued to.
@@ -478,14 +459,23 @@ export class CreateInvoiceSourceModifiedDate extends SpeakeasyBase {
 }
 
 export class CreateInvoiceRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: CreateInvoicePathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: CreateInvoiceQueryParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: CreateInvoiceSourceModifiedDate;
+  requestBody?: CreateInvoiceSourceModifiedDate;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
+  timeoutInMinutes?: number;
 }
 
 export class CreateInvoice200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {

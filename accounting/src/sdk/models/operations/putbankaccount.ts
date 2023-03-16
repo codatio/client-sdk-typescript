@@ -2,34 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class PutBankAccountPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=bankAccountId",
-  })
-  bankAccountId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
-}
-
-export class PutBankAccountQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=forceUpdate",
-  })
-  forceUpdate?: boolean;
-
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
-  })
-  timeoutInMinutes?: number;
-}
 export enum PutBankAccountSourceModifiedDateAccountTypeEnum {
   Unknown = "Unknown",
   Credit = "Credit",
@@ -127,14 +99,33 @@ export class PutBankAccountSourceModifiedDate extends SpeakeasyBase {
 }
 
 export class PutBankAccountRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: PutBankAccountPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: PutBankAccountQueryParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: PutBankAccountSourceModifiedDate;
+  requestBody?: PutBankAccountSourceModifiedDate;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=bankAccountId",
+  })
+  bankAccountId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=forceUpdate",
+  })
+  forceUpdate?: boolean;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
+  timeoutInMinutes?: number;
 }
 
 export class PutBankAccount200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {

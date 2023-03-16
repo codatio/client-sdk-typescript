@@ -44,12 +44,12 @@ export class BankAccountTransactions {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/connections/{connectionId}/options/bankAccounts/{accountId}/bankTransactions",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -100,12 +100,12 @@ export class BankAccountTransactions {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/connections/{connectionId}/data/bankAccounts/{accountId}/bankTransactions",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -156,12 +156,12 @@ export class BankAccountTransactions {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/data/bankAccounts/{accountId}/transactions",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -216,13 +216,17 @@ export class BankAccountTransactions {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "requestBody",
+        "json"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -232,7 +236,7 @@ export class BankAccountTransactions {
     const client: AxiosInstance = this._securityClient!;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,

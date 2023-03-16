@@ -2,14 +2,12 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetCashFlowStatementPathParams extends SpeakeasyBase {
+export class GetCashFlowStatementRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
-}
 
-export class GetCashFlowStatementQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=periodLength",
   })
@@ -24,14 +22,6 @@ export class GetCashFlowStatementQueryParams extends SpeakeasyBase {
     data: "queryParam, style=form;explode=true;name=startMonth;dateTimeFormat=YYYY-MM-DDThh:mm:ss.sssZ",
   })
   startMonth?: Date;
-}
-
-export class GetCashFlowStatementRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetCashFlowStatementPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: GetCashFlowStatementQueryParams;
 }
 export enum GetCashFlowStatement200ApplicationJSONReportBasisEnum {
   Unknown = "Unknown",

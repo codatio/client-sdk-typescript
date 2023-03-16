@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, plainToInstance, Transform, Type } from "class-transformer";
 
-export class GetCreateJournalsModelPathParams extends SpeakeasyBase {
+export class GetCreateJournalsModelRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -12,11 +12,6 @@ export class GetCreateJournalsModelPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=connectionId",
   })
   connectionId: string;
-}
-
-export class GetCreateJournalsModelRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetCreateJournalsModelPathParams;
 }
 export enum GetCreateJournalsModelPushOptionPushOptionPropertyPushOptionChoiceOptionTypeEnum {
   Array = "Array",

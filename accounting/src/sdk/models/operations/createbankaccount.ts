@@ -2,29 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class CreateBankAccountPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
-}
-
-export class CreateBankAccountQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=allowSyncOnPushComplete",
-  })
-  allowSyncOnPushComplete?: boolean;
-
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
-  })
-  timeoutInMinutes?: number;
-}
 export enum CreateBankAccountSourceModifiedDateAccountTypeEnum {
   Unknown = "Unknown",
   Credit = "Credit",
@@ -122,14 +99,28 @@ export class CreateBankAccountSourceModifiedDate extends SpeakeasyBase {
 }
 
 export class CreateBankAccountRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: CreateBankAccountPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: CreateBankAccountQueryParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: CreateBankAccountSourceModifiedDate;
+  requestBody?: CreateBankAccountSourceModifiedDate;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=allowSyncOnPushComplete",
+  })
+  allowSyncOnPushComplete?: boolean;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
+  timeoutInMinutes?: number;
 }
 
 export class CreateBankAccount200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
