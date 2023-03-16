@@ -2,25 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class CreateDirectCostPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
-}
-
-export class CreateDirectCostQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
-  })
-  timeoutInMinutes?: number;
-}
-
 // CreateDirectCostSourceModifiedDateContactRef
 /**
  * A customer or supplier associated with the direct cost.
@@ -360,14 +341,23 @@ export class CreateDirectCostSourceModifiedDate extends SpeakeasyBase {
 }
 
 export class CreateDirectCostRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: CreateDirectCostPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: CreateDirectCostQueryParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: CreateDirectCostSourceModifiedDate;
+  requestBody?: CreateDirectCostSourceModifiedDate;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
+  timeoutInMinutes?: number;
 }
 
 export class CreateDirectCost200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {

@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetTaxRatePathParams extends SpeakeasyBase {
+export class GetTaxRateRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -12,11 +12,6 @@ export class GetTaxRatePathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=taxRateId",
   })
   taxRateId: string;
-}
-
-export class GetTaxRateRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetTaxRatePathParams;
 }
 
 export class GetTaxRate200ApplicationJSONComponents extends SpeakeasyBase {

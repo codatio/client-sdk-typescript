@@ -2,25 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class CreateAccountPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
-}
-
-export class CreateAccountQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
-  })
-  timeoutInMinutes?: number;
-}
-
 export class CreateAccountSourceModifiedDateMetadata extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
@@ -188,14 +169,23 @@ export class CreateAccountSourceModifiedDate extends SpeakeasyBase {
 }
 
 export class CreateAccountRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: CreateAccountPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: CreateAccountQueryParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: CreateAccountSourceModifiedDate;
+  requestBody?: CreateAccountSourceModifiedDate;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
+  timeoutInMinutes?: number;
 }
 
 export class CreateAccount200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {

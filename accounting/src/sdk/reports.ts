@@ -44,12 +44,12 @@ export class Reports {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/reports/agedCreditor",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -100,12 +100,12 @@ export class Reports {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/reports/agedDebtor",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -156,7 +156,7 @@ export class Reports {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/reports/agedCreditor/available",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
@@ -208,7 +208,7 @@ export class Reports {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/reports/agedDebtor/available",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;

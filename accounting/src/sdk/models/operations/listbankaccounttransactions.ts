@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class ListBankAccountTransactionsPathParams extends SpeakeasyBase {
+export class ListBankAccountTransactionsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=accountId",
   })
@@ -17,9 +17,7 @@ export class ListBankAccountTransactionsPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=connectionId",
   })
   connectionId: string;
-}
 
-export class ListBankAccountTransactionsQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=orderBy",
   })
@@ -35,14 +33,6 @@ export class ListBankAccountTransactionsQueryParams extends SpeakeasyBase {
 
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
   query?: string;
-}
-
-export class ListBankAccountTransactionsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: ListBankAccountTransactionsPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: ListBankAccountTransactionsQueryParams;
 }
 
 export class ListBankAccountTransactionsLinksLinksCurrent extends SpeakeasyBase {

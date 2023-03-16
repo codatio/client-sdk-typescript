@@ -2,34 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class PutSupplierPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=supplierId",
-  })
-  supplierId: string;
-}
-
-export class PutSupplierQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=forceUpdate",
-  })
-  forceUpdate?: boolean;
-
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
-  })
-  timeoutInMinutes?: number;
-}
 export enum PutSupplierSourceModifiedDateAddressesTypeEnum {
   Unknown = "Unknown",
   Billing = "Billing",
@@ -159,14 +131,33 @@ export class PutSupplierSourceModifiedDate extends SpeakeasyBase {
 }
 
 export class PutSupplierRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: PutSupplierPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: PutSupplierQueryParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: PutSupplierSourceModifiedDate;
+  requestBody?: PutSupplierSourceModifiedDate;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=forceUpdate",
+  })
+  forceUpdate?: boolean;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=supplierId",
+  })
+  supplierId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
+  timeoutInMinutes?: number;
 }
 
 export class PutSupplier200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {

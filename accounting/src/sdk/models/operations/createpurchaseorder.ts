@@ -2,25 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class CreatePurchaseOrderPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
-}
-
-export class CreatePurchaseOrderQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
-  })
-  timeoutInMinutes?: number;
-}
-
 // CreatePurchaseOrderSourceModifiedDateLineItemsAccountRef
 /**
  * Reference to the account to which the line item is linked.
@@ -341,14 +322,23 @@ export class CreatePurchaseOrderSourceModifiedDate extends SpeakeasyBase {
 }
 
 export class CreatePurchaseOrderRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: CreatePurchaseOrderPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: CreatePurchaseOrderQueryParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: CreatePurchaseOrderSourceModifiedDate;
+  requestBody?: CreatePurchaseOrderSourceModifiedDate;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
+  timeoutInMinutes?: number;
 }
 
 export class CreatePurchaseOrder200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {

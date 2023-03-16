@@ -2,25 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class CreateDirectIncomePathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
-}
-
-export class CreateDirectIncomeQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
-  })
-  timeoutInMinutes?: number;
-}
-
 // CreateDirectIncomeSourceModifiedDateContactRef
 /**
  * A customer or supplier associated with the direct income.
@@ -349,14 +330,23 @@ export class CreateDirectIncomeSourceModifiedDate extends SpeakeasyBase {
 }
 
 export class CreateDirectIncomeRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: CreateDirectIncomePathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: CreateDirectIncomeQueryParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: CreateDirectIncomeSourceModifiedDate;
+  requestBody?: CreateDirectIncomeSourceModifiedDate;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
+  timeoutInMinutes?: number;
 }
 
 export class CreateDirectIncome200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {

@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetBankAccountPathParams extends SpeakeasyBase {
+export class GetBankAccountRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=accountId",
   })
@@ -17,11 +17,6 @@ export class GetBankAccountPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=connectionId",
   })
   connectionId: string;
-}
-
-export class GetBankAccountRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetBankAccountPathParams;
 }
 export enum GetBankAccountSourceModifiedDateAccountTypeEnum {
   Unknown = "Unknown",

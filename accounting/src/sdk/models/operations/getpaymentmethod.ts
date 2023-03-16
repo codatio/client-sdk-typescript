@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetPaymentMethodPathParams extends SpeakeasyBase {
+export class GetPaymentMethodRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -12,11 +12,6 @@ export class GetPaymentMethodPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=paymentMethodId",
   })
   paymentMethodId: string;
-}
-
-export class GetPaymentMethodRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetPaymentMethodPathParams;
 }
 
 export class GetPaymentMethodSourceModifiedDateMetadata extends SpeakeasyBase {

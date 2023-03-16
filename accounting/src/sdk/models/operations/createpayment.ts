@@ -2,25 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class CreatePaymentPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
-}
-
-export class CreatePaymentQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
-  })
-  timeoutInMinutes?: number;
-}
-
 // CreatePaymentSourceModifiedDateAccountRef
 /**
  * Account the payment is recorded against in the accounting platform.
@@ -878,14 +859,23 @@ export class CreatePaymentSourceModifiedDate extends SpeakeasyBase {
 }
 
 export class CreatePaymentRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: CreatePaymentPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: CreatePaymentQueryParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: CreatePaymentSourceModifiedDate;
+  requestBody?: CreatePaymentSourceModifiedDate;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
+  timeoutInMinutes?: number;
 }
 
 export class CreatePayment200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {

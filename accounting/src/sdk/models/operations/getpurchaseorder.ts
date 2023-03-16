@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetPurchaseOrderPathParams extends SpeakeasyBase {
+export class GetPurchaseOrderRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -12,11 +12,6 @@ export class GetPurchaseOrderPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=purchaseOrderId",
   })
   purchaseOrderId: string;
-}
-
-export class GetPurchaseOrderRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetPurchaseOrderPathParams;
 }
 
 // GetPurchaseOrderSourceModifiedDateLineItemsAccountRef

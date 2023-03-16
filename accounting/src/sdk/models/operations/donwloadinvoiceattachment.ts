@@ -1,8 +1,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Type } from "class-transformer";
 
-export class DonwloadInvoiceAttachmentPathParams extends SpeakeasyBase {
+export class DonwloadInvoiceAttachmentRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=attachmentId",
   })
@@ -22,11 +21,6 @@ export class DonwloadInvoiceAttachmentPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=invoiceId",
   })
   invoiceId: string;
-}
-
-export class DonwloadInvoiceAttachmentRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: DonwloadInvoiceAttachmentPathParams;
 }
 
 export class DonwloadInvoiceAttachmentResponse extends SpeakeasyBase {

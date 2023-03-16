@@ -31,13 +31,11 @@ const sdk = new Codat({
     authHeader: "YOUR_API_KEY_HERE",
   },
 });
-    
+
 const req: GetCreateUpdateAccountTransactionsModelRequest = {
-  pathParams: {
-    accountTransactionId: "unde",
-    companyId: "deserunt",
-    connectionId: "porro",
-  },
+  accountTransactionId: "unde",
+  companyId: "deserunt",
+  connectionId: "porro",
 };
 
 sdk.accountTransactions.getCreateUpdateAccountTransactionsModel(req).then((res: GetCreateUpdateAccountTransactionsModelResponse | AxiosError) => {

@@ -2,16 +2,11 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetCompanyInfoPathParams extends SpeakeasyBase {
+export class GetCompanyInfoRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
-}
-
-export class GetCompanyInfoRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetCompanyInfoPathParams;
 }
 export enum GetCompanyInfoCompanyInfoAddressesTypeEnum {
   Unknown = "Unknown",

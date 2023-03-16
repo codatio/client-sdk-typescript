@@ -2,24 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class PushJournalPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
-}
-
-export class PushJournalQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
-  })
-  timeoutInMinutes?: number;
-}
 export enum PushJournalSourceModifiedDateStatusEnum {
   Unknown = "Unknown",
   Active = "Active",
@@ -98,14 +80,23 @@ export class PushJournalSourceModifiedDateInput extends SpeakeasyBase {
 }
 
 export class PushJournalRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: PushJournalPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: PushJournalQueryParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: PushJournalSourceModifiedDateInput;
+  requestBody?: PushJournalSourceModifiedDateInput;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
+  timeoutInMinutes?: number;
 }
 
 export class PushJournal200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {

@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetDirectIncomeAttachmentPathParams extends SpeakeasyBase {
+export class GetDirectIncomeAttachmentRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=attachmentId",
   })
@@ -22,21 +22,11 @@ export class GetDirectIncomeAttachmentPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=directIncomeId",
   })
   directIncomeId: string;
-}
 
-export class GetDirectIncomeAttachmentQueryParams extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
   })
   timeoutInMinutes?: number;
-}
-
-export class GetDirectIncomeAttachmentRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetDirectIncomeAttachmentPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: GetDirectIncomeAttachmentQueryParams;
 }
 
 export class GetDirectIncomeAttachmentAttachment extends SpeakeasyBase {

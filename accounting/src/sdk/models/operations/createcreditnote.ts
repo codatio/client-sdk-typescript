@@ -2,35 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class CreateCreditNotePathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=creditNoteId",
-  })
-  creditNoteId: string;
-}
-
-export class CreateCreditNoteQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=forceUpdate",
-  })
-  forceUpdate?: boolean;
-
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
-  })
-  timeoutInMinutes?: number;
-}
-
 // CreateCreditNoteSourceModifiedDateCustomerRef
 /**
  * Reference to the customer the credit note has been issued to.
@@ -468,14 +439,33 @@ export class CreateCreditNoteSourceModifiedDate extends SpeakeasyBase {
 }
 
 export class CreateCreditNoteRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: CreateCreditNotePathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: CreateCreditNoteQueryParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: CreateCreditNoteSourceModifiedDate;
+  requestBody?: CreateCreditNoteSourceModifiedDate;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=creditNoteId",
+  })
+  creditNoteId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=forceUpdate",
+  })
+  forceUpdate?: boolean;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
+  timeoutInMinutes?: number;
 }
 
 export class CreateCreditNote200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {

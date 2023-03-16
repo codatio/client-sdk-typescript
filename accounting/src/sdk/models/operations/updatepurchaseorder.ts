@@ -2,35 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class UpdatePurchaseOrderPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=purchaseOrderId",
-  })
-  purchaseOrderId: string;
-}
-
-export class UpdatePurchaseOrderQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=forceUpdate",
-  })
-  forceUpdate?: boolean;
-
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
-  })
-  timeoutInMinutes?: number;
-}
-
 // UpdatePurchaseOrderSourceModifiedDateLineItemsAccountRef
 /**
  * Reference to the account to which the line item is linked.
@@ -351,14 +322,33 @@ export class UpdatePurchaseOrderSourceModifiedDate extends SpeakeasyBase {
 }
 
 export class UpdatePurchaseOrderRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: UpdatePurchaseOrderPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: UpdatePurchaseOrderQueryParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: UpdatePurchaseOrderSourceModifiedDate;
+  requestBody?: UpdatePurchaseOrderSourceModifiedDate;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=forceUpdate",
+  })
+  forceUpdate?: boolean;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=purchaseOrderId",
+  })
+  purchaseOrderId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
+  timeoutInMinutes?: number;
 }
 
 export class UpdatePurchaseOrder200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {

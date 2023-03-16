@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetSupplierPathParams extends SpeakeasyBase {
+export class GetSupplierRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -12,11 +12,6 @@ export class GetSupplierPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=supplierId",
   })
   supplierId: string;
-}
-
-export class GetSupplierRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetSupplierPathParams;
 }
 export enum GetSupplierSourceModifiedDateAddressesTypeEnum {
   Unknown = "Unknown",

@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentIdPathParams extends SpeakeasyBase {
+export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentIdRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=billPaymentId",
   })
@@ -17,11 +17,6 @@ export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBill
     data: "pathParam, style=simple;explode=false;name=connectionId",
   })
   connectionId: string;
-}
-
-export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentIdRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentIdPathParams;
 }
 
 export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {

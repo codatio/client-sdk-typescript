@@ -2,7 +2,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetInvoiceAttachmentsPathParams extends SpeakeasyBase {
+export class GetInvoiceAttachmentsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -17,11 +17,6 @@ export class GetInvoiceAttachmentsPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=invoiceId",
   })
   invoiceId: string;
-}
-
-export class GetInvoiceAttachmentsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetInvoiceAttachmentsPathParams;
 }
 
 export class GetInvoiceAttachmentsAttachmentsAttachment extends SpeakeasyBase {

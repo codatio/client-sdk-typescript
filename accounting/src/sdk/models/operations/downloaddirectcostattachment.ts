@@ -1,8 +1,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Type } from "class-transformer";
 
-export class DownloadDirectCostAttachmentPathParams extends SpeakeasyBase {
+export class DownloadDirectCostAttachmentRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=attachmentId",
   })
@@ -22,11 +21,6 @@ export class DownloadDirectCostAttachmentPathParams extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=directCostId",
   })
   directCostId: string;
-}
-
-export class DownloadDirectCostAttachmentRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: DownloadDirectCostAttachmentPathParams;
 }
 
 export class DownloadDirectCostAttachmentResponse extends SpeakeasyBase {
