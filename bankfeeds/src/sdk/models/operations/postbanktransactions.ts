@@ -2,34 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class PostBankTransactionsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=accountId",
-  })
-  accountId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
-}
-
-export class PostBankTransactionsQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=allowSyncOnPushComplete",
-  })
-  allowSyncOnPushComplete?: boolean;
-
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
-  })
-  timeoutInMinutes?: number;
-}
 export enum PostBankTransactionsRequestBodyTransactionsTransactionTypeEnum {
   Unknown = "Unknown",
   Credit = "Credit",
@@ -135,14 +107,33 @@ export class PostBankTransactionsRequestBody extends SpeakeasyBase {
 }
 
 export class PostBankTransactionsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: PostBankTransactionsPathParams;
-
-  @SpeakeasyMetadata()
-  queryParams: PostBankTransactionsQueryParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: PostBankTransactionsRequestBody;
+  requestBody?: PostBankTransactionsRequestBody;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=accountId",
+  })
+  accountId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=allowSyncOnPushComplete",
+  })
+  allowSyncOnPushComplete?: boolean;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
+  timeoutInMinutes?: number;
 }
 
 export class PostBankTransactions200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
