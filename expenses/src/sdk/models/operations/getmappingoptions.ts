@@ -2,16 +2,11 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetMappingOptionsPathParams extends SpeakeasyBase {
+export class GetMappingOptionsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
-}
-
-export class GetMappingOptionsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetMappingOptionsPathParams;
 }
 export enum GetMappingOptions200ApplicationJSONAccountsAccountTypeEnum {
   Asset = "Asset",

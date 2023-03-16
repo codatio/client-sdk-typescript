@@ -2,16 +2,11 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class GetLastSuccessfulSyncPathParams extends SpeakeasyBase {
+export class GetLastSuccessfulSyncRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
-}
-
-export class GetLastSuccessfulSyncRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: GetLastSuccessfulSyncPathParams;
 }
 
 export class GetLastSuccessfulSync200ApplicationJSON extends SpeakeasyBase {

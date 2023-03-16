@@ -2,13 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-export class IntiateSyncPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-}
-
 export class IntiateSyncRequestBody extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "datasetIds" })
@@ -16,11 +9,13 @@ export class IntiateSyncRequestBody extends SpeakeasyBase {
 }
 
 export class IntiateSyncRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: IntiateSyncPathParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: IntiateSyncRequestBody;
+  requestBody?: IntiateSyncRequestBody;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
 }
 
 export class IntiateSync422ApplicationJSONValidationErrors extends SpeakeasyBase {

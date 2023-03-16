@@ -2,13 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-export class SaveCompanyConfigurationPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-}
-
 export class SaveCompanyConfigurationRequestBodyBankAccount extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -45,11 +38,13 @@ export class SaveCompanyConfigurationRequestBody extends SpeakeasyBase {
 }
 
 export class SaveCompanyConfigurationRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: SaveCompanyConfigurationPathParams;
-
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  request?: SaveCompanyConfigurationRequestBody;
+  requestBody?: SaveCompanyConfigurationRequestBody;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
 }
 
 export class SaveCompanyConfiguration400ApplicationJSONValidationErrors extends SpeakeasyBase {

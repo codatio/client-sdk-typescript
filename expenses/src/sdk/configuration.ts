@@ -44,7 +44,7 @@ export class Configuration {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/sync/expenses/config",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._securityClient!;
@@ -99,13 +99,17 @@ export class Configuration {
     const url: string = utils.generateURL(
       baseURL,
       "/companies/{companyId}/sync/expenses/config",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "requestBody",
+        "json"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
