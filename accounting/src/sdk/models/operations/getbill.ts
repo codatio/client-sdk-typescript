@@ -60,6 +60,10 @@ export class GetBillSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase 
   name?: string;
 }
 
+// GetBillSourceModifiedDateLineItemsTrackingCategoryRefs
+/**
+ * References a category against which the item is tracked.
+ **/
 export class GetBillSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -102,6 +106,10 @@ export class GetBillSourceModifiedDateLineItemsTrackingProjectRef extends Speake
   name?: string;
 }
 
+// GetBillSourceModifiedDateLineItemsTracking
+/**
+ * Categories, and a project and customer, against which the item is tracked.
+ **/
 export class GetBillSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
   @SpeakeasyMetadata({
     elemType: GetBillSourceModifiedDateLineItemsTrackingCategoryRefs,

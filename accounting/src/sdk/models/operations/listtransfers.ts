@@ -139,6 +139,10 @@ export class ListTransfersLinksSourceModifiedDateSupplementalData extends Speake
   content?: Record<string, Record<string, any>>;
 }
 
+// ListTransfersLinksSourceModifiedDateTrackingCategoryRefs
+/**
+ * References a category against which the item is tracked.
+ **/
 export class ListTransfersLinksSourceModifiedDateTrackingCategoryRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })

@@ -82,6 +82,10 @@ export class GetTransferSourceModifiedDateSupplementalData extends SpeakeasyBase
   content?: Record<string, Record<string, any>>;
 }
 
+// GetTransferSourceModifiedDateTrackingCategoryRefs
+/**
+ * References a category against which the item is tracked.
+ **/
 export class GetTransferSourceModifiedDateTrackingCategoryRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })

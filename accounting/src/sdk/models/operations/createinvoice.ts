@@ -62,6 +62,10 @@ export class CreateInvoiceSourceModifiedDateLineItemsTaxRateRef extends Speakeas
   name?: string;
 }
 
+// CreateInvoiceSourceModifiedDateLineItemsTrackingCategoryRefs
+/**
+ * References a category against which the item is tracked.
+ **/
 export class CreateInvoiceSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -102,6 +106,10 @@ export class CreateInvoiceSourceModifiedDateLineItemsTrackingProjectRef extends 
   name?: string;
 }
 
+// CreateInvoiceSourceModifiedDateLineItemsTracking
+/**
+ * Categories, and a project and customer, against which the item is tracked.
+ **/
 export class CreateInvoiceSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
   @SpeakeasyMetadata({
     elemType: CreateInvoiceSourceModifiedDateLineItemsTrackingCategoryRefs,
@@ -570,6 +578,10 @@ export class CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTaxRateRe
   name?: string;
 }
 
+// CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs
+/**
+ * References a category against which the item is tracked.
+ **/
 export class CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -610,6 +622,10 @@ export class CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTrackingP
   name?: string;
 }
 
+// CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTracking
+/**
+ * Categories, and a project and customer, against which the item is tracked.
+ **/
 export class CreateInvoice200ApplicationJSONSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
   @SpeakeasyMetadata({
     elemType:

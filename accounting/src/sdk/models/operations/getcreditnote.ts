@@ -74,6 +74,10 @@ export class GetCreditNoteSourceModifiedDateLineItemsTaxRateRef extends Speakeas
   name?: string;
 }
 
+// GetCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs
+/**
+ * References a category against which the item is tracked.
+ **/
 export class GetCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -114,6 +118,10 @@ export class GetCreditNoteSourceModifiedDateLineItemsTrackingProjectRef extends 
   name?: string;
 }
 
+// GetCreditNoteSourceModifiedDateLineItemsTracking
+/**
+ * Categories, and a project and customer, against which the item is tracked.
+ **/
 export class GetCreditNoteSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
   @SpeakeasyMetadata({
     elemType: GetCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs,
