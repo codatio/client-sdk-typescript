@@ -37,8 +37,8 @@ const req: GetBankAccountPushOptionsRequest = {
   companyId: "deserunt",
   connectionId: "porro",
   orderBy: "nulla",
-  page: 6027.63,
-  pageSize: 8579.46,
+  page: 602763,
+  pageSize: 857946,
   query: "perspiciatis",
 };
 
