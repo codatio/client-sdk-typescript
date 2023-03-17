@@ -136,16 +136,73 @@ export class GetDirectCostsLinksSourceModifiedDateLineItemsTaxRateRef extends Sp
   name?: string;
 }
 
-export class GetDirectCostsLinksSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
+// GetDirectCostsLinksSourceModifiedDateLineItemsInvoiceableTrackingInvoiceTo
+/**
+ * Links to the underlying record or data type.
+ *
+ * Found on:
+ *
+ * - Journal entries
+ * - Account transactions
+ * - Invoices
+ * - Transfers
+ **/
+export class GetDirectCostsLinksSourceModifiedDateLineItemsInvoiceableTrackingInvoiceTo extends SpeakeasyBase {
   @SpeakeasyMetadata()
-  @Expose({ name: "invoiceTo" })
-  invoiceTo?: string;
+  @Expose({ name: "dataType" })
+  dataType?: string;
 
   @SpeakeasyMetadata()
-  @Expose({ name: "recordRefs" })
-  recordRefs: string[];
+  @Expose({ name: "id" })
+  id?: string;
 }
 
+// GetDirectCostsLinksSourceModifiedDateLineItemsInvoiceableTrackingRecordRefs
+/**
+ * Links to the underlying record or data type.
+ *
+ * Found on:
+ *
+ * - Journal entries
+ * - Account transactions
+ * - Invoices
+ * - Transfers
+ **/
+export class GetDirectCostsLinksSourceModifiedDateLineItemsInvoiceableTrackingRecordRefs extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  @Expose({ name: "dataType" })
+  dataType?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "id" })
+  id?: string;
+}
+
+export class GetDirectCostsLinksSourceModifiedDateLineItemsInvoiceableTracking extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  @Expose({ name: "invoiceTo" })
+  @Type(
+    () =>
+      GetDirectCostsLinksSourceModifiedDateLineItemsInvoiceableTrackingInvoiceTo
+  )
+  invoiceTo?: GetDirectCostsLinksSourceModifiedDateLineItemsInvoiceableTrackingInvoiceTo;
+
+  @SpeakeasyMetadata({
+    elemType:
+      GetDirectCostsLinksSourceModifiedDateLineItemsInvoiceableTrackingRecordRefs,
+  })
+  @Expose({ name: "recordRefs" })
+  @Type(
+    () =>
+      GetDirectCostsLinksSourceModifiedDateLineItemsInvoiceableTrackingRecordRefs
+  )
+  recordRefs: GetDirectCostsLinksSourceModifiedDateLineItemsInvoiceableTrackingRecordRefs[];
+}
+
+// GetDirectCostsLinksSourceModifiedDateLineItemsTrackingCategoryRefs
+/**
+ * References a category against which the item is tracked.
+ **/
 export class GetDirectCostsLinksSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -202,8 +259,8 @@ export class GetDirectCostsLinksSourceModifiedDateLineItems extends SpeakeasyBas
 
   @SpeakeasyMetadata()
   @Expose({ name: "tracking" })
-  @Type(() => GetDirectCostsLinksSourceModifiedDateLineItemsTracking)
-  tracking?: GetDirectCostsLinksSourceModifiedDateLineItemsTracking;
+  @Type(() => GetDirectCostsLinksSourceModifiedDateLineItemsInvoiceableTracking)
+  tracking?: GetDirectCostsLinksSourceModifiedDateLineItemsInvoiceableTracking;
 
   @SpeakeasyMetadata({
     elemType:

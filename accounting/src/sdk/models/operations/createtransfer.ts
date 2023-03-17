@@ -65,6 +65,10 @@ export class CreateTransferSourceModifiedDateSupplementalData extends SpeakeasyB
   content?: Record<string, Record<string, any>>;
 }
 
+// CreateTransferSourceModifiedDateTrackingCategoryRefs
+/**
+ * References a category against which the item is tracked.
+ **/
 export class CreateTransferSourceModifiedDateTrackingCategoryRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -261,6 +265,10 @@ export class CreateTransfer200ApplicationJSONSourceModifiedDateSupplementalData 
   content?: Record<string, Record<string, any>>;
 }
 
+// CreateTransfer200ApplicationJSONSourceModifiedDateTrackingCategoryRefs
+/**
+ * References a category against which the item is tracked.
+ **/
 export class CreateTransfer200ApplicationJSONSourceModifiedDateTrackingCategoryRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })

@@ -62,6 +62,10 @@ export class CreateDirectIncomeSourceModifiedDateLineItemsTaxRateRef extends Spe
   name?: string;
 }
 
+// CreateDirectIncomeSourceModifiedDateLineItemsTrackingCategoryRefs
+/**
+ * References a category against which the item is tracked.
+ **/
 export class CreateDirectIncomeSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -441,6 +445,10 @@ export class CreateDirectIncome200ApplicationJSONSourceModifiedDateLineItemsTaxR
   name?: string;
 }
 
+// CreateDirectIncome200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs
+/**
+ * References a category against which the item is tracked.
+ **/
 export class CreateDirectIncome200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })

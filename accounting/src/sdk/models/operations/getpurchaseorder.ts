@@ -60,6 +60,10 @@ export class GetPurchaseOrderSourceModifiedDateLineItemsTaxRateRef extends Speak
   name?: string;
 }
 
+// GetPurchaseOrderSourceModifiedDateLineItemsTrackingCategoryRefs
+/**
+ * References a category against which the item is tracked.
+ **/
 export class GetPurchaseOrderSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })

@@ -117,6 +117,10 @@ export class ListBillsLinksSourceModifiedDateLineItemsTaxRateRef extends Speakea
   name?: string;
 }
 
+// ListBillsLinksSourceModifiedDateLineItemsTrackingCategoryRefs
+/**
+ * References a category against which the item is tracked.
+ **/
 export class ListBillsLinksSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -159,6 +163,10 @@ export class ListBillsLinksSourceModifiedDateLineItemsTrackingProjectRef extends
   name?: string;
 }
 
+// ListBillsLinksSourceModifiedDateLineItemsTracking
+/**
+ * Categories, and a project and customer, against which the item is tracked.
+ **/
 export class ListBillsLinksSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
   @SpeakeasyMetadata({
     elemType: ListBillsLinksSourceModifiedDateLineItemsTrackingCategoryRefs,

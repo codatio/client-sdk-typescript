@@ -48,6 +48,10 @@ export class UpdatePurchaseOrderSourceModifiedDateLineItemsTaxRateRef extends Sp
   name?: string;
 }
 
+// UpdatePurchaseOrderSourceModifiedDateLineItemsTrackingCategoryRefs
+/**
+ * References a category against which the item is tracked.
+ **/
 export class UpdatePurchaseOrderSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -431,6 +435,10 @@ export class UpdatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsTax
   name?: string;
 }
 
+// UpdatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs
+/**
+ * References a category against which the item is tracked.
+ **/
 export class UpdatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })

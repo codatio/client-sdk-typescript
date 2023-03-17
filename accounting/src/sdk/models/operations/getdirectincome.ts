@@ -79,6 +79,10 @@ export class GetDirectIncomeSourceModifiedDateLineItemsTaxRateRef extends Speake
   name?: string;
 }
 
+// GetDirectIncomeSourceModifiedDateLineItemsTrackingCategoryRefs
+/**
+ * References a category against which the item is tracked.
+ **/
 export class GetDirectIncomeSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })

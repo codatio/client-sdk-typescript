@@ -48,6 +48,10 @@ export class CreateBillCreditNoteSourceModifiedDateLineItemsTaxRateRef extends S
   name?: string;
 }
 
+// CreateBillCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs
+/**
+ * References a category against which the item is tracked.
+ **/
 export class CreateBillCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -90,6 +94,10 @@ export class CreateBillCreditNoteSourceModifiedDateLineItemsTrackingProjectRef e
   name?: string;
 }
 
+// CreateBillCreditNoteSourceModifiedDateLineItemsTracking
+/**
+ * Categories, and a project and customer, against which the item is tracked.
+ **/
 export class CreateBillCreditNoteSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
   @SpeakeasyMetadata({
     elemType:
@@ -545,6 +553,10 @@ export class CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTa
   name?: string;
 }
 
+// CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs
+/**
+ * References a category against which the item is tracked.
+ **/
 export class CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
@@ -587,6 +599,10 @@ export class CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTr
   name?: string;
 }
 
+// CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTracking
+/**
+ * Categories, and a project and customer, against which the item is tracked.
+ **/
 export class CreateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
   @SpeakeasyMetadata({
     elemType:
