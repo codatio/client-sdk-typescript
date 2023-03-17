@@ -36,8 +36,8 @@ const req: ListBankingAccountBalancesRequest = {
   companyId: "unde",
   connectionId: "deserunt",
   orderBy: "porro",
-  page: 8442.66,
-  pageSize: 6027.63,
+  page: 844266,
+  pageSize: 602763,
   query: "vero",
 };
 
