@@ -47,11 +47,29 @@ export class Connections {
       req
     );
 
+    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+    try {
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "requestBody",
+        "json"
+      );
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new Error(`Error serializing request body, cause: ${e.message}`);
+      }
+    }
+
     const client: AxiosInstance = this._securityClient!;
+
+    const headers = { ...reqBodyHeaders, ...config?.headers };
 
     const r = client.request({
       url: url,
       method: "post",
+      headers: headers,
+      data: reqBody,
       ...config,
     });
 

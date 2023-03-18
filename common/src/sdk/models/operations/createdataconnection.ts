@@ -2,7 +2,16 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
+export class CreateDataConnectionRequestBody extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  @Expose({ name: "platformKey" })
+  platformKey?: string;
+}
+
 export class CreateDataConnectionRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  requestBody?: CreateDataConnectionRequestBody;
+
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
