@@ -24,7 +24,6 @@ export enum GetCompaniesCompanyIdConnectionsConnectionIdPushDataTypeEnum {
   PaymentMethods = "paymentMethods",
   Payments = "payments",
   ProfitAndLoss = "profitAndLoss",
-  Projects = "projects",
   PurchaseOrders = "purchaseOrders",
   SalesOrders = "salesOrders",
   Suppliers = "suppliers",
