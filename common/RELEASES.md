@@ -95,3 +95,11 @@ Based on:
 - Speakeasy CLI 1.12.4 https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [NPM v0.4.3] https://www.npmjs.com/package/@codat/common/v/0.4.3 - common
+
+## 2023-03-22 00:02:45
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Common.yaml
+- Speakeasy CLI 1.13.0 https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.5.0] https://www.npmjs.com/package/@codat/common/v/0.5.0 - common
