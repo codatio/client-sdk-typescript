@@ -15,7 +15,7 @@ const sdk = new Codat({
 
 const req: DownloadFilesRequest = {
   companyId: "89bd9d8d-69a6-474e-8f46-7cc8796ed151",
-  date: "2022-07-27T10:22:47.120Z",
+  date: "2022-07-28T10:21:24.548Z",
 };
 
 sdk.files.downloadFiles(req).then((res: DownloadFilesResponse | AxiosError) => {
