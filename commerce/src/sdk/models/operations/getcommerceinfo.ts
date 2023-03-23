@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class GetCommerceInfoRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -195,16 +195,14 @@ export class GetCommerceInfoSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "createdDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  createdDate?: Date;
+  createdDate?: string;
 
   /**
    * The date on which this record was last modified in Codat.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * Phone numbers associated with the company
@@ -228,8 +226,7 @@ export class GetCommerceInfoSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * URL addresses for the originating system. For example, potential use cases include 'deeplinking' to the originating system

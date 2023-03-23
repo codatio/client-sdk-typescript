@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class ListCommerceTransactionsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -136,8 +136,7 @@ export class ListCommerceTransactionsLinksSourceModifiedDate extends SpeakeasyBa
    */
   @SpeakeasyMetadata()
   @Expose({ name: "createdDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  createdDate?: Date;
+  createdDate?: string;
 
   /**
    * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code. e.g. _GBP_.
@@ -166,24 +165,21 @@ export class ListCommerceTransactionsLinksSourceModifiedDate extends SpeakeasyBa
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * The date on which this record was created in the originating system
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceCreatedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceCreatedDate?: Date;
+  sourceCreatedDate?: string;
 
   /**
    * The date on which this record was last modified in the originating system
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Non-standardised transaction type data from the commerce platform

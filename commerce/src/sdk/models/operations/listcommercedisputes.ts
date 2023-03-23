@@ -136,8 +136,7 @@ export class ListCommerceDisputesLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "createdDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  createdDate?: Date;
+  createdDate?: string;
 
   /**
    * Currency of the disputed transaction.
@@ -174,8 +173,7 @@ export class ListCommerceDisputesLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * Reason for the dispute
@@ -189,8 +187,7 @@ export class ListCommerceDisputesLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Current status of the dispute

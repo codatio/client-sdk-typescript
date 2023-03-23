@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class ListCommerceProductsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -115,8 +115,7 @@ export class ListCommerceProductsLinksProductSourceModifiedDate extends Speakeas
    */
   @SpeakeasyMetadata()
   @Expose({ name: "createdDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  createdDate?: Date;
+  createdDate?: string;
 
   /**
    * A unique, persistent identifier for this record
@@ -138,8 +137,7 @@ export class ListCommerceProductsLinksProductSourceModifiedDate extends Speakeas
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
@@ -166,8 +164,7 @@ export class ListCommerceProductsLinksProductSourceModifiedDate extends Speakeas
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })

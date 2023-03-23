@@ -259,8 +259,7 @@ export class ListCommerceOrdersLinksSourceModifiedDateSourceModifiedDate extends
    */
   @SpeakeasyMetadata()
   @Expose({ name: "createdDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  createdDate?: Date;
+  createdDate?: string;
 
   /**
    * Currency in which the payment was made.
@@ -289,8 +288,7 @@ export class ListCommerceOrdersLinksSourceModifiedDateSourceModifiedDate extends
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * Service provider of the payment, if applicable.
@@ -304,8 +302,7 @@ export class ListCommerceOrdersLinksSourceModifiedDateSourceModifiedDate extends
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Status of the payment
@@ -424,8 +421,7 @@ export class ListCommerceOrdersLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "createdDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  createdDate?: Date;
+  createdDate?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "currency" })
@@ -453,8 +449,7 @@ export class ListCommerceOrdersLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   @SpeakeasyMetadata({
     elemType: ListCommerceOrdersLinksSourceModifiedDateOrderLineItems,
@@ -489,8 +484,7 @@ export class ListCommerceOrdersLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Total amount of the order, including tax, net of any discounts and refunds.

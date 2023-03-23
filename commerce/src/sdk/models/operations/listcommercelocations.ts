@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class ListCommerceLocationsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -155,8 +155,7 @@ export class ListCommerceLocationsLinksSourceModifiedDate extends SpeakeasyBase 
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * Name of this location
@@ -170,8 +169,7 @@ export class ListCommerceLocationsLinksSourceModifiedDate extends SpeakeasyBase 
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 }
 
 /**
