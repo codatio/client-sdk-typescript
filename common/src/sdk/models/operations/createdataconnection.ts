@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class CreateDataConnectionRequestBody extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -66,8 +66,7 @@ export class CreateDataConnectionConnectionDataConnectionErrors extends Speakeas
    */
   @SpeakeasyMetadata()
   @Expose({ name: "erroredOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  erroredOnUtc?: Date;
+  erroredOnUtc?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "statusCode" })
@@ -133,8 +132,7 @@ export class CreateDataConnectionConnection extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "created" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  created: Date;
+  created: string;
 
   @SpeakeasyMetadata({
     elemType: CreateDataConnectionConnectionDataConnectionErrors,
@@ -189,8 +187,7 @@ export class CreateDataConnectionConnection extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "lastSync" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  lastSync?: Date;
+  lastSync?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "linkUrl" })

@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class GetCompaniesCompanyIdPushPushOperationKeyRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -134,8 +134,7 @@ export class GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSON extends
    */
   @SpeakeasyMetadata()
   @Expose({ name: "completedOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  completedOnUtc?: Date;
+  completedOnUtc?: string;
 
   /**
    * Object submitted in push operation.
@@ -174,8 +173,7 @@ export class GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSON extends
    */
   @SpeakeasyMetadata()
   @Expose({ name: "requestedOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  requestedOnUtc: Date;
+  requestedOnUtc: string;
 
   /**
    * The status of the push operation.

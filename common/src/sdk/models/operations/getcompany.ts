@@ -86,8 +86,7 @@ export class GetCompanyCompanyConnectionDataConnectionErrors extends SpeakeasyBa
    */
   @SpeakeasyMetadata()
   @Expose({ name: "erroredOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  erroredOnUtc?: Date;
+  erroredOnUtc?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "statusCode" })
@@ -153,8 +152,7 @@ export class GetCompanyCompanyConnection extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "created" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  created: Date;
+  created: string;
 
   @SpeakeasyMetadata({
     elemType: GetCompanyCompanyConnectionDataConnectionErrors,
@@ -209,8 +207,7 @@ export class GetCompanyCompanyConnection extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "lastSync" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  lastSync?: Date;
+  lastSync?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "linkUrl" })
