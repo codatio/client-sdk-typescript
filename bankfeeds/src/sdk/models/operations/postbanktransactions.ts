@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export enum PostBankTransactionsRequestBodyTransactionsTransactionTypeEnum {
   Unknown = "Unknown",
@@ -42,8 +42,7 @@ export class PostBankTransactionsRequestBodyTransactions extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "date" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  date: Date;
+  date: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "description" })
@@ -55,8 +54,7 @@ export class PostBankTransactionsRequestBodyTransactions extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "reconciled" })
@@ -68,8 +66,7 @@ export class PostBankTransactionsRequestBodyTransactions extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "transactionType" })
@@ -215,8 +212,7 @@ export class PostBankTransactions200ApplicationJSONDataTransactions extends Spea
 
   @SpeakeasyMetadata()
   @Expose({ name: "date" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  date: Date;
+  date: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "description" })
@@ -228,8 +224,7 @@ export class PostBankTransactions200ApplicationJSONDataTransactions extends Spea
 
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "reconciled" })
@@ -241,8 +236,7 @@ export class PostBankTransactions200ApplicationJSONDataTransactions extends Spea
 
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "transactionType" })
@@ -352,8 +346,7 @@ export class PostBankTransactions200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "completedOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  completedOnUtc?: Date;
+  completedOnUtc?: string;
 
   /**
    * > **Accessing Bank Accounts through Banking API**
@@ -410,8 +403,7 @@ export class PostBankTransactions200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "requestedOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  requestedOnUtc: Date;
+  requestedOnUtc: string;
 
   /**
    * The status of the push operation.

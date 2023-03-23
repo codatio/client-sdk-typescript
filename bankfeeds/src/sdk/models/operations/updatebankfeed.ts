@@ -4,16 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
-
-/**
- * The type of bank account e.g. Credit
- */
-export enum UpdateBankFeedBankFeedBankAccountAccountTypeEnum {
-  Unknown = "Unknown",
-  Credit = "Credit",
-  Debit = "Debit",
-}
+import { Expose, Type } from "class-transformer";
 
 /**
  * The target bank account in a supported accounting package for ingestion into a bank feed.
@@ -38,7 +29,7 @@ export class UpdateBankFeedBankFeedBankAccount extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "accountType" })
-  accountType?: UpdateBankFeedBankFeedBankAccountAccountTypeEnum;
+  accountType?: string;
 
   /**
    * The latest balance for the bank account
@@ -59,8 +50,7 @@ export class UpdateBankFeedBankFeedBankAccount extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "feedStartDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  feedStartDate?: Date;
+  feedStartDate?: string;
 
   /**
    * Unique ID for the BankFeedBankAccount
@@ -74,8 +64,7 @@ export class UpdateBankFeedBankFeedBankAccount extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * The sort code
