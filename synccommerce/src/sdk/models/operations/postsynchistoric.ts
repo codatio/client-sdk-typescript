@@ -6,19 +6,27 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Transform, Type } from "class-transformer";
 
-export class PostSyncLatestSyncToLatestArgs extends SpeakeasyBase {
+export class PostSyncHistoricRequestBody extends SpeakeasyBase {
   /**
-   * The DateTime, upto which Sync will run up to starting from the previous successful sync
+   * Finish date of the Sync.
    */
   @SpeakeasyMetadata()
-  @Expose({ name: "syncTo" })
+  @Expose({ name: "finish" })
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  syncTo?: Date;
+  finish?: Date;
+
+  /**
+   * Start date of the Sync.
+   */
+  @SpeakeasyMetadata()
+  @Expose({ name: "start" })
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
+  start?: Date;
 }
 
-export class PostSyncLatestRequest extends SpeakeasyBase {
+export class PostSyncHistoricRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  requestBody?: PostSyncLatestSyncToLatestArgs;
+  requestBody?: PostSyncHistoricRequestBody;
 
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
@@ -26,7 +34,7 @@ export class PostSyncLatestRequest extends SpeakeasyBase {
   companyId: string;
 }
 
-export class PostSyncLatest200ApplicationJSONDataConnectionsDataConnectionErrors extends SpeakeasyBase {
+export class PostSyncHistoric200ApplicationJSONDataConnectionsDataConnectionErrors extends SpeakeasyBase {
   /**
    * Message on the data connection error.
    */
@@ -60,7 +68,7 @@ export class PostSyncLatest200ApplicationJSONDataConnectionsDataConnectionErrors
 /**
  * The type of platform of the connection.
  */
-export enum PostSyncLatest200ApplicationJSONDataConnectionsSourceTypeEnum {
+export enum PostSyncHistoric200ApplicationJSONDataConnectionsSourceTypeEnum {
   Accounting = "Accounting",
   Banking = "Banking",
   Commerce = "Commerce",
@@ -71,14 +79,14 @@ export enum PostSyncLatest200ApplicationJSONDataConnectionsSourceTypeEnum {
 /**
  * The current authorization status of the data connection.
  */
-export enum PostSyncLatest200ApplicationJSONDataConnectionsStatusEnum {
+export enum PostSyncHistoric200ApplicationJSONDataConnectionsStatusEnum {
   PendingAuth = "PendingAuth",
   Linked = "Linked",
   Unlinked = "Unlinked",
   Deauthorized = "Deauthorized",
 }
 
-export class PostSyncLatest200ApplicationJSONDataConnections extends SpeakeasyBase {
+export class PostSyncHistoric200ApplicationJSONDataConnections extends SpeakeasyBase {
   /**
    * In Codat's data model, dates and times are represented using the ISO 8601 standard. Date and time fields are formatted as string.
    */
@@ -92,13 +100,13 @@ export class PostSyncLatest200ApplicationJSONDataConnections extends SpeakeasyBa
    */
   @SpeakeasyMetadata({
     elemType:
-      PostSyncLatest200ApplicationJSONDataConnectionsDataConnectionErrors,
+      PostSyncHistoric200ApplicationJSONDataConnectionsDataConnectionErrors,
   })
   @Expose({ name: "dataConnectionErrors" })
   @Type(
-    () => PostSyncLatest200ApplicationJSONDataConnectionsDataConnectionErrors
+    () => PostSyncHistoric200ApplicationJSONDataConnectionsDataConnectionErrors
   )
-  dataConnectionErrors?: PostSyncLatest200ApplicationJSONDataConnectionsDataConnectionErrors[];
+  dataConnectionErrors?: PostSyncHistoric200ApplicationJSONDataConnectionsDataConnectionErrors[];
 
   /**
    * Unique identifier for a company's data connection.
@@ -148,17 +156,17 @@ export class PostSyncLatest200ApplicationJSONDataConnections extends SpeakeasyBa
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceType" })
-  sourceType?: PostSyncLatest200ApplicationJSONDataConnectionsSourceTypeEnum;
+  sourceType?: PostSyncHistoric200ApplicationJSONDataConnectionsSourceTypeEnum;
 
   /**
    * The current authorization status of the data connection.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status?: PostSyncLatest200ApplicationJSONDataConnectionsStatusEnum;
+  status?: PostSyncHistoric200ApplicationJSONDataConnectionsStatusEnum;
 }
 
-export class PostSyncLatest200ApplicationJSONSyncDateRangeUtc extends SpeakeasyBase {
+export class PostSyncHistoric200ApplicationJSONSyncDateRangeUtc extends SpeakeasyBase {
   /**
    * Finish date of the Sync.
    */
@@ -179,7 +187,7 @@ export class PostSyncLatest200ApplicationJSONSyncDateRangeUtc extends SpeakeasyB
 /**
  * Success
  */
-export class PostSyncLatest200ApplicationJSON extends SpeakeasyBase {
+export class PostSyncHistoric200ApplicationJSON extends SpeakeasyBase {
   /**
    * Unique identifier for the sync in Codat.
    */
@@ -198,11 +206,11 @@ export class PostSyncLatest200ApplicationJSON extends SpeakeasyBase {
    * Array of containing objects data connection information for the company.
    */
   @SpeakeasyMetadata({
-    elemType: PostSyncLatest200ApplicationJSONDataConnections,
+    elemType: PostSyncHistoric200ApplicationJSONDataConnections,
   })
   @Expose({ name: "dataConnections" })
-  @Type(() => PostSyncLatest200ApplicationJSONDataConnections)
-  dataConnections?: PostSyncLatest200ApplicationJSONDataConnections[];
+  @Type(() => PostSyncHistoric200ApplicationJSONDataConnections)
+  dataConnections?: PostSyncHistoric200ApplicationJSONDataConnections[];
 
   /**
    * Boolean indicator for data being pushed during a sync operation.
@@ -220,8 +228,8 @@ export class PostSyncLatest200ApplicationJSON extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "syncDateRangeUtc" })
-  @Type(() => PostSyncLatest200ApplicationJSONSyncDateRangeUtc)
-  syncDateRangeUtc?: PostSyncLatest200ApplicationJSONSyncDateRangeUtc;
+  @Type(() => PostSyncHistoric200ApplicationJSONSyncDateRangeUtc)
+  syncDateRangeUtc?: PostSyncHistoric200ApplicationJSONSyncDateRangeUtc;
 
   /**
    * Exception message for the sync operation.
@@ -253,7 +261,7 @@ export class PostSyncLatest200ApplicationJSON extends SpeakeasyBase {
   syncUtc?: Date;
 }
 
-export class PostSyncLatestResponse extends SpeakeasyBase {
+export class PostSyncHistoricResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
@@ -267,5 +275,5 @@ export class PostSyncLatestResponse extends SpeakeasyBase {
    * Success
    */
   @SpeakeasyMetadata()
-  postSyncLatest200ApplicationJSONObject?: PostSyncLatest200ApplicationJSON;
+  postSyncHistoric200ApplicationJSONObject?: PostSyncHistoric200ApplicationJSON;
 }

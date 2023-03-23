@@ -9,13 +9,13 @@ import { AxiosError } from "axios";
 import { Codat } from "@codat/synccommerce";
 const sdk = new Codat({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic YOUR_ENCODED_API_KEY",
   },
 });
 
 const req: AddDataConnectionRequest = {
   requestBody: "unde",
-  companyId: "deserunt",
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
 sdk.companyManagement.addDataConnection(req).then((res: AddDataConnectionResponse | AxiosError) => {
