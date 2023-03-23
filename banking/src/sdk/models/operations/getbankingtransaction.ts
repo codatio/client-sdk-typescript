@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class GetBankingTransactionRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -93,8 +93,7 @@ export class GetBankingTransactionSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "authorizedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  authorizedDate?: Date;
+  authorizedDate?: string;
 
   /**
    * Code to identify the underlying transaction.
@@ -136,24 +135,21 @@ export class GetBankingTransactionSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * The date the bank transaction was cleared.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "postedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  postedDate?: Date;
+  postedDate?: string;
 
   /**
    * The date on which this record was last modified in the originating system
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * An object of bank transaction category reference data.

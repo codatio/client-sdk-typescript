@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class ListBankTransactionCategoriesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -124,8 +124,7 @@ export class ListBankTransactionCategoriesLinksSourceModifiedDate extends Speake
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * The name of the bank transaction category.
@@ -146,8 +145,7 @@ export class ListBankTransactionCategoriesLinksSourceModifiedDate extends Speake
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Status of the bank transaction category.
