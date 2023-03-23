@@ -261,8 +261,7 @@ export class UpdateBillCreditNoteSourceModifiedDatePaymentAllocationsAllocation 
    */
   @SpeakeasyMetadata()
   @Expose({ name: "allocatedOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  allocatedOnDate?: Date;
+  allocatedOnDate?: string;
 
   /**
    * The currency of the transaction.
@@ -398,8 +397,7 @@ export class UpdateBillCreditNoteSourceModifiedDatePaymentAllocationsPayment ext
    */
   @SpeakeasyMetadata()
   @Expose({ name: "paidOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  paidOnDate?: Date;
+  paidOnDate?: string;
 
   /**
    * Reference to the allocated payment.
@@ -590,8 +588,7 @@ export class UpdateBillCreditNoteSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * Any additional information about the bill credit note.
@@ -622,8 +619,7 @@ export class UpdateBillCreditNoteSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Current state of the bill credit note
@@ -1022,8 +1018,7 @@ export class UpdateBillCreditNote200ApplicationJSONSourceModifiedDatePaymentAllo
    */
   @SpeakeasyMetadata()
   @Expose({ name: "allocatedOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  allocatedOnDate?: Date;
+  allocatedOnDate?: string;
 
   /**
    * The currency of the transaction.
@@ -1159,8 +1154,7 @@ export class UpdateBillCreditNote200ApplicationJSONSourceModifiedDatePaymentAllo
    */
   @SpeakeasyMetadata()
   @Expose({ name: "paidOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  paidOnDate?: Date;
+  paidOnDate?: string;
 
   /**
    * Reference to the allocated payment.
@@ -1355,8 +1349,7 @@ export class UpdateBillCreditNote200ApplicationJSONSourceModifiedDate extends Sp
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * Any additional information about the bill credit note.
@@ -1391,8 +1384,7 @@ export class UpdateBillCreditNote200ApplicationJSONSourceModifiedDate extends Sp
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Current state of the bill credit note
@@ -1527,8 +1519,7 @@ export class UpdateBillCreditNote200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "completedOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  completedOnUtc?: Date;
+  completedOnUtc?: string;
 
   /**
    * > **Bill credit notes or credit notes?**
@@ -1585,8 +1576,7 @@ export class UpdateBillCreditNote200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "requestedOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  requestedOnUtc: Date;
+  requestedOnUtc: string;
 
   /**
    * The status of the push operation.

@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 /**
  * Reference to the customer the invoice has been issued to.
@@ -268,8 +268,7 @@ export class CreateInvoiceSourceModifiedDatePaymentAllocationsAllocation extends
    */
   @SpeakeasyMetadata()
   @Expose({ name: "allocatedOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  allocatedOnDate?: Date;
+  allocatedOnDate?: string;
 
   /**
    * The currency of the transaction.
@@ -404,8 +403,7 @@ export class CreateInvoiceSourceModifiedDatePaymentAllocationsPayment extends Sp
    */
   @SpeakeasyMetadata()
   @Expose({ name: "paidOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  paidOnDate?: Date;
+  paidOnDate?: string;
 
   /**
    * Reference to the allocated payment.
@@ -574,8 +572,7 @@ export class CreateInvoiceSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "dueDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  dueDate?: Date;
+  dueDate?: string;
 
   /**
    * Identifier for the invoice, unique to the company in the accounting platform.
@@ -596,8 +593,7 @@ export class CreateInvoiceSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "issueDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  issueDate: Date;
+  issueDate: string;
 
   /**
    * An array of line items.
@@ -617,8 +613,7 @@ export class CreateInvoiceSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * Any additional information about the invoice. Where possible, Codat links to a data field in the accounting platform that is publicly available. This means that the contents of the note field are included when an invoice is emailed from the accounting platform to the customer.
@@ -632,8 +627,7 @@ export class CreateInvoiceSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "paidOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  paidOnDate?: Date;
+  paidOnDate?: string;
 
   /**
    *
@@ -660,8 +654,7 @@ export class CreateInvoiceSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Current state of the invoice:
@@ -1057,8 +1050,7 @@ export class CreateInvoice200ApplicationJSONSourceModifiedDatePaymentAllocations
    */
   @SpeakeasyMetadata()
   @Expose({ name: "allocatedOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  allocatedOnDate?: Date;
+  allocatedOnDate?: string;
 
   /**
    * The currency of the transaction.
@@ -1194,8 +1186,7 @@ export class CreateInvoice200ApplicationJSONSourceModifiedDatePaymentAllocations
    */
   @SpeakeasyMetadata()
   @Expose({ name: "paidOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  paidOnDate?: Date;
+  paidOnDate?: string;
 
   /**
    * Reference to the allocated payment.
@@ -1370,8 +1361,7 @@ export class CreateInvoice200ApplicationJSONSourceModifiedDate extends Speakeasy
    */
   @SpeakeasyMetadata()
   @Expose({ name: "dueDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  dueDate?: Date;
+  dueDate?: string;
 
   /**
    * Identifier for the invoice, unique to the company in the accounting platform.
@@ -1392,8 +1382,7 @@ export class CreateInvoice200ApplicationJSONSourceModifiedDate extends Speakeasy
    */
   @SpeakeasyMetadata()
   @Expose({ name: "issueDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  issueDate: Date;
+  issueDate: string;
 
   /**
    * An array of line items.
@@ -1415,8 +1404,7 @@ export class CreateInvoice200ApplicationJSONSourceModifiedDate extends Speakeasy
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * Any additional information about the invoice. Where possible, Codat links to a data field in the accounting platform that is publicly available. This means that the contents of the note field are included when an invoice is emailed from the accounting platform to the customer.
@@ -1430,8 +1418,7 @@ export class CreateInvoice200ApplicationJSONSourceModifiedDate extends Speakeasy
    */
   @SpeakeasyMetadata()
   @Expose({ name: "paidOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  paidOnDate?: Date;
+  paidOnDate?: string;
 
   /**
    *
@@ -1461,8 +1448,7 @@ export class CreateInvoice200ApplicationJSONSourceModifiedDate extends Speakeasy
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Current state of the invoice:
@@ -1587,8 +1573,7 @@ export class CreateInvoice200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "completedOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  completedOnUtc?: Date;
+  completedOnUtc?: string;
 
   /**
    * > View the coverage for invoices in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=invoices" target="_blank">Data coverage explorer</a>.
@@ -1652,8 +1637,7 @@ export class CreateInvoice200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "requestedOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  requestedOnUtc: Date;
+  requestedOnUtc: string;
 
   /**
    * The status of the push operation.

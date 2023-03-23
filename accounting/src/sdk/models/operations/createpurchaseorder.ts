@@ -413,8 +413,7 @@ export class CreatePurchaseOrderSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * Any additional information associated with the purchase order.
@@ -451,8 +450,7 @@ export class CreatePurchaseOrderSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Current state of the purchase order
@@ -977,8 +975,7 @@ export class CreatePurchaseOrder200ApplicationJSONSourceModifiedDate extends Spe
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * Any additional information associated with the purchase order.
@@ -1015,8 +1012,7 @@ export class CreatePurchaseOrder200ApplicationJSONSourceModifiedDate extends Spe
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Current state of the purchase order
@@ -1131,8 +1127,7 @@ export class CreatePurchaseOrder200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "completedOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  completedOnUtc?: Date;
+  completedOnUtc?: string;
 
   /**
    * > View the coverage for purchase orders in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=purchaseOrders" target="_blank">Data coverage explorer</a>.
@@ -1180,8 +1175,7 @@ export class CreatePurchaseOrder200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "requestedOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  requestedOnUtc: Date;
+  requestedOnUtc: string;
 
   /**
    * The status of the push operation.

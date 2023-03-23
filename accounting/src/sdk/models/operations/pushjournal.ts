@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 /**
  * Current journal status.
@@ -48,8 +48,7 @@ export class PushJournalSourceModifiedDateInput extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "createdOn" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  createdOn?: Date;
+  createdOn?: string;
 
   /**
    * If the journal has child journals, this value is true. If it doesn’t, it is false.
@@ -77,8 +76,7 @@ export class PushJournalSourceModifiedDateInput extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * Journal name.
@@ -105,8 +103,7 @@ export class PushJournalSourceModifiedDateInput extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Current journal status.
@@ -240,8 +237,7 @@ export class PushJournal200ApplicationJSONSourceModifiedDate extends SpeakeasyBa
    */
   @SpeakeasyMetadata()
   @Expose({ name: "createdOn" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  createdOn?: Date;
+  createdOn?: string;
 
   /**
    * If the journal has child journals, this value is true. If it doesn’t, it is false.
@@ -274,8 +270,7 @@ export class PushJournal200ApplicationJSONSourceModifiedDate extends SpeakeasyBa
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * Journal name.
@@ -302,8 +297,7 @@ export class PushJournal200ApplicationJSONSourceModifiedDate extends SpeakeasyBa
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Current journal status.
@@ -384,8 +378,7 @@ export class PushJournal200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "completedOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  completedOnUtc?: Date;
+  completedOnUtc?: string;
 
   /**
    * > **Language tip:** For line items, or individual transactions, of a company's financial documents, refer to the [Journal entries](https://docs.codat.io/accounting-api#/schemas/JournalEntry) data type
@@ -449,8 +442,7 @@ export class PushJournal200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "requestedOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  requestedOnUtc: Date;
+  requestedOnUtc: string;
 
   /**
    * The status of the push operation.

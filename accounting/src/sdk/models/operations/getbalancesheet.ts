@@ -197,8 +197,7 @@ export class GetBalanceSheet200ApplicationJSONBalanceSheet extends SpeakeasyBase
    */
   @SpeakeasyMetadata()
   @Expose({ name: "date" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  date?: Date;
+  date?: string;
 
   /**
    * ReportLines for equities. For example, retained and current year earnings. See below.

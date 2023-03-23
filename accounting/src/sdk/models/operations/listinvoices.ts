@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class ListInvoicesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -349,8 +349,7 @@ export class ListInvoicesLinksSourceModifiedDatePaymentAllocationsAllocation ext
    */
   @SpeakeasyMetadata()
   @Expose({ name: "allocatedOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  allocatedOnDate?: Date;
+  allocatedOnDate?: string;
 
   /**
    * The currency of the transaction.
@@ -485,8 +484,7 @@ export class ListInvoicesLinksSourceModifiedDatePaymentAllocationsPayment extend
    */
   @SpeakeasyMetadata()
   @Expose({ name: "paidOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  paidOnDate?: Date;
+  paidOnDate?: string;
 
   /**
    * Reference to the allocated payment.
@@ -655,8 +653,7 @@ export class ListInvoicesLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "dueDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  dueDate?: Date;
+  dueDate?: string;
 
   /**
    * Identifier for the invoice, unique to the company in the accounting platform.
@@ -677,8 +674,7 @@ export class ListInvoicesLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "issueDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  issueDate: Date;
+  issueDate: string;
 
   /**
    * An array of line items.
@@ -698,8 +694,7 @@ export class ListInvoicesLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * Any additional information about the invoice. Where possible, Codat links to a data field in the accounting platform that is publicly available. This means that the contents of the note field are included when an invoice is emailed from the accounting platform to the customer.
@@ -713,8 +708,7 @@ export class ListInvoicesLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "paidOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  paidOnDate?: Date;
+  paidOnDate?: string;
 
   /**
    *
@@ -741,8 +735,7 @@ export class ListInvoicesLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Current state of the invoice:

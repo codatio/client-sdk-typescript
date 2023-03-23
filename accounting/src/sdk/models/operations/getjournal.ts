@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class GetJournalRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -82,8 +82,7 @@ export class GetJournalSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "createdOn" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  createdOn?: Date;
+  createdOn?: string;
 
   /**
    * If the journal has child journals, this value is true. If it doesn’t, it is false.
@@ -116,8 +115,7 @@ export class GetJournalSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * Journal name.
@@ -144,8 +142,7 @@ export class GetJournalSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Current journal status.

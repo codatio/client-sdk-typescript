@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillIdRequest extends SpeakeasyBase {
   /**
@@ -140,8 +140,7 @@ export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200Ap
    */
   @SpeakeasyMetadata()
   @Expose({ name: "completedOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  completedOnUtc?: Date;
+  completedOnUtc?: string;
 
   /**
    * Unique identifier for a company's data connection.
@@ -173,8 +172,7 @@ export class DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200Ap
    */
   @SpeakeasyMetadata()
   @Expose({ name: "requestedOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  requestedOnUtc: Date;
+  requestedOnUtc: string;
 
   /**
    * The status of the push operation.

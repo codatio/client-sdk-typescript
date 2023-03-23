@@ -204,8 +204,7 @@ export class CreateDirectIncomeSourceModifiedDatePaymentAllocationsAllocation ex
    */
   @SpeakeasyMetadata()
   @Expose({ name: "allocatedOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  allocatedOnDate?: Date;
+  allocatedOnDate?: string;
 
   /**
    * The currency of the transaction.
@@ -341,8 +340,7 @@ export class CreateDirectIncomeSourceModifiedDatePaymentAllocationsPayment exten
    */
   @SpeakeasyMetadata()
   @Expose({ name: "paidOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  paidOnDate?: Date;
+  paidOnDate?: string;
 
   /**
    * Reference to the allocated payment.
@@ -486,8 +484,7 @@ export class CreateDirectIncomeSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "note" })
@@ -512,8 +509,7 @@ export class CreateDirectIncomeSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * The total amount of the direct incomes, excluding any taxes.
@@ -808,8 +804,7 @@ export class CreateDirectIncome200ApplicationJSONSourceModifiedDatePaymentAlloca
    */
   @SpeakeasyMetadata()
   @Expose({ name: "allocatedOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  allocatedOnDate?: Date;
+  allocatedOnDate?: string;
 
   /**
    * The currency of the transaction.
@@ -945,8 +940,7 @@ export class CreateDirectIncome200ApplicationJSONSourceModifiedDatePaymentAlloca
    */
   @SpeakeasyMetadata()
   @Expose({ name: "paidOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  paidOnDate?: Date;
+  paidOnDate?: string;
 
   /**
    * Reference to the allocated payment.
@@ -1096,8 +1090,7 @@ export class CreateDirectIncome200ApplicationJSONSourceModifiedDate extends Spea
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "note" })
@@ -1126,8 +1119,7 @@ export class CreateDirectIncome200ApplicationJSONSourceModifiedDate extends Spea
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * The total amount of the direct incomes, excluding any taxes.
@@ -1225,8 +1217,7 @@ export class CreateDirectIncome200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "completedOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  completedOnUtc?: Date;
+  completedOnUtc?: string;
 
   /**
    * > **Language tip:**  Direct incomes may also be referred to as **Receive transactions**, **Receive money transactions**, **Sales receipts**, or **Cash sales** in various accounting platforms.
@@ -1287,8 +1278,7 @@ export class CreateDirectIncome200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "requestedOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  requestedOnUtc: Date;
+  requestedOnUtc: string;
 
   /**
    * The status of the push operation.

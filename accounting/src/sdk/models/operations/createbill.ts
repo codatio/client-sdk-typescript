@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 /**
  * Reference to the account to which the line item is linked.
@@ -258,8 +258,7 @@ export class CreateBillSourceModifiedDatePaymentAllocationsAllocation extends Sp
    */
   @SpeakeasyMetadata()
   @Expose({ name: "allocatedOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  allocatedOnDate?: Date;
+  allocatedOnDate?: string;
 
   /**
    * The currency of the transaction.
@@ -392,8 +391,7 @@ export class CreateBillSourceModifiedDatePaymentAllocationsPayment extends Speak
    */
   @SpeakeasyMetadata()
   @Expose({ name: "paidOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  paidOnDate?: Date;
+  paidOnDate?: string;
 
   /**
    * Reference to the allocated payment.
@@ -548,8 +546,7 @@ export class CreateBillSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "dueDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  dueDate?: Date;
+  dueDate?: string;
 
   /**
    * Identifier for the bill, unique for the company in the accounting platform.
@@ -563,8 +560,7 @@ export class CreateBillSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "issueDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  issueDate: Date;
+  issueDate: string;
 
   /**
    * Array of BillLineItems.
@@ -584,8 +580,7 @@ export class CreateBillSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * Any private, company notes about the bill, such as payment information.
@@ -623,8 +618,7 @@ export class CreateBillSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Current state of the bill.
@@ -995,8 +989,7 @@ export class CreateBill200ApplicationJSONSourceModifiedDatePaymentAllocationsAll
    */
   @SpeakeasyMetadata()
   @Expose({ name: "allocatedOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  allocatedOnDate?: Date;
+  allocatedOnDate?: string;
 
   /**
    * The currency of the transaction.
@@ -1132,8 +1125,7 @@ export class CreateBill200ApplicationJSONSourceModifiedDatePaymentAllocationsPay
    */
   @SpeakeasyMetadata()
   @Expose({ name: "paidOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  paidOnDate?: Date;
+  paidOnDate?: string;
 
   /**
    * Reference to the allocated payment.
@@ -1294,8 +1286,7 @@ export class CreateBill200ApplicationJSONSourceModifiedDate extends SpeakeasyBas
    */
   @SpeakeasyMetadata()
   @Expose({ name: "dueDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  dueDate?: Date;
+  dueDate?: string;
 
   /**
    * Identifier for the bill, unique for the company in the accounting platform.
@@ -1309,8 +1300,7 @@ export class CreateBill200ApplicationJSONSourceModifiedDate extends SpeakeasyBas
    */
   @SpeakeasyMetadata()
   @Expose({ name: "issueDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  issueDate: Date;
+  issueDate: string;
 
   /**
    * Array of BillLineItems.
@@ -1332,8 +1322,7 @@ export class CreateBill200ApplicationJSONSourceModifiedDate extends SpeakeasyBas
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * Any private, company notes about the bill, such as payment information.
@@ -1371,8 +1360,7 @@ export class CreateBill200ApplicationJSONSourceModifiedDate extends SpeakeasyBas
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Current state of the bill.
@@ -1490,8 +1478,7 @@ export class CreateBill200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "completedOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  completedOnUtc?: Date;
+  completedOnUtc?: string;
 
   /**
    * > **Invoices or bills?**
@@ -1549,8 +1536,7 @@ export class CreateBill200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "requestedOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  requestedOnUtc: Date;
+  requestedOnUtc: string;
 
   /**
    * The status of the push operation.

@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 /**
  * Reference to the customer the credit note has been issued to.
@@ -268,8 +268,7 @@ export class PushCreditNoteSourceModifiedDatePaymentAllocationsAllocation extend
    */
   @SpeakeasyMetadata()
   @Expose({ name: "allocatedOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  allocatedOnDate?: Date;
+  allocatedOnDate?: string;
 
   /**
    * The currency of the transaction.
@@ -404,8 +403,7 @@ export class PushCreditNoteSourceModifiedDatePaymentAllocationsPayment extends S
    */
   @SpeakeasyMetadata()
   @Expose({ name: "paidOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  paidOnDate?: Date;
+  paidOnDate?: string;
 
   /**
    * Reference to the allocated payment.
@@ -495,8 +493,7 @@ export class PushCreditNoteSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "allocatedOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  allocatedOnDate?: Date;
+  allocatedOnDate?: string;
 
   /**
    * Friendly reference for the credit note.
@@ -570,8 +567,7 @@ export class PushCreditNoteSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "issueDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  issueDate?: Date;
+  issueDate?: string;
 
   @SpeakeasyMetadata({ elemType: PushCreditNoteSourceModifiedDateLineItems })
   @Expose({ name: "lineItems" })
@@ -588,8 +584,7 @@ export class PushCreditNoteSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * Any additional information about the credit note. Where possible, Codat links to a data field in the accounting platform that is publicly available. This means that the contents of the note field are included when a credit note is emailed from the accounting platform to the customer.
@@ -620,8 +615,7 @@ export class PushCreditNoteSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Current state of the credit note.
@@ -1011,8 +1005,7 @@ export class PushCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocation
    */
   @SpeakeasyMetadata()
   @Expose({ name: "allocatedOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  allocatedOnDate?: Date;
+  allocatedOnDate?: string;
 
   /**
    * The currency of the transaction.
@@ -1148,8 +1141,7 @@ export class PushCreditNote200ApplicationJSONSourceModifiedDatePaymentAllocation
    */
   @SpeakeasyMetadata()
   @Expose({ name: "paidOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  paidOnDate?: Date;
+  paidOnDate?: string;
 
   /**
    * Reference to the allocated payment.
@@ -1245,8 +1237,7 @@ export class PushCreditNote200ApplicationJSONSourceModifiedDate extends Speakeas
    */
   @SpeakeasyMetadata()
   @Expose({ name: "allocatedOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  allocatedOnDate?: Date;
+  allocatedOnDate?: string;
 
   /**
    * Friendly reference for the credit note.
@@ -1320,8 +1311,7 @@ export class PushCreditNote200ApplicationJSONSourceModifiedDate extends Speakeas
    */
   @SpeakeasyMetadata()
   @Expose({ name: "issueDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  issueDate?: Date;
+  issueDate?: string;
 
   @SpeakeasyMetadata({
     elemType: PushCreditNote200ApplicationJSONSourceModifiedDateLineItems,
@@ -1340,8 +1330,7 @@ export class PushCreditNote200ApplicationJSONSourceModifiedDate extends Speakeas
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * Any additional information about the credit note. Where possible, Codat links to a data field in the accounting platform that is publicly available. This means that the contents of the note field are included when a credit note is emailed from the accounting platform to the customer.
@@ -1375,8 +1364,7 @@ export class PushCreditNote200ApplicationJSONSourceModifiedDate extends Speakeas
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Current state of the credit note.
@@ -1495,8 +1483,7 @@ export class PushCreditNote200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "completedOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  completedOnUtc?: Date;
+  completedOnUtc?: string;
 
   /**
    * > View the coverage for credit notes in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=creditNotes" target="_blank">Data coverage explorer</a>.
@@ -1549,8 +1536,7 @@ export class PushCreditNote200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "requestedOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  requestedOnUtc: Date;
+  requestedOnUtc: string;
 
   /**
    * The status of the push operation.

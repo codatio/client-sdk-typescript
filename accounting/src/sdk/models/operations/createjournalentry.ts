@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 /**
  * Data types that reference an account, for example bill and invoice line items, use an accountRef that includes the ID and name of the linked account.
@@ -167,8 +167,7 @@ export class CreateJournalEntrySourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "createdOn" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  createdOn?: Date;
+  createdOn?: string;
 
   /**
    * Optional description of the journal entry.
@@ -212,8 +211,7 @@ export class CreateJournalEntrySourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * Date on which the journal entry was posted to the accounting platform, and had an impact on the general ledger. This may be different from the creation date.
@@ -228,8 +226,7 @@ export class CreateJournalEntrySourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "postedOn" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  postedOn?: Date;
+  postedOn?: string;
 
   /**
    * Links to the underlying record or data type.
@@ -253,8 +250,7 @@ export class CreateJournalEntrySourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
@@ -269,8 +265,7 @@ export class CreateJournalEntrySourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "updatedOn" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  updatedOn?: Date;
+  updatedOn?: string;
 }
 
 export class CreateJournalEntryRequest extends SpeakeasyBase {
@@ -493,8 +488,7 @@ export class CreateJournalEntry200ApplicationJSONSourceModifiedDate extends Spea
    */
   @SpeakeasyMetadata()
   @Expose({ name: "createdOn" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  createdOn?: Date;
+  createdOn?: string;
 
   /**
    * Optional description of the journal entry.
@@ -541,8 +535,7 @@ export class CreateJournalEntry200ApplicationJSONSourceModifiedDate extends Spea
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * Date on which the journal entry was posted to the accounting platform, and had an impact on the general ledger. This may be different from the creation date.
@@ -557,8 +550,7 @@ export class CreateJournalEntry200ApplicationJSONSourceModifiedDate extends Spea
    */
   @SpeakeasyMetadata()
   @Expose({ name: "postedOn" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  postedOn?: Date;
+  postedOn?: string;
 
   /**
    * Links to the underlying record or data type.
@@ -582,8 +574,7 @@ export class CreateJournalEntry200ApplicationJSONSourceModifiedDate extends Spea
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
@@ -600,8 +591,7 @@ export class CreateJournalEntry200ApplicationJSONSourceModifiedDate extends Spea
    */
   @SpeakeasyMetadata()
   @Expose({ name: "updatedOn" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  updatedOn?: Date;
+  updatedOn?: string;
 }
 
 /**
@@ -668,8 +658,7 @@ export class CreateJournalEntry200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "completedOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  completedOnUtc?: Date;
+  completedOnUtc?: string;
 
   /**
    * > **Language tip:** For the top-level record of a company's financial transactions, refer to the [Journals](https://docs.codat.io/accounting-api#/schemas/Journal) data type
@@ -732,8 +721,7 @@ export class CreateJournalEntry200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "requestedOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  requestedOnUtc: Date;
+  requestedOnUtc: string;
 
   /**
    * The status of the push operation.

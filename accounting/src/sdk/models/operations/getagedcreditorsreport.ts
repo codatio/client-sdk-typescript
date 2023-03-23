@@ -80,16 +80,14 @@ export class GetAgedCreditorsReportAgedCreditorsReportAgedCreditorAgedCurrencyOu
    */
   @SpeakeasyMetadata()
   @Expose({ name: "fromDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  fromDate?: Date;
+  fromDate?: string;
 
   /**
    * End date of period.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "toDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  toDate?: Date;
+  toDate?: string;
 }
 
 export class GetAgedCreditorsReportAgedCreditorsReportAgedCreditorAgedCurrencyOutstanding extends SpeakeasyBase {
@@ -172,16 +170,14 @@ export class GetAgedCreditorsReportAgedCreditorsReport extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "generated" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  generated?: Date;
+  generated?: string;
 
   /**
    * Date the report is generated up to.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "reportDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  reportDate?: Date;
+  reportDate?: string;
 }
 
 export class GetAgedCreditorsReportResponse extends SpeakeasyBase {

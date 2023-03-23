@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class ListJournalEntriesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -248,8 +248,7 @@ export class ListJournalEntriesLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "createdOn" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  createdOn?: Date;
+  createdOn?: string;
 
   /**
    * Optional description of the journal entry.
@@ -293,8 +292,7 @@ export class ListJournalEntriesLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * Date on which the journal entry was posted to the accounting platform, and had an impact on the general ledger. This may be different from the creation date.
@@ -309,8 +307,7 @@ export class ListJournalEntriesLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "postedOn" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  postedOn?: Date;
+  postedOn?: string;
 
   /**
    * Links to the underlying record or data type.
@@ -334,8 +331,7 @@ export class ListJournalEntriesLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
@@ -350,8 +346,7 @@ export class ListJournalEntriesLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "updatedOn" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  updatedOn?: Date;
+  updatedOn?: string;
 }
 
 /**

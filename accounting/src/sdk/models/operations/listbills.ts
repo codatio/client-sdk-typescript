@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class ListBillsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -339,8 +339,7 @@ export class ListBillsLinksSourceModifiedDatePaymentAllocationsAllocation extend
    */
   @SpeakeasyMetadata()
   @Expose({ name: "allocatedOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  allocatedOnDate?: Date;
+  allocatedOnDate?: string;
 
   /**
    * The currency of the transaction.
@@ -475,8 +474,7 @@ export class ListBillsLinksSourceModifiedDatePaymentAllocationsPayment extends S
    */
   @SpeakeasyMetadata()
   @Expose({ name: "paidOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  paidOnDate?: Date;
+  paidOnDate?: string;
 
   /**
    * Reference to the allocated payment.
@@ -631,8 +629,7 @@ export class ListBillsLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "dueDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  dueDate?: Date;
+  dueDate?: string;
 
   /**
    * Identifier for the bill, unique for the company in the accounting platform.
@@ -646,8 +643,7 @@ export class ListBillsLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "issueDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  issueDate: Date;
+  issueDate: string;
 
   /**
    * Array of BillLineItems.
@@ -667,8 +663,7 @@ export class ListBillsLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * Any private, company notes about the bill, such as payment information.
@@ -706,8 +701,7 @@ export class ListBillsLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Current state of the bill.

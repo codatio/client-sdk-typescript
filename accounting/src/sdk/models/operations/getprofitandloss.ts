@@ -222,8 +222,7 @@ export class GetProfitAndLoss200ApplicationJSONProfitAndLossReport extends Speak
    */
   @SpeakeasyMetadata()
   @Expose({ name: "fromDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  fromDate?: Date;
+  fromDate?: string;
 
   /**
    * Gross profit of the company in the given date range.
@@ -282,8 +281,7 @@ export class GetProfitAndLoss200ApplicationJSONProfitAndLossReport extends Speak
    */
   @SpeakeasyMetadata()
   @Expose({ name: "toDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  toDate?: Date;
+  toDate?: string;
 }
 
 /**
@@ -302,16 +300,14 @@ export class GetProfitAndLoss200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "earliestAvailableMonth" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  earliestAvailableMonth?: Date;
+  earliestAvailableMonth?: string;
 
   /**
    * Most recent available monthly report data.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "mostRecentAvailableMonth" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  mostRecentAvailableMonth?: Date;
+  mostRecentAvailableMonth?: string;
 
   /**
    * The basis of a report.

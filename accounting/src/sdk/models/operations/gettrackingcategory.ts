@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class GetTrackingCategoryRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -67,8 +67,7 @@ export class GetTrackingCategorySourceModifiedDateSourceModifiedDateSourceModifi
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * The name of the tracking category
@@ -89,8 +88,7 @@ export class GetTrackingCategorySourceModifiedDateSourceModifiedDateSourceModifi
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Current state of the tracking category.
@@ -120,8 +118,7 @@ export class GetTrackingCategorySourceModifiedDateSourceModifiedDateSourceModifi
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * The name of the tracking category
@@ -142,8 +139,7 @@ export class GetTrackingCategorySourceModifiedDateSourceModifiedDateSourceModifi
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Current state of the tracking category.
@@ -187,8 +183,7 @@ export class GetTrackingCategorySourceModifiedDateSourceModifiedDate extends Spe
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * The name of the tracking category
@@ -209,8 +204,7 @@ export class GetTrackingCategorySourceModifiedDateSourceModifiedDate extends Spe
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Current state of the tracking category.
@@ -257,8 +251,7 @@ export class GetTrackingCategorySourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * The name of the tracking category
@@ -279,8 +272,7 @@ export class GetTrackingCategorySourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * Current state of the tracking category.

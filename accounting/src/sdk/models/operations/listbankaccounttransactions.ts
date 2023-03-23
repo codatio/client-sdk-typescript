@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class ListBankAccountTransactionsRequest extends SpeakeasyBase {
   /**
@@ -136,8 +136,7 @@ export class ListBankAccountTransactionsLinksResultsTransactions extends Speakea
 
   @SpeakeasyMetadata()
   @Expose({ name: "date" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  date: Date;
+  date: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "description" })
@@ -149,8 +148,7 @@ export class ListBankAccountTransactionsLinksResultsTransactions extends Speakea
 
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "reconciled" })
@@ -162,8 +160,7 @@ export class ListBankAccountTransactionsLinksResultsTransactions extends Speakea
 
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "transactionType" })

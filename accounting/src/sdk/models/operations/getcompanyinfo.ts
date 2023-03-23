@@ -186,8 +186,7 @@ export class GetCompanyInfoCompanyInfo extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "ledgerLockDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  ledgerLockDate?: Date;
+  ledgerLockDate?: string;
 
   /**
    * An array of phone numbers.

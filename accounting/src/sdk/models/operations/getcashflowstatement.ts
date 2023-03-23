@@ -222,16 +222,14 @@ export class GetCashFlowStatement200ApplicationJSONCashFlowStatement extends Spe
    */
   @SpeakeasyMetadata()
   @Expose({ name: "fromDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  fromDate?: Date;
+  fromDate?: string;
 
   /**
    * End date for the reporting period.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "toDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  toDate?: Date;
+  toDate?: string;
 }
 
 /**

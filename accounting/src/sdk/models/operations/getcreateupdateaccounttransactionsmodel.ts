@@ -218,8 +218,7 @@ export class GetCreateUpdateAccountTransactionsModelSourceModifiedDate extends S
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * Additional information about the account transaction, if available.
@@ -233,8 +232,7 @@ export class GetCreateUpdateAccountTransactionsModelSourceModifiedDate extends S
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  sourceModifiedDate?: string;
 
   /**
    * The status of the account transaction.
