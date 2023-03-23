@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class UpdateAccountCategoryRequestBodyChartOfAccountCategory extends SpeakeasyBase {
   /**
@@ -91,8 +91,7 @@ export class UpdateAccountCategoryCategorisedAccountModifiedDate extends Speakea
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * The account subtype.

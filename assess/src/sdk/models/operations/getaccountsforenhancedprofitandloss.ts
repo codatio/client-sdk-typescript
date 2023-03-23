@@ -57,8 +57,7 @@ export class GetAccountsForEnhancedProfitAndLossEnhancedReportReportInfo extends
    */
   @SpeakeasyMetadata()
   @Expose({ name: "generatedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  generatedDate?: Date;
+  generatedDate?: string;
 
   /**
    * The name of the report.

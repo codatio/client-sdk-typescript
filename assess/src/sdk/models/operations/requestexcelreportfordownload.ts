@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 /**
  * The type of report you want to generate and download.
@@ -69,8 +69,7 @@ export class RequestExcelReportForDownload200ApplicationJSON extends SpeakeasyBa
    */
   @SpeakeasyMetadata()
   @Expose({ name: "lastGenerated" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  lastGenerated?: Date;
+  lastGenerated?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "lastInvocationId" })
