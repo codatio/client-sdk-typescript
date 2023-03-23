@@ -119,3 +119,11 @@ Based on:
 - Speakeasy CLI 1.13.0 https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [NPM v0.6.0] https://www.npmjs.com/package/@codat/expenses/v/0.6.0 - expenses
+
+## 2023-03-23 00:21:53
+### Changes
+Based on:
+- OpenAPI Doc prealpha https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Expenses.yaml
+- Speakeasy CLI 1.15.0 (2.13.1) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.6.1] https://www.npmjs.com/package/@codat/expenses/v/0.6.1 - expenses
