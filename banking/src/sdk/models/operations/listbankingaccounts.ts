@@ -46,50 +46,32 @@ export class ListBankingAccountsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListBankingAccountsLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListBankingAccountsLinksLinksNext extends SpeakeasyBase {
+export class ListBankingAccountsLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class ListBankingAccountsLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListBankingAccountsLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class ListBankingAccountsLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListBankingAccountsLinksLinksCurrent)
-  current: ListBankingAccountsLinksLinksCurrent;
+  @Type(() => ListBankingAccountsLinksLinksHypertextReference)
+  current: ListBankingAccountsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListBankingAccountsLinksLinksNext)
-  next?: ListBankingAccountsLinksLinksNext;
+  @Type(() => ListBankingAccountsLinksLinksHypertextReference)
+  next?: ListBankingAccountsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListBankingAccountsLinksLinksPrevious)
-  previous?: ListBankingAccountsLinksLinksPrevious;
+  @Type(() => ListBankingAccountsLinksLinksHypertextReference)
+  previous?: ListBankingAccountsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListBankingAccountsLinksLinksSelf)
-  self: ListBankingAccountsLinksLinksSelf;
+  @Type(() => ListBankingAccountsLinksLinksHypertextReference)
+  self: ListBankingAccountsLinksLinksHypertextReference;
 }
 
 /**

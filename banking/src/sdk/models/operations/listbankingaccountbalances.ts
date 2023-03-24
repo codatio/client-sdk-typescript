@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class ListBankingAccountBalancesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -46,50 +46,32 @@ export class ListBankingAccountBalancesRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListBankingAccountBalancesLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListBankingAccountBalancesLinksLinksNext extends SpeakeasyBase {
+export class ListBankingAccountBalancesLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class ListBankingAccountBalancesLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListBankingAccountBalancesLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class ListBankingAccountBalancesLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListBankingAccountBalancesLinksLinksCurrent)
-  current: ListBankingAccountBalancesLinksLinksCurrent;
+  @Type(() => ListBankingAccountBalancesLinksLinksHypertextReference)
+  current: ListBankingAccountBalancesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListBankingAccountBalancesLinksLinksNext)
-  next?: ListBankingAccountBalancesLinksLinksNext;
+  @Type(() => ListBankingAccountBalancesLinksLinksHypertextReference)
+  next?: ListBankingAccountBalancesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListBankingAccountBalancesLinksLinksPrevious)
-  previous?: ListBankingAccountBalancesLinksLinksPrevious;
+  @Type(() => ListBankingAccountBalancesLinksLinksHypertextReference)
+  previous?: ListBankingAccountBalancesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListBankingAccountBalancesLinksLinksSelf)
-  self: ListBankingAccountBalancesLinksLinksSelf;
+  @Type(() => ListBankingAccountBalancesLinksLinksHypertextReference)
+  self: ListBankingAccountBalancesLinksLinksHypertextReference;
 }
 
 /**
@@ -142,8 +124,7 @@ export class ListBankingAccountBalancesLinksSourceModifiedDate extends Speakeasy
    */
   @SpeakeasyMetadata()
   @Expose({ name: "date" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  date: Date;
+  date: string;
 
   /**
    * The date on which this record was last modified in Codat.

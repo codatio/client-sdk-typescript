@@ -46,50 +46,32 @@ export class ListBankTransactionCategoriesRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListBankTransactionCategoriesLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListBankTransactionCategoriesLinksLinksNext extends SpeakeasyBase {
+export class ListBankTransactionCategoriesLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class ListBankTransactionCategoriesLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListBankTransactionCategoriesLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class ListBankTransactionCategoriesLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListBankTransactionCategoriesLinksLinksCurrent)
-  current: ListBankTransactionCategoriesLinksLinksCurrent;
+  @Type(() => ListBankTransactionCategoriesLinksLinksHypertextReference)
+  current: ListBankTransactionCategoriesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListBankTransactionCategoriesLinksLinksNext)
-  next?: ListBankTransactionCategoriesLinksLinksNext;
+  @Type(() => ListBankTransactionCategoriesLinksLinksHypertextReference)
+  next?: ListBankTransactionCategoriesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListBankTransactionCategoriesLinksLinksPrevious)
-  previous?: ListBankTransactionCategoriesLinksLinksPrevious;
+  @Type(() => ListBankTransactionCategoriesLinksLinksHypertextReference)
+  previous?: ListBankTransactionCategoriesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListBankTransactionCategoriesLinksLinksSelf)
-  self: ListBankTransactionCategoriesLinksLinksSelf;
+  @Type(() => ListBankTransactionCategoriesLinksLinksHypertextReference)
+  self: ListBankTransactionCategoriesLinksLinksHypertextReference;
 }
 
 /**
