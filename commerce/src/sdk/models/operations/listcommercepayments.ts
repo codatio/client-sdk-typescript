@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class ListCommercePaymentsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -46,50 +46,32 @@ export class ListCommercePaymentsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListCommercePaymentsLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListCommercePaymentsLinksLinksNext extends SpeakeasyBase {
+export class ListCommercePaymentsLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class ListCommercePaymentsLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListCommercePaymentsLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class ListCommercePaymentsLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListCommercePaymentsLinksLinksCurrent)
-  current: ListCommercePaymentsLinksLinksCurrent;
+  @Type(() => ListCommercePaymentsLinksLinksHypertextReference)
+  current: ListCommercePaymentsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListCommercePaymentsLinksLinksNext)
-  next?: ListCommercePaymentsLinksLinksNext;
+  @Type(() => ListCommercePaymentsLinksLinksHypertextReference)
+  next?: ListCommercePaymentsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListCommercePaymentsLinksLinksPrevious)
-  previous?: ListCommercePaymentsLinksLinksPrevious;
+  @Type(() => ListCommercePaymentsLinksLinksHypertextReference)
+  previous?: ListCommercePaymentsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListCommercePaymentsLinksLinksSelf)
-  self: ListCommercePaymentsLinksLinksSelf;
+  @Type(() => ListCommercePaymentsLinksLinksHypertextReference)
+  self: ListCommercePaymentsLinksLinksHypertextReference;
 }
 
 /**
@@ -153,8 +135,7 @@ export class ListCommercePaymentsLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "dueDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  dueDate?: Date;
+  dueDate?: string;
 
   /**
    * A unique, persistent identifier for this record

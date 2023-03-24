@@ -46,50 +46,32 @@ export class ListCommercePaymentMethodsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListCommercePaymentMethodsLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListCommercePaymentMethodsLinksLinksNext extends SpeakeasyBase {
+export class ListCommercePaymentMethodsLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class ListCommercePaymentMethodsLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListCommercePaymentMethodsLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class ListCommercePaymentMethodsLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListCommercePaymentMethodsLinksLinksCurrent)
-  current: ListCommercePaymentMethodsLinksLinksCurrent;
+  @Type(() => ListCommercePaymentMethodsLinksLinksHypertextReference)
+  current: ListCommercePaymentMethodsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListCommercePaymentMethodsLinksLinksNext)
-  next?: ListCommercePaymentMethodsLinksLinksNext;
+  @Type(() => ListCommercePaymentMethodsLinksLinksHypertextReference)
+  next?: ListCommercePaymentMethodsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListCommercePaymentMethodsLinksLinksPrevious)
-  previous?: ListCommercePaymentMethodsLinksLinksPrevious;
+  @Type(() => ListCommercePaymentMethodsLinksLinksHypertextReference)
+  previous?: ListCommercePaymentMethodsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListCommercePaymentMethodsLinksLinksSelf)
-  self: ListCommercePaymentMethodsLinksLinksSelf;
+  @Type(() => ListCommercePaymentMethodsLinksLinksHypertextReference)
+  self: ListCommercePaymentMethodsLinksLinksHypertextReference;
 }
 
 /**

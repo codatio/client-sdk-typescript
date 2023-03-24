@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class ListCommerceDisputesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -46,50 +46,32 @@ export class ListCommerceDisputesRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListCommerceDisputesLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListCommerceDisputesLinksLinksNext extends SpeakeasyBase {
+export class ListCommerceDisputesLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class ListCommerceDisputesLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListCommerceDisputesLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class ListCommerceDisputesLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListCommerceDisputesLinksLinksCurrent)
-  current: ListCommerceDisputesLinksLinksCurrent;
+  @Type(() => ListCommerceDisputesLinksLinksHypertextReference)
+  current: ListCommerceDisputesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListCommerceDisputesLinksLinksNext)
-  next?: ListCommerceDisputesLinksLinksNext;
+  @Type(() => ListCommerceDisputesLinksLinksHypertextReference)
+  next?: ListCommerceDisputesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListCommerceDisputesLinksLinksPrevious)
-  previous?: ListCommerceDisputesLinksLinksPrevious;
+  @Type(() => ListCommerceDisputesLinksLinksHypertextReference)
+  previous?: ListCommerceDisputesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListCommerceDisputesLinksLinksSelf)
-  self: ListCommerceDisputesLinksLinksSelf;
+  @Type(() => ListCommerceDisputesLinksLinksHypertextReference)
+  self: ListCommerceDisputesLinksLinksHypertextReference;
 }
 
 export enum ListCommerceDisputesLinksSourceModifiedDateRecordRefTypeEnum {
@@ -158,8 +140,7 @@ export class ListCommerceDisputesLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "dueDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  dueDate?: Date;
+  dueDate?: string;
 
   /**
    * A unique, persistent identifier for this record

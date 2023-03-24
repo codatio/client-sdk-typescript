@@ -46,50 +46,32 @@ export class ListCommerceProductsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListCommerceProductsLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListCommerceProductsLinksLinksNext extends SpeakeasyBase {
+export class ListCommerceProductsLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class ListCommerceProductsLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListCommerceProductsLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class ListCommerceProductsLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListCommerceProductsLinksLinksCurrent)
-  current: ListCommerceProductsLinksLinksCurrent;
+  @Type(() => ListCommerceProductsLinksLinksHypertextReference)
+  current: ListCommerceProductsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListCommerceProductsLinksLinksNext)
-  next?: ListCommerceProductsLinksLinksNext;
+  @Type(() => ListCommerceProductsLinksLinksHypertextReference)
+  next?: ListCommerceProductsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListCommerceProductsLinksLinksPrevious)
-  previous?: ListCommerceProductsLinksLinksPrevious;
+  @Type(() => ListCommerceProductsLinksLinksHypertextReference)
+  previous?: ListCommerceProductsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListCommerceProductsLinksLinksSelf)
-  self: ListCommerceProductsLinksLinksSelf;
+  @Type(() => ListCommerceProductsLinksLinksHypertextReference)
+  self: ListCommerceProductsLinksLinksHypertextReference;
 }
 
 export enum ListCommerceProductsLinksProductSourceModifiedDateStatusEnum {

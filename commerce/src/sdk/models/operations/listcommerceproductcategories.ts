@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class ListCommerceProductCategoriesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -46,50 +46,32 @@ export class ListCommerceProductCategoriesRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListCommerceProductCategoriesLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListCommerceProductCategoriesLinksLinksNext extends SpeakeasyBase {
+export class ListCommerceProductCategoriesLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class ListCommerceProductCategoriesLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListCommerceProductCategoriesLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class ListCommerceProductCategoriesLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListCommerceProductCategoriesLinksLinksCurrent)
-  current: ListCommerceProductCategoriesLinksLinksCurrent;
+  @Type(() => ListCommerceProductCategoriesLinksLinksHypertextReference)
+  current: ListCommerceProductCategoriesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListCommerceProductCategoriesLinksLinksNext)
-  next?: ListCommerceProductCategoriesLinksLinksNext;
+  @Type(() => ListCommerceProductCategoriesLinksLinksHypertextReference)
+  next?: ListCommerceProductCategoriesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListCommerceProductCategoriesLinksLinksPrevious)
-  previous?: ListCommerceProductCategoriesLinksLinksPrevious;
+  @Type(() => ListCommerceProductCategoriesLinksLinksHypertextReference)
+  previous?: ListCommerceProductCategoriesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListCommerceProductCategoriesLinksLinksSelf)
-  self: ListCommerceProductCategoriesLinksLinksSelf;
+  @Type(() => ListCommerceProductCategoriesLinksLinksHypertextReference)
+  self: ListCommerceProductCategoriesLinksLinksHypertextReference;
 }
 
 export class ListCommerceProductCategoriesLinksProductCategoryRecordRef extends SpeakeasyBase {
@@ -106,6 +88,24 @@ export class ListCommerceProductCategoriesLinksProductCategoryRecordRef extends 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
   type: string;
+}
+
+export class ListCommerceProductCategoriesLinksProductCategoryModifiedDate extends SpeakeasyBase {
+  /**
+   * The date on which this record was last modified in Codat.
+   */
+  @SpeakeasyMetadata()
+  @Expose({ name: "modifiedDate" })
+  modifiedDate?: string;
+}
+
+export class ListCommerceProductCategoriesLinksProductCategorySourceModifiedDate extends SpeakeasyBase {
+  /**
+   * The date on which this record was last modified in the originating system
+   */
+  @SpeakeasyMetadata()
+  @Expose({ name: "sourceModifiedDate" })
+  sourceModifiedDate?: string;
 }
 
 /**
@@ -129,8 +129,8 @@ export class ListCommerceProductCategoriesLinksProductCategory extends Speakeasy
 
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  @Type(() => ListCommerceProductCategoriesLinksProductCategoryModifiedDate)
+  modifiedDate?: ListCommerceProductCategoriesLinksProductCategoryModifiedDate;
 
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
@@ -138,8 +138,10 @@ export class ListCommerceProductCategoriesLinksProductCategory extends Speakeasy
 
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  @Type(
+    () => ListCommerceProductCategoriesLinksProductCategorySourceModifiedDate
+  )
+  sourceModifiedDate?: ListCommerceProductCategoriesLinksProductCategorySourceModifiedDate;
 }
 
 /**

@@ -46,50 +46,32 @@ export class ListCommerceTransactionsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListCommerceTransactionsLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListCommerceTransactionsLinksLinksNext extends SpeakeasyBase {
+export class ListCommerceTransactionsLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class ListCommerceTransactionsLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListCommerceTransactionsLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class ListCommerceTransactionsLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListCommerceTransactionsLinksLinksCurrent)
-  current: ListCommerceTransactionsLinksLinksCurrent;
+  @Type(() => ListCommerceTransactionsLinksLinksHypertextReference)
+  current: ListCommerceTransactionsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListCommerceTransactionsLinksLinksNext)
-  next?: ListCommerceTransactionsLinksLinksNext;
+  @Type(() => ListCommerceTransactionsLinksLinksHypertextReference)
+  next?: ListCommerceTransactionsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListCommerceTransactionsLinksLinksPrevious)
-  previous?: ListCommerceTransactionsLinksLinksPrevious;
+  @Type(() => ListCommerceTransactionsLinksLinksHypertextReference)
+  previous?: ListCommerceTransactionsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListCommerceTransactionsLinksLinksSelf)
-  self: ListCommerceTransactionsLinksLinksSelf;
+  @Type(() => ListCommerceTransactionsLinksLinksHypertextReference)
+  self: ListCommerceTransactionsLinksLinksHypertextReference;
 }
 
 export enum ListCommerceTransactionsLinksSourceModifiedDateRecordRefTypeEnum {

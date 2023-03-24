@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class ListCommerceOrdersRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -46,50 +46,32 @@ export class ListCommerceOrdersRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListCommerceOrdersLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListCommerceOrdersLinksLinksNext extends SpeakeasyBase {
+export class ListCommerceOrdersLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class ListCommerceOrdersLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListCommerceOrdersLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class ListCommerceOrdersLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListCommerceOrdersLinksLinksCurrent)
-  current: ListCommerceOrdersLinksLinksCurrent;
+  @Type(() => ListCommerceOrdersLinksLinksHypertextReference)
+  current: ListCommerceOrdersLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListCommerceOrdersLinksLinksNext)
-  next?: ListCommerceOrdersLinksLinksNext;
+  @Type(() => ListCommerceOrdersLinksLinksHypertextReference)
+  next?: ListCommerceOrdersLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListCommerceOrdersLinksLinksPrevious)
-  previous?: ListCommerceOrdersLinksLinksPrevious;
+  @Type(() => ListCommerceOrdersLinksLinksHypertextReference)
+  previous?: ListCommerceOrdersLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListCommerceOrdersLinksLinksSelf)
-  self: ListCommerceOrdersLinksLinksSelf;
+  @Type(() => ListCommerceOrdersLinksLinksHypertextReference)
+  self: ListCommerceOrdersLinksLinksHypertextReference;
 }
 
 export class ListCommerceOrdersLinksSourceModifiedDateNameRef extends SpeakeasyBase {
@@ -273,8 +255,7 @@ export class ListCommerceOrdersLinksSourceModifiedDateSourceModifiedDate extends
    */
   @SpeakeasyMetadata()
   @Expose({ name: "dueDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  dueDate?: Date;
+  dueDate?: string;
 
   /**
    * A unique, persistent identifier for this record
@@ -400,8 +381,7 @@ export class ListCommerceOrdersLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "closedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  closedDate?: Date;
+  closedDate?: string;
 
   /**
    * The Codat country property is returned as it was provided in the underlying platform by the company without any formatting on our part.

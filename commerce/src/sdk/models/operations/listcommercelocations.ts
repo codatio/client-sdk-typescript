@@ -18,50 +18,32 @@ export class ListCommerceLocationsRequest extends SpeakeasyBase {
   connectionId: string;
 }
 
-export class ListCommerceLocationsLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListCommerceLocationsLinksLinksNext extends SpeakeasyBase {
+export class ListCommerceLocationsLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class ListCommerceLocationsLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListCommerceLocationsLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class ListCommerceLocationsLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListCommerceLocationsLinksLinksCurrent)
-  current: ListCommerceLocationsLinksLinksCurrent;
+  @Type(() => ListCommerceLocationsLinksLinksHypertextReference)
+  current: ListCommerceLocationsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListCommerceLocationsLinksLinksNext)
-  next?: ListCommerceLocationsLinksLinksNext;
+  @Type(() => ListCommerceLocationsLinksLinksHypertextReference)
+  next?: ListCommerceLocationsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListCommerceLocationsLinksLinksPrevious)
-  previous?: ListCommerceLocationsLinksLinksPrevious;
+  @Type(() => ListCommerceLocationsLinksLinksHypertextReference)
+  previous?: ListCommerceLocationsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListCommerceLocationsLinksLinksSelf)
-  self: ListCommerceLocationsLinksLinksSelf;
+  @Type(() => ListCommerceLocationsLinksLinksHypertextReference)
+  self: ListCommerceLocationsLinksLinksHypertextReference;
 }
 
 export enum ListCommerceLocationsLinksSourceModifiedDateAddressTypeEnum {

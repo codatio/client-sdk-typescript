@@ -46,50 +46,32 @@ export class ListCommerceCustomersRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListCommerceCustomersLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListCommerceCustomersLinksLinksNext extends SpeakeasyBase {
+export class ListCommerceCustomersLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class ListCommerceCustomersLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListCommerceCustomersLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class ListCommerceCustomersLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListCommerceCustomersLinksLinksCurrent)
-  current: ListCommerceCustomersLinksLinksCurrent;
+  @Type(() => ListCommerceCustomersLinksLinksHypertextReference)
+  current: ListCommerceCustomersLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListCommerceCustomersLinksLinksNext)
-  next?: ListCommerceCustomersLinksLinksNext;
+  @Type(() => ListCommerceCustomersLinksLinksHypertextReference)
+  next?: ListCommerceCustomersLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListCommerceCustomersLinksLinksPrevious)
-  previous?: ListCommerceCustomersLinksLinksPrevious;
+  @Type(() => ListCommerceCustomersLinksLinksHypertextReference)
+  previous?: ListCommerceCustomersLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListCommerceCustomersLinksLinksSelf)
-  self: ListCommerceCustomersLinksLinksSelf;
+  @Type(() => ListCommerceCustomersLinksLinksHypertextReference)
+  self: ListCommerceCustomersLinksLinksHypertextReference;
 }
 
 export enum ListCommerceCustomersLinksSourceModifiedDateAddressTypeEnum {
