@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class GetMappingOptionsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -147,8 +147,7 @@ export class GetMappingOptions200ApplicationJSONTrackingCategories extends Speak
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 
   /**
    * Name of the tracking category as it appears in the accounting software.

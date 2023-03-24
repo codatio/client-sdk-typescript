@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class CreateExpenseDatasetRequestBodyItemsLinesRecordRef extends SpeakeasyBase {
   /**
@@ -113,8 +113,7 @@ export class CreateExpenseDatasetRequestBodyItems extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "issueDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  issueDate: Date;
+  issueDate: string;
 
   /**
    * Array of transaction lines.

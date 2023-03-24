@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class GetLatestSyncRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -71,8 +71,7 @@ export class GetLatestSync200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "syncUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  syncUtc?: Date;
+  syncUtc?: string;
 }
 
 export class GetLatestSyncResponse extends SpeakeasyBase {
