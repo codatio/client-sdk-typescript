@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class PostSyncLatestSyncToLatestArgs extends SpeakeasyBase {
   /**
@@ -12,8 +12,7 @@ export class PostSyncLatestSyncToLatestArgs extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "syncTo" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  syncTo?: Date;
+  syncTo?: string;
 }
 
 export class PostSyncLatestRequest extends SpeakeasyBase {
@@ -39,8 +38,7 @@ export class PostSyncLatest200ApplicationJSONDataConnectionsDataConnectionErrors
    */
   @SpeakeasyMetadata()
   @Expose({ name: "erroredOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  erroredOnUtc?: Date;
+  erroredOnUtc?: string;
 
   /**
    * Codat's error status code for the connection error.
@@ -84,8 +82,7 @@ export class PostSyncLatest200ApplicationJSONDataConnections extends SpeakeasyBa
    */
   @SpeakeasyMetadata()
   @Expose({ name: "created" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  created?: Date;
+  created?: string;
 
   /**
    * Array containing errors on data connections.
@@ -119,8 +116,7 @@ export class PostSyncLatest200ApplicationJSONDataConnections extends SpeakeasyBa
    */
   @SpeakeasyMetadata()
   @Expose({ name: "lastSync" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  lastSync?: Date;
+  lastSync?: string;
 
   /**
    * Whitelabelled link site URL for the user link flow.
@@ -164,16 +160,14 @@ export class PostSyncLatest200ApplicationJSONSyncDateRangeUtc extends SpeakeasyB
    */
   @SpeakeasyMetadata()
   @Expose({ name: "finish" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  finish?: Date;
+  finish?: string;
 
   /**
    * Start date of the Sync.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "start" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  start?: Date;
+  start?: string;
 }
 
 /**
@@ -249,8 +243,7 @@ export class PostSyncLatest200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "syncUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  syncUtc?: Date;
+  syncUtc?: string;
 }
 
 export class PostSyncLatestResponse extends SpeakeasyBase {

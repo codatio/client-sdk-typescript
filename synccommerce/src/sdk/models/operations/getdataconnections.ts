@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class GetDataconnectionsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -100,8 +100,7 @@ export class GetDataconnections200ApplicationJSONResultsDataConnectionErrors ext
    */
   @SpeakeasyMetadata()
   @Expose({ name: "erroredOnUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  erroredOnUtc?: Date;
+  erroredOnUtc?: string;
 
   /**
    * Codat's error status code for the connection error.
@@ -145,8 +144,7 @@ export class GetDataconnections200ApplicationJSONResults extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "created" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  created?: Date;
+  created?: string;
 
   /**
    * Array containing errors on data connections.
@@ -177,8 +175,7 @@ export class GetDataconnections200ApplicationJSONResults extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "lastSync" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  lastSync?: Date;
+  lastSync?: string;
 
   /**
    * Whitelabelled link site URL for the user link flow.

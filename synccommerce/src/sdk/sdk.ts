@@ -71,8 +71,8 @@ export class Codat {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.6.0";
-  private _genVersion = "2.13.1";
+  private _sdkVersion = "0.7.0";
+  private _genVersion = "2.15.0";
   private _globals: any;
 
   constructor(props?: SDKProps) {
