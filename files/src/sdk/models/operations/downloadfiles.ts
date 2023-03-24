@@ -4,7 +4,6 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Transform } from "class-transformer";
 
 export class DownloadFilesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -15,10 +14,8 @@ export class DownloadFilesRequest extends SpeakeasyBase {
   /**
    * Only download files uploaded on this date
    */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=date;dateTimeFormat=YYYY-MM-DDThh:mm:ss.sssZ",
-  })
-  date?: Date;
+  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=date" })
+  date?: string;
 }
 
 export class DownloadFilesResponse extends SpeakeasyBase {
