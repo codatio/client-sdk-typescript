@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class ListSalesOrdersRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -41,50 +41,32 @@ export class ListSalesOrdersRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListSalesOrdersLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListSalesOrdersLinksLinksNext extends SpeakeasyBase {
+export class ListSalesOrdersLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class ListSalesOrdersLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListSalesOrdersLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class ListSalesOrdersLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListSalesOrdersLinksLinksCurrent)
-  current: ListSalesOrdersLinksLinksCurrent;
+  @Type(() => ListSalesOrdersLinksLinksHypertextReference)
+  current: ListSalesOrdersLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListSalesOrdersLinksLinksNext)
-  next?: ListSalesOrdersLinksLinksNext;
+  @Type(() => ListSalesOrdersLinksLinksHypertextReference)
+  next?: ListSalesOrdersLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListSalesOrdersLinksLinksPrevious)
-  previous?: ListSalesOrdersLinksLinksPrevious;
+  @Type(() => ListSalesOrdersLinksLinksHypertextReference)
+  previous?: ListSalesOrdersLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListSalesOrdersLinksLinksSelf)
-  self: ListSalesOrdersLinksLinksSelf;
+  @Type(() => ListSalesOrdersLinksLinksHypertextReference)
+  self: ListSalesOrdersLinksLinksHypertextReference;
 }
 
 /**
@@ -458,8 +440,7 @@ export class ListSalesOrdersLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "expectedDeliveryDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  expectedDeliveryDate?: Date;
+  expectedDeliveryDate?: string;
 
   /**
    * Identifier for the sales order, unique for the company in the accounting platform.

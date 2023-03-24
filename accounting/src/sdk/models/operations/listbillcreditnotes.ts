@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class ListBillCreditNotesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -41,50 +41,32 @@ export class ListBillCreditNotesRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListBillCreditNotesLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListBillCreditNotesLinksLinksNext extends SpeakeasyBase {
+export class ListBillCreditNotesLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class ListBillCreditNotesLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListBillCreditNotesLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class ListBillCreditNotesLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListBillCreditNotesLinksLinksCurrent)
-  current: ListBillCreditNotesLinksLinksCurrent;
+  @Type(() => ListBillCreditNotesLinksLinksHypertextReference)
+  current: ListBillCreditNotesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListBillCreditNotesLinksLinksNext)
-  next?: ListBillCreditNotesLinksLinksNext;
+  @Type(() => ListBillCreditNotesLinksLinksHypertextReference)
+  next?: ListBillCreditNotesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListBillCreditNotesLinksLinksPrevious)
-  previous?: ListBillCreditNotesLinksLinksPrevious;
+  @Type(() => ListBillCreditNotesLinksLinksHypertextReference)
+  previous?: ListBillCreditNotesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListBillCreditNotesLinksLinksSelf)
-  self: ListBillCreditNotesLinksLinksSelf;
+  @Type(() => ListBillCreditNotesLinksLinksHypertextReference)
+  self: ListBillCreditNotesLinksLinksHypertextReference;
 }
 
 /**
@@ -585,8 +567,7 @@ export class ListBillCreditNotesLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "allocatedOnDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  allocatedOnDate?: Date;
+  allocatedOnDate?: string;
 
   /**
    * Friendly reference for the bill credit note.
@@ -652,8 +633,7 @@ export class ListBillCreditNotesLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "issueDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  issueDate?: Date;
+  issueDate?: string;
 
   /**
    * An array of line

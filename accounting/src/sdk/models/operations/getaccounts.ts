@@ -41,50 +41,32 @@ export class GetAccountsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class GetAccountsLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class GetAccountsLinksLinksNext extends SpeakeasyBase {
+export class GetAccountsLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class GetAccountsLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class GetAccountsLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class GetAccountsLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => GetAccountsLinksLinksCurrent)
-  current: GetAccountsLinksLinksCurrent;
+  @Type(() => GetAccountsLinksLinksHypertextReference)
+  current: GetAccountsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => GetAccountsLinksLinksNext)
-  next?: GetAccountsLinksLinksNext;
+  @Type(() => GetAccountsLinksLinksHypertextReference)
+  next?: GetAccountsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => GetAccountsLinksLinksPrevious)
-  previous?: GetAccountsLinksLinksPrevious;
+  @Type(() => GetAccountsLinksLinksHypertextReference)
+  previous?: GetAccountsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => GetAccountsLinksLinksSelf)
-  self: GetAccountsLinksLinksSelf;
+  @Type(() => GetAccountsLinksLinksHypertextReference)
+  self: GetAccountsLinksLinksHypertextReference;
 }
 
 export class GetAccountsLinksSourceModifiedDateMetadata extends SpeakeasyBase {

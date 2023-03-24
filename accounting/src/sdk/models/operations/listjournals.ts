@@ -41,50 +41,32 @@ export class ListJournalsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListJournalsLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListJournalsLinksLinksNext extends SpeakeasyBase {
+export class ListJournalsLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class ListJournalsLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListJournalsLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class ListJournalsLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListJournalsLinksLinksCurrent)
-  current: ListJournalsLinksLinksCurrent;
+  @Type(() => ListJournalsLinksLinksHypertextReference)
+  current: ListJournalsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListJournalsLinksLinksNext)
-  next?: ListJournalsLinksLinksNext;
+  @Type(() => ListJournalsLinksLinksHypertextReference)
+  next?: ListJournalsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListJournalsLinksLinksPrevious)
-  previous?: ListJournalsLinksLinksPrevious;
+  @Type(() => ListJournalsLinksLinksHypertextReference)
+  previous?: ListJournalsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListJournalsLinksLinksSelf)
-  self: ListJournalsLinksLinksSelf;
+  @Type(() => ListJournalsLinksLinksHypertextReference)
+  self: ListJournalsLinksLinksHypertextReference;
 }
 
 /**

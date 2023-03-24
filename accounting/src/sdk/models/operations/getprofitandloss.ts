@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class GetProfitAndLossRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -23,9 +23,9 @@ export class GetProfitAndLossRequest extends SpeakeasyBase {
   periodsToCompare: number;
 
   @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=startMonth;dateTimeFormat=YYYY-MM-DDThh:mm:ss.sssZ",
+    data: "queryParam, style=form;explode=true;name=startMonth",
   })
-  startMonth?: Date;
+  startMonth?: string;
 }
 
 /**

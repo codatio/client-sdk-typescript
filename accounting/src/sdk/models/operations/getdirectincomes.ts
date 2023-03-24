@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class GetDirectIncomesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -46,50 +46,32 @@ export class GetDirectIncomesRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class GetDirectIncomesLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class GetDirectIncomesLinksLinksNext extends SpeakeasyBase {
+export class GetDirectIncomesLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class GetDirectIncomesLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class GetDirectIncomesLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class GetDirectIncomesLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => GetDirectIncomesLinksLinksCurrent)
-  current: GetDirectIncomesLinksLinksCurrent;
+  @Type(() => GetDirectIncomesLinksLinksHypertextReference)
+  current: GetDirectIncomesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => GetDirectIncomesLinksLinksNext)
-  next?: GetDirectIncomesLinksLinksNext;
+  @Type(() => GetDirectIncomesLinksLinksHypertextReference)
+  next?: GetDirectIncomesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => GetDirectIncomesLinksLinksPrevious)
-  previous?: GetDirectIncomesLinksLinksPrevious;
+  @Type(() => GetDirectIncomesLinksLinksHypertextReference)
+  previous?: GetDirectIncomesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => GetDirectIncomesLinksLinksSelf)
-  self: GetDirectIncomesLinksLinksSelf;
+  @Type(() => GetDirectIncomesLinksLinksHypertextReference)
+  self: GetDirectIncomesLinksLinksHypertextReference;
 }
 
 /**
@@ -552,8 +534,7 @@ export class GetDirectIncomesLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "issueDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  issueDate: Date;
+  issueDate: string;
 
   /**
    * An array of line items.

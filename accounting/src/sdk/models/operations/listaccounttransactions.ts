@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class ListAccountTransactionsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -46,50 +46,32 @@ export class ListAccountTransactionsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListAccountTransactionsLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListAccountTransactionsLinksLinksNext extends SpeakeasyBase {
+export class ListAccountTransactionsLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class ListAccountTransactionsLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListAccountTransactionsLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class ListAccountTransactionsLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListAccountTransactionsLinksLinksCurrent)
-  current: ListAccountTransactionsLinksLinksCurrent;
+  @Type(() => ListAccountTransactionsLinksLinksHypertextReference)
+  current: ListAccountTransactionsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListAccountTransactionsLinksLinksNext)
-  next?: ListAccountTransactionsLinksLinksNext;
+  @Type(() => ListAccountTransactionsLinksLinksHypertextReference)
+  next?: ListAccountTransactionsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListAccountTransactionsLinksLinksPrevious)
-  previous?: ListAccountTransactionsLinksLinksPrevious;
+  @Type(() => ListAccountTransactionsLinksLinksHypertextReference)
+  previous?: ListAccountTransactionsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListAccountTransactionsLinksLinksSelf)
-  self: ListAccountTransactionsLinksLinksSelf;
+  @Type(() => ListAccountTransactionsLinksLinksHypertextReference)
+  self: ListAccountTransactionsLinksLinksHypertextReference;
 }
 
 /**
@@ -251,8 +233,7 @@ export class ListAccountTransactionsLinksSourceModifiedDate extends SpeakeasyBas
    */
   @SpeakeasyMetadata()
   @Expose({ name: "date" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  date?: Date;
+  date?: string;
 
   /**
    * Identifier of the direct cost (unique to the company).

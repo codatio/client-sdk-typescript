@@ -6,6 +6,24 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
+export class PostBankTransactionsRequestBodyTransactionsModifiedDate extends SpeakeasyBase {
+  /**
+   * The date on which this record was last modified in Codat.
+   */
+  @SpeakeasyMetadata()
+  @Expose({ name: "modifiedDate" })
+  modifiedDate?: string;
+}
+
+export class PostBankTransactionsRequestBodyTransactionsSourceModifiedDate extends SpeakeasyBase {
+  /**
+   * The date on which this record was last modified in the originating system
+   */
+  @SpeakeasyMetadata()
+  @Expose({ name: "sourceModifiedDate" })
+  sourceModifiedDate?: string;
+}
+
 export enum PostBankTransactionsRequestBodyTransactionsTransactionTypeEnum {
   Unknown = "Unknown",
   Credit = "Credit",
@@ -40,6 +58,29 @@ export class PostBankTransactionsRequestBodyTransactions extends SpeakeasyBase {
   @Expose({ name: "counterparty" })
   counterparty?: string;
 
+  /**
+   * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+   *
+   * @remarks
+   *
+   * ```
+   * 2020-10-08T22:40:50Z
+   * 2021-01-01T00:00:00
+   * ```
+   *
+   *
+   *
+   * When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
+   *
+   * - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
+   * - Unqualified local time: `2021-11-15T01:00:00`
+   * - UTC time offsets: `2021-11-15T01:00:00-05:00`
+   *
+   * > 📘 Time zones
+   * >
+   * > Not all dates from Codat will contain information about time zones.
+   * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "date" })
   date: string;
@@ -54,7 +95,8 @@ export class PostBankTransactionsRequestBodyTransactions extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
+  @Type(() => PostBankTransactionsRequestBodyTransactionsModifiedDate)
+  modifiedDate?: PostBankTransactionsRequestBodyTransactionsModifiedDate;
 
   @SpeakeasyMetadata()
   @Expose({ name: "reconciled" })
@@ -66,7 +108,8 @@ export class PostBankTransactionsRequestBodyTransactions extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
+  @Type(() => PostBankTransactionsRequestBodyTransactionsSourceModifiedDate)
+  sourceModifiedDate?: PostBankTransactionsRequestBodyTransactionsSourceModifiedDate;
 
   @SpeakeasyMetadata()
   @Expose({ name: "transactionType" })
@@ -176,6 +219,24 @@ export class PostBankTransactions200ApplicationJSONChanges extends SpeakeasyBase
   type?: PostBankTransactions200ApplicationJSONChangesTypeEnum;
 }
 
+export class PostBankTransactions200ApplicationJSONDataTransactionsModifiedDate extends SpeakeasyBase {
+  /**
+   * The date on which this record was last modified in Codat.
+   */
+  @SpeakeasyMetadata()
+  @Expose({ name: "modifiedDate" })
+  modifiedDate?: string;
+}
+
+export class PostBankTransactions200ApplicationJSONDataTransactionsSourceModifiedDate extends SpeakeasyBase {
+  /**
+   * The date on which this record was last modified in the originating system
+   */
+  @SpeakeasyMetadata()
+  @Expose({ name: "sourceModifiedDate" })
+  sourceModifiedDate?: string;
+}
+
 export enum PostBankTransactions200ApplicationJSONDataTransactionsTransactionTypeEnum {
   Unknown = "Unknown",
   Credit = "Credit",
@@ -210,6 +271,29 @@ export class PostBankTransactions200ApplicationJSONDataTransactions extends Spea
   @Expose({ name: "counterparty" })
   counterparty?: string;
 
+  /**
+   * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+   *
+   * @remarks
+   *
+   * ```
+   * 2020-10-08T22:40:50Z
+   * 2021-01-01T00:00:00
+   * ```
+   *
+   *
+   *
+   * When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
+   *
+   * - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
+   * - Unqualified local time: `2021-11-15T01:00:00`
+   * - UTC time offsets: `2021-11-15T01:00:00-05:00`
+   *
+   * > 📘 Time zones
+   * >
+   * > Not all dates from Codat will contain information about time zones.
+   * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "date" })
   date: string;
@@ -224,7 +308,10 @@ export class PostBankTransactions200ApplicationJSONDataTransactions extends Spea
 
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
+  @Type(
+    () => PostBankTransactions200ApplicationJSONDataTransactionsModifiedDate
+  )
+  modifiedDate?: PostBankTransactions200ApplicationJSONDataTransactionsModifiedDate;
 
   @SpeakeasyMetadata()
   @Expose({ name: "reconciled" })
@@ -236,7 +323,11 @@ export class PostBankTransactions200ApplicationJSONDataTransactions extends Spea
 
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
+  @Type(
+    () =>
+      PostBankTransactions200ApplicationJSONDataTransactionsSourceModifiedDate
+  )
+  sourceModifiedDate?: PostBankTransactions200ApplicationJSONDataTransactionsSourceModifiedDate;
 
   @SpeakeasyMetadata()
   @Expose({ name: "transactionType" })

@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class GetSalesOrderRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -389,8 +389,7 @@ export class GetSalesOrderSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "expectedDeliveryDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  expectedDeliveryDate?: Date;
+  expectedDeliveryDate?: string;
 
   /**
    * Identifier for the sales order, unique for the company in the accounting platform.

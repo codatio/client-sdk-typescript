@@ -54,50 +54,50 @@ export class ListBankAccountTransactionsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListBankAccountTransactionsLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListBankAccountTransactionsLinksLinksNext extends SpeakeasyBase {
+export class ListBankAccountTransactionsLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class ListBankAccountTransactionsLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListBankAccountTransactionsLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class ListBankAccountTransactionsLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListBankAccountTransactionsLinksLinksCurrent)
-  current: ListBankAccountTransactionsLinksLinksCurrent;
+  @Type(() => ListBankAccountTransactionsLinksLinksHypertextReference)
+  current: ListBankAccountTransactionsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListBankAccountTransactionsLinksLinksNext)
-  next?: ListBankAccountTransactionsLinksLinksNext;
+  @Type(() => ListBankAccountTransactionsLinksLinksHypertextReference)
+  next?: ListBankAccountTransactionsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListBankAccountTransactionsLinksLinksPrevious)
-  previous?: ListBankAccountTransactionsLinksLinksPrevious;
+  @Type(() => ListBankAccountTransactionsLinksLinksHypertextReference)
+  previous?: ListBankAccountTransactionsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListBankAccountTransactionsLinksLinksSelf)
-  self: ListBankAccountTransactionsLinksLinksSelf;
+  @Type(() => ListBankAccountTransactionsLinksLinksHypertextReference)
+  self: ListBankAccountTransactionsLinksLinksHypertextReference;
+}
+
+export class ListBankAccountTransactionsLinksResultsTransactionsModifiedDate extends SpeakeasyBase {
+  /**
+   * The date on which this record was last modified in Codat.
+   */
+  @SpeakeasyMetadata()
+  @Expose({ name: "modifiedDate" })
+  modifiedDate?: string;
+}
+
+export class ListBankAccountTransactionsLinksResultsTransactionsSourceModifiedDate extends SpeakeasyBase {
+  /**
+   * The date on which this record was last modified in the originating system
+   */
+  @SpeakeasyMetadata()
+  @Expose({ name: "sourceModifiedDate" })
+  sourceModifiedDate?: string;
 }
 
 export enum ListBankAccountTransactionsLinksResultsTransactionsTransactionTypeEnum {
@@ -134,6 +134,29 @@ export class ListBankAccountTransactionsLinksResultsTransactions extends Speakea
   @Expose({ name: "counterparty" })
   counterparty?: string;
 
+  /**
+   * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+   *
+   * @remarks
+   *
+   * ```
+   * 2020-10-08T22:40:50Z
+   * 2021-01-01T00:00:00
+   * ```
+   *
+   *
+   *
+   * When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
+   *
+   * - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
+   * - Unqualified local time: `2021-11-15T01:00:00`
+   * - UTC time offsets: `2021-11-15T01:00:00-05:00`
+   *
+   * > 📘 Time zones
+   * >
+   * > Not all dates from Codat will contain information about time zones.
+   * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "date" })
   date: string;
@@ -148,7 +171,8 @@ export class ListBankAccountTransactionsLinksResultsTransactions extends Speakea
 
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
+  @Type(() => ListBankAccountTransactionsLinksResultsTransactionsModifiedDate)
+  modifiedDate?: ListBankAccountTransactionsLinksResultsTransactionsModifiedDate;
 
   @SpeakeasyMetadata()
   @Expose({ name: "reconciled" })
@@ -160,7 +184,10 @@ export class ListBankAccountTransactionsLinksResultsTransactions extends Speakea
 
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
+  @Type(
+    () => ListBankAccountTransactionsLinksResultsTransactionsSourceModifiedDate
+  )
+  sourceModifiedDate?: ListBankAccountTransactionsLinksResultsTransactionsSourceModifiedDate;
 
   @SpeakeasyMetadata()
   @Expose({ name: "transactionType" })

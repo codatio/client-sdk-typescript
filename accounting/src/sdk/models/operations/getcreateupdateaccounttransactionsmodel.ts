@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class GetCreateUpdateAccountTransactionsModelRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -188,8 +188,7 @@ export class GetCreateUpdateAccountTransactionsModelSourceModifiedDate extends S
    */
   @SpeakeasyMetadata()
   @Expose({ name: "date" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  date?: Date;
+  date?: string;
 
   /**
    * Identifier of the direct cost (unique to the company).

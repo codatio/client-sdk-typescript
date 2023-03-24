@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class GetBalanceSheetRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -23,9 +23,9 @@ export class GetBalanceSheetRequest extends SpeakeasyBase {
   periodsToCompare: number;
 
   @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=startMonth;dateTimeFormat=YYYY-MM-DDThh:mm:ss.sssZ",
+    data: "queryParam, style=form;explode=true;name=startMonth",
   })
-  startMonth?: Date;
+  startMonth?: string;
 }
 
 export class GetBalanceSheet200ApplicationJSONBalanceSheetReportLineReportLineReportLineReportLine extends SpeakeasyBase {
@@ -239,16 +239,14 @@ export class GetBalanceSheet200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "earliestAvailableMonth" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  earliestAvailableMonth?: Date;
+  earliestAvailableMonth?: string;
 
   /**
    * Most recent available monthly report data.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "mostRecentAvailableMonth" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  mostRecentAvailableMonth?: Date;
+  mostRecentAvailableMonth?: string;
 
   /**
    * An array of BalanceSheet reports.

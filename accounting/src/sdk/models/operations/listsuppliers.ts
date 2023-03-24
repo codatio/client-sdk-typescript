@@ -41,50 +41,32 @@ export class ListSuppliersRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListSuppliersLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListSuppliersLinksLinksNext extends SpeakeasyBase {
+export class ListSuppliersLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class ListSuppliersLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListSuppliersLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class ListSuppliersLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListSuppliersLinksLinksCurrent)
-  current: ListSuppliersLinksLinksCurrent;
+  @Type(() => ListSuppliersLinksLinksHypertextReference)
+  current: ListSuppliersLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListSuppliersLinksLinksNext)
-  next?: ListSuppliersLinksLinksNext;
+  @Type(() => ListSuppliersLinksLinksHypertextReference)
+  next?: ListSuppliersLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListSuppliersLinksLinksPrevious)
-  previous?: ListSuppliersLinksLinksPrevious;
+  @Type(() => ListSuppliersLinksLinksHypertextReference)
+  previous?: ListSuppliersLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListSuppliersLinksLinksSelf)
-  self: ListSuppliersLinksLinksSelf;
+  @Type(() => ListSuppliersLinksLinksHypertextReference)
+  self: ListSuppliersLinksLinksHypertextReference;
 }
 
 /**

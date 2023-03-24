@@ -41,50 +41,32 @@ export class ListBillsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListBillsLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListBillsLinksLinksNext extends SpeakeasyBase {
+export class ListBillsLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class ListBillsLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListBillsLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class ListBillsLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListBillsLinksLinksCurrent)
-  current: ListBillsLinksLinksCurrent;
+  @Type(() => ListBillsLinksLinksHypertextReference)
+  current: ListBillsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListBillsLinksLinksNext)
-  next?: ListBillsLinksLinksNext;
+  @Type(() => ListBillsLinksLinksHypertextReference)
+  next?: ListBillsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListBillsLinksLinksPrevious)
-  previous?: ListBillsLinksLinksPrevious;
+  @Type(() => ListBillsLinksLinksHypertextReference)
+  previous?: ListBillsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListBillsLinksLinksSelf)
-  self: ListBillsLinksLinksSelf;
+  @Type(() => ListBillsLinksLinksHypertextReference)
+  self: ListBillsLinksLinksHypertextReference;
 }
 
 /**

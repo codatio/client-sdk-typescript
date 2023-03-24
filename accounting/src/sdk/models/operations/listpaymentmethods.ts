@@ -41,50 +41,32 @@ export class ListPaymentMethodsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListPaymentMethodsLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListPaymentMethodsLinksLinksNext extends SpeakeasyBase {
+export class ListPaymentMethodsLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class ListPaymentMethodsLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListPaymentMethodsLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class ListPaymentMethodsLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListPaymentMethodsLinksLinksCurrent)
-  current: ListPaymentMethodsLinksLinksCurrent;
+  @Type(() => ListPaymentMethodsLinksLinksHypertextReference)
+  current: ListPaymentMethodsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListPaymentMethodsLinksLinksNext)
-  next?: ListPaymentMethodsLinksLinksNext;
+  @Type(() => ListPaymentMethodsLinksLinksHypertextReference)
+  next?: ListPaymentMethodsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListPaymentMethodsLinksLinksPrevious)
-  previous?: ListPaymentMethodsLinksLinksPrevious;
+  @Type(() => ListPaymentMethodsLinksLinksHypertextReference)
+  previous?: ListPaymentMethodsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListPaymentMethodsLinksLinksSelf)
-  self: ListPaymentMethodsLinksLinksSelf;
+  @Type(() => ListPaymentMethodsLinksLinksHypertextReference)
+  self: ListPaymentMethodsLinksLinksHypertextReference;
 }
 
 export class ListPaymentMethodsLinksSourceModifiedDateMetadata extends SpeakeasyBase {

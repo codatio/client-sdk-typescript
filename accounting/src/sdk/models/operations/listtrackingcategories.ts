@@ -41,50 +41,32 @@ export class ListTrackingCategoriesRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListTrackingCategoriesLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListTrackingCategoriesLinksLinksNext extends SpeakeasyBase {
+export class ListTrackingCategoriesLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class ListTrackingCategoriesLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListTrackingCategoriesLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class ListTrackingCategoriesLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListTrackingCategoriesLinksLinksCurrent)
-  current: ListTrackingCategoriesLinksLinksCurrent;
+  @Type(() => ListTrackingCategoriesLinksLinksHypertextReference)
+  current: ListTrackingCategoriesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListTrackingCategoriesLinksLinksNext)
-  next?: ListTrackingCategoriesLinksLinksNext;
+  @Type(() => ListTrackingCategoriesLinksLinksHypertextReference)
+  next?: ListTrackingCategoriesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListTrackingCategoriesLinksLinksPrevious)
-  previous?: ListTrackingCategoriesLinksLinksPrevious;
+  @Type(() => ListTrackingCategoriesLinksLinksHypertextReference)
+  previous?: ListTrackingCategoriesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListTrackingCategoriesLinksLinksSelf)
-  self: ListTrackingCategoriesLinksLinksSelf;
+  @Type(() => ListTrackingCategoriesLinksLinksHypertextReference)
+  self: ListTrackingCategoriesLinksLinksHypertextReference;
 }
 
 /**

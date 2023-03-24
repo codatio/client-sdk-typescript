@@ -41,50 +41,32 @@ export class ListCreditNotesRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListCreditNotesLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListCreditNotesLinksLinksNext extends SpeakeasyBase {
+export class ListCreditNotesLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class ListCreditNotesLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListCreditNotesLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class ListCreditNotesLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListCreditNotesLinksLinksCurrent)
-  current: ListCreditNotesLinksLinksCurrent;
+  @Type(() => ListCreditNotesLinksLinksHypertextReference)
+  current: ListCreditNotesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListCreditNotesLinksLinksNext)
-  next?: ListCreditNotesLinksLinksNext;
+  @Type(() => ListCreditNotesLinksLinksHypertextReference)
+  next?: ListCreditNotesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListCreditNotesLinksLinksPrevious)
-  previous?: ListCreditNotesLinksLinksPrevious;
+  @Type(() => ListCreditNotesLinksLinksHypertextReference)
+  previous?: ListCreditNotesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListCreditNotesLinksLinksSelf)
-  self: ListCreditNotesLinksLinksSelf;
+  @Type(() => ListCreditNotesLinksLinksHypertextReference)
+  self: ListCreditNotesLinksLinksHypertextReference;
 }
 
 /**

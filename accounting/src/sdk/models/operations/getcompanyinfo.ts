@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class GetCompanyInfoRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -170,16 +170,14 @@ export class GetCompanyInfoCompanyInfo extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "createdDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  createdDate?: Date;
+  createdDate?: string;
 
   /**
    * Start date of the financial year for the company.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "financialYearStartDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  financialYearStartDate?: Date;
+  financialYearStartDate?: string;
 
   /**
    * If set in the accounting platform, the date (in the ISO 8601 date/time format) after which accounting transactions cannot be edited. Commonly used when books are closed at year-end.

@@ -46,50 +46,32 @@ export class GetDirectCostsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class GetDirectCostsLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class GetDirectCostsLinksLinksNext extends SpeakeasyBase {
+export class GetDirectCostsLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class GetDirectCostsLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class GetDirectCostsLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class GetDirectCostsLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => GetDirectCostsLinksLinksCurrent)
-  current: GetDirectCostsLinksLinksCurrent;
+  @Type(() => GetDirectCostsLinksLinksHypertextReference)
+  current: GetDirectCostsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => GetDirectCostsLinksLinksNext)
-  next?: GetDirectCostsLinksLinksNext;
+  @Type(() => GetDirectCostsLinksLinksHypertextReference)
+  next?: GetDirectCostsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => GetDirectCostsLinksLinksPrevious)
-  previous?: GetDirectCostsLinksLinksPrevious;
+  @Type(() => GetDirectCostsLinksLinksHypertextReference)
+  previous?: GetDirectCostsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => GetDirectCostsLinksLinksSelf)
-  self: GetDirectCostsLinksLinksSelf;
+  @Type(() => GetDirectCostsLinksLinksHypertextReference)
+  self: GetDirectCostsLinksLinksHypertextReference;
 }
 
 /**

@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class GetInvoiceAttachmentRequest extends SpeakeasyBase {
   /**
@@ -34,6 +34,24 @@ export class GetInvoiceAttachmentRequest extends SpeakeasyBase {
   invoiceId: string;
 }
 
+export class GetInvoiceAttachmentAttachmentModifiedDate extends SpeakeasyBase {
+  /**
+   * The date on which this record was last modified in Codat.
+   */
+  @SpeakeasyMetadata()
+  @Expose({ name: "modifiedDate" })
+  modifiedDate?: string;
+}
+
+export class GetInvoiceAttachmentAttachmentSourceModifiedDate extends SpeakeasyBase {
+  /**
+   * The date on which this record was last modified in the originating system
+   */
+  @SpeakeasyMetadata()
+  @Expose({ name: "sourceModifiedDate" })
+  sourceModifiedDate?: string;
+}
+
 /**
  * Success
  */
@@ -42,10 +60,32 @@ export class GetInvoiceAttachmentAttachment extends SpeakeasyBase {
   @Expose({ name: "contentType" })
   contentType?: string;
 
+  /**
+   * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+   *
+   * @remarks
+   *
+   * ```
+   * 2020-10-08T22:40:50Z
+   * 2021-01-01T00:00:00
+   * ```
+   *
+   *
+   *
+   * When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
+   *
+   * - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
+   * - Unqualified local time: `2021-11-15T01:00:00`
+   * - UTC time offsets: `2021-11-15T01:00:00-05:00`
+   *
+   * > 📘 Time zones
+   * >
+   * > Not all dates from Codat will contain information about time zones.
+   * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "dateCreated" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  dateCreated?: Date;
+  dateCreated?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "fileSize" })
@@ -61,8 +101,8 @@ export class GetInvoiceAttachmentAttachment extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  @Type(() => GetInvoiceAttachmentAttachmentModifiedDate)
+  modifiedDate?: GetInvoiceAttachmentAttachmentModifiedDate;
 
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
@@ -70,8 +110,8 @@ export class GetInvoiceAttachmentAttachment extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  sourceModifiedDate?: Date;
+  @Type(() => GetInvoiceAttachmentAttachmentSourceModifiedDate)
+  sourceModifiedDate?: GetInvoiceAttachmentAttachmentSourceModifiedDate;
 }
 
 export class GetInvoiceAttachmentResponse extends SpeakeasyBase {
