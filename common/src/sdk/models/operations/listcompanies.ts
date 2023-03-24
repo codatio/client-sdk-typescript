@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class ListCompaniesRequest extends SpeakeasyBase {
   /**
@@ -94,50 +94,32 @@ export class ListCompanies400ApplicationJSON extends SpeakeasyBase {
   statusCode?: number;
 }
 
-export class ListCompaniesLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListCompaniesLinksLinksNext extends SpeakeasyBase {
+export class ListCompaniesLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class ListCompaniesLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListCompaniesLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class ListCompaniesLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListCompaniesLinksLinksCurrent)
-  current: ListCompaniesLinksLinksCurrent;
+  @Type(() => ListCompaniesLinksLinksHypertextReference)
+  current: ListCompaniesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListCompaniesLinksLinksNext)
-  next?: ListCompaniesLinksLinksNext;
+  @Type(() => ListCompaniesLinksLinksHypertextReference)
+  next?: ListCompaniesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListCompaniesLinksLinksPrevious)
-  previous?: ListCompaniesLinksLinksPrevious;
+  @Type(() => ListCompaniesLinksLinksHypertextReference)
+  previous?: ListCompaniesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListCompaniesLinksLinksSelf)
-  self: ListCompaniesLinksLinksSelf;
+  @Type(() => ListCompaniesLinksLinksHypertextReference)
+  self: ListCompaniesLinksLinksHypertextReference;
 }
 
 export class ListCompaniesLinksCompanyConnectionConnectionInfo extends SpeakeasyBase {
@@ -341,10 +323,32 @@ export class ListCompaniesLinksCompanyConnection extends SpeakeasyBase {
  * A company in Codat represent a small or medium sized business, whose data you wish to share
  */
 export class ListCompaniesLinksCompany extends SpeakeasyBase {
+  /**
+   * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+   *
+   * @remarks
+   *
+   * ```
+   * 2020-10-08T22:40:50Z
+   * 2021-01-01T00:00:00
+   * ```
+   *
+   *
+   *
+   * When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
+   *
+   * - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
+   * - Unqualified local time: `2021-11-15T01:00:00`
+   * - UTC time offsets: `2021-11-15T01:00:00-05:00`
+   *
+   * > 📘 Time zones
+   * >
+   * > Not all dates from Codat will contain information about time zones.
+   * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "created" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  created?: Date;
+  created?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "createdByUserName" })
@@ -369,10 +373,32 @@ export class ListCompaniesLinksCompany extends SpeakeasyBase {
   @Expose({ name: "id" })
   id: string;
 
+  /**
+   * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+   *
+   * @remarks
+   *
+   * ```
+   * 2020-10-08T22:40:50Z
+   * 2021-01-01T00:00:00
+   * ```
+   *
+   *
+   *
+   * When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
+   *
+   * - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
+   * - Unqualified local time: `2021-11-15T01:00:00`
+   * - UTC time offsets: `2021-11-15T01:00:00-05:00`
+   *
+   * > 📘 Time zones
+   * >
+   * > Not all dates from Codat will contain information about time zones.
+   * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "lastSync" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  lastSync?: Date;
+  lastSync?: string;
 
   /**
    * The name of the company

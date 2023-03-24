@@ -365,9 +365,9 @@ export class Connections {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.links = utils.deserializeJSONResponse(
+            res.listConnectionsResponse = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.ListCompanyConnectionsLinks
+              operations.ListCompanyConnectionsListConnectionsResponse
             );
           }
           break;

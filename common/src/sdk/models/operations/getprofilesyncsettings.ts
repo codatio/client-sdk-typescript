@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 /**
  * Your API request was not properly authorized.
@@ -66,8 +66,7 @@ export class GetProfileSyncSettings200ApplicationJSONSyncSetting extends Speakea
    */
   @SpeakeasyMetadata()
   @Expose({ name: "syncFromUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  syncFromUtc?: Date;
+  syncFromUtc?: string;
 
   /**
    * Number of months of data to be fetched. Set this *or* `syncFromUTC`

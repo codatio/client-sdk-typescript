@@ -94,50 +94,32 @@ export class ListRules400ApplicationJSON extends SpeakeasyBase {
   statusCode?: number;
 }
 
-export class ListRulesLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListRulesLinksLinksNext extends SpeakeasyBase {
+export class ListRulesLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class ListRulesLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListRulesLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class ListRulesLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListRulesLinksLinksCurrent)
-  current: ListRulesLinksLinksCurrent;
+  @Type(() => ListRulesLinksLinksHypertextReference)
+  current: ListRulesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListRulesLinksLinksNext)
-  next?: ListRulesLinksLinksNext;
+  @Type(() => ListRulesLinksLinksHypertextReference)
+  next?: ListRulesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListRulesLinksLinksPrevious)
-  previous?: ListRulesLinksLinksPrevious;
+  @Type(() => ListRulesLinksLinksHypertextReference)
+  previous?: ListRulesLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListRulesLinksLinksSelf)
-  self: ListRulesLinksLinksSelf;
+  @Type(() => ListRulesLinksLinksHypertextReference)
+  self: ListRulesLinksLinksHypertextReference;
 }
 
 export class ListRulesLinksWebhookNotifiers extends SpeakeasyBase {

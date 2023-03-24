@@ -99,53 +99,43 @@ export class ListCompanyConnections400ApplicationJSON extends SpeakeasyBase {
   statusCode?: number;
 }
 
-export class ListCompanyConnectionsLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListCompanyConnectionsLinksLinksNext extends SpeakeasyBase {
+export class ListCompanyConnectionsListConnectionsResponseLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class ListCompanyConnectionsLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListCompanyConnectionsLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListCompanyConnectionsLinksLinks extends SpeakeasyBase {
+export class ListCompanyConnectionsListConnectionsResponseLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListCompanyConnectionsLinksLinksCurrent)
-  current: ListCompanyConnectionsLinksLinksCurrent;
+  @Type(
+    () => ListCompanyConnectionsListConnectionsResponseLinksHypertextReference
+  )
+  current: ListCompanyConnectionsListConnectionsResponseLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListCompanyConnectionsLinksLinksNext)
-  next?: ListCompanyConnectionsLinksLinksNext;
+  @Type(
+    () => ListCompanyConnectionsListConnectionsResponseLinksHypertextReference
+  )
+  next?: ListCompanyConnectionsListConnectionsResponseLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListCompanyConnectionsLinksLinksPrevious)
-  previous?: ListCompanyConnectionsLinksLinksPrevious;
+  @Type(
+    () => ListCompanyConnectionsListConnectionsResponseLinksHypertextReference
+  )
+  previous?: ListCompanyConnectionsListConnectionsResponseLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListCompanyConnectionsLinksLinksSelf)
-  self: ListCompanyConnectionsLinksLinksSelf;
+  @Type(
+    () => ListCompanyConnectionsListConnectionsResponseLinksHypertextReference
+  )
+  self: ListCompanyConnectionsListConnectionsResponseLinksHypertextReference;
 }
 
-export class ListCompanyConnectionsLinksConnectionConnectionInfo extends SpeakeasyBase {
+export class ListCompanyConnectionsListConnectionsResponseConnectionConnectionInfo extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "additionalProp1" })
   additionalProp1?: string;
@@ -159,7 +149,7 @@ export class ListCompanyConnectionsLinksConnectionConnectionInfo extends Speakea
   additionalProp3?: string;
 }
 
-export class ListCompanyConnectionsLinksConnectionDataConnectionErrors extends SpeakeasyBase {
+export class ListCompanyConnectionsListConnectionsResponseConnectionDataConnectionErrors extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "errorMessage" })
   errorMessage?: string;
@@ -203,7 +193,7 @@ export class ListCompanyConnectionsLinksConnectionDataConnectionErrors extends S
 /**
  * The type of platform of the connection.
  */
-export enum ListCompanyConnectionsLinksConnectionSourceTypeEnum {
+export enum ListCompanyConnectionsListConnectionsResponseConnectionSourceTypeEnum {
   Accounting = "Accounting",
   Banking = "Banking",
   Commerce = "Commerce",
@@ -214,7 +204,7 @@ export enum ListCompanyConnectionsLinksConnectionSourceTypeEnum {
 /**
  * The current authorization status of the data connection.
  */
-export enum ListCompanyConnectionsLinksConnectionDataConnectionStatusEnum {
+export enum ListCompanyConnectionsListConnectionsResponseConnectionDataConnectionStatusEnum {
   PendingAuth = "PendingAuth",
   Linked = "Linked",
   Unlinked = "Unlinked",
@@ -224,11 +214,13 @@ export enum ListCompanyConnectionsLinksConnectionDataConnectionStatusEnum {
 /**
  * A connection represents the link between a `company` and a source of data.
  */
-export class ListCompanyConnectionsLinksConnection extends SpeakeasyBase {
+export class ListCompanyConnectionsListConnectionsResponseConnection extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "connectionInfo" })
-  @Type(() => ListCompanyConnectionsLinksConnectionConnectionInfo)
-  connectionInfo?: ListCompanyConnectionsLinksConnectionConnectionInfo;
+  @Type(
+    () => ListCompanyConnectionsListConnectionsResponseConnectionConnectionInfo
+  )
+  connectionInfo?: ListCompanyConnectionsListConnectionsResponseConnectionConnectionInfo;
 
   /**
    * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
@@ -258,11 +250,15 @@ export class ListCompanyConnectionsLinksConnection extends SpeakeasyBase {
   created: string;
 
   @SpeakeasyMetadata({
-    elemType: ListCompanyConnectionsLinksConnectionDataConnectionErrors,
+    elemType:
+      ListCompanyConnectionsListConnectionsResponseConnectionDataConnectionErrors,
   })
   @Expose({ name: "dataConnectionErrors" })
-  @Type(() => ListCompanyConnectionsLinksConnectionDataConnectionErrors)
-  dataConnectionErrors?: ListCompanyConnectionsLinksConnectionDataConnectionErrors[];
+  @Type(
+    () =>
+      ListCompanyConnectionsListConnectionsResponseConnectionDataConnectionErrors
+  )
+  dataConnectionErrors?: ListCompanyConnectionsListConnectionsResponseConnectionDataConnectionErrors[];
 
   /**
    * Unique identifier for a company's data connection.
@@ -332,58 +328,60 @@ export class ListCompanyConnectionsLinksConnection extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceType" })
-  sourceType: ListCompanyConnectionsLinksConnectionSourceTypeEnum;
+  sourceType: ListCompanyConnectionsListConnectionsResponseConnectionSourceTypeEnum;
 
   /**
    * The current authorization status of the data connection.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: ListCompanyConnectionsLinksConnectionDataConnectionStatusEnum;
+  status: ListCompanyConnectionsListConnectionsResponseConnectionDataConnectionStatusEnum;
 }
 
 /**
- * Codat's Paging Model
+ * OK
  */
-export class ListCompanyConnectionsLinks extends SpeakeasyBase {
+export class ListCompanyConnectionsListConnectionsResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => ListCompanyConnectionsLinksLinks)
-  links: ListCompanyConnectionsLinksLinks;
+  @Type(() => ListCompanyConnectionsListConnectionsResponseLinks)
+  links?: ListCompanyConnectionsListConnectionsResponseLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
-  pageNumber: number;
+  pageNumber?: number;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageSize" })
-  pageSize: number;
+  pageSize?: number;
 
-  @SpeakeasyMetadata({ elemType: ListCompanyConnectionsLinksConnection })
+  @SpeakeasyMetadata({
+    elemType: ListCompanyConnectionsListConnectionsResponseConnection,
+  })
   @Expose({ name: "results" })
-  @Type(() => ListCompanyConnectionsLinksConnection)
-  results?: ListCompanyConnectionsLinksConnection[];
+  @Type(() => ListCompanyConnectionsListConnectionsResponseConnection)
+  results?: ListCompanyConnectionsListConnectionsResponseConnection[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
-  totalResults: number;
+  totalResults?: number;
 }
 
 export class ListCompanyConnectionsResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
+  /**
+   * OK
+   */
+  @SpeakeasyMetadata()
+  listConnectionsResponse?: ListCompanyConnectionsListConnectionsResponse;
+
   @SpeakeasyMetadata()
   statusCode: number;
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
-
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  links?: ListCompanyConnectionsLinks;
 
   /**
    * Your `query` parameter was not correctly formed

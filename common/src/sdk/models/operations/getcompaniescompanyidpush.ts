@@ -41,50 +41,32 @@ export class GetCompaniesCompanyIdPushRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class GetCompaniesCompanyIdPushLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class GetCompaniesCompanyIdPushLinksLinksNext extends SpeakeasyBase {
+export class GetCompaniesCompanyIdPushLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class GetCompaniesCompanyIdPushLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class GetCompaniesCompanyIdPushLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class GetCompaniesCompanyIdPushLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => GetCompaniesCompanyIdPushLinksLinksCurrent)
-  current: GetCompaniesCompanyIdPushLinksLinksCurrent;
+  @Type(() => GetCompaniesCompanyIdPushLinksLinksHypertextReference)
+  current: GetCompaniesCompanyIdPushLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => GetCompaniesCompanyIdPushLinksLinksNext)
-  next?: GetCompaniesCompanyIdPushLinksLinksNext;
+  @Type(() => GetCompaniesCompanyIdPushLinksLinksHypertextReference)
+  next?: GetCompaniesCompanyIdPushLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => GetCompaniesCompanyIdPushLinksLinksPrevious)
-  previous?: GetCompaniesCompanyIdPushLinksLinksPrevious;
+  @Type(() => GetCompaniesCompanyIdPushLinksLinksHypertextReference)
+  previous?: GetCompaniesCompanyIdPushLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => GetCompaniesCompanyIdPushLinksLinksSelf)
-  self: GetCompaniesCompanyIdPushLinksLinksSelf;
+  @Type(() => GetCompaniesCompanyIdPushLinksLinksHypertextReference)
+  self: GetCompaniesCompanyIdPushLinksLinksHypertextReference;
 }
 
 export class GetCompaniesCompanyIdPushLinksResultsChangesPushOperationRecordRef extends SpeakeasyBase {

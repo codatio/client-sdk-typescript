@@ -94,50 +94,32 @@ export class ListIntegrations400ApplicationJSON extends SpeakeasyBase {
   statusCode?: number;
 }
 
-export class ListIntegrationsLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class ListIntegrationsLinksLinksNext extends SpeakeasyBase {
+export class ListIntegrationsLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class ListIntegrationsLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListIntegrationsLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class ListIntegrationsLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListIntegrationsLinksLinksCurrent)
-  current: ListIntegrationsLinksLinksCurrent;
+  @Type(() => ListIntegrationsLinksLinksHypertextReference)
+  current: ListIntegrationsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListIntegrationsLinksLinksNext)
-  next?: ListIntegrationsLinksLinksNext;
+  @Type(() => ListIntegrationsLinksLinksHypertextReference)
+  next?: ListIntegrationsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListIntegrationsLinksLinksPrevious)
-  previous?: ListIntegrationsLinksLinksPrevious;
+  @Type(() => ListIntegrationsLinksLinksHypertextReference)
+  previous?: ListIntegrationsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListIntegrationsLinksLinksSelf)
-  self: ListIntegrationsLinksLinksSelf;
+  @Type(() => ListIntegrationsLinksLinksHypertextReference)
+  self: ListIntegrationsLinksLinksHypertextReference;
 }
 
 export enum ListIntegrationsLinksIntegrationDatatypeFeatureSupportedFeaturesFeatureStateEnum {

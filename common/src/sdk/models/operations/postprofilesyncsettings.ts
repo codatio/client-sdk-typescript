@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 /**
  * Describes how often, and how much history, should be fetched for the given data type when a pull operation is queued.
@@ -37,8 +37,7 @@ export class PostProfileSyncSettingsRequestBodySyncSetting extends SpeakeasyBase
    */
   @SpeakeasyMetadata()
   @Expose({ name: "syncFromUtc" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  syncFromUtc?: Date;
+  syncFromUtc?: string;
 
   /**
    * Number of months of data to be fetched. Set this *or* `syncFromUTC`
