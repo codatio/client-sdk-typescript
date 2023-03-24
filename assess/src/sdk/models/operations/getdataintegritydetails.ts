@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 /**
  * A key for a Codat data type.
@@ -59,50 +59,32 @@ export class GetDataIntegrityDetailsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class GetDataIntegrityDetailsLinksLinksCurrent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
-}
-
-export class GetDataIntegrityDetailsLinksLinksNext extends SpeakeasyBase {
+export class GetDataIntegrityDetailsLinksLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
-}
-
-export class GetDataIntegrityDetailsLinksLinksPrevious extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class GetDataIntegrityDetailsLinksLinksSelf extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href: string;
 }
 
 export class GetDataIntegrityDetailsLinksLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => GetDataIntegrityDetailsLinksLinksCurrent)
-  current: GetDataIntegrityDetailsLinksLinksCurrent;
+  @Type(() => GetDataIntegrityDetailsLinksLinksHypertextReference)
+  current: GetDataIntegrityDetailsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => GetDataIntegrityDetailsLinksLinksNext)
-  next?: GetDataIntegrityDetailsLinksLinksNext;
+  @Type(() => GetDataIntegrityDetailsLinksLinksHypertextReference)
+  next?: GetDataIntegrityDetailsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => GetDataIntegrityDetailsLinksLinksPrevious)
-  previous?: GetDataIntegrityDetailsLinksLinksPrevious;
+  @Type(() => GetDataIntegrityDetailsLinksLinksHypertextReference)
+  previous?: GetDataIntegrityDetailsLinksLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => GetDataIntegrityDetailsLinksLinksSelf)
-  self: GetDataIntegrityDetailsLinksLinksSelf;
+  @Type(() => GetDataIntegrityDetailsLinksLinksHypertextReference)
+  self: GetDataIntegrityDetailsLinksLinksHypertextReference;
 }
 
 export class GetDataIntegrityDetailsLinksDataIntegrityDetailsMatches extends SpeakeasyBase {
@@ -183,8 +165,7 @@ export class GetDataIntegrityDetailsLinksDataIntegrityDetails extends SpeakeasyB
    */
   @SpeakeasyMetadata()
   @Expose({ name: "date" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  date?: Date;
+  date?: string;
 
   /**
    * The transaction description.

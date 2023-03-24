@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 export class AccountCategoriesUpdatedResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -23,8 +23,7 @@ export class AccountCategoriesUpdatedAccountCategoriesUpdatedWebhookData extends
    */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  modifiedDate?: Date;
+  modifiedDate?: string;
 }
 
 /**

@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Transform, Type } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 /**
  * A key for a Codat data type.
@@ -90,32 +90,28 @@ export class GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeDates exte
    */
   @SpeakeasyMetadata()
   @Expose({ name: "maxDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  maxDate?: Date;
+  maxDate?: string;
 
   /**
    * Latest date where transactions exist in both account and banking platforms.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "maxOverlappingDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  maxOverlappingDate?: Date;
+  maxOverlappingDate?: string;
 
   /**
    * Earliest date of transaction set.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "minDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  minDate?: Date;
+  minDate?: string;
 
   /**
    * Earliest date where transactions exist in both accounting and banking platforms.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "minOverlappingDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  minOverlappingDate?: Date;
+  minOverlappingDate?: string;
 }
 
 /**
@@ -141,8 +137,7 @@ export class GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeStatusInfo
    */
   @SpeakeasyMetadata()
   @Expose({ name: "lastMatched" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  lastMatched?: Date;
+  lastMatched?: string;
 
   /**
    * Detailed explanation supporting the status value.
