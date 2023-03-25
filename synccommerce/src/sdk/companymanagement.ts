@@ -68,7 +68,7 @@ export class CompanyManagement {
       }
     }
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
@@ -124,7 +124,7 @@ export class CompanyManagement {
     const baseURL: string = this._serverURL;
     const url: string = baseURL.replace(/\/$/, "") + "/meta/companies";
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const queryParams: string = utils.serializeQueryParams(req);
 
@@ -182,7 +182,7 @@ export class CompanyManagement {
       req
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const queryParams: string = utils.serializeQueryParams(req);
 
@@ -250,7 +250,7 @@ export class CompanyManagement {
       }
     }
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
@@ -324,7 +324,7 @@ export class CompanyManagement {
       }
     }
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
