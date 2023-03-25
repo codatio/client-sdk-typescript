@@ -25,6 +25,7 @@ src/sdk/taxrates.ts
 src/sdk/trackingcategories.ts
 src/sdk/transfers.ts
 src/sdk/sdk.ts
+.eslintrc.yml
 jest.config.js
 package-lock.json
 package.json
