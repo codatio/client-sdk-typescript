@@ -2,14 +2,14 @@ configVersion: 1.0.0
 management:
   docChecksum: 1b32b7b9342adf7bebf5231798cdbe7f
   docVersion: prealpha
-  speakeasyVersion: 1.17.0
-  generationVersion: 2.15.0
+  speakeasyVersion: 1.18.7
+  generationVersion: 2.16.1
 generation:
   telemetryEnabled: false
   sdkClassName: codat
   sdkFlattening: true
   singleTagPerOp: false
 typescript:
-  version: 0.7.0
+  version: 0.8.0
   author: Speakeasy
   packageName: '@codat/expenses'
