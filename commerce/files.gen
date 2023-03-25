@@ -8,6 +8,7 @@ src/sdk/products.ts
 src/sdk/taxcomponents.ts
 src/sdk/transactions.ts
 src/sdk/sdk.ts
+.eslintrc.yml
 jest.config.js
 package-lock.json
 package.json
