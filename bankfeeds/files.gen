@@ -1,6 +1,7 @@
 src/sdk/bankaccounttransactions.ts
 src/sdk/bankfeedaccounts.ts
 src/sdk/sdk.ts
+.eslintrc.yml
 jest.config.js
 package-lock.json
 package.json
