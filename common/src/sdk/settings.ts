@@ -45,7 +45,7 @@ export class Settings {
     const baseURL: string = this._serverURL;
     const url: string = baseURL.replace(/\/$/, "") + "/profile/syncSettings";
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const r = client.request({
       url: url,
@@ -101,7 +101,7 @@ export class Settings {
     const baseURL: string = this._serverURL;
     const url: string = baseURL.replace(/\/$/, "") + "/profile";
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const r = client.request({
       url: url,
@@ -175,7 +175,7 @@ export class Settings {
       }
     }
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
@@ -247,7 +247,7 @@ export class Settings {
       }
     }
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 

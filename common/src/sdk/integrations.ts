@@ -54,7 +54,7 @@ export class Integrations {
       req
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const r = client.request({
       url: url,
@@ -127,7 +127,7 @@ export class Integrations {
       req
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const r = client.request({
       url: url,
@@ -178,7 +178,7 @@ export class Integrations {
     const baseURL: string = this._serverURL;
     const url: string = baseURL.replace(/\/$/, "") + "/integrations";
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const queryParams: string = utils.serializeQueryParams(req);
 

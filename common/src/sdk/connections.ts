@@ -68,7 +68,7 @@ export class Connections {
       }
     }
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
@@ -128,7 +128,7 @@ export class Connections {
       req
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const r = client.request({
       url: url,
@@ -209,7 +209,7 @@ export class Connections {
       }
     }
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
@@ -268,7 +268,7 @@ export class Connections {
       req
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const r = client.request({
       url: url,
@@ -341,7 +341,7 @@ export class Connections {
       req
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const queryParams: string = utils.serializeQueryParams(req);
 
@@ -365,9 +365,9 @@ export class Connections {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listConnectionsResponse = utils.deserializeJSONResponse(
+            res.connections = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.ListCompanyConnectionsListConnectionsResponse
+              operations.ListCompanyConnectionsConnections
             );
           }
           break;
@@ -430,7 +430,7 @@ export class Connections {
       }
     }
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
