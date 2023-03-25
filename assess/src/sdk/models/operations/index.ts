@@ -17,6 +17,7 @@ export * from "./getdataintegritysummaries";
 export * from "./getenhancedbalancesheet";
 export * from "./getenhancedcashflowtransactions";
 export * from "./getenhancedfinancialmetrics";
+export * from "./getenhancedinvoicesreport";
 export * from "./getenhancedprofitandloss";
 export * from "./getexcelreport";
 export * from "./getrecurringrevenuemetrics";

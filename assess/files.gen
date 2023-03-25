@@ -3,6 +3,7 @@ src/sdk/dataintegrity.ts
 src/sdk/excelreports.ts
 src/sdk/reports.ts
 src/sdk/sdk.ts
+.eslintrc.yml
 jest.config.js
 package-lock.json
 package.json
@@ -40,6 +41,7 @@ src/sdk/models/operations/getcommercerevenuemetrics.ts
 src/sdk/models/operations/getenhancedbalancesheet.ts
 src/sdk/models/operations/getenhancedcashflowtransactions.ts
 src/sdk/models/operations/getenhancedfinancialmetrics.ts
+src/sdk/models/operations/getenhancedinvoicesreport.ts
 src/sdk/models/operations/getenhancedprofitandloss.ts
 src/sdk/models/operations/getrecurringrevenuemetrics.ts
 src/sdk/models/operations/requestrecurringrevenuemetrics.ts

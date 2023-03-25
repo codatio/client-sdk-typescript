@@ -54,7 +54,7 @@ export class Reports {
       req
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const queryParams: string = utils.serializeQueryParams(req);
 
@@ -111,7 +111,7 @@ export class Reports {
       req
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const queryParams: string = utils.serializeQueryParams(req);
 
@@ -168,7 +168,7 @@ export class Reports {
       req
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const queryParams: string = utils.serializeQueryParams(req);
 
@@ -226,7 +226,7 @@ export class Reports {
       req
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const queryParams: string = utils.serializeQueryParams(req);
 
@@ -284,7 +284,7 @@ export class Reports {
       req
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const queryParams: string = utils.serializeQueryParams(req);
 
@@ -342,7 +342,7 @@ export class Reports {
       req
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const queryParams: string = utils.serializeQueryParams(req);
 
@@ -400,7 +400,7 @@ export class Reports {
       req
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const queryParams: string = utils.serializeQueryParams(req);
 
@@ -458,7 +458,7 @@ export class Reports {
       req
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const queryParams: string = utils.serializeQueryParams(req);
 
@@ -516,7 +516,7 @@ export class Reports {
       req
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const queryParams: string = utils.serializeQueryParams(req);
 
@@ -573,7 +573,7 @@ export class Reports {
       req
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const queryParams: string = utils.serializeQueryParams(req);
 
@@ -611,6 +611,63 @@ export class Reports {
   }
 
   /**
+   * Enhanced Invoices Report
+   *
+   * @remarks
+   * Gets a list of invoices linked to the corresponding banking transaction
+   */
+  getEnhancedInvoicesReport(
+    req: operations.GetEnhancedInvoicesReportRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.GetEnhancedInvoicesReportResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.GetEnhancedInvoicesReportRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/reports/enhancedInvoices",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const queryParams: string = utils.serializeQueryParams(req);
+
+    const r = client.request({
+      url: url + queryParams,
+      method: "get",
+      ...config,
+    });
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.GetEnhancedInvoicesReportResponse =
+        new operations.GetEnhancedInvoicesReportResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.enhancedInvoicesReport = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.GetEnhancedInvoicesReportEnhancedInvoicesReport
+            );
+          }
+          break;
+      }
+
+      return res;
+    });
+  }
+
+  /**
    * Enhanced Profit and Loss
    *
    * @remarks
@@ -631,7 +688,7 @@ export class Reports {
       req
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const queryParams: string = utils.serializeQueryParams(req);
 
@@ -689,7 +746,7 @@ export class Reports {
       req
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const r = client.request({
       url: url,
@@ -745,7 +802,7 @@ export class Reports {
       req
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const r = client.request({
       url: url,

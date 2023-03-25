@@ -81,6 +81,7 @@ sdk.categories.getAccountCategory(req).then((res: GetAccountCategoryResponse | A
 * `getEnhancedBalanceSheet` - Enhanced Balance Sheet
 * `getEnhancedCashFlowTransactions` - Get enhanced cash flow report
 * `getEnhancedFinancialMetrics` - List finanicial metrics
+* `getEnhancedInvoicesReport` - Enhanced Invoices Report
 * `getEnhancedProfitAndLoss` - Enhanced Profit and Loss
 * `getRecurringRevenueMetrics` - Get key metrics for subscription revenue
 * `requestRecurringRevenueMetrics` - Request production of key subscription revenue metrics

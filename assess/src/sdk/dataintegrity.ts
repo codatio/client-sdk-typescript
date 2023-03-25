@@ -54,7 +54,7 @@ export class DataIntegrity {
       req
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const queryParams: string = utils.serializeQueryParams(req);
 
@@ -111,7 +111,7 @@ export class DataIntegrity {
       req
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const r = client.request({
       url: url,
@@ -167,7 +167,7 @@ export class DataIntegrity {
       req
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const queryParams: string = utils.serializeQueryParams(req);
 

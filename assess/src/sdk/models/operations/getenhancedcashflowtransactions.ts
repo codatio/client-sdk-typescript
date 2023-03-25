@@ -86,11 +86,20 @@ export class GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsDataSour
   accounts?: GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsDataSourcesAccounts[];
 }
 
+/**
+ * Report additional information, which is specific to Assess reports
+ */
 export class GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsReportInfo extends SpeakeasyBase {
+  /**
+   * Company name
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
   companyName?: string;
 
+  /**
+   * Date the report was generated
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "generatedDate" })
   generatedDate?: string;
@@ -103,6 +112,9 @@ export class GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsReportIn
   @Expose({ name: "pageSize" })
   pageSize?: number;
 
+  /**
+   * Name of the report
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "reportName" })
   reportName?: string;
@@ -216,6 +228,9 @@ export class GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactions extends
   )
   dataSources?: GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactionsDataSources[];
 
+  /**
+   * Report additional information, which is specific to Assess reports
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "reportInfo" })
   @Type(

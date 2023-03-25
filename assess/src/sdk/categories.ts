@@ -54,7 +54,7 @@ export class Categories {
       req
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const r = client.request({
       url: url,
@@ -109,7 +109,7 @@ export class Categories {
       req
     );
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const queryParams: string = utils.serializeQueryParams(req);
 
@@ -158,7 +158,7 @@ export class Categories {
     const url: string =
       baseURL.replace(/\/$/, "") + "/data/assess/accounts/categories";
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const r = client.request({
       url: url,
@@ -231,7 +231,7 @@ export class Categories {
       }
     }
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
@@ -304,7 +304,7 @@ export class Categories {
       }
     }
 
-    const client: AxiosInstance = this._securityClient!;
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
