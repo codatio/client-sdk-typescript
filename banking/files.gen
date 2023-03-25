@@ -3,6 +3,7 @@ src/sdk/accounts.ts
 src/sdk/transactioncategories.ts
 src/sdk/transactions.ts
 src/sdk/sdk.ts
+.eslintrc.yml
 jest.config.js
 package-lock.json
 package.json
