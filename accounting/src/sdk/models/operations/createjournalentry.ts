@@ -93,6 +93,9 @@ export class CreateJournalEntrySourceModifiedDateJournalRef extends SpeakeasyBas
 }
 
 export class CreateJournalEntrySourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
@@ -414,6 +417,9 @@ export class CreateJournalEntry200ApplicationJSONSourceModifiedDateJournalRef ex
 }
 
 export class CreateJournalEntry200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;

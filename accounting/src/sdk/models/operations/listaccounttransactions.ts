@@ -46,38 +46,38 @@ export class ListAccountTransactionsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListAccountTransactionsLinksLinksHypertextReference extends SpeakeasyBase {
+export class ListAccountTransactions200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class ListAccountTransactionsLinksLinks extends SpeakeasyBase {
+export class ListAccountTransactions200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListAccountTransactionsLinksLinksHypertextReference)
-  current: ListAccountTransactionsLinksLinksHypertextReference;
+  @Type(() => ListAccountTransactions200ApplicationJSONLinksHypertextReference)
+  current: ListAccountTransactions200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListAccountTransactionsLinksLinksHypertextReference)
-  next?: ListAccountTransactionsLinksLinksHypertextReference;
+  @Type(() => ListAccountTransactions200ApplicationJSONLinksHypertextReference)
+  next?: ListAccountTransactions200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListAccountTransactionsLinksLinksHypertextReference)
-  previous?: ListAccountTransactionsLinksLinksHypertextReference;
+  @Type(() => ListAccountTransactions200ApplicationJSONLinksHypertextReference)
+  previous?: ListAccountTransactions200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListAccountTransactionsLinksLinksHypertextReference)
-  self: ListAccountTransactionsLinksLinksHypertextReference;
+  @Type(() => ListAccountTransactions200ApplicationJSONLinksHypertextReference)
+  self: ListAccountTransactions200ApplicationJSONLinksHypertextReference;
 }
 
 /**
  * Reference to the bank account the account transaction is recorded against.
  */
-export class ListAccountTransactionsLinksSourceModifiedDateBankAccountRef extends SpeakeasyBase {
+export class ListAccountTransactions200ApplicationJSONSourceModifiedDateBankAccountRef extends SpeakeasyBase {
   /**
    * Bank account 'id' for the account transaction.
    */
@@ -96,7 +96,7 @@ export class ListAccountTransactionsLinksSourceModifiedDateBankAccountRef extend
 /**
  * Links an account transaction line to the underlying record that created it.
  */
-export class ListAccountTransactionsLinksSourceModifiedDateLinesRecordRef extends SpeakeasyBase {
+export class ListAccountTransactions200ApplicationJSONSourceModifiedDateLinesRecordRef extends SpeakeasyBase {
   /**
    * Name of the 'dataType'.
    */
@@ -112,7 +112,7 @@ export class ListAccountTransactionsLinksSourceModifiedDateLinesRecordRef extend
   id?: string;
 }
 
-export class ListAccountTransactionsLinksSourceModifiedDateLines extends SpeakeasyBase {
+export class ListAccountTransactions200ApplicationJSONSourceModifiedDateLines extends SpeakeasyBase {
   /**
    * Amount in the bill payment currency.
    */
@@ -132,11 +132,17 @@ export class ListAccountTransactionsLinksSourceModifiedDateLines extends Speakea
    */
   @SpeakeasyMetadata()
   @Expose({ name: "recordRef" })
-  @Type(() => ListAccountTransactionsLinksSourceModifiedDateLinesRecordRef)
-  recordRef?: ListAccountTransactionsLinksSourceModifiedDateLinesRecordRef;
+  @Type(
+    () =>
+      ListAccountTransactions200ApplicationJSONSourceModifiedDateLinesRecordRef
+  )
+  recordRef?: ListAccountTransactions200ApplicationJSONSourceModifiedDateLinesRecordRef;
 }
 
-export class ListAccountTransactionsLinksSourceModifiedDateMetadata extends SpeakeasyBase {
+export class ListAccountTransactions200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
@@ -145,7 +151,7 @@ export class ListAccountTransactionsLinksSourceModifiedDateMetadata extends Spea
 /**
  * The status of the account transaction.
  */
-export enum ListAccountTransactionsLinksSourceModifiedDateStatusEnum {
+export enum ListAccountTransactions200ApplicationJSONSourceModifiedDateStatusEnum {
   Unknown = "Unknown",
   Unreconciled = "Unreconciled",
   Reconciled = "Reconciled",
@@ -173,14 +179,17 @@ export enum ListAccountTransactionsLinksSourceModifiedDateStatusEnum {
  *
  * Account transactions is the parent data type of [payments](https://docs.codat.io/accounting-api#/schemas/Payment), [bill payments](https://docs.codat.io/accounting-api#/schemas/BillPayment), [direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost), [direct incomes](https://docs.codat.io/accounting-api#/schemas/DirectIncome), and [transfers](https://docs.codat.io/accounting-api#/schemas/Transfer).
  */
-export class ListAccountTransactionsLinksSourceModifiedDate extends SpeakeasyBase {
+export class ListAccountTransactions200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
    * Reference to the bank account the account transaction is recorded against.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "bankAccountRef" })
-  @Type(() => ListAccountTransactionsLinksSourceModifiedDateBankAccountRef)
-  bankAccountRef?: ListAccountTransactionsLinksSourceModifiedDateBankAccountRef;
+  @Type(
+    () =>
+      ListAccountTransactions200ApplicationJSONSourceModifiedDateBankAccountRef
+  )
+  bankAccountRef?: ListAccountTransactions200ApplicationJSONSourceModifiedDateBankAccountRef;
 
   /**
    * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code. e.g. _GBP_.
@@ -246,16 +255,18 @@ export class ListAccountTransactionsLinksSourceModifiedDate extends SpeakeasyBas
    * Array of account transaction lines.
    */
   @SpeakeasyMetadata({
-    elemType: ListAccountTransactionsLinksSourceModifiedDateLines,
+    elemType: ListAccountTransactions200ApplicationJSONSourceModifiedDateLines,
   })
   @Expose({ name: "lines" })
-  @Type(() => ListAccountTransactionsLinksSourceModifiedDateLines)
-  lines?: ListAccountTransactionsLinksSourceModifiedDateLines[];
+  @Type(() => ListAccountTransactions200ApplicationJSONSourceModifiedDateLines)
+  lines?: ListAccountTransactions200ApplicationJSONSourceModifiedDateLines[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => ListAccountTransactionsLinksSourceModifiedDateMetadata)
-  metadata?: ListAccountTransactionsLinksSourceModifiedDateMetadata;
+  @Type(
+    () => ListAccountTransactions200ApplicationJSONSourceModifiedDateMetadata
+  )
+  metadata?: ListAccountTransactions200ApplicationJSONSourceModifiedDateMetadata;
 
   /**
    * The date on which this record was last modified in Codat.
@@ -283,7 +294,7 @@ export class ListAccountTransactionsLinksSourceModifiedDate extends SpeakeasyBas
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status?: ListAccountTransactionsLinksSourceModifiedDateStatusEnum;
+  status?: ListAccountTransactions200ApplicationJSONSourceModifiedDateStatusEnum;
 
   /**
    * Total amount of the account transactions, inclusive of tax.
@@ -301,13 +312,13 @@ export class ListAccountTransactionsLinksSourceModifiedDate extends SpeakeasyBas
 }
 
 /**
- * Codat's Paging Model
+ * Success
  */
-export class ListAccountTransactionsLinks extends SpeakeasyBase {
+export class ListAccountTransactions200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => ListAccountTransactionsLinksLinks)
-  links: ListAccountTransactionsLinksLinks;
+  @Type(() => ListAccountTransactions200ApplicationJSONLinks)
+  links: ListAccountTransactions200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -318,11 +329,11 @@ export class ListAccountTransactionsLinks extends SpeakeasyBase {
   pageSize: number;
 
   @SpeakeasyMetadata({
-    elemType: ListAccountTransactionsLinksSourceModifiedDate,
+    elemType: ListAccountTransactions200ApplicationJSONSourceModifiedDate,
   })
   @Expose({ name: "results" })
-  @Type(() => ListAccountTransactionsLinksSourceModifiedDate)
-  results?: ListAccountTransactionsLinksSourceModifiedDate[];
+  @Type(() => ListAccountTransactions200ApplicationJSONSourceModifiedDate)
+  results?: ListAccountTransactions200ApplicationJSONSourceModifiedDate[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -343,5 +354,5 @@ export class ListAccountTransactionsResponse extends SpeakeasyBase {
    * Success
    */
   @SpeakeasyMetadata()
-  links?: ListAccountTransactionsLinks;
+  listAccountTransactions200ApplicationJSONObject?: ListAccountTransactions200ApplicationJSON;
 }

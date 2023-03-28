@@ -7,6 +7,9 @@ import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
 export class CreateAccountSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
@@ -297,6 +300,9 @@ export class CreateAccount200ApplicationJSONChanges extends SpeakeasyBase {
 }
 
 export class CreateAccount200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;

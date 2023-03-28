@@ -46,38 +46,38 @@ export class ListTransfersRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListTransfersLinksLinksHypertextReference extends SpeakeasyBase {
+export class ListTransfers200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class ListTransfersLinksLinks extends SpeakeasyBase {
+export class ListTransfers200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListTransfersLinksLinksHypertextReference)
-  current: ListTransfersLinksLinksHypertextReference;
+  @Type(() => ListTransfers200ApplicationJSONLinksHypertextReference)
+  current: ListTransfers200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListTransfersLinksLinksHypertextReference)
-  next?: ListTransfersLinksLinksHypertextReference;
+  @Type(() => ListTransfers200ApplicationJSONLinksHypertextReference)
+  next?: ListTransfers200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListTransfersLinksLinksHypertextReference)
-  previous?: ListTransfersLinksLinksHypertextReference;
+  @Type(() => ListTransfers200ApplicationJSONLinksHypertextReference)
+  previous?: ListTransfers200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListTransfersLinksLinksHypertextReference)
-  self: ListTransfersLinksLinksHypertextReference;
+  @Type(() => ListTransfers200ApplicationJSONLinksHypertextReference)
+  self: ListTransfers200ApplicationJSONLinksHypertextReference;
 }
 
 /**
  * The customer or supplier for the transfer, if available.
  */
-export class ListTransfersLinksSourceModifiedDateContactRef extends SpeakeasyBase {
+export class ListTransfers200ApplicationJSONSourceModifiedDateContactRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
   dataType?: string;
@@ -90,7 +90,7 @@ export class ListTransfersLinksSourceModifiedDateContactRef extends SpeakeasyBas
 /**
  * The account that the transfer is moving from or to.
  */
-export class ListTransfersLinksSourceModifiedDateTransferAccountAccountRef extends SpeakeasyBase {
+export class ListTransfers200ApplicationJSONSourceModifiedDateTransferAccountAccountRef extends SpeakeasyBase {
   /**
    * 'id' from the Accounts data type.
    */
@@ -109,14 +109,17 @@ export class ListTransfersLinksSourceModifiedDateTransferAccountAccountRef exten
 /**
  * The details of the accounts the transfer is moving from.
  */
-export class ListTransfersLinksSourceModifiedDateTransferAccount extends SpeakeasyBase {
+export class ListTransfers200ApplicationJSONSourceModifiedDateTransferAccount extends SpeakeasyBase {
   /**
    * The account that the transfer is moving from or to.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => ListTransfersLinksSourceModifiedDateTransferAccountAccountRef)
-  accountRef?: ListTransfersLinksSourceModifiedDateTransferAccountAccountRef;
+  @Type(
+    () =>
+      ListTransfers200ApplicationJSONSourceModifiedDateTransferAccountAccountRef
+  )
+  accountRef?: ListTransfers200ApplicationJSONSourceModifiedDateTransferAccountAccountRef;
 
   /**
    * The amount transferred between accounts.
@@ -133,7 +136,10 @@ export class ListTransfersLinksSourceModifiedDateTransferAccount extends Speakea
   currency?: string;
 }
 
-export class ListTransfersLinksSourceModifiedDateMetadata extends SpeakeasyBase {
+export class ListTransfers200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
@@ -142,7 +148,7 @@ export class ListTransfersLinksSourceModifiedDateMetadata extends SpeakeasyBase 
 /**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
  */
-export class ListTransfersLinksSourceModifiedDateSupplementalData extends SpeakeasyBase {
+export class ListTransfers200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
   content?: Record<string, Record<string, any>>;
@@ -151,7 +157,7 @@ export class ListTransfersLinksSourceModifiedDateSupplementalData extends Speake
 /**
  * References a category against which the item is tracked.
  */
-export class ListTransfersLinksSourceModifiedDateTrackingCategoryRefs extends SpeakeasyBase {
+export class ListTransfers200ApplicationJSONSourceModifiedDateTrackingCategoryRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -174,14 +180,14 @@ export class ListTransfersLinksSourceModifiedDateTrackingCategoryRefs extends Sp
  *
  * **Transfers** is a child data type of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction).
  */
-export class ListTransfersLinksSourceModifiedDate extends SpeakeasyBase {
+export class ListTransfers200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
    * The customer or supplier for the transfer, if available.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "contactRef" })
-  @Type(() => ListTransfersLinksSourceModifiedDateContactRef)
-  contactRef?: ListTransfersLinksSourceModifiedDateContactRef;
+  @Type(() => ListTransfers200ApplicationJSONSourceModifiedDateContactRef)
+  contactRef?: ListTransfers200ApplicationJSONSourceModifiedDateContactRef;
 
   /**
    * The day on which the transfer was made.
@@ -206,8 +212,8 @@ export class ListTransfersLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "from" })
-  @Type(() => ListTransfersLinksSourceModifiedDateTransferAccount)
-  from?: ListTransfersLinksSourceModifiedDateTransferAccount;
+  @Type(() => ListTransfers200ApplicationJSONSourceModifiedDateTransferAccount)
+  from?: ListTransfers200ApplicationJSONSourceModifiedDateTransferAccount;
 
   /**
    * Unique identifier for the transfer.
@@ -218,8 +224,8 @@ export class ListTransfersLinksSourceModifiedDate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => ListTransfersLinksSourceModifiedDateMetadata)
-  metadata?: ListTransfersLinksSourceModifiedDateMetadata;
+  @Type(() => ListTransfers200ApplicationJSONSourceModifiedDateMetadata)
+  metadata?: ListTransfers200ApplicationJSONSourceModifiedDateMetadata;
 
   /**
    * The date on which this record was last modified in Codat.
@@ -240,36 +246,39 @@ export class ListTransfersLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "supplementalData" })
-  @Type(() => ListTransfersLinksSourceModifiedDateSupplementalData)
-  supplementalData?: ListTransfersLinksSourceModifiedDateSupplementalData;
+  @Type(() => ListTransfers200ApplicationJSONSourceModifiedDateSupplementalData)
+  supplementalData?: ListTransfers200ApplicationJSONSourceModifiedDateSupplementalData;
 
   /**
    * The details of the accounts the transfer is moving to.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "to" })
-  @Type(() => ListTransfersLinksSourceModifiedDateTransferAccount)
-  to?: ListTransfersLinksSourceModifiedDateTransferAccount;
+  @Type(() => ListTransfers200ApplicationJSONSourceModifiedDateTransferAccount)
+  to?: ListTransfers200ApplicationJSONSourceModifiedDateTransferAccount;
 
   /**
    * Reference to the tracking categories this transfer is being tracked against.
    */
   @SpeakeasyMetadata({
-    elemType: ListTransfersLinksSourceModifiedDateTrackingCategoryRefs,
+    elemType:
+      ListTransfers200ApplicationJSONSourceModifiedDateTrackingCategoryRefs,
   })
   @Expose({ name: "trackingCategoryRefs" })
-  @Type(() => ListTransfersLinksSourceModifiedDateTrackingCategoryRefs)
-  trackingCategoryRefs?: ListTransfersLinksSourceModifiedDateTrackingCategoryRefs[];
+  @Type(
+    () => ListTransfers200ApplicationJSONSourceModifiedDateTrackingCategoryRefs
+  )
+  trackingCategoryRefs?: ListTransfers200ApplicationJSONSourceModifiedDateTrackingCategoryRefs[];
 }
 
 /**
- * Codat's Paging Model
+ * Success
  */
-export class ListTransfersLinks extends SpeakeasyBase {
+export class ListTransfers200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => ListTransfersLinksLinks)
-  links: ListTransfersLinksLinks;
+  @Type(() => ListTransfers200ApplicationJSONLinks)
+  links: ListTransfers200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -279,10 +288,12 @@ export class ListTransfersLinks extends SpeakeasyBase {
   @Expose({ name: "pageSize" })
   pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: ListTransfersLinksSourceModifiedDate })
+  @SpeakeasyMetadata({
+    elemType: ListTransfers200ApplicationJSONSourceModifiedDate,
+  })
   @Expose({ name: "results" })
-  @Type(() => ListTransfersLinksSourceModifiedDate)
-  results?: ListTransfersLinksSourceModifiedDate[];
+  @Type(() => ListTransfers200ApplicationJSONSourceModifiedDate)
+  results?: ListTransfers200ApplicationJSONSourceModifiedDate[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -303,5 +314,5 @@ export class ListTransfersResponse extends SpeakeasyBase {
    * Success
    */
   @SpeakeasyMetadata()
-  links?: ListTransfersLinks;
+  listTransfers200ApplicationJSONObject?: ListTransfers200ApplicationJSON;
 }

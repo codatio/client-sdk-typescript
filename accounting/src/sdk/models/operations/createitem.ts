@@ -184,6 +184,9 @@ export enum CreateItemSourceModifiedDateItemStatusEnum {
 }
 
 export class CreateItemSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
@@ -538,6 +541,9 @@ export enum CreateItem200ApplicationJSONSourceModifiedDateItemStatusEnum {
 }
 
 export class CreateItem200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;

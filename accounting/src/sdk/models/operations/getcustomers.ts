@@ -41,44 +41,44 @@ export class GetCustomersRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class GetCustomersLinksLinksHypertextReference extends SpeakeasyBase {
+export class GetCustomers200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class GetCustomersLinksLinks extends SpeakeasyBase {
+export class GetCustomers200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => GetCustomersLinksLinksHypertextReference)
-  current: GetCustomersLinksLinksHypertextReference;
+  @Type(() => GetCustomers200ApplicationJSONLinksHypertextReference)
+  current: GetCustomers200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => GetCustomersLinksLinksHypertextReference)
-  next?: GetCustomersLinksLinksHypertextReference;
+  @Type(() => GetCustomers200ApplicationJSONLinksHypertextReference)
+  next?: GetCustomers200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => GetCustomersLinksLinksHypertextReference)
-  previous?: GetCustomersLinksLinksHypertextReference;
+  @Type(() => GetCustomers200ApplicationJSONLinksHypertextReference)
+  previous?: GetCustomers200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => GetCustomersLinksLinksHypertextReference)
-  self: GetCustomersLinksLinksHypertextReference;
+  @Type(() => GetCustomers200ApplicationJSONLinksHypertextReference)
+  self: GetCustomers200ApplicationJSONLinksHypertextReference;
 }
 
 /**
  * Type of the address.
  */
-export enum GetCustomersLinksSourceModifiedDateAddressesTypeEnum {
+export enum GetCustomers200ApplicationJSONSourceModifiedDateAddressesTypeEnum {
   Unknown = "Unknown",
   Billing = "Billing",
   Delivery = "Delivery",
 }
 
-export class GetCustomersLinksSourceModifiedDateAddresses extends SpeakeasyBase {
+export class GetCustomers200ApplicationJSONSourceModifiedDateAddresses extends SpeakeasyBase {
   /**
    * City of the customer address.
    */
@@ -126,13 +126,13 @@ export class GetCustomersLinksSourceModifiedDateAddresses extends SpeakeasyBase 
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: GetCustomersLinksSourceModifiedDateAddressesTypeEnum;
+  type: GetCustomers200ApplicationJSONSourceModifiedDateAddressesTypeEnum;
 }
 
 /**
  * Type of the address.
  */
-export enum GetCustomersLinksSourceModifiedDateContactsAddressTypeEnum {
+export enum GetCustomers200ApplicationJSONSourceModifiedDateContactsAddressTypeEnum {
   Unknown = "Unknown",
   Billing = "Billing",
   Delivery = "Delivery",
@@ -141,7 +141,7 @@ export enum GetCustomersLinksSourceModifiedDateContactsAddressTypeEnum {
 /**
  * An object of Address information.
  */
-export class GetCustomersLinksSourceModifiedDateContactsAddress extends SpeakeasyBase {
+export class GetCustomers200ApplicationJSONSourceModifiedDateContactsAddress extends SpeakeasyBase {
   /**
    * City of the customer address.
    */
@@ -189,13 +189,13 @@ export class GetCustomersLinksSourceModifiedDateContactsAddress extends Speakeas
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: GetCustomersLinksSourceModifiedDateContactsAddressTypeEnum;
+  type: GetCustomers200ApplicationJSONSourceModifiedDateContactsAddressTypeEnum;
 }
 
 /**
  * Type of phone number.
  */
-export enum GetCustomersLinksSourceModifiedDateContactsPhoneTypeEnum {
+export enum GetCustomers200ApplicationJSONSourceModifiedDateContactsPhoneTypeEnum {
   Unknown = "Unknown",
   Primary = "Primary",
   Landline = "Landline",
@@ -203,7 +203,7 @@ export enum GetCustomersLinksSourceModifiedDateContactsPhoneTypeEnum {
   Fax = "Fax",
 }
 
-export class GetCustomersLinksSourceModifiedDateContactsPhone extends SpeakeasyBase {
+export class GetCustomers200ApplicationJSONSourceModifiedDateContactsPhone extends SpeakeasyBase {
   /**
    * Phone number for a customer contact.
    */
@@ -216,7 +216,7 @@ export class GetCustomersLinksSourceModifiedDateContactsPhone extends SpeakeasyB
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: GetCustomersLinksSourceModifiedDateContactsPhoneTypeEnum;
+  type: GetCustomers200ApplicationJSONSourceModifiedDateContactsPhoneTypeEnum;
 }
 
 /**
@@ -226,20 +226,20 @@ export class GetCustomersLinksSourceModifiedDateContactsPhone extends SpeakeasyB
  *
  * Customers can have multiple contacts.
  */
-export enum GetCustomersLinksSourceModifiedDateContactsStatusEnum {
+export enum GetCustomers200ApplicationJSONSourceModifiedDateContactsStatusEnum {
   Unknown = "Unknown",
   Active = "Active",
   Archived = "Archived",
 }
 
-export class GetCustomersLinksSourceModifiedDateContacts extends SpeakeasyBase {
+export class GetCustomers200ApplicationJSONSourceModifiedDateContacts extends SpeakeasyBase {
   /**
    * An object of Address information.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "address" })
-  @Type(() => GetCustomersLinksSourceModifiedDateContactsAddress)
-  address?: GetCustomersLinksSourceModifiedDateContactsAddress;
+  @Type(() => GetCustomers200ApplicationJSONSourceModifiedDateContactsAddress)
+  address?: GetCustomers200ApplicationJSONSourceModifiedDateContactsAddress;
 
   /**
    * Email of a contact for a customer.
@@ -286,11 +286,11 @@ export class GetCustomersLinksSourceModifiedDateContacts extends SpeakeasyBase {
    * An array of Phone numbers.
    */
   @SpeakeasyMetadata({
-    elemType: GetCustomersLinksSourceModifiedDateContactsPhone,
+    elemType: GetCustomers200ApplicationJSONSourceModifiedDateContactsPhone,
   })
   @Expose({ name: "phone" })
-  @Type(() => GetCustomersLinksSourceModifiedDateContactsPhone)
-  phone?: GetCustomersLinksSourceModifiedDateContactsPhone[];
+  @Type(() => GetCustomers200ApplicationJSONSourceModifiedDateContactsPhone)
+  phone?: GetCustomers200ApplicationJSONSourceModifiedDateContactsPhone[];
 
   /**
    * Status of customer contacts.
@@ -301,10 +301,13 @@ export class GetCustomersLinksSourceModifiedDateContacts extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: GetCustomersLinksSourceModifiedDateContactsStatusEnum;
+  status: GetCustomers200ApplicationJSONSourceModifiedDateContactsStatusEnum;
 }
 
-export class GetCustomersLinksSourceModifiedDateMetadata extends SpeakeasyBase {
+export class GetCustomers200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
@@ -313,7 +316,7 @@ export class GetCustomersLinksSourceModifiedDateMetadata extends SpeakeasyBase {
 /**
  * Current state of the customer.
  */
-export enum GetCustomersLinksSourceModifiedDateStatusEnum {
+export enum GetCustomers200ApplicationJSONSourceModifiedDateStatusEnum {
   Unknown = "Unknown",
   Active = "Active",
   Archived = "Archived",
@@ -322,7 +325,7 @@ export enum GetCustomersLinksSourceModifiedDateStatusEnum {
 /**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
  */
-export class GetCustomersLinksSourceModifiedDateSupplementalData extends SpeakeasyBase {
+export class GetCustomers200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
   content?: Record<string, Record<string, any>>;
@@ -340,14 +343,16 @@ export class GetCustomersLinksSourceModifiedDateSupplementalData extends Speakea
  * Customers' data links to accounts receivable [invoices](https://docs.codat.io/accounting-api#/schemas/Invoice).
  *
  */
-export class GetCustomersLinksSourceModifiedDate extends SpeakeasyBase {
+export class GetCustomers200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
    * An array of Addresses.
    */
-  @SpeakeasyMetadata({ elemType: GetCustomersLinksSourceModifiedDateAddresses })
+  @SpeakeasyMetadata({
+    elemType: GetCustomers200ApplicationJSONSourceModifiedDateAddresses,
+  })
   @Expose({ name: "addresses" })
-  @Type(() => GetCustomersLinksSourceModifiedDateAddresses)
-  addresses?: GetCustomersLinksSourceModifiedDateAddresses[];
+  @Type(() => GetCustomers200ApplicationJSONSourceModifiedDateAddresses)
+  addresses?: GetCustomers200ApplicationJSONSourceModifiedDateAddresses[];
 
   /**
    * Name of the main contact for the identified customer.
@@ -359,10 +364,12 @@ export class GetCustomersLinksSourceModifiedDate extends SpeakeasyBase {
   /**
    * An array of Contacts.
    */
-  @SpeakeasyMetadata({ elemType: GetCustomersLinksSourceModifiedDateContacts })
+  @SpeakeasyMetadata({
+    elemType: GetCustomers200ApplicationJSONSourceModifiedDateContacts,
+  })
   @Expose({ name: "contacts" })
-  @Type(() => GetCustomersLinksSourceModifiedDateContacts)
-  contacts?: GetCustomersLinksSourceModifiedDateContacts[];
+  @Type(() => GetCustomers200ApplicationJSONSourceModifiedDateContacts)
+  contacts?: GetCustomers200ApplicationJSONSourceModifiedDateContacts[];
 
   /**
    * Name of the customer as recorded in the accounting system, typically the company name.
@@ -394,8 +401,8 @@ export class GetCustomersLinksSourceModifiedDate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => GetCustomersLinksSourceModifiedDateMetadata)
-  metadata?: GetCustomersLinksSourceModifiedDateMetadata;
+  @Type(() => GetCustomers200ApplicationJSONSourceModifiedDateMetadata)
+  metadata?: GetCustomers200ApplicationJSONSourceModifiedDateMetadata;
 
   /**
    * The date on which this record was last modified in Codat.
@@ -430,15 +437,15 @@ export class GetCustomersLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: GetCustomersLinksSourceModifiedDateStatusEnum;
+  status: GetCustomers200ApplicationJSONSourceModifiedDateStatusEnum;
 
   /**
    * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "supplementalData" })
-  @Type(() => GetCustomersLinksSourceModifiedDateSupplementalData)
-  supplementalData?: GetCustomersLinksSourceModifiedDateSupplementalData;
+  @Type(() => GetCustomers200ApplicationJSONSourceModifiedDateSupplementalData)
+  supplementalData?: GetCustomers200ApplicationJSONSourceModifiedDateSupplementalData;
 
   /**
    * Company tax number.
@@ -449,13 +456,13 @@ export class GetCustomersLinksSourceModifiedDate extends SpeakeasyBase {
 }
 
 /**
- * Codat's Paging Model
+ * Success
  */
-export class GetCustomersLinks extends SpeakeasyBase {
+export class GetCustomers200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => GetCustomersLinksLinks)
-  links: GetCustomersLinksLinks;
+  @Type(() => GetCustomers200ApplicationJSONLinks)
+  links: GetCustomers200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -465,10 +472,12 @@ export class GetCustomersLinks extends SpeakeasyBase {
   @Expose({ name: "pageSize" })
   pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: GetCustomersLinksSourceModifiedDate })
+  @SpeakeasyMetadata({
+    elemType: GetCustomers200ApplicationJSONSourceModifiedDate,
+  })
   @Expose({ name: "results" })
-  @Type(() => GetCustomersLinksSourceModifiedDate)
-  results?: GetCustomersLinksSourceModifiedDate[];
+  @Type(() => GetCustomers200ApplicationJSONSourceModifiedDate)
+  results?: GetCustomers200ApplicationJSONSourceModifiedDate[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -489,5 +498,5 @@ export class GetCustomersResponse extends SpeakeasyBase {
    * Success
    */
   @SpeakeasyMetadata()
-  links?: GetCustomersLinks;
+  getCustomers200ApplicationJSONObject?: GetCustomers200ApplicationJSON;
 }

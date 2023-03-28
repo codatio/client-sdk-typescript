@@ -16,6 +16,9 @@ export enum CreateBankAccountSourceModifiedDateAccountTypeEnum {
 }
 
 export class CreateBankAccountSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
@@ -231,6 +234,9 @@ export enum CreateBankAccount200ApplicationJSONSourceModifiedDateAccountTypeEnum
 }
 
 export class CreateBankAccount200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;

@@ -41,38 +41,38 @@ export class ListCreditNotesRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListCreditNotesLinksLinksHypertextReference extends SpeakeasyBase {
+export class ListCreditNotes200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class ListCreditNotesLinksLinks extends SpeakeasyBase {
+export class ListCreditNotes200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListCreditNotesLinksLinksHypertextReference)
-  current: ListCreditNotesLinksLinksHypertextReference;
+  @Type(() => ListCreditNotes200ApplicationJSONLinksHypertextReference)
+  current: ListCreditNotes200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListCreditNotesLinksLinksHypertextReference)
-  next?: ListCreditNotesLinksLinksHypertextReference;
+  @Type(() => ListCreditNotes200ApplicationJSONLinksHypertextReference)
+  next?: ListCreditNotes200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListCreditNotesLinksLinksHypertextReference)
-  previous?: ListCreditNotesLinksLinksHypertextReference;
+  @Type(() => ListCreditNotes200ApplicationJSONLinksHypertextReference)
+  previous?: ListCreditNotes200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListCreditNotesLinksLinksHypertextReference)
-  self: ListCreditNotesLinksLinksHypertextReference;
+  @Type(() => ListCreditNotes200ApplicationJSONLinksHypertextReference)
+  self: ListCreditNotes200ApplicationJSONLinksHypertextReference;
 }
 
 /**
  * Reference to the customer the credit note has been issued to.
  */
-export class ListCreditNotesLinksSourceModifiedDateCustomerRef extends SpeakeasyBase {
+export class ListCreditNotes200ApplicationJSONSourceModifiedDateCustomerRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
   companyName?: string;
@@ -85,7 +85,7 @@ export class ListCreditNotesLinksSourceModifiedDateCustomerRef extends Speakeasy
 /**
  * Reference to the account to which the line item is linked.
  */
-export class ListCreditNotesLinksSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
+export class ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
   /**
    * 'id' from the Accounts data type.
    */
@@ -104,7 +104,7 @@ export class ListCreditNotesLinksSourceModifiedDateLineItemsAccountRef extends S
 /**
  * Reference to the item the line is linked to.
  */
-export class ListCreditNotesLinksSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
+export class ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -117,7 +117,7 @@ export class ListCreditNotesLinksSourceModifiedDateLineItemsItemRef extends Spea
 /**
  * Reference to the tax rate to which the line item is linked.
  */
-export class ListCreditNotesLinksSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
+export class ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
   /**
    * Applicable tax rate.
    */
@@ -143,7 +143,7 @@ export class ListCreditNotesLinksSourceModifiedDateLineItemsTaxRateRef extends S
 /**
  * References a category against which the item is tracked.
  */
-export class ListCreditNotesLinksSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
+export class ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -153,7 +153,7 @@ export class ListCreditNotesLinksSourceModifiedDateLineItemsTrackingCategoryRefs
   name?: string;
 }
 
-export class ListCreditNotesLinksSourceModifiedDateLineItemsTrackingCustomerRef extends SpeakeasyBase {
+export class ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTrackingCustomerRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
   companyName?: string;
@@ -163,19 +163,19 @@ export class ListCreditNotesLinksSourceModifiedDateLineItemsTrackingCustomerRef 
   id: string;
 }
 
-export enum ListCreditNotesLinksSourceModifiedDateLineItemsTrackingIsBilledToEnum {
+export enum ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTrackingIsBilledToEnum {
   Unknown = "Unknown",
   NotApplicable = "NotApplicable",
   Project = "Project",
 }
 
-export enum ListCreditNotesLinksSourceModifiedDateLineItemsTrackingIsRebilledToEnum {
+export enum ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTrackingIsRebilledToEnum {
   Unknown = "Unknown",
   NotApplicable = "NotApplicable",
   Project = "Project",
 }
 
-export class ListCreditNotesLinksSourceModifiedDateLineItemsTrackingProjectRef extends SpeakeasyBase {
+export class ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTrackingProjectRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -188,46 +188,53 @@ export class ListCreditNotesLinksSourceModifiedDateLineItemsTrackingProjectRef e
 /**
  * Categories, and a project and customer, against which the item is tracked.
  */
-export class ListCreditNotesLinksSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
+export class ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
   @SpeakeasyMetadata({
     elemType:
-      ListCreditNotesLinksSourceModifiedDateLineItemsTrackingCategoryRefs,
+      ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs,
   })
   @Expose({ name: "categoryRefs" })
   @Type(
-    () => ListCreditNotesLinksSourceModifiedDateLineItemsTrackingCategoryRefs
+    () =>
+      ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs
   )
-  categoryRefs: ListCreditNotesLinksSourceModifiedDateLineItemsTrackingCategoryRefs[];
+  categoryRefs: ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "customerRef" })
   @Type(
-    () => ListCreditNotesLinksSourceModifiedDateLineItemsTrackingCustomerRef
+    () =>
+      ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTrackingCustomerRef
   )
-  customerRef?: ListCreditNotesLinksSourceModifiedDateLineItemsTrackingCustomerRef;
+  customerRef?: ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTrackingCustomerRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "isBilledTo" })
-  isBilledTo: ListCreditNotesLinksSourceModifiedDateLineItemsTrackingIsBilledToEnum;
+  isBilledTo: ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTrackingIsBilledToEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "isRebilledTo" })
-  isRebilledTo: ListCreditNotesLinksSourceModifiedDateLineItemsTrackingIsRebilledToEnum;
+  isRebilledTo: ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTrackingIsRebilledToEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "projectRef" })
-  @Type(() => ListCreditNotesLinksSourceModifiedDateLineItemsTrackingProjectRef)
-  projectRef?: ListCreditNotesLinksSourceModifiedDateLineItemsTrackingProjectRef;
+  @Type(
+    () =>
+      ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTrackingProjectRef
+  )
+  projectRef?: ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTrackingProjectRef;
 }
 
-export class ListCreditNotesLinksSourceModifiedDateLineItems extends SpeakeasyBase {
+export class ListCreditNotes200ApplicationJSONSourceModifiedDateLineItems extends SpeakeasyBase {
   /**
    * Reference to the account to which the line item is linked.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => ListCreditNotesLinksSourceModifiedDateLineItemsAccountRef)
-  accountRef?: ListCreditNotesLinksSourceModifiedDateLineItemsAccountRef;
+  @Type(
+    () => ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsAccountRef
+  )
+  accountRef?: ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsAccountRef;
 
   /**
    * Friendly name of each line item. For example, the goods or service for which credit has been issued.
@@ -259,8 +266,10 @@ export class ListCreditNotesLinksSourceModifiedDateLineItems extends SpeakeasyBa
    */
   @SpeakeasyMetadata()
   @Expose({ name: "itemRef" })
-  @Type(() => ListCreditNotesLinksSourceModifiedDateLineItemsItemRef)
-  itemRef?: ListCreditNotesLinksSourceModifiedDateLineItemsItemRef;
+  @Type(
+    () => ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsItemRef
+  )
+  itemRef?: ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsItemRef;
 
   /**
    * Number of units of the goods or service for which credit has been issued.
@@ -288,8 +297,10 @@ export class ListCreditNotesLinksSourceModifiedDateLineItems extends SpeakeasyBa
    */
   @SpeakeasyMetadata()
   @Expose({ name: "taxRateRef" })
-  @Type(() => ListCreditNotesLinksSourceModifiedDateLineItemsTaxRateRef)
-  taxRateRef?: ListCreditNotesLinksSourceModifiedDateLineItemsTaxRateRef;
+  @Type(
+    () => ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef
+  )
+  taxRateRef?: ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef;
 
   /**
    * Total amount of the line item, including discounts and tax.
@@ -303,21 +314,24 @@ export class ListCreditNotesLinksSourceModifiedDateLineItems extends SpeakeasyBa
    */
   @SpeakeasyMetadata()
   @Expose({ name: "tracking" })
-  @Type(() => ListCreditNotesLinksSourceModifiedDateLineItemsTracking)
-  tracking?: ListCreditNotesLinksSourceModifiedDateLineItemsTracking;
+  @Type(
+    () => ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTracking
+  )
+  tracking?: ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTracking;
 
   /**
    * Reference to the tracking categories to which the line item is linked.
    */
   @SpeakeasyMetadata({
     elemType:
-      ListCreditNotesLinksSourceModifiedDateLineItemsTrackingCategoryRefs,
+      ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs,
   })
   @Expose({ name: "trackingCategoryRefs" })
   @Type(
-    () => ListCreditNotesLinksSourceModifiedDateLineItemsTrackingCategoryRefs
+    () =>
+      ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs
   )
-  trackingCategoryRefs?: ListCreditNotesLinksSourceModifiedDateLineItemsTrackingCategoryRefs[];
+  trackingCategoryRefs?: ListCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs[];
 
   /**
    * Unit price of the goods or service.
@@ -327,13 +341,16 @@ export class ListCreditNotesLinksSourceModifiedDateLineItems extends SpeakeasyBa
   unitAmount: number;
 }
 
-export class ListCreditNotesLinksSourceModifiedDateMetadata extends SpeakeasyBase {
+export class ListCreditNotes200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
 }
 
-export class ListCreditNotesLinksSourceModifiedDatePaymentAllocationsAllocation extends SpeakeasyBase {
+export class ListCreditNotes200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation extends SpeakeasyBase {
   /**
    * The date the payment was allocated.
    */
@@ -390,7 +407,7 @@ export class ListCreditNotesLinksSourceModifiedDatePaymentAllocationsAllocation 
 /**
  * The account that the allocated payment is made from or to.
  */
-export class ListCreditNotesLinksSourceModifiedDatePaymentAllocationsPaymentAccountRef extends SpeakeasyBase {
+export class ListCreditNotes200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef extends SpeakeasyBase {
   /**
    * 'id' from the Accounts data type.
    */
@@ -406,7 +423,7 @@ export class ListCreditNotesLinksSourceModifiedDatePaymentAllocationsPaymentAcco
   name?: string;
 }
 
-export class ListCreditNotesLinksSourceModifiedDatePaymentAllocationsPayment extends SpeakeasyBase {
+export class ListCreditNotes200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment extends SpeakeasyBase {
   /**
    * The account that the allocated payment is made from or to.
    */
@@ -414,9 +431,9 @@ export class ListCreditNotesLinksSourceModifiedDatePaymentAllocationsPayment ext
   @Expose({ name: "accountRef" })
   @Type(
     () =>
-      ListCreditNotesLinksSourceModifiedDatePaymentAllocationsPaymentAccountRef
+      ListCreditNotes200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef
   )
-  accountRef?: ListCreditNotesLinksSourceModifiedDatePaymentAllocationsPaymentAccountRef;
+  accountRef?: ListCreditNotes200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef;
 
   /**
    * Currency the payment has been made in.
@@ -492,24 +509,28 @@ export class ListCreditNotesLinksSourceModifiedDatePaymentAllocationsPayment ext
   totalAmount?: number;
 }
 
-export class ListCreditNotesLinksSourceModifiedDatePaymentAllocations extends SpeakeasyBase {
+export class ListCreditNotes200ApplicationJSONSourceModifiedDatePaymentAllocations extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "allocation" })
   @Type(
-    () => ListCreditNotesLinksSourceModifiedDatePaymentAllocationsAllocation
+    () =>
+      ListCreditNotes200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation
   )
-  allocation: ListCreditNotesLinksSourceModifiedDatePaymentAllocationsAllocation;
+  allocation: ListCreditNotes200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation;
 
   @SpeakeasyMetadata()
   @Expose({ name: "payment" })
-  @Type(() => ListCreditNotesLinksSourceModifiedDatePaymentAllocationsPayment)
-  payment: ListCreditNotesLinksSourceModifiedDatePaymentAllocationsPayment;
+  @Type(
+    () =>
+      ListCreditNotes200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment
+  )
+  payment: ListCreditNotes200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment;
 }
 
 /**
  * Current state of the credit note.
  */
-export enum ListCreditNotesLinksSourceModifiedDateStatusEnum {
+export enum ListCreditNotes200ApplicationJSONSourceModifiedDateStatusEnum {
   Unknown = "Unknown",
   Draft = "Draft",
   Submitted = "Submitted",
@@ -521,13 +542,13 @@ export enum ListCreditNotesLinksSourceModifiedDateStatusEnum {
 /**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
  */
-export class ListCreditNotesLinksSourceModifiedDateSupplementalData extends SpeakeasyBase {
+export class ListCreditNotes200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
   content?: Record<string, Record<string, any>>;
 }
 
-export class ListCreditNotesLinksSourceModifiedDateWithholdingTax extends SpeakeasyBase {
+export class ListCreditNotes200ApplicationJSONSourceModifiedDateWithholdingTax extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "amount" })
   amount: number;
@@ -553,7 +574,7 @@ export class ListCreditNotesLinksSourceModifiedDateWithholdingTax extends Speake
  * * Payment allocations against the payments type, in this case an invoice.
  * * Which customers the credit notes have been issued to.
  */
-export class ListCreditNotesLinksSourceModifiedDate extends SpeakeasyBase {
+export class ListCreditNotes200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "additionalTaxAmount" })
   additionalTaxAmount?: number;
@@ -619,8 +640,8 @@ export class ListCreditNotesLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "customerRef" })
-  @Type(() => ListCreditNotesLinksSourceModifiedDateCustomerRef)
-  customerRef?: ListCreditNotesLinksSourceModifiedDateCustomerRef;
+  @Type(() => ListCreditNotes200ApplicationJSONSourceModifiedDateCustomerRef)
+  customerRef?: ListCreditNotes200ApplicationJSONSourceModifiedDateCustomerRef;
 
   /**
    * Percentage rate (from 0 to 100) of discounts applied to the credit note.
@@ -644,16 +665,16 @@ export class ListCreditNotesLinksSourceModifiedDate extends SpeakeasyBase {
   issueDate?: string;
 
   @SpeakeasyMetadata({
-    elemType: ListCreditNotesLinksSourceModifiedDateLineItems,
+    elemType: ListCreditNotes200ApplicationJSONSourceModifiedDateLineItems,
   })
   @Expose({ name: "lineItems" })
-  @Type(() => ListCreditNotesLinksSourceModifiedDateLineItems)
-  lineItems?: ListCreditNotesLinksSourceModifiedDateLineItems[];
+  @Type(() => ListCreditNotes200ApplicationJSONSourceModifiedDateLineItems)
+  lineItems?: ListCreditNotes200ApplicationJSONSourceModifiedDateLineItems[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => ListCreditNotesLinksSourceModifiedDateMetadata)
-  metadata?: ListCreditNotesLinksSourceModifiedDateMetadata;
+  @Type(() => ListCreditNotes200ApplicationJSONSourceModifiedDateMetadata)
+  metadata?: ListCreditNotes200ApplicationJSONSourceModifiedDateMetadata;
 
   /**
    * The date on which this record was last modified in Codat.
@@ -673,11 +694,14 @@ export class ListCreditNotesLinksSourceModifiedDate extends SpeakeasyBase {
    * An array of payment allocations.
    */
   @SpeakeasyMetadata({
-    elemType: ListCreditNotesLinksSourceModifiedDatePaymentAllocations,
+    elemType:
+      ListCreditNotes200ApplicationJSONSourceModifiedDatePaymentAllocations,
   })
   @Expose({ name: "paymentAllocations" })
-  @Type(() => ListCreditNotesLinksSourceModifiedDatePaymentAllocations)
-  paymentAllocations?: ListCreditNotesLinksSourceModifiedDatePaymentAllocations[];
+  @Type(
+    () => ListCreditNotes200ApplicationJSONSourceModifiedDatePaymentAllocations
+  )
+  paymentAllocations?: ListCreditNotes200ApplicationJSONSourceModifiedDatePaymentAllocations[];
 
   /**
    * Unused balance of totalAmount originally raised.
@@ -698,7 +722,7 @@ export class ListCreditNotesLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: ListCreditNotesLinksSourceModifiedDateStatusEnum;
+  status: ListCreditNotes200ApplicationJSONSourceModifiedDateStatusEnum;
 
   /**
    * Value of the credit note, including discounts and excluding tax.
@@ -712,8 +736,10 @@ export class ListCreditNotesLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "supplementalData" })
-  @Type(() => ListCreditNotesLinksSourceModifiedDateSupplementalData)
-  supplementalData?: ListCreditNotesLinksSourceModifiedDateSupplementalData;
+  @Type(
+    () => ListCreditNotes200ApplicationJSONSourceModifiedDateSupplementalData
+  )
+  supplementalData?: ListCreditNotes200ApplicationJSONSourceModifiedDateSupplementalData;
 
   /**
    * Total amount of credit that has been applied to the customer's accounts receivable
@@ -737,21 +763,21 @@ export class ListCreditNotesLinksSourceModifiedDate extends SpeakeasyBase {
   totalTaxAmount: number;
 
   @SpeakeasyMetadata({
-    elemType: ListCreditNotesLinksSourceModifiedDateWithholdingTax,
+    elemType: ListCreditNotes200ApplicationJSONSourceModifiedDateWithholdingTax,
   })
   @Expose({ name: "withholdingTax" })
-  @Type(() => ListCreditNotesLinksSourceModifiedDateWithholdingTax)
-  withholdingTax?: ListCreditNotesLinksSourceModifiedDateWithholdingTax[];
+  @Type(() => ListCreditNotes200ApplicationJSONSourceModifiedDateWithholdingTax)
+  withholdingTax?: ListCreditNotes200ApplicationJSONSourceModifiedDateWithholdingTax[];
 }
 
 /**
- * Codat's Paging Model
+ * Success
  */
-export class ListCreditNotesLinks extends SpeakeasyBase {
+export class ListCreditNotes200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => ListCreditNotesLinksLinks)
-  links: ListCreditNotesLinksLinks;
+  @Type(() => ListCreditNotes200ApplicationJSONLinks)
+  links: ListCreditNotes200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -761,10 +787,12 @@ export class ListCreditNotesLinks extends SpeakeasyBase {
   @Expose({ name: "pageSize" })
   pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: ListCreditNotesLinksSourceModifiedDate })
+  @SpeakeasyMetadata({
+    elemType: ListCreditNotes200ApplicationJSONSourceModifiedDate,
+  })
   @Expose({ name: "results" })
-  @Type(() => ListCreditNotesLinksSourceModifiedDate)
-  results?: ListCreditNotesLinksSourceModifiedDate[];
+  @Type(() => ListCreditNotes200ApplicationJSONSourceModifiedDate)
+  results?: ListCreditNotes200ApplicationJSONSourceModifiedDate[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -785,5 +813,5 @@ export class ListCreditNotesResponse extends SpeakeasyBase {
    * Success
    */
   @SpeakeasyMetadata()
-  links?: ListCreditNotesLinks;
+  listCreditNotes200ApplicationJSONObject?: ListCreditNotes200ApplicationJSON;
 }

@@ -133,10 +133,11 @@ export class PaymentMethods {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.links = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.ListPaymentMethodsLinks
-            );
+            res.listPaymentMethods200ApplicationJSONObject =
+              utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.ListPaymentMethods200ApplicationJSON
+              );
           }
           break;
       }

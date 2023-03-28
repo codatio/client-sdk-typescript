@@ -41,35 +41,38 @@ export class GetAccountsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class GetAccountsLinksLinksHypertextReference extends SpeakeasyBase {
+export class GetAccounts200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class GetAccountsLinksLinks extends SpeakeasyBase {
+export class GetAccounts200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => GetAccountsLinksLinksHypertextReference)
-  current: GetAccountsLinksLinksHypertextReference;
+  @Type(() => GetAccounts200ApplicationJSONLinksHypertextReference)
+  current: GetAccounts200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => GetAccountsLinksLinksHypertextReference)
-  next?: GetAccountsLinksLinksHypertextReference;
+  @Type(() => GetAccounts200ApplicationJSONLinksHypertextReference)
+  next?: GetAccounts200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => GetAccountsLinksLinksHypertextReference)
-  previous?: GetAccountsLinksLinksHypertextReference;
+  @Type(() => GetAccounts200ApplicationJSONLinksHypertextReference)
+  previous?: GetAccounts200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => GetAccountsLinksLinksHypertextReference)
-  self: GetAccountsLinksLinksHypertextReference;
+  @Type(() => GetAccounts200ApplicationJSONLinksHypertextReference)
+  self: GetAccounts200ApplicationJSONLinksHypertextReference;
 }
 
-export class GetAccountsLinksSourceModifiedDateMetadata extends SpeakeasyBase {
+export class GetAccounts200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
@@ -78,7 +81,7 @@ export class GetAccountsLinksSourceModifiedDateMetadata extends SpeakeasyBase {
 /**
  * Status of the account
  */
-export enum GetAccountsLinksSourceModifiedDateStatusEnum {
+export enum GetAccounts200ApplicationJSONSourceModifiedDateStatusEnum {
   Unknown = "Unknown",
   Active = "Active",
   Archived = "Archived",
@@ -88,7 +91,7 @@ export enum GetAccountsLinksSourceModifiedDateStatusEnum {
 /**
  * Type of account
  */
-export enum GetAccountsLinksSourceModifiedDateTypeEnum {
+export enum GetAccounts200ApplicationJSONSourceModifiedDateTypeEnum {
   Unknown = "Unknown",
   Asset = "Asset",
   Expense = "Expense",
@@ -141,7 +144,7 @@ export enum GetAccountsLinksSourceModifiedDateTypeEnum {
  *
  * If you'd like us to extend support to more data types or integrations, suggest or vote for this on our <a href="https://portal.productboard.com/codat/5-product-roadmap">Product Roadmap</a>.
  */
-export class GetAccountsLinksSourceModifiedDateValidDataTypeLinks extends SpeakeasyBase {
+export class GetAccounts200ApplicationJSONSourceModifiedDateValidDataTypeLinks extends SpeakeasyBase {
   /**
    * Supported `dataTypes` that the record can be linked to.
    */
@@ -183,7 +186,7 @@ export class GetAccountsLinksSourceModifiedDateValidDataTypeLinks extends Speake
  * >
  * > This approach gives a true representation of the company's accounts whilst preventing distorting financials such as a company's profit and loss and balance sheet reports.
  */
-export class GetAccountsLinksSourceModifiedDate extends SpeakeasyBase {
+export class GetAccounts200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
    * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code. e.g. _GBP_.
    *
@@ -250,8 +253,8 @@ export class GetAccountsLinksSourceModifiedDate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => GetAccountsLinksSourceModifiedDateMetadata)
-  metadata?: GetAccountsLinksSourceModifiedDateMetadata;
+  @Type(() => GetAccounts200ApplicationJSONSourceModifiedDateMetadata)
+  metadata?: GetAccounts200ApplicationJSONSourceModifiedDateMetadata;
 
   /**
    * The date on which this record was last modified in Codat.
@@ -286,34 +289,34 @@ export class GetAccountsLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: GetAccountsLinksSourceModifiedDateStatusEnum;
+  status: GetAccounts200ApplicationJSONSourceModifiedDateStatusEnum;
 
   /**
    * Type of account
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: GetAccountsLinksSourceModifiedDateTypeEnum;
+  type: GetAccounts200ApplicationJSONSourceModifiedDateTypeEnum;
 
   /**
    * 'The validDatatypeLinks can be used to determine whether an account can be correctly mapped to another object; for example, accounts with a `type` of `income` might only support being used on an Invoice and Direct Income. For more information, see Valid Data Type Links.'
    */
   @SpeakeasyMetadata({
-    elemType: GetAccountsLinksSourceModifiedDateValidDataTypeLinks,
+    elemType: GetAccounts200ApplicationJSONSourceModifiedDateValidDataTypeLinks,
   })
   @Expose({ name: "validDatatypeLinks" })
-  @Type(() => GetAccountsLinksSourceModifiedDateValidDataTypeLinks)
-  validDatatypeLinks?: GetAccountsLinksSourceModifiedDateValidDataTypeLinks[];
+  @Type(() => GetAccounts200ApplicationJSONSourceModifiedDateValidDataTypeLinks)
+  validDatatypeLinks?: GetAccounts200ApplicationJSONSourceModifiedDateValidDataTypeLinks[];
 }
 
 /**
- * Codat's Paging Model
+ * Success
  */
-export class GetAccountsLinks extends SpeakeasyBase {
+export class GetAccounts200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => GetAccountsLinksLinks)
-  links: GetAccountsLinksLinks;
+  @Type(() => GetAccounts200ApplicationJSONLinks)
+  links: GetAccounts200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -323,10 +326,12 @@ export class GetAccountsLinks extends SpeakeasyBase {
   @Expose({ name: "pageSize" })
   pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: GetAccountsLinksSourceModifiedDate })
+  @SpeakeasyMetadata({
+    elemType: GetAccounts200ApplicationJSONSourceModifiedDate,
+  })
   @Expose({ name: "results" })
-  @Type(() => GetAccountsLinksSourceModifiedDate)
-  results?: GetAccountsLinksSourceModifiedDate[];
+  @Type(() => GetAccounts200ApplicationJSONSourceModifiedDate)
+  results?: GetAccounts200ApplicationJSONSourceModifiedDate[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -347,5 +352,5 @@ export class GetAccountsResponse extends SpeakeasyBase {
    * Success
    */
   @SpeakeasyMetadata()
-  links?: GetAccountsLinks;
+  getAccounts200ApplicationJSONObject?: GetAccounts200ApplicationJSON;
 }

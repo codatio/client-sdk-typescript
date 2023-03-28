@@ -41,38 +41,38 @@ export class ListJournalEntriesRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListJournalEntriesLinksLinksHypertextReference extends SpeakeasyBase {
+export class ListJournalEntries200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class ListJournalEntriesLinksLinks extends SpeakeasyBase {
+export class ListJournalEntries200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListJournalEntriesLinksLinksHypertextReference)
-  current: ListJournalEntriesLinksLinksHypertextReference;
+  @Type(() => ListJournalEntries200ApplicationJSONLinksHypertextReference)
+  current: ListJournalEntries200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListJournalEntriesLinksLinksHypertextReference)
-  next?: ListJournalEntriesLinksLinksHypertextReference;
+  @Type(() => ListJournalEntries200ApplicationJSONLinksHypertextReference)
+  next?: ListJournalEntries200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListJournalEntriesLinksLinksHypertextReference)
-  previous?: ListJournalEntriesLinksLinksHypertextReference;
+  @Type(() => ListJournalEntries200ApplicationJSONLinksHypertextReference)
+  previous?: ListJournalEntries200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListJournalEntriesLinksLinksHypertextReference)
-  self: ListJournalEntriesLinksLinksHypertextReference;
+  @Type(() => ListJournalEntries200ApplicationJSONLinksHypertextReference)
+  self: ListJournalEntries200ApplicationJSONLinksHypertextReference;
 }
 
 /**
  * Data types that reference an account, for example bill and invoice line items, use an accountRef that includes the ID and name of the linked account.
  */
-export class ListJournalEntriesLinksSourceModifiedDateJournalLinesAccountRef extends SpeakeasyBase {
+export class ListJournalEntries200ApplicationJSONSourceModifiedDateJournalLinesAccountRef extends SpeakeasyBase {
   /**
    * 'id' from the Accounts data type.
    */
@@ -91,20 +91,23 @@ export class ListJournalEntriesLinksSourceModifiedDateJournalLinesAccountRef ext
 /**
  * List of record refs associated with the tracking information for the line (eg to a Tracking Category, or customer etc.)
  */
-export class ListJournalEntriesLinksSourceModifiedDateJournalLinesTracking extends SpeakeasyBase {
+export class ListJournalEntries200ApplicationJSONSourceModifiedDateJournalLinesTracking extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "recordRefs" })
   recordRefs?: string[];
 }
 
-export class ListJournalEntriesLinksSourceModifiedDateJournalLines extends SpeakeasyBase {
+export class ListJournalEntries200ApplicationJSONSourceModifiedDateJournalLines extends SpeakeasyBase {
   /**
    * Data types that reference an account, for example bill and invoice line items, use an accountRef that includes the ID and name of the linked account.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => ListJournalEntriesLinksSourceModifiedDateJournalLinesAccountRef)
-  accountRef?: ListJournalEntriesLinksSourceModifiedDateJournalLinesAccountRef;
+  @Type(
+    () =>
+      ListJournalEntries200ApplicationJSONSourceModifiedDateJournalLinesAccountRef
+  )
+  accountRef?: ListJournalEntries200ApplicationJSONSourceModifiedDateJournalLinesAccountRef;
 
   /**
    * Currency for the journal line item.
@@ -132,14 +135,17 @@ export class ListJournalEntriesLinksSourceModifiedDateJournalLines extends Speak
    */
   @SpeakeasyMetadata()
   @Expose({ name: "tracking" })
-  @Type(() => ListJournalEntriesLinksSourceModifiedDateJournalLinesTracking)
-  tracking?: ListJournalEntriesLinksSourceModifiedDateJournalLinesTracking;
+  @Type(
+    () =>
+      ListJournalEntries200ApplicationJSONSourceModifiedDateJournalLinesTracking
+  )
+  tracking?: ListJournalEntries200ApplicationJSONSourceModifiedDateJournalLinesTracking;
 }
 
 /**
  * Links journal entries to the relevant journal in accounting integrations that use multi-book accounting (multiple journals).
  */
-export class ListJournalEntriesLinksSourceModifiedDateJournalRef extends SpeakeasyBase {
+export class ListJournalEntries200ApplicationJSONSourceModifiedDateJournalRef extends SpeakeasyBase {
   /**
    * GUID of the underlying journal.
    */
@@ -155,7 +161,10 @@ export class ListJournalEntriesLinksSourceModifiedDateJournalRef extends Speakea
   name?: string;
 }
 
-export class ListJournalEntriesLinksSourceModifiedDateMetadata extends SpeakeasyBase {
+export class ListJournalEntries200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
@@ -173,7 +182,7 @@ export class ListJournalEntriesLinksSourceModifiedDateMetadata extends Speakeasy
  * - Invoices
  * - Transfers
  */
-export class ListJournalEntriesLinksSourceModifiedDateRecordRef extends SpeakeasyBase {
+export class ListJournalEntries200ApplicationJSONSourceModifiedDateRecordRef extends SpeakeasyBase {
   /**
    * Name of the 'dataType'.
    */
@@ -192,7 +201,7 @@ export class ListJournalEntriesLinksSourceModifiedDateRecordRef extends Speakeas
 /**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
  */
-export class ListJournalEntriesLinksSourceModifiedDateSupplementalData extends SpeakeasyBase {
+export class ListJournalEntries200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
   content?: Record<string, Record<string, any>>;
@@ -224,7 +233,7 @@ export class ListJournalEntriesLinksSourceModifiedDateSupplementalData extends S
  * > **Pushing journal entries **
  * > Codat only supports journal entries in the base currency of the company that are pushed into accounts denominated in the same base currency.
  */
-export class ListJournalEntriesLinksSourceModifiedDate extends SpeakeasyBase {
+export class ListJournalEntries200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
    * Date on which the journal was created in the accounting platform.
    */
@@ -250,24 +259,27 @@ export class ListJournalEntriesLinksSourceModifiedDate extends SpeakeasyBase {
    * An array of journal lines.
    */
   @SpeakeasyMetadata({
-    elemType: ListJournalEntriesLinksSourceModifiedDateJournalLines,
+    elemType:
+      ListJournalEntries200ApplicationJSONSourceModifiedDateJournalLines,
   })
   @Expose({ name: "journalLines" })
-  @Type(() => ListJournalEntriesLinksSourceModifiedDateJournalLines)
-  journalLines?: ListJournalEntriesLinksSourceModifiedDateJournalLines[];
+  @Type(
+    () => ListJournalEntries200ApplicationJSONSourceModifiedDateJournalLines
+  )
+  journalLines?: ListJournalEntries200ApplicationJSONSourceModifiedDateJournalLines[];
 
   /**
    * Links journal entries to the relevant journal in accounting integrations that use multi-book accounting (multiple journals).
    */
   @SpeakeasyMetadata()
   @Expose({ name: "journalRef" })
-  @Type(() => ListJournalEntriesLinksSourceModifiedDateJournalRef)
-  journalRef?: ListJournalEntriesLinksSourceModifiedDateJournalRef;
+  @Type(() => ListJournalEntries200ApplicationJSONSourceModifiedDateJournalRef)
+  journalRef?: ListJournalEntries200ApplicationJSONSourceModifiedDateJournalRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => ListJournalEntriesLinksSourceModifiedDateMetadata)
-  metadata?: ListJournalEntriesLinksSourceModifiedDateMetadata;
+  @Type(() => ListJournalEntries200ApplicationJSONSourceModifiedDateMetadata)
+  metadata?: ListJournalEntries200ApplicationJSONSourceModifiedDateMetadata;
 
   /**
    * The date on which this record was last modified in Codat.
@@ -305,8 +317,8 @@ export class ListJournalEntriesLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "recordRef" })
-  @Type(() => ListJournalEntriesLinksSourceModifiedDateRecordRef)
-  recordRef?: ListJournalEntriesLinksSourceModifiedDateRecordRef;
+  @Type(() => ListJournalEntries200ApplicationJSONSourceModifiedDateRecordRef)
+  recordRef?: ListJournalEntries200ApplicationJSONSourceModifiedDateRecordRef;
 
   /**
    * The date on which this record was last modified in the originating system
@@ -320,8 +332,10 @@ export class ListJournalEntriesLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "supplementalData" })
-  @Type(() => ListJournalEntriesLinksSourceModifiedDateSupplementalData)
-  supplementalData?: ListJournalEntriesLinksSourceModifiedDateSupplementalData;
+  @Type(
+    () => ListJournalEntries200ApplicationJSONSourceModifiedDateSupplementalData
+  )
+  supplementalData?: ListJournalEntries200ApplicationJSONSourceModifiedDateSupplementalData;
 
   /**
    * Date on which the journal was last updated in the accounting platform.
@@ -332,13 +346,13 @@ export class ListJournalEntriesLinksSourceModifiedDate extends SpeakeasyBase {
 }
 
 /**
- * Codat's Paging Model
+ * Success
  */
-export class ListJournalEntriesLinks extends SpeakeasyBase {
+export class ListJournalEntries200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => ListJournalEntriesLinksLinks)
-  links: ListJournalEntriesLinksLinks;
+  @Type(() => ListJournalEntries200ApplicationJSONLinks)
+  links: ListJournalEntries200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -348,10 +362,12 @@ export class ListJournalEntriesLinks extends SpeakeasyBase {
   @Expose({ name: "pageSize" })
   pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: ListJournalEntriesLinksSourceModifiedDate })
+  @SpeakeasyMetadata({
+    elemType: ListJournalEntries200ApplicationJSONSourceModifiedDate,
+  })
   @Expose({ name: "results" })
-  @Type(() => ListJournalEntriesLinksSourceModifiedDate)
-  results?: ListJournalEntriesLinksSourceModifiedDate[];
+  @Type(() => ListJournalEntries200ApplicationJSONSourceModifiedDate)
+  results?: ListJournalEntries200ApplicationJSONSourceModifiedDate[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -372,5 +388,5 @@ export class ListJournalEntriesResponse extends SpeakeasyBase {
    * Success
    */
   @SpeakeasyMetadata()
-  links?: ListJournalEntriesLinks;
+  listJournalEntries200ApplicationJSONObject?: ListJournalEntries200ApplicationJSON;
 }

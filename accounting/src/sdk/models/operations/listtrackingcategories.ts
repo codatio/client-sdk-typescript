@@ -41,38 +41,38 @@ export class ListTrackingCategoriesRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListTrackingCategoriesLinksLinksHypertextReference extends SpeakeasyBase {
+export class ListTrackingCategories200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class ListTrackingCategoriesLinksLinks extends SpeakeasyBase {
+export class ListTrackingCategories200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListTrackingCategoriesLinksLinksHypertextReference)
-  current: ListTrackingCategoriesLinksLinksHypertextReference;
+  @Type(() => ListTrackingCategories200ApplicationJSONLinksHypertextReference)
+  current: ListTrackingCategories200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListTrackingCategoriesLinksLinksHypertextReference)
-  next?: ListTrackingCategoriesLinksLinksHypertextReference;
+  @Type(() => ListTrackingCategories200ApplicationJSONLinksHypertextReference)
+  next?: ListTrackingCategories200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListTrackingCategoriesLinksLinksHypertextReference)
-  previous?: ListTrackingCategoriesLinksLinksHypertextReference;
+  @Type(() => ListTrackingCategories200ApplicationJSONLinksHypertextReference)
+  previous?: ListTrackingCategories200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListTrackingCategoriesLinksLinksHypertextReference)
-  self: ListTrackingCategoriesLinksLinksHypertextReference;
+  @Type(() => ListTrackingCategories200ApplicationJSONLinksHypertextReference)
+  self: ListTrackingCategories200ApplicationJSONLinksHypertextReference;
 }
 
 /**
  * Current state of the tracking category.
  */
-export enum ListTrackingCategoriesLinksSourceModifiedDateTrackingCategoryStatusEnum {
+export enum ListTrackingCategories200ApplicationJSONSourceModifiedDateTrackingCategoryStatusEnum {
   Unknown = "Unknown",
   Active = "Active",
   Archived = "Archived",
@@ -102,7 +102,7 @@ export enum ListTrackingCategoriesLinksSourceModifiedDateTrackingCategoryStatusE
  * - View the categories that a transaction belongs to.
  * - View all transactions in a tracking category.
  */
-export class ListTrackingCategoriesLinksSourceModifiedDate extends SpeakeasyBase {
+export class ListTrackingCategories200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
    * Boolean value indicating whether this category has SubCategories
    */
@@ -150,17 +150,17 @@ export class ListTrackingCategoriesLinksSourceModifiedDate extends SpeakeasyBase
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status?: ListTrackingCategoriesLinksSourceModifiedDateTrackingCategoryStatusEnum;
+  status?: ListTrackingCategories200ApplicationJSONSourceModifiedDateTrackingCategoryStatusEnum;
 }
 
 /**
- * Codat's Paging Model
+ * Success
  */
-export class ListTrackingCategoriesLinks extends SpeakeasyBase {
+export class ListTrackingCategories200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => ListTrackingCategoriesLinksLinks)
-  links: ListTrackingCategoriesLinksLinks;
+  @Type(() => ListTrackingCategories200ApplicationJSONLinks)
+  links: ListTrackingCategories200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -171,11 +171,11 @@ export class ListTrackingCategoriesLinks extends SpeakeasyBase {
   pageSize: number;
 
   @SpeakeasyMetadata({
-    elemType: ListTrackingCategoriesLinksSourceModifiedDate,
+    elemType: ListTrackingCategories200ApplicationJSONSourceModifiedDate,
   })
   @Expose({ name: "results" })
-  @Type(() => ListTrackingCategoriesLinksSourceModifiedDate)
-  results?: ListTrackingCategoriesLinksSourceModifiedDate[];
+  @Type(() => ListTrackingCategories200ApplicationJSONSourceModifiedDate)
+  results?: ListTrackingCategories200ApplicationJSONSourceModifiedDate[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -196,5 +196,5 @@ export class ListTrackingCategoriesResponse extends SpeakeasyBase {
    * Success
    */
   @SpeakeasyMetadata()
-  links?: ListTrackingCategoriesLinks;
+  listTrackingCategories200ApplicationJSONObject?: ListTrackingCategories200ApplicationJSON;
 }

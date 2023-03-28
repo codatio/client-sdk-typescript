@@ -133,10 +133,11 @@ export class SalesOrders {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.links = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.ListSalesOrdersLinks
-            );
+            res.listSalesOrders200ApplicationJSONObject =
+              utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.ListSalesOrders200ApplicationJSON
+              );
           }
           break;
       }

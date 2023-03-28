@@ -37,14 +37,14 @@ export class AccountTransactions {
    * Get account transaction
    *
    * @remarks
-   * Get create/update account transactions model.
+   * Gets the account transactions for a given company.Gets the specified account transaction for a given company and connection.
    */
-  getCreateUpdateAccountTransactionsModel(
-    req: operations.GetCreateUpdateAccountTransactionsModelRequest,
+  getAccountTransaction(
+    req: operations.GetAccountTransactionRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetCreateUpdateAccountTransactionsModelResponse> {
+  ): Promise<operations.GetAccountTransactionResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCreateUpdateAccountTransactionsModelRequest(req);
+      req = new operations.GetAccountTransactionRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -67,8 +67,8 @@ export class AccountTransactions {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCreateUpdateAccountTransactionsModelResponse =
-        new operations.GetCreateUpdateAccountTransactionsModelResponse({
+      const res: operations.GetAccountTransactionResponse =
+        new operations.GetAccountTransactionResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -78,7 +78,7 @@ export class AccountTransactions {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.sourceModifiedDate = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCreateUpdateAccountTransactionsModelSourceModifiedDate
+              operations.GetAccountTransactionSourceModifiedDate
             );
           }
           break;
@@ -133,10 +133,11 @@ export class AccountTransactions {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.links = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.ListAccountTransactionsLinks
-            );
+            res.listAccountTransactions200ApplicationJSONObject =
+              utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.ListAccountTransactions200ApplicationJSON
+              );
           }
           break;
       }

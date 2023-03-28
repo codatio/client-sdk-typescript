@@ -41,38 +41,38 @@ export class ListSalesOrdersRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListSalesOrdersLinksLinksHypertextReference extends SpeakeasyBase {
+export class ListSalesOrders200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class ListSalesOrdersLinksLinks extends SpeakeasyBase {
+export class ListSalesOrders200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListSalesOrdersLinksLinksHypertextReference)
-  current: ListSalesOrdersLinksLinksHypertextReference;
+  @Type(() => ListSalesOrders200ApplicationJSONLinksHypertextReference)
+  current: ListSalesOrders200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListSalesOrdersLinksLinksHypertextReference)
-  next?: ListSalesOrdersLinksLinksHypertextReference;
+  @Type(() => ListSalesOrders200ApplicationJSONLinksHypertextReference)
+  next?: ListSalesOrders200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListSalesOrdersLinksLinksHypertextReference)
-  previous?: ListSalesOrdersLinksLinksHypertextReference;
+  @Type(() => ListSalesOrders200ApplicationJSONLinksHypertextReference)
+  previous?: ListSalesOrders200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListSalesOrdersLinksLinksHypertextReference)
-  self: ListSalesOrdersLinksLinksHypertextReference;
+  @Type(() => ListSalesOrders200ApplicationJSONLinksHypertextReference)
+  self: ListSalesOrders200ApplicationJSONLinksHypertextReference;
 }
 
 /**
  * The customer that the sales order is recorded against in the accounting system.
  */
-export class ListSalesOrdersLinksSourceModifiedDateCustomerRef extends SpeakeasyBase {
+export class ListSalesOrders200ApplicationJSONSourceModifiedDateCustomerRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
   companyName?: string;
@@ -85,7 +85,7 @@ export class ListSalesOrdersLinksSourceModifiedDateCustomerRef extends Speakeasy
 /**
  * If the sales order is converted to an invoice, or will be in future, the invoicingStatus field indicates the current stage of the invoicing process.
  */
-export enum ListSalesOrdersLinksSourceModifiedDateInvoicingStatusEnum {
+export enum ListSalesOrders200ApplicationJSONSourceModifiedDateInvoicingStatusEnum {
   Unknown = "Unknown",
   PartiallyInvoiced = "PartiallyInvoiced",
   Invoiced = "Invoiced",
@@ -95,7 +95,7 @@ export enum ListSalesOrdersLinksSourceModifiedDateInvoicingStatusEnum {
 /**
  * Reference to the account to which the line item is linked.
  */
-export class ListSalesOrdersLinksSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
+export class ListSalesOrders200ApplicationJSONSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
   /**
    * 'id' from the Accounts data type.
    */
@@ -114,7 +114,7 @@ export class ListSalesOrdersLinksSourceModifiedDateLineItemsAccountRef extends S
 /**
  * Reference to the product or inventory item to which the line item is linked.
  */
-export class ListSalesOrdersLinksSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
+export class ListSalesOrders200ApplicationJSONSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -127,7 +127,7 @@ export class ListSalesOrdersLinksSourceModifiedDateLineItemsItemRef extends Spea
 /**
  * Reference to the tax rate to which the line item is linked.
  */
-export class ListSalesOrdersLinksSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
+export class ListSalesOrders200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
   /**
    * Applicable tax rate.
    */
@@ -150,20 +150,22 @@ export class ListSalesOrdersLinksSourceModifiedDateLineItemsTaxRateRef extends S
   name?: string;
 }
 
-export class ListSalesOrdersLinksSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
+export class ListSalesOrders200ApplicationJSONSourceModifiedDateLineItemsTracking extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "recordRefs" })
   recordRefs?: string[];
 }
 
-export class ListSalesOrdersLinksSourceModifiedDateLineItems extends SpeakeasyBase {
+export class ListSalesOrders200ApplicationJSONSourceModifiedDateLineItems extends SpeakeasyBase {
   /**
    * Reference to the account to which the line item is linked.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => ListSalesOrdersLinksSourceModifiedDateLineItemsAccountRef)
-  accountRef?: ListSalesOrdersLinksSourceModifiedDateLineItemsAccountRef;
+  @Type(
+    () => ListSalesOrders200ApplicationJSONSourceModifiedDateLineItemsAccountRef
+  )
+  accountRef?: ListSalesOrders200ApplicationJSONSourceModifiedDateLineItemsAccountRef;
 
   /**
    * Description of the goods or services that have been ordered.
@@ -191,8 +193,10 @@ export class ListSalesOrdersLinksSourceModifiedDateLineItems extends SpeakeasyBa
    */
   @SpeakeasyMetadata()
   @Expose({ name: "itemRef" })
-  @Type(() => ListSalesOrdersLinksSourceModifiedDateLineItemsItemRef)
-  itemRef?: ListSalesOrdersLinksSourceModifiedDateLineItemsItemRef;
+  @Type(
+    () => ListSalesOrders200ApplicationJSONSourceModifiedDateLineItemsItemRef
+  )
+  itemRef?: ListSalesOrders200ApplicationJSONSourceModifiedDateLineItemsItemRef;
 
   /**
    * Number of units that have been ordered.
@@ -220,8 +224,10 @@ export class ListSalesOrdersLinksSourceModifiedDateLineItems extends SpeakeasyBa
    */
   @SpeakeasyMetadata()
   @Expose({ name: "taxRateRef" })
-  @Type(() => ListSalesOrdersLinksSourceModifiedDateLineItemsTaxRateRef)
-  taxRateRef?: ListSalesOrdersLinksSourceModifiedDateLineItemsTaxRateRef;
+  @Type(
+    () => ListSalesOrders200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef
+  )
+  taxRateRef?: ListSalesOrders200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef;
 
   /**
    * Total amount of the line, inclusive of discounts and tax.
@@ -232,8 +238,10 @@ export class ListSalesOrdersLinksSourceModifiedDateLineItems extends SpeakeasyBa
 
   @SpeakeasyMetadata()
   @Expose({ name: "tracking" })
-  @Type(() => ListSalesOrdersLinksSourceModifiedDateLineItemsTracking)
-  tracking?: ListSalesOrdersLinksSourceModifiedDateLineItemsTracking;
+  @Type(
+    () => ListSalesOrders200ApplicationJSONSourceModifiedDateLineItemsTracking
+  )
+  tracking?: ListSalesOrders200ApplicationJSONSourceModifiedDateLineItemsTracking;
 
   /**
    * Price of each unit.
@@ -243,7 +251,10 @@ export class ListSalesOrdersLinksSourceModifiedDateLineItems extends SpeakeasyBa
   unitAmount?: number;
 }
 
-export class ListSalesOrdersLinksSourceModifiedDateMetadata extends SpeakeasyBase {
+export class ListSalesOrders200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
@@ -252,7 +263,7 @@ export class ListSalesOrdersLinksSourceModifiedDateMetadata extends SpeakeasyBas
 /**
  * Type of the address.
  */
-export enum ListSalesOrdersLinksSourceModifiedDateShipToAddressTypeEnum {
+export enum ListSalesOrders200ApplicationJSONSourceModifiedDateShipToAddressTypeEnum {
   Unknown = "Unknown",
   Billing = "Billing",
   Delivery = "Delivery",
@@ -261,7 +272,7 @@ export enum ListSalesOrdersLinksSourceModifiedDateShipToAddressTypeEnum {
 /**
  * Delivery address for any goods that have been ordered.
  */
-export class ListSalesOrdersLinksSourceModifiedDateShipToAddress extends SpeakeasyBase {
+export class ListSalesOrders200ApplicationJSONSourceModifiedDateShipToAddress extends SpeakeasyBase {
   /**
    * City of the customer address.
    */
@@ -309,13 +320,13 @@ export class ListSalesOrdersLinksSourceModifiedDateShipToAddress extends Speakea
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: ListSalesOrdersLinksSourceModifiedDateShipToAddressTypeEnum;
+  type: ListSalesOrders200ApplicationJSONSourceModifiedDateShipToAddressTypeEnum;
 }
 
 /**
  * Details of the named contact at the delivery address.
  */
-export class ListSalesOrdersLinksSourceModifiedDateShipToContact extends SpeakeasyBase {
+export class ListSalesOrders200ApplicationJSONSourceModifiedDateShipToContact extends SpeakeasyBase {
   /**
    * Email address of the contact at the delivery address.
    */
@@ -341,28 +352,28 @@ export class ListSalesOrdersLinksSourceModifiedDateShipToContact extends Speakea
 /**
  * Delivery details for any goods that have been ordered.
  */
-export class ListSalesOrdersLinksSourceModifiedDateShipTo extends SpeakeasyBase {
+export class ListSalesOrders200ApplicationJSONSourceModifiedDateShipTo extends SpeakeasyBase {
   /**
    * Delivery address for any goods that have been ordered.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "address" })
-  @Type(() => ListSalesOrdersLinksSourceModifiedDateShipToAddress)
-  address?: ListSalesOrdersLinksSourceModifiedDateShipToAddress;
+  @Type(() => ListSalesOrders200ApplicationJSONSourceModifiedDateShipToAddress)
+  address?: ListSalesOrders200ApplicationJSONSourceModifiedDateShipToAddress;
 
   /**
    * Details of the named contact at the delivery address.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "contact" })
-  @Type(() => ListSalesOrdersLinksSourceModifiedDateShipToContact)
-  contact?: ListSalesOrdersLinksSourceModifiedDateShipToContact;
+  @Type(() => ListSalesOrders200ApplicationJSONSourceModifiedDateShipToContact)
+  contact?: ListSalesOrders200ApplicationJSONSourceModifiedDateShipToContact;
 }
 
 /**
  * Current state of the sales order.
  */
-export enum ListSalesOrdersLinksSourceModifiedDateStatusEnum {
+export enum ListSalesOrders200ApplicationJSONSourceModifiedDateStatusEnum {
   Unknown = "Unknown",
   Draft = "Draft",
   Open = "Open",
@@ -381,7 +392,7 @@ export enum ListSalesOrdersLinksSourceModifiedDateStatusEnum {
  *
  * A sales order is typically converted to an [invoice](https://docs.codat.io/accounting-api#/schemas/Invoice) after approval.
  */
-export class ListSalesOrdersLinksSourceModifiedDate extends SpeakeasyBase {
+export class ListSalesOrders200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
    * Currency of the sales order.
    */
@@ -432,8 +443,8 @@ export class ListSalesOrdersLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "customerRef" })
-  @Type(() => ListSalesOrdersLinksSourceModifiedDateCustomerRef)
-  customerRef?: ListSalesOrdersLinksSourceModifiedDateCustomerRef;
+  @Type(() => ListSalesOrders200ApplicationJSONSourceModifiedDateCustomerRef)
+  customerRef?: ListSalesOrders200ApplicationJSONSourceModifiedDateCustomerRef;
 
   /**
    * Expected delivery date for any goods that have been ordered.
@@ -454,7 +465,7 @@ export class ListSalesOrdersLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "invoicingStatus" })
-  invoicingStatus?: ListSalesOrdersLinksSourceModifiedDateInvoicingStatusEnum;
+  invoicingStatus?: ListSalesOrders200ApplicationJSONSourceModifiedDateInvoicingStatusEnum;
 
   /**
    * Date of the sales order as recorded in the accounting platform.
@@ -467,16 +478,16 @@ export class ListSalesOrdersLinksSourceModifiedDate extends SpeakeasyBase {
    * An array of line items.
    */
   @SpeakeasyMetadata({
-    elemType: ListSalesOrdersLinksSourceModifiedDateLineItems,
+    elemType: ListSalesOrders200ApplicationJSONSourceModifiedDateLineItems,
   })
   @Expose({ name: "lineItems" })
-  @Type(() => ListSalesOrdersLinksSourceModifiedDateLineItems)
-  lineItems?: ListSalesOrdersLinksSourceModifiedDateLineItems[];
+  @Type(() => ListSalesOrders200ApplicationJSONSourceModifiedDateLineItems)
+  lineItems?: ListSalesOrders200ApplicationJSONSourceModifiedDateLineItems[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => ListSalesOrdersLinksSourceModifiedDateMetadata)
-  metadata?: ListSalesOrdersLinksSourceModifiedDateMetadata;
+  @Type(() => ListSalesOrders200ApplicationJSONSourceModifiedDateMetadata)
+  metadata?: ListSalesOrders200ApplicationJSONSourceModifiedDateMetadata;
 
   /**
    * The date on which this record was last modified in Codat.
@@ -504,8 +515,8 @@ export class ListSalesOrdersLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "shipTo" })
-  @Type(() => ListSalesOrdersLinksSourceModifiedDateShipTo)
-  shipTo?: ListSalesOrdersLinksSourceModifiedDateShipTo;
+  @Type(() => ListSalesOrders200ApplicationJSONSourceModifiedDateShipTo)
+  shipTo?: ListSalesOrders200ApplicationJSONSourceModifiedDateShipTo;
 
   /**
    * The date on which this record was last modified in the originating system
@@ -519,7 +530,7 @@ export class ListSalesOrdersLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status?: ListSalesOrdersLinksSourceModifiedDateStatusEnum;
+  status?: ListSalesOrders200ApplicationJSONSourceModifiedDateStatusEnum;
 
   /**
    * Total amount of the sales order, including discounts but excluding tax.
@@ -554,13 +565,13 @@ export class ListSalesOrdersLinksSourceModifiedDate extends SpeakeasyBase {
 }
 
 /**
- * Codat's Paging Model
+ * Success
  */
-export class ListSalesOrdersLinks extends SpeakeasyBase {
+export class ListSalesOrders200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => ListSalesOrdersLinksLinks)
-  links: ListSalesOrdersLinksLinks;
+  @Type(() => ListSalesOrders200ApplicationJSONLinks)
+  links: ListSalesOrders200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -570,10 +581,12 @@ export class ListSalesOrdersLinks extends SpeakeasyBase {
   @Expose({ name: "pageSize" })
   pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: ListSalesOrdersLinksSourceModifiedDate })
+  @SpeakeasyMetadata({
+    elemType: ListSalesOrders200ApplicationJSONSourceModifiedDate,
+  })
   @Expose({ name: "results" })
-  @Type(() => ListSalesOrdersLinksSourceModifiedDate)
-  results?: ListSalesOrdersLinksSourceModifiedDate[];
+  @Type(() => ListSalesOrders200ApplicationJSONSourceModifiedDate)
+  results?: ListSalesOrders200ApplicationJSONSourceModifiedDate[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -594,5 +607,5 @@ export class ListSalesOrdersResponse extends SpeakeasyBase {
    * Success
    */
   @SpeakeasyMetadata()
-  links?: ListSalesOrdersLinks;
+  listSalesOrders200ApplicationJSONObject?: ListSalesOrders200ApplicationJSON;
 }

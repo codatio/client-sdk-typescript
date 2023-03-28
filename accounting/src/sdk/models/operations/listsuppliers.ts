@@ -41,44 +41,44 @@ export class ListSuppliersRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListSuppliersLinksLinksHypertextReference extends SpeakeasyBase {
+export class ListSuppliers200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class ListSuppliersLinksLinks extends SpeakeasyBase {
+export class ListSuppliers200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListSuppliersLinksLinksHypertextReference)
-  current: ListSuppliersLinksLinksHypertextReference;
+  @Type(() => ListSuppliers200ApplicationJSONLinksHypertextReference)
+  current: ListSuppliers200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListSuppliersLinksLinksHypertextReference)
-  next?: ListSuppliersLinksLinksHypertextReference;
+  @Type(() => ListSuppliers200ApplicationJSONLinksHypertextReference)
+  next?: ListSuppliers200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListSuppliersLinksLinksHypertextReference)
-  previous?: ListSuppliersLinksLinksHypertextReference;
+  @Type(() => ListSuppliers200ApplicationJSONLinksHypertextReference)
+  previous?: ListSuppliers200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListSuppliersLinksLinksHypertextReference)
-  self: ListSuppliersLinksLinksHypertextReference;
+  @Type(() => ListSuppliers200ApplicationJSONLinksHypertextReference)
+  self: ListSuppliers200ApplicationJSONLinksHypertextReference;
 }
 
 /**
  * Type of the address.
  */
-export enum ListSuppliersLinksSourceModifiedDateAddressesTypeEnum {
+export enum ListSuppliers200ApplicationJSONSourceModifiedDateAddressesTypeEnum {
   Unknown = "Unknown",
   Billing = "Billing",
   Delivery = "Delivery",
 }
 
-export class ListSuppliersLinksSourceModifiedDateAddresses extends SpeakeasyBase {
+export class ListSuppliers200ApplicationJSONSourceModifiedDateAddresses extends SpeakeasyBase {
   /**
    * City of the customer address.
    */
@@ -126,10 +126,13 @@ export class ListSuppliersLinksSourceModifiedDateAddresses extends SpeakeasyBase
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: ListSuppliersLinksSourceModifiedDateAddressesTypeEnum;
+  type: ListSuppliers200ApplicationJSONSourceModifiedDateAddressesTypeEnum;
 }
 
-export class ListSuppliersLinksSourceModifiedDateMetadata extends SpeakeasyBase {
+export class ListSuppliers200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
@@ -138,7 +141,7 @@ export class ListSuppliersLinksSourceModifiedDateMetadata extends SpeakeasyBase 
 /**
  * Status of the supplier.
  */
-export enum ListSuppliersLinksSourceModifiedDateStatusEnum {
+export enum ListSuppliers200ApplicationJSONSourceModifiedDateStatusEnum {
   Unknown = "Unknown",
   Active = "Active",
   Archived = "Archived",
@@ -147,7 +150,7 @@ export enum ListSuppliersLinksSourceModifiedDateStatusEnum {
 /**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
  */
-export class ListSuppliersLinksSourceModifiedDateSupplementalData extends SpeakeasyBase {
+export class ListSuppliers200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
   content?: Record<string, Record<string, any>>;
@@ -162,16 +165,16 @@ export class ListSuppliersLinksSourceModifiedDateSupplementalData extends Speake
  *
  * From the **Suppliers** endpoints, you can retrieve a list of [all the suppliers for a company](https://api.codat.io/swagger/index.html#/Suppliers/get_companies__companyId__data_suppliers). Suppliers' data links to accounts payable [bills](https://docs.codat.io/accounting-api#/schemas/Bill).
  */
-export class ListSuppliersLinksSourceModifiedDate extends SpeakeasyBase {
+export class ListSuppliers200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
    * An array of Addresses.
    */
   @SpeakeasyMetadata({
-    elemType: ListSuppliersLinksSourceModifiedDateAddresses,
+    elemType: ListSuppliers200ApplicationJSONSourceModifiedDateAddresses,
   })
   @Expose({ name: "addresses" })
-  @Type(() => ListSuppliersLinksSourceModifiedDateAddresses)
-  addresses?: ListSuppliersLinksSourceModifiedDateAddresses[];
+  @Type(() => ListSuppliers200ApplicationJSONSourceModifiedDateAddresses)
+  addresses?: ListSuppliers200ApplicationJSONSourceModifiedDateAddresses[];
 
   /**
    * Name of the main contact for the supplier.
@@ -203,8 +206,8 @@ export class ListSuppliersLinksSourceModifiedDate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => ListSuppliersLinksSourceModifiedDateMetadata)
-  metadata?: ListSuppliersLinksSourceModifiedDateMetadata;
+  @Type(() => ListSuppliers200ApplicationJSONSourceModifiedDateMetadata)
+  metadata?: ListSuppliers200ApplicationJSONSourceModifiedDateMetadata;
 
   /**
    * The date on which this record was last modified in Codat.
@@ -239,15 +242,15 @@ export class ListSuppliersLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: ListSuppliersLinksSourceModifiedDateStatusEnum;
+  status: ListSuppliers200ApplicationJSONSourceModifiedDateStatusEnum;
 
   /**
    * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "supplementalData" })
-  @Type(() => ListSuppliersLinksSourceModifiedDateSupplementalData)
-  supplementalData?: ListSuppliersLinksSourceModifiedDateSupplementalData;
+  @Type(() => ListSuppliers200ApplicationJSONSourceModifiedDateSupplementalData)
+  supplementalData?: ListSuppliers200ApplicationJSONSourceModifiedDateSupplementalData;
 
   /**
    *
@@ -268,13 +271,13 @@ export class ListSuppliersLinksSourceModifiedDate extends SpeakeasyBase {
 }
 
 /**
- * Codat's Paging Model
+ * Success
  */
-export class ListSuppliersLinks extends SpeakeasyBase {
+export class ListSuppliers200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => ListSuppliersLinksLinks)
-  links: ListSuppliersLinksLinks;
+  @Type(() => ListSuppliers200ApplicationJSONLinks)
+  links: ListSuppliers200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -284,10 +287,12 @@ export class ListSuppliersLinks extends SpeakeasyBase {
   @Expose({ name: "pageSize" })
   pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: ListSuppliersLinksSourceModifiedDate })
+  @SpeakeasyMetadata({
+    elemType: ListSuppliers200ApplicationJSONSourceModifiedDate,
+  })
   @Expose({ name: "results" })
-  @Type(() => ListSuppliersLinksSourceModifiedDate)
-  results?: ListSuppliersLinksSourceModifiedDate[];
+  @Type(() => ListSuppliers200ApplicationJSONSourceModifiedDate)
+  results?: ListSuppliers200ApplicationJSONSourceModifiedDate[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -308,5 +313,5 @@ export class ListSuppliersResponse extends SpeakeasyBase {
    * Success
    */
   @SpeakeasyMetadata()
-  links?: ListSuppliersLinks;
+  listSuppliers200ApplicationJSONObject?: ListSuppliers200ApplicationJSON;
 }

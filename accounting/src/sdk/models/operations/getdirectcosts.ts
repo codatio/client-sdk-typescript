@@ -46,38 +46,38 @@ export class GetDirectCostsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class GetDirectCostsLinksLinksHypertextReference extends SpeakeasyBase {
+export class GetDirectCosts200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class GetDirectCostsLinksLinks extends SpeakeasyBase {
+export class GetDirectCosts200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => GetDirectCostsLinksLinksHypertextReference)
-  current: GetDirectCostsLinksLinksHypertextReference;
+  @Type(() => GetDirectCosts200ApplicationJSONLinksHypertextReference)
+  current: GetDirectCosts200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => GetDirectCostsLinksLinksHypertextReference)
-  next?: GetDirectCostsLinksLinksHypertextReference;
+  @Type(() => GetDirectCosts200ApplicationJSONLinksHypertextReference)
+  next?: GetDirectCosts200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => GetDirectCostsLinksLinksHypertextReference)
-  previous?: GetDirectCostsLinksLinksHypertextReference;
+  @Type(() => GetDirectCosts200ApplicationJSONLinksHypertextReference)
+  previous?: GetDirectCosts200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => GetDirectCostsLinksLinksHypertextReference)
-  self: GetDirectCostsLinksLinksHypertextReference;
+  @Type(() => GetDirectCosts200ApplicationJSONLinksHypertextReference)
+  self: GetDirectCosts200ApplicationJSONLinksHypertextReference;
 }
 
 /**
  * A customer or supplier associated with the direct cost.
  */
-export class GetDirectCostsLinksSourceModifiedDateContactRef extends SpeakeasyBase {
+export class GetDirectCosts200ApplicationJSONSourceModifiedDateContactRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
   dataType?: string;
@@ -90,7 +90,7 @@ export class GetDirectCostsLinksSourceModifiedDateContactRef extends SpeakeasyBa
 /**
  * Reference to the account to which the line item is linked.
  */
-export class GetDirectCostsLinksSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
+export class GetDirectCosts200ApplicationJSONSourceModifiedDateLineItemsAccountRef extends SpeakeasyBase {
   /**
    * 'id' from the Accounts data type.
    */
@@ -109,7 +109,7 @@ export class GetDirectCostsLinksSourceModifiedDateLineItemsAccountRef extends Sp
 /**
  * Reference to the product, service type, or inventory item to which the direct cost is linked.
  */
-export class GetDirectCostsLinksSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
+export class GetDirectCosts200ApplicationJSONSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -122,7 +122,7 @@ export class GetDirectCostsLinksSourceModifiedDateLineItemsItemRef extends Speak
 /**
  * Reference to the tax rate to which the the line item is linked.
  */
-export class GetDirectCostsLinksSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
+export class GetDirectCosts200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBase {
   /**
    * Applicable tax rate.
    */
@@ -157,7 +157,7 @@ export class GetDirectCostsLinksSourceModifiedDateLineItemsTaxRateRef extends Sp
  * - Invoices
  * - Transfers
  */
-export class GetDirectCostsLinksSourceModifiedDateLineItemsInvoiceableTrackingInvoiceTo extends SpeakeasyBase {
+export class GetDirectCosts200ApplicationJSONSourceModifiedDateLineItemsInvoiceableTrackingInvoiceTo extends SpeakeasyBase {
   /**
    * Name of the 'dataType'.
    */
@@ -185,7 +185,7 @@ export class GetDirectCostsLinksSourceModifiedDateLineItemsInvoiceableTrackingIn
  * - Invoices
  * - Transfers
  */
-export class GetDirectCostsLinksSourceModifiedDateLineItemsInvoiceableTrackingRecordRefs extends SpeakeasyBase {
+export class GetDirectCosts200ApplicationJSONSourceModifiedDateLineItemsInvoiceableTrackingRecordRefs extends SpeakeasyBase {
   /**
    * Name of the 'dataType'.
    */
@@ -201,7 +201,7 @@ export class GetDirectCostsLinksSourceModifiedDateLineItemsInvoiceableTrackingRe
   id?: string;
 }
 
-export class GetDirectCostsLinksSourceModifiedDateLineItemsInvoiceableTracking extends SpeakeasyBase {
+export class GetDirectCosts200ApplicationJSONSourceModifiedDateLineItemsInvoiceableTracking extends SpeakeasyBase {
   /**
    * Links to the underlying record or data type.
    *
@@ -218,26 +218,26 @@ export class GetDirectCostsLinksSourceModifiedDateLineItemsInvoiceableTracking e
   @Expose({ name: "invoiceTo" })
   @Type(
     () =>
-      GetDirectCostsLinksSourceModifiedDateLineItemsInvoiceableTrackingInvoiceTo
+      GetDirectCosts200ApplicationJSONSourceModifiedDateLineItemsInvoiceableTrackingInvoiceTo
   )
-  invoiceTo?: GetDirectCostsLinksSourceModifiedDateLineItemsInvoiceableTrackingInvoiceTo;
+  invoiceTo?: GetDirectCosts200ApplicationJSONSourceModifiedDateLineItemsInvoiceableTrackingInvoiceTo;
 
   @SpeakeasyMetadata({
     elemType:
-      GetDirectCostsLinksSourceModifiedDateLineItemsInvoiceableTrackingRecordRefs,
+      GetDirectCosts200ApplicationJSONSourceModifiedDateLineItemsInvoiceableTrackingRecordRefs,
   })
   @Expose({ name: "recordRefs" })
   @Type(
     () =>
-      GetDirectCostsLinksSourceModifiedDateLineItemsInvoiceableTrackingRecordRefs
+      GetDirectCosts200ApplicationJSONSourceModifiedDateLineItemsInvoiceableTrackingRecordRefs
   )
-  recordRefs: GetDirectCostsLinksSourceModifiedDateLineItemsInvoiceableTrackingRecordRefs[];
+  recordRefs: GetDirectCosts200ApplicationJSONSourceModifiedDateLineItemsInvoiceableTrackingRecordRefs[];
 }
 
 /**
  * References a category against which the item is tracked.
  */
-export class GetDirectCostsLinksSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
+export class GetDirectCosts200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -247,14 +247,16 @@ export class GetDirectCostsLinksSourceModifiedDateLineItemsTrackingCategoryRefs 
   name?: string;
 }
 
-export class GetDirectCostsLinksSourceModifiedDateLineItems extends SpeakeasyBase {
+export class GetDirectCosts200ApplicationJSONSourceModifiedDateLineItems extends SpeakeasyBase {
   /**
    * Reference to the account to which the line item is linked.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => GetDirectCostsLinksSourceModifiedDateLineItemsAccountRef)
-  accountRef?: GetDirectCostsLinksSourceModifiedDateLineItemsAccountRef;
+  @Type(
+    () => GetDirectCosts200ApplicationJSONSourceModifiedDateLineItemsAccountRef
+  )
+  accountRef?: GetDirectCosts200ApplicationJSONSourceModifiedDateLineItemsAccountRef;
 
   /**
    * Friendly name of the goods or services.
@@ -282,8 +284,10 @@ export class GetDirectCostsLinksSourceModifiedDateLineItems extends SpeakeasyBas
    */
   @SpeakeasyMetadata()
   @Expose({ name: "itemRef" })
-  @Type(() => GetDirectCostsLinksSourceModifiedDateLineItemsItemRef)
-  itemRef?: GetDirectCostsLinksSourceModifiedDateLineItemsItemRef;
+  @Type(
+    () => GetDirectCosts200ApplicationJSONSourceModifiedDateLineItemsItemRef
+  )
+  itemRef?: GetDirectCosts200ApplicationJSONSourceModifiedDateLineItemsItemRef;
 
   /**
    * Number of units of goods or services received.
@@ -315,8 +319,10 @@ export class GetDirectCostsLinksSourceModifiedDateLineItems extends SpeakeasyBas
    */
   @SpeakeasyMetadata()
   @Expose({ name: "taxRateRef" })
-  @Type(() => GetDirectCostsLinksSourceModifiedDateLineItemsTaxRateRef)
-  taxRateRef?: GetDirectCostsLinksSourceModifiedDateLineItemsTaxRateRef;
+  @Type(
+    () => GetDirectCosts200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef
+  )
+  taxRateRef?: GetDirectCosts200ApplicationJSONSourceModifiedDateLineItemsTaxRateRef;
 
   /**
    * Total amount of the line, including tax.
@@ -327,21 +333,25 @@ export class GetDirectCostsLinksSourceModifiedDateLineItems extends SpeakeasyBas
 
   @SpeakeasyMetadata()
   @Expose({ name: "tracking" })
-  @Type(() => GetDirectCostsLinksSourceModifiedDateLineItemsInvoiceableTracking)
-  tracking?: GetDirectCostsLinksSourceModifiedDateLineItemsInvoiceableTracking;
+  @Type(
+    () =>
+      GetDirectCosts200ApplicationJSONSourceModifiedDateLineItemsInvoiceableTracking
+  )
+  tracking?: GetDirectCosts200ApplicationJSONSourceModifiedDateLineItemsInvoiceableTracking;
 
   /**
    * Collection of categories against which this direct cost is tracked.
    */
   @SpeakeasyMetadata({
     elemType:
-      GetDirectCostsLinksSourceModifiedDateLineItemsTrackingCategoryRefs,
+      GetDirectCosts200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs,
   })
   @Expose({ name: "trackingCategoryRefs" })
   @Type(
-    () => GetDirectCostsLinksSourceModifiedDateLineItemsTrackingCategoryRefs
+    () =>
+      GetDirectCosts200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs
   )
-  trackingCategoryRefs?: GetDirectCostsLinksSourceModifiedDateLineItemsTrackingCategoryRefs[];
+  trackingCategoryRefs?: GetDirectCosts200ApplicationJSONSourceModifiedDateLineItemsTrackingCategoryRefs[];
 
   /**
    * Price of each unit of goods or services.
@@ -354,13 +364,16 @@ export class GetDirectCostsLinksSourceModifiedDateLineItems extends SpeakeasyBas
   unitAmount: number;
 }
 
-export class GetDirectCostsLinksSourceModifiedDateMetadata extends SpeakeasyBase {
+export class GetDirectCosts200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
 }
 
-export class GetDirectCostsLinksSourceModifiedDatePaymentAllocationsAllocation extends SpeakeasyBase {
+export class GetDirectCosts200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation extends SpeakeasyBase {
   /**
    * The date the payment was allocated.
    */
@@ -417,7 +430,7 @@ export class GetDirectCostsLinksSourceModifiedDatePaymentAllocationsAllocation e
 /**
  * The account that the allocated payment is made from or to.
  */
-export class GetDirectCostsLinksSourceModifiedDatePaymentAllocationsPaymentAccountRef extends SpeakeasyBase {
+export class GetDirectCosts200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef extends SpeakeasyBase {
   /**
    * 'id' from the Accounts data type.
    */
@@ -433,7 +446,7 @@ export class GetDirectCostsLinksSourceModifiedDatePaymentAllocationsPaymentAccou
   name?: string;
 }
 
-export class GetDirectCostsLinksSourceModifiedDatePaymentAllocationsPayment extends SpeakeasyBase {
+export class GetDirectCosts200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment extends SpeakeasyBase {
   /**
    * The account that the allocated payment is made from or to.
    */
@@ -441,9 +454,9 @@ export class GetDirectCostsLinksSourceModifiedDatePaymentAllocationsPayment exte
   @Expose({ name: "accountRef" })
   @Type(
     () =>
-      GetDirectCostsLinksSourceModifiedDatePaymentAllocationsPaymentAccountRef
+      GetDirectCosts200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef
   )
-  accountRef?: GetDirectCostsLinksSourceModifiedDatePaymentAllocationsPaymentAccountRef;
+  accountRef?: GetDirectCosts200ApplicationJSONSourceModifiedDatePaymentAllocationsPaymentAccountRef;
 
   /**
    * Currency the payment has been made in.
@@ -519,22 +532,28 @@ export class GetDirectCostsLinksSourceModifiedDatePaymentAllocationsPayment exte
   totalAmount?: number;
 }
 
-export class GetDirectCostsLinksSourceModifiedDatePaymentAllocations extends SpeakeasyBase {
+export class GetDirectCosts200ApplicationJSONSourceModifiedDatePaymentAllocations extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "allocation" })
-  @Type(() => GetDirectCostsLinksSourceModifiedDatePaymentAllocationsAllocation)
-  allocation: GetDirectCostsLinksSourceModifiedDatePaymentAllocationsAllocation;
+  @Type(
+    () =>
+      GetDirectCosts200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation
+  )
+  allocation: GetDirectCosts200ApplicationJSONSourceModifiedDatePaymentAllocationsAllocation;
 
   @SpeakeasyMetadata()
   @Expose({ name: "payment" })
-  @Type(() => GetDirectCostsLinksSourceModifiedDatePaymentAllocationsPayment)
-  payment: GetDirectCostsLinksSourceModifiedDatePaymentAllocationsPayment;
+  @Type(
+    () =>
+      GetDirectCosts200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment
+  )
+  payment: GetDirectCosts200ApplicationJSONSourceModifiedDatePaymentAllocationsPayment;
 }
 
 /**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
  */
-export class GetDirectCostsLinksSourceModifiedDateSupplementalData extends SpeakeasyBase {
+export class GetDirectCosts200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
   content?: Record<string, Record<string, any>>;
@@ -563,14 +582,14 @@ export class GetDirectCostsLinksSourceModifiedDateSupplementalData extends Speak
  *
  * Direct costs is a child data type of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction).
  */
-export class GetDirectCostsLinksSourceModifiedDate extends SpeakeasyBase {
+export class GetDirectCosts200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
    * A customer or supplier associated with the direct cost.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "contactRef" })
-  @Type(() => GetDirectCostsLinksSourceModifiedDateContactRef)
-  contactRef?: GetDirectCostsLinksSourceModifiedDateContactRef;
+  @Type(() => GetDirectCosts200ApplicationJSONSourceModifiedDateContactRef)
+  contactRef?: GetDirectCosts200ApplicationJSONSourceModifiedDateContactRef;
 
   /**
    * Currency of the direct cost.
@@ -628,16 +647,16 @@ export class GetDirectCostsLinksSourceModifiedDate extends SpeakeasyBase {
    * An array of line items.
    */
   @SpeakeasyMetadata({
-    elemType: GetDirectCostsLinksSourceModifiedDateLineItems,
+    elemType: GetDirectCosts200ApplicationJSONSourceModifiedDateLineItems,
   })
   @Expose({ name: "lineItems" })
-  @Type(() => GetDirectCostsLinksSourceModifiedDateLineItems)
-  lineItems: GetDirectCostsLinksSourceModifiedDateLineItems[];
+  @Type(() => GetDirectCosts200ApplicationJSONSourceModifiedDateLineItems)
+  lineItems: GetDirectCosts200ApplicationJSONSourceModifiedDateLineItems[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => GetDirectCostsLinksSourceModifiedDateMetadata)
-  metadata?: GetDirectCostsLinksSourceModifiedDateMetadata;
+  @Type(() => GetDirectCosts200ApplicationJSONSourceModifiedDateMetadata)
+  metadata?: GetDirectCosts200ApplicationJSONSourceModifiedDateMetadata;
 
   /**
    * The date on which this record was last modified in Codat.
@@ -657,11 +676,14 @@ export class GetDirectCostsLinksSourceModifiedDate extends SpeakeasyBase {
    * An array of payment allocations.
    */
   @SpeakeasyMetadata({
-    elemType: GetDirectCostsLinksSourceModifiedDatePaymentAllocations,
+    elemType:
+      GetDirectCosts200ApplicationJSONSourceModifiedDatePaymentAllocations,
   })
   @Expose({ name: "paymentAllocations" })
-  @Type(() => GetDirectCostsLinksSourceModifiedDatePaymentAllocations)
-  paymentAllocations: GetDirectCostsLinksSourceModifiedDatePaymentAllocations[];
+  @Type(
+    () => GetDirectCosts200ApplicationJSONSourceModifiedDatePaymentAllocations
+  )
+  paymentAllocations: GetDirectCosts200ApplicationJSONSourceModifiedDatePaymentAllocations[];
 
   /**
    * User-friendly reference for the direct cost.
@@ -689,8 +711,10 @@ export class GetDirectCostsLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "supplementalData" })
-  @Type(() => GetDirectCostsLinksSourceModifiedDateSupplementalData)
-  supplementalData?: GetDirectCostsLinksSourceModifiedDateSupplementalData;
+  @Type(
+    () => GetDirectCosts200ApplicationJSONSourceModifiedDateSupplementalData
+  )
+  supplementalData?: GetDirectCosts200ApplicationJSONSourceModifiedDateSupplementalData;
 
   /**
    * The total amount of tax on the direct costs.
@@ -708,13 +732,13 @@ export class GetDirectCostsLinksSourceModifiedDate extends SpeakeasyBase {
 }
 
 /**
- * Codat's Paging Model
+ * Success
  */
-export class GetDirectCostsLinks extends SpeakeasyBase {
+export class GetDirectCosts200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => GetDirectCostsLinksLinks)
-  links: GetDirectCostsLinksLinks;
+  @Type(() => GetDirectCosts200ApplicationJSONLinks)
+  links: GetDirectCosts200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -724,10 +748,12 @@ export class GetDirectCostsLinks extends SpeakeasyBase {
   @Expose({ name: "pageSize" })
   pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: GetDirectCostsLinksSourceModifiedDate })
+  @SpeakeasyMetadata({
+    elemType: GetDirectCosts200ApplicationJSONSourceModifiedDate,
+  })
   @Expose({ name: "results" })
-  @Type(() => GetDirectCostsLinksSourceModifiedDate)
-  results?: GetDirectCostsLinksSourceModifiedDate[];
+  @Type(() => GetDirectCosts200ApplicationJSONSourceModifiedDate)
+  results?: GetDirectCosts200ApplicationJSONSourceModifiedDate[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -748,5 +774,5 @@ export class GetDirectCostsResponse extends SpeakeasyBase {
    * Success
    */
   @SpeakeasyMetadata()
-  links?: GetDirectCostsLinks;
+  getDirectCosts200ApplicationJSONObject?: GetDirectCosts200ApplicationJSON;
 }

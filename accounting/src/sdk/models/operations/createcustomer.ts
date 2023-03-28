@@ -242,6 +242,9 @@ export class CreateCustomerSourceModifiedDateContacts extends SpeakeasyBase {
 }
 
 export class CreateCustomerSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
@@ -674,6 +677,9 @@ export class CreateCustomer200ApplicationJSONSourceModifiedDateContacts extends 
 }
 
 export class CreateCustomer200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;

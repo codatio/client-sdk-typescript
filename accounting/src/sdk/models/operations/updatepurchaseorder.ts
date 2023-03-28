@@ -173,6 +173,9 @@ export class UpdatePurchaseOrderSourceModifiedDateLineItems extends SpeakeasyBas
 }
 
 export class UpdatePurchaseOrderSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
@@ -737,6 +740,9 @@ export class UpdatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItems ex
 }
 
 export class UpdatePurchaseOrder200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;

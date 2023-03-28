@@ -133,10 +133,11 @@ export class TrackingCategories {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.links = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.ListTrackingCategoriesLinks
-            );
+            res.listTrackingCategories200ApplicationJSONObject =
+              utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.ListTrackingCategories200ApplicationJSON
+              );
           }
           break;
       }

@@ -41,35 +41,35 @@ export class ListTaxRatesRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListTaxRatesLinksLinksHypertextReference extends SpeakeasyBase {
+export class ListTaxRates200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class ListTaxRatesLinksLinks extends SpeakeasyBase {
+export class ListTaxRates200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListTaxRatesLinksLinksHypertextReference)
-  current: ListTaxRatesLinksLinksHypertextReference;
+  @Type(() => ListTaxRates200ApplicationJSONLinksHypertextReference)
+  current: ListTaxRates200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListTaxRatesLinksLinksHypertextReference)
-  next?: ListTaxRatesLinksLinksHypertextReference;
+  @Type(() => ListTaxRates200ApplicationJSONLinksHypertextReference)
+  next?: ListTaxRates200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListTaxRatesLinksLinksHypertextReference)
-  previous?: ListTaxRatesLinksLinksHypertextReference;
+  @Type(() => ListTaxRates200ApplicationJSONLinksHypertextReference)
+  previous?: ListTaxRates200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListTaxRatesLinksLinksHypertextReference)
-  self: ListTaxRatesLinksLinksHypertextReference;
+  @Type(() => ListTaxRates200ApplicationJSONLinksHypertextReference)
+  self: ListTaxRates200ApplicationJSONLinksHypertextReference;
 }
 
-export class ListTaxRatesLinksResultsComponents extends SpeakeasyBase {
+export class ListTaxRates200ApplicationJSONResultsComponents extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "isCompound" })
   isCompound: boolean;
@@ -83,13 +83,16 @@ export class ListTaxRatesLinksResultsComponents extends SpeakeasyBase {
   rate?: number;
 }
 
-export class ListTaxRatesLinksResultsMetadata extends SpeakeasyBase {
+export class ListTaxRates200ApplicationJSONResultsMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
 }
 
-export enum ListTaxRatesLinksResultsStatusEnum {
+export enum ListTaxRates200ApplicationJSONResultsStatusEnum {
   Unknown = "Unknown",
   Active = "Active",
   Archived = "Archived",
@@ -139,7 +142,7 @@ export enum ListTaxRatesLinksResultsStatusEnum {
  *
  * If you'd like us to extend support to more data types or integrations, suggest or vote for this on our <a href="https://portal.productboard.com/codat/5-product-roadmap">Product Roadmap</a>.
  */
-export class ListTaxRatesLinksResultsValidDataTypeLinks extends SpeakeasyBase {
+export class ListTaxRates200ApplicationJSONResultsValidDataTypeLinks extends SpeakeasyBase {
   /**
    * Supported `dataTypes` that the record can be linked to.
    */
@@ -178,15 +181,17 @@ export class ListTaxRatesLinksResultsValidDataTypeLinks extends SpeakeasyBase {
  * > A tax has two components. Both components have a rate of 10%, and one component is compound. In this case, there is a total tax rate of 20% but an effective tax rate of 21%. [Also see _Compound tax example_](#section-compound-tax-example).
  * > - For QuickBooks Online, Codat doesn't use compound rates. Instead, the calculated effective tax rate for each component is shown. This means that the effective and total rates are the same because the total tax rate is a sum of the component rates.
  */
-export class ListTaxRatesLinksResults extends SpeakeasyBase {
+export class ListTaxRates200ApplicationJSONResults extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "code" })
   code?: string;
 
-  @SpeakeasyMetadata({ elemType: ListTaxRatesLinksResultsComponents })
+  @SpeakeasyMetadata({
+    elemType: ListTaxRates200ApplicationJSONResultsComponents,
+  })
   @Expose({ name: "components" })
-  @Type(() => ListTaxRatesLinksResultsComponents)
-  components?: ListTaxRatesLinksResultsComponents[];
+  @Type(() => ListTaxRates200ApplicationJSONResultsComponents)
+  components?: ListTaxRates200ApplicationJSONResultsComponents[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
@@ -198,8 +203,8 @@ export class ListTaxRatesLinksResults extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => ListTaxRatesLinksResultsMetadata)
-  metadata?: ListTaxRatesLinksResultsMetadata;
+  @Type(() => ListTaxRates200ApplicationJSONResultsMetadata)
+  metadata?: ListTaxRates200ApplicationJSONResultsMetadata;
 
   /**
    * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
@@ -261,26 +266,28 @@ export class ListTaxRatesLinksResults extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status?: ListTaxRatesLinksResultsStatusEnum;
+  status?: ListTaxRates200ApplicationJSONResultsStatusEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalTaxRate" })
   totalTaxRate?: number;
 
-  @SpeakeasyMetadata({ elemType: ListTaxRatesLinksResultsValidDataTypeLinks })
+  @SpeakeasyMetadata({
+    elemType: ListTaxRates200ApplicationJSONResultsValidDataTypeLinks,
+  })
   @Expose({ name: "validDatatypeLinks" })
-  @Type(() => ListTaxRatesLinksResultsValidDataTypeLinks)
-  validDatatypeLinks?: ListTaxRatesLinksResultsValidDataTypeLinks[];
+  @Type(() => ListTaxRates200ApplicationJSONResultsValidDataTypeLinks)
+  validDatatypeLinks?: ListTaxRates200ApplicationJSONResultsValidDataTypeLinks[];
 }
 
 /**
- * Codat's Paging Model
+ * Success
  */
-export class ListTaxRatesLinks extends SpeakeasyBase {
+export class ListTaxRates200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => ListTaxRatesLinksLinks)
-  links: ListTaxRatesLinksLinks;
+  @Type(() => ListTaxRates200ApplicationJSONLinks)
+  links: ListTaxRates200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -290,10 +297,10 @@ export class ListTaxRatesLinks extends SpeakeasyBase {
   @Expose({ name: "pageSize" })
   pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: ListTaxRatesLinksResults })
+  @SpeakeasyMetadata({ elemType: ListTaxRates200ApplicationJSONResults })
   @Expose({ name: "results" })
-  @Type(() => ListTaxRatesLinksResults)
-  results?: ListTaxRatesLinksResults[];
+  @Type(() => ListTaxRates200ApplicationJSONResults)
+  results?: ListTaxRates200ApplicationJSONResults[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -314,5 +321,5 @@ export class ListTaxRatesResponse extends SpeakeasyBase {
    * Success
    */
   @SpeakeasyMetadata()
-  links?: ListTaxRatesLinks;
+  listTaxRates200ApplicationJSONObject?: ListTaxRates200ApplicationJSON;
 }

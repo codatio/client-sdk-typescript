@@ -41,38 +41,38 @@ export class ListItemsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListItemsLinksLinksHypertextReference extends SpeakeasyBase {
+export class ListItems200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class ListItemsLinksLinks extends SpeakeasyBase {
+export class ListItems200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListItemsLinksLinksHypertextReference)
-  current: ListItemsLinksLinksHypertextReference;
+  @Type(() => ListItems200ApplicationJSONLinksHypertextReference)
+  current: ListItems200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListItemsLinksLinksHypertextReference)
-  next?: ListItemsLinksLinksHypertextReference;
+  @Type(() => ListItems200ApplicationJSONLinksHypertextReference)
+  next?: ListItems200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListItemsLinksLinksHypertextReference)
-  previous?: ListItemsLinksLinksHypertextReference;
+  @Type(() => ListItems200ApplicationJSONLinksHypertextReference)
+  previous?: ListItems200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListItemsLinksLinksHypertextReference)
-  self: ListItemsLinksLinksHypertextReference;
+  @Type(() => ListItems200ApplicationJSONLinksHypertextReference)
+  self: ListItems200ApplicationJSONLinksHypertextReference;
 }
 
 /**
  * Reference of the account to which the item is linked.
  */
-export class ListItemsLinksSourceModifiedDateBillItemAccountRef extends SpeakeasyBase {
+export class ListItems200ApplicationJSONSourceModifiedDateBillItemAccountRef extends SpeakeasyBase {
   /**
    * 'id' from the Accounts data type.
    */
@@ -91,7 +91,7 @@ export class ListItemsLinksSourceModifiedDateBillItemAccountRef extends Speakeas
 /**
  * Reference of the tax rate to which the item is linked.
  */
-export class ListItemsLinksSourceModifiedDateBillItemTaxRateRef extends SpeakeasyBase {
+export class ListItems200ApplicationJSONSourceModifiedDateBillItemTaxRateRef extends SpeakeasyBase {
   /**
    * Applicable tax rate.
    */
@@ -117,14 +117,14 @@ export class ListItemsLinksSourceModifiedDateBillItemTaxRateRef extends Speakeas
 /**
  * Item details that are only for bills.
  */
-export class ListItemsLinksSourceModifiedDateBillItem extends SpeakeasyBase {
+export class ListItems200ApplicationJSONSourceModifiedDateBillItem extends SpeakeasyBase {
   /**
    * Reference of the account to which the item is linked.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => ListItemsLinksSourceModifiedDateBillItemAccountRef)
-  accountRef?: ListItemsLinksSourceModifiedDateBillItemAccountRef;
+  @Type(() => ListItems200ApplicationJSONSourceModifiedDateBillItemAccountRef)
+  accountRef?: ListItems200ApplicationJSONSourceModifiedDateBillItemAccountRef;
 
   /**
    * Short description of the product or service that has been bought by the customer.
@@ -138,8 +138,8 @@ export class ListItemsLinksSourceModifiedDateBillItem extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "taxRateRef" })
-  @Type(() => ListItemsLinksSourceModifiedDateBillItemTaxRateRef)
-  taxRateRef?: ListItemsLinksSourceModifiedDateBillItemTaxRateRef;
+  @Type(() => ListItems200ApplicationJSONSourceModifiedDateBillItemTaxRateRef)
+  taxRateRef?: ListItems200ApplicationJSONSourceModifiedDateBillItemTaxRateRef;
 
   /**
    * Unit price of the product or service.
@@ -152,7 +152,7 @@ export class ListItemsLinksSourceModifiedDateBillItem extends SpeakeasyBase {
 /**
  * Reference of the account to which the item is linked.
  */
-export class ListItemsLinksSourceModifiedDateInvoiceItemAccountRef extends SpeakeasyBase {
+export class ListItems200ApplicationJSONSourceModifiedDateInvoiceItemAccountRef extends SpeakeasyBase {
   /**
    * 'id' from the Accounts data type.
    */
@@ -171,7 +171,7 @@ export class ListItemsLinksSourceModifiedDateInvoiceItemAccountRef extends Speak
 /**
  * Reference of the tax rate to which the item is linked.
  */
-export class ListItemsLinksSourceModifiedDateInvoiceItemTaxRateRef extends SpeakeasyBase {
+export class ListItems200ApplicationJSONSourceModifiedDateInvoiceItemTaxRateRef extends SpeakeasyBase {
   /**
    * Applicable tax rate.
    */
@@ -197,14 +197,16 @@ export class ListItemsLinksSourceModifiedDateInvoiceItemTaxRateRef extends Speak
 /**
  * Item details that are only for bills.
  */
-export class ListItemsLinksSourceModifiedDateInvoiceItem extends SpeakeasyBase {
+export class ListItems200ApplicationJSONSourceModifiedDateInvoiceItem extends SpeakeasyBase {
   /**
    * Reference of the account to which the item is linked.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => ListItemsLinksSourceModifiedDateInvoiceItemAccountRef)
-  accountRef?: ListItemsLinksSourceModifiedDateInvoiceItemAccountRef;
+  @Type(
+    () => ListItems200ApplicationJSONSourceModifiedDateInvoiceItemAccountRef
+  )
+  accountRef?: ListItems200ApplicationJSONSourceModifiedDateInvoiceItemAccountRef;
 
   /**
    * Short description of the product or service that has been bought by the customer.
@@ -218,8 +220,10 @@ export class ListItemsLinksSourceModifiedDateInvoiceItem extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "taxRateRef" })
-  @Type(() => ListItemsLinksSourceModifiedDateInvoiceItemTaxRateRef)
-  taxRateRef?: ListItemsLinksSourceModifiedDateInvoiceItemTaxRateRef;
+  @Type(
+    () => ListItems200ApplicationJSONSourceModifiedDateInvoiceItemTaxRateRef
+  )
+  taxRateRef?: ListItems200ApplicationJSONSourceModifiedDateInvoiceItemTaxRateRef;
 
   /**
    * Unit price of the product or service.
@@ -240,13 +244,16 @@ export class ListItemsLinksSourceModifiedDateInvoiceItem extends SpeakeasyBase {
  *
  * Due to a [limitation in Xero's API](https://docs.codat.io/integrations/accounting/xero/xero-faq#why-do-all-of-my-items-from-xero-have-their-status-as-unknown), all items from Xero are mapped as `Unknown`.
  */
-export enum ListItemsLinksSourceModifiedDateItemStatusEnum {
+export enum ListItems200ApplicationJSONSourceModifiedDateItemStatusEnum {
   Unknown = "Unknown",
   Active = "Active",
   Archived = "Archived",
 }
 
-export class ListItemsLinksSourceModifiedDateMetadata extends SpeakeasyBase {
+export class ListItems200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
@@ -255,7 +262,7 @@ export class ListItemsLinksSourceModifiedDateMetadata extends SpeakeasyBase {
 /**
  * Type of the item.
  */
-export enum ListItemsLinksSourceModifiedDateTypeEnum {
+export enum ListItems200ApplicationJSONSourceModifiedDateTypeEnum {
   Unknown = "Unknown",
   Inventory = "Inventory",
   NonInventory = "NonInventory",
@@ -272,14 +279,14 @@ export enum ListItemsLinksSourceModifiedDateTypeEnum {
  * **Items** allow your customers to save and track details of the products and services that they buy and sell.
  *
  */
-export class ListItemsLinksSourceModifiedDate extends SpeakeasyBase {
+export class ListItems200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
    * Item details that are only for bills.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "billItem" })
-  @Type(() => ListItemsLinksSourceModifiedDateBillItem)
-  billItem?: ListItemsLinksSourceModifiedDateBillItem;
+  @Type(() => ListItems200ApplicationJSONSourceModifiedDateBillItem)
+  billItem?: ListItems200ApplicationJSONSourceModifiedDateBillItem;
 
   /**
    * Friendly reference for the item.
@@ -300,8 +307,8 @@ export class ListItemsLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "invoiceItem" })
-  @Type(() => ListItemsLinksSourceModifiedDateInvoiceItem)
-  invoiceItem?: ListItemsLinksSourceModifiedDateInvoiceItem;
+  @Type(() => ListItems200ApplicationJSONSourceModifiedDateInvoiceItem)
+  invoiceItem?: ListItems200ApplicationJSONSourceModifiedDateInvoiceItem;
 
   /**
    * Whether you can use this item for bills.
@@ -330,12 +337,12 @@ export class ListItemsLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "itemStatus" })
-  itemStatus: ListItemsLinksSourceModifiedDateItemStatusEnum;
+  itemStatus: ListItems200ApplicationJSONSourceModifiedDateItemStatusEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => ListItemsLinksSourceModifiedDateMetadata)
-  metadata?: ListItemsLinksSourceModifiedDateMetadata;
+  @Type(() => ListItems200ApplicationJSONSourceModifiedDateMetadata)
+  metadata?: ListItems200ApplicationJSONSourceModifiedDateMetadata;
 
   /**
    * The date on which this record was last modified in Codat.
@@ -363,17 +370,17 @@ export class ListItemsLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: ListItemsLinksSourceModifiedDateTypeEnum;
+  type: ListItems200ApplicationJSONSourceModifiedDateTypeEnum;
 }
 
 /**
- * Codat's Paging Model
+ * Success
  */
-export class ListItemsLinks extends SpeakeasyBase {
+export class ListItems200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => ListItemsLinksLinks)
-  links: ListItemsLinksLinks;
+  @Type(() => ListItems200ApplicationJSONLinks)
+  links: ListItems200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -383,10 +390,12 @@ export class ListItemsLinks extends SpeakeasyBase {
   @Expose({ name: "pageSize" })
   pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: ListItemsLinksSourceModifiedDate })
+  @SpeakeasyMetadata({
+    elemType: ListItems200ApplicationJSONSourceModifiedDate,
+  })
   @Expose({ name: "results" })
-  @Type(() => ListItemsLinksSourceModifiedDate)
-  results?: ListItemsLinksSourceModifiedDate[];
+  @Type(() => ListItems200ApplicationJSONSourceModifiedDate)
+  results?: ListItems200ApplicationJSONSourceModifiedDate[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -407,5 +416,5 @@ export class ListItemsResponse extends SpeakeasyBase {
    * Success
    */
   @SpeakeasyMetadata()
-  links?: ListItemsLinks;
+  listItems200ApplicationJSONObject?: ListItems200ApplicationJSON;
 }

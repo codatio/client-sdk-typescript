@@ -196,6 +196,9 @@ export enum GetItemSourceModifiedDateItemStatusEnum {
 }
 
 export class GetItemSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;

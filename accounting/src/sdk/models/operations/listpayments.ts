@@ -41,38 +41,38 @@ export class ListPaymentsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListPaymentsLinksLinksHypertextReference extends SpeakeasyBase {
+export class ListPayments200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class ListPaymentsLinksLinks extends SpeakeasyBase {
+export class ListPayments200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListPaymentsLinksLinksHypertextReference)
-  current: ListPaymentsLinksLinksHypertextReference;
+  @Type(() => ListPayments200ApplicationJSONLinksHypertextReference)
+  current: ListPayments200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListPaymentsLinksLinksHypertextReference)
-  next?: ListPaymentsLinksLinksHypertextReference;
+  @Type(() => ListPayments200ApplicationJSONLinksHypertextReference)
+  next?: ListPayments200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListPaymentsLinksLinksHypertextReference)
-  previous?: ListPaymentsLinksLinksHypertextReference;
+  @Type(() => ListPayments200ApplicationJSONLinksHypertextReference)
+  previous?: ListPayments200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListPaymentsLinksLinksHypertextReference)
-  self: ListPaymentsLinksLinksHypertextReference;
+  @Type(() => ListPayments200ApplicationJSONLinksHypertextReference)
+  self: ListPayments200ApplicationJSONLinksHypertextReference;
 }
 
 /**
  * Account the payment is recorded against in the accounting platform.
  */
-export class ListPaymentsLinksSourceModifiedDateAccountRef extends SpeakeasyBase {
+export class ListPayments200ApplicationJSONSourceModifiedDateAccountRef extends SpeakeasyBase {
   /**
    * 'id' from the Accounts data type.
    */
@@ -91,7 +91,7 @@ export class ListPaymentsLinksSourceModifiedDateAccountRef extends SpeakeasyBase
 /**
  * Customer the payment is recorded against in the accounting platform.
  */
-export class ListPaymentsLinksSourceModifiedDateCustomerRef extends SpeakeasyBase {
+export class ListPayments200ApplicationJSONSourceModifiedDateCustomerRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
   companyName?: string;
@@ -104,7 +104,7 @@ export class ListPaymentsLinksSourceModifiedDateCustomerRef extends SpeakeasyBas
 /**
  * Types of payment line links
  */
-export enum ListPaymentsLinksSourceModifiedDateLinesLinksTypeEnum {
+export enum ListPayments200ApplicationJSONSourceModifiedDateLinesLinksTypeEnum {
   Unknown = "Unknown",
   Unlinked = "Unlinked",
   Invoice = "Invoice",
@@ -117,7 +117,7 @@ export enum ListPaymentsLinksSourceModifiedDateLinesLinksTypeEnum {
   Discount = "Discount",
 }
 
-export class ListPaymentsLinksSourceModifiedDateLinesLinks extends SpeakeasyBase {
+export class ListPayments200ApplicationJSONSourceModifiedDateLinesLinks extends SpeakeasyBase {
   /**
    * Amount by which the balance of the linked entity is altered, in the currency of the linked entity.
    *
@@ -172,10 +172,10 @@ export class ListPaymentsLinksSourceModifiedDateLinesLinks extends SpeakeasyBase
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: ListPaymentsLinksSourceModifiedDateLinesLinksTypeEnum;
+  type: ListPayments200ApplicationJSONSourceModifiedDateLinesLinksTypeEnum;
 }
 
-export class ListPaymentsLinksSourceModifiedDateLines extends SpeakeasyBase {
+export class ListPayments200ApplicationJSONSourceModifiedDateLines extends SpeakeasyBase {
   /**
    * The date the payment was allocated.
    */
@@ -194,14 +194,17 @@ export class ListPaymentsLinksSourceModifiedDateLines extends SpeakeasyBase {
   amount: number;
 
   @SpeakeasyMetadata({
-    elemType: ListPaymentsLinksSourceModifiedDateLinesLinks,
+    elemType: ListPayments200ApplicationJSONSourceModifiedDateLinesLinks,
   })
   @Expose({ name: "links" })
-  @Type(() => ListPaymentsLinksSourceModifiedDateLinesLinks)
-  links?: ListPaymentsLinksSourceModifiedDateLinesLinks[];
+  @Type(() => ListPayments200ApplicationJSONSourceModifiedDateLinesLinks)
+  links?: ListPayments200ApplicationJSONSourceModifiedDateLinesLinks[];
 }
 
-export class ListPaymentsLinksSourceModifiedDateMetadata extends SpeakeasyBase {
+export class ListPayments200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
@@ -210,7 +213,7 @@ export class ListPaymentsLinksSourceModifiedDateMetadata extends SpeakeasyBase {
 /**
  * The Payment Method to which the payment is linked in the accounting platform.
  */
-export class ListPaymentsLinksSourceModifiedDatePaymentMethodRef extends SpeakeasyBase {
+export class ListPayments200ApplicationJSONSourceModifiedDatePaymentMethodRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -223,7 +226,7 @@ export class ListPaymentsLinksSourceModifiedDatePaymentMethodRef extends Speakea
 /**
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
  */
-export class ListPaymentsLinksSourceModifiedDateSupplementalData extends SpeakeasyBase {
+export class ListPayments200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "content" })
   content?: Record<string, Record<string, any>>;
@@ -911,14 +914,14 @@ export class ListPaymentsLinksSourceModifiedDateSupplementalData extends Speakea
  * }
  * ```
  */
-export class ListPaymentsLinksSourceModifiedDate extends SpeakeasyBase {
+export class ListPayments200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
    * Account the payment is recorded against in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => ListPaymentsLinksSourceModifiedDateAccountRef)
-  accountRef?: ListPaymentsLinksSourceModifiedDateAccountRef;
+  @Type(() => ListPayments200ApplicationJSONSourceModifiedDateAccountRef)
+  accountRef?: ListPayments200ApplicationJSONSourceModifiedDateAccountRef;
 
   /**
    * ISO currency code recorded for the payment in the accounting platform.
@@ -963,8 +966,8 @@ export class ListPaymentsLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "customerRef" })
-  @Type(() => ListPaymentsLinksSourceModifiedDateCustomerRef)
-  customerRef?: ListPaymentsLinksSourceModifiedDateCustomerRef;
+  @Type(() => ListPayments200ApplicationJSONSourceModifiedDateCustomerRef)
+  customerRef?: ListPayments200ApplicationJSONSourceModifiedDateCustomerRef;
 
   /**
    * Date the payment was recorded in the accounting software.
@@ -983,15 +986,17 @@ export class ListPaymentsLinksSourceModifiedDate extends SpeakeasyBase {
   /**
    * An array of payment lines.
    */
-  @SpeakeasyMetadata({ elemType: ListPaymentsLinksSourceModifiedDateLines })
+  @SpeakeasyMetadata({
+    elemType: ListPayments200ApplicationJSONSourceModifiedDateLines,
+  })
   @Expose({ name: "lines" })
-  @Type(() => ListPaymentsLinksSourceModifiedDateLines)
-  lines?: ListPaymentsLinksSourceModifiedDateLines[];
+  @Type(() => ListPayments200ApplicationJSONSourceModifiedDateLines)
+  lines?: ListPayments200ApplicationJSONSourceModifiedDateLines[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => ListPaymentsLinksSourceModifiedDateMetadata)
-  metadata?: ListPaymentsLinksSourceModifiedDateMetadata;
+  @Type(() => ListPayments200ApplicationJSONSourceModifiedDateMetadata)
+  metadata?: ListPayments200ApplicationJSONSourceModifiedDateMetadata;
 
   /**
    * The date on which this record was last modified in Codat.
@@ -1012,8 +1017,8 @@ export class ListPaymentsLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "paymentMethodRef" })
-  @Type(() => ListPaymentsLinksSourceModifiedDatePaymentMethodRef)
-  paymentMethodRef?: ListPaymentsLinksSourceModifiedDatePaymentMethodRef;
+  @Type(() => ListPayments200ApplicationJSONSourceModifiedDatePaymentMethodRef)
+  paymentMethodRef?: ListPayments200ApplicationJSONSourceModifiedDatePaymentMethodRef;
 
   /**
    * Friendly reference for the payment.
@@ -1034,8 +1039,8 @@ export class ListPaymentsLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "supplementalData" })
-  @Type(() => ListPaymentsLinksSourceModifiedDateSupplementalData)
-  supplementalData?: ListPaymentsLinksSourceModifiedDateSupplementalData;
+  @Type(() => ListPayments200ApplicationJSONSourceModifiedDateSupplementalData)
+  supplementalData?: ListPayments200ApplicationJSONSourceModifiedDateSupplementalData;
 
   /**
    * Amount of the payment in the payment currency. This value should never change and represents the amount of money paid into the customer's account.
@@ -1046,13 +1051,13 @@ export class ListPaymentsLinksSourceModifiedDate extends SpeakeasyBase {
 }
 
 /**
- * Codat's Paging Model
+ * Success
  */
-export class ListPaymentsLinks extends SpeakeasyBase {
+export class ListPayments200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => ListPaymentsLinksLinks)
-  links: ListPaymentsLinksLinks;
+  @Type(() => ListPayments200ApplicationJSONLinks)
+  links: ListPayments200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -1062,10 +1067,12 @@ export class ListPaymentsLinks extends SpeakeasyBase {
   @Expose({ name: "pageSize" })
   pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: ListPaymentsLinksSourceModifiedDate })
+  @SpeakeasyMetadata({
+    elemType: ListPayments200ApplicationJSONSourceModifiedDate,
+  })
   @Expose({ name: "results" })
-  @Type(() => ListPaymentsLinksSourceModifiedDate)
-  results?: ListPaymentsLinksSourceModifiedDate[];
+  @Type(() => ListPayments200ApplicationJSONSourceModifiedDate)
+  results?: ListPayments200ApplicationJSONSourceModifiedDate[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -1086,5 +1093,5 @@ export class ListPaymentsResponse extends SpeakeasyBase {
    * Success
    */
   @SpeakeasyMetadata()
-  links?: ListPaymentsLinks;
+  listPayments200ApplicationJSONObject?: ListPayments200ApplicationJSON;
 }

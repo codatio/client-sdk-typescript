@@ -333,10 +333,11 @@ export class BankAccounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.links = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.ListBankAccountsLinks
-            );
+            res.listBankAccounts200ApplicationJSONObject =
+              utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.ListBankAccounts200ApplicationJSON
+              );
           }
           break;
       }

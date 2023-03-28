@@ -250,6 +250,9 @@ export class UpdateBillCreditNoteSourceModifiedDateLineItems extends SpeakeasyBa
 }
 
 export class UpdateBillCreditNoteSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
@@ -1005,6 +1008,9 @@ export class UpdateBillCreditNote200ApplicationJSONSourceModifiedDateLineItems e
 }
 
 export class UpdateBillCreditNote200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;

@@ -41,7 +41,7 @@ src/internal/utils/security.ts
 src/internal/utils/utils.ts
 src/sdk/index.ts
 tsconfig.json
-src/sdk/models/operations/getcreateupdateaccounttransactionsmodel.ts
+src/sdk/models/operations/getaccounttransaction.ts
 src/sdk/models/operations/listaccounttransactions.ts
 src/sdk/models/operations/createaccount.ts
 src/sdk/models/operations/getaccount.ts

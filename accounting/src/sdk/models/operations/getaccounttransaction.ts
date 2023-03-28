@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-export class GetCreateUpdateAccountTransactionsModelRequest extends SpeakeasyBase {
+export class GetAccountTransactionRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=accountTransactionId",
   })
@@ -26,7 +26,7 @@ export class GetCreateUpdateAccountTransactionsModelRequest extends SpeakeasyBas
 /**
  * Reference to the bank account the account transaction is recorded against.
  */
-export class GetCreateUpdateAccountTransactionsModelSourceModifiedDateBankAccountRef extends SpeakeasyBase {
+export class GetAccountTransactionSourceModifiedDateBankAccountRef extends SpeakeasyBase {
   /**
    * Bank account 'id' for the account transaction.
    */
@@ -45,7 +45,7 @@ export class GetCreateUpdateAccountTransactionsModelSourceModifiedDateBankAccoun
 /**
  * Links an account transaction line to the underlying record that created it.
  */
-export class GetCreateUpdateAccountTransactionsModelSourceModifiedDateLinesRecordRef extends SpeakeasyBase {
+export class GetAccountTransactionSourceModifiedDateLinesRecordRef extends SpeakeasyBase {
   /**
    * Name of the 'dataType'.
    */
@@ -61,7 +61,7 @@ export class GetCreateUpdateAccountTransactionsModelSourceModifiedDateLinesRecor
   id?: string;
 }
 
-export class GetCreateUpdateAccountTransactionsModelSourceModifiedDateLines extends SpeakeasyBase {
+export class GetAccountTransactionSourceModifiedDateLines extends SpeakeasyBase {
   /**
    * Amount in the bill payment currency.
    */
@@ -81,14 +81,14 @@ export class GetCreateUpdateAccountTransactionsModelSourceModifiedDateLines exte
    */
   @SpeakeasyMetadata()
   @Expose({ name: "recordRef" })
-  @Type(
-    () =>
-      GetCreateUpdateAccountTransactionsModelSourceModifiedDateLinesRecordRef
-  )
-  recordRef?: GetCreateUpdateAccountTransactionsModelSourceModifiedDateLinesRecordRef;
+  @Type(() => GetAccountTransactionSourceModifiedDateLinesRecordRef)
+  recordRef?: GetAccountTransactionSourceModifiedDateLinesRecordRef;
 }
 
-export class GetCreateUpdateAccountTransactionsModelSourceModifiedDateMetadata extends SpeakeasyBase {
+export class GetAccountTransactionSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
@@ -97,7 +97,7 @@ export class GetCreateUpdateAccountTransactionsModelSourceModifiedDateMetadata e
 /**
  * The status of the account transaction.
  */
-export enum GetCreateUpdateAccountTransactionsModelSourceModifiedDateStatusEnum {
+export enum GetAccountTransactionSourceModifiedDateStatusEnum {
   Unknown = "Unknown",
   Unreconciled = "Unreconciled",
   Reconciled = "Reconciled",
@@ -125,17 +125,14 @@ export enum GetCreateUpdateAccountTransactionsModelSourceModifiedDateStatusEnum 
  *
  * Account transactions is the parent data type of [payments](https://docs.codat.io/accounting-api#/schemas/Payment), [bill payments](https://docs.codat.io/accounting-api#/schemas/BillPayment), [direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost), [direct incomes](https://docs.codat.io/accounting-api#/schemas/DirectIncome), and [transfers](https://docs.codat.io/accounting-api#/schemas/Transfer).
  */
-export class GetCreateUpdateAccountTransactionsModelSourceModifiedDate extends SpeakeasyBase {
+export class GetAccountTransactionSourceModifiedDate extends SpeakeasyBase {
   /**
    * Reference to the bank account the account transaction is recorded against.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "bankAccountRef" })
-  @Type(
-    () =>
-      GetCreateUpdateAccountTransactionsModelSourceModifiedDateBankAccountRef
-  )
-  bankAccountRef?: GetCreateUpdateAccountTransactionsModelSourceModifiedDateBankAccountRef;
+  @Type(() => GetAccountTransactionSourceModifiedDateBankAccountRef)
+  bankAccountRef?: GetAccountTransactionSourceModifiedDateBankAccountRef;
 
   /**
    * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code. e.g. _GBP_.
@@ -200,17 +197,15 @@ export class GetCreateUpdateAccountTransactionsModelSourceModifiedDate extends S
   /**
    * Array of account transaction lines.
    */
-  @SpeakeasyMetadata({
-    elemType: GetCreateUpdateAccountTransactionsModelSourceModifiedDateLines,
-  })
+  @SpeakeasyMetadata({ elemType: GetAccountTransactionSourceModifiedDateLines })
   @Expose({ name: "lines" })
-  @Type(() => GetCreateUpdateAccountTransactionsModelSourceModifiedDateLines)
-  lines?: GetCreateUpdateAccountTransactionsModelSourceModifiedDateLines[];
+  @Type(() => GetAccountTransactionSourceModifiedDateLines)
+  lines?: GetAccountTransactionSourceModifiedDateLines[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => GetCreateUpdateAccountTransactionsModelSourceModifiedDateMetadata)
-  metadata?: GetCreateUpdateAccountTransactionsModelSourceModifiedDateMetadata;
+  @Type(() => GetAccountTransactionSourceModifiedDateMetadata)
+  metadata?: GetAccountTransactionSourceModifiedDateMetadata;
 
   /**
    * The date on which this record was last modified in Codat.
@@ -238,7 +233,7 @@ export class GetCreateUpdateAccountTransactionsModelSourceModifiedDate extends S
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status?: GetCreateUpdateAccountTransactionsModelSourceModifiedDateStatusEnum;
+  status?: GetAccountTransactionSourceModifiedDateStatusEnum;
 
   /**
    * Total amount of the account transactions, inclusive of tax.
@@ -255,7 +250,7 @@ export class GetCreateUpdateAccountTransactionsModelSourceModifiedDate extends S
   transactionId?: string;
 }
 
-export class GetCreateUpdateAccountTransactionsModelResponse extends SpeakeasyBase {
+export class GetAccountTransactionResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
@@ -263,7 +258,7 @@ export class GetCreateUpdateAccountTransactionsModelResponse extends SpeakeasyBa
    * Success
    */
   @SpeakeasyMetadata()
-  sourceModifiedDate?: GetCreateUpdateAccountTransactionsModelSourceModifiedDate;
+  sourceModifiedDate?: GetAccountTransactionSourceModifiedDate;
 
   @SpeakeasyMetadata()
   statusCode: number;

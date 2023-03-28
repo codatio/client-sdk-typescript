@@ -134,10 +134,11 @@ export class TaxRates {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.links = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.ListTaxRatesLinks
-            );
+            res.listTaxRates200ApplicationJSONObject =
+              utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.ListTaxRates200ApplicationJSON
+              );
           }
           break;
       }

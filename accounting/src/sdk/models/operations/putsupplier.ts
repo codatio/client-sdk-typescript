@@ -67,6 +67,9 @@ export class PutSupplierSourceModifiedDateAddresses extends SpeakeasyBase {
 }
 
 export class PutSupplierSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
@@ -329,6 +332,9 @@ export class PutSupplier200ApplicationJSONSourceModifiedDateAddresses extends Sp
 }
 
 export class PutSupplier200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;

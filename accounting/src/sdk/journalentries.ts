@@ -275,10 +275,11 @@ export class JournalEntries {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.links = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.ListJournalEntriesLinks
-            );
+            res.listJournalEntries200ApplicationJSONObject =
+              utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.ListJournalEntries200ApplicationJSON
+              );
           }
           break;
       }

@@ -274,10 +274,11 @@ export class Items {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.links = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.ListItemsLinks
-            );
+            res.listItems200ApplicationJSONObject =
+              utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.ListItems200ApplicationJSON
+              );
           }
           break;
       }

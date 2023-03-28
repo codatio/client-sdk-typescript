@@ -257,6 +257,9 @@ export class CreateInvoiceSourceModifiedDateLineItems extends SpeakeasyBase {
 }
 
 export class CreateInvoiceSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
@@ -1039,6 +1042,9 @@ export class CreateInvoice200ApplicationJSONSourceModifiedDateLineItems extends 
 }
 
 export class CreateInvoice200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;

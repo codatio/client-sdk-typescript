@@ -214,10 +214,11 @@ export class Accounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.links = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.GetAccountsLinks
-            );
+            res.getAccounts200ApplicationJSONObject =
+              utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.GetAccounts200ApplicationJSON
+              );
           }
           break;
       }

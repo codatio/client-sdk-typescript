@@ -41,38 +41,38 @@ export class ListJournalsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListJournalsLinksLinksHypertextReference extends SpeakeasyBase {
+export class ListJournals200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class ListJournalsLinksLinks extends SpeakeasyBase {
+export class ListJournals200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListJournalsLinksLinksHypertextReference)
-  current: ListJournalsLinksLinksHypertextReference;
+  @Type(() => ListJournals200ApplicationJSONLinksHypertextReference)
+  current: ListJournals200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListJournalsLinksLinksHypertextReference)
-  next?: ListJournalsLinksLinksHypertextReference;
+  @Type(() => ListJournals200ApplicationJSONLinksHypertextReference)
+  next?: ListJournals200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListJournalsLinksLinksHypertextReference)
-  previous?: ListJournalsLinksLinksHypertextReference;
+  @Type(() => ListJournals200ApplicationJSONLinksHypertextReference)
+  previous?: ListJournals200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListJournalsLinksLinksHypertextReference)
-  self: ListJournalsLinksLinksHypertextReference;
+  @Type(() => ListJournals200ApplicationJSONLinksHypertextReference)
+  self: ListJournals200ApplicationJSONLinksHypertextReference;
 }
 
 /**
  * Additional information about the entity
  */
-export class ListJournalsLinksSourceModifiedDateMetadataMetadata extends SpeakeasyBase {
+export class ListJournals200ApplicationJSONSourceModifiedDateMetadataMetadata extends SpeakeasyBase {
   /**
    * Indicates whether the record has been deleted in the third-party system this record originiated from
    */
@@ -81,20 +81,20 @@ export class ListJournalsLinksSourceModifiedDateMetadataMetadata extends Speakea
   isDeleted?: boolean;
 }
 
-export class ListJournalsLinksSourceModifiedDateMetadata extends SpeakeasyBase {
+export class ListJournals200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
   /**
    * Additional information about the entity
    */
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => ListJournalsLinksSourceModifiedDateMetadataMetadata)
-  metadata?: ListJournalsLinksSourceModifiedDateMetadataMetadata;
+  @Type(() => ListJournals200ApplicationJSONSourceModifiedDateMetadataMetadata)
+  metadata?: ListJournals200ApplicationJSONSourceModifiedDateMetadataMetadata;
 }
 
 /**
  * Current journal status.
  */
-export enum ListJournalsLinksSourceModifiedDateStatusEnum {
+export enum ListJournals200ApplicationJSONSourceModifiedDateStatusEnum {
   Unknown = "Unknown",
   Active = "Active",
   Archived = "Archived",
@@ -127,7 +127,7 @@ export enum ListJournalsLinksSourceModifiedDateStatusEnum {
  * > When pushing journal entries to an accounting platform that doesn’t support multiple journals (multi-book accounting), the entries will be linked to the platform-generic journal. The Journals data type will only include one object.
  *
  */
-export class ListJournalsLinksSourceModifiedDate extends SpeakeasyBase {
+export class ListJournals200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
    * Journal creation date.
    */
@@ -158,8 +158,8 @@ export class ListJournalsLinksSourceModifiedDate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
-  @Type(() => ListJournalsLinksSourceModifiedDateMetadata)
-  metadata?: ListJournalsLinksSourceModifiedDateMetadata;
+  @Type(() => ListJournals200ApplicationJSONSourceModifiedDateMetadata)
+  metadata?: ListJournals200ApplicationJSONSourceModifiedDateMetadata;
 
   /**
    * The date on which this record was last modified in Codat.
@@ -200,7 +200,7 @@ export class ListJournalsLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status?: ListJournalsLinksSourceModifiedDateStatusEnum;
+  status?: ListJournals200ApplicationJSONSourceModifiedDateStatusEnum;
 
   /**
    * The type of the journal.
@@ -211,13 +211,13 @@ export class ListJournalsLinksSourceModifiedDate extends SpeakeasyBase {
 }
 
 /**
- * Codat's Paging Model
+ * Success
  */
-export class ListJournalsLinks extends SpeakeasyBase {
+export class ListJournals200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => ListJournalsLinksLinks)
-  links: ListJournalsLinksLinks;
+  @Type(() => ListJournals200ApplicationJSONLinks)
+  links: ListJournals200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -227,10 +227,12 @@ export class ListJournalsLinks extends SpeakeasyBase {
   @Expose({ name: "pageSize" })
   pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: ListJournalsLinksSourceModifiedDate })
+  @SpeakeasyMetadata({
+    elemType: ListJournals200ApplicationJSONSourceModifiedDate,
+  })
   @Expose({ name: "results" })
-  @Type(() => ListJournalsLinksSourceModifiedDate)
-  results?: ListJournalsLinksSourceModifiedDate[];
+  @Type(() => ListJournals200ApplicationJSONSourceModifiedDate)
+  results?: ListJournals200ApplicationJSONSourceModifiedDate[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -251,5 +253,5 @@ export class ListJournalsResponse extends SpeakeasyBase {
    * Success
    */
   @SpeakeasyMetadata()
-  links?: ListJournalsLinks;
+  listJournals200ApplicationJSONObject?: ListJournals200ApplicationJSON;
 }

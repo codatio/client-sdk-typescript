@@ -434,10 +434,11 @@ export class Customers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.links = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.GetCustomersLinks
-            );
+            res.getCustomers200ApplicationJSONObject =
+              utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.GetCustomers200ApplicationJSON
+              );
           }
           break;
       }

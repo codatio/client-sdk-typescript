@@ -66,6 +66,9 @@ export class CreateTransferSourceModifiedDateTransferAccount extends SpeakeasyBa
 }
 
 export class CreateTransferSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;
@@ -305,6 +308,9 @@ export class CreateTransfer200ApplicationJSONSourceModifiedDateTransferAccount e
 }
 
 export class CreateTransfer200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
+  /**
+   * Indicates whether the record has been deleted in the third-party system this record originated from.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isDeleted" })
   isDeleted?: boolean;

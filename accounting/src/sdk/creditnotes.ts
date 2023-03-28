@@ -275,10 +275,11 @@ export class CreditNotes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.links = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.ListCreditNotesLinks
-            );
+            res.listCreditNotes200ApplicationJSONObject =
+              utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.ListCreditNotes200ApplicationJSON
+              );
           }
           break;
       }
