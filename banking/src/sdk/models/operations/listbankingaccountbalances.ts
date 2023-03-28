@@ -46,38 +46,46 @@ export class ListBankingAccountBalancesRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListBankingAccountBalancesLinksLinksHypertextReference extends SpeakeasyBase {
+export class ListBankingAccountBalances200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class ListBankingAccountBalancesLinksLinks extends SpeakeasyBase {
+export class ListBankingAccountBalances200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListBankingAccountBalancesLinksLinksHypertextReference)
-  current: ListBankingAccountBalancesLinksLinksHypertextReference;
+  @Type(
+    () => ListBankingAccountBalances200ApplicationJSONLinksHypertextReference
+  )
+  current: ListBankingAccountBalances200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListBankingAccountBalancesLinksLinksHypertextReference)
-  next?: ListBankingAccountBalancesLinksLinksHypertextReference;
+  @Type(
+    () => ListBankingAccountBalances200ApplicationJSONLinksHypertextReference
+  )
+  next?: ListBankingAccountBalances200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListBankingAccountBalancesLinksLinksHypertextReference)
-  previous?: ListBankingAccountBalancesLinksLinksHypertextReference;
+  @Type(
+    () => ListBankingAccountBalances200ApplicationJSONLinksHypertextReference
+  )
+  previous?: ListBankingAccountBalances200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListBankingAccountBalancesLinksLinksHypertextReference)
-  self: ListBankingAccountBalancesLinksLinksHypertextReference;
+  @Type(
+    () => ListBankingAccountBalances200ApplicationJSONLinksHypertextReference
+  )
+  self: ListBankingAccountBalances200ApplicationJSONLinksHypertextReference;
 }
 
 /**
  * An object containing bank balance data.
  */
-export class ListBankingAccountBalancesLinksSourceModifiedDateBalance extends SpeakeasyBase {
+export class ListBankingAccountBalances200ApplicationJSONSourceModifiedDateBalance extends SpeakeasyBase {
   /**
    * The funds available to withdraw from the bank account.
    */
@@ -103,7 +111,7 @@ export class ListBankingAccountBalancesLinksSourceModifiedDateBalance extends Sp
 /**
  * The Banking Account Balances data type provides a list of balances for a bank account including end-of-day batch balance or running balances per transaction.
  */
-export class ListBankingAccountBalancesLinksSourceModifiedDate extends SpeakeasyBase {
+export class ListBankingAccountBalances200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
    * The unique identifier of the account.
    */
@@ -116,8 +124,10 @@ export class ListBankingAccountBalancesLinksSourceModifiedDate extends Speakeasy
    */
   @SpeakeasyMetadata()
   @Expose({ name: "balance" })
-  @Type(() => ListBankingAccountBalancesLinksSourceModifiedDateBalance)
-  balance: ListBankingAccountBalancesLinksSourceModifiedDateBalance;
+  @Type(
+    () => ListBankingAccountBalances200ApplicationJSONSourceModifiedDateBalance
+  )
+  balance: ListBankingAccountBalances200ApplicationJSONSourceModifiedDateBalance;
 
   /**
    * Date of the balance.
@@ -142,13 +152,13 @@ export class ListBankingAccountBalancesLinksSourceModifiedDate extends Speakeasy
 }
 
 /**
- * Codat's Paging Model
+ * Success
  */
-export class ListBankingAccountBalancesLinks extends SpeakeasyBase {
+export class ListBankingAccountBalances200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => ListBankingAccountBalancesLinksLinks)
-  links: ListBankingAccountBalancesLinksLinks;
+  @Type(() => ListBankingAccountBalances200ApplicationJSONLinks)
+  links: ListBankingAccountBalances200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -163,8 +173,8 @@ export class ListBankingAccountBalancesLinks extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "results" })
-  @Type(() => ListBankingAccountBalancesLinksSourceModifiedDate)
-  results?: ListBankingAccountBalancesLinksSourceModifiedDate;
+  @Type(() => ListBankingAccountBalances200ApplicationJSONSourceModifiedDate)
+  results?: ListBankingAccountBalances200ApplicationJSONSourceModifiedDate;
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -185,5 +195,5 @@ export class ListBankingAccountBalancesResponse extends SpeakeasyBase {
    * Success
    */
   @SpeakeasyMetadata()
-  links?: ListBankingAccountBalancesLinks;
+  listBankingAccountBalances200ApplicationJSONObject?: ListBankingAccountBalances200ApplicationJSON;
 }

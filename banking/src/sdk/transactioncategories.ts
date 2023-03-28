@@ -133,10 +133,11 @@ export class TransactionCategories {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.links = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.ListBankTransactionCategoriesLinks
-            );
+            res.listBankTransactionCategories200ApplicationJSONObject =
+              utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.ListBankTransactionCategories200ApplicationJSON
+              );
           }
           break;
       }
