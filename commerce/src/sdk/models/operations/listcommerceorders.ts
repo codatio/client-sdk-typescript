@@ -46,35 +46,35 @@ export class ListCommerceOrdersRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListCommerceOrdersLinksLinksHypertextReference extends SpeakeasyBase {
+export class ListCommerceOrders200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class ListCommerceOrdersLinksLinks extends SpeakeasyBase {
+export class ListCommerceOrders200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListCommerceOrdersLinksLinksHypertextReference)
-  current: ListCommerceOrdersLinksLinksHypertextReference;
+  @Type(() => ListCommerceOrders200ApplicationJSONLinksHypertextReference)
+  current: ListCommerceOrders200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListCommerceOrdersLinksLinksHypertextReference)
-  next?: ListCommerceOrdersLinksLinksHypertextReference;
+  @Type(() => ListCommerceOrders200ApplicationJSONLinksHypertextReference)
+  next?: ListCommerceOrders200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListCommerceOrdersLinksLinksHypertextReference)
-  previous?: ListCommerceOrdersLinksLinksHypertextReference;
+  @Type(() => ListCommerceOrders200ApplicationJSONLinksHypertextReference)
+  previous?: ListCommerceOrders200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListCommerceOrdersLinksLinksHypertextReference)
-  self: ListCommerceOrdersLinksLinksHypertextReference;
+  @Type(() => ListCommerceOrders200ApplicationJSONLinksHypertextReference)
+  self: ListCommerceOrders200ApplicationJSONLinksHypertextReference;
 }
 
-export class ListCommerceOrdersLinksSourceModifiedDateNameRef extends SpeakeasyBase {
+export class ListCommerceOrders200ApplicationJSONSourceModifiedDateNameRef extends SpeakeasyBase {
   /**
    * The unique identitifer of the record being referenced
    */
@@ -90,7 +90,7 @@ export class ListCommerceOrdersLinksSourceModifiedDateNameRef extends SpeakeasyB
   name: string;
 }
 
-export class ListCommerceOrdersLinksSourceModifiedDateOrderLineItemsDiscountAllocations extends SpeakeasyBase {
+export class ListCommerceOrders200ApplicationJSONSourceModifiedDateOrderLineItemsDiscountAllocations extends SpeakeasyBase {
   /**
    * Name of the discount in the commerce or point of sale platform.
    */
@@ -106,7 +106,7 @@ export class ListCommerceOrdersLinksSourceModifiedDateOrderLineItemsDiscountAllo
   totalAmount?: number;
 }
 
-export class ListCommerceOrdersLinksSourceModifiedDateOrderLineItemsNameRef extends SpeakeasyBase {
+export class ListCommerceOrders200ApplicationJSONSourceModifiedDateOrderLineItemsNameRef extends SpeakeasyBase {
   /**
    * The unique identitifer of the record being referenced
    */
@@ -122,17 +122,17 @@ export class ListCommerceOrdersLinksSourceModifiedDateOrderLineItemsNameRef exte
   name: string;
 }
 
-export class ListCommerceOrdersLinksSourceModifiedDateOrderLineItems extends SpeakeasyBase {
+export class ListCommerceOrders200ApplicationJSONSourceModifiedDateOrderLineItems extends SpeakeasyBase {
   @SpeakeasyMetadata({
     elemType:
-      ListCommerceOrdersLinksSourceModifiedDateOrderLineItemsDiscountAllocations,
+      ListCommerceOrders200ApplicationJSONSourceModifiedDateOrderLineItemsDiscountAllocations,
   })
   @Expose({ name: "discountAllocations" })
   @Type(
     () =>
-      ListCommerceOrdersLinksSourceModifiedDateOrderLineItemsDiscountAllocations
+      ListCommerceOrders200ApplicationJSONSourceModifiedDateOrderLineItemsDiscountAllocations
   )
-  discountAllocations?: ListCommerceOrdersLinksSourceModifiedDateOrderLineItemsDiscountAllocations[];
+  discountAllocations?: ListCommerceOrders200ApplicationJSONSourceModifiedDateOrderLineItemsDiscountAllocations[];
 
   /**
    * A unique, persistent identifier for this record
@@ -143,13 +143,19 @@ export class ListCommerceOrdersLinksSourceModifiedDateOrderLineItems extends Spe
 
   @SpeakeasyMetadata()
   @Expose({ name: "productRef" })
-  @Type(() => ListCommerceOrdersLinksSourceModifiedDateOrderLineItemsNameRef)
-  productRef?: ListCommerceOrdersLinksSourceModifiedDateOrderLineItemsNameRef;
+  @Type(
+    () =>
+      ListCommerceOrders200ApplicationJSONSourceModifiedDateOrderLineItemsNameRef
+  )
+  productRef?: ListCommerceOrders200ApplicationJSONSourceModifiedDateOrderLineItemsNameRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "productVariantRef" })
-  @Type(() => ListCommerceOrdersLinksSourceModifiedDateOrderLineItemsNameRef)
-  productVariantRef?: ListCommerceOrdersLinksSourceModifiedDateOrderLineItemsNameRef;
+  @Type(
+    () =>
+      ListCommerceOrders200ApplicationJSONSourceModifiedDateOrderLineItemsNameRef
+  )
+  productVariantRef?: ListCommerceOrders200ApplicationJSONSourceModifiedDateOrderLineItemsNameRef;
 
   /**
    * Number of units of the product sold.
@@ -201,7 +207,7 @@ export class ListCommerceOrdersLinksSourceModifiedDateOrderLineItems extends Spe
 /**
  * Status of the payment
  */
-export enum ListCommerceOrdersLinksSourceModifiedDateSourceModifiedDateStatusEnum {
+export enum ListCommerceOrders200ApplicationJSONSourceModifiedDateSourceModifiedDateStatusEnum {
   Pending = "Pending",
   Authorized = "Authorized",
   Paid = "Paid",
@@ -213,7 +219,7 @@ export enum ListCommerceOrdersLinksSourceModifiedDateSourceModifiedDateStatusEnu
 /**
  * Status of the payment
  */
-export enum ListCommerceOrdersLinksSourceModifiedDateSourceModifiedDateTypeEnum {
+export enum ListCommerceOrders200ApplicationJSONSourceModifiedDateSourceModifiedDateTypeEnum {
   Cash = "Cash",
   Card = "Card",
   Invoice = "Invoice",
@@ -228,7 +234,7 @@ export enum ListCommerceOrdersLinksSourceModifiedDateSourceModifiedDateTypeEnum 
   Unknown = "Unknown",
 }
 
-export class ListCommerceOrdersLinksSourceModifiedDateSourceModifiedDate extends SpeakeasyBase {
+export class ListCommerceOrders200ApplicationJSONSourceModifiedDateSourceModifiedDate extends SpeakeasyBase {
   /**
    * Payment Amount (including gratuity).
    */
@@ -290,27 +296,27 @@ export class ListCommerceOrdersLinksSourceModifiedDateSourceModifiedDate extends
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status?: ListCommerceOrdersLinksSourceModifiedDateSourceModifiedDateStatusEnum;
+  status?: ListCommerceOrders200ApplicationJSONSourceModifiedDateSourceModifiedDateStatusEnum;
 
   /**
    * Status of the payment
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: ListCommerceOrdersLinksSourceModifiedDateSourceModifiedDateTypeEnum;
+  type?: ListCommerceOrders200ApplicationJSONSourceModifiedDateSourceModifiedDateTypeEnum;
 }
 
 /**
  * The type of the service charge.
  */
-export enum ListCommerceOrdersLinksSourceModifiedDateServiceChargesTypeEnum {
+export enum ListCommerceOrders200ApplicationJSONSourceModifiedDateServiceChargesTypeEnum {
   Generic = "Generic",
   Shipping = "Shipping",
   Overpayment = "Overpayment",
   Unknown = "Unknown",
 }
 
-export class ListCommerceOrdersLinksSourceModifiedDateServiceCharges extends SpeakeasyBase {
+export class ListCommerceOrders200ApplicationJSONSourceModifiedDateServiceCharges extends SpeakeasyBase {
   /**
    * Service charges for this order.
    */
@@ -358,7 +364,7 @@ export class ListCommerceOrdersLinksSourceModifiedDateServiceCharges extends Spe
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: ListCommerceOrdersLinksSourceModifiedDateServiceChargesTypeEnum;
+  type?: ListCommerceOrders200ApplicationJSONSourceModifiedDateServiceChargesTypeEnum;
 }
 
 /**
@@ -375,7 +381,7 @@ export class ListCommerceOrdersLinksSourceModifiedDateServiceCharges extends Spe
  * Note that for refunds `quantity` is a negative value and `unitPrice` is a positive value.
  *
  */
-export class ListCommerceOrdersLinksSourceModifiedDate extends SpeakeasyBase {
+export class ListCommerceOrders200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
    * Date on which order was closed after the product was shipped, paid for, and any refund period had elapsed.
    */
@@ -409,8 +415,8 @@ export class ListCommerceOrdersLinksSourceModifiedDate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "customerRef" })
-  @Type(() => ListCommerceOrdersLinksSourceModifiedDateNameRef)
-  customerRef?: ListCommerceOrdersLinksSourceModifiedDateNameRef;
+  @Type(() => ListCommerceOrders200ApplicationJSONSourceModifiedDateNameRef)
+  customerRef?: ListCommerceOrders200ApplicationJSONSourceModifiedDateNameRef;
 
   /**
    * A unique, persistent identifier for this record
@@ -421,8 +427,8 @@ export class ListCommerceOrdersLinksSourceModifiedDate extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "locationRef" })
-  @Type(() => ListCommerceOrdersLinksSourceModifiedDateNameRef)
-  locationRef?: ListCommerceOrdersLinksSourceModifiedDateNameRef;
+  @Type(() => ListCommerceOrders200ApplicationJSONSourceModifiedDateNameRef)
+  locationRef?: ListCommerceOrders200ApplicationJSONSourceModifiedDateNameRef;
 
   /**
    * The date on which this record was last modified in Codat.
@@ -432,11 +438,14 @@ export class ListCommerceOrdersLinksSourceModifiedDate extends SpeakeasyBase {
   modifiedDate?: string;
 
   @SpeakeasyMetadata({
-    elemType: ListCommerceOrdersLinksSourceModifiedDateOrderLineItems,
+    elemType:
+      ListCommerceOrders200ApplicationJSONSourceModifiedDateOrderLineItems,
   })
   @Expose({ name: "orderLineItems" })
-  @Type(() => ListCommerceOrdersLinksSourceModifiedDateOrderLineItems)
-  orderLineItems?: ListCommerceOrdersLinksSourceModifiedDateOrderLineItems[];
+  @Type(
+    () => ListCommerceOrders200ApplicationJSONSourceModifiedDateOrderLineItems
+  )
+  orderLineItems?: ListCommerceOrders200ApplicationJSONSourceModifiedDateOrderLineItems[];
 
   /**
    * Friendly reference for the order in the commerce or point of sale platform.
@@ -446,18 +455,25 @@ export class ListCommerceOrdersLinksSourceModifiedDate extends SpeakeasyBase {
   orderNumber?: string;
 
   @SpeakeasyMetadata({
-    elemType: ListCommerceOrdersLinksSourceModifiedDateSourceModifiedDate,
+    elemType:
+      ListCommerceOrders200ApplicationJSONSourceModifiedDateSourceModifiedDate,
   })
   @Expose({ name: "payments" })
-  @Type(() => ListCommerceOrdersLinksSourceModifiedDateSourceModifiedDate)
-  payments?: ListCommerceOrdersLinksSourceModifiedDateSourceModifiedDate[];
+  @Type(
+    () =>
+      ListCommerceOrders200ApplicationJSONSourceModifiedDateSourceModifiedDate
+  )
+  payments?: ListCommerceOrders200ApplicationJSONSourceModifiedDateSourceModifiedDate[];
 
   @SpeakeasyMetadata({
-    elemType: ListCommerceOrdersLinksSourceModifiedDateServiceCharges,
+    elemType:
+      ListCommerceOrders200ApplicationJSONSourceModifiedDateServiceCharges,
   })
   @Expose({ name: "serviceCharges" })
-  @Type(() => ListCommerceOrdersLinksSourceModifiedDateServiceCharges)
-  serviceCharges?: ListCommerceOrdersLinksSourceModifiedDateServiceCharges[];
+  @Type(
+    () => ListCommerceOrders200ApplicationJSONSourceModifiedDateServiceCharges
+  )
+  serviceCharges?: ListCommerceOrders200ApplicationJSONSourceModifiedDateServiceCharges[];
 
   /**
    * The date on which this record was last modified in the originating system
@@ -503,13 +519,13 @@ export class ListCommerceOrdersLinksSourceModifiedDate extends SpeakeasyBase {
 }
 
 /**
- * Codat's Paging Model
+ * OK
  */
-export class ListCommerceOrdersLinks extends SpeakeasyBase {
+export class ListCommerceOrders200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => ListCommerceOrdersLinksLinks)
-  links: ListCommerceOrdersLinksLinks;
+  @Type(() => ListCommerceOrders200ApplicationJSONLinks)
+  links: ListCommerceOrders200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -519,10 +535,12 @@ export class ListCommerceOrdersLinks extends SpeakeasyBase {
   @Expose({ name: "pageSize" })
   pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: ListCommerceOrdersLinksSourceModifiedDate })
+  @SpeakeasyMetadata({
+    elemType: ListCommerceOrders200ApplicationJSONSourceModifiedDate,
+  })
   @Expose({ name: "results" })
-  @Type(() => ListCommerceOrdersLinksSourceModifiedDate)
-  results?: ListCommerceOrdersLinksSourceModifiedDate[];
+  @Type(() => ListCommerceOrders200ApplicationJSONSourceModifiedDate)
+  results?: ListCommerceOrders200ApplicationJSONSourceModifiedDate[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -543,5 +561,5 @@ export class ListCommerceOrdersResponse extends SpeakeasyBase {
    * OK
    */
   @SpeakeasyMetadata()
-  links?: ListCommerceOrdersLinks;
+  listCommerceOrders200ApplicationJSONObject?: ListCommerceOrders200ApplicationJSON;
 }

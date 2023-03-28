@@ -46,44 +46,52 @@ export class ListCommercePaymentMethodsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListCommercePaymentMethodsLinksLinksHypertextReference extends SpeakeasyBase {
+export class ListCommercePaymentMethods200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class ListCommercePaymentMethodsLinksLinks extends SpeakeasyBase {
+export class ListCommercePaymentMethods200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListCommercePaymentMethodsLinksLinksHypertextReference)
-  current: ListCommercePaymentMethodsLinksLinksHypertextReference;
+  @Type(
+    () => ListCommercePaymentMethods200ApplicationJSONLinksHypertextReference
+  )
+  current: ListCommercePaymentMethods200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListCommercePaymentMethodsLinksLinksHypertextReference)
-  next?: ListCommercePaymentMethodsLinksLinksHypertextReference;
+  @Type(
+    () => ListCommercePaymentMethods200ApplicationJSONLinksHypertextReference
+  )
+  next?: ListCommercePaymentMethods200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListCommercePaymentMethodsLinksLinksHypertextReference)
-  previous?: ListCommercePaymentMethodsLinksLinksHypertextReference;
+  @Type(
+    () => ListCommercePaymentMethods200ApplicationJSONLinksHypertextReference
+  )
+  previous?: ListCommercePaymentMethods200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListCommercePaymentMethodsLinksLinksHypertextReference)
-  self: ListCommercePaymentMethodsLinksLinksHypertextReference;
+  @Type(
+    () => ListCommercePaymentMethods200ApplicationJSONLinksHypertextReference
+  )
+  self: ListCommercePaymentMethods200ApplicationJSONLinksHypertextReference;
 }
 
 /**
  * Status of the Payment Method
  */
-export enum ListCommercePaymentMethodsLinksSourceModifiedDateStatusEnum {
+export enum ListCommercePaymentMethods200ApplicationJSONSourceModifiedDateStatusEnum {
   Active = "Active",
   Archived = "Archived",
   Unknown = "Unknown",
 }
 
-export class ListCommercePaymentMethodsLinksSourceModifiedDate extends SpeakeasyBase {
+export class ListCommercePaymentMethods200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
    * A unique, persistent identifier for this record
    */
@@ -117,17 +125,17 @@ export class ListCommercePaymentMethodsLinksSourceModifiedDate extends Speakeasy
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status?: ListCommercePaymentMethodsLinksSourceModifiedDateStatusEnum;
+  status?: ListCommercePaymentMethods200ApplicationJSONSourceModifiedDateStatusEnum;
 }
 
 /**
- * Codat's Paging Model
+ * OK
  */
-export class ListCommercePaymentMethodsLinks extends SpeakeasyBase {
+export class ListCommercePaymentMethods200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => ListCommercePaymentMethodsLinksLinks)
-  links: ListCommercePaymentMethodsLinksLinks;
+  @Type(() => ListCommercePaymentMethods200ApplicationJSONLinks)
+  links: ListCommercePaymentMethods200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -138,11 +146,11 @@ export class ListCommercePaymentMethodsLinks extends SpeakeasyBase {
   pageSize: number;
 
   @SpeakeasyMetadata({
-    elemType: ListCommercePaymentMethodsLinksSourceModifiedDate,
+    elemType: ListCommercePaymentMethods200ApplicationJSONSourceModifiedDate,
   })
   @Expose({ name: "results" })
-  @Type(() => ListCommercePaymentMethodsLinksSourceModifiedDate)
-  results?: ListCommercePaymentMethodsLinksSourceModifiedDate[];
+  @Type(() => ListCommercePaymentMethods200ApplicationJSONSourceModifiedDate)
+  results?: ListCommercePaymentMethods200ApplicationJSONSourceModifiedDate[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -163,5 +171,5 @@ export class ListCommercePaymentMethodsResponse extends SpeakeasyBase {
    * OK
    */
   @SpeakeasyMetadata()
-  links?: ListCommercePaymentMethodsLinks;
+  listCommercePaymentMethods200ApplicationJSONObject?: ListCommercePaymentMethods200ApplicationJSON;
 }

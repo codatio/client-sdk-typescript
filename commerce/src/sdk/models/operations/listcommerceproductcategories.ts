@@ -46,35 +46,43 @@ export class ListCommerceProductCategoriesRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListCommerceProductCategoriesLinksLinksHypertextReference extends SpeakeasyBase {
+export class ListCommerceProductCategories200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class ListCommerceProductCategoriesLinksLinks extends SpeakeasyBase {
+export class ListCommerceProductCategories200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListCommerceProductCategoriesLinksLinksHypertextReference)
-  current: ListCommerceProductCategoriesLinksLinksHypertextReference;
+  @Type(
+    () => ListCommerceProductCategories200ApplicationJSONLinksHypertextReference
+  )
+  current: ListCommerceProductCategories200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListCommerceProductCategoriesLinksLinksHypertextReference)
-  next?: ListCommerceProductCategoriesLinksLinksHypertextReference;
+  @Type(
+    () => ListCommerceProductCategories200ApplicationJSONLinksHypertextReference
+  )
+  next?: ListCommerceProductCategories200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListCommerceProductCategoriesLinksLinksHypertextReference)
-  previous?: ListCommerceProductCategoriesLinksLinksHypertextReference;
+  @Type(
+    () => ListCommerceProductCategories200ApplicationJSONLinksHypertextReference
+  )
+  previous?: ListCommerceProductCategories200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListCommerceProductCategoriesLinksLinksHypertextReference)
-  self: ListCommerceProductCategoriesLinksLinksHypertextReference;
+  @Type(
+    () => ListCommerceProductCategories200ApplicationJSONLinksHypertextReference
+  )
+  self: ListCommerceProductCategories200ApplicationJSONLinksHypertextReference;
 }
 
-export class ListCommerceProductCategoriesLinksProductCategoryRecordRef extends SpeakeasyBase {
+export class ListCommerceProductCategories200ApplicationJSONProductCategoryRecordRef extends SpeakeasyBase {
   /**
    * The unique identitifer of the record being referenced
    */
@@ -90,7 +98,7 @@ export class ListCommerceProductCategoriesLinksProductCategoryRecordRef extends 
   type: string;
 }
 
-export class ListCommerceProductCategoriesLinksProductCategoryModifiedDate extends SpeakeasyBase {
+export class ListCommerceProductCategories200ApplicationJSONProductCategoryModifiedDate extends SpeakeasyBase {
   /**
    * The date on which this record was last modified in Codat.
    */
@@ -99,7 +107,7 @@ export class ListCommerceProductCategoriesLinksProductCategoryModifiedDate exten
   modifiedDate?: string;
 }
 
-export class ListCommerceProductCategoriesLinksProductCategorySourceModifiedDate extends SpeakeasyBase {
+export class ListCommerceProductCategories200ApplicationJSONProductCategorySourceModifiedDate extends SpeakeasyBase {
   /**
    * The date on which this record was last modified in the originating system
    */
@@ -111,13 +119,17 @@ export class ListCommerceProductCategoriesLinksProductCategorySourceModifiedDate
 /**
  * Product categories are used to classify a group of products together, either by type (eg "Furniture"), or sometimes by tax profile.
  */
-export class ListCommerceProductCategoriesLinksProductCategory extends SpeakeasyBase {
+export class ListCommerceProductCategories200ApplicationJSONProductCategory extends SpeakeasyBase {
   @SpeakeasyMetadata({
-    elemType: ListCommerceProductCategoriesLinksProductCategoryRecordRef,
+    elemType:
+      ListCommerceProductCategories200ApplicationJSONProductCategoryRecordRef,
   })
   @Expose({ name: "ancestorRefs" })
-  @Type(() => ListCommerceProductCategoriesLinksProductCategoryRecordRef)
-  ancestorRefs?: ListCommerceProductCategoriesLinksProductCategoryRecordRef[];
+  @Type(
+    () =>
+      ListCommerceProductCategories200ApplicationJSONProductCategoryRecordRef
+  )
+  ancestorRefs?: ListCommerceProductCategories200ApplicationJSONProductCategoryRecordRef[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "hasChildren" })
@@ -129,8 +141,11 @@ export class ListCommerceProductCategoriesLinksProductCategory extends Speakeasy
 
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Type(() => ListCommerceProductCategoriesLinksProductCategoryModifiedDate)
-  modifiedDate?: ListCommerceProductCategoriesLinksProductCategoryModifiedDate;
+  @Type(
+    () =>
+      ListCommerceProductCategories200ApplicationJSONProductCategoryModifiedDate
+  )
+  modifiedDate?: ListCommerceProductCategories200ApplicationJSONProductCategoryModifiedDate;
 
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
@@ -139,19 +154,20 @@ export class ListCommerceProductCategoriesLinksProductCategory extends Speakeasy
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
   @Type(
-    () => ListCommerceProductCategoriesLinksProductCategorySourceModifiedDate
+    () =>
+      ListCommerceProductCategories200ApplicationJSONProductCategorySourceModifiedDate
   )
-  sourceModifiedDate?: ListCommerceProductCategoriesLinksProductCategorySourceModifiedDate;
+  sourceModifiedDate?: ListCommerceProductCategories200ApplicationJSONProductCategorySourceModifiedDate;
 }
 
 /**
- * Codat's Paging Model
+ * OK
  */
-export class ListCommerceProductCategoriesLinks extends SpeakeasyBase {
+export class ListCommerceProductCategories200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => ListCommerceProductCategoriesLinksLinks)
-  links: ListCommerceProductCategoriesLinksLinks;
+  @Type(() => ListCommerceProductCategories200ApplicationJSONLinks)
+  links: ListCommerceProductCategories200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -162,11 +178,11 @@ export class ListCommerceProductCategoriesLinks extends SpeakeasyBase {
   pageSize: number;
 
   @SpeakeasyMetadata({
-    elemType: ListCommerceProductCategoriesLinksProductCategory,
+    elemType: ListCommerceProductCategories200ApplicationJSONProductCategory,
   })
   @Expose({ name: "results" })
-  @Type(() => ListCommerceProductCategoriesLinksProductCategory)
-  results?: ListCommerceProductCategoriesLinksProductCategory[];
+  @Type(() => ListCommerceProductCategories200ApplicationJSONProductCategory)
+  results?: ListCommerceProductCategories200ApplicationJSONProductCategory[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -187,5 +203,5 @@ export class ListCommerceProductCategoriesResponse extends SpeakeasyBase {
    * OK
    */
   @SpeakeasyMetadata()
-  links?: ListCommerceProductCategoriesLinks;
+  listCommerceProductCategories200ApplicationJSONObject?: ListCommerceProductCategories200ApplicationJSON;
 }

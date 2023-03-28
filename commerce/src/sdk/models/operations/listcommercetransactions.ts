@@ -46,35 +46,35 @@ export class ListCommerceTransactionsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListCommerceTransactionsLinksLinksHypertextReference extends SpeakeasyBase {
+export class ListCommerceTransactions200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class ListCommerceTransactionsLinksLinks extends SpeakeasyBase {
+export class ListCommerceTransactions200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListCommerceTransactionsLinksLinksHypertextReference)
-  current: ListCommerceTransactionsLinksLinksHypertextReference;
+  @Type(() => ListCommerceTransactions200ApplicationJSONLinksHypertextReference)
+  current: ListCommerceTransactions200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListCommerceTransactionsLinksLinksHypertextReference)
-  next?: ListCommerceTransactionsLinksLinksHypertextReference;
+  @Type(() => ListCommerceTransactions200ApplicationJSONLinksHypertextReference)
+  next?: ListCommerceTransactions200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListCommerceTransactionsLinksLinksHypertextReference)
-  previous?: ListCommerceTransactionsLinksLinksHypertextReference;
+  @Type(() => ListCommerceTransactions200ApplicationJSONLinksHypertextReference)
+  previous?: ListCommerceTransactions200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListCommerceTransactionsLinksLinksHypertextReference)
-  self: ListCommerceTransactionsLinksLinksHypertextReference;
+  @Type(() => ListCommerceTransactions200ApplicationJSONLinksHypertextReference)
+  self: ListCommerceTransactions200ApplicationJSONLinksHypertextReference;
 }
 
-export enum ListCommerceTransactionsLinksSourceModifiedDateRecordRefTypeEnum {
+export enum ListCommerceTransactions200ApplicationJSONSourceModifiedDateRecordRefTypeEnum {
   Fee = "Fee",
   Order = "Order",
   Payment = "Payment",
@@ -82,7 +82,7 @@ export enum ListCommerceTransactionsLinksSourceModifiedDateRecordRefTypeEnum {
   Unknown = "Unknown",
 }
 
-export class ListCommerceTransactionsLinksSourceModifiedDateRecordRef extends SpeakeasyBase {
+export class ListCommerceTransactions200ApplicationJSONSourceModifiedDateRecordRef extends SpeakeasyBase {
   /**
    * The unique identitifer of the record being referenced
    */
@@ -92,13 +92,13 @@ export class ListCommerceTransactionsLinksSourceModifiedDateRecordRef extends Sp
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: ListCommerceTransactionsLinksSourceModifiedDateRecordRefTypeEnum;
+  type: ListCommerceTransactions200ApplicationJSONSourceModifiedDateRecordRefTypeEnum;
 }
 
 /**
  * The type of the platform transaction
  */
-export enum ListCommerceTransactionsLinksSourceModifiedDateTypeEnum {
+export enum ListCommerceTransactions200ApplicationJSONSourceModifiedDateTypeEnum {
   Payment = "Payment",
   Refund = "Refund",
   Payout = "Payout",
@@ -112,7 +112,7 @@ export enum ListCommerceTransactionsLinksSourceModifiedDateTypeEnum {
 /**
  * A financial transaction recorded in the commerce or point of sale system
  */
-export class ListCommerceTransactionsLinksSourceModifiedDate extends SpeakeasyBase {
+export class ListCommerceTransactions200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
    * The date the entity was created.
    */
@@ -182,25 +182,27 @@ export class ListCommerceTransactionsLinksSourceModifiedDate extends SpeakeasyBa
    */
   @SpeakeasyMetadata()
   @Expose({ name: "transactionSourceRef" })
-  @Type(() => ListCommerceTransactionsLinksSourceModifiedDateRecordRef)
-  transactionSourceRef?: ListCommerceTransactionsLinksSourceModifiedDateRecordRef;
+  @Type(
+    () => ListCommerceTransactions200ApplicationJSONSourceModifiedDateRecordRef
+  )
+  transactionSourceRef?: ListCommerceTransactions200ApplicationJSONSourceModifiedDateRecordRef;
 
   /**
    * The type of the platform transaction
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: ListCommerceTransactionsLinksSourceModifiedDateTypeEnum;
+  type?: ListCommerceTransactions200ApplicationJSONSourceModifiedDateTypeEnum;
 }
 
 /**
- * Codat's Paging Model
+ * OK
  */
-export class ListCommerceTransactionsLinks extends SpeakeasyBase {
+export class ListCommerceTransactions200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => ListCommerceTransactionsLinksLinks)
-  links: ListCommerceTransactionsLinksLinks;
+  @Type(() => ListCommerceTransactions200ApplicationJSONLinks)
+  links: ListCommerceTransactions200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -211,11 +213,11 @@ export class ListCommerceTransactionsLinks extends SpeakeasyBase {
   pageSize: number;
 
   @SpeakeasyMetadata({
-    elemType: ListCommerceTransactionsLinksSourceModifiedDate,
+    elemType: ListCommerceTransactions200ApplicationJSONSourceModifiedDate,
   })
   @Expose({ name: "results" })
-  @Type(() => ListCommerceTransactionsLinksSourceModifiedDate)
-  results?: ListCommerceTransactionsLinksSourceModifiedDate[];
+  @Type(() => ListCommerceTransactions200ApplicationJSONSourceModifiedDate)
+  results?: ListCommerceTransactions200ApplicationJSONSourceModifiedDate[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -236,5 +238,5 @@ export class ListCommerceTransactionsResponse extends SpeakeasyBase {
    * OK
    */
   @SpeakeasyMetadata()
-  links?: ListCommerceTransactionsLinks;
+  listCommerceTransactions200ApplicationJSONObject?: ListCommerceTransactions200ApplicationJSON;
 }

@@ -78,10 +78,11 @@ export class Products {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.links = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.ListCommerceProductCategoriesLinks
-            );
+            res.listCommerceProductCategories200ApplicationJSONObject =
+              utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.ListCommerceProductCategories200ApplicationJSON
+              );
           }
           break;
       }
@@ -135,10 +136,11 @@ export class Products {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.links = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.ListCommerceProductsLinks
-            );
+            res.listCommerceProducts200ApplicationJSONObject =
+              utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.ListCommerceProducts200ApplicationJSON
+              );
           }
           break;
       }

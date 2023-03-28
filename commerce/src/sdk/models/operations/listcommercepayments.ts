@@ -46,38 +46,38 @@ export class ListCommercePaymentsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListCommercePaymentsLinksLinksHypertextReference extends SpeakeasyBase {
+export class ListCommercePayments200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class ListCommercePaymentsLinksLinks extends SpeakeasyBase {
+export class ListCommercePayments200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListCommercePaymentsLinksLinksHypertextReference)
-  current: ListCommercePaymentsLinksLinksHypertextReference;
+  @Type(() => ListCommercePayments200ApplicationJSONLinksHypertextReference)
+  current: ListCommercePayments200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListCommercePaymentsLinksLinksHypertextReference)
-  next?: ListCommercePaymentsLinksLinksHypertextReference;
+  @Type(() => ListCommercePayments200ApplicationJSONLinksHypertextReference)
+  next?: ListCommercePayments200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListCommercePaymentsLinksLinksHypertextReference)
-  previous?: ListCommercePaymentsLinksLinksHypertextReference;
+  @Type(() => ListCommercePayments200ApplicationJSONLinksHypertextReference)
+  previous?: ListCommercePayments200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListCommercePaymentsLinksLinksHypertextReference)
-  self: ListCommercePaymentsLinksLinksHypertextReference;
+  @Type(() => ListCommercePayments200ApplicationJSONLinksHypertextReference)
+  self: ListCommercePayments200ApplicationJSONLinksHypertextReference;
 }
 
 /**
  * The payment method the payment is linked to in the commerce platform.
  */
-export class ListCommercePaymentsLinksSourceModifiedDateNameRef extends SpeakeasyBase {
+export class ListCommercePayments200ApplicationJSONSourceModifiedDateNameRef extends SpeakeasyBase {
   /**
    * The unique identitifer of the record being referenced
    */
@@ -96,7 +96,7 @@ export class ListCommercePaymentsLinksSourceModifiedDateNameRef extends Speakeas
 /**
  * Status of the payment
  */
-export enum ListCommercePaymentsLinksSourceModifiedDateStatusEnum {
+export enum ListCommercePayments200ApplicationJSONSourceModifiedDateStatusEnum {
   Pending = "Pending",
   Authorized = "Authorized",
   Paid = "Paid",
@@ -108,7 +108,7 @@ export enum ListCommercePaymentsLinksSourceModifiedDateStatusEnum {
 /**
  * A payment made in a commerce platform
  */
-export class ListCommercePaymentsLinksSourceModifiedDate extends SpeakeasyBase {
+export class ListCommercePayments200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
    * Payment Amount (including gratuity)
    */
@@ -156,8 +156,8 @@ export class ListCommercePaymentsLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "paymentMethodRef" })
-  @Type(() => ListCommercePaymentsLinksSourceModifiedDateNameRef)
-  paymentMethodRef?: ListCommercePaymentsLinksSourceModifiedDateNameRef;
+  @Type(() => ListCommercePayments200ApplicationJSONSourceModifiedDateNameRef)
+  paymentMethodRef?: ListCommercePayments200ApplicationJSONSourceModifiedDateNameRef;
 
   /**
    * Service provider of the payment, if applicable.
@@ -178,17 +178,17 @@ export class ListCommercePaymentsLinksSourceModifiedDate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status?: ListCommercePaymentsLinksSourceModifiedDateStatusEnum;
+  status?: ListCommercePayments200ApplicationJSONSourceModifiedDateStatusEnum;
 }
 
 /**
- * Codat's Paging Model
+ * OK
  */
-export class ListCommercePaymentsLinks extends SpeakeasyBase {
+export class ListCommercePayments200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => ListCommercePaymentsLinksLinks)
-  links: ListCommercePaymentsLinksLinks;
+  @Type(() => ListCommercePayments200ApplicationJSONLinks)
+  links: ListCommercePayments200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -198,10 +198,12 @@ export class ListCommercePaymentsLinks extends SpeakeasyBase {
   @Expose({ name: "pageSize" })
   pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: ListCommercePaymentsLinksSourceModifiedDate })
+  @SpeakeasyMetadata({
+    elemType: ListCommercePayments200ApplicationJSONSourceModifiedDate,
+  })
   @Expose({ name: "results" })
-  @Type(() => ListCommercePaymentsLinksSourceModifiedDate)
-  results?: ListCommercePaymentsLinksSourceModifiedDate[];
+  @Type(() => ListCommercePayments200ApplicationJSONSourceModifiedDate)
+  results?: ListCommercePayments200ApplicationJSONSourceModifiedDate[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -222,5 +224,5 @@ export class ListCommercePaymentsResponse extends SpeakeasyBase {
    * OK
    */
   @SpeakeasyMetadata()
-  links?: ListCommercePaymentsLinks;
+  listCommercePayments200ApplicationJSONObject?: ListCommercePayments200ApplicationJSON;
 }

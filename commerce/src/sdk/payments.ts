@@ -78,10 +78,11 @@ export class Payments {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.links = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.ListCommercePaymentMethodsLinks
-            );
+            res.listCommercePaymentMethods200ApplicationJSONObject =
+              utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.ListCommercePaymentMethods200ApplicationJSON
+              );
           }
           break;
       }
@@ -135,10 +136,11 @@ export class Payments {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.links = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.ListCommercePaymentsLinks
-            );
+            res.listCommercePayments200ApplicationJSONObject =
+              utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.ListCommercePayments200ApplicationJSON
+              );
           }
           break;
       }
