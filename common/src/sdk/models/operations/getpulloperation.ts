@@ -27,7 +27,7 @@ export class GetPullOperationRequest extends SpeakeasyBase {
  * @remarks
  * This might be because your company or data connection id is wrong, or was already deleted.
  */
-export class GetPullOperation404ApplicationJSON extends SpeakeasyBase {
+export class GetPullOperationNotFound extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -56,7 +56,7 @@ export class GetPullOperation404ApplicationJSON extends SpeakeasyBase {
 /**
  * Your API request was not properly authorized.
  */
-export class GetPullOperation401ApplicationJSON extends SpeakeasyBase {
+export class GetPullOperationUnauthorized extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -180,6 +180,15 @@ export class GetPullOperationResponse extends SpeakeasyBase {
   contentType: string;
 
   /**
+   * One or more of the resources you referenced could not be found.
+   *
+   * @remarks
+   * This might be because your company or data connection id is wrong, or was already deleted.
+   */
+  @SpeakeasyMetadata()
+  notFound?: GetPullOperationNotFound;
+
+  /**
    * OK
    */
   @SpeakeasyMetadata()
@@ -195,14 +204,5 @@ export class GetPullOperationResponse extends SpeakeasyBase {
    * Your API request was not properly authorized.
    */
   @SpeakeasyMetadata()
-  getPullOperation401ApplicationJSONObject?: GetPullOperation401ApplicationJSON;
-
-  /**
-   * One or more of the resources you referenced could not be found.
-   *
-   * @remarks
-   * This might be because your company or data connection id is wrong, or was already deleted.
-   */
-  @SpeakeasyMetadata()
-  getPullOperation404ApplicationJSONObject?: GetPullOperation404ApplicationJSON;
+  unauthorized?: GetPullOperationUnauthorized;
 }

@@ -39,7 +39,7 @@ export class ListRulesRequest extends SpeakeasyBase {
 /**
  * Your API request was not properly authorized.
  */
-export class ListRules401ApplicationJSON extends SpeakeasyBase {
+export class ListRulesUnauthorized extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -68,7 +68,7 @@ export class ListRules401ApplicationJSON extends SpeakeasyBase {
 /**
  * Your `query` parameter was not correctly formed
  */
-export class ListRules400ApplicationJSON extends SpeakeasyBase {
+export class ListRulesMalformedQuery extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -94,35 +94,35 @@ export class ListRules400ApplicationJSON extends SpeakeasyBase {
   statusCode?: number;
 }
 
-export class ListRulesLinksLinksHypertextReference extends SpeakeasyBase {
+export class ListRules200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class ListRulesLinksLinks extends SpeakeasyBase {
+export class ListRules200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListRulesLinksLinksHypertextReference)
-  current: ListRulesLinksLinksHypertextReference;
+  @Type(() => ListRules200ApplicationJSONLinksHypertextReference)
+  current: ListRules200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListRulesLinksLinksHypertextReference)
-  next?: ListRulesLinksLinksHypertextReference;
+  @Type(() => ListRules200ApplicationJSONLinksHypertextReference)
+  next?: ListRules200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListRulesLinksLinksHypertextReference)
-  previous?: ListRulesLinksLinksHypertextReference;
+  @Type(() => ListRules200ApplicationJSONLinksHypertextReference)
+  previous?: ListRules200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListRulesLinksLinksHypertextReference)
-  self: ListRulesLinksLinksHypertextReference;
+  @Type(() => ListRules200ApplicationJSONLinksHypertextReference)
+  self: ListRules200ApplicationJSONLinksHypertextReference;
 }
 
-export class ListRulesLinksWebhookNotifiers extends SpeakeasyBase {
+export class ListRules200ApplicationJSONWebhookNotifiers extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "emails" })
   emails?: string[];
@@ -135,7 +135,7 @@ export class ListRulesLinksWebhookNotifiers extends SpeakeasyBase {
 /**
  * Configuration to alert to a url or list of email addresses based on the given type / condition.
  */
-export class ListRulesLinksWebhook extends SpeakeasyBase {
+export class ListRules200ApplicationJSONWebhook extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "companyId" })
   companyId?: string;
@@ -146,8 +146,8 @@ export class ListRulesLinksWebhook extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "notifiers" })
-  @Type(() => ListRulesLinksWebhookNotifiers)
-  notifiers: ListRulesLinksWebhookNotifiers;
+  @Type(() => ListRules200ApplicationJSONWebhookNotifiers)
+  notifiers: ListRules200ApplicationJSONWebhookNotifiers;
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
@@ -155,13 +155,13 @@ export class ListRulesLinksWebhook extends SpeakeasyBase {
 }
 
 /**
- * Codat's Paging Model
+ * OK
  */
-export class ListRulesLinks extends SpeakeasyBase {
+export class ListRules200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => ListRulesLinksLinks)
-  links: ListRulesLinksLinks;
+  @Type(() => ListRules200ApplicationJSONLinks)
+  links: ListRules200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -171,10 +171,10 @@ export class ListRulesLinks extends SpeakeasyBase {
   @Expose({ name: "pageSize" })
   pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: ListRulesLinksWebhook })
+  @SpeakeasyMetadata({ elemType: ListRules200ApplicationJSONWebhook })
   @Expose({ name: "results" })
-  @Type(() => ListRulesLinksWebhook)
-  results?: ListRulesLinksWebhook[];
+  @Type(() => ListRules200ApplicationJSONWebhook)
+  results?: ListRules200ApplicationJSONWebhook[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -185,6 +185,12 @@ export class ListRulesResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
+  /**
+   * Your `query` parameter was not correctly formed
+   */
+  @SpeakeasyMetadata()
+  malformedQuery?: ListRulesMalformedQuery;
+
   @SpeakeasyMetadata()
   statusCode: number;
 
@@ -192,20 +198,14 @@ export class ListRulesResponse extends SpeakeasyBase {
   rawResponse?: AxiosResponse;
 
   /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  links?: ListRulesLinks;
-
-  /**
-   * Your `query` parameter was not correctly formed
-   */
-  @SpeakeasyMetadata()
-  listRules400ApplicationJSONObject?: ListRules400ApplicationJSON;
-
-  /**
    * Your API request was not properly authorized.
    */
   @SpeakeasyMetadata()
-  listRules401ApplicationJSONObject?: ListRules401ApplicationJSON;
+  unauthorized?: ListRulesUnauthorized;
+
+  /**
+   * OK
+   */
+  @SpeakeasyMetadata()
+  listRules200ApplicationJSONObject?: ListRules200ApplicationJSON;
 }

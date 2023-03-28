@@ -19,7 +19,7 @@ export class GetIntegrationsPlatformKeyRequest extends SpeakeasyBase {
  * @remarks
  * This might be because your company or data connection id is wrong, or was already deleted.
  */
-export class GetIntegrationsPlatformKey404ApplicationJSON extends SpeakeasyBase {
+export class GetIntegrationsPlatformKeyNotFound extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -48,7 +48,7 @@ export class GetIntegrationsPlatformKey404ApplicationJSON extends SpeakeasyBase 
 /**
  * Your API request was not properly authorized.
  */
-export class GetIntegrationsPlatformKey401ApplicationJSON extends SpeakeasyBase {
+export class GetIntegrationsPlatformKeyUnauthorized extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -212,6 +212,15 @@ export class GetIntegrationsPlatformKeyResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   integration?: GetIntegrationsPlatformKeyIntegration;
 
+  /**
+   * One or more of the resources you referenced could not be found.
+   *
+   * @remarks
+   * This might be because your company or data connection id is wrong, or was already deleted.
+   */
+  @SpeakeasyMetadata()
+  notFound?: GetIntegrationsPlatformKeyNotFound;
+
   @SpeakeasyMetadata()
   statusCode: number;
 
@@ -222,14 +231,5 @@ export class GetIntegrationsPlatformKeyResponse extends SpeakeasyBase {
    * Your API request was not properly authorized.
    */
   @SpeakeasyMetadata()
-  getIntegrationsPlatformKey401ApplicationJSONObject?: GetIntegrationsPlatformKey401ApplicationJSON;
-
-  /**
-   * One or more of the resources you referenced could not be found.
-   *
-   * @remarks
-   * This might be because your company or data connection id is wrong, or was already deleted.
-   */
-  @SpeakeasyMetadata()
-  getIntegrationsPlatformKey404ApplicationJSONObject?: GetIntegrationsPlatformKey404ApplicationJSON;
+  unauthorized?: GetIntegrationsPlatformKeyUnauthorized;
 }

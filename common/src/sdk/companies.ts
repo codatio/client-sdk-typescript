@@ -99,11 +99,10 @@ export class Companies {
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createCompany401ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreateCompany401ApplicationJSON
-              );
+            res.unauthorized = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.CreateCompanyUnauthorized
+            );
           }
           break;
       }
@@ -158,11 +157,10 @@ export class Companies {
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteCompany401ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.DeleteCompany401ApplicationJSON
-              );
+            res.unauthorized = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.DeleteCompanyUnauthorized
+            );
           }
           break;
       }
@@ -222,11 +220,10 @@ export class Companies {
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getCompany401ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetCompany401ApplicationJSON
-              );
+            res.unauthorized = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.GetCompanyUnauthorized
+            );
           }
           break;
       }
@@ -276,28 +273,26 @@ export class Companies {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.links = utils.deserializeJSONResponse(
+            res.companies = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.ListCompaniesLinks
+              operations.Companies
             );
           }
           break;
         case httpRes?.status == 400:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listCompanies400ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListCompanies400ApplicationJSON
-              );
+            res.malformedQuery = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.ListCompaniesMalformedQuery
+            );
           }
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listCompanies401ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListCompanies401ApplicationJSON
-              );
+            res.unauthorized = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.ListCompaniesUnauthorized
+            );
           }
           break;
       }
@@ -375,11 +370,10 @@ export class Companies {
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.updateCompany401ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.UpdateCompany401ApplicationJSON
-              );
+            res.unauthorized = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.UpdateCompanyUnauthorized
+            );
           }
           break;
       }

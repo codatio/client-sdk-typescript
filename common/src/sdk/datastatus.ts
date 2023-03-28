@@ -85,20 +85,18 @@ export class DataStatus {
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getCompaniesCompanyIdDataStatus401ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetCompaniesCompanyIdDataStatus401ApplicationJSON
-              );
+            res.unauthorized = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.GetCompaniesCompanyIdDataStatusUnauthorized
+            );
           }
           break;
         case httpRes?.status == 404:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getCompaniesCompanyIdDataStatus404ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetCompaniesCompanyIdDataStatus404ApplicationJSON
-              );
+            res.notFound = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.GetCompaniesCompanyIdDataStatusNotFound
+            );
           }
           break;
       }
@@ -152,37 +150,35 @@ export class DataStatus {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.links = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.GetCompanyDataHistoryLinks
-            );
+            res.getCompanyDataHistory200ApplicationJSONObject =
+              utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.GetCompanyDataHistory200ApplicationJSON
+              );
           }
           break;
         case httpRes?.status == 400:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getCompanyDataHistory400ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetCompanyDataHistory400ApplicationJSON
-              );
+            res.malformedQuery = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.GetCompanyDataHistoryMalformedQuery
+            );
           }
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getCompanyDataHistory401ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetCompanyDataHistory401ApplicationJSON
-              );
+            res.unauthorized = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.GetCompanyDataHistoryUnauthorized
+            );
           }
           break;
         case httpRes?.status == 404:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getCompanyDataHistory404ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetCompanyDataHistory404ApplicationJSON
-              );
+            res.notFound = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.GetCompanyDataHistoryNotFound
+            );
           }
           break;
       }
@@ -242,20 +238,18 @@ export class DataStatus {
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getPullOperation401ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetPullOperation401ApplicationJSON
-              );
+            res.unauthorized = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.GetPullOperationUnauthorized
+            );
           }
           break;
         case httpRes?.status == 404:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getPullOperation404ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetPullOperation404ApplicationJSON
-              );
+            res.notFound = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.GetPullOperationNotFound
+            );
           }
           break;
       }

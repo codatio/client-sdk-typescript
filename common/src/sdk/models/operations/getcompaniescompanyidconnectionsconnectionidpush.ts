@@ -7,7 +7,7 @@ import { AxiosResponse } from "axios";
 import { Expose, plainToInstance, Transform, Type } from "class-transformer";
 
 /**
- * The key of a Codat data type
+ * Available Data types
  */
 export enum GetCompaniesCompanyIdConnectionsConnectionIdPushDataTypeEnum {
   AccountTransactions = "accountTransactions",

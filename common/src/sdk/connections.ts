@@ -152,20 +152,18 @@ export class Connections {
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteCompanyConnection401ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.DeleteCompanyConnection401ApplicationJSON
-              );
+            res.unauthorized = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.DeleteCompanyConnectionUnauthorized
+            );
           }
           break;
         case httpRes?.status == 404:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteCompanyConnection404ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.DeleteCompanyConnection404ApplicationJSON
-              );
+            res.notFound = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.DeleteCompanyConnectionNotFound
+            );
           }
           break;
       }
@@ -298,20 +296,18 @@ export class Connections {
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getCompanyConnection401ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetCompanyConnection401ApplicationJSON
-              );
+            res.unauthorized = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.GetCompanyConnectionUnauthorized
+            );
           }
           break;
         case httpRes?.status == 404:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getCompanyConnection404ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetCompanyConnection404ApplicationJSON
-              );
+            res.notFound = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.GetCompanyConnectionNotFound
+            );
           }
           break;
       }
@@ -367,26 +363,24 @@ export class Connections {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.connections = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.ListCompanyConnectionsConnections
+              operations.Connections
             );
           }
           break;
         case httpRes?.status == 400:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listCompanyConnections400ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListCompanyConnections400ApplicationJSON
-              );
+            res.malformedQuery = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.ListCompanyConnectionsMalformedQuery
+            );
           }
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listCompanyConnections401ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListCompanyConnections401ApplicationJSON
-              );
+            res.unauthorized = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.ListCompanyConnectionsUnauthorized
+            );
           }
           break;
       }
@@ -464,20 +458,18 @@ export class Connections {
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.unlinkCompanyConnection401ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.UnlinkCompanyConnection401ApplicationJSON
-              );
+            res.unauthorized = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.UnlinkCompanyConnectionUnauthorized
+            );
           }
           break;
         case httpRes?.status == 404:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.unlinkCompanyConnection404ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.UnlinkCompanyConnection404ApplicationJSON
-              );
+            res.notFound = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.UnlinkCompanyConnectionNotFound
+            );
           }
           break;
       }

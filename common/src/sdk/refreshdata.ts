@@ -78,20 +78,18 @@ export class RefreshData {
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createManyPullOperations401ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreateManyPullOperations401ApplicationJSON
-              );
+            res.unauthorized = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.CreateManyPullOperationsUnauthorized
+            );
           }
           break;
         case httpRes?.status == 404:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createManyPullOperations404ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreateManyPullOperations404ApplicationJSON
-              );
+            res.notFound = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.CreateManyPullOperationsNotFound
+            );
           }
           break;
       }
@@ -155,20 +153,18 @@ export class RefreshData {
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createPullOperation401ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreatePullOperation401ApplicationJSON
-              );
+            res.unauthorized = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.CreatePullOperationUnauthorized
+            );
           }
           break;
         case httpRes?.status == 404:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createPullOperation404ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreatePullOperation404ApplicationJSON
-              );
+            res.notFound = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.CreatePullOperationNotFound
+            );
           }
           break;
       }

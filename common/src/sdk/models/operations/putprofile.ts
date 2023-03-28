@@ -46,7 +46,7 @@ export class PutProfileProfile extends SpeakeasyBase {
 /**
  * Your API request was not properly authorized.
  */
-export class PutProfile401ApplicationJSON extends SpeakeasyBase {
+export class PutProfileUnauthorized extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -92,5 +92,5 @@ export class PutProfileResponse extends SpeakeasyBase {
    * Your API request was not properly authorized.
    */
   @SpeakeasyMetadata()
-  putProfile401ApplicationJSONObject?: PutProfile401ApplicationJSON;
+  unauthorized?: PutProfileUnauthorized;
 }

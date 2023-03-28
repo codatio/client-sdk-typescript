@@ -76,11 +76,10 @@ export class Settings {
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getProfileSyncSettings401ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetProfileSyncSettings401ApplicationJSON
-              );
+            res.unauthorized = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.GetProfileSyncSettingsUnauthorized
+            );
           }
           break;
       }
@@ -131,11 +130,10 @@ export class Settings {
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getSettingsProfile401ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetSettingsProfile401ApplicationJSON
-              );
+            res.unauthorized = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.GetSettingsProfileUnauthorized
+            );
           }
           break;
       }
@@ -203,11 +201,10 @@ export class Settings {
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.postProfileSyncSettings401ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.PostProfileSyncSettings401ApplicationJSON
-              );
+            res.unauthorized = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.PostProfileSyncSettingsUnauthorized
+            );
           }
           break;
       }
@@ -281,11 +278,10 @@ export class Settings {
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.putProfile401ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.PutProfile401ApplicationJSON
-              );
+            res.unauthorized = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.PutProfileUnauthorized
+            );
           }
           break;
       }

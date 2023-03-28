@@ -84,7 +84,7 @@ export class PostProfileSyncSettingsRequestBody extends SpeakeasyBase {
 /**
  * Your API request was not properly authorized.
  */
-export class PostProfileSyncSettings401ApplicationJSON extends SpeakeasyBase {
+export class PostProfileSyncSettingsUnauthorized extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -124,5 +124,5 @@ export class PostProfileSyncSettingsResponse extends SpeakeasyBase {
    * Your API request was not properly authorized.
    */
   @SpeakeasyMetadata()
-  postProfileSyncSettings401ApplicationJSONObject?: PostProfileSyncSettings401ApplicationJSON;
+  unauthorized?: PostProfileSyncSettingsUnauthorized;
 }

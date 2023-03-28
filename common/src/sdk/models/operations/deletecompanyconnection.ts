@@ -24,7 +24,7 @@ export class DeleteCompanyConnectionRequest extends SpeakeasyBase {
  * @remarks
  * This might be because your company or data connection id is wrong, or was already deleted.
  */
-export class DeleteCompanyConnection404ApplicationJSON extends SpeakeasyBase {
+export class DeleteCompanyConnectionNotFound extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -53,7 +53,7 @@ export class DeleteCompanyConnection404ApplicationJSON extends SpeakeasyBase {
 /**
  * Your API request was not properly authorized.
  */
-export class DeleteCompanyConnection401ApplicationJSON extends SpeakeasyBase {
+export class DeleteCompanyConnectionUnauthorized extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -83,6 +83,15 @@ export class DeleteCompanyConnectionResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
+  /**
+   * One or more of the resources you referenced could not be found.
+   *
+   * @remarks
+   * This might be because your company or data connection id is wrong, or was already deleted.
+   */
+  @SpeakeasyMetadata()
+  notFound?: DeleteCompanyConnectionNotFound;
+
   @SpeakeasyMetadata()
   statusCode: number;
 
@@ -93,14 +102,5 @@ export class DeleteCompanyConnectionResponse extends SpeakeasyBase {
    * Your API request was not properly authorized.
    */
   @SpeakeasyMetadata()
-  deleteCompanyConnection401ApplicationJSONObject?: DeleteCompanyConnection401ApplicationJSON;
-
-  /**
-   * One or more of the resources you referenced could not be found.
-   *
-   * @remarks
-   * This might be because your company or data connection id is wrong, or was already deleted.
-   */
-  @SpeakeasyMetadata()
-  deleteCompanyConnection404ApplicationJSONObject?: DeleteCompanyConnection404ApplicationJSON;
+  unauthorized?: DeleteCompanyConnectionUnauthorized;
 }

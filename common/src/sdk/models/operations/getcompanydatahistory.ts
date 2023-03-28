@@ -47,7 +47,7 @@ export class GetCompanyDataHistoryRequest extends SpeakeasyBase {
  * @remarks
  * This might be because your company or data connection id is wrong, or was already deleted.
  */
-export class GetCompanyDataHistory404ApplicationJSON extends SpeakeasyBase {
+export class GetCompanyDataHistoryNotFound extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -76,7 +76,7 @@ export class GetCompanyDataHistory404ApplicationJSON extends SpeakeasyBase {
 /**
  * Your API request was not properly authorized.
  */
-export class GetCompanyDataHistory401ApplicationJSON extends SpeakeasyBase {
+export class GetCompanyDataHistoryUnauthorized extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -105,7 +105,7 @@ export class GetCompanyDataHistory401ApplicationJSON extends SpeakeasyBase {
 /**
  * Your `query` parameter was not correctly formed
  */
-export class GetCompanyDataHistory400ApplicationJSON extends SpeakeasyBase {
+export class GetCompanyDataHistoryMalformedQuery extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -131,35 +131,35 @@ export class GetCompanyDataHistory400ApplicationJSON extends SpeakeasyBase {
   statusCode?: number;
 }
 
-export class GetCompanyDataHistoryLinksLinksHypertextReference extends SpeakeasyBase {
+export class GetCompanyDataHistory200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class GetCompanyDataHistoryLinksLinks extends SpeakeasyBase {
+export class GetCompanyDataHistory200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => GetCompanyDataHistoryLinksLinksHypertextReference)
-  current: GetCompanyDataHistoryLinksLinksHypertextReference;
+  @Type(() => GetCompanyDataHistory200ApplicationJSONLinksHypertextReference)
+  current: GetCompanyDataHistory200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => GetCompanyDataHistoryLinksLinksHypertextReference)
-  next?: GetCompanyDataHistoryLinksLinksHypertextReference;
+  @Type(() => GetCompanyDataHistory200ApplicationJSONLinksHypertextReference)
+  next?: GetCompanyDataHistory200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => GetCompanyDataHistoryLinksLinksHypertextReference)
-  previous?: GetCompanyDataHistoryLinksLinksHypertextReference;
+  @Type(() => GetCompanyDataHistory200ApplicationJSONLinksHypertextReference)
+  previous?: GetCompanyDataHistory200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => GetCompanyDataHistoryLinksLinksHypertextReference)
-  self: GetCompanyDataHistoryLinksLinksHypertextReference;
+  @Type(() => GetCompanyDataHistory200ApplicationJSONLinksHypertextReference)
+  self: GetCompanyDataHistory200ApplicationJSONLinksHypertextReference;
 }
 
-export enum GetCompanyDataHistoryLinksPullOperationStatusEnum {
+export enum GetCompanyDataHistory200ApplicationJSONPullOperationStatusEnum {
   Initial = "Initial",
   Queued = "Queued",
   Fetching = "Fetching",
@@ -191,7 +191,7 @@ export enum GetCompanyDataHistoryLinksPullOperationStatusEnum {
  * @remarks
  * *Formally called `dataset`*
  */
-export class GetCompanyDataHistoryLinksPullOperation extends SpeakeasyBase {
+export class GetCompanyDataHistory200ApplicationJSONPullOperation extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "companyId" })
   companyId: string;
@@ -249,17 +249,17 @@ export class GetCompanyDataHistoryLinksPullOperation extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: GetCompanyDataHistoryLinksPullOperationStatusEnum;
+  status: GetCompanyDataHistory200ApplicationJSONPullOperationStatusEnum;
 }
 
 /**
- * Codat's Paging Model
+ * OK
  */
-export class GetCompanyDataHistoryLinks extends SpeakeasyBase {
+export class GetCompanyDataHistory200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => GetCompanyDataHistoryLinksLinks)
-  links: GetCompanyDataHistoryLinksLinks;
+  @Type(() => GetCompanyDataHistory200ApplicationJSONLinks)
+  links: GetCompanyDataHistory200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -269,10 +269,12 @@ export class GetCompanyDataHistoryLinks extends SpeakeasyBase {
   @Expose({ name: "pageSize" })
   pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: GetCompanyDataHistoryLinksPullOperation })
+  @SpeakeasyMetadata({
+    elemType: GetCompanyDataHistory200ApplicationJSONPullOperation,
+  })
   @Expose({ name: "results" })
-  @Type(() => GetCompanyDataHistoryLinksPullOperation)
-  results?: GetCompanyDataHistoryLinksPullOperation[];
+  @Type(() => GetCompanyDataHistory200ApplicationJSONPullOperation)
+  results?: GetCompanyDataHistory200ApplicationJSONPullOperation[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -283,29 +285,11 @@ export class GetCompanyDataHistoryResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
-
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
-
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  links?: GetCompanyDataHistoryLinks;
-
   /**
    * Your `query` parameter was not correctly formed
    */
   @SpeakeasyMetadata()
-  getCompanyDataHistory400ApplicationJSONObject?: GetCompanyDataHistory400ApplicationJSON;
-
-  /**
-   * Your API request was not properly authorized.
-   */
-  @SpeakeasyMetadata()
-  getCompanyDataHistory401ApplicationJSONObject?: GetCompanyDataHistory401ApplicationJSON;
+  malformedQuery?: GetCompanyDataHistoryMalformedQuery;
 
   /**
    * One or more of the resources you referenced could not be found.
@@ -314,5 +298,23 @@ export class GetCompanyDataHistoryResponse extends SpeakeasyBase {
    * This might be because your company or data connection id is wrong, or was already deleted.
    */
   @SpeakeasyMetadata()
-  getCompanyDataHistory404ApplicationJSONObject?: GetCompanyDataHistory404ApplicationJSON;
+  notFound?: GetCompanyDataHistoryNotFound;
+
+  @SpeakeasyMetadata()
+  statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
+
+  /**
+   * Your API request was not properly authorized.
+   */
+  @SpeakeasyMetadata()
+  unauthorized?: GetCompanyDataHistoryUnauthorized;
+
+  /**
+   * OK
+   */
+  @SpeakeasyMetadata()
+  getCompanyDataHistory200ApplicationJSONObject?: GetCompanyDataHistory200ApplicationJSON;
 }

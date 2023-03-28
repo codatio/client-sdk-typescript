@@ -44,7 +44,7 @@ export class ListCompanyConnectionsRequest extends SpeakeasyBase {
 /**
  * Your API request was not properly authorized.
  */
-export class ListCompanyConnections401ApplicationJSON extends SpeakeasyBase {
+export class ListCompanyConnectionsUnauthorized extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -73,7 +73,7 @@ export class ListCompanyConnections401ApplicationJSON extends SpeakeasyBase {
 /**
  * Your `query` parameter was not correctly formed
  */
-export class ListCompanyConnections400ApplicationJSON extends SpeakeasyBase {
+export class ListCompanyConnectionsMalformedQuery extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -327,7 +327,7 @@ export class ListCompanyConnectionsConnectionsConnection extends SpeakeasyBase {
 /**
  * OK
  */
-export class ListCompanyConnectionsConnections extends SpeakeasyBase {
+export class Connections extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
   @Type(() => ListCompanyConnectionsConnectionsLinks)
@@ -356,10 +356,16 @@ export class ListCompanyConnectionsResponse extends SpeakeasyBase {
    * OK
    */
   @SpeakeasyMetadata()
-  connections?: ListCompanyConnectionsConnections;
+  connections?: Connections;
 
   @SpeakeasyMetadata()
   contentType: string;
+
+  /**
+   * Your `query` parameter was not correctly formed
+   */
+  @SpeakeasyMetadata()
+  malformedQuery?: ListCompanyConnectionsMalformedQuery;
 
   @SpeakeasyMetadata()
   statusCode: number;
@@ -368,14 +374,8 @@ export class ListCompanyConnectionsResponse extends SpeakeasyBase {
   rawResponse?: AxiosResponse;
 
   /**
-   * Your `query` parameter was not correctly formed
-   */
-  @SpeakeasyMetadata()
-  listCompanyConnections400ApplicationJSONObject?: ListCompanyConnections400ApplicationJSON;
-
-  /**
    * Your API request was not properly authorized.
    */
   @SpeakeasyMetadata()
-  listCompanyConnections401ApplicationJSONObject?: ListCompanyConnections401ApplicationJSON;
+  unauthorized?: ListCompanyConnectionsUnauthorized;
 }

@@ -7,7 +7,7 @@ import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
 /**
- * The key of a Codat data type
+ * Available Data types
  */
 export enum CreatePullOperationDataTypeEnum {
   AccountTransactions = "accountTransactions",
@@ -83,7 +83,7 @@ export class CreatePullOperationRequest extends SpeakeasyBase {
  * @remarks
  * This might be because your company or data connection id is wrong, or was already deleted.
  */
-export class CreatePullOperation404ApplicationJSON extends SpeakeasyBase {
+export class CreatePullOperationNotFound extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -112,7 +112,7 @@ export class CreatePullOperation404ApplicationJSON extends SpeakeasyBase {
 /**
  * Your API request was not properly authorized.
  */
-export class CreatePullOperation401ApplicationJSON extends SpeakeasyBase {
+export class CreatePullOperationUnauthorized extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -236,6 +236,15 @@ export class CreatePullOperationResponse extends SpeakeasyBase {
   contentType: string;
 
   /**
+   * One or more of the resources you referenced could not be found.
+   *
+   * @remarks
+   * This might be because your company or data connection id is wrong, or was already deleted.
+   */
+  @SpeakeasyMetadata()
+  notFound?: CreatePullOperationNotFound;
+
+  /**
    * OK
    */
   @SpeakeasyMetadata()
@@ -251,14 +260,5 @@ export class CreatePullOperationResponse extends SpeakeasyBase {
    * Your API request was not properly authorized.
    */
   @SpeakeasyMetadata()
-  createPullOperation401ApplicationJSONObject?: CreatePullOperation401ApplicationJSON;
-
-  /**
-   * One or more of the resources you referenced could not be found.
-   *
-   * @remarks
-   * This might be because your company or data connection id is wrong, or was already deleted.
-   */
-  @SpeakeasyMetadata()
-  createPullOperation404ApplicationJSONObject?: CreatePullOperation404ApplicationJSON;
+  unauthorized?: CreatePullOperationUnauthorized;
 }

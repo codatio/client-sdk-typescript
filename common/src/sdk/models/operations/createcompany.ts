@@ -19,7 +19,7 @@ export class CreateCompanyRequestBody extends SpeakeasyBase {
 /**
  * Your API request was not properly authorized.
  */
-export class CreateCompany401ApplicationJSON extends SpeakeasyBase {
+export class CreateCompanyUnauthorized extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -93,14 +93,14 @@ export class CreateCompanyResponse extends SpeakeasyBase {
   rawResponse?: AxiosResponse;
 
   /**
+   * Your API request was not properly authorized.
+   */
+  @SpeakeasyMetadata()
+  unauthorized?: CreateCompanyUnauthorized;
+
+  /**
    * OK
    */
   @SpeakeasyMetadata()
   createCompany200ApplicationJSONObject?: CreateCompany200ApplicationJSON;
-
-  /**
-   * Your API request was not properly authorized.
-   */
-  @SpeakeasyMetadata()
-  createCompany401ApplicationJSONObject?: CreateCompany401ApplicationJSON;
 }

@@ -39,7 +39,7 @@ export class ListIntegrationsRequest extends SpeakeasyBase {
 /**
  * Your API request was not properly authorized.
  */
-export class ListIntegrations401ApplicationJSON extends SpeakeasyBase {
+export class ListIntegrationsUnauthorized extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -68,7 +68,7 @@ export class ListIntegrations401ApplicationJSON extends SpeakeasyBase {
 /**
  * Your `query` parameter was not correctly formed
  */
-export class ListIntegrations400ApplicationJSON extends SpeakeasyBase {
+export class ListIntegrationsMalformedQuery extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -94,35 +94,35 @@ export class ListIntegrations400ApplicationJSON extends SpeakeasyBase {
   statusCode?: number;
 }
 
-export class ListIntegrationsLinksLinksHypertextReference extends SpeakeasyBase {
+export class ListIntegrations200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class ListIntegrationsLinksLinks extends SpeakeasyBase {
+export class ListIntegrations200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListIntegrationsLinksLinksHypertextReference)
-  current: ListIntegrationsLinksLinksHypertextReference;
+  @Type(() => ListIntegrations200ApplicationJSONLinksHypertextReference)
+  current: ListIntegrations200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListIntegrationsLinksLinksHypertextReference)
-  next?: ListIntegrationsLinksLinksHypertextReference;
+  @Type(() => ListIntegrations200ApplicationJSONLinksHypertextReference)
+  next?: ListIntegrations200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListIntegrationsLinksLinksHypertextReference)
-  previous?: ListIntegrationsLinksLinksHypertextReference;
+  @Type(() => ListIntegrations200ApplicationJSONLinksHypertextReference)
+  previous?: ListIntegrations200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListIntegrationsLinksLinksHypertextReference)
-  self: ListIntegrationsLinksLinksHypertextReference;
+  @Type(() => ListIntegrations200ApplicationJSONLinksHypertextReference)
+  self: ListIntegrations200ApplicationJSONLinksHypertextReference;
 }
 
-export enum ListIntegrationsLinksIntegrationDatatypeFeatureSupportedFeaturesFeatureStateEnum {
+export enum ListIntegrations200ApplicationJSONIntegrationDatatypeFeatureSupportedFeaturesFeatureStateEnum {
   Release = "Release",
   Beta = "Beta",
   Deprecated = "Deprecated",
@@ -130,7 +130,7 @@ export enum ListIntegrationsLinksIntegrationDatatypeFeatureSupportedFeaturesFeat
   NotImplemented = "NotImplemented",
 }
 
-export enum ListIntegrationsLinksIntegrationDatatypeFeatureSupportedFeaturesFeatureTypeEnum {
+export enum ListIntegrations200ApplicationJSONIntegrationDatatypeFeatureSupportedFeaturesFeatureTypeEnum {
   Get = "Get",
   Post = "Post",
   Categorization = "Categorization",
@@ -143,36 +143,40 @@ export enum ListIntegrationsLinksIntegrationDatatypeFeatureSupportedFeaturesFeat
   UploadAttachment = "UploadAttachment",
 }
 
-export class ListIntegrationsLinksIntegrationDatatypeFeatureSupportedFeatures extends SpeakeasyBase {
+export class ListIntegrations200ApplicationJSONIntegrationDatatypeFeatureSupportedFeatures extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "featureState" })
-  featureState: ListIntegrationsLinksIntegrationDatatypeFeatureSupportedFeaturesFeatureStateEnum;
+  featureState: ListIntegrations200ApplicationJSONIntegrationDatatypeFeatureSupportedFeaturesFeatureStateEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "featureType" })
-  featureType: ListIntegrationsLinksIntegrationDatatypeFeatureSupportedFeaturesFeatureTypeEnum;
+  featureType: ListIntegrations200ApplicationJSONIntegrationDatatypeFeatureSupportedFeaturesFeatureTypeEnum;
 }
 
 /**
  * Describes support for a given datatype and associated operations
  */
-export class ListIntegrationsLinksIntegrationDatatypeFeature extends SpeakeasyBase {
+export class ListIntegrations200ApplicationJSONIntegrationDatatypeFeature extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "datatype" })
   datatype: string;
 
   @SpeakeasyMetadata({
-    elemType: ListIntegrationsLinksIntegrationDatatypeFeatureSupportedFeatures,
+    elemType:
+      ListIntegrations200ApplicationJSONIntegrationDatatypeFeatureSupportedFeatures,
   })
   @Expose({ name: "supportedFeatures" })
-  @Type(() => ListIntegrationsLinksIntegrationDatatypeFeatureSupportedFeatures)
-  supportedFeatures: ListIntegrationsLinksIntegrationDatatypeFeatureSupportedFeatures[];
+  @Type(
+    () =>
+      ListIntegrations200ApplicationJSONIntegrationDatatypeFeatureSupportedFeatures
+  )
+  supportedFeatures: ListIntegrations200ApplicationJSONIntegrationDatatypeFeatureSupportedFeatures[];
 }
 
 /**
  * The type of platform of the connection.
  */
-export enum ListIntegrationsLinksIntegrationSourceTypeEnum {
+export enum ListIntegrations200ApplicationJSONIntegrationSourceTypeEnum {
   Accounting = "Accounting",
   Banking = "Banking",
   Commerce = "Commerce",
@@ -183,17 +187,17 @@ export enum ListIntegrationsLinksIntegrationSourceTypeEnum {
 /**
  * An integration that Codat supports
  */
-export class ListIntegrationsLinksIntegration extends SpeakeasyBase {
+export class ListIntegrations200ApplicationJSONIntegration extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataProvidedBy" })
   dataProvidedBy?: string;
 
   @SpeakeasyMetadata({
-    elemType: ListIntegrationsLinksIntegrationDatatypeFeature,
+    elemType: ListIntegrations200ApplicationJSONIntegrationDatatypeFeature,
   })
   @Expose({ name: "datatypeFeatures" })
-  @Type(() => ListIntegrationsLinksIntegrationDatatypeFeature)
-  datatypeFeatures?: ListIntegrationsLinksIntegrationDatatypeFeature[];
+  @Type(() => ListIntegrations200ApplicationJSONIntegrationDatatypeFeature)
+  datatypeFeatures?: ListIntegrations200ApplicationJSONIntegrationDatatypeFeature[];
 
   /**
    * Whether this integration is enabled for your customers to use
@@ -244,17 +248,17 @@ export class ListIntegrationsLinksIntegration extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceType" })
-  sourceType?: ListIntegrationsLinksIntegrationSourceTypeEnum;
+  sourceType?: ListIntegrations200ApplicationJSONIntegrationSourceTypeEnum;
 }
 
 /**
- * Codat's Paging Model
+ * OK
  */
-export class ListIntegrationsLinks extends SpeakeasyBase {
+export class ListIntegrations200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => ListIntegrationsLinksLinks)
-  links: ListIntegrationsLinksLinks;
+  @Type(() => ListIntegrations200ApplicationJSONLinks)
+  links: ListIntegrations200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -264,10 +268,12 @@ export class ListIntegrationsLinks extends SpeakeasyBase {
   @Expose({ name: "pageSize" })
   pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: ListIntegrationsLinksIntegration })
+  @SpeakeasyMetadata({
+    elemType: ListIntegrations200ApplicationJSONIntegration,
+  })
   @Expose({ name: "results" })
-  @Type(() => ListIntegrationsLinksIntegration)
-  results?: ListIntegrationsLinksIntegration[];
+  @Type(() => ListIntegrations200ApplicationJSONIntegration)
+  results?: ListIntegrations200ApplicationJSONIntegration[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -278,6 +284,12 @@ export class ListIntegrationsResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
+  /**
+   * Your `query` parameter was not correctly formed
+   */
+  @SpeakeasyMetadata()
+  malformedQuery?: ListIntegrationsMalformedQuery;
+
   @SpeakeasyMetadata()
   statusCode: number;
 
@@ -285,20 +297,14 @@ export class ListIntegrationsResponse extends SpeakeasyBase {
   rawResponse?: AxiosResponse;
 
   /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  links?: ListIntegrationsLinks;
-
-  /**
-   * Your `query` parameter was not correctly formed
-   */
-  @SpeakeasyMetadata()
-  listIntegrations400ApplicationJSONObject?: ListIntegrations400ApplicationJSON;
-
-  /**
    * Your API request was not properly authorized.
    */
   @SpeakeasyMetadata()
-  listIntegrations401ApplicationJSONObject?: ListIntegrations401ApplicationJSON;
+  unauthorized?: ListIntegrationsUnauthorized;
+
+  /**
+   * OK
+   */
+  @SpeakeasyMetadata()
+  listIntegrations200ApplicationJSONObject?: ListIntegrations200ApplicationJSON;
 }

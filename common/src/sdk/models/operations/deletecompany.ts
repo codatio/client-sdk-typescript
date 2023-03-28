@@ -16,7 +16,7 @@ export class DeleteCompanyRequest extends SpeakeasyBase {
 /**
  * Your API request was not properly authorized.
  */
-export class DeleteCompany401ApplicationJSON extends SpeakeasyBase {
+export class DeleteCompanyUnauthorized extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -56,5 +56,5 @@ export class DeleteCompanyResponse extends SpeakeasyBase {
    * Your API request was not properly authorized.
    */
   @SpeakeasyMetadata()
-  deleteCompany401ApplicationJSONObject?: DeleteCompany401ApplicationJSON;
+  unauthorized?: DeleteCompanyUnauthorized;
 }

@@ -98,11 +98,10 @@ export class Webhooks {
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createRule401ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreateRule401ApplicationJSON
-              );
+            res.unauthorized = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.CreateRuleUnauthorized
+            );
           }
           break;
       }
@@ -158,20 +157,18 @@ export class Webhooks {
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getWebhook401ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetWebhook401ApplicationJSON
-              );
+            res.unauthorized = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.GetWebhookUnauthorized
+            );
           }
           break;
         case httpRes?.status == 404:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getWebhook404ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetWebhook404ApplicationJSON
-              );
+            res.notFound = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.GetWebhookNotFound
+            );
           }
           break;
       }
@@ -221,28 +218,27 @@ export class Webhooks {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.links = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.ListRulesLinks
-            );
+            res.listRules200ApplicationJSONObject =
+              utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.ListRules200ApplicationJSON
+              );
           }
           break;
         case httpRes?.status == 400:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listRules400ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListRules400ApplicationJSON
-              );
+            res.malformedQuery = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.ListRulesMalformedQuery
+            );
           }
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listRules401ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListRules401ApplicationJSON
-              );
+            res.unauthorized = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.ListRulesUnauthorized
+            );
           }
           break;
       }

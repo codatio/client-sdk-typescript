@@ -9,7 +9,7 @@ import { Expose } from "class-transformer";
 /**
  * Your API request was not properly authorized.
  */
-export class GetSettingsProfile401ApplicationJSON extends SpeakeasyBase {
+export class GetSettingsProfileUnauthorized extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -92,5 +92,5 @@ export class GetSettingsProfileResponse extends SpeakeasyBase {
    * Your API request was not properly authorized.
    */
   @SpeakeasyMetadata()
-  getSettingsProfile401ApplicationJSONObject?: GetSettingsProfile401ApplicationJSON;
+  unauthorized?: GetSettingsProfileUnauthorized;
 }

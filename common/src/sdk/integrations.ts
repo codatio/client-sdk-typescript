@@ -84,20 +84,18 @@ export class Integrations {
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getIntegrationsPlatformKey401ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetIntegrationsPlatformKey401ApplicationJSON
-              );
+            res.unauthorized = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.GetIntegrationsPlatformKeyUnauthorized
+            );
           }
           break;
         case httpRes?.status == 404:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getIntegrationsPlatformKey404ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetIntegrationsPlatformKey404ApplicationJSON
-              );
+            res.notFound = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.GetIntegrationsPlatformKeyNotFound
+            );
           }
           break;
       }
@@ -202,28 +200,27 @@ export class Integrations {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.links = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.ListIntegrationsLinks
-            );
+            res.listIntegrations200ApplicationJSONObject =
+              utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.ListIntegrations200ApplicationJSON
+              );
           }
           break;
         case httpRes?.status == 400:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listIntegrations400ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListIntegrations400ApplicationJSON
-              );
+            res.malformedQuery = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.ListIntegrationsMalformedQuery
+            );
           }
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listIntegrations401ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListIntegrations401ApplicationJSON
-              );
+            res.unauthorized = utils.deserializeJSONResponse(
+              httpRes?.data,
+              operations.ListIntegrationsUnauthorized
+            );
           }
           break;
       }

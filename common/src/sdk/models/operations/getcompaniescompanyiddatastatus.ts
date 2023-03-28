@@ -19,7 +19,7 @@ export class GetCompaniesCompanyIdDataStatusRequest extends SpeakeasyBase {
  * @remarks
  * This might be because your company or data connection id is wrong, or was already deleted.
  */
-export class GetCompaniesCompanyIdDataStatus404ApplicationJSON extends SpeakeasyBase {
+export class GetCompaniesCompanyIdDataStatusNotFound extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -48,7 +48,7 @@ export class GetCompaniesCompanyIdDataStatus404ApplicationJSON extends Speakeasy
 /**
  * Your API request was not properly authorized.
  */
-export class GetCompaniesCompanyIdDataStatus401ApplicationJSON extends SpeakeasyBase {
+export class GetCompaniesCompanyIdDataStatusUnauthorized extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -147,24 +147,6 @@ export class GetCompaniesCompanyIdDataStatusResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
-
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
-
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  getCompaniesCompanyIdDataStatus200ApplicationJSONObject?: GetCompaniesCompanyIdDataStatus200ApplicationJSON;
-
-  /**
-   * Your API request was not properly authorized.
-   */
-  @SpeakeasyMetadata()
-  getCompaniesCompanyIdDataStatus401ApplicationJSONObject?: GetCompaniesCompanyIdDataStatus401ApplicationJSON;
-
   /**
    * One or more of the resources you referenced could not be found.
    *
@@ -172,5 +154,23 @@ export class GetCompaniesCompanyIdDataStatusResponse extends SpeakeasyBase {
    * This might be because your company or data connection id is wrong, or was already deleted.
    */
   @SpeakeasyMetadata()
-  getCompaniesCompanyIdDataStatus404ApplicationJSONObject?: GetCompaniesCompanyIdDataStatus404ApplicationJSON;
+  notFound?: GetCompaniesCompanyIdDataStatusNotFound;
+
+  @SpeakeasyMetadata()
+  statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
+
+  /**
+   * Your API request was not properly authorized.
+   */
+  @SpeakeasyMetadata()
+  unauthorized?: GetCompaniesCompanyIdDataStatusUnauthorized;
+
+  /**
+   * OK
+   */
+  @SpeakeasyMetadata()
+  getCompaniesCompanyIdDataStatus200ApplicationJSONObject?: GetCompaniesCompanyIdDataStatus200ApplicationJSON;
 }

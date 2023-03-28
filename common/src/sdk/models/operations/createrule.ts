@@ -41,7 +41,7 @@ export class CreateRuleWebhook extends SpeakeasyBase {
 /**
  * Your API request was not properly authorized.
  */
-export class CreateRule401ApplicationJSON extends SpeakeasyBase {
+export class CreateRuleUnauthorized extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -78,14 +78,14 @@ export class CreateRuleResponse extends SpeakeasyBase {
   rawResponse?: AxiosResponse;
 
   /**
+   * Your API request was not properly authorized.
+   */
+  @SpeakeasyMetadata()
+  unauthorized?: CreateRuleUnauthorized;
+
+  /**
    * OK
    */
   @SpeakeasyMetadata()
   webhook?: CreateRuleWebhook;
-
-  /**
-   * Your API request was not properly authorized.
-   */
-  @SpeakeasyMetadata()
-  createRule401ApplicationJSONObject?: CreateRule401ApplicationJSON;
 }

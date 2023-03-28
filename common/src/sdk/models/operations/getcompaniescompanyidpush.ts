@@ -41,35 +41,43 @@ export class GetCompaniesCompanyIdPushRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class GetCompaniesCompanyIdPushLinksLinksHypertextReference extends SpeakeasyBase {
+export class GetCompaniesCompanyIdPush200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class GetCompaniesCompanyIdPushLinksLinks extends SpeakeasyBase {
+export class GetCompaniesCompanyIdPush200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => GetCompaniesCompanyIdPushLinksLinksHypertextReference)
-  current: GetCompaniesCompanyIdPushLinksLinksHypertextReference;
+  @Type(
+    () => GetCompaniesCompanyIdPush200ApplicationJSONLinksHypertextReference
+  )
+  current: GetCompaniesCompanyIdPush200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => GetCompaniesCompanyIdPushLinksLinksHypertextReference)
-  next?: GetCompaniesCompanyIdPushLinksLinksHypertextReference;
+  @Type(
+    () => GetCompaniesCompanyIdPush200ApplicationJSONLinksHypertextReference
+  )
+  next?: GetCompaniesCompanyIdPush200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => GetCompaniesCompanyIdPushLinksLinksHypertextReference)
-  previous?: GetCompaniesCompanyIdPushLinksLinksHypertextReference;
+  @Type(
+    () => GetCompaniesCompanyIdPush200ApplicationJSONLinksHypertextReference
+  )
+  previous?: GetCompaniesCompanyIdPush200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => GetCompaniesCompanyIdPushLinksLinksHypertextReference)
-  self: GetCompaniesCompanyIdPushLinksLinksHypertextReference;
+  @Type(
+    () => GetCompaniesCompanyIdPush200ApplicationJSONLinksHypertextReference
+  )
+  self: GetCompaniesCompanyIdPush200ApplicationJSONLinksHypertextReference;
 }
 
-export class GetCompaniesCompanyIdPushLinksResultsChangesPushOperationRecordRef extends SpeakeasyBase {
+export class GetCompaniesCompanyIdPush200ApplicationJSONResultsChangesPushOperationRecordRef extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
   dataType?: string;
@@ -79,7 +87,7 @@ export class GetCompaniesCompanyIdPushLinksResultsChangesPushOperationRecordRef 
   id?: string;
 }
 
-export enum GetCompaniesCompanyIdPushLinksResultsChangesTypeEnum {
+export enum GetCompaniesCompanyIdPush200ApplicationJSONResultsChangesTypeEnum {
   Unknown = "Unknown",
   Created = "Created",
   Modified = "Modified",
@@ -87,7 +95,7 @@ export enum GetCompaniesCompanyIdPushLinksResultsChangesTypeEnum {
   AttachmentUploaded = "AttachmentUploaded",
 }
 
-export class GetCompaniesCompanyIdPushLinksResultsChanges extends SpeakeasyBase {
+export class GetCompaniesCompanyIdPush200ApplicationJSONResultsChanges extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "attachmentId" })
   attachmentId?: string;
@@ -95,26 +103,27 @@ export class GetCompaniesCompanyIdPushLinksResultsChanges extends SpeakeasyBase 
   @SpeakeasyMetadata()
   @Expose({ name: "recordRef" })
   @Type(
-    () => GetCompaniesCompanyIdPushLinksResultsChangesPushOperationRecordRef
+    () =>
+      GetCompaniesCompanyIdPush200ApplicationJSONResultsChangesPushOperationRecordRef
   )
-  recordRef?: GetCompaniesCompanyIdPushLinksResultsChangesPushOperationRecordRef;
+  recordRef?: GetCompaniesCompanyIdPush200ApplicationJSONResultsChangesPushOperationRecordRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: GetCompaniesCompanyIdPushLinksResultsChangesTypeEnum;
+  type?: GetCompaniesCompanyIdPush200ApplicationJSONResultsChangesTypeEnum;
 }
 
 /**
  * The status of the push operation.
  */
-export enum GetCompaniesCompanyIdPushLinksResultsStatusEnum {
+export enum GetCompaniesCompanyIdPush200ApplicationJSONResultsStatusEnum {
   Pending = "Pending",
   Failed = "Failed",
   Success = "Success",
   TimedOut = "TimedOut",
 }
 
-export class GetCompaniesCompanyIdPushLinksResultsValidationValidationItem extends SpeakeasyBase {
+export class GetCompaniesCompanyIdPush200ApplicationJSONResultsValidationValidationItem extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "itemId" })
   itemId?: string;
@@ -131,27 +140,37 @@ export class GetCompaniesCompanyIdPushLinksResultsValidationValidationItem exten
 /**
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
  */
-export class GetCompaniesCompanyIdPushLinksResultsValidation extends SpeakeasyBase {
+export class GetCompaniesCompanyIdPush200ApplicationJSONResultsValidation extends SpeakeasyBase {
   @SpeakeasyMetadata({
-    elemType: GetCompaniesCompanyIdPushLinksResultsValidationValidationItem,
+    elemType:
+      GetCompaniesCompanyIdPush200ApplicationJSONResultsValidationValidationItem,
   })
   @Expose({ name: "errors" })
-  @Type(() => GetCompaniesCompanyIdPushLinksResultsValidationValidationItem)
-  errors?: GetCompaniesCompanyIdPushLinksResultsValidationValidationItem[];
+  @Type(
+    () =>
+      GetCompaniesCompanyIdPush200ApplicationJSONResultsValidationValidationItem
+  )
+  errors?: GetCompaniesCompanyIdPush200ApplicationJSONResultsValidationValidationItem[];
 
   @SpeakeasyMetadata({
-    elemType: GetCompaniesCompanyIdPushLinksResultsValidationValidationItem,
+    elemType:
+      GetCompaniesCompanyIdPush200ApplicationJSONResultsValidationValidationItem,
   })
   @Expose({ name: "warnings" })
-  @Type(() => GetCompaniesCompanyIdPushLinksResultsValidationValidationItem)
-  warnings?: GetCompaniesCompanyIdPushLinksResultsValidationValidationItem[];
+  @Type(
+    () =>
+      GetCompaniesCompanyIdPush200ApplicationJSONResultsValidationValidationItem
+  )
+  warnings?: GetCompaniesCompanyIdPush200ApplicationJSONResultsValidationValidationItem[];
 }
 
-export class GetCompaniesCompanyIdPushLinksResults extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: GetCompaniesCompanyIdPushLinksResultsChanges })
+export class GetCompaniesCompanyIdPush200ApplicationJSONResults extends SpeakeasyBase {
+  @SpeakeasyMetadata({
+    elemType: GetCompaniesCompanyIdPush200ApplicationJSONResultsChanges,
+  })
   @Expose({ name: "changes" })
-  @Type(() => GetCompaniesCompanyIdPushLinksResultsChanges)
-  changes?: GetCompaniesCompanyIdPushLinksResultsChanges[];
+  @Type(() => GetCompaniesCompanyIdPush200ApplicationJSONResultsChanges)
+  changes?: GetCompaniesCompanyIdPush200ApplicationJSONResultsChanges[];
 
   /**
    * Unique identifier for your SMB in Codat.
@@ -204,7 +223,7 @@ export class GetCompaniesCompanyIdPushLinksResults extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: GetCompaniesCompanyIdPushLinksResultsStatusEnum;
+  status: GetCompaniesCompanyIdPush200ApplicationJSONResultsStatusEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "statusCode" })
@@ -223,18 +242,18 @@ export class GetCompaniesCompanyIdPushLinksResults extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => GetCompaniesCompanyIdPushLinksResultsValidation)
-  validation?: GetCompaniesCompanyIdPushLinksResultsValidation;
+  @Type(() => GetCompaniesCompanyIdPush200ApplicationJSONResultsValidation)
+  validation?: GetCompaniesCompanyIdPush200ApplicationJSONResultsValidation;
 }
 
 /**
- * Codat's Paging Model
+ * OK
  */
-export class GetCompaniesCompanyIdPushLinks extends SpeakeasyBase {
+export class GetCompaniesCompanyIdPush200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => GetCompaniesCompanyIdPushLinksLinks)
-  links: GetCompaniesCompanyIdPushLinksLinks;
+  @Type(() => GetCompaniesCompanyIdPush200ApplicationJSONLinks)
+  links: GetCompaniesCompanyIdPush200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -244,10 +263,12 @@ export class GetCompaniesCompanyIdPushLinks extends SpeakeasyBase {
   @Expose({ name: "pageSize" })
   pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: GetCompaniesCompanyIdPushLinksResults })
+  @SpeakeasyMetadata({
+    elemType: GetCompaniesCompanyIdPush200ApplicationJSONResults,
+  })
   @Expose({ name: "results" })
-  @Type(() => GetCompaniesCompanyIdPushLinksResults)
-  results?: GetCompaniesCompanyIdPushLinksResults[];
+  @Type(() => GetCompaniesCompanyIdPush200ApplicationJSONResults)
+  results?: GetCompaniesCompanyIdPush200ApplicationJSONResults[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -268,5 +289,5 @@ export class GetCompaniesCompanyIdPushResponse extends SpeakeasyBase {
    * OK
    */
   @SpeakeasyMetadata()
-  links?: GetCompaniesCompanyIdPushLinks;
+  getCompaniesCompanyIdPush200ApplicationJSONObject?: GetCompaniesCompanyIdPush200ApplicationJSON;
 }

@@ -29,7 +29,7 @@ export class UpdateCompanyRequest extends SpeakeasyBase {
 /**
  * Your API request was not properly authorized.
  */
-export class UpdateCompany401ApplicationJSON extends SpeakeasyBase {
+export class UpdateCompanyUnauthorized extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -372,5 +372,5 @@ export class UpdateCompanyResponse extends SpeakeasyBase {
    * Your API request was not properly authorized.
    */
   @SpeakeasyMetadata()
-  updateCompany401ApplicationJSONObject?: UpdateCompany401ApplicationJSON;
+  unauthorized?: UpdateCompanyUnauthorized;
 }

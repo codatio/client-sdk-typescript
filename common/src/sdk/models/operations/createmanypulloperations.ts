@@ -19,7 +19,7 @@ export class CreateManyPullOperationsRequest extends SpeakeasyBase {
  * @remarks
  * This might be because your company or data connection id is wrong, or was already deleted.
  */
-export class CreateManyPullOperations404ApplicationJSON extends SpeakeasyBase {
+export class CreateManyPullOperationsNotFound extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -48,7 +48,7 @@ export class CreateManyPullOperations404ApplicationJSON extends SpeakeasyBase {
 /**
  * Your API request was not properly authorized.
  */
-export class CreateManyPullOperations401ApplicationJSON extends SpeakeasyBase {
+export class CreateManyPullOperationsUnauthorized extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "canBeRetried" })
   canBeRetried?: string;
@@ -78,6 +78,15 @@ export class CreateManyPullOperationsResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
+  /**
+   * One or more of the resources you referenced could not be found.
+   *
+   * @remarks
+   * This might be because your company or data connection id is wrong, or was already deleted.
+   */
+  @SpeakeasyMetadata()
+  notFound?: CreateManyPullOperationsNotFound;
+
   @SpeakeasyMetadata()
   statusCode: number;
 
@@ -88,14 +97,5 @@ export class CreateManyPullOperationsResponse extends SpeakeasyBase {
    * Your API request was not properly authorized.
    */
   @SpeakeasyMetadata()
-  createManyPullOperations401ApplicationJSONObject?: CreateManyPullOperations401ApplicationJSON;
-
-  /**
-   * One or more of the resources you referenced could not be found.
-   *
-   * @remarks
-   * This might be because your company or data connection id is wrong, or was already deleted.
-   */
-  @SpeakeasyMetadata()
-  createManyPullOperations404ApplicationJSONObject?: CreateManyPullOperations404ApplicationJSON;
+  unauthorized?: CreateManyPullOperationsUnauthorized;
 }
