@@ -133,10 +133,11 @@ export class Categories {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.links = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.ListAccountsCategoriesLinks
-            );
+            res.listAccountsCategories200ApplicationJSONObject =
+              utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.ListAccountsCategories200ApplicationJSON
+              );
           }
           break;
       }

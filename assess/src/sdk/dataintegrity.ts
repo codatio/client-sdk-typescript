@@ -78,10 +78,11 @@ export class DataIntegrity {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.links = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.GetDataIntegrityDetailsLinks
-            );
+            res.getDataIntegrityDetails200ApplicationJSONObject =
+              utils.deserializeJSONResponse(
+                httpRes?.data,
+                operations.GetDataIntegrityDetails200ApplicationJSON
+              );
           }
           break;
       }

@@ -46,38 +46,38 @@ export class ListAccountsCategoriesRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListAccountsCategoriesLinksLinksHypertextReference extends SpeakeasyBase {
+export class ListAccountsCategories200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class ListAccountsCategoriesLinksLinks extends SpeakeasyBase {
+export class ListAccountsCategories200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => ListAccountsCategoriesLinksLinksHypertextReference)
-  current: ListAccountsCategoriesLinksLinksHypertextReference;
+  @Type(() => ListAccountsCategories200ApplicationJSONLinksHypertextReference)
+  current: ListAccountsCategories200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => ListAccountsCategoriesLinksLinksHypertextReference)
-  next?: ListAccountsCategoriesLinksLinksHypertextReference;
+  @Type(() => ListAccountsCategories200ApplicationJSONLinksHypertextReference)
+  next?: ListAccountsCategories200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => ListAccountsCategoriesLinksLinksHypertextReference)
-  previous?: ListAccountsCategoriesLinksLinksHypertextReference;
+  @Type(() => ListAccountsCategories200ApplicationJSONLinksHypertextReference)
+  previous?: ListAccountsCategories200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => ListAccountsCategoriesLinksLinksHypertextReference)
-  self: ListAccountsCategoriesLinksLinksHypertextReference;
+  @Type(() => ListAccountsCategories200ApplicationJSONLinksHypertextReference)
+  self: ListAccountsCategories200ApplicationJSONLinksHypertextReference;
 }
 
 /**
  * An object containing account reference data.
  */
-export class ListAccountsCategoriesLinksCategorisedAccountAccountRef extends SpeakeasyBase {
+export class ListAccountsCategories200ApplicationJSONCategorisedAccountAccountRef extends SpeakeasyBase {
   /**
    * 'id' from the Accounts data type.
    */
@@ -93,7 +93,7 @@ export class ListAccountsCategoriesLinksCategorisedAccountAccountRef extends Spe
   name?: string;
 }
 
-export class ListAccountsCategoriesLinksCategorisedAccountModifiedDate extends SpeakeasyBase {
+export class ListAccountsCategories200ApplicationJSONCategorisedAccountModifiedDate extends SpeakeasyBase {
   /**
    * Most granular chart of account type.
    */
@@ -123,34 +123,40 @@ export class ListAccountsCategoriesLinksCategorisedAccountModifiedDate extends S
   type?: string;
 }
 
-export class ListAccountsCategoriesLinksCategorisedAccount extends SpeakeasyBase {
+export class ListAccountsCategories200ApplicationJSONCategorisedAccount extends SpeakeasyBase {
   /**
    * An object containing account reference data.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
-  @Type(() => ListAccountsCategoriesLinksCategorisedAccountAccountRef)
-  accountRef?: ListAccountsCategoriesLinksCategorisedAccountAccountRef;
+  @Type(
+    () => ListAccountsCategories200ApplicationJSONCategorisedAccountAccountRef
+  )
+  accountRef?: ListAccountsCategories200ApplicationJSONCategorisedAccountAccountRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "confirmed" })
-  @Type(() => ListAccountsCategoriesLinksCategorisedAccountModifiedDate)
-  confirmed?: ListAccountsCategoriesLinksCategorisedAccountModifiedDate;
+  @Type(
+    () => ListAccountsCategories200ApplicationJSONCategorisedAccountModifiedDate
+  )
+  confirmed?: ListAccountsCategories200ApplicationJSONCategorisedAccountModifiedDate;
 
   @SpeakeasyMetadata()
   @Expose({ name: "suggested" })
-  @Type(() => ListAccountsCategoriesLinksCategorisedAccountModifiedDate)
-  suggested?: ListAccountsCategoriesLinksCategorisedAccountModifiedDate;
+  @Type(
+    () => ListAccountsCategories200ApplicationJSONCategorisedAccountModifiedDate
+  )
+  suggested?: ListAccountsCategories200ApplicationJSONCategorisedAccountModifiedDate;
 }
 
 /**
- * Codat's Paging Model
+ * OK
  */
-export class ListAccountsCategoriesLinks extends SpeakeasyBase {
+export class ListAccountsCategories200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => ListAccountsCategoriesLinksLinks)
-  links: ListAccountsCategoriesLinksLinks;
+  @Type(() => ListAccountsCategories200ApplicationJSONLinks)
+  links: ListAccountsCategories200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -164,11 +170,11 @@ export class ListAccountsCategoriesLinks extends SpeakeasyBase {
    * A list confirmed and suggested account categories.
    */
   @SpeakeasyMetadata({
-    elemType: ListAccountsCategoriesLinksCategorisedAccount,
+    elemType: ListAccountsCategories200ApplicationJSONCategorisedAccount,
   })
   @Expose({ name: "results" })
-  @Type(() => ListAccountsCategoriesLinksCategorisedAccount)
-  results?: ListAccountsCategoriesLinksCategorisedAccount[];
+  @Type(() => ListAccountsCategories200ApplicationJSONCategorisedAccount)
+  results?: ListAccountsCategories200ApplicationJSONCategorisedAccount[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -189,5 +195,5 @@ export class ListAccountsCategoriesResponse extends SpeakeasyBase {
    * OK
    */
   @SpeakeasyMetadata()
-  links?: ListAccountsCategoriesLinks;
+  listAccountsCategories200ApplicationJSONObject?: ListAccountsCategories200ApplicationJSON;
 }

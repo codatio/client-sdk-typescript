@@ -59,35 +59,35 @@ export class GetDataIntegrityDetailsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class GetDataIntegrityDetailsLinksLinksHypertextReference extends SpeakeasyBase {
+export class GetDataIntegrityDetails200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "href" })
   href?: string;
 }
 
-export class GetDataIntegrityDetailsLinksLinks extends SpeakeasyBase {
+export class GetDataIntegrityDetails200ApplicationJSONLinks extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => GetDataIntegrityDetailsLinksLinksHypertextReference)
-  current: GetDataIntegrityDetailsLinksLinksHypertextReference;
+  @Type(() => GetDataIntegrityDetails200ApplicationJSONLinksHypertextReference)
+  current: GetDataIntegrityDetails200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => GetDataIntegrityDetailsLinksLinksHypertextReference)
-  next?: GetDataIntegrityDetailsLinksLinksHypertextReference;
+  @Type(() => GetDataIntegrityDetails200ApplicationJSONLinksHypertextReference)
+  next?: GetDataIntegrityDetails200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => GetDataIntegrityDetailsLinksLinksHypertextReference)
-  previous?: GetDataIntegrityDetailsLinksLinksHypertextReference;
+  @Type(() => GetDataIntegrityDetails200ApplicationJSONLinksHypertextReference)
+  previous?: GetDataIntegrityDetails200ApplicationJSONLinksHypertextReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => GetDataIntegrityDetailsLinksLinksHypertextReference)
-  self: GetDataIntegrityDetailsLinksLinksHypertextReference;
+  @Type(() => GetDataIntegrityDetails200ApplicationJSONLinksHypertextReference)
+  self: GetDataIntegrityDetails200ApplicationJSONLinksHypertextReference;
 }
 
-export class GetDataIntegrityDetailsLinksDataIntegrityDetailsMatches extends SpeakeasyBase {
+export class GetDataIntegrityDetails200ApplicationJSONDataIntegrityDetailsMatches extends SpeakeasyBase {
   /**
    * The transaction value.
    */
@@ -138,7 +138,7 @@ export class GetDataIntegrityDetailsLinksDataIntegrityDetailsMatches extends Spe
   type?: string;
 }
 
-export class GetDataIntegrityDetailsLinksDataIntegrityDetails extends SpeakeasyBase {
+export class GetDataIntegrityDetails200ApplicationJSONDataIntegrityDetails extends SpeakeasyBase {
   /**
    * The transaction value.
    */
@@ -182,11 +182,14 @@ export class GetDataIntegrityDetailsLinksDataIntegrityDetails extends SpeakeasyB
   id?: string;
 
   @SpeakeasyMetadata({
-    elemType: GetDataIntegrityDetailsLinksDataIntegrityDetailsMatches,
+    elemType:
+      GetDataIntegrityDetails200ApplicationJSONDataIntegrityDetailsMatches,
   })
   @Expose({ name: "matches" })
-  @Type(() => GetDataIntegrityDetailsLinksDataIntegrityDetailsMatches)
-  matches?: GetDataIntegrityDetailsLinksDataIntegrityDetailsMatches[];
+  @Type(
+    () => GetDataIntegrityDetails200ApplicationJSONDataIntegrityDetailsMatches
+  )
+  matches?: GetDataIntegrityDetails200ApplicationJSONDataIntegrityDetailsMatches[];
 
   /**
    * The data type of the record.
@@ -197,13 +200,13 @@ export class GetDataIntegrityDetailsLinksDataIntegrityDetails extends SpeakeasyB
 }
 
 /**
- * Codat's Paging Model
+ * OK
  */
-export class GetDataIntegrityDetailsLinks extends SpeakeasyBase {
+export class GetDataIntegrityDetails200ApplicationJSON extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "_links" })
-  @Type(() => GetDataIntegrityDetailsLinksLinks)
-  links: GetDataIntegrityDetailsLinksLinks;
+  @Type(() => GetDataIntegrityDetails200ApplicationJSONLinks)
+  links: GetDataIntegrityDetails200ApplicationJSONLinks;
 
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
@@ -214,11 +217,11 @@ export class GetDataIntegrityDetailsLinks extends SpeakeasyBase {
   pageSize: number;
 
   @SpeakeasyMetadata({
-    elemType: GetDataIntegrityDetailsLinksDataIntegrityDetails,
+    elemType: GetDataIntegrityDetails200ApplicationJSONDataIntegrityDetails,
   })
   @Expose({ name: "results" })
-  @Type(() => GetDataIntegrityDetailsLinksDataIntegrityDetails)
-  results?: GetDataIntegrityDetailsLinksDataIntegrityDetails[];
+  @Type(() => GetDataIntegrityDetails200ApplicationJSONDataIntegrityDetails)
+  results?: GetDataIntegrityDetails200ApplicationJSONDataIntegrityDetails[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
@@ -239,5 +242,5 @@ export class GetDataIntegrityDetailsResponse extends SpeakeasyBase {
    * OK
    */
   @SpeakeasyMetadata()
-  links?: GetDataIntegrityDetailsLinks;
+  getDataIntegrityDetails200ApplicationJSONObject?: GetDataIntegrityDetails200ApplicationJSON;
 }
