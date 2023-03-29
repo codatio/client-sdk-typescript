@@ -13,20 +13,6 @@ export class CreatePartnerexpenseConnectionRequest extends SpeakeasyBase {
   companyId: string;
 }
 
-export class CreatePartnerexpenseConnectionConnectionConnectionInfo extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "additionalProp1" })
-  additionalProp1?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "additionalProp2" })
-  additionalProp2?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "additionalProp3" })
-  additionalProp3?: string;
-}
-
 export class CreatePartnerexpenseConnectionConnectionDataConnectionErrors extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "errorMessage" })
@@ -50,7 +36,7 @@ export class CreatePartnerexpenseConnectionConnectionDataConnectionErrors extend
    * - Unqualified local time: `2021-11-15T01:00:00`
    * - UTC time offsets: `2021-11-15T01:00:00-05:00`
    *
-   * > 📘 Time zones
+   * > Time zones
    * >
    * > Not all dates from Codat will contain information about time zones.
    * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
@@ -95,8 +81,7 @@ export enum CreatePartnerexpenseConnectionConnectionDataConnectionStatusEnum {
 export class CreatePartnerexpenseConnectionConnection extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "connectionInfo" })
-  @Type(() => CreatePartnerexpenseConnectionConnectionConnectionInfo)
-  connectionInfo?: CreatePartnerexpenseConnectionConnectionConnectionInfo;
+  connectionInfo?: Record<string, string>;
 
   /**
    * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
@@ -116,7 +101,7 @@ export class CreatePartnerexpenseConnectionConnection extends SpeakeasyBase {
    * - Unqualified local time: `2021-11-15T01:00:00`
    * - UTC time offsets: `2021-11-15T01:00:00-05:00`
    *
-   * > 📘 Time zones
+   * > Time zones
    * >
    * > Not all dates from Codat will contain information about time zones.
    * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
@@ -171,7 +156,7 @@ export class CreatePartnerexpenseConnectionConnection extends SpeakeasyBase {
    * - Unqualified local time: `2021-11-15T01:00:00`
    * - UTC time offsets: `2021-11-15T01:00:00-05:00`
    *
-   * > 📘 Time zones
+   * > Time zones
    * >
    * > Not all dates from Codat will contain information about time zones.
    * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
