@@ -29,6 +29,7 @@ src/sdk/models/operations/getdataintegritystatus.ts
 src/sdk/models/operations/getdataintegritysummaries.ts
 src/sdk/models/operations/getaccountingmarketingmetrics.ts
 src/sdk/models/operations/getexcelreport.ts
+src/sdk/models/operations/getexcelreportpost.ts
 src/sdk/models/operations/makerequesttodownloadexcelreport.ts
 src/sdk/models/operations/requestexcelreportfordownload.ts
 src/sdk/models/operations/getaccountsforenhancedbalancesheet.ts

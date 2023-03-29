@@ -66,8 +66,9 @@ sdk.categories.getAccountCategory(req).then((res: GetAccountCategoryResponse | A
 
 * `getAccountingMarketingMetrics` - Get the marketing metrics from an accounting source for a given company.
 * `getExcelReport` - Download generated excel report
-* `makeRequestToDownloadExcelReport` - Request an Excel report for download
-* `requestExcelReportForDownload` - Request an Excel report for download
+* `getExcelReportPost` - Download generated excel report
+* `makeRequestToDownloadExcelReport` - Get status of Excel report
+* `requestExcelReportForDownload` - Generate an Excel report
 
 ### reports
 

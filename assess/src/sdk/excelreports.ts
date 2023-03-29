@@ -95,7 +95,7 @@ export class ExcelReports {
    * Download generated excel report
    *
    * @remarks
-   * Download the Excel report to a local drive.
+   * Download the previously generated Excel report to a local drive.
    */
   getExcelReport(
     req: operations.GetExcelReportRequest,
@@ -118,7 +118,7 @@ export class ExcelReports {
 
     const r = client.request({
       url: url + queryParams,
-      method: "post",
+      method: "get",
       ...config,
     });
 
@@ -150,7 +150,65 @@ export class ExcelReports {
   }
 
   /**
-   * Request an Excel report for download
+   * Download generated excel report
+   *
+   * @remarks
+   * Download the previously generated Excel report to a local drive.
+   */
+  getExcelReportPost(
+    req: operations.GetExcelReportPostRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.GetExcelReportPostResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.GetExcelReportPostRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/data/companies/{companyId}/assess/excel/download",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const queryParams: string = utils.serializeQueryParams(req);
+
+    const r = client.request({
+      url: url + queryParams,
+      method: "post",
+      ...config,
+    });
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.GetExcelReportPostResponse =
+        new operations.GetExcelReportPostResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/octet-stream`)) {
+            const resBody: string = JSON.stringify(httpRes?.data, null, 0);
+            const out: Uint8Array = new Uint8Array(resBody.length);
+            for (let i = 0; i < resBody.length; i++)
+              out[i] = resBody.charCodeAt(i);
+            res.body = out;
+          }
+          break;
+      }
+
+      return res;
+    });
+  }
+
+  /**
+   * Get status of Excel report
    *
    * @remarks
    * Returns the status of the latest report requested.
@@ -208,10 +266,10 @@ export class ExcelReports {
   }
 
   /**
-   * Request an Excel report for download
+   * Generate an Excel report
    *
    * @remarks
-   * Request an Excel report for download.
+   * Generate an Excel report which can subsequently be downloaded.
    */
   requestExcelReportForDownload(
     req: operations.RequestExcelReportForDownloadRequest,

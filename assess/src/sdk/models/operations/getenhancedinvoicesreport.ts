@@ -72,10 +72,16 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportInfo extends S
 }
 
 export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesCustomerRef extends SpeakeasyBase {
+  /**
+   * `customerName` from the Customer data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
   companyName?: string;
 
+  /**
+   * `id` from the Customers data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -104,19 +110,37 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesS
  * Customer the payment is recorded against in the accounting platform.
  */
 export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesSourceModifiedDateCustomerRef extends SpeakeasyBase {
+  /**
+   * `customerName` from the Customer data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
   companyName?: string;
 
+  /**
+   * `id` from the Customers data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
 }
 
 /**
- * Types of payment line links
+ * Types of payment line links, either:
+ *
+ * @remarks
+ * `Unknown`
+ * `Unlinked` - Not used
+ * `Invoice` - ID refers to the invoice
+ * `CreditNote` - ID refers to the credit note
+ * `Refund` - ID refers to the sibling payment
+ * `Payment` - ID refers to the sibling payment
+ * `PaymentOnAccount` - ID refers to the customer
+ * `Other` - ID refers to the customer
+ * `Manual Journal`
+ * `Discount` - ID refers to the payment
  */
-export enum GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesSourceModifiedDateLinesLinksTypeEnum {
+export enum GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesSourceModifiedDatePaymentLinePaymentLineLinkPaymentLinkTypeEnum {
   Unknown = "Unknown",
   Unlinked = "Unlinked",
   Invoice = "Invoice",
@@ -129,13 +153,13 @@ export enum GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesSo
   Discount = "Discount",
 }
 
-export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesSourceModifiedDateLinesLinks extends SpeakeasyBase {
+export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesSourceModifiedDatePaymentLinePaymentLineLink extends SpeakeasyBase {
   /**
    * Amount by which the balance of the linked entity is altered, in the currency of the linked entity.
    *
    * @remarks
-   * A negative link amount _reduces the outstanding amount on the accounts receivable account.
-   * A positive link amount _increases the outstanding amount on the accounts receivable account.
+   * A negative link amount _reduces_ the outstanding amount on the accounts receivable account.
+   * A positive link amount _increases_ the outstanding amount on the accounts receivable account.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "amount" })
@@ -180,14 +204,26 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesS
   id?: string;
 
   /**
-   * Types of payment line links
+   * Types of payment line links, either:
+   *
+   * @remarks
+   * `Unknown`
+   * `Unlinked` - Not used
+   * `Invoice` - ID refers to the invoice
+   * `CreditNote` - ID refers to the credit note
+   * `Refund` - ID refers to the sibling payment
+   * `Payment` - ID refers to the sibling payment
+   * `PaymentOnAccount` - ID refers to the customer
+   * `Other` - ID refers to the customer
+   * `Manual Journal`
+   * `Discount` - ID refers to the payment
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesSourceModifiedDateLinesLinksTypeEnum;
+  type: GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesSourceModifiedDatePaymentLinePaymentLineLinkPaymentLinkTypeEnum;
 }
 
-export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesSourceModifiedDateLines extends SpeakeasyBase {
+export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesSourceModifiedDatePaymentLine extends SpeakeasyBase {
   /**
    * The date the payment was allocated.
    */
@@ -207,14 +243,14 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesS
 
   @SpeakeasyMetadata({
     elemType:
-      GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesSourceModifiedDateLinesLinks,
+      GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesSourceModifiedDatePaymentLinePaymentLineLink,
   })
   @Expose({ name: "links" })
   @Type(
     () =>
-      GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesSourceModifiedDateLinesLinks
+      GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesSourceModifiedDatePaymentLinePaymentLineLink
   )
-  links?: GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesSourceModifiedDateLinesLinks[];
+  links?: GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesSourceModifiedDatePaymentLinePaymentLineLink[];
 }
 
 export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesSourceModifiedDateMetadata extends SpeakeasyBase {
@@ -230,10 +266,16 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesS
  * The Payment Method to which the payment is linked in the accounting platform.
  */
 export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesSourceModifiedDatePaymentMethodRef extends SpeakeasyBase {
+  /**
+   * `id` from the Payment Methods data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
-  id: string;
+  id?: string;
 
+  /**
+   * `name` from the Payment Methods data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
   name?: string;
@@ -267,7 +309,7 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesS
  * - An allocation of a customer's credit note, either to an invoice or maybe a refund.
  * - A payment made directly to that accounts receivable account. This might be an overpayment or a prepayment. It might also be the refund of a payment made directly to an accounts receivable account.
  *
- * Depending on the payments allowed by the underlying accounting package, some payment types may be combined. Please see the [Example data](#section-example-data) below for more details.
+ * Depending on the payments allowed by the underlying accounting package, some payment types may be combined. Please see the example for more details.
  *
  * In Codat, a payment contains details of:
  *
@@ -370,7 +412,7 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesS
  *   - A **type** that indicates the type of **link**, in this case a `Refund`.
  *   - An **id** that contains the ID of the payment that refunded this line.
  *
- * > 📘 Support for linked payments
+ * > **Support for linked payments**
  * >
  * > Not all accounting packages support linking payments in this way. In some platforms, you may see a payment on account and a refund on account.
  *
@@ -393,7 +435,7 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesS
  * - The base currency for the accounts receivable account.
  * - The currency of the item.
  *
- * ```json Currency rate example
+ * ```json title="Currency rate example"
  * {
  *     "id": "123",
  *     "note": ""
@@ -419,13 +461,13 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesS
  *
  * ## Example data
  *
- * > 📘 Object properties
+ * > **Object properties**
  * >
  * > For the sake of brevity, the examples here may omit properties from objects. For the full object definition, see [Payments](https://api.codat.io/swagger/index.html#/Payments).
  *
  * ## Simple examples
  *
- * ```json Payment for invoice
+ * ```json title="Payment for invoice"
  * {
  *     "totalAmount": 1000,
  *     "lines": [
@@ -445,7 +487,7 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesS
  *
  *
  *
- * ```json Allocation of credit note
+ * ```json title="Allocation of credit note"
  * {
  *     "totalAmount": 0,
  *     "lines": [
@@ -470,7 +512,7 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesS
  *
  *
  *
- * ```json Payment of invoice and payment on account
+ * ```json title="Payment of invoice and payment on account"
  * {
  *     "totalAmount": 2000,
  *     "lines": [
@@ -500,7 +542,7 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesS
  *
  *
  *
- * ```json Refund of credit note
+ * ```json title="Refund of credit note"
  * {
  *     "totalAmount": -1000,
  *     "lines": [
@@ -520,7 +562,7 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesS
  *
  *
  *
- * ```json Refund on accounts receivable account
+ * ```json title="Refund on accounts receivable account"
  * {
  *     "totalAmount": -1000,
  *     "lines": [
@@ -540,7 +582,7 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesS
  *
  *
  *
- * ```json Linked refund on accounts receivable account
+ * ```json title="Linked refund on accounts receivable account"
  * {
  *     "id" : "payment-001",
  *     "totalAmount": 1000,
@@ -577,7 +619,7 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesS
  *
  *
  *
- * ```json Using a credit note and cash to pay an invoice
+ * ```json title="Using a credit note and cash to pay an invoice"
  * {
  *     "totalAmount": 250,
  *     "lines": [
@@ -614,7 +656,7 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesS
  *
  * ## Complex examples
  *
- * ```json Use two credit notes and 1000 in to "bank" (cash, cheque etc.) to pay invoice
+ * ```json title="Use two credit notes and 1000 in to "bank" (cash, cheque etc.) to pay invoice"
  * {
  *     "totalAmount": 1000,
  *     "lines": [
@@ -664,7 +706,7 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesS
  *
  *
  *
- * ```json Pay an invoice with two credit notes and cash, with 1000 left "on account"
+ * ```json title="Pay an invoice with two credit notes and cash, with 1000 left 'on account'"
  * {
  *     "totalAmount": 2000,
  *     "lines": [
@@ -724,7 +766,7 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesS
  *
  *
  *
- * ```json Two credit notes pay two invoices with no allocation amount specified
+ * ```json title="Two credit notes pay two invoices with no allocation amount specified"
  * {
  *     "totalAmount": 0,
  *     "lines": [
@@ -759,7 +801,7 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesS
  *
  *
  *
- * ```json Two credit notes and cash pay three invoices with no allocation amount specified, and refund cash
+ * ```json title="Two credit notes and cash pay three invoices with no allocation amount specified, and refund cash"
  * {
  *     "totalAmount": 2000,
  *     "lines": [
@@ -827,7 +869,7 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesS
  *
  * In this example, a payment on account is used to pay the same invoice in January and again in February.
  *
- * ```json January
+ * ```json title="January"
  * {
  *     "id": "001",
  *     "totalAmount": 5000,
@@ -859,7 +901,7 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesS
  *
  *
  *
- * ```json February
+ * ```json title="February"
  * {
  *     "id": "001",
  *     "totalAmount": 5000,
@@ -901,7 +943,7 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesS
  *
  *
  *
- * ```json Two credit notes and some cash pay two invoices with no allocations specified
+ * ```json title="Two credit notes and some cash pay two invoices with no allocations specified"
  * {
  *     "totalAmount": 500,
  *     "lines": [
@@ -1010,14 +1052,14 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesS
    */
   @SpeakeasyMetadata({
     elemType:
-      GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesSourceModifiedDateLines,
+      GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesSourceModifiedDatePaymentLine,
   })
   @Expose({ name: "lines" })
   @Type(
     () =>
-      GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesSourceModifiedDateLines
+      GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesSourceModifiedDatePaymentLine
   )
-  lines?: GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesSourceModifiedDateLines[];
+  lines?: GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoicesSourceModifiedDatePaymentLine[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
@@ -1111,7 +1153,7 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoices 
   amountDue?: number;
 
   /**
-   * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code. e.g. _GBP_.
+   * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
    *
    * @remarks
    *
@@ -1151,7 +1193,7 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoices 
    * - Unqualified local time: `2021-11-15T01:00:00`
    * - UTC time offsets: `2021-11-15T01:00:00-05:00`
    *
-   * > 📘 Time zones
+   * > Time zones
    * >
    * > Not all dates from Codat will contain information about time zones.
    * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
@@ -1189,7 +1231,7 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoices 
    * - Unqualified local time: `2021-11-15T01:00:00`
    * - UTC time offsets: `2021-11-15T01:00:00-05:00`
    *
-   * > 📘 Time zones
+   * > Time zones
    * >
    * > Not all dates from Codat will contain information about time zones.
    * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
@@ -1216,7 +1258,7 @@ export class GetEnhancedInvoicesReportEnhancedInvoicesReportReportItemsInvoices 
    * - Unqualified local time: `2021-11-15T01:00:00`
    * - UTC time offsets: `2021-11-15T01:00:00-05:00`
    *
-   * > 📘 Time zones
+   * > Time zones
    * >
    * > Not all dates from Codat will contain information about time zones.
    * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.

@@ -20,6 +20,7 @@ export * from "./getenhancedfinancialmetrics";
 export * from "./getenhancedinvoicesreport";
 export * from "./getenhancedprofitandloss";
 export * from "./getexcelreport";
+export * from "./getexcelreportpost";
 export * from "./getrecurringrevenuemetrics";
 export * from "./listaccountscategories";
 export * from "./listavailableaccountcategories";

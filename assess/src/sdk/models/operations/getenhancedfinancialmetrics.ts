@@ -316,7 +316,7 @@ export enum GetEnhancedFinancialMetrics200ApplicationJSONPeriodUnitEnum {
  */
 export class GetEnhancedFinancialMetrics200ApplicationJSON extends SpeakeasyBase {
   /**
-   * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code. e.g. _GBP_.
+   * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
    *
    * @remarks
    *
