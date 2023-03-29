@@ -110,6 +110,16 @@ export class ListBankingAccountBalances200ApplicationJSONSourceModifiedDateBalan
 
 /**
  * The Banking Account Balances data type provides a list of balances for a bank account including end-of-day batch balance or running balances per transaction.
+ *
+ * @remarks
+ *
+ * Responses are paged, so you should provide `page` and `pageSize` query parameters in your request.
+ *
+ * > **How often should I pull Account Balances?**
+ * >
+ * > Because these balances are closing balances, we recommend you pull Account Balance no more frequently than daily. If you require a live intraday balance, this can be found for each account on the [Account](https://docs.codat.io/banking-api#/schemas/Account) data type.
+ * >
+ * > Whilst you can choose to sync hourly, this may incur usage charges from Plaid or TrueLayer.
  */
 export class ListBankingAccountBalances200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
@@ -170,6 +180,16 @@ export class ListBankingAccountBalances200ApplicationJSON extends SpeakeasyBase 
 
   /**
    * The Banking Account Balances data type provides a list of balances for a bank account including end-of-day batch balance or running balances per transaction.
+   *
+   * @remarks
+   *
+   * Responses are paged, so you should provide `page` and `pageSize` query parameters in your request.
+   *
+   * > **How often should I pull Account Balances?**
+   * >
+   * > Because these balances are closing balances, we recommend you pull Account Balance no more frequently than daily. If you require a live intraday balance, this can be found for each account on the [Account](https://docs.codat.io/banking-api#/schemas/Account) data type.
+   * >
+   * > Whilst you can choose to sync hourly, this may incur usage charges from Plaid or TrueLayer.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "results" })

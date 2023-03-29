@@ -93,6 +93,10 @@ export enum ListBankTransactionCategories200ApplicationJSONSourceModifiedDateSta
 
 /**
  * The Banking Transaction Categories data type provides a list of hierarchical categories associated with a transaction for greater contextual meaning to transaction activity.
+ *
+ * @remarks
+ *
+ * Responses are paged, so you should provide `page` and `pageSize` query parameters in your request.
  */
 export class ListBankTransactionCategories200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
@@ -164,6 +168,10 @@ export class ListBankTransactionCategories200ApplicationJSON extends SpeakeasyBa
 
   /**
    * The Banking Transaction Categories data type provides a list of hierarchical categories associated with a transaction for greater contextual meaning to transaction activity.
+   *
+   * @remarks
+   *
+   * Responses are paged, so you should provide `page` and `pageSize` query parameters in your request.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "results" })

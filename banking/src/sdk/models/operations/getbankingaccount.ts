@@ -45,7 +45,7 @@ export class GetBankingAccountSourceModifiedDateAccountBalanceAmounts extends Sp
   current?: number;
 
   /**
-   * The minimum allowed balance for the account. For example, a $100.00 overdraft would show as a limit of -100.00
+   * The minimum allowed balance for the account. For example, a $100.00 overdraft would show as a limit of `-100.00`.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "limit" })
@@ -159,11 +159,13 @@ export enum GetBankingAccountSourceModifiedDateTypeEnum {
 }
 
 /**
- * An account where payments are made or received, and bank transactions are recorded.
+ * This data type provides a list of all the SMB's bank accounts, with rich data like balances, account numbers, and institutions holding the accounts.
  *
  * @remarks
  *
  * Explore our [data coverage](https://knowledge.codat.io/supported-features/banking?view=tab-by-data-type&dataType=banking-accounts).
+ *
+ * Responses are paged, so you should provide `page` and `pageSize` query parameters in your request.
  */
 export class GetBankingAccountSourceModifiedDate extends SpeakeasyBase {
   /**

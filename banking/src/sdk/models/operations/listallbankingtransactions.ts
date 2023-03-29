@@ -86,6 +86,8 @@ export class ListAllBankingTransactions200ApplicationJSONSourceModifiedDateTrans
  *
  * @remarks
  *
+ * Responses are paged, so you should provide `page` and `pageSize` query parameters in your request.
+ *
  * View the coverage for banking transactions in the [Data Coverage Explorer](https://knowledge.codat.io/supported-features/banking?view=tab-by-data-type&dataType=banking-transactions).
  */
 export class ListAllBankingTransactions200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
@@ -186,6 +188,8 @@ export class ListAllBankingTransactions200ApplicationJSON extends SpeakeasyBase 
    * The Banking Transactions data type provides an immutable source of up-to-date information on income and expenditure.
    *
    * @remarks
+   *
+   * Responses are paged, so you should provide `page` and `pageSize` query parameters in your request.
    *
    * View the coverage for banking transactions in the [Data Coverage Explorer](https://knowledge.codat.io/supported-features/banking?view=tab-by-data-type&dataType=banking-transactions).
    */
