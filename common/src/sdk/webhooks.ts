@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -40,11 +41,11 @@ export class Webhooks {
    * Create a new webhook configuration
    */
   createRule(
-    req: operations.CreateRuleWebhook,
+    req: shared.Rule,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateRuleResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CreateRuleWebhook(req);
+      req = new shared.Rule(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -90,17 +91,17 @@ export class Webhooks {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.webhook = utils.deserializeJSONResponse(
+            res.rule = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.CreateRuleWebhook
+              shared.Rule
             );
           }
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.unauthorized = utils.deserializeJSONResponse(
+            res.errorMessage = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.CreateRuleUnauthorized
+              shared.ErrorMessage
             );
           }
           break;
@@ -149,25 +150,17 @@ export class Webhooks {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.webhook = utils.deserializeJSONResponse(
+            res.rule = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetWebhookWebhook
+              shared.Rule
             );
           }
           break;
-        case httpRes?.status == 401:
+        case [401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.unauthorized = utils.deserializeJSONResponse(
+            res.errorMessage = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetWebhookUnauthorized
-            );
-          }
-          break;
-        case httpRes?.status == 404:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.notFound = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.GetWebhookNotFound
+              shared.ErrorMessage
             );
           }
           break;
@@ -218,26 +211,17 @@ export class Webhooks {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listRules200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListRules200ApplicationJSON
-              );
-          }
-          break;
-        case httpRes?.status == 400:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.malformedQuery = utils.deserializeJSONResponse(
+            res.rules = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.ListRulesMalformedQuery
+              shared.Rules
             );
           }
           break;
-        case httpRes?.status == 401:
+        case [400, 401].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.unauthorized = utils.deserializeJSONResponse(
+            res.errorMessage = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.ListRulesUnauthorized
+              shared.ErrorMessage
             );
           }
           break;

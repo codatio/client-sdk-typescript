@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -31,6 +32,60 @@ export class Settings {
     this._language = language;
     this._sdkVersion = sdkVersion;
     this._genVersion = genVersion;
+  }
+
+  /**
+   * Get profile
+   *
+   * @remarks
+   * Fetch your Codat profile.
+   */
+  getProfile(
+    config?: AxiosRequestConfig
+  ): Promise<operations.GetProfileResponse> {
+    const baseURL: string = this._serverURL;
+    const url: string = baseURL.replace(/\/$/, "") + "/profile";
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...config,
+    });
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.GetProfileResponse =
+        new operations.GetProfileResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.profile = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Profile
+            );
+          }
+          break;
+        case httpRes?.status == 401:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.errorMessage = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.ErrorMessage
+            );
+          }
+          break;
+      }
+
+      return res;
+    });
   }
 
   /**
@@ -67,143 +122,17 @@ export class Settings {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getProfileSyncSettings200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetProfileSyncSettings200ApplicationJSON
-              );
-          }
-          break;
-        case httpRes?.status == 401:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.unauthorized = utils.deserializeJSONResponse(
+            res.syncSettings = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetProfileSyncSettingsUnauthorized
-            );
-          }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
-   * Get profile
-   *
-   * @remarks
-   * Fetch your Codat profile.
-   */
-  getSettingsProfile(
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetSettingsProfileResponse> {
-    const baseURL: string = this._serverURL;
-    const url: string = baseURL.replace(/\/$/, "") + "/profile";
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const r = client.request({
-      url: url,
-      method: "get",
-      ...config,
-    });
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetSettingsProfileResponse =
-        new operations.GetSettingsProfileResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.profile = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.GetSettingsProfileProfile
+              shared.SyncSettings
             );
           }
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.unauthorized = utils.deserializeJSONResponse(
+            res.errorMessage = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetSettingsProfileUnauthorized
-            );
-          }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
-   * Update all sync settings
-   *
-   * @remarks
-   * Update sync settings for all data types.
-   */
-  postProfileSyncSettings(
-    req: operations.PostProfileSyncSettingsRequestBody,
-    config?: AxiosRequestConfig
-  ): Promise<operations.PostProfileSyncSettingsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.PostProfileSyncSettingsRequestBody(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = baseURL.replace(/\/$/, "") + "/profile/syncSettings";
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-        req,
-        "request",
-        "json"
-      );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...reqBodyHeaders, ...config?.headers };
-
-    const r = client.request({
-      url: url,
-      method: "post",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.PostProfileSyncSettingsResponse =
-        new operations.PostProfileSyncSettingsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 204:
-          break;
-        case httpRes?.status == 401:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.unauthorized = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.PostProfileSyncSettingsUnauthorized
+              shared.ErrorMessage
             );
           }
           break;
@@ -219,12 +148,12 @@ export class Settings {
    * @remarks
    * Update your Codat profile
    */
-  putProfile(
-    req: operations.PutProfileProfile,
+  updateProfile(
+    req: shared.Profile,
     config?: AxiosRequestConfig
-  ): Promise<operations.PutProfileResponse> {
+  ): Promise<operations.UpdateProfileResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.PutProfileProfile(req);
+      req = new shared.Profile(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -261,8 +190,8 @@ export class Settings {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.PutProfileResponse =
-        new operations.PutProfileResponse({
+      const res: operations.UpdateProfileResponse =
+        new operations.UpdateProfileResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -272,15 +201,86 @@ export class Settings {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.profile = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.PutProfileProfile
+              shared.Profile
             );
           }
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.unauthorized = utils.deserializeJSONResponse(
+            res.errorMessage = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.PutProfileUnauthorized
+              shared.ErrorMessage
+            );
+          }
+          break;
+      }
+
+      return res;
+    });
+  }
+
+  /**
+   * Update all sync settings
+   *
+   * @remarks
+   * Update sync settings for all data types.
+   */
+  updateSyncSettings(
+    req: operations.UpdateSyncSettingsRequestBody,
+    config?: AxiosRequestConfig
+  ): Promise<operations.UpdateSyncSettingsResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.UpdateSyncSettingsRequestBody(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = baseURL.replace(/\/$/, "") + "/profile/syncSettings";
+
+    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+    try {
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "request",
+        "json"
+      );
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new Error(`Error serializing request body, cause: ${e.message}`);
+      }
+    }
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const headers = { ...reqBodyHeaders, ...config?.headers };
+
+    const r = client.request({
+      url: url,
+      method: "post",
+      headers: headers,
+      data: reqBody,
+      ...config,
+    });
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.UpdateSyncSettingsResponse =
+        new operations.UpdateSyncSettingsResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 204:
+          break;
+        case httpRes?.status == 401:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.errorMessage = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.ErrorMessage
             );
           }
           break;

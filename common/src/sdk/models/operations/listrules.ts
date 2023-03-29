@@ -3,8 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose, Type } from "class-transformer";
 
 export class ListRulesRequest extends SpeakeasyBase {
   /**
@@ -36,151 +36,6 @@ export class ListRulesRequest extends SpeakeasyBase {
   query?: string;
 }
 
-/**
- * Your API request was not properly authorized.
- */
-export class ListRulesUnauthorized extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "canBeRetried" })
-  canBeRetried?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "correlationId" })
-  correlationId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailedErrorCode" })
-  detailedErrorCode?: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  error?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "service" })
-  service?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusCode" })
-  statusCode?: number;
-}
-
-/**
- * Your `query` parameter was not correctly formed
- */
-export class ListRulesMalformedQuery extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "canBeRetried" })
-  canBeRetried?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "correlationId" })
-  correlationId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailedErrorCode" })
-  detailedErrorCode?: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  error?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "service" })
-  service?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusCode" })
-  statusCode?: number;
-}
-
-export class ListRules200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListRules200ApplicationJSONLinks extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "current" })
-  @Type(() => ListRules200ApplicationJSONLinksHypertextReference)
-  current: ListRules200ApplicationJSONLinksHypertextReference;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "next" })
-  @Type(() => ListRules200ApplicationJSONLinksHypertextReference)
-  next?: ListRules200ApplicationJSONLinksHypertextReference;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "previous" })
-  @Type(() => ListRules200ApplicationJSONLinksHypertextReference)
-  previous?: ListRules200ApplicationJSONLinksHypertextReference;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "self" })
-  @Type(() => ListRules200ApplicationJSONLinksHypertextReference)
-  self: ListRules200ApplicationJSONLinksHypertextReference;
-}
-
-export class ListRules200ApplicationJSONWebhookNotifiers extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "emails" })
-  emails?: string[];
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "webhook" })
-  webhook?: string;
-}
-
-/**
- * Configuration to alert to a url or list of email addresses based on the given type / condition.
- */
-export class ListRules200ApplicationJSONWebhook extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "companyId" })
-  companyId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "notifiers" })
-  @Type(() => ListRules200ApplicationJSONWebhookNotifiers)
-  notifiers: ListRules200ApplicationJSONWebhookNotifiers;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type: string;
-}
-
-/**
- * OK
- */
-export class ListRules200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "_links" })
-  @Type(() => ListRules200ApplicationJSONLinks)
-  links: ListRules200ApplicationJSONLinks;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "pageNumber" })
-  pageNumber: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "pageSize" })
-  pageSize: number;
-
-  @SpeakeasyMetadata({ elemType: ListRules200ApplicationJSONWebhook })
-  @Expose({ name: "results" })
-  @Type(() => ListRules200ApplicationJSONWebhook)
-  results?: ListRules200ApplicationJSONWebhook[];
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "totalResults" })
-  totalResults: number;
-}
-
 export class ListRulesResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -189,23 +44,17 @@ export class ListRulesResponse extends SpeakeasyBase {
    * Your `query` parameter was not correctly formed
    */
   @SpeakeasyMetadata()
-  malformedQuery?: ListRulesMalformedQuery;
+  errorMessage?: shared.ErrorMessage;
+
+  /**
+   * OK
+   */
+  @SpeakeasyMetadata()
+  rules?: shared.Rules;
 
   @SpeakeasyMetadata()
   statusCode: number;
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
-
-  /**
-   * Your API request was not properly authorized.
-   */
-  @SpeakeasyMetadata()
-  unauthorized?: ListRulesUnauthorized;
-
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  listRules200ApplicationJSONObject?: ListRules200ApplicationJSON;
 }

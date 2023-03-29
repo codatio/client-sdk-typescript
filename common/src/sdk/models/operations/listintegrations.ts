@@ -3,8 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose, Type } from "class-transformer";
 
 export class ListIntegrationsRequest extends SpeakeasyBase {
   /**
@@ -36,250 +36,6 @@ export class ListIntegrationsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-/**
- * Your API request was not properly authorized.
- */
-export class ListIntegrationsUnauthorized extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "canBeRetried" })
-  canBeRetried?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "correlationId" })
-  correlationId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailedErrorCode" })
-  detailedErrorCode?: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  error?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "service" })
-  service?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusCode" })
-  statusCode?: number;
-}
-
-/**
- * Your `query` parameter was not correctly formed
- */
-export class ListIntegrationsMalformedQuery extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "canBeRetried" })
-  canBeRetried?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "correlationId" })
-  correlationId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailedErrorCode" })
-  detailedErrorCode?: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  error?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "service" })
-  service?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusCode" })
-  statusCode?: number;
-}
-
-export class ListIntegrations200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListIntegrations200ApplicationJSONLinks extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "current" })
-  @Type(() => ListIntegrations200ApplicationJSONLinksHypertextReference)
-  current: ListIntegrations200ApplicationJSONLinksHypertextReference;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "next" })
-  @Type(() => ListIntegrations200ApplicationJSONLinksHypertextReference)
-  next?: ListIntegrations200ApplicationJSONLinksHypertextReference;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "previous" })
-  @Type(() => ListIntegrations200ApplicationJSONLinksHypertextReference)
-  previous?: ListIntegrations200ApplicationJSONLinksHypertextReference;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "self" })
-  @Type(() => ListIntegrations200ApplicationJSONLinksHypertextReference)
-  self: ListIntegrations200ApplicationJSONLinksHypertextReference;
-}
-
-export enum ListIntegrations200ApplicationJSONIntegrationDatatypeFeatureSupportedFeaturesFeatureStateEnum {
-  Release = "Release",
-  Beta = "Beta",
-  Deprecated = "Deprecated",
-  NotSupported = "NotSupported",
-  NotImplemented = "NotImplemented",
-}
-
-export enum ListIntegrations200ApplicationJSONIntegrationDatatypeFeatureSupportedFeaturesFeatureTypeEnum {
-  Get = "Get",
-  Post = "Post",
-  Categorization = "Categorization",
-  Delete = "Delete",
-  Put = "Put",
-  GetAsPdf = "GetAsPdf",
-  DownloadAttachment = "DownloadAttachment",
-  GetAttachment = "GetAttachment",
-  GetAttachments = "GetAttachments",
-  UploadAttachment = "UploadAttachment",
-}
-
-export class ListIntegrations200ApplicationJSONIntegrationDatatypeFeatureSupportedFeatures extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "featureState" })
-  featureState: ListIntegrations200ApplicationJSONIntegrationDatatypeFeatureSupportedFeaturesFeatureStateEnum;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "featureType" })
-  featureType: ListIntegrations200ApplicationJSONIntegrationDatatypeFeatureSupportedFeaturesFeatureTypeEnum;
-}
-
-/**
- * Describes support for a given datatype and associated operations
- */
-export class ListIntegrations200ApplicationJSONIntegrationDatatypeFeature extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "datatype" })
-  datatype: string;
-
-  @SpeakeasyMetadata({
-    elemType:
-      ListIntegrations200ApplicationJSONIntegrationDatatypeFeatureSupportedFeatures,
-  })
-  @Expose({ name: "supportedFeatures" })
-  @Type(
-    () =>
-      ListIntegrations200ApplicationJSONIntegrationDatatypeFeatureSupportedFeatures
-  )
-  supportedFeatures: ListIntegrations200ApplicationJSONIntegrationDatatypeFeatureSupportedFeatures[];
-}
-
-/**
- * The type of platform of the connection.
- */
-export enum ListIntegrations200ApplicationJSONIntegrationSourceTypeEnum {
-  Accounting = "Accounting",
-  Banking = "Banking",
-  Commerce = "Commerce",
-  Other = "Other",
-  Unknown = "Unknown",
-}
-
-/**
- * An integration that Codat supports
- */
-export class ListIntegrations200ApplicationJSONIntegration extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "dataProvidedBy" })
-  dataProvidedBy?: string;
-
-  @SpeakeasyMetadata({
-    elemType: ListIntegrations200ApplicationJSONIntegrationDatatypeFeature,
-  })
-  @Expose({ name: "datatypeFeatures" })
-  @Type(() => ListIntegrations200ApplicationJSONIntegrationDatatypeFeature)
-  datatypeFeatures?: ListIntegrations200ApplicationJSONIntegrationDatatypeFeature[];
-
-  /**
-   * Whether this integration is enabled for your customers to use
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "enabled" })
-  enabled: boolean;
-
-  /**
-   * A Codat ID representing the integration.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "integrationId" })
-  integrationId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "isBeta" })
-  isBeta?: boolean;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "isOfflineConnector" })
-  isOfflineConnector?: boolean;
-
-  /**
-   * 4 letter key for an integration. [Read more](https://docs.codat.io/integrations/accounting/accounting-platform-keys).
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "key" })
-  key: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "logoUrl" })
-  logoUrl: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
-
-  /**
-   * A source-specific ID used to distinguish between different sources originating from the same data connection. In general, a data connection is a single data source. However, for TrueLayer, `sourceId` is associated with a specific bank and has a many-to-one relationship with the `integrationId`.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceId" })
-  sourceId?: string;
-
-  /**
-   * The type of platform of the connection.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceType" })
-  sourceType?: ListIntegrations200ApplicationJSONIntegrationSourceTypeEnum;
-}
-
-/**
- * OK
- */
-export class ListIntegrations200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "_links" })
-  @Type(() => ListIntegrations200ApplicationJSONLinks)
-  links: ListIntegrations200ApplicationJSONLinks;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "pageNumber" })
-  pageNumber: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "pageSize" })
-  pageSize: number;
-
-  @SpeakeasyMetadata({
-    elemType: ListIntegrations200ApplicationJSONIntegration,
-  })
-  @Expose({ name: "results" })
-  @Type(() => ListIntegrations200ApplicationJSONIntegration)
-  results?: ListIntegrations200ApplicationJSONIntegration[];
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "totalResults" })
-  totalResults: number;
-}
-
 export class ListIntegrationsResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -288,23 +44,17 @@ export class ListIntegrationsResponse extends SpeakeasyBase {
    * Your `query` parameter was not correctly formed
    */
   @SpeakeasyMetadata()
-  malformedQuery?: ListIntegrationsMalformedQuery;
+  errorMessage?: shared.ErrorMessage;
+
+  /**
+   * OK
+   */
+  @SpeakeasyMetadata()
+  integrations?: shared.Integrations;
 
   @SpeakeasyMetadata()
   statusCode: number;
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
-
-  /**
-   * Your API request was not properly authorized.
-   */
-  @SpeakeasyMetadata()
-  unauthorized?: ListIntegrationsUnauthorized;
-
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  listIntegrations200ApplicationJSONObject?: ListIntegrations200ApplicationJSON;
 }

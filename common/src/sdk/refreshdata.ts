@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -31,71 +32,6 @@ export class RefreshData {
     this._language = language;
     this._sdkVersion = sdkVersion;
     this._genVersion = genVersion;
-  }
-
-  /**
-   * Queue pull operations
-   *
-   * @remarks
-   * Refreshes all data types marked Fetch on first link.
-   */
-  createManyPullOperations(
-    req: operations.CreateManyPullOperationsRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.CreateManyPullOperationsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CreateManyPullOperationsRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/data/all",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const r = client.request({
-      url: url,
-      method: "post",
-      ...config,
-    });
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateManyPullOperationsResponse =
-        new operations.CreateManyPullOperationsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 204:
-          break;
-        case httpRes?.status == 401:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.unauthorized = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.CreateManyPullOperationsUnauthorized
-            );
-          }
-          break;
-        case httpRes?.status == 404:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.notFound = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.CreateManyPullOperationsNotFound
-            );
-          }
-          break;
-      }
-
-      return res;
-    });
   }
 
   /**
@@ -147,23 +83,72 @@ export class RefreshData {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.pullOperation = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.CreatePullOperationPullOperation
+              shared.PullOperation
             );
           }
           break;
-        case httpRes?.status == 401:
+        case [401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.unauthorized = utils.deserializeJSONResponse(
+            res.errorMessage = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.CreatePullOperationUnauthorized
+              shared.ErrorMessage
             );
           }
           break;
-        case httpRes?.status == 404:
+      }
+
+      return res;
+    });
+  }
+
+  /**
+   * Queue pull operations
+   *
+   * @remarks
+   * Refreshes all data types marked Fetch on first link.
+   */
+  refreshCompanyData(
+    req: operations.RefreshCompanyDataRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.RefreshCompanyDataResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.RefreshCompanyDataRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/data/all",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const r = client.request({
+      url: url,
+      method: "post",
+      ...config,
+    });
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.RefreshCompanyDataResponse =
+        new operations.RefreshCompanyDataResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 204:
+          break;
+        case [401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.notFound = utils.deserializeJSONResponse(
+            res.errorMessage = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.CreatePullOperationNotFound
+              shared.ErrorMessage
             );
           }
           break;

@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -34,86 +35,17 @@ export class PushData {
   }
 
   /**
-   * List push options
-   *
-   * @remarks
-   * This is the generic documentation for creation and updating of data. See the equivalent endpoint for a given data type for more specific information.
-   *
-   * Before pushing data into accounting software, it is often necessary to collect some details from the user as to how they would like the data to be inserted. This includes names and amounts on transactional entities, but also factors such as categorisation of entities, which is often handled differently between different accounting packages. A good example of this is specifying where on the balance sheet/profit and loss reports the user would like a newly-created nominal account to appear.
-   *
-   * Codat tries not to limit users to pushing to a very limited number of standard categories, so we have implemented "options" endpoints, which allow us to expose to our clients the fields which are required to be pushed for a specific linked company, and the options which may be selected for each field.
-   *
-   *
-   * > **Supported Integrations**
-   * >
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/) for integrations that support push (POST/PUT methods).
-   */
-  getCompaniesCompanyIdConnectionsConnectionIdPush(
-    req: operations.GetCompaniesCompanyIdConnectionsConnectionIdPushRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetCompaniesCompanyIdConnectionsConnectionIdPushResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req =
-        new operations.GetCompaniesCompanyIdConnectionsConnectionIdPushRequest(
-          req
-        );
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/connections/{connectionId}/options/{dataType}",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const r = client.request({
-      url: url,
-      method: "get",
-      ...config,
-    });
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCompaniesCompanyIdConnectionsConnectionIdPushResponse =
-        new operations.GetCompaniesCompanyIdConnectionsConnectionIdPushResponse(
-          {
-            statusCode: httpRes.status,
-            contentType: contentType,
-            rawResponse: httpRes,
-          }
-        );
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.GetCompaniesCompanyIdConnectionsConnectionIdPushPushOption
-            );
-          }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
    * List push operations
    *
    * @remarks
    * List push operation records.
    */
-  getCompaniesCompanyIdPush(
-    req: operations.GetCompaniesCompanyIdPushRequest,
+  getCompanyPushHistory(
+    req: operations.GetCompanyPushHistoryRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetCompaniesCompanyIdPushResponse> {
+  ): Promise<operations.GetCompanyPushHistoryResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCompaniesCompanyIdPushRequest(req);
+      req = new operations.GetCompanyPushHistoryRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -138,8 +70,8 @@ export class PushData {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCompaniesCompanyIdPushResponse =
-        new operations.GetCompaniesCompanyIdPushResponse({
+      const res: operations.GetCompanyPushHistoryResponse =
+        new operations.GetCompanyPushHistoryResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -147,11 +79,74 @@ export class PushData {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getCompaniesCompanyIdPush200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetCompaniesCompanyIdPush200ApplicationJSON
-              );
+            res.pushHistoryResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.PushHistoryResponse
+            );
+          }
+          break;
+      }
+
+      return res;
+    });
+  }
+
+  /**
+   * List push options
+   *
+   * @remarks
+   * This is the generic documentation for creation and updating of data. See the equivalent endpoint for a given data type for more specific information.
+   *
+   * Before pushing data into accounting software, it is often necessary to collect some details from the user as to how they would like the data to be inserted. This includes names and amounts on transactional entities, but also factors such as categorisation of entities, which is often handled differently between different accounting packages. A good example of this is specifying where on the balance sheet/profit and loss reports the user would like a newly-created nominal account to appear.
+   *
+   * Codat tries not to limit users to pushing to a very limited number of standard categories, so we have implemented "options" endpoints, which allow us to expose to our clients the fields which are required to be pushed for a specific linked company, and the options which may be selected for each field.
+   *
+   *
+   * > **Supported Integrations**
+   * >
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/) for integrations that support push (POST/PUT methods).
+   */
+  getCreateUpdateModelOptionsByDataType(
+    req: operations.GetCreateUpdateModelOptionsByDataTypeRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.GetCreateUpdateModelOptionsByDataTypeResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.GetCreateUpdateModelOptionsByDataTypeRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/connections/{connectionId}/options/{dataType}",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...config,
+    });
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.GetCreateUpdateModelOptionsByDataTypeResponse =
+        new operations.GetCreateUpdateModelOptionsByDataTypeResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.pushOption = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.PushOption
+            );
           }
           break;
       }
@@ -166,14 +161,12 @@ export class PushData {
    * @remarks
    * Retrieve push operation.
    */
-  getCompaniesCompanyIdPushPushOperationKey(
-    req: operations.GetCompaniesCompanyIdPushPushOperationKeyRequest,
+  getPushOperation(
+    req: operations.GetPushOperationRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetCompaniesCompanyIdPushPushOperationKeyResponse> {
+  ): Promise<operations.GetPushOperationResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCompaniesCompanyIdPushPushOperationKeyRequest(
-        req
-      );
+      req = new operations.GetPushOperationRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -196,8 +189,8 @@ export class PushData {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCompaniesCompanyIdPushPushOperationKeyResponse =
-        new operations.GetCompaniesCompanyIdPushPushOperationKeyResponse({
+      const res: operations.GetPushOperationResponse =
+        new operations.GetPushOperationResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -205,11 +198,10 @@ export class PushData {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getCompaniesCompanyIdPushPushOperationKey200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetCompaniesCompanyIdPushPushOperationKey200ApplicationJSON
-              );
+            res.pushOperation = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.PushOperation
+            );
           }
           break;
       }

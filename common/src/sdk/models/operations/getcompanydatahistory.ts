@@ -3,8 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose, Type } from "class-transformer";
 
 export class GetCompanyDataHistoryRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -41,280 +41,25 @@ export class GetCompanyDataHistoryRequest extends SpeakeasyBase {
   query?: string;
 }
 
-/**
- * One or more of the resources you referenced could not be found.
- *
- * @remarks
- * This might be because your company or data connection id is wrong, or was already deleted.
- */
-export class GetCompanyDataHistoryNotFound extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "canBeRetried" })
-  canBeRetried?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "correlationId" })
-  correlationId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailedErrorCode" })
-  detailedErrorCode?: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  error?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "service" })
-  service?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusCode" })
-  statusCode?: number;
-}
-
-/**
- * Your API request was not properly authorized.
- */
-export class GetCompanyDataHistoryUnauthorized extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "canBeRetried" })
-  canBeRetried?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "correlationId" })
-  correlationId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailedErrorCode" })
-  detailedErrorCode?: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  error?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "service" })
-  service?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusCode" })
-  statusCode?: number;
-}
-
-/**
- * Your `query` parameter was not correctly formed
- */
-export class GetCompanyDataHistoryMalformedQuery extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "canBeRetried" })
-  canBeRetried?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "correlationId" })
-  correlationId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailedErrorCode" })
-  detailedErrorCode?: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  error?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "service" })
-  service?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusCode" })
-  statusCode?: number;
-}
-
-export class GetCompanyDataHistory200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class GetCompanyDataHistory200ApplicationJSONLinks extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "current" })
-  @Type(() => GetCompanyDataHistory200ApplicationJSONLinksHypertextReference)
-  current: GetCompanyDataHistory200ApplicationJSONLinksHypertextReference;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "next" })
-  @Type(() => GetCompanyDataHistory200ApplicationJSONLinksHypertextReference)
-  next?: GetCompanyDataHistory200ApplicationJSONLinksHypertextReference;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "previous" })
-  @Type(() => GetCompanyDataHistory200ApplicationJSONLinksHypertextReference)
-  previous?: GetCompanyDataHistory200ApplicationJSONLinksHypertextReference;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "self" })
-  @Type(() => GetCompanyDataHistory200ApplicationJSONLinksHypertextReference)
-  self: GetCompanyDataHistory200ApplicationJSONLinksHypertextReference;
-}
-
-export enum GetCompanyDataHistory200ApplicationJSONPullOperationStatusEnum {
-  Initial = "Initial",
-  Queued = "Queued",
-  Fetching = "Fetching",
-  MapQueued = "MapQueued",
-  Mapping = "Mapping",
-  Complete = "Complete",
-  FetchError = "FetchError",
-  MapError = "MapError",
-  InternalError = "InternalError",
-  ProcessingQueued = "ProcessingQueued",
-  Processing = "Processing",
-  ProcessingError = "ProcessingError",
-  ValidationQueued = "ValidationQueued",
-  Validating = "Validating",
-  ValidationError = "ValidationError",
-  AuthError = "AuthError",
-  Cancelled = "Cancelled",
-  Routing = "Routing",
-  RoutingError = "RoutingError",
-  NotSupported = "NotSupported",
-  RateLimitError = "RateLimitError",
-  PermissionsError = "PermissionsError",
-  PrerequisiteNotMet = "PrerequisiteNotMet",
-}
-
-/**
- * Information about a queued, in progress or completed pull operation.
- *
- * @remarks
- * *Formally called `dataset`*
- */
-export class GetCompanyDataHistory200ApplicationJSONPullOperation extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "companyId" })
-  companyId: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "connectionId" })
-  connectionId: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "dataType" })
-  dataType: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "isCompleted" })
-  isCompleted: boolean;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "isErrored" })
-  isErrored: boolean;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "progress" })
-  progress: number;
-
-  /**
-   * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
-   *
-   * @remarks
-   *
-   * ```
-   * 2020-10-08T22:40:50Z
-   * 2021-01-01T00:00:00
-   * ```
-   *
-   *
-   *
-   * When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
-   *
-   * - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
-   * - Unqualified local time: `2021-11-15T01:00:00`
-   * - UTC time offsets: `2021-11-15T01:00:00-05:00`
-   *
-   * > 📘 Time zones
-   * >
-   * > Not all dates from Codat will contain information about time zones.
-   * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "requested" })
-  requested: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status: GetCompanyDataHistory200ApplicationJSONPullOperationStatusEnum;
-}
-
-/**
- * OK
- */
-export class GetCompanyDataHistory200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "_links" })
-  @Type(() => GetCompanyDataHistory200ApplicationJSONLinks)
-  links: GetCompanyDataHistory200ApplicationJSONLinks;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "pageNumber" })
-  pageNumber: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "pageSize" })
-  pageSize: number;
-
-  @SpeakeasyMetadata({
-    elemType: GetCompanyDataHistory200ApplicationJSONPullOperation,
-  })
-  @Expose({ name: "results" })
-  @Type(() => GetCompanyDataHistory200ApplicationJSONPullOperation)
-  results?: GetCompanyDataHistory200ApplicationJSONPullOperation[];
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "totalResults" })
-  totalResults: number;
-}
-
 export class GetCompanyDataHistoryResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
   /**
+   * OK
+   */
+  @SpeakeasyMetadata()
+  dataConnectionHistory?: shared.DataConnectionHistory;
+
+  /**
    * Your `query` parameter was not correctly formed
    */
   @SpeakeasyMetadata()
-  malformedQuery?: GetCompanyDataHistoryMalformedQuery;
-
-  /**
-   * One or more of the resources you referenced could not be found.
-   *
-   * @remarks
-   * This might be because your company or data connection id is wrong, or was already deleted.
-   */
-  @SpeakeasyMetadata()
-  notFound?: GetCompanyDataHistoryNotFound;
+  errorMessage?: shared.ErrorMessage;
 
   @SpeakeasyMetadata()
   statusCode: number;
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
-
-  /**
-   * Your API request was not properly authorized.
-   */
-  @SpeakeasyMetadata()
-  unauthorized?: GetCompanyDataHistoryUnauthorized;
-
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  getCompanyDataHistory200ApplicationJSONObject?: GetCompanyDataHistory200ApplicationJSON;
 }

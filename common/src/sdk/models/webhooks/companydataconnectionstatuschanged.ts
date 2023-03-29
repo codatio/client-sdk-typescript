@@ -4,7 +4,6 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Type } from "class-transformer";
 
 export class CompanyDataConnectionStatusChangedResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -15,92 +14,4 @@ export class CompanyDataConnectionStatusChangedResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
-}
-
-/**
- * The current authorization status of the data connection.
- */
-export enum CompanyDataConnectionStatusChangedCompanyDataConnectionStatusChangedWebhookDataDataConnectionStatusEnum {
-  PendingAuth = "PendingAuth",
-  Linked = "Linked",
-  Unlinked = "Unlinked",
-  Deauthorized = "Deauthorized",
-}
-
-export class CompanyDataConnectionStatusChangedCompanyDataConnectionStatusChangedWebhookData extends SpeakeasyBase {
-  /**
-   * Unique identifier for a company's data connection.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "dataConnectionId" })
-  dataConnectionId?: string;
-
-  /**
-   * The current authorization status of the data connection.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "newStatus" })
-  newStatus?: CompanyDataConnectionStatusChangedCompanyDataConnectionStatusChangedWebhookDataDataConnectionStatusEnum;
-
-  /**
-   * The current authorization status of the data connection.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "oldStatus" })
-  oldStatus?: CompanyDataConnectionStatusChangedCompanyDataConnectionStatusChangedWebhookDataDataConnectionStatusEnum;
-
-  /**
-   * 4 letter key for an integration. [Read more](https://docs.codat.io/integrations/accounting/accounting-platform-keys).
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "platformKey" })
-  platformKey?: string;
-}
-
-/**
- * Webhook request body for a company's data connection status changed.
- */
-export class CompanyDataConnectionStatusChangedCompanyDataConnectionStatusChangedWebhook extends SpeakeasyBase {
-  /**
-   * Unique identifier of the alert.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "alertId" })
-  alertId?: string;
-
-  /**
-   * Unique identifier for your SMB in Codat.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "companyId" })
-  companyId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "data" })
-  @Type(
-    () =>
-      CompanyDataConnectionStatusChangedCompanyDataConnectionStatusChangedWebhookData
-  )
-  data?: CompanyDataConnectionStatusChangedCompanyDataConnectionStatusChangedWebhookData;
-
-  /**
-   * A human readable message about the webhook.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
-
-  /**
-   * Unique identifier for the rule.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "ruleId" })
-  ruleId?: string;
-
-  /**
-   * The type of rule.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "ruleType" })
-  ruleType?: string;
 }

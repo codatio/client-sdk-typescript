@@ -3,113 +3,18 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose, Type } from "class-transformer";
-
-/**
- * Your API request was not properly authorized.
- */
-export class GetProfileSyncSettingsUnauthorized extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "canBeRetried" })
-  canBeRetried?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "correlationId" })
-  correlationId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailedErrorCode" })
-  detailedErrorCode?: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  error?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "service" })
-  service?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusCode" })
-  statusCode?: number;
-}
-
-/**
- * Describes how often, and how much history, should be fetched for the given data type when a pull operation is queued.
- */
-export class GetProfileSyncSettings200ApplicationJSONSyncSetting extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "dataType" })
-  dataType: string;
-
-  /**
-   * Whether this data type should be queued after a company has authorized a connection.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "fetchOnFirstLink" })
-  fetchOnFirstLink: boolean;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "isLocked" })
-  isLocked?: boolean;
-
-  /**
-   * Months of data to fetch, for report data types (`balanceSheet` & `profitAndLoss`) only.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "monthsToSync" })
-  monthsToSync?: number;
-
-  /**
-   * Date from which data should be fetched. Set this *or* `syncFromWindow`
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "syncFromUtc" })
-  syncFromUtc?: string;
-
-  /**
-   * Number of months of data to be fetched. Set this *or* `syncFromUTC`
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "syncFromWindow" })
-  syncFromWindow?: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "syncOrder" })
-  syncOrder: number;
-
-  /**
-   * Number of hours after which this data type should be refreshed.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "syncSchedule" })
-  syncSchedule: number;
-}
-
-/**
- * OK
- */
-export class GetProfileSyncSettings200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "clientId" })
-  clientId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "overridesDefaults" })
-  overridesDefaults?: boolean;
-
-  @SpeakeasyMetadata({
-    elemType: GetProfileSyncSettings200ApplicationJSONSyncSetting,
-  })
-  @Expose({ name: "settings" })
-  @Type(() => GetProfileSyncSettings200ApplicationJSONSyncSetting)
-  settings?: GetProfileSyncSettings200ApplicationJSONSyncSetting[];
-}
 
 export class GetProfileSyncSettingsResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
+
+  /**
+   * Your API request was not properly authorized.
+   */
+  @SpeakeasyMetadata()
+  errorMessage?: shared.ErrorMessage;
 
   @SpeakeasyMetadata()
   statusCode: number;
@@ -118,14 +23,8 @@ export class GetProfileSyncSettingsResponse extends SpeakeasyBase {
   rawResponse?: AxiosResponse;
 
   /**
-   * Your API request was not properly authorized.
-   */
-  @SpeakeasyMetadata()
-  unauthorized?: GetProfileSyncSettingsUnauthorized;
-
-  /**
    * OK
    */
   @SpeakeasyMetadata()
-  getProfileSyncSettings200ApplicationJSONObject?: GetProfileSyncSettings200ApplicationJSON;
+  syncSettings?: shared.SyncSettings;
 }

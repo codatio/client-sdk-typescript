@@ -4,7 +4,6 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Type } from "class-transformer";
 
 export class DataSyncCompletedResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -15,86 +14,4 @@ export class DataSyncCompletedResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
-}
-
-export class DataSyncCompletedDataSyncCompleteWebhookData extends SpeakeasyBase {
-  /**
-   * Data type the sync completed for.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "dataType" })
-  dataType?: string;
-
-  /**
-   * Unique identifier for the dataset that completed its sync.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "datasetId" })
-  datasetId?: string;
-}
-
-/**
- * Webhook request body to notify the completion of a data sync.
- */
-export class DataSyncCompletedDataSyncCompleteWebhook extends SpeakeasyBase {
-  /**
-   * Unique identifier of the alert.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "alertId" })
-  alertId?: string;
-
-  /**
-   * Unique identifier for your client in Codat.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "clientId" })
-  clientId?: string;
-
-  /**
-   * Name of your client in Codat.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "clientName" })
-  clientName?: string;
-
-  /**
-   * Unique identifier for your SMB in Codat.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "companyId" })
-  companyId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "data" })
-  @Type(() => DataSyncCompletedDataSyncCompleteWebhookData)
-  data?: DataSyncCompletedDataSyncCompleteWebhookData;
-
-  /**
-   * Unique identifier for a company's data connection.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "dataConnectionId" })
-  dataConnectionId?: string;
-
-  /**
-   * A human readable message about the webhook.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
-
-  /**
-   * Unique identifier for the rule.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "ruleId" })
-  ruleId?: string;
-
-  /**
-   * The type of rule.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "ruleType" })
-  ruleType?: string;
 }

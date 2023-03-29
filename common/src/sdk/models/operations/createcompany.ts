@@ -3,104 +3,28 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose } from "class-transformer";
-
-export class CreateCompanyRequestBody extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "description" })
-  description?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
-}
-
-/**
- * Your API request was not properly authorized.
- */
-export class CreateCompanyUnauthorized extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "canBeRetried" })
-  canBeRetried?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "correlationId" })
-  correlationId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailedErrorCode" })
-  detailedErrorCode?: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  error?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "service" })
-  service?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusCode" })
-  statusCode?: number;
-}
-
-/**
- * OK
- */
-export class CreateCompany200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "created" })
-  created?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "createdByUserName" })
-  createdByUserName?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "dataConnections" })
-  dataConnections?: Record<string, any>[];
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "description" })
-  description?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "platform" })
-  platform?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "redirect" })
-  redirect?: string;
-}
 
 export class CreateCompanyResponse extends SpeakeasyBase {
+  /**
+   * OK
+   */
+  @SpeakeasyMetadata()
+  company?: shared.Company;
+
   @SpeakeasyMetadata()
   contentType: string;
+
+  /**
+   * Your API request was not properly authorized.
+   */
+  @SpeakeasyMetadata()
+  errorMessage?: shared.ErrorMessage;
 
   @SpeakeasyMetadata()
   statusCode: number;
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
-
-  /**
-   * Your API request was not properly authorized.
-   */
-  @SpeakeasyMetadata()
-  unauthorized?: CreateCompanyUnauthorized;
-
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  createCompany200ApplicationJSONObject?: CreateCompany200ApplicationJSON;
 }

@@ -4,7 +4,6 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose, Type } from "class-transformer";
 
 export class PushOperationHasTimedOutResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -15,65 +14,4 @@ export class PushOperationHasTimedOutResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
-}
-
-export class PushOperationHasTimedOutPushOperationTimedOutWebhookData extends SpeakeasyBase {
-  /**
-   * Data type used in the push operation.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "dataType" })
-  dataType?: string;
-
-  /**
-   * Unique identifier for the push operation.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "pushOperationKey" })
-  pushOperationKey?: string;
-}
-
-/**
- * Webhook request body notifying that a push push operation has timed out.
- */
-export class PushOperationHasTimedOutPushOperationTimedOutWebhook extends SpeakeasyBase {
-  /**
-   * Unique identifier of the alert.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "alertId" })
-  alertId?: string;
-
-  /**
-   * Unique identifier for your SMB in Codat.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "companyId" })
-  companyId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "data" })
-  @Type(() => PushOperationHasTimedOutPushOperationTimedOutWebhookData)
-  data?: PushOperationHasTimedOutPushOperationTimedOutWebhookData;
-
-  /**
-   * A human readable message about the webhook.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
-
-  /**
-   * Unique identifier for the rule.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "ruleId" })
-  ruleId?: string;
-
-  /**
-   * The type of rule.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "ruleType" })
-  ruleType?: string;
 }

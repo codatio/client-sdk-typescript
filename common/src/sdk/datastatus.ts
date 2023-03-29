@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -31,78 +32,6 @@ export class DataStatus {
     this._language = language;
     this._sdkVersion = sdkVersion;
     this._genVersion = genVersion;
-  }
-
-  /**
-   * Get data status
-   *
-   * @remarks
-   * Get the state of each data type for a company
-   */
-  getCompaniesCompanyIdDataStatus(
-    req: operations.GetCompaniesCompanyIdDataStatusRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetCompaniesCompanyIdDataStatusResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCompaniesCompanyIdDataStatusRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/dataStatus",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const r = client.request({
-      url: url,
-      method: "get",
-      ...config,
-    });
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCompaniesCompanyIdDataStatusResponse =
-        new operations.GetCompaniesCompanyIdDataStatusResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getCompaniesCompanyIdDataStatus200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetCompaniesCompanyIdDataStatus200ApplicationJSON
-              );
-          }
-          break;
-        case httpRes?.status == 401:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.unauthorized = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.GetCompaniesCompanyIdDataStatusUnauthorized
-            );
-          }
-          break;
-        case httpRes?.status == 404:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.notFound = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.GetCompaniesCompanyIdDataStatusNotFound
-            );
-          }
-          break;
-      }
-
-      return res;
-    });
   }
 
   /**
@@ -150,34 +79,83 @@ export class DataStatus {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getCompanyDataHistory200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetCompanyDataHistory200ApplicationJSON
-              );
-          }
-          break;
-        case httpRes?.status == 400:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.malformedQuery = utils.deserializeJSONResponse(
+            res.dataConnectionHistory = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCompanyDataHistoryMalformedQuery
+              shared.DataConnectionHistory
             );
           }
           break;
-        case httpRes?.status == 401:
+        case [400, 401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.unauthorized = utils.deserializeJSONResponse(
+            res.errorMessage = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCompanyDataHistoryUnauthorized
+              shared.ErrorMessage
             );
           }
           break;
-        case httpRes?.status == 404:
+      }
+
+      return res;
+    });
+  }
+
+  /**
+   * Get data status
+   *
+   * @remarks
+   * Get the state of each data type for a company
+   */
+  getCompanyDataStatus(
+    req: operations.GetCompanyDataStatusRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.GetCompanyDataStatusResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.GetCompanyDataStatusRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/dataStatus",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...config,
+    });
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.GetCompanyDataStatusResponse =
+        new operations.GetCompanyDataStatusResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.notFound = utils.deserializeJSONResponse(
+            res.dataStatusResponse = {};
+            const resFieldDepth: number = utils.getResFieldDepth(res);
+            res.dataStatusResponse = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCompanyDataHistoryNotFound
+              shared.DataStatus,
+              resFieldDepth
+            );
+          }
+          break;
+        case [401, 404].includes(httpRes?.status):
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.errorMessage = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.ErrorMessage
             );
           }
           break;
@@ -232,23 +210,15 @@ export class DataStatus {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.pullOperation = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetPullOperationPullOperation
+              shared.PullOperation
             );
           }
           break;
-        case httpRes?.status == 401:
+        case [401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.unauthorized = utils.deserializeJSONResponse(
+            res.errorMessage = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetPullOperationUnauthorized
-            );
-          }
-          break;
-        case httpRes?.status == 404:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.notFound = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.GetPullOperationNotFound
+              shared.ErrorMessage
             );
           }
           break;

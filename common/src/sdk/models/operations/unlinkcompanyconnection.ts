@@ -3,8 +3,9 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose, Type } from "class-transformer";
+import { Expose } from "class-transformer";
 
 export class UnlinkCompanyConnectionRequestBody extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -27,292 +28,25 @@ export class UnlinkCompanyConnectionRequest extends SpeakeasyBase {
   connectionId: string;
 }
 
-/**
- * One or more of the resources you referenced could not be found.
- *
- * @remarks
- * This might be because your company or data connection id is wrong, or was already deleted.
- */
-export class UnlinkCompanyConnectionNotFound extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "canBeRetried" })
-  canBeRetried?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "correlationId" })
-  correlationId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailedErrorCode" })
-  detailedErrorCode?: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  error?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "service" })
-  service?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusCode" })
-  statusCode?: number;
-}
-
-/**
- * Your API request was not properly authorized.
- */
-export class UnlinkCompanyConnectionUnauthorized extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "canBeRetried" })
-  canBeRetried?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "correlationId" })
-  correlationId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailedErrorCode" })
-  detailedErrorCode?: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  error?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "service" })
-  service?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusCode" })
-  statusCode?: number;
-}
-
-export class UnlinkCompanyConnectionConnectionConnectionInfo extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "additionalProp1" })
-  additionalProp1?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "additionalProp2" })
-  additionalProp2?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "additionalProp3" })
-  additionalProp3?: string;
-}
-
-export class UnlinkCompanyConnectionConnectionDataConnectionErrors extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "errorMessage" })
-  errorMessage?: string;
-
-  /**
-   * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
-   *
-   * @remarks
-   *
-   * ```
-   * 2020-10-08T22:40:50Z
-   * 2021-01-01T00:00:00
-   * ```
-   *
-   *
-   *
-   * When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
-   *
-   * - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
-   * - Unqualified local time: `2021-11-15T01:00:00`
-   * - UTC time offsets: `2021-11-15T01:00:00-05:00`
-   *
-   * > 📘 Time zones
-   * >
-   * > Not all dates from Codat will contain information about time zones.
-   * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "erroredOnUtc" })
-  erroredOnUtc?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusCode" })
-  statusCode?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusText" })
-  statusText?: string;
-}
-
-/**
- * The type of platform of the connection.
- */
-export enum UnlinkCompanyConnectionConnectionSourceTypeEnum {
-  Accounting = "Accounting",
-  Banking = "Banking",
-  Commerce = "Commerce",
-  Other = "Other",
-  Unknown = "Unknown",
-}
-
-/**
- * The current authorization status of the data connection.
- */
-export enum UnlinkCompanyConnectionConnectionDataConnectionStatusEnum {
-  PendingAuth = "PendingAuth",
-  Linked = "Linked",
-  Unlinked = "Unlinked",
-  Deauthorized = "Deauthorized",
-}
-
-/**
- * A connection represents the link between a `company` and a source of data.
- */
-export class UnlinkCompanyConnectionConnection extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "connectionInfo" })
-  @Type(() => UnlinkCompanyConnectionConnectionConnectionInfo)
-  connectionInfo?: UnlinkCompanyConnectionConnectionConnectionInfo;
-
-  /**
-   * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
-   *
-   * @remarks
-   *
-   * ```
-   * 2020-10-08T22:40:50Z
-   * 2021-01-01T00:00:00
-   * ```
-   *
-   *
-   *
-   * When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
-   *
-   * - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
-   * - Unqualified local time: `2021-11-15T01:00:00`
-   * - UTC time offsets: `2021-11-15T01:00:00-05:00`
-   *
-   * > 📘 Time zones
-   * >
-   * > Not all dates from Codat will contain information about time zones.
-   * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "created" })
-  created: string;
-
-  @SpeakeasyMetadata({
-    elemType: UnlinkCompanyConnectionConnectionDataConnectionErrors,
-  })
-  @Expose({ name: "dataConnectionErrors" })
-  @Type(() => UnlinkCompanyConnectionConnectionDataConnectionErrors)
-  dataConnectionErrors?: UnlinkCompanyConnectionConnectionDataConnectionErrors[];
-
-  /**
-   * Unique identifier for a company's data connection.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
-
-  /**
-   * A Codat ID representing the integration.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "integrationId" })
-  integrationId: string;
-
-  /**
-   * A unique four-character ID that identifies the platform of the company's data connection. This ensures continuity if the platform changes its name in the future.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "integrationKey" })
-  integrationKey: string;
-
-  /**
-   * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
-   *
-   * @remarks
-   *
-   * ```
-   * 2020-10-08T22:40:50Z
-   * 2021-01-01T00:00:00
-   * ```
-   *
-   *
-   *
-   * When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
-   *
-   * - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
-   * - Unqualified local time: `2021-11-15T01:00:00`
-   * - UTC time offsets: `2021-11-15T01:00:00-05:00`
-   *
-   * > 📘 Time zones
-   * >
-   * > Not all dates from Codat will contain information about time zones.
-   * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "lastSync" })
-  lastSync?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "linkUrl" })
-  linkUrl: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "platformName" })
-  platformName: string;
-
-  /**
-   * A source-specific ID used to distinguish between different sources originating from the same data connection. In general, a data connection is a single data source. However, for TrueLayer, `sourceId` is associated with a specific bank and has a many-to-one relationship with the `integrationId`.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceId" })
-  sourceId: string;
-
-  /**
-   * The type of platform of the connection.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceType" })
-  sourceType: UnlinkCompanyConnectionConnectionSourceTypeEnum;
-
-  /**
-   * The current authorization status of the data connection.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status: UnlinkCompanyConnectionConnectionDataConnectionStatusEnum;
-}
-
 export class UnlinkCompanyConnectionResponse extends SpeakeasyBase {
   /**
    * OK
    */
   @SpeakeasyMetadata()
-  connection?: UnlinkCompanyConnectionConnection;
+  connection?: shared.Connection;
 
   @SpeakeasyMetadata()
   contentType: string;
 
   /**
-   * One or more of the resources you referenced could not be found.
-   *
-   * @remarks
-   * This might be because your company or data connection id is wrong, or was already deleted.
+   * Your `query` parameter was not correctly formed
    */
   @SpeakeasyMetadata()
-  notFound?: UnlinkCompanyConnectionNotFound;
+  errorMessage?: shared.ErrorMessage;
 
   @SpeakeasyMetadata()
   statusCode: number;
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
-
-  /**
-   * Your API request was not properly authorized.
-   */
-  @SpeakeasyMetadata()
-  unauthorized?: UnlinkCompanyConnectionUnauthorized;
 }

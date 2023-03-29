@@ -3,8 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose } from "class-transformer";
 
 export class DeleteCompanyConnectionRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -18,89 +18,19 @@ export class DeleteCompanyConnectionRequest extends SpeakeasyBase {
   connectionId: string;
 }
 
-/**
- * One or more of the resources you referenced could not be found.
- *
- * @remarks
- * This might be because your company or data connection id is wrong, or was already deleted.
- */
-export class DeleteCompanyConnectionNotFound extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "canBeRetried" })
-  canBeRetried?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "correlationId" })
-  correlationId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailedErrorCode" })
-  detailedErrorCode?: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  error?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "service" })
-  service?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusCode" })
-  statusCode?: number;
-}
-
-/**
- * Your API request was not properly authorized.
- */
-export class DeleteCompanyConnectionUnauthorized extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "canBeRetried" })
-  canBeRetried?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "correlationId" })
-  correlationId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailedErrorCode" })
-  detailedErrorCode?: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  error?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "service" })
-  service?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusCode" })
-  statusCode?: number;
-}
-
 export class DeleteCompanyConnectionResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
   /**
-   * One or more of the resources you referenced could not be found.
-   *
-   * @remarks
-   * This might be because your company or data connection id is wrong, or was already deleted.
+   * Your API request was not properly authorized.
    */
   @SpeakeasyMetadata()
-  notFound?: DeleteCompanyConnectionNotFound;
+  errorMessage?: shared.ErrorMessage;
 
   @SpeakeasyMetadata()
   statusCode: number;
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
-
-  /**
-   * Your API request was not properly authorized.
-   */
-  @SpeakeasyMetadata()
-  unauthorized?: DeleteCompanyConnectionUnauthorized;
 }

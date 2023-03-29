@@ -3,56 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose } from "class-transformer";
-
-/**
- * Available Data types
- */
-export enum CreatePullOperationDataTypeEnum {
-  AccountTransactions = "accountTransactions",
-  BalanceSheet = "balanceSheet",
-  BankAccounts = "bankAccounts",
-  BankTransactions = "bankTransactions",
-  BillCreditNotes = "billCreditNotes",
-  BillPayments = "billPayments",
-  Bills = "bills",
-  CashFlowStatement = "cashFlowStatement",
-  ChartOfAccounts = "chartOfAccounts",
-  Company = "company",
-  CreditNotes = "creditNotes",
-  Customers = "customers",
-  DirectCosts = "directCosts",
-  DirectIncomes = "directIncomes",
-  Invoices = "invoices",
-  Items = "items",
-  JournalEntries = "journalEntries",
-  Journals = "journals",
-  PaymentMethods = "paymentMethods",
-  Payments = "payments",
-  ProfitAndLoss = "profitAndLoss",
-  PurchaseOrders = "purchaseOrders",
-  SalesOrders = "salesOrders",
-  Suppliers = "suppliers",
-  TaxRates = "taxRates",
-  TrackingCategories = "trackingCategories",
-  Transfers = "transfers",
-  BankingAccountBalances = "banking-accountBalances",
-  BankingAccounts = "banking-accounts",
-  BankingTransactionCategories = "banking-transactionCategories",
-  BankingTransactions = "banking-transactions",
-  CommerceCompanyInfo = "commerce-companyInfo",
-  CommerceCustomers = "commerce-customers",
-  CommerceDisputes = "commerce-disputes",
-  CommerceLocations = "commerce-locations",
-  CommerceOrders = "commerce-orders",
-  CommercePaymentMethods = "commerce-paymentMethods",
-  CommercePayments = "commerce-payments",
-  CommerceProductCategories = "commerce-productCategories",
-  CommerceProducts = "commerce-products",
-  CommerceTaxComponents = "commerce-taxComponents",
-  CommerceTransactions = "commerce-transactions",
-}
 
 export class CreatePullOperationRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -74,161 +26,7 @@ export class CreatePullOperationRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=dataType",
   })
-  dataType: CreatePullOperationDataTypeEnum;
-}
-
-/**
- * One or more of the resources you referenced could not be found.
- *
- * @remarks
- * This might be because your company or data connection id is wrong, or was already deleted.
- */
-export class CreatePullOperationNotFound extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "canBeRetried" })
-  canBeRetried?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "correlationId" })
-  correlationId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailedErrorCode" })
-  detailedErrorCode?: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  error?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "service" })
-  service?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusCode" })
-  statusCode?: number;
-}
-
-/**
- * Your API request was not properly authorized.
- */
-export class CreatePullOperationUnauthorized extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "canBeRetried" })
-  canBeRetried?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "correlationId" })
-  correlationId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailedErrorCode" })
-  detailedErrorCode?: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  error?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "service" })
-  service?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusCode" })
-  statusCode?: number;
-}
-
-export enum CreatePullOperationPullOperationStatusEnum {
-  Initial = "Initial",
-  Queued = "Queued",
-  Fetching = "Fetching",
-  MapQueued = "MapQueued",
-  Mapping = "Mapping",
-  Complete = "Complete",
-  FetchError = "FetchError",
-  MapError = "MapError",
-  InternalError = "InternalError",
-  ProcessingQueued = "ProcessingQueued",
-  Processing = "Processing",
-  ProcessingError = "ProcessingError",
-  ValidationQueued = "ValidationQueued",
-  Validating = "Validating",
-  ValidationError = "ValidationError",
-  AuthError = "AuthError",
-  Cancelled = "Cancelled",
-  Routing = "Routing",
-  RoutingError = "RoutingError",
-  NotSupported = "NotSupported",
-  RateLimitError = "RateLimitError",
-  PermissionsError = "PermissionsError",
-  PrerequisiteNotMet = "PrerequisiteNotMet",
-}
-
-/**
- * Information about a queued, in progress or completed pull operation.
- *
- * @remarks
- * *Formally called `dataset`*
- */
-export class CreatePullOperationPullOperation extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "companyId" })
-  companyId: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "connectionId" })
-  connectionId: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "dataType" })
-  dataType: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "isCompleted" })
-  isCompleted: boolean;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "isErrored" })
-  isErrored: boolean;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "progress" })
-  progress: number;
-
-  /**
-   * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
-   *
-   * @remarks
-   *
-   * ```
-   * 2020-10-08T22:40:50Z
-   * 2021-01-01T00:00:00
-   * ```
-   *
-   *
-   *
-   * When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
-   *
-   * - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
-   * - Unqualified local time: `2021-11-15T01:00:00`
-   * - UTC time offsets: `2021-11-15T01:00:00-05:00`
-   *
-   * > 📘 Time zones
-   * >
-   * > Not all dates from Codat will contain information about time zones.
-   * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "requested" })
-  requested: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status: CreatePullOperationPullOperationStatusEnum;
+  dataType: shared.DataTypeEnum;
 }
 
 export class CreatePullOperationResponse extends SpeakeasyBase {
@@ -236,29 +34,20 @@ export class CreatePullOperationResponse extends SpeakeasyBase {
   contentType: string;
 
   /**
-   * One or more of the resources you referenced could not be found.
-   *
-   * @remarks
-   * This might be because your company or data connection id is wrong, or was already deleted.
+   * Your API request was not properly authorized.
    */
   @SpeakeasyMetadata()
-  notFound?: CreatePullOperationNotFound;
+  errorMessage?: shared.ErrorMessage;
 
   /**
    * OK
    */
   @SpeakeasyMetadata()
-  pullOperation?: CreatePullOperationPullOperation;
+  pullOperation?: shared.PullOperation;
 
   @SpeakeasyMetadata()
   statusCode: number;
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
-
-  /**
-   * Your API request was not properly authorized.
-   */
-  @SpeakeasyMetadata()
-  unauthorized?: CreatePullOperationUnauthorized;
 }

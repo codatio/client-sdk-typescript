@@ -4,7 +4,6 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
-import { Expose } from "class-transformer";
 
 export class NewCompanySynchronizedResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
@@ -15,44 +14,4 @@ export class NewCompanySynchronizedResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
-}
-
-/**
- * Webhook request body to notify that a new company has successfully synchronized at least one dataType for the first time.
- */
-export class NewCompanySynchronizedNewCompanySynchronizedWebhook extends SpeakeasyBase {
-  /**
-   * Unique identifier of the alert.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "alertId" })
-  alertId?: string;
-
-  /**
-   * Unique identifier for your SMB in Codat.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "companyId" })
-  companyId?: string;
-
-  /**
-   * A human readable message about the webhook.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
-
-  /**
-   * Unique identifier for the rule.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "ruleId" })
-  ruleId?: string;
-
-  /**
-   * The type of rule.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "ruleType" })
-  ruleType?: string;
 }

@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -39,12 +40,12 @@ export class Integrations {
    * @remarks
    * Get single integration, by platformKey
    */
-  getIntegrationsPlatformKey(
-    req: operations.GetIntegrationsPlatformKeyRequest,
+  getIntegration(
+    req: operations.GetIntegrationRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetIntegrationsPlatformKeyResponse> {
+  ): Promise<operations.GetIntegrationResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetIntegrationsPlatformKeyRequest(req);
+      req = new operations.GetIntegrationRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -67,8 +68,8 @@ export class Integrations {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetIntegrationsPlatformKeyResponse =
-        new operations.GetIntegrationsPlatformKeyResponse({
+      const res: operations.GetIntegrationResponse =
+        new operations.GetIntegrationResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -78,23 +79,15 @@ export class Integrations {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.integration = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetIntegrationsPlatformKeyIntegration
+              shared.Integration
             );
           }
           break;
-        case httpRes?.status == 401:
+        case [401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.unauthorized = utils.deserializeJSONResponse(
+            res.errorMessage = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetIntegrationsPlatformKeyUnauthorized
-            );
-          }
-          break;
-        case httpRes?.status == 404:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.notFound = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.GetIntegrationsPlatformKeyNotFound
+              shared.ErrorMessage
             );
           }
           break;
@@ -110,12 +103,12 @@ export class Integrations {
    * @remarks
    * Get branding for platform.
    */
-  getIntegrationsPlatformKeyBranding(
-    req: operations.GetIntegrationsPlatformKeyBrandingRequest,
+  getIntegrationsBranding(
+    req: operations.GetIntegrationsBrandingRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetIntegrationsPlatformKeyBrandingResponse> {
+  ): Promise<operations.GetIntegrationsBrandingResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetIntegrationsPlatformKeyBrandingRequest(req);
+      req = new operations.GetIntegrationsBrandingRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -138,8 +131,8 @@ export class Integrations {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetIntegrationsPlatformKeyBrandingResponse =
-        new operations.GetIntegrationsPlatformKeyBrandingResponse({
+      const res: operations.GetIntegrationsBrandingResponse =
+        new operations.GetIntegrationsBrandingResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -149,7 +142,7 @@ export class Integrations {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.branding = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetIntegrationsPlatformKeyBrandingBranding
+              shared.Branding
             );
           }
           break;
@@ -200,26 +193,17 @@ export class Integrations {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listIntegrations200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListIntegrations200ApplicationJSON
-              );
-          }
-          break;
-        case httpRes?.status == 400:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.malformedQuery = utils.deserializeJSONResponse(
+            res.integrations = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.ListIntegrationsMalformedQuery
+              shared.Integrations
             );
           }
           break;
-        case httpRes?.status == 401:
+        case [400, 401].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.unauthorized = utils.deserializeJSONResponse(
+            res.errorMessage = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.ListIntegrationsUnauthorized
+              shared.ErrorMessage
             );
           }
           break;

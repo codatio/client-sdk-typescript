@@ -3,89 +3,28 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose, Type } from "class-transformer";
-
-export class CreateRuleWebhookNotifiers extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "emails" })
-  emails?: string[];
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "webhook" })
-  webhook?: string;
-}
-
-/**
- * Configuration to alert to a url or list of email addresses based on the given type / condition.
- */
-export class CreateRuleWebhook extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "companyId" })
-  companyId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "notifiers" })
-  @Type(() => CreateRuleWebhookNotifiers)
-  notifiers: CreateRuleWebhookNotifiers;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type: string;
-}
-
-/**
- * Your API request was not properly authorized.
- */
-export class CreateRuleUnauthorized extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "canBeRetried" })
-  canBeRetried?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "correlationId" })
-  correlationId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailedErrorCode" })
-  detailedErrorCode?: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  error?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "service" })
-  service?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusCode" })
-  statusCode?: number;
-}
 
 export class CreateRuleResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
+
+  /**
+   * Your API request was not properly authorized.
+   */
+  @SpeakeasyMetadata()
+  errorMessage?: shared.ErrorMessage;
+
+  /**
+   * OK
+   */
+  @SpeakeasyMetadata()
+  rule?: shared.Rule;
 
   @SpeakeasyMetadata()
   statusCode: number;
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
-
-  /**
-   * Your API request was not properly authorized.
-   */
-  @SpeakeasyMetadata()
-  unauthorized?: CreateRuleUnauthorized;
-
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  webhook?: CreateRuleWebhook;
 }

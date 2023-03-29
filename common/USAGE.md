@@ -1,7 +1,7 @@
 <!-- Start SDK Example Usage -->
 ```typescript
 import {
-  CreateCompanyRequestBody,
+  shared.CompanyRequestBody,
   CreateCompanyResponse
 } from "@codat/common/dist/sdk/models/operations";
 
@@ -13,7 +13,7 @@ const sdk = new Codat({
   },
 });
 
-const req: CreateCompanyRequestBody = {
+const req: shared.CompanyRequestBody = {
   description: "unde",
   name: "deserunt",
 };

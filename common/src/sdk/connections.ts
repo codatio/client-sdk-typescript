@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -96,7 +97,15 @@ export class Connections {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.connection = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.CreateDataConnectionConnection
+              shared.Connection
+            );
+          }
+          break;
+        case httpRes?.status == 404:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.errorMessage = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.ErrorMessage
             );
           }
           break;
@@ -150,92 +159,11 @@ export class Connections {
       switch (true) {
         case httpRes?.status == 200:
           break;
-        case httpRes?.status == 401:
+        case [401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.unauthorized = utils.deserializeJSONResponse(
+            res.errorMessage = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.DeleteCompanyConnectionUnauthorized
-            );
-          }
-          break;
-        case httpRes?.status == 404:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.notFound = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.DeleteCompanyConnectionNotFound
-            );
-          }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
-   * Update authorization
-   *
-   * @remarks
-   * Update data connection's authorization.
-   */
-  getCompanyAuthorization(
-    req: operations.GetCompanyAuthorizationRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetCompanyAuthorizationResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCompanyAuthorizationRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/connections/{connectionId}/authorization",
-      req
-    );
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-        req,
-        "requestBody",
-        "json"
-      );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...reqBodyHeaders, ...config?.headers };
-
-    const r = client.request({
-      url: url,
-      method: "put",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCompanyAuthorizationResponse =
-        new operations.GetCompanyAuthorizationResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.connection = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.GetCompanyAuthorizationConnection
+              shared.ErrorMessage
             );
           }
           break;
@@ -290,23 +218,15 @@ export class Connections {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.connection = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCompanyConnectionConnection
+              shared.Connection
             );
           }
           break;
-        case httpRes?.status == 401:
+        case [401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.unauthorized = utils.deserializeJSONResponse(
+            res.errorMessage = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCompanyConnectionUnauthorized
-            );
-          }
-          break;
-        case httpRes?.status == 404:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.notFound = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.GetCompanyConnectionNotFound
+              shared.ErrorMessage
             );
           }
           break;
@@ -363,23 +283,15 @@ export class Connections {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.connections = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.Connections
+              shared.Connections
             );
           }
           break;
-        case httpRes?.status == 400:
+        case [400, 401].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.malformedQuery = utils.deserializeJSONResponse(
+            res.errorMessage = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.ListCompanyConnectionsMalformedQuery
-            );
-          }
-          break;
-        case httpRes?.status == 401:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.unauthorized = utils.deserializeJSONResponse(
-              httpRes?.data,
-              operations.ListCompanyConnectionsUnauthorized
+              shared.ErrorMessage
             );
           }
           break;
@@ -452,23 +364,88 @@ export class Connections {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.connection = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.UnlinkCompanyConnectionConnection
+              shared.Connection
             );
           }
           break;
-        case httpRes?.status == 401:
+        case [400, 401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.unauthorized = utils.deserializeJSONResponse(
+            res.errorMessage = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.UnlinkCompanyConnectionUnauthorized
+              shared.ErrorMessage
             );
           }
           break;
-        case httpRes?.status == 404:
+      }
+
+      return res;
+    });
+  }
+
+  /**
+   * Update authorization
+   *
+   * @remarks
+   * Update data connection's authorization.
+   */
+  updateConnectionAuthorization(
+    req: operations.UpdateConnectionAuthorizationRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.UpdateConnectionAuthorizationResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.UpdateConnectionAuthorizationRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/connections/{connectionId}/authorization",
+      req
+    );
+
+    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+    try {
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "requestBody",
+        "json"
+      );
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new Error(`Error serializing request body, cause: ${e.message}`);
+      }
+    }
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const headers = { ...reqBodyHeaders, ...config?.headers };
+
+    const r = client.request({
+      url: url,
+      method: "put",
+      headers: headers,
+      data: reqBody,
+      ...config,
+    });
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.UpdateConnectionAuthorizationResponse =
+        new operations.UpdateConnectionAuthorizationResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.notFound = utils.deserializeJSONResponse(
+            res.connection = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.UnlinkCompanyConnectionNotFound
+              shared.Connection
             );
           }
           break;
