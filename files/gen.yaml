@@ -1,15 +1,15 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 3e9087f52513946151ecdfc61985b3b9
+  docChecksum: 3f1bac07e7e6cb3d3ab9d1f697a61dc2
   docVersion: 2.1.0
-  speakeasyVersion: 1.18.9
-  generationVersion: 2.16.4
+  speakeasyVersion: 1.19.2
+  generationVersion: 2.16.5
 generation:
   telemetryEnabled: false
   sdkClassName: codat
   sdkFlattening: true
   singleTagPerOp: false
 typescript:
-  version: 0.8.1
+  version: 0.8.2
   author: Speakeasy
   packageName: '@codat/files'
