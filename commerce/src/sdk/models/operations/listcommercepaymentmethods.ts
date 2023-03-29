@@ -91,6 +91,13 @@ export enum ListCommercePaymentMethods200ApplicationJSONSourceModifiedDateStatus
   Unknown = "Unknown",
 }
 
+/**
+ * A Payment Method represents the payment method(s) used to make payments.
+ *
+ * @remarks
+ *
+ * Explore our [data coverage](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-paymentMethods) for this data type.
+ */
 export class ListCommercePaymentMethods200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
    * A unique, persistent identifier for this record

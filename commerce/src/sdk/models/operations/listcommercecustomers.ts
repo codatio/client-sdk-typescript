@@ -128,7 +128,11 @@ export class ListCommerceCustomers200ApplicationJSONSourceModifiedDateAddress ex
 }
 
 /**
- * Represents a customer who has placed an order in the commerce system"
+ * When a customer places an order with the connected commerce store their details are added to the Customers dataset. You can use the data from the Customers endpoints to calculate key metrics, such as customer churn.
+ *
+ * @remarks
+ *
+ * Explore our [data coverage](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-customers) for this data type.
  */
 export class ListCommerceCustomers200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**

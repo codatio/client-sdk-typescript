@@ -110,11 +110,7 @@ export class ListCommerceLocations200ApplicationJSONSourceModifiedDateAddress ex
  *
  * Locations also holds information on geographic locations where orders were placed, as referenced in the Orders data type.
  *
- * From the Locations endpoints you can retrieve:
- *
- * A list of all the Locations of a commerce company: `GET /companies/{companyId}/connections/{connectionId}/data/commerce-locations`.
- * The details of an individual location: `GET /companies/{companyId}/connections/{connectionId}/data/commerce-locations/{locationId}`.
- *
+ * Explore our [data coverage](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-locations) for this data type.
  */
 export class ListCommerceLocations200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**

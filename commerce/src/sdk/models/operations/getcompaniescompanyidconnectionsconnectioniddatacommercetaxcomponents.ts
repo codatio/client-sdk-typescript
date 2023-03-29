@@ -18,6 +18,13 @@ export class GetCompaniesCompanyIdConnectionsConnectionIdDataCommerceTaxComponen
   connectionId: string;
 }
 
+/**
+ * The Tax Components endpoints return tax rates data from the commerce platform, including tax rate names and values. This is to support the mapping of tax rates from the commerce platform to those in the accounting platform.
+ *
+ * @remarks
+ *
+ * Explore our [data coverage](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-disputes) for this data type.
+ */
 export class GetCompaniesCompanyIdConnectionsConnectionIdDataCommerceTaxComponents200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
    * A unique, persistent identifier for this record

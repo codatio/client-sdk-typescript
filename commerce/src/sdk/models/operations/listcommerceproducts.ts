@@ -81,13 +81,12 @@ export enum ListCommerceProducts200ApplicationJSONProductSourceModifiedDateStatu
 }
 
 /**
- * Represents a variation of a product available for sale, for example an item of clothing
- *
- * @remarks
- * may be available for sale in multiple sizes and colors
- *
+ * Identifier of the product variant, unique to the company.
  */
 export class ListCommerceProducts200ApplicationJSONProductSourceModifiedDate extends SpeakeasyBase {
+  /**
+   * Unique product number of the variant. This might be a barcode, UPC, ISBN, etc.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "barcode" })
   barcode?: string;
@@ -106,10 +105,16 @@ export class ListCommerceProducts200ApplicationJSONProductSourceModifiedDate ext
   @Expose({ name: "id" })
   id: string;
 
+  /**
+   * Information about the total inventory as well as the locations inventory is in.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "inventory" })
   inventory?: any[];
 
+  /**
+   * Whether sales taxes are enabled for this product variant.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isTaxEnabled" })
   isTaxEnabled?: boolean;
@@ -121,10 +126,16 @@ export class ListCommerceProducts200ApplicationJSONProductSourceModifiedDate ext
   @Expose({ name: "modifiedDate" })
   modifiedDate?: string;
 
+  /**
+   * Name of the product recorded in the commerce or point of sale platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
   name?: string;
 
+  /**
+   * Prices for the product variants in different currencies.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "prices" })
   prices?: any[];
@@ -133,10 +144,16 @@ export class ListCommerceProducts200ApplicationJSONProductSourceModifiedDate ext
   @Expose({ name: "quantity" })
   quantity?: number;
 
+  /**
+   * Indicates whether or not the product requires physical delivery.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "shippingRequired" })
   shippingRequired?: boolean;
 
+  /**
+   * SKU (stock keeping unit) of the variant, as defined by the merchant.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "sku" })
   sku?: string;
@@ -152,20 +169,27 @@ export class ListCommerceProducts200ApplicationJSONProductSourceModifiedDate ext
   @Expose({ name: "status" })
   status?: ListCommerceProducts200ApplicationJSONProductSourceModifiedDateStatusEnum;
 
+  /**
+   * Unit of measure for the variant, such as `kg` or `meters`.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "unitOfMeasure" })
   unitOfMeasure?: string;
 
+  /**
+   * VAT rate for the product variant if sales taxes are enabled.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "vatPercentage" })
   vatPercentage?: number;
 }
 
 /**
- * A Product is an item in the company's inventory, and includes information
+ * A Product is an item in the company's inventory, and includes information about the price and quantity of all products, and variants thereof, available for sale.
  *
  * @remarks
- * about the price and quantity of all products, and variants thereof, available for sale
+ *
+ * Explore our [data coverage](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-products) for this data type.
  *
  */
 export class ListCommerceProducts200ApplicationJSONProduct extends SpeakeasyBase {

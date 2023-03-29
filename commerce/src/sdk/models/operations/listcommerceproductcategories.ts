@@ -98,6 +98,9 @@ export class ListCommerceProductCategories200ApplicationJSONProductCategoryRecor
   type: string;
 }
 
+/**
+ * The date the record was last updated in Codat's cache.
+ */
 export class ListCommerceProductCategories200ApplicationJSONProductCategoryModifiedDate extends SpeakeasyBase {
   /**
    * The date on which this record was last modified in Codat.
@@ -107,6 +110,9 @@ export class ListCommerceProductCategories200ApplicationJSONProductCategoryModif
   modifiedDate?: string;
 }
 
+/**
+ * Date the product was last changed in the commerce or point of sale platform.
+ */
 export class ListCommerceProductCategories200ApplicationJSONProductCategorySourceModifiedDate extends SpeakeasyBase {
   /**
    * The date on which this record was last modified in the originating system
@@ -117,9 +123,16 @@ export class ListCommerceProductCategories200ApplicationJSONProductCategorySourc
 }
 
 /**
- * Product categories are used to classify a group of products together, either by type (eg "Furniture"), or sometimes by tax profile.
+ * Product categories are used to classify a group of products together, either by type (e.g. "Furniture"), or sometimes by tax profile.
+ *
+ * @remarks
+ *
+ * Explore our [data coverage](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-productCategories) for this data type.
  */
 export class ListCommerceProductCategories200ApplicationJSONProductCategory extends SpeakeasyBase {
+  /**
+   * A collection of parent product categories implicitly ordered with the immediate parent last in the list.
+   */
   @SpeakeasyMetadata({
     elemType:
       ListCommerceProductCategories200ApplicationJSONProductCategoryRecordRef,
@@ -131,14 +144,23 @@ export class ListCommerceProductCategories200ApplicationJSONProductCategory exte
   )
   ancestorRefs?: ListCommerceProductCategories200ApplicationJSONProductCategoryRecordRef[];
 
+  /**
+   * A boolean indicating whether there are other product categories beneath this one in the hierarchy.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "hasChildren" })
   hasChildren?: boolean;
 
+  /**
+   * The unique identifier of the product category
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
 
+  /**
+   * The date the record was last updated in Codat's cache.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
   @Type(
@@ -147,10 +169,16 @@ export class ListCommerceProductCategories200ApplicationJSONProductCategory exte
   )
   modifiedDate?: ListCommerceProductCategories200ApplicationJSONProductCategoryModifiedDate;
 
+  /**
+   * The name of the product category
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
   name?: string;
 
+  /**
+   * Date the product was last changed in the commerce or point of sale platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
   @Type(

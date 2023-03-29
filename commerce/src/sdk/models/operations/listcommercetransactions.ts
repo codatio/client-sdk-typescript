@@ -96,7 +96,17 @@ export class ListCommerceTransactions200ApplicationJSONSourceModifiedDateRecordR
 }
 
 /**
- * The type of the platform transaction
+ * The type of the platform transaction:
+ *
+ * @remarks
+ * - `Unknown`
+ * - `FailedPayout` — Failed transfer of funds from the seller's merchant account to their bank account.
+ * - `Payment` — Credit and debit card payments.
+ * - `PaymentFee` — Payment provider's fee on each card payment.
+ * - `PaymentFeeRefund` — Payment provider's fee that has been refunded to the seller.
+ * - `Payout` — Transfer of funds from the seller's merchant account to their bank account.
+ * - `Refund` — Refunds to a customer's credit or debit card.
+ * - `Transfer` — Secure transfer of funds to the seller's bank account.
  */
 export enum ListCommerceTransactions200ApplicationJSONSourceModifiedDateTypeEnum {
   Payment = "Payment",
@@ -110,7 +120,18 @@ export enum ListCommerceTransactions200ApplicationJSONSourceModifiedDateTypeEnum
 }
 
 /**
- * A financial transaction recorded in the commerce or point of sale system
+ * Details of all financial transactions recorded in the commerce or point of sale system are added to the Transactions data type. For example, payments, service charges, and fees.
+ *
+ * @remarks
+ *
+ * You can use data from the Transactions endpoints to calculate key metrics, such as:
+ * - Transaction volumes
+ * - Average transaction volume
+ * - Average transaction value
+ * - Returns
+ * - Payouts
+ *
+ * Explore our [data coverage](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-transactions) for this data type.
  */
 export class ListCommerceTransactions200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
@@ -121,7 +142,7 @@ export class ListCommerceTransactions200ApplicationJSONSourceModifiedDate extend
   createdDate?: string;
 
   /**
-   * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code. e.g. _GBP_.
+   * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
    *
    * @remarks
    *
@@ -188,7 +209,17 @@ export class ListCommerceTransactions200ApplicationJSONSourceModifiedDate extend
   transactionSourceRef?: ListCommerceTransactions200ApplicationJSONSourceModifiedDateRecordRef;
 
   /**
-   * The type of the platform transaction
+   * The type of the platform transaction:
+   *
+   * @remarks
+   * - `Unknown`
+   * - `FailedPayout` — Failed transfer of funds from the seller's merchant account to their bank account.
+   * - `Payment` — Credit and debit card payments.
+   * - `PaymentFee` — Payment provider's fee on each card payment.
+   * - `PaymentFeeRefund` — Payment provider's fee that has been refunded to the seller.
+   * - `Payout` — Transfer of funds from the seller's merchant account to their bank account.
+   * - `Refund` — Refunds to a customer's credit or debit card.
+   * - `Transfer` — Secure transfer of funds to the seller's bank account.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })

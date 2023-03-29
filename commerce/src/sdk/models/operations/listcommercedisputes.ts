@@ -112,6 +112,18 @@ export enum ListCommerceDisputes200ApplicationJSONSourceModifiedDateStatusEnum {
   Unknown = "Unknown",
 }
 
+/**
+ * A customer may file a payment dispute with their bank or other card issuer when they're unsatisfied with their purchase or believe they have been charged incorrectly. For example:
+ *
+ * @remarks
+ * - They didn't receive an order.
+ * - The product they received was different to the commerce store's description.
+ * - They've been the victim of online fraud.
+ *
+ * You can use data from the Disputes endpoints to calculate key metrics, such as the number of chargebacks.
+ *
+ * Explore our [data coverage](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-disputes) for this data type.
+ */
 export class ListCommerceDisputes200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
    * The date the entity was created.
