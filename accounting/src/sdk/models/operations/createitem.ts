@@ -37,14 +37,14 @@ export class CreateItemSourceModifiedDateBillItemTaxRateRef extends SpeakeasyBas
   effectiveTaxRate?: number;
 
   /**
-   * 'id' from the 'taxRates' data type.
+   * Unique identifier for the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
 
   /**
-   * 'name' from the 'taxRates' data type.
+   * Name of the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
@@ -117,14 +117,14 @@ export class CreateItemSourceModifiedDateInvoiceItemTaxRateRef extends Speakeasy
   effectiveTaxRate?: number;
 
   /**
-   * 'id' from the 'taxRates' data type.
+   * Unique identifier for the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
 
   /**
-   * 'name' from the 'taxRates' data type.
+   * Name of the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
@@ -390,14 +390,14 @@ export class CreateItem200ApplicationJSONSourceModifiedDateBillItemTaxRateRef ex
   effectiveTaxRate?: number;
 
   /**
-   * 'id' from the 'taxRates' data type.
+   * Unique identifier for the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
 
   /**
-   * 'name' from the 'taxRates' data type.
+   * Name of the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
@@ -470,14 +470,14 @@ export class CreateItem200ApplicationJSONSourceModifiedDateInvoiceItemTaxRateRef
   effectiveTaxRate?: number;
 
   /**
-   * 'id' from the 'taxRates' data type.
+   * Unique identifier for the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
 
   /**
-   * 'name' from the 'taxRates' data type.
+   * Name of the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
@@ -664,6 +664,54 @@ export class CreateItem200ApplicationJSONSourceModifiedDate extends SpeakeasyBas
 }
 
 /**
+ * The type of data being pushed, eg invoices, customers.
+ */
+export enum CreateItem200ApplicationJSONDataTypeEnum {
+  AccountTransactions = "accountTransactions",
+  BalanceSheet = "balanceSheet",
+  BankAccounts = "bankAccounts",
+  BankTransactions = "bankTransactions",
+  BillCreditNotes = "billCreditNotes",
+  BillPayments = "billPayments",
+  Bills = "bills",
+  CashFlowStatement = "cashFlowStatement",
+  ChartOfAccounts = "chartOfAccounts",
+  Company = "company",
+  CreditNotes = "creditNotes",
+  Customers = "customers",
+  DirectCosts = "directCosts",
+  DirectIncomes = "directIncomes",
+  Invoices = "invoices",
+  Items = "items",
+  JournalEntries = "journalEntries",
+  Journals = "journals",
+  PaymentMethods = "paymentMethods",
+  Payments = "payments",
+  ProfitAndLoss = "profitAndLoss",
+  PurchaseOrders = "purchaseOrders",
+  SalesOrders = "salesOrders",
+  Suppliers = "suppliers",
+  TaxRates = "taxRates",
+  TrackingCategories = "trackingCategories",
+  Transfers = "transfers",
+  BankingAccountBalances = "banking-accountBalances",
+  BankingAccounts = "banking-accounts",
+  BankingTransactionCategories = "banking-transactionCategories",
+  BankingTransactions = "banking-transactions",
+  CommerceCompanyInfo = "commerce-companyInfo",
+  CommerceCustomers = "commerce-customers",
+  CommerceDisputes = "commerce-disputes",
+  CommerceLocations = "commerce-locations",
+  CommerceOrders = "commerce-orders",
+  CommercePaymentMethods = "commerce-paymentMethods",
+  CommercePayments = "commerce-payments",
+  CommerceProductCategories = "commerce-productCategories",
+  CommerceProducts = "commerce-products",
+  CommerceTaxComponents = "commerce-taxComponents",
+  CommerceTransactions = "commerce-transactions",
+}
+
+/**
  * The status of the push operation.
  */
 export enum CreateItem200ApplicationJSONStatusEnum {
@@ -756,7 +804,7 @@ export class CreateItem200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
-  dataType?: string;
+  dataType?: CreateItem200ApplicationJSONDataTypeEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "errorMessage" })

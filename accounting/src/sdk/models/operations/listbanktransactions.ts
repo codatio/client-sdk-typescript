@@ -95,6 +95,9 @@ export class ListBankTransactions200ApplicationJSONResultsSourceModifiedDate ext
   sourceModifiedDate?: string;
 }
 
+/**
+ * Type of transaction for the bank statement line
+ */
 export enum ListBankTransactions200ApplicationJSONResultsTransactionTypeEnum {
   Unknown = "Unknown",
   Credit = "Credit",
@@ -147,7 +150,7 @@ export class ListBankTransactions200ApplicationJSONResults extends SpeakeasyBase
    * - Unqualified local time: `2021-11-15T01:00:00`
    * - UTC time offsets: `2021-11-15T01:00:00-05:00`
    *
-   * > 📘 Time zones
+   * > Time zones
    * >
    * > Not all dates from Codat will contain information about time zones.
    * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
@@ -182,6 +185,9 @@ export class ListBankTransactions200ApplicationJSONResults extends SpeakeasyBase
   @Type(() => ListBankTransactions200ApplicationJSONResultsSourceModifiedDate)
   sourceModifiedDate?: ListBankTransactions200ApplicationJSONResultsSourceModifiedDate;
 
+  /**
+   * Type of transaction for the bank statement line
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "transactionType" })
   transactionType: ListBankTransactions200ApplicationJSONResultsTransactionTypeEnum;

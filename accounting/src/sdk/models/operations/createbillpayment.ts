@@ -136,10 +136,16 @@ export class CreateBillPaymentSourceModifiedDateMetadata extends SpeakeasyBase {
  * The Payment Method to which the payment is linked in the accounting platform.
  */
 export class CreateBillPaymentSourceModifiedDatePaymentMethodRef extends SpeakeasyBase {
+  /**
+   * `id` from the Payment Methods data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
-  id: string;
+  id?: string;
 
+  /**
+   * `name` from the Payment Methods data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
   name?: string;
@@ -158,10 +164,16 @@ export class CreateBillPaymentSourceModifiedDateSupplementalData extends Speakea
  * Supplier against which the payment is recorded in the accounting platform.
  */
 export class CreateBillPaymentSourceModifiedDateSupplierRef extends SpeakeasyBase {
+  /**
+   * The supplier's unique ID
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
 
+  /**
+   * The supplier's name
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "supplierName" })
   supplierName?: string;
@@ -180,13 +192,13 @@ export class CreateBillPaymentSourceModifiedDateSupplierRef extends SpeakeasyBas
  *
  * Bill payments include all accounts payable transaction data. This includes [bills](https://docs.codat.io/accounting-api#/schemas/Bill) and [credit notes against bills](https://docs.codat.io/accounting-api#/schemas/BillCreditNote).
  *
- * A bill payment in Codat usually represents an allocation of money within any customer accounts payable account. This includes but is not strictly limited to:
+ * A bill payment in Codat usually represents an allocation of money within any customer accounts payable account. This includes, but is not strictly limited to:
  *
- * - A payment made against a bill—for example, a credit card payment, cheque payment, or cash payment.
- * - An allocation of a supplier's credit note, to a bill or perhaps a refund.
+ * - A payment made against a bill — for example, a credit card payment, cheque payment, or cash payment.
+ * - An allocation of a supplier's credit note to a bill or perhaps a refund.
  * - A bill payment made directly to an accounts payable account. This could be an overpayment or a prepayment, or a refund of a payment made directly to an accounts payable account.
  *
- * Depending on the bill payments which are allowed by the underlying accounting package, some of these types may be combined. Please see the [Example data](#example-data) section for samples of what these cases look like.
+ * Depending on the bill payments which are allowed by the underlying accounting package, some of these types may be combined. Please see the example data section for samples of what these cases look like.
  *
  * In Codat, a bill payment contains details of:
  *
@@ -203,7 +215,7 @@ export class CreateBillPaymentSourceModifiedDateSupplierRef extends SpeakeasyBas
  *
  * ## Bill payment types
  *
- * ## Payment of a bill
+ * ### Payment of a bill
  *
  * A payment paying a single bill should have the following properties:
  *
@@ -215,7 +227,7 @@ export class CreateBillPaymentSourceModifiedDateSupplierRef extends SpeakeasyBas
  *     - An `id` containing the ID of the bill that was paid.
  *     - An amount of `-totalAmount` (negative `totalAmount`), indicating that the entirety of the paid amount is allocated to the bill.
  *
- * ## Payment of multiple bills
+ * ### Payment of multiple bills
  *
  * It is possible for one payment to pay multiple bills. This can be represented using two possible formats, depending on how the supplier keeps their books:
  *
@@ -224,11 +236,11 @@ export class CreateBillPaymentSourceModifiedDateSupplierRef extends SpeakeasyBas
  *
  * Each line is the same as those described above, with the **amount** indicating how much of the payment is allocated to the bill. The **amount** on the lines sum to the **totalAmount** on the payment.
  *
- * > 🚧 Pushing batch payments to Xero
+ * > Pushing batch payments to Xero
  * >
  * > When pushing a single bill payment to Xero to pay multiple bills, only the first format is supported—multiple entries in the payment **lines** array.
  *
- * ## Payments and refunds on account
+ * ### Payments and refunds on account
  *
  * A payment on account, that is a payment that doesn’t pay a specific bill, has one entry in its lines array.
  *
@@ -242,7 +254,7 @@ export class CreateBillPaymentSourceModifiedDateSupplierRef extends SpeakeasyBas
  *
  * It is possible to have a payment that is part on account and part allocated to a bill. Each line should follow the examples above.
  *
- * ## Using a credit note to pay a bill
+ * ### Using a credit note to pay a bill
  *
  * The payment of a bill using a credit note has one entry in its `lines` array. This **line** has the following properties:
  *
@@ -257,7 +269,7 @@ export class CreateBillPaymentSourceModifiedDateSupplierRef extends SpeakeasyBas
  *
  * The **amount** field on the **line** equals the **totalAmount** on the payment.
  *
- * ## Refunding a credit note
+ * ### Refunding a credit note
  *
  * A bill payment refunding a credit note has one entry in its **lines** array. This line has the following properties:
  *
@@ -268,7 +280,7 @@ export class CreateBillPaymentSourceModifiedDateSupplierRef extends SpeakeasyBas
  *
  * The **totalAmount** field on the payment equals the line's **amount** field. These are both negative, as this is money leaving accounts payable.
  *
- * ## Refunding a payment
+ * ### Refunding a payment
  *
  * If a payment is refunded, for example, when a company overpaid a bill and the overpayment is returned, there are two payment records:
  *
@@ -296,7 +308,7 @@ export class CreateBillPaymentSourceModifiedDateSupplierRef extends SpeakeasyBas
  *   - A **type** indicating the type of the link, in this case a `Refund`.
  *   - An **id** containing the ID of the payment that refunded this line.
  *
- * > 📘 Linked payments
+ * > Linked payments
  * >
  * > Not all accounting packages support linked payments in this way. In these platforms you may see a payment on account and a refund on account.
  *
@@ -637,10 +649,16 @@ export class CreateBillPayment200ApplicationJSONSourceModifiedDateMetadata exten
  * The Payment Method to which the payment is linked in the accounting platform.
  */
 export class CreateBillPayment200ApplicationJSONSourceModifiedDatePaymentMethodRef extends SpeakeasyBase {
+  /**
+   * `id` from the Payment Methods data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
-  id: string;
+  id?: string;
 
+  /**
+   * `name` from the Payment Methods data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
   name?: string;
@@ -659,10 +677,16 @@ export class CreateBillPayment200ApplicationJSONSourceModifiedDateSupplementalDa
  * Supplier against which the payment is recorded in the accounting platform.
  */
 export class CreateBillPayment200ApplicationJSONSourceModifiedDateSupplierRef extends SpeakeasyBase {
+  /**
+   * The supplier's unique ID
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
 
+  /**
+   * The supplier's name
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "supplierName" })
   supplierName?: string;
@@ -681,13 +705,13 @@ export class CreateBillPayment200ApplicationJSONSourceModifiedDateSupplierRef ex
  *
  * Bill payments include all accounts payable transaction data. This includes [bills](https://docs.codat.io/accounting-api#/schemas/Bill) and [credit notes against bills](https://docs.codat.io/accounting-api#/schemas/BillCreditNote).
  *
- * A bill payment in Codat usually represents an allocation of money within any customer accounts payable account. This includes but is not strictly limited to:
+ * A bill payment in Codat usually represents an allocation of money within any customer accounts payable account. This includes, but is not strictly limited to:
  *
- * - A payment made against a bill—for example, a credit card payment, cheque payment, or cash payment.
- * - An allocation of a supplier's credit note, to a bill or perhaps a refund.
+ * - A payment made against a bill — for example, a credit card payment, cheque payment, or cash payment.
+ * - An allocation of a supplier's credit note to a bill or perhaps a refund.
  * - A bill payment made directly to an accounts payable account. This could be an overpayment or a prepayment, or a refund of a payment made directly to an accounts payable account.
  *
- * Depending on the bill payments which are allowed by the underlying accounting package, some of these types may be combined. Please see the [Example data](#example-data) section for samples of what these cases look like.
+ * Depending on the bill payments which are allowed by the underlying accounting package, some of these types may be combined. Please see the example data section for samples of what these cases look like.
  *
  * In Codat, a bill payment contains details of:
  *
@@ -704,7 +728,7 @@ export class CreateBillPayment200ApplicationJSONSourceModifiedDateSupplierRef ex
  *
  * ## Bill payment types
  *
- * ## Payment of a bill
+ * ### Payment of a bill
  *
  * A payment paying a single bill should have the following properties:
  *
@@ -716,7 +740,7 @@ export class CreateBillPayment200ApplicationJSONSourceModifiedDateSupplierRef ex
  *     - An `id` containing the ID of the bill that was paid.
  *     - An amount of `-totalAmount` (negative `totalAmount`), indicating that the entirety of the paid amount is allocated to the bill.
  *
- * ## Payment of multiple bills
+ * ### Payment of multiple bills
  *
  * It is possible for one payment to pay multiple bills. This can be represented using two possible formats, depending on how the supplier keeps their books:
  *
@@ -725,11 +749,11 @@ export class CreateBillPayment200ApplicationJSONSourceModifiedDateSupplierRef ex
  *
  * Each line is the same as those described above, with the **amount** indicating how much of the payment is allocated to the bill. The **amount** on the lines sum to the **totalAmount** on the payment.
  *
- * > 🚧 Pushing batch payments to Xero
+ * > Pushing batch payments to Xero
  * >
  * > When pushing a single bill payment to Xero to pay multiple bills, only the first format is supported—multiple entries in the payment **lines** array.
  *
- * ## Payments and refunds on account
+ * ### Payments and refunds on account
  *
  * A payment on account, that is a payment that doesn’t pay a specific bill, has one entry in its lines array.
  *
@@ -743,7 +767,7 @@ export class CreateBillPayment200ApplicationJSONSourceModifiedDateSupplierRef ex
  *
  * It is possible to have a payment that is part on account and part allocated to a bill. Each line should follow the examples above.
  *
- * ## Using a credit note to pay a bill
+ * ### Using a credit note to pay a bill
  *
  * The payment of a bill using a credit note has one entry in its `lines` array. This **line** has the following properties:
  *
@@ -758,7 +782,7 @@ export class CreateBillPayment200ApplicationJSONSourceModifiedDateSupplierRef ex
  *
  * The **amount** field on the **line** equals the **totalAmount** on the payment.
  *
- * ## Refunding a credit note
+ * ### Refunding a credit note
  *
  * A bill payment refunding a credit note has one entry in its **lines** array. This line has the following properties:
  *
@@ -769,7 +793,7 @@ export class CreateBillPayment200ApplicationJSONSourceModifiedDateSupplierRef ex
  *
  * The **totalAmount** field on the payment equals the line's **amount** field. These are both negative, as this is money leaving accounts payable.
  *
- * ## Refunding a payment
+ * ### Refunding a payment
  *
  * If a payment is refunded, for example, when a company overpaid a bill and the overpayment is returned, there are two payment records:
  *
@@ -797,7 +821,7 @@ export class CreateBillPayment200ApplicationJSONSourceModifiedDateSupplierRef ex
  *   - A **type** indicating the type of the link, in this case a `Refund`.
  *   - An **id** containing the ID of the payment that refunded this line.
  *
- * > 📘 Linked payments
+ * > Linked payments
  * >
  * > Not all accounting packages support linked payments in this way. In these platforms you may see a payment on account and a refund on account.
  *
@@ -962,6 +986,54 @@ export class CreateBillPayment200ApplicationJSONSourceModifiedDate extends Speak
 }
 
 /**
+ * The type of data being pushed, eg invoices, customers.
+ */
+export enum CreateBillPayment200ApplicationJSONDataTypeEnum {
+  AccountTransactions = "accountTransactions",
+  BalanceSheet = "balanceSheet",
+  BankAccounts = "bankAccounts",
+  BankTransactions = "bankTransactions",
+  BillCreditNotes = "billCreditNotes",
+  BillPayments = "billPayments",
+  Bills = "bills",
+  CashFlowStatement = "cashFlowStatement",
+  ChartOfAccounts = "chartOfAccounts",
+  Company = "company",
+  CreditNotes = "creditNotes",
+  Customers = "customers",
+  DirectCosts = "directCosts",
+  DirectIncomes = "directIncomes",
+  Invoices = "invoices",
+  Items = "items",
+  JournalEntries = "journalEntries",
+  Journals = "journals",
+  PaymentMethods = "paymentMethods",
+  Payments = "payments",
+  ProfitAndLoss = "profitAndLoss",
+  PurchaseOrders = "purchaseOrders",
+  SalesOrders = "salesOrders",
+  Suppliers = "suppliers",
+  TaxRates = "taxRates",
+  TrackingCategories = "trackingCategories",
+  Transfers = "transfers",
+  BankingAccountBalances = "banking-accountBalances",
+  BankingAccounts = "banking-accounts",
+  BankingTransactionCategories = "banking-transactionCategories",
+  BankingTransactions = "banking-transactions",
+  CommerceCompanyInfo = "commerce-companyInfo",
+  CommerceCustomers = "commerce-customers",
+  CommerceDisputes = "commerce-disputes",
+  CommerceLocations = "commerce-locations",
+  CommerceOrders = "commerce-orders",
+  CommercePaymentMethods = "commerce-paymentMethods",
+  CommercePayments = "commerce-payments",
+  CommerceProductCategories = "commerce-productCategories",
+  CommerceProducts = "commerce-products",
+  CommerceTaxComponents = "commerce-taxComponents",
+  CommerceTransactions = "commerce-transactions",
+}
+
+/**
  * The status of the push operation.
  */
 export enum CreateBillPayment200ApplicationJSONStatusEnum {
@@ -1040,13 +1112,13 @@ export class CreateBillPayment200ApplicationJSON extends SpeakeasyBase {
    *
    * Bill payments include all accounts payable transaction data. This includes [bills](https://docs.codat.io/accounting-api#/schemas/Bill) and [credit notes against bills](https://docs.codat.io/accounting-api#/schemas/BillCreditNote).
    *
-   * A bill payment in Codat usually represents an allocation of money within any customer accounts payable account. This includes but is not strictly limited to:
+   * A bill payment in Codat usually represents an allocation of money within any customer accounts payable account. This includes, but is not strictly limited to:
    *
-   * - A payment made against a bill—for example, a credit card payment, cheque payment, or cash payment.
-   * - An allocation of a supplier's credit note, to a bill or perhaps a refund.
+   * - A payment made against a bill — for example, a credit card payment, cheque payment, or cash payment.
+   * - An allocation of a supplier's credit note to a bill or perhaps a refund.
    * - A bill payment made directly to an accounts payable account. This could be an overpayment or a prepayment, or a refund of a payment made directly to an accounts payable account.
    *
-   * Depending on the bill payments which are allowed by the underlying accounting package, some of these types may be combined. Please see the [Example data](#example-data) section for samples of what these cases look like.
+   * Depending on the bill payments which are allowed by the underlying accounting package, some of these types may be combined. Please see the example data section for samples of what these cases look like.
    *
    * In Codat, a bill payment contains details of:
    *
@@ -1063,7 +1135,7 @@ export class CreateBillPayment200ApplicationJSON extends SpeakeasyBase {
    *
    * ## Bill payment types
    *
-   * ## Payment of a bill
+   * ### Payment of a bill
    *
    * A payment paying a single bill should have the following properties:
    *
@@ -1075,7 +1147,7 @@ export class CreateBillPayment200ApplicationJSON extends SpeakeasyBase {
    *     - An `id` containing the ID of the bill that was paid.
    *     - An amount of `-totalAmount` (negative `totalAmount`), indicating that the entirety of the paid amount is allocated to the bill.
    *
-   * ## Payment of multiple bills
+   * ### Payment of multiple bills
    *
    * It is possible for one payment to pay multiple bills. This can be represented using two possible formats, depending on how the supplier keeps their books:
    *
@@ -1084,11 +1156,11 @@ export class CreateBillPayment200ApplicationJSON extends SpeakeasyBase {
    *
    * Each line is the same as those described above, with the **amount** indicating how much of the payment is allocated to the bill. The **amount** on the lines sum to the **totalAmount** on the payment.
    *
-   * > 🚧 Pushing batch payments to Xero
+   * > Pushing batch payments to Xero
    * >
    * > When pushing a single bill payment to Xero to pay multiple bills, only the first format is supported—multiple entries in the payment **lines** array.
    *
-   * ## Payments and refunds on account
+   * ### Payments and refunds on account
    *
    * A payment on account, that is a payment that doesn’t pay a specific bill, has one entry in its lines array.
    *
@@ -1102,7 +1174,7 @@ export class CreateBillPayment200ApplicationJSON extends SpeakeasyBase {
    *
    * It is possible to have a payment that is part on account and part allocated to a bill. Each line should follow the examples above.
    *
-   * ## Using a credit note to pay a bill
+   * ### Using a credit note to pay a bill
    *
    * The payment of a bill using a credit note has one entry in its `lines` array. This **line** has the following properties:
    *
@@ -1117,7 +1189,7 @@ export class CreateBillPayment200ApplicationJSON extends SpeakeasyBase {
    *
    * The **amount** field on the **line** equals the **totalAmount** on the payment.
    *
-   * ## Refunding a credit note
+   * ### Refunding a credit note
    *
    * A bill payment refunding a credit note has one entry in its **lines** array. This line has the following properties:
    *
@@ -1128,7 +1200,7 @@ export class CreateBillPayment200ApplicationJSON extends SpeakeasyBase {
    *
    * The **totalAmount** field on the payment equals the line's **amount** field. These are both negative, as this is money leaving accounts payable.
    *
-   * ## Refunding a payment
+   * ### Refunding a payment
    *
    * If a payment is refunded, for example, when a company overpaid a bill and the overpayment is returned, there are two payment records:
    *
@@ -1156,7 +1228,7 @@ export class CreateBillPayment200ApplicationJSON extends SpeakeasyBase {
    *   - A **type** indicating the type of the link, in this case a `Refund`.
    *   - An **id** containing the ID of the payment that refunded this line.
    *
-   * > 📘 Linked payments
+   * > Linked payments
    * >
    * > Not all accounting packages support linked payments in this way. In these platforms you may see a payment on account and a refund on account.
    *
@@ -1197,7 +1269,7 @@ export class CreateBillPayment200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
-  dataType?: string;
+  dataType?: CreateBillPayment200ApplicationJSONDataTypeEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "errorMessage" })

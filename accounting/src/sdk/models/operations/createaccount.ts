@@ -102,13 +102,11 @@ export class CreateAccountSourceModifiedDateValidDataTypeLinks extends Speakeasy
  *
  * @remarks
  *
- * Explore the <a className="external" href="https://api.codat.io/swagger/index.html#/Accounts" target="_blank">Accounts</a> endpoints in Swagger.
- *
  * View the coverage for accounts in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts" target="_blank">Data coverage explorer</a>.
  *
  * ## Overview
  *
- * Accounts are the categories a business uses to record accounting transactions. From the Accounts endpoints, you can retrieve [a list of all accounts for a specified company](https://api.codat.io/swagger/index.html#/Accounts/Accounts_List).
+ * Accounts are the categories a business uses to record accounting transactions. From the Accounts endpoints, you can retrieve a list of all accounts for a specified company.
  *
  * The categories for an account include:
  *   * Asset
@@ -125,7 +123,7 @@ export class CreateAccountSourceModifiedDateValidDataTypeLinks extends Speakeasy
  */
 export class CreateAccountSourceModifiedDate extends SpeakeasyBase {
   /**
-   * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code. e.g. _GBP_.
+   * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
    *
    * @remarks
    *
@@ -395,13 +393,11 @@ export class CreateAccount200ApplicationJSONSourceModifiedDateValidDataTypeLinks
  *
  * @remarks
  *
- * Explore the <a className="external" href="https://api.codat.io/swagger/index.html#/Accounts" target="_blank">Accounts</a> endpoints in Swagger.
- *
  * View the coverage for accounts in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts" target="_blank">Data coverage explorer</a>.
  *
  * ## Overview
  *
- * Accounts are the categories a business uses to record accounting transactions. From the Accounts endpoints, you can retrieve [a list of all accounts for a specified company](https://api.codat.io/swagger/index.html#/Accounts/Accounts_List).
+ * Accounts are the categories a business uses to record accounting transactions. From the Accounts endpoints, you can retrieve a list of all accounts for a specified company.
  *
  * The categories for an account include:
  *   * Asset
@@ -418,7 +414,7 @@ export class CreateAccount200ApplicationJSONSourceModifiedDateValidDataTypeLinks
  */
 export class CreateAccount200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
-   * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code. e.g. _GBP_.
+   * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
    *
    * @remarks
    *
@@ -543,6 +539,54 @@ export class CreateAccount200ApplicationJSONSourceModifiedDate extends Speakeasy
 }
 
 /**
+ * The type of data being pushed, eg invoices, customers.
+ */
+export enum CreateAccount200ApplicationJSONDataTypeEnum {
+  AccountTransactions = "accountTransactions",
+  BalanceSheet = "balanceSheet",
+  BankAccounts = "bankAccounts",
+  BankTransactions = "bankTransactions",
+  BillCreditNotes = "billCreditNotes",
+  BillPayments = "billPayments",
+  Bills = "bills",
+  CashFlowStatement = "cashFlowStatement",
+  ChartOfAccounts = "chartOfAccounts",
+  Company = "company",
+  CreditNotes = "creditNotes",
+  Customers = "customers",
+  DirectCosts = "directCosts",
+  DirectIncomes = "directIncomes",
+  Invoices = "invoices",
+  Items = "items",
+  JournalEntries = "journalEntries",
+  Journals = "journals",
+  PaymentMethods = "paymentMethods",
+  Payments = "payments",
+  ProfitAndLoss = "profitAndLoss",
+  PurchaseOrders = "purchaseOrders",
+  SalesOrders = "salesOrders",
+  Suppliers = "suppliers",
+  TaxRates = "taxRates",
+  TrackingCategories = "trackingCategories",
+  Transfers = "transfers",
+  BankingAccountBalances = "banking-accountBalances",
+  BankingAccounts = "banking-accounts",
+  BankingTransactionCategories = "banking-transactionCategories",
+  BankingTransactions = "banking-transactions",
+  CommerceCompanyInfo = "commerce-companyInfo",
+  CommerceCustomers = "commerce-customers",
+  CommerceDisputes = "commerce-disputes",
+  CommerceLocations = "commerce-locations",
+  CommerceOrders = "commerce-orders",
+  CommercePaymentMethods = "commerce-paymentMethods",
+  CommercePayments = "commerce-payments",
+  CommerceProductCategories = "commerce-productCategories",
+  CommerceProducts = "commerce-products",
+  CommerceTaxComponents = "commerce-taxComponents",
+  CommerceTransactions = "commerce-transactions",
+}
+
+/**
  * The status of the push operation.
  */
 export enum CreateAccount200ApplicationJSONStatusEnum {
@@ -613,13 +657,11 @@ export class CreateAccount200ApplicationJSON extends SpeakeasyBase {
    *
    * @remarks
    *
-   * Explore the <a className="external" href="https://api.codat.io/swagger/index.html#/Accounts" target="_blank">Accounts</a> endpoints in Swagger.
-   *
    * View the coverage for accounts in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts" target="_blank">Data coverage explorer</a>.
    *
    * ## Overview
    *
-   * Accounts are the categories a business uses to record accounting transactions. From the Accounts endpoints, you can retrieve [a list of all accounts for a specified company](https://api.codat.io/swagger/index.html#/Accounts/Accounts_List).
+   * Accounts are the categories a business uses to record accounting transactions. From the Accounts endpoints, you can retrieve a list of all accounts for a specified company.
    *
    * The categories for an account include:
    *   * Asset
@@ -651,7 +693,7 @@ export class CreateAccount200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
-  dataType?: string;
+  dataType?: CreateAccount200ApplicationJSONDataTypeEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "errorMessage" })

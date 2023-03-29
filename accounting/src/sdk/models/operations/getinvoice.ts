@@ -25,10 +25,16 @@ export class GetInvoiceRequest extends SpeakeasyBase {
  * Reference to the customer the invoice has been issued to.
  */
 export class GetInvoiceSourceModifiedDateCustomerRef extends SpeakeasyBase {
+  /**
+   * `customerName` from the Customer data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
   companyName?: string;
 
+  /**
+   * `id` from the Customers data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -57,10 +63,16 @@ export class GetInvoiceSourceModifiedDateLineItemsAccountRef extends SpeakeasyBa
  * Reference to the item the line is linked to.
  */
 export class GetInvoiceSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
+  /**
+   * Unique identifier for the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
 
+  /**
+   * Name of the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
   name?: string;
@@ -78,14 +90,14 @@ export class GetInvoiceSourceModifiedDateLineItemsTaxRateRef extends SpeakeasyBa
   effectiveTaxRate?: number;
 
   /**
-   * 'id' from the 'taxRates' data type.
+   * Unique identifier for the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
 
   /**
-   * 'name' from the 'taxRates' data type.
+   * Name of the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
@@ -106,10 +118,16 @@ export class GetInvoiceSourceModifiedDateLineItemsTrackingCategoryRefs extends S
 }
 
 export class GetInvoiceSourceModifiedDateLineItemsTrackingCustomerRef extends SpeakeasyBase {
+  /**
+   * `customerName` from the Customer data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
   companyName?: string;
 
+  /**
+   * `id` from the Customers data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -510,9 +528,13 @@ export class GetInvoiceSourceModifiedDateWithholdingTax extends SpeakeasyBase {
  *
  * > **Invoice PDF downloads**
  * >
- * > You can <a className="external" href="https://api.codat.io/swagger/index.html#/Invoices/get_companies__companyId__data_invoices__invoiceId__pdf" target="_blank">download a PDF version</a> of an invoice for supported integrations.
+ * > You can <a className="external" href="https://docs.codat.io/accounting-api#/operations/get-invoice-pdf" target="_blank">download a PDF version</a> of an invoice for supported integrations.
  * >
  * > The filename will be invoice-{number}.pdf.
+ *
+ * > **Referencing an invoice in Sage 50 and ClearBooks**
+ * >
+ * > In Sage 50 and ClearBooks, you may prefer to use the **invoiceNumber** to identify an invoice rather than the invoice **id**. Each time a draft invoice is submitted or printed, the draft **id** becomes void and a submitted invoice with a new **id** exists in its place. In both platforms, the **invoiceNumber** should remain the same.
  */
 export class GetInvoiceSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()

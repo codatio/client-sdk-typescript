@@ -106,7 +106,7 @@ export class GetAgedDebtorsReportAgedDebtorsReportAgedDebtorAgedCurrencyOutstand
   agedOutstandingAmounts?: GetAgedDebtorsReportAgedDebtorsReportAgedDebtorAgedCurrencyOutstandingAgedOutstandingAmount[];
 
   /**
-   * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code. e.g. _GBP_.
+   * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
    *
    * @remarks
    *
@@ -123,7 +123,7 @@ export class GetAgedDebtorsReportAgedDebtorsReportAgedDebtorAgedCurrencyOutstand
 
 export class GetAgedDebtorsReportAgedDebtorsReportAgedDebtor extends SpeakeasyBase {
   /**
-   * Array of aged creditors by currency.
+   * Array of aged debtors by currency.
    */
   @SpeakeasyMetadata({
     elemType:
@@ -151,7 +151,40 @@ export class GetAgedDebtorsReportAgedDebtorsReportAgedDebtor extends SpeakeasyBa
 }
 
 /**
- * OK
+ * The Aged Debtors report shows the total outstanding balance due from customers to the business over time.
+ *
+ * @remarks
+ *
+ * You can generate it for a company based on recently synced data from your customers' accounting platforms. The report is available in the **Reports** tab in the Codat portal.
+ *
+ * Total assets or liabilities are grouped into 30-day periods for each customer, up to the current date. You can adjust the report date, period length, and number of periods to show on each report. The data can be grouped by customer or currency.
+ *
+ * > It is not guaranteed that write-offs are included in the Aged Debtors report.
+ *
+ * ## Underlying data
+ *
+ * The Aged Debtors report is generated from a set of required data types: [Customers](https://docs.codat.io/accounting-api#/schemas/Customer), [Invoices](https://docs.codat.io/accounting-api#/schemas/Invoice), [Credit notes](https://docs.codat.io/accounting-api#/schemas/CreditNote), and [Payments](https://docs.codat.io/accounting-api#/schemas/Payment).
+ *
+ * To generate the report, the underlying data types must have been synced within 24 hours of each other. Otherwise an error is displayed when you try to run the report. Sync the required data types by clicking the link in the error, and then run the report again.
+ *
+ * > The Aged Debtors report runs based on the **issue dates** of the underlying data types rather than the due date.
+ *
+ * ## Accessing the Aged Debtors report in Portal
+ *
+ * Apart from returning the report via the API as JSON and query, you can also return the Aged Debtors report in the Codat portal.
+ *
+ * 1. In the navigation bar, click **Companies**.
+ * 2. Click the name of the company you want to generate the report for. The company's data page is displayed.
+ * 3. Click the **Accounting** tab then click **Reports**.
+ * 4. Select **Aged Debtors**.
+ * 5. _(Optional)_ Edit the default reporting parameters.
+ *    a. You can change the report date in the **Date** box. By default, the report includes transactions that occurred up to, but not including, today's date. To include transactions for today, enter tomorrow's date.
+ *    b. In the **Period Length Days** box, select the default period length for each column (the default is 30 days).
+ *    b. In the **Number of Periods** box, enter the number of periods to show as columns in the report (the default is 4 periods).
+ * 6. To run the report, click **Load aged debtors**.
+ * 7. The report is generated and displayed at the bottom of the page.
+ *
+ * The report will be grouped per supplier and depending on the periods requested. The details indicates whether the amounts owed come from outstanding invoices or credit notes.
  */
 export class GetAgedDebtorsReportAgedDebtorsReport extends SpeakeasyBase {
   /**

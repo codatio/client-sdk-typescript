@@ -92,10 +92,16 @@ export class ListBillCreditNotes200ApplicationJSONSourceModifiedDateLineItemsAcc
  * Reference to the item the line is linked to.
  */
 export class ListBillCreditNotes200ApplicationJSONSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
+  /**
+   * Unique identifier for the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
 
+  /**
+   * Name of the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
   name?: string;
@@ -113,14 +119,14 @@ export class ListBillCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTax
   effectiveTaxRate?: number;
 
   /**
-   * 'id' from the 'taxRates' data type.
+   * Unique identifier for the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
 
   /**
-   * 'name' from the 'taxRates' data type.
+   * Name of the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
@@ -141,10 +147,16 @@ export class ListBillCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTra
 }
 
 export class ListBillCreditNotes200ApplicationJSONSourceModifiedDateLineItemsTrackingCustomerRef extends SpeakeasyBase {
+  /**
+   * `customerName` from the Customer data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
   companyName?: string;
 
+  /**
+   * `id` from the Customers data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -541,10 +553,16 @@ export class ListBillCreditNotes200ApplicationJSONSourceModifiedDateSupplemental
  * Supplier that issued the bill credit note.
  */
 export class ListBillCreditNotes200ApplicationJSONSourceModifiedDateSupplierRef extends SpeakeasyBase {
+  /**
+   * The supplier's unique ID
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
 
+  /**
+   * The supplier's name
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "supplierName" })
   supplierName?: string;

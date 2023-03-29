@@ -100,7 +100,7 @@ export class PutSupplierSourceModifiedDateSupplementalData extends SpeakeasyBase
  *
  * ## Overview
  *
- * From the **Suppliers** endpoints, you can retrieve a list of [all the suppliers for a company](https://api.codat.io/swagger/index.html#/Suppliers/get_companies__companyId__data_suppliers). Suppliers' data links to accounts payable [bills](https://docs.codat.io/accounting-api#/schemas/Bill).
+ * From the **Suppliers** endpoints, you can retrieve a list of [all the suppliers for a company](https://docs.codat.io/accounting-api#/operations/list-suppliers). Suppliers' data links to accounts payable [bills](https://docs.codat.io/accounting-api#/schemas/Bill).
  */
 export class PutSupplierSourceModifiedDate extends SpeakeasyBase {
   /**
@@ -365,7 +365,7 @@ export class PutSupplier200ApplicationJSONSourceModifiedDateSupplementalData ext
  *
  * ## Overview
  *
- * From the **Suppliers** endpoints, you can retrieve a list of [all the suppliers for a company](https://api.codat.io/swagger/index.html#/Suppliers/get_companies__companyId__data_suppliers). Suppliers' data links to accounts payable [bills](https://docs.codat.io/accounting-api#/schemas/Bill).
+ * From the **Suppliers** endpoints, you can retrieve a list of [all the suppliers for a company](https://docs.codat.io/accounting-api#/operations/list-suppliers). Suppliers' data links to accounts payable [bills](https://docs.codat.io/accounting-api#/schemas/Bill).
  */
 export class PutSupplier200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
@@ -473,6 +473,54 @@ export class PutSupplier200ApplicationJSONSourceModifiedDate extends SpeakeasyBa
 }
 
 /**
+ * The type of data being pushed, eg invoices, customers.
+ */
+export enum PutSupplier200ApplicationJSONDataTypeEnum {
+  AccountTransactions = "accountTransactions",
+  BalanceSheet = "balanceSheet",
+  BankAccounts = "bankAccounts",
+  BankTransactions = "bankTransactions",
+  BillCreditNotes = "billCreditNotes",
+  BillPayments = "billPayments",
+  Bills = "bills",
+  CashFlowStatement = "cashFlowStatement",
+  ChartOfAccounts = "chartOfAccounts",
+  Company = "company",
+  CreditNotes = "creditNotes",
+  Customers = "customers",
+  DirectCosts = "directCosts",
+  DirectIncomes = "directIncomes",
+  Invoices = "invoices",
+  Items = "items",
+  JournalEntries = "journalEntries",
+  Journals = "journals",
+  PaymentMethods = "paymentMethods",
+  Payments = "payments",
+  ProfitAndLoss = "profitAndLoss",
+  PurchaseOrders = "purchaseOrders",
+  SalesOrders = "salesOrders",
+  Suppliers = "suppliers",
+  TaxRates = "taxRates",
+  TrackingCategories = "trackingCategories",
+  Transfers = "transfers",
+  BankingAccountBalances = "banking-accountBalances",
+  BankingAccounts = "banking-accounts",
+  BankingTransactionCategories = "banking-transactionCategories",
+  BankingTransactions = "banking-transactions",
+  CommerceCompanyInfo = "commerce-companyInfo",
+  CommerceCustomers = "commerce-customers",
+  CommerceDisputes = "commerce-disputes",
+  CommerceLocations = "commerce-locations",
+  CommerceOrders = "commerce-orders",
+  CommercePaymentMethods = "commerce-paymentMethods",
+  CommercePayments = "commerce-payments",
+  CommerceProductCategories = "commerce-productCategories",
+  CommerceProducts = "commerce-products",
+  CommerceTaxComponents = "commerce-taxComponents",
+  CommerceTransactions = "commerce-transactions",
+}
+
+/**
  * The status of the push operation.
  */
 export enum PutSupplier200ApplicationJSONStatusEnum {
@@ -545,7 +593,7 @@ export class PutSupplier200ApplicationJSON extends SpeakeasyBase {
    *
    * ## Overview
    *
-   * From the **Suppliers** endpoints, you can retrieve a list of [all the suppliers for a company](https://api.codat.io/swagger/index.html#/Suppliers/get_companies__companyId__data_suppliers). Suppliers' data links to accounts payable [bills](https://docs.codat.io/accounting-api#/schemas/Bill).
+   * From the **Suppliers** endpoints, you can retrieve a list of [all the suppliers for a company](https://docs.codat.io/accounting-api#/operations/list-suppliers). Suppliers' data links to accounts payable [bills](https://docs.codat.io/accounting-api#/schemas/Bill).
    */
   @SpeakeasyMetadata()
   @Expose({ name: "data" })
@@ -564,7 +612,7 @@ export class PutSupplier200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
-  dataType?: string;
+  dataType?: PutSupplier200ApplicationJSONDataTypeEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "errorMessage" })

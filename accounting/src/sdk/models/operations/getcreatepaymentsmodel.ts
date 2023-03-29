@@ -18,6 +18,42 @@ export class GetCreatePaymentsModelRequest extends SpeakeasyBase {
   connectionId: string;
 }
 
+export enum GetCreatePaymentsModelPushOptionPushOptionChoiceOptionTypeEnum {
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
+}
+
+export class GetCreatePaymentsModelPushOptionPushOptionChoice extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  @Expose({ name: "description" })
+  description?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "displayName" })
+  displayName?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "required" })
+  required?: boolean;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "type" })
+  type?: GetCreatePaymentsModelPushOptionPushOptionChoiceOptionTypeEnum;
+
+  /**
+   * Allowed value for field.
+   */
+  @SpeakeasyMetadata()
+  @Expose({ name: "value" })
+  value?: string;
+}
+
 export enum GetCreatePaymentsModelPushOptionPushOptionPropertyPushOptionChoiceOptionTypeEnum {
   Array = "Array",
   Object = "Object",
@@ -602,6 +638,42 @@ export enum GetCreatePaymentsModelPushOptionOptionTypeEnum {
   MultiPart = "MultiPart",
 }
 
+export class GetCreatePaymentsModelPushOptionPushValidationInfoPushFieldValidation extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  @Expose({ name: "details" })
+  details: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "field" })
+  field?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "ref" })
+  ref?: string;
+}
+
+export class GetCreatePaymentsModelPushOptionPushValidationInfo extends SpeakeasyBase {
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreatePaymentsModelPushOptionPushValidationInfoPushFieldValidation,
+  })
+  @Expose({ name: "information" })
+  @Type(
+    () => GetCreatePaymentsModelPushOptionPushValidationInfoPushFieldValidation
+  )
+  information?: GetCreatePaymentsModelPushOptionPushValidationInfoPushFieldValidation[];
+
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreatePaymentsModelPushOptionPushValidationInfoPushFieldValidation,
+  })
+  @Expose({ name: "warnings" })
+  @Type(
+    () => GetCreatePaymentsModelPushOptionPushValidationInfoPushFieldValidation
+  )
+  warnings?: GetCreatePaymentsModelPushOptionPushValidationInfoPushFieldValidation[];
+}
+
 /**
  * OK
  */
@@ -613,6 +685,13 @@ export class GetCreatePaymentsModelPushOption extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "displayName" })
   displayName: string;
+
+  @SpeakeasyMetadata({
+    elemType: GetCreatePaymentsModelPushOptionPushOptionChoice,
+  })
+  @Expose({ name: "options" })
+  @Type(() => GetCreatePaymentsModelPushOptionPushOptionChoice)
+  options?: GetCreatePaymentsModelPushOptionPushOptionChoice[];
 
   @SpeakeasyMetadata({
     elemType: GetCreatePaymentsModelPushOptionPushOptionProperty,
@@ -647,6 +726,11 @@ export class GetCreatePaymentsModelPushOption extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
   type: GetCreatePaymentsModelPushOptionOptionTypeEnum;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "validation" })
+  @Type(() => GetCreatePaymentsModelPushOptionPushValidationInfo)
+  validation?: GetCreatePaymentsModelPushOptionPushValidationInfo;
 }
 
 export class GetCreatePaymentsModelResponse extends SpeakeasyBase {

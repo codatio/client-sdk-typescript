@@ -168,7 +168,7 @@ export class GetBalanceSheet200ApplicationJSONBalanceSheetReportLine extends Spe
  *
  * ## Overview
  *
- * The balance sheet gives interested parties an idea of the company's financial position, in addition to displaying what the company owns and owes.
+ * The balance sheet is a snapshot of a company's accounts at a single point in time that provides a statement of the assets, liabilities and equity of an organization. It gives interested parties an idea of the company's financial position, in addition to displaying what the company owns and owes.
  *
  * > **Balance sheet or profit and loss report?**
  * >

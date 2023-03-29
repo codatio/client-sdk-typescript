@@ -22,10 +22,16 @@ export class GetCreditNoteRequest extends SpeakeasyBase {
  * Reference to the customer the credit note has been issued to.
  */
 export class GetCreditNoteSourceModifiedDateCustomerRef extends SpeakeasyBase {
+  /**
+   * `customerName` from the Customer data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
   companyName?: string;
 
+  /**
+   * `id` from the Customers data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -54,10 +60,16 @@ export class GetCreditNoteSourceModifiedDateLineItemsAccountRef extends Speakeas
  * Reference to the item the line is linked to.
  */
 export class GetCreditNoteSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
+  /**
+   * Unique identifier for the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
 
+  /**
+   * Name of the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
   name?: string;
@@ -75,14 +87,14 @@ export class GetCreditNoteSourceModifiedDateLineItemsTaxRateRef extends Speakeas
   effectiveTaxRate?: number;
 
   /**
-   * 'id' from the 'taxRates' data type.
+   * Unique identifier for the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
 
   /**
-   * 'name' from the 'taxRates' data type.
+   * Name of the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
@@ -103,10 +115,16 @@ export class GetCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs extend
 }
 
 export class GetCreditNoteSourceModifiedDateLineItemsTrackingCustomerRef extends SpeakeasyBase {
+  /**
+   * `customerName` from the Customer data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
   companyName?: string;
 
+  /**
+   * `id` from the Customers data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;

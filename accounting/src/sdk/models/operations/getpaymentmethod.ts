@@ -57,12 +57,6 @@ export enum GetPaymentMethodSourceModifiedDateTypeEnum {
  * ## Overview
  *
  * A Payment Method represents the payment method(s) used to pay a Bill. Payment Methods are referenced on [Bill Payments](https://docs.codat.io/accounting-api#/schemas/BillPayment) and [Payments](https://docs.codat.io/accounting-api#/schemas/Payment).
- *
- * From the Payment Methods endpoints you can retrieve:
- *
- * - A list of all the Payment Methods used by a company: `GET/companies/{companyId}/data/paymentMethods`.
- * - The details of an individual Payment Method:
- *   `GET /companies/{companyId}/data/paymentMethods/{paymentMethodId}`.
  */
 export class GetPaymentMethodSourceModifiedDate extends SpeakeasyBase {
   /**

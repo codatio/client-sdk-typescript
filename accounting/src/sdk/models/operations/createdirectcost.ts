@@ -42,10 +42,16 @@ export class CreateDirectCostSourceModifiedDateLineItemsAccountRef extends Speak
  * Reference to the product, service type, or inventory item to which the direct cost is linked.
  */
 export class CreateDirectCostSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
+  /**
+   * Unique identifier for the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
 
+  /**
+   * Name of the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
   name?: string;
@@ -63,14 +69,14 @@ export class CreateDirectCostSourceModifiedDateLineItemsTaxRateRef extends Speak
   effectiveTaxRate?: number;
 
   /**
-   * 'id' from the 'taxRates' data type.
+   * Unique identifier for the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
 
   /**
-   * 'name' from the 'taxRates' data type.
+   * Name of the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
@@ -472,7 +478,7 @@ export class CreateDirectCostSourceModifiedDateSupplementalData extends Speakeas
 }
 
 /**
- * > **Language tip: ** Direct costs may also be referred to as **Spend transactions**, **Spend money transactions**, or **Payments** in various accounting platforms.
+ * > **Language tip:** Direct costs may also be referred to as **Spend transactions**, **Spend money transactions**, or **Payments** in various accounting platforms.
  *
  * @remarks
  *
@@ -485,12 +491,6 @@ export class CreateDirectCostSourceModifiedDateSupplementalData extends Speakeas
  *   * Receiving cash from a refunded item if the refund is made by the supplier
  *   * Withdrawing money from a bank account
  *   * Writing a cheque
- *
- * From the Direct Costs endpoints, you can:
- *
- *   * [Get a list of all direct costs for a specific company ](https://api.codat.io/swagger/index.html#/DirectCosts/get_companies__companyId__connections__connectionId__data_directCosts)
- *   * [Get a single direct cost for a specific company ](https://api.codat.io/swagger/index.html#/DirectCosts/get_companies__companyId__connections__connectionId__data_directCosts__directCostId_)
- *   * [Add a new direct cost to a specific company's accounting package](https://api.codat.io/swagger/index.html#/DirectCosts/post_companies__companyId__connections__connectionId__push_directCosts)
  *
  * Direct costs is a child data type of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction).
  */
@@ -725,10 +725,16 @@ export class CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsAccoun
  * Reference to the product, service type, or inventory item to which the direct cost is linked.
  */
 export class CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
+  /**
+   * Unique identifier for the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
 
+  /**
+   * Name of the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
   name?: string;
@@ -746,14 +752,14 @@ export class CreateDirectCost200ApplicationJSONSourceModifiedDateLineItemsTaxRat
   effectiveTaxRate?: number;
 
   /**
-   * 'id' from the 'taxRates' data type.
+   * Unique identifier for the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
 
   /**
-   * 'name' from the 'taxRates' data type.
+   * Name of the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
@@ -1177,7 +1183,7 @@ export class CreateDirectCost200ApplicationJSONSourceModifiedDateSupplementalDat
 }
 
 /**
- * > **Language tip: ** Direct costs may also be referred to as **Spend transactions**, **Spend money transactions**, or **Payments** in various accounting platforms.
+ * > **Language tip:** Direct costs may also be referred to as **Spend transactions**, **Spend money transactions**, or **Payments** in various accounting platforms.
  *
  * @remarks
  *
@@ -1190,12 +1196,6 @@ export class CreateDirectCost200ApplicationJSONSourceModifiedDateSupplementalDat
  *   * Receiving cash from a refunded item if the refund is made by the supplier
  *   * Withdrawing money from a bank account
  *   * Writing a cheque
- *
- * From the Direct Costs endpoints, you can:
- *
- *   * [Get a list of all direct costs for a specific company ](https://api.codat.io/swagger/index.html#/DirectCosts/get_companies__companyId__connections__connectionId__data_directCosts)
- *   * [Get a single direct cost for a specific company ](https://api.codat.io/swagger/index.html#/DirectCosts/get_companies__companyId__connections__connectionId__data_directCosts__directCostId_)
- *   * [Add a new direct cost to a specific company's accounting package](https://api.codat.io/swagger/index.html#/DirectCosts/post_companies__companyId__connections__connectionId__push_directCosts)
  *
  * Direct costs is a child data type of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction).
  */
@@ -1349,6 +1349,54 @@ export class CreateDirectCost200ApplicationJSONSourceModifiedDate extends Speake
 }
 
 /**
+ * The type of data being pushed, eg invoices, customers.
+ */
+export enum CreateDirectCost200ApplicationJSONDataTypeEnum {
+  AccountTransactions = "accountTransactions",
+  BalanceSheet = "balanceSheet",
+  BankAccounts = "bankAccounts",
+  BankTransactions = "bankTransactions",
+  BillCreditNotes = "billCreditNotes",
+  BillPayments = "billPayments",
+  Bills = "bills",
+  CashFlowStatement = "cashFlowStatement",
+  ChartOfAccounts = "chartOfAccounts",
+  Company = "company",
+  CreditNotes = "creditNotes",
+  Customers = "customers",
+  DirectCosts = "directCosts",
+  DirectIncomes = "directIncomes",
+  Invoices = "invoices",
+  Items = "items",
+  JournalEntries = "journalEntries",
+  Journals = "journals",
+  PaymentMethods = "paymentMethods",
+  Payments = "payments",
+  ProfitAndLoss = "profitAndLoss",
+  PurchaseOrders = "purchaseOrders",
+  SalesOrders = "salesOrders",
+  Suppliers = "suppliers",
+  TaxRates = "taxRates",
+  TrackingCategories = "trackingCategories",
+  Transfers = "transfers",
+  BankingAccountBalances = "banking-accountBalances",
+  BankingAccounts = "banking-accounts",
+  BankingTransactionCategories = "banking-transactionCategories",
+  BankingTransactions = "banking-transactions",
+  CommerceCompanyInfo = "commerce-companyInfo",
+  CommerceCustomers = "commerce-customers",
+  CommerceDisputes = "commerce-disputes",
+  CommerceLocations = "commerce-locations",
+  CommerceOrders = "commerce-orders",
+  CommercePaymentMethods = "commerce-paymentMethods",
+  CommercePayments = "commerce-payments",
+  CommerceProductCategories = "commerce-productCategories",
+  CommerceProducts = "commerce-products",
+  CommerceTaxComponents = "commerce-taxComponents",
+  CommerceTransactions = "commerce-transactions",
+}
+
+/**
  * The status of the push operation.
  */
 export enum CreateDirectCost200ApplicationJSONStatusEnum {
@@ -1415,7 +1463,7 @@ export class CreateDirectCost200ApplicationJSON extends SpeakeasyBase {
   completedOnUtc?: string;
 
   /**
-   * > **Language tip: ** Direct costs may also be referred to as **Spend transactions**, **Spend money transactions**, or **Payments** in various accounting platforms.
+   * > **Language tip:** Direct costs may also be referred to as **Spend transactions**, **Spend money transactions**, or **Payments** in various accounting platforms.
    *
    * @remarks
    *
@@ -1428,12 +1476,6 @@ export class CreateDirectCost200ApplicationJSON extends SpeakeasyBase {
    *   * Receiving cash from a refunded item if the refund is made by the supplier
    *   * Withdrawing money from a bank account
    *   * Writing a cheque
-   *
-   * From the Direct Costs endpoints, you can:
-   *
-   *   * [Get a list of all direct costs for a specific company ](https://api.codat.io/swagger/index.html#/DirectCosts/get_companies__companyId__connections__connectionId__data_directCosts)
-   *   * [Get a single direct cost for a specific company ](https://api.codat.io/swagger/index.html#/DirectCosts/get_companies__companyId__connections__connectionId__data_directCosts__directCostId_)
-   *   * [Add a new direct cost to a specific company's accounting package](https://api.codat.io/swagger/index.html#/DirectCosts/post_companies__companyId__connections__connectionId__push_directCosts)
    *
    * Direct costs is a child data type of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction).
    */
@@ -1454,7 +1496,7 @@ export class CreateDirectCost200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
-  dataType?: string;
+  dataType?: CreateDirectCost200ApplicationJSONDataTypeEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "errorMessage" })

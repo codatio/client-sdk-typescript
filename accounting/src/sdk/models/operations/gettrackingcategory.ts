@@ -229,7 +229,7 @@ export class GetTrackingCategorySourceModifiedDateSourceModifiedDate extends Spe
 }
 
 /**
- * Success
+ * The full structure of a specific tracking category including any child or subcategories.
  */
 export class GetTrackingCategorySourceModifiedDate extends SpeakeasyBase {
   /**

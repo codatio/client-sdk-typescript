@@ -18,6 +18,42 @@ export class GetCreateUpdateBankAccountsModelRequest extends SpeakeasyBase {
   connectionId: string;
 }
 
+export enum GetCreateUpdateBankAccountsModelPushOptionPushOptionChoiceOptionTypeEnum {
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
+}
+
+export class GetCreateUpdateBankAccountsModelPushOptionPushOptionChoice extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  @Expose({ name: "description" })
+  description?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "displayName" })
+  displayName?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "required" })
+  required?: boolean;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "type" })
+  type?: GetCreateUpdateBankAccountsModelPushOptionPushOptionChoiceOptionTypeEnum;
+
+  /**
+   * Allowed value for field.
+   */
+  @SpeakeasyMetadata()
+  @Expose({ name: "value" })
+  value?: string;
+}
+
 export enum GetCreateUpdateBankAccountsModelPushOptionPushOptionPropertyPushOptionChoiceOptionTypeEnum {
   Array = "Array",
   Object = "Object",
@@ -604,6 +640,44 @@ export enum GetCreateUpdateBankAccountsModelPushOptionOptionTypeEnum {
   MultiPart = "MultiPart",
 }
 
+export class GetCreateUpdateBankAccountsModelPushOptionPushValidationInfoPushFieldValidation extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  @Expose({ name: "details" })
+  details: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "field" })
+  field?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "ref" })
+  ref?: string;
+}
+
+export class GetCreateUpdateBankAccountsModelPushOptionPushValidationInfo extends SpeakeasyBase {
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateUpdateBankAccountsModelPushOptionPushValidationInfoPushFieldValidation,
+  })
+  @Expose({ name: "information" })
+  @Type(
+    () =>
+      GetCreateUpdateBankAccountsModelPushOptionPushValidationInfoPushFieldValidation
+  )
+  information?: GetCreateUpdateBankAccountsModelPushOptionPushValidationInfoPushFieldValidation[];
+
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateUpdateBankAccountsModelPushOptionPushValidationInfoPushFieldValidation,
+  })
+  @Expose({ name: "warnings" })
+  @Type(
+    () =>
+      GetCreateUpdateBankAccountsModelPushOptionPushValidationInfoPushFieldValidation
+  )
+  warnings?: GetCreateUpdateBankAccountsModelPushOptionPushValidationInfoPushFieldValidation[];
+}
+
 /**
  * OK
  */
@@ -615,6 +689,13 @@ export class GetCreateUpdateBankAccountsModelPushOption extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "displayName" })
   displayName: string;
+
+  @SpeakeasyMetadata({
+    elemType: GetCreateUpdateBankAccountsModelPushOptionPushOptionChoice,
+  })
+  @Expose({ name: "options" })
+  @Type(() => GetCreateUpdateBankAccountsModelPushOptionPushOptionChoice)
+  options?: GetCreateUpdateBankAccountsModelPushOptionPushOptionChoice[];
 
   @SpeakeasyMetadata({
     elemType: GetCreateUpdateBankAccountsModelPushOptionPushOptionProperty,
@@ -651,6 +732,11 @@ export class GetCreateUpdateBankAccountsModelPushOption extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
   type: GetCreateUpdateBankAccountsModelPushOptionOptionTypeEnum;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "validation" })
+  @Type(() => GetCreateUpdateBankAccountsModelPushOptionPushValidationInfo)
+  validation?: GetCreateUpdateBankAccountsModelPushOptionPushValidationInfo;
 }
 
 export class GetCreateUpdateBankAccountsModelResponse extends SpeakeasyBase {

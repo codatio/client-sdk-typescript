@@ -216,7 +216,7 @@ export class ListJournalEntries200ApplicationJSONSourceModifiedDateSupplementalD
  *
  * ## Overview
  *
- * A journal entry report shows the entries made in a company's general ledger, or [accounts](https://api.codat.io/swagger/index.html#/Accounts/get_companies__companyId__data_accounts), when transactions are approved. The journal line items for each journal entry should balance.
+ * A journal entry report shows the entries made in a company's general ledger, or [accounts](https://docs.codat.io/accounting-api#/schemas/Account), when transactions are approved. The journal line items for each journal entry should balance.
  *
  * A journal entry line item is a single transaction line on the journal entry. For example:
  *
@@ -230,7 +230,7 @@ export class ListJournalEntries200ApplicationJSONSourceModifiedDateSupplementalD
  * - A reference to the associated accounts.
  * - A reference to the underlying record. For example, the invoice, bill, or other data type that triggered the posting of the journal entry to the general ledger.
  *
- * > **Pushing journal entries **
+ * > **Pushing journal entries**
  * > Codat only supports journal entries in the base currency of the company that are pushed into accounts denominated in the same base currency.
  */
 export class ListJournalEntries200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {

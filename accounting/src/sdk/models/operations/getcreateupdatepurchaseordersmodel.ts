@@ -18,6 +18,42 @@ export class GetCreateUpdatePurchaseOrdersModelRequest extends SpeakeasyBase {
   connectionId: string;
 }
 
+export enum GetCreateUpdatePurchaseOrdersModelPushOptionPushOptionChoiceOptionTypeEnum {
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
+}
+
+export class GetCreateUpdatePurchaseOrdersModelPushOptionPushOptionChoice extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  @Expose({ name: "description" })
+  description?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "displayName" })
+  displayName?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "required" })
+  required?: boolean;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "type" })
+  type?: GetCreateUpdatePurchaseOrdersModelPushOptionPushOptionChoiceOptionTypeEnum;
+
+  /**
+   * Allowed value for field.
+   */
+  @SpeakeasyMetadata()
+  @Expose({ name: "value" })
+  value?: string;
+}
+
 export enum GetCreateUpdatePurchaseOrdersModelPushOptionPushOptionPropertyPushOptionChoiceOptionTypeEnum {
   Array = "Array",
   Object = "Object",
@@ -604,6 +640,44 @@ export enum GetCreateUpdatePurchaseOrdersModelPushOptionOptionTypeEnum {
   MultiPart = "MultiPart",
 }
 
+export class GetCreateUpdatePurchaseOrdersModelPushOptionPushValidationInfoPushFieldValidation extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  @Expose({ name: "details" })
+  details: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "field" })
+  field?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "ref" })
+  ref?: string;
+}
+
+export class GetCreateUpdatePurchaseOrdersModelPushOptionPushValidationInfo extends SpeakeasyBase {
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateUpdatePurchaseOrdersModelPushOptionPushValidationInfoPushFieldValidation,
+  })
+  @Expose({ name: "information" })
+  @Type(
+    () =>
+      GetCreateUpdatePurchaseOrdersModelPushOptionPushValidationInfoPushFieldValidation
+  )
+  information?: GetCreateUpdatePurchaseOrdersModelPushOptionPushValidationInfoPushFieldValidation[];
+
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateUpdatePurchaseOrdersModelPushOptionPushValidationInfoPushFieldValidation,
+  })
+  @Expose({ name: "warnings" })
+  @Type(
+    () =>
+      GetCreateUpdatePurchaseOrdersModelPushOptionPushValidationInfoPushFieldValidation
+  )
+  warnings?: GetCreateUpdatePurchaseOrdersModelPushOptionPushValidationInfoPushFieldValidation[];
+}
+
 /**
  * OK
  */
@@ -615,6 +689,13 @@ export class GetCreateUpdatePurchaseOrdersModelPushOption extends SpeakeasyBase 
   @SpeakeasyMetadata()
   @Expose({ name: "displayName" })
   displayName: string;
+
+  @SpeakeasyMetadata({
+    elemType: GetCreateUpdatePurchaseOrdersModelPushOptionPushOptionChoice,
+  })
+  @Expose({ name: "options" })
+  @Type(() => GetCreateUpdatePurchaseOrdersModelPushOptionPushOptionChoice)
+  options?: GetCreateUpdatePurchaseOrdersModelPushOptionPushOptionChoice[];
 
   @SpeakeasyMetadata({
     elemType: GetCreateUpdatePurchaseOrdersModelPushOptionPushOptionProperty,
@@ -651,6 +732,11 @@ export class GetCreateUpdatePurchaseOrdersModelPushOption extends SpeakeasyBase 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
   type: GetCreateUpdatePurchaseOrdersModelPushOptionOptionTypeEnum;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "validation" })
+  @Type(() => GetCreateUpdatePurchaseOrdersModelPushOptionPushValidationInfo)
+  validation?: GetCreateUpdatePurchaseOrdersModelPushOptionPushValidationInfo;
 }
 
 export class GetCreateUpdatePurchaseOrdersModelResponse extends SpeakeasyBase {

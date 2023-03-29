@@ -29,19 +29,37 @@ export class CreatePaymentSourceModifiedDateAccountRef extends SpeakeasyBase {
  * Customer the payment is recorded against in the accounting platform.
  */
 export class CreatePaymentSourceModifiedDateCustomerRef extends SpeakeasyBase {
+  /**
+   * `customerName` from the Customer data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
   companyName?: string;
 
+  /**
+   * `id` from the Customers data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
 }
 
 /**
- * Types of payment line links
+ * Types of payment line links, either:
+ *
+ * @remarks
+ * `Unknown`
+ * `Unlinked` - Not used
+ * `Invoice` - ID refers to the invoice
+ * `CreditNote` - ID refers to the credit note
+ * `Refund` - ID refers to the sibling payment
+ * `Payment` - ID refers to the sibling payment
+ * `PaymentOnAccount` - ID refers to the customer
+ * `Other` - ID refers to the customer
+ * `Manual Journal`
+ * `Discount` - ID refers to the payment
  */
-export enum CreatePaymentSourceModifiedDateLinesLinksTypeEnum {
+export enum CreatePaymentSourceModifiedDatePaymentLinePaymentLineLinkPaymentLinkTypeEnum {
   Unknown = "Unknown",
   Unlinked = "Unlinked",
   Invoice = "Invoice",
@@ -54,13 +72,13 @@ export enum CreatePaymentSourceModifiedDateLinesLinksTypeEnum {
   Discount = "Discount",
 }
 
-export class CreatePaymentSourceModifiedDateLinesLinks extends SpeakeasyBase {
+export class CreatePaymentSourceModifiedDatePaymentLinePaymentLineLink extends SpeakeasyBase {
   /**
    * Amount by which the balance of the linked entity is altered, in the currency of the linked entity.
    *
    * @remarks
-   * A negative link amount _reduces the outstanding amount on the accounts receivable account.
-   * A positive link amount _increases the outstanding amount on the accounts receivable account.
+   * A negative link amount _reduces_ the outstanding amount on the accounts receivable account.
+   * A positive link amount _increases_ the outstanding amount on the accounts receivable account.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "amount" })
@@ -105,14 +123,26 @@ export class CreatePaymentSourceModifiedDateLinesLinks extends SpeakeasyBase {
   id?: string;
 
   /**
-   * Types of payment line links
+   * Types of payment line links, either:
+   *
+   * @remarks
+   * `Unknown`
+   * `Unlinked` - Not used
+   * `Invoice` - ID refers to the invoice
+   * `CreditNote` - ID refers to the credit note
+   * `Refund` - ID refers to the sibling payment
+   * `Payment` - ID refers to the sibling payment
+   * `PaymentOnAccount` - ID refers to the customer
+   * `Other` - ID refers to the customer
+   * `Manual Journal`
+   * `Discount` - ID refers to the payment
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: CreatePaymentSourceModifiedDateLinesLinksTypeEnum;
+  type: CreatePaymentSourceModifiedDatePaymentLinePaymentLineLinkPaymentLinkTypeEnum;
 }
 
-export class CreatePaymentSourceModifiedDateLines extends SpeakeasyBase {
+export class CreatePaymentSourceModifiedDatePaymentLine extends SpeakeasyBase {
   /**
    * The date the payment was allocated.
    */
@@ -130,10 +160,12 @@ export class CreatePaymentSourceModifiedDateLines extends SpeakeasyBase {
   @Expose({ name: "amount" })
   amount: number;
 
-  @SpeakeasyMetadata({ elemType: CreatePaymentSourceModifiedDateLinesLinks })
+  @SpeakeasyMetadata({
+    elemType: CreatePaymentSourceModifiedDatePaymentLinePaymentLineLink,
+  })
   @Expose({ name: "links" })
-  @Type(() => CreatePaymentSourceModifiedDateLinesLinks)
-  links?: CreatePaymentSourceModifiedDateLinesLinks[];
+  @Type(() => CreatePaymentSourceModifiedDatePaymentLinePaymentLineLink)
+  links?: CreatePaymentSourceModifiedDatePaymentLinePaymentLineLink[];
 }
 
 export class CreatePaymentSourceModifiedDateMetadata extends SpeakeasyBase {
@@ -149,10 +181,16 @@ export class CreatePaymentSourceModifiedDateMetadata extends SpeakeasyBase {
  * The Payment Method to which the payment is linked in the accounting platform.
  */
 export class CreatePaymentSourceModifiedDatePaymentMethodRef extends SpeakeasyBase {
+  /**
+   * `id` from the Payment Methods data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
-  id: string;
+  id?: string;
 
+  /**
+   * `name` from the Payment Methods data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
   name?: string;
@@ -186,7 +224,7 @@ export class CreatePaymentSourceModifiedDateSupplementalData extends SpeakeasyBa
  * - An allocation of a customer's credit note, either to an invoice or maybe a refund.
  * - A payment made directly to that accounts receivable account. This might be an overpayment or a prepayment. It might also be the refund of a payment made directly to an accounts receivable account.
  *
- * Depending on the payments allowed by the underlying accounting package, some payment types may be combined. Please see the [Example data](#section-example-data) below for more details.
+ * Depending on the payments allowed by the underlying accounting package, some payment types may be combined. Please see the example for more details.
  *
  * In Codat, a payment contains details of:
  *
@@ -289,7 +327,7 @@ export class CreatePaymentSourceModifiedDateSupplementalData extends SpeakeasyBa
  *   - A **type** that indicates the type of **link**, in this case a `Refund`.
  *   - An **id** that contains the ID of the payment that refunded this line.
  *
- * > 📘 Support for linked payments
+ * > **Support for linked payments**
  * >
  * > Not all accounting packages support linking payments in this way. In some platforms, you may see a payment on account and a refund on account.
  *
@@ -312,7 +350,7 @@ export class CreatePaymentSourceModifiedDateSupplementalData extends SpeakeasyBa
  * - The base currency for the accounts receivable account.
  * - The currency of the item.
  *
- * ```json Currency rate example
+ * ```json title="Currency rate example"
  * {
  *     "id": "123",
  *     "note": ""
@@ -338,13 +376,13 @@ export class CreatePaymentSourceModifiedDateSupplementalData extends SpeakeasyBa
  *
  * ## Example data
  *
- * > 📘 Object properties
+ * > **Object properties**
  * >
  * > For the sake of brevity, the examples here may omit properties from objects. For the full object definition, see [Payments](https://api.codat.io/swagger/index.html#/Payments).
  *
  * ## Simple examples
  *
- * ```json Payment for invoice
+ * ```json title="Payment for invoice"
  * {
  *     "totalAmount": 1000,
  *     "lines": [
@@ -364,7 +402,7 @@ export class CreatePaymentSourceModifiedDateSupplementalData extends SpeakeasyBa
  *
  *
  *
- * ```json Allocation of credit note
+ * ```json title="Allocation of credit note"
  * {
  *     "totalAmount": 0,
  *     "lines": [
@@ -389,7 +427,7 @@ export class CreatePaymentSourceModifiedDateSupplementalData extends SpeakeasyBa
  *
  *
  *
- * ```json Payment of invoice and payment on account
+ * ```json title="Payment of invoice and payment on account"
  * {
  *     "totalAmount": 2000,
  *     "lines": [
@@ -419,7 +457,7 @@ export class CreatePaymentSourceModifiedDateSupplementalData extends SpeakeasyBa
  *
  *
  *
- * ```json Refund of credit note
+ * ```json title="Refund of credit note"
  * {
  *     "totalAmount": -1000,
  *     "lines": [
@@ -439,7 +477,7 @@ export class CreatePaymentSourceModifiedDateSupplementalData extends SpeakeasyBa
  *
  *
  *
- * ```json Refund on accounts receivable account
+ * ```json title="Refund on accounts receivable account"
  * {
  *     "totalAmount": -1000,
  *     "lines": [
@@ -459,7 +497,7 @@ export class CreatePaymentSourceModifiedDateSupplementalData extends SpeakeasyBa
  *
  *
  *
- * ```json Linked refund on accounts receivable account
+ * ```json title="Linked refund on accounts receivable account"
  * {
  *     "id" : "payment-001",
  *     "totalAmount": 1000,
@@ -496,7 +534,7 @@ export class CreatePaymentSourceModifiedDateSupplementalData extends SpeakeasyBa
  *
  *
  *
- * ```json Using a credit note and cash to pay an invoice
+ * ```json title="Using a credit note and cash to pay an invoice"
  * {
  *     "totalAmount": 250,
  *     "lines": [
@@ -533,7 +571,7 @@ export class CreatePaymentSourceModifiedDateSupplementalData extends SpeakeasyBa
  *
  * ## Complex examples
  *
- * ```json Use two credit notes and 1000 in to "bank" (cash, cheque etc.) to pay invoice
+ * ```json title="Use two credit notes and 1000 in to "bank" (cash, cheque etc.) to pay invoice"
  * {
  *     "totalAmount": 1000,
  *     "lines": [
@@ -583,7 +621,7 @@ export class CreatePaymentSourceModifiedDateSupplementalData extends SpeakeasyBa
  *
  *
  *
- * ```json Pay an invoice with two credit notes and cash, with 1000 left "on account"
+ * ```json title="Pay an invoice with two credit notes and cash, with 1000 left 'on account'"
  * {
  *     "totalAmount": 2000,
  *     "lines": [
@@ -643,7 +681,7 @@ export class CreatePaymentSourceModifiedDateSupplementalData extends SpeakeasyBa
  *
  *
  *
- * ```json Two credit notes pay two invoices with no allocation amount specified
+ * ```json title="Two credit notes pay two invoices with no allocation amount specified"
  * {
  *     "totalAmount": 0,
  *     "lines": [
@@ -678,7 +716,7 @@ export class CreatePaymentSourceModifiedDateSupplementalData extends SpeakeasyBa
  *
  *
  *
- * ```json Two credit notes and cash pay three invoices with no allocation amount specified, and refund cash
+ * ```json title="Two credit notes and cash pay three invoices with no allocation amount specified, and refund cash"
  * {
  *     "totalAmount": 2000,
  *     "lines": [
@@ -746,7 +784,7 @@ export class CreatePaymentSourceModifiedDateSupplementalData extends SpeakeasyBa
  *
  * In this example, a payment on account is used to pay the same invoice in January and again in February.
  *
- * ```json January
+ * ```json title="January"
  * {
  *     "id": "001",
  *     "totalAmount": 5000,
@@ -778,7 +816,7 @@ export class CreatePaymentSourceModifiedDateSupplementalData extends SpeakeasyBa
  *
  *
  *
- * ```json February
+ * ```json title="February"
  * {
  *     "id": "001",
  *     "totalAmount": 5000,
@@ -820,7 +858,7 @@ export class CreatePaymentSourceModifiedDateSupplementalData extends SpeakeasyBa
  *
  *
  *
- * ```json Two credit notes and some cash pay two invoices with no allocations specified
+ * ```json title="Two credit notes and some cash pay two invoices with no allocations specified"
  * {
  *     "totalAmount": 500,
  *     "lines": [
@@ -921,10 +959,10 @@ export class CreatePaymentSourceModifiedDate extends SpeakeasyBase {
   /**
    * An array of payment lines.
    */
-  @SpeakeasyMetadata({ elemType: CreatePaymentSourceModifiedDateLines })
+  @SpeakeasyMetadata({ elemType: CreatePaymentSourceModifiedDatePaymentLine })
   @Expose({ name: "lines" })
-  @Type(() => CreatePaymentSourceModifiedDateLines)
-  lines?: CreatePaymentSourceModifiedDateLines[];
+  @Type(() => CreatePaymentSourceModifiedDatePaymentLine)
+  lines?: CreatePaymentSourceModifiedDatePaymentLine[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
@@ -1059,19 +1097,37 @@ export class CreatePayment200ApplicationJSONSourceModifiedDateAccountRef extends
  * Customer the payment is recorded against in the accounting platform.
  */
 export class CreatePayment200ApplicationJSONSourceModifiedDateCustomerRef extends SpeakeasyBase {
+  /**
+   * `customerName` from the Customer data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
   companyName?: string;
 
+  /**
+   * `id` from the Customers data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
 }
 
 /**
- * Types of payment line links
+ * Types of payment line links, either:
+ *
+ * @remarks
+ * `Unknown`
+ * `Unlinked` - Not used
+ * `Invoice` - ID refers to the invoice
+ * `CreditNote` - ID refers to the credit note
+ * `Refund` - ID refers to the sibling payment
+ * `Payment` - ID refers to the sibling payment
+ * `PaymentOnAccount` - ID refers to the customer
+ * `Other` - ID refers to the customer
+ * `Manual Journal`
+ * `Discount` - ID refers to the payment
  */
-export enum CreatePayment200ApplicationJSONSourceModifiedDateLinesLinksTypeEnum {
+export enum CreatePayment200ApplicationJSONSourceModifiedDatePaymentLinePaymentLineLinkPaymentLinkTypeEnum {
   Unknown = "Unknown",
   Unlinked = "Unlinked",
   Invoice = "Invoice",
@@ -1084,13 +1140,13 @@ export enum CreatePayment200ApplicationJSONSourceModifiedDateLinesLinksTypeEnum 
   Discount = "Discount",
 }
 
-export class CreatePayment200ApplicationJSONSourceModifiedDateLinesLinks extends SpeakeasyBase {
+export class CreatePayment200ApplicationJSONSourceModifiedDatePaymentLinePaymentLineLink extends SpeakeasyBase {
   /**
    * Amount by which the balance of the linked entity is altered, in the currency of the linked entity.
    *
    * @remarks
-   * A negative link amount _reduces the outstanding amount on the accounts receivable account.
-   * A positive link amount _increases the outstanding amount on the accounts receivable account.
+   * A negative link amount _reduces_ the outstanding amount on the accounts receivable account.
+   * A positive link amount _increases_ the outstanding amount on the accounts receivable account.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "amount" })
@@ -1135,14 +1191,26 @@ export class CreatePayment200ApplicationJSONSourceModifiedDateLinesLinks extends
   id?: string;
 
   /**
-   * Types of payment line links
+   * Types of payment line links, either:
+   *
+   * @remarks
+   * `Unknown`
+   * `Unlinked` - Not used
+   * `Invoice` - ID refers to the invoice
+   * `CreditNote` - ID refers to the credit note
+   * `Refund` - ID refers to the sibling payment
+   * `Payment` - ID refers to the sibling payment
+   * `PaymentOnAccount` - ID refers to the customer
+   * `Other` - ID refers to the customer
+   * `Manual Journal`
+   * `Discount` - ID refers to the payment
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: CreatePayment200ApplicationJSONSourceModifiedDateLinesLinksTypeEnum;
+  type: CreatePayment200ApplicationJSONSourceModifiedDatePaymentLinePaymentLineLinkPaymentLinkTypeEnum;
 }
 
-export class CreatePayment200ApplicationJSONSourceModifiedDateLines extends SpeakeasyBase {
+export class CreatePayment200ApplicationJSONSourceModifiedDatePaymentLine extends SpeakeasyBase {
   /**
    * The date the payment was allocated.
    */
@@ -1161,11 +1229,15 @@ export class CreatePayment200ApplicationJSONSourceModifiedDateLines extends Spea
   amount: number;
 
   @SpeakeasyMetadata({
-    elemType: CreatePayment200ApplicationJSONSourceModifiedDateLinesLinks,
+    elemType:
+      CreatePayment200ApplicationJSONSourceModifiedDatePaymentLinePaymentLineLink,
   })
   @Expose({ name: "links" })
-  @Type(() => CreatePayment200ApplicationJSONSourceModifiedDateLinesLinks)
-  links?: CreatePayment200ApplicationJSONSourceModifiedDateLinesLinks[];
+  @Type(
+    () =>
+      CreatePayment200ApplicationJSONSourceModifiedDatePaymentLinePaymentLineLink
+  )
+  links?: CreatePayment200ApplicationJSONSourceModifiedDatePaymentLinePaymentLineLink[];
 }
 
 export class CreatePayment200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
@@ -1181,10 +1253,16 @@ export class CreatePayment200ApplicationJSONSourceModifiedDateMetadata extends S
  * The Payment Method to which the payment is linked in the accounting platform.
  */
 export class CreatePayment200ApplicationJSONSourceModifiedDatePaymentMethodRef extends SpeakeasyBase {
+  /**
+   * `id` from the Payment Methods data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
-  id: string;
+  id?: string;
 
+  /**
+   * `name` from the Payment Methods data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
   name?: string;
@@ -1218,7 +1296,7 @@ export class CreatePayment200ApplicationJSONSourceModifiedDateSupplementalData e
  * - An allocation of a customer's credit note, either to an invoice or maybe a refund.
  * - A payment made directly to that accounts receivable account. This might be an overpayment or a prepayment. It might also be the refund of a payment made directly to an accounts receivable account.
  *
- * Depending on the payments allowed by the underlying accounting package, some payment types may be combined. Please see the [Example data](#section-example-data) below for more details.
+ * Depending on the payments allowed by the underlying accounting package, some payment types may be combined. Please see the example for more details.
  *
  * In Codat, a payment contains details of:
  *
@@ -1321,7 +1399,7 @@ export class CreatePayment200ApplicationJSONSourceModifiedDateSupplementalData e
  *   - A **type** that indicates the type of **link**, in this case a `Refund`.
  *   - An **id** that contains the ID of the payment that refunded this line.
  *
- * > 📘 Support for linked payments
+ * > **Support for linked payments**
  * >
  * > Not all accounting packages support linking payments in this way. In some platforms, you may see a payment on account and a refund on account.
  *
@@ -1344,7 +1422,7 @@ export class CreatePayment200ApplicationJSONSourceModifiedDateSupplementalData e
  * - The base currency for the accounts receivable account.
  * - The currency of the item.
  *
- * ```json Currency rate example
+ * ```json title="Currency rate example"
  * {
  *     "id": "123",
  *     "note": ""
@@ -1370,13 +1448,13 @@ export class CreatePayment200ApplicationJSONSourceModifiedDateSupplementalData e
  *
  * ## Example data
  *
- * > 📘 Object properties
+ * > **Object properties**
  * >
  * > For the sake of brevity, the examples here may omit properties from objects. For the full object definition, see [Payments](https://api.codat.io/swagger/index.html#/Payments).
  *
  * ## Simple examples
  *
- * ```json Payment for invoice
+ * ```json title="Payment for invoice"
  * {
  *     "totalAmount": 1000,
  *     "lines": [
@@ -1396,7 +1474,7 @@ export class CreatePayment200ApplicationJSONSourceModifiedDateSupplementalData e
  *
  *
  *
- * ```json Allocation of credit note
+ * ```json title="Allocation of credit note"
  * {
  *     "totalAmount": 0,
  *     "lines": [
@@ -1421,7 +1499,7 @@ export class CreatePayment200ApplicationJSONSourceModifiedDateSupplementalData e
  *
  *
  *
- * ```json Payment of invoice and payment on account
+ * ```json title="Payment of invoice and payment on account"
  * {
  *     "totalAmount": 2000,
  *     "lines": [
@@ -1451,7 +1529,7 @@ export class CreatePayment200ApplicationJSONSourceModifiedDateSupplementalData e
  *
  *
  *
- * ```json Refund of credit note
+ * ```json title="Refund of credit note"
  * {
  *     "totalAmount": -1000,
  *     "lines": [
@@ -1471,7 +1549,7 @@ export class CreatePayment200ApplicationJSONSourceModifiedDateSupplementalData e
  *
  *
  *
- * ```json Refund on accounts receivable account
+ * ```json title="Refund on accounts receivable account"
  * {
  *     "totalAmount": -1000,
  *     "lines": [
@@ -1491,7 +1569,7 @@ export class CreatePayment200ApplicationJSONSourceModifiedDateSupplementalData e
  *
  *
  *
- * ```json Linked refund on accounts receivable account
+ * ```json title="Linked refund on accounts receivable account"
  * {
  *     "id" : "payment-001",
  *     "totalAmount": 1000,
@@ -1528,7 +1606,7 @@ export class CreatePayment200ApplicationJSONSourceModifiedDateSupplementalData e
  *
  *
  *
- * ```json Using a credit note and cash to pay an invoice
+ * ```json title="Using a credit note and cash to pay an invoice"
  * {
  *     "totalAmount": 250,
  *     "lines": [
@@ -1565,7 +1643,7 @@ export class CreatePayment200ApplicationJSONSourceModifiedDateSupplementalData e
  *
  * ## Complex examples
  *
- * ```json Use two credit notes and 1000 in to "bank" (cash, cheque etc.) to pay invoice
+ * ```json title="Use two credit notes and 1000 in to "bank" (cash, cheque etc.) to pay invoice"
  * {
  *     "totalAmount": 1000,
  *     "lines": [
@@ -1615,7 +1693,7 @@ export class CreatePayment200ApplicationJSONSourceModifiedDateSupplementalData e
  *
  *
  *
- * ```json Pay an invoice with two credit notes and cash, with 1000 left "on account"
+ * ```json title="Pay an invoice with two credit notes and cash, with 1000 left 'on account'"
  * {
  *     "totalAmount": 2000,
  *     "lines": [
@@ -1675,7 +1753,7 @@ export class CreatePayment200ApplicationJSONSourceModifiedDateSupplementalData e
  *
  *
  *
- * ```json Two credit notes pay two invoices with no allocation amount specified
+ * ```json title="Two credit notes pay two invoices with no allocation amount specified"
  * {
  *     "totalAmount": 0,
  *     "lines": [
@@ -1710,7 +1788,7 @@ export class CreatePayment200ApplicationJSONSourceModifiedDateSupplementalData e
  *
  *
  *
- * ```json Two credit notes and cash pay three invoices with no allocation amount specified, and refund cash
+ * ```json title="Two credit notes and cash pay three invoices with no allocation amount specified, and refund cash"
  * {
  *     "totalAmount": 2000,
  *     "lines": [
@@ -1778,7 +1856,7 @@ export class CreatePayment200ApplicationJSONSourceModifiedDateSupplementalData e
  *
  * In this example, a payment on account is used to pay the same invoice in January and again in February.
  *
- * ```json January
+ * ```json title="January"
  * {
  *     "id": "001",
  *     "totalAmount": 5000,
@@ -1810,7 +1888,7 @@ export class CreatePayment200ApplicationJSONSourceModifiedDateSupplementalData e
  *
  *
  *
- * ```json February
+ * ```json title="February"
  * {
  *     "id": "001",
  *     "totalAmount": 5000,
@@ -1852,7 +1930,7 @@ export class CreatePayment200ApplicationJSONSourceModifiedDateSupplementalData e
  *
  *
  *
- * ```json Two credit notes and some cash pay two invoices with no allocations specified
+ * ```json title="Two credit notes and some cash pay two invoices with no allocations specified"
  * {
  *     "totalAmount": 500,
  *     "lines": [
@@ -1954,11 +2032,11 @@ export class CreatePayment200ApplicationJSONSourceModifiedDate extends Speakeasy
    * An array of payment lines.
    */
   @SpeakeasyMetadata({
-    elemType: CreatePayment200ApplicationJSONSourceModifiedDateLines,
+    elemType: CreatePayment200ApplicationJSONSourceModifiedDatePaymentLine,
   })
   @Expose({ name: "lines" })
-  @Type(() => CreatePayment200ApplicationJSONSourceModifiedDateLines)
-  lines?: CreatePayment200ApplicationJSONSourceModifiedDateLines[];
+  @Type(() => CreatePayment200ApplicationJSONSourceModifiedDatePaymentLine)
+  lines?: CreatePayment200ApplicationJSONSourceModifiedDatePaymentLine[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
@@ -2015,6 +2093,54 @@ export class CreatePayment200ApplicationJSONSourceModifiedDate extends Speakeasy
   @SpeakeasyMetadata()
   @Expose({ name: "totalAmount" })
   totalAmount?: number;
+}
+
+/**
+ * The type of data being pushed, eg invoices, customers.
+ */
+export enum CreatePayment200ApplicationJSONDataTypeEnum {
+  AccountTransactions = "accountTransactions",
+  BalanceSheet = "balanceSheet",
+  BankAccounts = "bankAccounts",
+  BankTransactions = "bankTransactions",
+  BillCreditNotes = "billCreditNotes",
+  BillPayments = "billPayments",
+  Bills = "bills",
+  CashFlowStatement = "cashFlowStatement",
+  ChartOfAccounts = "chartOfAccounts",
+  Company = "company",
+  CreditNotes = "creditNotes",
+  Customers = "customers",
+  DirectCosts = "directCosts",
+  DirectIncomes = "directIncomes",
+  Invoices = "invoices",
+  Items = "items",
+  JournalEntries = "journalEntries",
+  Journals = "journals",
+  PaymentMethods = "paymentMethods",
+  Payments = "payments",
+  ProfitAndLoss = "profitAndLoss",
+  PurchaseOrders = "purchaseOrders",
+  SalesOrders = "salesOrders",
+  Suppliers = "suppliers",
+  TaxRates = "taxRates",
+  TrackingCategories = "trackingCategories",
+  Transfers = "transfers",
+  BankingAccountBalances = "banking-accountBalances",
+  BankingAccounts = "banking-accounts",
+  BankingTransactionCategories = "banking-transactionCategories",
+  BankingTransactions = "banking-transactions",
+  CommerceCompanyInfo = "commerce-companyInfo",
+  CommerceCustomers = "commerce-customers",
+  CommerceDisputes = "commerce-disputes",
+  CommerceLocations = "commerce-locations",
+  CommerceOrders = "commerce-orders",
+  CommercePaymentMethods = "commerce-paymentMethods",
+  CommercePayments = "commerce-payments",
+  CommerceProductCategories = "commerce-productCategories",
+  CommerceProducts = "commerce-products",
+  CommerceTaxComponents = "commerce-taxComponents",
+  CommerceTransactions = "commerce-transactions",
 }
 
 /**
@@ -2102,7 +2228,7 @@ export class CreatePayment200ApplicationJSON extends SpeakeasyBase {
    * - An allocation of a customer's credit note, either to an invoice or maybe a refund.
    * - A payment made directly to that accounts receivable account. This might be an overpayment or a prepayment. It might also be the refund of a payment made directly to an accounts receivable account.
    *
-   * Depending on the payments allowed by the underlying accounting package, some payment types may be combined. Please see the [Example data](#section-example-data) below for more details.
+   * Depending on the payments allowed by the underlying accounting package, some payment types may be combined. Please see the example for more details.
    *
    * In Codat, a payment contains details of:
    *
@@ -2205,7 +2331,7 @@ export class CreatePayment200ApplicationJSON extends SpeakeasyBase {
    *   - A **type** that indicates the type of **link**, in this case a `Refund`.
    *   - An **id** that contains the ID of the payment that refunded this line.
    *
-   * > 📘 Support for linked payments
+   * > **Support for linked payments**
    * >
    * > Not all accounting packages support linking payments in this way. In some platforms, you may see a payment on account and a refund on account.
    *
@@ -2228,7 +2354,7 @@ export class CreatePayment200ApplicationJSON extends SpeakeasyBase {
    * - The base currency for the accounts receivable account.
    * - The currency of the item.
    *
-   * ```json Currency rate example
+   * ```json title="Currency rate example"
    * {
    *     "id": "123",
    *     "note": ""
@@ -2254,13 +2380,13 @@ export class CreatePayment200ApplicationJSON extends SpeakeasyBase {
    *
    * ## Example data
    *
-   * > 📘 Object properties
+   * > **Object properties**
    * >
    * > For the sake of brevity, the examples here may omit properties from objects. For the full object definition, see [Payments](https://api.codat.io/swagger/index.html#/Payments).
    *
    * ## Simple examples
    *
-   * ```json Payment for invoice
+   * ```json title="Payment for invoice"
    * {
    *     "totalAmount": 1000,
    *     "lines": [
@@ -2280,7 +2406,7 @@ export class CreatePayment200ApplicationJSON extends SpeakeasyBase {
    *
    *
    *
-   * ```json Allocation of credit note
+   * ```json title="Allocation of credit note"
    * {
    *     "totalAmount": 0,
    *     "lines": [
@@ -2305,7 +2431,7 @@ export class CreatePayment200ApplicationJSON extends SpeakeasyBase {
    *
    *
    *
-   * ```json Payment of invoice and payment on account
+   * ```json title="Payment of invoice and payment on account"
    * {
    *     "totalAmount": 2000,
    *     "lines": [
@@ -2335,7 +2461,7 @@ export class CreatePayment200ApplicationJSON extends SpeakeasyBase {
    *
    *
    *
-   * ```json Refund of credit note
+   * ```json title="Refund of credit note"
    * {
    *     "totalAmount": -1000,
    *     "lines": [
@@ -2355,7 +2481,7 @@ export class CreatePayment200ApplicationJSON extends SpeakeasyBase {
    *
    *
    *
-   * ```json Refund on accounts receivable account
+   * ```json title="Refund on accounts receivable account"
    * {
    *     "totalAmount": -1000,
    *     "lines": [
@@ -2375,7 +2501,7 @@ export class CreatePayment200ApplicationJSON extends SpeakeasyBase {
    *
    *
    *
-   * ```json Linked refund on accounts receivable account
+   * ```json title="Linked refund on accounts receivable account"
    * {
    *     "id" : "payment-001",
    *     "totalAmount": 1000,
@@ -2412,7 +2538,7 @@ export class CreatePayment200ApplicationJSON extends SpeakeasyBase {
    *
    *
    *
-   * ```json Using a credit note and cash to pay an invoice
+   * ```json title="Using a credit note and cash to pay an invoice"
    * {
    *     "totalAmount": 250,
    *     "lines": [
@@ -2449,7 +2575,7 @@ export class CreatePayment200ApplicationJSON extends SpeakeasyBase {
    *
    * ## Complex examples
    *
-   * ```json Use two credit notes and 1000 in to "bank" (cash, cheque etc.) to pay invoice
+   * ```json title="Use two credit notes and 1000 in to "bank" (cash, cheque etc.) to pay invoice"
    * {
    *     "totalAmount": 1000,
    *     "lines": [
@@ -2499,7 +2625,7 @@ export class CreatePayment200ApplicationJSON extends SpeakeasyBase {
    *
    *
    *
-   * ```json Pay an invoice with two credit notes and cash, with 1000 left "on account"
+   * ```json title="Pay an invoice with two credit notes and cash, with 1000 left 'on account'"
    * {
    *     "totalAmount": 2000,
    *     "lines": [
@@ -2559,7 +2685,7 @@ export class CreatePayment200ApplicationJSON extends SpeakeasyBase {
    *
    *
    *
-   * ```json Two credit notes pay two invoices with no allocation amount specified
+   * ```json title="Two credit notes pay two invoices with no allocation amount specified"
    * {
    *     "totalAmount": 0,
    *     "lines": [
@@ -2594,7 +2720,7 @@ export class CreatePayment200ApplicationJSON extends SpeakeasyBase {
    *
    *
    *
-   * ```json Two credit notes and cash pay three invoices with no allocation amount specified, and refund cash
+   * ```json title="Two credit notes and cash pay three invoices with no allocation amount specified, and refund cash"
    * {
    *     "totalAmount": 2000,
    *     "lines": [
@@ -2662,7 +2788,7 @@ export class CreatePayment200ApplicationJSON extends SpeakeasyBase {
    *
    * In this example, a payment on account is used to pay the same invoice in January and again in February.
    *
-   * ```json January
+   * ```json title="January"
    * {
    *     "id": "001",
    *     "totalAmount": 5000,
@@ -2694,7 +2820,7 @@ export class CreatePayment200ApplicationJSON extends SpeakeasyBase {
    *
    *
    *
-   * ```json February
+   * ```json title="February"
    * {
    *     "id": "001",
    *     "totalAmount": 5000,
@@ -2736,7 +2862,7 @@ export class CreatePayment200ApplicationJSON extends SpeakeasyBase {
    *
    *
    *
-   * ```json Two credit notes and some cash pay two invoices with no allocations specified
+   * ```json title="Two credit notes and some cash pay two invoices with no allocations specified"
    * {
    *     "totalAmount": 500,
    *     "lines": [
@@ -2782,7 +2908,7 @@ export class CreatePayment200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
-  dataType?: string;
+  dataType?: CreatePayment200ApplicationJSONDataTypeEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "errorMessage" })

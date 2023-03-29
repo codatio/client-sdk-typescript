@@ -18,6 +18,42 @@ export class GetCreateChartOfAccountsModelRequest extends SpeakeasyBase {
   connectionId: string;
 }
 
+export enum GetCreateChartOfAccountsModelPushOptionPushOptionChoiceOptionTypeEnum {
+  Array = "Array",
+  Object = "Object",
+  String = "String",
+  Number = "Number",
+  Boolean = "Boolean",
+  DateTime = "DateTime",
+  File = "File",
+  MultiPart = "MultiPart",
+}
+
+export class GetCreateChartOfAccountsModelPushOptionPushOptionChoice extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  @Expose({ name: "description" })
+  description?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "displayName" })
+  displayName?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "required" })
+  required?: boolean;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "type" })
+  type?: GetCreateChartOfAccountsModelPushOptionPushOptionChoiceOptionTypeEnum;
+
+  /**
+   * Allowed value for field.
+   */
+  @SpeakeasyMetadata()
+  @Expose({ name: "value" })
+  value?: string;
+}
+
 export enum GetCreateChartOfAccountsModelPushOptionPushOptionPropertyPushOptionChoiceOptionTypeEnum {
   Array = "Array",
   Object = "Object",
@@ -604,6 +640,44 @@ export enum GetCreateChartOfAccountsModelPushOptionOptionTypeEnum {
   MultiPart = "MultiPart",
 }
 
+export class GetCreateChartOfAccountsModelPushOptionPushValidationInfoPushFieldValidation extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  @Expose({ name: "details" })
+  details: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "field" })
+  field?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "ref" })
+  ref?: string;
+}
+
+export class GetCreateChartOfAccountsModelPushOptionPushValidationInfo extends SpeakeasyBase {
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateChartOfAccountsModelPushOptionPushValidationInfoPushFieldValidation,
+  })
+  @Expose({ name: "information" })
+  @Type(
+    () =>
+      GetCreateChartOfAccountsModelPushOptionPushValidationInfoPushFieldValidation
+  )
+  information?: GetCreateChartOfAccountsModelPushOptionPushValidationInfoPushFieldValidation[];
+
+  @SpeakeasyMetadata({
+    elemType:
+      GetCreateChartOfAccountsModelPushOptionPushValidationInfoPushFieldValidation,
+  })
+  @Expose({ name: "warnings" })
+  @Type(
+    () =>
+      GetCreateChartOfAccountsModelPushOptionPushValidationInfoPushFieldValidation
+  )
+  warnings?: GetCreateChartOfAccountsModelPushOptionPushValidationInfoPushFieldValidation[];
+}
+
 /**
  * OK
  */
@@ -615,6 +689,13 @@ export class GetCreateChartOfAccountsModelPushOption extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "displayName" })
   displayName: string;
+
+  @SpeakeasyMetadata({
+    elemType: GetCreateChartOfAccountsModelPushOptionPushOptionChoice,
+  })
+  @Expose({ name: "options" })
+  @Type(() => GetCreateChartOfAccountsModelPushOptionPushOptionChoice)
+  options?: GetCreateChartOfAccountsModelPushOptionPushOptionChoice[];
 
   @SpeakeasyMetadata({
     elemType: GetCreateChartOfAccountsModelPushOptionPushOptionProperty,
@@ -651,6 +732,11 @@ export class GetCreateChartOfAccountsModelPushOption extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
   type: GetCreateChartOfAccountsModelPushOptionOptionTypeEnum;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "validation" })
+  @Type(() => GetCreateChartOfAccountsModelPushOptionPushValidationInfo)
+  validation?: GetCreateChartOfAccountsModelPushOptionPushValidationInfo;
 }
 
 export class GetCreateChartOfAccountsModelResponse extends SpeakeasyBase {

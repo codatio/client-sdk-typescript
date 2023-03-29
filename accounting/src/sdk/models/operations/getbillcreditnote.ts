@@ -41,10 +41,16 @@ export class GetBillCreditNoteSourceModifiedDateLineItemsAccountRef extends Spea
  * Reference to the item the line is linked to.
  */
 export class GetBillCreditNoteSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
+  /**
+   * Unique identifier for the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
 
+  /**
+   * Name of the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
   name?: string;
@@ -62,14 +68,14 @@ export class GetBillCreditNoteSourceModifiedDateLineItemsTaxRateRef extends Spea
   effectiveTaxRate?: number;
 
   /**
-   * 'id' from the 'taxRates' data type.
+   * Unique identifier for the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
 
   /**
-   * 'name' from the 'taxRates' data type.
+   * Name of the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
@@ -90,10 +96,16 @@ export class GetBillCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs ex
 }
 
 export class GetBillCreditNoteSourceModifiedDateLineItemsTrackingCustomerRef extends SpeakeasyBase {
+  /**
+   * `customerName` from the Customer data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
   companyName?: string;
 
+  /**
+   * `id` from the Customers data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -457,10 +469,16 @@ export class GetBillCreditNoteSourceModifiedDateSupplementalData extends Speakea
  * Supplier that issued the bill credit note.
  */
 export class GetBillCreditNoteSourceModifiedDateSupplierRef extends SpeakeasyBase {
+  /**
+   * The supplier's unique ID
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
 
+  /**
+   * The supplier's name
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "supplierName" })
   supplierName?: string;

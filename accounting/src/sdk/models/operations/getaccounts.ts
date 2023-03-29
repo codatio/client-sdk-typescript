@@ -165,13 +165,11 @@ export class GetAccounts200ApplicationJSONSourceModifiedDateValidDataTypeLinks e
  *
  * @remarks
  *
- * Explore the <a className="external" href="https://api.codat.io/swagger/index.html#/Accounts" target="_blank">Accounts</a> endpoints in Swagger.
- *
  * View the coverage for accounts in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts" target="_blank">Data coverage explorer</a>.
  *
  * ## Overview
  *
- * Accounts are the categories a business uses to record accounting transactions. From the Accounts endpoints, you can retrieve [a list of all accounts for a specified company](https://api.codat.io/swagger/index.html#/Accounts/Accounts_List).
+ * Accounts are the categories a business uses to record accounting transactions. From the Accounts endpoints, you can retrieve a list of all accounts for a specified company.
  *
  * The categories for an account include:
  *   * Asset
@@ -188,7 +186,7 @@ export class GetAccounts200ApplicationJSONSourceModifiedDateValidDataTypeLinks e
  */
 export class GetAccounts200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   /**
-   * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code. e.g. _GBP_.
+   * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
    *
    * @remarks
    *

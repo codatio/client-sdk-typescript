@@ -22,10 +22,16 @@ export class GetSalesOrderRequest extends SpeakeasyBase {
  * The customer that the sales order is recorded against in the accounting system.
  */
 export class GetSalesOrderSourceModifiedDateCustomerRef extends SpeakeasyBase {
+  /**
+   * `customerName` from the Customer data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
   companyName?: string;
 
+  /**
+   * `id` from the Customers data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -64,10 +70,16 @@ export class GetSalesOrderSourceModifiedDateLineItemsAccountRef extends Speakeas
  * Reference to the product or inventory item to which the line item is linked.
  */
 export class GetSalesOrderSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
+  /**
+   * Unique identifier for the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
 
+  /**
+   * Name of the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
   name?: string;
@@ -85,14 +97,14 @@ export class GetSalesOrderSourceModifiedDateLineItemsTaxRateRef extends Speakeas
   effectiveTaxRate?: number;
 
   /**
-   * 'id' from the 'taxRates' data type.
+   * Unique identifier for the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
 
   /**
-   * 'name' from the 'taxRates' data type.
+   * Name of the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })

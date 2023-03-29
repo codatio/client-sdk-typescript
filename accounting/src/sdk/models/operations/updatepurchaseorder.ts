@@ -29,10 +29,16 @@ export class UpdatePurchaseOrderSourceModifiedDateLineItemsAccountRef extends Sp
  * Reference to the product or inventory item to which the line item is linked.
  */
 export class UpdatePurchaseOrderSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
+  /**
+   * Unique identifier for the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
 
+  /**
+   * Name of the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
   name?: string;
@@ -50,14 +56,14 @@ export class UpdatePurchaseOrderSourceModifiedDateLineItemsTaxRateRef extends Sp
   effectiveTaxRate?: number;
 
   /**
-   * 'id' from the 'taxRates' data type.
+   * Unique identifier for the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
 
   /**
-   * 'name' from the 'taxRates' data type.
+   * Name of the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
@@ -306,10 +312,16 @@ export enum UpdatePurchaseOrderSourceModifiedDateStatusEnum {
  * Supplier that the purchase order is recorded against in the accounting system.
  */
 export class UpdatePurchaseOrderSourceModifiedDateSupplierRef extends SpeakeasyBase {
+  /**
+   * The supplier's unique ID
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
 
+  /**
+   * The supplier's name
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "supplierName" })
   supplierName?: string;
@@ -586,10 +598,16 @@ export class UpdatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsAcc
  * Reference to the product or inventory item to which the line item is linked.
  */
 export class UpdatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
+  /**
+   * Unique identifier for the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
 
+  /**
+   * Name of the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
   name?: string;
@@ -607,14 +625,14 @@ export class UpdatePurchaseOrder200ApplicationJSONSourceModifiedDateLineItemsTax
   effectiveTaxRate?: number;
 
   /**
-   * 'id' from the 'taxRates' data type.
+   * Unique identifier for the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
 
   /**
-   * 'name' from the 'taxRates' data type.
+   * Name of the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
@@ -877,10 +895,16 @@ export enum UpdatePurchaseOrder200ApplicationJSONSourceModifiedDateStatusEnum {
  * Supplier that the purchase order is recorded against in the accounting system.
  */
 export class UpdatePurchaseOrder200ApplicationJSONSourceModifiedDateSupplierRef extends SpeakeasyBase {
+  /**
+   * The supplier's unique ID
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
 
+  /**
+   * The supplier's name
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "supplierName" })
   supplierName?: string;
@@ -1072,6 +1096,54 @@ export class UpdatePurchaseOrder200ApplicationJSONSourceModifiedDate extends Spe
 }
 
 /**
+ * The type of data being pushed, eg invoices, customers.
+ */
+export enum UpdatePurchaseOrder200ApplicationJSONDataTypeEnum {
+  AccountTransactions = "accountTransactions",
+  BalanceSheet = "balanceSheet",
+  BankAccounts = "bankAccounts",
+  BankTransactions = "bankTransactions",
+  BillCreditNotes = "billCreditNotes",
+  BillPayments = "billPayments",
+  Bills = "bills",
+  CashFlowStatement = "cashFlowStatement",
+  ChartOfAccounts = "chartOfAccounts",
+  Company = "company",
+  CreditNotes = "creditNotes",
+  Customers = "customers",
+  DirectCosts = "directCosts",
+  DirectIncomes = "directIncomes",
+  Invoices = "invoices",
+  Items = "items",
+  JournalEntries = "journalEntries",
+  Journals = "journals",
+  PaymentMethods = "paymentMethods",
+  Payments = "payments",
+  ProfitAndLoss = "profitAndLoss",
+  PurchaseOrders = "purchaseOrders",
+  SalesOrders = "salesOrders",
+  Suppliers = "suppliers",
+  TaxRates = "taxRates",
+  TrackingCategories = "trackingCategories",
+  Transfers = "transfers",
+  BankingAccountBalances = "banking-accountBalances",
+  BankingAccounts = "banking-accounts",
+  BankingTransactionCategories = "banking-transactionCategories",
+  BankingTransactions = "banking-transactions",
+  CommerceCompanyInfo = "commerce-companyInfo",
+  CommerceCustomers = "commerce-customers",
+  CommerceDisputes = "commerce-disputes",
+  CommerceLocations = "commerce-locations",
+  CommerceOrders = "commerce-orders",
+  CommercePaymentMethods = "commerce-paymentMethods",
+  CommercePayments = "commerce-payments",
+  CommerceProductCategories = "commerce-productCategories",
+  CommerceProducts = "commerce-products",
+  CommerceTaxComponents = "commerce-taxComponents",
+  CommerceTransactions = "commerce-transactions",
+}
+
+/**
  * The status of the push operation.
  */
 export enum UpdatePurchaseOrder200ApplicationJSONStatusEnum {
@@ -1165,7 +1237,7 @@ export class UpdatePurchaseOrder200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
-  dataType?: string;
+  dataType?: UpdatePurchaseOrder200ApplicationJSONDataTypeEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "errorMessage" })

@@ -7,9 +7,13 @@ import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
 /**
- * The type of the account.
+ * The type of transactions and balances on the account.
+ *
+ * @remarks
+ * For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.
+ * For Debit accounts, positive balances are assets, and positive transactions **increase** assets.
  */
-export enum CreateBankAccountSourceModifiedDateAccountTypeEnum {
+export enum CreateBankAccountSourceModifiedDateBankAccountTypeEnum {
   Unknown = "Unknown",
   Credit = "Credit",
   Debit = "Debit",
@@ -37,7 +41,7 @@ export class CreateBankAccountSourceModifiedDateMetadata extends SpeakeasyBase {
  *
  * ## Overview
  *
- * A list of bank accounts associated with a company and a specific [data connection](https://api.codat.io/swagger/index.html#/Connection/get_companies__companyId__connections__connectionId_).
+ * A list of bank accounts associated with a company and a specific data connection.
  *
  * Bank accounts data includes:
  * * The name and ID of the account in the accounting platform.
@@ -68,11 +72,15 @@ export class CreateBankAccountSourceModifiedDate extends SpeakeasyBase {
   accountNumber?: string;
 
   /**
-   * The type of the account.
+   * The type of transactions and balances on the account.
+   *
+   * @remarks
+   * For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.
+   * For Debit accounts, positive balances are assets, and positive transactions **increase** assets.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "accountType" })
-  accountType?: CreateBankAccountSourceModifiedDateAccountTypeEnum;
+  accountType?: CreateBankAccountSourceModifiedDateBankAccountTypeEnum;
 
   /**
    * Total available balance of the bank account as reported by the underlying data source. This may take into account overdrafts or pending transactions for example.
@@ -225,9 +233,13 @@ export class CreateBankAccount200ApplicationJSONChanges extends SpeakeasyBase {
 }
 
 /**
- * The type of the account.
+ * The type of transactions and balances on the account.
+ *
+ * @remarks
+ * For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.
+ * For Debit accounts, positive balances are assets, and positive transactions **increase** assets.
  */
-export enum CreateBankAccount200ApplicationJSONSourceModifiedDateAccountTypeEnum {
+export enum CreateBankAccount200ApplicationJSONSourceModifiedDateBankAccountTypeEnum {
   Unknown = "Unknown",
   Credit = "Credit",
   Debit = "Debit",
@@ -255,7 +267,7 @@ export class CreateBankAccount200ApplicationJSONSourceModifiedDateMetadata exten
  *
  * ## Overview
  *
- * A list of bank accounts associated with a company and a specific [data connection](https://api.codat.io/swagger/index.html#/Connection/get_companies__companyId__connections__connectionId_).
+ * A list of bank accounts associated with a company and a specific data connection.
  *
  * Bank accounts data includes:
  * * The name and ID of the account in the accounting platform.
@@ -286,11 +298,15 @@ export class CreateBankAccount200ApplicationJSONSourceModifiedDate extends Speak
   accountNumber?: string;
 
   /**
-   * The type of the account.
+   * The type of transactions and balances on the account.
+   *
+   * @remarks
+   * For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.
+   * For Debit accounts, positive balances are assets, and positive transactions **increase** assets.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "accountType" })
-  accountType?: CreateBankAccount200ApplicationJSONSourceModifiedDateAccountTypeEnum;
+  accountType?: CreateBankAccount200ApplicationJSONSourceModifiedDateBankAccountTypeEnum;
 
   /**
    * Total available balance of the bank account as reported by the underlying data source. This may take into account overdrafts or pending transactions for example.
@@ -385,6 +401,54 @@ export class CreateBankAccount200ApplicationJSONSourceModifiedDate extends Speak
 }
 
 /**
+ * The type of data being pushed, eg invoices, customers.
+ */
+export enum CreateBankAccount200ApplicationJSONDataTypeEnum {
+  AccountTransactions = "accountTransactions",
+  BalanceSheet = "balanceSheet",
+  BankAccounts = "bankAccounts",
+  BankTransactions = "bankTransactions",
+  BillCreditNotes = "billCreditNotes",
+  BillPayments = "billPayments",
+  Bills = "bills",
+  CashFlowStatement = "cashFlowStatement",
+  ChartOfAccounts = "chartOfAccounts",
+  Company = "company",
+  CreditNotes = "creditNotes",
+  Customers = "customers",
+  DirectCosts = "directCosts",
+  DirectIncomes = "directIncomes",
+  Invoices = "invoices",
+  Items = "items",
+  JournalEntries = "journalEntries",
+  Journals = "journals",
+  PaymentMethods = "paymentMethods",
+  Payments = "payments",
+  ProfitAndLoss = "profitAndLoss",
+  PurchaseOrders = "purchaseOrders",
+  SalesOrders = "salesOrders",
+  Suppliers = "suppliers",
+  TaxRates = "taxRates",
+  TrackingCategories = "trackingCategories",
+  Transfers = "transfers",
+  BankingAccountBalances = "banking-accountBalances",
+  BankingAccounts = "banking-accounts",
+  BankingTransactionCategories = "banking-transactionCategories",
+  BankingTransactions = "banking-transactions",
+  CommerceCompanyInfo = "commerce-companyInfo",
+  CommerceCustomers = "commerce-customers",
+  CommerceDisputes = "commerce-disputes",
+  CommerceLocations = "commerce-locations",
+  CommerceOrders = "commerce-orders",
+  CommercePaymentMethods = "commerce-paymentMethods",
+  CommercePayments = "commerce-payments",
+  CommerceProductCategories = "commerce-productCategories",
+  CommerceProducts = "commerce-products",
+  CommerceTaxComponents = "commerce-taxComponents",
+  CommerceTransactions = "commerce-transactions",
+}
+
+/**
  * The status of the push operation.
  */
 export enum CreateBankAccount200ApplicationJSONStatusEnum {
@@ -463,7 +527,7 @@ export class CreateBankAccount200ApplicationJSON extends SpeakeasyBase {
    *
    * ## Overview
    *
-   * A list of bank accounts associated with a company and a specific [data connection](https://api.codat.io/swagger/index.html#/Connection/get_companies__companyId__connections__connectionId_).
+   * A list of bank accounts associated with a company and a specific data connection.
    *
    * Bank accounts data includes:
    * * The name and ID of the account in the accounting platform.
@@ -487,7 +551,7 @@ export class CreateBankAccount200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
-  dataType?: string;
+  dataType?: CreateBankAccount200ApplicationJSONDataTypeEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "errorMessage" })

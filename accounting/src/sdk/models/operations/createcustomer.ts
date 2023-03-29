@@ -203,7 +203,7 @@ export class CreateCustomerSourceModifiedDateContacts extends SpeakeasyBase {
    * - Unqualified local time: `2021-11-15T01:00:00`
    * - UTC time offsets: `2021-11-15T01:00:00-05:00`
    *
-   * > 📘 Time zones
+   * > Time zones
    * >
    * > Not all dates from Codat will contain information about time zones.
    * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
@@ -638,7 +638,7 @@ export class CreateCustomer200ApplicationJSONSourceModifiedDateContacts extends 
    * - Unqualified local time: `2021-11-15T01:00:00`
    * - UTC time offsets: `2021-11-15T01:00:00-05:00`
    *
-   * > 📘 Time zones
+   * > Time zones
    * >
    * > Not all dates from Codat will contain information about time zones.
    * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
@@ -830,6 +830,54 @@ export class CreateCustomer200ApplicationJSONSourceModifiedDate extends Speakeas
 }
 
 /**
+ * The type of data being pushed, eg invoices, customers.
+ */
+export enum CreateCustomer200ApplicationJSONDataTypeEnum {
+  AccountTransactions = "accountTransactions",
+  BalanceSheet = "balanceSheet",
+  BankAccounts = "bankAccounts",
+  BankTransactions = "bankTransactions",
+  BillCreditNotes = "billCreditNotes",
+  BillPayments = "billPayments",
+  Bills = "bills",
+  CashFlowStatement = "cashFlowStatement",
+  ChartOfAccounts = "chartOfAccounts",
+  Company = "company",
+  CreditNotes = "creditNotes",
+  Customers = "customers",
+  DirectCosts = "directCosts",
+  DirectIncomes = "directIncomes",
+  Invoices = "invoices",
+  Items = "items",
+  JournalEntries = "journalEntries",
+  Journals = "journals",
+  PaymentMethods = "paymentMethods",
+  Payments = "payments",
+  ProfitAndLoss = "profitAndLoss",
+  PurchaseOrders = "purchaseOrders",
+  SalesOrders = "salesOrders",
+  Suppliers = "suppliers",
+  TaxRates = "taxRates",
+  TrackingCategories = "trackingCategories",
+  Transfers = "transfers",
+  BankingAccountBalances = "banking-accountBalances",
+  BankingAccounts = "banking-accounts",
+  BankingTransactionCategories = "banking-transactionCategories",
+  BankingTransactions = "banking-transactions",
+  CommerceCompanyInfo = "commerce-companyInfo",
+  CommerceCustomers = "commerce-customers",
+  CommerceDisputes = "commerce-disputes",
+  CommerceLocations = "commerce-locations",
+  CommerceOrders = "commerce-orders",
+  CommercePaymentMethods = "commerce-paymentMethods",
+  CommercePayments = "commerce-payments",
+  CommerceProductCategories = "commerce-productCategories",
+  CommerceProducts = "commerce-products",
+  CommerceTaxComponents = "commerce-taxComponents",
+  CommerceTransactions = "commerce-transactions",
+}
+
+/**
  * The status of the push operation.
  */
 export enum CreateCustomer200ApplicationJSONStatusEnum {
@@ -924,7 +972,7 @@ export class CreateCustomer200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
-  dataType?: string;
+  dataType?: CreateCustomer200ApplicationJSONDataTypeEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "errorMessage" })

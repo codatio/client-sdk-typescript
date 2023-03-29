@@ -27,9 +27,13 @@ export class GetBankAccountRequest extends SpeakeasyBase {
 }
 
 /**
- * The type of the account.
+ * The type of transactions and balances on the account.
+ *
+ * @remarks
+ * For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.
+ * For Debit accounts, positive balances are assets, and positive transactions **increase** assets.
  */
-export enum GetBankAccountSourceModifiedDateAccountTypeEnum {
+export enum GetBankAccountSourceModifiedDateBankAccountTypeEnum {
   Unknown = "Unknown",
   Credit = "Credit",
   Debit = "Debit",
@@ -57,7 +61,7 @@ export class GetBankAccountSourceModifiedDateMetadata extends SpeakeasyBase {
  *
  * ## Overview
  *
- * A list of bank accounts associated with a company and a specific [data connection](https://api.codat.io/swagger/index.html#/Connection/get_companies__companyId__connections__connectionId_).
+ * A list of bank accounts associated with a company and a specific data connection.
  *
  * Bank accounts data includes:
  * * The name and ID of the account in the accounting platform.
@@ -88,11 +92,15 @@ export class GetBankAccountSourceModifiedDate extends SpeakeasyBase {
   accountNumber?: string;
 
   /**
-   * The type of the account.
+   * The type of transactions and balances on the account.
+   *
+   * @remarks
+   * For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.
+   * For Debit accounts, positive balances are assets, and positive transactions **increase** assets.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "accountType" })
-  accountType?: GetBankAccountSourceModifiedDateAccountTypeEnum;
+  accountType?: GetBankAccountSourceModifiedDateBankAccountTypeEnum;
 
   /**
    * Total available balance of the bank account as reported by the underlying data source. This may take into account overdrafts or pending transactions for example.

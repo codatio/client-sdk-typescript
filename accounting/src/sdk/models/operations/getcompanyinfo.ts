@@ -126,7 +126,15 @@ export class GetCompanyInfoCompanyInfoWebLinks extends SpeakeasyBase {
 }
 
 /**
- * Success
+ * > View the coverage for company info in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=cashFlowStatement" target="_blank">Data coverage explorer</a>.
+ *
+ * @remarks
+ *
+ * Company info provides standard details about a linked company such as their address, phone number, and company registration.
+ *
+ * > **Company information or companies?**
+ * >
+ * > Company information is standard information that is held in the accounting platform about a company. `Companies` is an endpoint that lists businesses in the Codat system that have linked and shared their data sources.
  */
 export class GetCompanyInfoCompanyInfo extends SpeakeasyBase {
   /**
@@ -206,7 +214,7 @@ export class GetCompanyInfoCompanyInfo extends SpeakeasyBase {
    *
    * @remarks
    *
-   * For example, for Xero integrations two URLs are returned. These have many potential use cases, such as deep linking.
+   * For example, for Xero integrations two URLs are returned. These have many potential use cases, such as [deep linking](https://developer.xero.com/documentation/api-guides/deep-link-xero).
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceUrls" })

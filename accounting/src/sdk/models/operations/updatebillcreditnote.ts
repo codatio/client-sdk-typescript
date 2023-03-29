@@ -29,10 +29,16 @@ export class UpdateBillCreditNoteSourceModifiedDateLineItemsAccountRef extends S
  * Reference to the item the line is linked to.
  */
 export class UpdateBillCreditNoteSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
+  /**
+   * Unique identifier for the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
 
+  /**
+   * Name of the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
   name?: string;
@@ -50,14 +56,14 @@ export class UpdateBillCreditNoteSourceModifiedDateLineItemsTaxRateRef extends S
   effectiveTaxRate?: number;
 
   /**
-   * 'id' from the 'taxRates' data type.
+   * Unique identifier for the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
 
   /**
-   * 'name' from the 'taxRates' data type.
+   * Name of the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
@@ -78,10 +84,16 @@ export class UpdateBillCreditNoteSourceModifiedDateLineItemsTrackingCategoryRefs
 }
 
 export class UpdateBillCreditNoteSourceModifiedDateLineItemsTrackingCustomerRef extends SpeakeasyBase {
+  /**
+   * `customerName` from the Customer data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
   companyName?: string;
 
+  /**
+   * `id` from the Customers data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -456,10 +468,16 @@ export class UpdateBillCreditNoteSourceModifiedDateSupplementalData extends Spea
  * Supplier that issued the bill credit note.
  */
 export class UpdateBillCreditNoteSourceModifiedDateSupplierRef extends SpeakeasyBase {
+  /**
+   * The supplier's unique ID
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
 
+  /**
+   * The supplier's name
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "supplierName" })
   supplierName?: string;
@@ -769,10 +787,16 @@ export class UpdateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsAc
  * Reference to the item the line is linked to.
  */
 export class UpdateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
+  /**
+   * Unique identifier for the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
 
+  /**
+   * Name of the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
   name?: string;
@@ -790,14 +814,14 @@ export class UpdateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTa
   effectiveTaxRate?: number;
 
   /**
-   * 'id' from the 'taxRates' data type.
+   * Unique identifier for the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
 
   /**
-   * 'name' from the 'taxRates' data type.
+   * Name of the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
@@ -818,10 +842,16 @@ export class UpdateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTr
 }
 
 export class UpdateBillCreditNote200ApplicationJSONSourceModifiedDateLineItemsTrackingCustomerRef extends SpeakeasyBase {
+  /**
+   * `customerName` from the Customer data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
   companyName?: string;
 
+  /**
+   * `id` from the Customers data type
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
@@ -1218,10 +1248,16 @@ export class UpdateBillCreditNote200ApplicationJSONSourceModifiedDateSupplementa
  * Supplier that issued the bill credit note.
  */
 export class UpdateBillCreditNote200ApplicationJSONSourceModifiedDateSupplierRef extends SpeakeasyBase {
+  /**
+   * The supplier's unique ID
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
 
+  /**
+   * The supplier's name
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "supplierName" })
   supplierName?: string;
@@ -1456,6 +1492,54 @@ export class UpdateBillCreditNote200ApplicationJSONSourceModifiedDate extends Sp
 }
 
 /**
+ * The type of data being pushed, eg invoices, customers.
+ */
+export enum UpdateBillCreditNote200ApplicationJSONDataTypeEnum {
+  AccountTransactions = "accountTransactions",
+  BalanceSheet = "balanceSheet",
+  BankAccounts = "bankAccounts",
+  BankTransactions = "bankTransactions",
+  BillCreditNotes = "billCreditNotes",
+  BillPayments = "billPayments",
+  Bills = "bills",
+  CashFlowStatement = "cashFlowStatement",
+  ChartOfAccounts = "chartOfAccounts",
+  Company = "company",
+  CreditNotes = "creditNotes",
+  Customers = "customers",
+  DirectCosts = "directCosts",
+  DirectIncomes = "directIncomes",
+  Invoices = "invoices",
+  Items = "items",
+  JournalEntries = "journalEntries",
+  Journals = "journals",
+  PaymentMethods = "paymentMethods",
+  Payments = "payments",
+  ProfitAndLoss = "profitAndLoss",
+  PurchaseOrders = "purchaseOrders",
+  SalesOrders = "salesOrders",
+  Suppliers = "suppliers",
+  TaxRates = "taxRates",
+  TrackingCategories = "trackingCategories",
+  Transfers = "transfers",
+  BankingAccountBalances = "banking-accountBalances",
+  BankingAccounts = "banking-accounts",
+  BankingTransactionCategories = "banking-transactionCategories",
+  BankingTransactions = "banking-transactions",
+  CommerceCompanyInfo = "commerce-companyInfo",
+  CommerceCustomers = "commerce-customers",
+  CommerceDisputes = "commerce-disputes",
+  CommerceLocations = "commerce-locations",
+  CommerceOrders = "commerce-orders",
+  CommercePaymentMethods = "commerce-paymentMethods",
+  CommercePayments = "commerce-payments",
+  CommerceProductCategories = "commerce-productCategories",
+  CommerceProducts = "commerce-products",
+  CommerceTaxComponents = "commerce-taxComponents",
+  CommerceTransactions = "commerce-transactions",
+}
+
+/**
  * The status of the push operation.
  */
 export enum UpdateBillCreditNote200ApplicationJSONStatusEnum {
@@ -1560,7 +1644,7 @@ export class UpdateBillCreditNote200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
-  dataType?: string;
+  dataType?: UpdateBillCreditNote200ApplicationJSONDataTypeEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "errorMessage" })

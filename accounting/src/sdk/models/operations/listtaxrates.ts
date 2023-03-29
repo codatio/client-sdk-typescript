@@ -69,15 +69,27 @@ export class ListTaxRates200ApplicationJSONLinks extends SpeakeasyBase {
   self: ListTaxRates200ApplicationJSONLinksHypertextReference;
 }
 
-export class ListTaxRates200ApplicationJSONResultsComponents extends SpeakeasyBase {
+/**
+ * A tax rate can be made up of multiple sub taxes, often called components of the tax.
+ */
+export class ListTaxRates200ApplicationJSONResultsTaxRateComponent extends SpeakeasyBase {
+  /**
+   * A flag to indicate with the tax is calculated using the principle of compounding.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "isCompound" })
   isCompound: boolean;
 
+  /**
+   * Name of the tax rate component.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
   name?: string;
 
+  /**
+   * The rate of the tax rate component, usually a percentage.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "rate" })
   rate?: number;
@@ -92,6 +104,14 @@ export class ListTaxRates200ApplicationJSONResultsMetadata extends SpeakeasyBase
   isDeleted?: boolean;
 }
 
+/**
+ * Status of the tax rate in the accounting platform.
+ *
+ * @remarks
+ * - `Active` - An active tax rate in use by a company.
+ * - `Archived` - A tax rate that has been archived or is inactive in the accounting platform.
+ * - `Unknown` - Where the status of the tax rate cannot be determined from the underlying platform.
+ */
 export enum ListTaxRates200ApplicationJSONResultsStatusEnum {
   Unknown = "Unknown",
   Active = "Active",
@@ -165,38 +185,48 @@ export class ListTaxRates200ApplicationJSONResultsValidDataTypeLinks extends Spe
  *
  * ## Overview
  *
- * Accounting systems typically store a set of taxes and associated rates within the accounting package. This means that users don't have to look up or remember the rates for each type of tax. For example: Applying the tax "UK sales VAT" to line items of an invoice adds the correct rate of 20%.
+ * Accounting systems typically store a set of taxes and associated rates within the accounting package. This means that users don't have to look up or remember the rates for each type of tax. For example, applying the tax "UK sales VAT" to line items of an invoice adds the correct rate of 20%.
  *
  * ### Tax components
  *
- * In some cases, a tax is made up of multiple sub taxes, often called _components_ of the tax.  For example: You may have an item that is charged a tax rate called "City import tax (8%)" that has two components:
+ * In some cases, a tax is made up of multiple sub taxes, often called _components_ of the tax.  For example, you may have an item that is charged a tax rate called "City import tax (8%)" that has two components:
  *
- * - A city tax of 5%.
- * - An import tax of 3%.
+ * - A city tax of 5%
+ * - An import tax of 3%
  *
  * > **Effective tax rates**
- * > Where there are multiple components of a tax, each component may be calculated on the original amount and added together. Alternatively, one tax may be calculated on the sub-total of the original amount plus another tax, which is referred to as _compounding_. When there is compounding, the effective tax rate is the rate that, if applied to the original amount, would result in the total amount of tax with compounding.
+ * > - Where there are multiple components of a tax, each component may be calculated on the original amount and added together. Alternatively, one tax may be calculated on the sub-total of the original amount plus another tax, which is referred to as _compounding_. When there is compounding, the effective tax rate is the rate that, if applied to the original amount, would result in the total amount of tax with compounding.
  * >
  * > **Example:**
- * > A tax has two components. Both components have a rate of 10%, and one component is compound. In this case, there is a total tax rate of 20% but an effective tax rate of 21%. [Also see _Compound tax example_](#section-compound-tax-example).
+ * > A tax has two components. Both components have a rate of 10%, and one component is compound. In this case, there is a total tax rate of 20% but an effective tax rate of 21%.
+ * >
  * > - For QuickBooks Online, Codat doesn't use compound rates. Instead, the calculated effective tax rate for each component is shown. This means that the effective and total rates are the same because the total tax rate is a sum of the component rates.
  */
 export class ListTaxRates200ApplicationJSONResults extends SpeakeasyBase {
+  /**
+   * Code for the tax rate from the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "code" })
   code?: string;
 
   @SpeakeasyMetadata({
-    elemType: ListTaxRates200ApplicationJSONResultsComponents,
+    elemType: ListTaxRates200ApplicationJSONResultsTaxRateComponent,
   })
   @Expose({ name: "components" })
-  @Type(() => ListTaxRates200ApplicationJSONResultsComponents)
-  components?: ListTaxRates200ApplicationJSONResultsComponents[];
+  @Type(() => ListTaxRates200ApplicationJSONResultsTaxRateComponent)
+  components?: ListTaxRates200ApplicationJSONResultsTaxRateComponent[];
 
+  /**
+   * See Effective tax rates description.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "effectiveTaxRate" })
   effectiveTaxRate?: number;
 
+  /**
+   * Identifier for the tax rate, unique for the company in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
@@ -224,7 +254,7 @@ export class ListTaxRates200ApplicationJSONResults extends SpeakeasyBase {
    * - Unqualified local time: `2021-11-15T01:00:00`
    * - UTC time offsets: `2021-11-15T01:00:00-05:00`
    *
-   * > 📘 Time zones
+   * > Time zones
    * >
    * > Not all dates from Codat will contain information about time zones.
    * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
@@ -233,6 +263,9 @@ export class ListTaxRates200ApplicationJSONResults extends SpeakeasyBase {
   @Expose({ name: "modifiedDate" })
   modifiedDate?: string;
 
+  /**
+   * Codat-augmented name of the tax rate in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
   name?: string;
@@ -255,7 +288,7 @@ export class ListTaxRates200ApplicationJSONResults extends SpeakeasyBase {
    * - Unqualified local time: `2021-11-15T01:00:00`
    * - UTC time offsets: `2021-11-15T01:00:00-05:00`
    *
-   * > 📘 Time zones
+   * > Time zones
    * >
    * > Not all dates from Codat will contain information about time zones.
    * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
@@ -264,10 +297,21 @@ export class ListTaxRates200ApplicationJSONResults extends SpeakeasyBase {
   @Expose({ name: "sourceModifiedDate" })
   sourceModifiedDate?: string;
 
+  /**
+   * Status of the tax rate in the accounting platform.
+   *
+   * @remarks
+   * - `Active` - An active tax rate in use by a company.
+   * - `Archived` - A tax rate that has been archived or is inactive in the accounting platform.
+   * - `Unknown` - Where the status of the tax rate cannot be determined from the underlying platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
   status?: ListTaxRates200ApplicationJSONResultsStatusEnum;
 
+  /**
+   * Total (not compounded) sum of the components of a tax rate.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "totalTaxRate" })
   totalTaxRate?: number;

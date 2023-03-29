@@ -59,10 +59,16 @@ export class GetDirectIncomeSourceModifiedDateLineItemsAccountRef extends Speake
  * Reference to the product, service type, or inventory item to which the direct cost is linked.
  */
 export class GetDirectIncomeSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
+  /**
+   * Unique identifier for the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
 
+  /**
+   * Name of the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
   name?: string;
@@ -80,14 +86,14 @@ export class GetDirectIncomeSourceModifiedDateLineItemsTaxRateRef extends Speake
   effectiveTaxRate?: number;
 
   /**
-   * 'id' from the 'taxRates' data type.
+   * Unique identifier for the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
 
   /**
-   * 'name' from the 'taxRates' data type.
+   * Name of the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
@@ -411,12 +417,6 @@ export class GetDirectIncomeSourceModifiedDateSupplementalData extends Speakeasy
  * - Selling an item directly to a contact, and receiving payment at the point of the sale.
  * - Refunding an item in cash to a contact.
  * - Depositing money into a bank account.
- *
- * From the Direct Incomes endpoints, you can:
- *
- * - [Get a list of all direct incomes for a specific company](https://api-uat.codat.io/swagger/index.html#/DirectIncomes/get_companies__companyId__connections__connectionId__data_directIncomes)
- * - [Get a single direct income for a specific company and connection](https://api-uat.codat.io/swagger/index.html#/DirectIncomes/get_companies__companyId__connections__connectionId__data_directIncomes__directIncomeId_)
- * - [Add a new direct income to a specific company's accounting package](https://api-uat.codat.io/swagger/index.html#/DirectIncomes/post_companies__companyId__connections__connectionId__push_directIncomes)
  *
  * Direct incomes is a child data type of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction).
  *

@@ -92,10 +92,16 @@ export class ListPurchaseOrders200ApplicationJSONSourceModifiedDateLineItemsAcco
  * Reference to the product or inventory item to which the line item is linked.
  */
 export class ListPurchaseOrders200ApplicationJSONSourceModifiedDateLineItemsItemRef extends SpeakeasyBase {
+  /**
+   * Unique identifier for the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
 
+  /**
+   * Name of the item in the accounting platform.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
   name?: string;
@@ -113,14 +119,14 @@ export class ListPurchaseOrders200ApplicationJSONSourceModifiedDateLineItemsTaxR
   effectiveTaxRate?: number;
 
   /**
-   * 'id' from the 'taxRates' data type.
+   * Unique identifier for the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
 
   /**
-   * 'name' from the 'taxRates' data type.
+   * Name of the tax rate in the accounting platform.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
@@ -382,10 +388,16 @@ export enum ListPurchaseOrders200ApplicationJSONSourceModifiedDateStatusEnum {
  * Supplier that the purchase order is recorded against in the accounting system.
  */
 export class ListPurchaseOrders200ApplicationJSONSourceModifiedDateSupplierRef extends SpeakeasyBase {
+  /**
+   * The supplier's unique ID
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id: string;
 
+  /**
+   * The supplier's name
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "supplierName" })
   supplierName?: string;
