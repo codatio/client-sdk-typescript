@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -94,11 +95,11 @@ export class BankFeedAccounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.bankFeedBankAccounts = [];
+            res.bankFeedAccounts = [];
             const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.bankFeedBankAccounts = utils.deserializeJSONResponse(
+            res.bankFeedAccounts = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.CreateBankFeedBankFeedBankAccount,
+              shared.BankFeedAccount,
               resFieldDepth
             );
           }
@@ -152,11 +153,11 @@ export class BankFeedAccounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.bankFeedBankAccounts = [];
+            res.bankFeedAccounts = [];
             const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.bankFeedBankAccounts = utils.deserializeJSONResponse(
+            res.bankFeedAccounts = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetBankFeedsBankFeedBankAccount,
+              shared.BankFeedAccount,
               resFieldDepth
             );
           }
@@ -184,7 +185,7 @@ export class BankFeedAccounts {
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(
       baseURL,
-      "/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/{bankAccountId}",
+      "/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/{accountId}",
       req
     );
 
@@ -193,7 +194,7 @@ export class BankFeedAccounts {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "bankFeedAccount",
         "json"
       );
     } catch (e: unknown) {
@@ -228,9 +229,9 @@ export class BankFeedAccounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.bankFeedBankAccount = utils.deserializeJSONResponse(
+            res.bankFeedAccount = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.UpdateBankFeedBankFeedBankAccount
+              shared.BankFeedAccount
             );
           }
           break;

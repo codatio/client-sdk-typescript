@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -56,10 +57,8 @@ export class BankAccountTransactions {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const queryParams: string = utils.serializeQueryParams(req);
-
     const r = client.request({
-      url: url + queryParams,
+      url: url,
       method: "get",
       ...config,
     });
@@ -80,7 +79,7 @@ export class BankAccountTransactions {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.pushOption = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetBankAccountPushOptionsPushOption
+              shared.PushOption
             );
           }
           break;
@@ -135,11 +134,10 @@ export class BankAccountTransactions {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listBankAccountTransactions200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListBankAccountTransactions200ApplicationJSON
-              );
+            res.bankTransactionsResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.BankTransactionsResponse
+            );
           }
           break;
       }
@@ -169,7 +167,7 @@ export class BankAccountTransactions {
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(
       baseURL,
-      "/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}}/bankTransactions",
+      "/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions",
       req
     );
 
@@ -178,7 +176,7 @@ export class BankAccountTransactions {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "bankTransactions",
         "json"
       );
     } catch (e: unknown) {
@@ -214,11 +212,10 @@ export class BankAccountTransactions {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.postBankTransactions200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.PostBankTransactions200ApplicationJSON
-              );
+            res.createBankTransactionsResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CreateBankTransactionsResponse
+            );
           }
           break;
       }

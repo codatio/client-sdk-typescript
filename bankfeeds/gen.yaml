@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 5eec0c89af7c418846f63c7f0e40cbe0
+  docChecksum: 27303c836ab04621d4eaad1db28a4e8d
   docVersion: 2.1.0
   speakeasyVersion: 1.19.2
   generationVersion: 2.16.5
@@ -10,6 +10,6 @@ generation:
   sdkFlattening: true
   singleTagPerOp: false
 typescript:
-  version: 0.8.2
+  version: 0.8.3
   author: Speakeasy
   packageName: '@codat/bankfeeds'
