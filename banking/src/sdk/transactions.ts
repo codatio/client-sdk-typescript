@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -39,12 +40,12 @@ export class Transactions {
    * @remarks
    * Gets a specified bank transaction for a given company
    */
-  getBankingTransaction(
-    req: operations.GetBankingTransactionRequest,
+  getTransaction(
+    req: operations.GetTransactionRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetBankingTransactionResponse> {
+  ): Promise<operations.GetTransactionResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetBankingTransactionRequest(req);
+      req = new operations.GetTransactionRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -67,8 +68,8 @@ export class Transactions {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetBankingTransactionResponse =
-        new operations.GetBankingTransactionResponse({
+      const res: operations.GetTransactionResponse =
+        new operations.GetTransactionResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -76,9 +77,9 @@ export class Transactions {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.sourceModifiedDate = utils.deserializeJSONResponse(
+            res.transaction = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetBankingTransactionSourceModifiedDate
+              shared.Transaction
             );
           }
           break;
@@ -94,12 +95,12 @@ export class Transactions {
    * @remarks
    * Gets a list of transactions incurred by a company across all bank accounts.
    */
-  listAllBankingTransactions(
-    req: operations.ListAllBankingTransactionsRequest,
+  listBankTransactions(
+    req: operations.ListBankTransactionsRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.ListAllBankingTransactionsResponse> {
+  ): Promise<operations.ListBankTransactionsResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ListAllBankingTransactionsRequest(req);
+      req = new operations.ListBankTransactionsRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -124,8 +125,8 @@ export class Transactions {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListAllBankingTransactionsResponse =
-        new operations.ListAllBankingTransactionsResponse({
+      const res: operations.ListBankTransactionsResponse =
+        new operations.ListBankTransactionsResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -133,11 +134,10 @@ export class Transactions {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listAllBankingTransactions200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListAllBankingTransactions200ApplicationJSON
-              );
+            res.transactions = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Transactions
+            );
           }
           break;
       }
@@ -147,17 +147,17 @@ export class Transactions {
   }
 
   /**
-   * List bank account transactions
+   * List transactions
    *
    * @remarks
    * Gets a list of transactions incurred by a bank account.
    */
-  listBankingTransactions(
-    req: operations.ListBankingTransactionsRequest,
+  listTransactions(
+    req: operations.ListTransactionsRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.ListBankingTransactionsResponse> {
+  ): Promise<operations.ListTransactionsResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ListBankingTransactionsRequest(req);
+      req = new operations.ListTransactionsRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -182,8 +182,8 @@ export class Transactions {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListBankingTransactionsResponse =
-        new operations.ListBankingTransactionsResponse({
+      const res: operations.ListTransactionsResponse =
+        new operations.ListTransactionsResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -191,11 +191,10 @@ export class Transactions {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listBankingTransactions200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListBankingTransactions200ApplicationJSON
-              );
+            res.transactions = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Transactions
+            );
           }
           break;
       }

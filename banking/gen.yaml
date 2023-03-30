@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 7762e4609169d1bbf10fbbe8e651f608
+  docChecksum: d164bba675fb60913a1d31eba9087b55
   docVersion: 2.1.0
   speakeasyVersion: 1.19.2
   generationVersion: 2.16.5
@@ -10,6 +10,6 @@ generation:
   sdkFlattening: true
   singleTagPerOp: false
 typescript:
-  version: 0.8.2
+  version: 0.8.3
   author: Speakeasy
   packageName: '@codat/banking'

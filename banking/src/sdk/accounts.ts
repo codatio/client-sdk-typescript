@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -39,12 +40,12 @@ export class Accounts {
    * @remarks
    * Gets a specified bank account for a given company
    */
-  getBankingAccount(
-    req: operations.GetBankingAccountRequest,
+  getAccount(
+    req: operations.GetAccountRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetBankingAccountResponse> {
+  ): Promise<operations.GetAccountResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetBankingAccountRequest(req);
+      req = new operations.GetAccountRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -67,8 +68,8 @@ export class Accounts {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetBankingAccountResponse =
-        new operations.GetBankingAccountResponse({
+      const res: operations.GetAccountResponse =
+        new operations.GetAccountResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -76,9 +77,9 @@ export class Accounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.sourceModifiedDate = utils.deserializeJSONResponse(
+            res.account = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetBankingAccountSourceModifiedDate
+              shared.Account
             );
           }
           break;
@@ -94,12 +95,12 @@ export class Accounts {
    * @remarks
    * Gets a list of all bank accounts of the SMB, with rich data like balances, account numbers and institutions holdingthe accounts.
    */
-  listBankingAccounts(
-    req: operations.ListBankingAccountsRequest,
+  listAccounts(
+    req: operations.ListAccountsRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.ListBankingAccountsResponse> {
+  ): Promise<operations.ListAccountsResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ListBankingAccountsRequest(req);
+      req = new operations.ListAccountsRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -124,8 +125,8 @@ export class Accounts {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListBankingAccountsResponse =
-        new operations.ListBankingAccountsResponse({
+      const res: operations.ListAccountsResponse =
+        new operations.ListAccountsResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -133,11 +134,10 @@ export class Accounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listBankingAccounts200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListBankingAccounts200ApplicationJSON
-              );
+            res.accounts = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Accounts
+            );
           }
           break;
       }

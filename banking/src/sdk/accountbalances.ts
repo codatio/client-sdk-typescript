@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -39,12 +40,12 @@ export class AccountBalances {
    * @remarks
    * Gets a list of balances for a bank account including end-of-day batch balance or running balances per transaction.
    */
-  listBankingAccountBalances(
-    req: operations.ListBankingAccountBalancesRequest,
+  listAccountBalances(
+    req: operations.ListAccountBalancesRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.ListBankingAccountBalancesResponse> {
+  ): Promise<operations.ListAccountBalancesResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ListBankingAccountBalancesRequest(req);
+      req = new operations.ListAccountBalancesRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -69,8 +70,8 @@ export class AccountBalances {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListBankingAccountBalancesResponse =
-        new operations.ListBankingAccountBalancesResponse({
+      const res: operations.ListAccountBalancesResponse =
+        new operations.ListAccountBalancesResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -78,11 +79,10 @@ export class AccountBalances {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listBankingAccountBalances200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListBankingAccountBalances200ApplicationJSON
-              );
+            res.accountBalances = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.AccountBalances
+            );
           }
           break;
       }

@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -39,12 +40,12 @@ export class TransactionCategories {
    * @remarks
    * Gets a specified bank transaction category for a given company
    */
-  getBankTransactionCategory(
-    req: operations.GetBankTransactionCategoryRequest,
+  getTransactionCategory(
+    req: operations.GetTransactionCategoryRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetBankTransactionCategoryResponse> {
+  ): Promise<operations.GetTransactionCategoryResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetBankTransactionCategoryRequest(req);
+      req = new operations.GetTransactionCategoryRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -67,8 +68,8 @@ export class TransactionCategories {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetBankTransactionCategoryResponse =
-        new operations.GetBankTransactionCategoryResponse({
+      const res: operations.GetTransactionCategoryResponse =
+        new operations.GetTransactionCategoryResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -76,9 +77,9 @@ export class TransactionCategories {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.sourceModifiedDate = utils.deserializeJSONResponse(
+            res.transactionCategory = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetBankTransactionCategorySourceModifiedDate
+              shared.TransactionCategory
             );
           }
           break;
@@ -94,12 +95,12 @@ export class TransactionCategories {
    * @remarks
    * Gets a list of hierarchical categories associated with a transaction for greater contextual meaning to transactionactivity.
    */
-  listBankTransactionCategories(
-    req: operations.ListBankTransactionCategoriesRequest,
+  listTransactionCategories(
+    req: operations.ListTransactionCategoriesRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.ListBankTransactionCategoriesResponse> {
+  ): Promise<operations.ListTransactionCategoriesResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ListBankTransactionCategoriesRequest(req);
+      req = new operations.ListTransactionCategoriesRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -124,8 +125,8 @@ export class TransactionCategories {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListBankTransactionCategoriesResponse =
-        new operations.ListBankTransactionCategoriesResponse({
+      const res: operations.ListTransactionCategoriesResponse =
+        new operations.ListTransactionCategoriesResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -133,11 +134,10 @@ export class TransactionCategories {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listBankTransactionCategories200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListBankTransactionCategories200ApplicationJSON
-              );
+            res.transactionCategories = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.TransactionCategories
+            );
           }
           break;
       }
