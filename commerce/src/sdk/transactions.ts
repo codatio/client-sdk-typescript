@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -39,12 +40,12 @@ export class Transactions {
    * @remarks
    * Details of all financial transactions recorded in the commerce or point of sale system are added to the Transactions data type. For example, payments, service charges, and fees.
    */
-  listCommerceTransactions(
-    req: operations.ListCommerceTransactionsRequest,
+  listTransactions(
+    req: operations.ListTransactionsRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.ListCommerceTransactionsResponse> {
+  ): Promise<operations.ListTransactionsResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ListCommerceTransactionsRequest(req);
+      req = new operations.ListTransactionsRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -69,8 +70,8 @@ export class Transactions {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListCommerceTransactionsResponse =
-        new operations.ListCommerceTransactionsResponse({
+      const res: operations.ListTransactionsResponse =
+        new operations.ListTransactionsResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -78,11 +79,10 @@ export class Transactions {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listCommerceTransactions200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListCommerceTransactions200ApplicationJSON
-              );
+            res.transactions = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Transactions
+            );
           }
           break;
       }

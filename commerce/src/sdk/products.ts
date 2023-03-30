@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -39,12 +40,12 @@ export class Products {
    * @remarks
    * Product categories are used to classify a group of products together, either by type (eg "Furniture"), or sometimes by tax profile.
    */
-  listCommerceProductCategories(
-    req: operations.ListCommerceProductCategoriesRequest,
+  listProductCategories(
+    req: operations.ListProductCategoriesRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.ListCommerceProductCategoriesResponse> {
+  ): Promise<operations.ListProductCategoriesResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ListCommerceProductCategoriesRequest(req);
+      req = new operations.ListProductCategoriesRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -69,8 +70,8 @@ export class Products {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListCommerceProductCategoriesResponse =
-        new operations.ListCommerceProductCategoriesResponse({
+      const res: operations.ListProductCategoriesResponse =
+        new operations.ListProductCategoriesResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -78,11 +79,10 @@ export class Products {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listCommerceProductCategories200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListCommerceProductCategories200ApplicationJSON
-              );
+            res.productCategories = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.ProductCategories
+            );
           }
           break;
       }
@@ -97,12 +97,12 @@ export class Products {
    * @remarks
    * The Products data type provides the company's product inventory, and includes the price and quantity of all products, and product variants, available for sale.
    */
-  listCommerceProducts(
-    req: operations.ListCommerceProductsRequest,
+  listProducts(
+    req: operations.ListProductsRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.ListCommerceProductsResponse> {
+  ): Promise<operations.ListProductsResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ListCommerceProductsRequest(req);
+      req = new operations.ListProductsRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -127,8 +127,8 @@ export class Products {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListCommerceProductsResponse =
-        new operations.ListCommerceProductsResponse({
+      const res: operations.ListProductsResponse =
+        new operations.ListProductsResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -136,11 +136,10 @@ export class Products {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listCommerceProducts200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListCommerceProducts200ApplicationJSON
-              );
+            res.products = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Products
+            );
           }
           break;
       }

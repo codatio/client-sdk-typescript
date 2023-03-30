@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -41,12 +42,12 @@ export class Locations {
    *
    * A `location` is a geographic place at which stocks of products may be held, or from where orders were placed.
    */
-  listCommerceLocations(
-    req: operations.ListCommerceLocationsRequest,
+  listLocations(
+    req: operations.ListLocationsRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.ListCommerceLocationsResponse> {
+  ): Promise<operations.ListLocationsResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ListCommerceLocationsRequest(req);
+      req = new operations.ListLocationsRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -69,8 +70,8 @@ export class Locations {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListCommerceLocationsResponse =
-        new operations.ListCommerceLocationsResponse({
+      const res: operations.ListLocationsResponse =
+        new operations.ListLocationsResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -78,11 +79,10 @@ export class Locations {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listCommerceLocations200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListCommerceLocations200ApplicationJSON
-              );
+            res.locationsResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.LocationsResponse
+            );
           }
           break;
       }

@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -39,12 +40,12 @@ export class Payments {
    * @remarks
    * Retrieve a list of payment methods, such as card, cash or other online payment methods, as held in the linked commerce platform.
    */
-  listCommercePaymentMethods(
-    req: operations.ListCommercePaymentMethodsRequest,
+  listPaymentMethods(
+    req: operations.ListPaymentMethodsRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.ListCommercePaymentMethodsResponse> {
+  ): Promise<operations.ListPaymentMethodsResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ListCommercePaymentMethodsRequest(req);
+      req = new operations.ListPaymentMethodsRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -69,8 +70,8 @@ export class Payments {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListCommercePaymentMethodsResponse =
-        new operations.ListCommercePaymentMethodsResponse({
+      const res: operations.ListPaymentMethodsResponse =
+        new operations.ListPaymentMethodsResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -78,11 +79,10 @@ export class Payments {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listCommercePaymentMethods200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListCommercePaymentMethods200ApplicationJSON
-              );
+            res.paymentMethods = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.PaymentMethods
+            );
           }
           break;
       }
@@ -97,12 +97,12 @@ export class Payments {
    * @remarks
    * List commerce payments for the given company & data connection.
    */
-  listCommercePayments(
-    req: operations.ListCommercePaymentsRequest,
+  listPayments(
+    req: operations.ListPaymentsRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.ListCommercePaymentsResponse> {
+  ): Promise<operations.ListPaymentsResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ListCommercePaymentsRequest(req);
+      req = new operations.ListPaymentsRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -127,8 +127,8 @@ export class Payments {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListCommercePaymentsResponse =
-        new operations.ListCommercePaymentsResponse({
+      const res: operations.ListPaymentsResponse =
+        new operations.ListPaymentsResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -136,11 +136,10 @@ export class Payments {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listCommercePayments200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListCommercePayments200ApplicationJSON
-              );
+            res.payments = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Payments
+            );
           }
           break;
       }

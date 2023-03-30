@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -39,15 +40,12 @@ export class TaxComponents {
    * @remarks
    * This endpoint returns a lits of tax rates from the commerce platform, including tax rate names and values. This supports the mapping of tax rates from the commerce platform to the accounting platform.
    */
-  getCompaniesCompanyIdConnectionsConnectionIdDataCommerceTaxComponents(
-    req: operations.GetCompaniesCompanyIdConnectionsConnectionIdDataCommerceTaxComponentsRequest,
+  getTaxComponents(
+    req: operations.GetTaxComponentsRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetCompaniesCompanyIdConnectionsConnectionIdDataCommerceTaxComponentsResponse> {
+  ): Promise<operations.GetTaxComponentsResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req =
-        new operations.GetCompaniesCompanyIdConnectionsConnectionIdDataCommerceTaxComponentsRequest(
-          req
-        );
+      req = new operations.GetTaxComponentsRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -70,22 +68,19 @@ export class TaxComponents {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCompaniesCompanyIdConnectionsConnectionIdDataCommerceTaxComponentsResponse =
-        new operations.GetCompaniesCompanyIdConnectionsConnectionIdDataCommerceTaxComponentsResponse(
-          {
-            statusCode: httpRes.status,
-            contentType: contentType,
-            rawResponse: httpRes,
-          }
-        );
+      const res: operations.GetTaxComponentsResponse =
+        new operations.GetTaxComponentsResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getCompaniesCompanyIdConnectionsConnectionIdDataCommerceTaxComponents200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetCompaniesCompanyIdConnectionsConnectionIdDataCommerceTaxComponents200ApplicationJSON
-              );
+            res.taxComponents = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.TaxComponents
+            );
           }
           break;
       }

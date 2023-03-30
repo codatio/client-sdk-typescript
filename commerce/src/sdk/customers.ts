@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -39,12 +40,12 @@ export class Customers {
    * @remarks
    * List all commerce customers for the given company and data connection
    */
-  listCommerceCustomers(
-    req: operations.ListCommerceCustomersRequest,
+  listCustomers(
+    req: operations.ListCustomersRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.ListCommerceCustomersResponse> {
+  ): Promise<operations.ListCustomersResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ListCommerceCustomersRequest(req);
+      req = new operations.ListCustomersRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -69,8 +70,8 @@ export class Customers {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListCommerceCustomersResponse =
-        new operations.ListCommerceCustomersResponse({
+      const res: operations.ListCustomersResponse =
+        new operations.ListCustomersResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -78,11 +79,10 @@ export class Customers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listCommerceCustomers200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListCommerceCustomers200ApplicationJSON
-              );
+            res.customers = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Customers
+            );
           }
           break;
       }

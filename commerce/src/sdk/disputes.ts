@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -39,12 +40,12 @@ export class Disputes {
    * @remarks
    * List commerce disputes
    */
-  listCommerceDisputes(
-    req: operations.ListCommerceDisputesRequest,
+  listDisputes(
+    req: operations.ListDisputesRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.ListCommerceDisputesResponse> {
+  ): Promise<operations.ListDisputesResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ListCommerceDisputesRequest(req);
+      req = new operations.ListDisputesRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -69,8 +70,8 @@ export class Disputes {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListCommerceDisputesResponse =
-        new operations.ListCommerceDisputesResponse({
+      const res: operations.ListDisputesResponse =
+        new operations.ListDisputesResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -78,11 +79,10 @@ export class Disputes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listCommerceDisputes200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListCommerceDisputes200ApplicationJSON
-              );
+            res.disputes = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Disputes
+            );
           }
           break;
       }

@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -39,12 +40,12 @@ export class Orders {
    * @remarks
    * Get a list of orders placed or held on the linked commerce platform
    */
-  listCommerceOrders(
-    req: operations.ListCommerceOrdersRequest,
+  listOrders(
+    req: operations.ListOrdersRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.ListCommerceOrdersResponse> {
+  ): Promise<operations.ListOrdersResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ListCommerceOrdersRequest(req);
+      req = new operations.ListOrdersRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -69,8 +70,8 @@ export class Orders {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListCommerceOrdersResponse =
-        new operations.ListCommerceOrdersResponse({
+      const res: operations.ListOrdersResponse =
+        new operations.ListOrdersResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -78,11 +79,10 @@ export class Orders {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listCommerceOrders200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListCommerceOrders200ApplicationJSON
-              );
+            res.orders = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Orders
+            );
           }
           break;
       }

@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -41,12 +42,12 @@ export class CompanyInfo {
    *
    * This may include information like addresses, tax registration details and social media or website information.
    */
-  getCommerceInfo(
-    req: operations.GetCommerceInfoRequest,
+  getCompanyInfo(
+    req: operations.GetCompanyInfoRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetCommerceInfoResponse> {
+  ): Promise<operations.GetCompanyInfoResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCommerceInfoRequest(req);
+      req = new operations.GetCompanyInfoRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -69,8 +70,8 @@ export class CompanyInfo {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCommerceInfoResponse =
-        new operations.GetCommerceInfoResponse({
+      const res: operations.GetCompanyInfoResponse =
+        new operations.GetCompanyInfoResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -78,9 +79,9 @@ export class CompanyInfo {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.sourceModifiedDate = utils.deserializeJSONResponse(
+            res.companyInfo = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCommerceInfoSourceModifiedDate
+              shared.CompanyInfo
             );
           }
           break;
