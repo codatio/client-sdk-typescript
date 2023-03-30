@@ -10,6 +10,7 @@ import { AxiosResponse } from "axios";
  */
 export enum GetExcelReportReportTypeEnum {
   Audit = "audit",
+  EnhancedFinancials = "enhancedFinancials",
 }
 
 export class GetExcelReportRequest extends SpeakeasyBase {

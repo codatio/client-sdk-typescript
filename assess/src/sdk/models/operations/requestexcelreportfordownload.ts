@@ -11,6 +11,7 @@ import { Expose } from "class-transformer";
  */
 export enum RequestExcelReportForDownloadReportTypeEnum {
   Audit = "audit",
+  EnhancedFinancials = "enhancedFinancials",
 }
 
 export class RequestExcelReportForDownloadRequest extends SpeakeasyBase {
