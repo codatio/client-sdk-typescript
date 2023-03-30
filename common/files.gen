@@ -82,7 +82,10 @@ src/sdk/models/shared/integrations.ts
 src/sdk/models/shared/pushhistoryresponse.ts
 src/sdk/models/shared/pushoperationsummary.ts
 src/sdk/models/shared/validationitem.ts
-src/sdk/models/shared/pushoperationrecordref.ts
+src/sdk/models/shared/pushoperationstatusenum.ts
+src/sdk/models/shared/pushoperationchange.ts
+src/sdk/models/shared/pushchangetypeenum.ts
+src/sdk/models/shared/pushoperationref.ts
 src/sdk/models/shared/pushoption.ts
 src/sdk/models/shared/pushvalidationinfo.ts
 src/sdk/models/shared/pushfieldvalidation.ts

@@ -4,42 +4,10 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { DataTypeEnum } from "./datatypeenum";
-import { PushOperationRecordRef } from "./pushoperationrecordref";
+import { PushOperationChange } from "./pushoperationchange";
+import { PushOperationStatusEnum } from "./pushoperationstatusenum";
 import { ValidationItem } from "./validationitem";
 import { Expose, Type } from "class-transformer";
-
-export enum PushOperationSummaryChangesTypeEnum {
-  Unknown = "Unknown",
-  Created = "Created",
-  Modified = "Modified",
-  Deleted = "Deleted",
-  AttachmentUploaded = "AttachmentUploaded",
-}
-
-export class PushOperationSummaryChanges extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "attachmentId" })
-  attachmentId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "recordRef" })
-  @Type(() => PushOperationRecordRef)
-  recordRef?: PushOperationRecordRef;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: PushOperationSummaryChangesTypeEnum;
-}
-
-/**
- * The status of the push operation.
- */
-export enum PushOperationSummaryStatusEnum {
-  Pending = "Pending",
-  Failed = "Failed",
-  Success = "Success",
-  TimedOut = "TimedOut",
-}
 
 /**
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
@@ -57,10 +25,10 @@ export class PushOperationSummaryValidation extends SpeakeasyBase {
 }
 
 export class PushOperationSummary extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PushOperationSummaryChanges })
+  @SpeakeasyMetadata({ elemType: PushOperationChange })
   @Expose({ name: "changes" })
-  @Type(() => PushOperationSummaryChanges)
-  changes?: PushOperationSummaryChanges[];
+  @Type(() => PushOperationChange)
+  changes?: PushOperationChange[];
 
   /**
    * Unique identifier for your SMB in Codat.
@@ -153,7 +121,7 @@ export class PushOperationSummary extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: PushOperationSummaryStatusEnum;
+  status: PushOperationStatusEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "statusCode" })

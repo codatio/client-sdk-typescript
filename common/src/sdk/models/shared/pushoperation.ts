@@ -4,42 +4,10 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { DataTypeEnum } from "./datatypeenum";
-import { PushOperationRecordRef } from "./pushoperationrecordref";
+import { PushOperationChange } from "./pushoperationchange";
+import { PushOperationStatusEnum } from "./pushoperationstatusenum";
 import { ValidationItem } from "./validationitem";
 import { Expose, Type } from "class-transformer";
-
-export enum PushOperationChangesTypeEnum {
-  Unknown = "Unknown",
-  Created = "Created",
-  Modified = "Modified",
-  Deleted = "Deleted",
-  AttachmentUploaded = "AttachmentUploaded",
-}
-
-export class PushOperationChanges extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "attachmentId" })
-  attachmentId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "recordRef" })
-  @Type(() => PushOperationRecordRef)
-  recordRef?: PushOperationRecordRef;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: PushOperationChangesTypeEnum;
-}
-
-/**
- * The status of the push operation.
- */
-export enum PushOperationStatusEnum {
-  Pending = "Pending",
-  Failed = "Failed",
-  Success = "Success",
-  TimedOut = "TimedOut",
-}
 
 /**
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
@@ -60,10 +28,10 @@ export class PushOperationValidation extends SpeakeasyBase {
  * OK
  */
 export class PushOperation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PushOperationChanges })
+  @SpeakeasyMetadata({ elemType: PushOperationChange })
   @Expose({ name: "changes" })
-  @Type(() => PushOperationChanges)
-  changes?: PushOperationChanges[];
+  @Type(() => PushOperationChange)
+  changes?: PushOperationChange[];
 
   /**
    * Unique identifier for your SMB in Codat.
