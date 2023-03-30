@@ -6,28 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-export class PostBankTransactionsRequestBodyTransactionsModifiedDate extends SpeakeasyBase {
-  /**
-   * The date on which this record was last modified in Codat.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
-}
-
-export class PostBankTransactionsRequestBodyTransactionsSourceModifiedDate extends SpeakeasyBase {
-  /**
-   * The date on which this record was last modified in the originating system
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
-}
-
 /**
  * Type of transaction for the bank statement line
  */
-export enum PostBankTransactionsRequestBodyTransactionsTransactionTypeEnum {
+export enum PostBankTransactionsRequestBodySourceModifiedDateTransactionTypeEnum {
   Unknown = "Unknown",
   Credit = "Credit",
   Debit = "Debit",
@@ -48,7 +30,7 @@ export enum PostBankTransactionsRequestBodyTransactionsTransactionTypeEnum {
   Other = "Other",
 }
 
-export class PostBankTransactionsRequestBodyTransactions extends SpeakeasyBase {
+export class PostBankTransactionsRequestBodySourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "amount" })
   amount: number;
@@ -96,10 +78,12 @@ export class PostBankTransactionsRequestBodyTransactions extends SpeakeasyBase {
   @Expose({ name: "id" })
   id?: string;
 
+  /**
+   * The date on which this record was last modified in Codat.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Type(() => PostBankTransactionsRequestBodyTransactionsModifiedDate)
-  modifiedDate?: PostBankTransactionsRequestBodyTransactionsModifiedDate;
+  modifiedDate?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "reconciled" })
@@ -109,17 +93,19 @@ export class PostBankTransactionsRequestBodyTransactions extends SpeakeasyBase {
   @Expose({ name: "reference" })
   reference?: string;
 
+  /**
+   * The date on which this record was last modified in the originating system
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Type(() => PostBankTransactionsRequestBodyTransactionsSourceModifiedDate)
-  sourceModifiedDate?: PostBankTransactionsRequestBodyTransactionsSourceModifiedDate;
+  sourceModifiedDate?: string;
 
   /**
    * Type of transaction for the bank statement line
    */
   @SpeakeasyMetadata()
   @Expose({ name: "transactionType" })
-  transactionType: PostBankTransactionsRequestBodyTransactionsTransactionTypeEnum;
+  transactionType: PostBankTransactionsRequestBodySourceModifiedDateTransactionTypeEnum;
 }
 
 /**
@@ -147,14 +133,12 @@ export class PostBankTransactionsRequestBody extends SpeakeasyBase {
   @Expose({ name: "accountId" })
   accountId?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "contractVersion" })
-  contractVersion?: string;
-
-  @SpeakeasyMetadata({ elemType: PostBankTransactionsRequestBodyTransactions })
+  @SpeakeasyMetadata({
+    elemType: PostBankTransactionsRequestBodySourceModifiedDate,
+  })
   @Expose({ name: "transactions" })
-  @Type(() => PostBankTransactionsRequestBodyTransactions)
-  transactions?: PostBankTransactionsRequestBodyTransactions[];
+  @Type(() => PostBankTransactionsRequestBodySourceModifiedDate)
+  transactions?: PostBankTransactionsRequestBodySourceModifiedDate[];
 }
 
 export class PostBankTransactionsRequest extends SpeakeasyBase {
@@ -190,17 +174,68 @@ export class PostBankTransactionsRequest extends SpeakeasyBase {
   timeoutInMinutes?: number;
 }
 
-export class PostBankTransactions200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
+/**
+ * Available Data types
+ */
+export enum PostBankTransactions200ApplicationJSONChangesPushOperationReferenceDataTypeEnum {
+  AccountTransactions = "accountTransactions",
+  BalanceSheet = "balanceSheet",
+  BankAccounts = "bankAccounts",
+  BankTransactions = "bankTransactions",
+  BillCreditNotes = "billCreditNotes",
+  BillPayments = "billPayments",
+  Bills = "bills",
+  CashFlowStatement = "cashFlowStatement",
+  ChartOfAccounts = "chartOfAccounts",
+  Company = "company",
+  CreditNotes = "creditNotes",
+  Customers = "customers",
+  DirectCosts = "directCosts",
+  DirectIncomes = "directIncomes",
+  Invoices = "invoices",
+  Items = "items",
+  JournalEntries = "journalEntries",
+  Journals = "journals",
+  PaymentMethods = "paymentMethods",
+  Payments = "payments",
+  ProfitAndLoss = "profitAndLoss",
+  PurchaseOrders = "purchaseOrders",
+  SalesOrders = "salesOrders",
+  Suppliers = "suppliers",
+  TaxRates = "taxRates",
+  TrackingCategories = "trackingCategories",
+  Transfers = "transfers",
+  BankingAccountBalances = "banking-accountBalances",
+  BankingAccounts = "banking-accounts",
+  BankingTransactionCategories = "banking-transactionCategories",
+  BankingTransactions = "banking-transactions",
+  CommerceCompanyInfo = "commerce-companyInfo",
+  CommerceCustomers = "commerce-customers",
+  CommerceDisputes = "commerce-disputes",
+  CommerceLocations = "commerce-locations",
+  CommerceOrders = "commerce-orders",
+  CommercePaymentMethods = "commerce-paymentMethods",
+  CommercePayments = "commerce-payments",
+  CommerceProductCategories = "commerce-productCategories",
+  CommerceProducts = "commerce-products",
+  CommerceTaxComponents = "commerce-taxComponents",
+  CommerceTransactions = "commerce-transactions",
+}
+
+export class PostBankTransactions200ApplicationJSONChangesPushOperationReference extends SpeakeasyBase {
+  /**
+   * Available Data types
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
-  dataType?: string;
+  dataType?: PostBankTransactions200ApplicationJSONChangesPushOperationReferenceDataTypeEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
 }
 
-export enum PostBankTransactions200ApplicationJSONChangesTypeEnum {
+export enum PostBankTransactions200ApplicationJSONChangesPushChangeTypeEnum {
   Unknown = "Unknown",
   Created = "Created",
   Modified = "Modified",
@@ -216,37 +251,19 @@ export class PostBankTransactions200ApplicationJSONChanges extends SpeakeasyBase
   @SpeakeasyMetadata()
   @Expose({ name: "recordRef" })
   @Type(
-    () => PostBankTransactions200ApplicationJSONChangesPushOperationRecordRef
+    () => PostBankTransactions200ApplicationJSONChangesPushOperationReference
   )
-  recordRef?: PostBankTransactions200ApplicationJSONChangesPushOperationRecordRef;
+  recordRef?: PostBankTransactions200ApplicationJSONChangesPushOperationReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: PostBankTransactions200ApplicationJSONChangesTypeEnum;
-}
-
-export class PostBankTransactions200ApplicationJSONDataTransactionsModifiedDate extends SpeakeasyBase {
-  /**
-   * The date on which this record was last modified in Codat.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
-}
-
-export class PostBankTransactions200ApplicationJSONDataTransactionsSourceModifiedDate extends SpeakeasyBase {
-  /**
-   * The date on which this record was last modified in the originating system
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
+  type?: PostBankTransactions200ApplicationJSONChangesPushChangeTypeEnum;
 }
 
 /**
  * Type of transaction for the bank statement line
  */
-export enum PostBankTransactions200ApplicationJSONDataTransactionsTransactionTypeEnum {
+export enum PostBankTransactions200ApplicationJSONDataSourceModifiedDateTransactionTypeEnum {
   Unknown = "Unknown",
   Credit = "Credit",
   Debit = "Debit",
@@ -267,7 +284,7 @@ export enum PostBankTransactions200ApplicationJSONDataTransactionsTransactionTyp
   Other = "Other",
 }
 
-export class PostBankTransactions200ApplicationJSONDataTransactions extends SpeakeasyBase {
+export class PostBankTransactions200ApplicationJSONDataSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "amount" })
   amount: number;
@@ -315,12 +332,12 @@ export class PostBankTransactions200ApplicationJSONDataTransactions extends Spea
   @Expose({ name: "id" })
   id?: string;
 
+  /**
+   * The date on which this record was last modified in Codat.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Type(
-    () => PostBankTransactions200ApplicationJSONDataTransactionsModifiedDate
-  )
-  modifiedDate?: PostBankTransactions200ApplicationJSONDataTransactionsModifiedDate;
+  modifiedDate?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "reconciled" })
@@ -330,20 +347,19 @@ export class PostBankTransactions200ApplicationJSONDataTransactions extends Spea
   @Expose({ name: "reference" })
   reference?: string;
 
+  /**
+   * The date on which this record was last modified in the originating system
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Type(
-    () =>
-      PostBankTransactions200ApplicationJSONDataTransactionsSourceModifiedDate
-  )
-  sourceModifiedDate?: PostBankTransactions200ApplicationJSONDataTransactionsSourceModifiedDate;
+  sourceModifiedDate?: string;
 
   /**
    * Type of transaction for the bank statement line
    */
   @SpeakeasyMetadata()
   @Expose({ name: "transactionType" })
-  transactionType: PostBankTransactions200ApplicationJSONDataTransactionsTransactionTypeEnum;
+  transactionType: PostBankTransactions200ApplicationJSONDataSourceModifiedDateTransactionTypeEnum;
 }
 
 /**
@@ -371,16 +387,12 @@ export class PostBankTransactions200ApplicationJSONData extends SpeakeasyBase {
   @Expose({ name: "accountId" })
   accountId?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "contractVersion" })
-  contractVersion?: string;
-
   @SpeakeasyMetadata({
-    elemType: PostBankTransactions200ApplicationJSONDataTransactions,
+    elemType: PostBankTransactions200ApplicationJSONDataSourceModifiedDate,
   })
   @Expose({ name: "transactions" })
-  @Type(() => PostBankTransactions200ApplicationJSONDataTransactions)
-  transactions?: PostBankTransactions200ApplicationJSONDataTransactions[];
+  @Type(() => PostBankTransactions200ApplicationJSONDataSourceModifiedDate)
+  transactions?: PostBankTransactions200ApplicationJSONDataSourceModifiedDate[];
 }
 
 /**
@@ -434,7 +446,7 @@ export enum PostBankTransactions200ApplicationJSONDataTypeEnum {
 /**
  * The status of the push operation.
  */
-export enum PostBankTransactions200ApplicationJSONStatusEnum {
+export enum PostBankTransactions200ApplicationJSONPushOperationStatusEnum {
   Pending = "Pending",
   Failed = "Failed",
   Success = "Success",
@@ -561,7 +573,7 @@ export class PostBankTransactions200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: PostBankTransactions200ApplicationJSONStatusEnum;
+  status: PostBankTransactions200ApplicationJSONPushOperationStatusEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "statusCode" })

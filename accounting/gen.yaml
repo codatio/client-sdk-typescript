@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 7107338c88df698f5c6f71ea7a1a7ae0
+  docChecksum: 3259b0bb7f70f1fb32393eb4ee1bf17f
   docVersion: 2.1.0
   speakeasyVersion: 1.19.2
   generationVersion: 2.16.5
@@ -10,6 +10,6 @@ generation:
   sdkFlattening: true
   singleTagPerOp: false
 typescript:
-  version: 0.8.2
+  version: 0.8.3
   author: Speakeasy
   packageName: '@codat/accounting'

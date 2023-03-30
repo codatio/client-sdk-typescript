@@ -719,17 +719,68 @@ export class CreateCreditNoteRequest extends SpeakeasyBase {
   timeoutInMinutes?: number;
 }
 
-export class CreateCreditNote200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
+/**
+ * Available Data types
+ */
+export enum CreateCreditNote200ApplicationJSONChangesPushOperationReferenceDataTypeEnum {
+  AccountTransactions = "accountTransactions",
+  BalanceSheet = "balanceSheet",
+  BankAccounts = "bankAccounts",
+  BankTransactions = "bankTransactions",
+  BillCreditNotes = "billCreditNotes",
+  BillPayments = "billPayments",
+  Bills = "bills",
+  CashFlowStatement = "cashFlowStatement",
+  ChartOfAccounts = "chartOfAccounts",
+  Company = "company",
+  CreditNotes = "creditNotes",
+  Customers = "customers",
+  DirectCosts = "directCosts",
+  DirectIncomes = "directIncomes",
+  Invoices = "invoices",
+  Items = "items",
+  JournalEntries = "journalEntries",
+  Journals = "journals",
+  PaymentMethods = "paymentMethods",
+  Payments = "payments",
+  ProfitAndLoss = "profitAndLoss",
+  PurchaseOrders = "purchaseOrders",
+  SalesOrders = "salesOrders",
+  Suppliers = "suppliers",
+  TaxRates = "taxRates",
+  TrackingCategories = "trackingCategories",
+  Transfers = "transfers",
+  BankingAccountBalances = "banking-accountBalances",
+  BankingAccounts = "banking-accounts",
+  BankingTransactionCategories = "banking-transactionCategories",
+  BankingTransactions = "banking-transactions",
+  CommerceCompanyInfo = "commerce-companyInfo",
+  CommerceCustomers = "commerce-customers",
+  CommerceDisputes = "commerce-disputes",
+  CommerceLocations = "commerce-locations",
+  CommerceOrders = "commerce-orders",
+  CommercePaymentMethods = "commerce-paymentMethods",
+  CommercePayments = "commerce-payments",
+  CommerceProductCategories = "commerce-productCategories",
+  CommerceProducts = "commerce-products",
+  CommerceTaxComponents = "commerce-taxComponents",
+  CommerceTransactions = "commerce-transactions",
+}
+
+export class CreateCreditNote200ApplicationJSONChangesPushOperationReference extends SpeakeasyBase {
+  /**
+   * Available Data types
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
-  dataType?: string;
+  dataType?: CreateCreditNote200ApplicationJSONChangesPushOperationReferenceDataTypeEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
 }
 
-export enum CreateCreditNote200ApplicationJSONChangesTypeEnum {
+export enum CreateCreditNote200ApplicationJSONChangesPushChangeTypeEnum {
   Unknown = "Unknown",
   Created = "Created",
   Modified = "Modified",
@@ -744,12 +795,12 @@ export class CreateCreditNote200ApplicationJSONChanges extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "recordRef" })
-  @Type(() => CreateCreditNote200ApplicationJSONChangesPushOperationRecordRef)
-  recordRef?: CreateCreditNote200ApplicationJSONChangesPushOperationRecordRef;
+  @Type(() => CreateCreditNote200ApplicationJSONChangesPushOperationReference)
+  recordRef?: CreateCreditNote200ApplicationJSONChangesPushOperationReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: CreateCreditNote200ApplicationJSONChangesTypeEnum;
+  type?: CreateCreditNote200ApplicationJSONChangesPushChangeTypeEnum;
 }
 
 /**
@@ -1527,7 +1578,7 @@ export enum CreateCreditNote200ApplicationJSONDataTypeEnum {
 /**
  * The status of the push operation.
  */
-export enum CreateCreditNote200ApplicationJSONStatusEnum {
+export enum CreateCreditNote200ApplicationJSONPushOperationStatusEnum {
   Pending = "Pending",
   Failed = "Failed",
   Success = "Success",
@@ -1648,7 +1699,7 @@ export class CreateCreditNote200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: CreateCreditNote200ApplicationJSONStatusEnum;
+  status: CreateCreditNote200ApplicationJSONPushOperationStatusEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "statusCode" })

@@ -728,17 +728,68 @@ export class UpdateBillRequest extends SpeakeasyBase {
   timeoutInMinutes?: number;
 }
 
-export class UpdateBill200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
+/**
+ * Available Data types
+ */
+export enum UpdateBill200ApplicationJSONChangesPushOperationReferenceDataTypeEnum {
+  AccountTransactions = "accountTransactions",
+  BalanceSheet = "balanceSheet",
+  BankAccounts = "bankAccounts",
+  BankTransactions = "bankTransactions",
+  BillCreditNotes = "billCreditNotes",
+  BillPayments = "billPayments",
+  Bills = "bills",
+  CashFlowStatement = "cashFlowStatement",
+  ChartOfAccounts = "chartOfAccounts",
+  Company = "company",
+  CreditNotes = "creditNotes",
+  Customers = "customers",
+  DirectCosts = "directCosts",
+  DirectIncomes = "directIncomes",
+  Invoices = "invoices",
+  Items = "items",
+  JournalEntries = "journalEntries",
+  Journals = "journals",
+  PaymentMethods = "paymentMethods",
+  Payments = "payments",
+  ProfitAndLoss = "profitAndLoss",
+  PurchaseOrders = "purchaseOrders",
+  SalesOrders = "salesOrders",
+  Suppliers = "suppliers",
+  TaxRates = "taxRates",
+  TrackingCategories = "trackingCategories",
+  Transfers = "transfers",
+  BankingAccountBalances = "banking-accountBalances",
+  BankingAccounts = "banking-accounts",
+  BankingTransactionCategories = "banking-transactionCategories",
+  BankingTransactions = "banking-transactions",
+  CommerceCompanyInfo = "commerce-companyInfo",
+  CommerceCustomers = "commerce-customers",
+  CommerceDisputes = "commerce-disputes",
+  CommerceLocations = "commerce-locations",
+  CommerceOrders = "commerce-orders",
+  CommercePaymentMethods = "commerce-paymentMethods",
+  CommercePayments = "commerce-payments",
+  CommerceProductCategories = "commerce-productCategories",
+  CommerceProducts = "commerce-products",
+  CommerceTaxComponents = "commerce-taxComponents",
+  CommerceTransactions = "commerce-transactions",
+}
+
+export class UpdateBill200ApplicationJSONChangesPushOperationReference extends SpeakeasyBase {
+  /**
+   * Available Data types
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
-  dataType?: string;
+  dataType?: UpdateBill200ApplicationJSONChangesPushOperationReferenceDataTypeEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
 }
 
-export enum UpdateBill200ApplicationJSONChangesTypeEnum {
+export enum UpdateBill200ApplicationJSONChangesPushChangeTypeEnum {
   Unknown = "Unknown",
   Created = "Created",
   Modified = "Modified",
@@ -753,12 +804,12 @@ export class UpdateBill200ApplicationJSONChanges extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "recordRef" })
-  @Type(() => UpdateBill200ApplicationJSONChangesPushOperationRecordRef)
-  recordRef?: UpdateBill200ApplicationJSONChangesPushOperationRecordRef;
+  @Type(() => UpdateBill200ApplicationJSONChangesPushOperationReference)
+  recordRef?: UpdateBill200ApplicationJSONChangesPushOperationReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: UpdateBill200ApplicationJSONChangesTypeEnum;
+  type?: UpdateBill200ApplicationJSONChangesPushChangeTypeEnum;
 }
 
 /**
@@ -1530,7 +1581,7 @@ export enum UpdateBill200ApplicationJSONDataTypeEnum {
 /**
  * The status of the push operation.
  */
-export enum UpdateBill200ApplicationJSONStatusEnum {
+export enum UpdateBill200ApplicationJSONPushOperationStatusEnum {
   Pending = "Pending",
   Failed = "Failed",
   Success = "Success",
@@ -1656,7 +1707,7 @@ export class UpdateBill200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: UpdateBill200ApplicationJSONStatusEnum;
+  status: UpdateBill200ApplicationJSONPushOperationStatusEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "statusCode" })

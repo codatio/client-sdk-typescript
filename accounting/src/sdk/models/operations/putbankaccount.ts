@@ -207,17 +207,68 @@ export class PutBankAccountRequest extends SpeakeasyBase {
   timeoutInMinutes?: number;
 }
 
-export class PutBankAccount200ApplicationJSONChangesPushOperationRecordRef extends SpeakeasyBase {
+/**
+ * Available Data types
+ */
+export enum PutBankAccount200ApplicationJSONChangesPushOperationReferenceDataTypeEnum {
+  AccountTransactions = "accountTransactions",
+  BalanceSheet = "balanceSheet",
+  BankAccounts = "bankAccounts",
+  BankTransactions = "bankTransactions",
+  BillCreditNotes = "billCreditNotes",
+  BillPayments = "billPayments",
+  Bills = "bills",
+  CashFlowStatement = "cashFlowStatement",
+  ChartOfAccounts = "chartOfAccounts",
+  Company = "company",
+  CreditNotes = "creditNotes",
+  Customers = "customers",
+  DirectCosts = "directCosts",
+  DirectIncomes = "directIncomes",
+  Invoices = "invoices",
+  Items = "items",
+  JournalEntries = "journalEntries",
+  Journals = "journals",
+  PaymentMethods = "paymentMethods",
+  Payments = "payments",
+  ProfitAndLoss = "profitAndLoss",
+  PurchaseOrders = "purchaseOrders",
+  SalesOrders = "salesOrders",
+  Suppliers = "suppliers",
+  TaxRates = "taxRates",
+  TrackingCategories = "trackingCategories",
+  Transfers = "transfers",
+  BankingAccountBalances = "banking-accountBalances",
+  BankingAccounts = "banking-accounts",
+  BankingTransactionCategories = "banking-transactionCategories",
+  BankingTransactions = "banking-transactions",
+  CommerceCompanyInfo = "commerce-companyInfo",
+  CommerceCustomers = "commerce-customers",
+  CommerceDisputes = "commerce-disputes",
+  CommerceLocations = "commerce-locations",
+  CommerceOrders = "commerce-orders",
+  CommercePaymentMethods = "commerce-paymentMethods",
+  CommercePayments = "commerce-payments",
+  CommerceProductCategories = "commerce-productCategories",
+  CommerceProducts = "commerce-products",
+  CommerceTaxComponents = "commerce-taxComponents",
+  CommerceTransactions = "commerce-transactions",
+}
+
+export class PutBankAccount200ApplicationJSONChangesPushOperationReference extends SpeakeasyBase {
+  /**
+   * Available Data types
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
-  dataType?: string;
+  dataType?: PutBankAccount200ApplicationJSONChangesPushOperationReferenceDataTypeEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
 }
 
-export enum PutBankAccount200ApplicationJSONChangesTypeEnum {
+export enum PutBankAccount200ApplicationJSONChangesPushChangeTypeEnum {
   Unknown = "Unknown",
   Created = "Created",
   Modified = "Modified",
@@ -232,12 +283,12 @@ export class PutBankAccount200ApplicationJSONChanges extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "recordRef" })
-  @Type(() => PutBankAccount200ApplicationJSONChangesPushOperationRecordRef)
-  recordRef?: PutBankAccount200ApplicationJSONChangesPushOperationRecordRef;
+  @Type(() => PutBankAccount200ApplicationJSONChangesPushOperationReference)
+  recordRef?: PutBankAccount200ApplicationJSONChangesPushOperationReference;
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: PutBankAccount200ApplicationJSONChangesTypeEnum;
+  type?: PutBankAccount200ApplicationJSONChangesPushChangeTypeEnum;
 }
 
 /**
@@ -459,7 +510,7 @@ export enum PutBankAccount200ApplicationJSONDataTypeEnum {
 /**
  * The status of the push operation.
  */
-export enum PutBankAccount200ApplicationJSONStatusEnum {
+export enum PutBankAccount200ApplicationJSONPushOperationStatusEnum {
   Pending = "Pending",
   Failed = "Failed",
   Success = "Success",
@@ -584,7 +635,7 @@ export class PutBankAccount200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: PutBankAccount200ApplicationJSONStatusEnum;
+  status: PutBankAccount200ApplicationJSONPushOperationStatusEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "statusCode" })

@@ -77,28 +77,10 @@ export class ListBankTransactions200ApplicationJSONLinks extends SpeakeasyBase {
   self: ListBankTransactions200ApplicationJSONLinksHypertextReference;
 }
 
-export class ListBankTransactions200ApplicationJSONResultsModifiedDate extends SpeakeasyBase {
-  /**
-   * The date on which this record was last modified in Codat.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
-}
-
-export class ListBankTransactions200ApplicationJSONResultsSourceModifiedDate extends SpeakeasyBase {
-  /**
-   * The date on which this record was last modified in the originating system
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
-}
-
 /**
  * Type of transaction for the bank statement line
  */
-export enum ListBankTransactions200ApplicationJSONResultsTransactionTypeEnum {
+export enum ListBankTransactions200ApplicationJSONSourceModifiedDateTransactionTypeEnum {
   Unknown = "Unknown",
   Credit = "Credit",
   Debit = "Debit",
@@ -119,7 +101,7 @@ export enum ListBankTransactions200ApplicationJSONResultsTransactionTypeEnum {
   Other = "Other",
 }
 
-export class ListBankTransactions200ApplicationJSONResults extends SpeakeasyBase {
+export class ListBankTransactions200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "amount" })
   amount: number;
@@ -167,10 +149,12 @@ export class ListBankTransactions200ApplicationJSONResults extends SpeakeasyBase
   @Expose({ name: "id" })
   id?: string;
 
+  /**
+   * The date on which this record was last modified in Codat.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
-  @Type(() => ListBankTransactions200ApplicationJSONResultsModifiedDate)
-  modifiedDate?: ListBankTransactions200ApplicationJSONResultsModifiedDate;
+  modifiedDate?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "reconciled" })
@@ -180,17 +164,19 @@ export class ListBankTransactions200ApplicationJSONResults extends SpeakeasyBase
   @Expose({ name: "reference" })
   reference?: string;
 
+  /**
+   * The date on which this record was last modified in the originating system
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
-  @Type(() => ListBankTransactions200ApplicationJSONResultsSourceModifiedDate)
-  sourceModifiedDate?: ListBankTransactions200ApplicationJSONResultsSourceModifiedDate;
+  sourceModifiedDate?: string;
 
   /**
    * Type of transaction for the bank statement line
    */
   @SpeakeasyMetadata()
   @Expose({ name: "transactionType" })
-  transactionType: ListBankTransactions200ApplicationJSONResultsTransactionTypeEnum;
+  transactionType: ListBankTransactions200ApplicationJSONSourceModifiedDateTransactionTypeEnum;
 }
 
 /**
@@ -211,11 +197,11 @@ export class ListBankTransactions200ApplicationJSON extends SpeakeasyBase {
   pageSize: number;
 
   @SpeakeasyMetadata({
-    elemType: ListBankTransactions200ApplicationJSONResults,
+    elemType: ListBankTransactions200ApplicationJSONSourceModifiedDate,
   })
   @Expose({ name: "results" })
-  @Type(() => ListBankTransactions200ApplicationJSONResults)
-  results?: ListBankTransactions200ApplicationJSONResults[];
+  @Type(() => ListBankTransactions200ApplicationJSONSourceModifiedDate)
+  results?: ListBankTransactions200ApplicationJSONSourceModifiedDate[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })

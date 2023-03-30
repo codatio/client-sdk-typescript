@@ -56,10 +56,8 @@ export class BankAccountTransactions {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const queryParams: string = utils.serializeQueryParams(req);
-
     const r = client.request({
-      url: url + queryParams,
+      url: url,
       method: "get",
       ...config,
     });
