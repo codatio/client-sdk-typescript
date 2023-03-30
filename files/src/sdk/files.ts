@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -77,6 +78,13 @@ export class Files {
         });
       switch (true) {
         case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/octet-stream`)) {
+            const resBody: string = JSON.stringify(httpRes?.data, null, 0);
+            const out: Uint8Array = new Uint8Array(resBody.length);
+            for (let i = 0; i < resBody.length; i++)
+              out[i] = resBody.charCodeAt(i);
+            res.data = out;
+          }
           break;
       }
 
@@ -131,7 +139,7 @@ export class Files {
             const resFieldDepth: number = utils.getResFieldDepth(res);
             res.files = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.ListFilesFile,
+              shared.File,
               resFieldDepth
             );
           }
@@ -163,11 +171,29 @@ export class Files {
       req
     );
 
+    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+    try {
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "requestBody",
+        "multipart"
+      );
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new Error(`Error serializing request body, cause: ${e.message}`);
+      }
+    }
+
     const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const headers = { ...reqBodyHeaders, ...config?.headers };
 
     const r = client.request({
       url: url,
       method: "post",
+      headers: headers,
+      data: reqBody,
       ...config,
     });
 

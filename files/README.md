@@ -33,7 +33,7 @@ const sdk = new Codat({
 });
 
 const req: DownloadFilesRequest = {
-  companyId: "89bd9d8d-69a6-474e-8f46-7cc8796ed151",
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   date: "2022-10-23T00:00:00Z",
 };
 

@@ -5,7 +5,20 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
+export class UploadFilesRequestBody extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "multipart_form, content=true" })
+  content: Uint8Array;
+
+  @SpeakeasyMetadata({ data: "multipart_form, name=requestBody" })
+  requestBody: string;
+}
+
 export class UploadFilesRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({
+    data: "multipart_form, file=true, request, media_type=multipart/form-data",
+  })
+  requestBody?: UploadFilesRequestBody;
+
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })

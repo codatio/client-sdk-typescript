@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 3f1bac07e7e6cb3d3ab9d1f697a61dc2
+  docChecksum: 517ac0d80ce90d204de529d1478fe740
   docVersion: 2.1.0
   speakeasyVersion: 1.19.2
   generationVersion: 2.16.5
@@ -10,6 +10,6 @@ generation:
   sdkFlattening: true
   singleTagPerOp: false
 typescript:
-  version: 0.8.2
+  version: 0.8.3
   author: Speakeasy
   packageName: '@codat/files'
