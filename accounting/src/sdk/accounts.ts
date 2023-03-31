@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -65,7 +66,7 @@ export class Accounts {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "account",
         "json"
       );
     } catch (e: unknown) {
@@ -101,11 +102,10 @@ export class Accounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createAccount200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreateAccount200ApplicationJSON
-              );
+            res.createAccountResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CreateAccountResponse
+            );
           }
           break;
       }
@@ -157,68 +157,10 @@ export class Accounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.sourceModifiedDate = utils.deserializeJSONResponse(
+            res.account = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetAccountSourceModifiedDate
+              shared.Account
             );
-          }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
-   * List accounts
-   *
-   * @remarks
-   * Gets the latest accounts for a company
-   */
-  getAccounts(
-    req: operations.GetAccountsRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetAccountsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetAccountsRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/data/accounts",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const queryParams: string = utils.serializeQueryParams(req);
-
-    const r = client.request({
-      url: url + queryParams,
-      method: "get",
-      ...config,
-    });
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetAccountsResponse =
-        new operations.GetAccountsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.getAccounts200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetAccounts200ApplicationJSON
-              );
           }
           break;
       }
@@ -278,7 +220,64 @@ export class Accounts {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.pushOption = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCreateChartOfAccountsModelPushOption
+              shared.PushOption
+            );
+          }
+          break;
+      }
+
+      return res;
+    });
+  }
+
+  /**
+   * List accounts
+   *
+   * @remarks
+   * Gets the latest accounts for a company
+   */
+  listAccounts(
+    req: operations.ListAccountsRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.ListAccountsResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.ListAccountsRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/data/accounts",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const queryParams: string = utils.serializeQueryParams(req);
+
+    const r = client.request({
+      url: url + queryParams,
+      method: "get",
+      ...config,
+    });
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.ListAccountsResponse =
+        new operations.ListAccountsResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.accounts = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Accounts
             );
           }
           break;

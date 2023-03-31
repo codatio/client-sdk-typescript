@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -76,9 +77,9 @@ export class SalesOrders {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.sourceModifiedDate = utils.deserializeJSONResponse(
+            res.salesOrder = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetSalesOrderSourceModifiedDate
+              shared.SalesOrder
             );
           }
           break;
@@ -133,11 +134,10 @@ export class SalesOrders {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listSalesOrders200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListSalesOrders200ApplicationJSON
-              );
+            res.salesOrders = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.SalesOrders
+            );
           }
           break;
       }

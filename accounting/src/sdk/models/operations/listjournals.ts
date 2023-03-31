@@ -3,8 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose, Type } from "class-transformer";
 
 export class ListJournalsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -41,217 +41,19 @@ export class ListJournalsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListJournals200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListJournals200ApplicationJSONLinks extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "current" })
-  @Type(() => ListJournals200ApplicationJSONLinksHypertextReference)
-  current: ListJournals200ApplicationJSONLinksHypertextReference;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "next" })
-  @Type(() => ListJournals200ApplicationJSONLinksHypertextReference)
-  next?: ListJournals200ApplicationJSONLinksHypertextReference;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "previous" })
-  @Type(() => ListJournals200ApplicationJSONLinksHypertextReference)
-  previous?: ListJournals200ApplicationJSONLinksHypertextReference;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "self" })
-  @Type(() => ListJournals200ApplicationJSONLinksHypertextReference)
-  self: ListJournals200ApplicationJSONLinksHypertextReference;
-}
-
-/**
- * Additional information about the entity
- */
-export class ListJournals200ApplicationJSONSourceModifiedDateMetadataMetadata extends SpeakeasyBase {
-  /**
-   * Indicates whether the record has been deleted in the third-party system this record originiated from
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "isDeleted" })
-  isDeleted?: boolean;
-}
-
-export class ListJournals200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
-  /**
-   * Additional information about the entity
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "metadata" })
-  @Type(() => ListJournals200ApplicationJSONSourceModifiedDateMetadataMetadata)
-  metadata?: ListJournals200ApplicationJSONSourceModifiedDateMetadataMetadata;
-}
-
-/**
- * Current journal status.
- */
-export enum ListJournals200ApplicationJSONSourceModifiedDateStatusEnum {
-  Unknown = "Unknown",
-  Active = "Active",
-  Archived = "Archived",
-}
-
-/**
- * > **Language tip:** For line items, or individual transactions, of a company's financial documents, refer to the [Journal entries](https://docs.codat.io/accounting-api#/schemas/JournalEntry) data type
- *
- * @remarks
- *
- * > View the coverage for journals in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journals" target="_blank">Data coverage explorer</a>.
- *
- * ## Overview
- *
- * In accounting software, journals are used to record all the financial transactions of a company. Each transaction in a journal is represented by a separate [journal entry](https://docs.codat.io/accounting-api#/schemas/JournalEntry). These entries are used to create the general ledger, which is then used to create the financial statements of a business.
- *
- * When a company records all their transactions in a single journal, it can become large and difficult to maintain and track. This is why large companies often use multiple journals (also known as subjournals) to categorize and manage journal entries.
- *
- * Such journals can be divided into two categories:
- *
- * - Special journals: journals used to record specific types of transactions; for example, a purchases journal, a sales journal, or a cash management journal.
- * - General journals: journals used to record transactions that fall outside the scope of the special journals.
- *
- * Multiple journals or subjournals are used in the following Codat integrations:
- *
- * - [Sage Intacct](https://docs.codat.io/integrations/accounting/sage-intacct/accounting-sage-intacct)  (mandatory)
- * - [Exact Online](https://docs.codat.io/integrations/accounting/exact-online/accounting-exact-online)  (mandatory)
- * - [Oracle NetSuite](https://docs.codat.io/integrations/accounting/netsuite/accounting-netsuite) (optional)
- *
- * > When pushing journal entries to an accounting platform that doesn’t support multiple journals (multi-book accounting), the entries will be linked to the platform-generic journal. The Journals data type will only include one object.
- *
- */
-export class ListJournals200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
-  /**
-   * Journal creation date.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "createdOn" })
-  createdOn?: string;
-
-  /**
-   * If the journal has child journals, this value is true. If it doesn’t, it is false.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "hasChildren" })
-  hasChildren?: boolean;
-
-  /**
-   * Journal ID.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
-
-  /**
-   * Native journal number or code.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "journalCode" })
-  journalCode?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "metadata" })
-  @Type(() => ListJournals200ApplicationJSONSourceModifiedDateMetadata)
-  metadata?: ListJournals200ApplicationJSONSourceModifiedDateMetadata;
-
-  /**
-   * The date on which this record was last modified in Codat.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
-
-  /**
-   * Journal name.
-   *
-   * @remarks
-   * The maximum length for a journal name is 256 characters. All characters above that number will be truncated.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
-
-  /**
-   * Parent journal ID.
-   *
-   * @remarks
-   * If the journal is a parent journal, this value is not present.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "parentId" })
-  parentId?: string;
-
-  /**
-   * The date on which this record was last modified in the originating system
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
-
-  /**
-   * Current journal status.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status?: ListJournals200ApplicationJSONSourceModifiedDateStatusEnum;
-
-  /**
-   * The type of the journal.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: string;
-}
-
-/**
- * Success
- */
-export class ListJournals200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "_links" })
-  @Type(() => ListJournals200ApplicationJSONLinks)
-  links: ListJournals200ApplicationJSONLinks;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "pageNumber" })
-  pageNumber: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "pageSize" })
-  pageSize: number;
-
-  @SpeakeasyMetadata({
-    elemType: ListJournals200ApplicationJSONSourceModifiedDate,
-  })
-  @Expose({ name: "results" })
-  @Type(() => ListJournals200ApplicationJSONSourceModifiedDate)
-  results?: ListJournals200ApplicationJSONSourceModifiedDate[];
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "totalResults" })
-  totalResults: number;
-}
-
 export class ListJournalsResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
+
+  /**
+   * Success
+   */
+  @SpeakeasyMetadata()
+  journals?: shared.Journals;
 
   @SpeakeasyMetadata()
   statusCode: number;
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
-
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata()
-  listJournals200ApplicationJSONObject?: ListJournals200ApplicationJSON;
 }

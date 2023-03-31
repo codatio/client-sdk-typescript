@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -78,11 +79,10 @@ export class Financials {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getBalanceSheet200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetBalanceSheet200ApplicationJSON
-              );
+            res.balanceSheetResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.BalanceSheetResponse
+            );
           }
           break;
       }
@@ -136,11 +136,10 @@ export class Financials {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getCashFlowStatement200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetCashFlowStatement200ApplicationJSON
-              );
+            res.cashFlowStatementResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CashFlowStatementResponse
+            );
           }
           break;
       }
@@ -194,11 +193,10 @@ export class Financials {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getProfitAndLoss200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetProfitAndLoss200ApplicationJSON
-              );
+            res.profitAndLossResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.ProfitAndLossResponse
+            );
           }
           break;
       }

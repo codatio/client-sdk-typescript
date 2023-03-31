@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -84,7 +85,7 @@ export class Journals {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.pushOption = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCreateJournalsModelPushOption
+              shared.PushOption
             );
           }
           break;
@@ -137,9 +138,9 @@ export class Journals {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.sourceModifiedDate = utils.deserializeJSONResponse(
+            res.journal = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetJournalSourceModifiedDate
+              shared.Journal
             );
           }
           break;
@@ -194,11 +195,10 @@ export class Journals {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listJournals200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListJournals200ApplicationJSON
-              );
+            res.journals = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Journals
+            );
           }
           break;
       }
@@ -239,7 +239,7 @@ export class Journals {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "journal",
         "json"
       );
     } catch (e: unknown) {

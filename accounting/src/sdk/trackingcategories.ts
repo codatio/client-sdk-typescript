@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -76,9 +77,9 @@ export class TrackingCategories {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.sourceModifiedDate = utils.deserializeJSONResponse(
+            res.trackingCategoryTree = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetTrackingCategorySourceModifiedDate
+              shared.TrackingCategoryTree
             );
           }
           break;
@@ -133,11 +134,10 @@ export class TrackingCategories {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listTrackingCategories200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListTrackingCategories200ApplicationJSON
-              );
+            res.trackingCategories = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.TrackingCategories
+            );
           }
           break;
       }

@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -65,7 +66,7 @@ export class DirectIncomes {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "directIncome",
         "json"
       );
     } catch (e: unknown) {
@@ -101,11 +102,10 @@ export class DirectIncomes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createDirectIncome200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreateDirectIncome200ApplicationJSON
-              );
+            res.createDirectIncomeResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CreateDirectIncomeResponse
+            );
           }
           break;
       }
@@ -156,6 +156,13 @@ export class DirectIncomes {
         });
       switch (true) {
         case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/octet-stream`)) {
+            const resBody: string = JSON.stringify(httpRes?.data, null, 0);
+            const out: Uint8Array = new Uint8Array(resBody.length);
+            for (let i = 0; i < resBody.length; i++)
+              out[i] = resBody.charCodeAt(i);
+            res.data = out;
+          }
           break;
       }
 
@@ -214,7 +221,7 @@ export class DirectIncomes {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.pushOption = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCreateDirectIncomesModelPushOption
+              shared.PushOption
             );
           }
           break;
@@ -267,9 +274,9 @@ export class DirectIncomes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.sourceModifiedDate = utils.deserializeJSONResponse(
+            res.directIncome = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetDirectIncomeSourceModifiedDate
+              shared.DirectIncome
             );
           }
           break;
@@ -326,7 +333,7 @@ export class DirectIncomes {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.attachment = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetDirectIncomeAttachmentAttachment
+              shared.Attachment
             );
           }
           break;
@@ -381,11 +388,10 @@ export class DirectIncomes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getDirectIncomes200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetDirectIncomes200ApplicationJSON
-              );
+            res.directIncomes = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.DirectIncomes
+            );
           }
           break;
       }
@@ -437,9 +443,9 @@ export class DirectIncomes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.attachments = utils.deserializeJSONResponse(
+            res.attachmentsDataset = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.ListDirectIncomeAttachmentsAttachments
+              shared.AttachmentsDataset
             );
           }
           break;
@@ -455,12 +461,12 @@ export class DirectIncomes {
    * @remarks
    * Posts a new direct income attachment for a given company.
    */
-  postDirectIncomeAttachment(
-    req: operations.PostDirectIncomeAttachmentRequest,
+  uploadDirectIncomeAttachment(
+    req: operations.UploadDirectIncomeAttachmentRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.PostDirectIncomeAttachmentResponse> {
+  ): Promise<operations.UploadDirectIncomeAttachmentResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.PostDirectIncomeAttachmentRequest(req);
+      req = new operations.UploadDirectIncomeAttachmentRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -470,11 +476,29 @@ export class DirectIncomes {
       req
     );
 
+    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+    try {
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "requestBody",
+        "multipart"
+      );
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new Error(`Error serializing request body, cause: ${e.message}`);
+      }
+    }
+
     const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const headers = { ...reqBodyHeaders, ...config?.headers };
 
     const r = client.request({
       url: url,
       method: "post",
+      headers: headers,
+      data: reqBody,
       ...config,
     });
 
@@ -483,8 +507,8 @@ export class DirectIncomes {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.PostDirectIncomeAttachmentResponse =
-        new operations.PostDirectIncomeAttachmentResponse({
+      const res: operations.UploadDirectIncomeAttachmentResponse =
+        new operations.UploadDirectIncomeAttachmentResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,

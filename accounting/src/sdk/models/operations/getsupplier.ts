@@ -3,8 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose, Type } from "class-transformer";
 
 export class GetSupplierRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -21,218 +21,19 @@ export class GetSupplierRequest extends SpeakeasyBase {
   supplierId: string;
 }
 
-/**
- * Type of the address.
- */
-export enum GetSupplierSourceModifiedDateAddressesTypeEnum {
-  Unknown = "Unknown",
-  Billing = "Billing",
-  Delivery = "Delivery",
-}
-
-export class GetSupplierSourceModifiedDateAddresses extends SpeakeasyBase {
-  /**
-   * City of the customer address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "city" })
-  city?: string;
-
-  /**
-   * Country of the customer address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "country" })
-  country?: string;
-
-  /**
-   * Line 1 of the customer address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "line1" })
-  line1?: string;
-
-  /**
-   * Line 2 of the customer address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "line2" })
-  line2?: string;
-
-  /**
-   * Postal code or zip code.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "postalCode" })
-  postalCode?: string;
-
-  /**
-   * Region of the customer address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "region" })
-  region?: string;
-
-  /**
-   * Type of the address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type: GetSupplierSourceModifiedDateAddressesTypeEnum;
-}
-
-export class GetSupplierSourceModifiedDateMetadata extends SpeakeasyBase {
-  /**
-   * Indicates whether the record has been deleted in the third-party system this record originated from.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "isDeleted" })
-  isDeleted?: boolean;
-}
-
-/**
- * Status of the supplier.
- */
-export enum GetSupplierSourceModifiedDateStatusEnum {
-  Unknown = "Unknown",
-  Active = "Active",
-  Archived = "Archived",
-}
-
-/**
- * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
- */
-export class GetSupplierSourceModifiedDateSupplementalData extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "content" })
-  content?: Record<string, Record<string, any>>;
-}
-
-/**
- * > View the coverage for suppliers in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers" target="_blank">Data coverage explorer</a>.
- *
- * @remarks
- *
- * ## Overview
- *
- * From the **Suppliers** endpoints, you can retrieve a list of [all the suppliers for a company](https://docs.codat.io/accounting-api#/operations/list-suppliers). Suppliers' data links to accounts payable [bills](https://docs.codat.io/accounting-api#/schemas/Bill).
- */
-export class GetSupplierSourceModifiedDate extends SpeakeasyBase {
-  /**
-   * An array of Addresses.
-   */
-  @SpeakeasyMetadata({ elemType: GetSupplierSourceModifiedDateAddresses })
-  @Expose({ name: "addresses" })
-  @Type(() => GetSupplierSourceModifiedDateAddresses)
-  addresses?: GetSupplierSourceModifiedDateAddresses[];
-
-  /**
-   * Name of the main contact for the supplier.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "contactName" })
-  contactName?: string;
-
-  /**
-   * Default currency the supplier's transactional data is recorded in.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "defaultCurrency" })
-  defaultCurrency?: string;
-
-  /**
-   * Email address that the supplier may be contacted on.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "emailAddress" })
-  emailAddress?: string;
-
-  /**
-   * Identifier for the supplier, unique to the company in the accounting platform.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "metadata" })
-  @Type(() => GetSupplierSourceModifiedDateMetadata)
-  metadata?: GetSupplierSourceModifiedDateMetadata;
-
-  /**
-   * The date on which this record was last modified in Codat.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
-
-  /**
-   * Phone number that the supplier may be contacted on.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "phone" })
-  phone?: string;
-
-  /**
-   * Company number of the supplier. In the UK, this is typically the company registration number issued by Companies House.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "registrationNumber" })
-  registrationNumber?: string;
-
-  /**
-   * The date on which this record was last modified in the originating system
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
-
-  /**
-   * Status of the supplier.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status: GetSupplierSourceModifiedDateStatusEnum;
-
-  /**
-   * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "supplementalData" })
-  @Type(() => GetSupplierSourceModifiedDateSupplementalData)
-  supplementalData?: GetSupplierSourceModifiedDateSupplementalData;
-
-  /**
-   *
-   *
-   * @remarks
-   * Name of the supplier as recorded in the accounting system, typically the company name.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "supplierName" })
-  supplierName?: string;
-
-  /**
-   * Supplier's company tax number.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "taxNumber" })
-  taxNumber?: string;
-}
-
 export class GetSupplierResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
-
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata()
-  sourceModifiedDate?: GetSupplierSourceModifiedDate;
 
   @SpeakeasyMetadata()
   statusCode: number;
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
+
+  /**
+   * Success
+   */
+  @SpeakeasyMetadata()
+  supplier?: shared.Supplier;
 }

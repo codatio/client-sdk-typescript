@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -76,9 +77,9 @@ export class PaymentMethods {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.sourceModifiedDate = utils.deserializeJSONResponse(
+            res.paymentMethod = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetPaymentMethodSourceModifiedDate
+              shared.PaymentMethod
             );
           }
           break;
@@ -133,11 +134,10 @@ export class PaymentMethods {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listPaymentMethods200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListPaymentMethods200ApplicationJSON
-              );
+            res.paymentMethods = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.PaymentMethods
+            );
           }
           break;
       }

@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -65,7 +66,7 @@ export class JournalEntries {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "journalEntry",
         "json"
       );
     } catch (e: unknown) {
@@ -101,11 +102,10 @@ export class JournalEntries {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createJournalEntry200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreateJournalEntry200ApplicationJSON
-              );
+            res.createJournalEntryResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CreateJournalEntryResponse
+            );
           }
           break;
       }
@@ -165,7 +165,7 @@ export class JournalEntries {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.pushOption = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCreateJournalEntriesModelPushOption
+              shared.PushOption
             );
           }
           break;
@@ -218,9 +218,9 @@ export class JournalEntries {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.sourceModifiedDate = utils.deserializeJSONResponse(
+            res.journalEntry = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetJournalEntrySourceModifiedDate
+              shared.JournalEntry
             );
           }
           break;
@@ -275,11 +275,10 @@ export class JournalEntries {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listJournalEntries200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListJournalEntries200ApplicationJSON
-              );
+            res.journalEntries = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.JournalEntries
+            );
           }
           break;
       }

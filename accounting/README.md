@@ -57,15 +57,15 @@ sdk.accountTransactions.getAccountTransaction(req).then((res: GetAccountTransact
 
 * `createAccount` - Create account
 * `getAccount` - Get account
-* `getAccounts` - List accounts
 * `getCreateChartOfAccountsModel` - Get create account model
+* `listAccounts` - List accounts
 
 ### bankAccountTransactions
 
-* `getBankAccountPushOptions` - List push options for bank account bank transactions
+* `createBankTransactions` - Create bank transactions
+* `getCreateBankAccountModel` - List push options for bank account bank transactions
 * `listBankAccountTransactions` - List bank transactions for bank account
 * `listBankTransactions` - List all bank transactions
-* `postBankTransactions` - Create bank transactions
 
 ### bankAccounts
 
@@ -74,7 +74,7 @@ sdk.accountTransactions.getAccountTransaction(req).then((res: GetAccountTransact
 * `getBankAccount` - Get bank account
 * `getCreateUpdateBankAccountsModel` - Get create/update bank account model
 * `listBankAccounts` - List bank accounts
-* `putBankAccount` - Update bank account
+* `updateBankAccount` - Update bank account
 
 ### billCreditNotes
 
@@ -87,7 +87,7 @@ sdk.accountTransactions.getAccountTransaction(req).then((res: GetAccountTransact
 ### billPayments
 
 * `createBillPayment` - Create bill payments
-* `deleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId` - Delete bill payment
+* `deleteBillPayment` - Delete bill payment
 * `getBillPayments` - Get bill payment
 * `getCreateBillPaymentsModel` - Get create bill payment model
 * `listBillPayments` - List bill payments
@@ -95,8 +95,7 @@ sdk.accountTransactions.getAccountTransaction(req).then((res: GetAccountTransact
 ### bills
 
 * `createBill` - Create bill
-* `createBillAttachments` - Create bill attachments
-* `deleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId` - Delete bill
+* `deleteBill` - Delete bill
 * `downloadBillAttachment` - Download bill attachment
 * `getBill` - Get bill
 * `getBillAttachment` - Get bill attachment
@@ -104,6 +103,7 @@ sdk.accountTransactions.getAccountTransaction(req).then((res: GetAccountTransact
 * `getCreateUpdateBillsModel` - Get create/update bill model
 * `listBills` - List bills
 * `updateBill` - Update bill
+* `uploadBillAttachments` - Upload bill attachments
 
 ### companyInfo
 
@@ -112,11 +112,11 @@ sdk.accountTransactions.getAccountTransaction(req).then((res: GetAccountTransact
 
 ### creditNotes
 
-* `createCreditNote` - Update creditNote
+* `createCreditNote` - Create credit note
 * `getCreateUpdateCreditNotesModel` - Get create/update credit note model
 * `getCreditNote` - Get credit note
 * `listCreditNotes` - List credit notes
-* `pushCreditNote` - Create credit note
+* `updateCreditNote` - Update creditNote
 
 ### customers
 
@@ -138,7 +138,7 @@ sdk.accountTransactions.getAccountTransaction(req).then((res: GetAccountTransact
 * `getDirectCostAttachment` - Get direct cost attachment
 * `getDirectCosts` - List direct costs
 * `listDirectCostAttachments` - List direct cost attachments
-* `postDirectCostAttachment` - Create direct cost attachment
+* `uploadDirectCostAttachment` - Upload direct cost attachment
 
 ### directIncomes
 
@@ -149,7 +149,7 @@ sdk.accountTransactions.getAccountTransaction(req).then((res: GetAccountTransact
 * `getDirectIncomeAttachment` - Get direct income attachment
 * `getDirectIncomes` - Get direct incomes
 * `listDirectIncomeAttachments` - List direct income attachments
-* `postDirectIncomeAttachment` - Create direct income attachment
+* `uploadDirectIncomeAttachment` - Create direct income attachment
 
 ### financials
 
@@ -159,16 +159,16 @@ sdk.accountTransactions.getAccountTransaction(req).then((res: GetAccountTransact
 
 ### invoices
 
+* `downloadInvoicePdf` - Get invoice as PDF
 * `createInvoice` - Create invoice
-* `donwloadInvoiceAttachment` - Download invoice attachment
+* `downloadInvoiceAttachment` - Download invoice attachment
 * `getCreateUpdateInvoicesModel` - Get create/update invoice model
 * `getInvoice` - Get invoice
 * `getInvoiceAttachment` - Get invoice attachment
 * `getInvoiceAttachments` - Get invoice attachments
-* `getInvoicePdf` - Get invoice as PDF
 * `listInvoices` - List invoices
-* `pushInvoiceAttachment` - Push invoice attachment
 * `updateInvoice` - Update invoice
+* `uploadInvoiceAttachment` - Push invoice attachment
 
 ### items
 
@@ -225,7 +225,7 @@ sdk.accountTransactions.getAccountTransaction(req).then((res: GetAccountTransact
 
 ### suppliers
 
-* `createSuppliers` - Create suppliers
+* `createSupplier` - Create suppliers
 * `downloadSupplierAttachment` - Download supplier attachment
 * `getCreateUpdateSuppliersModel` - Get create/update supplier model
 * `getSupplier` - Get supplier

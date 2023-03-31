@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -34,16 +35,17 @@ export class CreditNotes {
   }
 
   /**
-   * Update creditNote
+   * Create credit note
    *
    * @remarks
-   * Posts an updated credit note to the accounting package for a given company.
+   * Push credit note
+   *
    *
    * Required data may vary by integration. To see what data to post, first call [Get create/update credit note model](https://docs.codat.io/accounting-api#/operations/get-create-update-creditNotes-model).
    *
    * > **Supported Integrations**
    * >
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=creditNotes) for integrations that support updating a credit note.
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=creditNotes) for integrations that support creating a credit note.
    */
   createCreditNote(
     req: operations.CreateCreditNoteRequest,
@@ -56,7 +58,7 @@ export class CreditNotes {
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(
       baseURL,
-      "/companies/{companyId}/connections/{connectionId}/push/creditNotes/{creditNoteId}",
+      "/companies/{companyId}/connections/{connectionId}/push/creditNotes",
       req
     );
 
@@ -65,7 +67,7 @@ export class CreditNotes {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "creditNote",
         "json"
       );
     } catch (e: unknown) {
@@ -81,7 +83,7 @@ export class CreditNotes {
 
     const r = client.request({
       url: url + queryParams,
-      method: "put",
+      method: "post",
       headers: headers,
       data: reqBody,
       ...config,
@@ -101,11 +103,10 @@ export class CreditNotes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createCreditNote200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreateCreditNote200ApplicationJSON
-              );
+            res.createCreditNoteResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CreateCreditNoteResponse
+            );
           }
           break;
       }
@@ -165,7 +166,7 @@ export class CreditNotes {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.pushOption = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCreateUpdateCreditNotesModelPushOption
+              shared.PushOption
             );
           }
           break;
@@ -218,9 +219,9 @@ export class CreditNotes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.sourceModifiedDate = utils.deserializeJSONResponse(
+            res.creditNote = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCreditNoteSourceModifiedDate
+              shared.CreditNote
             );
           }
           break;
@@ -275,11 +276,10 @@ export class CreditNotes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listCreditNotes200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListCreditNotes200ApplicationJSON
-              );
+            res.creditNotes = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CreditNotes
+            );
           }
           break;
       }
@@ -289,30 +289,29 @@ export class CreditNotes {
   }
 
   /**
-   * Create credit note
+   * Update creditNote
    *
    * @remarks
-   * Push credit note
-   *
+   * Posts an updated credit note to the accounting package for a given company.
    *
    * Required data may vary by integration. To see what data to post, first call [Get create/update credit note model](https://docs.codat.io/accounting-api#/operations/get-create-update-creditNotes-model).
    *
    * > **Supported Integrations**
    * >
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=creditNotes) for integrations that support creating a credit note.
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=creditNotes) for integrations that support updating a credit note.
    */
-  pushCreditNote(
-    req: operations.PushCreditNoteRequest,
+  updateCreditNote(
+    req: operations.UpdateCreditNoteRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.PushCreditNoteResponse> {
+  ): Promise<operations.UpdateCreditNoteResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.PushCreditNoteRequest(req);
+      req = new operations.UpdateCreditNoteRequest(req);
     }
 
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(
       baseURL,
-      "/companies/{companyId}/connections/{connectionId}/push/creditNotes",
+      "/companies/{companyId}/connections/{connectionId}/push/creditNotes/{creditNoteId}",
       req
     );
 
@@ -321,7 +320,7 @@ export class CreditNotes {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "creditNote",
         "json"
       );
     } catch (e: unknown) {
@@ -337,7 +336,7 @@ export class CreditNotes {
 
     const r = client.request({
       url: url + queryParams,
-      method: "post",
+      method: "put",
       headers: headers,
       data: reqBody,
       ...config,
@@ -348,8 +347,8 @@ export class CreditNotes {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.PushCreditNoteResponse =
-        new operations.PushCreditNoteResponse({
+      const res: operations.UpdateCreditNoteResponse =
+        new operations.UpdateCreditNoteResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -357,11 +356,10 @@ export class CreditNotes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushCreditNote200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.PushCreditNote200ApplicationJSON
-              );
+            res.updateCreditNoteResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.UpdateCreditNoteResponse
+            );
           }
           break;
       }

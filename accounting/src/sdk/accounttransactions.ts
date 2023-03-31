@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -76,9 +77,9 @@ export class AccountTransactions {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.sourceModifiedDate = utils.deserializeJSONResponse(
+            res.accountTransaction = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetAccountTransactionSourceModifiedDate
+              shared.AccountTransaction
             );
           }
           break;
@@ -133,11 +134,10 @@ export class AccountTransactions {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listAccountTransactions200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListAccountTransactions200ApplicationJSON
-              );
+            res.accountTransactions = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.AccountTransactions
+            );
           }
           break;
       }

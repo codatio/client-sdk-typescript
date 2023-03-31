@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -65,7 +66,7 @@ export class Transfers {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "transfer",
         "json"
       );
     } catch (e: unknown) {
@@ -100,11 +101,10 @@ export class Transfers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createTransfer200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreateTransfer200ApplicationJSON
-              );
+            res.createTransferResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CreateTransferResponse
+            );
           }
           break;
       }
@@ -164,7 +164,7 @@ export class Transfers {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.pushOption = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCreateTransfersModelPushOption
+              shared.PushOption
             );
           }
           break;
@@ -217,9 +217,9 @@ export class Transfers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.sourceModifiedDate = utils.deserializeJSONResponse(
+            res.transfer = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetTransferSourceModifiedDate
+              shared.Transfer
             );
           }
           break;
@@ -274,11 +274,10 @@ export class Transfers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listTransfers200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListTransfers200ApplicationJSON
-              );
+            res.transfers = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Transfers
+            );
           }
           break;
       }

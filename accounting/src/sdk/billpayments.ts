@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -65,7 +66,7 @@ export class BillPayments {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "billPayment",
         "json"
       );
     } catch (e: unknown) {
@@ -101,11 +102,10 @@ export class BillPayments {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createBillPayment200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreateBillPayment200ApplicationJSON
-              );
+            res.createBillPaymentResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CreateBillPaymentResponse
+            );
           }
           break;
       }
@@ -124,15 +124,12 @@ export class BillPayments {
    * >
    * > This functionality is currently only supported for our Oracle NetSuite integration. Check out our [public roadmap](https://portal.productboard.com/codat/7-public-product-roadmap/tabs/46-accounting-api) to see what we're building next, and to submit ideas for new features.
    */
-  deleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId(
-    req: operations.DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentIdRequest,
+  deleteBillPayment(
+    req: operations.DeleteBillPaymentRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentIdResponse> {
+  ): Promise<operations.DeleteBillPaymentResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req =
-        new operations.DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentIdRequest(
-          req
-        );
+      req = new operations.DeleteBillPaymentRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -155,22 +152,19 @@ export class BillPayments {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentIdResponse =
-        new operations.DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentIdResponse(
-          {
-            statusCode: httpRes.status,
-            contentType: contentType,
-            rawResponse: httpRes,
-          }
-        );
+      const res: operations.DeleteBillPaymentResponse =
+        new operations.DeleteBillPaymentResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId200ApplicationJSON
-              );
+            res.pushOperationSummary = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.PushOperationSummary
+            );
           }
           break;
       }
@@ -222,9 +216,9 @@ export class BillPayments {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.sourceModifiedDate = utils.deserializeJSONResponse(
+            res.billPayment = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetBillPaymentsSourceModifiedDate
+              shared.BillPayment
             );
           }
           break;
@@ -283,7 +277,7 @@ export class BillPayments {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.pushOption = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCreateBillPaymentsModelPushOption
+              shared.PushOption
             );
           }
           break;
@@ -338,11 +332,10 @@ export class BillPayments {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listBillPayments200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListBillPayments200ApplicationJSON
-              );
+            res.billPayments = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.BillPayments
+            );
           }
           break;
       }

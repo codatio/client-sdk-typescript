@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -78,9 +79,9 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.agedCreditorsReport = utils.deserializeJSONResponse(
+            res.agedCreditorReport = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetAgedCreditorsReportAgedCreditorsReport
+              shared.AgedCreditorReport
             );
           }
           break;
@@ -135,9 +136,9 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.agedDebtorsReport = utils.deserializeJSONResponse(
+            res.agedDebtorReport = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetAgedDebtorsReportAgedDebtorsReport
+              shared.AgedDebtorReport
             );
           }
           break;

@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -65,7 +66,7 @@ export class Bills {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "bill",
         "json"
       );
     } catch (e: unknown) {
@@ -101,61 +102,11 @@ export class Bills {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createBill200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreateBill200ApplicationJSON
-              );
+            res.createBillResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CreateBillResponse
+            );
           }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
-   * Create bill attachments
-   *
-   * @remarks
-   * Post bill attachments
-   */
-  createBillAttachments(
-    req: operations.CreateBillAttachmentsRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.CreateBillAttachmentsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CreateBillAttachmentsRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/connections/{connectionId}/push/bills/{billId}/attachments",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const r = client.request({
-      url: url,
-      method: "post",
-      ...config,
-    });
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateBillAttachmentsResponse =
-        new operations.CreateBillAttachmentsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
           break;
       }
 
@@ -173,15 +124,12 @@ export class Bills {
    * >
    * > This functionality is currently only supported for our Oracle NetSuite integration. Check out our [public roadmap](https://portal.productboard.com/codat/7-public-product-roadmap/tabs/46-accounting-api) to see what we're building next, and to submit ideas for new features.
    */
-  deleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId(
-    req: operations.DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillIdRequest,
+  deleteBill(
+    req: operations.DeleteBillRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillIdResponse> {
+  ): Promise<operations.DeleteBillResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req =
-        new operations.DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillIdRequest(
-          req
-        );
+      req = new operations.DeleteBillRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -204,36 +152,19 @@ export class Bills {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillIdResponse =
-        new operations.DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillIdResponse(
-          {
-            statusCode: httpRes.status,
-            contentType: contentType,
-            rawResponse: httpRes,
-          }
-        );
+      const res: operations.DeleteBillResponse =
+        new operations.DeleteBillResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.DeleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId200ApplicationJSON
-              );
-          }
-          if (utils.matchContentType(contentType, `application/xml`)) {
-            const resBody: string = JSON.stringify(httpRes?.data, null, 0);
-            const out: Uint8Array = new Uint8Array(resBody.length);
-            for (let i = 0; i < resBody.length; i++)
-              out[i] = resBody.charCodeAt(i);
-            res.body = out;
-          }
-          if (utils.matchContentType(contentType, `multipart/form-data`)) {
-            const resBody: string = JSON.stringify(httpRes?.data, null, 0);
-            const out: Uint8Array = new Uint8Array(resBody.length);
-            for (let i = 0; i < resBody.length; i++)
-              out[i] = resBody.charCodeAt(i);
-            res.body = out;
+            res.pushOperationSummary = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.PushOperationSummary
+            );
           }
           break;
       }
@@ -284,6 +215,13 @@ export class Bills {
         });
       switch (true) {
         case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/octet-stream`)) {
+            const resBody: string = JSON.stringify(httpRes?.data, null, 0);
+            const out: Uint8Array = new Uint8Array(resBody.length);
+            for (let i = 0; i < resBody.length; i++)
+              out[i] = resBody.charCodeAt(i);
+            res.data = out;
+          }
           break;
       }
 
@@ -333,9 +271,9 @@ export class Bills {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.sourceModifiedDate = utils.deserializeJSONResponse(
+            res.bill = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetBillSourceModifiedDate
+              shared.Bill
             );
           }
           break;
@@ -390,7 +328,7 @@ export class Bills {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.attachment = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetBillAttachmentAttachment
+              shared.Attachment
             );
           }
           break;
@@ -443,9 +381,9 @@ export class Bills {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.attachments = utils.deserializeJSONResponse(
+            res.attachmentsDataset = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetBillAttachmentsAttachments
+              shared.AttachmentsDataset
             );
           }
           break;
@@ -504,7 +442,7 @@ export class Bills {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.pushOption = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCreateUpdateBillsModelPushOption
+              shared.PushOption
             );
           }
           break;
@@ -559,11 +497,10 @@ export class Bills {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listBills200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListBills200ApplicationJSON
-              );
+            res.bills = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Bills
+            );
           }
           break;
       }
@@ -604,7 +541,7 @@ export class Bills {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "bill",
         "json"
       );
     } catch (e: unknown) {
@@ -640,12 +577,78 @@ export class Bills {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.updateBill200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.UpdateBill200ApplicationJSON
-              );
+            res.updateBillResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.UpdateBillResponse
+            );
           }
+          break;
+      }
+
+      return res;
+    });
+  }
+
+  /**
+   * Upload bill attachments
+   *
+   * @remarks
+   * Upload bill attachments
+   */
+  uploadBillAttachments(
+    req: operations.UploadBillAttachmentsRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.UploadBillAttachmentsResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.UploadBillAttachmentsRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/connections/{connectionId}/push/bills/{billId}/attachments",
+      req
+    );
+
+    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+    try {
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "requestBody",
+        "multipart"
+      );
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new Error(`Error serializing request body, cause: ${e.message}`);
+      }
+    }
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const headers = { ...reqBodyHeaders, ...config?.headers };
+
+    const r = client.request({
+      url: url,
+      method: "post",
+      headers: headers,
+      data: reqBody,
+      ...config,
+    });
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.UploadBillAttachmentsResponse =
+        new operations.UploadBillAttachmentsResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
           break;
       }
 

@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -65,7 +66,7 @@ export class DirectCosts {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "directCost",
         "json"
       );
     } catch (e: unknown) {
@@ -101,11 +102,10 @@ export class DirectCosts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createDirectCost200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreateDirectCost200ApplicationJSON
-              );
+            res.createDirectCostResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CreateDirectCostResponse
+            );
           }
           break;
       }
@@ -156,6 +156,13 @@ export class DirectCosts {
         });
       switch (true) {
         case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/octet-stream`)) {
+            const resBody: string = JSON.stringify(httpRes?.data, null, 0);
+            const out: Uint8Array = new Uint8Array(resBody.length);
+            for (let i = 0; i < resBody.length; i++)
+              out[i] = resBody.charCodeAt(i);
+            res.data = out;
+          }
           break;
       }
 
@@ -214,7 +221,7 @@ export class DirectCosts {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.pushOption = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCreateDirectCostsModelPushOption
+              shared.PushOption
             );
           }
           break;
@@ -267,9 +274,9 @@ export class DirectCosts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.sourceModifiedDate = utils.deserializeJSONResponse(
+            res.directCost = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetDirectCostSourceModifiedDate
+              shared.DirectCost
             );
           }
           break;
@@ -324,7 +331,7 @@ export class DirectCosts {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.attachment = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetDirectCostAttachmentAttachment
+              shared.Attachment
             );
           }
           break;
@@ -379,11 +386,10 @@ export class DirectCosts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getDirectCosts200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetDirectCosts200ApplicationJSON
-              );
+            res.directCosts = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.DirectCosts
+            );
           }
           break;
       }
@@ -435,9 +441,9 @@ export class DirectCosts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.attachments = utils.deserializeJSONResponse(
+            res.attachmentsDataset = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.ListDirectCostAttachmentsAttachments
+              shared.AttachmentsDataset
             );
           }
           break;
@@ -448,17 +454,17 @@ export class DirectCosts {
   }
 
   /**
-   * Create direct cost attachment
+   * Upload direct cost attachment
    *
    * @remarks
    * Posts a new direct cost attachment for a given company.
    */
-  postDirectCostAttachment(
-    req: operations.PostDirectCostAttachmentRequest,
+  uploadDirectCostAttachment(
+    req: operations.UploadDirectCostAttachmentRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.PostDirectCostAttachmentResponse> {
+  ): Promise<operations.UploadDirectCostAttachmentResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.PostDirectCostAttachmentRequest(req);
+      req = new operations.UploadDirectCostAttachmentRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -468,11 +474,29 @@ export class DirectCosts {
       req
     );
 
+    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+    try {
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "requestBody",
+        "multipart"
+      );
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new Error(`Error serializing request body, cause: ${e.message}`);
+      }
+    }
+
     const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const headers = { ...reqBodyHeaders, ...config?.headers };
 
     const r = client.request({
       url: url,
       method: "post",
+      headers: headers,
+      data: reqBody,
       ...config,
     });
 
@@ -481,8 +505,8 @@ export class DirectCosts {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.PostDirectCostAttachmentResponse =
-        new operations.PostDirectCostAttachmentResponse({
+      const res: operations.UploadDirectCostAttachmentResponse =
+        new operations.UploadDirectCostAttachmentResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,

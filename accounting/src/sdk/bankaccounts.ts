@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -65,7 +66,7 @@ export class BankAccounts {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "bankAccount",
         "json"
       );
     } catch (e: unknown) {
@@ -101,11 +102,10 @@ export class BankAccounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createBankAccount200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreateBankAccount200ApplicationJSON
-              );
+            res.createBankAccountResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CreateBankAccountResponse
+            );
           }
           break;
       }
@@ -159,11 +159,10 @@ export class BankAccounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getAllBankAccount200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetAllBankAccount200ApplicationJSON
-              );
+            res.bankStatementAccount = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.BankStatementAccount
+            );
           }
           break;
       }
@@ -215,9 +214,9 @@ export class BankAccounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.sourceModifiedDate = utils.deserializeJSONResponse(
+            res.bankAccount = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetBankAccountSourceModifiedDate
+              shared.BankAccount
             );
           }
           break;
@@ -278,7 +277,7 @@ export class BankAccounts {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.pushOption = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCreateUpdateBankAccountsModelPushOption
+              shared.PushOption
             );
           }
           break;
@@ -333,11 +332,10 @@ export class BankAccounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listBankAccounts200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListBankAccounts200ApplicationJSON
-              );
+            res.bankAccounts = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.BankAccounts
+            );
           }
           break;
       }
@@ -358,12 +356,12 @@ export class BankAccounts {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) for integrations that support updating bank accounts.
    */
-  putBankAccount(
-    req: operations.PutBankAccountRequest,
+  updateBankAccount(
+    req: operations.UpdateBankAccountRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.PutBankAccountResponse> {
+  ): Promise<operations.UpdateBankAccountResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.PutBankAccountRequest(req);
+      req = new operations.UpdateBankAccountRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -378,7 +376,7 @@ export class BankAccounts {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "bankAccount",
         "json"
       );
     } catch (e: unknown) {
@@ -405,8 +403,8 @@ export class BankAccounts {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.PutBankAccountResponse =
-        new operations.PutBankAccountResponse({
+      const res: operations.UpdateBankAccountResponse =
+        new operations.UpdateBankAccountResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -414,11 +412,10 @@ export class BankAccounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.putBankAccount200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.PutBankAccount200ApplicationJSON
-              );
+            res.updateBankAccountResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.UpdateBankAccountResponse
+            );
           }
           break;
       }

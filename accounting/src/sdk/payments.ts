@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -65,7 +66,7 @@ export class Payments {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "payment",
         "json"
       );
     } catch (e: unknown) {
@@ -101,11 +102,10 @@ export class Payments {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createPayment200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreatePayment200ApplicationJSON
-              );
+            res.createPaymentResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CreatePaymentResponse
+            );
           }
           break;
       }
@@ -165,7 +165,7 @@ export class Payments {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.pushOption = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCreatePaymentsModelPushOption
+              shared.PushOption
             );
           }
           break;
@@ -218,9 +218,9 @@ export class Payments {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.sourceModifiedDate = utils.deserializeJSONResponse(
+            res.payment = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetPaymentSourceModifiedDate
+              shared.Payment
             );
           }
           break;
@@ -275,11 +275,10 @@ export class Payments {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listPayments200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListPayments200ApplicationJSON
-              );
+            res.payments = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Payments
+            );
           }
           break;
       }

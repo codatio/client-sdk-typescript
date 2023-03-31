@@ -37,6 +37,12 @@ export class DownloadDirectIncomeAttachmentResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
+  /**
+   * Success
+   */
+  @SpeakeasyMetadata()
+  data?: Uint8Array;
+
   @SpeakeasyMetadata()
   statusCode: number;
 

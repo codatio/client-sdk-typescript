@@ -3,126 +3,13 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-/**
- * Current journal status.
- */
-export enum PushJournalSourceModifiedDateStatusEnum {
-  Unknown = "Unknown",
-  Active = "Active",
-  Archived = "Archived",
-}
-
-/**
- * > **Language tip:** For line items, or individual transactions, of a company's financial documents, refer to the [Journal entries](https://docs.codat.io/accounting-api#/schemas/JournalEntry) data type
- *
- * @remarks
- *
- * > View the coverage for journals in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journals" target="_blank">Data coverage explorer</a>.
- *
- * ## Overview
- *
- * In accounting software, journals are used to record all the financial transactions of a company. Each transaction in a journal is represented by a separate [journal entry](https://docs.codat.io/accounting-api#/schemas/JournalEntry). These entries are used to create the general ledger, which is then used to create the financial statements of a business.
- *
- * When a company records all their transactions in a single journal, it can become large and difficult to maintain and track. This is why large companies often use multiple journals (also known as subjournals) to categorize and manage journal entries.
- *
- * Such journals can be divided into two categories:
- *
- * - Special journals: journals used to record specific types of transactions; for example, a purchases journal, a sales journal, or a cash management journal.
- * - General journals: journals used to record transactions that fall outside the scope of the special journals.
- *
- * Multiple journals or subjournals are used in the following Codat integrations:
- *
- * - [Sage Intacct](https://docs.codat.io/integrations/accounting/sage-intacct/accounting-sage-intacct)  (mandatory)
- * - [Exact Online](https://docs.codat.io/integrations/accounting/exact-online/accounting-exact-online)  (mandatory)
- * - [Oracle NetSuite](https://docs.codat.io/integrations/accounting/netsuite/accounting-netsuite) (optional)
- *
- * > When pushing journal entries to an accounting platform that doesn’t support multiple journals (multi-book accounting), the entries will be linked to the platform-generic journal. The Journals data type will only include one object.
- *
- */
-export class PushJournalSourceModifiedDateInput extends SpeakeasyBase {
-  /**
-   * Journal creation date.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "createdOn" })
-  createdOn?: string;
-
-  /**
-   * If the journal has child journals, this value is true. If it doesn’t, it is false.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "hasChildren" })
-  hasChildren?: boolean;
-
-  /**
-   * Journal ID.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
-
-  /**
-   * Native journal number or code.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "journalCode" })
-  journalCode?: string;
-
-  /**
-   * The date on which this record was last modified in Codat.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
-
-  /**
-   * Journal name.
-   *
-   * @remarks
-   * The maximum length for a journal name is 256 characters. All characters above that number will be truncated.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
-
-  /**
-   * Parent journal ID.
-   *
-   * @remarks
-   * If the journal is a parent journal, this value is not present.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "parentId" })
-  parentId?: string;
-
-  /**
-   * The date on which this record was last modified in the originating system
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
-
-  /**
-   * Current journal status.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status?: PushJournalSourceModifiedDateStatusEnum;
-
-  /**
-   * The type of the journal.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: string;
-}
-
 export class PushJournalRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  requestBody?: PushJournalSourceModifiedDateInput;
+  journal?: shared.Journal;
 
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
@@ -141,329 +28,13 @@ export class PushJournalRequest extends SpeakeasyBase {
 }
 
 /**
- * Available Data types
- */
-export enum PushJournal200ApplicationJSONChangesPushOperationReferenceDataTypeEnum {
-  AccountTransactions = "accountTransactions",
-  BalanceSheet = "balanceSheet",
-  BankAccounts = "bankAccounts",
-  BankTransactions = "bankTransactions",
-  BillCreditNotes = "billCreditNotes",
-  BillPayments = "billPayments",
-  Bills = "bills",
-  CashFlowStatement = "cashFlowStatement",
-  ChartOfAccounts = "chartOfAccounts",
-  Company = "company",
-  CreditNotes = "creditNotes",
-  Customers = "customers",
-  DirectCosts = "directCosts",
-  DirectIncomes = "directIncomes",
-  Invoices = "invoices",
-  Items = "items",
-  JournalEntries = "journalEntries",
-  Journals = "journals",
-  PaymentMethods = "paymentMethods",
-  Payments = "payments",
-  ProfitAndLoss = "profitAndLoss",
-  PurchaseOrders = "purchaseOrders",
-  SalesOrders = "salesOrders",
-  Suppliers = "suppliers",
-  TaxRates = "taxRates",
-  TrackingCategories = "trackingCategories",
-  Transfers = "transfers",
-  BankingAccountBalances = "banking-accountBalances",
-  BankingAccounts = "banking-accounts",
-  BankingTransactionCategories = "banking-transactionCategories",
-  BankingTransactions = "banking-transactions",
-  CommerceCompanyInfo = "commerce-companyInfo",
-  CommerceCustomers = "commerce-customers",
-  CommerceDisputes = "commerce-disputes",
-  CommerceLocations = "commerce-locations",
-  CommerceOrders = "commerce-orders",
-  CommercePaymentMethods = "commerce-paymentMethods",
-  CommercePayments = "commerce-payments",
-  CommerceProductCategories = "commerce-productCategories",
-  CommerceProducts = "commerce-products",
-  CommerceTaxComponents = "commerce-taxComponents",
-  CommerceTransactions = "commerce-transactions",
-}
-
-export class PushJournal200ApplicationJSONChangesPushOperationReference extends SpeakeasyBase {
-  /**
-   * Available Data types
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "dataType" })
-  dataType?: PushJournal200ApplicationJSONChangesPushOperationReferenceDataTypeEnum;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
-}
-
-export enum PushJournal200ApplicationJSONChangesPushChangeTypeEnum {
-  Unknown = "Unknown",
-  Created = "Created",
-  Modified = "Modified",
-  Deleted = "Deleted",
-  AttachmentUploaded = "AttachmentUploaded",
-}
-
-export class PushJournal200ApplicationJSONChanges extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "attachmentId" })
-  attachmentId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "recordRef" })
-  @Type(() => PushJournal200ApplicationJSONChangesPushOperationReference)
-  recordRef?: PushJournal200ApplicationJSONChangesPushOperationReference;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: PushJournal200ApplicationJSONChangesPushChangeTypeEnum;
-}
-
-/**
- * Additional information about the entity
- */
-export class PushJournal200ApplicationJSONSourceModifiedDateMetadataMetadata extends SpeakeasyBase {
-  /**
-   * Indicates whether the record has been deleted in the third-party system this record originiated from
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "isDeleted" })
-  isDeleted?: boolean;
-}
-
-export class PushJournal200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
-  /**
-   * Additional information about the entity
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "metadata" })
-  @Type(() => PushJournal200ApplicationJSONSourceModifiedDateMetadataMetadata)
-  metadata?: PushJournal200ApplicationJSONSourceModifiedDateMetadataMetadata;
-}
-
-/**
- * Current journal status.
- */
-export enum PushJournal200ApplicationJSONSourceModifiedDateStatusEnum {
-  Unknown = "Unknown",
-  Active = "Active",
-  Archived = "Archived",
-}
-
-/**
- * > **Language tip:** For line items, or individual transactions, of a company's financial documents, refer to the [Journal entries](https://docs.codat.io/accounting-api#/schemas/JournalEntry) data type
- *
- * @remarks
- *
- * > View the coverage for journals in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journals" target="_blank">Data coverage explorer</a>.
- *
- * ## Overview
- *
- * In accounting software, journals are used to record all the financial transactions of a company. Each transaction in a journal is represented by a separate [journal entry](https://docs.codat.io/accounting-api#/schemas/JournalEntry). These entries are used to create the general ledger, which is then used to create the financial statements of a business.
- *
- * When a company records all their transactions in a single journal, it can become large and difficult to maintain and track. This is why large companies often use multiple journals (also known as subjournals) to categorize and manage journal entries.
- *
- * Such journals can be divided into two categories:
- *
- * - Special journals: journals used to record specific types of transactions; for example, a purchases journal, a sales journal, or a cash management journal.
- * - General journals: journals used to record transactions that fall outside the scope of the special journals.
- *
- * Multiple journals or subjournals are used in the following Codat integrations:
- *
- * - [Sage Intacct](https://docs.codat.io/integrations/accounting/sage-intacct/accounting-sage-intacct)  (mandatory)
- * - [Exact Online](https://docs.codat.io/integrations/accounting/exact-online/accounting-exact-online)  (mandatory)
- * - [Oracle NetSuite](https://docs.codat.io/integrations/accounting/netsuite/accounting-netsuite) (optional)
- *
- * > When pushing journal entries to an accounting platform that doesn’t support multiple journals (multi-book accounting), the entries will be linked to the platform-generic journal. The Journals data type will only include one object.
- *
- */
-export class PushJournal200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
-  /**
-   * Journal creation date.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "createdOn" })
-  createdOn?: string;
-
-  /**
-   * If the journal has child journals, this value is true. If it doesn’t, it is false.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "hasChildren" })
-  hasChildren?: boolean;
-
-  /**
-   * Journal ID.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
-
-  /**
-   * Native journal number or code.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "journalCode" })
-  journalCode?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "metadata" })
-  @Type(() => PushJournal200ApplicationJSONSourceModifiedDateMetadata)
-  metadata?: PushJournal200ApplicationJSONSourceModifiedDateMetadata;
-
-  /**
-   * The date on which this record was last modified in Codat.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
-
-  /**
-   * Journal name.
-   *
-   * @remarks
-   * The maximum length for a journal name is 256 characters. All characters above that number will be truncated.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
-
-  /**
-   * Parent journal ID.
-   *
-   * @remarks
-   * If the journal is a parent journal, this value is not present.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "parentId" })
-  parentId?: string;
-
-  /**
-   * The date on which this record was last modified in the originating system
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
-
-  /**
-   * Current journal status.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status?: PushJournal200ApplicationJSONSourceModifiedDateStatusEnum;
-
-  /**
-   * The type of the journal.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: string;
-}
-
-/**
- * The type of data being pushed, eg invoices, customers.
- */
-export enum PushJournal200ApplicationJSONDataTypeEnum {
-  AccountTransactions = "accountTransactions",
-  BalanceSheet = "balanceSheet",
-  BankAccounts = "bankAccounts",
-  BankTransactions = "bankTransactions",
-  BillCreditNotes = "billCreditNotes",
-  BillPayments = "billPayments",
-  Bills = "bills",
-  CashFlowStatement = "cashFlowStatement",
-  ChartOfAccounts = "chartOfAccounts",
-  Company = "company",
-  CreditNotes = "creditNotes",
-  Customers = "customers",
-  DirectCosts = "directCosts",
-  DirectIncomes = "directIncomes",
-  Invoices = "invoices",
-  Items = "items",
-  JournalEntries = "journalEntries",
-  Journals = "journals",
-  PaymentMethods = "paymentMethods",
-  Payments = "payments",
-  ProfitAndLoss = "profitAndLoss",
-  PurchaseOrders = "purchaseOrders",
-  SalesOrders = "salesOrders",
-  Suppliers = "suppliers",
-  TaxRates = "taxRates",
-  TrackingCategories = "trackingCategories",
-  Transfers = "transfers",
-  BankingAccountBalances = "banking-accountBalances",
-  BankingAccounts = "banking-accounts",
-  BankingTransactionCategories = "banking-transactionCategories",
-  BankingTransactions = "banking-transactions",
-  CommerceCompanyInfo = "commerce-companyInfo",
-  CommerceCustomers = "commerce-customers",
-  CommerceDisputes = "commerce-disputes",
-  CommerceLocations = "commerce-locations",
-  CommerceOrders = "commerce-orders",
-  CommercePaymentMethods = "commerce-paymentMethods",
-  CommercePayments = "commerce-payments",
-  CommerceProductCategories = "commerce-productCategories",
-  CommerceProducts = "commerce-products",
-  CommerceTaxComponents = "commerce-taxComponents",
-  CommerceTransactions = "commerce-transactions",
-}
-
-/**
- * The status of the push operation.
- */
-export enum PushJournal200ApplicationJSONPushOperationStatusEnum {
-  Pending = "Pending",
-  Failed = "Failed",
-  Success = "Success",
-  TimedOut = "TimedOut",
-}
-
-export class PushJournal200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "itemId" })
-  itemId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "validatorName" })
-  validatorName?: string;
-}
-
-/**
- * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
- */
-export class PushJournal200ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    elemType: PushJournal200ApplicationJSONValidationValidationItem,
-  })
-  @Expose({ name: "errors" })
-  @Type(() => PushJournal200ApplicationJSONValidationValidationItem)
-  errors?: PushJournal200ApplicationJSONValidationValidationItem[];
-
-  @SpeakeasyMetadata({
-    elemType: PushJournal200ApplicationJSONValidationValidationItem,
-  })
-  @Expose({ name: "warnings" })
-  @Type(() => PushJournal200ApplicationJSONValidationValidationItem)
-  warnings?: PushJournal200ApplicationJSONValidationValidationItem[];
-}
-
-/**
  * Success
  */
 export class PushJournal200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PushJournal200ApplicationJSONChanges })
+  @SpeakeasyMetadata({ elemType: shared.PushOperationChange })
   @Expose({ name: "changes" })
-  @Type(() => PushJournal200ApplicationJSONChanges)
-  changes?: PushJournal200ApplicationJSONChanges[];
+  @Type(() => shared.PushOperationChange)
+  changes?: shared.PushOperationChange[];
 
   /**
    * Unique identifier for your SMB in Codat.
@@ -473,7 +44,27 @@ export class PushJournal200ApplicationJSON extends SpeakeasyBase {
   companyId: string;
 
   /**
-   * The datetime when the push was completed, null if Pending.
+   * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+   *
+   * @remarks
+   *
+   * ```
+   * 2020-10-08T22:40:50Z
+   * 2021-01-01T00:00:00
+   * ```
+   *
+   *
+   *
+   * When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
+   *
+   * - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
+   * - Unqualified local time: `2021-11-15T01:00:00`
+   * - UTC time offsets: `2021-11-15T01:00:00-05:00`
+   *
+   * > Time zones
+   * >
+   * > Not all dates from Codat will contain information about time zones.
+   * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "completedOnUtc" })
@@ -508,8 +99,8 @@ export class PushJournal200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "data" })
-  @Type(() => PushJournal200ApplicationJSONSourceModifiedDate)
-  data?: PushJournal200ApplicationJSONSourceModifiedDate;
+  @Type(() => shared.Journal)
+  data?: shared.Journal;
 
   /**
    * Unique identifier for a company's data connection.
@@ -519,11 +110,11 @@ export class PushJournal200ApplicationJSON extends SpeakeasyBase {
   dataConnectionKey: string;
 
   /**
-   * The type of data being pushed, eg invoices, customers.
+   * Available Data types
    */
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
-  dataType?: PushJournal200ApplicationJSONDataTypeEnum;
+  dataType?: shared.DataTypeEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "errorMessage" })
@@ -537,7 +128,27 @@ export class PushJournal200ApplicationJSON extends SpeakeasyBase {
   pushOperationKey: string;
 
   /**
-   * The datetime when the push was requested.
+   * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+   *
+   * @remarks
+   *
+   * ```
+   * 2020-10-08T22:40:50Z
+   * 2021-01-01T00:00:00
+   * ```
+   *
+   *
+   *
+   * When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
+   *
+   * - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
+   * - Unqualified local time: `2021-11-15T01:00:00`
+   * - UTC time offsets: `2021-11-15T01:00:00-05:00`
+   *
+   * > Time zones
+   * >
+   * > Not all dates from Codat will contain information about time zones.
+   * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "requestedOnUtc" })
@@ -548,7 +159,7 @@ export class PushJournal200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: PushJournal200ApplicationJSONPushOperationStatusEnum;
+  status: shared.PushOperationStatusEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "statusCode" })
@@ -567,8 +178,8 @@ export class PushJournal200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => PushJournal200ApplicationJSONValidation)
-  validation?: PushJournal200ApplicationJSONValidation;
+  @Type(() => shared.Validation)
+  validation?: shared.Validation;
 }
 
 export class PushJournalResponse extends SpeakeasyBase {

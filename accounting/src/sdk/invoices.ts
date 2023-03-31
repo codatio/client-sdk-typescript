@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -31,6 +32,62 @@ export class Invoices {
     this._language = language;
     this._sdkVersion = sdkVersion;
     this._genVersion = genVersion;
+  }
+
+  /**
+   * Get invoice as PDF
+   *
+   * @remarks
+   * Get invoice as PDF
+   */
+  downloadInvoicePdf(
+    req: operations.DownloadInvoicePdfRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.DownloadInvoicePdfResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.DownloadInvoicePdfRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/data/invoices/{invoiceId}/pdf",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const r = client.request({
+      url: url,
+      method: "get",
+      ...config,
+    });
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.DownloadInvoicePdfResponse =
+        new operations.DownloadInvoicePdfResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/octet-stream`)) {
+            const resBody: string = JSON.stringify(httpRes?.data, null, 0);
+            const out: Uint8Array = new Uint8Array(resBody.length);
+            for (let i = 0; i < resBody.length; i++)
+              out[i] = resBody.charCodeAt(i);
+            res.data = out;
+          }
+          break;
+      }
+
+      return res;
+    });
   }
 
   /**
@@ -65,7 +122,7 @@ export class Invoices {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "invoice",
         "json"
       );
     } catch (e: unknown) {
@@ -101,11 +158,10 @@ export class Invoices {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createInvoice200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreateInvoice200ApplicationJSON
-              );
+            res.createInvoiceResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CreateInvoiceResponse
+            );
           }
           break;
       }
@@ -120,12 +176,12 @@ export class Invoices {
    * @remarks
    * Download invoice attachments
    */
-  donwloadInvoiceAttachment(
-    req: operations.DonwloadInvoiceAttachmentRequest,
+  downloadInvoiceAttachment(
+    req: operations.DownloadInvoiceAttachmentRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.DonwloadInvoiceAttachmentResponse> {
+  ): Promise<operations.DownloadInvoiceAttachmentResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.DonwloadInvoiceAttachmentRequest(req);
+      req = new operations.DownloadInvoiceAttachmentRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -148,14 +204,21 @@ export class Invoices {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.DonwloadInvoiceAttachmentResponse =
-        new operations.DonwloadInvoiceAttachmentResponse({
+      const res: operations.DownloadInvoiceAttachmentResponse =
+        new operations.DownloadInvoiceAttachmentResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
         });
       switch (true) {
         case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/octet-stream`)) {
+            const resBody: string = JSON.stringify(httpRes?.data, null, 0);
+            const out: Uint8Array = new Uint8Array(resBody.length);
+            for (let i = 0; i < resBody.length; i++)
+              out[i] = resBody.charCodeAt(i);
+            res.data = out;
+          }
           break;
       }
 
@@ -214,7 +277,7 @@ export class Invoices {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.pushOption = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCreateUpdateInvoicesModelPushOption
+              shared.PushOption
             );
           }
           break;
@@ -267,9 +330,9 @@ export class Invoices {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.sourceModifiedDate = utils.deserializeJSONResponse(
+            res.invoice = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetInvoiceSourceModifiedDate
+              shared.Invoice
             );
           }
           break;
@@ -283,7 +346,7 @@ export class Invoices {
    * Get invoice attachment
    *
    * @remarks
-   * Get invoice attachments
+   * Get invoice attachment
    */
   getInvoiceAttachment(
     req: operations.GetInvoiceAttachmentRequest,
@@ -324,7 +387,7 @@ export class Invoices {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.attachment = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetInvoiceAttachmentAttachment
+              shared.Attachment
             );
           }
           break;
@@ -377,60 +440,11 @@ export class Invoices {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.attachments = utils.deserializeJSONResponse(
+            res.attachmentsDataset = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetInvoiceAttachmentsAttachments
+              shared.AttachmentsDataset
             );
           }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
-   * Get invoice as PDF
-   *
-   * @remarks
-   * Get invoice as PDF
-   */
-  getInvoicePdf(
-    req: operations.GetInvoicePdfRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetInvoicePdfResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetInvoicePdfRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/data/invoices/{invoiceId}/pdf",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const r = client.request({
-      url: url,
-      method: "get",
-      ...config,
-    });
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetInvoicePdfResponse =
-        new operations.GetInvoicePdfResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
           break;
       }
 
@@ -483,61 +497,11 @@ export class Invoices {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listInvoices200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListInvoices200ApplicationJSON
-              );
+            res.invoices = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Invoices
+            );
           }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
-   * Push invoice attachment
-   *
-   * @remarks
-   * Push invoice attachment
-   */
-  pushInvoiceAttachment(
-    req: operations.PushInvoiceAttachmentRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.PushInvoiceAttachmentResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.PushInvoiceAttachmentRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/connections/{connectionId}/push/invoices/{invoiceId}/attachment",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const r = client.request({
-      url: url,
-      method: "post",
-      ...config,
-    });
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.PushInvoiceAttachmentResponse =
-        new operations.PushInvoiceAttachmentResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
           break;
       }
 
@@ -577,7 +541,7 @@ export class Invoices {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "invoice",
         "json"
       );
     } catch (e: unknown) {
@@ -613,12 +577,78 @@ export class Invoices {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.updateInvoice200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.UpdateInvoice200ApplicationJSON
-              );
+            res.updateInvoiceResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.UpdateInvoiceResponse
+            );
           }
+          break;
+      }
+
+      return res;
+    });
+  }
+
+  /**
+   * Push invoice attachment
+   *
+   * @remarks
+   * Push invoice attachment
+   */
+  uploadInvoiceAttachment(
+    req: operations.UploadInvoiceAttachmentRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.UploadInvoiceAttachmentResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.UploadInvoiceAttachmentRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/connections/{connectionId}/push/invoices/{invoiceId}/attachment",
+      req
+    );
+
+    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+    try {
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "requestBody",
+        "multipart"
+      );
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new Error(`Error serializing request body, cause: ${e.message}`);
+      }
+    }
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const headers = { ...reqBodyHeaders, ...config?.headers };
+
+    const r = client.request({
+      url: url,
+      method: "post",
+      headers: headers,
+      data: reqBody,
+      ...config,
+    });
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.UploadInvoiceAttachmentResponse =
+        new operations.UploadInvoiceAttachmentResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
           break;
       }
 

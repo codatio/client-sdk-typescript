@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -76,9 +77,9 @@ export class CompanyInfo {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.companyInfo = utils.deserializeJSONResponse(
+            res.companyDataset = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCompanyInfoCompanyInfo
+              shared.CompanyDataset
             );
           }
           break;
@@ -131,11 +132,10 @@ export class CompanyInfo {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.postSyncInfo200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.PostSyncInfo200ApplicationJSON
-              );
+            res.dataSet = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.DataSet
+            );
           }
           break;
       }

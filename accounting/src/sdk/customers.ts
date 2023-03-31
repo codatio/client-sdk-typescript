@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -65,7 +66,7 @@ export class Customers {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "customer",
         "json"
       );
     } catch (e: unknown) {
@@ -101,11 +102,10 @@ export class Customers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createCustomer200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreateCustomer200ApplicationJSON
-              );
+            res.createCustomerResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CreateCustomerResponse
+            );
           }
           break;
       }
@@ -156,6 +156,13 @@ export class Customers {
         });
       switch (true) {
         case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/octet-stream`)) {
+            const resBody: string = JSON.stringify(httpRes?.data, null, 0);
+            const out: Uint8Array = new Uint8Array(resBody.length);
+            for (let i = 0; i < resBody.length; i++)
+              out[i] = resBody.charCodeAt(i);
+            res.data = out;
+          }
           break;
       }
 
@@ -214,7 +221,7 @@ export class Customers {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.pushOption = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCreateUpdateCustomersModelPushOption
+              shared.PushOption
             );
           }
           break;
@@ -267,9 +274,9 @@ export class Customers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.sourceModifiedDate = utils.deserializeJSONResponse(
+            res.customer = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCustomerSourceModifiedDate
+              shared.Customer
             );
           }
           break;
@@ -324,7 +331,7 @@ export class Customers {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.attachment = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCustomerAttachmentAttachment
+              shared.Attachment
             );
           }
           break;
@@ -377,9 +384,9 @@ export class Customers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.attachments = utils.deserializeJSONResponse(
+            res.attachmentsDataset = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCustomerAttachmentsAttachments
+              shared.AttachmentsDataset
             );
           }
           break;
@@ -434,11 +441,10 @@ export class Customers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getCustomers200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetCustomers200ApplicationJSON
-              );
+            res.customers = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Customers
+            );
           }
           break;
       }
@@ -479,7 +485,7 @@ export class Customers {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "customer",
         "json"
       );
     } catch (e: unknown) {
@@ -515,11 +521,10 @@ export class Customers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.updateCustomer200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.UpdateCustomer200ApplicationJSON
-              );
+            res.updateCustomerResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.UpdateCustomerResponse
+            );
           }
           break;
       }

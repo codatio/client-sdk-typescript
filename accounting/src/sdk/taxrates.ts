@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -76,11 +77,10 @@ export class TaxRates {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getTaxRate200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetTaxRate200ApplicationJSON
-              );
+            res.taxRate = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.TaxRate
+            );
           }
           break;
       }
@@ -134,11 +134,10 @@ export class TaxRates {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listTaxRates200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListTaxRates200ApplicationJSON
-              );
+            res.taxRates = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.TaxRates
+            );
           }
           break;
       }

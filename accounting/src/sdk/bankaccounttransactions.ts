@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -34,17 +35,95 @@ export class BankAccountTransactions {
   }
 
   /**
+   * Create bank transactions
+   *
+   * @remarks
+   * Posts bank transactions to the accounting package for a given company.
+   *
+   * > **Supported Integrations**
+   * >
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankTransactions) for integrations that support POST methods.
+   */
+  createBankTransactions(
+    req: operations.CreateBankTransactionsRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.CreateBankTransactionsResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.CreateBankTransactionsRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions",
+      req
+    );
+
+    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+    try {
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "bankTransactions",
+        "json"
+      );
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new Error(`Error serializing request body, cause: ${e.message}`);
+      }
+    }
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const headers = { ...reqBodyHeaders, ...config?.headers };
+    const queryParams: string = utils.serializeQueryParams(req);
+
+    const r = client.request({
+      url: url + queryParams,
+      method: "post",
+      headers: headers,
+      data: reqBody,
+      ...config,
+    });
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.CreateBankTransactionsResponse =
+        new operations.CreateBankTransactionsResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.createBankTransactionsResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CreateBankTransactionsResponse
+            );
+          }
+          break;
+      }
+
+      return res;
+    });
+  }
+
+  /**
    * List push options for bank account bank transactions
    *
    * @remarks
    * Gets the options of pushing bank account transactions.
    */
-  getBankAccountPushOptions(
-    req: operations.GetBankAccountPushOptionsRequest,
+  getCreateBankAccountModel(
+    req: operations.GetCreateBankAccountModelRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetBankAccountPushOptionsResponse> {
+  ): Promise<operations.GetCreateBankAccountModelResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetBankAccountPushOptionsRequest(req);
+      req = new operations.GetCreateBankAccountModelRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -67,8 +146,8 @@ export class BankAccountTransactions {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetBankAccountPushOptionsResponse =
-        new operations.GetBankAccountPushOptionsResponse({
+      const res: operations.GetCreateBankAccountModelResponse =
+        new operations.GetCreateBankAccountModelResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -78,7 +157,7 @@ export class BankAccountTransactions {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.pushOption = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetBankAccountPushOptionsPushOption
+              shared.PushOption
             );
           }
           break;
@@ -133,11 +212,10 @@ export class BankAccountTransactions {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listBankAccountTransactions200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListBankAccountTransactions200ApplicationJSON
-              );
+            res.bankTransactionsResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.BankTransactionsResponse
+            );
           }
           break;
       }
@@ -191,90 +269,10 @@ export class BankAccountTransactions {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listBankTransactions200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListBankTransactions200ApplicationJSON
-              );
-          }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
-   * Create bank transactions
-   *
-   * @remarks
-   * Posts bank transactions to the accounting package for a given company.
-   *
-   * > **Supported Integrations**
-   * >
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankTransactions) for integrations that support POST methods.
-   */
-  postBankTransactions(
-    req: operations.PostBankTransactionsRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.PostBankTransactionsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.PostBankTransactionsRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions",
-      req
-    );
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-        req,
-        "requestBody",
-        "json"
-      );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...reqBodyHeaders, ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-
-    const r = client.request({
-      url: url + queryParams,
-      method: "post",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.PostBankTransactionsResponse =
-        new operations.PostBankTransactionsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.postBankTransactions200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.PostBankTransactions200ApplicationJSON
-              );
+            res.bankAccountTransactions = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.BankAccountTransactions
+            );
           }
           break;
       }

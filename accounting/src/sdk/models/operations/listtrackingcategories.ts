@@ -3,8 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose, Type } from "class-transformer";
 
 export class ListTrackingCategoriesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -41,153 +41,6 @@ export class ListTrackingCategoriesRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListTrackingCategories200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListTrackingCategories200ApplicationJSONLinks extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "current" })
-  @Type(() => ListTrackingCategories200ApplicationJSONLinksHypertextReference)
-  current: ListTrackingCategories200ApplicationJSONLinksHypertextReference;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "next" })
-  @Type(() => ListTrackingCategories200ApplicationJSONLinksHypertextReference)
-  next?: ListTrackingCategories200ApplicationJSONLinksHypertextReference;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "previous" })
-  @Type(() => ListTrackingCategories200ApplicationJSONLinksHypertextReference)
-  previous?: ListTrackingCategories200ApplicationJSONLinksHypertextReference;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "self" })
-  @Type(() => ListTrackingCategories200ApplicationJSONLinksHypertextReference)
-  self: ListTrackingCategories200ApplicationJSONLinksHypertextReference;
-}
-
-/**
- * Current state of the tracking category.
- */
-export enum ListTrackingCategories200ApplicationJSONSourceModifiedDateTrackingCategoryStatusEnum {
-  Unknown = "Unknown",
-  Active = "Active",
-  Archived = "Archived",
-}
-
-/**
- * Details of a category used for tracking transactions.
- *
- * @remarks
- *
- * > Language tip
- * >
- * > Parameters used to track types of spend in various parts of an organization can be called  **dimensions**, **projects**, **classes**, or **locations** in different accounting platforms. In Codat, we refer to these as tracking categories.
- *
- * View the coverage for tracking categories in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=trackingCategories" target="_blank">Data coverage explorer</a>.
- *
- * ## Overview
- *
- * Tracking categories are used to monitor cost centres and control budgets that sit outside the standard chart of accounts. Customers may use tracking categories to group together and track the income and costs of specific departments, projects, locations or customers.
- *
- * From their accounting system, customers can:
- *
- * - Create and maintain tracking categories and tracking category types.
- * - View all tracking categories that are available for use.
- * - View the relationships between the categories.
- * - Assign invoices, bills, credit notes, or bill credit notes to one or more categories.
- * - View the categories that a transaction belongs to.
- * - View all transactions in a tracking category.
- *
- * > **Example use case**
- * >
- * > Monitor the budget for your annual conference using a tracking category called 'AnnualConference2020' with the **type** set to **Costing**.
- *
- * If a tracking category has a parent category, the ID of that parent category is displayed. There is also a `hasChildren` field that shows whether there are child subcategories nested beneath.
- */
-export class ListTrackingCategories200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
-  /**
-   * Boolean value indicating whether this category has SubCategories
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "hasChildren" })
-  hasChildren?: boolean;
-
-  /**
-   * The identifier for the item, unique per tracking category
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
-
-  /**
-   * The date on which this record was last modified in Codat.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
-
-  /**
-   * The name of the tracking category
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
-
-  /**
-   * The identifier for this item's immediate parent
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "parentId" })
-  parentId?: string;
-
-  /**
-   * The date on which this record was last modified in the originating system
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
-
-  /**
-   * Current state of the tracking category.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status?: ListTrackingCategories200ApplicationJSONSourceModifiedDateTrackingCategoryStatusEnum;
-}
-
-/**
- * Success
- */
-export class ListTrackingCategories200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "_links" })
-  @Type(() => ListTrackingCategories200ApplicationJSONLinks)
-  links: ListTrackingCategories200ApplicationJSONLinks;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "pageNumber" })
-  pageNumber: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "pageSize" })
-  pageSize: number;
-
-  @SpeakeasyMetadata({
-    elemType: ListTrackingCategories200ApplicationJSONSourceModifiedDate,
-  })
-  @Expose({ name: "results" })
-  @Type(() => ListTrackingCategories200ApplicationJSONSourceModifiedDate)
-  results?: ListTrackingCategories200ApplicationJSONSourceModifiedDate[];
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "totalResults" })
-  totalResults: number;
-}
-
 export class ListTrackingCategoriesResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -202,5 +55,5 @@ export class ListTrackingCategoriesResponse extends SpeakeasyBase {
    * Success
    */
   @SpeakeasyMetadata()
-  listTrackingCategories200ApplicationJSONObject?: ListTrackingCategories200ApplicationJSON;
+  trackingCategories?: shared.TrackingCategories;
 }

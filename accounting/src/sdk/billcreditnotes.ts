@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -65,7 +66,7 @@ export class BillCreditNotes {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "billCreditNote",
         "json"
       );
     } catch (e: unknown) {
@@ -101,11 +102,10 @@ export class BillCreditNotes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createBillCreditNote200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreateBillCreditNote200ApplicationJSON
-              );
+            res.createBillCreditNoteResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CreateBillCreditNoteResponse
+            );
           }
           break;
       }
@@ -157,9 +157,9 @@ export class BillCreditNotes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.sourceModifiedDate = utils.deserializeJSONResponse(
+            res.billCreditNote = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetBillCreditNoteSourceModifiedDate
+              shared.BillCreditNote
             );
           }
           break;
@@ -218,7 +218,7 @@ export class BillCreditNotes {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.pushOption = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCreateUpdateBillCreditNotesModelPushOption
+              shared.PushOption
             );
           }
           break;
@@ -273,11 +273,10 @@ export class BillCreditNotes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listBillCreditNotes200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListBillCreditNotes200ApplicationJSON
-              );
+            res.billCreditNotes = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.BillCreditNotes
+            );
           }
           break;
       }
@@ -318,7 +317,7 @@ export class BillCreditNotes {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "billCreditNote",
         "json"
       );
     } catch (e: unknown) {
@@ -354,11 +353,10 @@ export class BillCreditNotes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.updateBillCreditNote200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.UpdateBillCreditNote200ApplicationJSON
-              );
+            res.updateBillCreditNoteResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.UpdateBillCreditNoteResponse
+            );
           }
           break;
       }

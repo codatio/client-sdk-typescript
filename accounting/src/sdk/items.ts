@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -65,7 +66,7 @@ export class Items {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "item",
         "json"
       );
     } catch (e: unknown) {
@@ -101,11 +102,10 @@ export class Items {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createItem200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreateItem200ApplicationJSON
-              );
+            res.createItemResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CreateItemResponse
+            );
           }
           break;
       }
@@ -165,7 +165,7 @@ export class Items {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.pushOption = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCreateItemsModelPushOption
+              shared.PushOption
             );
           }
           break;
@@ -217,9 +217,9 @@ export class Items {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.sourceModifiedDate = utils.deserializeJSONResponse(
+            res.item = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetItemSourceModifiedDate
+              shared.Item
             );
           }
           break;
@@ -274,11 +274,10 @@ export class Items {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listItems200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListItems200ApplicationJSON
-              );
+            res.items = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Items1
+            );
           }
           break;
       }

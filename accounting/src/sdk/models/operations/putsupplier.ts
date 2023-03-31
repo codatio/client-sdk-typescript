@@ -3,211 +3,13 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 import { Expose, Type } from "class-transformer";
 
-/**
- * Type of the address.
- */
-export enum PutSupplierSourceModifiedDateAddressesTypeEnum {
-  Unknown = "Unknown",
-  Billing = "Billing",
-  Delivery = "Delivery",
-}
-
-export class PutSupplierSourceModifiedDateAddresses extends SpeakeasyBase {
-  /**
-   * City of the customer address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "city" })
-  city?: string;
-
-  /**
-   * Country of the customer address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "country" })
-  country?: string;
-
-  /**
-   * Line 1 of the customer address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "line1" })
-  line1?: string;
-
-  /**
-   * Line 2 of the customer address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "line2" })
-  line2?: string;
-
-  /**
-   * Postal code or zip code.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "postalCode" })
-  postalCode?: string;
-
-  /**
-   * Region of the customer address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "region" })
-  region?: string;
-
-  /**
-   * Type of the address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type: PutSupplierSourceModifiedDateAddressesTypeEnum;
-}
-
-export class PutSupplierSourceModifiedDateMetadata extends SpeakeasyBase {
-  /**
-   * Indicates whether the record has been deleted in the third-party system this record originated from.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "isDeleted" })
-  isDeleted?: boolean;
-}
-
-/**
- * Status of the supplier.
- */
-export enum PutSupplierSourceModifiedDateStatusEnum {
-  Unknown = "Unknown",
-  Active = "Active",
-  Archived = "Archived",
-}
-
-/**
- * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
- */
-export class PutSupplierSourceModifiedDateSupplementalData extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "content" })
-  content?: Record<string, Record<string, any>>;
-}
-
-/**
- * > View the coverage for suppliers in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers" target="_blank">Data coverage explorer</a>.
- *
- * @remarks
- *
- * ## Overview
- *
- * From the **Suppliers** endpoints, you can retrieve a list of [all the suppliers for a company](https://docs.codat.io/accounting-api#/operations/list-suppliers). Suppliers' data links to accounts payable [bills](https://docs.codat.io/accounting-api#/schemas/Bill).
- */
-export class PutSupplierSourceModifiedDate extends SpeakeasyBase {
-  /**
-   * An array of Addresses.
-   */
-  @SpeakeasyMetadata({ elemType: PutSupplierSourceModifiedDateAddresses })
-  @Expose({ name: "addresses" })
-  @Type(() => PutSupplierSourceModifiedDateAddresses)
-  addresses?: PutSupplierSourceModifiedDateAddresses[];
-
-  /**
-   * Name of the main contact for the supplier.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "contactName" })
-  contactName?: string;
-
-  /**
-   * Default currency the supplier's transactional data is recorded in.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "defaultCurrency" })
-  defaultCurrency?: string;
-
-  /**
-   * Email address that the supplier may be contacted on.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "emailAddress" })
-  emailAddress?: string;
-
-  /**
-   * Identifier for the supplier, unique to the company in the accounting platform.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "metadata" })
-  @Type(() => PutSupplierSourceModifiedDateMetadata)
-  metadata?: PutSupplierSourceModifiedDateMetadata;
-
-  /**
-   * The date on which this record was last modified in Codat.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
-
-  /**
-   * Phone number that the supplier may be contacted on.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "phone" })
-  phone?: string;
-
-  /**
-   * Company number of the supplier. In the UK, this is typically the company registration number issued by Companies House.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "registrationNumber" })
-  registrationNumber?: string;
-
-  /**
-   * The date on which this record was last modified in the originating system
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
-
-  /**
-   * Status of the supplier.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status: PutSupplierSourceModifiedDateStatusEnum;
-
-  /**
-   * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "supplementalData" })
-  @Type(() => PutSupplierSourceModifiedDateSupplementalData)
-  supplementalData?: PutSupplierSourceModifiedDateSupplementalData;
-
-  /**
-   *
-   *
-   * @remarks
-   * Name of the supplier as recorded in the accounting system, typically the company name.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "supplierName" })
-  supplierName?: string;
-
-  /**
-   * Supplier's company tax number.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "taxNumber" })
-  taxNumber?: string;
-}
-
 export class PutSupplierRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  requestBody?: PutSupplierSourceModifiedDate;
+  supplier?: shared.Supplier;
 
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
@@ -239,389 +41,13 @@ export class PutSupplierRequest extends SpeakeasyBase {
 }
 
 /**
- * Available Data types
- */
-export enum PutSupplier200ApplicationJSONChangesPushOperationReferenceDataTypeEnum {
-  AccountTransactions = "accountTransactions",
-  BalanceSheet = "balanceSheet",
-  BankAccounts = "bankAccounts",
-  BankTransactions = "bankTransactions",
-  BillCreditNotes = "billCreditNotes",
-  BillPayments = "billPayments",
-  Bills = "bills",
-  CashFlowStatement = "cashFlowStatement",
-  ChartOfAccounts = "chartOfAccounts",
-  Company = "company",
-  CreditNotes = "creditNotes",
-  Customers = "customers",
-  DirectCosts = "directCosts",
-  DirectIncomes = "directIncomes",
-  Invoices = "invoices",
-  Items = "items",
-  JournalEntries = "journalEntries",
-  Journals = "journals",
-  PaymentMethods = "paymentMethods",
-  Payments = "payments",
-  ProfitAndLoss = "profitAndLoss",
-  PurchaseOrders = "purchaseOrders",
-  SalesOrders = "salesOrders",
-  Suppliers = "suppliers",
-  TaxRates = "taxRates",
-  TrackingCategories = "trackingCategories",
-  Transfers = "transfers",
-  BankingAccountBalances = "banking-accountBalances",
-  BankingAccounts = "banking-accounts",
-  BankingTransactionCategories = "banking-transactionCategories",
-  BankingTransactions = "banking-transactions",
-  CommerceCompanyInfo = "commerce-companyInfo",
-  CommerceCustomers = "commerce-customers",
-  CommerceDisputes = "commerce-disputes",
-  CommerceLocations = "commerce-locations",
-  CommerceOrders = "commerce-orders",
-  CommercePaymentMethods = "commerce-paymentMethods",
-  CommercePayments = "commerce-payments",
-  CommerceProductCategories = "commerce-productCategories",
-  CommerceProducts = "commerce-products",
-  CommerceTaxComponents = "commerce-taxComponents",
-  CommerceTransactions = "commerce-transactions",
-}
-
-export class PutSupplier200ApplicationJSONChangesPushOperationReference extends SpeakeasyBase {
-  /**
-   * Available Data types
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "dataType" })
-  dataType?: PutSupplier200ApplicationJSONChangesPushOperationReferenceDataTypeEnum;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
-}
-
-export enum PutSupplier200ApplicationJSONChangesPushChangeTypeEnum {
-  Unknown = "Unknown",
-  Created = "Created",
-  Modified = "Modified",
-  Deleted = "Deleted",
-  AttachmentUploaded = "AttachmentUploaded",
-}
-
-export class PutSupplier200ApplicationJSONChanges extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "attachmentId" })
-  attachmentId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "recordRef" })
-  @Type(() => PutSupplier200ApplicationJSONChangesPushOperationReference)
-  recordRef?: PutSupplier200ApplicationJSONChangesPushOperationReference;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: PutSupplier200ApplicationJSONChangesPushChangeTypeEnum;
-}
-
-/**
- * Type of the address.
- */
-export enum PutSupplier200ApplicationJSONSourceModifiedDateAddressesTypeEnum {
-  Unknown = "Unknown",
-  Billing = "Billing",
-  Delivery = "Delivery",
-}
-
-export class PutSupplier200ApplicationJSONSourceModifiedDateAddresses extends SpeakeasyBase {
-  /**
-   * City of the customer address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "city" })
-  city?: string;
-
-  /**
-   * Country of the customer address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "country" })
-  country?: string;
-
-  /**
-   * Line 1 of the customer address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "line1" })
-  line1?: string;
-
-  /**
-   * Line 2 of the customer address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "line2" })
-  line2?: string;
-
-  /**
-   * Postal code or zip code.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "postalCode" })
-  postalCode?: string;
-
-  /**
-   * Region of the customer address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "region" })
-  region?: string;
-
-  /**
-   * Type of the address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type: PutSupplier200ApplicationJSONSourceModifiedDateAddressesTypeEnum;
-}
-
-export class PutSupplier200ApplicationJSONSourceModifiedDateMetadata extends SpeakeasyBase {
-  /**
-   * Indicates whether the record has been deleted in the third-party system this record originated from.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "isDeleted" })
-  isDeleted?: boolean;
-}
-
-/**
- * Status of the supplier.
- */
-export enum PutSupplier200ApplicationJSONSourceModifiedDateStatusEnum {
-  Unknown = "Unknown",
-  Active = "Active",
-  Archived = "Archived",
-}
-
-/**
- * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
- */
-export class PutSupplier200ApplicationJSONSourceModifiedDateSupplementalData extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "content" })
-  content?: Record<string, Record<string, any>>;
-}
-
-/**
- * > View the coverage for suppliers in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers" target="_blank">Data coverage explorer</a>.
- *
- * @remarks
- *
- * ## Overview
- *
- * From the **Suppliers** endpoints, you can retrieve a list of [all the suppliers for a company](https://docs.codat.io/accounting-api#/operations/list-suppliers). Suppliers' data links to accounts payable [bills](https://docs.codat.io/accounting-api#/schemas/Bill).
- */
-export class PutSupplier200ApplicationJSONSourceModifiedDate extends SpeakeasyBase {
-  /**
-   * An array of Addresses.
-   */
-  @SpeakeasyMetadata({
-    elemType: PutSupplier200ApplicationJSONSourceModifiedDateAddresses,
-  })
-  @Expose({ name: "addresses" })
-  @Type(() => PutSupplier200ApplicationJSONSourceModifiedDateAddresses)
-  addresses?: PutSupplier200ApplicationJSONSourceModifiedDateAddresses[];
-
-  /**
-   * Name of the main contact for the supplier.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "contactName" })
-  contactName?: string;
-
-  /**
-   * Default currency the supplier's transactional data is recorded in.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "defaultCurrency" })
-  defaultCurrency?: string;
-
-  /**
-   * Email address that the supplier may be contacted on.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "emailAddress" })
-  emailAddress?: string;
-
-  /**
-   * Identifier for the supplier, unique to the company in the accounting platform.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "metadata" })
-  @Type(() => PutSupplier200ApplicationJSONSourceModifiedDateMetadata)
-  metadata?: PutSupplier200ApplicationJSONSourceModifiedDateMetadata;
-
-  /**
-   * The date on which this record was last modified in Codat.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
-
-  /**
-   * Phone number that the supplier may be contacted on.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "phone" })
-  phone?: string;
-
-  /**
-   * Company number of the supplier. In the UK, this is typically the company registration number issued by Companies House.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "registrationNumber" })
-  registrationNumber?: string;
-
-  /**
-   * The date on which this record was last modified in the originating system
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
-
-  /**
-   * Status of the supplier.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status: PutSupplier200ApplicationJSONSourceModifiedDateStatusEnum;
-
-  /**
-   * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "supplementalData" })
-  @Type(() => PutSupplier200ApplicationJSONSourceModifiedDateSupplementalData)
-  supplementalData?: PutSupplier200ApplicationJSONSourceModifiedDateSupplementalData;
-
-  /**
-   *
-   *
-   * @remarks
-   * Name of the supplier as recorded in the accounting system, typically the company name.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "supplierName" })
-  supplierName?: string;
-
-  /**
-   * Supplier's company tax number.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "taxNumber" })
-  taxNumber?: string;
-}
-
-/**
- * The type of data being pushed, eg invoices, customers.
- */
-export enum PutSupplier200ApplicationJSONDataTypeEnum {
-  AccountTransactions = "accountTransactions",
-  BalanceSheet = "balanceSheet",
-  BankAccounts = "bankAccounts",
-  BankTransactions = "bankTransactions",
-  BillCreditNotes = "billCreditNotes",
-  BillPayments = "billPayments",
-  Bills = "bills",
-  CashFlowStatement = "cashFlowStatement",
-  ChartOfAccounts = "chartOfAccounts",
-  Company = "company",
-  CreditNotes = "creditNotes",
-  Customers = "customers",
-  DirectCosts = "directCosts",
-  DirectIncomes = "directIncomes",
-  Invoices = "invoices",
-  Items = "items",
-  JournalEntries = "journalEntries",
-  Journals = "journals",
-  PaymentMethods = "paymentMethods",
-  Payments = "payments",
-  ProfitAndLoss = "profitAndLoss",
-  PurchaseOrders = "purchaseOrders",
-  SalesOrders = "salesOrders",
-  Suppliers = "suppliers",
-  TaxRates = "taxRates",
-  TrackingCategories = "trackingCategories",
-  Transfers = "transfers",
-  BankingAccountBalances = "banking-accountBalances",
-  BankingAccounts = "banking-accounts",
-  BankingTransactionCategories = "banking-transactionCategories",
-  BankingTransactions = "banking-transactions",
-  CommerceCompanyInfo = "commerce-companyInfo",
-  CommerceCustomers = "commerce-customers",
-  CommerceDisputes = "commerce-disputes",
-  CommerceLocations = "commerce-locations",
-  CommerceOrders = "commerce-orders",
-  CommercePaymentMethods = "commerce-paymentMethods",
-  CommercePayments = "commerce-payments",
-  CommerceProductCategories = "commerce-productCategories",
-  CommerceProducts = "commerce-products",
-  CommerceTaxComponents = "commerce-taxComponents",
-  CommerceTransactions = "commerce-transactions",
-}
-
-/**
- * The status of the push operation.
- */
-export enum PutSupplier200ApplicationJSONPushOperationStatusEnum {
-  Pending = "Pending",
-  Failed = "Failed",
-  Success = "Success",
-  TimedOut = "TimedOut",
-}
-
-export class PutSupplier200ApplicationJSONValidationValidationItem extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "itemId" })
-  itemId?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "validatorName" })
-  validatorName?: string;
-}
-
-/**
- * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
- */
-export class PutSupplier200ApplicationJSONValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    elemType: PutSupplier200ApplicationJSONValidationValidationItem,
-  })
-  @Expose({ name: "errors" })
-  @Type(() => PutSupplier200ApplicationJSONValidationValidationItem)
-  errors?: PutSupplier200ApplicationJSONValidationValidationItem[];
-
-  @SpeakeasyMetadata({
-    elemType: PutSupplier200ApplicationJSONValidationValidationItem,
-  })
-  @Expose({ name: "warnings" })
-  @Type(() => PutSupplier200ApplicationJSONValidationValidationItem)
-  warnings?: PutSupplier200ApplicationJSONValidationValidationItem[];
-}
-
-/**
  * Success
  */
 export class PutSupplier200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PutSupplier200ApplicationJSONChanges })
+  @SpeakeasyMetadata({ elemType: shared.PushOperationChange })
   @Expose({ name: "changes" })
-  @Type(() => PutSupplier200ApplicationJSONChanges)
-  changes?: PutSupplier200ApplicationJSONChanges[];
+  @Type(() => shared.PushOperationChange)
+  changes?: shared.PushOperationChange[];
 
   /**
    * Unique identifier for your SMB in Codat.
@@ -631,7 +57,27 @@ export class PutSupplier200ApplicationJSON extends SpeakeasyBase {
   companyId: string;
 
   /**
-   * The datetime when the push was completed, null if Pending.
+   * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+   *
+   * @remarks
+   *
+   * ```
+   * 2020-10-08T22:40:50Z
+   * 2021-01-01T00:00:00
+   * ```
+   *
+   *
+   *
+   * When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
+   *
+   * - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
+   * - Unqualified local time: `2021-11-15T01:00:00`
+   * - UTC time offsets: `2021-11-15T01:00:00-05:00`
+   *
+   * > Time zones
+   * >
+   * > Not all dates from Codat will contain information about time zones.
+   * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "completedOnUtc" })
@@ -648,8 +94,8 @@ export class PutSupplier200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "data" })
-  @Type(() => PutSupplier200ApplicationJSONSourceModifiedDate)
-  data?: PutSupplier200ApplicationJSONSourceModifiedDate;
+  @Type(() => shared.Supplier)
+  data?: shared.Supplier;
 
   /**
    * Unique identifier for a company's data connection.
@@ -659,11 +105,11 @@ export class PutSupplier200ApplicationJSON extends SpeakeasyBase {
   dataConnectionKey: string;
 
   /**
-   * The type of data being pushed, eg invoices, customers.
+   * Available Data types
    */
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
-  dataType?: PutSupplier200ApplicationJSONDataTypeEnum;
+  dataType?: shared.DataTypeEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "errorMessage" })
@@ -677,7 +123,27 @@ export class PutSupplier200ApplicationJSON extends SpeakeasyBase {
   pushOperationKey: string;
 
   /**
-   * The datetime when the push was requested.
+   * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+   *
+   * @remarks
+   *
+   * ```
+   * 2020-10-08T22:40:50Z
+   * 2021-01-01T00:00:00
+   * ```
+   *
+   *
+   *
+   * When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
+   *
+   * - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
+   * - Unqualified local time: `2021-11-15T01:00:00`
+   * - UTC time offsets: `2021-11-15T01:00:00-05:00`
+   *
+   * > Time zones
+   * >
+   * > Not all dates from Codat will contain information about time zones.
+   * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "requestedOnUtc" })
@@ -688,7 +154,7 @@ export class PutSupplier200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: PutSupplier200ApplicationJSONPushOperationStatusEnum;
+  status: shared.PushOperationStatusEnum;
 
   @SpeakeasyMetadata()
   @Expose({ name: "statusCode" })
@@ -707,8 +173,8 @@ export class PutSupplier200ApplicationJSON extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => PutSupplier200ApplicationJSONValidation)
-  validation?: PutSupplier200ApplicationJSONValidation;
+  @Type(() => shared.Validation)
+  validation?: shared.Validation;
 }
 
 export class PutSupplierResponse extends SpeakeasyBase {

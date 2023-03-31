@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -45,12 +46,12 @@ export class Suppliers {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support creating suppliers.
    */
-  createSuppliers(
-    req: operations.CreateSuppliersRequest,
+  createSupplier(
+    req: operations.CreateSupplierRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.CreateSuppliersResponse> {
+  ): Promise<operations.CreateSupplierResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CreateSuppliersRequest(req);
+      req = new operations.CreateSupplierRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -65,7 +66,7 @@ export class Suppliers {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "supplier",
         "json"
       );
     } catch (e: unknown) {
@@ -92,8 +93,8 @@ export class Suppliers {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateSuppliersResponse =
-        new operations.CreateSuppliersResponse({
+      const res: operations.CreateSupplierResponse =
+        new operations.CreateSupplierResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -101,11 +102,10 @@ export class Suppliers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createSuppliers200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreateSuppliers200ApplicationJSON
-              );
+            res.createSupplierResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CreateSupplierResponse
+            );
           }
           break;
       }
@@ -156,6 +156,13 @@ export class Suppliers {
         });
       switch (true) {
         case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/octet-stream`)) {
+            const resBody: string = JSON.stringify(httpRes?.data, null, 0);
+            const out: Uint8Array = new Uint8Array(resBody.length);
+            for (let i = 0; i < resBody.length; i++)
+              out[i] = resBody.charCodeAt(i);
+            res.data = out;
+          }
           break;
       }
 
@@ -214,7 +221,7 @@ export class Suppliers {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.pushOption = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCreateUpdateSuppliersModelPushOption
+              shared.PushOption
             );
           }
           break;
@@ -267,9 +274,9 @@ export class Suppliers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.sourceModifiedDate = utils.deserializeJSONResponse(
+            res.supplier = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetSupplierSourceModifiedDate
+              shared.Supplier
             );
           }
           break;
@@ -324,7 +331,7 @@ export class Suppliers {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.attachment = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetSupplierAttachmentAttachment
+              shared.Attachment
             );
           }
           break;
@@ -377,9 +384,9 @@ export class Suppliers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.attachments = utils.deserializeJSONResponse(
+            res.attachmentsDataset = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.ListSupplierAttachmentsAttachments
+              shared.AttachmentsDataset
             );
           }
           break;
@@ -434,11 +441,10 @@ export class Suppliers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listSuppliers200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListSuppliers200ApplicationJSON
-              );
+            res.suppliers = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Suppliers
+            );
           }
           break;
       }
@@ -479,7 +485,7 @@ export class Suppliers {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "supplier",
         "json"
       );
     } catch (e: unknown) {

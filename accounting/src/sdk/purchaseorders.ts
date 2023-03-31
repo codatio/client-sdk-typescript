@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -65,7 +66,7 @@ export class PurchaseOrders {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "purchaseOrder",
         "json"
       );
     } catch (e: unknown) {
@@ -101,11 +102,10 @@ export class PurchaseOrders {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createPurchaseOrder200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreatePurchaseOrder200ApplicationJSON
-              );
+            res.createPurchaseOrderResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CreatePurchaseOrderResponse
+            );
           }
           break;
       }
@@ -165,7 +165,7 @@ export class PurchaseOrders {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.pushOption = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetCreateUpdatePurchaseOrdersModelPushOption
+              shared.PushOption
             );
           }
           break;
@@ -218,9 +218,9 @@ export class PurchaseOrders {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.sourceModifiedDate = utils.deserializeJSONResponse(
+            res.purchaseOrder = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetPurchaseOrderSourceModifiedDate
+              shared.PurchaseOrder
             );
           }
           break;
@@ -275,11 +275,10 @@ export class PurchaseOrders {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listPurchaseOrders200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListPurchaseOrders200ApplicationJSON
-              );
+            res.purchaseOrders = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.PurchaseOrders
+            );
           }
           break;
       }
@@ -320,7 +319,7 @@ export class PurchaseOrders {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "purchaseOrder",
         "json"
       );
     } catch (e: unknown) {
@@ -356,11 +355,10 @@ export class PurchaseOrders {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.updatePurchaseOrder200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.UpdatePurchaseOrder200ApplicationJSON
-              );
+            res.updatePurchaseOrderResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.UpdatePurchaseOrderResponse
+            );
           }
           break;
       }
