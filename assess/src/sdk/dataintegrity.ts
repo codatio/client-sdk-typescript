@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -78,11 +79,10 @@ export class DataIntegrity {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getDataIntegrityDetails200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetDataIntegrityDetails200ApplicationJSON
-              );
+            res.details = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Details
+            );
           }
           break;
       }
@@ -134,11 +134,10 @@ export class DataIntegrity {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getDataIntegrityStatus200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetDataIntegrityStatus200ApplicationJSON
-              );
+            res.status = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Status
+            );
           }
           break;
       }
@@ -192,11 +191,10 @@ export class DataIntegrity {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getDataIntegritySummaries200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetDataIntegritySummaries200ApplicationJSON
-              );
+            res.summaries = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Summaries
+            );
           }
           break;
       }

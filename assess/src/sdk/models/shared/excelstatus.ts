@@ -3,36 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
-
-/**
- * The type of report you want to generate and download.
- */
-export enum MakeRequestToDownloadExcelReportReportTypeEnum {
-  Audit = "audit",
-  EnhancedFinancials = "enhancedFinancials",
-}
-
-export class MakeRequestToDownloadExcelReportRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
-
-  /**
-   * The type of report you want to generate and download.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=reportType",
-  })
-  reportType: MakeRequestToDownloadExcelReportReportTypeEnum;
-}
 
 /**
  * OK
  */
-export class MakeRequestToDownloadExcelReport200ApplicationJSON extends SpeakeasyBase {
+export class ExcelStatus extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "errorMessage" })
   errorMessage?: string;
@@ -87,21 +63,4 @@ export class MakeRequestToDownloadExcelReport200ApplicationJSON extends Speakeas
   @SpeakeasyMetadata()
   @Expose({ name: "success" })
   success?: boolean;
-}
-
-export class MakeRequestToDownloadExcelReportResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
-
-  @SpeakeasyMetadata()
-  statusCode: number;
-
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
-
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  makeRequestToDownloadExcelReport200ApplicationJSONObject?: MakeRequestToDownloadExcelReport200ApplicationJSON;
 }

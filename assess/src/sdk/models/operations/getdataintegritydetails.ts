@@ -3,18 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose, Type } from "class-transformer";
-
-/**
- * A key for a Codat data type.
- */
-export enum GetDataIntegrityDetailsDataTypeEnum {
-  BankingAccounts = "banking-accounts",
-  BankingTransactions = "banking-transactions",
-  BankAccounts = "bankAccounts",
-  AccountTransactions = "accountTransactions",
-}
 
 export class GetDataIntegrityDetailsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -28,7 +18,7 @@ export class GetDataIntegrityDetailsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=dataType",
   })
-  dataType: GetDataIntegrityDetailsDataTypeEnum;
+  dataType: shared.DataIntegrityDataTypeEnum;
 
   /**
    * Field to order results by. [Read more](https://docs.codat.io/using-the-api/ordering-results).
@@ -59,188 +49,19 @@ export class GetDataIntegrityDetailsRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class GetDataIntegrityDetails200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class GetDataIntegrityDetails200ApplicationJSONLinks extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "current" })
-  @Type(() => GetDataIntegrityDetails200ApplicationJSONLinksHypertextReference)
-  current: GetDataIntegrityDetails200ApplicationJSONLinksHypertextReference;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "next" })
-  @Type(() => GetDataIntegrityDetails200ApplicationJSONLinksHypertextReference)
-  next?: GetDataIntegrityDetails200ApplicationJSONLinksHypertextReference;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "previous" })
-  @Type(() => GetDataIntegrityDetails200ApplicationJSONLinksHypertextReference)
-  previous?: GetDataIntegrityDetails200ApplicationJSONLinksHypertextReference;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "self" })
-  @Type(() => GetDataIntegrityDetails200ApplicationJSONLinksHypertextReference)
-  self: GetDataIntegrityDetails200ApplicationJSONLinksHypertextReference;
-}
-
-export class GetDataIntegrityDetails200ApplicationJSONDataIntegrityDetailsMatches extends SpeakeasyBase {
-  /**
-   * The transaction value.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "amount" })
-  amount?: string;
-
-  /**
-   * ID GUID representing the connection of the accounting or banking platform.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "connectionId" })
-  connectionId?: string;
-
-  /**
-   * The currency of the transaction.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "currency" })
-  currency?: string;
-
-  /**
-   * The date of the transaction.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "date" })
-  date?: string;
-
-  /**
-   * The transaction description.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "description" })
-  description?: string;
-
-  /**
-   * ID GUID of the transaction.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
-
-  /**
-   * The data type which the data type in the URL has been matched against. For example, if you've matched accountTransactions and banking-transactions, and you call this endpoint with accountTransactions in the URL, this property would be banking-transactions.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: string;
-}
-
-export class GetDataIntegrityDetails200ApplicationJSONDataIntegrityDetails extends SpeakeasyBase {
-  /**
-   * The transaction value.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "amount" })
-  amount?: number;
-
-  /**
-   * ID GUID representing the connection of the accounting or banking platform.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "connectionId" })
-  connectionId?: string;
-
-  /**
-   * The currency of the transaction.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "currency" })
-  currency?: string;
-
-  /**
-   * The date of the transaction.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "date" })
-  date?: string;
-
-  /**
-   * The transaction description.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "description" })
-  description?: string;
-
-  /**
-   * ID GUID of the transaction.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
-
-  @SpeakeasyMetadata({
-    elemType:
-      GetDataIntegrityDetails200ApplicationJSONDataIntegrityDetailsMatches,
-  })
-  @Expose({ name: "matches" })
-  @Type(
-    () => GetDataIntegrityDetails200ApplicationJSONDataIntegrityDetailsMatches
-  )
-  matches?: GetDataIntegrityDetails200ApplicationJSONDataIntegrityDetailsMatches[];
-
-  /**
-   * The data type of the record.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: string;
-}
-
-/**
- * OK
- */
-export class GetDataIntegrityDetails200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "_links" })
-  @Type(() => GetDataIntegrityDetails200ApplicationJSONLinks)
-  links: GetDataIntegrityDetails200ApplicationJSONLinks;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "pageNumber" })
-  pageNumber: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "pageSize" })
-  pageSize: number;
-
-  @SpeakeasyMetadata({
-    elemType: GetDataIntegrityDetails200ApplicationJSONDataIntegrityDetails,
-  })
-  @Expose({ name: "results" })
-  @Type(() => GetDataIntegrityDetails200ApplicationJSONDataIntegrityDetails)
-  results?: GetDataIntegrityDetails200ApplicationJSONDataIntegrityDetails[];
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "totalResults" })
-  totalResults: number;
-}
-
 export class GetDataIntegrityDetailsResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
+
+  /**
+   * OK
+   */
+  @SpeakeasyMetadata()
+  details?: shared.Details;
 
   @SpeakeasyMetadata()
   statusCode: number;
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
-
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  getDataIntegrityDetails200ApplicationJSONObject?: GetDataIntegrityDetails200ApplicationJSON;
 }

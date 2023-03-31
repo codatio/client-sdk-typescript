@@ -64,11 +64,11 @@ sdk.categories.getAccountCategory(req).then((res: GetAccountCategoryResponse | A
 
 ### excelReports
 
+* `downloadExcelReport` - Download generated excel report
+* `generateExcelReport` - Generate an Excel report
 * `getAccountingMarketingMetrics` - Get the marketing metrics from an accounting source for a given company.
 * `getExcelReport` - Download generated excel report
-* `getExcelReportPost` - Download generated excel report
-* `makeRequestToDownloadExcelReport` - Get status of Excel report
-* `requestExcelReportForDownload` - Generate an Excel report
+* `getExcelReportGenerationStatus` - Get status of Excel report
 
 ### reports
 
@@ -81,7 +81,7 @@ sdk.categories.getAccountCategory(req).then((res: GetAccountCategoryResponse | A
 * `getCommerceRevenueMetrics` - Commerce Revenue Metrics
 * `getEnhancedBalanceSheet` - Enhanced Balance Sheet
 * `getEnhancedCashFlowTransactions` - Get enhanced cash flow report
-* `getEnhancedFinancialMetrics` - List finanicial metrics
+* `getEnhancedFinancialMetrics` - List financial metrics
 * `getEnhancedInvoicesReport` - Enhanced Invoices Report
 * `getEnhancedProfitAndLoss` - Enhanced Profit and Loss
 * `getRecurringRevenueMetrics` - Get key metrics for subscription revenue

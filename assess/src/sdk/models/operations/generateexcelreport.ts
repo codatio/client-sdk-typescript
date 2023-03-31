@@ -3,17 +3,10 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-/**
- * The type of report you want to generate and download.
- */
-export enum GetExcelReportPostReportTypeEnum {
-  Audit = "audit",
-  EnhancedFinancials = "enhancedFinancials",
-}
-
-export class GetExcelReportPostRequest extends SpeakeasyBase {
+export class GenerateExcelReportRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -25,15 +18,18 @@ export class GetExcelReportPostRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=reportType",
   })
-  reportType: GetExcelReportPostReportTypeEnum;
+  reportType: shared.ExcelReportTypeEnum;
 }
 
-export class GetExcelReportPostResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  body?: Uint8Array;
-
+export class GenerateExcelReportResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
+
+  /**
+   * OK
+   */
+  @SpeakeasyMetadata()
+  excelStatus?: shared.ExcelStatus;
 
   @SpeakeasyMetadata()
   statusCode: number;

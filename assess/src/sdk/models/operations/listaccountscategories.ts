@@ -3,8 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose, Type } from "class-transformer";
 
 export class ListAccountsCategoriesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -46,142 +46,13 @@ export class ListAccountsCategoriesRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class ListAccountsCategories200ApplicationJSONLinksHypertextReference extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "href" })
-  href?: string;
-}
-
-export class ListAccountsCategories200ApplicationJSONLinks extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "current" })
-  @Type(() => ListAccountsCategories200ApplicationJSONLinksHypertextReference)
-  current: ListAccountsCategories200ApplicationJSONLinksHypertextReference;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "next" })
-  @Type(() => ListAccountsCategories200ApplicationJSONLinksHypertextReference)
-  next?: ListAccountsCategories200ApplicationJSONLinksHypertextReference;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "previous" })
-  @Type(() => ListAccountsCategories200ApplicationJSONLinksHypertextReference)
-  previous?: ListAccountsCategories200ApplicationJSONLinksHypertextReference;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "self" })
-  @Type(() => ListAccountsCategories200ApplicationJSONLinksHypertextReference)
-  self: ListAccountsCategories200ApplicationJSONLinksHypertextReference;
-}
-
-/**
- * An object containing account reference data.
- */
-export class ListAccountsCategories200ApplicationJSONCategorisedAccountAccountRef extends SpeakeasyBase {
-  /**
-   * 'id' from the Accounts data type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
-
-  /**
-   * 'name' from the Accounts data type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
-}
-
-export class ListAccountsCategories200ApplicationJSONCategorisedAccountModifiedDate extends SpeakeasyBase {
-  /**
-   * Most granular chart of account type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailType" })
-  detailType?: string;
-
-  /**
-   * The date on which this record was last modified in Codat.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
-
-  /**
-   * The account subtype.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "subtype" })
-  subtype?: string;
-
-  /**
-   * The top level account type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: string;
-}
-
-export class ListAccountsCategories200ApplicationJSONCategorisedAccount extends SpeakeasyBase {
-  /**
-   * An object containing account reference data.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "accountRef" })
-  @Type(
-    () => ListAccountsCategories200ApplicationJSONCategorisedAccountAccountRef
-  )
-  accountRef?: ListAccountsCategories200ApplicationJSONCategorisedAccountAccountRef;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "confirmed" })
-  @Type(
-    () => ListAccountsCategories200ApplicationJSONCategorisedAccountModifiedDate
-  )
-  confirmed?: ListAccountsCategories200ApplicationJSONCategorisedAccountModifiedDate;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "suggested" })
-  @Type(
-    () => ListAccountsCategories200ApplicationJSONCategorisedAccountModifiedDate
-  )
-  suggested?: ListAccountsCategories200ApplicationJSONCategorisedAccountModifiedDate;
-}
-
-/**
- * OK
- */
-export class ListAccountsCategories200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "_links" })
-  @Type(() => ListAccountsCategories200ApplicationJSONLinks)
-  links: ListAccountsCategories200ApplicationJSONLinks;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "pageNumber" })
-  pageNumber: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "pageSize" })
-  pageSize: number;
-
-  /**
-   * A list confirmed and suggested account categories.
-   */
-  @SpeakeasyMetadata({
-    elemType: ListAccountsCategories200ApplicationJSONCategorisedAccount,
-  })
-  @Expose({ name: "results" })
-  @Type(() => ListAccountsCategories200ApplicationJSONCategorisedAccount)
-  results?: ListAccountsCategories200ApplicationJSONCategorisedAccount[];
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "totalResults" })
-  totalResults: number;
-}
-
 export class ListAccountsCategoriesResponse extends SpeakeasyBase {
+  /**
+   * OK
+   */
+  @SpeakeasyMetadata()
+  categorisedAccounts?: shared.CategorisedAccounts;
+
   @SpeakeasyMetadata()
   contentType: string;
 
@@ -190,10 +61,4 @@ export class ListAccountsCategoriesResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
-
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  listAccountsCategories200ApplicationJSONObject?: ListAccountsCategories200ApplicationJSON;
 }

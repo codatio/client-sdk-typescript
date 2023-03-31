@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -31,6 +32,121 @@ export class ExcelReports {
     this._language = language;
     this._sdkVersion = sdkVersion;
     this._genVersion = genVersion;
+  }
+
+  /**
+   * Download generated excel report
+   *
+   * @remarks
+   * Download the previously generated Excel report to a local drive.
+   */
+  downloadExcelReport(
+    req: operations.DownloadExcelReportRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.DownloadExcelReportResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.DownloadExcelReportRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/data/companies/{companyId}/assess/excel/download",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const queryParams: string = utils.serializeQueryParams(req);
+
+    const r = client.request({
+      url: url + queryParams,
+      method: "post",
+      ...config,
+    });
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.DownloadExcelReportResponse =
+        new operations.DownloadExcelReportResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/octet-stream`)) {
+            const resBody: string = JSON.stringify(httpRes?.data, null, 0);
+            const out: Uint8Array = new Uint8Array(resBody.length);
+            for (let i = 0; i < resBody.length; i++)
+              out[i] = resBody.charCodeAt(i);
+            res.body = out;
+          }
+          break;
+      }
+
+      return res;
+    });
+  }
+
+  /**
+   * Generate an Excel report
+   *
+   * @remarks
+   * Generate an Excel report which can subsequently be downloaded.
+   */
+  generateExcelReport(
+    req: operations.GenerateExcelReportRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.GenerateExcelReportResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.GenerateExcelReportRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/data/companies/{companyId}/assess/excel",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const queryParams: string = utils.serializeQueryParams(req);
+
+    const r = client.request({
+      url: url + queryParams,
+      method: "post",
+      ...config,
+    });
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.GenerateExcelReportResponse =
+        new operations.GenerateExcelReportResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.excelStatus = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.ExcelStatus
+            );
+          }
+          break;
+      }
+
+      return res;
+    });
   }
 
   /**
@@ -78,11 +194,10 @@ export class ExcelReports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getAccountingMarketingMetrics200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetAccountingMarketingMetrics200ApplicationJSON
-              );
+            res.report = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Report
+            );
           }
           break;
       }
@@ -150,75 +265,17 @@ export class ExcelReports {
   }
 
   /**
-   * Download generated excel report
-   *
-   * @remarks
-   * Download the previously generated Excel report to a local drive.
-   */
-  getExcelReportPost(
-    req: operations.GetExcelReportPostRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetExcelReportPostResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetExcelReportPostRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/data/companies/{companyId}/assess/excel/download",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const queryParams: string = utils.serializeQueryParams(req);
-
-    const r = client.request({
-      url: url + queryParams,
-      method: "post",
-      ...config,
-    });
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetExcelReportPostResponse =
-        new operations.GetExcelReportPostResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/octet-stream`)) {
-            const resBody: string = JSON.stringify(httpRes?.data, null, 0);
-            const out: Uint8Array = new Uint8Array(resBody.length);
-            for (let i = 0; i < resBody.length; i++)
-              out[i] = resBody.charCodeAt(i);
-            res.body = out;
-          }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
    * Get status of Excel report
    *
    * @remarks
    * Returns the status of the latest report requested.
    */
-  makeRequestToDownloadExcelReport(
-    req: operations.MakeRequestToDownloadExcelReportRequest,
+  getExcelReportGenerationStatus(
+    req: operations.GetExcelReportGenerationStatusRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.MakeRequestToDownloadExcelReportResponse> {
+  ): Promise<operations.GetExcelReportGenerationStatusResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.MakeRequestToDownloadExcelReportRequest(req);
+      req = new operations.GetExcelReportGenerationStatusRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -243,8 +300,8 @@ export class ExcelReports {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.MakeRequestToDownloadExcelReportResponse =
-        new operations.MakeRequestToDownloadExcelReportResponse({
+      const res: operations.GetExcelReportGenerationStatusResponse =
+        new operations.GetExcelReportGenerationStatusResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -252,69 +309,10 @@ export class ExcelReports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.makeRequestToDownloadExcelReport200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.MakeRequestToDownloadExcelReport200ApplicationJSON
-              );
-          }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
-   * Generate an Excel report
-   *
-   * @remarks
-   * Generate an Excel report which can subsequently be downloaded.
-   */
-  requestExcelReportForDownload(
-    req: operations.RequestExcelReportForDownloadRequest,
-    config?: AxiosRequestConfig
-  ): Promise<operations.RequestExcelReportForDownloadResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.RequestExcelReportForDownloadRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/data/companies/{companyId}/assess/excel",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const queryParams: string = utils.serializeQueryParams(req);
-
-    const r = client.request({
-      url: url + queryParams,
-      method: "post",
-      ...config,
-    });
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.RequestExcelReportForDownloadResponse =
-        new operations.RequestExcelReportForDownloadResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.requestExcelReportForDownload200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.RequestExcelReportForDownload200ApplicationJSON
-              );
+            res.excelStatus = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.ExcelStatus
+            );
           }
           break;
       }

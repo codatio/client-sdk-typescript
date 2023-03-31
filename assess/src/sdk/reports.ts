@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -80,7 +81,7 @@ export class Reports {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.enhancedReport = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetAccountsForEnhancedBalanceSheetEnhancedReport
+              shared.EnhancedReport
             );
           }
           break;
@@ -137,7 +138,7 @@ export class Reports {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.enhancedReport = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetAccountsForEnhancedProfitAndLossEnhancedReport
+              shared.EnhancedReport
             );
           }
           break;
@@ -192,11 +193,10 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getCommerceCustomerRetentionMetrics200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetCommerceCustomerRetentionMetrics200ApplicationJSON
-              );
+            res.report = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Report
+            );
           }
           break;
       }
@@ -250,11 +250,10 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getCommerceLifetimeValueMetrics200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetCommerceLifetimeValueMetrics200ApplicationJSON
-              );
+            res.report = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Report
+            );
           }
           break;
       }
@@ -308,11 +307,10 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getCommerceOrdersMetrics200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetCommerceOrdersMetrics200ApplicationJSON
-              );
+            res.report = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Report
+            );
           }
           break;
       }
@@ -366,11 +364,10 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getCommerceRefundsMetrics200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetCommerceRefundsMetrics200ApplicationJSON
-              );
+            res.report = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Report
+            );
           }
           break;
       }
@@ -424,11 +421,10 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getCommerceRevenueMetrics200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetCommerceRevenueMetrics200ApplicationJSON
-              );
+            res.report = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Report
+            );
           }
           break;
       }
@@ -482,11 +478,10 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getEnhancedBalanceSheet200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetEnhancedBalanceSheet200ApplicationJSON
-              );
+            res.report = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Report
+            );
           }
           break;
       }
@@ -542,7 +537,7 @@ export class Reports {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.enhancedCashFlowTransactions = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetEnhancedCashFlowTransactionsEnhancedCashFlowTransactions
+              shared.EnhancedCashFlowTransactions
             );
           }
           break;
@@ -553,7 +548,7 @@ export class Reports {
   }
 
   /**
-   * List finanicial metrics
+   * List financial metrics
    *
    * @remarks
    * Gets all the available financial metrics for a given company, over one or more periods.
@@ -597,11 +592,10 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getEnhancedFinancialMetrics200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetEnhancedFinancialMetrics200ApplicationJSON
-              );
+            res.financialMetrics = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.FinancialMetrics
+            );
           }
           break;
       }
@@ -657,7 +651,7 @@ export class Reports {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.enhancedInvoicesReport = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetEnhancedInvoicesReportEnhancedInvoicesReport
+              shared.EnhancedInvoicesReport
             );
           }
           break;
@@ -712,11 +706,10 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getEnhancedProfitAndLoss200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetEnhancedProfitAndLoss200ApplicationJSON
-              );
+            res.report = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Report
+            );
           }
           break;
       }
@@ -768,11 +761,10 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getRecurringRevenueMetrics200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetRecurringRevenueMetrics200ApplicationJSON
-              );
+            res.report = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Report
+            );
           }
           break;
       }
@@ -824,11 +816,10 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.requestRecurringRevenueMetrics200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.RequestRecurringRevenueMetrics200ApplicationJSON
-              );
+            res.report = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Report
+            );
           }
           break;
       }

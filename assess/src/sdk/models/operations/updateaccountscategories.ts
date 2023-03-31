@@ -3,44 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose, Type } from "class-transformer";
-
-export class UpdateAccountsCategoriesRequestBodyCategoriesAccountRef extends SpeakeasyBase {
-  /**
-   * A unique, persistent identifier for this record
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
-}
-
-export class UpdateAccountsCategoriesRequestBodyCategories extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "accountRef" })
-  @Type(() => UpdateAccountsCategoriesRequestBodyCategoriesAccountRef)
-  accountRef?: UpdateAccountsCategoriesRequestBodyCategoriesAccountRef;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "confirmed" })
-  confirmed?: any;
-}
-
-export class UpdateAccountsCategoriesRequestBody extends SpeakeasyBase {
-  /**
-   * List of confirmed account categories set manually by the user.
-   */
-  @SpeakeasyMetadata({
-    elemType: UpdateAccountsCategoriesRequestBodyCategories,
-  })
-  @Expose({ name: "categories" })
-  @Type(() => UpdateAccountsCategoriesRequestBodyCategories)
-  categories?: UpdateAccountsCategoriesRequestBodyCategories[];
-}
 
 export class UpdateAccountsCategoriesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  requestBody?: UpdateAccountsCategoriesRequestBody;
+  confirmCategories?: shared.ConfirmCategories;
 
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
@@ -53,81 +21,12 @@ export class UpdateAccountsCategoriesRequest extends SpeakeasyBase {
   connectionId: string;
 }
 
-/**
- * An object containing account reference data.
- */
-export class UpdateAccountsCategoriesCategorisedAccountAccountRef extends SpeakeasyBase {
-  /**
-   * 'id' from the Accounts data type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
-
-  /**
-   * 'name' from the Accounts data type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
-}
-
-export class UpdateAccountsCategoriesCategorisedAccountModifiedDate extends SpeakeasyBase {
-  /**
-   * Most granular chart of account type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailType" })
-  detailType?: string;
-
-  /**
-   * The date on which this record was last modified in Codat.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
-
-  /**
-   * The account subtype.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "subtype" })
-  subtype?: string;
-
-  /**
-   * The top level account type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: string;
-}
-
-export class UpdateAccountsCategoriesCategorisedAccount extends SpeakeasyBase {
-  /**
-   * An object containing account reference data.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "accountRef" })
-  @Type(() => UpdateAccountsCategoriesCategorisedAccountAccountRef)
-  accountRef?: UpdateAccountsCategoriesCategorisedAccountAccountRef;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "confirmed" })
-  @Type(() => UpdateAccountsCategoriesCategorisedAccountModifiedDate)
-  confirmed?: UpdateAccountsCategoriesCategorisedAccountModifiedDate;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "suggested" })
-  @Type(() => UpdateAccountsCategoriesCategorisedAccountModifiedDate)
-  suggested?: UpdateAccountsCategoriesCategorisedAccountModifiedDate;
-}
-
 export class UpdateAccountsCategoriesResponse extends SpeakeasyBase {
   /**
    * OK
    */
-  @SpeakeasyMetadata({ elemType: UpdateAccountsCategoriesCategorisedAccount })
-  categorisedAccounts?: UpdateAccountsCategoriesCategorisedAccount[];
+  @SpeakeasyMetadata({ elemType: shared.CategorisedAccount })
+  categorisedAccounts?: shared.CategorisedAccount[];
 
   @SpeakeasyMetadata()
   contentType: string;

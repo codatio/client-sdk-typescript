@@ -3,18 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose, Type } from "class-transformer";
-
-/**
- * A key for a Codat data type.
- */
-export enum GetDataIntegritySummariesDataTypeEnum {
-  BankingAccounts = "banking-accounts",
-  BankingTransactions = "banking-transactions",
-  BankAccounts = "bankAccounts",
-  AccountTransactions = "accountTransactions",
-}
 
 export class GetDataIntegritySummariesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -28,123 +18,13 @@ export class GetDataIntegritySummariesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=dataType",
   })
-  dataType: GetDataIntegritySummariesDataTypeEnum;
+  dataType: shared.DataIntegrityDataTypeEnum;
 
   /**
    * Codat query string. [Read more](https://docs.codat.io/using-the-api/querying).
    */
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
   query?: string;
-}
-
-export class GetDataIntegritySummaries200ApplicationJSONDataIntegrityTypeByAmount extends SpeakeasyBase {
-  /**
-   * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
-   *
-   * @remarks
-   *
-   * ## Unknown currencies
-   *
-   * In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction.
-   *
-   * There are only a very small number of edge cases where this currency code is returned by the Codat system.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "currency" })
-  currency?: string;
-
-  /**
-   * The percentage of the absolute value of transactions of the type specified in the route which have a match.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "matchPercentage" })
-  matchPercentage?: number;
-
-  /**
-   * The sum of the absolute value of transactions of the type specified in the route which have a match.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "matched" })
-  matched?: number;
-
-  /**
-   * The total of unmatched and matched.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "total" })
-  total?: number;
-
-  /**
-   * The sum of the absolute value of transactions of the type specified in the route which don't have a match.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "unmatched" })
-  unmatched?: number;
-}
-
-export class GetDataIntegritySummaries200ApplicationJSONDataIntegrityTypeByCount extends SpeakeasyBase {
-  /**
-   * The percentage of records of the type specified in the route which have a match.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "matchPercentage" })
-  matchPercentage?: number;
-
-  /**
-   * The number of records of the type specified in the route which do have a match.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "matched" })
-  matched?: number;
-
-  /**
-   * The total of unmatched and matched.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "total" })
-  total?: number;
-
-  /**
-   * The number of records of the type specified in the route which don't have a match.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "unmatched" })
-  unmatched?: number;
-}
-
-export class GetDataIntegritySummaries200ApplicationJSONDataIntegrityType extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "byAmount" })
-  @Type(
-    () => GetDataIntegritySummaries200ApplicationJSONDataIntegrityTypeByAmount
-  )
-  byAmount?: GetDataIntegritySummaries200ApplicationJSONDataIntegrityTypeByAmount;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "byCount" })
-  @Type(
-    () => GetDataIntegritySummaries200ApplicationJSONDataIntegrityTypeByCount
-  )
-  byCount?: GetDataIntegritySummaries200ApplicationJSONDataIntegrityTypeByCount;
-
-  /**
-   * The data type which the data type in the URL has been matched against. For example, if you've matched accountTransactions and banking-transactions, and you call this endpoint with accountTransactions in the URL, this property would be banking-transactions.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: string;
-}
-
-/**
- * OK
- */
-export class GetDataIntegritySummaries200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    elemType: GetDataIntegritySummaries200ApplicationJSONDataIntegrityType,
-  })
-  @Expose({ name: "summaries" })
-  @Type(() => GetDataIntegritySummaries200ApplicationJSONDataIntegrityType)
-  summaries?: GetDataIntegritySummaries200ApplicationJSONDataIntegrityType[];
 }
 
 export class GetDataIntegritySummariesResponse extends SpeakeasyBase {
@@ -161,5 +41,5 @@ export class GetDataIntegritySummariesResponse extends SpeakeasyBase {
    * OK
    */
   @SpeakeasyMetadata()
-  getDataIntegritySummaries200ApplicationJSONObject?: GetDataIntegritySummaries200ApplicationJSON;
+  summaries?: shared.Summaries;
 }

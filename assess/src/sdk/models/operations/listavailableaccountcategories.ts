@@ -3,54 +3,16 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose } from "class-transformer";
-
-export class ListAvailableAccountCategoriesChartOfAccountCategory extends SpeakeasyBase {
-  /**
-   * Most granular chart of account type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailType" })
-  detailType?: string;
-
-  /**
-   * A description of the fully categorized (to detail type) account.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailTypeDescription" })
-  detailTypeDescription?: string;
-
-  /**
-   * Human readable detailType display name.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailTypeDisplayName" })
-  detailTypeDisplayName?: string;
-
-  /**
-   * The account subtype.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "subtype" })
-  subtype?: string;
-
-  /**
-   * Human readable subtype display name.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "subtypeDisplayName" })
-  subtypeDisplayName?: string;
-
-  /**
-   * The top level account type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: string;
-}
 
 export class ListAvailableAccountCategoriesResponse extends SpeakeasyBase {
+  /**
+   * OK
+   */
+  @SpeakeasyMetadata({ elemType: shared.Categories })
+  categories?: shared.Categories[];
+
   @SpeakeasyMetadata()
   contentType: string;
 
@@ -59,12 +21,4 @@ export class ListAvailableAccountCategoriesResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
-
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata({
-    elemType: ListAvailableAccountCategoriesChartOfAccountCategory,
-  })
-  listAvailableAccountCategoriesChartOfAccountCategoryAnies?: ListAvailableAccountCategoriesChartOfAccountCategory[];
 }

@@ -3,15 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-
-/**
- * The type of report you want to generate and download.
- */
-export enum GetExcelReportReportTypeEnum {
-  Audit = "audit",
-  EnhancedFinancials = "enhancedFinancials",
-}
 
 export class GetExcelReportRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -25,7 +18,7 @@ export class GetExcelReportRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=reportType",
   })
-  reportType: GetExcelReportReportTypeEnum;
+  reportType: shared.ExcelReportTypeEnum;
 }
 
 export class GetExcelReportResponse extends SpeakeasyBase {

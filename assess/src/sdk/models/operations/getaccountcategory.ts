@@ -3,8 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose, Type } from "class-transformer";
 
 export class GetAccountCategoryRequest extends SpeakeasyBase {
   /**
@@ -26,84 +26,12 @@ export class GetAccountCategoryRequest extends SpeakeasyBase {
   connectionId: string;
 }
 
-/**
- * An object containing account reference data.
- */
-export class GetAccountCategoryCategorisedAccountAccountRef extends SpeakeasyBase {
-  /**
-   * 'id' from the Accounts data type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
-
-  /**
-   * 'name' from the Accounts data type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
-}
-
-export class GetAccountCategoryCategorisedAccountModifiedDate extends SpeakeasyBase {
-  /**
-   * Most granular chart of account type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailType" })
-  detailType?: string;
-
-  /**
-   * The date on which this record was last modified in Codat.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
-
-  /**
-   * The account subtype.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "subtype" })
-  subtype?: string;
-
-  /**
-   * The top level account type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: string;
-}
-
-/**
- * OK
- */
-export class GetAccountCategoryCategorisedAccount extends SpeakeasyBase {
-  /**
-   * An object containing account reference data.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "accountRef" })
-  @Type(() => GetAccountCategoryCategorisedAccountAccountRef)
-  accountRef?: GetAccountCategoryCategorisedAccountAccountRef;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "confirmed" })
-  @Type(() => GetAccountCategoryCategorisedAccountModifiedDate)
-  confirmed?: GetAccountCategoryCategorisedAccountModifiedDate;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "suggested" })
-  @Type(() => GetAccountCategoryCategorisedAccountModifiedDate)
-  suggested?: GetAccountCategoryCategorisedAccountModifiedDate;
-}
-
 export class GetAccountCategoryResponse extends SpeakeasyBase {
   /**
    * OK
    */
   @SpeakeasyMetadata()
-  categorisedAccount?: GetAccountCategoryCategorisedAccount;
+  categorisedAccount?: shared.CategorisedAccount;
 
   @SpeakeasyMetadata()
   contentType: string;

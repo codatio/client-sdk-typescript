@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -78,7 +79,7 @@ export class Categories {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.categorisedAccount = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.GetAccountCategoryCategorisedAccount
+              shared.CategorisedAccount
             );
           }
           break;
@@ -133,11 +134,10 @@ export class Categories {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listAccountsCategories200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListAccountsCategories200ApplicationJSON
-              );
+            res.categorisedAccounts = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CategorisedAccounts
+            );
           }
           break;
       }
@@ -181,14 +181,13 @@ export class Categories {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listAvailableAccountCategoriesChartOfAccountCategoryAnies = [];
+            res.categories = [];
             const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.listAvailableAccountCategoriesChartOfAccountCategoryAnies =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListAvailableAccountCategoriesChartOfAccountCategory,
-                resFieldDepth
-              );
+            res.categories = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Categories,
+              resFieldDepth
+            );
           }
           break;
       }
@@ -223,7 +222,7 @@ export class Categories {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "confirmCategory",
         "json"
       );
     } catch (e: unknown) {
@@ -260,7 +259,7 @@ export class Categories {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.categorisedAccount = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.UpdateAccountCategoryCategorisedAccount
+              shared.CategorisedAccount
             );
           }
           break;
@@ -296,7 +295,7 @@ export class Categories {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "confirmCategories",
         "json"
       );
     } catch (e: unknown) {
@@ -335,7 +334,7 @@ export class Categories {
             const resFieldDepth: number = utils.getResFieldDepth(res);
             res.categorisedAccounts = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.UpdateAccountsCategoriesCategorisedAccount,
+              shared.CategorisedAccount,
               resFieldDepth
             );
           }

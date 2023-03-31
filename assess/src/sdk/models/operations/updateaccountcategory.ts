@@ -3,42 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose, Type } from "class-transformer";
-
-export class UpdateAccountCategoryRequestBodyChartOfAccountCategory extends SpeakeasyBase {
-  /**
-   * Most granular chart of account type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailType" })
-  detailType?: string;
-
-  /**
-   * The account subtype.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "subtype" })
-  subtype?: string;
-
-  /**
-   * The top level account type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: string;
-}
-
-export class UpdateAccountCategoryRequestBody extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "confirmed" })
-  @Type(() => UpdateAccountCategoryRequestBodyChartOfAccountCategory)
-  confirmed: UpdateAccountCategoryRequestBodyChartOfAccountCategory;
-}
 
 export class UpdateAccountCategoryRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  requestBody?: UpdateAccountCategoryRequestBody;
+  confirmCategory?: shared.ConfirmCategory;
 
   /**
    * Nominal account id
@@ -59,84 +29,12 @@ export class UpdateAccountCategoryRequest extends SpeakeasyBase {
   connectionId: string;
 }
 
-/**
- * An object containing account reference data.
- */
-export class UpdateAccountCategoryCategorisedAccountAccountRef extends SpeakeasyBase {
-  /**
-   * 'id' from the Accounts data type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
-
-  /**
-   * 'name' from the Accounts data type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
-}
-
-export class UpdateAccountCategoryCategorisedAccountModifiedDate extends SpeakeasyBase {
-  /**
-   * Most granular chart of account type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailType" })
-  detailType?: string;
-
-  /**
-   * The date on which this record was last modified in Codat.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
-
-  /**
-   * The account subtype.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "subtype" })
-  subtype?: string;
-
-  /**
-   * The top level account type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: string;
-}
-
-/**
- * OK
- */
-export class UpdateAccountCategoryCategorisedAccount extends SpeakeasyBase {
-  /**
-   * An object containing account reference data.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "accountRef" })
-  @Type(() => UpdateAccountCategoryCategorisedAccountAccountRef)
-  accountRef?: UpdateAccountCategoryCategorisedAccountAccountRef;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "confirmed" })
-  @Type(() => UpdateAccountCategoryCategorisedAccountModifiedDate)
-  confirmed?: UpdateAccountCategoryCategorisedAccountModifiedDate;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "suggested" })
-  @Type(() => UpdateAccountCategoryCategorisedAccountModifiedDate)
-  suggested?: UpdateAccountCategoryCategorisedAccountModifiedDate;
-}
-
 export class UpdateAccountCategoryResponse extends SpeakeasyBase {
   /**
    * OK
    */
   @SpeakeasyMetadata()
-  categorisedAccount?: UpdateAccountCategoryCategorisedAccount;
+  categorisedAccount?: shared.CategorisedAccount;
 
   @SpeakeasyMetadata()
   contentType: string;

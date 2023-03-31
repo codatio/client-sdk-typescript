@@ -3,18 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose, Type } from "class-transformer";
-
-/**
- * A key for a Codat data type.
- */
-export enum GetDataIntegrityStatusDataTypeEnum {
-  BankingAccounts = "banking-accounts",
-  BankingTransactions = "banking-transactions",
-  BankAccounts = "bankAccounts",
-  AccountTransactions = "accountTransactions",
-}
 
 export class GetDataIntegrityStatusRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -28,189 +18,22 @@ export class GetDataIntegrityStatusRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=dataType",
   })
-  dataType: GetDataIntegrityStatusDataTypeEnum;
-}
-
-/**
- * Only returned for transactions. For accounts, there is nothing returned.
- */
-export class GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeAmounts extends SpeakeasyBase {
-  /**
-   * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
-   *
-   * @remarks
-   *
-   * ## Unknown currencies
-   *
-   * In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction.
-   *
-   * There are only a very small number of edge cases where this currency code is returned by the Codat system.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "currency" })
-  currency?: string;
-
-  /**
-   * Highest value of transaction set.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "max" })
-  max?: number;
-
-  /**
-   * Lowest value of transaction set.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "min" })
-  min?: number;
-}
-
-export class GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeConnectionIds extends SpeakeasyBase {
-  /**
-   * An array of strings. The connection IDs for the type specified in the url.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "source" })
-  source?: string[];
-
-  /**
-   * An array of strings. The connection IDs for the type being matched to.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "target" })
-  target?: string[];
-}
-
-/**
- * Only returned for transactions. For accounts, there is nothing returned.
- */
-export class GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeDates extends SpeakeasyBase {
-  /**
-   * Latest date of transaction set.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "maxDate" })
-  maxDate?: string;
-
-  /**
-   * Latest date where transactions exist in both account and banking platforms.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "maxOverlappingDate" })
-  maxOverlappingDate?: string;
-
-  /**
-   * Earliest date of transaction set.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "minDate" })
-  minDate?: string;
-
-  /**
-   * Earliest date where transactions exist in both accounting and banking platforms.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "minOverlappingDate" })
-  minOverlappingDate?: string;
-}
-
-/**
- * The current status of the most recently run matching algorithm.
- */
-export enum GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeStatusInfoCurrentStatusEnum {
-  Unknown = "Unknown",
-  DoesNotExist = "DoesNotExist",
-  Error = "Error",
-  Complete = "Complete",
-}
-
-export class GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeStatusInfo extends SpeakeasyBase {
-  /**
-   * The current status of the most recently run matching algorithm.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "currentStatus" })
-  currentStatus?: GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeStatusInfoCurrentStatusEnum;
-
-  /**
-   * The date the matching algorithm last ran against the company’s data type specified.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "lastMatched" })
-  lastMatched?: string;
-
-  /**
-   * Detailed explanation supporting the status value.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusMessage" })
-  statusMessage?: string;
-}
-
-export class GetDataIntegrityStatus200ApplicationJSONDataIntegrityType extends SpeakeasyBase {
-  /**
-   * Only returned for transactions. For accounts, there is nothing returned.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "amounts" })
-  @Type(() => GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeAmounts)
-  amounts?: GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeAmounts;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "connectionIds" })
-  @Type(
-    () => GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeConnectionIds
-  )
-  connectionIds?: GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeConnectionIds;
-
-  /**
-   * Only returned for transactions. For accounts, there is nothing returned.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "dates" })
-  @Type(() => GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeDates)
-  dates?: GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeDates;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusInfo" })
-  @Type(
-    () => GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeStatusInfo
-  )
-  statusInfo?: GetDataIntegrityStatus200ApplicationJSONDataIntegrityTypeStatusInfo;
-
-  /**
-   * The data type which the data type in the URL has been matched against. For example, if you've matched accountTransactions and banking-transactions, and you call this endpoint with accountTransactions in the URL, this property would be banking-transactions.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: string;
-}
-
-/**
- * OK
- */
-export class GetDataIntegrityStatus200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    elemType: GetDataIntegrityStatus200ApplicationJSONDataIntegrityType,
-  })
-  @Expose({ name: "metadata" })
-  @Type(() => GetDataIntegrityStatus200ApplicationJSONDataIntegrityType)
-  metadata?: GetDataIntegrityStatus200ApplicationJSONDataIntegrityType[];
+  dataType: shared.DataIntegrityDataTypeEnum;
 }
 
 export class GetDataIntegrityStatusResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
+  /**
+   * OK
+   */
+  @SpeakeasyMetadata()
+  status?: shared.Status;
+
   @SpeakeasyMetadata()
   statusCode: number;
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
-
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  getDataIntegrityStatus200ApplicationJSONObject?: GetDataIntegrityStatus200ApplicationJSON;
 }
