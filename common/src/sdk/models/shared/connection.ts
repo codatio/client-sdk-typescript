@@ -3,8 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { ConnectionStatusEnum } from "./connectionstatusenum";
 import { DataConnectionError } from "./dataconnectionerror";
+import { DataConnectionStatusEnum } from "./dataconnectionstatusenum";
 import { SourceTypeEnum } from "./sourcetypeenum";
 import { Expose, Type } from "class-transformer";
 
@@ -12,6 +12,10 @@ import { Expose, Type } from "class-transformer";
  * A connection represents the link between a `company` and a source of data.
  */
 export class Connection extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  @Expose({ name: "additionalProperties" })
+  additionalProperties?: any;
+
   @SpeakeasyMetadata()
   @Expose({ name: "connectionInfo" })
   connectionInfo?: Record<string, string>;
@@ -123,5 +127,5 @@ export class Connection extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: ConnectionStatusEnum;
+  status: DataConnectionStatusEnum;
 }

@@ -56,7 +56,7 @@ src/sdk/models/operations/index.ts
 src/sdk/models/shared/errormessage.ts
 src/sdk/models/shared/company.ts
 src/sdk/models/shared/connection.ts
-src/sdk/models/shared/connectionstatusenum.ts
+src/sdk/models/shared/dataconnectionstatusenum.ts
 src/sdk/models/shared/sourcetypeenum.ts
 src/sdk/models/shared/dataconnectionerror.ts
 src/sdk/models/shared/companyrequestbody.ts
@@ -81,6 +81,7 @@ src/sdk/models/shared/brandingbutton.ts
 src/sdk/models/shared/integrations.ts
 src/sdk/models/shared/pushhistoryresponse.ts
 src/sdk/models/shared/pushoperationsummary.ts
+src/sdk/models/shared/validation.ts
 src/sdk/models/shared/validationitem.ts
 src/sdk/models/shared/pushoperationstatusenum.ts
 src/sdk/models/shared/pushoperationchange.ts
@@ -100,6 +101,7 @@ src/sdk/models/shared/rule.ts
 src/sdk/models/shared/rules.ts
 src/sdk/models/shared/security.ts
 src/sdk/models/shared/companydataconnectionstatuschangedwebhook.ts
+src/sdk/models/shared/connectionstatusenum.ts
 src/sdk/models/shared/datasynccompletedwebhook.ts
 src/sdk/models/shared/datasetdatachangedwebhook.ts
 src/sdk/models/shared/datasetstatuschangederrorwebhook.ts

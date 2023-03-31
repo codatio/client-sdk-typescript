@@ -6,23 +6,8 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { DataTypeEnum } from "./datatypeenum";
 import { PushOperationChange } from "./pushoperationchange";
 import { PushOperationStatusEnum } from "./pushoperationstatusenum";
-import { ValidationItem } from "./validationitem";
+import { Validation } from "./validation";
 import { Expose, Type } from "class-transformer";
-
-/**
- * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
- */
-export class PushOperationSummaryValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ValidationItem })
-  @Expose({ name: "errors" })
-  @Type(() => ValidationItem)
-  errors?: ValidationItem[];
-
-  @SpeakeasyMetadata({ elemType: ValidationItem })
-  @Expose({ name: "warnings" })
-  @Type(() => ValidationItem)
-  warnings?: ValidationItem[];
-}
 
 export class PushOperationSummary extends SpeakeasyBase {
   @SpeakeasyMetadata({ elemType: PushOperationChange })
@@ -140,6 +125,6 @@ export class PushOperationSummary extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => PushOperationSummaryValidation)
-  validation?: PushOperationSummaryValidation;
+  @Type(() => Validation)
+  validation?: Validation;
 }
