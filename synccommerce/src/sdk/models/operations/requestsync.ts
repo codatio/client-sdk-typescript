@@ -6,19 +6,17 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class GetVisibleAccountsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=clientId",
-  })
-  clientId: string;
+export class RequestSyncRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  syncToLatestArgs?: shared.SyncToLatestArgs;
 
   @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=platformKey",
+    data: "pathParam, style=simple;explode=false;name=companyId",
   })
-  platformKey: string;
+  companyId: string;
 }
 
-export class GetVisibleAccountsResponse extends SpeakeasyBase {
+export class RequestSyncResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
@@ -32,5 +30,5 @@ export class GetVisibleAccountsResponse extends SpeakeasyBase {
    * Success
    */
   @SpeakeasyMetadata()
-  visibleAccounts?: shared.VisibleAccounts;
+  syncSummary?: shared.SyncSummary;
 }

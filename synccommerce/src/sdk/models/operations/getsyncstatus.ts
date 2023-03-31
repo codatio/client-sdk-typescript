@@ -3,18 +3,18 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class GetConfigTextSyncFlowResponse extends SpeakeasyBase {
+export class GetSyncStatusRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=companyId",
+  })
+  companyId: string;
+}
+
+export class GetSyncStatusResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
-
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata({ elemType: shared.Localization })
-  localizationInfo?: Record<string, shared.Localization>;
 
   @SpeakeasyMetadata()
   statusCode: number;

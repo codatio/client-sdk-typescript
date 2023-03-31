@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -68,11 +69,13 @@ export class SyncFlowPreferences {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getConfigTextSyncFlow200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetConfigTextSyncFlow200ApplicationJSON
-              );
+            res.localizationInfo = {};
+            const resFieldDepth: number = utils.getResFieldDepth(res);
+            res.localizationInfo = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Localization,
+              resFieldDepth
+            );
           }
           break;
       }
@@ -126,11 +129,10 @@ export class SyncFlowPreferences {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getSyncFlowUrl200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetSyncFlowUrl200ApplicationJSON
-              );
+            res.syncFlowUrl = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.SyncFlowUrl
+            );
           }
           break;
       }
@@ -182,11 +184,10 @@ export class SyncFlowPreferences {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getVisibleAccounts200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetVisibleAccounts200ApplicationJSON
-              );
+            res.visibleAccounts = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.VisibleAccounts
+            );
           }
           break;
       }
@@ -201,14 +202,10 @@ export class SyncFlowPreferences {
    * @remarks
    * To enable update of preferences set for the text fields on sync flow.
    */
-  patchConfigTextSyncFlow(
-    req: operations.PatchConfigTextSyncFlowRequestBody,
+  updateConfigTextSyncFlow(
+    req: Record<string, shared.Localization>,
     config?: AxiosRequestConfig
-  ): Promise<operations.PatchConfigTextSyncFlowResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.PatchConfigTextSyncFlowRequestBody(req);
-    }
-
+  ): Promise<operations.UpdateConfigTextSyncFlowResponse> {
     const baseURL: string = this._serverURL;
     const url: string =
       baseURL.replace(/\/$/, "") + "/sync/commerce/config/ui/text";
@@ -244,8 +241,8 @@ export class SyncFlowPreferences {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.PatchConfigTextSyncFlowResponse =
-        new operations.PatchConfigTextSyncFlowResponse({
+      const res: operations.UpdateConfigTextSyncFlowResponse =
+        new operations.UpdateConfigTextSyncFlowResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -253,11 +250,13 @@ export class SyncFlowPreferences {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.patchConfigTextSyncFlow200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.PatchConfigTextSyncFlow200ApplicationJSON
-              );
+            res.localizationInfo = {};
+            const resFieldDepth: number = utils.getResFieldDepth(res);
+            res.localizationInfo = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Localization,
+              resFieldDepth
+            );
           }
           break;
       }
@@ -272,12 +271,12 @@ export class SyncFlowPreferences {
    * @remarks
    * To enable update of accounts visible preferences set on Sync Flow.
    */
-  patchVisibleAccountsSyncFlow(
-    req: operations.PatchVisibleAccountsSyncFlowRequest,
+  updateVisibleAccountsSyncFlow(
+    req: operations.UpdateVisibleAccountsSyncFlowRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.PatchVisibleAccountsSyncFlowResponse> {
+  ): Promise<operations.UpdateVisibleAccountsSyncFlowResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.PatchVisibleAccountsSyncFlowRequest(req);
+      req = new operations.UpdateVisibleAccountsSyncFlowRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -292,7 +291,7 @@ export class SyncFlowPreferences {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "visibleAccounts",
         "json"
       );
     } catch (e: unknown) {
@@ -318,8 +317,8 @@ export class SyncFlowPreferences {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.PatchVisibleAccountsSyncFlowResponse =
-        new operations.PatchVisibleAccountsSyncFlowResponse({
+      const res: operations.UpdateVisibleAccountsSyncFlowResponse =
+        new operations.UpdateVisibleAccountsSyncFlowResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -327,11 +326,10 @@ export class SyncFlowPreferences {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.patchVisibleAccountsSyncFlow200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.PatchVisibleAccountsSyncFlow200ApplicationJSON
-              );
+            res.visibleAccounts = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.VisibleAccounts
+            );
           }
           break;
       }

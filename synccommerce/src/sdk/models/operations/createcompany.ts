@@ -6,15 +6,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class GetConfigTextSyncFlowResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
-
+export class CreateCompanyResponse extends SpeakeasyBase {
   /**
    * Success
    */
-  @SpeakeasyMetadata({ elemType: shared.Localization })
-  localizationInfo?: Record<string, shared.Localization>;
+  @SpeakeasyMetadata()
+  company?: shared.Company;
+
+  @SpeakeasyMetadata()
+  contentType: string;
 
   @SpeakeasyMetadata()
   statusCode: number;

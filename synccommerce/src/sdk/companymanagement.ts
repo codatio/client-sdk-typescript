@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -34,17 +35,86 @@ export class CompanyManagement {
   }
 
   /**
+   * Create a sync for commerce company
+   *
+   * @remarks
+   * Creates a Codat company with a commerce partner data connection.
+   */
+  createCompany(
+    req: shared.CreateCompany,
+    config?: AxiosRequestConfig
+  ): Promise<operations.CreateCompanyResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new shared.CreateCompany(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = baseURL.replace(/\/$/, "") + "/meta/companies/sync";
+
+    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+    try {
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "request",
+        "json"
+      );
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new Error(`Error serializing request body, cause: ${e.message}`);
+      }
+    }
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const headers = { ...reqBodyHeaders, ...config?.headers };
+
+    const r = client.request({
+      url: url,
+      method: "post",
+      headers: headers,
+      data: reqBody,
+      ...config,
+    });
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.CreateCompanyResponse =
+        new operations.CreateCompanyResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.company = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Company
+            );
+          }
+          break;
+      }
+
+      return res;
+    });
+  }
+
+  /**
    * Create a data connection
    *
    * @remarks
    * Create a data connection for company.
    */
-  addDataConnection(
-    req: operations.AddDataConnectionRequest,
+  createConnection(
+    req: operations.CreateConnectionRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.AddDataConnectionResponse> {
+  ): Promise<operations.CreateConnectionResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.AddDataConnectionRequest(req);
+      req = new operations.CreateConnectionRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -85,8 +155,8 @@ export class CompanyManagement {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.AddDataConnectionResponse =
-        new operations.AddDataConnectionResponse({
+      const res: operations.CreateConnectionResponse =
+        new operations.CreateConnectionResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -94,11 +164,10 @@ export class CompanyManagement {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.addDataConnection200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.AddDataConnection200ApplicationJSON
-              );
+            res.connection = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Connection
+            );
           }
           break;
       }
@@ -113,12 +182,12 @@ export class CompanyManagement {
    * @remarks
    * Retrieve a list of all companies the client has created.
    */
-  companies(
-    req: operations.CompaniesRequest,
+  listCompanies(
+    req: operations.ListCompaniesRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.CompaniesResponse> {
+  ): Promise<operations.ListCompaniesResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CompaniesRequest(req);
+      req = new operations.ListCompaniesRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -139,8 +208,8 @@ export class CompanyManagement {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CompaniesResponse =
-        new operations.CompaniesResponse({
+      const res: operations.ListCompaniesResponse =
+        new operations.ListCompaniesResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -148,11 +217,10 @@ export class CompanyManagement {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.companies200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.Companies200ApplicationJSON
-              );
+            res.companies = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Companies
+            );
           }
           break;
       }
@@ -167,12 +235,12 @@ export class CompanyManagement {
    * @remarks
    * Retrieve previously created data connections.
    */
-  getDataconnections(
-    req: operations.GetDataconnectionsRequest,
+  listConnections(
+    req: operations.ListConnectionsRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetDataconnectionsResponse> {
+  ): Promise<operations.ListConnectionsResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetDataconnectionsRequest(req);
+      req = new operations.ListConnectionsRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -197,8 +265,8 @@ export class CompanyManagement {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetDataconnectionsResponse =
-        new operations.GetDataconnectionsResponse({
+      const res: operations.ListConnectionsResponse =
+        new operations.ListConnectionsResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -206,81 +274,10 @@ export class CompanyManagement {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getDataconnections200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetDataconnections200ApplicationJSON
-              );
-          }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
-   * Create a sync for commerce company
-   *
-   * @remarks
-   * Creates a Codat company with a commerce partner data connection.
-   */
-  postCompanies(
-    req: operations.PostCompaniesRequestBody,
-    config?: AxiosRequestConfig
-  ): Promise<operations.PostCompaniesResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.PostCompaniesRequestBody(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = baseURL.replace(/\/$/, "") + "/meta/companies/sync";
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-        req,
-        "request",
-        "json"
-      );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...reqBodyHeaders, ...config?.headers };
-
-    const r = client.request({
-      url: url,
-      method: "post",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.PostCompaniesResponse =
-        new operations.PostCompaniesResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.postCompanies200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.PostCompanies200ApplicationJSON
-              );
+            res.connections = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Connections
+            );
           }
           break;
       }
@@ -295,12 +292,12 @@ export class CompanyManagement {
    * @remarks
    * Update a data connection
    */
-  updateDataConnection(
-    req: operations.UpdateDataConnectionRequest,
+  updateConnection(
+    req: operations.UpdateConnectionRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.UpdateDataConnectionResponse> {
+  ): Promise<operations.UpdateConnectionResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.UpdateDataConnectionRequest(req);
+      req = new operations.UpdateConnectionRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -315,7 +312,7 @@ export class CompanyManagement {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "updateConnection",
         "json"
       );
     } catch (e: unknown) {
@@ -341,8 +338,8 @@ export class CompanyManagement {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.UpdateDataConnectionResponse =
-        new operations.UpdateDataConnectionResponse({
+      const res: operations.UpdateConnectionResponse =
+        new operations.UpdateConnectionResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -350,11 +347,10 @@ export class CompanyManagement {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.updateDataConnection200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.UpdateDataConnection200ApplicationJSON
-              );
+            res.connection = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Connection
+            );
           }
           break;
       }

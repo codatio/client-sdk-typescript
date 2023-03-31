@@ -1,24 +1,23 @@
 <!-- Start SDK Example Usage -->
 ```typescript
 import {
-  AddDataConnectionRequest,
-  AddDataConnectionResponse
+  shared.CreateCompany,
+  CreateCompanyResponse
 } from "@codat/synccommerce/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
 import { Codat } from "@codat/synccommerce";
 const sdk = new Codat({
   security: {
-    authHeader: "Basic YOUR_ENCODED_API_KEY",
+    authHeader: "YOUR_API_KEY_HERE",
   },
 });
 
-const req: AddDataConnectionRequest = {
-  requestBody: "unde",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+const req: shared.CreateCompany = {
+  name: "Bob's Burgers",
 };
 
-sdk.companyManagement.addDataConnection(req).then((res: AddDataConnectionResponse | AxiosError) => {
+sdk.companyManagement.createCompany(req).then((res: CreateCompanyResponse | AxiosError) => {
    // handle response
 });
 ```

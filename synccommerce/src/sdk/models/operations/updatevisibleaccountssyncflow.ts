@@ -6,19 +6,17 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class GetVisibleAccountsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=clientId",
-  })
-  clientId: string;
+export class UpdateVisibleAccountsSyncFlowRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  visibleAccounts?: shared.VisibleAccounts;
 
   @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=platformKey",
+    data: "pathParam, style=simple;explode=false;name=commerceKey",
   })
-  platformKey: string;
+  commerceKey: string;
 }
 
-export class GetVisibleAccountsResponse extends SpeakeasyBase {
+export class UpdateVisibleAccountsSyncFlowResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 

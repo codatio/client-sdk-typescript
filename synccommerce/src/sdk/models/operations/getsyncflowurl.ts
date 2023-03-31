@@ -3,8 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose } from "class-transformer";
 
 export class GetSyncFlowUrlRequest extends SpeakeasyBase {
   /**
@@ -32,18 +32,6 @@ export class GetSyncFlowUrlRequest extends SpeakeasyBase {
   merchantIdentifier?: string;
 }
 
-/**
- * Success
- */
-export class GetSyncFlowUrl200ApplicationJSON extends SpeakeasyBase {
-  /**
-   * Sync flow URL.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "url" })
-  url?: string;
-}
-
 export class GetSyncFlowUrlResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -58,5 +46,5 @@ export class GetSyncFlowUrlResponse extends SpeakeasyBase {
    * Success
    */
   @SpeakeasyMetadata()
-  getSyncFlowUrl200ApplicationJSONObject?: GetSyncFlowUrl200ApplicationJSON;
+  syncFlowUrl?: shared.SyncFlowUrl;
 }

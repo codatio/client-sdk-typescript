@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -39,12 +40,12 @@ export class Configuration {
    * @remarks
    * Retrieve current config preferences.
    */
-  get(
-    req: operations.GetRequest,
+  getConfiguration(
+    req: operations.GetConfigurationRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetResponse> {
+  ): Promise<operations.GetConfigurationResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetRequest(req);
+      req = new operations.GetConfigurationRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -67,17 +68,18 @@ export class Configuration {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetResponse = new operations.GetResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
+      const res: operations.GetConfigurationResponse =
+        new operations.GetConfigurationResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.get200ApplicationJSONObject = utils.deserializeJSONResponse(
+            res.configuration = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.Get200ApplicationJSON
+              shared.Configuration
             );
           }
           break;
@@ -93,12 +95,12 @@ export class Configuration {
    * @remarks
    * Check the sync history and sync status for a company.
    */
-  getCompanyCommerceSyncStatus(
-    req: operations.GetCompanyCommerceSyncStatusRequest,
+  getSyncStatus(
+    req: operations.GetSyncStatusRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetCompanyCommerceSyncStatusResponse> {
+  ): Promise<operations.GetSyncStatusResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCompanyCommerceSyncStatusRequest(req);
+      req = new operations.GetSyncStatusRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -121,8 +123,8 @@ export class Configuration {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCompanyCommerceSyncStatusResponse =
-        new operations.GetCompanyCommerceSyncStatusResponse({
+      const res: operations.GetSyncStatusResponse =
+        new operations.GetSyncStatusResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -142,12 +144,12 @@ export class Configuration {
    * @remarks
    * Make changes to configuration preferences.
    */
-  post(
-    req: operations.PostRequest,
+  setConfiguration(
+    req: operations.SetConfigurationRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.PostResponse> {
+  ): Promise<operations.SetConfigurationResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.PostRequest(req);
+      req = new operations.SetConfigurationRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -170,17 +172,18 @@ export class Configuration {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.PostResponse = new operations.PostResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
+      const res: operations.SetConfigurationResponse =
+        new operations.SetConfigurationResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.post200ApplicationJSONObject = utils.deserializeJSONResponse(
+            res.configuration = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.Post200ApplicationJSON
+              shared.Configuration
             );
           }
           break;

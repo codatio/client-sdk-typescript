@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -88,12 +89,12 @@ export class Integrations {
    * @remarks
    * Retrieve a list of available integrations support by datatype and state of release.
    */
-  getIntegrations(
-    req: operations.GetIntegrationsRequest,
+  listIntegrations(
+    req: operations.ListIntegrationsRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetIntegrationsResponse> {
+  ): Promise<operations.ListIntegrationsResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetIntegrationsRequest(req);
+      req = new operations.ListIntegrationsRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -114,8 +115,8 @@ export class Integrations {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetIntegrationsResponse =
-        new operations.GetIntegrationsResponse({
+      const res: operations.ListIntegrationsResponse =
+        new operations.ListIntegrationsResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -123,11 +124,10 @@ export class Integrations {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getIntegrations200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetIntegrations200ApplicationJSON
-              );
+            res.integrations = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Integrations
+            );
           }
           break;
       }

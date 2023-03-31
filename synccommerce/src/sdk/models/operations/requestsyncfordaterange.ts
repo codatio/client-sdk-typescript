@@ -3,16 +3,20 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class GetCompanyCommerceSyncStatusRequest extends SpeakeasyBase {
+export class RequestSyncForDateRangeRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  dateRange?: shared.DateRange;
+
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
 }
 
-export class GetCompanyCommerceSyncStatusResponse extends SpeakeasyBase {
+export class RequestSyncForDateRangeResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
@@ -21,4 +25,10 @@ export class GetCompanyCommerceSyncStatusResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
+
+  /**
+   * Success
+   */
+  @SpeakeasyMetadata()
+  syncSummary?: shared.SyncSummary;
 }
