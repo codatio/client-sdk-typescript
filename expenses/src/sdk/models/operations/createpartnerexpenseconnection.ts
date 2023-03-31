@@ -13,7 +13,7 @@ export class CreatePartnerexpenseConnectionRequest extends SpeakeasyBase {
   companyId: string;
 }
 
-export class CreatePartnerexpenseConnectionConnectionDataConnectionErrors extends SpeakeasyBase {
+export class CreatePartnerexpenseConnectionConnectionDataConnectionError extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "errorMessage" })
   errorMessage?: string;
@@ -80,6 +80,10 @@ export enum CreatePartnerexpenseConnectionConnectionDataConnectionStatusEnum {
  */
 export class CreatePartnerexpenseConnectionConnection extends SpeakeasyBase {
   @SpeakeasyMetadata()
+  @Expose({ name: "additionalProperties" })
+  additionalProperties?: any;
+
+  @SpeakeasyMetadata()
   @Expose({ name: "connectionInfo" })
   connectionInfo?: Record<string, string>;
 
@@ -111,11 +115,11 @@ export class CreatePartnerexpenseConnectionConnection extends SpeakeasyBase {
   created: string;
 
   @SpeakeasyMetadata({
-    elemType: CreatePartnerexpenseConnectionConnectionDataConnectionErrors,
+    elemType: CreatePartnerexpenseConnectionConnectionDataConnectionError,
   })
   @Expose({ name: "dataConnectionErrors" })
-  @Type(() => CreatePartnerexpenseConnectionConnectionDataConnectionErrors)
-  dataConnectionErrors?: CreatePartnerexpenseConnectionConnectionDataConnectionErrors[];
+  @Type(() => CreatePartnerexpenseConnectionConnectionDataConnectionError)
+  dataConnectionErrors?: CreatePartnerexpenseConnectionConnectionDataConnectionError[];
 
   /**
    * Unique identifier for a company's data connection.
