@@ -8,7 +8,7 @@ import { Expose } from "class-transformer";
 
 export class PhoneNumber extends SpeakeasyBase {
   /**
-   * A phone number
+   * A phone number.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "number" })

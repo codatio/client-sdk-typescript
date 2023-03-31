@@ -37,7 +37,6 @@ src/sdk/models/operations/gettaxcomponents.ts
 src/sdk/models/operations/listtransactions.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/companyinfo.ts
-src/sdk/models/shared/weblink.ts
 src/sdk/models/shared/phonenumber.ts
 src/sdk/models/shared/phonenumbertypeenum.ts
 src/sdk/models/shared/address.ts

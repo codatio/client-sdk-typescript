@@ -56,4 +56,3 @@ export * from "./transactions";
 export * from "./transactionsourceref";
 export * from "./transactionsourcetypeenum";
 export * from "./transactiontypeenum";
-export * from "./weblink";

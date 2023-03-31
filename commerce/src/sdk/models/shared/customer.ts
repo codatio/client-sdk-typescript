@@ -109,7 +109,7 @@ export class Customer extends SpeakeasyBase {
   note?: string;
 
   /**
-   * A phone number
+   * A phone number.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "phone" })

@@ -6,8 +6,35 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountBalance } from "./accountbalance";
 import { Address } from "./address";
 import { PhoneNumber } from "./phonenumber";
-import { WebLink } from "./weblink";
 import { Expose, Type } from "class-transformer";
+
+/**
+ * The type of the weblink.
+ */
+export enum CompanyInfoWeblinkTypeEnum {
+  Website = "Website",
+  Social = "Social",
+  Unknown = "Unknown",
+}
+
+/**
+ * Weblink associated with the company.
+ */
+export class CompanyInfoWeblink extends SpeakeasyBase {
+  /**
+   * The type of the weblink.
+   */
+  @SpeakeasyMetadata()
+  @Expose({ name: "type" })
+  type?: CompanyInfoWeblinkTypeEnum;
+
+  /**
+   * The full URL for the weblink.
+   */
+  @SpeakeasyMetadata()
+  @Expose({ name: "url" })
+  url?: string;
+}
 
 /**
  * In the Codat system, company information includes standard commercial details about
@@ -177,8 +204,8 @@ export class CompanyInfo extends SpeakeasyBase {
   /**
    * Weblinks associated with the company
    */
-  @SpeakeasyMetadata({ elemType: WebLink })
+  @SpeakeasyMetadata({ elemType: CompanyInfoWeblink })
   @Expose({ name: "webLinks" })
-  @Type(() => WebLink)
-  webLinks?: WebLink[];
+  @Type(() => CompanyInfoWeblink)
+  webLinks?: CompanyInfoWeblink[];
 }
