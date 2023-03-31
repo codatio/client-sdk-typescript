@@ -6,10 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class PostBankTransactionsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  bankTransactions?: shared.BankTransactions;
-
+export class GetCreateBankAccountModelRequest extends SpeakeasyBase {
   /**
    * Unique identifier for an account
    */
@@ -17,11 +14,6 @@ export class PostBankTransactionsRequest extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=accountId",
   })
   accountId: string;
-
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=allowSyncOnPushComplete",
-  })
-  allowSyncOnPushComplete?: boolean;
 
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
@@ -32,14 +24,9 @@ export class PostBankTransactionsRequest extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=connectionId",
   })
   connectionId: string;
-
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
-  })
-  timeoutInMinutes?: number;
 }
 
-export class PostBankTransactionsResponse extends SpeakeasyBase {
+export class GetCreateBankAccountModelResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
@@ -47,7 +34,7 @@ export class PostBankTransactionsResponse extends SpeakeasyBase {
    * Success
    */
   @SpeakeasyMetadata()
-  createBankTransactionsResponse?: shared.CreateBankTransactionsResponse;
+  pushOption?: shared.PushOption;
 
   @SpeakeasyMetadata()
   statusCode: number;

@@ -3,8 +3,10 @@
  */
 
 export * from "./bankfeedaccount";
+export * from "./banktransactionline";
 export * from "./banktransactions";
 export * from "./banktransactionsresponse";
+export * from "./banktransactiontypeenum";
 export * from "./createbanktransactionsresponse";
 export * from "./datatypeenum";
 export * from "./href";
@@ -20,4 +22,5 @@ export * from "./pushoptionproperty";
 export * from "./pushoptiontypeenum";
 export * from "./pushvalidationinfo";
 export * from "./security";
+export * from "./validation";
 export * from "./validationitem";

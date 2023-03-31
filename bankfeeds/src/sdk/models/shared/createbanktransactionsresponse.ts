@@ -7,23 +7,8 @@ import { BankTransactions } from "./banktransactions";
 import { DataTypeEnum } from "./datatypeenum";
 import { PushOperationChange } from "./pushoperationchange";
 import { PushOperationStatusEnum } from "./pushoperationstatusenum";
-import { ValidationItem } from "./validationitem";
+import { Validation } from "./validation";
 import { Expose, Type } from "class-transformer";
-
-/**
- * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
- */
-export class CreateBankTransactionsResponseValidation extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ValidationItem })
-  @Expose({ name: "errors" })
-  @Type(() => ValidationItem)
-  errors?: ValidationItem[];
-
-  @SpeakeasyMetadata({ elemType: ValidationItem })
-  @Expose({ name: "warnings" })
-  @Type(() => ValidationItem)
-  warnings?: ValidationItem[];
-}
 
 /**
  * Success
@@ -169,6 +154,6 @@ export class CreateBankTransactionsResponse extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })
-  @Type(() => CreateBankTransactionsResponseValidation)
-  validation?: CreateBankTransactionsResponseValidation;
+  @Type(() => Validation)
+  validation?: Validation;
 }

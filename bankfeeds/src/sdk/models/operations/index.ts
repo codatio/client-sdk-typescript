@@ -3,8 +3,8 @@
  */
 
 export * from "./createbankfeed";
-export * from "./getbankaccountpushoptions";
+export * from "./createbanktransactions";
 export * from "./getbankfeeds";
+export * from "./getcreatebankaccountmodel";
 export * from "./listbankaccounttransactions";
-export * from "./postbanktransactions";
 export * from "./updatebankfeed";
