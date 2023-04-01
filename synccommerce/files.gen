@@ -70,6 +70,10 @@ src/sdk/models/shared/feessupplier.ts
 src/sdk/models/shared/integrations.ts
 src/sdk/models/shared/integration.ts
 src/sdk/models/shared/sourcetypeenum.ts
+src/sdk/models/shared/datatypefeature.ts
+src/sdk/models/shared/supportedfeature.ts
+src/sdk/models/shared/featuretypeenum.ts
+src/sdk/models/shared/featurestateenum.ts
 src/sdk/models/shared/syncsummary.ts
 src/sdk/models/shared/daterange.ts
 src/sdk/models/shared/synctolatestargs.ts

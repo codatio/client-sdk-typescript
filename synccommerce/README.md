@@ -43,7 +43,7 @@ sdk.companyManagement.createCompany(req).then((res: CreateCompanyResponse | Axio
 <!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
-## SDK Available Operations
+## Available Resources and Operations
 
 
 ### companyManagement

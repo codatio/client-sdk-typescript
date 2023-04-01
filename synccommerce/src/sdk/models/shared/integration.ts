@@ -3,104 +3,9 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { DataTypeFeature } from "./datatypefeature";
 import { SourceTypeEnum } from "./sourcetypeenum";
 import { Expose, Type } from "class-transformer";
-
-/**
- * Available Data types
- */
-export enum IntegrationDatatypeFeatureDataTypeEnum {
-  AccountTransactions = "accountTransactions",
-  BalanceSheet = "balanceSheet",
-  BankAccounts = "bankAccounts",
-  BankTransactions = "bankTransactions",
-  BillCreditNotes = "billCreditNotes",
-  BillPayments = "billPayments",
-  Bills = "bills",
-  CashFlowStatement = "cashFlowStatement",
-  ChartOfAccounts = "chartOfAccounts",
-  Company = "company",
-  CreditNotes = "creditNotes",
-  Customers = "customers",
-  DirectCosts = "directCosts",
-  DirectIncomes = "directIncomes",
-  Invoices = "invoices",
-  Items = "items",
-  JournalEntries = "journalEntries",
-  Journals = "journals",
-  PaymentMethods = "paymentMethods",
-  Payments = "payments",
-  ProfitAndLoss = "profitAndLoss",
-  PurchaseOrders = "purchaseOrders",
-  SalesOrders = "salesOrders",
-  Suppliers = "suppliers",
-  TaxRates = "taxRates",
-  TrackingCategories = "trackingCategories",
-  Transfers = "transfers",
-  BankingAccountBalances = "banking-accountBalances",
-  BankingAccounts = "banking-accounts",
-  BankingTransactionCategories = "banking-transactionCategories",
-  BankingTransactions = "banking-transactions",
-  CommerceCompanyInfo = "commerce-companyInfo",
-  CommerceCustomers = "commerce-customers",
-  CommerceDisputes = "commerce-disputes",
-  CommerceLocations = "commerce-locations",
-  CommerceOrders = "commerce-orders",
-  CommercePaymentMethods = "commerce-paymentMethods",
-  CommercePayments = "commerce-payments",
-  CommerceProductCategories = "commerce-productCategories",
-  CommerceProducts = "commerce-products",
-  CommerceTaxComponents = "commerce-taxComponents",
-  CommerceTransactions = "commerce-transactions",
-}
-
-export enum IntegrationDatatypeFeatureSupportedFeaturesFeatureStateEnum {
-  Release = "Release",
-  Beta = "Beta",
-  Deprecated = "Deprecated",
-  NotSupported = "NotSupported",
-  NotImplemented = "NotImplemented",
-}
-
-export enum IntegrationDatatypeFeatureSupportedFeaturesFeatureTypeEnum {
-  Get = "Get",
-  Post = "Post",
-  Categorization = "Categorization",
-  Delete = "Delete",
-  Put = "Put",
-  GetAsPdf = "GetAsPdf",
-  DownloadAttachment = "DownloadAttachment",
-  GetAttachment = "GetAttachment",
-  GetAttachments = "GetAttachments",
-  UploadAttachment = "UploadAttachment",
-}
-
-export class IntegrationDatatypeFeatureSupportedFeatures extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "featureState" })
-  featureState: IntegrationDatatypeFeatureSupportedFeaturesFeatureStateEnum;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "featureType" })
-  featureType: IntegrationDatatypeFeatureSupportedFeaturesFeatureTypeEnum;
-}
-
-/**
- * Describes support for a given datatype and associated operations
- */
-export class IntegrationDatatypeFeature extends SpeakeasyBase {
-  /**
-   * Available Data types
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "dataType" })
-  dataType?: IntegrationDatatypeFeatureDataTypeEnum;
-
-  @SpeakeasyMetadata({ elemType: IntegrationDatatypeFeatureSupportedFeatures })
-  @Expose({ name: "supportedFeatures" })
-  @Type(() => IntegrationDatatypeFeatureSupportedFeatures)
-  supportedFeatures: IntegrationDatatypeFeatureSupportedFeatures[];
-}
 
 /**
  * An integration that Codat supports
@@ -110,10 +15,10 @@ export class Integration extends SpeakeasyBase {
   @Expose({ name: "dataProvidedBy" })
   dataProvidedBy?: string;
 
-  @SpeakeasyMetadata({ elemType: IntegrationDatatypeFeature })
+  @SpeakeasyMetadata({ elemType: DataTypeFeature })
   @Expose({ name: "datatypeFeatures" })
-  @Type(() => IntegrationDatatypeFeature)
-  datatypeFeatures?: IntegrationDatatypeFeature[];
+  @Type(() => DataTypeFeature)
+  datatypeFeatures?: DataTypeFeature[];
 
   /**
    * Whether this integration is enabled for your customers to use
