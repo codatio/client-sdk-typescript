@@ -38,7 +38,7 @@ const req: ListAccountBalancesRequest = {
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "unde",
+  query: "corrupti",
 };
 
 sdk.accountBalances.listAccountBalances(req).then((res: ListAccountBalancesResponse | AxiosError) => {
@@ -48,7 +48,7 @@ sdk.accountBalances.listAccountBalances(req).then((res: ListAccountBalancesRespo
 <!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
-## SDK Available Operations
+## Available Resources and Operations
 
 
 ### accountBalances
