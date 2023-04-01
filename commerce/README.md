@@ -44,7 +44,7 @@ sdk.companyInfo.getCompanyInfo(req).then((res: GetCompanyInfoResponse | AxiosErr
 <!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
-## SDK Available Operations
+## Available Resources and Operations
 
 
 ### companyInfo

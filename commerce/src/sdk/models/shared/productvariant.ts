@@ -113,10 +113,6 @@ export class ProductVariant extends SpeakeasyBase {
   @Type(() => ProductPrice)
   prices?: ProductPrice[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "quantity" })
-  quantity?: number;
-
   /**
    * Indicates whether or not the product requires physical delivery.
    */
