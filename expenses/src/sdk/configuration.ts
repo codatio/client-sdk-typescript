@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -76,11 +77,10 @@ export class Configuration {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getCompanyConfiguration200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetCompanyConfiguration200ApplicationJSON
-              );
+            res.companyConfiguration = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CompanyConfiguration
+            );
           }
           break;
       }
@@ -115,7 +115,7 @@ export class Configuration {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "companyConfiguration",
         "json"
       );
     } catch (e: unknown) {
@@ -150,20 +150,18 @@ export class Configuration {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.saveCompanyConfiguration200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.SaveCompanyConfiguration200ApplicationJSON
-              );
+            res.companyConfiguration = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CompanyConfiguration
+            );
           }
           break;
         case httpRes?.status == 400:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.saveCompanyConfiguration400ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.SaveCompanyConfiguration400ApplicationJSON
-              );
+            res.codatErrorMessage = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CodatErrorMessage
+            );
           }
           break;
       }

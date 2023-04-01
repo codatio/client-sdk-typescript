@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -76,11 +77,10 @@ export class SyncStatus {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getLastSuccessfulSync200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetLastSuccessfulSync200ApplicationJSON
-              );
+            res.companySyncStatus = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CompanySyncStatus
+            );
           }
           break;
       }
@@ -132,11 +132,10 @@ export class SyncStatus {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getLatestSync200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetLatestSync200ApplicationJSON
-              );
+            res.companySyncStatus = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CompanySyncStatus
+            );
           }
           break;
       }
@@ -188,11 +187,10 @@ export class SyncStatus {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getSyncById200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetSyncById200ApplicationJSON
-              );
+            res.companySyncStatus = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CompanySyncStatus
+            );
           }
           break;
       }
@@ -244,14 +242,13 @@ export class SyncStatus {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.listSyncs200ApplicationJSONObjects = [];
+            res.companySyncStatuses = [];
             const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.listSyncs200ApplicationJSONObjects =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.ListSyncs200ApplicationJSON,
-                resFieldDepth
-              );
+            res.companySyncStatuses = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CompanySyncStatus,
+              resFieldDepth
+            );
           }
           break;
       }

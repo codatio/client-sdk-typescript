@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -76,14 +77,13 @@ export class TransactionStatus {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getSyncTransaction200ApplicationJSONObjects = [];
+            res.transactionMetadata = [];
             const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.getSyncTransaction200ApplicationJSONObjects =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetSyncTransaction200ApplicationJSON,
-                resFieldDepth
-              );
+            res.transactionMetadata = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.TransactionMetadata,
+              resFieldDepth
+            );
           }
           break;
       }
@@ -98,12 +98,12 @@ export class TransactionStatus {
    * @remarks
    * Get's the transactions and status for a sync
    */
-  getSyncTransactions(
-    req: operations.GetSyncTransactionsRequest,
+  listSyncTransactions(
+    req: operations.ListSyncTransactionsRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetSyncTransactionsResponse> {
+  ): Promise<operations.ListSyncTransactionsResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetSyncTransactionsRequest(req);
+      req = new operations.ListSyncTransactionsRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -128,8 +128,8 @@ export class TransactionStatus {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetSyncTransactionsResponse =
-        new operations.GetSyncTransactionsResponse({
+      const res: operations.ListSyncTransactionsResponse =
+        new operations.ListSyncTransactionsResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -137,11 +137,10 @@ export class TransactionStatus {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getSyncTransactions200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetSyncTransactions200ApplicationJSON
-              );
+            res.transactionMetadataList = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.TransactionMetadataList
+            );
           }
           break;
       }

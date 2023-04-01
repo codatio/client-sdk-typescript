@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -59,7 +60,7 @@ export class Sync {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "postSync",
         "json"
       );
     } catch (e: unknown) {
@@ -94,38 +95,18 @@ export class Sync {
       switch (true) {
         case httpRes?.status == 202:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.intiateSync202ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.IntiateSync202ApplicationJSON
-              );
+            res.syncInitiated = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.SyncInitiated
+            );
           }
           break;
-        case httpRes?.status == 400:
+        case [400, 404, 422].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.intiateSync400ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.IntiateSync400ApplicationJSON
-              );
-          }
-          break;
-        case httpRes?.status == 404:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.intiateSync404ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.IntiateSync404ApplicationJSON
-              );
-          }
-          break;
-        case httpRes?.status == 422:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.intiateSync422ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.IntiateSync422ApplicationJSON
-              );
+            res.codatErrorMessage = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CodatErrorMessage
+            );
           }
           break;
       }

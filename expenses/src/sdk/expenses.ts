@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -59,7 +60,7 @@ export class Expenses {
     try {
       [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
         req,
-        "requestBody",
+        "createExpenseRequest",
         "json"
       );
     } catch (e: unknown) {
@@ -94,11 +95,10 @@ export class Expenses {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createExpenseDataset200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.CreateExpenseDataset200ApplicationJSON
-              );
+            res.createExpenseResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.CreateExpenseResponse
+            );
           }
           break;
       }
@@ -128,11 +128,29 @@ export class Expenses {
       req
     );
 
+    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+    try {
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "requestBody",
+        "multipart"
+      );
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new Error(`Error serializing request body, cause: ${e.message}`);
+      }
+    }
+
     const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const headers = { ...reqBodyHeaders, ...config?.headers };
 
     const r = client.request({
       url: url,
       method: "post",
+      headers: headers,
+      data: reqBody,
       ...config,
     });
 
@@ -150,11 +168,10 @@ export class Expenses {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.uploadAttachment200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.UploadAttachment200ApplicationJSON
-              );
+            res.attachment = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Attachment
+            );
           }
           break;
       }

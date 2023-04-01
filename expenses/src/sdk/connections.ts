@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -39,12 +40,12 @@ export class Connections {
    * @remarks
    * Creates a Partner Expense data connection
    */
-  createPartnerexpenseConnection(
-    req: operations.CreatePartnerexpenseConnectionRequest,
+  createPartnerExpenseConnection(
+    req: operations.CreatePartnerExpenseConnectionRequest,
     config?: AxiosRequestConfig
-  ): Promise<operations.CreatePartnerexpenseConnectionResponse> {
+  ): Promise<operations.CreatePartnerExpenseConnectionResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CreatePartnerexpenseConnectionRequest(req);
+      req = new operations.CreatePartnerExpenseConnectionRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -67,8 +68,8 @@ export class Connections {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreatePartnerexpenseConnectionResponse =
-        new operations.CreatePartnerexpenseConnectionResponse({
+      const res: operations.CreatePartnerExpenseConnectionResponse =
+        new operations.CreatePartnerExpenseConnectionResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -76,9 +77,9 @@ export class Connections {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.connection = utils.deserializeJSONResponse(
+            res.dataConnection = utils.deserializeJSONResponse(
               httpRes?.data,
-              operations.CreatePartnerexpenseConnectionConnection
+              shared.DataConnection
             );
           }
           break;

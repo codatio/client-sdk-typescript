@@ -3,10 +3,23 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose } from "class-transformer";
+
+export class UploadAttachmentRequestBody extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "multipart_form, content=true" })
+  content: Uint8Array;
+
+  @SpeakeasyMetadata({ data: "multipart_form, name=requestBody" })
+  requestBody: string;
+}
 
 export class UploadAttachmentRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({
+    data: "multipart_form, file=true, request, media_type=multipart/form-data",
+  })
+  requestBody?: UploadAttachmentRequestBody;
+
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -29,32 +42,6 @@ export class UploadAttachmentRequest extends SpeakeasyBase {
   transactionId: string;
 }
 
-/**
- * OK
- */
-export class UploadAttachment200ApplicationJSON extends SpeakeasyBase {
-  /**
-   * Unique ID of company in Codat
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "companyId" })
-  companyId?: string;
-
-  /**
-   * Unique identifier of attachment
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
-
-  /**
-   * Unique identifier of transaction
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "transactionId" })
-  transactionId?: string;
-}
-
 export class UploadAttachmentResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -69,5 +56,5 @@ export class UploadAttachmentResponse extends SpeakeasyBase {
    * OK
    */
   @SpeakeasyMetadata()
-  uploadAttachment200ApplicationJSONObject?: UploadAttachment200ApplicationJSON;
+  attachment?: shared.Attachment;
 }

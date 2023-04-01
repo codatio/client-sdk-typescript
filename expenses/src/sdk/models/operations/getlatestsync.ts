@@ -3,8 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose } from "class-transformer";
 
 export class GetLatestSyncRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -13,68 +13,13 @@ export class GetLatestSyncRequest extends SpeakeasyBase {
   companyId: string;
 }
 
-/**
- * Success
- */
-export class GetLatestSync200ApplicationJSON extends SpeakeasyBase {
-  /**
-   * Unique identifier for your SMB in Codat.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "companyId" })
-  companyId?: string;
-
-  /**
-   * Boolean of whether the sync resulted in data being pushed.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "dataPushed" })
-  dataPushed?: boolean;
-
-  /**
-   * Error message of the sync.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "errorMessage" })
-  errorMessage?: string;
-
-  /**
-   * Exception message of the sync.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "syncExceptionMessage" })
-  syncExceptionMessage?: string;
-
-  /**
-   * Unique identifier of the sync.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "syncId" })
-  syncId?: string;
-
-  /**
-   * Text status of the sync.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "syncStatus" })
-  syncStatus?: string;
-
-  /**
-   * Status code of the sync.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "syncStatusCode" })
-  syncStatusCode?: number;
-
-  /**
-   * Datetime of the sync.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "syncUtc" })
-  syncUtc?: string;
-}
-
 export class GetLatestSyncResponse extends SpeakeasyBase {
+  /**
+   * Success
+   */
+  @SpeakeasyMetadata()
+  companySyncStatus?: shared.CompanySyncStatus;
+
   @SpeakeasyMetadata()
   contentType: string;
 
@@ -83,10 +28,4 @@ export class GetLatestSyncResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
-
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata()
-  getLatestSync200ApplicationJSONObject?: GetLatestSync200ApplicationJSON;
 }

@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
+import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
@@ -76,11 +77,10 @@ export class MappingOptions {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.getMappingOptions200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.GetMappingOptions200ApplicationJSON
-              );
+            res.mappingOptions = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.MappingOptions
+            );
           }
           break;
       }

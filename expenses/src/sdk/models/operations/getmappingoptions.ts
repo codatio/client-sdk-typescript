@@ -3,8 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose, Type } from "class-transformer";
 
 export class GetMappingOptionsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -13,208 +13,19 @@ export class GetMappingOptionsRequest extends SpeakeasyBase {
   companyId: string;
 }
 
-/**
- * Type of the account.
- */
-export enum GetMappingOptions200ApplicationJSONAccountsAccountTypeEnum {
-  Asset = "Asset",
-  Liability = "Liability",
-  Income = "Income",
-  Expense = "Expense",
-  Equity = "Equity",
-}
-
-export enum GetMappingOptions200ApplicationJSONAccountsValidTransactionTypesEnum {
-  Payment = "Payment",
-  Refund = "Refund",
-  Reward = "Reward",
-  Chargeback = "Chargeback",
-  TransferIn = "TransferIn",
-  TransferOut = "TransferOut",
-  AdjustmentIn = "AdjustmentIn",
-  AdjustmentOut = "AdjustmentOut",
-}
-
-export class GetMappingOptions200ApplicationJSONAccounts extends SpeakeasyBase {
-  /**
-   * Type of the account.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "accountType" })
-  accountType?: GetMappingOptions200ApplicationJSONAccountsAccountTypeEnum;
-
-  /**
-   * Currency of the account.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "currency" })
-  currency?: string;
-
-  /**
-   * Unique identifier of account.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
-
-  /**
-   * Name of the account as it appears in the companies accounting software.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
-
-  /**
-   * Supported transaction types for the account.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "validTransactionTypes" })
-  validTransactionTypes?: GetMappingOptions200ApplicationJSONAccountsValidTransactionTypesEnum[];
-}
-
-export enum GetMappingOptions200ApplicationJSONTaxRatesValidTransactionTypesEnum {
-  Payment = "Payment",
-  Refund = "Refund",
-  Reward = "Reward",
-  Chargeback = "Chargeback",
-  TransferIn = "TransferIn",
-  TransferOut = "TransferOut",
-  AdjustmentIn = "AdjustmentIn",
-  AdjustmentOut = "AdjustmentOut",
-}
-
-export class GetMappingOptions200ApplicationJSONTaxRates extends SpeakeasyBase {
-  /**
-   * Code for the tax rate from the accounting platform.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "code" })
-  code?: string;
-
-  /**
-   * Effective tax rate.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "effectiveTaxRate" })
-  effectiveTaxRate?: number;
-
-  /**
-   * Unique identifier of tax rate.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
-
-  /**
-   * Name of the tax rate in the accounting platform.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
-
-  /**
-   * Total (not compounded) sum of the components of a tax rate.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "totalTaxRate" })
-  totalTaxRate?: number;
-
-  /**
-   * Supported transaction types for the account.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "validTransactionTypes" })
-  validTransactionTypes?: GetMappingOptions200ApplicationJSONTaxRatesValidTransactionTypesEnum[];
-}
-
-export class GetMappingOptions200ApplicationJSONTrackingCategories extends SpeakeasyBase {
-  /**
-   * Boolean of whether the tracking category has child categories.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "hasChildren" })
-  hasChildren?: boolean;
-
-  /**
-   * Unique identifier of the tracking category.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
-
-  /**
-   * Datetime when the tracking category was last modified.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
-
-  /**
-   * Name of the tracking category as it appears in the accounting software.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
-
-  /**
-   * ID of the parent tracking category
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "parentId" })
-  parentId?: string;
-}
-
-/**
- * Success
- */
-export class GetMappingOptions200ApplicationJSON extends SpeakeasyBase {
-  /**
-   * Array of available accounts for mapping.
-   */
-  @SpeakeasyMetadata({ elemType: GetMappingOptions200ApplicationJSONAccounts })
-  @Expose({ name: "accounts" })
-  @Type(() => GetMappingOptions200ApplicationJSONAccounts)
-  accounts?: GetMappingOptions200ApplicationJSONAccounts[];
-
-  /**
-   * Name of the expense integration.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "expenseProvider" })
-  expenseProvider?: string;
-
-  /**
-   * Array of available tax rates for mapping.
-   */
-  @SpeakeasyMetadata({ elemType: GetMappingOptions200ApplicationJSONTaxRates })
-  @Expose({ name: "taxRates" })
-  @Type(() => GetMappingOptions200ApplicationJSONTaxRates)
-  taxRates?: GetMappingOptions200ApplicationJSONTaxRates[];
-
-  /**
-   * Array of available tracking categories for mapping.
-   */
-  @SpeakeasyMetadata({
-    elemType: GetMappingOptions200ApplicationJSONTrackingCategories,
-  })
-  @Expose({ name: "trackingCategories" })
-  @Type(() => GetMappingOptions200ApplicationJSONTrackingCategories)
-  trackingCategories?: GetMappingOptions200ApplicationJSONTrackingCategories[];
-}
-
 export class GetMappingOptionsResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
+
+  /**
+   * Success
+   */
+  @SpeakeasyMetadata()
+  mappingOptions?: shared.MappingOptions;
 
   @SpeakeasyMetadata()
   statusCode: number;
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
-
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata()
-  getMappingOptions200ApplicationJSONObject?: GetMappingOptions200ApplicationJSON;
 }

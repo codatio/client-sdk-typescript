@@ -6,11 +6,25 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class GetSyncByIdRequest extends SpeakeasyBase {
+export class ListSyncTransactionsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
+
+  /**
+   * Page number. [Read more](https://docs.codat.io/using-the-api/paging).
+   */
+  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
+  page: number;
+
+  /**
+   * Number of records to return in a page. [Read more](https://docs.codat.io/using-the-api/paging).
+   */
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=pageSize",
+  })
+  pageSize?: number;
 
   /**
    * Unique identifier for a sync.
@@ -21,13 +35,7 @@ export class GetSyncByIdRequest extends SpeakeasyBase {
   syncId: string;
 }
 
-export class GetSyncByIdResponse extends SpeakeasyBase {
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata()
-  companySyncStatus?: shared.CompanySyncStatus;
-
+export class ListSyncTransactionsResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
@@ -36,4 +44,10 @@ export class GetSyncByIdResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
+
+  /**
+   * Success
+   */
+  @SpeakeasyMetadata()
+  transactionMetadataList?: shared.TransactionMetadataList;
 }

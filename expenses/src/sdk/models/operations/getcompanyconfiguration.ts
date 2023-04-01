@@ -3,8 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose, Type } from "class-transformer";
 
 export class GetCompanyConfigurationRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -13,54 +13,13 @@ export class GetCompanyConfigurationRequest extends SpeakeasyBase {
   companyId: string;
 }
 
-export class GetCompanyConfiguration200ApplicationJSONBankAccount extends SpeakeasyBase {
-  /**
-   * The id of the account from which purchases are made
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
-}
-
-export class GetCompanyConfiguration200ApplicationJSONCustomer extends SpeakeasyBase {
-  /**
-   * id of the customer for all income related activities to be associated to.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
-}
-
-export class GetCompanyConfiguration200ApplicationJSONSupplier extends SpeakeasyBase {
-  /**
-   * id of the supplier for all purchases to be associated to
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
-}
-
-/**
- * Success
- */
-export class GetCompanyConfiguration200ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "bankAccount" })
-  @Type(() => GetCompanyConfiguration200ApplicationJSONBankAccount)
-  bankAccount?: GetCompanyConfiguration200ApplicationJSONBankAccount;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "customer" })
-  @Type(() => GetCompanyConfiguration200ApplicationJSONCustomer)
-  customer?: GetCompanyConfiguration200ApplicationJSONCustomer;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "supplier" })
-  @Type(() => GetCompanyConfiguration200ApplicationJSONSupplier)
-  supplier?: GetCompanyConfiguration200ApplicationJSONSupplier;
-}
-
 export class GetCompanyConfigurationResponse extends SpeakeasyBase {
+  /**
+   * Success
+   */
+  @SpeakeasyMetadata()
+  companyConfiguration?: shared.CompanyConfiguration;
+
   @SpeakeasyMetadata()
   contentType: string;
 
@@ -69,10 +28,4 @@ export class GetCompanyConfigurationResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
-
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata()
-  getCompanyConfiguration200ApplicationJSONObject?: GetCompanyConfiguration200ApplicationJSON;
 }
