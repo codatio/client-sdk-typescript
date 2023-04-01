@@ -33,8 +33,8 @@ const sdk = new Codat({
 });
 
 const req: shared.CompanyRequestBody = {
-  description: "unde",
-  name: "deserunt",
+  description: "corrupti",
+  name: "provident",
 };
 
 sdk.companies.createCompany(req).then((res: CreateCompanyResponse | AxiosError) => {
@@ -44,7 +44,7 @@ sdk.companies.createCompany(req).then((res: CreateCompanyResponse | AxiosError) 
 <!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
-## SDK Available Operations
+## Available Resources and Operations
 
 
 ### companies
