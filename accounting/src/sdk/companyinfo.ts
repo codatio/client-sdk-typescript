@@ -132,9 +132,9 @@ export class CompanyInfo {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.dataSet = utils.deserializeJSONResponse(
+            res.dataset = utils.deserializeJSONResponse(
               httpRes?.data,
-              shared.DataSet
+              shared.Dataset
             );
           }
           break;

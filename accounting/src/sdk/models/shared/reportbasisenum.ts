@@ -3,7 +3,7 @@
  */
 
 /**
- * Accounting method used when aggregating the report data. In this case, Cash.
+ * Accounting method used when aggregating the report data. In this case, `Cash`.
  */
 export enum ReportBasisEnum {
   Unknown = "Unknown",

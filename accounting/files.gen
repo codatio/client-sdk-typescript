@@ -183,6 +183,7 @@ src/sdk/models/shared/validationitem.ts
 src/sdk/models/shared/pushoperationstatusenum.ts
 src/sdk/models/shared/datatypeenum.ts
 src/sdk/models/shared/account.ts
+src/sdk/models/shared/validdatatypelinks.ts
 src/sdk/models/shared/accounttypeenum.ts
 src/sdk/models/shared/accountstatusenum.ts
 src/sdk/models/shared/pushoperationchange.ts
@@ -271,14 +272,14 @@ src/sdk/models/shared/createdirectincomeresponse.ts
 src/sdk/models/shared/directincome.ts
 src/sdk/models/shared/directincomelineitem.ts
 src/sdk/models/shared/directincomes.ts
-src/sdk/models/shared/balancesheetresponse.ts
+src/sdk/models/shared/balancesheet1.ts
 src/sdk/models/shared/balancesheet.ts
 src/sdk/models/shared/reportline.ts
-src/sdk/models/shared/cashflowstatementresponse.ts
+src/sdk/models/shared/cashflowstatement1.ts
 src/sdk/models/shared/cashflowstatement.ts
 src/sdk/models/shared/reportinputenum.ts
 src/sdk/models/shared/reportbasisenum.ts
-src/sdk/models/shared/profitandlossresponse.ts
+src/sdk/models/shared/profitandlossreport1.ts
 src/sdk/models/shared/profitandlossreport.ts
 src/sdk/models/shared/createinvoiceresponse.ts
 src/sdk/models/shared/invoice.ts
@@ -334,7 +335,6 @@ src/sdk/models/shared/supplier.ts
 src/sdk/models/shared/supplierstatusenum.ts
 src/sdk/models/shared/suppliers.ts
 src/sdk/models/shared/taxrate.ts
-src/sdk/models/shared/validdatatypelinksitems.ts
 src/sdk/models/shared/taxratestatusenum.ts
 src/sdk/models/shared/taxratecomponent.ts
 src/sdk/models/shared/taxrates.ts

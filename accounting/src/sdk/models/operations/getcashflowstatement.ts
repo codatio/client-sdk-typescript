@@ -33,7 +33,7 @@ export class GetCashFlowStatementResponse extends SpeakeasyBase {
    * Success
    */
   @SpeakeasyMetadata()
-  cashFlowStatementResponse?: shared.CashFlowStatementResponse;
+  cashFlowStatement?: shared.CashFlowStatement1;
 
   @SpeakeasyMetadata()
   contentType: string;

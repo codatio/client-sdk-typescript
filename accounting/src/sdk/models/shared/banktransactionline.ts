@@ -15,10 +15,6 @@ export class BankTransactionLine extends SpeakeasyBase {
   @Expose({ name: "balance" })
   balance: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "counterparty" })
-  counterparty?: string;
-
   /**
    * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
    *
@@ -43,8 +39,12 @@ export class BankTransactionLine extends SpeakeasyBase {
    * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
    */
   @SpeakeasyMetadata()
-  @Expose({ name: "date" })
-  date: string;
+  @Expose({ name: "clearedOnDate" })
+  clearedOnDate?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "counterparty" })
+  counterparty?: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "description" })

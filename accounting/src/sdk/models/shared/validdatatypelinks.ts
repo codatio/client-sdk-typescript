@@ -49,7 +49,7 @@ import { Expose } from "class-transformer";
  *
  * If you'd like us to extend support to more data types or integrations, suggest or vote for this on our <a href="https://portal.productboard.com/codat/5-product-roadmap">Product Roadmap</a>.
  */
-export class ValidDatatypeLinksitems extends SpeakeasyBase {
+export class ValidDataTypeLinks extends SpeakeasyBase {
   /**
    * Supported `dataTypes` that the record can be linked to.
    */

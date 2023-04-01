@@ -36,7 +36,7 @@ export class GetProfitAndLossResponse extends SpeakeasyBase {
    * Success
    */
   @SpeakeasyMetadata()
-  profitAndLossResponse?: shared.ProfitAndLossResponse;
+  profitAndLossReport?: shared.ProfitAndLossReport1;
 
   @SpeakeasyMetadata()
   statusCode: number;

@@ -21,7 +21,7 @@ export class PostSyncInfoResponse extends SpeakeasyBase {
    * Success
    */
   @SpeakeasyMetadata()
-  dataSet?: shared.DataSet;
+  dataset?: shared.Dataset;
 
   @SpeakeasyMetadata()
   statusCode: number;
