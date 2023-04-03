@@ -43,6 +43,12 @@ export class UploadAttachmentRequest extends SpeakeasyBase {
 }
 
 export class UploadAttachmentResponse extends SpeakeasyBase {
+  /**
+   * OK
+   */
+  @SpeakeasyMetadata()
+  attachment?: shared.Attachment;
+
   @SpeakeasyMetadata()
   contentType: string;
 
@@ -51,10 +57,4 @@ export class UploadAttachmentResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
-
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  attachment?: shared.Attachment;
 }

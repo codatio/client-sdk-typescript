@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 003fc4c95ec40f1cd446c1e8c602fda0
+  docChecksum: 6dd42c8905634b050e48018dc7fb54dc
   docVersion: prealpha
   speakeasyVersion: 1.19.3
   generationVersion: 2.16.7
@@ -10,6 +10,6 @@ generation:
   sdkFlattening: true
   singleTagPerOp: false
 typescript:
-  version: 0.8.5
+  version: 0.8.6
   author: Speakeasy
   packageName: '@codat/expenses'

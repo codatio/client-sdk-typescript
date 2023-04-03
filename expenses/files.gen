@@ -47,7 +47,7 @@ src/sdk/models/shared/dataconnectionerror.ts
 src/sdk/models/shared/createexpenseresponse.ts
 src/sdk/models/shared/createexpenserequest.ts
 src/sdk/models/shared/expensetransaction.ts
-src/sdk/models/shared/expensetransactionlines.ts
+src/sdk/models/shared/expensetransactionline.ts
 src/sdk/models/shared/recordref.ts
 src/sdk/models/shared/attachment.ts
 src/sdk/models/shared/mappingoptions.ts

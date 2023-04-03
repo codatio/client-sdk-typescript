@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { ExpenseTransactionLines } from "./expensetransactionlines";
+import { ExpenseTransactionLine } from "./expensetransactionline";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -96,10 +96,10 @@ export class ExpenseTransaction extends SpeakeasyBase {
   /**
    * Array of transaction lines.
    */
-  @SpeakeasyMetadata({ elemType: ExpenseTransactionLines })
+  @SpeakeasyMetadata({ elemType: ExpenseTransactionLine })
   @Expose({ name: "lines" })
-  @Type(() => ExpenseTransactionLines)
-  lines?: ExpenseTransactionLines[];
+  @Type(() => ExpenseTransactionLine)
+  lines?: ExpenseTransactionLine[];
 
   /**
    * Name of the merchant where the purchase took place

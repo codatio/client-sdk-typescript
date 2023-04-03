@@ -15,7 +15,7 @@ export * from "./dataconnection";
 export * from "./dataconnectionerror";
 export * from "./dataconnectionstatusenum";
 export * from "./expensetransaction";
-export * from "./expensetransactionlines";
+export * from "./expensetransactionline";
 export * from "./hallink";
 export * from "./integrationtypeenum";
 export * from "./mappingoptions";

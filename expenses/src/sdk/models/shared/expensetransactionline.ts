@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { RecordRef } from "./recordref";
 import { Expose, Type } from "class-transformer";
 
-export class ExpenseTransactionLines extends SpeakeasyBase {
+export class ExpenseTransactionLine extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountRef" })
   @Type(() => RecordRef)
