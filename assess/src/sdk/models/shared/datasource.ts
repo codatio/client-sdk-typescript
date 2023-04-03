@@ -7,6 +7,9 @@ import { Accounts } from "./accounts";
 import { Expose, Type } from "class-transformer";
 
 export class DataSource extends SpeakeasyBase {
+  /**
+   * An array containing bank account data for each connected banking data source that have the following data types enabled: `banking-accounts`, `banking-transactions`.
+   */
   @SpeakeasyMetadata({ elemType: Accounts })
   @Expose({ name: "accounts" })
   @Type(() => Accounts)

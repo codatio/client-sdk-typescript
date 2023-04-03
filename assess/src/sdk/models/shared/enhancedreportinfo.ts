@@ -7,7 +7,7 @@ import { Expose } from "class-transformer";
 
 export class EnhancedReportInfo extends SpeakeasyBase {
   /**
-   * Company name the report was generated for.
+   * Name of the company queried.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })

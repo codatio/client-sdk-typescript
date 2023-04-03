@@ -38,7 +38,9 @@ export class Reports {
    * Enhanced Balance Sheet Accounts
    *
    * @remarks
-   * Gets a list of accounts with account categories per statement period, specific to balance sheet
+   * The Enhanced Balance Sheet Accounts endpoint returns a list of categorized accounts that appear on a company’s Balance Sheet along with a balance per financial statement date.
+   *
+   * Codat suggests a category for each account automatically, but you can [change it](/docs/assess-categorizing-accounts-ecommerce-lending) to a more suitable one.
    */
   getAccountsForEnhancedBalanceSheet(
     req: operations.GetAccountsForEnhancedBalanceSheetRequest,
@@ -95,7 +97,9 @@ export class Reports {
    * Enhanced Profit and Loss Accounts
    *
    * @remarks
-   * Gets a list of accounts with account categories per statement period, specific to profit and loss
+   * The Enhanced Profit and Loss Accounts endpoint returns a list of categorized accounts that appear on a company’s Profit and Loss. It also includes a balance per the financial statement date.
+   *
+   * Codat suggests a category for each account automatically, but you can [change it](/docs/assess-categorizing-accounts-ecommerce-lending) to a more suitable one.
    */
   getAccountsForEnhancedProfitAndLoss(
     req: operations.GetAccountsForEnhancedProfitAndLossRequest,
@@ -494,7 +498,7 @@ export class Reports {
    * Get enhanced cash flow report
    *
    * @remarks
-   * Gets a list of banking transactions and their categories.
+   * The Enhanced Cash Flow Transactions endpoint provides a fully categorized list of banking transactions for a company. Accounts and transaction data are obtained from the company's banking data sources.
    */
   getEnhancedCashFlowTransactions(
     req: operations.GetEnhancedCashFlowTransactionsRequest,

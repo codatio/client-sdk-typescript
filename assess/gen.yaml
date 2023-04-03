@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 9a8f7529804deecdbdff49be9b7ad29a
+  docChecksum: fcf6973398e8a312ca5f59ea4c164381
   docVersion: "1.0"
   speakeasyVersion: 1.19.3
   generationVersion: 2.16.7
@@ -10,6 +10,6 @@ generation:
   sdkFlattening: true
   singleTagPerOp: false
 typescript:
-  version: 0.8.5
+  version: 0.8.6
   author: Speakeasy
   packageName: '@codat/assess'

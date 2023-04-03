@@ -12,6 +12,9 @@ export class EnhancedReportAccountCategory extends SpeakeasyBase {
   @Type(() => AccountCategoryLevel)
   levels?: AccountCategoryLevel[];
 
+  /**
+   * Returns a status of "Suggested" or "Confirmed". If an account has a confirmed category, it will replace any suggested category returned.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
   status?: string;

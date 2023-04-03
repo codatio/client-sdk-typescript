@@ -5,11 +5,20 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
+/**
+ * An object containing an ordered list of account category levels.
+ */
 export class AccountCategoryLevel extends SpeakeasyBase {
+  /**
+   * Confidence level of the category. This will only be populated where `status` is `Suggested`.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "confidence" })
   confidence?: number;
 
+  /**
+   * Account category name.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "levelName" })
   levelName?: string;

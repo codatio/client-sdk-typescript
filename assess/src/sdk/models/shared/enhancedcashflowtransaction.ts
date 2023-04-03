@@ -8,6 +8,9 @@ import { TransactionCategory } from "./transactioncategory";
 import { Expose, Type } from "class-transformer";
 
 export class EnhancedCashFlowTransaction extends SpeakeasyBase {
+  /**
+   * The bank transaction amount.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "amount" })
   amount?: number;
@@ -43,14 +46,23 @@ export class EnhancedCashFlowTransaction extends SpeakeasyBase {
   @Expose({ name: "date" })
   date?: string;
 
+  /**
+   * The description of the bank transaction.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "description" })
   description?: string;
 
+  /**
+   * The unique identifier of the bank transaction.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
   id?: string;
 
+  /**
+   * A source reference containing the `sourceType` object "Banking".
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceRef" })
   @Type(() => SourceRef)

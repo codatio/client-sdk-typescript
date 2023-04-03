@@ -7,7 +7,7 @@ import { EnhancedReportAccountCategory } from "./enhancedreportaccountcategory";
 import { EnhancedReportInfo } from "./enhancedreportinfo";
 import { Expose, Type } from "class-transformer";
 
-export class EnhancedReportReportItems extends SpeakeasyBase {
+export class EnhancedReportReportItem extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "accountCategory" })
   @Type(() => EnhancedReportAccountCategory)
@@ -20,10 +20,16 @@ export class EnhancedReportReportItems extends SpeakeasyBase {
   @Expose({ name: "accountId" })
   accountId?: string;
 
+  /**
+   * Name of the account.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "accountName" })
   accountName?: string;
 
+  /**
+   * Balance of the account as reported on the profit and loss or Balance sheet.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "balance" })
   balance?: number;
@@ -68,8 +74,8 @@ export class EnhancedReport extends SpeakeasyBase {
   /**
    * An array of report items.
    */
-  @SpeakeasyMetadata({ elemType: EnhancedReportReportItems })
+  @SpeakeasyMetadata({ elemType: EnhancedReportReportItem })
   @Expose({ name: "reportItems" })
-  @Type(() => EnhancedReportReportItems)
-  reportItems?: EnhancedReportReportItems[];
+  @Type(() => EnhancedReportReportItem)
+  reportItems?: EnhancedReportReportItem[];
 }

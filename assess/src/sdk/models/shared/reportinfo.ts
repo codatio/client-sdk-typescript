@@ -10,7 +10,7 @@ import { Expose } from "class-transformer";
  */
 export class ReportInfo extends SpeakeasyBase {
   /**
-   * Company name
+   * The name of the company being queried.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "companyName" })
@@ -23,10 +23,16 @@ export class ReportInfo extends SpeakeasyBase {
   @Expose({ name: "generatedDate" })
   generatedDate?: string;
 
+  /**
+   * The number of the page queried.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "pageNumber" })
   pageNumber?: number;
 
+  /**
+   * The number of transactions returned per page.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "pageSize" })
   pageSize?: number;
@@ -38,6 +44,9 @@ export class ReportInfo extends SpeakeasyBase {
   @Expose({ name: "reportName" })
   reportName?: string;
 
+  /**
+   * The total number of transactions available for a company for the period specified in the query string.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "totalResults" })
   totalResults?: number;
