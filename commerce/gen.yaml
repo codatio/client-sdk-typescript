@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 3bdd10a5d226e95d13d61f55ea67a1cd
+  docChecksum: ed2ae4d4ff88da4207e078b2f6f64cf3
   docVersion: 2.1.0
   speakeasyVersion: 1.19.3
   generationVersion: 2.16.7
@@ -10,6 +10,6 @@ generation:
   sdkFlattening: true
   singleTagPerOp: false
 typescript:
-  version: 0.8.5
+  version: 0.8.6
   author: Speakeasy
   packageName: '@codat/commerce'
