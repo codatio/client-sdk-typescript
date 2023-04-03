@@ -84,7 +84,7 @@ export * from "./directcosts";
 export * from "./directincome";
 export * from "./directincomelineitem";
 export * from "./directincomes";
-export * from "./href";
+export * from "./halref";
 export * from "./invoice";
 export * from "./invoiceitem";
 export * from "./invoicelineitem";

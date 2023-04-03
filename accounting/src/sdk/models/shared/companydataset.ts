@@ -58,7 +58,7 @@ export class CompanyDatasetAddresses extends SpeakeasyBase {
   type: AddressTypeEnum;
 }
 
-export class CompanyDatasetPhoneNumbers extends SpeakeasyBase {
+export class CompanyDatasetPhone extends SpeakeasyBase {
   /**
    * A phone number.
    */
@@ -234,10 +234,10 @@ export class CompanyDataset extends SpeakeasyBase {
   /**
    * An array of phone numbers.
    */
-  @SpeakeasyMetadata({ elemType: CompanyDatasetPhoneNumbers })
+  @SpeakeasyMetadata({ elemType: CompanyDatasetPhone })
   @Expose({ name: "phoneNumbers" })
-  @Type(() => CompanyDatasetPhoneNumbers)
-  phoneNumbers?: CompanyDatasetPhoneNumbers[];
+  @Type(() => CompanyDatasetPhone)
+  phoneNumbers?: CompanyDatasetPhone[];
 
   /**
    * Registration number given to the linked company by the companies authority in the country of origin. In the UK this is Companies House.

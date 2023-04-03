@@ -3,27 +3,27 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { HRef } from "./href";
+import { HalRef } from "./halref";
 import { Expose, Type } from "class-transformer";
 
 export class Links extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "current" })
-  @Type(() => HRef)
-  current: HRef;
+  @Type(() => HalRef)
+  current: HalRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "next" })
-  @Type(() => HRef)
-  next?: HRef;
+  @Type(() => HalRef)
+  next?: HalRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "previous" })
-  @Type(() => HRef)
-  previous?: HRef;
+  @Type(() => HalRef)
+  previous?: HalRef;
 
   @SpeakeasyMetadata()
   @Expose({ name: "self" })
-  @Type(() => HRef)
-  self: HRef;
+  @Type(() => HalRef)
+  self: HalRef;
 }

@@ -176,7 +176,7 @@ src/sdk/models/shared/invoiceto.ts
 src/sdk/models/shared/bankaccountref.ts
 src/sdk/models/shared/accounttransactions.ts
 src/sdk/models/shared/links.ts
-src/sdk/models/shared/href.ts
+src/sdk/models/shared/halref.ts
 src/sdk/models/shared/createaccountresponse.ts
 src/sdk/models/shared/validation.ts
 src/sdk/models/shared/validationitem.ts
