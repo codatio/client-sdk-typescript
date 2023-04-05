@@ -1,8 +1,8 @@
 <!-- Start SDK Example Usage -->
 ```typescript
 import {
-  AddDataConnectionRequest,
-  AddDataConnectionResponse
+  shared.CreateCompany,
+  CreateCompanyResponse
 } from "@codat/synccommerce/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
@@ -13,12 +13,11 @@ const sdk = new Codat({
   },
 });
 
-const req: AddDataConnectionRequest = {
-  requestBody: "unde",
-  companyId: "deserunt",
+const req: shared.CreateCompany = {
+  name: "Bob's Burgers",
 };
 
-sdk.companyManagement.addDataConnection(req).then((res: AddDataConnectionResponse | AxiosError) => {
+sdk.companyManagement.createCompany(req).then((res: CreateCompanyResponse | AxiosError) => {
    // handle response
 });
 ```
