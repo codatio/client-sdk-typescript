@@ -33,9 +33,9 @@ const sdk = new Codat({
 });
 
 const req: GetAccountCategoryRequest = {
-  accountId: "unde",
-  companyId: "deserunt",
-  connectionId: "porro",
+  accountId: "corrupti",
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
 sdk.categories.getAccountCategory(req).then((res: GetAccountCategoryResponse | AxiosError) => {
@@ -45,7 +45,7 @@ sdk.categories.getAccountCategory(req).then((res: GetAccountCategoryResponse | A
 <!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
-## SDK Available Operations
+## Available Resources and Operations
 
 
 ### categories
@@ -64,10 +64,11 @@ sdk.categories.getAccountCategory(req).then((res: GetAccountCategoryResponse | A
 
 ### excelReports
 
+* `downloadExcelReport` - Download generated excel report
+* `generateExcelReport` - Generate an Excel report
 * `getAccountingMarketingMetrics` - Get the marketing metrics from an accounting source for a given company.
 * `getExcelReport` - Download generated excel report
-* `makeRequestToDownloadExcelReport` - Request an Excel report for download
-* `requestExcelReportForDownload` - Request an Excel report for download
+* `getExcelReportGenerationStatus` - Get status of Excel report
 
 ### reports
 
@@ -80,7 +81,8 @@ sdk.categories.getAccountCategory(req).then((res: GetAccountCategoryResponse | A
 * `getCommerceRevenueMetrics` - Commerce Revenue Metrics
 * `getEnhancedBalanceSheet` - Enhanced Balance Sheet
 * `getEnhancedCashFlowTransactions` - Get enhanced cash flow report
-* `getEnhancedFinancialMetrics` - List finanicial metrics
+* `getEnhancedFinancialMetrics` - List financial metrics
+* `getEnhancedInvoicesReport` - Enhanced Invoices Report
 * `getEnhancedProfitAndLoss` - Enhanced Profit and Loss
 * `getRecurringRevenueMetrics` - Get key metrics for subscription revenue
 * `requestRecurringRevenueMetrics` - Request production of key subscription revenue metrics

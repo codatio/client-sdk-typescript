@@ -95,3 +95,99 @@ Based on:
 - Speakeasy CLI 1.12.0 https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [NPM v0.5.1] https://www.npmjs.com/package/@codat/assess/v/0.5.1 - assess
+
+## 2023-03-18 00:21:23
+### Changes
+Based on:
+- OpenAPI Doc 1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Assess.yaml
+- Speakeasy CLI 1.12.3 https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.5.2] https://www.npmjs.com/package/@codat/assess/v/0.5.2 - assess
+
+## 2023-03-21 00:21:36
+### Changes
+Based on:
+- OpenAPI Doc 1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Assess.yaml
+- Speakeasy CLI 1.12.4 https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.5.3] https://www.npmjs.com/package/@codat/assess/v/0.5.3 - assess
+
+## 2023-03-22 00:19:57
+### Changes
+Based on:
+- OpenAPI Doc 1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Assess.yaml
+- Speakeasy CLI 1.13.0 https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.6.0] https://www.npmjs.com/package/@codat/assess/v/0.6.0 - assess
+
+## 2023-03-23 00:22:12
+### Changes
+Based on:
+- OpenAPI Doc 1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Assess.yaml
+- Speakeasy CLI 1.15.0 (2.13.1) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.6.1] https://www.npmjs.com/package/@codat/assess/v/0.6.1 - assess
+
+## 2023-03-24 00:21:27
+### Changes
+Based on:
+- OpenAPI Doc 1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Assess.yaml
+- Speakeasy CLI 1.17.0 (2.15.0) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.7.0] https://www.npmjs.com/package/@codat/assess/v/0.7.0 - assess
+
+## 2023-03-25 00:20:22
+### Changes
+Based on:
+- OpenAPI Doc 1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Assess.yaml
+- Speakeasy CLI 1.18.7 (2.16.1) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.8.0] https://www.npmjs.com/package/@codat/assess/v/0.8.0 - assess
+
+## 2023-03-28 00:22:06
+### Changes
+Based on:
+- OpenAPI Doc 1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Assess.yaml
+- Speakeasy CLI 1.18.9 (2.16.4) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.8.1] https://www.npmjs.com/package/@codat/assess/v/0.8.1 - assess
+
+## 2023-03-29 00:25:07
+### Changes
+Based on:
+- OpenAPI Doc 1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Assess.yaml
+- Speakeasy CLI 1.19.2 (2.16.5) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.8.2] https://www.npmjs.com/package/@codat/assess/v/0.8.2 - assess
+
+## 2023-03-30 00:22:18
+### Changes
+Based on:
+- OpenAPI Doc 1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Assess.yaml
+- Speakeasy CLI 1.19.2 (2.16.5) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.8.3] https://www.npmjs.com/package/@codat/assess/v/0.8.3 - assess
+
+## 2023-03-31 00:22:17
+### Changes
+Based on:
+- OpenAPI Doc 1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Assess.yaml
+- Speakeasy CLI 1.19.2 (2.16.5) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.8.4] https://www.npmjs.com/package/@codat/assess/v/0.8.4 - assess
+
+## 2023-04-01 00:22:43
+### Changes
+Based on:
+- OpenAPI Doc 1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Assess.yaml
+- Speakeasy CLI 1.19.3 (2.16.7) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.8.5] https://www.npmjs.com/package/@codat/assess/v/0.8.5 - assess
+
+## 2023-04-03 00:21:40
+### Changes
+Based on:
+- OpenAPI Doc 1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Assess.yaml
+- Speakeasy CLI 1.19.3 (2.16.7) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.8.6] https://www.npmjs.com/package/@codat/assess/v/0.8.6 - assess
