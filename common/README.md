@@ -20,7 +20,7 @@ yarn add @codat/common
 <!-- Start SDK Example Usage -->
 ```typescript
 import {
-  CreateCompanyRequestBody,
+  shared.CompanyRequestBody,
   CreateCompanyResponse
 } from "@codat/common/dist/sdk/models/operations";
 
@@ -32,9 +32,9 @@ const sdk = new Codat({
   },
 });
 
-const req: CreateCompanyRequestBody = {
-  description: "unde",
-  name: "deserunt",
+const req: shared.CompanyRequestBody = {
+  description: "corrupti",
+  name: "provident",
 };
 
 sdk.companies.createCompany(req).then((res: CreateCompanyResponse | AxiosError) => {
@@ -44,7 +44,7 @@ sdk.companies.createCompany(req).then((res: CreateCompanyResponse | AxiosError) 
 <!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
-## SDK Available Operations
+## Available Resources and Operations
 
 
 ### companies
@@ -59,40 +59,40 @@ sdk.companies.createCompany(req).then((res: CreateCompanyResponse | AxiosError) 
 
 * `createDataConnection` - Create a data connection
 * `deleteCompanyConnection` - Delete connection
-* `getCompanyAuthorization` - Update authorization
 * `getCompanyConnection` - Get connection
 * `listCompanyConnections` - List connections
 * `unlinkCompanyConnection` - Unlink connection
+* `updateConnectionAuthorization` - Update authorization
 
 ### dataStatus
 
-* `getCompaniesCompanyIdDataStatus` - Get data status
 * `getCompanyDataHistory` - Get pull operations
+* `getCompanyDataStatus` - Get data status
 * `getPullOperation` - Get pull operation
 
 ### integrations
 
-* `getIntegrationsPlatformKey` - Get integration
-* `getIntegrationsPlatformKeyBranding` - Get branding
+* `getIntegration` - Get integration
+* `getIntegrationsBranding` - Get branding
 * `listIntegrations` - List integrations
 
 ### pushData
 
-* `getCompaniesCompanyIdConnectionsConnectionIdPush` - List push options
-* `getCompaniesCompanyIdPush` - List push operations
-* `getCompaniesCompanyIdPushPushOperationKey` - Get push operation
+* `getCompanyPushHistory` - List push operations
+* `getCreateUpdateModelOptionsByDataType` - List push options
+* `getPushOperation` - Get push operation
 
 ### refreshData
 
-* `createManyPullOperations` - Queue pull operations
 * `createPullOperation` - Queue pull operation
+* `refreshCompanyData` - Queue pull operations
 
 ### settings
 
+* `getProfile` - Get profile
 * `getProfileSyncSettings` - Get sync settings
-* `getSettingsProfile` - Get profile
-* `postProfileSyncSettings` - Update all sync settings
-* `putProfile` - Update profile
+* `updateProfile` - Update profile
+* `updateSyncSettings` - Update all sync settings
 
 ### webhooks
 

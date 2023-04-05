@@ -1,7 +1,7 @@
 <!-- Start SDK Example Usage -->
 ```typescript
 import {
-  CreateCompanyRequestBody,
+  shared.CompanyRequestBody,
   CreateCompanyResponse
 } from "@codat/common/dist/sdk/models/operations";
 
@@ -13,9 +13,9 @@ const sdk = new Codat({
   },
 });
 
-const req: CreateCompanyRequestBody = {
-  description: "unde",
-  name: "deserunt",
+const req: shared.CompanyRequestBody = {
+  description: "corrupti",
+  name: "provident",
 };
 
 sdk.companies.createCompany(req).then((res: CreateCompanyResponse | AxiosError) => {
