@@ -6,7 +6,7 @@ management:
   generationVersion: 2.16.7
 generation:
   telemetryEnabled: false
-  sdkClassName: codat
+  sdkClassName: CodatBanking
   sdkFlattening: true
   singleTagPerOp: false
 typescript:

@@ -6,10 +6,10 @@ management:
   generationVersion: 2.16.7
 generation:
   telemetryEnabled: false
-  sdkClassName: codat
+  sdkClassName: CodatSyncExpenses
   sdkFlattening: true
   singleTagPerOp: false
 typescript:
   version: 0.8.6
   author: Speakeasy
-  packageName: '@codat/expenses'
+  packageName: '@codat/sync-for-expenses'

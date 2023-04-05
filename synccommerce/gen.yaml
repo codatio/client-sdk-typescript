@@ -6,10 +6,10 @@ management:
   generationVersion: 2.16.7
 generation:
   telemetryEnabled: false
-  sdkClassName: codat
+  sdkClassName: CodatSyncCommerce
   sdkFlattening: true
   singleTagPerOp: false
 typescript:
   version: 0.8.5
   author: Speakeasy
-  packageName: '@codat/synccommerce'
+  packageName: '@codat/sync-for-commerce'
