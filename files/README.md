@@ -33,8 +33,8 @@ const sdk = new Codat({
 });
 
 const req: DownloadFilesRequest = {
-  companyId: "unde",
-  date: "2022-08-11T15:05:46.370Z",
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  date: "2022-10-23T00:00:00Z",
 };
 
 sdk.files.downloadFiles(req).then((res: DownloadFilesResponse | AxiosError) => {
@@ -44,7 +44,7 @@ sdk.files.downloadFiles(req).then((res: DownloadFilesResponse | AxiosError) => {
 <!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
-## SDK Available Operations
+## Available Resources and Operations
 
 
 ### files
