@@ -20,8 +20,8 @@ yarn add @codat/accounting
 <!-- Start SDK Example Usage -->
 ```typescript
 import {
-  GetCreateUpdateAccountTransactionsModelRequest,
-  GetCreateUpdateAccountTransactionsModelResponse
+  GetAccountTransactionRequest,
+  GetAccountTransactionResponse
 } from "@codat/accounting/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
@@ -32,40 +32,40 @@ const sdk = new Codat({
   },
 });
 
-const req: GetCreateUpdateAccountTransactionsModelRequest = {
-  accountTransactionId: "unde",
-  companyId: "deserunt",
-  connectionId: "porro",
+const req: GetAccountTransactionRequest = {
+  accountTransactionId: "corrupti",
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-sdk.accountTransactions.getCreateUpdateAccountTransactionsModel(req).then((res: GetCreateUpdateAccountTransactionsModelResponse | AxiosError) => {
+sdk.accountTransactions.getAccountTransaction(req).then((res: GetAccountTransactionResponse | AxiosError) => {
    // handle response
 });
 ```
 <!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
-## SDK Available Operations
+## Available Resources and Operations
 
 
 ### accountTransactions
 
-* `getCreateUpdateAccountTransactionsModel` - Get account transaction
+* `getAccountTransaction` - Get account transaction
 * `listAccountTransactions` - List account transactions
 
 ### accounts
 
 * `createAccount` - Create account
 * `getAccount` - Get account
-* `getAccounts` - List accounts
 * `getCreateChartOfAccountsModel` - Get create account model
+* `listAccounts` - List accounts
 
 ### bankAccountTransactions
 
-* `getBankAccountPushOptions` - List push options for bank account bank transactions
+* `createBankTransactions` - Create bank transactions
+* `getCreateBankAccountModel` - List push options for bank account bank transactions
 * `listBankAccountTransactions` - List bank transactions for bank account
 * `listBankTransactions` - List all bank transactions
-* `postBankTransactions` - Create bank transactions
 
 ### bankAccounts
 
@@ -74,7 +74,7 @@ sdk.accountTransactions.getCreateUpdateAccountTransactionsModel(req).then((res: 
 * `getBankAccount` - Get bank account
 * `getCreateUpdateBankAccountsModel` - Get create/update bank account model
 * `listBankAccounts` - List bank accounts
-* `putBankAccount` - Update bank account
+* `updateBankAccount` - Update bank account
 
 ### billCreditNotes
 
@@ -87,7 +87,7 @@ sdk.accountTransactions.getCreateUpdateAccountTransactionsModel(req).then((res: 
 ### billPayments
 
 * `createBillPayment` - Create bill payments
-* `deleteCompaniesCompanyIdConnectionsConnectionIdPushBillPaymentsBillPaymentId` - Delete bill payment
+* `deleteBillPayment` - Delete bill payment
 * `getBillPayments` - Get bill payment
 * `getCreateBillPaymentsModel` - Get create bill payment model
 * `listBillPayments` - List bill payments
@@ -95,8 +95,7 @@ sdk.accountTransactions.getCreateUpdateAccountTransactionsModel(req).then((res: 
 ### bills
 
 * `createBill` - Create bill
-* `createBillAttachments` - Create bill attachments
-* `deleteCompaniesCompanyIdConnectionsConnectionIdPushBillsBillId` - Delete bill
+* `deleteBill` - Delete bill
 * `downloadBillAttachment` - Download bill attachment
 * `getBill` - Get bill
 * `getBillAttachment` - Get bill attachment
@@ -104,6 +103,7 @@ sdk.accountTransactions.getCreateUpdateAccountTransactionsModel(req).then((res: 
 * `getCreateUpdateBillsModel` - Get create/update bill model
 * `listBills` - List bills
 * `updateBill` - Update bill
+* `uploadBillAttachments` - Upload bill attachments
 
 ### companyInfo
 
@@ -112,11 +112,11 @@ sdk.accountTransactions.getCreateUpdateAccountTransactionsModel(req).then((res: 
 
 ### creditNotes
 
-* `createCreditNote` - Update creditNote
+* `createCreditNote` - Create credit note
 * `getCreateUpdateCreditNotesModel` - Get create/update credit note model
 * `getCreditNote` - Get credit note
 * `listCreditNotes` - List credit notes
-* `pushCreditNote` - Create credit note
+* `updateCreditNote` - Update creditNote
 
 ### customers
 
@@ -138,7 +138,7 @@ sdk.accountTransactions.getCreateUpdateAccountTransactionsModel(req).then((res: 
 * `getDirectCostAttachment` - Get direct cost attachment
 * `getDirectCosts` - List direct costs
 * `listDirectCostAttachments` - List direct cost attachments
-* `postDirectCostAttachment` - Create direct cost attachment
+* `uploadDirectCostAttachment` - Upload direct cost attachment
 
 ### directIncomes
 
@@ -149,7 +149,7 @@ sdk.accountTransactions.getCreateUpdateAccountTransactionsModel(req).then((res: 
 * `getDirectIncomeAttachment` - Get direct income attachment
 * `getDirectIncomes` - Get direct incomes
 * `listDirectIncomeAttachments` - List direct income attachments
-* `postDirectIncomeAttachment` - Create direct income attachment
+* `uploadDirectIncomeAttachment` - Create direct income attachment
 
 ### financials
 
@@ -159,16 +159,16 @@ sdk.accountTransactions.getCreateUpdateAccountTransactionsModel(req).then((res: 
 
 ### invoices
 
+* `downloadInvoicePdf` - Get invoice as PDF
 * `createInvoice` - Create invoice
-* `donwloadInvoiceAttachment` - Download invoice attachment
+* `downloadInvoiceAttachment` - Download invoice attachment
 * `getCreateUpdateInvoicesModel` - Get create/update invoice model
 * `getInvoice` - Get invoice
 * `getInvoiceAttachment` - Get invoice attachment
 * `getInvoiceAttachments` - Get invoice attachments
-* `getInvoicePdf` - Get invoice as PDF
 * `listInvoices` - List invoices
-* `pushInvoiceAttachment` - Push invoice attachment
 * `updateInvoice` - Update invoice
+* `uploadInvoiceAttachment` - Push invoice attachment
 
 ### items
 
@@ -225,7 +225,7 @@ sdk.accountTransactions.getCreateUpdateAccountTransactionsModel(req).then((res: 
 
 ### suppliers
 
-* `createSuppliers` - Create suppliers
+* `createSupplier` - Create suppliers
 * `downloadSupplierAttachment` - Download supplier attachment
 * `getCreateUpdateSuppliersModel` - Get create/update supplier model
 * `getSupplier` - Get supplier
