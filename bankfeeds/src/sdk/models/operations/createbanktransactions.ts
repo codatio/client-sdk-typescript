@@ -6,9 +6,9 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class UpdateBankFeedRequest extends SpeakeasyBase {
+export class CreateBankTransactionsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  bankFeedAccount?: shared.BankFeedAccount;
+  bankTransactions?: shared.BankTransactions;
 
   /**
    * Unique identifier for an account
@@ -19,6 +19,11 @@ export class UpdateBankFeedRequest extends SpeakeasyBase {
   accountId: string;
 
   @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=allowSyncOnPushComplete",
+  })
+  allowSyncOnPushComplete?: boolean;
+
+  @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
@@ -27,17 +32,22 @@ export class UpdateBankFeedRequest extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=connectionId",
   })
   connectionId: string;
+
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
+  })
+  timeoutInMinutes?: number;
 }
 
-export class UpdateBankFeedResponse extends SpeakeasyBase {
+export class CreateBankTransactionsResponse extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  contentType: string;
+
   /**
    * Success
    */
   @SpeakeasyMetadata()
-  bankFeedAccount?: shared.BankFeedAccount;
-
-  @SpeakeasyMetadata()
-  contentType: string;
+  createBankTransactionsResponse?: shared.CreateBankTransactionsResponse;
 
   @SpeakeasyMetadata()
   statusCode: number;
