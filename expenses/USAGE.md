@@ -3,11 +3,11 @@
 import {
   GetCompanyConfigurationRequest,
   GetCompanyConfigurationResponse
-} from "@codat/expenses/dist/sdk/models/operations";
+} from "@codat/sync-for-expenses/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
-import { Codat } from "@codat/expenses";
-const sdk = new Codat({
+import { CodatSyncExpenses } from "@codat/sync-for-expenses";
+const sdk = new CodatSyncExpenses({
   security: {
     authHeader: "YOUR_API_KEY_HERE",
   },
