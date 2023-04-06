@@ -47,7 +47,7 @@ export type SDKProps = {
  *
  * [See our OpenAPI spec](https://github.com/codatio/oas)
  */
-export class Codat {
+export class CodatBankFeeds {
   /**
    * Bank feed bank accounts
    */
@@ -61,8 +61,8 @@ export class Codat {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.8.5";
-  private _genVersion = "2.16.7";
+  private _sdkVersion = "0.9.0";
+  private _genVersion = "2.17.8";
   private _globals: any;
 
   constructor(props?: SDKProps) {

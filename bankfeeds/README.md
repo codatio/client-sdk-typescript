@@ -8,13 +8,13 @@ Bank Feeds API enables your SMB users to set up bank feeds from accounts in your
 ### NPM
 
 ```bash
-npm add @codat/bankfeeds
+npm add @codat/bank-feeds
 ```
 
 ### Yarn
 
 ```bash
-yarn add @codat/bankfeeds
+yarn add @codat/bank-feeds
 ```
 <!-- End SDK Installation -->
 
@@ -24,14 +24,14 @@ yarn add @codat/bankfeeds
 import {
   CreateBankTransactionsRequest,
   CreateBankTransactionsResponse
-} from "@codat/bankfeeds/dist/sdk/models/operations";
+} from "@codat/bank-feeds/dist/sdk/models/operations";
 import {
   BankTransactionTypeEnum,
-} from "@codat/bankfeeds/dist/sdk/models/shared";
+} from "@codat/bank-feeds/dist/sdk/models/shared";
 
 import { AxiosError } from "axios";
-import { Codat } from "@codat/bankfeeds";
-const sdk = new Codat({
+import { CodatBankFeeds } from "@codat/bank-feeds";
+const sdk = new CodatBankFeeds({
   security: {
     authHeader: "YOUR_API_KEY_HERE",
   },
