@@ -6,8 +6,8 @@ import {
 } from "@codat/banking/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
-import { Codat } from "@codat/banking";
-const sdk = new Codat({
+import { CodatBanking } from "@codat/banking";
+const sdk = new CodatBanking({
   security: {
     authHeader: "YOUR_API_KEY_HERE",
   },
