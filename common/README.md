@@ -25,8 +25,8 @@ import {
 } from "@codat/common/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
-import { Codat } from "@codat/common";
-const sdk = new Codat({
+import { CodatCommon } from "@codat/common";
+const sdk = new CodatCommon({
   security: {
     authHeader: "YOUR_API_KEY_HERE",
   },
