@@ -79,7 +79,7 @@ export class AccountBalances {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.accountBalances = utils.deserializeJSONResponse(
+            res.accountBalances = utils.objectToClass(
               httpRes?.data,
               shared.AccountBalances
             );
