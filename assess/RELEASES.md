@@ -199,3 +199,11 @@ Based on:
 - Speakeasy CLI 1.19.6 (2.17.8) https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [NPM v0.9.0] https://www.npmjs.com/package/@codat/assess/v/0.9.0 - assess
+
+## 2023-04-12 00:20:32
+### Changes
+Based on:
+- OpenAPI Doc 1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Assess.yaml
+- Speakeasy CLI 1.19.7 (2.17.9) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.9.1] https://www.npmjs.com/package/@codat/assess/v/0.9.1 - assess

@@ -137,7 +137,7 @@ export class ExcelReports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.excelStatus = utils.deserializeJSONResponse(
+            res.excelStatus = utils.objectToClass(
               httpRes?.data,
               shared.ExcelStatus
             );
@@ -194,10 +194,7 @@ export class ExcelReports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.report = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Report
-            );
+            res.report = utils.objectToClass(httpRes?.data, shared.Report);
           }
           break;
       }
@@ -309,7 +306,7 @@ export class ExcelReports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.excelStatus = utils.deserializeJSONResponse(
+            res.excelStatus = utils.objectToClass(
               httpRes?.data,
               shared.ExcelStatus
             );

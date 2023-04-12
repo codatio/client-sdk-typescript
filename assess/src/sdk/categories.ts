@@ -77,7 +77,7 @@ export class Categories {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.categorisedAccount = utils.deserializeJSONResponse(
+            res.categorisedAccount = utils.objectToClass(
               httpRes?.data,
               shared.CategorisedAccount
             );
@@ -134,7 +134,7 @@ export class Categories {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.categorisedAccounts = utils.deserializeJSONResponse(
+            res.categorisedAccounts = utils.objectToClass(
               httpRes?.data,
               shared.CategorisedAccounts
             );
@@ -183,7 +183,7 @@ export class Categories {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.categories = [];
             const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.categories = utils.deserializeJSONResponse(
+            res.categories = utils.objectToClass(
               httpRes?.data,
               shared.Categories,
               resFieldDepth
@@ -257,7 +257,7 @@ export class Categories {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.categorisedAccount = utils.deserializeJSONResponse(
+            res.categorisedAccount = utils.objectToClass(
               httpRes?.data,
               shared.CategorisedAccount
             );
@@ -332,7 +332,7 @@ export class Categories {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.categorisedAccounts = [];
             const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.categorisedAccounts = utils.deserializeJSONResponse(
+            res.categorisedAccounts = utils.objectToClass(
               httpRes?.data,
               shared.CategorisedAccount,
               resFieldDepth

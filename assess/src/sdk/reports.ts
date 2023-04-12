@@ -81,7 +81,7 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.enhancedReport = utils.deserializeJSONResponse(
+            res.enhancedReport = utils.objectToClass(
               httpRes?.data,
               shared.EnhancedReport
             );
@@ -140,7 +140,7 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.enhancedReport = utils.deserializeJSONResponse(
+            res.enhancedReport = utils.objectToClass(
               httpRes?.data,
               shared.EnhancedReport
             );
@@ -197,10 +197,7 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.report = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Report
-            );
+            res.report = utils.objectToClass(httpRes?.data, shared.Report);
           }
           break;
       }
@@ -254,10 +251,7 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.report = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Report
-            );
+            res.report = utils.objectToClass(httpRes?.data, shared.Report);
           }
           break;
       }
@@ -311,10 +305,7 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.report = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Report
-            );
+            res.report = utils.objectToClass(httpRes?.data, shared.Report);
           }
           break;
       }
@@ -368,10 +359,7 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.report = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Report
-            );
+            res.report = utils.objectToClass(httpRes?.data, shared.Report);
           }
           break;
       }
@@ -425,10 +413,7 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.report = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Report
-            );
+            res.report = utils.objectToClass(httpRes?.data, shared.Report);
           }
           break;
       }
@@ -482,10 +467,7 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.report = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Report
-            );
+            res.report = utils.objectToClass(httpRes?.data, shared.Report);
           }
           break;
       }
@@ -539,7 +521,7 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.enhancedCashFlowTransactions = utils.deserializeJSONResponse(
+            res.enhancedCashFlowTransactions = utils.objectToClass(
               httpRes?.data,
               shared.EnhancedCashFlowTransactions
             );
@@ -596,7 +578,7 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.financialMetrics = utils.deserializeJSONResponse(
+            res.financialMetrics = utils.objectToClass(
               httpRes?.data,
               shared.FinancialMetrics
             );
@@ -653,7 +635,7 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.enhancedInvoicesReport = utils.deserializeJSONResponse(
+            res.enhancedInvoicesReport = utils.objectToClass(
               httpRes?.data,
               shared.EnhancedInvoicesReport
             );
@@ -710,10 +692,7 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.report = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Report
-            );
+            res.report = utils.objectToClass(httpRes?.data, shared.Report);
           }
           break;
       }
@@ -765,10 +744,7 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.report = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Report
-            );
+            res.report = utils.objectToClass(httpRes?.data, shared.Report);
           }
           break;
       }
@@ -820,10 +796,7 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.report = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Report
-            );
+            res.report = utils.objectToClass(httpRes?.data, shared.Report);
           }
           break;
       }

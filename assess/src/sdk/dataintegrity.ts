@@ -79,10 +79,7 @@ export class DataIntegrity {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.details = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Details
-            );
+            res.details = utils.objectToClass(httpRes?.data, shared.Details);
           }
           break;
       }
@@ -134,10 +131,7 @@ export class DataIntegrity {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -191,7 +185,7 @@ export class DataIntegrity {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.summaries = utils.deserializeJSONResponse(
+            res.summaries = utils.objectToClass(
               httpRes?.data,
               shared.Summaries
             );
