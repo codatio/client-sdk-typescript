@@ -77,7 +77,7 @@ export class SalesOrders {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.salesOrder = utils.deserializeJSONResponse(
+            res.salesOrder = utils.objectToClass(
               httpRes?.data,
               shared.SalesOrder
             );
@@ -134,7 +134,7 @@ export class SalesOrders {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.salesOrders = utils.deserializeJSONResponse(
+            res.salesOrders = utils.objectToClass(
               httpRes?.data,
               shared.SalesOrders
             );

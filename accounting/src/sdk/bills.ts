@@ -102,7 +102,7 @@ export class Bills {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createBillResponse = utils.deserializeJSONResponse(
+            res.createBillResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateBillResponse
             );
@@ -161,7 +161,7 @@ export class Bills {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOperationSummary = utils.deserializeJSONResponse(
+            res.pushOperationSummary = utils.objectToClass(
               httpRes?.data,
               shared.PushOperationSummary
             );
@@ -271,10 +271,7 @@ export class Bills {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.bill = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Bill
-            );
+            res.bill = utils.objectToClass(httpRes?.data, shared.Bill);
           }
           break;
       }
@@ -326,7 +323,7 @@ export class Bills {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.attachment = utils.deserializeJSONResponse(
+            res.attachment = utils.objectToClass(
               httpRes?.data,
               shared.Attachment
             );
@@ -381,7 +378,7 @@ export class Bills {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.attachmentsDataset = utils.deserializeJSONResponse(
+            res.attachmentsDataset = utils.objectToClass(
               httpRes?.data,
               shared.AttachmentsDataset
             );
@@ -440,7 +437,7 @@ export class Bills {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.deserializeJSONResponse(
+            res.pushOption = utils.objectToClass(
               httpRes?.data,
               shared.PushOption
             );
@@ -497,10 +494,7 @@ export class Bills {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.bills = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Bills
-            );
+            res.bills = utils.objectToClass(httpRes?.data, shared.Bills);
           }
           break;
       }
@@ -577,7 +571,7 @@ export class Bills {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.updateBillResponse = utils.deserializeJSONResponse(
+            res.updateBillResponse = utils.objectToClass(
               httpRes?.data,
               shared.UpdateBillResponse
             );

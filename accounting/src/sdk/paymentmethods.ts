@@ -77,7 +77,7 @@ export class PaymentMethods {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.paymentMethod = utils.deserializeJSONResponse(
+            res.paymentMethod = utils.objectToClass(
               httpRes?.data,
               shared.PaymentMethod
             );
@@ -134,7 +134,7 @@ export class PaymentMethods {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.paymentMethods = utils.deserializeJSONResponse(
+            res.paymentMethods = utils.objectToClass(
               httpRes?.data,
               shared.PaymentMethods
             );

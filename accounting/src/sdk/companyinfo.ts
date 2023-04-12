@@ -77,7 +77,7 @@ export class CompanyInfo {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.companyDataset = utils.deserializeJSONResponse(
+            res.companyDataset = utils.objectToClass(
               httpRes?.data,
               shared.CompanyDataset
             );
@@ -132,10 +132,7 @@ export class CompanyInfo {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.dataset = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Dataset
-            );
+            res.dataset = utils.objectToClass(httpRes?.data, shared.Dataset);
           }
           break;
       }

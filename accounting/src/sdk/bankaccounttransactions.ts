@@ -100,7 +100,7 @@ export class BankAccountTransactions {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createBankTransactionsResponse = utils.deserializeJSONResponse(
+            res.createBankTransactionsResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateBankTransactionsResponse
             );
@@ -155,7 +155,7 @@ export class BankAccountTransactions {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.deserializeJSONResponse(
+            res.pushOption = utils.objectToClass(
               httpRes?.data,
               shared.PushOption
             );
@@ -212,7 +212,7 @@ export class BankAccountTransactions {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.bankTransactionsResponse = utils.deserializeJSONResponse(
+            res.bankTransactionsResponse = utils.objectToClass(
               httpRes?.data,
               shared.BankTransactionsResponse
             );
@@ -269,7 +269,7 @@ export class BankAccountTransactions {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.bankAccountTransactions = utils.deserializeJSONResponse(
+            res.bankAccountTransactions = utils.objectToClass(
               httpRes?.data,
               shared.BankAccountTransactions
             );

@@ -102,7 +102,7 @@ export class JournalEntries {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createJournalEntryResponse = utils.deserializeJSONResponse(
+            res.createJournalEntryResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateJournalEntryResponse
             );
@@ -163,7 +163,7 @@ export class JournalEntries {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.deserializeJSONResponse(
+            res.pushOption = utils.objectToClass(
               httpRes?.data,
               shared.PushOption
             );
@@ -218,7 +218,7 @@ export class JournalEntries {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.journalEntry = utils.deserializeJSONResponse(
+            res.journalEntry = utils.objectToClass(
               httpRes?.data,
               shared.JournalEntry
             );
@@ -275,7 +275,7 @@ export class JournalEntries {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.journalEntries = utils.deserializeJSONResponse(
+            res.journalEntries = utils.objectToClass(
               httpRes?.data,
               shared.JournalEntries
             );

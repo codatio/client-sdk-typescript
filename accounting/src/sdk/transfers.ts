@@ -101,7 +101,7 @@ export class Transfers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createTransferResponse = utils.deserializeJSONResponse(
+            res.createTransferResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateTransferResponse
             );
@@ -162,7 +162,7 @@ export class Transfers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.deserializeJSONResponse(
+            res.pushOption = utils.objectToClass(
               httpRes?.data,
               shared.PushOption
             );
@@ -217,10 +217,7 @@ export class Transfers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.transfer = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Transfer
-            );
+            res.transfer = utils.objectToClass(httpRes?.data, shared.Transfer);
           }
           break;
       }
@@ -274,7 +271,7 @@ export class Transfers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.transfers = utils.deserializeJSONResponse(
+            res.transfers = utils.objectToClass(
               httpRes?.data,
               shared.Transfers
             );

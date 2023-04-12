@@ -102,7 +102,7 @@ export class BankAccounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createBankAccountResponse = utils.deserializeJSONResponse(
+            res.createBankAccountResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateBankAccountResponse
             );
@@ -159,7 +159,7 @@ export class BankAccounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.bankStatementAccount = utils.deserializeJSONResponse(
+            res.bankStatementAccount = utils.objectToClass(
               httpRes?.data,
               shared.BankStatementAccount
             );
@@ -214,7 +214,7 @@ export class BankAccounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.bankAccount = utils.deserializeJSONResponse(
+            res.bankAccount = utils.objectToClass(
               httpRes?.data,
               shared.BankAccount
             );
@@ -275,7 +275,7 @@ export class BankAccounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.deserializeJSONResponse(
+            res.pushOption = utils.objectToClass(
               httpRes?.data,
               shared.PushOption
             );
@@ -332,7 +332,7 @@ export class BankAccounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.bankAccounts = utils.deserializeJSONResponse(
+            res.bankAccounts = utils.objectToClass(
               httpRes?.data,
               shared.BankAccounts
             );
@@ -412,7 +412,7 @@ export class BankAccounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.updateBankAccountResponse = utils.deserializeJSONResponse(
+            res.updateBankAccountResponse = utils.objectToClass(
               httpRes?.data,
               shared.UpdateBankAccountResponse
             );

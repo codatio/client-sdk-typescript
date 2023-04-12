@@ -102,7 +102,7 @@ export class DirectCosts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createDirectCostResponse = utils.deserializeJSONResponse(
+            res.createDirectCostResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateDirectCostResponse
             );
@@ -219,7 +219,7 @@ export class DirectCosts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.deserializeJSONResponse(
+            res.pushOption = utils.objectToClass(
               httpRes?.data,
               shared.PushOption
             );
@@ -274,7 +274,7 @@ export class DirectCosts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.directCost = utils.deserializeJSONResponse(
+            res.directCost = utils.objectToClass(
               httpRes?.data,
               shared.DirectCost
             );
@@ -329,7 +329,7 @@ export class DirectCosts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.attachment = utils.deserializeJSONResponse(
+            res.attachment = utils.objectToClass(
               httpRes?.data,
               shared.Attachment
             );
@@ -386,7 +386,7 @@ export class DirectCosts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.directCosts = utils.deserializeJSONResponse(
+            res.directCosts = utils.objectToClass(
               httpRes?.data,
               shared.DirectCosts
             );
@@ -441,7 +441,7 @@ export class DirectCosts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.attachmentsDataset = utils.deserializeJSONResponse(
+            res.attachmentsDataset = utils.objectToClass(
               httpRes?.data,
               shared.AttachmentsDataset
             );

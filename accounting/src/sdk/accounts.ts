@@ -102,7 +102,7 @@ export class Accounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createAccountResponse = utils.deserializeJSONResponse(
+            res.createAccountResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateAccountResponse
             );
@@ -157,10 +157,7 @@ export class Accounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.account = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Account
-            );
+            res.account = utils.objectToClass(httpRes?.data, shared.Account);
           }
           break;
       }
@@ -218,7 +215,7 @@ export class Accounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.deserializeJSONResponse(
+            res.pushOption = utils.objectToClass(
               httpRes?.data,
               shared.PushOption
             );
@@ -275,10 +272,7 @@ export class Accounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.accounts = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Accounts
-            );
+            res.accounts = utils.objectToClass(httpRes?.data, shared.Accounts);
           }
           break;
       }

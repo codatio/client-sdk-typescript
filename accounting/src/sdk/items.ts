@@ -102,7 +102,7 @@ export class Items {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createItemResponse = utils.deserializeJSONResponse(
+            res.createItemResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateItemResponse
             );
@@ -163,7 +163,7 @@ export class Items {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.deserializeJSONResponse(
+            res.pushOption = utils.objectToClass(
               httpRes?.data,
               shared.PushOption
             );
@@ -217,10 +217,7 @@ export class Items {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.item = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Item
-            );
+            res.item = utils.objectToClass(httpRes?.data, shared.Item);
           }
           break;
       }
@@ -274,10 +271,7 @@ export class Items {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.items = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Items1
-            );
+            res.items = utils.objectToClass(httpRes?.data, shared.Items1);
           }
           break;
       }

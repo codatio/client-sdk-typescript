@@ -77,7 +77,7 @@ export class AccountTransactions {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.accountTransaction = utils.deserializeJSONResponse(
+            res.accountTransaction = utils.objectToClass(
               httpRes?.data,
               shared.AccountTransaction
             );
@@ -134,7 +134,7 @@ export class AccountTransactions {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.accountTransactions = utils.deserializeJSONResponse(
+            res.accountTransactions = utils.objectToClass(
               httpRes?.data,
               shared.AccountTransactions
             );

@@ -102,7 +102,7 @@ export class Payments {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createPaymentResponse = utils.deserializeJSONResponse(
+            res.createPaymentResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreatePaymentResponse
             );
@@ -163,7 +163,7 @@ export class Payments {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.deserializeJSONResponse(
+            res.pushOption = utils.objectToClass(
               httpRes?.data,
               shared.PushOption
             );
@@ -218,10 +218,7 @@ export class Payments {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.payment = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Payment
-            );
+            res.payment = utils.objectToClass(httpRes?.data, shared.Payment);
           }
           break;
       }
@@ -275,10 +272,7 @@ export class Payments {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.payments = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Payments
-            );
+            res.payments = utils.objectToClass(httpRes?.data, shared.Payments);
           }
           break;
       }

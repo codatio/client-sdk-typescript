@@ -79,7 +79,7 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.agedCreditorReport = utils.deserializeJSONResponse(
+            res.agedCreditorReport = utils.objectToClass(
               httpRes?.data,
               shared.AgedCreditorReport
             );
@@ -136,7 +136,7 @@ export class Reports {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.agedDebtorReport = utils.deserializeJSONResponse(
+            res.agedDebtorReport = utils.objectToClass(
               httpRes?.data,
               shared.AgedDebtorReport
             );

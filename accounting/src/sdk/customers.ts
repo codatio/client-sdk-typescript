@@ -102,7 +102,7 @@ export class Customers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createCustomerResponse = utils.deserializeJSONResponse(
+            res.createCustomerResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateCustomerResponse
             );
@@ -219,7 +219,7 @@ export class Customers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.deserializeJSONResponse(
+            res.pushOption = utils.objectToClass(
               httpRes?.data,
               shared.PushOption
             );
@@ -274,10 +274,7 @@ export class Customers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.customer = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Customer
-            );
+            res.customer = utils.objectToClass(httpRes?.data, shared.Customer);
           }
           break;
       }
@@ -329,7 +326,7 @@ export class Customers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.attachment = utils.deserializeJSONResponse(
+            res.attachment = utils.objectToClass(
               httpRes?.data,
               shared.Attachment
             );
@@ -384,7 +381,7 @@ export class Customers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.attachmentsDataset = utils.deserializeJSONResponse(
+            res.attachmentsDataset = utils.objectToClass(
               httpRes?.data,
               shared.AttachmentsDataset
             );
@@ -441,7 +438,7 @@ export class Customers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.customers = utils.deserializeJSONResponse(
+            res.customers = utils.objectToClass(
               httpRes?.data,
               shared.Customers
             );
@@ -521,7 +518,7 @@ export class Customers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.updateCustomerResponse = utils.deserializeJSONResponse(
+            res.updateCustomerResponse = utils.objectToClass(
               httpRes?.data,
               shared.UpdateCustomerResponse
             );

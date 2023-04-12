@@ -77,10 +77,7 @@ export class TaxRates {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.taxRate = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.TaxRate
-            );
+            res.taxRate = utils.objectToClass(httpRes?.data, shared.TaxRate);
           }
           break;
       }
@@ -134,10 +131,7 @@ export class TaxRates {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.taxRates = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.TaxRates
-            );
+            res.taxRates = utils.objectToClass(httpRes?.data, shared.TaxRates);
           }
           break;
       }

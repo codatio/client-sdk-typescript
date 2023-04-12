@@ -102,7 +102,7 @@ export class Suppliers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createSupplierResponse = utils.deserializeJSONResponse(
+            res.createSupplierResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateSupplierResponse
             );
@@ -219,7 +219,7 @@ export class Suppliers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.deserializeJSONResponse(
+            res.pushOption = utils.objectToClass(
               httpRes?.data,
               shared.PushOption
             );
@@ -274,10 +274,7 @@ export class Suppliers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.supplier = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Supplier
-            );
+            res.supplier = utils.objectToClass(httpRes?.data, shared.Supplier);
           }
           break;
       }
@@ -329,7 +326,7 @@ export class Suppliers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.attachment = utils.deserializeJSONResponse(
+            res.attachment = utils.objectToClass(
               httpRes?.data,
               shared.Attachment
             );
@@ -384,7 +381,7 @@ export class Suppliers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.attachmentsDataset = utils.deserializeJSONResponse(
+            res.attachmentsDataset = utils.objectToClass(
               httpRes?.data,
               shared.AttachmentsDataset
             );
@@ -441,7 +438,7 @@ export class Suppliers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.suppliers = utils.deserializeJSONResponse(
+            res.suppliers = utils.objectToClass(
               httpRes?.data,
               shared.Suppliers
             );
@@ -521,11 +518,10 @@ export class Suppliers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.putSupplier200ApplicationJSONObject =
-              utils.deserializeJSONResponse(
-                httpRes?.data,
-                operations.PutSupplier200ApplicationJSON
-              );
+            res.putSupplier200ApplicationJSONObject = utils.objectToClass(
+              httpRes?.data,
+              operations.PutSupplier200ApplicationJSON
+            );
           }
           break;
       }

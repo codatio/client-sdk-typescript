@@ -102,7 +102,7 @@ export class BillPayments {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createBillPaymentResponse = utils.deserializeJSONResponse(
+            res.createBillPaymentResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateBillPaymentResponse
             );
@@ -161,7 +161,7 @@ export class BillPayments {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOperationSummary = utils.deserializeJSONResponse(
+            res.pushOperationSummary = utils.objectToClass(
               httpRes?.data,
               shared.PushOperationSummary
             );
@@ -216,7 +216,7 @@ export class BillPayments {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.billPayment = utils.deserializeJSONResponse(
+            res.billPayment = utils.objectToClass(
               httpRes?.data,
               shared.BillPayment
             );
@@ -275,7 +275,7 @@ export class BillPayments {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.deserializeJSONResponse(
+            res.pushOption = utils.objectToClass(
               httpRes?.data,
               shared.PushOption
             );
@@ -332,7 +332,7 @@ export class BillPayments {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.billPayments = utils.deserializeJSONResponse(
+            res.billPayments = utils.objectToClass(
               httpRes?.data,
               shared.BillPayments
             );

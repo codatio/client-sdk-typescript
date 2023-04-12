@@ -77,7 +77,7 @@ export class TrackingCategories {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.trackingCategoryTree = utils.deserializeJSONResponse(
+            res.trackingCategoryTree = utils.objectToClass(
               httpRes?.data,
               shared.TrackingCategoryTree
             );
@@ -134,7 +134,7 @@ export class TrackingCategories {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.trackingCategories = utils.deserializeJSONResponse(
+            res.trackingCategories = utils.objectToClass(
               httpRes?.data,
               shared.TrackingCategories
             );

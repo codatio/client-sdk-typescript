@@ -103,7 +103,7 @@ export class CreditNotes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createCreditNoteResponse = utils.deserializeJSONResponse(
+            res.createCreditNoteResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateCreditNoteResponse
             );
@@ -164,7 +164,7 @@ export class CreditNotes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.deserializeJSONResponse(
+            res.pushOption = utils.objectToClass(
               httpRes?.data,
               shared.PushOption
             );
@@ -219,7 +219,7 @@ export class CreditNotes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.creditNote = utils.deserializeJSONResponse(
+            res.creditNote = utils.objectToClass(
               httpRes?.data,
               shared.CreditNote
             );
@@ -276,7 +276,7 @@ export class CreditNotes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.creditNotes = utils.deserializeJSONResponse(
+            res.creditNotes = utils.objectToClass(
               httpRes?.data,
               shared.CreditNotes
             );
@@ -356,7 +356,7 @@ export class CreditNotes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.updateCreditNoteResponse = utils.deserializeJSONResponse(
+            res.updateCreditNoteResponse = utils.objectToClass(
               httpRes?.data,
               shared.UpdateCreditNoteResponse
             );

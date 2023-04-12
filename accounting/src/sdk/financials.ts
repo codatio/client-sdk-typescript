@@ -79,7 +79,7 @@ export class Financials {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.balanceSheet = utils.deserializeJSONResponse(
+            res.balanceSheet = utils.objectToClass(
               httpRes?.data,
               shared.BalanceSheet1
             );
@@ -136,7 +136,7 @@ export class Financials {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.cashFlowStatement = utils.deserializeJSONResponse(
+            res.cashFlowStatement = utils.objectToClass(
               httpRes?.data,
               shared.CashFlowStatement1
             );
@@ -193,7 +193,7 @@ export class Financials {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.profitAndLossReport = utils.deserializeJSONResponse(
+            res.profitAndLossReport = utils.objectToClass(
               httpRes?.data,
               shared.ProfitAndLossReport1
             );

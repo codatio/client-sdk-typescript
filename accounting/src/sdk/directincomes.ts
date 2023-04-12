@@ -102,7 +102,7 @@ export class DirectIncomes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createDirectIncomeResponse = utils.deserializeJSONResponse(
+            res.createDirectIncomeResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateDirectIncomeResponse
             );
@@ -219,7 +219,7 @@ export class DirectIncomes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.deserializeJSONResponse(
+            res.pushOption = utils.objectToClass(
               httpRes?.data,
               shared.PushOption
             );
@@ -274,7 +274,7 @@ export class DirectIncomes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.directIncome = utils.deserializeJSONResponse(
+            res.directIncome = utils.objectToClass(
               httpRes?.data,
               shared.DirectIncome
             );
@@ -331,7 +331,7 @@ export class DirectIncomes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.attachment = utils.deserializeJSONResponse(
+            res.attachment = utils.objectToClass(
               httpRes?.data,
               shared.Attachment
             );
@@ -388,7 +388,7 @@ export class DirectIncomes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.directIncomes = utils.deserializeJSONResponse(
+            res.directIncomes = utils.objectToClass(
               httpRes?.data,
               shared.DirectIncomes
             );
@@ -443,7 +443,7 @@ export class DirectIncomes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.attachmentsDataset = utils.deserializeJSONResponse(
+            res.attachmentsDataset = utils.objectToClass(
               httpRes?.data,
               shared.AttachmentsDataset
             );

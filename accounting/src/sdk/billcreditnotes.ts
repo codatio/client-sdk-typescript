@@ -102,7 +102,7 @@ export class BillCreditNotes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createBillCreditNoteResponse = utils.deserializeJSONResponse(
+            res.createBillCreditNoteResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateBillCreditNoteResponse
             );
@@ -157,7 +157,7 @@ export class BillCreditNotes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.billCreditNote = utils.deserializeJSONResponse(
+            res.billCreditNote = utils.objectToClass(
               httpRes?.data,
               shared.BillCreditNote
             );
@@ -216,7 +216,7 @@ export class BillCreditNotes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.deserializeJSONResponse(
+            res.pushOption = utils.objectToClass(
               httpRes?.data,
               shared.PushOption
             );
@@ -273,7 +273,7 @@ export class BillCreditNotes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.billCreditNotes = utils.deserializeJSONResponse(
+            res.billCreditNotes = utils.objectToClass(
               httpRes?.data,
               shared.BillCreditNotes
             );
@@ -353,7 +353,7 @@ export class BillCreditNotes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.updateBillCreditNoteResponse = utils.deserializeJSONResponse(
+            res.updateBillCreditNoteResponse = utils.objectToClass(
               httpRes?.data,
               shared.UpdateBillCreditNoteResponse
             );

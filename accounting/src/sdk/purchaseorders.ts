@@ -102,7 +102,7 @@ export class PurchaseOrders {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createPurchaseOrderResponse = utils.deserializeJSONResponse(
+            res.createPurchaseOrderResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreatePurchaseOrderResponse
             );
@@ -163,7 +163,7 @@ export class PurchaseOrders {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.deserializeJSONResponse(
+            res.pushOption = utils.objectToClass(
               httpRes?.data,
               shared.PushOption
             );
@@ -218,7 +218,7 @@ export class PurchaseOrders {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.purchaseOrder = utils.deserializeJSONResponse(
+            res.purchaseOrder = utils.objectToClass(
               httpRes?.data,
               shared.PurchaseOrder
             );
@@ -275,7 +275,7 @@ export class PurchaseOrders {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.purchaseOrders = utils.deserializeJSONResponse(
+            res.purchaseOrders = utils.objectToClass(
               httpRes?.data,
               shared.PurchaseOrders
             );
@@ -355,7 +355,7 @@ export class PurchaseOrders {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.updatePurchaseOrderResponse = utils.deserializeJSONResponse(
+            res.updatePurchaseOrderResponse = utils.objectToClass(
               httpRes?.data,
               shared.UpdatePurchaseOrderResponse
             );

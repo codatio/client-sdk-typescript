@@ -30,7 +30,8 @@ import { Suppliers } from "./suppliers";
 import { TaxRates } from "./taxrates";
 import { TrackingCategories } from "./trackingcategories";
 import { Transfers } from "./transfers";
-import axios, { AxiosInstance } from "axios";
+import axios from "axios";
+import { AxiosInstance } from "axios";
 
 /**
  * Contains the list of servers available to the SDK
@@ -181,8 +182,8 @@ export class CodatAccounting {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.9.0";
-  private _genVersion = "2.17.8";
+  private _sdkVersion = "0.9.1";
+  private _genVersion = "2.17.9";
   private _globals: any;
 
   constructor(props?: SDKProps) {

@@ -158,7 +158,7 @@ export class Invoices {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createInvoiceResponse = utils.deserializeJSONResponse(
+            res.createInvoiceResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateInvoiceResponse
             );
@@ -275,7 +275,7 @@ export class Invoices {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.deserializeJSONResponse(
+            res.pushOption = utils.objectToClass(
               httpRes?.data,
               shared.PushOption
             );
@@ -330,10 +330,7 @@ export class Invoices {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.invoice = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Invoice
-            );
+            res.invoice = utils.objectToClass(httpRes?.data, shared.Invoice);
           }
           break;
       }
@@ -385,7 +382,7 @@ export class Invoices {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.attachment = utils.deserializeJSONResponse(
+            res.attachment = utils.objectToClass(
               httpRes?.data,
               shared.Attachment
             );
@@ -440,7 +437,7 @@ export class Invoices {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.attachmentsDataset = utils.deserializeJSONResponse(
+            res.attachmentsDataset = utils.objectToClass(
               httpRes?.data,
               shared.AttachmentsDataset
             );
@@ -497,10 +494,7 @@ export class Invoices {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.invoices = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Invoices
-            );
+            res.invoices = utils.objectToClass(httpRes?.data, shared.Invoices);
           }
           break;
       }
@@ -577,7 +571,7 @@ export class Invoices {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.updateInvoiceResponse = utils.deserializeJSONResponse(
+            res.updateInvoiceResponse = utils.objectToClass(
               httpRes?.data,
               shared.UpdateInvoiceResponse
             );
