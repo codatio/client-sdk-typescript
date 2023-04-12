@@ -79,7 +79,7 @@ export class Customers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.customers = utils.deserializeJSONResponse(
+            res.customers = utils.objectToClass(
               httpRes?.data,
               shared.Customers
             );

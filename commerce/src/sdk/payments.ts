@@ -79,7 +79,7 @@ export class Payments {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.paymentMethods = utils.deserializeJSONResponse(
+            res.paymentMethods = utils.objectToClass(
               httpRes?.data,
               shared.PaymentMethods
             );
@@ -136,10 +136,7 @@ export class Payments {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.payments = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Payments
-            );
+            res.payments = utils.objectToClass(httpRes?.data, shared.Payments);
           }
           break;
       }

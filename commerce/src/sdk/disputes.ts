@@ -79,10 +79,7 @@ export class Disputes {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.disputes = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Disputes
-            );
+            res.disputes = utils.objectToClass(httpRes?.data, shared.Disputes);
           }
           break;
       }

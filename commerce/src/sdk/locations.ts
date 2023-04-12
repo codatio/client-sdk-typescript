@@ -79,7 +79,7 @@ export class Locations {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.locationsResponse = utils.deserializeJSONResponse(
+            res.locationsResponse = utils.objectToClass(
               httpRes?.data,
               shared.LocationsResponse
             );

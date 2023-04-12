@@ -79,7 +79,7 @@ export class Products {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.productCategories = utils.deserializeJSONResponse(
+            res.productCategories = utils.objectToClass(
               httpRes?.data,
               shared.ProductCategories
             );
@@ -136,10 +136,7 @@ export class Products {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.products = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Products
-            );
+            res.products = utils.objectToClass(httpRes?.data, shared.Products);
           }
           break;
       }

@@ -77,7 +77,7 @@ export class TaxComponents {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.taxComponents = utils.deserializeJSONResponse(
+            res.taxComponents = utils.objectToClass(
               httpRes?.data,
               shared.TaxComponents
             );
