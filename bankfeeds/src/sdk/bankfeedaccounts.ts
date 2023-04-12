@@ -97,7 +97,7 @@ export class BankFeedAccounts {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.bankFeedAccounts = [];
             const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.bankFeedAccounts = utils.deserializeJSONResponse(
+            res.bankFeedAccounts = utils.objectToClass(
               httpRes?.data,
               shared.BankFeedAccount,
               resFieldDepth
@@ -155,7 +155,7 @@ export class BankFeedAccounts {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.bankFeedAccounts = [];
             const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.bankFeedAccounts = utils.deserializeJSONResponse(
+            res.bankFeedAccounts = utils.objectToClass(
               httpRes?.data,
               shared.BankFeedAccount,
               resFieldDepth
@@ -229,7 +229,7 @@ export class BankFeedAccounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.bankFeedAccount = utils.deserializeJSONResponse(
+            res.bankFeedAccount = utils.objectToClass(
               httpRes?.data,
               shared.BankFeedAccount
             );

@@ -6,7 +6,8 @@ import * as utils from "../internal/utils";
 import { BankAccountTransactions } from "./bankaccounttransactions";
 import { BankFeedAccounts } from "./bankfeedaccounts";
 import * as shared from "./models/shared";
-import axios, { AxiosInstance } from "axios";
+import axios from "axios";
+import { AxiosInstance } from "axios";
 
 /**
  * Contains the list of servers available to the SDK
@@ -61,8 +62,8 @@ export class CodatBankFeeds {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.9.0";
-  private _genVersion = "2.17.8";
+  private _sdkVersion = "0.9.1";
+  private _genVersion = "2.17.9";
   private _globals: any;
 
   constructor(props?: SDKProps) {
