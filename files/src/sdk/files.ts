@@ -137,7 +137,7 @@ export class Files {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.files = [];
             const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.files = utils.deserializeJSONResponse(
+            res.files = utils.objectToClass(
               httpRes?.data,
               shared.File,
               resFieldDepth
