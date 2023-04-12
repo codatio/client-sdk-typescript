@@ -81,7 +81,7 @@ export class RefreshData {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pullOperation = utils.deserializeJSONResponse(
+            res.pullOperation = utils.objectToClass(
               httpRes?.data,
               shared.PullOperation
             );
@@ -89,7 +89,7 @@ export class RefreshData {
           break;
         case [401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -146,7 +146,7 @@ export class RefreshData {
           break;
         case [401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );

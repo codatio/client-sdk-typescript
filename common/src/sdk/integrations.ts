@@ -77,7 +77,7 @@ export class Integrations {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.integration = utils.deserializeJSONResponse(
+            res.integration = utils.objectToClass(
               httpRes?.data,
               shared.Integration
             );
@@ -85,7 +85,7 @@ export class Integrations {
           break;
         case [401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -140,10 +140,7 @@ export class Integrations {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.branding = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Branding
-            );
+            res.branding = utils.objectToClass(httpRes?.data, shared.Branding);
           }
           break;
       }
@@ -193,7 +190,7 @@ export class Integrations {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.integrations = utils.deserializeJSONResponse(
+            res.integrations = utils.objectToClass(
               httpRes?.data,
               shared.Integrations
             );
@@ -201,7 +198,7 @@ export class Integrations {
           break;
         case [400, 401].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );

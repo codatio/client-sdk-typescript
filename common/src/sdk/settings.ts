@@ -68,15 +68,12 @@ export class Settings {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.profile = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Profile
-            );
+            res.profile = utils.objectToClass(httpRes?.data, shared.Profile);
           }
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -122,7 +119,7 @@ export class Settings {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.syncSettings = utils.deserializeJSONResponse(
+            res.syncSettings = utils.objectToClass(
               httpRes?.data,
               shared.SyncSettings
             );
@@ -130,7 +127,7 @@ export class Settings {
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -199,15 +196,12 @@ export class Settings {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.profile = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Profile
-            );
+            res.profile = utils.objectToClass(httpRes?.data, shared.Profile);
           }
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -278,7 +272,7 @@ export class Settings {
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );

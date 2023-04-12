@@ -79,7 +79,7 @@ export class PushData {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushHistoryResponse = utils.deserializeJSONResponse(
+            res.pushHistoryResponse = utils.objectToClass(
               httpRes?.data,
               shared.PushHistoryResponse
             );
@@ -143,7 +143,7 @@ export class PushData {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.deserializeJSONResponse(
+            res.pushOption = utils.objectToClass(
               httpRes?.data,
               shared.PushOption
             );
@@ -198,7 +198,7 @@ export class PushData {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOperation = utils.deserializeJSONResponse(
+            res.pushOperation = utils.objectToClass(
               httpRes?.data,
               shared.PushOperation
             );

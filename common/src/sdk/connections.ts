@@ -95,7 +95,7 @@ export class Connections {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.connection = utils.deserializeJSONResponse(
+            res.connection = utils.objectToClass(
               httpRes?.data,
               shared.Connection
             );
@@ -103,7 +103,7 @@ export class Connections {
           break;
         case httpRes?.status == 404:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -161,7 +161,7 @@ export class Connections {
           break;
         case [401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -216,7 +216,7 @@ export class Connections {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.connection = utils.deserializeJSONResponse(
+            res.connection = utils.objectToClass(
               httpRes?.data,
               shared.Connection
             );
@@ -224,7 +224,7 @@ export class Connections {
           break;
         case [401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -281,7 +281,7 @@ export class Connections {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.connections = utils.deserializeJSONResponse(
+            res.connections = utils.objectToClass(
               httpRes?.data,
               shared.Connections
             );
@@ -289,7 +289,7 @@ export class Connections {
           break;
         case [400, 401].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -362,7 +362,7 @@ export class Connections {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.connection = utils.deserializeJSONResponse(
+            res.connection = utils.objectToClass(
               httpRes?.data,
               shared.Connection
             );
@@ -370,7 +370,7 @@ export class Connections {
           break;
         case [400, 401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -443,7 +443,7 @@ export class Connections {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.connection = utils.deserializeJSONResponse(
+            res.connection = utils.objectToClass(
               httpRes?.data,
               shared.Connection
             );

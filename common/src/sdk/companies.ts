@@ -91,15 +91,12 @@ export class Companies {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.company = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Company
-            );
+            res.company = utils.objectToClass(httpRes?.data, shared.Company);
           }
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -157,7 +154,7 @@ export class Companies {
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -212,15 +209,12 @@ export class Companies {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.company = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Company
-            );
+            res.company = utils.objectToClass(httpRes?.data, shared.Company);
           }
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -273,7 +267,7 @@ export class Companies {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.companies = utils.deserializeJSONResponse(
+            res.companies = utils.objectToClass(
               httpRes?.data,
               shared.Companies
             );
@@ -281,7 +275,7 @@ export class Companies {
           break;
         case [400, 401].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -354,15 +348,12 @@ export class Companies {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.company = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Company
-            );
+            res.company = utils.objectToClass(httpRes?.data, shared.Company);
           }
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );

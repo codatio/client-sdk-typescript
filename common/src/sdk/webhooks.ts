@@ -91,15 +91,12 @@ export class Webhooks {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.rule = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Rule
-            );
+            res.rule = utils.objectToClass(httpRes?.data, shared.Rule);
           }
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -150,15 +147,12 @@ export class Webhooks {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.rule = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Rule
-            );
+            res.rule = utils.objectToClass(httpRes?.data, shared.Rule);
           }
           break;
         case [401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -211,15 +205,12 @@ export class Webhooks {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.rules = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Rules
-            );
+            res.rules = utils.objectToClass(httpRes?.data, shared.Rules);
           }
           break;
         case [400, 401].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );

@@ -79,7 +79,7 @@ export class DataStatus {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.dataConnectionHistory = utils.deserializeJSONResponse(
+            res.dataConnectionHistory = utils.objectToClass(
               httpRes?.data,
               shared.DataConnectionHistory
             );
@@ -87,7 +87,7 @@ export class DataStatus {
           break;
         case [400, 401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -144,7 +144,7 @@ export class DataStatus {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.dataStatusResponse = {};
             const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.dataStatusResponse = utils.deserializeJSONResponse(
+            res.dataStatusResponse = utils.objectToClass(
               httpRes?.data,
               shared.DataStatus,
               resFieldDepth
@@ -153,7 +153,7 @@ export class DataStatus {
           break;
         case [401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -208,7 +208,7 @@ export class DataStatus {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pullOperation = utils.deserializeJSONResponse(
+            res.pullOperation = utils.objectToClass(
               httpRes?.data,
               shared.PullOperation
             );
@@ -216,7 +216,7 @@ export class DataStatus {
           break;
         case [401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
