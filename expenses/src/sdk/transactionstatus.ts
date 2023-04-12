@@ -79,7 +79,7 @@ export class TransactionStatus {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.transactionMetadata = [];
             const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.transactionMetadata = utils.deserializeJSONResponse(
+            res.transactionMetadata = utils.objectToClass(
               httpRes?.data,
               shared.TransactionMetadata,
               resFieldDepth
@@ -137,7 +137,7 @@ export class TransactionStatus {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.transactionMetadataList = utils.deserializeJSONResponse(
+            res.transactionMetadataList = utils.objectToClass(
               httpRes?.data,
               shared.TransactionMetadataList
             );

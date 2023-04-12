@@ -77,7 +77,7 @@ export class Configuration {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.companyConfiguration = utils.deserializeJSONResponse(
+            res.companyConfiguration = utils.objectToClass(
               httpRes?.data,
               shared.CompanyConfiguration
             );
@@ -150,7 +150,7 @@ export class Configuration {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.companyConfiguration = utils.deserializeJSONResponse(
+            res.companyConfiguration = utils.objectToClass(
               httpRes?.data,
               shared.CompanyConfiguration
             );
@@ -158,7 +158,7 @@ export class Configuration {
           break;
         case httpRes?.status == 400:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.codatErrorMessage = utils.deserializeJSONResponse(
+            res.codatErrorMessage = utils.objectToClass(
               httpRes?.data,
               shared.CodatErrorMessage
             );

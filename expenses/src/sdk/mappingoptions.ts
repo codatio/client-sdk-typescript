@@ -77,7 +77,7 @@ export class MappingOptions {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.mappingOptions = utils.deserializeJSONResponse(
+            res.mappingOptions = utils.objectToClass(
               httpRes?.data,
               shared.MappingOptions
             );

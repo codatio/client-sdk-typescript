@@ -95,7 +95,7 @@ export class Sync {
       switch (true) {
         case httpRes?.status == 202:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.syncInitiated = utils.deserializeJSONResponse(
+            res.syncInitiated = utils.objectToClass(
               httpRes?.data,
               shared.SyncInitiated
             );
@@ -103,7 +103,7 @@ export class Sync {
           break;
         case [400, 404, 422].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.codatErrorMessage = utils.deserializeJSONResponse(
+            res.codatErrorMessage = utils.objectToClass(
               httpRes?.data,
               shared.CodatErrorMessage
             );

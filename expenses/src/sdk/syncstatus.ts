@@ -77,7 +77,7 @@ export class SyncStatus {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.companySyncStatus = utils.deserializeJSONResponse(
+            res.companySyncStatus = utils.objectToClass(
               httpRes?.data,
               shared.CompanySyncStatus
             );
@@ -132,7 +132,7 @@ export class SyncStatus {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.companySyncStatus = utils.deserializeJSONResponse(
+            res.companySyncStatus = utils.objectToClass(
               httpRes?.data,
               shared.CompanySyncStatus
             );
@@ -187,7 +187,7 @@ export class SyncStatus {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.companySyncStatus = utils.deserializeJSONResponse(
+            res.companySyncStatus = utils.objectToClass(
               httpRes?.data,
               shared.CompanySyncStatus
             );
@@ -244,7 +244,7 @@ export class SyncStatus {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.companySyncStatuses = [];
             const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.companySyncStatuses = utils.deserializeJSONResponse(
+            res.companySyncStatuses = utils.objectToClass(
               httpRes?.data,
               shared.CompanySyncStatus,
               resFieldDepth

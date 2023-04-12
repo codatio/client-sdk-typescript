@@ -77,7 +77,7 @@ export class Connections {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.dataConnection = utils.deserializeJSONResponse(
+            res.dataConnection = utils.objectToClass(
               httpRes?.data,
               shared.DataConnection
             );

@@ -95,7 +95,7 @@ export class Expenses {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createExpenseResponse = utils.deserializeJSONResponse(
+            res.createExpenseResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateExpenseResponse
             );
@@ -168,7 +168,7 @@ export class Expenses {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.attachment = utils.deserializeJSONResponse(
+            res.attachment = utils.objectToClass(
               httpRes?.data,
               shared.Attachment
             );
