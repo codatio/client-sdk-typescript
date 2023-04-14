@@ -15,7 +15,7 @@ const sdk = new CodatCommon({
 
 const req: shared.CompanyRequestBody = {
   description: "corrupti",
-  name: "provident",
+  name: "Kelvin Sporer",
 };
 
 sdk.companies.createCompany(req).then((res: CreateCompanyResponse | AxiosError) => {
