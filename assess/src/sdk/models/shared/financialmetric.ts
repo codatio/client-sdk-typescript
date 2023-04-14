@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { RFCDate } from "../../types";
 import { Expose, Transform, Type } from "class-transformer";
 
 /**
@@ -124,8 +125,8 @@ export class FinancialMetricPeriods extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "fromDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  fromDate?: Date;
+  @Transform(({ value }) => new RFCDate(value), { toClassOnly: true })
+  fromDate?: RFCDate;
 
   @SpeakeasyMetadata({ elemType: FinancialMetricPeriodsInputs })
   @Expose({ name: "inputs" })
@@ -137,8 +138,8 @@ export class FinancialMetricPeriods extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "toDate" })
-  @Transform(({ value }) => new Date(value), { toClassOnly: true })
-  toDate?: Date;
+  @Transform(({ value }) => new RFCDate(value), { toClassOnly: true })
+  toDate?: RFCDate;
 
   /**
    * The top level metric value that is calculated for the specified period.
