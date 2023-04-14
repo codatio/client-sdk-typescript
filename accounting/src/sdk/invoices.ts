@@ -171,6 +171,65 @@ export class Invoices {
   }
 
   /**
+   * Delete invoice
+   *
+   * @remarks
+   * Deletes an invoice from the accounting package for a given company.
+   *
+   * > **Supported Integrations**
+   * >
+   * > This functionality is currently only supported for our QuickBooks Online integration. Check out our [public roadmap](https://portal.productboard.com/codat/7-public-product-roadmap/tabs/46-accounting-api) to see what we're building next, and to submit ideas for new features.
+   */
+  deleteInvoice(
+    req: operations.DeleteInvoiceRequest,
+    config?: AxiosRequestConfig
+  ): Promise<operations.DeleteInvoiceResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.DeleteInvoiceRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/connections/{connectionId}/push/invoices/{invoiceId}",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const r = client.request({
+      url: url,
+      method: "delete",
+      ...config,
+    });
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.DeleteInvoiceResponse =
+        new operations.DeleteInvoiceResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.pushOperationSummary = utils.objectToClass(
+              httpRes?.data,
+              shared.PushOperationSummary
+            );
+          }
+          break;
+      }
+
+      return res;
+    });
+  }
+
+  /**
    * Download invoice attachment
    *
    * @remarks

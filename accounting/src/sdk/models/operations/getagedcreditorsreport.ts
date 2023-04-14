@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { RFCDate } from "../../types";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
@@ -32,9 +33,9 @@ export class GetAgedCreditorsReportRequest extends SpeakeasyBase {
    * Date the report is generated up to.
    */
   @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=reportDate;dateTimeFormat=YYYY-MM-DD",
+    data: "queryParam, style=form;explode=true;name=reportDate",
   })
-  reportDate?: Date;
+  reportDate?: RFCDate;
 }
 
 export class GetAgedCreditorsReportResponse extends SpeakeasyBase {

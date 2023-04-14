@@ -164,6 +164,7 @@ sdk.accountTransactions.getAccountTransaction(req).then((res: GetAccountTransact
 
 * `downloadInvoicePdf` - Get invoice as PDF
 * `createInvoice` - Create invoice
+* `deleteInvoice` - Delete invoice
 * `downloadInvoiceAttachment` - Download invoice attachment
 * `getCreateUpdateInvoicesModel` - Get create/update invoice model
 * `getInvoice` - Get invoice
@@ -183,6 +184,7 @@ sdk.accountTransactions.getAccountTransaction(req).then((res: GetAccountTransact
 ### journalEntries
 
 * `createJournalEntry` - Create journal entry
+* `deleteJournalEntry` - Delete journal entry
 * `getCreateJournalEntriesModel` - Get create journal entry model
 * `getJournalEntry` - Get journal entry
 * `listJournalEntries` - List journal entries
