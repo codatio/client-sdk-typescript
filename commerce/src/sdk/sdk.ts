@@ -13,7 +13,8 @@ import { Payments } from "./payments";
 import { Products } from "./products";
 import { TaxComponents } from "./taxcomponents";
 import { Transactions } from "./transactions";
-import axios, { AxiosInstance } from "axios";
+import axios from "axios";
+import { AxiosInstance } from "axios";
 
 /**
  * Contains the list of servers available to the SDK
@@ -55,7 +56,7 @@ export type SDKProps = {
  *
  * [See our OpenAPI spec](https://github.com/codatio/oas)
  */
-export class Codat {
+export class CodatCommerce {
   /**
    * Retrieve standardized data from linked commerce platforms.
    */
@@ -97,8 +98,8 @@ export class Codat {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.8.6";
-  private _genVersion = "2.16.7";
+  private _sdkVersion = "0.10.1";
+  private _genVersion = "2.18.1";
   private _globals: any;
 
   constructor(props?: SDKProps) {
