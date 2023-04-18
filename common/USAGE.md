@@ -6,8 +6,8 @@ import {
 } from "@codat/common/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
-import { Codat } from "@codat/common";
-const sdk = new Codat({
+import { CodatCommon } from "@codat/common";
+const sdk = new CodatCommon({
   security: {
     authHeader: "YOUR_API_KEY_HERE",
   },
@@ -15,7 +15,7 @@ const sdk = new Codat({
 
 const req: shared.CompanyRequestBody = {
   description: "corrupti",
-  name: "provident",
+  name: "Kelvin Sporer",
 };
 
 sdk.companies.createCompany(req).then((res: CreateCompanyResponse | AxiosError) => {

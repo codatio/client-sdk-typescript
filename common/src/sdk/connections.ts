@@ -42,6 +42,7 @@ export class Connections {
    */
   createDataConnection(
     req: operations.CreateDataConnectionRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateDataConnectionResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -73,13 +74,20 @@ export class Connections {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
-      url: url,
-      method: "post",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "post",
+        headers: headers,
+        data: reqBody,
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -95,7 +103,7 @@ export class Connections {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.connection = utils.deserializeJSONResponse(
+            res.connection = utils.objectToClass(
               httpRes?.data,
               shared.Connection
             );
@@ -103,7 +111,7 @@ export class Connections {
           break;
         case httpRes?.status == 404:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -124,6 +132,7 @@ export class Connections {
    */
   deleteCompanyConnection(
     req: operations.DeleteCompanyConnectionRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.DeleteCompanyConnectionResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -139,11 +148,18 @@ export class Connections {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
-      url: url,
-      method: "delete",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "delete",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -161,7 +177,7 @@ export class Connections {
           break;
         case [401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -181,6 +197,7 @@ export class Connections {
    */
   getCompanyConnection(
     req: operations.GetCompanyConnectionRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.GetCompanyConnectionResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -196,11 +213,18 @@ export class Connections {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
-      url: url,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -216,7 +240,7 @@ export class Connections {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.connection = utils.deserializeJSONResponse(
+            res.connection = utils.objectToClass(
               httpRes?.data,
               shared.Connection
             );
@@ -224,7 +248,7 @@ export class Connections {
           break;
         case [401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -244,6 +268,7 @@ export class Connections {
    */
   listCompanyConnections(
     req: operations.ListCompanyConnectionsRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.ListCompanyConnectionsResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -261,11 +286,18 @@ export class Connections {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
-      url: url + queryParams,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url + queryParams,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -281,7 +313,7 @@ export class Connections {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.connections = utils.deserializeJSONResponse(
+            res.connections = utils.objectToClass(
               httpRes?.data,
               shared.Connections
             );
@@ -289,7 +321,7 @@ export class Connections {
           break;
         case [400, 401].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -309,6 +341,7 @@ export class Connections {
    */
   unlinkCompanyConnection(
     req: operations.UnlinkCompanyConnectionRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.UnlinkCompanyConnectionResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -340,13 +373,20 @@ export class Connections {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
-      url: url,
-      method: "patch",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "patch",
+        headers: headers,
+        data: reqBody,
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -362,7 +402,7 @@ export class Connections {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.connection = utils.deserializeJSONResponse(
+            res.connection = utils.objectToClass(
               httpRes?.data,
               shared.Connection
             );
@@ -370,7 +410,7 @@ export class Connections {
           break;
         case [400, 401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -390,6 +430,7 @@ export class Connections {
    */
   updateConnectionAuthorization(
     req: operations.UpdateConnectionAuthorizationRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.UpdateConnectionAuthorizationResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -421,13 +462,20 @@ export class Connections {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
-      url: url,
-      method: "put",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "put",
+        headers: headers,
+        data: reqBody,
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -443,7 +491,7 @@ export class Connections {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.connection = utils.deserializeJSONResponse(
+            res.connection = utils.objectToClass(
               httpRes?.data,
               shared.Connection
             );

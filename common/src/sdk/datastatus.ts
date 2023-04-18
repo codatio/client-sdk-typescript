@@ -42,6 +42,7 @@ export class DataStatus {
    */
   getCompanyDataHistory(
     req: operations.GetCompanyDataHistoryRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.GetCompanyDataHistoryResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -59,11 +60,18 @@ export class DataStatus {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
-      url: url + queryParams,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url + queryParams,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -79,7 +87,7 @@ export class DataStatus {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.dataConnectionHistory = utils.deserializeJSONResponse(
+            res.dataConnectionHistory = utils.objectToClass(
               httpRes?.data,
               shared.DataConnectionHistory
             );
@@ -87,7 +95,7 @@ export class DataStatus {
           break;
         case [400, 401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -107,6 +115,7 @@ export class DataStatus {
    */
   getCompanyDataStatus(
     req: operations.GetCompanyDataStatusRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.GetCompanyDataStatusResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -122,11 +131,18 @@ export class DataStatus {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
-      url: url,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -144,7 +160,7 @@ export class DataStatus {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.dataStatusResponse = {};
             const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.dataStatusResponse = utils.deserializeJSONResponse(
+            res.dataStatusResponse = utils.objectToClass(
               httpRes?.data,
               shared.DataStatus,
               resFieldDepth
@@ -153,7 +169,7 @@ export class DataStatus {
           break;
         case [401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -173,6 +189,7 @@ export class DataStatus {
    */
   getPullOperation(
     req: operations.GetPullOperationRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.GetPullOperationResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -188,11 +205,18 @@ export class DataStatus {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
-      url: url,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -208,7 +232,7 @@ export class DataStatus {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pullOperation = utils.deserializeJSONResponse(
+            res.pullOperation = utils.objectToClass(
               httpRes?.data,
               shared.PullOperation
             );
@@ -216,7 +240,7 @@ export class DataStatus {
           break;
         case [401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );

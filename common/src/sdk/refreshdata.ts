@@ -44,6 +44,7 @@ export class RefreshData {
    */
   createPullOperation(
     req: operations.CreatePullOperationRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.CreatePullOperationResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -61,11 +62,18 @@ export class RefreshData {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
-      url: url + queryParams,
-      method: "post",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url + queryParams,
+        method: "post",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -81,7 +89,7 @@ export class RefreshData {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pullOperation = utils.deserializeJSONResponse(
+            res.pullOperation = utils.objectToClass(
               httpRes?.data,
               shared.PullOperation
             );
@@ -89,7 +97,7 @@ export class RefreshData {
           break;
         case [401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -109,6 +117,7 @@ export class RefreshData {
    */
   refreshCompanyData(
     req: operations.RefreshCompanyDataRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.RefreshCompanyDataResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -124,11 +133,18 @@ export class RefreshData {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
-      url: url,
-      method: "post",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "post",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -146,7 +162,7 @@ export class RefreshData {
           break;
         case [401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );

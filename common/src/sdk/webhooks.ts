@@ -42,6 +42,7 @@ export class Webhooks {
    */
   createRule(
     req: shared.Rule,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateRuleResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -69,13 +70,20 @@ export class Webhooks {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
-      url: url,
-      method: "post",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "post",
+        headers: headers,
+        data: reqBody,
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -91,15 +99,12 @@ export class Webhooks {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.rule = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Rule
-            );
+            res.rule = utils.objectToClass(httpRes?.data, shared.Rule);
           }
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -119,6 +124,7 @@ export class Webhooks {
    */
   getWebhook(
     req: operations.GetWebhookRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.GetWebhookResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -130,11 +136,18 @@ export class Webhooks {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
-      url: url,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -150,15 +163,12 @@ export class Webhooks {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.rule = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Rule
-            );
+            res.rule = utils.objectToClass(httpRes?.data, shared.Rule);
           }
           break;
         case [401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -178,6 +188,7 @@ export class Webhooks {
    */
   listRules(
     req: operations.ListRulesRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.ListRulesResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -191,11 +202,18 @@ export class Webhooks {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
-      url: url + queryParams,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url + queryParams,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -211,15 +229,12 @@ export class Webhooks {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.rules = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Rules
-            );
+            res.rules = utils.objectToClass(httpRes?.data, shared.Rules);
           }
           break;
         case [400, 401].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );

@@ -41,6 +41,7 @@ export class Settings {
    * Fetch your Codat profile.
    */
   getProfile(
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.GetProfileResponse> {
     const baseURL: string = this._serverURL;
@@ -48,11 +49,18 @@ export class Settings {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
-      url: url,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -68,15 +76,12 @@ export class Settings {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.profile = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Profile
-            );
+            res.profile = utils.objectToClass(httpRes?.data, shared.Profile);
           }
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -95,6 +100,7 @@ export class Settings {
    * Retrieve the sync settings for your client. This includes how often data types should be queued to be updated, and how much history should be fetched.
    */
   getProfileSyncSettings(
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.GetProfileSyncSettingsResponse> {
     const baseURL: string = this._serverURL;
@@ -102,11 +108,18 @@ export class Settings {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
-      url: url,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -122,7 +135,7 @@ export class Settings {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.syncSettings = utils.deserializeJSONResponse(
+            res.syncSettings = utils.objectToClass(
               httpRes?.data,
               shared.SyncSettings
             );
@@ -130,7 +143,7 @@ export class Settings {
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -150,6 +163,7 @@ export class Settings {
    */
   updateProfile(
     req: shared.Profile,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.UpdateProfileResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -177,13 +191,20 @@ export class Settings {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
-      url: url,
-      method: "put",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "put",
+        headers: headers,
+        data: reqBody,
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -199,15 +220,12 @@ export class Settings {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.profile = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Profile
-            );
+            res.profile = utils.objectToClass(httpRes?.data, shared.Profile);
           }
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );
@@ -227,6 +245,7 @@ export class Settings {
    */
   updateSyncSettings(
     req: operations.UpdateSyncSettingsRequestBody,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.UpdateSyncSettingsResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -254,13 +273,20 @@ export class Settings {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
-      url: url,
-      method: "post",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "post",
+        headers: headers,
+        data: reqBody,
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -278,7 +304,7 @@ export class Settings {
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.deserializeJSONResponse(
+            res.errorMessage = utils.objectToClass(
               httpRes?.data,
               shared.ErrorMessage
             );

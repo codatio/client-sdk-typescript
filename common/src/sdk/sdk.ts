@@ -12,7 +12,8 @@ import { PushData } from "./pushdata";
 import { RefreshData } from "./refreshdata";
 import { Settings } from "./settings";
 import { Webhooks } from "./webhooks";
-import axios, { AxiosInstance } from "axios";
+import axios from "axios";
+import { AxiosInstance } from "axios";
 
 /**
  * Contains the list of servers available to the SDK
@@ -54,7 +55,7 @@ export type SDKProps = {
  *
  * [See our OpenAPI spec](https://github.com/codatio/oas)
  */
-export class Codat {
+export class CodatCommon {
   /**
    * Create and manage your Codat companies.
    */
@@ -92,8 +93,8 @@ export class Codat {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.7.5";
-  private _genVersion = "2.16.7";
+  private _sdkVersion = "0.9.1";
+  private _genVersion = "2.18.1";
   private _globals: any;
 
   constructor(props?: SDKProps) {
