@@ -48,6 +48,7 @@ export class PurchaseOrders {
    */
   createPurchaseOrder(
     req: operations.CreatePurchaseOrderRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.CreatePurchaseOrderResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -80,13 +81,20 @@ export class PurchaseOrders {
     const headers = { ...reqBodyHeaders, ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
-      url: url + queryParams,
-      method: "post",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url + queryParams,
+        method: "post",
+        headers: headers,
+        data: reqBody,
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -102,7 +110,7 @@ export class PurchaseOrders {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createPurchaseOrderResponse = utils.deserializeJSONResponse(
+            res.createPurchaseOrderResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreatePurchaseOrderResponse
             );
@@ -128,6 +136,7 @@ export class PurchaseOrders {
    */
   getCreateUpdatePurchaseOrdersModel(
     req: operations.GetCreateUpdatePurchaseOrdersModelRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.GetCreateUpdatePurchaseOrdersModelResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -143,11 +152,18 @@ export class PurchaseOrders {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
-      url: url,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -163,7 +179,7 @@ export class PurchaseOrders {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.deserializeJSONResponse(
+            res.pushOption = utils.objectToClass(
               httpRes?.data,
               shared.PushOption
             );
@@ -183,6 +199,7 @@ export class PurchaseOrders {
    */
   getPurchaseOrder(
     req: operations.GetPurchaseOrderRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.GetPurchaseOrderResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -198,11 +215,18 @@ export class PurchaseOrders {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
-      url: url,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -218,7 +242,7 @@ export class PurchaseOrders {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.purchaseOrder = utils.deserializeJSONResponse(
+            res.purchaseOrder = utils.objectToClass(
               httpRes?.data,
               shared.PurchaseOrder
             );
@@ -238,6 +262,7 @@ export class PurchaseOrders {
    */
   listPurchaseOrders(
     req: operations.ListPurchaseOrdersRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.ListPurchaseOrdersResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -255,11 +280,18 @@ export class PurchaseOrders {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
-      url: url + queryParams,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url + queryParams,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -275,7 +307,7 @@ export class PurchaseOrders {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.purchaseOrders = utils.deserializeJSONResponse(
+            res.purchaseOrders = utils.objectToClass(
               httpRes?.data,
               shared.PurchaseOrders
             );
@@ -301,6 +333,7 @@ export class PurchaseOrders {
    */
   updatePurchaseOrder(
     req: operations.UpdatePurchaseOrderRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.UpdatePurchaseOrderResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -333,13 +366,20 @@ export class PurchaseOrders {
     const headers = { ...reqBodyHeaders, ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
-      url: url + queryParams,
-      method: "put",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url + queryParams,
+        method: "put",
+        headers: headers,
+        data: reqBody,
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -355,7 +395,7 @@ export class PurchaseOrders {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.updatePurchaseOrderResponse = utils.deserializeJSONResponse(
+            res.updatePurchaseOrderResponse = utils.objectToClass(
               httpRes?.data,
               shared.UpdatePurchaseOrderResponse
             );

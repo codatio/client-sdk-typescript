@@ -40,6 +40,8 @@ src/internal/utils/retries.ts
 src/internal/utils/security.ts
 src/internal/utils/utils.ts
 src/sdk/index.ts
+src/sdk/types/index.ts
+src/sdk/types/rfcdate.ts
 tsconfig.json
 src/sdk/models/operations/getaccounttransaction.ts
 src/sdk/models/operations/listaccounttransactions.ts
@@ -113,6 +115,7 @@ src/sdk/models/operations/getcashflowstatement.ts
 src/sdk/models/operations/getprofitandloss.ts
 src/sdk/models/operations/downloadinvoicepdf.ts
 src/sdk/models/operations/createinvoice.ts
+src/sdk/models/operations/deleteinvoice.ts
 src/sdk/models/operations/downloadinvoiceattachment.ts
 src/sdk/models/operations/getcreateupdateinvoicesmodel.ts
 src/sdk/models/operations/getinvoice.ts
@@ -126,6 +129,7 @@ src/sdk/models/operations/getcreateitemsmodel.ts
 src/sdk/models/operations/getitem.ts
 src/sdk/models/operations/listitems.ts
 src/sdk/models/operations/createjournalentry.ts
+src/sdk/models/operations/deletejournalentry.ts
 src/sdk/models/operations/getcreatejournalentriesmodel.ts
 src/sdk/models/operations/getjournalentry.ts
 src/sdk/models/operations/listjournalentries.ts
