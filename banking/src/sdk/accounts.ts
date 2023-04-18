@@ -42,6 +42,7 @@ export class Accounts {
    */
   getAccount(
     req: operations.GetAccountRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.GetAccountResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -57,11 +58,18 @@ export class Accounts {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
-      url: url,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -77,10 +85,7 @@ export class Accounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.account = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Account
-            );
+            res.account = utils.objectToClass(httpRes?.data, shared.Account);
           }
           break;
       }
@@ -97,6 +102,7 @@ export class Accounts {
    */
   listAccounts(
     req: operations.ListAccountsRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.ListAccountsResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -114,11 +120,18 @@ export class Accounts {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
-      url: url + queryParams,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url + queryParams,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -134,10 +147,7 @@ export class Accounts {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.accounts = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Accounts
-            );
+            res.accounts = utils.objectToClass(httpRes?.data, shared.Accounts);
           }
           break;
       }

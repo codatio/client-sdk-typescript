@@ -8,7 +8,8 @@ import { Accounts } from "./accounts";
 import * as shared from "./models/shared";
 import { TransactionCategories } from "./transactioncategories";
 import { Transactions } from "./transactions";
-import axios, { AxiosInstance } from "axios";
+import axios from "axios";
+import { AxiosInstance } from "axios";
 
 /**
  * Contains the list of servers available to the SDK
@@ -50,7 +51,7 @@ export type SDKProps = {
  *
  * [See our OpenAPI spec](https://github.com/codatio/oas)
  */
-export class Codat {
+export class CodatBanking {
   /**
    * Balances for a bank account including end-of-day batch balance or running balances per transaction.
    */
@@ -72,8 +73,8 @@ export class Codat {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.8.4";
-  private _genVersion = "2.16.7";
+  private _sdkVersion = "0.10.1";
+  private _genVersion = "2.18.1";
   private _globals: any;
 
   constructor(props?: SDKProps) {
