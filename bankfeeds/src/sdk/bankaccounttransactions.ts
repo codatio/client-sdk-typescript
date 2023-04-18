@@ -46,6 +46,7 @@ export class BankAccountTransactions {
    */
   createBankTransactions(
     req: operations.CreateBankTransactionsRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateBankTransactionsResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -78,13 +79,20 @@ export class BankAccountTransactions {
     const headers = { ...reqBodyHeaders, ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
-      url: url + queryParams,
-      method: "post",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url + queryParams,
+        method: "post",
+        headers: headers,
+        data: reqBody,
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -100,7 +108,7 @@ export class BankAccountTransactions {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.createBankTransactionsResponse = utils.deserializeJSONResponse(
+            res.createBankTransactionsResponse = utils.objectToClass(
               httpRes?.data,
               shared.CreateBankTransactionsResponse
             );
@@ -120,6 +128,7 @@ export class BankAccountTransactions {
    */
   getCreateBankAccountModel(
     req: operations.GetCreateBankAccountModelRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.GetCreateBankAccountModelResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -135,11 +144,18 @@ export class BankAccountTransactions {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
-      url: url,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -155,7 +171,7 @@ export class BankAccountTransactions {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.deserializeJSONResponse(
+            res.pushOption = utils.objectToClass(
               httpRes?.data,
               shared.PushOption
             );
@@ -175,6 +191,7 @@ export class BankAccountTransactions {
    */
   listBankAccountTransactions(
     req: operations.ListBankAccountTransactionsRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.ListBankAccountTransactionsResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -192,11 +209,18 @@ export class BankAccountTransactions {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
-      url: url + queryParams,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url + queryParams,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -212,7 +236,7 @@ export class BankAccountTransactions {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.bankTransactionsResponse = utils.deserializeJSONResponse(
+            res.bankTransactionsResponse = utils.objectToClass(
               httpRes?.data,
               shared.BankTransactionsResponse
             );
