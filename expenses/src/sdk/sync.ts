@@ -42,6 +42,7 @@ export class Sync {
    */
   intiateSync(
     req: operations.IntiateSyncRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.IntiateSyncResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -73,13 +74,20 @@ export class Sync {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
-      url: url,
-      method: "post",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "post",
+        headers: headers,
+        data: reqBody,
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -95,7 +103,7 @@ export class Sync {
       switch (true) {
         case httpRes?.status == 202:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.syncInitiated = utils.deserializeJSONResponse(
+            res.syncInitiated = utils.objectToClass(
               httpRes?.data,
               shared.SyncInitiated
             );
@@ -103,7 +111,7 @@ export class Sync {
           break;
         case [400, 404, 422].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.codatErrorMessage = utils.deserializeJSONResponse(
+            res.codatErrorMessage = utils.objectToClass(
               httpRes?.data,
               shared.CodatErrorMessage
             );

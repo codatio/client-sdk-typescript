@@ -42,6 +42,7 @@ export class TransactionStatus {
    */
   getSyncTransaction(
     req: operations.GetSyncTransactionRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.GetSyncTransactionResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -57,11 +58,18 @@ export class TransactionStatus {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
-      url: url,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -79,7 +87,7 @@ export class TransactionStatus {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.transactionMetadata = [];
             const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.transactionMetadata = utils.deserializeJSONResponse(
+            res.transactionMetadata = utils.objectToClass(
               httpRes?.data,
               shared.TransactionMetadata,
               resFieldDepth
@@ -100,6 +108,7 @@ export class TransactionStatus {
    */
   listSyncTransactions(
     req: operations.ListSyncTransactionsRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.ListSyncTransactionsResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -117,11 +126,18 @@ export class TransactionStatus {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
-      url: url + queryParams,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url + queryParams,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -137,7 +153,7 @@ export class TransactionStatus {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.transactionMetadataList = utils.deserializeJSONResponse(
+            res.transactionMetadataList = utils.objectToClass(
               httpRes?.data,
               shared.TransactionMetadataList
             );
