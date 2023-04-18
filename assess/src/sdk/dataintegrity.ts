@@ -42,6 +42,7 @@ export class DataIntegrity {
    */
   getDataIntegrityDetails(
     req: operations.GetDataIntegrityDetailsRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.GetDataIntegrityDetailsResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -59,11 +60,18 @@ export class DataIntegrity {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
-      url: url + queryParams,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url + queryParams,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -79,10 +87,7 @@ export class DataIntegrity {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.details = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Details
-            );
+            res.details = utils.objectToClass(httpRes?.data, shared.Details);
           }
           break;
       }
@@ -99,6 +104,7 @@ export class DataIntegrity {
    */
   getDataIntegrityStatus(
     req: operations.GetDataIntegrityStatusRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.GetDataIntegrityStatusResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -114,11 +120,18 @@ export class DataIntegrity {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
-      url: url,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -134,10 +147,7 @@ export class DataIntegrity {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.deserializeJSONResponse(
-              httpRes?.data,
-              shared.Status
-            );
+            res.status = utils.objectToClass(httpRes?.data, shared.Status);
           }
           break;
       }
@@ -154,6 +164,7 @@ export class DataIntegrity {
    */
   getDataIntegritySummaries(
     req: operations.GetDataIntegritySummariesRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.GetDataIntegritySummariesResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -171,11 +182,18 @@ export class DataIntegrity {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
-      url: url + queryParams,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url + queryParams,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -191,7 +209,7 @@ export class DataIntegrity {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.summaries = utils.deserializeJSONResponse(
+            res.summaries = utils.objectToClass(
               httpRes?.data,
               shared.Summaries
             );

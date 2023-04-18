@@ -42,6 +42,7 @@ export class Categories {
    */
   getAccountCategory(
     req: operations.GetAccountCategoryRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.GetAccountCategoryResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -57,11 +58,18 @@ export class Categories {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
-      url: url,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -77,7 +85,7 @@ export class Categories {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.categorisedAccount = utils.deserializeJSONResponse(
+            res.categorisedAccount = utils.objectToClass(
               httpRes?.data,
               shared.CategorisedAccount
             );
@@ -97,6 +105,7 @@ export class Categories {
    */
   listAccountsCategories(
     req: operations.ListAccountsCategoriesRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.ListAccountsCategoriesResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -114,11 +123,18 @@ export class Categories {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
-      url: url + queryParams,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url + queryParams,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -134,7 +150,7 @@ export class Categories {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.categorisedAccounts = utils.deserializeJSONResponse(
+            res.categorisedAccounts = utils.objectToClass(
               httpRes?.data,
               shared.CategorisedAccounts
             );
@@ -153,6 +169,7 @@ export class Categories {
    * Lists available account categories Codat's categorisation engine can provide.
    */
   listAvailableAccountCategories(
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.ListAvailableAccountCategoriesResponse> {
     const baseURL: string = this._serverURL;
@@ -161,11 +178,18 @@ export class Categories {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
-      url: url,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -183,7 +207,7 @@ export class Categories {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.categories = [];
             const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.categories = utils.deserializeJSONResponse(
+            res.categories = utils.objectToClass(
               httpRes?.data,
               shared.Categories,
               resFieldDepth
@@ -204,6 +228,7 @@ export class Categories {
    */
   updateAccountCategory(
     req: operations.UpdateAccountCategoryRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.UpdateAccountCategoryResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -235,13 +260,20 @@ export class Categories {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
-      url: url,
-      method: "patch",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "patch",
+        headers: headers,
+        data: reqBody,
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -257,7 +289,7 @@ export class Categories {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.categorisedAccount = utils.deserializeJSONResponse(
+            res.categorisedAccount = utils.objectToClass(
               httpRes?.data,
               shared.CategorisedAccount
             );
@@ -277,6 +309,7 @@ export class Categories {
    */
   updateAccountsCategories(
     req: operations.UpdateAccountsCategoriesRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.UpdateAccountsCategoriesResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -308,13 +341,20 @@ export class Categories {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
-      url: url,
-      method: "patch",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "patch",
+        headers: headers,
+        data: reqBody,
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -332,7 +372,7 @@ export class Categories {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.categorisedAccounts = [];
             const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.categorisedAccounts = utils.deserializeJSONResponse(
+            res.categorisedAccounts = utils.objectToClass(
               httpRes?.data,
               shared.CategorisedAccount,
               resFieldDepth
