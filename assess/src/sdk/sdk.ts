@@ -71,8 +71,8 @@ export class CodatAssess {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.10.1";
-  private _genVersion = "2.18.1";
+  private _sdkVersion = "0.10.2";
+  private _genVersion = "2.18.2";
   private _globals: any;
 
   constructor(props?: SDKProps) {
