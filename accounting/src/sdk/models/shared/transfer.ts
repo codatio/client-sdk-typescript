@@ -65,6 +65,9 @@ export class Transfer extends SpeakeasyBase {
   @Expose({ name: "date" })
   date?: string;
 
+  /**
+   * List of selected transactions to associate with the transfer. Use this field to include transactions which are posted to the _undeposited funds_ (or other holding) account within the transfer.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "depositedRecordRefs" })
   depositedRecordRefs?: string[];
