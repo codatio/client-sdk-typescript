@@ -15,15 +15,15 @@ export class CompanyConfiguration extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "bankAccount" })
   @Type(() => BankAccount)
-  bankAccount?: BankAccount;
+  bankAccount: BankAccount;
 
   @SpeakeasyMetadata()
   @Expose({ name: "customer" })
   @Type(() => Customer)
-  customer?: Customer;
+  customer: Customer;
 
   @SpeakeasyMetadata()
   @Expose({ name: "supplier" })
   @Type(() => Supplier)
-  supplier?: Supplier;
+  supplier: Supplier;
 }

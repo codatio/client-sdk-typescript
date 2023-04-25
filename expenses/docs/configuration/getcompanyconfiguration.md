@@ -1,4 +1,9 @@
-<!-- Start SDK Example Usage -->
+# getCompanyConfiguration
+Available in: `configuration`
+
+Gets a companies expense sync configuration
+
+## Example Usage
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 import { GetCompanyConfigurationRequest, GetCompanyConfigurationResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
@@ -20,4 +25,3 @@ sdk.configuration.getCompanyConfiguration(req).then((res: GetCompanyConfiguratio
   }
 });
 ```
-<!-- End SDK Example Usage -->

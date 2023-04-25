@@ -1,7 +1,12 @@
-<!-- Start SDK Example Usage -->
+# listSyncs
+Available in: `syncStatus`
+
+Gets a list of sync statuses
+
+## Example Usage
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { GetCompanyConfigurationRequest, GetCompanyConfigurationResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
+import { ListSyncsRequest, ListSyncsResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatSyncExpenses({
@@ -10,14 +15,13 @@ const sdk = new CodatSyncExpenses({
   },
 });
 
-const req: GetCompanyConfigurationRequest = {
+const req: ListSyncsRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
-sdk.configuration.getCompanyConfiguration(req).then((res: GetCompanyConfigurationResponse | AxiosError) => {
+sdk.syncStatus.listSyncs(req).then((res: ListSyncsResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
-<!-- End SDK Example Usage -->
