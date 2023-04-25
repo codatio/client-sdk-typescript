@@ -1,4 +1,13 @@
-<!-- Start SDK Example Usage -->
+# createBankTransactions
+Available in: `bankAccountTransactions`
+
+Posts bank transactions to the accounting package for a given company.
+
+> **Supported Integrations**
+> 
+> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankTransactions) for integrations that support POST methods.
+
+## Example Usage
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { CreateBankTransactionsRequest, CreateBankTransactionsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
@@ -18,46 +27,33 @@ const sdk = new CodatBankFeeds({
 
 const req: CreateBankTransactionsRequest = {
   bankTransactions: {
-    accountId: "corrupti",
+    accountId: "numquam",
     transactions: [
       {
-        amount: 7151.9,
-        balance: 8442.66,
+        amount: 4663.11,
+        balance: 4746.97,
         clearedOnDate: "2022-10-23T00:00:00Z",
-        counterparty: "unde",
-        description: "nulla",
-        id: "8d69a674-e0f4-467c-8879-6ed151a05dfc",
+        counterparty: "velit",
+        description: "error",
+        id: "251aa52c-3f5a-4d01-9da1-ffe78f097b00",
         modifiedDate: "2022-10-23T00:00:00Z",
         reconciled: false,
-        reference: "odit",
+        reference: "reprehenderit",
         sourceModifiedDate: "2022-10-23T00:00:00Z",
-        transactionType: BankTransactionTypeEnum.DirectDebit,
+        transactionType: BankTransactionTypeEnum.Fee,
       },
       {
-        amount: 8700.88,
-        balance: 9786.19,
+        amount: 9795.87,
+        balance: 1201.96,
         clearedOnDate: "2022-10-23T00:00:00Z",
-        counterparty: "molestiae",
-        description: "quod",
-        id: "c78ca1ba-928f-4c81-a742-cb7392059293",
+        counterparty: "corporis",
+        description: "dolore",
+        id: "71b5e6e1-3b99-4d48-8e1e-91e450ad2abd",
         modifiedDate: "2022-10-23T00:00:00Z",
         reconciled: false,
-        reference: "natus",
+        reference: "labore",
         sourceModifiedDate: "2022-10-23T00:00:00Z",
-        transactionType: BankTransactionTypeEnum.SerChg,
-      },
-      {
-        amount: 9437.49,
-        balance: 9025.99,
-        clearedOnDate: "2022-10-23T00:00:00Z",
-        counterparty: "fuga",
-        description: "in",
-        id: "596eb10f-aaa2-4352-8595-5907aff1a3a2",
-        modifiedDate: "2022-10-23T00:00:00Z",
-        reconciled: false,
-        reference: "repellat",
-        sourceModifiedDate: "2022-10-23T00:00:00Z",
-        transactionType: BankTransactionTypeEnum.Check,
+        transactionType: BankTransactionTypeEnum.Div,
       },
     ],
   },
@@ -65,7 +61,7 @@ const req: CreateBankTransactionsRequest = {
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 581850,
+  timeoutInMinutes: 183191,
 };
 
 sdk.bankAccountTransactions.createBankTransactions(req).then((res: CreateBankTransactionsResponse | AxiosError) => {
@@ -74,4 +70,3 @@ sdk.bankAccountTransactions.createBankTransactions(req).then((res: CreateBankTra
   }
 });
 ```
-<!-- End SDK Example Usage -->
