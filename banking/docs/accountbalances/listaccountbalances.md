@@ -1,4 +1,9 @@
-<!-- Start SDK Example Usage -->
+# listAccountBalances
+Available in: `accountBalances`
+
+Gets a list of balances for a bank account including end-of-day batch balance or running balances per transaction.
+
+## Example Usage
 ```typescript
 import { CodatBanking } from "@codat/banking";
 import { ListAccountBalancesRequest, ListAccountBalancesResponse } from "@codat/banking/dist/sdk/models/operations";
@@ -16,7 +21,7 @@ const req: ListAccountBalancesRequest = {
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "corrupti",
+  query: "provident",
 };
 
 sdk.accountBalances.listAccountBalances(req).then((res: ListAccountBalancesResponse | AxiosError) => {
@@ -25,4 +30,3 @@ sdk.accountBalances.listAccountBalances(req).then((res: ListAccountBalancesRespo
   }
 });
 ```
-<!-- End SDK Example Usage -->
