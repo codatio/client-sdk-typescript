@@ -62,10 +62,13 @@ export class Dispute extends SpeakeasyBase {
   @Expose({ name: "currency" })
   currency: string;
 
-  @SpeakeasyMetadata()
+  /**
+   * Link to the source event(s) which triggered this transaction.
+   */
+  @SpeakeasyMetadata({ elemType: TransactionSourceRef })
   @Expose({ name: "disputedTransactions" })
   @Type(() => TransactionSourceRef)
-  disputedTransactions?: TransactionSourceRef;
+  disputedTransactions?: TransactionSourceRef[];
 
   /**
    * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:

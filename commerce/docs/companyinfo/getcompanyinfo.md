@@ -1,4 +1,11 @@
-<!-- Start SDK Example Usage -->
+# getCompanyInfo
+Available in: `companyInfo`
+
+Retrieve information about the company, as seen in the commerce platform.
+
+This may include information like addresses, tax registration details and social media or website information.
+
+## Example Usage
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
 import { GetCompanyInfoRequest, GetCompanyInfoResponse } from "@codat/commerce/dist/sdk/models/operations";
@@ -22,4 +29,3 @@ sdk.companyInfo.getCompanyInfo(req).then((res: GetCompanyInfoResponse | AxiosErr
   }
 });
 ```
-<!-- End SDK Example Usage -->

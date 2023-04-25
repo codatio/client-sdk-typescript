@@ -21,5 +21,5 @@ export class LocationRef extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "name" })
-  name: string;
+  name?: string;
 }
