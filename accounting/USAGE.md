@@ -1,12 +1,10 @@
 <!-- Start SDK Example Usage -->
 ```typescript
-import {
-  GetAccountTransactionRequest,
-  GetAccountTransactionResponse
-} from "@codat/accounting/dist/sdk/models/operations";
-
-import { AxiosError } from "axios";
 import { CodatAccounting } from "@codat/accounting";
+import { GetAccountTransactionRequest, GetAccountTransactionResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { AccountTransactionStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { AxiosError } from "axios";
+
 const sdk = new CodatAccounting({
   security: {
     authHeader: "YOUR_API_KEY_HERE",
@@ -20,7 +18,9 @@ const req: GetAccountTransactionRequest = {
 };
 
 sdk.accountTransactions.getAccountTransaction(req).then((res: GetAccountTransactionResponse | AxiosError) => {
-   // handle response
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
 });
 ```
 <!-- End SDK Example Usage -->

@@ -22,13 +22,11 @@ yarn add @codat/accounting
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
 ```typescript
-import {
-  GetAccountTransactionRequest,
-  GetAccountTransactionResponse
-} from "@codat/accounting/dist/sdk/models/operations";
-
-import { AxiosError } from "axios";
 import { CodatAccounting } from "@codat/accounting";
+import { GetAccountTransactionRequest, GetAccountTransactionResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { AccountTransactionStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { AxiosError } from "axios";
+
 const sdk = new CodatAccounting({
   security: {
     authHeader: "YOUR_API_KEY_HERE",
@@ -42,7 +40,9 @@ const req: GetAccountTransactionRequest = {
 };
 
 sdk.accountTransactions.getAccountTransaction(req).then((res: GetAccountTransactionResponse | AxiosError) => {
-   // handle response
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
 });
 ```
 <!-- End SDK Example Usage -->
@@ -51,210 +51,210 @@ sdk.accountTransactions.getAccountTransaction(req).then((res: GetAccountTransact
 ## Available Resources and Operations
 
 
-### accountTransactions
+### [accountTransactions](docs/accounttransactions/README.md)
 
-* `getAccountTransaction` - Get account transaction
-* `listAccountTransactions` - List account transactions
+* [getAccountTransaction](docs/accounttransactions/getaccounttransaction.md) - Get account transaction
+* [listAccountTransactions](docs/accounttransactions/listaccounttransactions.md) - List account transactions
 
-### accounts
+### [accounts](docs/accounts/README.md)
 
-* `createAccount` - Create account
-* `getAccount` - Get account
-* `getCreateChartOfAccountsModel` - Get create account model
-* `listAccounts` - List accounts
+* [createAccount](docs/accounts/createaccount.md) - Create account
+* [getAccount](docs/accounts/getaccount.md) - Get account
+* [getCreateChartOfAccountsModel](docs/accounts/getcreatechartofaccountsmodel.md) - Get create account model
+* [listAccounts](docs/accounts/listaccounts.md) - List accounts
 
-### bankAccountTransactions
+### [bankAccountTransactions](docs/bankaccounttransactions/README.md)
 
-* `createBankTransactions` - Create bank transactions
-* `getCreateBankAccountModel` - List push options for bank account bank transactions
-* `listBankAccountTransactions` - List bank transactions for bank account
-* `listBankTransactions` - List all bank transactions
+* [createBankTransactions](docs/bankaccounttransactions/createbanktransactions.md) - Create bank transactions
+* [getCreateBankAccountModel](docs/bankaccounttransactions/getcreatebankaccountmodel.md) - List push options for bank account bank transactions
+* [listBankAccountTransactions](docs/bankaccounttransactions/listbankaccounttransactions.md) - List bank transactions for bank account
+* [listBankTransactions](docs/bankaccounttransactions/listbanktransactions.md) - List all bank transactions
 
-### bankAccounts
+### [bankAccounts](docs/bankaccounts/README.md)
 
-* `createBankAccount` - Create bank account
-* `getAllBankAccount` - Get bank account
-* `getBankAccount` - Get bank account
-* `getCreateUpdateBankAccountsModel` - Get create/update bank account model
-* `listBankAccounts` - List bank accounts
-* `updateBankAccount` - Update bank account
+* [createBankAccount](docs/bankaccounts/createbankaccount.md) - Create bank account
+* [getAllBankAccount](docs/bankaccounts/getallbankaccount.md) - Get bank account
+* [getBankAccount](docs/bankaccounts/getbankaccount.md) - Get bank account
+* [getCreateUpdateBankAccountsModel](docs/bankaccounts/getcreateupdatebankaccountsmodel.md) - Get create/update bank account model
+* [listBankAccounts](docs/bankaccounts/listbankaccounts.md) - List bank accounts
+* [updateBankAccount](docs/bankaccounts/updatebankaccount.md) - Update bank account
 
-### billCreditNotes
+### [billCreditNotes](docs/billcreditnotes/README.md)
 
-* `createBillCreditNote` - Create bill credit note
-* `getBillCreditNote` - Get bill credit note
-* `getCreateUpdateBillCreditNotesModel` - Get create/update bill credit note model
-* `listBillCreditNotes` - List bill credit notes
-* `updateBillCreditNote` - Update bill credit note
+* [createBillCreditNote](docs/billcreditnotes/createbillcreditnote.md) - Create bill credit note
+* [getBillCreditNote](docs/billcreditnotes/getbillcreditnote.md) - Get bill credit note
+* [getCreateUpdateBillCreditNotesModel](docs/billcreditnotes/getcreateupdatebillcreditnotesmodel.md) - Get create/update bill credit note model
+* [listBillCreditNotes](docs/billcreditnotes/listbillcreditnotes.md) - List bill credit notes
+* [updateBillCreditNote](docs/billcreditnotes/updatebillcreditnote.md) - Update bill credit note
 
-### billPayments
+### [billPayments](docs/billpayments/README.md)
 
-* `createBillPayment` - Create bill payments
-* `deleteBillPayment` - Delete bill payment
-* `getBillPayments` - Get bill payment
-* `getCreateBillPaymentsModel` - Get create bill payment model
-* `listBillPayments` - List bill payments
+* [createBillPayment](docs/billpayments/createbillpayment.md) - Create bill payments
+* [deleteBillPayment](docs/billpayments/deletebillpayment.md) - Delete bill payment
+* [getBillPayments](docs/billpayments/getbillpayments.md) - Get bill payment
+* [getCreateBillPaymentsModel](docs/billpayments/getcreatebillpaymentsmodel.md) - Get create bill payment model
+* [listBillPayments](docs/billpayments/listbillpayments.md) - List bill payments
 
-### bills
+### [bills](docs/bills/README.md)
 
-* `createBill` - Create bill
-* `deleteBill` - Delete bill
-* `downloadBillAttachment` - Download bill attachment
-* `getBill` - Get bill
-* `getBillAttachment` - Get bill attachment
-* `getBillAttachments` - List bill attachments
-* `getCreateUpdateBillsModel` - Get create/update bill model
-* `listBills` - List bills
-* `updateBill` - Update bill
-* `uploadBillAttachments` - Upload bill attachments
+* [createBill](docs/bills/createbill.md) - Create bill
+* [deleteBill](docs/bills/deletebill.md) - Delete bill
+* [downloadBillAttachment](docs/bills/downloadbillattachment.md) - Download bill attachment
+* [getBill](docs/bills/getbill.md) - Get bill
+* [getBillAttachment](docs/bills/getbillattachment.md) - Get bill attachment
+* [getBillAttachments](docs/bills/getbillattachments.md) - List bill attachments
+* [getCreateUpdateBillsModel](docs/bills/getcreateupdatebillsmodel.md) - Get create/update bill model
+* [listBills](docs/bills/listbills.md) - List bills
+* [updateBill](docs/bills/updatebill.md) - Update bill
+* [uploadBillAttachments](docs/bills/uploadbillattachments.md) - Upload bill attachments
 
-### companyInfo
+### [companyInfo](docs/companyinfo/README.md)
 
-* `getCompanyInfo` - Get company info
-* `postSyncInfo` - Refresh company info
+* [getCompanyInfo](docs/companyinfo/getcompanyinfo.md) - Get company info
+* [postSyncInfo](docs/companyinfo/postsyncinfo.md) - Refresh company info
 
-### creditNotes
+### [creditNotes](docs/creditnotes/README.md)
 
-* `createCreditNote` - Create credit note
-* `getCreateUpdateCreditNotesModel` - Get create/update credit note model
-* `getCreditNote` - Get credit note
-* `listCreditNotes` - List credit notes
-* `updateCreditNote` - Update creditNote
+* [createCreditNote](docs/creditnotes/createcreditnote.md) - Create credit note
+* [getCreateUpdateCreditNotesModel](docs/creditnotes/getcreateupdatecreditnotesmodel.md) - Get create/update credit note model
+* [getCreditNote](docs/creditnotes/getcreditnote.md) - Get credit note
+* [listCreditNotes](docs/creditnotes/listcreditnotes.md) - List credit notes
+* [updateCreditNote](docs/creditnotes/updatecreditnote.md) - Update creditNote
 
-### customers
+### [customers](docs/customers/README.md)
 
-* `createCustomer` - Create customer
-* `downloadCustomerAttachment` - Download customer attachment
-* `getCreateUpdateCustomersModel` - Get create/update customer model
-* `getCustomer` - Get customer
-* `getCustomerAttachment` - Get customer attachment
-* `getCustomerAttachments` - List customer attachments
-* `getCustomers` - List customers
-* `updateCustomer` - Update customer
+* [createCustomer](docs/customers/createcustomer.md) - Create customer
+* [downloadCustomerAttachment](docs/customers/downloadcustomerattachment.md) - Download customer attachment
+* [getCreateUpdateCustomersModel](docs/customers/getcreateupdatecustomersmodel.md) - Get create/update customer model
+* [getCustomer](docs/customers/getcustomer.md) - Get customer
+* [getCustomerAttachment](docs/customers/getcustomerattachment.md) - Get customer attachment
+* [getCustomerAttachments](docs/customers/getcustomerattachments.md) - List customer attachments
+* [getCustomers](docs/customers/getcustomers.md) - List customers
+* [updateCustomer](docs/customers/updatecustomer.md) - Update customer
 
-### directCosts
+### [directCosts](docs/directcosts/README.md)
 
-* `createDirectCost` - Create direct cost
-* `downloadDirectCostAttachment` - Download direct cost attachment
-* `getCreateDirectCostsModel` - Get create direct cost model
-* `getDirectCost` - Get direct cost
-* `getDirectCostAttachment` - Get direct cost attachment
-* `getDirectCosts` - List direct costs
-* `listDirectCostAttachments` - List direct cost attachments
-* `uploadDirectCostAttachment` - Upload direct cost attachment
+* [createDirectCost](docs/directcosts/createdirectcost.md) - Create direct cost
+* [downloadDirectCostAttachment](docs/directcosts/downloaddirectcostattachment.md) - Download direct cost attachment
+* [getCreateDirectCostsModel](docs/directcosts/getcreatedirectcostsmodel.md) - Get create direct cost model
+* [getDirectCost](docs/directcosts/getdirectcost.md) - Get direct cost
+* [getDirectCostAttachment](docs/directcosts/getdirectcostattachment.md) - Get direct cost attachment
+* [getDirectCosts](docs/directcosts/getdirectcosts.md) - List direct costs
+* [listDirectCostAttachments](docs/directcosts/listdirectcostattachments.md) - List direct cost attachments
+* [uploadDirectCostAttachment](docs/directcosts/uploaddirectcostattachment.md) - Upload direct cost attachment
 
-### directIncomes
+### [directIncomes](docs/directincomes/README.md)
 
-* `createDirectIncome` - Create direct income
-* `downloadDirectIncomeAttachment` - Download direct income attachment
-* `getCreateDirectIncomesModel` - Get create direct income model
-* `getDirectIncome` - Get direct income
-* `getDirectIncomeAttachment` - Get direct income attachment
-* `getDirectIncomes` - Get direct incomes
-* `listDirectIncomeAttachments` - List direct income attachments
-* `uploadDirectIncomeAttachment` - Create direct income attachment
+* [createDirectIncome](docs/directincomes/createdirectincome.md) - Create direct income
+* [downloadDirectIncomeAttachment](docs/directincomes/downloaddirectincomeattachment.md) - Download direct income attachment
+* [getCreateDirectIncomesModel](docs/directincomes/getcreatedirectincomesmodel.md) - Get create direct income model
+* [getDirectIncome](docs/directincomes/getdirectincome.md) - Get direct income
+* [getDirectIncomeAttachment](docs/directincomes/getdirectincomeattachment.md) - Get direct income attachment
+* [getDirectIncomes](docs/directincomes/getdirectincomes.md) - Get direct incomes
+* [listDirectIncomeAttachments](docs/directincomes/listdirectincomeattachments.md) - List direct income attachments
+* [uploadDirectIncomeAttachment](docs/directincomes/uploaddirectincomeattachment.md) - Create direct income attachment
 
-### financials
+### [financials](docs/financials/README.md)
 
-* `getBalanceSheet` - Get balance sheet
-* `getCashFlowStatement` - Get cash flow statement
-* `getProfitAndLoss` - Get profit and loss
+* [getBalanceSheet](docs/financials/getbalancesheet.md) - Get balance sheet
+* [getCashFlowStatement](docs/financials/getcashflowstatement.md) - Get cash flow statement
+* [getProfitAndLoss](docs/financials/getprofitandloss.md) - Get profit and loss
 
-### invoices
+### [invoices](docs/invoices/README.md)
 
-* `downloadInvoicePdf` - Get invoice as PDF
-* `createInvoice` - Create invoice
-* `deleteInvoice` - Delete invoice
-* `downloadInvoiceAttachment` - Download invoice attachment
-* `getCreateUpdateInvoicesModel` - Get create/update invoice model
-* `getInvoice` - Get invoice
-* `getInvoiceAttachment` - Get invoice attachment
-* `getInvoiceAttachments` - Get invoice attachments
-* `listInvoices` - List invoices
-* `updateInvoice` - Update invoice
-* `uploadInvoiceAttachment` - Push invoice attachment
+* [downloadInvoicePdf](docs/invoices/downloadinvoicepdf.md) - Get invoice as PDF
+* [createInvoice](docs/invoices/createinvoice.md) - Create invoice
+* [deleteInvoice](docs/invoices/deleteinvoice.md) - Delete invoice
+* [downloadInvoiceAttachment](docs/invoices/downloadinvoiceattachment.md) - Download invoice attachment
+* [getCreateUpdateInvoicesModel](docs/invoices/getcreateupdateinvoicesmodel.md) - Get create/update invoice model
+* [getInvoice](docs/invoices/getinvoice.md) - Get invoice
+* [getInvoiceAttachment](docs/invoices/getinvoiceattachment.md) - Get invoice attachment
+* [getInvoiceAttachments](docs/invoices/getinvoiceattachments.md) - Get invoice attachments
+* [listInvoices](docs/invoices/listinvoices.md) - List invoices
+* [updateInvoice](docs/invoices/updateinvoice.md) - Update invoice
+* [uploadInvoiceAttachment](docs/invoices/uploadinvoiceattachment.md) - Push invoice attachment
 
-### items
+### [items](docs/items/README.md)
 
-* `createItem` - Create item
-* `getCreateItemsModel` - Get create item model
-* `getItem` - Get item
-* `listItems` - List items
+* [createItem](docs/items/createitem.md) - Create item
+* [getCreateItemsModel](docs/items/getcreateitemsmodel.md) - Get create item model
+* [getItem](docs/items/getitem.md) - Get item
+* [listItems](docs/items/listitems.md) - List items
 
-### journalEntries
+### [journalEntries](docs/journalentries/README.md)
 
-* `createJournalEntry` - Create journal entry
-* `deleteJournalEntry` - Delete journal entry
-* `getCreateJournalEntriesModel` - Get create journal entry model
-* `getJournalEntry` - Get journal entry
-* `listJournalEntries` - List journal entries
+* [createJournalEntry](docs/journalentries/createjournalentry.md) - Create journal entry
+* [deleteJournalEntry](docs/journalentries/deletejournalentry.md) - Delete journal entry
+* [getCreateJournalEntriesModel](docs/journalentries/getcreatejournalentriesmodel.md) - Get create journal entry model
+* [getJournalEntry](docs/journalentries/getjournalentry.md) - Get journal entry
+* [listJournalEntries](docs/journalentries/listjournalentries.md) - List journal entries
 
-### journals
+### [journals](docs/journals/README.md)
 
-* `getCreateJournalsModel` - Get create journal model
-* `getJournal` - Get journal
-* `listJournals` - List journals
-* `pushJournal` - Create journal
+* [getCreateJournalsModel](docs/journals/getcreatejournalsmodel.md) - Get create journal model
+* [getJournal](docs/journals/getjournal.md) - Get journal
+* [listJournals](docs/journals/listjournals.md) - List journals
+* [pushJournal](docs/journals/pushjournal.md) - Create journal
 
-### paymentMethods
+### [paymentMethods](docs/paymentmethods/README.md)
 
-* `getPaymentMethod` - Get payment method
-* `listPaymentMethods` - List all payment methods
+* [getPaymentMethod](docs/paymentmethods/getpaymentmethod.md) - Get payment method
+* [listPaymentMethods](docs/paymentmethods/listpaymentmethods.md) - List all payment methods
 
-### payments
+### [payments](docs/payments/README.md)
 
-* `createPayment` - Create payment
-* `getCreatePaymentsModel` - Get create payment model
-* `getPayment` - Get payment
-* `listPayments` - List payments
+* [createPayment](docs/payments/createpayment.md) - Create payment
+* [getCreatePaymentsModel](docs/payments/getcreatepaymentsmodel.md) - Get create payment model
+* [getPayment](docs/payments/getpayment.md) - Get payment
+* [listPayments](docs/payments/listpayments.md) - List payments
 
-### purchaseOrders
+### [purchaseOrders](docs/purchaseorders/README.md)
 
-* `createPurchaseOrder` - Create purchase order
-* `getCreateUpdatePurchaseOrdersModel` - Get create/update purchase order model
-* `getPurchaseOrder` - Get purchase order
-* `listPurchaseOrders` - List purchase orders
-* `updatePurchaseOrder` - Update purchase order
+* [createPurchaseOrder](docs/purchaseorders/createpurchaseorder.md) - Create purchase order
+* [getCreateUpdatePurchaseOrdersModel](docs/purchaseorders/getcreateupdatepurchaseordersmodel.md) - Get create/update purchase order model
+* [getPurchaseOrder](docs/purchaseorders/getpurchaseorder.md) - Get purchase order
+* [listPurchaseOrders](docs/purchaseorders/listpurchaseorders.md) - List purchase orders
+* [updatePurchaseOrder](docs/purchaseorders/updatepurchaseorder.md) - Update purchase order
 
-### reports
+### [reports](docs/reports/README.md)
 
-* `getAgedCreditorsReport` - Aged creditors report
-* `getAgedDebtorsReport` - Aged debtors report
-* `isAgedCreditorsReportAvailable` - Aged creditors report available
-* `isAgedDebtorReportAvailable` - Aged debtors report available
+* [getAgedCreditorsReport](docs/reports/getagedcreditorsreport.md) - Aged creditors report
+* [getAgedDebtorsReport](docs/reports/getageddebtorsreport.md) - Aged debtors report
+* [isAgedCreditorsReportAvailable](docs/reports/isagedcreditorsreportavailable.md) - Aged creditors report available
+* [isAgedDebtorReportAvailable](docs/reports/isageddebtorreportavailable.md) - Aged debtors report available
 
-### salesOrders
+### [salesOrders](docs/salesorders/README.md)
 
-* `getSalesOrder` - Get sales order
-* `listSalesOrders` - List sales orders
+* [getSalesOrder](docs/salesorders/getsalesorder.md) - Get sales order
+* [listSalesOrders](docs/salesorders/listsalesorders.md) - List sales orders
 
-### suppliers
+### [suppliers](docs/suppliers/README.md)
 
-* `createSupplier` - Create suppliers
-* `downloadSupplierAttachment` - Download supplier attachment
-* `getCreateUpdateSuppliersModel` - Get create/update supplier model
-* `getSupplier` - Get supplier
-* `getSupplierAttachment` - Get supplier attachment
-* `listSupplierAttachments` - List supplier attachments
-* `listSuppliers` - List suppliers
-* `putSupplier` - Update supplier
+* [createSupplier](docs/suppliers/createsupplier.md) - Create suppliers
+* [downloadSupplierAttachment](docs/suppliers/downloadsupplierattachment.md) - Download supplier attachment
+* [getCreateUpdateSuppliersModel](docs/suppliers/getcreateupdatesuppliersmodel.md) - Get create/update supplier model
+* [getSupplier](docs/suppliers/getsupplier.md) - Get supplier
+* [getSupplierAttachment](docs/suppliers/getsupplierattachment.md) - Get supplier attachment
+* [listSupplierAttachments](docs/suppliers/listsupplierattachments.md) - List supplier attachments
+* [listSuppliers](docs/suppliers/listsuppliers.md) - List suppliers
+* [putSupplier](docs/suppliers/putsupplier.md) - Update supplier
 
-### taxRates
+### [taxRates](docs/taxrates/README.md)
 
-* `getTaxRate` - Get tax rate
-* `listTaxRates` - List all tax rates
+* [getTaxRate](docs/taxrates/gettaxrate.md) - Get tax rate
+* [listTaxRates](docs/taxrates/listtaxrates.md) - List all tax rates
 
-### trackingCategories
+### [trackingCategories](docs/trackingcategories/README.md)
 
-* `getTrackingCategory` - Get tracking categories
-* `listTrackingCategories` - List tracking categories
+* [getTrackingCategory](docs/trackingcategories/gettrackingcategory.md) - Get tracking categories
+* [listTrackingCategories](docs/trackingcategories/listtrackingcategories.md) - List tracking categories
 
-### transfers
+### [transfers](docs/transfers/README.md)
 
-* `createTransfer` - Create transfer
-* `getCreateTransfersModel` - Get create transfer model
-* `getTransfer` - Get transfer
-* `listTransfers` - List transfers
+* [createTransfer](docs/transfers/createtransfer.md) - Create transfer
+* [getCreateTransfersModel](docs/transfers/getcreatetransfersmodel.md) - Get create transfer model
+* [getTransfer](docs/transfers/gettransfer.md) - Get transfer
+* [listTransfers](docs/transfers/listtransfers.md) - List transfers
 <!-- End SDK Available Operations -->
 
 ### SDK Generated by [Speakeasy](https://docs.speakeasyapi.dev/docs/using-speakeasy/client-sdks)

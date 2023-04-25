@@ -25,6 +25,9 @@ export class UpdateCustomerRequest extends SpeakeasyBase {
   })
   customerId: string;
 
+  /**
+   * When updating data in the destination platform Codat checks the `sourceModifiedDate` against the `lastupdated` date from the accounting platform, if they're different Codat will return an error suggesting you should initiate another pull of the data. If this is set to `true` then the update will override this check.
+   */
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=forceUpdate",
   })
