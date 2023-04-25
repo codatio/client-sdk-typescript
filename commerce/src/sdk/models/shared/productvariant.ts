@@ -59,10 +59,10 @@ export class ProductVariant extends SpeakeasyBase {
   /**
    * Information about the total inventory as well as the locations inventory is in.
    */
-  @SpeakeasyMetadata({ elemType: ProductInventory })
+  @SpeakeasyMetadata()
   @Expose({ name: "inventory" })
   @Type(() => ProductInventory)
-  inventory?: ProductInventory[];
+  inventory?: ProductInventory;
 
   /**
    * Whether sales taxes are enabled for this product variant.

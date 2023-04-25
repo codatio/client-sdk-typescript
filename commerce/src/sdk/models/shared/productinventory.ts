@@ -6,6 +6,9 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { ProductInventoryLocation } from "./productinventorylocation";
 import { Expose, Type } from "class-transformer";
 
+/**
+ * Information about the total inventory as well as the locations inventory is in.
+ */
 export class ProductInventory extends SpeakeasyBase {
   @SpeakeasyMetadata({ elemType: ProductInventoryLocation })
   @Expose({ name: "locations" })
