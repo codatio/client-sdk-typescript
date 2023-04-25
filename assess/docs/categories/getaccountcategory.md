@@ -1,4 +1,9 @@
-<!-- Start SDK Example Usage -->
+# getAccountCategory
+Available in: `categories`
+
+Get category for specific nominal account.
+
+## Example Usage
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetAccountCategoryRequest, GetAccountCategoryResponse } from "@codat/assess/dist/sdk/models/operations";
@@ -11,7 +16,7 @@ const sdk = new CodatAssess({
 });
 
 const req: GetAccountCategoryRequest = {
-  accountId: "corrupti",
+  accountId: "provident",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
@@ -22,4 +27,3 @@ sdk.categories.getAccountCategory(req).then((res: GetAccountCategoryResponse | A
   }
 });
 ```
-<!-- End SDK Example Usage -->
