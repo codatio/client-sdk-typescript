@@ -1,7 +1,12 @@
-<!-- Start SDK Example Usage -->
+# getCompany
+Available in: `companies`
+
+Get metadata for a single company
+
+## Example Usage
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { CompanyRequestBody, CreateCompanyResponse } from "@codat/common/dist/sdk/models/operations";
+import { GetCompanyRequest, GetCompanyResponse } from "@codat/common/dist/sdk/models/operations";
 import { DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -11,15 +16,13 @@ const sdk = new CodatCommon({
   },
 });
 
-const req: shared.CompanyRequestBody = {
-  description: "corrupti",
-  name: "Kelvin Sporer",
+const req: GetCompanyRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
-sdk.companies.createCompany(req).then((res: CreateCompanyResponse | AxiosError) => {
+sdk.companies.getCompany(req).then((res: GetCompanyResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
-<!-- End SDK Example Usage -->

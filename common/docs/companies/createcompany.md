@@ -1,4 +1,9 @@
-<!-- Start SDK Example Usage -->
+# createCompany
+Available in: `companies`
+
+Create a new company
+
+## Example Usage
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { CompanyRequestBody, CreateCompanyResponse } from "@codat/common/dist/sdk/models/operations";
@@ -13,7 +18,7 @@ const sdk = new CodatCommon({
 
 const req: shared.CompanyRequestBody = {
   description: "corrupti",
-  name: "Kelvin Sporer",
+  name: "Ben Mueller",
 };
 
 sdk.companies.createCompany(req).then((res: CreateCompanyResponse | AxiosError) => {
@@ -22,4 +27,3 @@ sdk.companies.createCompany(req).then((res: CreateCompanyResponse | AxiosError) 
   }
 });
 ```
-<!-- End SDK Example Usage -->
