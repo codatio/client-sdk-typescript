@@ -1,4 +1,9 @@
-<!-- Start SDK Example Usage -->
+# downloadFiles
+Available in: `files`
+
+You can specify a date to download specific files for.
+
+## Example Usage
 ```typescript
 import { CodatFiles } from "@codat/files";
 import { DownloadFilesRequest, DownloadFilesResponse } from "@codat/files/dist/sdk/models/operations";
@@ -21,4 +26,3 @@ sdk.files.downloadFiles(req).then((res: DownloadFilesResponse | AxiosError) => {
   }
 });
 ```
-<!-- End SDK Example Usage -->
