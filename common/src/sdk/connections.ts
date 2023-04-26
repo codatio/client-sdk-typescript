@@ -35,7 +35,7 @@ export class Connections {
   }
 
   /**
-   * Create a data connection
+   * Create connection
    *
    * @remarks
    * Create a data connection for a company

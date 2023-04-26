@@ -49,56 +49,56 @@ sdk.companies.createCompany(req).then((res: CreateCompanyResponse | AxiosError) 
 
 ### [companies](docs/companies/README.md)
 
-* [createCompany](docs/companies/createcompany.md) - Create company
-* [deleteCompany](docs/companies/deletecompany.md) - Delete a company
-* [getCompany](docs/companies/getcompany.md) - Get company
-* [listCompanies](docs/companies/listcompanies.md) - List companies
-* [updateCompany](docs/companies/updatecompany.md) - Update company
+* [createCompany](docs/companies/README.md#createcompany) - Create company
+* [deleteCompany](docs/companies/README.md#deletecompany) - Delete a company
+* [getCompany](docs/companies/README.md#getcompany) - Get company
+* [listCompanies](docs/companies/README.md#listcompanies) - List companies
+* [updateCompany](docs/companies/README.md#updatecompany) - Update company
 
 ### [connections](docs/connections/README.md)
 
-* [createDataConnection](docs/connections/createdataconnection.md) - Create a data connection
-* [deleteCompanyConnection](docs/connections/deletecompanyconnection.md) - Delete connection
-* [getCompanyConnection](docs/connections/getcompanyconnection.md) - Get connection
-* [listCompanyConnections](docs/connections/listcompanyconnections.md) - List connections
-* [unlinkCompanyConnection](docs/connections/unlinkcompanyconnection.md) - Unlink connection
-* [updateConnectionAuthorization](docs/connections/updateconnectionauthorization.md) - Update authorization
+* [createDataConnection](docs/connections/README.md#createdataconnection) - Create connection
+* [deleteCompanyConnection](docs/connections/README.md#deletecompanyconnection) - Delete connection
+* [getCompanyConnection](docs/connections/README.md#getcompanyconnection) - Get connection
+* [listCompanyConnections](docs/connections/README.md#listcompanyconnections) - List connections
+* [unlinkCompanyConnection](docs/connections/README.md#unlinkcompanyconnection) - Unlink connection
+* [updateConnectionAuthorization](docs/connections/README.md#updateconnectionauthorization) - Update authorization
 
 ### [dataStatus](docs/datastatus/README.md)
 
-* [getCompanyDataHistory](docs/datastatus/getcompanydatahistory.md) - Get pull operations
-* [getCompanyDataStatus](docs/datastatus/getcompanydatastatus.md) - Get data status
-* [getPullOperation](docs/datastatus/getpulloperation.md) - Get pull operation
+* [getCompanyDataHistory](docs/datastatus/README.md#getcompanydatahistory) - Get pull operations
+* [getCompanyDataStatus](docs/datastatus/README.md#getcompanydatastatus) - Get data status
+* [getPullOperation](docs/datastatus/README.md#getpulloperation) - Get pull operation
 
 ### [integrations](docs/integrations/README.md)
 
-* [getIntegration](docs/integrations/getintegration.md) - Get integration
-* [getIntegrationsBranding](docs/integrations/getintegrationsbranding.md) - Get branding
-* [listIntegrations](docs/integrations/listintegrations.md) - List integrations
+* [getIntegration](docs/integrations/README.md#getintegration) - Get integration
+* [getIntegrationsBranding](docs/integrations/README.md#getintegrationsbranding) - Get branding
+* [listIntegrations](docs/integrations/README.md#listintegrations) - List integrations
 
 ### [pushData](docs/pushdata/README.md)
 
-* [getCompanyPushHistory](docs/pushdata/getcompanypushhistory.md) - List push operations
-* [getCreateUpdateModelOptionsByDataType](docs/pushdata/getcreateupdatemodeloptionsbydatatype.md) - List push options
-* [getPushOperation](docs/pushdata/getpushoperation.md) - Get push operation
+* [getCompanyPushHistory](docs/pushdata/README.md#getcompanypushhistory) - List push operations
+* [getCreateUpdateModelOptionsByDataType](docs/pushdata/README.md#getcreateupdatemodeloptionsbydatatype) - List push options
+* [getPushOperation](docs/pushdata/README.md#getpushoperation) - Get push operation
 
 ### [refreshData](docs/refreshdata/README.md)
 
-* [createPullOperation](docs/refreshdata/createpulloperation.md) - Queue pull operation
-* [refreshCompanyData](docs/refreshdata/refreshcompanydata.md) - Queue pull operations
+* [createPullOperation](docs/refreshdata/README.md#createpulloperation) - Queue pull operation
+* [refreshCompanyData](docs/refreshdata/README.md#refreshcompanydata) - Queue pull operations
 
 ### [settings](docs/settings/README.md)
 
-* [getProfile](docs/settings/getprofile.md) - Get profile
-* [getProfileSyncSettings](docs/settings/getprofilesyncsettings.md) - Get sync settings
-* [updateProfile](docs/settings/updateprofile.md) - Update profile
-* [updateSyncSettings](docs/settings/updatesyncsettings.md) - Update all sync settings
+* [getProfile](docs/settings/README.md#getprofile) - Get profile
+* [getProfileSyncSettings](docs/settings/README.md#getprofilesyncsettings) - Get sync settings
+* [updateProfile](docs/settings/README.md#updateprofile) - Update profile
+* [updateSyncSettings](docs/settings/README.md#updatesyncsettings) - Update all sync settings
 
 ### [webhooks](docs/webhooks/README.md)
 
-* [createRule](docs/webhooks/createrule.md) - Create webhook
-* [getWebhook](docs/webhooks/getwebhook.md) - Get webhook
-* [listRules](docs/webhooks/listrules.md) - List webhooks
+* [createRule](docs/webhooks/README.md#createrule) - Create webhook
+* [getWebhook](docs/webhooks/README.md#getwebhook) - Get webhook
+* [listRules](docs/webhooks/README.md#listrules) - List webhooks
 <!-- End SDK Available Operations -->
 
 ### SDK Generated by [Speakeasy](https://docs.speakeasyapi.dev/docs/using-speakeasy/client-sdks)
