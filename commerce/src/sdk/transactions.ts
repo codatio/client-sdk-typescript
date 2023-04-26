@@ -40,7 +40,7 @@ export class Transactions {
    * @remarks
    * Details of all financial transactions recorded in the commerce or point of sale system are added to the Transactions data type. For example, payments, service charges, and fees.
    */
-  listTransactions(
+  list(
     req: operations.ListTransactionsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

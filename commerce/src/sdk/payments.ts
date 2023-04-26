@@ -35,12 +35,74 @@ export class Payments {
   }
 
   /**
+   * List payments
+   *
+   * @remarks
+   * List commerce payments for the given company & data connection.
+   */
+  list(
+    req: operations.ListPaymentsRequest,
+    retries?: utils.RetryConfig,
+    config?: AxiosRequestConfig
+  ): Promise<operations.ListPaymentsResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.ListPaymentsRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/connections/{connectionId}/data/commerce-payments",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const queryParams: string = utils.serializeQueryParams(req);
+
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url + queryParams,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.ListPaymentsResponse =
+        new operations.ListPaymentsResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.payments = utils.objectToClass(httpRes?.data, shared.Payments);
+          }
+          break;
+      }
+
+      return res;
+    });
+  }
+
+  /**
    * List payment methods
    *
    * @remarks
    * Retrieve a list of payment methods, such as card, cash or other online payment methods, as held in the linked commerce platform.
    */
-  listPaymentMethods(
+  listMethods(
     req: operations.ListPaymentMethodsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -91,68 +153,6 @@ export class Payments {
               httpRes?.data,
               shared.PaymentMethods
             );
-          }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
-   * List payments
-   *
-   * @remarks
-   * List commerce payments for the given company & data connection.
-   */
-  listPayments(
-    req: operations.ListPaymentsRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.ListPaymentsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ListPaymentsRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/connections/{connectionId}/data/commerce-payments",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const queryParams: string = utils.serializeQueryParams(req);
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const r = utils.Retry(() => {
-      return client.request({
-        url: url + queryParams,
-        method: "get",
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListPaymentsResponse =
-        new operations.ListPaymentsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.payments = utils.objectToClass(httpRes?.data, shared.Payments);
           }
           break;
       }

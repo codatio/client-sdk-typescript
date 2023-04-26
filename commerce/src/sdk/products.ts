@@ -35,12 +35,74 @@ export class Products {
   }
 
   /**
+   * List products
+   *
+   * @remarks
+   * The Products data type provides the company's product inventory, and includes the price and quantity of all products, and product variants, available for sale.
+   */
+  list(
+    req: operations.ListProductsRequest,
+    retries?: utils.RetryConfig,
+    config?: AxiosRequestConfig
+  ): Promise<operations.ListProductsResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.ListProductsRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/connections/{connectionId}/data/commerce-products",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const queryParams: string = utils.serializeQueryParams(req);
+
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url + queryParams,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.ListProductsResponse =
+        new operations.ListProductsResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.products = utils.objectToClass(httpRes?.data, shared.Products);
+          }
+          break;
+      }
+
+      return res;
+    });
+  }
+
+  /**
    * List product categories
    *
    * @remarks
    * Product categories are used to classify a group of products together, either by type (eg "Furniture"), or sometimes by tax profile.
    */
-  listProductCategories(
+  listCategories(
     req: operations.ListProductCategoriesRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -91,68 +153,6 @@ export class Products {
               httpRes?.data,
               shared.ProductCategories
             );
-          }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
-   * List products
-   *
-   * @remarks
-   * The Products data type provides the company's product inventory, and includes the price and quantity of all products, and product variants, available for sale.
-   */
-  listProducts(
-    req: operations.ListProductsRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.ListProductsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ListProductsRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/connections/{connectionId}/data/commerce-products",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const queryParams: string = utils.serializeQueryParams(req);
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const r = utils.Retry(() => {
-      return client.request({
-        url: url + queryParams,
-        method: "get",
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListProductsResponse =
-        new operations.ListProductsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.products = utils.objectToClass(httpRes?.data, shared.Products);
           }
           break;
       }

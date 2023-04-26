@@ -1,4 +1,21 @@
-<!-- Start SDK Example Usage -->
+# companyInfo
+
+## Overview
+
+Retrieve standardized data from linked commerce platforms.
+
+### Available Operations
+
+* [get](#get) - Get company info
+
+## get
+
+Retrieve information about the company, as seen in the commerce platform.
+
+This may include information like addresses, tax registration details and social media or website information.
+
+### Example Usage
+
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
 import { GetCompanyInfoRequest, GetCompanyInfoResponse } from "@codat/commerce/dist/sdk/models/operations";
@@ -22,4 +39,3 @@ sdk.companyInfo.get(req).then((res: GetCompanyInfoResponse | AxiosError) => {
   }
 });
 ```
-<!-- End SDK Example Usage -->

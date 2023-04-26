@@ -40,7 +40,7 @@ export class TaxComponents {
    * @remarks
    * This endpoint returns a lits of tax rates from the commerce platform, including tax rate names and values. This supports the mapping of tax rates from the commerce platform to the accounting platform.
    */
-  getTaxComponents(
+  get(
     req: operations.GetTaxComponentsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
