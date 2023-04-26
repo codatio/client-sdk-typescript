@@ -27,7 +27,4 @@ src/sdk/models/shared/security.ts
 src/sdk/models/shared/index.ts
 docs/codatfiles/README.md
 docs/files/README.md
-docs/files/downloadfiles.md
-docs/files/listfiles.md
-docs/files/uploadfiles.md
 USAGE.md
