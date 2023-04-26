@@ -73,7 +73,7 @@ export class CodatBanking {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.11.2";
+  private _sdkVersion = "0.11.3";
   private _genVersion = "2.21.2";
   private _globals: any;
 
