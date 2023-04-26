@@ -35,72 +35,7 @@ export class PushData {
   }
 
   /**
-   * List push operations
-   *
-   * @remarks
-   * List push operation records.
-   */
-  getCompanyPushHistory(
-    req: operations.GetCompanyPushHistoryRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetCompanyPushHistoryResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCompanyPushHistoryRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/push",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const queryParams: string = utils.serializeQueryParams(req);
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const r = utils.Retry(() => {
-      return client.request({
-        url: url + queryParams,
-        method: "get",
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCompanyPushHistoryResponse =
-        new operations.GetCompanyPushHistoryResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushHistoryResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.PushHistoryResponse
-            );
-          }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
-   * List push options
+   * Get push options
    *
    * @remarks
    * This is the generic documentation for creation and updating of data. See the equivalent endpoint for a given data type for more specific information.
@@ -114,7 +49,7 @@ export class PushData {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/) for integrations that support push (POST/PUT methods).
    */
-  getCreateUpdateModelOptionsByDataType(
+  getModelOptions(
     req: operations.GetCreateUpdateModelOptionsByDataTypeRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -177,7 +112,7 @@ export class PushData {
    * @remarks
    * Retrieve push operation.
    */
-  getPushOperation(
+  getOperation(
     req: operations.GetPushOperationRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -225,6 +160,71 @@ export class PushData {
             res.pushOperation = utils.objectToClass(
               httpRes?.data,
               shared.PushOperation
+            );
+          }
+          break;
+      }
+
+      return res;
+    });
+  }
+
+  /**
+   * List push operations
+   *
+   * @remarks
+   * List push operation records.
+   */
+  listOperations(
+    req: operations.GetCompanyPushHistoryRequest,
+    retries?: utils.RetryConfig,
+    config?: AxiosRequestConfig
+  ): Promise<operations.GetCompanyPushHistoryResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.GetCompanyPushHistoryRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/push",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const queryParams: string = utils.serializeQueryParams(req);
+
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url + queryParams,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.GetCompanyPushHistoryResponse =
+        new operations.GetCompanyPushHistoryResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.pushHistoryResponse = utils.objectToClass(
+              httpRes?.data,
+              shared.PushHistoryResponse
             );
           }
           break;

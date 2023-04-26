@@ -35,85 +35,12 @@ export class DataStatus {
   }
 
   /**
-   * Get pull operations
-   *
-   * @remarks
-   * Gets the pull operation history (datasets) for a given company.
-   */
-  getCompanyDataHistory(
-    req: operations.GetCompanyDataHistoryRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetCompanyDataHistoryResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCompanyDataHistoryRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/data/history",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const queryParams: string = utils.serializeQueryParams(req);
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const r = utils.Retry(() => {
-      return client.request({
-        url: url + queryParams,
-        method: "get",
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCompanyDataHistoryResponse =
-        new operations.GetCompanyDataHistoryResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.dataConnectionHistory = utils.objectToClass(
-              httpRes?.data,
-              shared.DataConnectionHistory
-            );
-          }
-          break;
-        case [400, 401, 404].includes(httpRes?.status):
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.objectToClass(
-              httpRes?.data,
-              shared.ErrorMessage
-            );
-          }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
    * Get data status
    *
    * @remarks
    * Get the state of each data type for a company
    */
-  getCompanyDataStatus(
+  get(
     req: operations.GetCompanyDataStatusRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -239,6 +166,79 @@ export class DataStatus {
           }
           break;
         case [401, 404].includes(httpRes?.status):
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.errorMessage = utils.objectToClass(
+              httpRes?.data,
+              shared.ErrorMessage
+            );
+          }
+          break;
+      }
+
+      return res;
+    });
+  }
+
+  /**
+   * Get pull operations
+   *
+   * @remarks
+   * Gets the pull operation history (datasets) for a given company.
+   */
+  listPullOperations(
+    req: operations.ListPullOperationsRequest,
+    retries?: utils.RetryConfig,
+    config?: AxiosRequestConfig
+  ): Promise<operations.ListPullOperationsResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.ListPullOperationsRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/data/history",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const queryParams: string = utils.serializeQueryParams(req);
+
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url + queryParams,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.ListPullOperationsResponse =
+        new operations.ListPullOperationsResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.dataConnectionHistory = utils.objectToClass(
+              httpRes?.data,
+              shared.DataConnectionHistory
+            );
+          }
+          break;
+        case [400, 401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {
             res.errorMessage = utils.objectToClass(
               httpRes?.data,

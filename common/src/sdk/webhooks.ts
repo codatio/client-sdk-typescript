@@ -40,7 +40,7 @@ export class Webhooks {
    * @remarks
    * Create a new webhook configuration
    */
-  createRule(
+  create(
     req: shared.Rule,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -122,7 +122,7 @@ export class Webhooks {
    * @remarks
    * Get a single webhook
    */
-  getWebhook(
+  get(
     req: operations.GetWebhookRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -186,7 +186,7 @@ export class Webhooks {
    * @remarks
    * List webhooks that you are subscribed to.
    */
-  listRules(
+  list(
     req: operations.ListRulesRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

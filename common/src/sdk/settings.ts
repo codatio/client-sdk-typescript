@@ -94,19 +94,40 @@ export class Settings {
   }
 
   /**
-   * Get sync settings
+   * Update all sync settings
    *
    * @remarks
-   * Retrieve the sync settings for your client. This includes how often data types should be queued to be updated, and how much history should be fetched.
+   * Update sync settings for all data types.
    */
-  getProfileSyncSettings(
+  getSyncSettings(
+    req: operations.UpdateSyncSettingsRequestBody,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetProfileSyncSettingsResponse> {
+  ): Promise<operations.UpdateSyncSettingsResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.UpdateSyncSettingsRequestBody(req);
+    }
+
     const baseURL: string = this._serverURL;
     const url: string = baseURL.replace(/\/$/, "") + "/profile/syncSettings";
 
+    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+    try {
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "request",
+        "json"
+      );
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        throw new Error(`Error serializing request body, cause: ${e.message}`);
+      }
+    }
+
     const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const headers = { ...reqBodyHeaders, ...config?.headers };
 
     let retryConfig: any = retries;
     if (!retryConfig) {
@@ -116,7 +137,9 @@ export class Settings {
     const r = utils.Retry(() => {
       return client.request({
         url: url,
-        method: "get",
+        method: "post",
+        headers: headers,
+        data: reqBody,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -126,20 +149,14 @@ export class Settings {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetProfileSyncSettingsResponse =
-        new operations.GetProfileSyncSettingsResponse({
+      const res: operations.UpdateSyncSettingsResponse =
+        new operations.UpdateSyncSettingsResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
         });
       switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.syncSettings = utils.objectToClass(
-              httpRes?.data,
-              shared.SyncSettings
-            );
-          }
+        case httpRes?.status == 204:
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
@@ -222,85 +239,6 @@ export class Settings {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.profile = utils.objectToClass(httpRes?.data, shared.Profile);
           }
-          break;
-        case httpRes?.status == 401:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.objectToClass(
-              httpRes?.data,
-              shared.ErrorMessage
-            );
-          }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
-   * Update all sync settings
-   *
-   * @remarks
-   * Update sync settings for all data types.
-   */
-  updateSyncSettings(
-    req: operations.UpdateSyncSettingsRequestBody,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.UpdateSyncSettingsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.UpdateSyncSettingsRequestBody(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = baseURL.replace(/\/$/, "") + "/profile/syncSettings";
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-        req,
-        "request",
-        "json"
-      );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...reqBodyHeaders, ...config?.headers };
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const r = utils.Retry(() => {
-      return client.request({
-        url: url,
-        method: "post",
-        headers: headers,
-        data: reqBody,
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.UpdateSyncSettingsResponse =
-        new operations.UpdateSyncSettingsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 204:
           break;
         case httpRes?.status == 401:
           if (utils.matchContentType(contentType, `application/json`)) {
