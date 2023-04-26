@@ -6,12 +6,12 @@ Bank transactions for bank accounts
 
 ### Available Operations
 
-* [createBankTransactions](#createbanktransactions) - Create bank transactions
-* [getCreateBankAccountModel](#getcreatebankaccountmodel) - List push options for bank account bank transactions
-* [listBankAccountTransactions](#listbankaccounttransactions) - List bank transactions for bank account
-* [listBankTransactions](#listbanktransactions) - List all bank transactions
+* [create](#create) - Create bank transactions
+* [getCreateModel](#getcreatemodel) - List push options for bank account bank transactions
+* [list](#list) - List bank transactions for bank account
+* [listTransactions](#listtransactions) - List all bank transactions
 
-## createBankTransactions
+## create
 
 Posts bank transactions to the accounting package for a given company.
 
@@ -40,19 +40,19 @@ const sdk = new CodatAccounting({
 
 const req: CreateBankTransactionsRequest = {
   bankTransactions: {
-    accountId: "excepturi",
+    accountId: "quis",
     transactions: [
       {
-        amount: 187.89,
-        balance: 3241.41,
-        clearedOnDate: "natus",
-        counterparty: "sed",
-        description: "iste",
-        id: "396fea75-96eb-410f-aaa2-352c5955907a",
-        modifiedDate: "doloribus",
+        amount: 6481.72,
+        balance: 202.18,
+        clearedOnDate: "ipsam",
+        counterparty: "repellendus",
+        description: "sapiente",
+        id: "c2ddf7cc-78ca-41ba-928f-c816742cb739",
+        modifiedDate: "aspernatur",
         reconciled: false,
-        reference: "sapiente",
-        sourceModifiedDate: "architecto",
+        reference: "perferendis",
+        sourceModifiedDate: "ad",
         transactionType: BankTransactionTypeEnum.Check,
       },
     ],
@@ -61,17 +61,17 @@ const req: CreateBankTransactionsRequest = {
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 208876,
+  timeoutInMinutes: 149675,
 };
 
-sdk.bankAccountTransactions.createBankTransactions(req).then((res: CreateBankTransactionsResponse | AxiosError) => {
+sdk.bankAccountTransactions.create(req).then((res: CreateBankTransactionsResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getCreateBankAccountModel
+## getCreateModel
 
 Gets the options of pushing bank account transactions.
 
@@ -95,14 +95,14 @@ const req: GetCreateBankAccountModelRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-sdk.bankAccountTransactions.getCreateBankAccountModel(req).then((res: GetCreateBankAccountModelResponse | AxiosError) => {
+sdk.bankAccountTransactions.getCreateModel(req).then((res: GetCreateBankAccountModelResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## listBankAccountTransactions
+## list
 
 Gets bank transactions for a given bank account ID
 
@@ -127,17 +127,17 @@ const req: ListBankAccountTransactionsRequest = {
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "culpa",
+  query: "iste",
 };
 
-sdk.bankAccountTransactions.listBankAccountTransactions(req).then((res: ListBankAccountTransactionsResponse | AxiosError) => {
+sdk.bankAccountTransactions.list(req).then((res: ListBankAccountTransactionsResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## listBankTransactions
+## listTransactions
 
 Gets the latest bank transactions for given account ID and company. Doesn't require connection ID.
 
@@ -161,10 +161,10 @@ const req: ListBankTransactionsRequest = {
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "consequuntur",
+  query: "dolor",
 };
 
-sdk.bankAccountTransactions.listBankTransactions(req).then((res: ListBankTransactionsResponse | AxiosError) => {
+sdk.bankAccountTransactions.listTransactions(req).then((res: ListBankTransactionsResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

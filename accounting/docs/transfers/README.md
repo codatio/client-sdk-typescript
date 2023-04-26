@@ -6,12 +6,12 @@ Transfers
 
 ### Available Operations
 
-* [createTransfer](#createtransfer) - Create transfer
-* [getCreateTransfersModel](#getcreatetransfersmodel) - Get create transfer model
-* [getTransfer](#gettransfer) - Get transfer
-* [listTransfers](#listtransfers) - List transfers
+* [create](#create) - Create transfer
+* [get](#get) - Get transfer
+* [getCreateModel](#getcreatemodel) - Get create transfer model
+* [list](#list) - List transfers
 
-## createTransfer
+## create
 
 Posts a new transfer to the accounting package for a given company.
 
@@ -38,61 +38,70 @@ const sdk = new CodatAccounting({
 const req: CreateTransferRequest = {
   transfer: {
     contactRef: {
-      dataType: "quisquam",
-      id: "b4bedef3-c127-4c39-8995-528250dcbbcd",
+      dataType: "laborum",
+      id: "9ffc5619-29cc-4a95-a0a1-395918da1d48",
     },
-    date: "velit",
+    date: "recusandae",
     depositedRecordRefs: [
-      "architecto",
-      "magni",
-      "dicta",
+      "quas",
+      "officiis",
     ],
-    description: "tempore",
+    description: "ipsum",
     from: {
       accountRef: {
-        id: "88c1ee5e-7a06-4139-9cc8-fa0b7d176492",
-        name: "Flora Auer",
+        id: "cf8e1143-da93-408b-a7a0-8af22184439b",
+        name: "Desiree Walsh",
       },
-      amount: 3249.63,
-      currency: "recusandae",
+      amount: 3395.66,
+      currency: "eum",
     },
-    id: "6cb6ebab-e5e0-4b99-b3b1-358d6a87bb7a",
+    id: "ccce470c-d214-47b6-a615-2cf01d0d8c3a",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "voluptates",
-    sourceModifiedDate: "minus",
+    modifiedDate: "magnam",
+    sourceModifiedDate: "facilis",
     supplementalData: {
       content: {
-        "recusandae": {
-          "eum": "iste",
-          "at": "voluptate",
+        "laborum": {
+          "quidem": "repellat",
+          "molestias": "amet",
         },
-        "alias": {
-          "expedita": "consequatur",
-          "suscipit": "cupiditate",
-          "occaecati": "sit",
-          "dignissimos": "maiores",
+        "veniam": {
+          "voluptatibus": "vero",
+          "provident": "iure",
+          "incidunt": "repellat",
+          "similique": "ut",
         },
-        "provident": {
-          "omnis": "incidunt",
-          "incidunt": "vitae",
-          "incidunt": "nostrum",
+        "tempore": {
+          "voluptates": "excepturi",
         },
       },
     },
     to: {
       accountRef: {
-        id: "2a9f01f3-442c-461b-a133-bacde532b652",
-        name: "Johanna Lang",
+        id: "c097eda6-2344-42e1-a923-7e9984c80b47",
+        name: "Bert Lind V",
       },
-      amount: 5511.24,
-      currency: "corporis",
+      amount: 1752.16,
+      currency: "dolorem",
     },
     trackingCategoryRefs: [
       {
-        id: "fe2859ce-3222-431f-a666-4c41d2fba5cb",
-        name: "Daniel Keeling",
+        id: "18ca8d69-c568-4921-8fa2-0207e4fae038",
+        name: "Carroll Klocko DDS",
+      },
+      {
+        id: "c2cabaf7-fc2c-4cba-8bef-0df68eaedb2e",
+        name: "Darryl Altenwerth",
+      },
+      {
+        id: "069fb36a-dd70-4408-8e0a-3fc73a5a034b",
+        name: "Rebecca Graham",
+      },
+      {
+        id: "243afa69-87a4-472b-b09a-153e22301068",
+        name: "Tracy Monahan",
       },
     ],
   },
@@ -100,14 +109,44 @@ const req: CreateTransferRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-sdk.transfers.createTransfer(req).then((res: CreateTransferResponse | AxiosError) => {
+sdk.transfers.create(req).then((res: CreateTransferResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getCreateTransfersModel
+## get
+
+Gets the specified transfer for a given company.
+
+### Example Usage
+
+```typescript
+import { CodatAccounting } from "@codat/accounting";
+import { GetTransferRequest, GetTransferResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { AxiosError } from "axios";
+
+const sdk = new CodatAccounting({
+  security: {
+    authHeader: "YOUR_API_KEY_HERE",
+  },
+});
+
+const req: GetTransferRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  transferId: "ipsa",
+};
+
+sdk.transfers.get(req).then((res: GetTransferResponse | AxiosError) => {
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+## getCreateModel
 
 Get create transfer model. Returns the expected data for the request payload.
 
@@ -136,44 +175,14 @@ const req: GetCreateTransfersModelRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-sdk.transfers.getCreateTransfersModel(req).then((res: GetCreateTransfersModelResponse | AxiosError) => {
+sdk.transfers.getCreateModel(req).then((res: GetCreateTransfersModelResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getTransfer
-
-Gets the specified transfer for a given company.
-
-### Example Usage
-
-```typescript
-import { CodatAccounting } from "@codat/accounting";
-import { GetTransferRequest, GetTransferResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
-
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "YOUR_API_KEY_HERE",
-  },
-});
-
-const req: GetTransferRequest = {
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  transferId: "corrupti",
-};
-
-sdk.transfers.getTransfer(req).then((res: GetTransferResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-## listTransfers
+## list
 
 Gets the transfers for a given company.
 
@@ -196,10 +205,10 @@ const req: ListTransfersRequest = {
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "at",
+  query: "perspiciatis",
 };
 
-sdk.transfers.listTransfers(req).then((res: ListTransfersResponse | AxiosError) => {
+sdk.transfers.list(req).then((res: ListTransfersResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

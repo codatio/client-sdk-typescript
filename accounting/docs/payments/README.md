@@ -6,12 +6,12 @@ Payments
 
 ### Available Operations
 
-* [createPayment](#createpayment) - Create payment
-* [getCreatePaymentsModel](#getcreatepaymentsmodel) - Get create payment model
-* [getPayment](#getpayment) - Get payment
-* [listPayments](#listpayments) - List payments
+* [create](#create) - Create payment
+* [get](#get) - Get payment
+* [getCreateModel](#getcreatemodel) - Get create payment model
+* [list](#list) - List payments
 
-## createPayment
+## create
 
 Posts a new payment to the accounting package for a given company.
 
@@ -38,27 +38,69 @@ const sdk = new CodatAccounting({
 const req: CreatePaymentRequest = {
   payment: {
     accountRef: {
-      id: "cf63b215-186a-4b5e-ba02-2614315d1568",
-      name: "Violet McClure",
+      id: "2de7b356-2201-4a6a-ab4a-e7b1a5b908d4",
+      name: "Jeffery Aufderhar",
     },
-    currency: "architecto",
-    currencyRate: 6396.52,
+    currency: "quae",
+    currencyRate: 6765.76,
     customerRef: {
-      companyName: "reiciendis",
-      id: "c7186ff2-0b7a-473d-b40c-a0d7657c1641",
+      companyName: "fuga",
+      id: "35d4a839-f03b-4ab7-bb91-8f0313984507",
     },
-    date: "distinctio",
-    id: "bf055271-b251-41dd-a06d-d1b28272bc9c",
+    date: "officiis",
+    id: "0e39c7e2-3ecb-4060-8652-e23a3d6c657e",
     lines: [
       {
-        allocatedOnDate: "magni",
-        amount: 1257.69,
+        allocatedOnDate: "quibusdam",
+        amount: 8936.05,
         links: [
           {
-            amount: 4058.4,
-            currencyRate: 5724.81,
-            id: "7b1880fc-bb2b-493c-95f6-70bd17848316",
+            amount: 9387.2,
+            currencyRate: 4758.76,
+            id: "f002d198-6aa9-49d3-a1d3-2329e45837e8",
+            type: PaymentLinkTypeEnum.Discount,
+          },
+          {
+            amount: 1859.89,
+            currencyRate: 6377.7,
+            id: "d6bb10e2-55fd-4c48-8d6e-3308675cbf18",
             type: PaymentLinkTypeEnum.CreditNote,
+          },
+          {
+            amount: 5604.72,
+            currencyRate: 3424.33,
+            id: "6a7e82cd-f9d0-4fc2-82c6-66af3c3f5589",
+            type: PaymentLinkTypeEnum.PaymentOnAccount,
+          },
+        ],
+      },
+      {
+        allocatedOnDate: "accusamus",
+        amount: 6668.05,
+        links: [
+          {
+            amount: 8213.45,
+            currencyRate: 1736.08,
+            id: "64e41e2c-a848-422e-913f-6d9d2ad37c30",
+            type: PaymentLinkTypeEnum.Payment,
+          },
+          {
+            amount: 5821.15,
+            currencyRate: 328.36,
+            id: "77c10b68-7921-463e-a7d4-8860543c0a30",
+            type: PaymentLinkTypeEnum.Invoice,
+          },
+        ],
+      },
+      {
+        allocatedOnDate: "excepturi",
+        amount: 7879.41,
+        links: [
+          {
+            amount: 8004.56,
+            currencyRate: 9757.5,
+            id: "6c0276e7-b21b-4ad9-8d27-43fd6c2a10e6",
+            type: PaymentLinkTypeEnum.ManualJournal,
           },
         ],
       },
@@ -66,42 +108,77 @@ const req: CreatePaymentRequest = {
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "dolor",
-    note: "debitis",
+    modifiedDate: "odit",
+    note: "natus",
     paymentMethodRef: {
-      id: "eb3b6e24-1c31-4099-8366-3c66dcbb7df6",
-      name: "Gerardo Baumbach",
+      id: "78ec256a-5b09-4227-bcc4-7996c977bbc5",
+      name: "Jeannie Dibbert",
     },
-    reference: "totam",
-    sourceModifiedDate: "distinctio",
+    reference: "eos",
+    sourceModifiedDate: "quos",
     supplementalData: {
       content: {
-        "aperiam": {
-          "recusandae": "eaque",
-          "nihil": "dicta",
-          "adipisci": "molestiae",
+        "blanditiis": {
+          "ipsa": "eaque",
+          "quo": "ad",
         },
-        "in": {
-          "repellendus": "saepe",
-          "non": "a",
+        "atque": {
+          "eum": "iusto",
+          "facere": "ea",
+          "sequi": "voluptates",
+          "tempora": "similique",
+        },
+        "officia": {
+          "laboriosam": "quos",
+          "aliquam": "vel",
         },
       },
     },
-    totalAmount: 9140.93,
+    totalAmount: 2546.16,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 878742,
+  timeoutInMinutes: 321921,
 };
 
-sdk.payments.createPayment(req).then((res: CreatePaymentResponse | AxiosError) => {
+sdk.payments.create(req).then((res: CreatePaymentResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getCreatePaymentsModel
+## get
+
+Get payment
+
+### Example Usage
+
+```typescript
+import { CodatAccounting } from "@codat/accounting";
+import { GetPaymentRequest, GetPaymentResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { PaymentLinkTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { AxiosError } from "axios";
+
+const sdk = new CodatAccounting({
+  security: {
+    authHeader: "YOUR_API_KEY_HERE",
+  },
+});
+
+const req: GetPaymentRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  paymentId: "odio",
+};
+
+sdk.payments.get(req).then((res: GetPaymentResponse | AxiosError) => {
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+## getCreateModel
 
 Get create payment model. Returns the expected data for the request payload.
 
@@ -130,44 +207,14 @@ const req: GetCreatePaymentsModelRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-sdk.payments.getCreatePaymentsModel(req).then((res: GetCreatePaymentsModelResponse | AxiosError) => {
+sdk.payments.getCreateModel(req).then((res: GetCreatePaymentsModelResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getPayment
-
-Get payment
-
-### Example Usage
-
-```typescript
-import { CodatAccounting } from "@codat/accounting";
-import { GetPaymentRequest, GetPaymentResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PaymentLinkTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
-
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "YOUR_API_KEY_HERE",
-  },
-});
-
-const req: GetPaymentRequest = {
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  paymentId: "quae",
-};
-
-sdk.payments.getPayment(req).then((res: GetPaymentResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-## listPayments
+## list
 
 Gets the latest payments for a company, with pagination
 
@@ -189,10 +236,10 @@ const req: ListPaymentsRequest = {
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "doloremque",
+  query: "omnis",
 };
 
-sdk.payments.listPayments(req).then((res: ListPaymentsResponse | AxiosError) => {
+sdk.payments.list(req).then((res: ListPaymentsResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

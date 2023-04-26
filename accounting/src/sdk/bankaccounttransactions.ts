@@ -44,7 +44,7 @@ export class BankAccountTransactions {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankTransactions) for integrations that support POST methods.
    */
-  createBankTransactions(
+  create(
     req: operations.CreateBankTransactionsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -126,7 +126,7 @@ export class BankAccountTransactions {
    * @remarks
    * Gets the options of pushing bank account transactions.
    */
-  getCreateBankAccountModel(
+  getCreateModel(
     req: operations.GetCreateBankAccountModelRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -189,7 +189,7 @@ export class BankAccountTransactions {
    * @remarks
    * Gets bank transactions for a given bank account ID
    */
-  listBankAccountTransactions(
+  list(
     req: operations.ListBankAccountTransactionsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -254,7 +254,7 @@ export class BankAccountTransactions {
    * @remarks
    * Gets the latest bank transactions for given account ID and company. Doesn't require connection ID.
    */
-  listBankTransactions(
+  listTransactions(
     req: operations.ListBankTransactionsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

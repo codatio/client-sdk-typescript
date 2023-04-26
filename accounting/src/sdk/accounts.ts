@@ -46,7 +46,7 @@ export class Accounts {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
    */
-  createAccount(
+  create(
     req: operations.CreateAccountRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -128,7 +128,7 @@ export class Accounts {
    * @remarks
    * Gets a single account corresponding to the given ID.
    */
-  getAccount(
+  get(
     req: operations.GetAccountRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -194,7 +194,7 @@ export class Accounts {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
    */
-  getCreateChartOfAccountsModel(
+  getCreateModel(
     req: operations.GetCreateChartOfAccountsModelRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -257,7 +257,7 @@ export class Accounts {
    * @remarks
    * Gets the latest accounts for a company
    */
-  listAccounts(
+  list(
     req: operations.ListAccountsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

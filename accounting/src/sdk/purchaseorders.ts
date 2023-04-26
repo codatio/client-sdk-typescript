@@ -46,7 +46,7 @@ export class PurchaseOrders {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=purchaseOrders) for integrations that support creating purchase orders.
    */
-  createPurchaseOrder(
+  create(
     req: operations.CreatePurchaseOrderRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -123,81 +123,12 @@ export class PurchaseOrders {
   }
 
   /**
-   * Get create/update purchase order model
-   *
-   * @remarks
-   * Get create/update purchase order model. Returns the expected data for the request payload.
-   *
-   * See the examples for integration-specific indicative models.
-   *
-   * > **Supported Integrations**
-   * >
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=purchaseOrders) for integrations that support creating and updating purchase orders.
-   */
-  getCreateUpdatePurchaseOrdersModel(
-    req: operations.GetCreateUpdatePurchaseOrdersModelRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetCreateUpdatePurchaseOrdersModelResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCreateUpdatePurchaseOrdersModelRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/connections/{connectionId}/options/purchaseOrders",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const r = utils.Retry(() => {
-      return client.request({
-        url: url,
-        method: "get",
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCreateUpdatePurchaseOrdersModelResponse =
-        new operations.GetCreateUpdatePurchaseOrdersModelResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.objectToClass(
-              httpRes?.data,
-              shared.PushOption
-            );
-          }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
    * Get purchase order
    *
    * @remarks
    * Get purchase order
    */
-  getPurchaseOrder(
+  get(
     req: operations.GetPurchaseOrderRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -255,12 +186,81 @@ export class PurchaseOrders {
   }
 
   /**
+   * Get create/update purchase order model
+   *
+   * @remarks
+   * Get create/update purchase order model. Returns the expected data for the request payload.
+   *
+   * See the examples for integration-specific indicative models.
+   *
+   * > **Supported Integrations**
+   * >
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=purchaseOrders) for integrations that support creating and updating purchase orders.
+   */
+  getCreateUpdateModel(
+    req: operations.GetCreateUpdatePurchaseOrdersModelRequest,
+    retries?: utils.RetryConfig,
+    config?: AxiosRequestConfig
+  ): Promise<operations.GetCreateUpdatePurchaseOrdersModelResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.GetCreateUpdatePurchaseOrdersModelRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/connections/{connectionId}/options/purchaseOrders",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.GetCreateUpdatePurchaseOrdersModelResponse =
+        new operations.GetCreateUpdatePurchaseOrdersModelResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.pushOption = utils.objectToClass(
+              httpRes?.data,
+              shared.PushOption
+            );
+          }
+          break;
+      }
+
+      return res;
+    });
+  }
+
+  /**
    * List purchase orders
    *
    * @remarks
    * Get purchase orders
    */
-  listPurchaseOrders(
+  list(
     req: operations.ListPurchaseOrdersRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -331,7 +331,7 @@ export class PurchaseOrders {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=purchaseOrders) for integrations that support updating purchase orders.
    */
-  updatePurchaseOrder(
+  update(
     req: operations.UpdatePurchaseOrderRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

@@ -6,16 +6,16 @@ Customers
 
 ### Available Operations
 
-* [createCustomer](#createcustomer) - Create customer
-* [downloadCustomerAttachment](#downloadcustomerattachment) - Download customer attachment
-* [getCreateUpdateCustomersModel](#getcreateupdatecustomersmodel) - Get create/update customer model
-* [getCustomer](#getcustomer) - Get customer
-* [getCustomerAttachment](#getcustomerattachment) - Get customer attachment
-* [getCustomerAttachments](#getcustomerattachments) - List customer attachments
-* [getCustomers](#getcustomers) - List customers
-* [updateCustomer](#updatecustomer) - Update customer
+* [create](#create) - Create customer
+* [downloadAttachment](#downloadattachment) - Download customer attachment
+* [get](#get) - Get customer
+* [getAttachment](#getattachment) - Get customer attachment
+* [getCreateUpdateModel](#getcreateupdatemodel) - Get create/update customer model
+* [list](#list) - List customers
+* [listAttachments](#listattachments) - List customer attachments
+* [update](#update) - Update customer
 
-## createCustomer
+## create
 
 Posts an individual customer for a given company.
 
@@ -50,147 +50,109 @@ const req: CreateCustomerRequest = {
   customer: {
     addresses: [
       {
-        city: "Jerrodfield",
-        country: "Morocco",
-        line1: "maxime",
-        line2: "culpa",
-        postalCode: "90218-8486",
-        region: "est",
+        city: "Cartwrightstad",
+        country: "Ukraine",
+        line1: "assumenda",
+        line2: "optio",
+        postalCode: "94549",
+        region: "adipisci",
+        type: AddressTypeEnum.Unknown,
+      },
+      {
+        city: "Apopka",
+        country: "Equatorial Guinea",
+        line1: "rerum",
+        line2: "nesciunt",
+        postalCode: "28807-3440",
+        region: "recusandae",
         type: AddressTypeEnum.Delivery,
       },
+      {
+        city: "East Martina",
+        country: "Svalbard & Jan Mayen Islands",
+        line1: "dolor",
+        line2: "porro",
+        postalCode: "91773-0293",
+        region: "quod",
+        type: AddressTypeEnum.Unknown,
+      },
+      {
+        city: "Reichelfort",
+        country: "South Africa",
+        line1: "alias",
+        line2: "deserunt",
+        postalCode: "15095",
+        region: "nemo",
+        type: AddressTypeEnum.Billing,
+      },
     ],
-    contactName: "occaecati",
+    contactName: "reiciendis",
     contacts: [
       {
         address: {
-          city: "Port Malachi",
-          country: "New Zealand",
-          line1: "beatae",
-          line2: "quod",
-          postalCode: "95903-8950",
-          region: "amet",
-          type: AddressTypeEnum.Billing,
-        },
-        email: "Jerome49@gmail.com",
-        modifiedDate: "deleniti",
-        name: "Anna Mayer",
-        phone: [
-          {
-            number: "eius",
-            type: PhoneNumberTypeEnum.Primary,
-          },
-          {
-            number: "recusandae",
-            type: PhoneNumberTypeEnum.Landline,
-          },
-          {
-            number: "aliquam",
-            type: PhoneNumberTypeEnum.Fax,
-          },
-          {
-            number: "voluptatum",
-            type: PhoneNumberTypeEnum.Landline,
-          },
-        ],
-        status: CustomerStatusEnum.Unknown,
-      },
-      {
-        address: {
-          city: "Hayleeborough",
-          country: "Montenegro",
-          line1: "iusto",
-          line2: "optio",
-          postalCode: "01218",
-          region: "inventore",
+          city: "Freedaton",
+          country: "Mali",
+          line1: "natus",
+          line2: "culpa",
+          postalCode: "48950-4669",
+          region: "quae",
           type: AddressTypeEnum.Unknown,
         },
-        email: "Bertha9@yahoo.com",
-        modifiedDate: "dolorum",
-        name: "Shaun Johnston",
+        email: "Cristal_Fisher48@hotmail.com",
+        modifiedDate: "unde",
+        name: "Alton McKenzie",
         phone: [
           {
-            number: "nemo",
-            type: PhoneNumberTypeEnum.Fax,
-          },
-          {
-            number: "quidem",
-            type: PhoneNumberTypeEnum.Unknown,
-          },
-          {
-            number: "aliquid",
+            number: "aut",
             type: PhoneNumberTypeEnum.Landline,
           },
           {
-            number: "atque",
-            type: PhoneNumberTypeEnum.Mobile,
-          },
-        ],
-        status: CustomerStatusEnum.Archived,
-      },
-      {
-        address: {
-          city: "Fort Odie",
-          country: "Bulgaria",
-          line1: "nobis",
-          line2: "voluptatum",
-          postalCode: "16007",
-          region: "saepe",
-          type: AddressTypeEnum.Delivery,
-        },
-        email: "Laurie4@yahoo.com",
-        modifiedDate: "quae",
-        name: "Veronica Kutch",
-        phone: [
-          {
-            number: "libero",
-            type: PhoneNumberTypeEnum.Unknown,
+            number: "quia",
+            type: PhoneNumberTypeEnum.Fax,
           },
         ],
         status: CustomerStatusEnum.Archived,
       },
     ],
-    customerName: "nihil",
-    defaultCurrency: "similique",
-    emailAddress: "repellat",
-    id: "ded84a35-a412-438e-9a73-5ac26ae33bef",
+    customerName: "qui",
+    defaultCurrency: "commodi",
+    emailAddress: "a",
+    id: "d368ba92-16bc-4b41-9835-c73641723133",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "provident",
-    phone: "265.924.7861 x004",
-    registrationNumber: "delectus",
-    sourceModifiedDate: "officiis",
-    status: CustomerStatusEnum.Active,
+    modifiedDate: "recusandae",
+    phone: "(802) 568-3142 x77862",
+    registrationNumber: "molestias",
+    sourceModifiedDate: "dolores",
+    status: CustomerStatusEnum.Unknown,
     supplementalData: {
       content: {
-        "ipsam": {
-          "esse": "vitae",
-          "beatae": "pariatur",
-          "voluptatem": "blanditiis",
+        "minus": {
+          "odit": "maxime",
+          "aspernatur": "magni",
         },
-        "eligendi": {
-          "deleniti": "deleniti",
-          "necessitatibus": "cumque",
-          "iste": "reiciendis",
-          "nihil": "libero",
+        "minus": {
+          "ipsam": "sequi",
+          "quaerat": "accusantium",
         },
       },
     },
-    taxNumber: "perspiciatis",
+    taxNumber: "incidunt",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 577273,
+  timeoutInMinutes: 583959,
 };
 
-sdk.customers.createCustomer(req).then((res: CreateCustomerResponse | AxiosError) => {
+sdk.customers.create(req).then((res: CreateCustomerResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## downloadCustomerAttachment
+## downloadAttachment
 
 Download customer attachment
 
@@ -211,17 +173,78 @@ const req: DownloadCustomerAttachmentRequest = {
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "officia",
+  customerId: "minima",
 };
 
-sdk.customers.downloadCustomerAttachment(req).then((res: DownloadCustomerAttachmentResponse | AxiosError) => {
+sdk.customers.downloadAttachment(req).then((res: DownloadCustomerAttachmentResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getCreateUpdateCustomersModel
+## get
+
+Gets a single customer corresponding to the given ID.
+
+### Example Usage
+
+```typescript
+import { CodatAccounting } from "@codat/accounting";
+import { GetCustomerRequest, GetCustomerResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { AddressTypeEnum, CustomerStatusEnum, PhoneNumberTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { AxiosError } from "axios";
+
+const sdk = new CodatAccounting({
+  security: {
+    authHeader: "YOUR_API_KEY_HERE",
+  },
+});
+
+const req: GetCustomerRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  customerId: "quo",
+};
+
+sdk.customers.get(req).then((res: GetCustomerResponse | AxiosError) => {
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+## getAttachment
+
+Get  customer attachment
+
+### Example Usage
+
+```typescript
+import { CodatAccounting } from "@codat/accounting";
+import { GetCustomerAttachmentRequest, GetCustomerAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { AxiosError } from "axios";
+
+const sdk = new CodatAccounting({
+  security: {
+    authHeader: "YOUR_API_KEY_HERE",
+  },
+});
+
+const req: GetCustomerAttachmentRequest = {
+  attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  customerId: "quis",
+};
+
+sdk.customers.getAttachment(req).then((res: GetCustomerAttachmentResponse | AxiosError) => {
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+## getCreateUpdateModel
 
 Get create/update customer model. Returns the expected data for the request payload.
 
@@ -250,105 +273,14 @@ const req: GetCreateUpdateCustomersModelRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-sdk.customers.getCreateUpdateCustomersModel(req).then((res: GetCreateUpdateCustomersModelResponse | AxiosError) => {
+sdk.customers.getCreateUpdateModel(req).then((res: GetCreateUpdateCustomersModelResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getCustomer
-
-Gets a single customer corresponding to the given ID.
-
-### Example Usage
-
-```typescript
-import { CodatAccounting } from "@codat/accounting";
-import { GetCustomerRequest, GetCustomerResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressTypeEnum, CustomerStatusEnum, PhoneNumberTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
-
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "YOUR_API_KEY_HERE",
-  },
-});
-
-const req: GetCustomerRequest = {
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  customerId: "nemo",
-};
-
-sdk.customers.getCustomer(req).then((res: GetCustomerResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-## getCustomerAttachment
-
-Get  customer attachment
-
-### Example Usage
-
-```typescript
-import { CodatAccounting } from "@codat/accounting";
-import { GetCustomerAttachmentRequest, GetCustomerAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
-
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "YOUR_API_KEY_HERE",
-  },
-});
-
-const req: GetCustomerAttachmentRequest = {
-  attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "quis",
-};
-
-sdk.customers.getCustomerAttachment(req).then((res: GetCustomerAttachmentResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-## getCustomerAttachments
-
-Get customer attachments
-
-### Example Usage
-
-```typescript
-import { CodatAccounting } from "@codat/accounting";
-import { GetCustomerAttachmentsRequest, GetCustomerAttachmentsResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
-
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "YOUR_API_KEY_HERE",
-  },
-});
-
-const req: GetCustomerAttachmentsRequest = {
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "doloremque",
-};
-
-sdk.customers.getCustomerAttachments(req).then((res: GetCustomerAttachmentsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-## getCustomers
+## list
 
 Gets the latest customers for a company, with pagination
 
@@ -356,7 +288,7 @@ Gets the latest customers for a company, with pagination
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCustomersRequest, GetCustomersResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ListCustomersRequest, ListCustomersResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AddressTypeEnum, CustomerStatusEnum, PhoneNumberTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -366,22 +298,52 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetCustomersRequest = {
+const req: ListCustomersRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "similique",
+  query: "facere",
 };
 
-sdk.customers.getCustomers(req).then((res: GetCustomersResponse | AxiosError) => {
+sdk.customers.list(req).then((res: ListCustomersResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## updateCustomer
+## listAttachments
+
+List customer attachments
+
+### Example Usage
+
+```typescript
+import { CodatAccounting } from "@codat/accounting";
+import { ListCustomerAttachmentsRequest, ListCustomerAttachmentsResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { AxiosError } from "axios";
+
+const sdk = new CodatAccounting({
+  security: {
+    authHeader: "YOUR_API_KEY_HERE",
+  },
+});
+
+const req: ListCustomerAttachmentsRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  customerId: "quidem",
+};
+
+sdk.customers.listAttachments(req).then((res: ListCustomerAttachmentsResponse | AxiosError) => {
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+## update
 
 Posts an updated customer for a given company.
 
@@ -416,108 +378,146 @@ const req: UpdateCustomerRequest = {
   customer: {
     addresses: [
       {
-        city: "South Sydni",
-        country: "Somalia",
-        line1: "dolor",
-        line2: "ratione",
-        postalCode: "77078",
-        region: "laudantium",
-        type: AddressTypeEnum.Delivery,
-      },
-      {
-        city: "Jonesborough",
-        country: "Eritrea",
-        line1: "consectetur",
-        line2: "qui",
-        postalCode: "55487-4912",
-        region: "quisquam",
+        city: "Port Eriberto",
+        country: "Jersey",
+        line1: "quo",
+        line2: "vitae",
+        postalCode: "26519-5661",
+        region: "enim",
         type: AddressTypeEnum.Billing,
       },
+      {
+        city: "South San Francisco",
+        country: "Sao Tome and Principe",
+        line1: "quasi",
+        line2: "sint",
+        postalCode: "19688",
+        region: "eum",
+        type: AddressTypeEnum.Unknown,
+      },
+      {
+        city: "Williamsonfield",
+        country: "Samoa",
+        line1: "veniam",
+        line2: "magnam",
+        postalCode: "68300",
+        region: "quis",
+        type: AddressTypeEnum.Delivery,
+      },
     ],
-    contactName: "ipsam",
+    contactName: "reiciendis",
     contacts: [
       {
         address: {
-          city: "North Kamron",
-          country: "Nauru",
-          line1: "beatae",
-          line2: "nemo",
-          postalCode: "06400",
-          region: "unde",
-          type: AddressTypeEnum.Billing,
+          city: "Lesterview",
+          country: "Burundi",
+          line1: "voluptatem",
+          line2: "voluptas",
+          postalCode: "89160-6192",
+          region: "quia",
+          type: AddressTypeEnum.Delivery,
         },
-        email: "Julianne_Wintheiser@gmail.com",
-        modifiedDate: "earum",
-        name: "Tomas Kiehn",
+        email: "Lydia7@gmail.com",
+        modifiedDate: "perferendis",
+        name: "Andy Paucek",
         phone: [
           {
-            number: "perferendis",
-            type: PhoneNumberTypeEnum.Landline,
-          },
-          {
-            number: "saepe",
-            type: PhoneNumberTypeEnum.Primary,
-          },
-          {
-            number: "architecto",
-            type: PhoneNumberTypeEnum.Primary,
+            number: "necessitatibus",
+            type: PhoneNumberTypeEnum.Fax,
           },
         ],
         status: CustomerStatusEnum.Unknown,
       },
       {
         address: {
-          city: "Port Clifford",
-          country: "Lithuania",
-          line1: "excepturi",
-          line2: "alias",
-          postalCode: "03183-7963",
-          region: "blanditiis",
+          city: "West Ethelyn",
+          country: "Martinique",
+          line1: "ea",
+          line2: "fugiat",
+          postalCode: "59595",
+          region: "reprehenderit",
           type: AddressTypeEnum.Billing,
         },
-        email: "Winona49@gmail.com",
-        modifiedDate: "quidem",
-        name: "Teri Abshire",
+        email: "Mittie_Williamson13@gmail.com",
+        modifiedDate: "nam",
+        name: "Erik Stehr",
         phone: [
           {
-            number: "numquam",
+            number: "deserunt",
             type: PhoneNumberTypeEnum.Mobile,
+          },
+          {
+            number: "modi",
+            type: PhoneNumberTypeEnum.Fax,
+          },
+          {
+            number: "repellendus",
+            type: PhoneNumberTypeEnum.Mobile,
+          },
+          {
+            number: "unde",
+            type: PhoneNumberTypeEnum.Fax,
+          },
+        ],
+        status: CustomerStatusEnum.Unknown,
+      },
+      {
+        address: {
+          city: "Port Gavinland",
+          country: "Central African Republic",
+          line1: "numquam",
+          line2: "velit",
+          postalCode: "21540",
+          region: "cumque",
+          type: AddressTypeEnum.Delivery,
+        },
+        email: "Josiah19@yahoo.com",
+        modifiedDate: "fuga",
+        name: "Miss Don Dach",
+        phone: [
+          {
+            number: "nesciunt",
+            type: PhoneNumberTypeEnum.Unknown,
+          },
+          {
+            number: "beatae",
+            type: PhoneNumberTypeEnum.Unknown,
           },
         ],
         status: CustomerStatusEnum.Unknown,
       },
     ],
-    customerName: "hic",
-    defaultCurrency: "blanditiis",
-    emailAddress: "at",
-    id: "e30f069d-8106-418d-97e1-52297510da80",
+    customerName: "quo",
+    defaultCurrency: "libero",
+    emailAddress: "eaque",
+    id: "a0003eb2-2d9b-43a7-8d94-faa741c57d1f",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "amet",
-    phone: "(315) 377-3071",
-    registrationNumber: "laborum",
-    sourceModifiedDate: "in",
-    status: CustomerStatusEnum.Unknown,
+    modifiedDate: "vero",
+    phone: "(810) 408-1587 x17905",
+    registrationNumber: "nostrum",
+    sourceModifiedDate: "labore",
+    status: CustomerStatusEnum.Active,
     supplementalData: {
       content: {
-        "distinctio": {
-          "sint": "odio",
-          "repudiandae": "accusamus",
-          "quasi": "accusantium",
+        "tenetur": {
+          "necessitatibus": "necessitatibus",
+          "autem": "natus",
+          "quasi": "iure",
         },
       },
     },
-    taxNumber: "dolores",
+    taxNumber: "ex",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "fugiat",
+  customerId: "error",
   forceUpdate: false,
-  timeoutInMinutes: 664312,
+  timeoutInMinutes: 535903,
 };
 
-sdk.customers.updateCustomer(req).then((res: UpdateCustomerResponse | AxiosError) => {
+sdk.customers.update(req).then((res: UpdateCustomerResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

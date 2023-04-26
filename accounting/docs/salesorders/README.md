@@ -6,10 +6,10 @@ Sales orders
 
 ### Available Operations
 
-* [getSalesOrder](#getsalesorder) - Get sales order
-* [listSalesOrders](#listsalesorders) - List sales orders
+* [get](#get) - Get sales order
+* [list](#list) - List sales orders
 
-## getSalesOrder
+## get
 
 Get sales order
 
@@ -29,17 +29,17 @@ const sdk = new CodatAccounting({
 
 const req: GetSalesOrderRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  salesOrderId: "accusamus",
+  salesOrderId: "vel",
 };
 
-sdk.salesOrders.getSalesOrder(req).then((res: GetSalesOrderResponse | AxiosError) => {
+sdk.salesOrders.get(req).then((res: GetSalesOrderResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## listSalesOrders
+## list
 
 Get sales orders
 
@@ -62,10 +62,10 @@ const req: ListSalesOrdersRequest = {
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "sunt",
+  query: "exercitationem",
 };
 
-sdk.salesOrders.listSalesOrders(req).then((res: ListSalesOrdersResponse | AxiosError) => {
+sdk.salesOrders.list(req).then((res: ListSalesOrdersResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

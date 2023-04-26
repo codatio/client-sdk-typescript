@@ -35,70 +35,6 @@ export class Invoices {
   }
 
   /**
-   * Get invoice as PDF
-   *
-   * @remarks
-   * Get invoice as PDF
-   */
-  downloadInvoicePdf(
-    req: operations.DownloadInvoicePdfRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.DownloadInvoicePdfResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.DownloadInvoicePdfRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/data/invoices/{invoiceId}/pdf",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const r = utils.Retry(() => {
-      return client.request({
-        url: url,
-        method: "get",
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.DownloadInvoicePdfResponse =
-        new operations.DownloadInvoicePdfResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/octet-stream`)) {
-            const resBody: string = JSON.stringify(httpRes?.data, null, 0);
-            const out: Uint8Array = new Uint8Array(resBody.length);
-            for (let i = 0; i < resBody.length; i++)
-              out[i] = resBody.charCodeAt(i);
-            res.data = out;
-          }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
    * Create invoice
    *
    * @remarks
@@ -110,7 +46,7 @@ export class Invoices {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=invoices) for integrations that support creating invoices.
    */
-  createInvoice(
+  create(
     req: operations.CreateInvoiceRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -196,7 +132,7 @@ export class Invoices {
    * >
    * > This functionality is currently only supported for our QuickBooks Online integration. Check out our [public roadmap](https://portal.productboard.com/codat/7-public-product-roadmap/tabs/46-accounting-api) to see what we're building next, and to submit ideas for new features.
    */
-  deleteInvoice(
+  delete(
     req: operations.DeleteInvoiceRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -259,7 +195,7 @@ export class Invoices {
    * @remarks
    * Download invoice attachments
    */
-  downloadInvoiceAttachment(
+  downloadAttachment(
     req: operations.DownloadInvoiceAttachmentRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -318,30 +254,24 @@ export class Invoices {
   }
 
   /**
-   * Get create/update invoice model
+   * Get invoice as PDF
    *
    * @remarks
-   * Get create/update invoice model. Returns the expected data for the request payload.
-   *
-   * See the examples for integration-specific indicative models.
-   *
-   * > **Supported Integrations**
-   * >
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=invoices) for integrations that support creating and updating invoices.
+   * Get invoice as PDF
    */
-  getCreateUpdateInvoicesModel(
-    req: operations.GetCreateUpdateInvoicesModelRequest,
+  downloadPdf(
+    req: operations.DownloadInvoicePdfRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetCreateUpdateInvoicesModelResponse> {
+  ): Promise<operations.DownloadInvoicePdfResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCreateUpdateInvoicesModelRequest(req);
+      req = new operations.DownloadInvoicePdfRequest(req);
     }
 
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(
       baseURL,
-      "/companies/{companyId}/connections/{connectionId}/options/invoices",
+      "/companies/{companyId}/data/invoices/{invoiceId}/pdf",
       req
     );
 
@@ -365,19 +295,20 @@ export class Invoices {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCreateUpdateInvoicesModelResponse =
-        new operations.GetCreateUpdateInvoicesModelResponse({
+      const res: operations.DownloadInvoicePdfResponse =
+        new operations.DownloadInvoicePdfResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
         });
       switch (true) {
         case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.objectToClass(
-              httpRes?.data,
-              shared.PushOption
-            );
+          if (utils.matchContentType(contentType, `application/octet-stream`)) {
+            const resBody: string = JSON.stringify(httpRes?.data, null, 0);
+            const out: Uint8Array = new Uint8Array(resBody.length);
+            for (let i = 0; i < resBody.length; i++)
+              out[i] = resBody.charCodeAt(i);
+            res.data = out;
           }
           break;
       }
@@ -392,7 +323,7 @@ export class Invoices {
    * @remarks
    * Get invoice
    */
-  getInvoice(
+  get(
     req: operations.GetInvoiceRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -452,7 +383,7 @@ export class Invoices {
    * @remarks
    * Get invoice attachment
    */
-  getInvoiceAttachment(
+  getAttachment(
     req: operations.GetInvoiceAttachmentRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -510,24 +441,30 @@ export class Invoices {
   }
 
   /**
-   * Get invoice attachments
+   * Get create/update invoice model
    *
    * @remarks
-   * Get invoice attachments
+   * Get create/update invoice model. Returns the expected data for the request payload.
+   *
+   * See the examples for integration-specific indicative models.
+   *
+   * > **Supported Integrations**
+   * >
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=invoices) for integrations that support creating and updating invoices.
    */
-  getInvoiceAttachments(
-    req: operations.GetInvoiceAttachmentsRequest,
+  getCreateUpdateModel(
+    req: operations.GetCreateUpdateInvoicesModelRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetInvoiceAttachmentsResponse> {
+  ): Promise<operations.GetCreateUpdateInvoicesModelResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetInvoiceAttachmentsRequest(req);
+      req = new operations.GetCreateUpdateInvoicesModelRequest(req);
     }
 
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(
       baseURL,
-      "/companies/{companyId}/connections/{connectionId}/data/invoices/{invoiceId}/attachments",
+      "/companies/{companyId}/connections/{connectionId}/options/invoices",
       req
     );
 
@@ -551,8 +488,8 @@ export class Invoices {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetInvoiceAttachmentsResponse =
-        new operations.GetInvoiceAttachmentsResponse({
+      const res: operations.GetCreateUpdateInvoicesModelResponse =
+        new operations.GetCreateUpdateInvoicesModelResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -560,9 +497,9 @@ export class Invoices {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.attachmentsDataset = utils.objectToClass(
+            res.pushOption = utils.objectToClass(
               httpRes?.data,
-              shared.AttachmentsDataset
+              shared.PushOption
             );
           }
           break;
@@ -578,7 +515,7 @@ export class Invoices {
    * @remarks
    * Gets the latest invoices for a company, with pagination
    */
-  listInvoices(
+  list(
     req: operations.ListInvoicesRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -635,6 +572,69 @@ export class Invoices {
   }
 
   /**
+   * List invoice attachments
+   *
+   * @remarks
+   * List invoice attachments
+   */
+  listAttachments(
+    req: operations.ListInvoiceAttachmentsRequest,
+    retries?: utils.RetryConfig,
+    config?: AxiosRequestConfig
+  ): Promise<operations.ListInvoiceAttachmentsResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.ListInvoiceAttachmentsRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/connections/{connectionId}/data/invoices/{invoiceId}/attachments",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.ListInvoiceAttachmentsResponse =
+        new operations.ListInvoiceAttachmentsResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.attachmentsDataset = utils.objectToClass(
+              httpRes?.data,
+              shared.AttachmentsDataset
+            );
+          }
+          break;
+      }
+
+      return res;
+    });
+  }
+
+  /**
    * Update invoice
    *
    * @remarks
@@ -646,7 +646,7 @@ export class Invoices {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=invoices) for integrations that support updating invoices.
    */
-  updateInvoice(
+  update(
     req: operations.UpdateInvoiceRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -728,7 +728,7 @@ export class Invoices {
    * @remarks
    * Push invoice attachment
    */
-  uploadInvoiceAttachment(
+  uploadAttachment(
     req: operations.UploadInvoiceAttachmentRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

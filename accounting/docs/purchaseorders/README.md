@@ -6,13 +6,13 @@ Purchase orders
 
 ### Available Operations
 
-* [createPurchaseOrder](#createpurchaseorder) - Create purchase order
-* [getCreateUpdatePurchaseOrdersModel](#getcreateupdatepurchaseordersmodel) - Get create/update purchase order model
-* [getPurchaseOrder](#getpurchaseorder) - Get purchase order
-* [listPurchaseOrders](#listpurchaseorders) - List purchase orders
-* [updatePurchaseOrder](#updatepurchaseorder) - Update purchase order
+* [create](#create) - Create purchase order
+* [get](#get) - Get purchase order
+* [getCreateUpdateModel](#getcreateupdatemodel) - Get create/update purchase order model
+* [list](#list) - List purchase orders
+* [update](#update) - Update purchase order
 
-## createPurchaseOrder
+## create
 
 Posts a new purchase order to the accounting package for a given company.
 
@@ -44,139 +44,153 @@ const sdk = new CodatAccounting({
 
 const req: CreatePurchaseOrderRequest = {
   purchaseOrder: {
-    currency: "et",
-    currencyRate: 8193.41,
-    deliveryDate: "unde",
-    expectedDeliveryDate: "esse",
-    id: "80a10c47-b950-440d-ac8b-2a5f002207e4",
-    issueDate: "quae",
+    currency: "quo",
+    currencyRate: 9804.63,
+    deliveryDate: "maxime",
+    expectedDeliveryDate: "suscipit",
+    id: "c0e503f5-6831-4f1d-8ed8-7b28e8afabc9",
+    issueDate: "laudantium",
     lineItems: [
       {
         accountRef: {
-          id: "8f90009e-d290-4278-ab4a-e9d64161e915",
-          name: "Patricia Dickens",
+          id: "e241e43b-2342-4417-913e-3f62aa9ae4ae",
+          name: "Lyle Rath",
         },
-        description: "rerum",
-        discountAmount: 1793.89,
-        discountPercentage: 7581.19,
+        description: "provident",
+        discountAmount: 7674.79,
+        discountPercentage: 2960.36,
         itemRef: {
-          id: "09b92477-1f56-469e-9b7e-c7626649d84e",
-          name: "Terrence Walter",
+          id: "92c5e8ba-5d4a-4a4a-908b-d380c29aa8dd",
+          name: "Teresa Predovic",
         },
-        quantity: 9525.87,
-        subTotal: 8696.62,
-        taxAmount: 1739.26,
+        quantity: 6509.18,
+        subTotal: 6484.89,
+        taxAmount: 2149.29,
         taxRateRef: {
-          effectiveTaxRate: 1417.37,
-          id: "76e0b88f-b87d-46fa-9b6e-8dbf812f83b1",
-          name: "Matt Johnston",
+          effectiveTaxRate: 623.49,
+          id: "b7b91449-ae69-4c08-8d41-8bb71804f423",
+          name: "Clyde Goldner",
         },
-        totalAmount: 9738.23,
+        totalAmount: 1897.28,
         trackingCategoryRefs: [
           {
-            id: "c561929c-ca95-460a-9395-918da1d48e78",
-            name: "Dale Schamberger",
+            id: "f377ac5c-9b7e-493b-aa3c-523105e7c34c",
+            name: "Preston Abernathy",
           },
           {
-            id: "e1143da9-308b-427a-88af-22184439b3de",
-            name: "Brad Hayes",
-          },
-          {
-            id: "cce470cd-2147-4b6e-a152-cf01d0d8c3a4",
-            name: "Luther Osinski",
-          },
-          {
-            id: "f935dfe9-74fa-44b1-a9c0-97eda623442e",
-            name: "Alberta Mills",
+            id: "b812a661-4894-44a8-a908-5075bc253825",
+            name: "Robin Goodwin",
           },
         ],
-        unitAmount: 4631.93,
+        unitAmount: 7488.6,
       },
       {
         accountRef: {
-          id: "e9984c80-b479-4e89-9923-c18ca8d69c56",
-          name: "Mrs. Terrance Christiansen",
+          id: "0a4e66ea-4757-48d1-b1e2-941818fc679b",
+          name: "Shelley Cronin II",
         },
-        description: "animi",
-        discountAmount: 1643.63,
-        discountPercentage: 411.11,
+        description: "dolorem",
+        discountAmount: 3596.63,
+        discountPercentage: 6053.38,
         itemRef: {
-          id: "207e4fae-038c-4d7f-9bc2-cabaf7fc2ccb",
-          name: "Jesus Reinger",
+          id: "b855d015-b62c-48b8-ba38-a8a88c144200",
+          name: "Benjamin Schoen",
         },
-        quantity: 461.14,
-        subTotal: 8366.2,
-        taxAmount: 9710.36,
+        quantity: 7210.53,
+        subTotal: 879.15,
+        taxAmount: 6295.87,
         taxRateRef: {
-          effectiveTaxRate: 3915.17,
-          id: "8eaedb2e-e70b-4e06-9fb3-6add704080e0",
-          name: "Leonard Wiegand",
+          effectiveTaxRate: 9062.13,
+          id: "1ecf8c34-946b-4ba7-a05a-8b4a9ec5b368",
+          name: "Simon Rutherford",
         },
-        totalAmount: 2204.14,
+        totalAmount: 4247.55,
         trackingCategoryRefs: [
           {
-            id: "5a034b11-4992-443a-ba69-87a472b709a1",
-            name: "Tracy Thiel",
-          },
-          {
-            id: "30106853-9ce0-4932-910a-cd15d8cc306b",
-            name: "Irma Huels",
-          },
-          {
-            id: "d37bd204-a1f3-440b-b36f-677a48519c33",
-            name: "Mr. Eva Marvin",
+            id: "272760e9-66e9-47e0-9410-3347d78ff249",
+            name: "Evelyn Gutkowski",
           },
         ],
-        unitAmount: 3069.7,
+        unitAmount: 6574.81,
       },
     ],
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "deleniti",
-    note: "quos",
-    paymentDueDate: "qui",
-    purchaseOrderNumber: "ex",
+    modifiedDate: "soluta",
+    note: "excepturi",
+    paymentDueDate: "voluptates",
+    purchaseOrderNumber: "veniam",
     shipTo: {
       address: {
-        city: "Rauton",
-        country: "Denmark",
-        line1: "porro",
-        line2: "nihil",
-        postalCode: "81138-2454",
-        region: "architecto",
+        city: "Marcusboro",
+        country: "Palestinian Territory",
+        line1: "a",
+        line2: "ipsum",
+        postalCode: "33428",
+        region: "deserunt",
         type: AddressTypeEnum.Billing,
       },
       contact: {
-        email: "Karelle.Treutel18@yahoo.com",
-        name: "Roy Simonis",
-        phone: "403.667.1809 x09357",
+        email: "Maxine96@yahoo.com",
+        name: "Ryan Hagenes",
+        phone: "272-416-7898 x68731",
       },
     },
-    sourceModifiedDate: "adipisci",
-    status: PurchaseOrderStatusEnum.Closed,
-    subTotal: 5198.96,
+    sourceModifiedDate: "qui",
+    status: PurchaseOrderStatusEnum.Open,
+    subTotal: 5437.75,
     supplierRef: {
-      id: "7b47040d-0d98-4e9d-82c5-e306f5576f5c",
-      supplierName: "quibusdam",
+      id: "14eca016-bc41-4ea1-b42d-4104a25ef71d",
+      supplierName: "debitis",
     },
-    totalAmount: 9167.97,
-    totalDiscount: 7367.93,
-    totalTaxAmount: 57.18,
+    totalAmount: 3264.43,
+    totalDiscount: 4979.58,
+    totalTaxAmount: 6690.5,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 178911,
+  timeoutInMinutes: 117700,
 };
 
-sdk.purchaseOrders.createPurchaseOrder(req).then((res: CreatePurchaseOrderResponse | AxiosError) => {
+sdk.purchaseOrders.create(req).then((res: CreatePurchaseOrderResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getCreateUpdatePurchaseOrdersModel
+## get
+
+Get purchase order
+
+### Example Usage
+
+```typescript
+import { CodatAccounting } from "@codat/accounting";
+import { GetPurchaseOrderRequest, GetPurchaseOrderResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { AddressTypeEnum, PurchaseOrderStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { AxiosError } from "axios";
+
+const sdk = new CodatAccounting({
+  security: {
+    authHeader: "YOUR_API_KEY_HERE",
+  },
+});
+
+const req: GetPurchaseOrderRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  purchaseOrderId: "architecto",
+};
+
+sdk.purchaseOrders.get(req).then((res: GetPurchaseOrderResponse | AxiosError) => {
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+## getCreateUpdateModel
 
 Get create/update purchase order model. Returns the expected data for the request payload.
 
@@ -208,44 +222,14 @@ const req: GetCreateUpdatePurchaseOrdersModelRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-sdk.purchaseOrders.getCreateUpdatePurchaseOrdersModel(req).then((res: GetCreateUpdatePurchaseOrdersModelResponse | AxiosError) => {
+sdk.purchaseOrders.getCreateUpdateModel(req).then((res: GetCreateUpdatePurchaseOrdersModelResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getPurchaseOrder
-
-Get purchase order
-
-### Example Usage
-
-```typescript
-import { CodatAccounting } from "@codat/accounting";
-import { GetPurchaseOrderRequest, GetPurchaseOrderResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressTypeEnum, PurchaseOrderStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
-
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "YOUR_API_KEY_HERE",
-  },
-});
-
-const req: GetPurchaseOrderRequest = {
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  purchaseOrderId: "totam",
-};
-
-sdk.purchaseOrders.getPurchaseOrder(req).then((res: GetPurchaseOrderResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-## listPurchaseOrders
+## list
 
 Get purchase orders
 
@@ -268,17 +252,17 @@ const req: ListPurchaseOrdersRequest = {
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "ea",
+  query: "fugiat",
 };
 
-sdk.purchaseOrders.listPurchaseOrders(req).then((res: ListPurchaseOrdersResponse | AxiosError) => {
+sdk.purchaseOrders.list(req).then((res: ListPurchaseOrdersResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## updatePurchaseOrder
+## update
 
 Posts an updated purchase order to the accounting package for a given company.
 
@@ -310,122 +294,93 @@ const sdk = new CodatAccounting({
 
 const req: UpdatePurchaseOrderRequest = {
   purchaseOrder: {
-    currency: "pariatur",
-    currencyRate: 27.26,
-    deliveryDate: "distinctio",
-    expectedDeliveryDate: "maxime",
-    id: "43b18ab3-78f2-4fcf-b81d-df7e088f74ef",
-    issueDate: "quis",
+    currency: "eum",
+    currencyRate: 1110.45,
+    deliveryDate: "numquam",
+    expectedDeliveryDate: "deserunt",
+    id: "4317692e-a486-473d-922b-828a9030660f",
+    issueDate: "doloremque",
     lineItems: [
       {
         accountRef: {
-          id: "c9216e89-2631-43bb-afc2-c8d2701096b6",
-          name: "Genevieve Steuber",
+          id: "4c79b4cc-64c2-4b3a-b2c4-88ade62f6aa5",
+          name: "Leona Olson",
         },
-        description: "amet",
-        discountAmount: 9260.74,
-        discountPercentage: 963.03,
+        description: "eveniet",
+        discountAmount: 1787.12,
+        discountPercentage: 483.47,
         itemRef: {
-          id: "d9d3b660-334a-411a-a1d5-d2247de9b3d4",
-          name: "Dr. Frances Kutch",
+          id: "83016ca3-4bb8-47d4-b621-27a607d16062",
+          name: "Mrs. Alex Heaney",
         },
-        quantity: 4290.14,
-        subTotal: 5505.38,
-        taxAmount: 6701.68,
+        quantity: 2049.69,
+        subTotal: 8634.15,
+        taxAmount: 7188.22,
         taxRateRef: {
-          effectiveTaxRate: 5968.46,
-          id: "6bb39878-8398-4eba-9bbf-7143356f6349",
-          name: "Keith Hoeger",
+          effectiveTaxRate: 5826.59,
+          id: "ca9f38bd-2be8-4787-8349-3f49aa8465a3",
+          name: "Myrtle Feil",
         },
-        totalAmount: 2761.09,
+        totalAmount: 6184.81,
         trackingCategoryRefs: [
           {
-            id: "b211ce46-b951-4652-b158-ca9142f05263",
-            name: "Miss Opal Dickinson",
+            id: "719d1cea-673d-486e-bb35-e49a3135778c",
+            name: "Derek Funk",
           },
           {
-            id: "d692ffc8-7450-405e-9d3d-934e036f5c38",
-            name: "Brett Hudson",
+            id: "cb0e3ea9-7504-45ba-8f63-b215186ab5e3",
+            name: "Robert Daugherty",
           },
           {
-            id: "6985530a-2e2a-4ed6-aaf8-63c28d040c69",
-            name: "Marvin Stracke III",
+            id: "14315d15-6829-49e6-9afc-7186ff20b7a7",
+            name: "Elena Wisoky DDS",
           },
         ],
-        unitAmount: 9418.45,
-      },
-      {
-        accountRef: {
-          id: "6ebd5ad7-ec73-494f-a5f6-34b3730714e6",
-          name: "Clay Lockman",
-        },
-        description: "debitis",
-        discountAmount: 63.56,
-        discountPercentage: 5959.44,
-        itemRef: {
-          id: "c64d342a-c299-4a6e-9e7a-ef13402e945f",
-          name: "Cindy Koepp",
-        },
-        quantity: 9094.5,
-        subTotal: 9428.69,
-        taxAmount: 8126.55,
-        taxRateRef: {
-          effectiveTaxRate: 9230.35,
-          id: "1198221f-9b1f-47d9-affe-69682aceefb0",
-          name: "Lela Lemke",
-        },
-        totalAmount: 750.04,
-        trackingCategoryRefs: [
-          {
-            id: "caabea70-8ed5-4798-9385-d460599d5c33",
-            name: "Shelly Hickle",
-          },
-        ],
-        unitAmount: 8165.54,
+        unitAmount: 6606.02,
       },
     ],
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "minima",
-    note: "ullam",
-    paymentDueDate: "dolores",
-    purchaseOrderNumber: "accusantium",
+    modifiedDate: "alias",
+    note: "at",
+    paymentDueDate: "dignissimos",
+    purchaseOrderNumber: "aliquid",
     shipTo: {
       address: {
-        city: "Torphystead",
-        country: "Oman",
-        line1: "eos",
-        line2: "qui",
-        postalCode: "27384",
-        region: "nisi",
+        city: "South Raheem",
+        country: "Bahrain",
+        line1: "ex",
+        line2: "eius",
+        postalCode: "77903",
+        region: "veniam",
         type: AddressTypeEnum.Unknown,
       },
       contact: {
-        email: "Jordyn_Hyatt62@yahoo.com",
-        name: "Vernon Will",
-        phone: "359.660.2503 x4591",
+        email: "Augusta31@yahoo.com",
+        name: "Heather Simonis",
+        phone: "588-271-5141",
       },
     },
-    sourceModifiedDate: "dolor",
+    sourceModifiedDate: "quidem",
     status: PurchaseOrderStatusEnum.Closed,
-    subTotal: 4172.21,
+    subTotal: 5873.6,
     supplierRef: {
-      id: "86d839fc-9e17-45ff-a906-ae559b72eb67",
-      supplierName: "magnam",
+      id: "c3221697-b188-40fc-bb2b-93c15f670bd1",
+      supplierName: "nihil",
     },
-    totalAmount: 4246.29,
-    totalDiscount: 361.86,
-    totalTaxAmount: 2316.09,
+    totalAmount: 5049.32,
+    totalDiscount: 2535.46,
+    totalTaxAmount: 5040.97,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  purchaseOrderId: "sit",
-  timeoutInMinutes: 987456,
+  purchaseOrderId: "sequi",
+  timeoutInMinutes: 122858,
 };
 
-sdk.purchaseOrders.updatePurchaseOrder(req).then((res: UpdatePurchaseOrderResponse | AxiosError) => {
+sdk.purchaseOrders.update(req).then((res: UpdatePurchaseOrderResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

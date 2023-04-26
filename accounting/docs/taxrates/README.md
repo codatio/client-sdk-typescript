@@ -6,10 +6,10 @@ Tax rates
 
 ### Available Operations
 
-* [getTaxRate](#gettaxrate) - Get tax rate
-* [listTaxRates](#listtaxrates) - List all tax rates
+* [get](#get) - Get tax rate
+* [list](#list) - List all tax rates
 
-## getTaxRate
+## get
 
 Gets the specified tax rate for a given company.
 
@@ -29,17 +29,17 @@ const sdk = new CodatAccounting({
 
 const req: GetTaxRateRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  taxRateId: "at",
+  taxRateId: "inventore",
 };
 
-sdk.taxRates.getTaxRate(req).then((res: GetTaxRateResponse | AxiosError) => {
+sdk.taxRates.get(req).then((res: GetTaxRateResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## listTaxRates
+## list
 
 Gets the latest tax rates for a given company.
 
@@ -62,10 +62,10 @@ const req: ListTaxRatesRequest = {
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "excepturi",
+  query: "eligendi",
 };
 
-sdk.taxRates.listTaxRates(req).then((res: ListTaxRatesResponse | AxiosError) => {
+sdk.taxRates.list(req).then((res: ListTaxRatesResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

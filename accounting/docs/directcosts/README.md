@@ -6,16 +6,16 @@ Direct costs
 
 ### Available Operations
 
-* [createDirectCost](#createdirectcost) - Create direct cost
-* [downloadDirectCostAttachment](#downloaddirectcostattachment) - Download direct cost attachment
-* [getCreateDirectCostsModel](#getcreatedirectcostsmodel) - Get create direct cost model
-* [getDirectCost](#getdirectcost) - Get direct cost
-* [getDirectCostAttachment](#getdirectcostattachment) - Get direct cost attachment
-* [getDirectCosts](#getdirectcosts) - List direct costs
-* [listDirectCostAttachments](#listdirectcostattachments) - List direct cost attachments
-* [uploadDirectCostAttachment](#uploaddirectcostattachment) - Upload direct cost attachment
+* [create](#create) - Create direct cost
+* [downloadAttachment](#downloadattachment) - Download direct cost attachment
+* [get](#get) - Get direct cost
+* [getAttachment](#getattachment) - Get direct cost attachment
+* [getCreateModel](#getcreatemodel) - Get create direct cost model
+* [list](#list) - List direct costs
+* [listAttachments](#listattachments) - List direct cost attachments
+* [uploadAttachment](#uploadattachment) - Upload direct cost attachment
 
-## createDirectCost
+## create
 
 Posts a new direct cost to the accounting package for a given company.
 
@@ -42,225 +42,249 @@ const sdk = new CodatAccounting({
 const req: CreateDirectCostRequest = {
   directCost: {
     contactRef: {
-      dataType: "sed",
-      id: "de35f8e0-1bf3-43ea-ab45-402ac1704bf1",
+      dataType: "tempore",
+      id: "e3444eac-8b3a-4287-9c6c-1fe606d07d2a",
     },
-    currency: "maxime",
-    currencyRate: 8111.67,
-    id: "9fc61aae-5eb5-4f0c-892b-5744d08a2267",
-    issueDate: "est",
+    currency: "error",
+    currencyRate: 7699.22,
+    id: "87ae50c1-6661-4a1d-9136-a7e8d53213f3",
+    issueDate: "asperiores",
     lineItems: [
       {
         accountRef: {
-          id: "ee79e3c7-1ad3-41be-8b83-d2378ae3bfc2",
-          name: "Christie Marquardt",
+          id: "58752db7-64c5-49f0-a56c-ebcada29ca79",
+          name: "Margie Bosco",
         },
-        description: "aperiam",
-        discountAmount: 6589.17,
-        discountPercentage: 6038.63,
+        description: "ipsam",
+        discountAmount: 3887.15,
+        discountPercentage: 4752.38,
         itemRef: {
-          id: "86a495ba-c707-4f06-b28e-cc86492386f6",
-          name: "Lynne Miller",
+          id: "1663c530-b566-4516-ba36-38512ab2521b",
+          name: "Emmett Daugherty IV",
         },
-        quantity: 7548.72,
-        subTotal: 2765.07,
-        taxAmount: 7900.8,
+        quantity: 1632.92,
+        subTotal: 3028.14,
+        taxAmount: 4199.95,
         taxRateRef: {
-          effectiveTaxRate: 7977.92,
-          id: "6b78890a-3fd3-4c81-9a10-f8c23df931da",
-          name: "Henrietta Schuppe",
+          effectiveTaxRate: 4450.23,
+          id: "b8a40bc0-5fab-40d6-90ed-f22a94d20ec9",
+          name: "Raquel O'Keefe PhD",
         },
-        totalAmount: 1152.02,
+        totalAmount: 1004.36,
         tracking: {
           invoiceTo: {
-            dataType: "repellat",
-            id: "ad94acc9-4351-4377-a6d1-5321b832a56d",
+            dataType: "hic",
+            id: "465e8515-6fff-473f-9f54-fdd5ea954339",
           },
           recordRefs: [
             {
-              dataType: "sint",
-              id: "180ff60e-b9a6-4658-a69a-4b843d382dbe",
+              dataType: "illum",
+              id: "afb42a8d-6338-48e4-9803-9ea5f9b18a24",
             },
             {
-              dataType: "porro",
-              id: "75c68c60-6594-468c-a304-d8849bf8214c",
+              dataType: "modi",
+              id: "fd619039-dacd-438e-90dc-671dc7f1e3af",
+            },
+            {
+              dataType: "quasi",
+              id: "5920c90d-1b49-401f-abd8-9c8a32639da5",
             },
           ],
         },
         trackingCategoryRefs: [
           {
-            id: "37f96bb0-c69e-4372-9b13-44ba9f78a5c0",
-            name: "Bryant Kiehn",
+            id: "7b6902b8-81a9-44f6-8366-4a8f0af8c691",
+            name: "Clinton Ernser",
+          },
+          {
+            id: "9fbaf947-6a2a-4e8d-8c50-c8a3512c7378",
+            name: "Gwendolyn McLaughlin IV",
+          },
+          {
+            id: "50a00e96-6ec7-436d-8319-4398c783c923",
+            name: "Max Tillman",
           },
         ],
-        unitAmount: 7429.37,
+        unitAmount: 8639.57,
       },
       {
         accountRef: {
-          id: "62e97261-fb0c-458d-a7b5-1996b5b4b50e",
-          name: "Mr. Darrin Kub",
+          id: "3ab7ca3c-5ca8-4649-a70c-fd5d6989b720",
+          name: "Mr. Danielle Hamill",
         },
-        description: "ducimus",
-        discountAmount: 6577.63,
-        discountPercentage: 4967.86,
+        description: "voluptate",
+        discountAmount: 8494.86,
+        discountPercentage: 879.6,
         itemRef: {
-          id: "ab0344b1-7106-488d-aebe-f897f3dd0ccd",
-          name: "Mr. Cindy White",
+          id: "9ea83d49-2ed1-44b8-a2c1-954545e955dc",
+          name: "Henry Langosh",
         },
-        quantity: 2054.73,
-        subTotal: 9131.52,
-        taxAmount: 3033.65,
+        quantity: 6691.93,
+        subTotal: 3007.59,
+        taxAmount: 6029.32,
         taxRateRef: {
-          effectiveTaxRate: 9165.77,
-          id: "080aa104-186e-4c75-9e02-f3702c5c8e2d",
-          name: "Barbara Von",
+          effectiveTaxRate: 65.39,
+          id: "1c7c43ad-2daa-4784-aba3-d230edf73811",
+          name: "Albert Bruen",
         },
-        totalAmount: 2133.99,
+        totalAmount: 5162.31,
         tracking: {
           invoiceTo: {
-            dataType: "sunt",
-            id: "04fa4470-7bf3-475b-8428-2821fdb2f69e",
+            dataType: "consequuntur",
+            id: "bd7ed565-0762-41c5-8f4d-7396564c20a0",
           },
           recordRefs: [
             {
-              dataType: "unde",
-              id: "267c71cc-8d3c-4d42-98d0-358a82c808fe",
+              dataType: "dicta",
+              id: "1a961d24-a7db-4b8f-932d-892cf7812cb5",
             },
             {
-              dataType: "odit",
-              id: "751a2047-c044-49e1-83f9-619bb7d40d5a",
+              dataType: "architecto",
+              id: "2c878240-bf54-48f8-8f8f-1bf0bc8e1f20",
             },
           ],
         },
         trackingCategoryRefs: [
           {
-            id: "1fa436e6-2592-433f-95c9-d237397c785b",
-            name: "Betsy Reynolds",
+            id: "d5d831d0-0810-490f-a706-673f3a681c57",
+            name: "Vickie Simonis",
           },
-        ],
-        unitAmount: 3401.67,
-      },
-      {
-        accountRef: {
-          id: "00183feb-df67-46b7-a06d-ab750052a564",
-          name: "Gretchen Steuber",
-        },
-        description: "sequi",
-        discountAmount: 6159.32,
-        discountPercentage: 9053.57,
-        itemRef: {
-          id: "d8c4320f-4124-40d4-887a-c693b94c3b9d",
-          name: "Esther Lind",
-        },
-        quantity: 4884.37,
-        subTotal: 6008.1,
-        taxAmount: 3215.82,
-        taxRateRef: {
-          effectiveTaxRate: 6383.23,
-          id: "a42fc405-669f-469a-806d-21249450819d",
-          name: "Krista Emard MD",
-        },
-        totalAmount: 3003.75,
-        tracking: {
-          invoiceTo: {
-            dataType: "illo",
-            id: "844060e0-0310-4d02-bdc9-01f5afd2a6c4",
-          },
-          recordRefs: [
-            {
-              dataType: "praesentium",
-              id: "46ae9d89-253c-4896-af48-96bf51e4652d",
-            },
-            {
-              dataType: "dolorem",
-              id: "c343d617-78af-4491-a477-25e621909e91",
-            },
-          ],
-        },
-        trackingCategoryRefs: [
           {
-            id: "44a5de59-ac77-4066-b0cf-1cf593260525",
-            name: "Elvira Jacobson",
+            id: "742409a2-15e0-4860-9489-a5f63e3af3dd",
+            name: "Marty Spencer",
           },
         ],
-        unitAmount: 7414,
+        unitAmount: 2439.65,
       },
     ],
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "non",
-    note: "quia",
+    modifiedDate: "vero",
+    note: "placeat",
     paymentAllocations: [
       {
         allocation: {
-          allocatedOnDate: "deleniti",
-          currency: "molestias",
-          currencyRate: 4937.34,
-          totalAmount: 8134.63,
+          allocatedOnDate: "vel",
+          currency: "non",
+          currencyRate: 2799.65,
+          totalAmount: 5083.73,
         },
         payment: {
           accountRef: {
-            id: "99a2d335-670e-493e-a6cf-59f358aaeaca",
-            name: "Philip Crooks",
+            id: "3e4a7a98-e4df-437e-85b8-955d413e13a4",
+            name: "Mr. Todd Feil",
           },
-          currency: "adipisci",
-          currencyRate: 799.07,
-          id: "bf7ba1cc-9771-46c8-82cc-9e0c7d9d323f",
-          note: "quae",
-          paidOnDate: "animi",
-          reference: "est",
-          totalAmount: 4209.27,
+          currency: "perferendis",
+          currencyRate: 4391.35,
+          id: "bd354c09-2bd7-434f-8244-9d86f4bb20fe",
+          note: "nostrum",
+          paidOnDate: "quibusdam",
+          reference: "provident",
+          totalAmount: 857.97,
         },
       },
       {
         allocation: {
-          allocatedOnDate: "sequi",
-          currency: "officiis",
-          currencyRate: 8610.9,
-          totalAmount: 5823.51,
+          allocatedOnDate: "sunt",
+          currency: "quod",
+          currencyRate: 7101.48,
+          totalAmount: 9611.71,
         },
         payment: {
           accountRef: {
-            id: "cf1c856b-cba5-41ef-a454-a47facf116cd",
-            name: "Jorge Grady",
+            id: "e749caf4-5a27-4f69-a2c9-e6d10e9db3ad",
+            name: "Rosalie Kautzer I",
           },
+          currency: "quasi",
+          currencyRate: 374.55,
+          id: "8d9c3374-7308-42b9-8f2a-b1fd5671e9c3",
+          note: "dolores",
+          paidOnDate: "commodi",
+          reference: "neque",
+          totalAmount: 3182.94,
+        },
+      },
+      {
+        allocation: {
+          allocatedOnDate: "eaque",
           currency: "officia",
-          currencyRate: 4413.58,
-          id: "562873c7-dd9e-4faf-83dc-623620f3138f",
-          note: "nesciunt",
-          paidOnDate: "doloremque",
-          reference: "at",
-          totalAmount: 9458.52,
+          currencyRate: 2702.53,
+          totalAmount: 4310.35,
+        },
+        payment: {
+          accountRef: {
+            id: "7143789c-e0e9-4915-94d9-3a74c0252fe3",
+            name: "Alex Rippin",
+          },
+          currency: "rerum",
+          currencyRate: 5394.26,
+          id: "b778ebb6-e1d2-4cf5-82ba-fb2cbc4635d5",
+          note: "eveniet",
+          paidOnDate: "eum",
+          reference: "exercitationem",
+          totalAmount: 8718.88,
+        },
+      },
+      {
+        allocation: {
+          allocatedOnDate: "culpa",
+          currency: "alias",
+          currencyRate: 1759.37,
+          totalAmount: 5500.66,
+        },
+        payment: {
+          accountRef: {
+            id: "c3e951a1-e30f-4da9-a648-9d7b78673e13",
+            name: "Arthur Dare",
+          },
+          currency: "rerum",
+          currencyRate: 5872.48,
+          id: "92494594-487f-45c8-8383-6b86b3cdf641",
+          note: "minima",
+          paidOnDate: "facilis",
+          reference: "sit",
+          totalAmount: 2799.72,
         },
       },
     ],
-    reference: "sequi",
-    sourceModifiedDate: "temporibus",
-    subTotal: 7364.8,
+    reference: "magnam",
+    sourceModifiedDate: "molestias",
+    subTotal: 9417.1,
     supplementalData: {
       content: {
-        "magni": {
-          "earum": "similique",
+        "repellendus": {
+          "dicta": "ratione",
+          "delectus": "ut",
+          "officiis": "itaque",
+          "nulla": "distinctio",
+        },
+        "recusandae": {
+          "deleniti": "tempore",
+          "reiciendis": "commodi",
+        },
+        "sit": {
+          "molestias": "quia",
+          "ipsam": "rem",
         },
       },
     },
-    taxAmount: 6633.25,
-    totalAmount: 3507.98,
+    taxAmount: 5640.67,
+    totalAmount: 2626.64,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 415121,
+  timeoutInMinutes: 898366,
 };
 
-sdk.directCosts.createDirectCost(req).then((res: CreateDirectCostResponse | AxiosError) => {
+sdk.directCosts.create(req).then((res: CreateDirectCostResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## downloadDirectCostAttachment
+## downloadAttachment
 
 Downloads an attachment for the specified direct cost for a given company.
 
@@ -284,14 +308,75 @@ const req: DownloadDirectCostAttachmentRequest = {
   directCostId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
-sdk.directCosts.downloadDirectCostAttachment(req).then((res: DownloadDirectCostAttachmentResponse | AxiosError) => {
+sdk.directCosts.downloadAttachment(req).then((res: DownloadDirectCostAttachmentResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getCreateDirectCostsModel
+## get
+
+Gets the specified direct cost for a given company.
+
+### Example Usage
+
+```typescript
+import { CodatAccounting } from "@codat/accounting";
+import { GetDirectCostRequest, GetDirectCostResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { AxiosError } from "axios";
+
+const sdk = new CodatAccounting({
+  security: {
+    authHeader: "YOUR_API_KEY_HERE",
+  },
+});
+
+const req: GetDirectCostRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  directCostId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+};
+
+sdk.directCosts.get(req).then((res: GetDirectCostResponse | AxiosError) => {
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+## getAttachment
+
+Gets the specified direct cost attachment for a given company.
+
+### Example Usage
+
+```typescript
+import { CodatAccounting } from "@codat/accounting";
+import { GetDirectCostAttachmentRequest, GetDirectCostAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { AxiosError } from "axios";
+
+const sdk = new CodatAccounting({
+  security: {
+    authHeader: "YOUR_API_KEY_HERE",
+  },
+});
+
+const req: GetDirectCostAttachmentRequest = {
+  attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  directCostId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+};
+
+sdk.directCosts.getAttachment(req).then((res: GetDirectCostAttachmentResponse | AxiosError) => {
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+## getCreateModel
 
 Get create direct cost model. Returns the expected data for the request payload.
 
@@ -320,75 +405,14 @@ const req: GetCreateDirectCostsModelRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-sdk.directCosts.getCreateDirectCostsModel(req).then((res: GetCreateDirectCostsModelResponse | AxiosError) => {
+sdk.directCosts.getCreateModel(req).then((res: GetCreateDirectCostsModelResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getDirectCost
-
-Gets the specified direct cost for a given company.
-
-### Example Usage
-
-```typescript
-import { CodatAccounting } from "@codat/accounting";
-import { GetDirectCostRequest, GetDirectCostResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
-
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "YOUR_API_KEY_HERE",
-  },
-});
-
-const req: GetDirectCostRequest = {
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.directCosts.getDirectCost(req).then((res: GetDirectCostResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-## getDirectCostAttachment
-
-Gets the specified direct cost attachment for a given company.
-
-### Example Usage
-
-```typescript
-import { CodatAccounting } from "@codat/accounting";
-import { GetDirectCostAttachmentRequest, GetDirectCostAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
-
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "YOUR_API_KEY_HERE",
-  },
-});
-
-const req: GetDirectCostAttachmentRequest = {
-  attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.directCosts.getDirectCostAttachment(req).then((res: GetDirectCostAttachmentResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-## getDirectCosts
+## list
 
 Gets the direct costs for the company.
 
@@ -396,7 +420,7 @@ Gets the direct costs for the company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetDirectCostsRequest, GetDirectCostsResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ListDirectCostsRequest, ListDirectCostsResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -405,23 +429,23 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetDirectCostsRequest = {
+const req: ListDirectCostsRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "nostrum",
+  query: "culpa",
 };
 
-sdk.directCosts.getDirectCosts(req).then((res: GetDirectCostsResponse | AxiosError) => {
+sdk.directCosts.list(req).then((res: ListDirectCostsResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## listDirectCostAttachments
+## listAttachments
 
 Gets all attachments for the specified direct cost for a given company.
 
@@ -444,14 +468,14 @@ const req: ListDirectCostAttachmentsRequest = {
   directCostId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
-sdk.directCosts.listDirectCostAttachments(req).then((res: ListDirectCostAttachmentsResponse | AxiosError) => {
+sdk.directCosts.listAttachments(req).then((res: ListDirectCostAttachmentsResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## uploadDirectCostAttachment
+## uploadAttachment
 
 Posts a new direct cost attachment for a given company.
 
@@ -470,15 +494,15 @@ const sdk = new CodatAccounting({
 
 const req: UploadDirectCostAttachmentRequest = {
   requestBody: {
-    content: "delectus".encode(),
-    requestBody: "quidem",
+    content: "in".encode(),
+    requestBody: "aliquid",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   directCostId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
-sdk.directCosts.uploadDirectCostAttachment(req).then((res: UploadDirectCostAttachmentResponse | AxiosError) => {
+sdk.directCosts.uploadAttachment(req).then((res: UploadDirectCostAttachmentResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

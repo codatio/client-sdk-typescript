@@ -6,16 +6,16 @@ Suppliers
 
 ### Available Operations
 
-* [createSupplier](#createsupplier) - Create suppliers
-* [downloadSupplierAttachment](#downloadsupplierattachment) - Download supplier attachment
-* [getCreateUpdateSuppliersModel](#getcreateupdatesuppliersmodel) - Get create/update supplier model
-* [getSupplier](#getsupplier) - Get supplier
-* [getSupplierAttachment](#getsupplierattachment) - Get supplier attachment
-* [listSupplierAttachments](#listsupplierattachments) - List supplier attachments
-* [listSuppliers](#listsuppliers) - List suppliers
-* [putSupplier](#putsupplier) - Update supplier
+* [create](#create) - Create supplier
+* [downloadAttachment](#downloadattachment) - Download supplier attachment
+* [get](#get) - Get supplier
+* [getAttachment](#getattachment) - Get supplier attachment
+* [getCreateUpdateModel](#getcreateupdatemodel) - Get create/update supplier model
+* [list](#list) - List suppliers
+* [listAttachments](#listattachments) - List supplier attachments
+* [update](#update) - Update supplier
 
-## createSupplier
+## create
 
 Push suppliers
 
@@ -49,83 +49,53 @@ const req: CreateSupplierRequest = {
   supplier: {
     addresses: [
       {
-        city: "South Gavin",
-        country: "Saint Lucia",
-        line1: "explicabo",
-        line2: "expedita",
-        postalCode: "89844-4509",
-        region: "temporibus",
+        city: "Thousand Oaks",
+        country: "Papua New Guinea",
+        line1: "amet",
+        line2: "tempore",
+        postalCode: "81317",
+        region: "adipisci",
         type: AddressTypeEnum.Unknown,
       },
-      {
-        city: "Blockview",
-        country: "Oman",
-        line1: "molestiae",
-        line2: "harum",
-        postalCode: "24520-2256",
-        region: "repellat",
-        type: AddressTypeEnum.Billing,
-      },
-      {
-        city: "Jeniferton",
-        country: "Ukraine",
-        line1: "earum",
-        line2: "ipsa",
-        postalCode: "50506",
-        region: "dolores",
-        type: AddressTypeEnum.Delivery,
-      },
     ],
-    contactName: "culpa",
-    defaultCurrency: "fugit",
-    emailAddress: "nemo",
-    id: "ee6c75af-8a60-4a7a-a346-e0979e5afe60",
+    contactName: "alias",
+    defaultCurrency: "occaecati",
+    emailAddress: "perspiciatis",
+    id: "83663c66-dcbb-47df-acb0-9c8b408e0713",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "culpa",
-    phone: "776-533-8955 x34331",
-    registrationNumber: "deserunt",
-    sourceModifiedDate: "iste",
+    modifiedDate: "molestiae",
+    phone: "489.499.8000 x854",
+    registrationNumber: "praesentium",
+    sourceModifiedDate: "aperiam",
     status: SupplierStatusEnum.Archived,
     supplementalData: {
       content: {
-        "eveniet": {
-          "quae": "voluptates",
-          "impedit": "sunt",
-        },
-        "optio": {
-          "occaecati": "officia",
-          "consectetur": "excepturi",
-        },
-        "fuga": {
-          "ipsam": "fuga",
-          "magnam": "assumenda",
-          "nemo": "id",
-          "laboriosam": "nostrum",
-        },
-        "expedita": {
-          "fugiat": "exercitationem",
-          "veniam": "ea",
+        "doloremque": {
+          "eius": "odio",
+          "rerum": "provident",
+          "nostrum": "perferendis",
+          "aliquam": "accusantium",
         },
       },
     },
-    supplierName: "aspernatur",
-    taxNumber: "assumenda",
+    supplierName: "possimus",
+    taxNumber: "vel",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 587240,
+  timeoutInMinutes: 796063,
 };
 
-sdk.suppliers.createSupplier(req).then((res: CreateSupplierResponse | AxiosError) => {
+sdk.suppliers.create(req).then((res: CreateSupplierResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## downloadSupplierAttachment
+## downloadAttachment
 
 Download supplier attachment
 
@@ -149,14 +119,75 @@ const req: DownloadSupplierAttachmentRequest = {
   supplierId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
-sdk.suppliers.downloadSupplierAttachment(req).then((res: DownloadSupplierAttachmentResponse | AxiosError) => {
+sdk.suppliers.downloadAttachment(req).then((res: DownloadSupplierAttachmentResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getCreateUpdateSuppliersModel
+## get
+
+Gets a single supplier corresponding to the given ID.
+
+### Example Usage
+
+```typescript
+import { CodatAccounting } from "@codat/accounting";
+import { GetSupplierRequest, GetSupplierResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { AddressTypeEnum, SupplierStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { AxiosError } from "axios";
+
+const sdk = new CodatAccounting({
+  security: {
+    authHeader: "YOUR_API_KEY_HERE",
+  },
+});
+
+const req: GetSupplierRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  supplierId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+};
+
+sdk.suppliers.get(req).then((res: GetSupplierResponse | AxiosError) => {
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+## getAttachment
+
+Get supplier attachment
+
+### Example Usage
+
+```typescript
+import { CodatAccounting } from "@codat/accounting";
+import { GetSupplierAttachmentRequest, GetSupplierAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { AxiosError } from "axios";
+
+const sdk = new CodatAccounting({
+  security: {
+    authHeader: "YOUR_API_KEY_HERE",
+  },
+});
+
+const req: GetSupplierAttachmentRequest = {
+  attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  supplierId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+};
+
+sdk.suppliers.getAttachment(req).then((res: GetSupplierAttachmentResponse | AxiosError) => {
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+## getCreateUpdateModel
 
 Get create/update supplier model. Returns the expected data for the request payload.
 
@@ -185,105 +216,14 @@ const req: GetCreateUpdateSuppliersModelRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-sdk.suppliers.getCreateUpdateSuppliersModel(req).then((res: GetCreateUpdateSuppliersModelResponse | AxiosError) => {
+sdk.suppliers.getCreateUpdateModel(req).then((res: GetCreateUpdateSuppliersModelResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getSupplier
-
-Gets a single supplier corresponding to the given ID.
-
-### Example Usage
-
-```typescript
-import { CodatAccounting } from "@codat/accounting";
-import { GetSupplierRequest, GetSupplierResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressTypeEnum, SupplierStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
-
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "YOUR_API_KEY_HERE",
-  },
-});
-
-const req: GetSupplierRequest = {
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  supplierId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.suppliers.getSupplier(req).then((res: GetSupplierResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-## getSupplierAttachment
-
-Get supplier attachment
-
-### Example Usage
-
-```typescript
-import { CodatAccounting } from "@codat/accounting";
-import { GetSupplierAttachmentRequest, GetSupplierAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
-
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "YOUR_API_KEY_HERE",
-  },
-});
-
-const req: GetSupplierAttachmentRequest = {
-  attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.suppliers.getSupplierAttachment(req).then((res: GetSupplierAttachmentResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-## listSupplierAttachments
-
-Get supplier attachments
-
-### Example Usage
-
-```typescript
-import { CodatAccounting } from "@codat/accounting";
-import { ListSupplierAttachmentsRequest, ListSupplierAttachmentsResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
-
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "YOUR_API_KEY_HERE",
-  },
-});
-
-const req: ListSupplierAttachmentsRequest = {
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.suppliers.listSupplierAttachments(req).then((res: ListSupplierAttachmentsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-## listSuppliers
+## list
 
 Gets the latest suppliers for a company, with pagination
 
@@ -306,19 +246,49 @@ const req: ListSuppliersRequest = {
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "expedita",
+  query: "blanditiis",
 };
 
-sdk.suppliers.listSuppliers(req).then((res: ListSuppliersResponse | AxiosError) => {
+sdk.suppliers.list(req).then((res: ListSuppliersResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## putSupplier
+## listAttachments
 
-Push supplier
+Get supplier attachments
+
+### Example Usage
+
+```typescript
+import { CodatAccounting } from "@codat/accounting";
+import { ListSupplierAttachmentsRequest, ListSupplierAttachmentsResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { AxiosError } from "axios";
+
+const sdk = new CodatAccounting({
+  security: {
+    authHeader: "YOUR_API_KEY_HERE",
+  },
+});
+
+const req: ListSupplierAttachmentsRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  supplierId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+};
+
+sdk.suppliers.listAttachments(req).then((res: ListSupplierAttachmentsResponse | AxiosError) => {
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+## update
+
+Update supplier
 
 Required data may vary by integration. To see what data to post, first call [Get create/update supplier model](https://docs.codat.io/accounting-api#/operations/get-create-update-suppliers-model).
 
@@ -330,7 +300,7 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { PutSupplierRequest, PutSupplierResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { UpdateSupplierRequest, UpdateSupplierResponse } from "@codat/accounting/dist/sdk/models/operations";
 import {
   AddressTypeEnum,
   DataTypeEnum,
@@ -346,71 +316,77 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: PutSupplierRequest = {
+const req: UpdateSupplierRequest = {
   supplier: {
     addresses: [
       {
-        city: "Missoula",
-        country: "Tuvalu",
-        line1: "eos",
-        line2: "facere",
-        postalCode: "97933",
-        region: "esse",
+        city: "Lake Gabriellashire",
+        country: "Afghanistan",
+        line1: "perferendis",
+        line2: "aspernatur",
+        postalCode: "04820",
+        region: "dolore",
         type: AddressTypeEnum.Billing,
       },
       {
-        city: "New Sabrynachester",
-        country: "Malta",
-        line1: "quam",
-        line2: "ad",
-        postalCode: "16550-1516",
-        region: "enim",
+        city: "Mountain View",
+        country: "Armenia",
+        line1: "alias",
+        line2: "sit",
+        postalCode: "98150-1458",
+        region: "quidem",
+        type: AddressTypeEnum.Unknown,
+      },
+      {
+        city: "Watersfurt",
+        country: "Syrian Arab Republic",
+        line1: "suscipit",
+        line2: "ut",
+        postalCode: "40961",
+        region: "corporis",
         type: AddressTypeEnum.Unknown,
       },
     ],
-    contactName: "delectus",
-    defaultCurrency: "magnam",
-    emailAddress: "illo",
-    id: "cf6796ed-3d72-44c1-8f58-1e98cce3f716",
+    contactName: "alias",
+    defaultCurrency: "ratione",
+    emailAddress: "sed",
+    id: "3b2c09b9-2477-41f5-a69e-5b7ec7626649",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "aliquid",
-    phone: "286-282-6630",
-    registrationNumber: "optio",
-    sourceModifiedDate: "ex",
-    status: SupplierStatusEnum.Archived,
+    modifiedDate: "possimus",
+    phone: "487-692-7981 x1448",
+    registrationNumber: "sit",
+    sourceModifiedDate: "expedita",
+    status: SupplierStatusEnum.Active,
     supplementalData: {
       content: {
-        "alias": {
-          "assumenda": "totam",
-          "minima": "explicabo",
-          "soluta": "ad",
+        "repellat": {
+          "atque": "iure",
+          "nulla": "aliquid",
+          "asperiores": "similique",
         },
-        "adipisci": {
-          "nesciunt": "eos",
-          "placeat": "blanditiis",
-          "cumque": "dignissimos",
+        "veniam": {
+          "vel": "earum",
+          "corrupti": "temporibus",
+          "libero": "sapiente",
         },
-        "placeat": {
-          "eligendi": "esse",
-        },
-        "quasi": {
-          "accusamus": "inventore",
+        "praesentium": {
+          "qui": "asperiores",
         },
       },
     },
-    supplierName: "voluptas",
-    taxNumber: "molestiae",
+    supplierName: "blanditiis",
+    taxNumber: "nesciunt",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
   supplierId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  timeoutInMinutes: 219664,
+  timeoutInMinutes: 721212,
 };
 
-sdk.suppliers.putSupplier(req).then((res: PutSupplierResponse | AxiosError) => {
+sdk.suppliers.update(req).then((res: UpdateSupplierResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

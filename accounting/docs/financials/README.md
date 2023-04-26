@@ -29,9 +29,9 @@ const sdk = new CodatAccounting({
 
 const req: GetBalanceSheetRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  periodLength: 690865,
-  periodsToCompare: 125404,
-  startMonth: "facere",
+  periodLength: 181836,
+  periodsToCompare: 754041,
+  startMonth: "perspiciatis",
 };
 
 sdk.financials.getBalanceSheet(req).then((res: GetBalanceSheetResponse | AxiosError) => {
@@ -61,9 +61,9 @@ const sdk = new CodatAccounting({
 
 const req: GetCashFlowStatementRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  periodLength: 170992,
-  periodsToCompare: 446583,
-  startMonth: "repudiandae",
+  periodLength: 431723,
+  periodsToCompare: 576232,
+  startMonth: "eligendi",
 };
 
 sdk.financials.getCashFlowStatement(req).then((res: GetCashFlowStatementResponse | AxiosError) => {
@@ -93,9 +93,9 @@ const sdk = new CodatAccounting({
 
 const req: GetProfitAndLossRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  periodLength: 698306,
-  periodsToCompare: 457632,
-  startMonth: "accusantium",
+  periodLength: 276507,
+  periodsToCompare: 790080,
+  startMonth: "quod",
 };
 
 sdk.financials.getProfitAndLoss(req).then((res: GetProfitAndLossResponse | AxiosError) => {

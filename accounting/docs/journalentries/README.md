@@ -6,13 +6,13 @@ Journal entries
 
 ### Available Operations
 
-* [createJournalEntry](#createjournalentry) - Create journal entry
-* [deleteJournalEntry](#deletejournalentry) - Delete journal entry
-* [getCreateJournalEntriesModel](#getcreatejournalentriesmodel) - Get create journal entry model
-* [getJournalEntry](#getjournalentry) - Get journal entry
-* [listJournalEntries](#listjournalentries) - List journal entries
+* [create](#create) - Create journal entry
+* [delete](#delete) - Delete journal entry
+* [get](#get) - Get journal entry
+* [getCreateModel](#getcreatemodel) - Get create journal entry model
+* [list](#list) - List journal entries
 
-## createJournalEntry
+## create
 
 Posts a new journalEntry to the accounting package for a given company.
 
@@ -38,110 +38,147 @@ const sdk = new CodatAccounting({
 
 const req: CreateJournalEntryRequest = {
   journalEntry: {
-    createdOn: "tempora",
-    description: "nesciunt",
-    id: "fb0a4e66-ea47-4578-9171-e2941818fc67",
+    createdOn: "delectus",
+    description: "id",
+    id: "1011a091-b3ec-48b5-b862-de1a9d14fe72",
     journalLines: [
       {
         accountRef: {
-          id: "b6b2f253-59b8-455d-815b-62c8b83a38a8",
-          name: "Dwayne MacGyver I",
+          id: "521f9030-3dfc-4338-b97f-ffa6d1d32090",
+          name: "Salvatore Boyer",
         },
-        currency: "labore",
-        description: "consequuntur",
-        netAmount: 317.03,
+        currency: "mollitia",
+        description: "cumque",
+        netAmount: 5632.6,
         tracking: {
           recordRefs: [
             {
-              dataType: "optio",
-              id: "2caeb1ae-1ecf-48c3-8946-bba7a05a8b4a",
+              dataType: "accusamus",
+              id: "1961ce9b-e41c-4869-9d7d-9719d07b200a",
+            },
+            {
+              dataType: "corporis",
+              id: "8ffd2967-df8f-4d88-aa8e-60be620cd9c5",
+            },
+            {
+              dataType: "officia",
+              id: "fdd04c37-5251-42be-ae1d-87ecc5fdcea8",
+            },
+            {
+              dataType: "eveniet",
+              id: "7a883116-62cd-4a6d-b7c1-d86066237d42",
             },
           ],
         },
       },
       {
         accountRef: {
-          id: "9ec5b368-8cca-4363-a727-60e966e97e05",
-          name: "Teresa Anderson",
+          id: "27866db8-a749-4e39-8451-1cc75e4f0c00",
+          name: "Patty Harber",
         },
-        currency: "aliquam",
-        description: "esse",
-        netAmount: 8634.7,
+        currency: "molestiae",
+        description: "ipsam",
+        netAmount: 5541.62,
         tracking: {
           recordRefs: [
             {
-              dataType: "corrupti",
-              id: "ff249114-5fab-49e5-9a4a-f336664eaa6b",
+              dataType: "nobis",
+              id: "94562f00-6968-45fc-91a1-73d84bbe24f2",
             },
             {
-              dataType: "sapiente",
-              id: "2ff14e8c-1b35-42ac-8eda-cc5227814eca",
+              dataType: "error",
+              id: "834afb07-35cb-4628-9d4a-29aaa1e16915",
+            },
+            {
+              dataType: "nisi",
+              id: "f7d2ee20-9505-4bf0-ba93-e94480ca37fb",
+            },
+            {
+              dataType: "ab",
+              id: "0789032a-c333-4172-a2dd-79ec74ba7e88",
             },
           ],
         },
       },
       {
         accountRef: {
-          id: "016bc41e-a134-42d4-904a-25ef71de57a1",
-          name: "Mrs. Janis Keeling",
+          id: "ddb36fd1-ccc3-441c-8657-3474f0a740fb",
+          name: "Sandy Reichel",
         },
-        currency: "tempora",
-        description: "velit",
-        netAmount: 1191.73,
+        currency: "illo",
+        description: "impedit",
+        netAmount: 2164.48,
         tracking: {
           recordRefs: [
             {
-              dataType: "laboriosam",
-              id: "92ea4867-3d52-42b8-a8a9-030660f024c7",
+              dataType: "doloremque",
+              id: "9e763995-d808-4bbe-b944-55ebc550a1c4",
             },
             {
-              dataType: "sint",
-              id: "b4cc64c2-b3a3-42c4-88ad-e62f6aa558a6",
+              dataType: "qui",
+              id: "6b59c836-6fdc-4c13-9582-c1b855e889d9",
+            },
+            {
+              dataType: "officiis",
+              id: "f932e900-0a13-4ad8-9242-08efd2341189",
+            },
+          ],
+        },
+      },
+      {
+        accountRef: {
+          id: "8e73879e-fbe8-4bae-babb-794536e90351",
+          name: "Rickey Miller",
+        },
+        currency: "adipisci",
+        description: "architecto",
+        netAmount: 4393.34,
+        tracking: {
+          recordRefs: [
+            {
+              dataType: "voluptatem",
+              id: "b77a5a53-65a7-49f1-9271-f01c0d361fed",
             },
           ],
         },
       },
     ],
     journalRef: {
-      id: "5e208301-6ca3-44bb-87d4-f62127a607d1",
-      name: "Betty Jacobi",
+      id: "8dc5effb-453e-4908-9e87-1fdb4d697bdd",
+      name: "Sylvester Maggio",
     },
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "quaerat",
-    postedOn: "nostrum",
+    modifiedDate: "repudiandae",
+    postedOn: "incidunt",
     recordRef: {
-      dataType: "beatae",
-      id: "4c3db9ca-9f38-4bd2-be87-8703493f49aa",
+      dataType: "neque",
+      id: "734a5d72-d9ed-4d78-9be5-e7afe55297ba",
     },
-    sourceModifiedDate: "laudantium",
+    sourceModifiedDate: "laboriosam",
     supplementalData: {
       content: {
-        "ex": {
-          "mollitia": "sequi",
-          "eos": "laudantium",
-        },
-        "adipisci": {
-          "iusto": "natus",
+        "laudantium": {
+          "repellat": "aliquam",
         },
       },
     },
-    updatedOn: "facilis",
+    updatedOn: "modi",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 465310,
+  timeoutInMinutes: 907650,
 };
 
-sdk.journalEntries.createJournalEntry(req).then((res: CreateJournalEntryResponse | AxiosError) => {
+sdk.journalEntries.create(req).then((res: CreateJournalEntryResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## deleteJournalEntry
+## delete
 
 Deletes a journal entry from the accounting package for a given company.
 
@@ -169,14 +206,43 @@ const req: DeleteJournalEntryRequest = {
   journalEntryId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
-sdk.journalEntries.deleteJournalEntry(req).then((res: DeleteJournalEntryResponse | AxiosError) => {
+sdk.journalEntries.delete(req).then((res: DeleteJournalEntryResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getCreateJournalEntriesModel
+## get
+
+Gets a single JournalEntry corresponding to the given ID.
+
+### Example Usage
+
+```typescript
+import { CodatAccounting } from "@codat/accounting";
+import { GetJournalEntryRequest, GetJournalEntryResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { AxiosError } from "axios";
+
+const sdk = new CodatAccounting({
+  security: {
+    authHeader: "YOUR_API_KEY_HERE",
+  },
+});
+
+const req: GetJournalEntryRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  journalEntryId: "dolorem",
+};
+
+sdk.journalEntries.get(req).then((res: GetJournalEntryResponse | AxiosError) => {
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+## getCreateModel
 
 Get create journal entry model. Returns the expected data for the request payload.
 
@@ -205,43 +271,14 @@ const req: GetCreateJournalEntriesModelRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-sdk.journalEntries.getCreateJournalEntriesModel(req).then((res: GetCreateJournalEntriesModelResponse | AxiosError) => {
+sdk.journalEntries.getCreateModel(req).then((res: GetCreateJournalEntriesModelResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getJournalEntry
-
-Gets a single JournalEntry corresponding to the given ID.
-
-### Example Usage
-
-```typescript
-import { CodatAccounting } from "@codat/accounting";
-import { GetJournalEntryRequest, GetJournalEntryResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
-
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "YOUR_API_KEY_HERE",
-  },
-});
-
-const req: GetJournalEntryRequest = {
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalEntryId: "beatae",
-};
-
-sdk.journalEntries.getJournalEntry(req).then((res: GetJournalEntryResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-## listJournalEntries
+## list
 
 Gets the latest journal entries for a company, with pagination
 
@@ -263,10 +300,10 @@ const req: ListJournalEntriesRequest = {
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "error",
+  query: "laborum",
 };
 
-sdk.journalEntries.listJournalEntries(req).then((res: ListJournalEntriesResponse | AxiosError) => {
+sdk.journalEntries.list(req).then((res: ListJournalEntriesResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

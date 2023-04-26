@@ -6,12 +6,12 @@ Items
 
 ### Available Operations
 
-* [createItem](#createitem) - Create item
-* [getCreateItemsModel](#getcreateitemsmodel) - Get create item model
-* [getItem](#getitem) - Get item
-* [listItems](#listitems) - List items
+* [create](#create) - Create item
+* [get](#get) - Get item
+* [getCreateModel](#getcreatemodel) - Get create item model
+* [list](#list) - List items
 
-## createItem
+## create
 
 Posts a new item to the accounting package for a given company.
 
@@ -39,31 +39,31 @@ const req: CreateItemRequest = {
   item: {
     billItem: {
       accountRef: {
-        id: "8afabc98-6e24-41e4-bb23-42417d13e3f6",
-        name: "Hattie Nienow",
+        id: "5472cdd1-4fc4-43b7-8bca-88fa70c43351",
+        name: "Luis Swaniawski PhD",
       },
-      description: "recusandae",
+      description: "harum",
       taxRateRef: {
-        effectiveTaxRate: 2889.02,
-        id: "ae8ab4a9-c492-4c5e-8ba5-d4aa4a508bd3",
-        name: "Jose Rowe",
+        effectiveTaxRate: 5331.06,
+        id: "f7f75f4f-23f1-4c0a-986c-3ae7d7b67fee",
+        name: "Mrs. Floyd Torphy",
       },
-      unitPrice: 6567.81,
+      unitPrice: 8642.28,
     },
-    code: "deserunt",
-    id: "8dd71bdd-aa30-4b7b-9144-9ae69c088d41",
+    code: "perspiciatis",
+    id: "5b1dbece-ff7c-44b1-96e9-278275eea768",
     invoiceItem: {
       accountRef: {
-        id: "8bb71804-f423-4d54-b935-f377ac5c9b7e",
-        name: "Lee Reichert",
+        id: "17468063-f799-4b79-96c0-b0fa0bb20a40",
+        name: "Roland Ryan",
       },
-      description: "sequi",
+      description: "accusamus",
       taxRateRef: {
-        effectiveTaxRate: 7621.04,
-        id: "523105e7-c34c-4ab0-acb8-12a66148944a",
-        name: "Ms. Clay Mayer",
+        effectiveTaxRate: 3996.96,
+        id: "40642726-57b0-41a0-bc08-fd3921c25793",
+        name: "Mercedes Kemmer V",
       },
-      unitPrice: 106.86,
+      unitPrice: 2095.62,
     },
     isBillItem: false,
     isInvoiceItem: false,
@@ -71,24 +71,54 @@ const req: CreateItemRequest = {
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "exercitationem",
-    name: "Sylvester Davis",
-    sourceModifiedDate: "praesentium",
-    type: "sed",
+    modifiedDate: "sequi",
+    name: "Dominick Pagac",
+    sourceModifiedDate: "temporibus",
+    type: "adipisci",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 346632,
+  timeoutInMinutes: 420757,
 };
 
-sdk.items.createItem(req).then((res: CreateItemResponse | AxiosError) => {
+sdk.items.create(req).then((res: CreateItemResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getCreateItemsModel
+## get
+
+Gets the specified item for a given company.
+
+### Example Usage
+
+```typescript
+import { CodatAccounting } from "@codat/accounting";
+import { GetItemRequest, GetItemResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ItemStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { AxiosError } from "axios";
+
+const sdk = new CodatAccounting({
+  security: {
+    authHeader: "YOUR_API_KEY_HERE",
+  },
+});
+
+const req: GetItemRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  itemId: "ea",
+};
+
+sdk.items.get(req).then((res: GetItemResponse | AxiosError) => {
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+## getCreateModel
 
 Get create item model. Returns the expected data for the request payload.
 
@@ -117,44 +147,14 @@ const req: GetCreateItemsModelRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-sdk.items.getCreateItemsModel(req).then((res: GetCreateItemsModelResponse | AxiosError) => {
+sdk.items.getCreateModel(req).then((res: GetCreateItemsModelResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getItem
-
-Gets the specified item for a given company.
-
-### Example Usage
-
-```typescript
-import { CodatAccounting } from "@codat/accounting";
-import { GetItemRequest, GetItemResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { ItemStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
-
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "YOUR_API_KEY_HERE",
-  },
-});
-
-const req: GetItemRequest = {
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  itemId: "ratione",
-};
-
-sdk.items.getItem(req).then((res: GetItemResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-## listItems
+## list
 
 Gets the items for a given company.
 
@@ -177,10 +177,10 @@ const req: ListItemsRequest = {
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "nesciunt",
+  query: "nulla",
 };
 
-sdk.items.listItems(req).then((res: ListItemsResponse | AxiosError) => {
+sdk.items.list(req).then((res: ListItemsResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

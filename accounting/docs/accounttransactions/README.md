@@ -6,10 +6,10 @@ Account transactions
 
 ### Available Operations
 
-* [getAccountTransaction](#getaccounttransaction) - Get account transaction
-* [listAccountTransactions](#listaccounttransactions) - List account transactions
+* [get](#get) - Get account transaction
+* [list](#list) - List account transactions
 
-## getAccountTransaction
+## get
 
 Returns a specific [account transaction](https://docs.codat.io/accounting-api#/schemas/AccountTransaction).
 
@@ -33,14 +33,14 @@ const req: GetAccountTransactionRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-sdk.accountTransactions.getAccountTransaction(req).then((res: GetAccountTransactionResponse | AxiosError) => {
+sdk.accountTransactions.get(req).then((res: GetAccountTransactionResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## listAccountTransactions
+## list
 
 Returns a list of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction) for a given company's connection.
 
@@ -67,7 +67,7 @@ const req: ListAccountTransactionsRequest = {
   query: "distinctio",
 };
 
-sdk.accountTransactions.listAccountTransactions(req).then((res: ListAccountTransactionsResponse | AxiosError) => {
+sdk.accountTransactions.list(req).then((res: ListAccountTransactionsResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

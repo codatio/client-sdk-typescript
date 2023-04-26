@@ -6,12 +6,12 @@ Accounts
 
 ### Available Operations
 
-* [createAccount](#createaccount) - Create account
-* [getAccount](#getaccount) - Get account
-* [getCreateChartOfAccountsModel](#getcreatechartofaccountsmodel) - Get create account model
-* [listAccounts](#listaccounts) - List accounts
+* [create](#create) - Create account
+* [get](#get) - Get account
+* [getCreateModel](#getcreatemodel) - Get create account model
+* [list](#list) - List accounts
 
-## createAccount
+## create
 
 Creates a new account for a given company.
 
@@ -45,59 +45,67 @@ const req: CreateAccountRequest = {
   account: {
     currency: "quibusdam",
     currentBalance: 6027.63,
-    description: "nulla",
-    fullyQualifiedCategory: "corrupti",
-    fullyQualifiedName: "illum",
-    id: "69a674e0-f467-4cc8-b96e-d151a05dfc2d",
+    description: "Invoices the business has issued but has not yet collected payment on.",
+    fullyQualifiedCategory: "Asset.Current",
+    fullyQualifiedName: "Asset.Current.Accounts Receivable",
+    id: "1b6266d1-1e44-46c5-8eb5-a8f98e03124e",
     isBankAccount: false,
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "at",
-    name: "Javier Schmidt",
-    nominalCode: "totam",
-    sourceModifiedDate: "porro",
-    status: AccountStatusEnum.Archived,
-    type: AccountTypeEnum.Unknown,
+    modifiedDate: "nulla",
+    name: "Accounts Receivable",
+    nominalCode: "610",
+    sourceModifiedDate: "corrupti",
+    status: AccountStatusEnum.Active,
+    type: AccountTypeEnum.Asset,
     validDatatypeLinks: [
       {
         links: [
-          "occaecati",
-          "fugit",
-          "deleniti",
+          "error",
+          "deserunt",
         ],
-        property: "hic",
+        property: "suscipit",
       },
       {
         links: [
-          "totam",
-          "beatae",
-          "commodi",
+          "magnam",
+          "debitis",
+        ],
+        property: "ipsa",
+      },
+      {
+        links: [
+          "tempora",
+          "suscipit",
           "molestiae",
+          "minus",
         ],
-        property: "modi",
+        property: "placeat",
       },
       {
         links: [
-          "impedit",
+          "iusto",
+          "excepturi",
+          "nisi",
         ],
-        property: "cum",
+        property: "recusandae",
       },
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 456150,
+  timeoutInMinutes: 836079,
 };
 
-sdk.accounts.createAccount(req).then((res: CreateAccountResponse | AxiosError) => {
+sdk.accounts.create(req).then((res: CreateAccountResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getAccount
+## get
 
 Gets a single account corresponding to the given ID.
 
@@ -120,14 +128,14 @@ const req: GetAccountRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
-sdk.accounts.getAccount(req).then((res: GetAccountResponse | AxiosError) => {
+sdk.accounts.get(req).then((res: GetAccountResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getCreateChartOfAccountsModel
+## getCreateModel
 
 Get create account model. Returns the expected data for the request payload.
 
@@ -156,14 +164,14 @@ const req: GetCreateChartOfAccountsModelRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-sdk.accounts.getCreateChartOfAccountsModel(req).then((res: GetCreateChartOfAccountsModelResponse | AxiosError) => {
+sdk.accounts.getCreateModel(req).then((res: GetCreateChartOfAccountsModelResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## listAccounts
+## list
 
 Gets the latest accounts for a company
 
@@ -186,10 +194,10 @@ const req: ListAccountsRequest = {
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "ipsum",
+  query: "ab",
 };
 
-sdk.accounts.listAccounts(req).then((res: ListAccountsResponse | AxiosError) => {
+sdk.accounts.list(req).then((res: ListAccountsResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

@@ -6,7 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class GetInvoiceAttachmentsRequest extends SpeakeasyBase {
+export class CreateJournalRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  journal?: shared.Journal;
+
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -17,24 +20,21 @@ export class GetInvoiceAttachmentsRequest extends SpeakeasyBase {
   })
   connectionId: string;
 
-  /**
-   * Unique identifier for an invoice
-   */
   @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=invoiceId",
+    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
   })
-  invoiceId: string;
+  timeoutInMinutes?: number;
 }
 
-export class GetInvoiceAttachmentsResponse extends SpeakeasyBase {
+export class CreateJournalResponse extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  contentType: string;
+
   /**
    * Success
    */
   @SpeakeasyMetadata()
-  attachmentsDataset?: shared.AttachmentsDataset;
-
-  @SpeakeasyMetadata()
-  contentType: string;
+  createJournalResponse?: shared.CreateJournalResponse;
 
   @SpeakeasyMetadata()
   statusCode: number;

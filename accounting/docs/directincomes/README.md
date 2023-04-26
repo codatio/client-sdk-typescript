@@ -6,16 +6,16 @@ Direct incomes
 
 ### Available Operations
 
-* [createDirectIncome](#createdirectincome) - Create direct income
-* [downloadDirectIncomeAttachment](#downloaddirectincomeattachment) - Download direct income attachment
-* [getCreateDirectIncomesModel](#getcreatedirectincomesmodel) - Get create direct income model
-* [getDirectIncome](#getdirectincome) - Get direct income
-* [getDirectIncomeAttachment](#getdirectincomeattachment) - Get direct income attachment
-* [getDirectIncomes](#getdirectincomes) - Get direct incomes
-* [listDirectIncomeAttachments](#listdirectincomeattachments) - List direct income attachments
-* [uploadDirectIncomeAttachment](#uploaddirectincomeattachment) - Create direct income attachment
+* [create](#create) - Create direct income
+* [downloadAttachment](#downloadattachment) - Download direct income attachment
+* [get](#get) - Get direct income
+* [getAttachment](#getattachment) - Get direct income attachment
+* [getCreateModel](#getcreatemodel) - Get create direct income model
+* [list](#list) - List direct incomes
+* [listAttachments](#listattachments) - List direct income attachments
+* [uploadAttachment](#uploadattachment) - Create direct income attachment
 
-## createDirectIncome
+## create
 
 Posts a new direct income to the accounting package for a given company.
 
@@ -42,153 +42,145 @@ const sdk = new CodatAccounting({
 const req: CreateDirectIncomeRequest = {
   directIncome: {
     contactRef: {
-      dataType: "rem",
-      id: "f652ebb9-d383-4838-b902-43b293dab30e",
+      dataType: "amet",
+      id: "d5c72795-b785-4148-96d5-49e5635b33bc",
     },
-    currency: "excepturi",
-    currencyRate: 1194.72,
-    id: "7f50fda0-4c8b-41bb-95a2-92b0bc3bb744",
-    issueDate: "laboriosam",
+    currency: "voluptatem",
+    currencyRate: 9791.61,
+    id: "970c42fc-9f48-4442-a5e7-5b796065c0ef",
+    issueDate: "culpa",
     lineItems: [
       {
         accountRef: {
-          id: "4eb1d033-88b0-4d1b-b17a-fee74b6feb94",
-          name: "Colleen Schmidt",
+          id: "f93b90a1-b8c9-45be-9254-b739f4fe7721",
+          name: "Muriel Carroll",
         },
-        description: "illum",
-        discountAmount: 6734.93,
-        discountPercentage: 9682.72,
+        description: "exercitationem",
+        discountAmount: 3381.01,
+        discountPercentage: 5546.44,
         itemRef: {
-          id: "39d16fbf-76fd-4162-b303-e3023b93e343",
-          name: "Jeanne Schowalter",
+          id: "c99c722d-2bc0-4f94-887d-9caae042dd7c",
+          name: "Carlton Schowalter",
         },
-        quantity: 3667.8,
-        subTotal: 7436.12,
-        taxAmount: 2976.24,
+        quantity: 2667.52,
+        subTotal: 7955.01,
+        taxAmount: 6633.35,
         taxRateRef: {
-          effectiveTaxRate: 1923.84,
-          id: "13553ccf-1c20-44c4-adcc-9904c5195b86",
-          name: "Irma Rowe",
+          effectiveTaxRate: 6360.7,
+          id: "1cfe9e15-df90-4390-bf37-831983d42e54",
+          name: "Ken Herzog",
         },
-        totalAmount: 6497.91,
+        totalAmount: 4168.84,
         trackingCategoryRefs: [
           {
-            id: "8f1e2d3b-901e-4095-abbb-4cbb19f713d9",
-            name: "Mrs. Kristi Greenholt",
+            id: "97c50233-c147-41d5-9aaa-6ddf5abd6487",
+            name: "Bill Wisoky",
           },
           {
-            id: "c1387271-e18e-4a9e-8511-8c2cc57fbd60",
-            name: "Jack Paucek",
+            id: "b862a00b-ef69-4e10-8157-630bda7afded",
+            name: "Eddie Murazik",
           },
         ],
-        unitAmount: 9102.97,
+        unitAmount: 6774.73,
       },
       {
         accountRef: {
-          id: "d29a9d4e-ea85-4658-82d4-f4c88be4f278",
-          name: "Laurence Mitchell",
+          id: "41238e1a-735a-4c26-ae33-bef971a8f46b",
+          name: "Mr. Angelo Brakus",
         },
-        description: "molestiae",
-        discountAmount: 8828.26,
-        discountPercentage: 2892.08,
+        description: "delectus",
+        discountAmount: 8871.37,
+        discountPercentage: 6076.72,
         itemRef: {
-          id: "6c51d2ff-aa58-4dce-b234-c955b9bdf219",
-          name: "Alberta Rogahn",
+          id: "65b711d0-8cf8-48ec-9f7b-99a550a656ed",
+          name: "Paula Frami",
         },
-        quantity: 7129.08,
-        subTotal: 6908.74,
-        taxAmount: 7889.95,
+        quantity: 375.63,
+        subTotal: 7773.99,
+        taxAmount: 8863.66,
         taxRateRef: {
-          effectiveTaxRate: 7535.25,
-          id: "2725ec26-59ce-4028-8840-c69ef68e45c8",
-          name: "Taylor Schuster",
+          effectiveTaxRate: 5147.78,
+          id: "aa65432a-986e-4b7e-94ca-564089150097",
+          name: "Catherine Mitchell",
         },
-        totalAmount: 7591.92,
+        totalAmount: 5264.96,
         trackingCategoryRefs: [
           {
-            id: "54500430-c663-42b4-b91f-df01c3e91e8f",
-            name: "Jeannette Schmeler",
+            id: "88ece7bf-904e-4011-85d3-8908162c6beb",
+            name: "Dr. Mattie Nader",
           },
           {
-            id: "d460a77e-ceb2-46d1-8f1e-f2631c7c0f0f",
-            name: "Allan Ebert",
+            id: "57b7d03a-1480-4f8d-a30f-069d810618d9",
+            name: "Alyssa Casper",
+          },
+          {
+            id: "297510da-8031-4229-acc6-1c2a702bb97e",
+            name: "Carl Batz",
+          },
+          {
+            id: "a2de35f8-e01b-4f33-aaab-45402ac1704b",
+            name: "Justin Schmitt",
           },
         ],
-        unitAmount: 8159.77,
+        unitAmount: 9890.79,
       },
     ],
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "veniam",
-    note: "eligendi",
+    modifiedDate: "maxime",
+    note: "ex",
     paymentAllocations: [
       {
         allocation: {
-          allocatedOnDate: "nemo",
-          currency: "doloribus",
-          currencyRate: 8503.86,
-          totalAmount: 2499.41,
+          allocatedOnDate: "deserunt",
+          currency: "laborum",
+          currencyRate: 9299.41,
+          totalAmount: 3241.51,
         },
         payment: {
           accountRef: {
-            id: "e0b4a4a4-253c-4302-9711-f42c7e7dc548",
-            name: "Bradford Balistreri",
+            id: "eb5f0c49-2b57-444d-88a2-267aaee79e3c",
+            name: "Martha Orn",
           },
-          currency: "numquam",
-          currencyRate: 989.55,
-          id: "a7a215ca-12a4-4ba9-9599-88192cfd0c77",
-          note: "eligendi",
-          paidOnDate: "ullam",
-          reference: "dolorem",
-          totalAmount: 8782.82,
+          currency: "et",
+          currencyRate: 7321.72,
+          id: "ecb83d23-78ae-43bf-823d-9450a986a495",
+          note: "cum",
+          paidOnDate: "dolorum",
+          reference: "quod",
+          totalAmount: 4715.35,
         },
       },
     ],
-    reference: "esse",
-    sourceModifiedDate: "vero",
-    subTotal: 4930.61,
+    reference: "quae",
+    sourceModifiedDate: "ducimus",
+    subTotal: 9483.77,
     supplementalData: {
       content: {
-        "eius": {
-          "vero": "nisi",
-          "recusandae": "deleniti",
-          "nobis": "excepturi",
-          "consequatur": "distinctio",
-        },
-        "similique": {
-          "consectetur": "molestias",
-          "modi": "saepe",
-          "qui": "dolor",
-          "sint": "ea",
-        },
-        "in": {
-          "sequi": "maiores",
-        },
-        "itaque": {
-          "adipisci": "sunt",
-          "quo": "veniam",
-          "sit": "deleniti",
-          "qui": "dolore",
+        "ex": {
+          "magni": "laudantium",
+          "repudiandae": "minus",
+          "porro": "atque",
         },
       },
     },
-    taxAmount: 8188.66,
-    totalAmount: 1179.02,
+    taxAmount: 4203.54,
+    totalAmount: 2588.07,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 536427,
+  timeoutInMinutes: 599915,
 };
 
-sdk.directIncomes.createDirectIncome(req).then((res: CreateDirectIncomeResponse | AxiosError) => {
+sdk.directIncomes.create(req).then((res: CreateDirectIncomeResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## downloadDirectIncomeAttachment
+## downloadAttachment
 
 Downloads an attachment for the specified direct income for a given company.
 
@@ -212,14 +204,76 @@ const req: DownloadDirectIncomeAttachmentRequest = {
   directIncomeId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
-sdk.directIncomes.downloadDirectIncomeAttachment(req).then((res: DownloadDirectIncomeAttachmentResponse | AxiosError) => {
+sdk.directIncomes.downloadAttachment(req).then((res: DownloadDirectIncomeAttachmentResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getCreateDirectIncomesModel
+## get
+
+Gets the specified direct income for a given company and connection.
+
+### Example Usage
+
+```typescript
+import { CodatAccounting } from "@codat/accounting";
+import { GetDirectIncomeRequest, GetDirectIncomeResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { AxiosError } from "axios";
+
+const sdk = new CodatAccounting({
+  security: {
+    authHeader: "YOUR_API_KEY_HERE",
+  },
+});
+
+const req: GetDirectIncomeRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  directIncomeId: "sunt",
+};
+
+sdk.directIncomes.get(req).then((res: GetDirectIncomeResponse | AxiosError) => {
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+## getAttachment
+
+Gets the specified direct income attachment for a given company.
+
+### Example Usage
+
+```typescript
+import { CodatAccounting } from "@codat/accounting";
+import { GetDirectIncomeAttachmentRequest, GetDirectIncomeAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { AxiosError } from "axios";
+
+const sdk = new CodatAccounting({
+  security: {
+    authHeader: "YOUR_API_KEY_HERE",
+  },
+});
+
+const req: GetDirectIncomeAttachmentRequest = {
+  attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  directIncomeId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  timeoutInMinutes: 226197,
+};
+
+sdk.directIncomes.getAttachment(req).then((res: GetDirectIncomeAttachmentResponse | AxiosError) => {
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+## getCreateModel
 
 Get create direct income model. Returns the expected data for the request payload.
 
@@ -248,22 +302,22 @@ const req: GetCreateDirectIncomesModelRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-sdk.directIncomes.getCreateDirectIncomesModel(req).then((res: GetCreateDirectIncomesModelResponse | AxiosError) => {
+sdk.directIncomes.getCreateModel(req).then((res: GetCreateDirectIncomesModelResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getDirectIncome
+## list
 
-Gets the specified direct income for a given company and connection.
+Lists the direct incomes for a given company.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetDirectIncomeRequest, GetDirectIncomeResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ListDirectIncomesRequest, ListDirectIncomesResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -272,85 +326,23 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetDirectIncomeRequest = {
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "perspiciatis",
-};
-
-sdk.directIncomes.getDirectIncome(req).then((res: GetDirectIncomeResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-## getDirectIncomeAttachment
-
-Gets the specified direct income attachment for a given company.
-
-### Example Usage
-
-```typescript
-import { CodatAccounting } from "@codat/accounting";
-import { GetDirectIncomeAttachmentRequest, GetDirectIncomeAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
-
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "YOUR_API_KEY_HERE",
-  },
-});
-
-const req: GetDirectIncomeAttachmentRequest = {
-  attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  timeoutInMinutes: 646108,
-};
-
-sdk.directIncomes.getDirectIncomeAttachment(req).then((res: GetDirectIncomeAttachmentResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-## getDirectIncomes
-
-Gets the direct incomes for a given company.
-
-### Example Usage
-
-```typescript
-import { CodatAccounting } from "@codat/accounting";
-import { GetDirectIncomesRequest, GetDirectIncomesResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
-
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "YOUR_API_KEY_HERE",
-  },
-});
-
-const req: GetDirectIncomesRequest = {
+const req: ListDirectIncomesRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "dolor",
+  query: "laudantium",
 };
 
-sdk.directIncomes.getDirectIncomes(req).then((res: GetDirectIncomesResponse | AxiosError) => {
+sdk.directIncomes.list(req).then((res: ListDirectIncomesResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## listDirectIncomeAttachments
+## listAttachments
 
 Gets all attachments for the specified direct income for a given company.
 
@@ -373,14 +365,14 @@ const req: ListDirectIncomeAttachmentsRequest = {
   directIncomeId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
-sdk.directIncomes.listDirectIncomeAttachments(req).then((res: ListDirectIncomeAttachmentsResponse | AxiosError) => {
+sdk.directIncomes.listAttachments(req).then((res: ListDirectIncomeAttachmentsResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## uploadDirectIncomeAttachment
+## uploadAttachment
 
 Posts a new direct income attachment for a given company.
 
@@ -399,15 +391,15 @@ const sdk = new CodatAccounting({
 
 const req: UploadDirectIncomeAttachmentRequest = {
   requestBody: {
-    content: "eum".encode(),
-    requestBody: "culpa",
+    content: "commodi".encode(),
+    requestBody: "a",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "iure",
+  directIncomeId: "aliquid",
 };
 
-sdk.directIncomes.uploadDirectIncomeAttachment(req).then((res: UploadDirectIncomeAttachmentResponse | AxiosError) => {
+sdk.directIncomes.uploadAttachment(req).then((res: UploadDirectIncomeAttachmentResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

@@ -6,10 +6,10 @@ Company info
 
 ### Available Operations
 
-* [getCompanyInfo](#getcompanyinfo) - Get company info
-* [postSyncInfo](#postsyncinfo) - Refresh company info
+* [get](#get) - Get company info
+* [refresh](#refresh) - Refresh company info
 
-## getCompanyInfo
+## get
 
 Gets the latest basic info for a company.
 
@@ -31,14 +31,14 @@ const req: GetCompanyInfoRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
-sdk.companyInfo.getCompanyInfo(req).then((res: GetCompanyInfoResponse | AxiosError) => {
+sdk.companyInfo.get(req).then((res: GetCompanyInfoResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## postSyncInfo
+## refresh
 
 Initiates the process of synchronising basic info for a company
 
@@ -46,7 +46,7 @@ Initiates the process of synchronising basic info for a company
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { PostSyncInfoRequest, PostSyncInfoResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { RefreshCompanyInfoRequest, RefreshCompanyInfoResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { DatasetStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -56,11 +56,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: PostSyncInfoRequest = {
+const req: RefreshCompanyInfoRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
-sdk.companyInfo.postSyncInfo(req).then((res: PostSyncInfoResponse | AxiosError) => {
+sdk.companyInfo.refresh(req).then((res: RefreshCompanyInfoResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

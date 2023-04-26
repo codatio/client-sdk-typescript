@@ -6,13 +6,13 @@ Bill payments
 
 ### Available Operations
 
-* [createBillPayment](#createbillpayment) - Create bill payments
-* [deleteBillPayment](#deletebillpayment) - Delete bill payment
-* [getBillPayments](#getbillpayments) - Get bill payment
-* [getCreateBillPaymentsModel](#getcreatebillpaymentsmodel) - Get create bill payment model
-* [listBillPayments](#listbillpayments) - List bill payments
+* [create](#create) - Create bill payments
+* [delete](#delete) - Delete bill payment
+* [get](#get) - Get bill payment
+* [getCreateModel](#getcreatemodel) - Get create bill payment model
+* [list](#list) - List bill payments
 
-## createBillPayment
+## create
 
 Posts a new bill payment to the accounting package for a given company.
 
@@ -44,53 +44,71 @@ const sdk = new CodatAccounting({
 const req: CreateBillPaymentRequest = {
   billPayment: {
     accountRef: {
-      id: "b7008787-5614-43f5-a6c9-8b55554080d4",
-      name: "Celia Rolfson",
+      id: "57eb809e-2810-4331-b398-1d4c700b607f",
+      name: "Francis McKenzie",
     },
-    currency: "impedit",
-    currencyRate: 3947.24,
-    date: "cumque",
-    id: "bd6b5f3e-c909-4304-b926-bad2553819b4",
+    currency: "dignissimos",
+    currencyRate: 2358.34,
+    date: "soluta",
+    id: "3d5a8e00-d108-4045-8823-7f342676cffa",
     lines: [
       {
-        allocatedOnDate: "eius",
-        amount: 7137.18,
+        allocatedOnDate: "temporibus",
+        amount: 6396.22,
         links: [
           {
-            amount: 9154.08,
-            currencyRate: 8227.11,
-            id: "20e56248-fff6-439a-910a-bdcab6267669",
-            type: BillPaymentLineLinkTypeEnum.Other,
+            amount: 9485.41,
+            currencyRate: 1339.49,
+            id: "ceda7e23-f225-4741-9faf-4b7544e472e8",
+            type: BillPaymentLineLinkTypeEnum.Unknown,
           },
         ],
       },
       {
-        allocatedOnDate: "accusamus",
-        amount: 682.92,
+        allocatedOnDate: "odit",
+        amount: 5358.02,
         links: [
           {
-            amount: 7903.05,
-            currencyRate: 535.29,
-            id: "0221b335-d89a-4cb3-acfd-a8d0c549ef03",
-            type: BillPaymentLineLinkTypeEnum.Unknown,
+            amount: 4527.3,
+            currencyRate: 6267.07,
+            id: "5b40463a-7d57-45f1-800e-764ad7334ec1",
+            type: BillPaymentLineLinkTypeEnum.Refund,
           },
           {
-            amount: 437.15,
-            currencyRate: 2737.32,
-            id: "978a61fa-1cf2-4068-8f77-c1ffc71dca16",
+            amount: 4813.75,
+            currencyRate: 5580.51,
+            id: "1b36a080-88d1-400e-bada-200ef0422eb2",
+            type: BillPaymentLineLinkTypeEnum.Unlinked,
+          },
+        ],
+      },
+      {
+        allocatedOnDate: "aliquid",
+        amount: 2646.49,
+        links: [
+          {
+            amount: 9750.95,
+            currencyRate: 5629.48,
+            id: "ab8366c7-23ff-4da9-a06b-ee4825c1fc0e",
+            type: BillPaymentLineLinkTypeEnum.Unlinked,
+          },
+          {
+            amount: 1002.51,
+            currencyRate: 3178.98,
+            id: "c80bff91-8544-4ec4-adef-cce8f1977773",
+            type: BillPaymentLineLinkTypeEnum.ManualJournal,
+          },
+          {
+            amount: 4235.88,
+            currencyRate: 2086.83,
+            id: "562a7b40-8f05-4e3d-88fd-af313a1f5fd9",
             type: BillPaymentLineLinkTypeEnum.Bill,
           },
           {
-            amount: 9824.09,
-            currencyRate: 1530.97,
-            id: "a3c80a97-ff33-44cd-9f85-7a9e61876c6a",
-            type: BillPaymentLineLinkTypeEnum.PaymentOnAccount,
-          },
-          {
-            amount: 1265.12,
-            currencyRate: 928.51,
-            id: "d29dfc94-d6fe-4cd7-9939-0066a6d2d000",
-            type: BillPaymentLineLinkTypeEnum.Bill,
+            amount: 1280.21,
+            currencyRate: 3684.91,
+            id: "9c0b36f2-5ea9-444f-bb75-6c11f6c37a51",
+            type: BillPaymentLineLinkTypeEnum.Unlinked,
           },
         ],
       },
@@ -98,50 +116,40 @@ const req: CreateBillPaymentRequest = {
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "ullam",
-    note: "quis",
+    modifiedDate: "aliquid",
+    note: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
     paymentMethodRef: {
-      id: "338cec08-6fa2-41e9-952c-b3119167b8e3",
-      name: "Julian Stanton I",
+      id: "243835bb-c05a-423a-85ce-fc5fde10a0ce",
+      name: "Mildred Kautzer",
     },
-    reference: "quaerat",
-    sourceModifiedDate: "consequatur",
+    reference: "ullam",
+    sourceModifiedDate: "architecto",
     supplementalData: {
       content: {
-        "repellendus": {
-          "quibusdam": "consectetur",
-          "voluptas": "quaerat",
-        },
-        "earum": {
-          "assumenda": "dolore",
-          "enim": "ullam",
-          "perspiciatis": "alias",
-          "ex": "quibusdam",
-        },
-        "dicta": {
-          "commodi": "neque",
+        "perferendis": {
+          "provident": "cumque",
         },
       },
     },
     supplierRef: {
-      id: "d48e935c-2c9e-481f-b0be-3e43202d7216",
-      supplierName: "ad",
+      id: "6dc5e347-6279-49bf-bbe6-949fb2bb4eca",
+      supplierName: "saepe",
     },
-    totalAmount: 4531.98,
+    totalAmount: 1329.54,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 426594,
+  timeoutInMinutes: 423054,
 };
 
-sdk.billPayments.createBillPayment(req).then((res: CreateBillPaymentResponse | AxiosError) => {
+sdk.billPayments.create(req).then((res: CreateBillPaymentResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## deleteBillPayment
+## delete
 
 Deletes a bill payment from the accounting package for a given company.
 
@@ -164,19 +172,19 @@ const sdk = new CodatAccounting({
 });
 
 const req: DeleteBillPaymentRequest = {
-  billPaymentId: "minima",
-  companyId: "sit",
-  connectionId: "vel",
+  billPaymentId: "quo",
+  companyId: "nesciunt",
+  connectionId: "illum",
 };
 
-sdk.billPayments.deleteBillPayment(req).then((res: DeleteBillPaymentResponse | AxiosError) => {
+sdk.billPayments.delete(req).then((res: DeleteBillPaymentResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getBillPayments
+## get
 
 Get a bill payment
 
@@ -195,18 +203,18 @@ const sdk = new CodatAccounting({
 });
 
 const req: GetBillPaymentsRequest = {
-  billPaymentId: "laboriosam",
+  billPaymentId: "nemo",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
-sdk.billPayments.getBillPayments(req).then((res: GetBillPaymentsResponse | AxiosError) => {
+sdk.billPayments.get(req).then((res: GetBillPaymentsResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getCreateBillPaymentsModel
+## getCreateModel
 
 Get create bill payment model.
 
@@ -233,14 +241,14 @@ const req: GetCreateBillPaymentsModelRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-sdk.billPayments.getCreateBillPaymentsModel(req).then((res: GetCreateBillPaymentsModelResponse | AxiosError) => {
+sdk.billPayments.getCreateModel(req).then((res: GetCreateBillPaymentsModelResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## listBillPayments
+## list
 
 Gets the latest billPayments for a company, with pagination
 
@@ -263,10 +271,10 @@ const req: ListBillPaymentsRequest = {
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "quaerat",
+  query: "illum",
 };
 
-sdk.billPayments.listBillPayments(req).then((res: ListBillPaymentsResponse | AxiosError) => {
+sdk.billPayments.list(req).then((res: ListBillPaymentsResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

@@ -46,7 +46,7 @@ export class BankAccounts {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) for integrations that support creating bank accounts.
    */
-  createBankAccount(
+  create(
     req: operations.CreateBankAccountRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -126,74 +126,9 @@ export class BankAccounts {
    * Get bank account
    *
    * @remarks
-   * Gets the bank account for given account ID.
-   */
-  getAllBankAccount(
-    req: operations.GetAllBankAccountRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetAllBankAccountResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetAllBankAccountRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/data/bankAccounts/{accountId}",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const queryParams: string = utils.serializeQueryParams(req);
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const r = utils.Retry(() => {
-      return client.request({
-        url: url + queryParams,
-        method: "get",
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetAllBankAccountResponse =
-        new operations.GetAllBankAccountResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.bankStatementAccount = utils.objectToClass(
-              httpRes?.data,
-              shared.BankStatementAccount
-            );
-          }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
-   * Get bank account
-   *
-   * @remarks
    * Gets the bank account with a given ID
    */
-  getBankAccount(
+  get(
     req: operations.GetBankAccountRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -262,7 +197,7 @@ export class BankAccounts {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) for integrations that support creating and updating bank accounts.
    */
-  getCreateUpdateBankAccountsModel(
+  getCreateUpdateModel(
     req: operations.GetCreateUpdateBankAccountsModelRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -325,7 +260,7 @@ export class BankAccounts {
    * @remarks
    * Gets the list of bank accounts for a given connection
    */
-  listBankAccounts(
+  list(
     req: operations.ListBankAccountsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -396,7 +331,7 @@ export class BankAccounts {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) for integrations that support updating bank accounts.
    */
-  updateBankAccount(
+  update(
     req: operations.UpdateBankAccountRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

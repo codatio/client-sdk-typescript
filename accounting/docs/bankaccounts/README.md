@@ -6,14 +6,13 @@ Bank accounts
 
 ### Available Operations
 
-* [createBankAccount](#createbankaccount) - Create bank account
-* [getAllBankAccount](#getallbankaccount) - Get bank account
-* [getBankAccount](#getbankaccount) - Get bank account
-* [getCreateUpdateBankAccountsModel](#getcreateupdatebankaccountsmodel) - Get create/update bank account model
-* [listBankAccounts](#listbankaccounts) - List bank accounts
-* [updateBankAccount](#updatebankaccount) - Update bank account
+* [create](#create) - Create bank account
+* [get](#get) - Get bank account
+* [getCreateUpdateModel](#getcreateupdatemodel) - Get create/update bank account model
+* [list](#list) - List bank accounts
+* [update](#update) - Update bank account
 
-## createBankAccount
+## create
 
 Posts a new bank account to the accounting package for a given company.
 
@@ -46,68 +45,38 @@ const sdk = new CodatAccounting({
 
 const req: CreateBankAccountRequest = {
   bankAccount: {
-    accountName: "repellat",
-    accountNumber: "mollitia",
-    accountType: BankAccountBankAccountTypeEnum.Credit,
-    availableBalance: 2532.91,
-    balance: 4143.69,
-    currency: "quam",
-    iBan: "molestiae",
-    id: "39251aa5-2c3f-45ad-819d-a1ffe78f097b",
-    institution: "perferendis",
+    accountName: "natus",
+    accountNumber: "laboriosam",
+    accountType: BankAccountBankAccountTypeEnum.Debit,
+    availableBalance: 9025.99,
+    balance: 6818.2,
+    currency: "in",
+    iBan: "corporis",
+    id: "96eb10fa-aa23-452c-9955-907aff1a3a2f",
+    institution: "mollitia",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "doloremque",
-    nominalCode: "reprehenderit",
-    overdraftLimit: 2828.07,
-    sortCode: "maiores",
-    sourceModifiedDate: "dicta",
+    modifiedDate: "occaecati",
+    nominalCode: "numquam",
+    overdraftLimit: 4143.69,
+    sortCode: "quam",
+    sourceModifiedDate: "molestiae",
   },
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 359444,
+  timeoutInMinutes: 244425,
 };
 
-sdk.bankAccounts.createBankAccount(req).then((res: CreateBankAccountResponse | AxiosError) => {
+sdk.bankAccounts.create(req).then((res: CreateBankAccountResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getAllBankAccount
-
-Gets the bank account for given account ID.
-
-### Example Usage
-
-```typescript
-import { CodatAccounting } from "@codat/accounting";
-import { GetAllBankAccountRequest, GetAllBankAccountResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
-
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "YOUR_API_KEY_HERE",
-  },
-});
-
-const req: GetAllBankAccountRequest = {
-  accountId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  query: "dolore",
-};
-
-sdk.bankAccounts.getAllBankAccount(req).then((res: GetAllBankAccountResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-## getBankAccount
+## get
 
 Gets the bank account with a given ID
 
@@ -131,14 +100,14 @@ const req: GetBankAccountRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-sdk.bankAccounts.getBankAccount(req).then((res: GetBankAccountResponse | AxiosError) => {
+sdk.bankAccounts.get(req).then((res: GetBankAccountResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getCreateUpdateBankAccountsModel
+## getCreateUpdateModel
 
 Get create/update bank account model. Returns the expected data for the request payload.
 
@@ -170,14 +139,14 @@ const req: GetCreateUpdateBankAccountsModelRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-sdk.bankAccounts.getCreateUpdateBankAccountsModel(req).then((res: GetCreateUpdateBankAccountsModelResponse | AxiosError) => {
+sdk.bankAccounts.getCreateUpdateModel(req).then((res: GetCreateUpdateBankAccountsModelResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## listBankAccounts
+## list
 
 Gets the list of bank accounts for a given connection
 
@@ -201,17 +170,17 @@ const req: ListBankAccountsRequest = {
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "iusto",
+  query: "error",
 };
 
-sdk.bankAccounts.listBankAccounts(req).then((res: ListBankAccountsResponse | AxiosError) => {
+sdk.bankAccounts.list(req).then((res: ListBankAccountsResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## updateBankAccount
+## update
 
 Posts an updated bank account to the accounting package for a given company.
 
@@ -242,32 +211,32 @@ const sdk = new CodatAccounting({
 
 const req: UpdateBankAccountRequest = {
   bankAccount: {
-    accountName: "dicta",
-    accountNumber: "harum",
+    accountName: "quia",
+    accountNumber: "quis",
     accountType: BankAccountBankAccountTypeEnum.Unknown,
-    availableBalance: 8804.76,
-    balance: 4142.63,
-    currency: "repudiandae",
-    iBan: "quae",
-    id: "3b99d488-e1e9-41e4-90ad-2abd44269802",
-    institution: "assumenda",
+    availableBalance: 6747.52,
+    balance: 6563.3,
+    currency: "enim",
+    iBan: "odit",
+    id: "c3f5ad01-9da1-4ffe-b8f0-97b0074f1547",
+    institution: "dicta",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "ipsam",
-    nominalCode: "alias",
-    overdraftLimit: 1464.41,
-    sortCode: "dolorum",
-    sourceModifiedDate: "excepturi",
+    modifiedDate: "harum",
+    nominalCode: "enim",
+    overdraftLimit: 8804.76,
+    sortCode: "commodi",
+    sourceModifiedDate: "repudiandae",
   },
   bankAccountId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  timeoutInMinutes: 270008,
+  timeoutInMinutes: 64147,
 };
 
-sdk.bankAccounts.updateBankAccount(req).then((res: UpdateBankAccountResponse | AxiosError) => {
+sdk.bankAccounts.update(req).then((res: UpdateBankAccountResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

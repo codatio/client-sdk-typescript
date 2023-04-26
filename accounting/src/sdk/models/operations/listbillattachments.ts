@@ -6,33 +6,32 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class GetAllBankAccountRequest extends SpeakeasyBase {
+export class ListBillAttachmentsRequest extends SpeakeasyBase {
   /**
-   * Unique identifier for an account
+   * Unique identifier for a bill
    */
   @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=accountId",
+    data: "pathParam, style=simple;explode=false;name=billId",
   })
-  accountId: string;
+  billId: string;
 
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
 
-  /**
-   * Codat query string. [Read more](https://docs.codat.io/using-the-api/querying).
-   */
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
-  query?: string;
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
 }
 
-export class GetAllBankAccountResponse extends SpeakeasyBase {
+export class ListBillAttachmentsResponse extends SpeakeasyBase {
   /**
    * Success
    */
   @SpeakeasyMetadata()
-  bankStatementAccount?: shared.BankStatementAccount;
+  attachmentsDataset?: shared.AttachmentsDataset;
 
   @SpeakeasyMetadata()
   contentType: string;

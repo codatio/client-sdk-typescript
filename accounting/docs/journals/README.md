@@ -6,12 +6,94 @@ Journals
 
 ### Available Operations
 
-* [getCreateJournalsModel](#getcreatejournalsmodel) - Get create journal model
-* [getJournal](#getjournal) - Get journal
-* [listJournals](#listjournals) - List journals
-* [pushJournal](#pushjournal) - Create journal
+* [create](#create) - Create journal
+* [get](#get) - Get journal
+* [getCreateModel](#getcreatemodel) - Get create journal model
+* [list](#list) - List journals
 
-## getCreateJournalsModel
+## create
+
+Posts a new journal to the accounting package for a given company.
+
+Required data may vary by integration. To see what data to post, first call [Get create journal model](https://docs.codat.io/accounting-api#/operations/get-create-journals-model).
+
+> **Supported Integrations**
+> 
+> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journals) for integrations that support creating journals.
+
+### Example Usage
+
+```typescript
+import { CodatAccounting } from "@codat/accounting";
+import { CreateJournalRequest, CreateJournalResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { DataTypeEnum, JournalStatusEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { AxiosError } from "axios";
+
+const sdk = new CodatAccounting({
+  security: {
+    authHeader: "YOUR_API_KEY_HERE",
+  },
+});
+
+const req: CreateJournalRequest = {
+  journal: {
+    createdOn: "eos",
+    hasChildren: false,
+    id: "3394a68c-c80d-430f-b721-64d0a91fe9d9",
+    journalCode: "autem",
+    metadata: {
+      isDeleted: false,
+    },
+    modifiedDate: "minima",
+    name: "Sherry Reynolds",
+    parentId: "necessitatibus",
+    sourceModifiedDate: "perferendis",
+    status: JournalStatusEnum.Unknown,
+    type: "doloremque",
+  },
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  timeoutInMinutes: 569651,
+};
+
+sdk.journals.create(req).then((res: CreateJournalResponse | AxiosError) => {
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+## get
+
+Gets a single journal corresponding to the given ID.
+
+### Example Usage
+
+```typescript
+import { CodatAccounting } from "@codat/accounting";
+import { GetJournalRequest, GetJournalResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { JournalStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { AxiosError } from "axios";
+
+const sdk = new CodatAccounting({
+  security: {
+    authHeader: "YOUR_API_KEY_HERE",
+  },
+});
+
+const req: GetJournalRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  journalId: "quod",
+};
+
+sdk.journals.get(req).then((res: GetJournalResponse | AxiosError) => {
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+## getCreateModel
 
 Get create journal model. Returns the expected data for the request payload.
 
@@ -40,44 +122,14 @@ const req: GetCreateJournalsModelRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-sdk.journals.getCreateJournalsModel(req).then((res: GetCreateJournalsModelResponse | AxiosError) => {
+sdk.journals.getCreateModel(req).then((res: GetCreateJournalsModelResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getJournal
-
-Gets a single journal corresponding to the given ID.
-
-### Example Usage
-
-```typescript
-import { CodatAccounting } from "@codat/accounting";
-import { GetJournalRequest, GetJournalResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { JournalStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
-
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "YOUR_API_KEY_HERE",
-  },
-});
-
-const req: GetJournalRequest = {
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalId: "quibusdam",
-};
-
-sdk.journals.getJournal(req).then((res: GetJournalResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-## listJournals
+## list
 
 Gets the latest journals for a company, with pagination
 
@@ -100,62 +152,10 @@ const req: ListJournalsRequest = {
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "ab",
+  query: "vel",
 };
 
-sdk.journals.listJournals(req).then((res: ListJournalsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-## pushJournal
-
-Posts a new journal to the accounting package for a given company.
-
-Required data may vary by integration. To see what data to post, first call [Get create journal model](https://docs.codat.io/accounting-api#/operations/get-create-journals-model).
-
-> **Supported Integrations**
-> 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journals) for integrations that support creating journals.
-
-### Example Usage
-
-```typescript
-import { CodatAccounting } from "@codat/accounting";
-import { PushJournalRequest, PushJournalResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { DataTypeEnum, JournalStatusEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
-
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "YOUR_API_KEY_HERE",
-  },
-});
-
-const req: PushJournalRequest = {
-  journal: {
-    createdOn: "eligendi",
-    hasChildren: false,
-    id: "ea673d86-e3b3-45e4-9a31-35778ce54cac",
-    journalCode: "libero",
-    metadata: {
-      isDeleted: false,
-    },
-    modifiedDate: "perferendis",
-    name: "Chris Terry",
-    parentId: "ducimus",
-    sourceModifiedDate: "minima",
-    status: JournalStatusEnum.Unknown,
-    type: "labore",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 359649,
-};
-
-sdk.journals.pushJournal(req).then((res: PushJournalResponse | AxiosError) => {
+sdk.journals.list(req).then((res: ListJournalsResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

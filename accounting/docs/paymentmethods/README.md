@@ -6,10 +6,10 @@ Payment methods
 
 ### Available Operations
 
-* [getPaymentMethod](#getpaymentmethod) - Get payment method
-* [listPaymentMethods](#listpaymentmethods) - List all payment methods
+* [get](#get) - Get payment method
+* [list](#list) - List all payment methods
 
-## getPaymentMethod
+## get
 
 Gets the specified payment method for a given company.
 
@@ -29,17 +29,17 @@ const sdk = new CodatAccounting({
 
 const req: GetPaymentMethodRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  paymentMethodId: "harum",
+  paymentMethodId: "ea",
 };
 
-sdk.paymentMethods.getPaymentMethod(req).then((res: GetPaymentMethodResponse | AxiosError) => {
+sdk.paymentMethods.get(req).then((res: GetPaymentMethodResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## listPaymentMethods
+## list
 
 Gets the payment methods for a given company.
 
@@ -65,7 +65,7 @@ const req: ListPaymentMethodsRequest = {
   query: "error",
 };
 
-sdk.paymentMethods.listPaymentMethods(req).then((res: ListPaymentMethodsResponse | AxiosError) => {
+sdk.paymentMethods.list(req).then((res: ListPaymentMethodsResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

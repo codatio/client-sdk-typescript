@@ -6,10 +6,10 @@ Tracking categories
 
 ### Available Operations
 
-* [getTrackingCategory](#gettrackingcategory) - Get tracking categories
-* [listTrackingCategories](#listtrackingcategories) - List tracking categories
+* [get](#get) - Get tracking categories
+* [list](#list) - List tracking categories
 
-## getTrackingCategory
+## get
 
 Gets the specified tracking categories for a given company.
 
@@ -29,17 +29,17 @@ const sdk = new CodatAccounting({
 
 const req: GetTrackingCategoryRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  trackingCategoryId: "perferendis",
+  trackingCategoryId: "animi",
 };
 
-sdk.trackingCategories.getTrackingCategory(req).then((res: GetTrackingCategoryResponse | AxiosError) => {
+sdk.trackingCategories.get(req).then((res: GetTrackingCategoryResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## listTrackingCategories
+## list
 
 Gets the latest tracking categories for a given company.
 
@@ -62,10 +62,10 @@ const req: ListTrackingCategoriesRequest = {
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "nostrum",
+  query: "autem",
 };
 
-sdk.trackingCategories.listTrackingCategories(req).then((res: ListTrackingCategoriesResponse | AxiosError) => {
+sdk.trackingCategories.list(req).then((res: ListTrackingCategoriesResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

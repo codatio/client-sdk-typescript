@@ -46,7 +46,7 @@ export class BillCreditNotes {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billCreditNotes) for integrations that support creating bill credit notes.
    */
-  createBillCreditNote(
+  create(
     req: operations.CreateBillCreditNoteRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -128,7 +128,7 @@ export class BillCreditNotes {
    * @remarks
    * Gets a single billCreditNote corresponding to the given ID.
    */
-  getBillCreditNote(
+  get(
     req: operations.GetBillCreditNoteRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -195,7 +195,7 @@ export class BillCreditNotes {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billCreditNotes) for integrations that support creating and updating bill credit notes.
    */
-  getCreateUpdateBillCreditNotesModel(
+  getCreateUpdateModel(
     req: operations.GetCreateUpdateBillCreditNotesModelRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -258,7 +258,7 @@ export class BillCreditNotes {
    * @remarks
    * Gets a list of all bill credit notes for a company, with pagination
    */
-  listBillCreditNotes(
+  list(
     req: operations.ListBillCreditNotesRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -329,7 +329,7 @@ export class BillCreditNotes {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billCreditNotes) for integrations that support updating bill credit notes.
    */
-  updateBillCreditNote(
+  update(
     req: operations.UpdateBillCreditNoteRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
