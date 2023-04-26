@@ -46,7 +46,7 @@ export class JournalEntries {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journalEntries) for integrations that support creating journal entries.
    */
-  createJournalEntry(
+  create(
     req: operations.CreateJournalEntryRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -132,7 +132,7 @@ export class JournalEntries {
    * >
    * > This functionality is currently only supported for our QuickBooks Online integration. Check out our [public roadmap](https://portal.productboard.com/codat/7-public-product-roadmap/tabs/46-accounting-api) to see what we're building next, and to submit ideas for new features.
    */
-  deleteJournalEntry(
+  delete(
     req: operations.DeleteJournalEntryRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -190,81 +190,12 @@ export class JournalEntries {
   }
 
   /**
-   * Get create journal entry model
-   *
-   * @remarks
-   * Get create journal entry model. Returns the expected data for the request payload.
-   *
-   * See the examples for integration-specific indicative models.
-   *
-   * > **Supported Integrations**
-   * >
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journalEntries) for integrations that support creating journal entries.
-   */
-  getCreateJournalEntriesModel(
-    req: operations.GetCreateJournalEntriesModelRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetCreateJournalEntriesModelResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCreateJournalEntriesModelRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/connections/{connectionId}/options/journalEntries",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const r = utils.Retry(() => {
-      return client.request({
-        url: url,
-        method: "get",
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCreateJournalEntriesModelResponse =
-        new operations.GetCreateJournalEntriesModelResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.objectToClass(
-              httpRes?.data,
-              shared.PushOption
-            );
-          }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
    * Get journal entry
    *
    * @remarks
    * Gets a single JournalEntry corresponding to the given ID.
    */
-  getJournalEntry(
+  get(
     req: operations.GetJournalEntryRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -322,12 +253,81 @@ export class JournalEntries {
   }
 
   /**
+   * Get create journal entry model
+   *
+   * @remarks
+   * Get create journal entry model. Returns the expected data for the request payload.
+   *
+   * See the examples for integration-specific indicative models.
+   *
+   * > **Supported Integrations**
+   * >
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journalEntries) for integrations that support creating journal entries.
+   */
+  getCreateModel(
+    req: operations.GetCreateJournalEntriesModelRequest,
+    retries?: utils.RetryConfig,
+    config?: AxiosRequestConfig
+  ): Promise<operations.GetCreateJournalEntriesModelResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.GetCreateJournalEntriesModelRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/connections/{connectionId}/options/journalEntries",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.GetCreateJournalEntriesModelResponse =
+        new operations.GetCreateJournalEntriesModelResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.pushOption = utils.objectToClass(
+              httpRes?.data,
+              shared.PushOption
+            );
+          }
+          break;
+      }
+
+      return res;
+    });
+  }
+
+  /**
    * List journal entries
    *
    * @remarks
    * Gets the latest journal entries for a company, with pagination
    */
-  listJournalEntries(
+  list(
     req: operations.ListJournalEntriesRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

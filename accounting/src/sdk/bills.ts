@@ -46,7 +46,7 @@ export class Bills {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support creating a bill.
    */
-  createBill(
+  create(
     req: operations.CreateBillRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -132,7 +132,7 @@ export class Bills {
    * >
    * > This functionality is currently only supported for our Oracle NetSuite and QuickBooks Online integrations. Check out our [public roadmap](https://portal.productboard.com/codat/7-public-product-roadmap/tabs/46-accounting-api) to see what we're building next, and to submit ideas for new features.
    */
-  deleteBill(
+  delete(
     req: operations.DeleteBillRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -195,7 +195,7 @@ export class Bills {
    * @remarks
    * Download bill attachment
    */
-  downloadBillAttachment(
+  downloadAttachment(
     req: operations.DownloadBillAttachmentRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -259,7 +259,7 @@ export class Bills {
    * @remarks
    * Get bill
    */
-  getBill(
+  get(
     req: operations.GetBillRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -318,7 +318,7 @@ export class Bills {
    * @remarks
    * Get bill attachment
    */
-  getBillAttachment(
+  getAttachment(
     req: operations.GetBillAttachmentRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -376,69 +376,6 @@ export class Bills {
   }
 
   /**
-   * List bill attachments
-   *
-   * @remarks
-   * Get bill attachments
-   */
-  getBillAttachments(
-    req: operations.GetBillAttachmentsRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetBillAttachmentsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetBillAttachmentsRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/connections/{connectionId}/data/bills/{billId}/attachments",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const r = utils.Retry(() => {
-      return client.request({
-        url: url,
-        method: "get",
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetBillAttachmentsResponse =
-        new operations.GetBillAttachmentsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.attachmentsDataset = utils.objectToClass(
-              httpRes?.data,
-              shared.AttachmentsDataset
-            );
-          }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
    * Get create/update bill model
    *
    * @remarks
@@ -448,7 +385,7 @@ export class Bills {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support creating and updating a bill.
    */
-  getCreateUpdateBillsModel(
+  getCreateUpdateModel(
     req: operations.GetCreateUpdateBillsModelRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -511,7 +448,7 @@ export class Bills {
    * @remarks
    * Gets the latest bills for a company, with pagination
    */
-  listBills(
+  list(
     req: operations.ListBillsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -568,6 +505,69 @@ export class Bills {
   }
 
   /**
+   * List bill attachments
+   *
+   * @remarks
+   * List bill attachments
+   */
+  listAttachments(
+    req: operations.ListBillAttachmentsRequest,
+    retries?: utils.RetryConfig,
+    config?: AxiosRequestConfig
+  ): Promise<operations.ListBillAttachmentsResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.ListBillAttachmentsRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/connections/{connectionId}/data/bills/{billId}/attachments",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.ListBillAttachmentsResponse =
+        new operations.ListBillAttachmentsResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.attachmentsDataset = utils.objectToClass(
+              httpRes?.data,
+              shared.AttachmentsDataset
+            );
+          }
+          break;
+      }
+
+      return res;
+    });
+  }
+
+  /**
    * Update bill
    *
    * @remarks
@@ -579,7 +579,7 @@ export class Bills {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support updating a bill.
    */
-  updateBill(
+  update(
     req: operations.UpdateBillRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -656,18 +656,18 @@ export class Bills {
   }
 
   /**
-   * Upload bill attachments
+   * Upload bill attachment
    *
    * @remarks
-   * Upload bill attachments
+   * Upload bill attachment
    */
-  uploadBillAttachments(
-    req: operations.UploadBillAttachmentsRequest,
+  uploadAttachment(
+    req: operations.UploadBillAttachmentRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
-  ): Promise<operations.UploadBillAttachmentsResponse> {
+  ): Promise<operations.UploadBillAttachmentResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.UploadBillAttachmentsRequest(req);
+      req = new operations.UploadBillAttachmentRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -715,8 +715,8 @@ export class Bills {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.UploadBillAttachmentsResponse =
-        new operations.UploadBillAttachmentsResponse({
+      const res: operations.UploadBillAttachmentResponse =
+        new operations.UploadBillAttachmentResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,

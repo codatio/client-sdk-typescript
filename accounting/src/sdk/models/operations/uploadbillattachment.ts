@@ -3,10 +3,22 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class GetBillAttachmentsRequest extends SpeakeasyBase {
+export class UploadBillAttachmentRequestBody extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "multipart_form, content=true" })
+  content: Uint8Array;
+
+  @SpeakeasyMetadata({ data: "multipart_form, name=requestBody" })
+  requestBody: string;
+}
+
+export class UploadBillAttachmentRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({
+    data: "multipart_form, file=true, request, media_type=multipart/form-data",
+  })
+  requestBody?: UploadBillAttachmentRequestBody;
+
   /**
    * Unique identifier for a bill
    */
@@ -26,13 +38,7 @@ export class GetBillAttachmentsRequest extends SpeakeasyBase {
   connectionId: string;
 }
 
-export class GetBillAttachmentsResponse extends SpeakeasyBase {
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata()
-  attachmentsDataset?: shared.AttachmentsDataset;
-
+export class UploadBillAttachmentResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 

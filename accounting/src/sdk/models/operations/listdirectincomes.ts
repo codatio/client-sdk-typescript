@@ -6,11 +6,16 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class GetCustomersRequest extends SpeakeasyBase {
+export class ListDirectIncomesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
 
   /**
    * Field to order results by. [Read more](https://docs.codat.io/using-the-api/ordering-results).
@@ -41,7 +46,7 @@ export class GetCustomersRequest extends SpeakeasyBase {
   query?: string;
 }
 
-export class GetCustomersResponse extends SpeakeasyBase {
+export class ListDirectIncomesResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
@@ -49,7 +54,7 @@ export class GetCustomersResponse extends SpeakeasyBase {
    * Success
    */
   @SpeakeasyMetadata()
-  customers?: shared.Customers;
+  directIncomes?: shared.DirectIncomes;
 
   @SpeakeasyMetadata()
   statusCode: number;

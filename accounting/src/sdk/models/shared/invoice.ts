@@ -13,9 +13,15 @@ import { WithholdingTaxitems } from "./withholdingtaxitems";
 import { Expose, Type } from "class-transformer";
 
 /**
- * > View the coverage for invoices in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=invoices" target="_blank">Data coverage explorer</a>.
+ * > **Invoices or bills?**
  *
  * @remarks
+ * >
+ * > We distinguish between invoices where the company *owes money* vs. *is owed money*. If the company issued an invoice, and is owed money (accounts receivable) we call this an Invoice.
+ * >
+ * > See [Bills](https://docs.codat.io/accounting-api#/schemas/Bill) for the accounts payable equivalent of bills.
+ *
+ * View the coverage for invoices in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=invoices" target="_blank">Data coverage explorer</a>.
  *
  * ## Overview
  *
@@ -28,10 +34,6 @@ import { Expose, Type } from "class-transformer";
  * - Who the invoice has been raised to; the _customer_.
  * - The breakdown of what the invoice is for; the _line items_.
  * - Any [payments](https://docs.codat.io/accounting-api#/schemas/Payment) assigned to the invoice; the _payment allocations_.
- *
- * > **Invoices or bills?**
- * >
- * > In Codat, invoices represent accounts receivable only. For accounts payable invoices, see [Bills](https://docs.codat.io/accounting-api#/schemas/Bill).
  *
  * > **Invoice PDF downloads**
  * >
@@ -198,29 +200,6 @@ export class Invoice extends SpeakeasyBase {
   @Type(() => Metadata)
   metadata?: Metadata;
 
-  /**
-   * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
-   *
-   * @remarks
-   *
-   * ```
-   * 2020-10-08T22:40:50Z
-   * 2021-01-01T00:00:00
-   * ```
-   *
-   *
-   *
-   * When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
-   *
-   * - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
-   * - Unqualified local time: `2021-11-15T01:00:00`
-   * - UTC time offsets: `2021-11-15T01:00:00-05:00`
-   *
-   * > Time zones
-   * >
-   * > Not all dates from Codat will contain information about time zones.
-   * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-   */
   @SpeakeasyMetadata()
   @Expose({ name: "modifiedDate" })
   modifiedDate?: string;
@@ -274,29 +253,6 @@ export class Invoice extends SpeakeasyBase {
   @Expose({ name: "salesOrderRefs" })
   salesOrderRefs?: string[];
 
-  /**
-   * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
-   *
-   * @remarks
-   *
-   * ```
-   * 2020-10-08T22:40:50Z
-   * 2021-01-01T00:00:00
-   * ```
-   *
-   *
-   *
-   * When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
-   *
-   * - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
-   * - Unqualified local time: `2021-11-15T01:00:00`
-   * - UTC time offsets: `2021-11-15T01:00:00-05:00`
-   *
-   * > Time zones
-   * >
-   * > Not all dates from Codat will contain information about time zones.
-   * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-   */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
   sourceModifiedDate?: string;

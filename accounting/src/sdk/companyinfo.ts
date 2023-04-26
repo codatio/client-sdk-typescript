@@ -40,7 +40,7 @@ export class CompanyInfo {
    * @remarks
    * Gets the latest basic info for a company.
    */
-  getCompanyInfo(
+  get(
     req: operations.GetCompanyInfoRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -103,13 +103,13 @@ export class CompanyInfo {
    * @remarks
    * Initiates the process of synchronising basic info for a company
    */
-  postSyncInfo(
-    req: operations.PostSyncInfoRequest,
+  refresh(
+    req: operations.RefreshCompanyInfoRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
-  ): Promise<operations.PostSyncInfoResponse> {
+  ): Promise<operations.RefreshCompanyInfoResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.PostSyncInfoRequest(req);
+      req = new operations.RefreshCompanyInfoRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -139,8 +139,8 @@ export class CompanyInfo {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.PostSyncInfoResponse =
-        new operations.PostSyncInfoResponse({
+      const res: operations.RefreshCompanyInfoResponse =
+        new operations.RefreshCompanyInfoResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,

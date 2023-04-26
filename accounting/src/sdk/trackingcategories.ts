@@ -40,7 +40,7 @@ export class TrackingCategories {
    * @remarks
    * Gets the specified tracking categories for a given company.
    */
-  getTrackingCategory(
+  get(
     req: operations.GetTrackingCategoryRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -103,7 +103,7 @@ export class TrackingCategories {
    * @remarks
    * Gets the latest tracking categories for a given company.
    */
-  listTrackingCategories(
+  list(
     req: operations.ListTrackingCategoriesRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

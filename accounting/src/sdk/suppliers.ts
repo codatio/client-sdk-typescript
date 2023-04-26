@@ -35,7 +35,7 @@ export class Suppliers {
   }
 
   /**
-   * Create suppliers
+   * Create supplier
    *
    * @remarks
    * Push suppliers
@@ -46,7 +46,7 @@ export class Suppliers {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support creating suppliers.
    */
-  createSupplier(
+  create(
     req: operations.CreateSupplierRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -128,7 +128,7 @@ export class Suppliers {
    * @remarks
    * Download supplier attachment
    */
-  downloadSupplierAttachment(
+  downloadAttachment(
     req: operations.DownloadSupplierAttachmentRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -187,81 +187,12 @@ export class Suppliers {
   }
 
   /**
-   * Get create/update supplier model
-   *
-   * @remarks
-   * Get create/update supplier model. Returns the expected data for the request payload.
-   *
-   * See the examples for integration-specific indicative models.
-   *
-   * > **Supported Integrations**
-   * >
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support creating and updating suppliers.
-   */
-  getCreateUpdateSuppliersModel(
-    req: operations.GetCreateUpdateSuppliersModelRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetCreateUpdateSuppliersModelResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCreateUpdateSuppliersModelRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/connections/{connectionId}/options/suppliers",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const r = utils.Retry(() => {
-      return client.request({
-        url: url,
-        method: "get",
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCreateUpdateSuppliersModelResponse =
-        new operations.GetCreateUpdateSuppliersModelResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.objectToClass(
-              httpRes?.data,
-              shared.PushOption
-            );
-          }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
    * Get supplier
    *
    * @remarks
    * Gets a single supplier corresponding to the given ID.
    */
-  getSupplier(
+  get(
     req: operations.GetSupplierRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -321,7 +252,7 @@ export class Suppliers {
    * @remarks
    * Get supplier attachment
    */
-  getSupplierAttachment(
+  getAttachment(
     req: operations.GetSupplierAttachmentRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -379,24 +310,30 @@ export class Suppliers {
   }
 
   /**
-   * List supplier attachments
+   * Get create/update supplier model
    *
    * @remarks
-   * Get supplier attachments
+   * Get create/update supplier model. Returns the expected data for the request payload.
+   *
+   * See the examples for integration-specific indicative models.
+   *
+   * > **Supported Integrations**
+   * >
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support creating and updating suppliers.
    */
-  listSupplierAttachments(
-    req: operations.ListSupplierAttachmentsRequest,
+  getCreateUpdateModel(
+    req: operations.GetCreateUpdateSuppliersModelRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
-  ): Promise<operations.ListSupplierAttachmentsResponse> {
+  ): Promise<operations.GetCreateUpdateSuppliersModelResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ListSupplierAttachmentsRequest(req);
+      req = new operations.GetCreateUpdateSuppliersModelRequest(req);
     }
 
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(
       baseURL,
-      "/companies/{companyId}/connections/{connectionId}/data/suppliers/{supplierId}/attachments",
+      "/companies/{companyId}/connections/{connectionId}/options/suppliers",
       req
     );
 
@@ -420,8 +357,8 @@ export class Suppliers {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListSupplierAttachmentsResponse =
-        new operations.ListSupplierAttachmentsResponse({
+      const res: operations.GetCreateUpdateSuppliersModelResponse =
+        new operations.GetCreateUpdateSuppliersModelResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -429,9 +366,9 @@ export class Suppliers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.attachmentsDataset = utils.objectToClass(
+            res.pushOption = utils.objectToClass(
               httpRes?.data,
-              shared.AttachmentsDataset
+              shared.PushOption
             );
           }
           break;
@@ -447,7 +384,7 @@ export class Suppliers {
    * @remarks
    * Gets the latest suppliers for a company, with pagination
    */
-  listSuppliers(
+  list(
     req: operations.ListSuppliersRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -507,10 +444,73 @@ export class Suppliers {
   }
 
   /**
+   * List supplier attachments
+   *
+   * @remarks
+   * Get supplier attachments
+   */
+  listAttachments(
+    req: operations.ListSupplierAttachmentsRequest,
+    retries?: utils.RetryConfig,
+    config?: AxiosRequestConfig
+  ): Promise<operations.ListSupplierAttachmentsResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.ListSupplierAttachmentsRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/connections/{connectionId}/data/suppliers/{supplierId}/attachments",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.ListSupplierAttachmentsResponse =
+        new operations.ListSupplierAttachmentsResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.attachmentsDataset = utils.objectToClass(
+              httpRes?.data,
+              shared.AttachmentsDataset
+            );
+          }
+          break;
+      }
+
+      return res;
+    });
+  }
+
+  /**
    * Update supplier
    *
    * @remarks
-   * Push supplier
+   * Update supplier
    *
    * Required data may vary by integration. To see what data to post, first call [Get create/update supplier model](https://docs.codat.io/accounting-api#/operations/get-create-update-suppliers-model).
    *
@@ -518,13 +518,13 @@ export class Suppliers {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support updating suppliers.
    */
-  putSupplier(
-    req: operations.PutSupplierRequest,
+  update(
+    req: operations.UpdateSupplierRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
-  ): Promise<operations.PutSupplierResponse> {
+  ): Promise<operations.UpdateSupplierResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.PutSupplierRequest(req);
+      req = new operations.UpdateSupplierRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -573,8 +573,8 @@ export class Suppliers {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.PutSupplierResponse =
-        new operations.PutSupplierResponse({
+      const res: operations.UpdateSupplierResponse =
+        new operations.UpdateSupplierResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -582,9 +582,9 @@ export class Suppliers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.putSupplier200ApplicationJSONObject = utils.objectToClass(
+            res.updateSupplierResponse = utils.objectToClass(
               httpRes?.data,
-              operations.PutSupplier200ApplicationJSON
+              shared.UpdateSupplierResponse
             );
           }
           break;

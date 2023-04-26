@@ -46,7 +46,7 @@ export class Customers {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support creating customers.
    */
-  createCustomer(
+  create(
     req: operations.CreateCustomerRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -128,7 +128,7 @@ export class Customers {
    * @remarks
    * Download customer attachment
    */
-  downloadCustomerAttachment(
+  downloadAttachment(
     req: operations.DownloadCustomerAttachmentRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -187,81 +187,12 @@ export class Customers {
   }
 
   /**
-   * Get create/update customer model
-   *
-   * @remarks
-   * Get create/update customer model. Returns the expected data for the request payload.
-   *
-   * See the examples for integration-specific indicative models.
-   *
-   * > **Supported Integrations**
-   * >
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support creating and updating customers.
-   */
-  getCreateUpdateCustomersModel(
-    req: operations.GetCreateUpdateCustomersModelRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetCreateUpdateCustomersModelResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCreateUpdateCustomersModelRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/connections/{connectionId}/options/customers",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const r = utils.Retry(() => {
-      return client.request({
-        url: url,
-        method: "get",
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCreateUpdateCustomersModelResponse =
-        new operations.GetCreateUpdateCustomersModelResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.objectToClass(
-              httpRes?.data,
-              shared.PushOption
-            );
-          }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
    * Get customer
    *
    * @remarks
    * Gets a single customer corresponding to the given ID.
    */
-  getCustomer(
+  get(
     req: operations.GetCustomerRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -321,7 +252,7 @@ export class Customers {
    * @remarks
    * Get  customer attachment
    */
-  getCustomerAttachment(
+  getAttachment(
     req: operations.GetCustomerAttachmentRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -379,24 +310,30 @@ export class Customers {
   }
 
   /**
-   * List customer attachments
+   * Get create/update customer model
    *
    * @remarks
-   * Get customer attachments
+   * Get create/update customer model. Returns the expected data for the request payload.
+   *
+   * See the examples for integration-specific indicative models.
+   *
+   * > **Supported Integrations**
+   * >
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support creating and updating customers.
    */
-  getCustomerAttachments(
-    req: operations.GetCustomerAttachmentsRequest,
+  getCreateUpdateModel(
+    req: operations.GetCreateUpdateCustomersModelRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetCustomerAttachmentsResponse> {
+  ): Promise<operations.GetCreateUpdateCustomersModelResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCustomerAttachmentsRequest(req);
+      req = new operations.GetCreateUpdateCustomersModelRequest(req);
     }
 
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(
       baseURL,
-      "/companies/{companyId}/connections/{connectionId}/data/customers/{customerId}/attachments",
+      "/companies/{companyId}/connections/{connectionId}/options/customers",
       req
     );
 
@@ -420,8 +357,8 @@ export class Customers {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCustomerAttachmentsResponse =
-        new operations.GetCustomerAttachmentsResponse({
+      const res: operations.GetCreateUpdateCustomersModelResponse =
+        new operations.GetCreateUpdateCustomersModelResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -429,9 +366,9 @@ export class Customers {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.attachmentsDataset = utils.objectToClass(
+            res.pushOption = utils.objectToClass(
               httpRes?.data,
-              shared.AttachmentsDataset
+              shared.PushOption
             );
           }
           break;
@@ -447,13 +384,13 @@ export class Customers {
    * @remarks
    * Gets the latest customers for a company, with pagination
    */
-  getCustomers(
-    req: operations.GetCustomersRequest,
+  list(
+    req: operations.ListCustomersRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetCustomersResponse> {
+  ): Promise<operations.ListCustomersResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCustomersRequest(req);
+      req = new operations.ListCustomersRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -485,8 +422,8 @@ export class Customers {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCustomersResponse =
-        new operations.GetCustomersResponse({
+      const res: operations.ListCustomersResponse =
+        new operations.ListCustomersResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -497,6 +434,69 @@ export class Customers {
             res.customers = utils.objectToClass(
               httpRes?.data,
               shared.Customers
+            );
+          }
+          break;
+      }
+
+      return res;
+    });
+  }
+
+  /**
+   * List customer attachments
+   *
+   * @remarks
+   * List customer attachments
+   */
+  listAttachments(
+    req: operations.ListCustomerAttachmentsRequest,
+    retries?: utils.RetryConfig,
+    config?: AxiosRequestConfig
+  ): Promise<operations.ListCustomerAttachmentsResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.ListCustomerAttachmentsRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/connections/{connectionId}/data/customers/{customerId}/attachments",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.ListCustomerAttachmentsResponse =
+        new operations.ListCustomerAttachmentsResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.attachmentsDataset = utils.objectToClass(
+              httpRes?.data,
+              shared.AttachmentsDataset
             );
           }
           break;
@@ -518,7 +518,7 @@ export class Customers {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support updating customers.
    */
-  updateCustomer(
+  update(
     req: operations.UpdateCustomerRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

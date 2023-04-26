@@ -6,22 +6,32 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class PostSyncInfoRequest extends SpeakeasyBase {
+export class ListCustomerAttachmentsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
   companyId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=connectionId",
+  })
+  connectionId: string;
+
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=customerId",
+  })
+  customerId: string;
 }
 
-export class PostSyncInfoResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
-
+export class ListCustomerAttachmentsResponse extends SpeakeasyBase {
   /**
    * Success
    */
   @SpeakeasyMetadata()
-  dataset?: shared.Dataset;
+  attachmentsDataset?: shared.AttachmentsDataset;
+
+  @SpeakeasyMetadata()
+  contentType: string;
 
   @SpeakeasyMetadata()
   statusCode: number;
