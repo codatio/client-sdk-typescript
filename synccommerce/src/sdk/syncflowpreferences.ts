@@ -8,7 +8,7 @@ import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
- * Configure preferences for any given sync for commerce company using sync flow.
+ * Configure preferences for any given Sync for Commerce company using sync flow.
  */
 export class SyncFlowPreferences {
   _defaultClient: AxiosInstance;
@@ -41,6 +41,7 @@ export class SyncFlowPreferences {
    * To enable retrieval of preferences set for the text fields on Sync Flow.
    */
   getConfigTextSyncFlow(
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.GetConfigTextSyncFlowResponse> {
     const baseURL: string = this._serverURL;
@@ -49,11 +50,18 @@ export class SyncFlowPreferences {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
-      url: url,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -71,7 +79,7 @@ export class SyncFlowPreferences {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.localizationInfo = {};
             const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.localizationInfo = utils.deserializeJSONResponse(
+            res.localizationInfo = utils.objectToClass(
               httpRes?.data,
               shared.Localization,
               resFieldDepth
@@ -92,6 +100,7 @@ export class SyncFlowPreferences {
    */
   getSyncFlowUrl(
     req: operations.GetSyncFlowUrlRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.GetSyncFlowUrlResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -109,11 +118,18 @@ export class SyncFlowPreferences {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
-      url: url + queryParams,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url + queryParams,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -129,7 +145,7 @@ export class SyncFlowPreferences {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.syncFlowUrl = utils.deserializeJSONResponse(
+            res.syncFlowUrl = utils.objectToClass(
               httpRes?.data,
               shared.SyncFlowUrl
             );
@@ -149,6 +165,7 @@ export class SyncFlowPreferences {
    */
   getVisibleAccounts(
     req: operations.GetVisibleAccountsRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.GetVisibleAccountsResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -164,11 +181,18 @@ export class SyncFlowPreferences {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const r = client.request({
-      url: url,
-      method: "get",
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -184,7 +208,7 @@ export class SyncFlowPreferences {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.visibleAccounts = utils.deserializeJSONResponse(
+            res.visibleAccounts = utils.objectToClass(
               httpRes?.data,
               shared.VisibleAccounts
             );
@@ -204,6 +228,7 @@ export class SyncFlowPreferences {
    */
   updateConfigTextSyncFlow(
     req: Record<string, shared.Localization>,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.UpdateConfigTextSyncFlowResponse> {
     const baseURL: string = this._serverURL;
@@ -228,13 +253,20 @@ export class SyncFlowPreferences {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
-      url: url,
-      method: "patch",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "patch",
+        headers: headers,
+        data: reqBody,
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -252,7 +284,7 @@ export class SyncFlowPreferences {
           if (utils.matchContentType(contentType, `application/json`)) {
             res.localizationInfo = {};
             const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.localizationInfo = utils.deserializeJSONResponse(
+            res.localizationInfo = utils.objectToClass(
               httpRes?.data,
               shared.Localization,
               resFieldDepth
@@ -273,6 +305,7 @@ export class SyncFlowPreferences {
    */
   updateVisibleAccountsSyncFlow(
     req: operations.UpdateVisibleAccountsSyncFlowRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.UpdateVisibleAccountsSyncFlowResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -304,13 +337,20 @@ export class SyncFlowPreferences {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
-      url: url,
-      method: "patch",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "patch",
+        headers: headers,
+        data: reqBody,
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -326,7 +366,7 @@ export class SyncFlowPreferences {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.visibleAccounts = utils.deserializeJSONResponse(
+            res.visibleAccounts = utils.objectToClass(
               httpRes?.data,
               shared.VisibleAccounts
             );

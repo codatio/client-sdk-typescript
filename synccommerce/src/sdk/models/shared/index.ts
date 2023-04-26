@@ -3,6 +3,10 @@
  */
 
 export * from "./accountoption";
+export * from "./branding";
+export * from "./brandingbutton";
+export * from "./brandingimage";
+export * from "./brandinglogo";
 export * from "./companies";
 export * from "./company";
 export * from "./configaccount";
@@ -23,6 +27,7 @@ export * from "./grouping";
 export * from "./groupinglevels";
 export * from "./groupingperiod";
 export * from "./halref";
+export * from "./imagereference";
 export * from "./integration";
 export * from "./integrations";
 export * from "./invoicelevelselection";

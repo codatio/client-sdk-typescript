@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetIntegrationBrandingRequest extends SpeakeasyBase {
@@ -16,6 +17,12 @@ export class GetIntegrationBrandingRequest extends SpeakeasyBase {
 }
 
 export class GetIntegrationBrandingResponse extends SpeakeasyBase {
+  /**
+   * Success
+   */
+  @SpeakeasyMetadata()
+  branding?: shared.Branding;
+
   @SpeakeasyMetadata()
   contentType: string;
 

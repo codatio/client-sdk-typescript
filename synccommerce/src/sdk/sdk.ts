@@ -9,7 +9,8 @@ import { Integrations } from "./integrations";
 import * as shared from "./models/shared";
 import { Sync } from "./sync";
 import { SyncFlowPreferences } from "./syncflowpreferences";
-import axios, { AxiosInstance } from "axios";
+import axios from "axios";
+import { AxiosInstance } from "axios";
 
 /**
  * Contains the list of servers available to the SDK
@@ -45,13 +46,13 @@ export type SDKProps = {
  * @remarks
  * [Read More...](https://docs.codat.io/sfc/overview)
  */
-export class Codat {
+export class CodatSyncCommerce {
   /**
-   * Create new and manage existing sync for commerce companies.
+   * Create new and manage existing Sync for Commerce companies.
    */
   public companyManagement: CompanyManagement;
   /**
-   * Expressively configure preferences for any given sync for commerce company.
+   * Expressively configure preferences for any given Sync for Commerce company.
    */
   public configuration: Configuration;
   /**
@@ -59,11 +60,11 @@ export class Codat {
    */
   public integrations: Integrations;
   /**
-   * Initiate a sync of sync for commerce company data into their respective accounting software.
+   * Initiate a sync of Sync for Commerce company data into their respective accounting software.
    */
   public sync: Sync;
   /**
-   * Configure preferences for any given sync for commerce company using sync flow.
+   * Configure preferences for any given Sync for Commerce company using sync flow.
    */
   public syncFlowPreferences: SyncFlowPreferences;
 
@@ -71,8 +72,8 @@ export class Codat {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.8.5";
-  private _genVersion = "2.16.7";
+  private _sdkVersion = "0.9.0";
+  private _genVersion = "2.22.0";
   private _globals: any;
 
   constructor(props?: SDKProps) {

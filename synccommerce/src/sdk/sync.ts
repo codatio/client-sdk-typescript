@@ -8,7 +8,7 @@ import * as shared from "./models/shared";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
- * Initiate a sync of sync for commerce company data into their respective accounting software.
+ * Initiate a sync of Sync for Commerce company data into their respective accounting software.
  */
 export class Sync {
   _defaultClient: AxiosInstance;
@@ -43,6 +43,7 @@ export class Sync {
    */
   requestSync(
     req: operations.RequestSyncRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.RequestSyncResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -74,13 +75,20 @@ export class Sync {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
-      url: url,
-      method: "post",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "post",
+        headers: headers,
+        data: reqBody,
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -96,7 +104,7 @@ export class Sync {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.syncSummary = utils.deserializeJSONResponse(
+            res.syncSummary = utils.objectToClass(
               httpRes?.data,
               shared.SyncSummary
             );
@@ -116,6 +124,7 @@ export class Sync {
    */
   requestSyncForDateRange(
     req: operations.RequestSyncForDateRangeRequest,
+    retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.RequestSyncForDateRangeResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
@@ -147,13 +156,20 @@ export class Sync {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
 
-    const r = client.request({
-      url: url,
-      method: "post",
-      headers: headers,
-      data: reqBody,
-      ...config,
-    });
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "post",
+        headers: headers,
+        data: reqBody,
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
     return r.then((httpRes: AxiosResponse) => {
       const contentType: string = httpRes?.headers?.["content-type"] ?? "";
@@ -169,7 +185,7 @@ export class Sync {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.syncSummary = utils.deserializeJSONResponse(
+            res.syncSummary = utils.objectToClass(
               httpRes?.data,
               shared.SyncSummary
             );
