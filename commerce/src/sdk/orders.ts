@@ -40,7 +40,7 @@ export class Orders {
    * @remarks
    * Get a list of orders placed or held on the linked commerce platform
    */
-  listOrders(
+  list(
     req: operations.ListOrdersRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
