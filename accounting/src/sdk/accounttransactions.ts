@@ -38,7 +38,7 @@ export class AccountTransactions {
    * Get account transaction
    *
    * @remarks
-   * Gets the account transactions for a given company.Gets the specified account transaction for a given company and connection.
+   * Returns a specific [account transaction](https://docs.codat.io/accounting-api#/schemas/AccountTransaction).
    */
   getAccountTransaction(
     req: operations.GetAccountTransactionRequest,
@@ -101,7 +101,7 @@ export class AccountTransactions {
    * List account transactions
    *
    * @remarks
-   * Gets the account transactions for a given company.
+   * Returns a list of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction) for a given company's connection.
    */
   listAccountTransactions(
     req: operations.ListAccountTransactionsRequest,
