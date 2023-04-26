@@ -60,7 +60,7 @@ export class ExpenseTransaction extends SpeakeasyBase {
   currencyRate?: number;
 
   /**
-   * Your unique idenfier for the transaction.
+   * Your unique identifier for the transaction.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })

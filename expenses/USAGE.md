@@ -1,12 +1,9 @@
 <!-- Start SDK Example Usage -->
 ```typescript
-import {
-  GetCompanyConfigurationRequest,
-  GetCompanyConfigurationResponse
-} from "@codat/sync-for-expenses/dist/sdk/models/operations";
-
-import { AxiosError } from "axios";
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
+import { GetCompanyConfigurationRequest, GetCompanyConfigurationResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
+import { AxiosError } from "axios";
+
 const sdk = new CodatSyncExpenses({
   security: {
     authHeader: "YOUR_API_KEY_HERE",
@@ -18,7 +15,9 @@ const req: GetCompanyConfigurationRequest = {
 };
 
 sdk.configuration.getCompanyConfiguration(req).then((res: GetCompanyConfigurationResponse | AxiosError) => {
-   // handle response
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
 });
 ```
 <!-- End SDK Example Usage -->

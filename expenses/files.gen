@@ -66,4 +66,12 @@ src/sdk/models/shared/transactionmetadatalist.ts
 src/sdk/models/shared/hallink.ts
 src/sdk/models/shared/security.ts
 src/sdk/models/shared/index.ts
+docs/codatsyncexpenses/README.md
+docs/configuration/README.md
+docs/connections/README.md
+docs/expenses/README.md
+docs/mappingoptions/README.md
+docs/sync/README.md
+docs/syncstatus/README.md
+docs/transactionstatus/README.md
 USAGE.md
