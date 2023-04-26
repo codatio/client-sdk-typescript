@@ -111,4 +111,9 @@ src/sdk/models/shared/accountcategoriesupdatedwebhook.ts
 src/sdk/models/shared/index.ts
 src/sdk/models/webhooks/accountcategoriesupdated.ts
 src/sdk/models/webhooks/index.ts
+docs/codatassess/README.md
+docs/categories/README.md
+docs/dataintegrity/README.md
+docs/excelreports/README.md
+docs/reports/README.md
 USAGE.md

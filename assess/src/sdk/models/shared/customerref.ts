@@ -10,13 +10,13 @@ export class CustomerRef extends SpeakeasyBase {
    * `customerName` from the Customer data type
    */
   @SpeakeasyMetadata()
-  @Expose({ name: "companyName" })
-  companyName?: string;
+  @Expose({ name: "customerName" })
+  customerName?: string;
 
   /**
    * `id` from the Customers data type
    */
   @SpeakeasyMetadata()
   @Expose({ name: "id" })
-  id: string;
+  id?: string;
 }
