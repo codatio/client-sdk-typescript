@@ -70,7 +70,6 @@ sdk.accountBalances.list(req).then((res: ListAccountBalancesResponse | AxiosErro
 ### [transactions](docs/transactions/README.md)
 
 * [get](docs/transactions/README.md#get) - Get bank transaction
-* [list](docs/transactions/README.md#list) - List banking transactions
 * [list](docs/transactions/README.md#list) - List transactions
 <!-- End SDK Available Operations -->
 

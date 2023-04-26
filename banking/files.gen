@@ -27,7 +27,6 @@ src/sdk/models/operations/listaccounts.ts
 src/sdk/models/operations/gettransactioncategory.ts
 src/sdk/models/operations/listtransactioncategories.ts
 src/sdk/models/operations/gettransaction.ts
-src/sdk/models/operations/listbanktransactions.ts
 src/sdk/models/operations/listtransactions.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/accountbalances.ts
