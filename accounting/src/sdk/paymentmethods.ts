@@ -40,7 +40,7 @@ export class PaymentMethods {
    * @remarks
    * Gets the specified payment method for a given company.
    */
-  getPaymentMethod(
+  get(
     req: operations.GetPaymentMethodRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -103,7 +103,7 @@ export class PaymentMethods {
    * @remarks
    * Gets the payment methods for a given company.
    */
-  listPaymentMethods(
+  list(
     req: operations.ListPaymentMethodsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

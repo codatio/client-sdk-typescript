@@ -40,7 +40,7 @@ export class SalesOrders {
    * @remarks
    * Get sales order
    */
-  getSalesOrder(
+  get(
     req: operations.GetSalesOrderRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -103,7 +103,7 @@ export class SalesOrders {
    * @remarks
    * Get sales orders
    */
-  listSalesOrders(
+  list(
     req: operations.ListSalesOrdersRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

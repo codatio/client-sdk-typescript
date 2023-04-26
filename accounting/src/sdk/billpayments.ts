@@ -46,7 +46,7 @@ export class BillPayments {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billPayments) for integrations that support creating bill payments.
    */
-  createBillPayment(
+  create(
     req: operations.CreateBillPaymentRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -132,7 +132,7 @@ export class BillPayments {
    * >
    * > This functionality is currently only supported for our Oracle NetSuite integration. Check out our [public roadmap](https://portal.productboard.com/codat/7-public-product-roadmap/tabs/46-accounting-api) to see what we're building next, and to submit ideas for new features.
    */
-  deleteBillPayment(
+  delete(
     req: operations.DeleteBillPaymentRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -195,7 +195,7 @@ export class BillPayments {
    * @remarks
    * Get a bill payment
    */
-  getBillPayments(
+  get(
     req: operations.GetBillPaymentsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -262,7 +262,7 @@ export class BillPayments {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billPayments) for integrations that support creating and deleting bill payments.
    */
-  getCreateBillPaymentsModel(
+  getCreateModel(
     req: operations.GetCreateBillPaymentsModelRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -325,7 +325,7 @@ export class BillPayments {
    * @remarks
    * Gets the latest billPayments for a company, with pagination
    */
-  listBillPayments(
+  list(
     req: operations.ListBillPaymentsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

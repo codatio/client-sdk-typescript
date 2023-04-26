@@ -47,7 +47,7 @@ export class CreditNotes {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=creditNotes) for integrations that support creating a credit note.
    */
-  createCreditNote(
+  create(
     req: operations.CreateCreditNoteRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -124,81 +124,12 @@ export class CreditNotes {
   }
 
   /**
-   * Get create/update credit note model
-   *
-   * @remarks
-   * Get create/update credit note model. Returns the expected data for the request payload.
-   *
-   * See the examples for integration-specific indicative models.
-   *
-   * > **Supported Integrations**
-   * >
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=creditNotes) for integrations that support creating and updating a credit note.
-   */
-  getCreateUpdateCreditNotesModel(
-    req: operations.GetCreateUpdateCreditNotesModelRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetCreateUpdateCreditNotesModelResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCreateUpdateCreditNotesModelRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/connections/{connectionId}/options/creditNotes",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const r = utils.Retry(() => {
-      return client.request({
-        url: url,
-        method: "get",
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCreateUpdateCreditNotesModelResponse =
-        new operations.GetCreateUpdateCreditNotesModelResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.objectToClass(
-              httpRes?.data,
-              shared.PushOption
-            );
-          }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
    * Get credit note
    *
    * @remarks
    * Gets a single creditNote corresponding to the given ID.
    */
-  getCreditNote(
+  get(
     req: operations.GetCreditNoteRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -256,12 +187,81 @@ export class CreditNotes {
   }
 
   /**
+   * Get create/update credit note model
+   *
+   * @remarks
+   * Get create/update credit note model. Returns the expected data for the request payload.
+   *
+   * See the examples for integration-specific indicative models.
+   *
+   * > **Supported Integrations**
+   * >
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=creditNotes) for integrations that support creating and updating a credit note.
+   */
+  getCreateUpdateModel(
+    req: operations.GetCreateUpdateCreditNotesModelRequest,
+    retries?: utils.RetryConfig,
+    config?: AxiosRequestConfig
+  ): Promise<operations.GetCreateUpdateCreditNotesModelResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.GetCreateUpdateCreditNotesModelRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/connections/{connectionId}/options/creditNotes",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.GetCreateUpdateCreditNotesModelResponse =
+        new operations.GetCreateUpdateCreditNotesModelResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.pushOption = utils.objectToClass(
+              httpRes?.data,
+              shared.PushOption
+            );
+          }
+          break;
+      }
+
+      return res;
+    });
+  }
+
+  /**
    * List credit notes
    *
    * @remarks
    * Gets a list of all credit notes for a company, with pagination
    */
-  listCreditNotes(
+  list(
     req: operations.ListCreditNotesRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -332,7 +332,7 @@ export class CreditNotes {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=creditNotes) for integrations that support updating a credit note.
    */
-  updateCreditNote(
+  update(
     req: operations.UpdateCreditNoteRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

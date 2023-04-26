@@ -46,7 +46,7 @@ export class DirectIncomes {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes) for integrations that support creating direct incomes.
    */
-  createDirectIncome(
+  create(
     req: operations.CreateDirectIncomeRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -128,7 +128,7 @@ export class DirectIncomes {
    * @remarks
    * Downloads an attachment for the specified direct income for a given company.
    */
-  downloadDirectIncomeAttachment(
+  downloadAttachment(
     req: operations.DownloadDirectIncomeAttachmentRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -187,81 +187,12 @@ export class DirectIncomes {
   }
 
   /**
-   * Get create direct income model
-   *
-   * @remarks
-   * Get create direct income model. Returns the expected data for the request payload.
-   *
-   * See the examples for integration-specific indicative models.
-   *
-   * > **Supported Integrations**
-   * >
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes) for integrations that support creating direct incomes.
-   */
-  getCreateDirectIncomesModel(
-    req: operations.GetCreateDirectIncomesModelRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetCreateDirectIncomesModelResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCreateDirectIncomesModelRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/connections/{connectionId}/options/directIncomes",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const r = utils.Retry(() => {
-      return client.request({
-        url: url,
-        method: "get",
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCreateDirectIncomesModelResponse =
-        new operations.GetCreateDirectIncomesModelResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.objectToClass(
-              httpRes?.data,
-              shared.PushOption
-            );
-          }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
    * Get direct income
    *
    * @remarks
    * Gets the specified direct income for a given company and connection.
    */
-  getDirectIncome(
+  get(
     req: operations.GetDirectIncomeRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -324,7 +255,7 @@ export class DirectIncomes {
    * @remarks
    * Gets the specified direct income attachment for a given company.
    */
-  getDirectIncomeAttachment(
+  getAttachment(
     req: operations.GetDirectIncomeAttachmentRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -384,18 +315,87 @@ export class DirectIncomes {
   }
 
   /**
-   * Get direct incomes
+   * Get create direct income model
    *
    * @remarks
-   * Gets the direct incomes for a given company.
+   * Get create direct income model. Returns the expected data for the request payload.
+   *
+   * See the examples for integration-specific indicative models.
+   *
+   * > **Supported Integrations**
+   * >
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes) for integrations that support creating direct incomes.
    */
-  getDirectIncomes(
-    req: operations.GetDirectIncomesRequest,
+  getCreateModel(
+    req: operations.GetCreateDirectIncomesModelRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetDirectIncomesResponse> {
+  ): Promise<operations.GetCreateDirectIncomesModelResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetDirectIncomesRequest(req);
+      req = new operations.GetCreateDirectIncomesModelRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/connections/{connectionId}/options/directIncomes",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.GetCreateDirectIncomesModelResponse =
+        new operations.GetCreateDirectIncomesModelResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.pushOption = utils.objectToClass(
+              httpRes?.data,
+              shared.PushOption
+            );
+          }
+          break;
+      }
+
+      return res;
+    });
+  }
+
+  /**
+   * List direct incomes
+   *
+   * @remarks
+   * Lists the direct incomes for a given company.
+   */
+  list(
+    req: operations.ListDirectIncomesRequest,
+    retries?: utils.RetryConfig,
+    config?: AxiosRequestConfig
+  ): Promise<operations.ListDirectIncomesResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.ListDirectIncomesRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -427,8 +427,8 @@ export class DirectIncomes {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetDirectIncomesResponse =
-        new operations.GetDirectIncomesResponse({
+      const res: operations.ListDirectIncomesResponse =
+        new operations.ListDirectIncomesResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -454,7 +454,7 @@ export class DirectIncomes {
    * @remarks
    * Gets all attachments for the specified direct income for a given company.
    */
-  listDirectIncomeAttachments(
+  listAttachments(
     req: operations.ListDirectIncomeAttachmentsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -517,7 +517,7 @@ export class DirectIncomes {
    * @remarks
    * Posts a new direct income attachment for a given company.
    */
-  uploadDirectIncomeAttachment(
+  uploadAttachment(
     req: operations.UploadDirectIncomeAttachmentRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class GetCustomerAttachmentsRequest extends SpeakeasyBase {
+export class ListInvoiceAttachmentsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
   })
@@ -17,13 +17,16 @@ export class GetCustomerAttachmentsRequest extends SpeakeasyBase {
   })
   connectionId: string;
 
+  /**
+   * Unique identifier for an invoice
+   */
   @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=customerId",
+    data: "pathParam, style=simple;explode=false;name=invoiceId",
   })
-  customerId: string;
+  invoiceId: string;
 }
 
-export class GetCustomerAttachmentsResponse extends SpeakeasyBase {
+export class ListInvoiceAttachmentsResponse extends SpeakeasyBase {
   /**
    * Success
    */

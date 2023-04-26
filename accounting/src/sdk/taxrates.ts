@@ -40,7 +40,7 @@ export class TaxRates {
    * @remarks
    * Gets the specified tax rate for a given company.
    */
-  getTaxRate(
+  get(
     req: operations.GetTaxRateRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -100,7 +100,7 @@ export class TaxRates {
    * @remarks
    * Gets the latest tax rates for a given company.
    */
-  listTaxRates(
+  list(
     req: operations.ListTaxRatesRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

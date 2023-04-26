@@ -46,7 +46,7 @@ export class DirectCosts {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support creating direct costs.
    */
-  createDirectCost(
+  create(
     req: operations.CreateDirectCostRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -128,7 +128,7 @@ export class DirectCosts {
    * @remarks
    * Downloads an attachment for the specified direct cost for a given company.
    */
-  downloadDirectCostAttachment(
+  downloadAttachment(
     req: operations.DownloadDirectCostAttachmentRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -187,81 +187,12 @@ export class DirectCosts {
   }
 
   /**
-   * Get create direct cost model
-   *
-   * @remarks
-   * Get create direct cost model. Returns the expected data for the request payload.
-   *
-   * See the examples for integration-specific indicative models.
-   *
-   * > **Supported Integrations**
-   * >
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support creating direct costs.
-   */
-  getCreateDirectCostsModel(
-    req: operations.GetCreateDirectCostsModelRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetCreateDirectCostsModelResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCreateDirectCostsModelRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/connections/{connectionId}/options/directCosts",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const r = utils.Retry(() => {
-      return client.request({
-        url: url,
-        method: "get",
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCreateDirectCostsModelResponse =
-        new operations.GetCreateDirectCostsModelResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.objectToClass(
-              httpRes?.data,
-              shared.PushOption
-            );
-          }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
    * Get direct cost
    *
    * @remarks
    * Gets the specified direct cost for a given company.
    */
-  getDirectCost(
+  get(
     req: operations.GetDirectCostRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -324,7 +255,7 @@ export class DirectCosts {
    * @remarks
    * Gets the specified direct cost attachment for a given company.
    */
-  getDirectCostAttachment(
+  getAttachment(
     req: operations.GetDirectCostAttachmentRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -382,18 +313,87 @@ export class DirectCosts {
   }
 
   /**
+   * Get create direct cost model
+   *
+   * @remarks
+   * Get create direct cost model. Returns the expected data for the request payload.
+   *
+   * See the examples for integration-specific indicative models.
+   *
+   * > **Supported Integrations**
+   * >
+   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support creating direct costs.
+   */
+  getCreateModel(
+    req: operations.GetCreateDirectCostsModelRequest,
+    retries?: utils.RetryConfig,
+    config?: AxiosRequestConfig
+  ): Promise<operations.GetCreateDirectCostsModelResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.GetCreateDirectCostsModelRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/connections/{connectionId}/options/directCosts",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "get",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.GetCreateDirectCostsModelResponse =
+        new operations.GetCreateDirectCostsModelResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 200:
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.pushOption = utils.objectToClass(
+              httpRes?.data,
+              shared.PushOption
+            );
+          }
+          break;
+      }
+
+      return res;
+    });
+  }
+
+  /**
    * List direct costs
    *
    * @remarks
    * Gets the direct costs for the company.
    */
-  getDirectCosts(
-    req: operations.GetDirectCostsRequest,
+  list(
+    req: operations.ListDirectCostsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
-  ): Promise<operations.GetDirectCostsResponse> {
+  ): Promise<operations.ListDirectCostsResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetDirectCostsRequest(req);
+      req = new operations.ListDirectCostsRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -425,8 +425,8 @@ export class DirectCosts {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetDirectCostsResponse =
-        new operations.GetDirectCostsResponse({
+      const res: operations.ListDirectCostsResponse =
+        new operations.ListDirectCostsResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -452,7 +452,7 @@ export class DirectCosts {
    * @remarks
    * Gets all attachments for the specified direct cost for a given company.
    */
-  listDirectCostAttachments(
+  listAttachments(
     req: operations.ListDirectCostAttachmentsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -515,7 +515,7 @@ export class DirectCosts {
    * @remarks
    * Posts a new direct cost attachment for a given company.
    */
-  uploadDirectCostAttachment(
+  uploadAttachment(
     req: operations.UploadDirectCostAttachmentRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
