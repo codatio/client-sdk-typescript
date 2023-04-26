@@ -25,4 +25,6 @@ src/sdk/models/operations/index.ts
 src/sdk/models/shared/file.ts
 src/sdk/models/shared/security.ts
 src/sdk/models/shared/index.ts
+docs/codatfiles/README.md
+docs/files/README.md
 USAGE.md
