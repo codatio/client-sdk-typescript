@@ -40,7 +40,7 @@ export class Transactions {
    * @remarks
    * Gets a specified bank transaction for a given company
    */
-  getTransaction(
+  get(
     req: operations.GetTransactionRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -103,7 +103,7 @@ export class Transactions {
    * @remarks
    * Gets a list of transactions incurred by a company across all bank accounts.
    */
-  listBankTransactions(
+  list(
     req: operations.ListBankTransactionsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -168,7 +168,7 @@ export class Transactions {
    * @remarks
    * Gets a list of transactions incurred by a bank account.
    */
-  listTransactions(
+  list(
     req: operations.ListTransactionsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

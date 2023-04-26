@@ -19,7 +19,7 @@ const req: ListAccountBalancesRequest = {
   query: "corrupti",
 };
 
-sdk.accountBalances.listAccountBalances(req).then((res: ListAccountBalancesResponse | AxiosError) => {
+sdk.accountBalances.list(req).then((res: ListAccountBalancesResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

@@ -40,7 +40,7 @@ export class Accounts {
    * @remarks
    * Gets a specified bank account for a given company
    */
-  getAccount(
+  get(
     req: operations.GetAccountRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -100,7 +100,7 @@ export class Accounts {
    * @remarks
    * Gets a list of all bank accounts of the SMB, with rich data like balances, account numbers and institutions holdingthe accounts.
    */
-  listAccounts(
+  list(
     req: operations.ListAccountsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

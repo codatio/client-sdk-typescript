@@ -40,7 +40,7 @@ export class TransactionCategories {
    * @remarks
    * Gets a specified bank transaction category for a given company
    */
-  getTransactionCategory(
+  get(
     req: operations.GetTransactionCategoryRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -103,7 +103,7 @@ export class TransactionCategories {
    * @remarks
    * Gets a list of hierarchical categories associated with a transaction for greater contextual meaning to transactionactivity.
    */
-  listTransactionCategories(
+  list(
     req: operations.ListTransactionCategoriesRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
