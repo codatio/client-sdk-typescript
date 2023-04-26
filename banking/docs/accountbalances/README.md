@@ -1,4 +1,19 @@
-<!-- Start SDK Example Usage -->
+# accountBalances
+
+## Overview
+
+Balances for a bank account including end-of-day batch balance or running balances per transaction.
+
+### Available Operations
+
+* [list](#list) - List account balances
+
+## list
+
+Gets a list of balances for a bank account including end-of-day batch balance or running balances per transaction.
+
+### Example Usage
+
 ```typescript
 import { CodatBanking } from "@codat/banking";
 import { ListAccountBalancesRequest, ListAccountBalancesResponse } from "@codat/banking/dist/sdk/models/operations";
@@ -16,7 +31,7 @@ const req: ListAccountBalancesRequest = {
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "corrupti",
+  query: "provident",
 };
 
 sdk.accountBalances.list(req).then((res: ListAccountBalancesResponse | AxiosError) => {
@@ -25,4 +40,3 @@ sdk.accountBalances.list(req).then((res: ListAccountBalancesResponse | AxiosErro
   }
 });
 ```
-<!-- End SDK Example Usage -->

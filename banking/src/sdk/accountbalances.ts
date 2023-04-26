@@ -40,7 +40,7 @@ export class AccountBalances {
    * @remarks
    * Gets a list of balances for a bank account including end-of-day batch balance or running balances per transaction.
    */
-  listAccountBalances(
+  list(
     req: operations.ListAccountBalancesRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

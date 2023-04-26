@@ -27,7 +27,6 @@ src/sdk/models/operations/listaccounts.ts
 src/sdk/models/operations/gettransactioncategory.ts
 src/sdk/models/operations/listtransactioncategories.ts
 src/sdk/models/operations/gettransaction.ts
-src/sdk/models/operations/listbanktransactions.ts
 src/sdk/models/operations/listtransactions.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/accountbalances.ts
@@ -50,4 +49,9 @@ src/sdk/models/shared/transactioncodeenum.ts
 src/sdk/models/shared/transactions.ts
 src/sdk/models/shared/security.ts
 src/sdk/models/shared/index.ts
+docs/codatbanking/README.md
+docs/accountbalances/README.md
+docs/accounts/README.md
+docs/transactioncategories/README.md
+docs/transactions/README.md
 USAGE.md
