@@ -6,11 +6,11 @@ Manage webhooks, rules and alerts.
 
 ### Available Operations
 
-* [createRule](#createrule) - Create webhook
-* [getWebhook](#getwebhook) - Get webhook
-* [listRules](#listrules) - List webhooks
+* [create](#create) - Create webhook
+* [get](#get) - Get webhook
+* [list](#list) - List webhooks
 
-## createRule
+## create
 
 Create a new webhook configuration
 
@@ -34,21 +34,20 @@ const req: shared.Rule = {
     emails: [
       "info@client.com",
       "info@client.com",
-      "info@client.com",
     ],
     webhook: "https://webhook.client.com",
   },
-  type: "dolorem",
+  type: "minima",
 };
 
-sdk.webhooks.createRule(req).then((res: CreateRuleResponse | AxiosError) => {
+sdk.webhooks.create(req).then((res: CreateRuleResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getWebhook
+## get
 
 Get a single webhook
 
@@ -69,14 +68,14 @@ const req: GetWebhookRequest = {
   ruleId: "7318949f-c008-4936-a8ff-10d7ab563fa6",
 };
 
-sdk.webhooks.getWebhook(req).then((res: GetWebhookResponse | AxiosError) => {
+sdk.webhooks.get(req).then((res: GetWebhookResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## listRules
+## list
 
 List webhooks that you are subscribed to.
 
@@ -97,10 +96,10 @@ const req: ListRulesRequest = {
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "culpa",
+  query: "excepturi",
 };
 
-sdk.webhooks.listRules(req).then((res: ListRulesResponse | AxiosError) => {
+sdk.webhooks.list(req).then((res: ListRulesResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

@@ -40,7 +40,7 @@ export class Connections {
    * @remarks
    * Create a data connection for a company
    */
-  createDataConnection(
+  create(
     req: operations.CreateDataConnectionRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -130,7 +130,7 @@ export class Connections {
    * Revoke and remove a connection from a company.
    * This operation is not reversible - the end user would need to reauthorize a new data connection if you wish to view new data for this company.
    */
-  deleteCompanyConnection(
+  delete(
     req: operations.DeleteCompanyConnectionRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -195,7 +195,7 @@ export class Connections {
    * @remarks
    * Get a single connection for a company
    */
-  getCompanyConnection(
+  get(
     req: operations.GetCompanyConnectionRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -266,7 +266,7 @@ export class Connections {
    * @remarks
    * List the connections for a company
    */
-  listCompanyConnections(
+  list(
     req: operations.ListCompanyConnectionsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -339,13 +339,13 @@ export class Connections {
    * @remarks
    * This allows you to deauthorize a connection, without deleting it from Codat. This means you can still view any data that has previously been pulled into Codat, and also lets you re-authorize in future if your customer wishes to resume sharing their data.
    */
-  unlinkCompanyConnection(
-    req: operations.UnlinkCompanyConnectionRequest,
+  unlinkConnection(
+    req: operations.UnlinkConnectionRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
-  ): Promise<operations.UnlinkCompanyConnectionResponse> {
+  ): Promise<operations.UnlinkConnectionResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.UnlinkCompanyConnectionRequest(req);
+      req = new operations.UnlinkConnectionRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -393,8 +393,8 @@ export class Connections {
 
       if (httpRes?.status == null)
         throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.UnlinkCompanyConnectionResponse =
-        new operations.UnlinkCompanyConnectionResponse({
+      const res: operations.UnlinkConnectionResponse =
+        new operations.UnlinkConnectionResponse({
           statusCode: httpRes.status,
           contentType: contentType,
           rawResponse: httpRes,
@@ -428,7 +428,7 @@ export class Connections {
    * @remarks
    * Update data connection's authorization.
    */
-  updateConnectionAuthorization(
+  updateAuthorization(
     req: operations.UpdateConnectionAuthorizationRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

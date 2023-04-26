@@ -35,6 +35,71 @@ export class RefreshData {
   }
 
   /**
+   * Queue pull operations
+   *
+   * @remarks
+   * Refreshes all data types marked Fetch on first link.
+   */
+  all(
+    req: operations.RefreshCompanyDataRequest,
+    retries?: utils.RetryConfig,
+    config?: AxiosRequestConfig
+  ): Promise<operations.RefreshCompanyDataResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.RefreshCompanyDataRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/data/all",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const r = utils.Retry(() => {
+      return client.request({
+        url: url,
+        method: "post",
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+    return r.then((httpRes: AxiosResponse) => {
+      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+      if (httpRes?.status == null)
+        throw new Error(`status code not found in response: ${httpRes}`);
+      const res: operations.RefreshCompanyDataResponse =
+        new operations.RefreshCompanyDataResponse({
+          statusCode: httpRes.status,
+          contentType: contentType,
+          rawResponse: httpRes,
+        });
+      switch (true) {
+        case httpRes?.status == 204:
+          break;
+        case [401, 404].includes(httpRes?.status):
+          if (utils.matchContentType(contentType, `application/json`)) {
+            res.errorMessage = utils.objectToClass(
+              httpRes?.data,
+              shared.ErrorMessage
+            );
+          }
+          break;
+      }
+
+      return res;
+    });
+  }
+
+  /**
    * Queue pull operation
    *
    * @remarks
@@ -42,7 +107,7 @@ export class RefreshData {
    *
    * This will bring updated data into Codat from the linked integration for you to view.
    */
-  createPullOperation(
+  byDataType(
     req: operations.CreatePullOperationRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -94,71 +159,6 @@ export class RefreshData {
               shared.PullOperation
             );
           }
-          break;
-        case [401, 404].includes(httpRes?.status):
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.objectToClass(
-              httpRes?.data,
-              shared.ErrorMessage
-            );
-          }
-          break;
-      }
-
-      return res;
-    });
-  }
-
-  /**
-   * Queue pull operations
-   *
-   * @remarks
-   * Refreshes all data types marked Fetch on first link.
-   */
-  refreshCompanyData(
-    req: operations.RefreshCompanyDataRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.RefreshCompanyDataResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.RefreshCompanyDataRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/data/all",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const r = utils.Retry(() => {
-      return client.request({
-        url: url,
-        method: "post",
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.RefreshCompanyDataResponse =
-        new operations.RefreshCompanyDataResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 204:
           break;
         case [401, 404].includes(httpRes?.status):
           if (utils.matchContentType(contentType, `application/json`)) {

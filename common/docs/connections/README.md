@@ -6,14 +6,14 @@ Manage your companies' data connections.
 
 ### Available Operations
 
-* [createDataConnection](#createdataconnection) - Create connection
-* [deleteCompanyConnection](#deletecompanyconnection) - Delete connection
-* [getCompanyConnection](#getcompanyconnection) - Get connection
-* [listCompanyConnections](#listcompanyconnections) - List connections
-* [unlinkCompanyConnection](#unlinkcompanyconnection) - Unlink connection
-* [updateConnectionAuthorization](#updateconnectionauthorization) - Update authorization
+* [create](#create) - Create connection
+* [delete](#delete) - Delete connection
+* [get](#get) - Get connection
+* [list](#list) - List connections
+* [unlinkConnection](#unlinkconnection) - Unlink connection
+* [updateAuthorization](#updateauthorization) - Update authorization
 
-## createDataConnection
+## create
 
 Create a data connection for a company
 
@@ -38,14 +38,14 @@ const req: CreateDataConnectionRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
-sdk.connections.createDataConnection(req).then((res: CreateDataConnectionResponse | AxiosError) => {
+sdk.connections.create(req).then((res: CreateDataConnectionResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## deleteCompanyConnection
+## delete
 
 Revoke and remove a connection from a company.
 This operation is not reversible - the end user would need to reauthorize a new data connection if you wish to view new data for this company.
@@ -68,14 +68,14 @@ const req: DeleteCompanyConnectionRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-sdk.connections.deleteCompanyConnection(req).then((res: DeleteCompanyConnectionResponse | AxiosError) => {
+sdk.connections.delete(req).then((res: DeleteCompanyConnectionResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getCompanyConnection
+## get
 
 Get a single connection for a company
 
@@ -98,14 +98,14 @@ const req: GetCompanyConnectionRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-sdk.connections.getCompanyConnection(req).then((res: GetCompanyConnectionResponse | AxiosError) => {
+sdk.connections.get(req).then((res: GetCompanyConnectionResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## listCompanyConnections
+## list
 
 List the connections for a company
 
@@ -131,14 +131,14 @@ const req: ListCompanyConnectionsRequest = {
   query: "minus",
 };
 
-sdk.connections.listCompanyConnections(req).then((res: ListCompanyConnectionsResponse | AxiosError) => {
+sdk.connections.list(req).then((res: ListCompanyConnectionsResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## unlinkCompanyConnection
+## unlinkConnection
 
 This allows you to deauthorize a connection, without deleting it from Codat. This means you can still view any data that has previously been pulled into Codat, and also lets you re-authorize in future if your customer wishes to resume sharing their data.
 
@@ -146,7 +146,7 @@ This allows you to deauthorize a connection, without deleting it from Codat. Thi
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { UnlinkCompanyConnectionRequest, UnlinkCompanyConnectionResponse } from "@codat/common/dist/sdk/models/operations";
+import { UnlinkConnectionRequest, UnlinkConnectionResponse } from "@codat/common/dist/sdk/models/operations";
 import { DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -156,7 +156,7 @@ const sdk = new CodatCommon({
   },
 });
 
-const req: UnlinkCompanyConnectionRequest = {
+const req: UnlinkConnectionRequest = {
   requestBody: {
     status: "placeat",
   },
@@ -164,14 +164,14 @@ const req: UnlinkCompanyConnectionRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-sdk.connections.unlinkCompanyConnection(req).then((res: UnlinkCompanyConnectionResponse | AxiosError) => {
+sdk.connections.unlinkConnection(req).then((res: UnlinkConnectionResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## updateConnectionAuthorization
+## updateAuthorization
 
 Update data connection's authorization.
 
@@ -199,7 +199,7 @@ const req: UpdateConnectionAuthorizationRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-sdk.connections.updateConnectionAuthorization(req).then((res: UpdateConnectionAuthorizationResponse | AxiosError) => {
+sdk.connections.updateAuthorization(req).then((res: UpdateConnectionAuthorizationResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

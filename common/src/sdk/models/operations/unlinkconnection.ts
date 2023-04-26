@@ -7,15 +7,15 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
-export class UnlinkCompanyConnectionRequestBody extends SpeakeasyBase {
+export class UnlinkConnectionRequestBody extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
   status?: string;
 }
 
-export class UnlinkCompanyConnectionRequest extends SpeakeasyBase {
+export class UnlinkConnectionRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  requestBody?: UnlinkCompanyConnectionRequestBody;
+  requestBody?: UnlinkConnectionRequestBody;
 
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=companyId",
@@ -28,7 +28,7 @@ export class UnlinkCompanyConnectionRequest extends SpeakeasyBase {
   connectionId: string;
 }
 
-export class UnlinkCompanyConnectionResponse extends SpeakeasyBase {
+export class UnlinkConnectionResponse extends SpeakeasyBase {
   /**
    * OK
    */

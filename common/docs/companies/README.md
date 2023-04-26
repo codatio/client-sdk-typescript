@@ -6,13 +6,13 @@ Create and manage your Codat companies.
 
 ### Available Operations
 
-* [createCompany](#createcompany) - Create company
-* [deleteCompany](#deletecompany) - Delete a company
-* [getCompany](#getcompany) - Get company
-* [listCompanies](#listcompanies) - List companies
-* [updateCompany](#updatecompany) - Update company
+* [create](#create) - Create company
+* [delete](#delete) - Delete a company
+* [get](#get) - Get company
+* [list](#list) - List companies
+* [update](#update) - Update company
 
-## createCompany
+## create
 
 Create a new company
 
@@ -35,14 +35,14 @@ const req: shared.CompanyRequestBody = {
   name: "Ben Mueller",
 };
 
-sdk.companies.createCompany(req).then((res: CreateCompanyResponse | AxiosError) => {
+sdk.companies.create(req).then((res: CreateCompanyResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## deleteCompany
+## delete
 
 Delete the given company from Codat.
 This operation is not reversible.
@@ -64,14 +64,14 @@ const req: DeleteCompanyRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
-sdk.companies.deleteCompany(req).then((res: DeleteCompanyResponse | AxiosError) => {
+sdk.companies.delete(req).then((res: DeleteCompanyResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getCompany
+## get
 
 Get metadata for a single company
 
@@ -93,14 +93,14 @@ const req: GetCompanyRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
-sdk.companies.getCompany(req).then((res: GetCompanyResponse | AxiosError) => {
+sdk.companies.get(req).then((res: GetCompanyResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## listCompanies
+## list
 
 List all companies that you have created in Codat.
 
@@ -125,14 +125,14 @@ const req: ListCompaniesRequest = {
   query: "iure",
 };
 
-sdk.companies.listCompanies(req).then((res: ListCompaniesResponse | AxiosError) => {
+sdk.companies.list(req).then((res: ListCompaniesResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## updateCompany
+## update
 
 Updates the given company with a new name and description
 
@@ -158,7 +158,7 @@ const req: UpdateCompanyRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 
-sdk.companies.updateCompany(req).then((res: UpdateCompanyResponse | AxiosError) => {
+sdk.companies.update(req).then((res: UpdateCompanyResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

@@ -54,6 +54,5 @@ export * from "./security";
 export * from "./sourcetypeenum";
 export * from "./supportedfeature";
 export * from "./syncsetting";
-export * from "./syncsettings";
 export * from "./validation";
 export * from "./validationitem";

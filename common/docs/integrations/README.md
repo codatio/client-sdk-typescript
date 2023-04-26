@@ -6,11 +6,11 @@ View and manage your available integrations in Codat.
 
 ### Available Operations
 
-* [getIntegration](#getintegration) - Get integration
-* [getIntegrationsBranding](#getintegrationsbranding) - Get branding
-* [listIntegrations](#listintegrations) - List integrations
+* [get](#get) - Get integration
+* [getBranding](#getbranding) - Get branding
+* [list](#list) - List integrations
 
-## getIntegration
+## get
 
 Get single integration, by platformKey
 
@@ -32,14 +32,14 @@ const req: GetIntegrationRequest = {
   platformKey: "gbol",
 };
 
-sdk.integrations.getIntegration(req).then((res: GetIntegrationResponse | AxiosError) => {
+sdk.integrations.get(req).then((res: GetIntegrationResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getIntegrationsBranding
+## getBranding
 
 Get branding for platform.
 
@@ -60,14 +60,14 @@ const req: GetIntegrationsBrandingRequest = {
   platformKey: "gbol",
 };
 
-sdk.integrations.getIntegrationsBranding(req).then((res: GetIntegrationsBrandingResponse | AxiosError) => {
+sdk.integrations.getBranding(req).then((res: GetIntegrationsBrandingResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## listIntegrations
+## list
 
 List your available integrations
 
@@ -92,7 +92,7 @@ const req: ListIntegrationsRequest = {
   query: "veritatis",
 };
 
-sdk.integrations.listIntegrations(req).then((res: ListIntegrationsResponse | AxiosError) => {
+sdk.integrations.list(req).then((res: ListIntegrationsResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

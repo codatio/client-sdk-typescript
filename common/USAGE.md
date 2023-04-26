@@ -16,7 +16,7 @@ const req: shared.CompanyRequestBody = {
   name: "Kelvin Sporer",
 };
 
-sdk.companies.createCompany(req).then((res: CreateCompanyResponse | AxiosError) => {
+sdk.companies.create(req).then((res: CreateCompanyResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

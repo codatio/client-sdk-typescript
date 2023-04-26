@@ -40,7 +40,7 @@ export class Companies {
    * @remarks
    * Create a new company
    */
-  createCompany(
+  create(
     req: shared.CompanyRequestBody,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -123,7 +123,7 @@ export class Companies {
    * Delete the given company from Codat.
    * This operation is not reversible.
    */
-  deleteCompany(
+  delete(
     req: operations.DeleteCompanyRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -188,7 +188,7 @@ export class Companies {
    * @remarks
    * Get metadata for a single company
    */
-  getCompany(
+  get(
     req: operations.GetCompanyRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -256,7 +256,7 @@ export class Companies {
    * @remarks
    * List all companies that you have created in Codat.
    */
-  listCompanies(
+  list(
     req: operations.ListCompaniesRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -325,7 +325,7 @@ export class Companies {
    * @remarks
    * Updates the given company with a new name and description
    */
-  updateCompany(
+  update(
     req: operations.UpdateCompanyRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

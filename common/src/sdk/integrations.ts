@@ -40,7 +40,7 @@ export class Integrations {
    * @remarks
    * Get single integration, by platformKey
    */
-  getIntegration(
+  get(
     req: operations.GetIntegrationRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -111,7 +111,7 @@ export class Integrations {
    * @remarks
    * Get branding for platform.
    */
-  getIntegrationsBranding(
+  getBranding(
     req: operations.GetIntegrationsBrandingRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -171,7 +171,7 @@ export class Integrations {
    * @remarks
    * List your available integrations
    */
-  listIntegrations(
+  list(
     req: operations.ListIntegrationsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

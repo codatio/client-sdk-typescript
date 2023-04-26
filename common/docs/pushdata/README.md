@@ -6,44 +6,11 @@ View push options and get push statuses.
 
 ### Available Operations
 
-* [getCompanyPushHistory](#getcompanypushhistory) - List push operations
-* [getCreateUpdateModelOptionsByDataType](#getcreateupdatemodeloptionsbydatatype) - List push options
-* [getPushOperation](#getpushoperation) - Get push operation
+* [getModelOptions](#getmodeloptions) - Get push options
+* [getOperation](#getoperation) - Get push operation
+* [listOperations](#listoperations) - List push operations
 
-## getCompanyPushHistory
-
-List push operation records.
-
-### Example Usage
-
-```typescript
-import { CodatCommon } from "@codat/common";
-import { GetCompanyPushHistoryRequest, GetCompanyPushHistoryResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/common/dist/sdk/models/shared";
-import { AxiosError } from "axios";
-
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "YOUR_API_KEY_HERE",
-  },
-});
-
-const req: GetCompanyPushHistoryRequest = {
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "deserunt",
-};
-
-sdk.pushData.getCompanyPushHistory(req).then((res: GetCompanyPushHistoryResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-## getCreateUpdateModelOptionsByDataType
+## getModelOptions
 
 This is the generic documentation for creation and updating of data. See the equivalent endpoint for a given data type for more specific information. 
 
@@ -79,14 +46,14 @@ const req: GetCreateUpdateModelOptionsByDataTypeRequest = {
   dataType: DataTypeEnum.Invoices,
 };
 
-sdk.pushData.getCreateUpdateModelOptionsByDataType(req).then((res: GetCreateUpdateModelOptionsByDataTypeResponse | AxiosError) => {
+sdk.pushData.getModelOptions(req).then((res: GetCreateUpdateModelOptionsByDataTypeResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
 });
 ```
 
-## getPushOperation
+## getOperation
 
 Retrieve push operation.
 
@@ -106,10 +73,43 @@ const sdk = new CodatCommon({
 
 const req: GetPushOperationRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "05dfc2dd-f7cc-478c-a1ba-928fc816742c",
+  pushOperationKey: "a05dfc2d-df7c-4c78-8a1b-a928fc816742",
 };
 
-sdk.pushData.getPushOperation(req).then((res: GetPushOperationResponse | AxiosError) => {
+sdk.pushData.getOperation(req).then((res: GetPushOperationResponse | AxiosError) => {
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+## listOperations
+
+List push operation records.
+
+### Example Usage
+
+```typescript
+import { CodatCommon } from "@codat/common";
+import { GetCompanyPushHistoryRequest, GetCompanyPushHistoryResponse } from "@codat/common/dist/sdk/models/operations";
+import { DataTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/common/dist/sdk/models/shared";
+import { AxiosError } from "axios";
+
+const sdk = new CodatCommon({
+  security: {
+    authHeader: "YOUR_API_KEY_HERE",
+  },
+});
+
+const req: GetCompanyPushHistoryRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  orderBy: "-modifiedDate",
+  page: 1,
+  pageSize: 100,
+  query: "impedit",
+};
+
+sdk.pushData.listOperations(req).then((res: GetCompanyPushHistoryResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

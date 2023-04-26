@@ -4,6 +4,7 @@
 
 export enum FeatureStateEnum {
   Release = "Release",
+  Alpha = "Alpha",
   Beta = "Beta",
   Deprecated = "Deprecated",
   NotSupported = "NotSupported",
