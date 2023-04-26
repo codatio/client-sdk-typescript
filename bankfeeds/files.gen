@@ -49,4 +49,7 @@ src/sdk/models/shared/href.ts
 src/sdk/models/shared/bankfeedaccount.ts
 src/sdk/models/shared/security.ts
 src/sdk/models/shared/index.ts
+docs/codatbankfeeds/README.md
+docs/bankaccounttransactions/README.md
+docs/bankfeedaccounts/README.md
 USAGE.md

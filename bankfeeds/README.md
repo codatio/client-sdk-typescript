@@ -21,16 +21,16 @@ yarn add @codat/bank-feeds
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
 ```typescript
-import {
-  CreateBankTransactionsRequest,
-  CreateBankTransactionsResponse
-} from "@codat/bank-feeds/dist/sdk/models/operations";
+import { CodatBankFeeds } from "@codat/bank-feeds";
+import { CreateBankTransactionsRequest, CreateBankTransactionsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 import {
   BankTransactionTypeEnum,
+  DataTypeEnum,
+  PushChangeTypeEnum,
+  PushOperationStatusEnum,
 } from "@codat/bank-feeds/dist/sdk/models/shared";
-
 import { AxiosError } from "axios";
-import { CodatBankFeeds } from "@codat/bank-feeds";
+
 const sdk = new CodatBankFeeds({
   security: {
     authHeader: "YOUR_API_KEY_HERE",
@@ -44,41 +44,41 @@ const req: CreateBankTransactionsRequest = {
       {
         amount: 7151.9,
         balance: 8442.66,
-        clearedOnDate: "2022-10-23T00:00:00Z",
-        counterparty: "unde",
-        description: "nulla",
-        id: "8d69a674-e0f4-467c-8879-6ed151a05dfc",
-        modifiedDate: "2022-10-23T00:00:00Z",
+        clearedOnDate: "unde",
+        counterparty: "nulla",
+        description: "corrupti",
+        id: "d69a674e-0f46-47cc-8796-ed151a05dfc2",
+        modifiedDate: "at",
         reconciled: false,
-        reference: "odit",
-        sourceModifiedDate: "2022-10-23T00:00:00Z",
-        transactionType: BankTransactionTypeEnum.DirectDebit,
+        reference: "at",
+        sourceModifiedDate: "maiores",
+        transactionType: BankTransactionTypeEnum.Atm,
       },
       {
-        amount: 8700.88,
-        balance: 9786.19,
-        clearedOnDate: "2022-10-23T00:00:00Z",
-        counterparty: "molestiae",
-        description: "quod",
-        id: "c78ca1ba-928f-4c81-a742-cb7392059293",
-        modifiedDate: "2022-10-23T00:00:00Z",
+        amount: 7991.59,
+        balance: 8009.11,
+        clearedOnDate: "esse",
+        counterparty: "totam",
+        description: "porro",
+        id: "a1ba928f-c816-4742-8b73-9205929396fe",
+        modifiedDate: "fuga",
         reconciled: false,
-        reference: "natus",
-        sourceModifiedDate: "2022-10-23T00:00:00Z",
-        transactionType: BankTransactionTypeEnum.SerChg,
-      },
-      {
-        amount: 9437.49,
-        balance: 9025.99,
-        clearedOnDate: "2022-10-23T00:00:00Z",
-        counterparty: "fuga",
-        description: "in",
-        id: "596eb10f-aaa2-4352-8595-5907aff1a3a2",
-        modifiedDate: "2022-10-23T00:00:00Z",
-        reconciled: false,
-        reference: "repellat",
-        sourceModifiedDate: "2022-10-23T00:00:00Z",
+        reference: "in",
+        sourceModifiedDate: "corporis",
         transactionType: BankTransactionTypeEnum.Check,
+      },
+      {
+        amount: 4370.32,
+        balance: 9023.49,
+        clearedOnDate: "quidem",
+        counterparty: "architecto",
+        description: "ipsa",
+        id: "faaa2352-c595-4590-baff-1a3a2fa94677",
+        modifiedDate: "velit",
+        reconciled: false,
+        reference: "error",
+        sourceModifiedDate: "quia",
+        transactionType: BankTransactionTypeEnum.SerChg,
       },
     ],
   },
@@ -86,11 +86,13 @@ const req: CreateBankTransactionsRequest = {
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 581850,
+  timeoutInMinutes: 110375,
 };
 
 sdk.bankAccountTransactions.createBankTransactions(req).then((res: CreateBankTransactionsResponse | AxiosError) => {
-   // handle response
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
 });
 ```
 <!-- End SDK Example Usage -->
@@ -99,17 +101,17 @@ sdk.bankAccountTransactions.createBankTransactions(req).then((res: CreateBankTra
 ## Available Resources and Operations
 
 
-### bankAccountTransactions
+### [bankAccountTransactions](docs/bankaccounttransactions/README.md)
 
-* `createBankTransactions` - Create bank transactions
-* `getCreateBankAccountModel` - List push options for bank account bank transactions
-* `listBankAccountTransactions` - List bank transactions for bank account
+* [createBankTransactions](docs/bankaccounttransactions/README.md#createbanktransactions) - Create bank transactions
+* [getCreateBankAccountModel](docs/bankaccounttransactions/README.md#getcreatebankaccountmodel) - List push options for bank account bank transactions
+* [listBankAccountTransactions](docs/bankaccounttransactions/README.md#listbankaccounttransactions) - List bank transactions for bank account
 
-### bankFeedAccounts
+### [bankFeedAccounts](docs/bankfeedaccounts/README.md)
 
-* `createBankFeed` - Create bank feed bank accounts
-* `getBankFeeds` - List bank feed bank accounts
-* `updateBankFeed` - Update bank feed bank account
+* [createBankFeed](docs/bankfeedaccounts/README.md#createbankfeed) - Create bank feed bank accounts
+* [getBankFeeds](docs/bankfeedaccounts/README.md#getbankfeeds) - List bank feed bank accounts
+* [updateBankFeed](docs/bankfeedaccounts/README.md#updatebankfeed) - Update bank feed bank account
 <!-- End SDK Available Operations -->
 
 ### SDK Generated by [Speakeasy](https://docs.speakeasyapi.dev/docs/using-speakeasy/client-sdks)
