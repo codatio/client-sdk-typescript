@@ -42,7 +42,7 @@ export class CompanyInfo {
    *
    * This may include information like addresses, tax registration details and social media or website information.
    */
-  getCompanyInfo(
+  get(
     req: operations.GetCompanyInfoRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

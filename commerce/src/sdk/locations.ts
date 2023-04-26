@@ -42,7 +42,7 @@ export class Locations {
    *
    * A `location` is a geographic place at which stocks of products may be held, or from where orders were placed.
    */
-  listLocations(
+  list(
     req: operations.ListLocationsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

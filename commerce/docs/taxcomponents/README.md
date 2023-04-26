@@ -6,9 +6,9 @@ Retrieve standardized data from linked commerce platforms.
 
 ### Available Operations
 
-* [getTaxComponents](#gettaxcomponents) - List tax components
+* [get](#get) - List tax components
 
-## getTaxComponents
+## get
 
 This endpoint returns a lits of tax rates from the commerce platform, including tax rate names and values. This supports the mapping of tax rates from the commerce platform to the accounting platform.
 
@@ -30,7 +30,7 @@ const req: GetTaxComponentsRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-sdk.taxComponents.getTaxComponents(req).then((res: GetTaxComponentsResponse | AxiosError) => {
+sdk.taxComponents.get(req).then((res: GetTaxComponentsResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

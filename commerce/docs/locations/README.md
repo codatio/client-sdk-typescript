@@ -6,9 +6,9 @@ Retrieve standardized data from linked commerce platforms.
 
 ### Available Operations
 
-* [listLocations](#listlocations) - List locations
+* [list](#list) - List locations
 
-## listLocations
+## list
 
 Retrieve a list of locations as seen in the commerce platform.
 
@@ -33,7 +33,7 @@ const req: ListLocationsRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-sdk.locations.listLocations(req).then((res: ListLocationsResponse | AxiosError) => {
+sdk.locations.list(req).then((res: ListLocationsResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

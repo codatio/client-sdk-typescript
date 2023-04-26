@@ -40,7 +40,7 @@ export class Customers {
    * @remarks
    * List all commerce customers for the given company and data connection
    */
-  listCustomers(
+  list(
     req: operations.ListCustomersRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

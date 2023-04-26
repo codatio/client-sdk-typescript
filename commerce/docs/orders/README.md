@@ -6,9 +6,9 @@ Retrieve standardized data from linked commerce platforms.
 
 ### Available Operations
 
-* [listOrders](#listorders) - List orders
+* [list](#list) - List orders
 
-## listOrders
+## list
 
 Get a list of orders placed or held on the linked commerce platform
 
@@ -35,7 +35,7 @@ const req: ListOrdersRequest = {
   query: "distinctio",
 };
 
-sdk.orders.listOrders(req).then((res: ListOrdersResponse | AxiosError) => {
+sdk.orders.list(req).then((res: ListOrdersResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

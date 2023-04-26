@@ -6,9 +6,9 @@ Retrieve standardized data from linked commerce platforms.
 
 ### Available Operations
 
-* [listDisputes](#listdisputes) - List disputes
+* [list](#list) - List disputes
 
-## listDisputes
+## list
 
 List commerce disputes
 
@@ -35,7 +35,7 @@ const req: ListDisputesRequest = {
   query: "provident",
 };
 
-sdk.disputes.listDisputes(req).then((res: ListDisputesResponse | AxiosError) => {
+sdk.disputes.list(req).then((res: ListDisputesResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

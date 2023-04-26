@@ -6,9 +6,9 @@ Retrieve standardized data from linked commerce platforms.
 
 ### Available Operations
 
-* [listCustomers](#listcustomers) - List customers
+* [list](#list) - List customers
 
-## listCustomers
+## list
 
 List all commerce customers for the given company and data connection
 
@@ -35,7 +35,7 @@ const req: ListCustomersRequest = {
   query: "corrupti",
 };
 
-sdk.customers.listCustomers(req).then((res: ListCustomersResponse | AxiosError) => {
+sdk.customers.list(req).then((res: ListCustomersResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

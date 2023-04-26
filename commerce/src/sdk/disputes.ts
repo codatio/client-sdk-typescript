@@ -40,7 +40,7 @@ export class Disputes {
    * @remarks
    * List commerce disputes
    */
-  listDisputes(
+  list(
     req: operations.ListDisputesRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig

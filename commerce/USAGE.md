@@ -16,7 +16,7 @@ const req: GetCompanyInfoRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 };
 
-sdk.companyInfo.getCompanyInfo(req).then((res: GetCompanyInfoResponse | AxiosError) => {
+sdk.companyInfo.get(req).then((res: GetCompanyInfoResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }

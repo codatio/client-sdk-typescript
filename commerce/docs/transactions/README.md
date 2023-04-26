@@ -6,9 +6,9 @@ Retrieve standardized data from linked commerce platforms.
 
 ### Available Operations
 
-* [listTransactions](#listtransactions) - List transactions
+* [list](#list) - List transactions
 
-## listTransactions
+## list
 
 Details of all financial transactions recorded in the commerce or point of sale system are added to the Transactions data type. For example, payments, service charges, and fees.
 
@@ -35,7 +35,7 @@ const req: ListTransactionsRequest = {
   query: "illum",
 };
 
-sdk.transactions.listTransactions(req).then((res: ListTransactionsResponse | AxiosError) => {
+sdk.transactions.list(req).then((res: ListTransactionsResponse | AxiosError) => {
   if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
     // handle response
   }
