@@ -19,6 +19,8 @@ src/internal/utils/retries.ts
 src/internal/utils/security.ts
 src/internal/utils/utils.ts
 src/sdk/index.ts
+src/sdk/types/index.ts
+src/sdk/types/rfcdate.ts
 tsconfig.json
 src/sdk/models/operations/createcompany.ts
 src/sdk/models/operations/createconnection.ts
@@ -67,6 +69,11 @@ src/sdk/models/shared/payments.ts
 src/sdk/models/shared/newpayments.ts
 src/sdk/models/shared/fees.ts
 src/sdk/models/shared/feessupplier.ts
+src/sdk/models/shared/branding.ts
+src/sdk/models/shared/brandinglogo.ts
+src/sdk/models/shared/brandingimage.ts
+src/sdk/models/shared/imagereference.ts
+src/sdk/models/shared/brandingbutton.ts
 src/sdk/models/shared/integrations.ts
 src/sdk/models/shared/integration.ts
 src/sdk/models/shared/sourcetypeenum.ts
@@ -82,4 +89,10 @@ src/sdk/models/shared/syncflowurl.ts
 src/sdk/models/shared/visibleaccounts.ts
 src/sdk/models/shared/security.ts
 src/sdk/models/shared/index.ts
+docs/codatsynccommerce/README.md
+docs/companymanagement/README.md
+docs/configuration/README.md
+docs/integrations/README.md
+docs/sync/README.md
+docs/syncflowpreferences/README.md
 USAGE.md

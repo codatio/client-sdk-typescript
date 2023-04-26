@@ -1,13 +1,11 @@
 <!-- Start SDK Example Usage -->
 ```typescript
-import {
-  shared.CreateCompany,
-  CreateCompanyResponse
-} from "@codat/synccommerce/dist/sdk/models/operations";
-
+import { CodatSyncCommerce } from "@codat/sync-for-commerce";
+import { CreateCompany, CreateCompanyResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
+import { ConnectionSourceTypeEnum, DataConnectionStatusEnum } from "@codat/sync-for-commerce/dist/sdk/models/shared";
 import { AxiosError } from "axios";
-import { Codat } from "@codat/synccommerce";
-const sdk = new Codat({
+
+const sdk = new CodatSyncCommerce({
   security: {
     authHeader: "YOUR_API_KEY_HERE",
   },
@@ -18,7 +16,9 @@ const req: shared.CreateCompany = {
 };
 
 sdk.companyManagement.createCompany(req).then((res: CreateCompanyResponse | AxiosError) => {
-   // handle response
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
 });
 ```
 <!-- End SDK Example Usage -->
