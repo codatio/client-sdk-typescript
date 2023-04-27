@@ -1,7 +1,7 @@
 <!-- Start SDK Example Usage -->
 ```typescript
 import { CodatBanking } from "@codat/banking";
-import { ListAccountBalancesRequest, ListAccountBalancesResponse } from "@codat/banking/dist/sdk/models/operations";
+import { ListAccountBalancesResponse } from "@codat/banking/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatBanking({
@@ -10,17 +10,15 @@ const sdk = new CodatBanking({
   },
 });
 
-const req: ListAccountBalancesRequest = {
+sdk.accountBalances.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "corrupti",
-};
-
-sdk.accountBalances.list(req).then((res: ListAccountBalancesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListAccountBalancesResponse | AxiosError) => {
+  if (res instanceof ListAccountBalancesResponse && res.statusCode == 200) {
     // handle response
   }
 });
