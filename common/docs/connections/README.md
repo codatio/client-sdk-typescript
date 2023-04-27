@@ -21,7 +21,7 @@ Create a data connection for a company
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { CreateDataConnectionRequest, CreateDataConnectionResponse } from "@codat/common/dist/sdk/models/operations";
+import { CreateDataConnectionResponse } from "@codat/common/dist/sdk/models/operations";
 import { DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -31,15 +31,13 @@ const sdk = new CodatCommon({
   },
 });
 
-const req: CreateDataConnectionRequest = {
+sdk.connections.create({
   requestBody: {
     platformKey: "molestiae",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.connections.create(req).then((res: CreateDataConnectionResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateDataConnectionResponse | AxiosError) => {
+  if (res instanceof CreateDataConnectionResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -54,7 +52,7 @@ This operation is not reversible - the end user would need to reauthorize a new 
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { DeleteCompanyConnectionRequest, DeleteCompanyConnectionResponse } from "@codat/common/dist/sdk/models/operations";
+import { DeleteCompanyConnectionResponse } from "@codat/common/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
@@ -63,13 +61,11 @@ const sdk = new CodatCommon({
   },
 });
 
-const req: DeleteCompanyConnectionRequest = {
+sdk.connections.delete({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.connections.delete(req).then((res: DeleteCompanyConnectionResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DeleteCompanyConnectionResponse | AxiosError) => {
+  if (res instanceof DeleteCompanyConnectionResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -83,7 +79,7 @@ Get a single connection for a company
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { GetCompanyConnectionRequest, GetCompanyConnectionResponse } from "@codat/common/dist/sdk/models/operations";
+import { GetCompanyConnectionResponse } from "@codat/common/dist/sdk/models/operations";
 import { DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -93,13 +89,11 @@ const sdk = new CodatCommon({
   },
 });
 
-const req: GetCompanyConnectionRequest = {
+sdk.connections.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.connections.get(req).then((res: GetCompanyConnectionResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetCompanyConnectionResponse | AxiosError) => {
+  if (res instanceof GetCompanyConnectionResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -113,7 +107,7 @@ List the connections for a company
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { ListCompanyConnectionsRequest, ListCompanyConnectionsResponse } from "@codat/common/dist/sdk/models/operations";
+import { ListCompanyConnectionsResponse } from "@codat/common/dist/sdk/models/operations";
 import { DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -123,16 +117,14 @@ const sdk = new CodatCommon({
   },
 });
 
-const req: ListCompanyConnectionsRequest = {
+sdk.connections.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "minus",
-};
-
-sdk.connections.list(req).then((res: ListCompanyConnectionsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListCompanyConnectionsResponse | AxiosError) => {
+  if (res instanceof ListCompanyConnectionsResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -146,7 +138,7 @@ This allows you to deauthorize a connection, without deleting it from Codat. Thi
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { UnlinkConnectionRequest, UnlinkConnectionResponse } from "@codat/common/dist/sdk/models/operations";
+import { UnlinkConnectionResponse } from "@codat/common/dist/sdk/models/operations";
 import { DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -156,16 +148,14 @@ const sdk = new CodatCommon({
   },
 });
 
-const req: UnlinkConnectionRequest = {
+sdk.connections.unlinkConnection({
   requestBody: {
     status: "placeat",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.connections.unlinkConnection(req).then((res: UnlinkConnectionResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UnlinkConnectionResponse | AxiosError) => {
+  if (res instanceof UnlinkConnectionResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -179,7 +169,7 @@ Update data connection's authorization.
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { UpdateConnectionAuthorizationRequest, UpdateConnectionAuthorizationResponse } from "@codat/common/dist/sdk/models/operations";
+import { UpdateConnectionAuthorizationResponse } from "@codat/common/dist/sdk/models/operations";
 import { DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -189,7 +179,7 @@ const sdk = new CodatCommon({
   },
 });
 
-const req: UpdateConnectionAuthorizationRequest = {
+sdk.connections.updateAuthorization({
   requestBody: {
     "iusto": "excepturi",
     "nisi": "recusandae",
@@ -197,10 +187,8 @@ const req: UpdateConnectionAuthorizationRequest = {
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.connections.updateAuthorization(req).then((res: UpdateConnectionAuthorizationResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UpdateConnectionAuthorizationResponse | AxiosError) => {
+  if (res instanceof UpdateConnectionAuthorizationResponse && res.statusCode == 200) {
     // handle response
   }
 });

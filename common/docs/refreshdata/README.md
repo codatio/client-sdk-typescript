@@ -17,7 +17,7 @@ Refreshes all data types marked Fetch on first link.
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { RefreshCompanyDataRequest, RefreshCompanyDataResponse } from "@codat/common/dist/sdk/models/operations";
+import { RefreshCompanyDataResponse } from "@codat/common/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
@@ -26,12 +26,10 @@ const sdk = new CodatCommon({
   },
 });
 
-const req: RefreshCompanyDataRequest = {
+sdk.refreshData.all({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.refreshData.all(req).then((res: RefreshCompanyDataResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: RefreshCompanyDataResponse | AxiosError) => {
+  if (res instanceof RefreshCompanyDataResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -47,7 +45,7 @@ This will bring updated data into Codat from the linked integration for you to v
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { CreatePullOperationRequest, CreatePullOperationResponse } from "@codat/common/dist/sdk/models/operations";
+import { CreatePullOperationResponse } from "@codat/common/dist/sdk/models/operations";
 import { DataTypeEnum, PullOperationStatusEnum } from "@codat/common/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -57,14 +55,12 @@ const sdk = new CodatCommon({
   },
 });
 
-const req: CreatePullOperationRequest = {
+sdk.refreshData.byDataType({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "b7392059-2939-46fe-a759-6eb10faaa235",
   dataType: DataTypeEnum.Invoices,
-};
-
-sdk.refreshData.byDataType(req).then((res: CreatePullOperationResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreatePullOperationResponse | AxiosError) => {
+  if (res instanceof CreatePullOperationResponse && res.statusCode == 200) {
     // handle response
   }
 });

@@ -21,7 +21,7 @@ Create a new company
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { CreateCompanyResponse } from "@codat/common/dist/sdk/models/operations";
-import { CompanyRequestBody, DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
+import { DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
@@ -30,13 +30,11 @@ const sdk = new CodatCommon({
   },
 });
 
-const req: shared.CompanyRequestBody = {
+sdk.companies.create({
   description: "corrupti",
   name: "Ben Mueller",
-};
-
-sdk.companies.create(req).then((res: CreateCompanyResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateCompanyResponse | AxiosError) => {
+  if (res instanceof CreateCompanyResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -51,7 +49,7 @@ This operation is not reversible.
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { DeleteCompanyRequest, DeleteCompanyResponse } from "@codat/common/dist/sdk/models/operations";
+import { DeleteCompanyResponse } from "@codat/common/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
@@ -60,12 +58,10 @@ const sdk = new CodatCommon({
   },
 });
 
-const req: DeleteCompanyRequest = {
+sdk.companies.delete({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.companies.delete(req).then((res: DeleteCompanyResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DeleteCompanyResponse | AxiosError) => {
+  if (res instanceof DeleteCompanyResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -79,7 +75,7 @@ Get metadata for a single company
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { GetCompanyRequest, GetCompanyResponse } from "@codat/common/dist/sdk/models/operations";
+import { GetCompanyResponse } from "@codat/common/dist/sdk/models/operations";
 import { DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -89,12 +85,10 @@ const sdk = new CodatCommon({
   },
 });
 
-const req: GetCompanyRequest = {
+sdk.companies.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.companies.get(req).then((res: GetCompanyResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetCompanyResponse | AxiosError) => {
+  if (res instanceof GetCompanyResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -108,7 +102,7 @@ List all companies that you have created in Codat.
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { ListCompaniesRequest, ListCompaniesResponse } from "@codat/common/dist/sdk/models/operations";
+import { ListCompaniesResponse } from "@codat/common/dist/sdk/models/operations";
 import { DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -118,15 +112,13 @@ const sdk = new CodatCommon({
   },
 });
 
-const req: ListCompaniesRequest = {
+sdk.companies.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "iure",
-};
-
-sdk.companies.list(req).then((res: ListCompaniesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListCompaniesResponse | AxiosError) => {
+  if (res instanceof ListCompaniesResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -140,7 +132,7 @@ Updates the given company with a new name and description
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { UpdateCompanyRequest, UpdateCompanyResponse } from "@codat/common/dist/sdk/models/operations";
+import { UpdateCompanyResponse } from "@codat/common/dist/sdk/models/operations";
 import { DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -150,16 +142,14 @@ const sdk = new CodatCommon({
   },
 });
 
-const req: UpdateCompanyRequest = {
+sdk.companies.update({
   companyRequestBody: {
     description: "magnam",
     name: "Larry Windler",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.companies.update(req).then((res: UpdateCompanyResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UpdateCompanyResponse | AxiosError) => {
+  if (res instanceof UpdateCompanyResponse && res.statusCode == 200) {
     // handle response
   }
 });

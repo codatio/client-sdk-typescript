@@ -2,7 +2,7 @@
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { CreateCompanyResponse } from "@codat/common/dist/sdk/models/operations";
-import { CompanyRequestBody, DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
+import { DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
@@ -11,13 +11,11 @@ const sdk = new CodatCommon({
   },
 });
 
-const req: shared.CompanyRequestBody = {
+sdk.companies.create({
   description: "corrupti",
   name: "Kelvin Sporer",
-};
-
-sdk.companies.create(req).then((res: CreateCompanyResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateCompanyResponse | AxiosError) => {
+  if (res instanceof CreateCompanyResponse && res.statusCode == 200) {
     // handle response
   }
 });

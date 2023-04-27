@@ -18,7 +18,7 @@ Get single integration, by platformKey
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { GetIntegrationRequest, GetIntegrationResponse } from "@codat/common/dist/sdk/models/operations";
+import { GetIntegrationResponse } from "@codat/common/dist/sdk/models/operations";
 import { DataTypeEnum, FeatureStateEnum, FeatureTypeEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -28,12 +28,10 @@ const sdk = new CodatCommon({
   },
 });
 
-const req: GetIntegrationRequest = {
+sdk.integrations.get({
   platformKey: "gbol",
-};
-
-sdk.integrations.get(req).then((res: GetIntegrationResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetIntegrationResponse | AxiosError) => {
+  if (res instanceof GetIntegrationResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -47,7 +45,7 @@ Get branding for platform.
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { GetIntegrationsBrandingRequest, GetIntegrationsBrandingResponse } from "@codat/common/dist/sdk/models/operations";
+import { GetIntegrationsBrandingResponse } from "@codat/common/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
@@ -56,12 +54,10 @@ const sdk = new CodatCommon({
   },
 });
 
-const req: GetIntegrationsBrandingRequest = {
+sdk.integrations.getBranding({
   platformKey: "gbol",
-};
-
-sdk.integrations.getBranding(req).then((res: GetIntegrationsBrandingResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetIntegrationsBrandingResponse | AxiosError) => {
+  if (res instanceof GetIntegrationsBrandingResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -75,7 +71,7 @@ List your available integrations
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { ListIntegrationsRequest, ListIntegrationsResponse } from "@codat/common/dist/sdk/models/operations";
+import { ListIntegrationsResponse } from "@codat/common/dist/sdk/models/operations";
 import { DataTypeEnum, FeatureStateEnum, FeatureTypeEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -85,15 +81,13 @@ const sdk = new CodatCommon({
   },
 });
 
-const req: ListIntegrationsRequest = {
+sdk.integrations.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "veritatis",
-};
-
-sdk.integrations.list(req).then((res: ListIntegrationsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListIntegrationsResponse | AxiosError) => {
+  if (res instanceof ListIntegrationsResponse && res.statusCode == 200) {
     // handle response
   }
 });

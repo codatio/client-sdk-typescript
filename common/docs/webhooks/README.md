@@ -19,7 +19,6 @@ Create a new webhook configuration
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { CreateRuleResponse } from "@codat/common/dist/sdk/models/operations";
-import { Rule } from "@codat/common/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
@@ -28,7 +27,7 @@ const sdk = new CodatCommon({
   },
 });
 
-const req: shared.Rule = {
+sdk.webhooks.create({
   companyId: "39b73b17-cc2e-429e-915d-71654e9dcd1e",
   id: "ff89c50e-a719-4ef5-a182-9917e53927b6",
   notifiers: {
@@ -39,10 +38,8 @@ const req: shared.Rule = {
     webhook: "https://webhook.client.com",
   },
   type: "minima",
-};
-
-sdk.webhooks.create(req).then((res: CreateRuleResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateRuleResponse | AxiosError) => {
+  if (res instanceof CreateRuleResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -56,7 +53,7 @@ Get a single webhook
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { GetWebhookRequest, GetWebhookResponse } from "@codat/common/dist/sdk/models/operations";
+import { GetWebhookResponse } from "@codat/common/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
@@ -65,12 +62,10 @@ const sdk = new CodatCommon({
   },
 });
 
-const req: GetWebhookRequest = {
+sdk.webhooks.get({
   ruleId: "7318949f-c008-4936-a8ff-10d7ab563fa6",
-};
-
-sdk.webhooks.get(req).then((res: GetWebhookResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetWebhookResponse | AxiosError) => {
+  if (res instanceof GetWebhookResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -84,7 +79,7 @@ List webhooks that you are subscribed to.
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { ListRulesRequest, ListRulesResponse } from "@codat/common/dist/sdk/models/operations";
+import { ListRulesResponse } from "@codat/common/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
@@ -93,15 +88,13 @@ const sdk = new CodatCommon({
   },
 });
 
-const req: ListRulesRequest = {
+sdk.webhooks.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "excepturi",
-};
-
-sdk.webhooks.list(req).then((res: ListRulesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListRulesResponse | AxiosError) => {
+  if (res instanceof ListRulesResponse && res.statusCode == 200) {
     // handle response
   }
 });

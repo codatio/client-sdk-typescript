@@ -28,7 +28,7 @@ const sdk = new CodatCommon({
 });
 
 sdk.settings.getProfile().then((res: GetProfileResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+  if (res instanceof GetProfileResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -42,7 +42,7 @@ Update sync settings for all data types.
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { UpdateSyncSettingsRequestBody, UpdateSyncSettingsResponse } from "@codat/common/dist/sdk/models/operations";
+import { UpdateSyncSettingsResponse } from "@codat/common/dist/sdk/models/operations";
 import { SyncSettingDataTypeEnum } from "@codat/common/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -52,7 +52,7 @@ const sdk = new CodatCommon({
   },
 });
 
-const req: UpdateSyncSettingsRequestBody = {
+sdk.settings.getSyncSettings({
   clientId: "367f7975-267b-439b-90c6-a6040ee680f3",
   overridesDefaults: false,
   settings: [
@@ -67,10 +67,8 @@ const req: UpdateSyncSettingsRequestBody = {
       syncSchedule: 24,
     },
   ],
-};
-
-sdk.settings.getSyncSettings(req).then((res: UpdateSyncSettingsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UpdateSyncSettingsResponse | AxiosError) => {
+  if (res instanceof UpdateSyncSettingsResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -85,7 +83,6 @@ Update your Codat profile
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { UpdateProfileResponse } from "@codat/common/dist/sdk/models/operations";
-import { Profile } from "@codat/common/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
@@ -94,7 +91,7 @@ const sdk = new CodatCommon({
   },
 });
 
-const req: shared.Profile = {
+sdk.settings.updateProfile({
   alertAuthHeader: "Bearer tXEiHiRK7XCtI8TNHbpGs1LI1pumdb4Cl1QIo7B2",
   apiKey: "sartANTjHAkLdbyDfaynoTQb7pkmj6hXHmnQKMrB",
   confirmCompanyName: false,
@@ -107,10 +104,8 @@ const req: shared.Profile = {
     "https://bobs-burgers.com",
     "https://bobs-burgers.com",
   ],
-};
-
-sdk.settings.updateProfile(req).then((res: UpdateProfileResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UpdateProfileResponse | AxiosError) => {
+  if (res instanceof UpdateProfileResponse && res.statusCode == 200) {
     // handle response
   }
 });
