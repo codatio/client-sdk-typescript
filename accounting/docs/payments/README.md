@@ -25,7 +25,7 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { CreatePaymentRequest, CreatePaymentResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { CreatePaymentResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { DataTypeEnum, PaymentLinkTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -35,7 +35,7 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: CreatePaymentRequest = {
+sdk.payments.create({
   payment: {
     accountRef: {
       id: "2de7b356-2201-4a6a-ab4a-e7b1a5b908d4",
@@ -139,10 +139,8 @@ const req: CreatePaymentRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 321921,
-};
-
-sdk.payments.create(req).then((res: CreatePaymentResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreatePaymentResponse | AxiosError) => {
+  if (res instanceof CreatePaymentResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -156,7 +154,7 @@ Get payment
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetPaymentRequest, GetPaymentResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetPaymentResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PaymentLinkTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -166,13 +164,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetPaymentRequest = {
+sdk.payments.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   paymentId: "odio",
-};
-
-sdk.payments.get(req).then((res: GetPaymentResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetPaymentResponse | AxiosError) => {
+  if (res instanceof GetPaymentResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -192,7 +188,7 @@ See the examples for integration-specific indicative models.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCreatePaymentsModelRequest, GetCreatePaymentsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetCreatePaymentsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -202,13 +198,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetCreatePaymentsModelRequest = {
+sdk.payments.getCreateModel({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.payments.getCreateModel(req).then((res: GetCreatePaymentsModelResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetCreatePaymentsModelResponse | AxiosError) => {
+  if (res instanceof GetCreatePaymentsModelResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -222,7 +216,7 @@ Gets the latest payments for a company, with pagination
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListPaymentsRequest, ListPaymentsResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ListPaymentsResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -231,16 +225,14 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: ListPaymentsRequest = {
+sdk.payments.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "omnis",
-};
-
-sdk.payments.list(req).then((res: ListPaymentsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListPaymentsResponse | AxiosError) => {
+  if (res instanceof ListPaymentsResponse && res.statusCode == 200) {
     // handle response
   }
 });

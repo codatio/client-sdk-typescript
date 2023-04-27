@@ -26,7 +26,7 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { CreatePurchaseOrderRequest, CreatePurchaseOrderResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { CreatePurchaseOrderResponse } from "@codat/accounting/dist/sdk/models/operations";
 import {
   AddressTypeEnum,
   DataTypeEnum,
@@ -42,7 +42,7 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: CreatePurchaseOrderRequest = {
+sdk.purchaseOrders.create({
   purchaseOrder: {
     currency: "quo",
     currencyRate: 9804.63,
@@ -151,10 +151,8 @@ const req: CreatePurchaseOrderRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 117700,
-};
-
-sdk.purchaseOrders.create(req).then((res: CreatePurchaseOrderResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreatePurchaseOrderResponse | AxiosError) => {
+  if (res instanceof CreatePurchaseOrderResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -168,7 +166,7 @@ Get purchase order
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetPurchaseOrderRequest, GetPurchaseOrderResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetPurchaseOrderResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AddressTypeEnum, PurchaseOrderStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -178,13 +176,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetPurchaseOrderRequest = {
+sdk.purchaseOrders.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   purchaseOrderId: "architecto",
-};
-
-sdk.purchaseOrders.get(req).then((res: GetPurchaseOrderResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetPurchaseOrderResponse | AxiosError) => {
+  if (res instanceof GetPurchaseOrderResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -204,10 +200,7 @@ See the examples for integration-specific indicative models.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import {
-  GetCreateUpdatePurchaseOrdersModelRequest,
-  GetCreateUpdatePurchaseOrdersModelResponse,
-} from "@codat/accounting/dist/sdk/models/operations";
+import { GetCreateUpdatePurchaseOrdersModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -217,13 +210,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetCreateUpdatePurchaseOrdersModelRequest = {
+sdk.purchaseOrders.getCreateUpdateModel({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.purchaseOrders.getCreateUpdateModel(req).then((res: GetCreateUpdatePurchaseOrdersModelResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetCreateUpdatePurchaseOrdersModelResponse | AxiosError) => {
+  if (res instanceof GetCreateUpdatePurchaseOrdersModelResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -237,7 +228,7 @@ Get purchase orders
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListPurchaseOrdersRequest, ListPurchaseOrdersResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ListPurchaseOrdersResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AddressTypeEnum, PurchaseOrderStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -247,16 +238,14 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: ListPurchaseOrdersRequest = {
+sdk.purchaseOrders.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "fugiat",
-};
-
-sdk.purchaseOrders.list(req).then((res: ListPurchaseOrdersResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListPurchaseOrdersResponse | AxiosError) => {
+  if (res instanceof ListPurchaseOrdersResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -276,7 +265,7 @@ Required data may vary by integration. To see what data to post, first call []()
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { UpdatePurchaseOrderRequest, UpdatePurchaseOrderResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { UpdatePurchaseOrderResponse } from "@codat/accounting/dist/sdk/models/operations";
 import {
   AddressTypeEnum,
   DataTypeEnum,
@@ -292,7 +281,7 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: UpdatePurchaseOrderRequest = {
+sdk.purchaseOrders.update({
   purchaseOrder: {
     currency: "eum",
     currencyRate: 1110.45,
@@ -378,10 +367,8 @@ const req: UpdatePurchaseOrderRequest = {
   forceUpdate: false,
   purchaseOrderId: "sequi",
   timeoutInMinutes: 122858,
-};
-
-sdk.purchaseOrders.update(req).then((res: UpdatePurchaseOrderResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UpdatePurchaseOrderResponse | AxiosError) => {
+  if (res instanceof UpdatePurchaseOrderResponse && res.statusCode == 200) {
     // handle response
   }
 });

@@ -25,7 +25,7 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { CreateTransferRequest, CreateTransferResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { CreateTransferResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { DataTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -35,7 +35,7 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: CreateTransferRequest = {
+sdk.transfers.create({
   transfer: {
     contactRef: {
       dataType: "laborum",
@@ -107,10 +107,8 @@ const req: CreateTransferRequest = {
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.transfers.create(req).then((res: CreateTransferResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateTransferResponse | AxiosError) => {
+  if (res instanceof CreateTransferResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -124,7 +122,7 @@ Gets the specified transfer for a given company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetTransferRequest, GetTransferResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetTransferResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -133,14 +131,12 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetTransferRequest = {
+sdk.transfers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   transferId: "ipsa",
-};
-
-sdk.transfers.get(req).then((res: GetTransferResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetTransferResponse | AxiosError) => {
+  if (res instanceof GetTransferResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -160,7 +156,7 @@ See the examples for integration-specific indicative models.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCreateTransfersModelRequest, GetCreateTransfersModelResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetCreateTransfersModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -170,13 +166,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetCreateTransfersModelRequest = {
+sdk.transfers.getCreateModel({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.transfers.getCreateModel(req).then((res: GetCreateTransfersModelResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetCreateTransfersModelResponse | AxiosError) => {
+  if (res instanceof GetCreateTransfersModelResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -190,7 +184,7 @@ Gets the transfers for a given company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListTransfersRequest, ListTransfersResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ListTransfersResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -199,17 +193,15 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: ListTransfersRequest = {
+sdk.transfers.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "perspiciatis",
-};
-
-sdk.transfers.list(req).then((res: ListTransfersResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListTransfersResponse | AxiosError) => {
+  if (res instanceof ListTransfersResponse && res.statusCode == 200) {
     // handle response
   }
 });

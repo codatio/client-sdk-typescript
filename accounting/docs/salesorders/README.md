@@ -17,7 +17,7 @@ Get sales order
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetSalesOrderRequest, GetSalesOrderResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetSalesOrderResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AddressTypeEnum, SalesOrderInvoiceStatusEnum, SalesOrderStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -27,13 +27,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetSalesOrderRequest = {
+sdk.salesOrders.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   salesOrderId: "vel",
-};
-
-sdk.salesOrders.get(req).then((res: GetSalesOrderResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetSalesOrderResponse | AxiosError) => {
+  if (res instanceof GetSalesOrderResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -47,7 +45,7 @@ Get sales orders
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListSalesOrdersRequest, ListSalesOrdersResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ListSalesOrdersResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AddressTypeEnum, SalesOrderInvoiceStatusEnum, SalesOrderStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -57,16 +55,14 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: ListSalesOrdersRequest = {
+sdk.salesOrders.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "exercitationem",
-};
-
-sdk.salesOrders.list(req).then((res: ListSalesOrdersResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListSalesOrdersResponse | AxiosError) => {
+  if (res instanceof ListSalesOrdersResponse && res.statusCode == 200) {
     // handle response
   }
 });

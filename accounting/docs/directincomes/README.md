@@ -29,7 +29,7 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { CreateDirectIncomeRequest, CreateDirectIncomeResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { CreateDirectIncomeResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { DataTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -39,7 +39,7 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: CreateDirectIncomeRequest = {
+sdk.directIncomes.create({
   directIncome: {
     contactRef: {
       dataType: "amet",
@@ -171,10 +171,8 @@ const req: CreateDirectIncomeRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 599915,
-};
-
-sdk.directIncomes.create(req).then((res: CreateDirectIncomeResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateDirectIncomeResponse | AxiosError) => {
+  if (res instanceof CreateDirectIncomeResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -188,7 +186,7 @@ Downloads an attachment for the specified direct income for a given company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { DownloadDirectIncomeAttachmentRequest, DownloadDirectIncomeAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { DownloadDirectIncomeAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -197,15 +195,13 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: DownloadDirectIncomeAttachmentRequest = {
+sdk.directIncomes.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   directIncomeId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.directIncomes.downloadAttachment(req).then((res: DownloadDirectIncomeAttachmentResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DownloadDirectIncomeAttachmentResponse | AxiosError) => {
+  if (res instanceof DownloadDirectIncomeAttachmentResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -219,7 +215,7 @@ Gets the specified direct income for a given company and connection.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetDirectIncomeRequest, GetDirectIncomeResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetDirectIncomeResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -228,14 +224,12 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetDirectIncomeRequest = {
+sdk.directIncomes.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   directIncomeId: "sunt",
-};
-
-sdk.directIncomes.get(req).then((res: GetDirectIncomeResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetDirectIncomeResponse | AxiosError) => {
+  if (res instanceof GetDirectIncomeResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -249,7 +243,7 @@ Gets the specified direct income attachment for a given company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetDirectIncomeAttachmentRequest, GetDirectIncomeAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetDirectIncomeAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -258,16 +252,14 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetDirectIncomeAttachmentRequest = {
+sdk.directIncomes.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   directIncomeId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   timeoutInMinutes: 226197,
-};
-
-sdk.directIncomes.getAttachment(req).then((res: GetDirectIncomeAttachmentResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetDirectIncomeAttachmentResponse | AxiosError) => {
+  if (res instanceof GetDirectIncomeAttachmentResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -287,7 +279,7 @@ See the examples for integration-specific indicative models.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCreateDirectIncomesModelRequest, GetCreateDirectIncomesModelResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetCreateDirectIncomesModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -297,13 +289,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetCreateDirectIncomesModelRequest = {
+sdk.directIncomes.getCreateModel({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.directIncomes.getCreateModel(req).then((res: GetCreateDirectIncomesModelResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetCreateDirectIncomesModelResponse | AxiosError) => {
+  if (res instanceof GetCreateDirectIncomesModelResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -317,7 +307,7 @@ Lists the direct incomes for a given company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListDirectIncomesRequest, ListDirectIncomesResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ListDirectIncomesResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -326,17 +316,15 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: ListDirectIncomesRequest = {
+sdk.directIncomes.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "laudantium",
-};
-
-sdk.directIncomes.list(req).then((res: ListDirectIncomesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListDirectIncomesResponse | AxiosError) => {
+  if (res instanceof ListDirectIncomesResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -350,7 +338,7 @@ Gets all attachments for the specified direct income for a given company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListDirectIncomeAttachmentsRequest, ListDirectIncomeAttachmentsResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ListDirectIncomeAttachmentsResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -359,14 +347,12 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: ListDirectIncomeAttachmentsRequest = {
+sdk.directIncomes.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   directIncomeId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.directIncomes.listAttachments(req).then((res: ListDirectIncomeAttachmentsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListDirectIncomeAttachmentsResponse | AxiosError) => {
+  if (res instanceof ListDirectIncomeAttachmentsResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -380,7 +366,7 @@ Posts a new direct income attachment for a given company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { UploadDirectIncomeAttachmentRequest, UploadDirectIncomeAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { UploadDirectIncomeAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -389,7 +375,7 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: UploadDirectIncomeAttachmentRequest = {
+sdk.directIncomes.uploadAttachment({
   requestBody: {
     content: "commodi".encode(),
     requestBody: "a",
@@ -397,10 +383,8 @@ const req: UploadDirectIncomeAttachmentRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   directIncomeId: "aliquid",
-};
-
-sdk.directIncomes.uploadAttachment(req).then((res: UploadDirectIncomeAttachmentResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UploadDirectIncomeAttachmentResponse | AxiosError) => {
+  if (res instanceof UploadDirectIncomeAttachmentResponse && res.statusCode == 200) {
     // handle response
   }
 });

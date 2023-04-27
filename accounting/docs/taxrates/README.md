@@ -17,7 +17,7 @@ Gets the specified tax rate for a given company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetTaxRateRequest, GetTaxRateResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetTaxRateResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { TaxRateStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -27,13 +27,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetTaxRateRequest = {
+sdk.taxRates.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   taxRateId: "inventore",
-};
-
-sdk.taxRates.get(req).then((res: GetTaxRateResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetTaxRateResponse | AxiosError) => {
+  if (res instanceof GetTaxRateResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -47,7 +45,7 @@ Gets the latest tax rates for a given company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListTaxRatesRequest, ListTaxRatesResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ListTaxRatesResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { TaxRateStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -57,16 +55,14 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: ListTaxRatesRequest = {
+sdk.taxRates.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "eligendi",
-};
-
-sdk.taxRates.list(req).then((res: ListTaxRatesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListTaxRatesResponse | AxiosError) => {
+  if (res instanceof ListTaxRatesResponse && res.statusCode == 200) {
     // handle response
   }
 });

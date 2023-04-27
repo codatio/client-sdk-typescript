@@ -17,7 +17,7 @@ Gets the specified tracking categories for a given company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetTrackingCategoryRequest, GetTrackingCategoryResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetTrackingCategoryResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { StatusEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -27,13 +27,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetTrackingCategoryRequest = {
+sdk.trackingCategories.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   trackingCategoryId: "animi",
-};
-
-sdk.trackingCategories.get(req).then((res: GetTrackingCategoryResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetTrackingCategoryResponse | AxiosError) => {
+  if (res instanceof GetTrackingCategoryResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -47,7 +45,7 @@ Gets the latest tracking categories for a given company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListTrackingCategoriesRequest, ListTrackingCategoriesResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ListTrackingCategoriesResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { StatusEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -57,16 +55,14 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: ListTrackingCategoriesRequest = {
+sdk.trackingCategories.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "autem",
-};
-
-sdk.trackingCategories.list(req).then((res: ListTrackingCategoriesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListTrackingCategoriesResponse | AxiosError) => {
+  if (res instanceof ListTrackingCategoriesResponse && res.statusCode == 200) {
     // handle response
   }
 });

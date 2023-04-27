@@ -26,7 +26,7 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { CreateBillCreditNoteRequest, CreateBillCreditNoteResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { CreateBillCreditNoteResponse } from "@codat/accounting/dist/sdk/models/operations";
 import {
   BillCreditNoteStatusEnum,
   BilledToTypeEnum,
@@ -42,7 +42,7 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: CreateBillCreditNoteRequest = {
+sdk.billCreditNotes.create({
   billCreditNote: {
     allocatedOnDate: "ipsum",
     billCreditNoteNumber: "91fe2a83-e161-4c21-929d-c5c10c4b07e5",
@@ -286,10 +286,8 @@ const req: CreateBillCreditNoteRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 52508,
-};
-
-sdk.billCreditNotes.create(req).then((res: CreateBillCreditNoteResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateBillCreditNoteResponse | AxiosError) => {
+  if (res instanceof CreateBillCreditNoteResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -303,7 +301,7 @@ Gets a single billCreditNote corresponding to the given ID.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetBillCreditNoteRequest, GetBillCreditNoteResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetBillCreditNoteResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { BillCreditNoteStatusEnum, BilledToTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -313,13 +311,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetBillCreditNoteRequest = {
+sdk.billCreditNotes.get({
   billCreditNoteId: "earum",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.billCreditNotes.get(req).then((res: GetBillCreditNoteResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetBillCreditNoteResponse | AxiosError) => {
+  if (res instanceof GetBillCreditNoteResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -337,10 +333,7 @@ Get create/update bill credit note model.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import {
-  GetCreateUpdateBillCreditNotesModelRequest,
-  GetCreateUpdateBillCreditNotesModelResponse,
-} from "@codat/accounting/dist/sdk/models/operations";
+import { GetCreateUpdateBillCreditNotesModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -350,13 +343,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetCreateUpdateBillCreditNotesModelRequest = {
+sdk.billCreditNotes.getCreateUpdateModel({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.billCreditNotes.getCreateUpdateModel(req).then((res: GetCreateUpdateBillCreditNotesModelResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetCreateUpdateBillCreditNotesModelResponse | AxiosError) => {
+  if (res instanceof GetCreateUpdateBillCreditNotesModelResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -370,7 +361,7 @@ Gets a list of all bill credit notes for a company, with pagination
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListBillCreditNotesRequest, ListBillCreditNotesResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ListBillCreditNotesResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { BillCreditNoteStatusEnum, BilledToTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -380,16 +371,14 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: ListBillCreditNotesRequest = {
+sdk.billCreditNotes.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "perspiciatis",
-};
-
-sdk.billCreditNotes.list(req).then((res: ListBillCreditNotesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListBillCreditNotesResponse | AxiosError) => {
+  if (res instanceof ListBillCreditNotesResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -409,7 +398,7 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { UpdateBillCreditNoteRequest, UpdateBillCreditNoteResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { UpdateBillCreditNoteResponse } from "@codat/accounting/dist/sdk/models/operations";
 import {
   BillCreditNoteStatusEnum,
   BilledToTypeEnum,
@@ -425,7 +414,7 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: UpdateBillCreditNoteRequest = {
+sdk.billCreditNotes.update({
   billCreditNote: {
     allocatedOnDate: "maiores",
     billCreditNoteNumber: "91fe2a83-e161-4c21-929d-c5c10c4b07e5",
@@ -638,10 +627,8 @@ const req: UpdateBillCreditNoteRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
   timeoutInMinutes: 10063,
-};
-
-sdk.billCreditNotes.update(req).then((res: UpdateBillCreditNoteResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UpdateBillCreditNoteResponse | AxiosError) => {
+  if (res instanceof UpdateBillCreditNoteResponse && res.statusCode == 200) {
     // handle response
   }
 });

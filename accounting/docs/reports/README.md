@@ -19,7 +19,7 @@ Returns aged creditors report for company that shows the total balance owed by a
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetAgedCreditorsReportRequest, GetAgedCreditorsReportResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetAgedCreditorsReportResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { RFCDate } from "@codat/accounting/dist/sdk/types";
 import { AxiosError } from "axios";
 
@@ -29,15 +29,13 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetAgedCreditorsReportRequest = {
+sdk.reports.getAgedCreditorsReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   numberOfPeriods: 12,
   periodLengthDays: 30,
   reportDate: new RFCDate("2022-12-31"),
-};
-
-sdk.reports.getAgedCreditorsReport(req).then((res: GetAgedCreditorsReportResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetAgedCreditorsReportResponse | AxiosError) => {
+  if (res instanceof GetAgedCreditorsReportResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -51,7 +49,7 @@ Returns aged debtors report for company that shows the total outstanding balance
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetAgedDebtorsReportRequest, GetAgedDebtorsReportResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetAgedDebtorsReportResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { RFCDate } from "@codat/accounting/dist/sdk/types";
 import { AxiosError } from "axios";
 
@@ -61,15 +59,13 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetAgedDebtorsReportRequest = {
+sdk.reports.getAgedDebtorsReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   numberOfPeriods: 12,
   periodLengthDays: 30,
   reportDate: new RFCDate("2022-12-31"),
-};
-
-sdk.reports.getAgedDebtorsReport(req).then((res: GetAgedDebtorsReportResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetAgedDebtorsReportResponse | AxiosError) => {
+  if (res instanceof GetAgedDebtorsReportResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -83,7 +79,7 @@ Indicates whether the aged creditor report is available for the company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { IsAgedCreditorsReportAvailableRequest, IsAgedCreditorsReportAvailableResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { IsAgedCreditorsReportAvailableResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -92,12 +88,10 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: IsAgedCreditorsReportAvailableRequest = {
+sdk.reports.isAgedCreditorsReportAvailable({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.reports.isAgedCreditorsReportAvailable(req).then((res: IsAgedCreditorsReportAvailableResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: IsAgedCreditorsReportAvailableResponse | AxiosError) => {
+  if (res instanceof IsAgedCreditorsReportAvailableResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -111,7 +105,7 @@ Indicates whether the aged debtor report is available for the company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { IsAgedDebtorReportAvailableRequest, IsAgedDebtorReportAvailableResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { IsAgedDebtorReportAvailableResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -120,12 +114,10 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: IsAgedDebtorReportAvailableRequest = {
+sdk.reports.isAgedDebtorReportAvailable({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.reports.isAgedDebtorReportAvailable(req).then((res: IsAgedDebtorReportAvailableResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: IsAgedDebtorReportAvailableResponse | AxiosError) => {
+  if (res instanceof IsAgedDebtorReportAvailableResponse && res.statusCode == 200) {
     // handle response
   }
 });

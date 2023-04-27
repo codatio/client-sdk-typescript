@@ -26,7 +26,7 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { CreateBillPaymentRequest, CreateBillPaymentResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { CreateBillPaymentResponse } from "@codat/accounting/dist/sdk/models/operations";
 import {
   BillPaymentLineLinkTypeEnum,
   DataTypeEnum,
@@ -41,7 +41,7 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: CreateBillPaymentRequest = {
+sdk.billPayments.create({
   billPayment: {
     accountRef: {
       id: "57eb809e-2810-4331-b398-1d4c700b607f",
@@ -140,10 +140,8 @@ const req: CreateBillPaymentRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 423054,
-};
-
-sdk.billPayments.create(req).then((res: CreateBillPaymentResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateBillPaymentResponse | AxiosError) => {
+  if (res instanceof CreateBillPaymentResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -161,7 +159,7 @@ Deletes a bill payment from the accounting package for a given company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { DeleteBillPaymentRequest, DeleteBillPaymentResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { DeleteBillPaymentResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { DataTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -171,14 +169,12 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: DeleteBillPaymentRequest = {
+sdk.billPayments.delete({
   billPaymentId: "quo",
   companyId: "nesciunt",
   connectionId: "illum",
-};
-
-sdk.billPayments.delete(req).then((res: DeleteBillPaymentResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DeleteBillPaymentResponse | AxiosError) => {
+  if (res instanceof DeleteBillPaymentResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -192,7 +188,7 @@ Get a bill payment
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetBillPaymentsRequest, GetBillPaymentsResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetBillPaymentsResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { BillPaymentLineLinkTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -202,13 +198,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetBillPaymentsRequest = {
+sdk.billPayments.get({
   billPaymentId: "nemo",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.billPayments.get(req).then((res: GetBillPaymentsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetBillPaymentsResponse | AxiosError) => {
+  if (res instanceof GetBillPaymentsResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -226,7 +220,7 @@ Get create bill payment model.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCreateBillPaymentsModelRequest, GetCreateBillPaymentsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetCreateBillPaymentsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -236,13 +230,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetCreateBillPaymentsModelRequest = {
+sdk.billPayments.getCreateModel({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.billPayments.getCreateModel(req).then((res: GetCreateBillPaymentsModelResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetCreateBillPaymentsModelResponse | AxiosError) => {
+  if (res instanceof GetCreateBillPaymentsModelResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -256,7 +248,7 @@ Gets the latest billPayments for a company, with pagination
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListBillPaymentsRequest, ListBillPaymentsResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ListBillPaymentsResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { BillPaymentLineLinkTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -266,16 +258,14 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: ListBillPaymentsRequest = {
+sdk.billPayments.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "illum",
-};
-
-sdk.billPayments.list(req).then((res: ListBillPaymentsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListBillPaymentsResponse | AxiosError) => {
+  if (res instanceof ListBillPaymentsResponse && res.statusCode == 200) {
     // handle response
   }
 });

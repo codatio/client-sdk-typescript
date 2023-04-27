@@ -29,7 +29,7 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { CreateDirectCostRequest, CreateDirectCostResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { CreateDirectCostResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { DataTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -39,7 +39,7 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: CreateDirectCostRequest = {
+sdk.directCosts.create({
   directCost: {
     contactRef: {
       dataType: "tempore",
@@ -275,10 +275,8 @@ const req: CreateDirectCostRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 898366,
-};
-
-sdk.directCosts.create(req).then((res: CreateDirectCostResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateDirectCostResponse | AxiosError) => {
+  if (res instanceof CreateDirectCostResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -292,7 +290,7 @@ Downloads an attachment for the specified direct cost for a given company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { DownloadDirectCostAttachmentRequest, DownloadDirectCostAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { DownloadDirectCostAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -301,15 +299,13 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: DownloadDirectCostAttachmentRequest = {
+sdk.directCosts.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   directCostId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.directCosts.downloadAttachment(req).then((res: DownloadDirectCostAttachmentResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DownloadDirectCostAttachmentResponse | AxiosError) => {
+  if (res instanceof DownloadDirectCostAttachmentResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -323,7 +319,7 @@ Gets the specified direct cost for a given company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetDirectCostRequest, GetDirectCostResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetDirectCostResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -332,14 +328,12 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetDirectCostRequest = {
+sdk.directCosts.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   directCostId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.directCosts.get(req).then((res: GetDirectCostResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetDirectCostResponse | AxiosError) => {
+  if (res instanceof GetDirectCostResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -353,7 +347,7 @@ Gets the specified direct cost attachment for a given company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetDirectCostAttachmentRequest, GetDirectCostAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetDirectCostAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -362,15 +356,13 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetDirectCostAttachmentRequest = {
+sdk.directCosts.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   directCostId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.directCosts.getAttachment(req).then((res: GetDirectCostAttachmentResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetDirectCostAttachmentResponse | AxiosError) => {
+  if (res instanceof GetDirectCostAttachmentResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -390,7 +382,7 @@ See the examples for integration-specific indicative models.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCreateDirectCostsModelRequest, GetCreateDirectCostsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetCreateDirectCostsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -400,13 +392,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetCreateDirectCostsModelRequest = {
+sdk.directCosts.getCreateModel({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.directCosts.getCreateModel(req).then((res: GetCreateDirectCostsModelResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetCreateDirectCostsModelResponse | AxiosError) => {
+  if (res instanceof GetCreateDirectCostsModelResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -420,7 +410,7 @@ Gets the direct costs for the company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListDirectCostsRequest, ListDirectCostsResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ListDirectCostsResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -429,17 +419,15 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: ListDirectCostsRequest = {
+sdk.directCosts.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "culpa",
-};
-
-sdk.directCosts.list(req).then((res: ListDirectCostsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListDirectCostsResponse | AxiosError) => {
+  if (res instanceof ListDirectCostsResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -453,7 +441,7 @@ Gets all attachments for the specified direct cost for a given company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListDirectCostAttachmentsRequest, ListDirectCostAttachmentsResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ListDirectCostAttachmentsResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -462,14 +450,12 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: ListDirectCostAttachmentsRequest = {
+sdk.directCosts.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   directCostId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.directCosts.listAttachments(req).then((res: ListDirectCostAttachmentsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListDirectCostAttachmentsResponse | AxiosError) => {
+  if (res instanceof ListDirectCostAttachmentsResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -483,7 +469,7 @@ Posts a new direct cost attachment for a given company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { UploadDirectCostAttachmentRequest, UploadDirectCostAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { UploadDirectCostAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -492,7 +478,7 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: UploadDirectCostAttachmentRequest = {
+sdk.directCosts.uploadAttachment({
   requestBody: {
     content: "in".encode(),
     requestBody: "aliquid",
@@ -500,10 +486,8 @@ const req: UploadDirectCostAttachmentRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   directCostId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.directCosts.uploadAttachment(req).then((res: UploadDirectCostAttachmentResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UploadDirectCostAttachmentResponse | AxiosError) => {
+  if (res instanceof UploadDirectCostAttachmentResponse && res.statusCode == 200) {
     // handle response
   }
 });

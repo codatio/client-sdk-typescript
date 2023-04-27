@@ -26,7 +26,7 @@ Required data may vary by integration. To see what data to post, first call []()
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { CreateBankAccountRequest, CreateBankAccountResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { CreateBankAccountResponse } from "@codat/accounting/dist/sdk/models/operations";
 import {
   AccountStatusEnum,
   AccountTypeEnum,
@@ -43,7 +43,7 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: CreateBankAccountRequest = {
+sdk.bankAccounts.create({
   bankAccount: {
     accountName: "natus",
     accountNumber: "laboriosam",
@@ -67,10 +67,8 @@ const req: CreateBankAccountRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 244425,
-};
-
-sdk.bankAccounts.create(req).then((res: CreateBankAccountResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateBankAccountResponse | AxiosError) => {
+  if (res instanceof CreateBankAccountResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -84,7 +82,7 @@ Gets the bank account with a given ID
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetBankAccountRequest, GetBankAccountResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetBankAccountResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { BankAccountBankAccountTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -94,14 +92,12 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetBankAccountRequest = {
+sdk.bankAccounts.get({
   accountId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.bankAccounts.get(req).then((res: GetBankAccountResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetBankAccountResponse | AxiosError) => {
+  if (res instanceof GetBankAccountResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -121,10 +117,7 @@ See the examples for integration-specific indicative models.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import {
-  GetCreateUpdateBankAccountsModelRequest,
-  GetCreateUpdateBankAccountsModelResponse,
-} from "@codat/accounting/dist/sdk/models/operations";
+import { GetCreateUpdateBankAccountsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -134,13 +127,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetCreateUpdateBankAccountsModelRequest = {
+sdk.bankAccounts.getCreateUpdateModel({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.bankAccounts.getCreateUpdateModel(req).then((res: GetCreateUpdateBankAccountsModelResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetCreateUpdateBankAccountsModelResponse | AxiosError) => {
+  if (res instanceof GetCreateUpdateBankAccountsModelResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -154,7 +145,7 @@ Gets the list of bank accounts for a given connection
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListBankAccountsRequest, ListBankAccountsResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ListBankAccountsResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { BankAccountBankAccountTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -164,17 +155,15 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: ListBankAccountsRequest = {
+sdk.bankAccounts.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "error",
-};
-
-sdk.bankAccounts.list(req).then((res: ListBankAccountsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListBankAccountsResponse | AxiosError) => {
+  if (res instanceof ListBankAccountsResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -194,7 +183,7 @@ Required data may vary by integration. To see what data to post, first call []()
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { UpdateBankAccountRequest, UpdateBankAccountResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { UpdateBankAccountResponse } from "@codat/accounting/dist/sdk/models/operations";
 import {
   BankAccountBankAccountTypeEnum,
   DataTypeEnum,
@@ -209,7 +198,7 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: UpdateBankAccountRequest = {
+sdk.bankAccounts.update({
   bankAccount: {
     accountName: "quia",
     accountNumber: "quis",
@@ -234,10 +223,8 @@ const req: UpdateBankAccountRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
   timeoutInMinutes: 64147,
-};
-
-sdk.bankAccounts.update(req).then((res: UpdateBankAccountResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UpdateBankAccountResponse | AxiosError) => {
+  if (res instanceof UpdateBankAccountResponse && res.statusCode == 200) {
     // handle response
   }
 });

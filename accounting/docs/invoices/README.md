@@ -32,7 +32,7 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { CreateInvoiceRequest, CreateInvoiceResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { CreateInvoiceResponse } from "@codat/accounting/dist/sdk/models/operations";
 import {
   BilledToTypeEnum1,
   DataTypeEnum,
@@ -48,7 +48,7 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: CreateInvoiceRequest = {
+sdk.invoices.create({
   invoice: {
     additionalTaxAmount: 3856.2,
     additionalTaxPercentage: 6970.56,
@@ -350,10 +350,8 @@ const req: CreateInvoiceRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 289108,
-};
-
-sdk.invoices.create(req).then((res: CreateInvoiceResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateInvoiceResponse | AxiosError) => {
+  if (res instanceof CreateInvoiceResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -371,7 +369,7 @@ Deletes an invoice from the accounting package for a given company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { DeleteInvoiceRequest, DeleteInvoiceResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { DeleteInvoiceResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { DataTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -381,14 +379,12 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: DeleteInvoiceRequest = {
+sdk.invoices.delete({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   invoiceId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.invoices.delete(req).then((res: DeleteInvoiceResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DeleteInvoiceResponse | AxiosError) => {
+  if (res instanceof DeleteInvoiceResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -402,7 +398,7 @@ Download invoice attachments
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { DownloadInvoiceAttachmentRequest, DownloadInvoiceAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { DownloadInvoiceAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -411,15 +407,13 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: DownloadInvoiceAttachmentRequest = {
+sdk.invoices.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   invoiceId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.invoices.downloadAttachment(req).then((res: DownloadInvoiceAttachmentResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DownloadInvoiceAttachmentResponse | AxiosError) => {
+  if (res instanceof DownloadInvoiceAttachmentResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -433,7 +427,7 @@ Get invoice as PDF
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { DownloadInvoicePdfRequest, DownloadInvoicePdfResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { DownloadInvoicePdfResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -442,13 +436,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: DownloadInvoicePdfRequest = {
+sdk.invoices.downloadPdf({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   invoiceId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.invoices.downloadPdf(req).then((res: DownloadInvoicePdfResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DownloadInvoicePdfResponse | AxiosError) => {
+  if (res instanceof DownloadInvoicePdfResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -462,7 +454,7 @@ Get invoice
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetInvoiceRequest, GetInvoiceResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetInvoiceResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { BilledToTypeEnum1, InvoiceStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -472,13 +464,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetInvoiceRequest = {
+sdk.invoices.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   invoiceId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.invoices.get(req).then((res: GetInvoiceResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetInvoiceResponse | AxiosError) => {
+  if (res instanceof GetInvoiceResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -492,7 +482,7 @@ Get invoice attachment
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetInvoiceAttachmentRequest, GetInvoiceAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetInvoiceAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -501,15 +491,13 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetInvoiceAttachmentRequest = {
+sdk.invoices.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   invoiceId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.invoices.getAttachment(req).then((res: GetInvoiceAttachmentResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetInvoiceAttachmentResponse | AxiosError) => {
+  if (res instanceof GetInvoiceAttachmentResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -529,7 +517,7 @@ See the examples for integration-specific indicative models.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCreateUpdateInvoicesModelRequest, GetCreateUpdateInvoicesModelResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetCreateUpdateInvoicesModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -539,13 +527,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetCreateUpdateInvoicesModelRequest = {
+sdk.invoices.getCreateUpdateModel({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.invoices.getCreateUpdateModel(req).then((res: GetCreateUpdateInvoicesModelResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetCreateUpdateInvoicesModelResponse | AxiosError) => {
+  if (res instanceof GetCreateUpdateInvoicesModelResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -559,7 +545,7 @@ Gets the latest invoices for a company, with pagination
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListInvoicesRequest, ListInvoicesResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ListInvoicesResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { BilledToTypeEnum1, InvoiceStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -569,16 +555,14 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: ListInvoicesRequest = {
+sdk.invoices.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "harum",
-};
-
-sdk.invoices.list(req).then((res: ListInvoicesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListInvoicesResponse | AxiosError) => {
+  if (res instanceof ListInvoicesResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -592,7 +576,7 @@ List invoice attachments
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListInvoiceAttachmentsRequest, ListInvoiceAttachmentsResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ListInvoiceAttachmentsResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -601,14 +585,12 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: ListInvoiceAttachmentsRequest = {
+sdk.invoices.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   invoiceId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.invoices.listAttachments(req).then((res: ListInvoiceAttachmentsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListInvoiceAttachmentsResponse | AxiosError) => {
+  if (res instanceof ListInvoiceAttachmentsResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -628,7 +610,7 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { UpdateInvoiceRequest, UpdateInvoiceResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { UpdateInvoiceResponse } from "@codat/accounting/dist/sdk/models/operations";
 import {
   BilledToTypeEnum1,
   DataTypeEnum,
@@ -644,7 +626,7 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: UpdateInvoiceRequest = {
+sdk.invoices.update({
   invoice: {
     additionalTaxAmount: 6791.83,
     additionalTaxPercentage: 5932.05,
@@ -869,10 +851,8 @@ const req: UpdateInvoiceRequest = {
   forceUpdate: false,
   invoiceId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   timeoutInMinutes: 329849,
-};
-
-sdk.invoices.update(req).then((res: UpdateInvoiceResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UpdateInvoiceResponse | AxiosError) => {
+  if (res instanceof UpdateInvoiceResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -886,7 +866,7 @@ Push invoice attachment
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { UploadInvoiceAttachmentRequest, UploadInvoiceAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { UploadInvoiceAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -895,7 +875,7 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: UploadInvoiceAttachmentRequest = {
+sdk.invoices.uploadAttachment({
   requestBody: {
     content: "facere".encode(),
     requestBody: "excepturi",
@@ -903,10 +883,8 @@ const req: UploadInvoiceAttachmentRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   invoiceId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.invoices.uploadAttachment(req).then((res: UploadInvoiceAttachmentResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UploadInvoiceAttachmentResponse | AxiosError) => {
+  if (res instanceof UploadInvoiceAttachmentResponse && res.statusCode == 200) {
     // handle response
   }
 });

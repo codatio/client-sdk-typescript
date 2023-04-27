@@ -27,7 +27,7 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { CreateCreditNoteRequest, CreateCreditNoteResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { CreateCreditNoteResponse } from "@codat/accounting/dist/sdk/models/operations";
 import {
   BilledToTypeEnum1,
   CreditNoteStatusEnum,
@@ -43,7 +43,7 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: CreateCreditNoteRequest = {
+sdk.creditNotes.create({
   creditNote: {
     additionalTaxAmount: 4618.53,
     additionalTaxPercentage: 5345.09,
@@ -241,10 +241,8 @@ const req: CreateCreditNoteRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 419585,
-};
-
-sdk.creditNotes.create(req).then((res: CreateCreditNoteResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateCreditNoteResponse | AxiosError) => {
+  if (res instanceof CreateCreditNoteResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -258,7 +256,7 @@ Gets a single creditNote corresponding to the given ID.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCreditNoteRequest, GetCreditNoteResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetCreditNoteResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { BilledToTypeEnum1, CreditNoteStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -268,13 +266,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetCreditNoteRequest = {
+sdk.creditNotes.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   creditNoteId: "praesentium",
-};
-
-sdk.creditNotes.get(req).then((res: GetCreditNoteResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetCreditNoteResponse | AxiosError) => {
+  if (res instanceof GetCreditNoteResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -294,7 +290,7 @@ See the examples for integration-specific indicative models.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCreateUpdateCreditNotesModelRequest, GetCreateUpdateCreditNotesModelResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetCreateUpdateCreditNotesModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -304,13 +300,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetCreateUpdateCreditNotesModelRequest = {
+sdk.creditNotes.getCreateUpdateModel({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.creditNotes.getCreateUpdateModel(req).then((res: GetCreateUpdateCreditNotesModelResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetCreateUpdateCreditNotesModelResponse | AxiosError) => {
+  if (res instanceof GetCreateUpdateCreditNotesModelResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -324,7 +318,7 @@ Gets a list of all credit notes for a company, with pagination
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListCreditNotesRequest, ListCreditNotesResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ListCreditNotesResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { BilledToTypeEnum1, CreditNoteStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -334,16 +328,14 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: ListCreditNotesRequest = {
+sdk.creditNotes.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "magni",
-};
-
-sdk.creditNotes.list(req).then((res: ListCreditNotesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListCreditNotesResponse | AxiosError) => {
+  if (res instanceof ListCreditNotesResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -363,7 +355,7 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { UpdateCreditNoteRequest, UpdateCreditNoteResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { UpdateCreditNoteResponse } from "@codat/accounting/dist/sdk/models/operations";
 import {
   BilledToTypeEnum1,
   CreditNoteStatusEnum,
@@ -379,7 +371,7 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: UpdateCreditNoteRequest = {
+sdk.creditNotes.update({
   creditNote: {
     additionalTaxAmount: 7874.67,
     additionalTaxPercentage: 7118.19,
@@ -709,10 +701,8 @@ const req: UpdateCreditNoteRequest = {
   creditNoteId: "ipsam",
   forceUpdate: false,
   timeoutInMinutes: 788995,
-};
-
-sdk.creditNotes.update(req).then((res: UpdateCreditNoteResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UpdateCreditNoteResponse | AxiosError) => {
+  if (res instanceof UpdateCreditNoteResponse && res.statusCode == 200) {
     // handle response
   }
 });
