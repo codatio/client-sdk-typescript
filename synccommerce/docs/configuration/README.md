@@ -18,7 +18,7 @@ Retrieve current config preferences.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { GetConfigurationRequest, GetConfigurationResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
+import { GetConfigurationResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatSyncCommerce({
@@ -27,12 +27,10 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-const req: GetConfigurationRequest = {
+sdk.configuration.getConfiguration({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.configuration.getConfiguration(req).then((res: GetConfigurationResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetConfigurationResponse | AxiosError) => {
+  if (res instanceof GetConfigurationResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -46,7 +44,7 @@ Check the sync history and sync status for a company.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { GetSyncStatusRequest, GetSyncStatusResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
+import { GetSyncStatusResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatSyncCommerce({
@@ -55,12 +53,10 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-const req: GetSyncStatusRequest = {
+sdk.configuration.getSyncStatus({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.configuration.getSyncStatus(req).then((res: GetSyncStatusResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetSyncStatusResponse | AxiosError) => {
+  if (res instanceof GetSyncStatusResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -74,7 +70,7 @@ Make changes to configuration preferences.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { SetConfigurationRequest, SetConfigurationResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
+import { SetConfigurationResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatSyncCommerce({
@@ -83,12 +79,10 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-const req: SetConfigurationRequest = {
+sdk.configuration.setConfiguration({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.configuration.setConfiguration(req).then((res: SetConfigurationResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: SetConfigurationResponse | AxiosError) => {
+  if (res instanceof SetConfigurationResponse && res.statusCode == 200) {
     // handle response
   }
 });

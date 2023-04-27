@@ -30,7 +30,7 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.syncFlowPreferences.getConfigTextSyncFlow().then((res: GetConfigTextSyncFlowResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+  if (res instanceof GetConfigTextSyncFlowResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -44,7 +44,7 @@ Get a URL for Sync Flow including a one time passcode.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { GetSyncFlowUrlRequest, GetSyncFlowUrlResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
+import { GetSyncFlowUrlResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatSyncCommerce({
@@ -53,14 +53,12 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-const req: GetSyncFlowUrlRequest = {
+sdk.syncFlowPreferences.getSyncFlowUrl({
   accountingKey: "vel",
   commerceKey: "error",
   merchantIdentifier: "deserunt",
-};
-
-sdk.syncFlowPreferences.getSyncFlowUrl(req).then((res: GetSyncFlowUrlResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetSyncFlowUrlResponse | AxiosError) => {
+  if (res instanceof GetSyncFlowUrlResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -74,7 +72,7 @@ Enable retrieval for accounts which are visible on sync flow.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { GetVisibleAccountsRequest, GetVisibleAccountsResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
+import { GetVisibleAccountsResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatSyncCommerce({
@@ -83,13 +81,11 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-const req: GetVisibleAccountsRequest = {
+sdk.syncFlowPreferences.getVisibleAccounts({
   clientId: "674e0f46-7cc8-4796-ad15-1a05dfc2ddf7",
   platformKey: "cc78ca1b-a928-4fc8-9674-2cb739205929",
-};
-
-sdk.syncFlowPreferences.getVisibleAccounts(req).then((res: GetVisibleAccountsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetVisibleAccountsResponse | AxiosError) => {
+  if (res instanceof GetVisibleAccountsResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -103,7 +99,6 @@ To enable update of preferences set for the text fields on sync flow.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import {  } from "@codat/sync-for-commerce/dist/sdk/models/";
 import { UpdateConfigTextSyncFlowResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
@@ -113,15 +108,13 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-const req: . = {
+sdk.syncFlowPreferences.updateConfigTextSyncFlow({
   "natus": {
     required: false,
     text: "laboriosam",
   },
-};
-
-sdk.syncFlowPreferences.updateConfigTextSyncFlow(req).then((res: UpdateConfigTextSyncFlowResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UpdateConfigTextSyncFlowResponse | AxiosError) => {
+  if (res instanceof UpdateConfigTextSyncFlowResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -135,7 +128,7 @@ To enable update of accounts visible preferences set on Sync Flow.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { UpdateVisibleAccountsSyncFlowRequest, UpdateVisibleAccountsSyncFlowResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
+import { UpdateVisibleAccountsSyncFlowResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatSyncCommerce({
@@ -144,7 +137,7 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-const req: UpdateVisibleAccountsSyncFlowRequest = {
+sdk.syncFlowPreferences.updateVisibleAccountsSyncFlow({
   visibleAccounts: {
     visibleAccounts: [
       "saepe",
@@ -154,10 +147,8 @@ const req: UpdateVisibleAccountsSyncFlowRequest = {
     ],
   },
   commerceKey: "96eb10fa-aa23-452c-9955-907aff1a3a2f",
-};
-
-sdk.syncFlowPreferences.updateVisibleAccountsSyncFlow(req).then((res: UpdateVisibleAccountsSyncFlowResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UpdateVisibleAccountsSyncFlowResponse | AxiosError) => {
+  if (res instanceof UpdateVisibleAccountsSyncFlowResponse && res.statusCode == 200) {
     // handle response
   }
 });
