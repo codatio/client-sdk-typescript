@@ -18,7 +18,8 @@ Create a new webhook configuration
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { CreateRuleResponse, Rule } from "@codat/common/dist/sdk/models/operations";
+import { CreateRuleResponse } from "@codat/common/dist/sdk/models/operations";
+import { Rule } from "@codat/common/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
