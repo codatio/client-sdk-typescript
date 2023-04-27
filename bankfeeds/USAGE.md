@@ -1,7 +1,7 @@
 <!-- Start SDK Example Usage -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { CreateBankTransactionsRequest, CreateBankTransactionsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
+import { CreateBankTransactionsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 import {
   BankTransactionTypeEnum,
   DataTypeEnum,
@@ -16,7 +16,7 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-const req: CreateBankTransactionsRequest = {
+sdk.bankAccountTransactions.createBankTransactions({
   bankTransactions: {
     accountId: "corrupti",
     transactions: [
@@ -66,10 +66,8 @@ const req: CreateBankTransactionsRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 110375,
-};
-
-sdk.bankAccountTransactions.createBankTransactions(req).then((res: CreateBankTransactionsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateBankTransactionsResponse | AxiosError) => {
+  if (res instanceof CreateBankTransactionsResponse && res.statusCode == 200) {
     // handle response
   }
 });

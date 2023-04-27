@@ -22,7 +22,7 @@ Posts bank transactions to the accounting package for a given company.
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { CreateBankTransactionsRequest, CreateBankTransactionsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
+import { CreateBankTransactionsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 import {
   BankTransactionTypeEnum,
   DataTypeEnum,
@@ -37,7 +37,7 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-const req: CreateBankTransactionsRequest = {
+sdk.bankAccountTransactions.createBankTransactions({
   bankTransactions: {
     accountId: "laborum",
     transactions: [
@@ -87,10 +87,8 @@ const req: CreateBankTransactionsRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 230533,
-};
-
-sdk.bankAccountTransactions.createBankTransactions(req).then((res: CreateBankTransactionsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateBankTransactionsResponse | AxiosError) => {
+  if (res instanceof CreateBankTransactionsResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -104,7 +102,7 @@ Gets the options of pushing bank account transactions.
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { GetCreateBankAccountModelRequest, GetCreateBankAccountModelResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
+import { GetCreateBankAccountModelResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/bank-feeds/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -114,14 +112,12 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-const req: GetCreateBankAccountModelRequest = {
+sdk.bankAccountTransactions.getCreateBankAccountModel({
   accountId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.bankAccountTransactions.getCreateBankAccountModel(req).then((res: GetCreateBankAccountModelResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetCreateBankAccountModelResponse | AxiosError) => {
+  if (res instanceof GetCreateBankAccountModelResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -135,7 +131,7 @@ Gets bank transactions for a given bank account ID
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { ListBankAccountTransactionsRequest, ListBankAccountTransactionsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
+import { ListBankAccountTransactionsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 import { BankTransactionTypeEnum } from "@codat/bank-feeds/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -145,7 +141,7 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-const req: ListBankAccountTransactionsRequest = {
+sdk.bankAccountTransactions.listBankAccountTransactions({
   accountId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -153,10 +149,8 @@ const req: ListBankAccountTransactionsRequest = {
   page: 1,
   pageSize: 100,
   query: "deserunt",
-};
-
-sdk.bankAccountTransactions.listBankAccountTransactions(req).then((res: ListBankAccountTransactionsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListBankAccountTransactionsResponse | AxiosError) => {
+  if (res instanceof ListBankAccountTransactionsResponse && res.statusCode == 200) {
     // handle response
   }
 });
