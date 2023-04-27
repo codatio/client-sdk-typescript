@@ -17,7 +17,7 @@ List commerce payments for the given company & data connection.
 
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
-import { ListPaymentsRequest, ListPaymentsResponse } from "@codat/commerce/dist/sdk/models/operations";
+import { ListPaymentsResponse } from "@codat/commerce/dist/sdk/models/operations";
 import { PaymentStatusEnum } from "@codat/commerce/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -27,17 +27,15 @@ const sdk = new CodatCommerce({
   },
 });
 
-const req: ListPaymentsRequest = {
+sdk.payments.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "quibusdam",
-};
-
-sdk.payments.list(req).then((res: ListPaymentsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListPaymentsResponse | AxiosError) => {
+  if (res instanceof ListPaymentsResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -51,7 +49,7 @@ Retrieve a list of payment methods, such as card, cash or other online payment m
 
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
-import { ListPaymentMethodsRequest, ListPaymentMethodsResponse } from "@codat/commerce/dist/sdk/models/operations";
+import { ListPaymentMethodsResponse } from "@codat/commerce/dist/sdk/models/operations";
 import { PaymentMethodStatusEnum } from "@codat/commerce/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -61,17 +59,15 @@ const sdk = new CodatCommerce({
   },
 });
 
-const req: ListPaymentMethodsRequest = {
+sdk.payments.listMethods({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "unde",
-};
-
-sdk.payments.listMethods(req).then((res: ListPaymentMethodsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListPaymentMethodsResponse | AxiosError) => {
+  if (res instanceof ListPaymentMethodsResponse && res.statusCode == 200) {
     // handle response
   }
 });
