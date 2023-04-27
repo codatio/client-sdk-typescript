@@ -30,13 +30,13 @@ const sdk = new CodatCommon({
   },
 });
 
-const req: shared.CompanyRequestBody = {
+const req: CompanyRequestBody = {
   description: "corrupti",
   name: "Kelvin Sporer",
 };
 
 sdk.companies.create(req).then((res: CreateCompanyResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+  if (res instanceof CreateCompanyResponse && res.statusCode == 200) {
     // handle response
   }
 });
