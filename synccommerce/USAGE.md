@@ -1,8 +1,8 @@
 <!-- Start SDK Example Usage -->
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { CreateCompany, CreateCompanyResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
-import { ConnectionSourceTypeEnum, DataConnectionStatusEnum } from "@codat/sync-for-commerce/dist/sdk/models/shared";
+import { CreateCompanyResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
+import { ConnectionSourceTypeEnum, CreateCompany, DataConnectionStatusEnum } from "@codat/sync-for-commerce/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
 const sdk = new CodatSyncCommerce({

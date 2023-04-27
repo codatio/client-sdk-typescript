@@ -103,7 +103,8 @@ To enable update of preferences set for the text fields on sync flow.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { , UpdateConfigTextSyncFlowResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
+import {  } from "@codat/sync-for-commerce/dist/sdk/models/";
+import { UpdateConfigTextSyncFlowResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatSyncCommerce({
