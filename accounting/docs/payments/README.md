@@ -27,7 +27,6 @@ Required data may vary by integration. To see what data to post, first call [Get
 import { CodatAccounting } from "@codat/accounting";
 import { CreatePaymentResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { DataTypeEnum, PaymentLinkTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -139,8 +138,8 @@ sdk.payments.create({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 321921,
-}).then((res: CreatePaymentResponse | AxiosError) => {
-  if (res instanceof CreatePaymentResponse && res.statusCode == 200) {
+}).then((res: CreatePaymentResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -156,7 +155,6 @@ Get payment
 import { CodatAccounting } from "@codat/accounting";
 import { GetPaymentResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PaymentLinkTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -167,8 +165,8 @@ const sdk = new CodatAccounting({
 sdk.payments.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   paymentId: "odio",
-}).then((res: GetPaymentResponse | AxiosError) => {
-  if (res instanceof GetPaymentResponse && res.statusCode == 200) {
+}).then((res: GetPaymentResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -190,7 +188,6 @@ See the examples for integration-specific indicative models.
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreatePaymentsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -201,8 +198,8 @@ const sdk = new CodatAccounting({
 sdk.payments.getCreateModel({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreatePaymentsModelResponse | AxiosError) => {
-  if (res instanceof GetCreatePaymentsModelResponse && res.statusCode == 200) {
+}).then((res: GetCreatePaymentsModelResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -217,7 +214,6 @@ Gets the latest payments for a company, with pagination
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListPaymentsResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -231,8 +227,8 @@ sdk.payments.list({
   page: 1,
   pageSize: 100,
   query: "omnis",
-}).then((res: ListPaymentsResponse | AxiosError) => {
-  if (res instanceof ListPaymentsResponse && res.statusCode == 200) {
+}).then((res: ListPaymentsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

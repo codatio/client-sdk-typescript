@@ -40,7 +40,7 @@ export class TaxRates {
    * @remarks
    * Gets the specified tax rate for a given company.
    */
-  get(
+  async get(
     req: operations.GetTaxRateRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -63,35 +63,36 @@ export class TaxRates {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetTaxRateResponse =
-        new operations.GetTaxRateResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.taxRate = utils.objectToClass(httpRes?.data, shared.TaxRate);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetTaxRateResponse =
+      new operations.GetTaxRateResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.taxRate = utils.objectToClass(httpRes?.data, shared.TaxRate);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -100,7 +101,7 @@ export class TaxRates {
    * @remarks
    * Gets the latest tax rates for a given company.
    */
-  list(
+  async list(
     req: operations.ListTaxRatesRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -125,34 +126,35 @@ export class TaxRates {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListTaxRatesResponse =
-        new operations.ListTaxRatesResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.taxRates = utils.objectToClass(httpRes?.data, shared.TaxRates);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ListTaxRatesResponse =
+      new operations.ListTaxRatesResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.taxRates = utils.objectToClass(httpRes?.data, shared.TaxRates);
+        }
+        break;
+    }
+
+    return res;
   }
 }

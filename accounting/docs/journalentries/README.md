@@ -28,7 +28,6 @@ Required data may vary by integration. To see what data to post, first call [Get
 import { CodatAccounting } from "@codat/accounting";
 import { CreateJournalEntryResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { DataTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -169,8 +168,8 @@ sdk.journalEntries.create({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 907650,
-}).then((res: CreateJournalEntryResponse | AxiosError) => {
-  if (res instanceof CreateJournalEntryResponse && res.statusCode == 200) {
+}).then((res: CreateJournalEntryResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -190,7 +189,6 @@ Deletes a journal entry from the accounting package for a given company.
 import { CodatAccounting } from "@codat/accounting";
 import { DeleteJournalEntryResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { DataTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -202,8 +200,8 @@ sdk.journalEntries.delete({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   journalEntryId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: DeleteJournalEntryResponse | AxiosError) => {
-  if (res instanceof DeleteJournalEntryResponse && res.statusCode == 200) {
+}).then((res: DeleteJournalEntryResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -218,7 +216,6 @@ Gets a single JournalEntry corresponding to the given ID.
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetJournalEntryResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -229,8 +226,8 @@ const sdk = new CodatAccounting({
 sdk.journalEntries.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   journalEntryId: "dolorem",
-}).then((res: GetJournalEntryResponse | AxiosError) => {
-  if (res instanceof GetJournalEntryResponse && res.statusCode == 200) {
+}).then((res: GetJournalEntryResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -252,7 +249,6 @@ See the examples for integration-specific indicative models.
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateJournalEntriesModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -263,8 +259,8 @@ const sdk = new CodatAccounting({
 sdk.journalEntries.getCreateModel({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateJournalEntriesModelResponse | AxiosError) => {
-  if (res instanceof GetCreateJournalEntriesModelResponse && res.statusCode == 200) {
+}).then((res: GetCreateJournalEntriesModelResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -279,7 +275,6 @@ Gets the latest journal entries for a company, with pagination
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListJournalEntriesResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -293,8 +288,8 @@ sdk.journalEntries.list({
   page: 1,
   pageSize: 100,
   query: "laborum",
-}).then((res: ListJournalEntriesResponse | AxiosError) => {
-  if (res instanceof ListJournalEntriesResponse && res.statusCode == 200) {
+}).then((res: ListJournalEntriesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

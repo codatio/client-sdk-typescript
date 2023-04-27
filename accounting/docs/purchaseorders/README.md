@@ -34,7 +34,6 @@ import {
   PushChangeTypeEnum,
   PushOperationStatusEnum,
 } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -151,8 +150,8 @@ sdk.purchaseOrders.create({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 117700,
-}).then((res: CreatePurchaseOrderResponse | AxiosError) => {
-  if (res instanceof CreatePurchaseOrderResponse && res.statusCode == 200) {
+}).then((res: CreatePurchaseOrderResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -168,7 +167,6 @@ Get purchase order
 import { CodatAccounting } from "@codat/accounting";
 import { GetPurchaseOrderResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AddressTypeEnum, PurchaseOrderStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -179,8 +177,8 @@ const sdk = new CodatAccounting({
 sdk.purchaseOrders.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   purchaseOrderId: "architecto",
-}).then((res: GetPurchaseOrderResponse | AxiosError) => {
-  if (res instanceof GetPurchaseOrderResponse && res.statusCode == 200) {
+}).then((res: GetPurchaseOrderResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -202,7 +200,6 @@ See the examples for integration-specific indicative models.
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateUpdatePurchaseOrdersModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -213,8 +210,8 @@ const sdk = new CodatAccounting({
 sdk.purchaseOrders.getCreateUpdateModel({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateUpdatePurchaseOrdersModelResponse | AxiosError) => {
-  if (res instanceof GetCreateUpdatePurchaseOrdersModelResponse && res.statusCode == 200) {
+}).then((res: GetCreateUpdatePurchaseOrdersModelResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -230,7 +227,6 @@ Get purchase orders
 import { CodatAccounting } from "@codat/accounting";
 import { ListPurchaseOrdersResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AddressTypeEnum, PurchaseOrderStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -244,8 +240,8 @@ sdk.purchaseOrders.list({
   page: 1,
   pageSize: 100,
   query: "fugiat",
-}).then((res: ListPurchaseOrdersResponse | AxiosError) => {
-  if (res instanceof ListPurchaseOrdersResponse && res.statusCode == 200) {
+}).then((res: ListPurchaseOrdersResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -273,7 +269,6 @@ import {
   PushChangeTypeEnum,
   PushOperationStatusEnum,
 } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -367,8 +362,8 @@ sdk.purchaseOrders.update({
   forceUpdate: false,
   purchaseOrderId: "sequi",
   timeoutInMinutes: 122858,
-}).then((res: UpdatePurchaseOrderResponse | AxiosError) => {
-  if (res instanceof UpdatePurchaseOrderResponse && res.statusCode == 200) {
+}).then((res: UpdatePurchaseOrderResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

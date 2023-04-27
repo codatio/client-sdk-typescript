@@ -27,7 +27,6 @@ Required data may vary by integration. To see what data to post, first call [Get
 import { CodatAccounting } from "@codat/accounting";
 import { CreateJournalResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { DataTypeEnum, JournalStatusEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -54,8 +53,8 @@ sdk.journals.create({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 569651,
-}).then((res: CreateJournalResponse | AxiosError) => {
-  if (res instanceof CreateJournalResponse && res.statusCode == 200) {
+}).then((res: CreateJournalResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -71,7 +70,6 @@ Gets a single journal corresponding to the given ID.
 import { CodatAccounting } from "@codat/accounting";
 import { GetJournalResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { JournalStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -82,8 +80,8 @@ const sdk = new CodatAccounting({
 sdk.journals.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   journalId: "quod",
-}).then((res: GetJournalResponse | AxiosError) => {
-  if (res instanceof GetJournalResponse && res.statusCode == 200) {
+}).then((res: GetJournalResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -105,7 +103,6 @@ See the examples for integration-specific indicative models.
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateJournalsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -116,8 +113,8 @@ const sdk = new CodatAccounting({
 sdk.journals.getCreateModel({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateJournalsModelResponse | AxiosError) => {
-  if (res instanceof GetCreateJournalsModelResponse && res.statusCode == 200) {
+}).then((res: GetCreateJournalsModelResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -133,7 +130,6 @@ Gets the latest journals for a company, with pagination
 import { CodatAccounting } from "@codat/accounting";
 import { ListJournalsResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { JournalStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -147,8 +143,8 @@ sdk.journals.list({
   page: 1,
   pageSize: 100,
   query: "vel",
-}).then((res: ListJournalsResponse | AxiosError) => {
-  if (res instanceof ListJournalsResponse && res.statusCode == 200) {
+}).then((res: ListJournalsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

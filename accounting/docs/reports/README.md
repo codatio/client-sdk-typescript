@@ -21,7 +21,6 @@ Returns aged creditors report for company that shows the total balance owed by a
 import { CodatAccounting } from "@codat/accounting";
 import { GetAgedCreditorsReportResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { RFCDate } from "@codat/accounting/dist/sdk/types";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -34,8 +33,8 @@ sdk.reports.getAgedCreditorsReport({
   numberOfPeriods: 12,
   periodLengthDays: 30,
   reportDate: new RFCDate("2022-12-31"),
-}).then((res: GetAgedCreditorsReportResponse | AxiosError) => {
-  if (res instanceof GetAgedCreditorsReportResponse && res.statusCode == 200) {
+}).then((res: GetAgedCreditorsReportResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -51,7 +50,6 @@ Returns aged debtors report for company that shows the total outstanding balance
 import { CodatAccounting } from "@codat/accounting";
 import { GetAgedDebtorsReportResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { RFCDate } from "@codat/accounting/dist/sdk/types";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -64,8 +62,8 @@ sdk.reports.getAgedDebtorsReport({
   numberOfPeriods: 12,
   periodLengthDays: 30,
   reportDate: new RFCDate("2022-12-31"),
-}).then((res: GetAgedDebtorsReportResponse | AxiosError) => {
-  if (res instanceof GetAgedDebtorsReportResponse && res.statusCode == 200) {
+}).then((res: GetAgedDebtorsReportResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -80,7 +78,6 @@ Indicates whether the aged creditor report is available for the company.
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { IsAgedCreditorsReportAvailableResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -90,8 +87,8 @@ const sdk = new CodatAccounting({
 
 sdk.reports.isAgedCreditorsReportAvailable({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: IsAgedCreditorsReportAvailableResponse | AxiosError) => {
-  if (res instanceof IsAgedCreditorsReportAvailableResponse && res.statusCode == 200) {
+}).then((res: IsAgedCreditorsReportAvailableResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -106,7 +103,6 @@ Indicates whether the aged debtor report is available for the company.
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { IsAgedDebtorReportAvailableResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -116,8 +112,8 @@ const sdk = new CodatAccounting({
 
 sdk.reports.isAgedDebtorReportAvailable({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: IsAgedDebtorReportAvailableResponse | AxiosError) => {
-  if (res instanceof IsAgedDebtorReportAvailableResponse && res.statusCode == 200) {
+}).then((res: IsAgedDebtorReportAvailableResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
