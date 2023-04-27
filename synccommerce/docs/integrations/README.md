@@ -17,7 +17,7 @@ Retrieve Integration branding assets.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { GetIntegrationBrandingRequest, GetIntegrationBrandingResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
+import { GetIntegrationBrandingResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatSyncCommerce({
@@ -26,12 +26,10 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-const req: GetIntegrationBrandingRequest = {
+sdk.integrations.getIntegrationBranding({
   platformKey: "quibusdam",
-};
-
-sdk.integrations.getIntegrationBranding(req).then((res: GetIntegrationBrandingResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetIntegrationBrandingResponse | AxiosError) => {
+  if (res instanceof GetIntegrationBrandingResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -45,7 +43,7 @@ Retrieve a list of available integrations support by datatype and state of relea
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { ListIntegrationsRequest, ListIntegrationsResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
+import { ListIntegrationsResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 import { DataTypeFeatureDataTypeEnum, FeatureStateEnum, FeatureTypeEnum, SourceTypeEnum } from "@codat/sync-for-commerce/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -55,15 +53,13 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-const req: ListIntegrationsRequest = {
+sdk.integrations.listIntegrations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "unde",
-};
-
-sdk.integrations.listIntegrations(req).then((res: ListIntegrationsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListIntegrationsResponse | AxiosError) => {
+  if (res instanceof ListIntegrationsResponse && res.statusCode == 200) {
     // handle response
   }
 });

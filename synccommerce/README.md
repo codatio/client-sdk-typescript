@@ -23,7 +23,7 @@ yarn add @codat/sync-for-commerce
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { CreateCompanyResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
-import { ConnectionSourceTypeEnum, CreateCompany, DataConnectionStatusEnum } from "@codat/sync-for-commerce/dist/sdk/models/shared";
+import { ConnectionSourceTypeEnum, DataConnectionStatusEnum } from "@codat/sync-for-commerce/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
 const sdk = new CodatSyncCommerce({
@@ -32,12 +32,10 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-const req: shared.CreateCompany = {
+sdk.companyManagement.createCompany({
   name: "Bob's Burgers",
-};
-
-sdk.companyManagement.createCompany(req).then((res: CreateCompanyResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateCompanyResponse | AxiosError) => {
+  if (res instanceof CreateCompanyResponse && res.statusCode == 200) {
     // handle response
   }
 });

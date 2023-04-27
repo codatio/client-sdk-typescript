@@ -18,7 +18,7 @@ If there was no previously successful sync, the start date in the config is used
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { RequestSyncRequest, RequestSyncResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
+import { RequestSyncResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 import { ConnectionSourceTypeEnum, DataConnectionStatusEnum } from "@codat/sync-for-commerce/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -28,15 +28,13 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-const req: RequestSyncRequest = {
+sdk.sync.requestSync({
   syncToLatestArgs: {
     syncTo: "nulla",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.sync.requestSync(req).then((res: RequestSyncResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: RequestSyncResponse | AxiosError) => {
+  if (res instanceof RequestSyncResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -50,7 +48,7 @@ Run a Commerce sync from the specified start date to the specified finish date i
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { RequestSyncForDateRangeRequest, RequestSyncForDateRangeResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
+import { RequestSyncForDateRangeResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 import { ConnectionSourceTypeEnum, DataConnectionStatusEnum } from "@codat/sync-for-commerce/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -60,16 +58,14 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-const req: RequestSyncForDateRangeRequest = {
+sdk.sync.requestSyncForDateRange({
   dateRange: {
     finish: "corrupti",
     start: "illum",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.sync.requestSyncForDateRange(req).then((res: RequestSyncForDateRangeResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: RequestSyncForDateRangeResponse | AxiosError) => {
+  if (res instanceof RequestSyncForDateRangeResponse && res.statusCode == 200) {
     // handle response
   }
 });
