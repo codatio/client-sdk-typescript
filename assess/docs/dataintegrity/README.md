@@ -18,7 +18,7 @@ Gets record-by-record match results for a given company and datatype, optionally
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GetDataIntegrityDetailsRequest, GetDataIntegrityDetailsResponse } from "@codat/assess/dist/sdk/models/operations";
+import { GetDataIntegrityDetailsResponse } from "@codat/assess/dist/sdk/models/operations";
 import { DataIntegrityDataTypeEnum } from "@codat/assess/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -28,17 +28,15 @@ const sdk = new CodatAssess({
   },
 });
 
-const req: GetDataIntegrityDetailsRequest = {
+sdk.dataIntegrity.getDataIntegrityDetails({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   dataType: DataIntegrityDataTypeEnum.BankingAccounts,
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "voluptatibus",
-};
-
-sdk.dataIntegrity.getDataIntegrityDetails(req).then((res: GetDataIntegrityDetailsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetDataIntegrityDetailsResponse | AxiosError) => {
+  if (res instanceof GetDataIntegrityDetailsResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -52,7 +50,7 @@ Gets match status for a given company and datatype.
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GetDataIntegrityStatusRequest, GetDataIntegrityStatusResponse } from "@codat/assess/dist/sdk/models/operations";
+import { GetDataIntegrityStatusResponse } from "@codat/assess/dist/sdk/models/operations";
 import { DataIntegrityDataTypeEnum, IntegrityStatusEnum } from "@codat/assess/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -62,13 +60,11 @@ const sdk = new CodatAssess({
   },
 });
 
-const req: GetDataIntegrityStatusRequest = {
+sdk.dataIntegrity.getDataIntegrityStatus({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   dataType: DataIntegrityDataTypeEnum.BankingAccounts,
-};
-
-sdk.dataIntegrity.getDataIntegrityStatus(req).then((res: GetDataIntegrityStatusResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetDataIntegrityStatusResponse | AxiosError) => {
+  if (res instanceof GetDataIntegrityStatusResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -82,7 +78,7 @@ Gets match summary for a given company and datatype, optionally restricted by a 
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GetDataIntegritySummariesRequest, GetDataIntegritySummariesResponse } from "@codat/assess/dist/sdk/models/operations";
+import { GetDataIntegritySummariesResponse } from "@codat/assess/dist/sdk/models/operations";
 import { DataIntegrityDataTypeEnum } from "@codat/assess/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -92,14 +88,12 @@ const sdk = new CodatAssess({
   },
 });
 
-const req: GetDataIntegritySummariesRequest = {
+sdk.dataIntegrity.getDataIntegritySummaries({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   dataType: DataIntegrityDataTypeEnum.BankingAccounts,
   query: "ipsa",
-};
-
-sdk.dataIntegrity.getDataIntegritySummaries(req).then((res: GetDataIntegritySummariesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetDataIntegritySummariesResponse | AxiosError) => {
+  if (res instanceof GetDataIntegritySummariesResponse && res.statusCode == 200) {
     // handle response
   }
 });

@@ -20,7 +20,7 @@ Download the previously generated Excel report to a local drive.
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { DownloadExcelReportRequest, DownloadExcelReportResponse } from "@codat/assess/dist/sdk/models/operations";
+import { DownloadExcelReportResponse } from "@codat/assess/dist/sdk/models/operations";
 import { ExcelReportTypeEnum } from "@codat/assess/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -30,13 +30,11 @@ const sdk = new CodatAssess({
   },
 });
 
-const req: DownloadExcelReportRequest = {
+sdk.excelReports.downloadExcelReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   reportType: ExcelReportTypeEnum.Audit,
-};
-
-sdk.excelReports.downloadExcelReport(req).then((res: DownloadExcelReportResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DownloadExcelReportResponse | AxiosError) => {
+  if (res instanceof DownloadExcelReportResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -50,7 +48,7 @@ Generate an Excel report which can subsequently be downloaded.
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GenerateExcelReportRequest, GenerateExcelReportResponse } from "@codat/assess/dist/sdk/models/operations";
+import { GenerateExcelReportResponse } from "@codat/assess/dist/sdk/models/operations";
 import { ExcelReportTypeEnum } from "@codat/assess/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -60,13 +58,11 @@ const sdk = new CodatAssess({
   },
 });
 
-const req: GenerateExcelReportRequest = {
+sdk.excelReports.generateExcelReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   reportType: ExcelReportTypeEnum.Assess,
-};
-
-sdk.excelReports.generateExcelReport(req).then((res: GenerateExcelReportResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GenerateExcelReportResponse | AxiosError) => {
+  if (res instanceof GenerateExcelReportResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -80,7 +76,7 @@ Request an Excel report for download.
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GetAccountingMarketingMetricsRequest, GetAccountingMarketingMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
+import { GetAccountingMarketingMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
 import { PeriodUnitEnum } from "@codat/assess/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -90,7 +86,7 @@ const sdk = new CodatAssess({
   },
 });
 
-const req: GetAccountingMarketingMetricsRequest = {
+sdk.excelReports.getAccountingMarketingMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
@@ -99,10 +95,8 @@ const req: GetAccountingMarketingMetricsRequest = {
   periodUnit: PeriodUnitEnum.Day,
   reportDate: "29-09-2020",
   showInputValues: false,
-};
-
-sdk.excelReports.getAccountingMarketingMetrics(req).then((res: GetAccountingMarketingMetricsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetAccountingMarketingMetricsResponse | AxiosError) => {
+  if (res instanceof GetAccountingMarketingMetricsResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -116,7 +110,7 @@ Download the previously generated Excel report to a local drive.
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GetExcelReportRequest, GetExcelReportResponse } from "@codat/assess/dist/sdk/models/operations";
+import { GetExcelReportResponse } from "@codat/assess/dist/sdk/models/operations";
 import { ExcelReportTypeEnum } from "@codat/assess/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -126,13 +120,11 @@ const sdk = new CodatAssess({
   },
 });
 
-const req: GetExcelReportRequest = {
+sdk.excelReports.getExcelReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   reportType: ExcelReportTypeEnum.Assess,
-};
-
-sdk.excelReports.getExcelReport(req).then((res: GetExcelReportResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetExcelReportResponse | AxiosError) => {
+  if (res instanceof GetExcelReportResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -146,7 +138,7 @@ Returns the status of the latest report requested.
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GetExcelReportGenerationStatusRequest, GetExcelReportGenerationStatusResponse } from "@codat/assess/dist/sdk/models/operations";
+import { GetExcelReportGenerationStatusResponse } from "@codat/assess/dist/sdk/models/operations";
 import { ExcelReportTypeEnum } from "@codat/assess/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -156,13 +148,11 @@ const sdk = new CodatAssess({
   },
 });
 
-const req: GetExcelReportGenerationStatusRequest = {
+sdk.excelReports.getExcelReportGenerationStatus({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   reportType: ExcelReportTypeEnum.Assess,
-};
-
-sdk.excelReports.getExcelReportGenerationStatus(req).then((res: GetExcelReportGenerationStatusResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetExcelReportGenerationStatusResponse | AxiosError) => {
+  if (res instanceof GetExcelReportGenerationStatusResponse && res.statusCode == 200) {
     // handle response
   }
 });
