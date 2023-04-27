@@ -18,7 +18,7 @@ Put BankFeed BankAccounts for a single data source connected to a single company
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { CreateBankFeedRequest, CreateBankFeedResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
+import { CreateBankFeedResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatBankFeeds({
@@ -27,7 +27,7 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-const req: CreateBankFeedRequest = {
+sdk.bankFeedAccounts.createBankFeed({
   requestBody: [
     {
       accountName: "vel",
@@ -56,10 +56,8 @@ const req: CreateBankFeedRequest = {
   ],
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.bankFeedAccounts.createBankFeed(req).then((res: CreateBankFeedResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateBankFeedResponse | AxiosError) => {
+  if (res instanceof CreateBankFeedResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -73,7 +71,7 @@ Get BankFeed BankAccounts for a single data source connected to a single company
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { GetBankFeedsRequest, GetBankFeedsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
+import { GetBankFeedsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatBankFeeds({
@@ -82,13 +80,11 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-const req: GetBankFeedsRequest = {
+sdk.bankFeedAccounts.getBankFeeds({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.bankFeedAccounts.getBankFeeds(req).then((res: GetBankFeedsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetBankFeedsResponse | AxiosError) => {
+  if (res instanceof GetBankFeedsResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -102,7 +98,7 @@ Update a single BankFeed BankAccount for a single data source connected to a sin
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { UpdateBankFeedRequest, UpdateBankFeedResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
+import { UpdateBankFeedResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatBankFeeds({
@@ -111,7 +107,7 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-const req: UpdateBankFeedRequest = {
+sdk.bankFeedAccounts.updateBankFeed({
   bankFeedAccount: {
     accountName: "voluptatibus",
     accountNumber: "perferendis",
@@ -127,10 +123,8 @@ const req: UpdateBankFeedRequest = {
   accountId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.bankFeedAccounts.updateBankFeed(req).then((res: UpdateBankFeedResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UpdateBankFeedResponse | AxiosError) => {
+  if (res instanceof UpdateBankFeedResponse && res.statusCode == 200) {
     // handle response
   }
 });

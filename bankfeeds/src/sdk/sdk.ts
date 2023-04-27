@@ -62,8 +62,8 @@ export class CodatBankFeeds {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.13.0";
-  private _genVersion = "2.23.0";
+  private _sdkVersion = "0.13.1";
+  private _genVersion = "2.23.1";
   private _globals: any;
 
   constructor(props?: SDKProps) {
