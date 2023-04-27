@@ -20,8 +20,8 @@ yarn add @codat/common
 <!-- Start SDK Example Usage -->
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { CompanyRequestBody, CreateCompanyResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
+import { CreateCompanyResponse } from "@codat/common/dist/sdk/models/operations";
+import { CompanyRequestBody, DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({

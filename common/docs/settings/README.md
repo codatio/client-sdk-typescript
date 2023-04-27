@@ -84,7 +84,8 @@ Update your Codat profile
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { Profile, UpdateProfileResponse } from "@codat/common/dist/sdk/models/operations";
+import { UpdateProfileResponse } from "@codat/common/dist/sdk/models/operations";
+import { Profile } from "@codat/common/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
