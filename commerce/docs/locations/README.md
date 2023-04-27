@@ -18,7 +18,7 @@ A `location` is a geographic place at which stocks of products may be held, or f
 
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
-import { ListLocationsRequest, ListLocationsResponse } from "@codat/commerce/dist/sdk/models/operations";
+import { ListLocationsResponse } from "@codat/commerce/dist/sdk/models/operations";
 import { AddressTypeEnum } from "@codat/commerce/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -28,13 +28,11 @@ const sdk = new CodatCommerce({
   },
 });
 
-const req: ListLocationsRequest = {
+sdk.locations.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.locations.list(req).then((res: ListLocationsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListLocationsResponse | AxiosError) => {
+  if (res instanceof ListLocationsResponse && res.statusCode == 200) {
     // handle response
   }
 });
