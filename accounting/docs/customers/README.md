@@ -29,7 +29,7 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { CreateCustomerRequest, CreateCustomerResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { CreateCustomerResponse } from "@codat/accounting/dist/sdk/models/operations";
 import {
   AddressTypeEnum,
   CustomerStatusEnum,
@@ -46,7 +46,7 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: CreateCustomerRequest = {
+sdk.customers.create({
   customer: {
     addresses: [
       {
@@ -143,10 +143,8 @@ const req: CreateCustomerRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 583959,
-};
-
-sdk.customers.create(req).then((res: CreateCustomerResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateCustomerResponse | AxiosError) => {
+  if (res instanceof CreateCustomerResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -160,7 +158,7 @@ Download customer attachment
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { DownloadCustomerAttachmentRequest, DownloadCustomerAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { DownloadCustomerAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -169,15 +167,13 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: DownloadCustomerAttachmentRequest = {
+sdk.customers.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   customerId: "minima",
-};
-
-sdk.customers.downloadAttachment(req).then((res: DownloadCustomerAttachmentResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DownloadCustomerAttachmentResponse | AxiosError) => {
+  if (res instanceof DownloadCustomerAttachmentResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -191,7 +187,7 @@ Gets a single customer corresponding to the given ID.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCustomerRequest, GetCustomerResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetCustomerResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AddressTypeEnum, CustomerStatusEnum, PhoneNumberTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -201,13 +197,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetCustomerRequest = {
+sdk.customers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   customerId: "quo",
-};
-
-sdk.customers.get(req).then((res: GetCustomerResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetCustomerResponse | AxiosError) => {
+  if (res instanceof GetCustomerResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -221,7 +215,7 @@ Get  customer attachment
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCustomerAttachmentRequest, GetCustomerAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetCustomerAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -230,15 +224,13 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetCustomerAttachmentRequest = {
+sdk.customers.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   customerId: "quis",
-};
-
-sdk.customers.getAttachment(req).then((res: GetCustomerAttachmentResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetCustomerAttachmentResponse | AxiosError) => {
+  if (res instanceof GetCustomerAttachmentResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -258,7 +250,7 @@ See the examples for integration-specific indicative models.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCreateUpdateCustomersModelRequest, GetCreateUpdateCustomersModelResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetCreateUpdateCustomersModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -268,13 +260,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetCreateUpdateCustomersModelRequest = {
+sdk.customers.getCreateUpdateModel({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.customers.getCreateUpdateModel(req).then((res: GetCreateUpdateCustomersModelResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetCreateUpdateCustomersModelResponse | AxiosError) => {
+  if (res instanceof GetCreateUpdateCustomersModelResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -288,7 +278,7 @@ Gets the latest customers for a company, with pagination
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListCustomersRequest, ListCustomersResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ListCustomersResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AddressTypeEnum, CustomerStatusEnum, PhoneNumberTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -298,16 +288,14 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: ListCustomersRequest = {
+sdk.customers.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "facere",
-};
-
-sdk.customers.list(req).then((res: ListCustomersResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListCustomersResponse | AxiosError) => {
+  if (res instanceof ListCustomersResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -321,7 +309,7 @@ List customer attachments
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListCustomerAttachmentsRequest, ListCustomerAttachmentsResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ListCustomerAttachmentsResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -330,14 +318,12 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: ListCustomerAttachmentsRequest = {
+sdk.customers.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   customerId: "quidem",
-};
-
-sdk.customers.listAttachments(req).then((res: ListCustomerAttachmentsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListCustomerAttachmentsResponse | AxiosError) => {
+  if (res instanceof ListCustomerAttachmentsResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -357,7 +343,7 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { UpdateCustomerRequest, UpdateCustomerResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { UpdateCustomerResponse } from "@codat/accounting/dist/sdk/models/operations";
 import {
   AddressTypeEnum,
   CustomerStatusEnum,
@@ -374,7 +360,7 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: UpdateCustomerRequest = {
+sdk.customers.update({
   customer: {
     addresses: [
       {
@@ -515,10 +501,8 @@ const req: UpdateCustomerRequest = {
   customerId: "error",
   forceUpdate: false,
   timeoutInMinutes: 535903,
-};
-
-sdk.customers.update(req).then((res: UpdateCustomerResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UpdateCustomerResponse | AxiosError) => {
+  if (res instanceof UpdateCustomerResponse && res.statusCode == 200) {
     // handle response
   }
 });

@@ -26,7 +26,7 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { CreateJournalEntryRequest, CreateJournalEntryResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { CreateJournalEntryResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { DataTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -36,7 +36,7 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: CreateJournalEntryRequest = {
+sdk.journalEntries.create({
   journalEntry: {
     createdOn: "delectus",
     description: "id",
@@ -169,10 +169,8 @@ const req: CreateJournalEntryRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 907650,
-};
-
-sdk.journalEntries.create(req).then((res: CreateJournalEntryResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateJournalEntryResponse | AxiosError) => {
+  if (res instanceof CreateJournalEntryResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -190,7 +188,7 @@ Deletes a journal entry from the accounting package for a given company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { DeleteJournalEntryRequest, DeleteJournalEntryResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { DeleteJournalEntryResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { DataTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -200,14 +198,12 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: DeleteJournalEntryRequest = {
+sdk.journalEntries.delete({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   journalEntryId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.journalEntries.delete(req).then((res: DeleteJournalEntryResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DeleteJournalEntryResponse | AxiosError) => {
+  if (res instanceof DeleteJournalEntryResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -221,7 +217,7 @@ Gets a single JournalEntry corresponding to the given ID.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetJournalEntryRequest, GetJournalEntryResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetJournalEntryResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -230,13 +226,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetJournalEntryRequest = {
+sdk.journalEntries.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   journalEntryId: "dolorem",
-};
-
-sdk.journalEntries.get(req).then((res: GetJournalEntryResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetJournalEntryResponse | AxiosError) => {
+  if (res instanceof GetJournalEntryResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -256,7 +250,7 @@ See the examples for integration-specific indicative models.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCreateJournalEntriesModelRequest, GetCreateJournalEntriesModelResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetCreateJournalEntriesModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -266,13 +260,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetCreateJournalEntriesModelRequest = {
+sdk.journalEntries.getCreateModel({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.journalEntries.getCreateModel(req).then((res: GetCreateJournalEntriesModelResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetCreateJournalEntriesModelResponse | AxiosError) => {
+  if (res instanceof GetCreateJournalEntriesModelResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -286,7 +278,7 @@ Gets the latest journal entries for a company, with pagination
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListJournalEntriesRequest, ListJournalEntriesResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ListJournalEntriesResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -295,16 +287,14 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: ListJournalEntriesRequest = {
+sdk.journalEntries.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "laborum",
-};
-
-sdk.journalEntries.list(req).then((res: ListJournalEntriesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListJournalEntriesResponse | AxiosError) => {
+  if (res instanceof ListJournalEntriesResponse && res.statusCode == 200) {
     // handle response
   }
 });

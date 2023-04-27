@@ -25,7 +25,7 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { CreateAccountRequest, CreateAccountResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { CreateAccountResponse } from "@codat/accounting/dist/sdk/models/operations";
 import {
   AccountStatusEnum,
   AccountTypeEnum,
@@ -41,7 +41,7 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: CreateAccountRequest = {
+sdk.accounts.create({
   account: {
     currency: "quibusdam",
     currentBalance: 6027.63,
@@ -96,10 +96,8 @@ const req: CreateAccountRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 836079,
-};
-
-sdk.accounts.create(req).then((res: CreateAccountResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateAccountResponse | AxiosError) => {
+  if (res instanceof CreateAccountResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -113,7 +111,7 @@ Gets a single account corresponding to the given ID.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetAccountRequest, GetAccountResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetAccountResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AccountStatusEnum, AccountTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -123,13 +121,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetAccountRequest = {
+sdk.accounts.get({
   accountId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.accounts.get(req).then((res: GetAccountResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetAccountResponse | AxiosError) => {
+  if (res instanceof GetAccountResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -149,7 +145,7 @@ See the examples for integration-specific indicative models.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCreateChartOfAccountsModelRequest, GetCreateChartOfAccountsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetCreateChartOfAccountsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -159,13 +155,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetCreateChartOfAccountsModelRequest = {
+sdk.accounts.getCreateModel({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.accounts.getCreateModel(req).then((res: GetCreateChartOfAccountsModelResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetCreateChartOfAccountsModelResponse | AxiosError) => {
+  if (res instanceof GetCreateChartOfAccountsModelResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -179,7 +173,7 @@ Gets the latest accounts for a company
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListAccountsRequest, ListAccountsResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ListAccountsResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AccountStatusEnum, AccountTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -189,16 +183,14 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: ListAccountsRequest = {
+sdk.accounts.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "ab",
-};
-
-sdk.accounts.list(req).then((res: ListAccountsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListAccountsResponse | AxiosError) => {
+  if (res instanceof ListAccountsResponse && res.statusCode == 200) {
     // handle response
   }
 });

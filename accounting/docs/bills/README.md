@@ -31,7 +31,7 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { CreateBillRequest, CreateBillResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { CreateBillResponse } from "@codat/accounting/dist/sdk/models/operations";
 import {
   BilledToTypeEnum,
   BillStatusEnum,
@@ -47,7 +47,7 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: CreateBillRequest = {
+sdk.bills.create({
   bill: {
     amountDue: 7068.72,
     currency: "non",
@@ -309,10 +309,8 @@ const req: CreateBillRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 209602,
-};
-
-sdk.bills.create(req).then((res: CreateBillResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateBillResponse | AxiosError) => {
+  if (res instanceof CreateBillResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -330,7 +328,7 @@ Deletes a bill from the accounting package for a given company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { DeleteBillRequest, DeleteBillResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { DeleteBillResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { DataTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -340,14 +338,12 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: DeleteBillRequest = {
+sdk.bills.delete({
   billId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.bills.delete(req).then((res: DeleteBillResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DeleteBillResponse | AxiosError) => {
+  if (res instanceof DeleteBillResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -361,7 +357,7 @@ Download bill attachment
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { DownloadBillAttachmentRequest, DownloadBillAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { DownloadBillAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -370,15 +366,13 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: DownloadBillAttachmentRequest = {
+sdk.bills.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   billId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.bills.downloadAttachment(req).then((res: DownloadBillAttachmentResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DownloadBillAttachmentResponse | AxiosError) => {
+  if (res instanceof DownloadBillAttachmentResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -392,7 +386,7 @@ Get bill
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetBillRequest, GetBillResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetBillResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { BilledToTypeEnum, BillStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -402,13 +396,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetBillRequest = {
+sdk.bills.get({
   billId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.bills.get(req).then((res: GetBillResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetBillResponse | AxiosError) => {
+  if (res instanceof GetBillResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -422,7 +414,7 @@ Get bill attachment
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetBillAttachmentRequest, GetBillAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetBillAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -431,15 +423,13 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetBillAttachmentRequest = {
+sdk.bills.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   billId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.bills.getAttachment(req).then((res: GetBillAttachmentResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetBillAttachmentResponse | AxiosError) => {
+  if (res instanceof GetBillAttachmentResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -457,7 +447,7 @@ Get create/update bill model.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCreateUpdateBillsModelRequest, GetCreateUpdateBillsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { GetCreateUpdateBillsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -467,13 +457,11 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: GetCreateUpdateBillsModelRequest = {
+sdk.bills.getCreateUpdateModel({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.bills.getCreateUpdateModel(req).then((res: GetCreateUpdateBillsModelResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetCreateUpdateBillsModelResponse | AxiosError) => {
+  if (res instanceof GetCreateUpdateBillsModelResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -487,7 +475,7 @@ Gets the latest bills for a company, with pagination
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListBillsRequest, ListBillsResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ListBillsResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { BilledToTypeEnum, BillStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
 import { AxiosError } from "axios";
 
@@ -497,16 +485,14 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: ListBillsRequest = {
+sdk.bills.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "eaque",
-};
-
-sdk.bills.list(req).then((res: ListBillsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListBillsResponse | AxiosError) => {
+  if (res instanceof ListBillsResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -520,7 +506,7 @@ List bill attachments
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListBillAttachmentsRequest, ListBillAttachmentsResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ListBillAttachmentsResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -529,14 +515,12 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: ListBillAttachmentsRequest = {
+sdk.bills.listAttachments({
   billId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.bills.listAttachments(req).then((res: ListBillAttachmentsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListBillAttachmentsResponse | AxiosError) => {
+  if (res instanceof ListBillAttachmentsResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -556,7 +540,7 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { UpdateBillRequest, UpdateBillResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { UpdateBillResponse } from "@codat/accounting/dist/sdk/models/operations";
 import {
   BilledToTypeEnum,
   BillStatusEnum,
@@ -572,7 +556,7 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: UpdateBillRequest = {
+sdk.bills.update({
   bill: {
     amountDue: 3474.6,
     currency: "amet",
@@ -805,10 +789,8 @@ const req: UpdateBillRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
   timeoutInMinutes: 990454,
-};
-
-sdk.bills.update(req).then((res: UpdateBillResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UpdateBillResponse | AxiosError) => {
+  if (res instanceof UpdateBillResponse && res.statusCode == 200) {
     // handle response
   }
 });
@@ -822,7 +804,7 @@ Upload bill attachment
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { UploadBillAttachmentRequest, UploadBillAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { UploadBillAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
@@ -831,7 +813,7 @@ const sdk = new CodatAccounting({
   },
 });
 
-const req: UploadBillAttachmentRequest = {
+sdk.bills.uploadAttachment({
   requestBody: {
     content: "at".encode(),
     requestBody: "quibusdam",
@@ -839,10 +821,8 @@ const req: UploadBillAttachmentRequest = {
   billId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.bills.uploadAttachment(req).then((res: UploadBillAttachmentResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UploadBillAttachmentResponse | AxiosError) => {
+  if (res instanceof UploadBillAttachmentResponse && res.statusCode == 200) {
     // handle response
   }
 });
