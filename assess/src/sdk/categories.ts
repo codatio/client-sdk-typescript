@@ -40,7 +40,7 @@ export class Categories {
    * @remarks
    * Get category for specific nominal account.
    */
-  getAccountCategory(
+  async getAccountCategory(
     req: operations.GetAccountCategoryRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -63,38 +63,39 @@ export class Categories {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetAccountCategoryResponse =
-        new operations.GetAccountCategoryResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.categorisedAccount = utils.objectToClass(
-              httpRes?.data,
-              shared.CategorisedAccount
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetAccountCategoryResponse =
+      new operations.GetAccountCategoryResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.categorisedAccount = utils.objectToClass(
+            httpRes?.data,
+            shared.CategorisedAccount
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -103,7 +104,7 @@ export class Categories {
    * @remarks
    * Lists suggested and confirmed chart of account categories for the given company and data connection.
    */
-  listAccountsCategories(
+  async listAccountsCategories(
     req: operations.ListAccountsCategoriesRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -128,38 +129,39 @@ export class Categories {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListAccountsCategoriesResponse =
-        new operations.ListAccountsCategoriesResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.categorisedAccounts = utils.objectToClass(
-              httpRes?.data,
-              shared.CategorisedAccounts
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ListAccountsCategoriesResponse =
+      new operations.ListAccountsCategoriesResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.categorisedAccounts = utils.objectToClass(
+            httpRes?.data,
+            shared.CategorisedAccounts
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -168,7 +170,7 @@ export class Categories {
    * @remarks
    * Lists available account categories Codat's categorisation engine can provide.
    */
-  listAvailableAccountCategories(
+  async listAvailableAccountCategories(
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.ListAvailableAccountCategoriesResponse> {
@@ -183,41 +185,42 @@ export class Categories {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListAvailableAccountCategoriesResponse =
-        new operations.ListAvailableAccountCategoriesResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.categories = [];
-            const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.categories = utils.objectToClass(
-              httpRes?.data,
-              shared.Categories,
-              resFieldDepth
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ListAvailableAccountCategoriesResponse =
+      new operations.ListAvailableAccountCategoriesResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.categories = [];
+          const resFieldDepth: number = utils.getResFieldDepth(res);
+          res.categories = utils.objectToClass(
+            httpRes?.data,
+            shared.Categories,
+            resFieldDepth
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -226,7 +229,7 @@ export class Categories {
    * @remarks
    * Update category for a specific nominal account
    */
-  updateAccountCategory(
+  async updateAccountCategory(
     req: operations.UpdateAccountCategoryRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -265,8 +268,9 @@ export class Categories {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "patch",
         headers: headers,
@@ -275,30 +279,30 @@ export class Categories {
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.UpdateAccountCategoryResponse =
-        new operations.UpdateAccountCategoryResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.categorisedAccount = utils.objectToClass(
-              httpRes?.data,
-              shared.CategorisedAccount
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.UpdateAccountCategoryResponse =
+      new operations.UpdateAccountCategoryResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.categorisedAccount = utils.objectToClass(
+            httpRes?.data,
+            shared.CategorisedAccount
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -307,7 +311,7 @@ export class Categories {
    * @remarks
    * Comfirms the categories for all or a batch of accounts for a specific connection.
    */
-  updateAccountsCategories(
+  async updateAccountsCategories(
     req: operations.UpdateAccountsCategoriesRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -346,8 +350,9 @@ export class Categories {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "patch",
         headers: headers,
@@ -356,32 +361,32 @@ export class Categories {
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.UpdateAccountsCategoriesResponse =
-        new operations.UpdateAccountsCategoriesResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.categorisedAccounts = [];
-            const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.categorisedAccounts = utils.objectToClass(
-              httpRes?.data,
-              shared.CategorisedAccount,
-              resFieldDepth
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.UpdateAccountsCategoriesResponse =
+      new operations.UpdateAccountsCategoriesResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.categorisedAccounts = [];
+          const resFieldDepth: number = utils.getResFieldDepth(res);
+          res.categorisedAccounts = utils.objectToClass(
+            httpRes?.data,
+            shared.CategorisedAccount,
+            resFieldDepth
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

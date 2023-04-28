@@ -42,7 +42,7 @@ export class Reports {
    *
    * Codat suggests a category for each account automatically, but you can [change it](/docs/assess-categorizing-accounts-ecommerce-lending) to a more suitable one.
    */
-  getAccountsForEnhancedBalanceSheet(
+  async getAccountsForEnhancedBalanceSheet(
     req: operations.GetAccountsForEnhancedBalanceSheetRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -67,38 +67,39 @@ export class Reports {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetAccountsForEnhancedBalanceSheetResponse =
-        new operations.GetAccountsForEnhancedBalanceSheetResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.enhancedReport = utils.objectToClass(
-              httpRes?.data,
-              shared.EnhancedReport
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetAccountsForEnhancedBalanceSheetResponse =
+      new operations.GetAccountsForEnhancedBalanceSheetResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.enhancedReport = utils.objectToClass(
+            httpRes?.data,
+            shared.EnhancedReport
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -109,7 +110,7 @@ export class Reports {
    *
    * Codat suggests a category for each account automatically, but you can [change it](/docs/assess-categorizing-accounts-ecommerce-lending) to a more suitable one.
    */
-  getAccountsForEnhancedProfitAndLoss(
+  async getAccountsForEnhancedProfitAndLoss(
     req: operations.GetAccountsForEnhancedProfitAndLossRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -134,38 +135,39 @@ export class Reports {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetAccountsForEnhancedProfitAndLossResponse =
-        new operations.GetAccountsForEnhancedProfitAndLossResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.enhancedReport = utils.objectToClass(
-              httpRes?.data,
-              shared.EnhancedReport
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetAccountsForEnhancedProfitAndLossResponse =
+      new operations.GetAccountsForEnhancedProfitAndLossResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.enhancedReport = utils.objectToClass(
+            httpRes?.data,
+            shared.EnhancedReport
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -174,7 +176,7 @@ export class Reports {
    * @remarks
    * Gets the customer retention metrics for a specific company connection, over one or more periods of time.
    */
-  getCommerceCustomerRetentionMetrics(
+  async getCommerceCustomerRetentionMetrics(
     req: operations.GetCommerceCustomerRetentionMetricsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -199,35 +201,36 @@ export class Reports {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCommerceCustomerRetentionMetricsResponse =
-        new operations.GetCommerceCustomerRetentionMetricsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.report = utils.objectToClass(httpRes?.data, shared.Report);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetCommerceCustomerRetentionMetricsResponse =
+      new operations.GetCommerceCustomerRetentionMetricsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.report = utils.objectToClass(httpRes?.data, shared.Report);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -236,7 +239,7 @@ export class Reports {
    * @remarks
    * Gets the lifetime value metric for a specific company connection, over one or more periods of time.
    */
-  getCommerceLifetimeValueMetrics(
+  async getCommerceLifetimeValueMetrics(
     req: operations.GetCommerceLifetimeValueMetricsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -261,35 +264,36 @@ export class Reports {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCommerceLifetimeValueMetricsResponse =
-        new operations.GetCommerceLifetimeValueMetricsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.report = utils.objectToClass(httpRes?.data, shared.Report);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetCommerceLifetimeValueMetricsResponse =
+      new operations.GetCommerceLifetimeValueMetricsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.report = utils.objectToClass(httpRes?.data, shared.Report);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -298,7 +302,7 @@ export class Reports {
    * @remarks
    * Gets the order information for a specific company connection, over one or more periods of time.
    */
-  getCommerceOrdersMetrics(
+  async getCommerceOrdersMetrics(
     req: operations.GetCommerceOrdersMetricsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -323,35 +327,36 @@ export class Reports {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCommerceOrdersMetricsResponse =
-        new operations.GetCommerceOrdersMetricsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.report = utils.objectToClass(httpRes?.data, shared.Report);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetCommerceOrdersMetricsResponse =
+      new operations.GetCommerceOrdersMetricsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.report = utils.objectToClass(httpRes?.data, shared.Report);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -360,7 +365,7 @@ export class Reports {
    * @remarks
    * Gets the refunds information for a specific company connection, over one or more periods of time.
    */
-  getCommerceRefundsMetrics(
+  async getCommerceRefundsMetrics(
     req: operations.GetCommerceRefundsMetricsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -385,35 +390,36 @@ export class Reports {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCommerceRefundsMetricsResponse =
-        new operations.GetCommerceRefundsMetricsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.report = utils.objectToClass(httpRes?.data, shared.Report);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetCommerceRefundsMetricsResponse =
+      new operations.GetCommerceRefundsMetricsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.report = utils.objectToClass(httpRes?.data, shared.Report);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -422,7 +428,7 @@ export class Reports {
    * @remarks
    * Get the revenue and revenue growth for a specific company connection, over one or more periods of time.
    */
-  getCommerceRevenueMetrics(
+  async getCommerceRevenueMetrics(
     req: operations.GetCommerceRevenueMetricsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -447,35 +453,36 @@ export class Reports {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCommerceRevenueMetricsResponse =
-        new operations.GetCommerceRevenueMetricsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.report = utils.objectToClass(httpRes?.data, shared.Report);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetCommerceRevenueMetricsResponse =
+      new operations.GetCommerceRevenueMetricsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.report = utils.objectToClass(httpRes?.data, shared.Report);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -484,7 +491,7 @@ export class Reports {
    * @remarks
    * Gets a fully categorized balance sheet statement for a given company, over one or more period(s).
    */
-  getEnhancedBalanceSheet(
+  async getEnhancedBalanceSheet(
     req: operations.GetEnhancedBalanceSheetRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -509,35 +516,36 @@ export class Reports {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetEnhancedBalanceSheetResponse =
-        new operations.GetEnhancedBalanceSheetResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.report = utils.objectToClass(httpRes?.data, shared.Report);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetEnhancedBalanceSheetResponse =
+      new operations.GetEnhancedBalanceSheetResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.report = utils.objectToClass(httpRes?.data, shared.Report);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -546,7 +554,7 @@ export class Reports {
    * @remarks
    * The Enhanced Cash Flow Transactions endpoint provides a fully categorized list of banking transactions for a company. Accounts and transaction data are obtained from the company's banking data sources.
    */
-  getEnhancedCashFlowTransactions(
+  async getEnhancedCashFlowTransactions(
     req: operations.GetEnhancedCashFlowTransactionsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -571,38 +579,39 @@ export class Reports {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetEnhancedCashFlowTransactionsResponse =
-        new operations.GetEnhancedCashFlowTransactionsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.enhancedCashFlowTransactions = utils.objectToClass(
-              httpRes?.data,
-              shared.EnhancedCashFlowTransactions
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetEnhancedCashFlowTransactionsResponse =
+      new operations.GetEnhancedCashFlowTransactionsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.enhancedCashFlowTransactions = utils.objectToClass(
+            httpRes?.data,
+            shared.EnhancedCashFlowTransactions
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -611,7 +620,7 @@ export class Reports {
    * @remarks
    * Gets all the available financial metrics for a given company, over one or more periods.
    */
-  getEnhancedFinancialMetrics(
+  async getEnhancedFinancialMetrics(
     req: operations.GetEnhancedFinancialMetricsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -636,38 +645,39 @@ export class Reports {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetEnhancedFinancialMetricsResponse =
-        new operations.GetEnhancedFinancialMetricsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.financialMetrics = utils.objectToClass(
-              httpRes?.data,
-              shared.FinancialMetrics
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetEnhancedFinancialMetricsResponse =
+      new operations.GetEnhancedFinancialMetricsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.financialMetrics = utils.objectToClass(
+            httpRes?.data,
+            shared.FinancialMetrics
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -676,7 +686,7 @@ export class Reports {
    * @remarks
    * Gets a list of invoices linked to the corresponding banking transaction
    */
-  getEnhancedInvoicesReport(
+  async getEnhancedInvoicesReport(
     req: operations.GetEnhancedInvoicesReportRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -701,38 +711,39 @@ export class Reports {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetEnhancedInvoicesReportResponse =
-        new operations.GetEnhancedInvoicesReportResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.enhancedInvoicesReport = utils.objectToClass(
-              httpRes?.data,
-              shared.EnhancedInvoicesReport
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetEnhancedInvoicesReportResponse =
+      new operations.GetEnhancedInvoicesReportResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.enhancedInvoicesReport = utils.objectToClass(
+            httpRes?.data,
+            shared.EnhancedInvoicesReport
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -741,7 +752,7 @@ export class Reports {
    * @remarks
    * Gets a fully categorized profit and loss statement for a given company, over one or more period(s).
    */
-  getEnhancedProfitAndLoss(
+  async getEnhancedProfitAndLoss(
     req: operations.GetEnhancedProfitAndLossRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -766,35 +777,36 @@ export class Reports {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetEnhancedProfitAndLossResponse =
-        new operations.GetEnhancedProfitAndLossResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.report = utils.objectToClass(httpRes?.data, shared.Report);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetEnhancedProfitAndLossResponse =
+      new operations.GetEnhancedProfitAndLossResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.report = utils.objectToClass(httpRes?.data, shared.Report);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -803,7 +815,7 @@ export class Reports {
    * @remarks
    * Gets key metrics for subscription revenue.
    */
-  getRecurringRevenueMetrics(
+  async getRecurringRevenueMetrics(
     req: operations.GetRecurringRevenueMetricsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -826,35 +838,36 @@ export class Reports {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetRecurringRevenueMetricsResponse =
-        new operations.GetRecurringRevenueMetricsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.report = utils.objectToClass(httpRes?.data, shared.Report);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetRecurringRevenueMetricsResponse =
+      new operations.GetRecurringRevenueMetricsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.report = utils.objectToClass(httpRes?.data, shared.Report);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -863,7 +876,7 @@ export class Reports {
    * @remarks
    * Request production of key subscription revenue metrics.
    */
-  requestRecurringRevenueMetrics(
+  async requestRecurringRevenueMetrics(
     req: operations.RequestRecurringRevenueMetricsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -886,34 +899,35 @@ export class Reports {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.RequestRecurringRevenueMetricsResponse =
-        new operations.RequestRecurringRevenueMetricsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.report = utils.objectToClass(httpRes?.data, shared.Report);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.RequestRecurringRevenueMetricsResponse =
+      new operations.RequestRecurringRevenueMetricsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.report = utils.objectToClass(httpRes?.data, shared.Report);
+        }
+        break;
+    }
+
+    return res;
   }
 }

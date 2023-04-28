@@ -22,7 +22,6 @@ Download the previously generated Excel report to a local drive.
 import { CodatAssess } from "@codat/assess";
 import { DownloadExcelReportResponse } from "@codat/assess/dist/sdk/models/operations";
 import { ExcelReportTypeEnum } from "@codat/assess/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -33,8 +32,8 @@ const sdk = new CodatAssess({
 sdk.excelReports.downloadExcelReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   reportType: ExcelReportTypeEnum.Audit,
-}).then((res: DownloadExcelReportResponse | AxiosError) => {
-  if (res instanceof DownloadExcelReportResponse && res.statusCode == 200) {
+}).then((res: DownloadExcelReportResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -50,7 +49,6 @@ Generate an Excel report which can subsequently be downloaded.
 import { CodatAssess } from "@codat/assess";
 import { GenerateExcelReportResponse } from "@codat/assess/dist/sdk/models/operations";
 import { ExcelReportTypeEnum } from "@codat/assess/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -61,8 +59,8 @@ const sdk = new CodatAssess({
 sdk.excelReports.generateExcelReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   reportType: ExcelReportTypeEnum.Assess,
-}).then((res: GenerateExcelReportResponse | AxiosError) => {
-  if (res instanceof GenerateExcelReportResponse && res.statusCode == 200) {
+}).then((res: GenerateExcelReportResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -78,7 +76,6 @@ Request an Excel report for download.
 import { CodatAssess } from "@codat/assess";
 import { GetAccountingMarketingMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
 import { PeriodUnitEnum } from "@codat/assess/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -95,8 +92,8 @@ sdk.excelReports.getAccountingMarketingMetrics({
   periodUnit: PeriodUnitEnum.Day,
   reportDate: "29-09-2020",
   showInputValues: false,
-}).then((res: GetAccountingMarketingMetricsResponse | AxiosError) => {
-  if (res instanceof GetAccountingMarketingMetricsResponse && res.statusCode == 200) {
+}).then((res: GetAccountingMarketingMetricsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -112,7 +109,6 @@ Download the previously generated Excel report to a local drive.
 import { CodatAssess } from "@codat/assess";
 import { GetExcelReportResponse } from "@codat/assess/dist/sdk/models/operations";
 import { ExcelReportTypeEnum } from "@codat/assess/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -123,8 +119,8 @@ const sdk = new CodatAssess({
 sdk.excelReports.getExcelReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   reportType: ExcelReportTypeEnum.Assess,
-}).then((res: GetExcelReportResponse | AxiosError) => {
-  if (res instanceof GetExcelReportResponse && res.statusCode == 200) {
+}).then((res: GetExcelReportResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -140,7 +136,6 @@ Returns the status of the latest report requested.
 import { CodatAssess } from "@codat/assess";
 import { GetExcelReportGenerationStatusResponse } from "@codat/assess/dist/sdk/models/operations";
 import { ExcelReportTypeEnum } from "@codat/assess/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -151,8 +146,8 @@ const sdk = new CodatAssess({
 sdk.excelReports.getExcelReportGenerationStatus({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   reportType: ExcelReportTypeEnum.Assess,
-}).then((res: GetExcelReportGenerationStatusResponse | AxiosError) => {
-  if (res instanceof GetExcelReportGenerationStatusResponse && res.statusCode == 200) {
+}).then((res: GetExcelReportGenerationStatusResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

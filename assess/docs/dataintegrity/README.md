@@ -20,7 +20,6 @@ Gets record-by-record match results for a given company and datatype, optionally
 import { CodatAssess } from "@codat/assess";
 import { GetDataIntegrityDetailsResponse } from "@codat/assess/dist/sdk/models/operations";
 import { DataIntegrityDataTypeEnum } from "@codat/assess/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -35,8 +34,8 @@ sdk.dataIntegrity.getDataIntegrityDetails({
   page: 1,
   pageSize: 100,
   query: "voluptatibus",
-}).then((res: GetDataIntegrityDetailsResponse | AxiosError) => {
-  if (res instanceof GetDataIntegrityDetailsResponse && res.statusCode == 200) {
+}).then((res: GetDataIntegrityDetailsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -52,7 +51,6 @@ Gets match status for a given company and datatype.
 import { CodatAssess } from "@codat/assess";
 import { GetDataIntegrityStatusResponse } from "@codat/assess/dist/sdk/models/operations";
 import { DataIntegrityDataTypeEnum, IntegrityStatusEnum } from "@codat/assess/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -63,8 +61,8 @@ const sdk = new CodatAssess({
 sdk.dataIntegrity.getDataIntegrityStatus({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   dataType: DataIntegrityDataTypeEnum.BankingAccounts,
-}).then((res: GetDataIntegrityStatusResponse | AxiosError) => {
-  if (res instanceof GetDataIntegrityStatusResponse && res.statusCode == 200) {
+}).then((res: GetDataIntegrityStatusResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -80,7 +78,6 @@ Gets match summary for a given company and datatype, optionally restricted by a 
 import { CodatAssess } from "@codat/assess";
 import { GetDataIntegritySummariesResponse } from "@codat/assess/dist/sdk/models/operations";
 import { DataIntegrityDataTypeEnum } from "@codat/assess/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -92,8 +89,8 @@ sdk.dataIntegrity.getDataIntegritySummaries({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   dataType: DataIntegrityDataTypeEnum.BankingAccounts,
   query: "ipsa",
-}).then((res: GetDataIntegritySummariesResponse | AxiosError) => {
-  if (res instanceof GetDataIntegritySummariesResponse && res.statusCode == 200) {
+}).then((res: GetDataIntegritySummariesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

@@ -21,7 +21,6 @@ Get category for specific nominal account.
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetAccountCategoryResponse } from "@codat/assess/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -33,8 +32,8 @@ sdk.categories.getAccountCategory({
   accountId: "provident",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetAccountCategoryResponse | AxiosError) => {
-  if (res instanceof GetAccountCategoryResponse && res.statusCode == 200) {
+}).then((res: GetAccountCategoryResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -49,7 +48,6 @@ Lists suggested and confirmed chart of account categories for the given company 
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { ListAccountsCategoriesResponse } from "@codat/assess/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -64,8 +62,8 @@ sdk.categories.listAccountsCategories({
   page: 1,
   pageSize: 100,
   query: "distinctio",
-}).then((res: ListAccountsCategoriesResponse | AxiosError) => {
-  if (res instanceof ListAccountsCategoriesResponse && res.statusCode == 200) {
+}).then((res: ListAccountsCategoriesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -80,7 +78,6 @@ Lists available account categories Codat's categorisation engine can provide.
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { ListAvailableAccountCategoriesResponse } from "@codat/assess/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -88,8 +85,8 @@ const sdk = new CodatAssess({
   },
 });
 
-sdk.categories.listAvailableAccountCategories().then((res: ListAvailableAccountCategoriesResponse | AxiosError) => {
-  if (res instanceof ListAvailableAccountCategoriesResponse && res.statusCode == 200) {
+sdk.categories.listAvailableAccountCategories().then((res: ListAvailableAccountCategoriesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -104,7 +101,6 @@ Update category for a specific nominal account
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { UpdateAccountCategoryResponse } from "@codat/assess/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -123,8 +119,8 @@ sdk.categories.updateAccountCategory({
   accountId: "corrupti",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: UpdateAccountCategoryResponse | AxiosError) => {
-  if (res instanceof UpdateAccountCategoryResponse && res.statusCode == 200) {
+}).then((res: UpdateAccountCategoryResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -139,7 +135,6 @@ Comfirms the categories for all or a batch of accounts for a specific connection
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { UpdateAccountsCategoriesResponse } from "@codat/assess/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -194,8 +189,8 @@ sdk.categories.updateAccountsCategories({
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: UpdateAccountsCategoriesResponse | AxiosError) => {
-  if (res instanceof UpdateAccountsCategoriesResponse && res.statusCode == 200) {
+}).then((res: UpdateAccountsCategoriesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

@@ -32,7 +32,6 @@ Codat suggests a category for each account automatically, but you can [change it
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetAccountsForEnhancedBalanceSheetResponse } from "@codat/assess/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -44,8 +43,8 @@ sdk.reports.getAccountsForEnhancedBalanceSheet({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   numberOfPeriods: 979587,
   reportDate: "29-09-2020",
-}).then((res: GetAccountsForEnhancedBalanceSheetResponse | AxiosError) => {
-  if (res instanceof GetAccountsForEnhancedBalanceSheetResponse && res.statusCode == 200) {
+}).then((res: GetAccountsForEnhancedBalanceSheetResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -62,7 +61,6 @@ Codat suggests a category for each account automatically, but you can [change it
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetAccountsForEnhancedProfitAndLossResponse } from "@codat/assess/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -74,8 +72,8 @@ sdk.reports.getAccountsForEnhancedProfitAndLoss({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   numberOfPeriods: 120196,
   reportDate: "29-09-2020",
-}).then((res: GetAccountsForEnhancedProfitAndLossResponse | AxiosError) => {
-  if (res instanceof GetAccountsForEnhancedProfitAndLossResponse && res.statusCode == 200) {
+}).then((res: GetAccountsForEnhancedProfitAndLossResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -91,7 +89,6 @@ Gets the customer retention metrics for a specific company connection, over one 
 import { CodatAssess } from "@codat/assess";
 import { GetCommerceCustomerRetentionMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
 import { PeriodUnitEnum } from "@codat/assess/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -107,8 +104,8 @@ sdk.reports.getCommerceCustomerRetentionMetrics({
   periodLength: 296140,
   periodUnit: PeriodUnitEnum.Week,
   reportDate: "29-09-2020",
-}).then((res: GetCommerceCustomerRetentionMetricsResponse | AxiosError) => {
-  if (res instanceof GetCommerceCustomerRetentionMetricsResponse && res.statusCode == 200) {
+}).then((res: GetCommerceCustomerRetentionMetricsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -124,7 +121,6 @@ Gets the lifetime value metric for a specific company connection, over one or mo
 import { CodatAssess } from "@codat/assess";
 import { GetCommerceLifetimeValueMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
 import { PeriodUnitEnum } from "@codat/assess/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -140,8 +136,8 @@ sdk.reports.getCommerceLifetimeValueMetrics({
   periodLength: 688661,
   periodUnit: PeriodUnitEnum.Week,
   reportDate: "29-09-2020",
-}).then((res: GetCommerceLifetimeValueMetricsResponse | AxiosError) => {
-  if (res instanceof GetCommerceLifetimeValueMetricsResponse && res.statusCode == 200) {
+}).then((res: GetCommerceLifetimeValueMetricsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -157,7 +153,6 @@ Gets the order information for a specific company connection, over one or more p
 import { CodatAssess } from "@codat/assess";
 import { GetCommerceOrdersMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
 import { PeriodUnitEnum } from "@codat/assess/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -173,8 +168,8 @@ sdk.reports.getCommerceOrdersMetrics({
   periodLength: 414263,
   periodUnit: PeriodUnitEnum.Year,
   reportDate: "29-09-2020",
-}).then((res: GetCommerceOrdersMetricsResponse | AxiosError) => {
-  if (res instanceof GetCommerceOrdersMetricsResponse && res.statusCode == 200) {
+}).then((res: GetCommerceOrdersMetricsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -190,7 +185,6 @@ Gets the refunds information for a specific company connection, over one or more
 import { CodatAssess } from "@codat/assess";
 import { GetCommerceRefundsMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
 import { PeriodUnitEnum } from "@codat/assess/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -206,8 +200,8 @@ sdk.reports.getCommerceRefundsMetrics({
   periodLength: 216822,
   periodUnit: PeriodUnitEnum.Month,
   reportDate: "29-09-2020",
-}).then((res: GetCommerceRefundsMetricsResponse | AxiosError) => {
-  if (res instanceof GetCommerceRefundsMetricsResponse && res.statusCode == 200) {
+}).then((res: GetCommerceRefundsMetricsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -223,7 +217,6 @@ Get the revenue and revenue growth for a specific company connection, over one o
 import { CodatAssess } from "@codat/assess";
 import { GetCommerceRevenueMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
 import { PeriodUnitEnum } from "@codat/assess/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -239,8 +232,8 @@ sdk.reports.getCommerceRevenueMetrics({
   periodLength: 566602,
   periodUnit: PeriodUnitEnum.Year,
   reportDate: "29-09-2020",
-}).then((res: GetCommerceRevenueMetricsResponse | AxiosError) => {
-  if (res instanceof GetCommerceRevenueMetricsResponse && res.statusCode == 200) {
+}).then((res: GetCommerceRevenueMetricsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -255,7 +248,6 @@ Gets a fully categorized balance sheet statement for a given company, over one o
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetEnhancedBalanceSheetResponse } from "@codat/assess/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -270,8 +262,8 @@ sdk.reports.getEnhancedBalanceSheet({
   numberOfPeriods: 265389,
   periodLength: 508969,
   reportDate: "29-09-2020",
-}).then((res: GetEnhancedBalanceSheetResponse | AxiosError) => {
-  if (res instanceof GetEnhancedBalanceSheetResponse && res.statusCode == 200) {
+}).then((res: GetEnhancedBalanceSheetResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -286,7 +278,6 @@ The Enhanced Cash Flow Transactions endpoint provides a fully categorized list o
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetEnhancedCashFlowTransactionsResponse } from "@codat/assess/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -299,8 +290,8 @@ sdk.reports.getEnhancedCashFlowTransactions({
   page: 1,
   pageSize: 100,
   query: "rem",
-}).then((res: GetEnhancedCashFlowTransactionsResponse | AxiosError) => {
-  if (res instanceof GetEnhancedCashFlowTransactionsResponse && res.statusCode == 200) {
+}).then((res: GetEnhancedCashFlowTransactionsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -324,7 +315,6 @@ import {
   FinancialMetricsPeriodUnitEnum,
 } from "@codat/assess/dist/sdk/models/shared";
 import { RFCDate } from "@codat/assess/dist/sdk/types";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -339,8 +329,8 @@ sdk.reports.getEnhancedFinancialMetrics({
   periodLength: 93940,
   reportDate: "29-09-2020",
   showMetricInputs: false,
-}).then((res: GetEnhancedFinancialMetricsResponse | AxiosError) => {
-  if (res instanceof GetEnhancedFinancialMetricsResponse && res.statusCode == 200) {
+}).then((res: GetEnhancedFinancialMetricsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -356,7 +346,6 @@ Gets a list of invoices linked to the corresponding banking transaction
 import { CodatAssess } from "@codat/assess";
 import { GetEnhancedInvoicesReportResponse } from "@codat/assess/dist/sdk/models/operations";
 import { InvoiceStatusEnum, PaymentLinkTypeEnum } from "@codat/assess/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -369,8 +358,8 @@ sdk.reports.getEnhancedInvoicesReport({
   page: 1,
   pageSize: 100,
   query: "repudiandae",
-}).then((res: GetEnhancedInvoicesReportResponse | AxiosError) => {
-  if (res instanceof GetEnhancedInvoicesReportResponse && res.statusCode == 200) {
+}).then((res: GetEnhancedInvoicesReportResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -385,7 +374,6 @@ Gets a fully categorized profit and loss statement for a given company, over one
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetEnhancedProfitAndLossResponse } from "@codat/assess/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -400,8 +388,8 @@ sdk.reports.getEnhancedProfitAndLoss({
   numberOfPeriods: 575947,
   periodLength: 83112,
   reportDate: "29-09-2020",
-}).then((res: GetEnhancedProfitAndLossResponse | AxiosError) => {
-  if (res instanceof GetEnhancedProfitAndLossResponse && res.statusCode == 200) {
+}).then((res: GetEnhancedProfitAndLossResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -416,7 +404,6 @@ Gets key metrics for subscription revenue.
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetRecurringRevenueMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -427,8 +414,8 @@ const sdk = new CodatAssess({
 sdk.reports.getRecurringRevenueMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetRecurringRevenueMetricsResponse | AxiosError) => {
-  if (res instanceof GetRecurringRevenueMetricsResponse && res.statusCode == 200) {
+}).then((res: GetRecurringRevenueMetricsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -443,7 +430,6 @@ Request production of key subscription revenue metrics.
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { RequestRecurringRevenueMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAssess({
   security: {
@@ -454,8 +440,8 @@ const sdk = new CodatAssess({
 sdk.reports.requestRecurringRevenueMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: RequestRecurringRevenueMetricsResponse | AxiosError) => {
-  if (res instanceof RequestRecurringRevenueMetricsResponse && res.statusCode == 200) {
+}).then((res: RequestRecurringRevenueMetricsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
