@@ -19,7 +19,6 @@ Put BankFeed BankAccounts for a single data source connected to a single company
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { CreateBankFeedResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -56,8 +55,8 @@ sdk.bankFeedAccounts.createBankFeed({
   ],
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: CreateBankFeedResponse | AxiosError) => {
-  if (res instanceof CreateBankFeedResponse && res.statusCode == 200) {
+}).then((res: CreateBankFeedResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -72,7 +71,6 @@ Get BankFeed BankAccounts for a single data source connected to a single company
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { GetBankFeedsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -83,8 +81,8 @@ const sdk = new CodatBankFeeds({
 sdk.bankFeedAccounts.getBankFeeds({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetBankFeedsResponse | AxiosError) => {
-  if (res instanceof GetBankFeedsResponse && res.statusCode == 200) {
+}).then((res: GetBankFeedsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -99,7 +97,6 @@ Update a single BankFeed BankAccount for a single data source connected to a sin
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { UpdateBankFeedResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -123,8 +120,8 @@ sdk.bankFeedAccounts.updateBankFeed({
   accountId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: UpdateBankFeedResponse | AxiosError) => {
-  if (res instanceof UpdateBankFeedResponse && res.statusCode == 200) {
+}).then((res: UpdateBankFeedResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
