@@ -40,7 +40,7 @@ export class Webhooks {
    * @remarks
    * Create a new webhook configuration
    */
-  create(
+  async create(
     req: shared.Rule,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -75,8 +75,9 @@ export class Webhooks {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "post",
         headers: headers,
@@ -85,35 +86,35 @@ export class Webhooks {
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateRuleResponse =
-        new operations.CreateRuleResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.rule = utils.objectToClass(httpRes?.data, shared.Rule);
-          }
-          break;
-        case httpRes?.status == 401:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.objectToClass(
-              httpRes?.data,
-              shared.ErrorMessage
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateRuleResponse =
+      new operations.CreateRuleResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.rule = utils.objectToClass(httpRes?.data, shared.Rule);
+        }
+        break;
+      case httpRes?.status == 401:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.errorMessage = utils.objectToClass(
+            httpRes?.data,
+            shared.ErrorMessage
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -122,7 +123,7 @@ export class Webhooks {
    * @remarks
    * Get a single webhook
    */
-  get(
+  async get(
     req: operations.GetWebhookRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -141,43 +142,44 @@ export class Webhooks {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetWebhookResponse =
-        new operations.GetWebhookResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.rule = utils.objectToClass(httpRes?.data, shared.Rule);
-          }
-          break;
-        case [401, 404].includes(httpRes?.status):
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.objectToClass(
-              httpRes?.data,
-              shared.ErrorMessage
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetWebhookResponse =
+      new operations.GetWebhookResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.rule = utils.objectToClass(httpRes?.data, shared.Rule);
+        }
+        break;
+      case [401, 404].includes(httpRes?.status):
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.errorMessage = utils.objectToClass(
+            httpRes?.data,
+            shared.ErrorMessage
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -186,7 +188,7 @@ export class Webhooks {
    * @remarks
    * List webhooks that you are subscribed to.
    */
-  list(
+  async list(
     req: operations.ListRulesRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -207,42 +209,42 @@ export class Webhooks {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListRulesResponse =
-        new operations.ListRulesResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.rules = utils.objectToClass(httpRes?.data, shared.Rules);
-          }
-          break;
-        case [400, 401].includes(httpRes?.status):
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.objectToClass(
-              httpRes?.data,
-              shared.ErrorMessage
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
+    const res: operations.ListRulesResponse = new operations.ListRulesResponse({
+      statusCode: httpRes.status,
+      contentType: contentType,
+      rawResponse: httpRes,
     });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.rules = utils.objectToClass(httpRes?.data, shared.Rules);
+        }
+        break;
+      case [400, 401].includes(httpRes?.status):
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.errorMessage = utils.objectToClass(
+            httpRes?.data,
+            shared.ErrorMessage
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

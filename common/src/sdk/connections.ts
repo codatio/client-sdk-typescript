@@ -40,7 +40,7 @@ export class Connections {
    * @remarks
    * Create a data connection for a company
    */
-  create(
+  async create(
     req: operations.CreateDataConnectionRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -79,8 +79,9 @@ export class Connections {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "post",
         headers: headers,
@@ -89,38 +90,38 @@ export class Connections {
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateDataConnectionResponse =
-        new operations.CreateDataConnectionResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.connection = utils.objectToClass(
-              httpRes?.data,
-              shared.Connection
-            );
-          }
-          break;
-        case httpRes?.status == 404:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.objectToClass(
-              httpRes?.data,
-              shared.ErrorMessage
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateDataConnectionResponse =
+      new operations.CreateDataConnectionResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.connection = utils.objectToClass(
+            httpRes?.data,
+            shared.Connection
+          );
+        }
+        break;
+      case httpRes?.status == 404:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.errorMessage = utils.objectToClass(
+            httpRes?.data,
+            shared.ErrorMessage
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -130,7 +131,7 @@ export class Connections {
    * Revoke and remove a connection from a company.
    * This operation is not reversible - the end user would need to reauthorize a new data connection if you wish to view new data for this company.
    */
-  delete(
+  async delete(
     req: operations.DeleteCompanyConnectionRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -153,40 +154,41 @@ export class Connections {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "delete",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.DeleteCompanyConnectionResponse =
-        new operations.DeleteCompanyConnectionResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          break;
-        case [401, 404].includes(httpRes?.status):
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.objectToClass(
-              httpRes?.data,
-              shared.ErrorMessage
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.DeleteCompanyConnectionResponse =
+      new operations.DeleteCompanyConnectionResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        break;
+      case [401, 404].includes(httpRes?.status):
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.errorMessage = utils.objectToClass(
+            httpRes?.data,
+            shared.ErrorMessage
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -195,7 +197,7 @@ export class Connections {
    * @remarks
    * Get a single connection for a company
    */
-  get(
+  async get(
     req: operations.GetCompanyConnectionRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -218,46 +220,47 @@ export class Connections {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCompanyConnectionResponse =
-        new operations.GetCompanyConnectionResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.connection = utils.objectToClass(
-              httpRes?.data,
-              shared.Connection
-            );
-          }
-          break;
-        case [401, 404].includes(httpRes?.status):
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.objectToClass(
-              httpRes?.data,
-              shared.ErrorMessage
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetCompanyConnectionResponse =
+      new operations.GetCompanyConnectionResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.connection = utils.objectToClass(
+            httpRes?.data,
+            shared.Connection
+          );
+        }
+        break;
+      case [401, 404].includes(httpRes?.status):
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.errorMessage = utils.objectToClass(
+            httpRes?.data,
+            shared.ErrorMessage
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -266,7 +269,7 @@ export class Connections {
    * @remarks
    * List the connections for a company
    */
-  list(
+  async list(
     req: operations.ListCompanyConnectionsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -291,46 +294,47 @@ export class Connections {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListCompanyConnectionsResponse =
-        new operations.ListCompanyConnectionsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.connections = utils.objectToClass(
-              httpRes?.data,
-              shared.Connections
-            );
-          }
-          break;
-        case [400, 401].includes(httpRes?.status):
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.objectToClass(
-              httpRes?.data,
-              shared.ErrorMessage
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ListCompanyConnectionsResponse =
+      new operations.ListCompanyConnectionsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.connections = utils.objectToClass(
+            httpRes?.data,
+            shared.Connections
+          );
+        }
+        break;
+      case [400, 401].includes(httpRes?.status):
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.errorMessage = utils.objectToClass(
+            httpRes?.data,
+            shared.ErrorMessage
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -339,7 +343,7 @@ export class Connections {
    * @remarks
    * This allows you to deauthorize a connection, without deleting it from Codat. This means you can still view any data that has previously been pulled into Codat, and also lets you re-authorize in future if your customer wishes to resume sharing their data.
    */
-  unlinkConnection(
+  async unlinkConnection(
     req: operations.UnlinkConnectionRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -378,8 +382,9 @@ export class Connections {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "patch",
         headers: headers,
@@ -388,38 +393,38 @@ export class Connections {
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.UnlinkConnectionResponse =
-        new operations.UnlinkConnectionResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.connection = utils.objectToClass(
-              httpRes?.data,
-              shared.Connection
-            );
-          }
-          break;
-        case [400, 401, 404].includes(httpRes?.status):
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.objectToClass(
-              httpRes?.data,
-              shared.ErrorMessage
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.UnlinkConnectionResponse =
+      new operations.UnlinkConnectionResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.connection = utils.objectToClass(
+            httpRes?.data,
+            shared.Connection
+          );
+        }
+        break;
+      case [400, 401, 404].includes(httpRes?.status):
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.errorMessage = utils.objectToClass(
+            httpRes?.data,
+            shared.ErrorMessage
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -428,7 +433,7 @@ export class Connections {
    * @remarks
    * Update data connection's authorization.
    */
-  updateAuthorization(
+  async updateAuthorization(
     req: operations.UpdateConnectionAuthorizationRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -467,8 +472,9 @@ export class Connections {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "put",
         headers: headers,
@@ -477,29 +483,29 @@ export class Connections {
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.UpdateConnectionAuthorizationResponse =
-        new operations.UpdateConnectionAuthorizationResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.connection = utils.objectToClass(
-              httpRes?.data,
-              shared.Connection
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.UpdateConnectionAuthorizationResponse =
+      new operations.UpdateConnectionAuthorizationResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.connection = utils.objectToClass(
+            httpRes?.data,
+            shared.Connection
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

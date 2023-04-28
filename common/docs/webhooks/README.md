@@ -19,7 +19,6 @@ Create a new webhook configuration
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { CreateRuleResponse } from "@codat/common/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
   security: {
@@ -38,8 +37,8 @@ sdk.webhooks.create({
     webhook: "https://webhook.client.com",
   },
   type: "minima",
-}).then((res: CreateRuleResponse | AxiosError) => {
-  if (res instanceof CreateRuleResponse && res.statusCode == 200) {
+}).then((res: CreateRuleResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -54,7 +53,6 @@ Get a single webhook
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { GetWebhookResponse } from "@codat/common/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
   security: {
@@ -64,8 +62,8 @@ const sdk = new CodatCommon({
 
 sdk.webhooks.get({
   ruleId: "7318949f-c008-4936-a8ff-10d7ab563fa6",
-}).then((res: GetWebhookResponse | AxiosError) => {
-  if (res instanceof GetWebhookResponse && res.statusCode == 200) {
+}).then((res: GetWebhookResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -80,7 +78,6 @@ List webhooks that you are subscribed to.
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { ListRulesResponse } from "@codat/common/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
   security: {
@@ -93,8 +90,8 @@ sdk.webhooks.list({
   page: 1,
   pageSize: 100,
   query: "excepturi",
-}).then((res: ListRulesResponse | AxiosError) => {
-  if (res instanceof ListRulesResponse && res.statusCode == 200) {
+}).then((res: ListRulesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

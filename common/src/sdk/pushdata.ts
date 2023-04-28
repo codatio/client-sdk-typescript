@@ -49,7 +49,7 @@ export class PushData {
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/) for integrations that support push (POST/PUT methods).
    */
-  getModelOptions(
+  async getModelOptions(
     req: operations.GetCreateUpdateModelOptionsByDataTypeRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -72,38 +72,39 @@ export class PushData {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCreateUpdateModelOptionsByDataTypeResponse =
-        new operations.GetCreateUpdateModelOptionsByDataTypeResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOption = utils.objectToClass(
-              httpRes?.data,
-              shared.PushOption
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetCreateUpdateModelOptionsByDataTypeResponse =
+      new operations.GetCreateUpdateModelOptionsByDataTypeResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.pushOption = utils.objectToClass(
+            httpRes?.data,
+            shared.PushOption
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -112,7 +113,7 @@ export class PushData {
    * @remarks
    * Retrieve push operation.
    */
-  getOperation(
+  async getOperation(
     req: operations.GetPushOperationRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -135,38 +136,39 @@ export class PushData {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetPushOperationResponse =
-        new operations.GetPushOperationResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushOperation = utils.objectToClass(
-              httpRes?.data,
-              shared.PushOperation
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetPushOperationResponse =
+      new operations.GetPushOperationResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.pushOperation = utils.objectToClass(
+            httpRes?.data,
+            shared.PushOperation
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -175,7 +177,7 @@ export class PushData {
    * @remarks
    * List push operation records.
    */
-  listOperations(
+  async listOperations(
     req: operations.GetCompanyPushHistoryRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -200,37 +202,38 @@ export class PushData {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCompanyPushHistoryResponse =
-        new operations.GetCompanyPushHistoryResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.pushHistoryResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.PushHistoryResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetCompanyPushHistoryResponse =
+      new operations.GetCompanyPushHistoryResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.pushHistoryResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.PushHistoryResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

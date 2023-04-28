@@ -40,7 +40,7 @@ export class Integrations {
    * @remarks
    * Get single integration, by platformKey
    */
-  get(
+  async get(
     req: operations.GetIntegrationRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -63,46 +63,47 @@ export class Integrations {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetIntegrationResponse =
-        new operations.GetIntegrationResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.integration = utils.objectToClass(
-              httpRes?.data,
-              shared.Integration
-            );
-          }
-          break;
-        case [401, 404].includes(httpRes?.status):
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.objectToClass(
-              httpRes?.data,
-              shared.ErrorMessage
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetIntegrationResponse =
+      new operations.GetIntegrationResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.integration = utils.objectToClass(
+            httpRes?.data,
+            shared.Integration
+          );
+        }
+        break;
+      case [401, 404].includes(httpRes?.status):
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.errorMessage = utils.objectToClass(
+            httpRes?.data,
+            shared.ErrorMessage
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -111,7 +112,7 @@ export class Integrations {
    * @remarks
    * Get branding for platform.
    */
-  getBranding(
+  async getBranding(
     req: operations.GetIntegrationsBrandingRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -134,35 +135,36 @@ export class Integrations {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetIntegrationsBrandingResponse =
-        new operations.GetIntegrationsBrandingResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.branding = utils.objectToClass(httpRes?.data, shared.Branding);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetIntegrationsBrandingResponse =
+      new operations.GetIntegrationsBrandingResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.branding = utils.objectToClass(httpRes?.data, shared.Branding);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -171,7 +173,7 @@ export class Integrations {
    * @remarks
    * List your available integrations
    */
-  list(
+  async list(
     req: operations.ListIntegrationsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -192,45 +194,46 @@ export class Integrations {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListIntegrationsResponse =
-        new operations.ListIntegrationsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.integrations = utils.objectToClass(
-              httpRes?.data,
-              shared.Integrations
-            );
-          }
-          break;
-        case [400, 401].includes(httpRes?.status):
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.objectToClass(
-              httpRes?.data,
-              shared.ErrorMessage
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ListIntegrationsResponse =
+      new operations.ListIntegrationsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.integrations = utils.objectToClass(
+            httpRes?.data,
+            shared.Integrations
+          );
+        }
+        break;
+      case [400, 401].includes(httpRes?.status):
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.errorMessage = utils.objectToClass(
+            httpRes?.data,
+            shared.ErrorMessage
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

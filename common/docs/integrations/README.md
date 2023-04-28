@@ -20,7 +20,6 @@ Get single integration, by platformKey
 import { CodatCommon } from "@codat/common";
 import { GetIntegrationResponse } from "@codat/common/dist/sdk/models/operations";
 import { DataTypeEnum, FeatureStateEnum, FeatureTypeEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
   security: {
@@ -30,8 +29,8 @@ const sdk = new CodatCommon({
 
 sdk.integrations.get({
   platformKey: "gbol",
-}).then((res: GetIntegrationResponse | AxiosError) => {
-  if (res instanceof GetIntegrationResponse && res.statusCode == 200) {
+}).then((res: GetIntegrationResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -46,7 +45,6 @@ Get branding for platform.
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { GetIntegrationsBrandingResponse } from "@codat/common/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
   security: {
@@ -56,8 +54,8 @@ const sdk = new CodatCommon({
 
 sdk.integrations.getBranding({
   platformKey: "gbol",
-}).then((res: GetIntegrationsBrandingResponse | AxiosError) => {
-  if (res instanceof GetIntegrationsBrandingResponse && res.statusCode == 200) {
+}).then((res: GetIntegrationsBrandingResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -73,7 +71,6 @@ List your available integrations
 import { CodatCommon } from "@codat/common";
 import { ListIntegrationsResponse } from "@codat/common/dist/sdk/models/operations";
 import { DataTypeEnum, FeatureStateEnum, FeatureTypeEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
   security: {
@@ -86,8 +83,8 @@ sdk.integrations.list({
   page: 1,
   pageSize: 100,
   query: "veritatis",
-}).then((res: ListIntegrationsResponse | AxiosError) => {
-  if (res instanceof ListIntegrationsResponse && res.statusCode == 200) {
+}).then((res: ListIntegrationsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
