@@ -27,7 +27,6 @@ Required data may vary by integration. To see what data to post, first call [Get
 import { CodatAccounting } from "@codat/accounting";
 import { CreateItemResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { DataTypeEnum, ItemStatusEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -79,8 +78,8 @@ sdk.items.create({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 420757,
-}).then((res: CreateItemResponse | AxiosError) => {
-  if (res instanceof CreateItemResponse && res.statusCode == 200) {
+}).then((res: CreateItemResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -96,7 +95,6 @@ Gets the specified item for a given company.
 import { CodatAccounting } from "@codat/accounting";
 import { GetItemResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { ItemStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -107,8 +105,8 @@ const sdk = new CodatAccounting({
 sdk.items.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   itemId: "ea",
-}).then((res: GetItemResponse | AxiosError) => {
-  if (res instanceof GetItemResponse && res.statusCode == 200) {
+}).then((res: GetItemResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -130,7 +128,6 @@ See the examples for integration-specific indicative models.
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateItemsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -141,8 +138,8 @@ const sdk = new CodatAccounting({
 sdk.items.getCreateModel({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateItemsModelResponse | AxiosError) => {
-  if (res instanceof GetCreateItemsModelResponse && res.statusCode == 200) {
+}).then((res: GetCreateItemsModelResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -158,7 +155,6 @@ Gets the items for a given company.
 import { CodatAccounting } from "@codat/accounting";
 import { ListItemsResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { ItemStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -172,8 +168,8 @@ sdk.items.list({
   page: 1,
   pageSize: 100,
   query: "nulla",
-}).then((res: ListItemsResponse | AxiosError) => {
-  if (res instanceof ListItemsResponse && res.statusCode == 200) {
+}).then((res: ListItemsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

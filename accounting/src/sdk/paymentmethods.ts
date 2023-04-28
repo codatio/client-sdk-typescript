@@ -40,7 +40,7 @@ export class PaymentMethods {
    * @remarks
    * Gets the specified payment method for a given company.
    */
-  get(
+  async get(
     req: operations.GetPaymentMethodRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -63,38 +63,39 @@ export class PaymentMethods {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetPaymentMethodResponse =
-        new operations.GetPaymentMethodResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.paymentMethod = utils.objectToClass(
-              httpRes?.data,
-              shared.PaymentMethod
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetPaymentMethodResponse =
+      new operations.GetPaymentMethodResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.paymentMethod = utils.objectToClass(
+            httpRes?.data,
+            shared.PaymentMethod
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -103,7 +104,7 @@ export class PaymentMethods {
    * @remarks
    * Gets the payment methods for a given company.
    */
-  list(
+  async list(
     req: operations.ListPaymentMethodsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -128,37 +129,38 @@ export class PaymentMethods {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListPaymentMethodsResponse =
-        new operations.ListPaymentMethodsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.paymentMethods = utils.objectToClass(
-              httpRes?.data,
-              shared.PaymentMethods
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ListPaymentMethodsResponse =
+      new operations.ListPaymentMethodsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.paymentMethods = utils.objectToClass(
+            httpRes?.data,
+            shared.PaymentMethods
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

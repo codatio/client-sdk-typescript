@@ -40,7 +40,7 @@ export class Financials {
    * @remarks
    * Gets the latest balance sheet for a company.
    */
-  getBalanceSheet(
+  async getBalanceSheet(
     req: operations.GetBalanceSheetRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -65,38 +65,39 @@ export class Financials {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetBalanceSheetResponse =
-        new operations.GetBalanceSheetResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.balanceSheet = utils.objectToClass(
-              httpRes?.data,
-              shared.BalanceSheet1
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetBalanceSheetResponse =
+      new operations.GetBalanceSheetResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.balanceSheet = utils.objectToClass(
+            httpRes?.data,
+            shared.BalanceSheet1
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -105,7 +106,7 @@ export class Financials {
    * @remarks
    * Gets the latest cash flow statement for a company.
    */
-  getCashFlowStatement(
+  async getCashFlowStatement(
     req: operations.GetCashFlowStatementRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -130,38 +131,39 @@ export class Financials {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCashFlowStatementResponse =
-        new operations.GetCashFlowStatementResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.cashFlowStatement = utils.objectToClass(
-              httpRes?.data,
-              shared.CashFlowStatement1
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetCashFlowStatementResponse =
+      new operations.GetCashFlowStatementResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.cashFlowStatement = utils.objectToClass(
+            httpRes?.data,
+            shared.CashFlowStatement1
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -170,7 +172,7 @@ export class Financials {
    * @remarks
    * Gets the latest profit and loss for a company.
    */
-  getProfitAndLoss(
+  async getProfitAndLoss(
     req: operations.GetProfitAndLossRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -195,37 +197,38 @@ export class Financials {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetProfitAndLossResponse =
-        new operations.GetProfitAndLossResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.profitAndLossReport = utils.objectToClass(
-              httpRes?.data,
-              shared.ProfitAndLossReport1
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetProfitAndLossResponse =
+      new operations.GetProfitAndLossResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.profitAndLossReport = utils.objectToClass(
+            httpRes?.data,
+            shared.ProfitAndLossReport1
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

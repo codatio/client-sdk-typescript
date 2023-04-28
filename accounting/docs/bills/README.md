@@ -39,7 +39,6 @@ import {
   PushChangeTypeEnum,
   PushOperationStatusEnum,
 } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -309,8 +308,8 @@ sdk.bills.create({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 209602,
-}).then((res: CreateBillResponse | AxiosError) => {
-  if (res instanceof CreateBillResponse && res.statusCode == 200) {
+}).then((res: CreateBillResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -330,7 +329,6 @@ Deletes a bill from the accounting package for a given company.
 import { CodatAccounting } from "@codat/accounting";
 import { DeleteBillResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { DataTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -342,8 +340,8 @@ sdk.bills.delete({
   billId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: DeleteBillResponse | AxiosError) => {
-  if (res instanceof DeleteBillResponse && res.statusCode == 200) {
+}).then((res: DeleteBillResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -358,7 +356,6 @@ Download bill attachment
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { DownloadBillAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -371,8 +368,8 @@ sdk.bills.downloadAttachment({
   billId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: DownloadBillAttachmentResponse | AxiosError) => {
-  if (res instanceof DownloadBillAttachmentResponse && res.statusCode == 200) {
+}).then((res: DownloadBillAttachmentResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -388,7 +385,6 @@ Get bill
 import { CodatAccounting } from "@codat/accounting";
 import { GetBillResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { BilledToTypeEnum, BillStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -399,8 +395,8 @@ const sdk = new CodatAccounting({
 sdk.bills.get({
   billId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetBillResponse | AxiosError) => {
-  if (res instanceof GetBillResponse && res.statusCode == 200) {
+}).then((res: GetBillResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -415,7 +411,6 @@ Get bill attachment
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetBillAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -428,8 +423,8 @@ sdk.bills.getAttachment({
   billId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetBillAttachmentResponse | AxiosError) => {
-  if (res instanceof GetBillAttachmentResponse && res.statusCode == 200) {
+}).then((res: GetBillAttachmentResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -449,7 +444,6 @@ Get create/update bill model.
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateUpdateBillsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -460,8 +454,8 @@ const sdk = new CodatAccounting({
 sdk.bills.getCreateUpdateModel({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateUpdateBillsModelResponse | AxiosError) => {
-  if (res instanceof GetCreateUpdateBillsModelResponse && res.statusCode == 200) {
+}).then((res: GetCreateUpdateBillsModelResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -477,7 +471,6 @@ Gets the latest bills for a company, with pagination
 import { CodatAccounting } from "@codat/accounting";
 import { ListBillsResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { BilledToTypeEnum, BillStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -491,8 +484,8 @@ sdk.bills.list({
   page: 1,
   pageSize: 100,
   query: "eaque",
-}).then((res: ListBillsResponse | AxiosError) => {
-  if (res instanceof ListBillsResponse && res.statusCode == 200) {
+}).then((res: ListBillsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -507,7 +500,6 @@ List bill attachments
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListBillAttachmentsResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -519,8 +511,8 @@ sdk.bills.listAttachments({
   billId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: ListBillAttachmentsResponse | AxiosError) => {
-  if (res instanceof ListBillAttachmentsResponse && res.statusCode == 200) {
+}).then((res: ListBillAttachmentsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -548,7 +540,6 @@ import {
   PushChangeTypeEnum,
   PushOperationStatusEnum,
 } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -789,8 +780,8 @@ sdk.bills.update({
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
   timeoutInMinutes: 990454,
-}).then((res: UpdateBillResponse | AxiosError) => {
-  if (res instanceof UpdateBillResponse && res.statusCode == 200) {
+}).then((res: UpdateBillResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -805,7 +796,6 @@ Upload bill attachment
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { UploadBillAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -821,8 +811,8 @@ sdk.bills.uploadAttachment({
   billId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: UploadBillAttachmentResponse | AxiosError) => {
-  if (res instanceof UploadBillAttachmentResponse && res.statusCode == 200) {
+}).then((res: UploadBillAttachmentResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

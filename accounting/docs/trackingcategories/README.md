@@ -19,7 +19,6 @@ Gets the specified tracking categories for a given company.
 import { CodatAccounting } from "@codat/accounting";
 import { GetTrackingCategoryResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { StatusEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -30,8 +29,8 @@ const sdk = new CodatAccounting({
 sdk.trackingCategories.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   trackingCategoryId: "animi",
-}).then((res: GetTrackingCategoryResponse | AxiosError) => {
-  if (res instanceof GetTrackingCategoryResponse && res.statusCode == 200) {
+}).then((res: GetTrackingCategoryResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -47,7 +46,6 @@ Gets the latest tracking categories for a given company.
 import { CodatAccounting } from "@codat/accounting";
 import { ListTrackingCategoriesResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { StatusEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -61,8 +59,8 @@ sdk.trackingCategories.list({
   page: 1,
   pageSize: 100,
   query: "autem",
-}).then((res: ListTrackingCategoriesResponse | AxiosError) => {
-  if (res instanceof ListTrackingCategoriesResponse && res.statusCode == 200) {
+}).then((res: ListTrackingCategoriesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

@@ -37,7 +37,6 @@ import {
   PushOperationStatusEnum,
   SupplierStatusEnum,
 } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -86,8 +85,8 @@ sdk.suppliers.create({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 796063,
-}).then((res: CreateSupplierResponse | AxiosError) => {
-  if (res instanceof CreateSupplierResponse && res.statusCode == 200) {
+}).then((res: CreateSupplierResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -102,7 +101,6 @@ Download supplier attachment
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { DownloadSupplierAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -115,8 +113,8 @@ sdk.suppliers.downloadAttachment({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   supplierId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: DownloadSupplierAttachmentResponse | AxiosError) => {
-  if (res instanceof DownloadSupplierAttachmentResponse && res.statusCode == 200) {
+}).then((res: DownloadSupplierAttachmentResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -132,7 +130,6 @@ Gets a single supplier corresponding to the given ID.
 import { CodatAccounting } from "@codat/accounting";
 import { GetSupplierResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AddressTypeEnum, SupplierStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -143,8 +140,8 @@ const sdk = new CodatAccounting({
 sdk.suppliers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   supplierId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetSupplierResponse | AxiosError) => {
-  if (res instanceof GetSupplierResponse && res.statusCode == 200) {
+}).then((res: GetSupplierResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -159,7 +156,6 @@ Get supplier attachment
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetSupplierAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -172,8 +168,8 @@ sdk.suppliers.getAttachment({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   supplierId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetSupplierAttachmentResponse | AxiosError) => {
-  if (res instanceof GetSupplierAttachmentResponse && res.statusCode == 200) {
+}).then((res: GetSupplierAttachmentResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -195,7 +191,6 @@ See the examples for integration-specific indicative models.
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateUpdateSuppliersModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -206,8 +201,8 @@ const sdk = new CodatAccounting({
 sdk.suppliers.getCreateUpdateModel({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateUpdateSuppliersModelResponse | AxiosError) => {
-  if (res instanceof GetCreateUpdateSuppliersModelResponse && res.statusCode == 200) {
+}).then((res: GetCreateUpdateSuppliersModelResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -223,7 +218,6 @@ Gets the latest suppliers for a company, with pagination
 import { CodatAccounting } from "@codat/accounting";
 import { ListSuppliersResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AddressTypeEnum, SupplierStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -237,8 +231,8 @@ sdk.suppliers.list({
   page: 1,
   pageSize: 100,
   query: "blanditiis",
-}).then((res: ListSuppliersResponse | AxiosError) => {
-  if (res instanceof ListSuppliersResponse && res.statusCode == 200) {
+}).then((res: ListSuppliersResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -253,7 +247,6 @@ Get supplier attachments
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListSupplierAttachmentsResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -265,8 +258,8 @@ sdk.suppliers.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   supplierId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: ListSupplierAttachmentsResponse | AxiosError) => {
-  if (res instanceof ListSupplierAttachmentsResponse && res.statusCode == 200) {
+}).then((res: ListSupplierAttachmentsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -294,7 +287,6 @@ import {
   PushOperationStatusEnum,
   SupplierStatusEnum,
 } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -370,8 +362,8 @@ sdk.suppliers.update({
   forceUpdate: false,
   supplierId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   timeoutInMinutes: 721212,
-}).then((res: UpdateSupplierResponse | AxiosError) => {
-  if (res instanceof UpdateSupplierResponse && res.statusCode == 200) {
+}).then((res: UpdateSupplierResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

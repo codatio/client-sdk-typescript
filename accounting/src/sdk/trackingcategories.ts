@@ -40,7 +40,7 @@ export class TrackingCategories {
    * @remarks
    * Gets the specified tracking categories for a given company.
    */
-  get(
+  async get(
     req: operations.GetTrackingCategoryRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -63,38 +63,39 @@ export class TrackingCategories {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetTrackingCategoryResponse =
-        new operations.GetTrackingCategoryResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.trackingCategoryTree = utils.objectToClass(
-              httpRes?.data,
-              shared.TrackingCategoryTree
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetTrackingCategoryResponse =
+      new operations.GetTrackingCategoryResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.trackingCategoryTree = utils.objectToClass(
+            httpRes?.data,
+            shared.TrackingCategoryTree
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -103,7 +104,7 @@ export class TrackingCategories {
    * @remarks
    * Gets the latest tracking categories for a given company.
    */
-  list(
+  async list(
     req: operations.ListTrackingCategoriesRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -128,37 +129,38 @@ export class TrackingCategories {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListTrackingCategoriesResponse =
-        new operations.ListTrackingCategoriesResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.trackingCategories = utils.objectToClass(
-              httpRes?.data,
-              shared.TrackingCategories
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ListTrackingCategoriesResponse =
+      new operations.ListTrackingCategoriesResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.trackingCategories = utils.objectToClass(
+            httpRes?.data,
+            shared.TrackingCategories
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

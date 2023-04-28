@@ -19,7 +19,6 @@ Gets the specified tax rate for a given company.
 import { CodatAccounting } from "@codat/accounting";
 import { GetTaxRateResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { TaxRateStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -30,8 +29,8 @@ const sdk = new CodatAccounting({
 sdk.taxRates.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   taxRateId: "inventore",
-}).then((res: GetTaxRateResponse | AxiosError) => {
-  if (res instanceof GetTaxRateResponse && res.statusCode == 200) {
+}).then((res: GetTaxRateResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -47,7 +46,6 @@ Gets the latest tax rates for a given company.
 import { CodatAccounting } from "@codat/accounting";
 import { ListTaxRatesResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { TaxRateStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -61,8 +59,8 @@ sdk.taxRates.list({
   page: 1,
   pageSize: 100,
   query: "eligendi",
-}).then((res: ListTaxRatesResponse | AxiosError) => {
-  if (res instanceof ListTaxRatesResponse && res.statusCode == 200) {
+}).then((res: ListTaxRatesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

@@ -33,7 +33,6 @@ import {
   PushChangeTypeEnum,
   PushOperationStatusEnum,
 } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -96,8 +95,8 @@ sdk.accounts.create({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 836079,
-}).then((res: CreateAccountResponse | AxiosError) => {
-  if (res instanceof CreateAccountResponse && res.statusCode == 200) {
+}).then((res: CreateAccountResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -113,7 +112,6 @@ Gets a single account corresponding to the given ID.
 import { CodatAccounting } from "@codat/accounting";
 import { GetAccountResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AccountStatusEnum, AccountTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -124,8 +122,8 @@ const sdk = new CodatAccounting({
 sdk.accounts.get({
   accountId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetAccountResponse | AxiosError) => {
-  if (res instanceof GetAccountResponse && res.statusCode == 200) {
+}).then((res: GetAccountResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -147,7 +145,6 @@ See the examples for integration-specific indicative models.
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateChartOfAccountsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -158,8 +155,8 @@ const sdk = new CodatAccounting({
 sdk.accounts.getCreateModel({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateChartOfAccountsModelResponse | AxiosError) => {
-  if (res instanceof GetCreateChartOfAccountsModelResponse && res.statusCode == 200) {
+}).then((res: GetCreateChartOfAccountsModelResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -175,7 +172,6 @@ Gets the latest accounts for a company
 import { CodatAccounting } from "@codat/accounting";
 import { ListAccountsResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AccountStatusEnum, AccountTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -189,8 +185,8 @@ sdk.accounts.list({
   page: 1,
   pageSize: 100,
   query: "ab",
-}).then((res: ListAccountsResponse | AxiosError) => {
-  if (res instanceof ListAccountsResponse && res.statusCode == 200) {
+}).then((res: ListAccountsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

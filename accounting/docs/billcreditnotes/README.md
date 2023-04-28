@@ -34,7 +34,6 @@ import {
   PushChangeTypeEnum,
   PushOperationStatusEnum,
 } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -286,8 +285,8 @@ sdk.billCreditNotes.create({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 52508,
-}).then((res: CreateBillCreditNoteResponse | AxiosError) => {
-  if (res instanceof CreateBillCreditNoteResponse && res.statusCode == 200) {
+}).then((res: CreateBillCreditNoteResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -303,7 +302,6 @@ Gets a single billCreditNote corresponding to the given ID.
 import { CodatAccounting } from "@codat/accounting";
 import { GetBillCreditNoteResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { BillCreditNoteStatusEnum, BilledToTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -314,8 +312,8 @@ const sdk = new CodatAccounting({
 sdk.billCreditNotes.get({
   billCreditNoteId: "earum",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetBillCreditNoteResponse | AxiosError) => {
-  if (res instanceof GetBillCreditNoteResponse && res.statusCode == 200) {
+}).then((res: GetBillCreditNoteResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -335,7 +333,6 @@ Get create/update bill credit note model.
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateUpdateBillCreditNotesModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -346,8 +343,8 @@ const sdk = new CodatAccounting({
 sdk.billCreditNotes.getCreateUpdateModel({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateUpdateBillCreditNotesModelResponse | AxiosError) => {
-  if (res instanceof GetCreateUpdateBillCreditNotesModelResponse && res.statusCode == 200) {
+}).then((res: GetCreateUpdateBillCreditNotesModelResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -363,7 +360,6 @@ Gets a list of all bill credit notes for a company, with pagination
 import { CodatAccounting } from "@codat/accounting";
 import { ListBillCreditNotesResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { BillCreditNoteStatusEnum, BilledToTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -377,8 +373,8 @@ sdk.billCreditNotes.list({
   page: 1,
   pageSize: 100,
   query: "perspiciatis",
-}).then((res: ListBillCreditNotesResponse | AxiosError) => {
-  if (res instanceof ListBillCreditNotesResponse && res.statusCode == 200) {
+}).then((res: ListBillCreditNotesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -406,7 +402,6 @@ import {
   PushChangeTypeEnum,
   PushOperationStatusEnum,
 } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -627,8 +622,8 @@ sdk.billCreditNotes.update({
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
   timeoutInMinutes: 10063,
-}).then((res: UpdateBillCreditNoteResponse | AxiosError) => {
-  if (res instanceof UpdateBillCreditNoteResponse && res.statusCode == 200) {
+}).then((res: UpdateBillCreditNoteResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

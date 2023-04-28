@@ -38,7 +38,6 @@ import {
   PushChangeTypeEnum,
   PushOperationStatusEnum,
 } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -143,8 +142,8 @@ sdk.customers.create({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 583959,
-}).then((res: CreateCustomerResponse | AxiosError) => {
-  if (res instanceof CreateCustomerResponse && res.statusCode == 200) {
+}).then((res: CreateCustomerResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -159,7 +158,6 @@ Download customer attachment
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { DownloadCustomerAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -172,8 +170,8 @@ sdk.customers.downloadAttachment({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   customerId: "minima",
-}).then((res: DownloadCustomerAttachmentResponse | AxiosError) => {
-  if (res instanceof DownloadCustomerAttachmentResponse && res.statusCode == 200) {
+}).then((res: DownloadCustomerAttachmentResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -189,7 +187,6 @@ Gets a single customer corresponding to the given ID.
 import { CodatAccounting } from "@codat/accounting";
 import { GetCustomerResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AddressTypeEnum, CustomerStatusEnum, PhoneNumberTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -200,8 +197,8 @@ const sdk = new CodatAccounting({
 sdk.customers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   customerId: "quo",
-}).then((res: GetCustomerResponse | AxiosError) => {
-  if (res instanceof GetCustomerResponse && res.statusCode == 200) {
+}).then((res: GetCustomerResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -216,7 +213,6 @@ Get  customer attachment
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCustomerAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -229,8 +225,8 @@ sdk.customers.getAttachment({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   customerId: "quis",
-}).then((res: GetCustomerAttachmentResponse | AxiosError) => {
-  if (res instanceof GetCustomerAttachmentResponse && res.statusCode == 200) {
+}).then((res: GetCustomerAttachmentResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -252,7 +248,6 @@ See the examples for integration-specific indicative models.
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateUpdateCustomersModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -263,8 +258,8 @@ const sdk = new CodatAccounting({
 sdk.customers.getCreateUpdateModel({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateUpdateCustomersModelResponse | AxiosError) => {
-  if (res instanceof GetCreateUpdateCustomersModelResponse && res.statusCode == 200) {
+}).then((res: GetCreateUpdateCustomersModelResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -280,7 +275,6 @@ Gets the latest customers for a company, with pagination
 import { CodatAccounting } from "@codat/accounting";
 import { ListCustomersResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AddressTypeEnum, CustomerStatusEnum, PhoneNumberTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -294,8 +288,8 @@ sdk.customers.list({
   page: 1,
   pageSize: 100,
   query: "facere",
-}).then((res: ListCustomersResponse | AxiosError) => {
-  if (res instanceof ListCustomersResponse && res.statusCode == 200) {
+}).then((res: ListCustomersResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -310,7 +304,6 @@ List customer attachments
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListCustomerAttachmentsResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -322,8 +315,8 @@ sdk.customers.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   customerId: "quidem",
-}).then((res: ListCustomerAttachmentsResponse | AxiosError) => {
-  if (res instanceof ListCustomerAttachmentsResponse && res.statusCode == 200) {
+}).then((res: ListCustomerAttachmentsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -352,7 +345,6 @@ import {
   PushChangeTypeEnum,
   PushOperationStatusEnum,
 } from "@codat/accounting/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatAccounting({
   security: {
@@ -501,8 +493,8 @@ sdk.customers.update({
   customerId: "error",
   forceUpdate: false,
   timeoutInMinutes: 535903,
-}).then((res: UpdateCustomerResponse | AxiosError) => {
-  if (res instanceof UpdateCustomerResponse && res.statusCode == 200) {
+}).then((res: UpdateCustomerResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
