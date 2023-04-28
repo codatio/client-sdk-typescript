@@ -40,7 +40,7 @@ export class Accounts {
    * @remarks
    * Gets a specified bank account for a given company
    */
-  get(
+  async get(
     req: operations.GetAccountRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -63,35 +63,36 @@ export class Accounts {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetAccountResponse =
-        new operations.GetAccountResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.account = utils.objectToClass(httpRes?.data, shared.Account);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetAccountResponse =
+      new operations.GetAccountResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.account = utils.objectToClass(httpRes?.data, shared.Account);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -100,7 +101,7 @@ export class Accounts {
    * @remarks
    * Gets a list of all bank accounts of the SMB, with rich data like balances, account numbers and institutions holdingthe accounts.
    */
-  list(
+  async list(
     req: operations.ListAccountsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -125,34 +126,35 @@ export class Accounts {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListAccountsResponse =
-        new operations.ListAccountsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.accounts = utils.objectToClass(httpRes?.data, shared.Accounts);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ListAccountsResponse =
+      new operations.ListAccountsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.accounts = utils.objectToClass(httpRes?.data, shared.Accounts);
+        }
+        break;
+    }
+
+    return res;
   }
 }

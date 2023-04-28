@@ -40,7 +40,7 @@ export class TransactionCategories {
    * @remarks
    * Gets a specified bank transaction category for a given company
    */
-  get(
+  async get(
     req: operations.GetTransactionCategoryRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -63,38 +63,39 @@ export class TransactionCategories {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetTransactionCategoryResponse =
-        new operations.GetTransactionCategoryResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.transactionCategory = utils.objectToClass(
-              httpRes?.data,
-              shared.TransactionCategory
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetTransactionCategoryResponse =
+      new operations.GetTransactionCategoryResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.transactionCategory = utils.objectToClass(
+            httpRes?.data,
+            shared.TransactionCategory
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -103,7 +104,7 @@ export class TransactionCategories {
    * @remarks
    * Gets a list of hierarchical categories associated with a transaction for greater contextual meaning to transactionactivity.
    */
-  list(
+  async list(
     req: operations.ListTransactionCategoriesRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -128,37 +129,38 @@ export class TransactionCategories {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListTransactionCategoriesResponse =
-        new operations.ListTransactionCategoriesResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.transactionCategories = utils.objectToClass(
-              httpRes?.data,
-              shared.TransactionCategories
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ListTransactionCategoriesResponse =
+      new operations.ListTransactionCategoriesResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.transactionCategories = utils.objectToClass(
+            httpRes?.data,
+            shared.TransactionCategories
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }
