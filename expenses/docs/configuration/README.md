@@ -17,8 +17,7 @@ Gets a companies expense sync configuration
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { GetCompanyConfigurationRequest, GetCompanyConfigurationResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { GetCompanyConfigurationResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 
 const sdk = new CodatSyncExpenses({
   security: {
@@ -26,12 +25,10 @@ const sdk = new CodatSyncExpenses({
   },
 });
 
-const req: GetCompanyConfigurationRequest = {
+sdk.configuration.getCompanyConfiguration({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.configuration.getCompanyConfiguration(req).then((res: GetCompanyConfigurationResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetCompanyConfigurationResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -45,8 +42,7 @@ Sets a companies expense sync configuration
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { SaveCompanyConfigurationRequest, SaveCompanyConfigurationResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { SaveCompanyConfigurationResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 
 const sdk = new CodatSyncExpenses({
   security: {
@@ -54,7 +50,7 @@ const sdk = new CodatSyncExpenses({
   },
 });
 
-const req: SaveCompanyConfigurationRequest = {
+sdk.configuration.saveCompanyConfiguration({
   companyConfiguration: {
     bankAccount: {
       id: "32",
@@ -67,10 +63,8 @@ const req: SaveCompanyConfigurationRequest = {
     },
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.configuration.saveCompanyConfiguration(req).then((res: SaveCompanyConfigurationResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: SaveCompanyConfigurationResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

@@ -40,7 +40,7 @@ export class Sync {
    * @remarks
    * Initiate sync of pending transactions.
    */
-  intiateSync(
+  async intiateSync(
     req: operations.IntiateSyncRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -79,8 +79,9 @@ export class Sync {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "post",
         headers: headers,
@@ -89,37 +90,37 @@ export class Sync {
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.IntiateSyncResponse =
-        new operations.IntiateSyncResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 202:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.syncInitiated = utils.objectToClass(
-              httpRes?.data,
-              shared.SyncInitiated
-            );
-          }
-          break;
-        case [400, 404, 422].includes(httpRes?.status):
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.codatErrorMessage = utils.objectToClass(
-              httpRes?.data,
-              shared.CodatErrorMessage
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.IntiateSyncResponse =
+      new operations.IntiateSyncResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 202:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.syncInitiated = utils.objectToClass(
+            httpRes?.data,
+            shared.SyncInitiated
+          );
+        }
+        break;
+      case [400, 404, 422].includes(httpRes?.status):
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.codatErrorMessage = utils.objectToClass(
+            httpRes?.data,
+            shared.CodatErrorMessage
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

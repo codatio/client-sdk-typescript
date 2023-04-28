@@ -40,7 +40,7 @@ export class SyncStatus {
    * @remarks
    * Gets the status of the last successfull sync
    */
-  getLastSuccessfulSync(
+  async getLastSuccessfulSync(
     req: operations.GetLastSuccessfulSyncRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -63,38 +63,39 @@ export class SyncStatus {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetLastSuccessfulSyncResponse =
-        new operations.GetLastSuccessfulSyncResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.companySyncStatus = utils.objectToClass(
-              httpRes?.data,
-              shared.CompanySyncStatus
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetLastSuccessfulSyncResponse =
+      new operations.GetLastSuccessfulSyncResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.companySyncStatus = utils.objectToClass(
+            httpRes?.data,
+            shared.CompanySyncStatus
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -103,7 +104,7 @@ export class SyncStatus {
    * @remarks
    * Gets the latest sync status
    */
-  getLatestSync(
+  async getLatestSync(
     req: operations.GetLatestSyncRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -126,38 +127,39 @@ export class SyncStatus {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetLatestSyncResponse =
-        new operations.GetLatestSyncResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.companySyncStatus = utils.objectToClass(
-              httpRes?.data,
-              shared.CompanySyncStatus
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetLatestSyncResponse =
+      new operations.GetLatestSyncResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.companySyncStatus = utils.objectToClass(
+            httpRes?.data,
+            shared.CompanySyncStatus
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -166,7 +168,7 @@ export class SyncStatus {
    * @remarks
    * Get the sync status for a specified sync
    */
-  getSyncById(
+  async getSyncById(
     req: operations.GetSyncByIdRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -189,38 +191,39 @@ export class SyncStatus {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetSyncByIdResponse =
-        new operations.GetSyncByIdResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.companySyncStatus = utils.objectToClass(
-              httpRes?.data,
-              shared.CompanySyncStatus
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetSyncByIdResponse =
+      new operations.GetSyncByIdResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.companySyncStatus = utils.objectToClass(
+            httpRes?.data,
+            shared.CompanySyncStatus
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -229,7 +232,7 @@ export class SyncStatus {
    * @remarks
    * Gets a list of sync statuses
    */
-  listSyncs(
+  async listSyncs(
     req: operations.ListSyncsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -252,40 +255,40 @@ export class SyncStatus {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListSyncsResponse =
-        new operations.ListSyncsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.companySyncStatuses = [];
-            const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.companySyncStatuses = utils.objectToClass(
-              httpRes?.data,
-              shared.CompanySyncStatus,
-              resFieldDepth
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
+    const res: operations.ListSyncsResponse = new operations.ListSyncsResponse({
+      statusCode: httpRes.status,
+      contentType: contentType,
+      rawResponse: httpRes,
     });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.companySyncStatuses = [];
+          const resFieldDepth: number = utils.getResFieldDepth(res);
+          res.companySyncStatuses = utils.objectToClass(
+            httpRes?.data,
+            shared.CompanySyncStatus,
+            resFieldDepth
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

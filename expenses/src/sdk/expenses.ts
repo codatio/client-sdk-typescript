@@ -40,7 +40,7 @@ export class Expenses {
    * @remarks
    * Create an expense transaction
    */
-  createExpenseDataset(
+  async createExpenseDataset(
     req: operations.CreateExpenseDatasetRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -79,8 +79,9 @@ export class Expenses {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "post",
         headers: headers,
@@ -89,30 +90,30 @@ export class Expenses {
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateExpenseDatasetResponse =
-        new operations.CreateExpenseDatasetResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.createExpenseResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.CreateExpenseResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateExpenseDatasetResponse =
+      new operations.CreateExpenseDatasetResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.createExpenseResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.CreateExpenseResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -121,7 +122,7 @@ export class Expenses {
    * @remarks
    * Creates an attachment in the accounting software against the given transactionId
    */
-  uploadAttachment(
+  async uploadAttachment(
     req: operations.UploadAttachmentRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -160,8 +161,9 @@ export class Expenses {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "post",
         headers: headers,
@@ -170,29 +172,29 @@ export class Expenses {
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.UploadAttachmentResponse =
-        new operations.UploadAttachmentResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.attachment = utils.objectToClass(
-              httpRes?.data,
-              shared.Attachment
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.UploadAttachmentResponse =
+      new operations.UploadAttachmentResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.attachment = utils.objectToClass(
+            httpRes?.data,
+            shared.Attachment
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

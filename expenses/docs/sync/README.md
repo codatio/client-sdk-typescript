@@ -16,8 +16,7 @@ Initiate sync of pending transactions.
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { IntiateSyncRequest, IntiateSyncResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { IntiateSyncResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 
 const sdk = new CodatSyncExpenses({
   security: {
@@ -25,7 +24,7 @@ const sdk = new CodatSyncExpenses({
   },
 });
 
-const req: IntiateSyncRequest = {
+sdk.sync.intiateSync({
   postSync: {
     datasetIds: [
       "96ed151a-05df-4c2d-9f7c-c78ca1ba928f",
@@ -33,10 +32,8 @@ const req: IntiateSyncRequest = {
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.sync.intiateSync(req).then((res: IntiateSyncResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: IntiateSyncResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
