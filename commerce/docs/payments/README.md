@@ -19,7 +19,6 @@ List commerce payments for the given company & data connection.
 import { CodatCommerce } from "@codat/commerce";
 import { ListPaymentsResponse } from "@codat/commerce/dist/sdk/models/operations";
 import { PaymentStatusEnum } from "@codat/commerce/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatCommerce({
   security: {
@@ -34,8 +33,8 @@ sdk.payments.list({
   page: 1,
   pageSize: 100,
   query: "quibusdam",
-}).then((res: ListPaymentsResponse | AxiosError) => {
-  if (res instanceof ListPaymentsResponse && res.statusCode == 200) {
+}).then((res: ListPaymentsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -51,7 +50,6 @@ Retrieve a list of payment methods, such as card, cash or other online payment m
 import { CodatCommerce } from "@codat/commerce";
 import { ListPaymentMethodsResponse } from "@codat/commerce/dist/sdk/models/operations";
 import { PaymentMethodStatusEnum } from "@codat/commerce/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatCommerce({
   security: {
@@ -66,8 +64,8 @@ sdk.payments.listMethods({
   page: 1,
   pageSize: 100,
   query: "unde",
-}).then((res: ListPaymentMethodsResponse | AxiosError) => {
-  if (res instanceof ListPaymentMethodsResponse && res.statusCode == 200) {
+}).then((res: ListPaymentMethodsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

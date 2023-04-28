@@ -42,7 +42,7 @@ export class Locations {
    *
    * A `location` is a geographic place at which stocks of products may be held, or from where orders were placed.
    */
-  list(
+  async list(
     req: operations.ListLocationsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -65,37 +65,38 @@ export class Locations {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListLocationsResponse =
-        new operations.ListLocationsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.locationsResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.LocationsResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ListLocationsResponse =
+      new operations.ListLocationsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.locationsResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.LocationsResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

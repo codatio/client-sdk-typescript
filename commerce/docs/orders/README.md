@@ -18,7 +18,6 @@ Get a list of orders placed or held on the linked commerce platform
 import { CodatCommerce } from "@codat/commerce";
 import { ListOrdersResponse } from "@codat/commerce/dist/sdk/models/operations";
 import { PaymentStatusEnum, PaymentTypeEnum, ServiceChargeTypeEnum } from "@codat/commerce/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatCommerce({
   security: {
@@ -33,8 +32,8 @@ sdk.orders.list({
   page: 1,
   pageSize: 100,
   query: "distinctio",
-}).then((res: ListOrdersResponse | AxiosError) => {
-  if (res instanceof ListOrdersResponse && res.statusCode == 200) {
+}).then((res: ListOrdersResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
