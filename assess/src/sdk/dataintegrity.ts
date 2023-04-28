@@ -40,7 +40,7 @@ export class DataIntegrity {
    * @remarks
    * Gets record-by-record match results for a given company and datatype, optionally restricted by a Codat query string.
    */
-  getDataIntegrityDetails(
+  async getDataIntegrityDetails(
     req: operations.GetDataIntegrityDetailsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -65,35 +65,36 @@ export class DataIntegrity {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetDataIntegrityDetailsResponse =
-        new operations.GetDataIntegrityDetailsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.details = utils.objectToClass(httpRes?.data, shared.Details);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetDataIntegrityDetailsResponse =
+      new operations.GetDataIntegrityDetailsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.details = utils.objectToClass(httpRes?.data, shared.Details);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -102,7 +103,7 @@ export class DataIntegrity {
    * @remarks
    * Gets match status for a given company and datatype.
    */
-  getDataIntegrityStatus(
+  async getDataIntegrityStatus(
     req: operations.GetDataIntegrityStatusRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -125,35 +126,36 @@ export class DataIntegrity {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetDataIntegrityStatusResponse =
-        new operations.GetDataIntegrityStatusResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.status = utils.objectToClass(httpRes?.data, shared.Status);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetDataIntegrityStatusResponse =
+      new operations.GetDataIntegrityStatusResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.status = utils.objectToClass(httpRes?.data, shared.Status);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -162,7 +164,7 @@ export class DataIntegrity {
    * @remarks
    * Gets match summary for a given company and datatype, optionally restricted by a Codat query string.
    */
-  getDataIntegritySummaries(
+  async getDataIntegritySummaries(
     req: operations.GetDataIntegritySummariesRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -187,37 +189,35 @@ export class DataIntegrity {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetDataIntegritySummariesResponse =
-        new operations.GetDataIntegritySummariesResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.summaries = utils.objectToClass(
-              httpRes?.data,
-              shared.Summaries
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetDataIntegritySummariesResponse =
+      new operations.GetDataIntegritySummariesResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.summaries = utils.objectToClass(httpRes?.data, shared.Summaries);
+        }
+        break;
+    }
+
+    return res;
   }
 }
