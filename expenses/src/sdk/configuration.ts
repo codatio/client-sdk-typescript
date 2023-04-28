@@ -40,7 +40,7 @@ export class Configuration {
    * @remarks
    * Gets a companies expense sync configuration
    */
-  getCompanyConfiguration(
+  async getCompanyConfiguration(
     req: operations.GetCompanyConfigurationRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -63,38 +63,39 @@ export class Configuration {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCompanyConfigurationResponse =
-        new operations.GetCompanyConfigurationResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.companyConfiguration = utils.objectToClass(
-              httpRes?.data,
-              shared.CompanyConfiguration
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetCompanyConfigurationResponse =
+      new operations.GetCompanyConfigurationResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.companyConfiguration = utils.objectToClass(
+            httpRes?.data,
+            shared.CompanyConfiguration
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -103,7 +104,7 @@ export class Configuration {
    * @remarks
    * Sets a companies expense sync configuration
    */
-  saveCompanyConfiguration(
+  async saveCompanyConfiguration(
     req: operations.SaveCompanyConfigurationRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -142,8 +143,9 @@ export class Configuration {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "post",
         headers: headers,
@@ -152,37 +154,37 @@ export class Configuration {
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.SaveCompanyConfigurationResponse =
-        new operations.SaveCompanyConfigurationResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.companyConfiguration = utils.objectToClass(
-              httpRes?.data,
-              shared.CompanyConfiguration
-            );
-          }
-          break;
-        case httpRes?.status == 400:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.codatErrorMessage = utils.objectToClass(
-              httpRes?.data,
-              shared.CodatErrorMessage
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.SaveCompanyConfigurationResponse =
+      new operations.SaveCompanyConfigurationResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.companyConfiguration = utils.objectToClass(
+            httpRes?.data,
+            shared.CompanyConfiguration
+          );
+        }
+        break;
+      case httpRes?.status == 400:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.codatErrorMessage = utils.objectToClass(
+            httpRes?.data,
+            shared.CodatErrorMessage
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

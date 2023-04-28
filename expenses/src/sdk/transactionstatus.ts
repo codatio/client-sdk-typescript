@@ -40,7 +40,7 @@ export class TransactionStatus {
    * @remarks
    * Gets the status of a transaction for a sync
    */
-  getSyncTransaction(
+  async getSyncTransaction(
     req: operations.GetSyncTransactionRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -63,41 +63,42 @@ export class TransactionStatus {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetSyncTransactionResponse =
-        new operations.GetSyncTransactionResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.transactionMetadata = [];
-            const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.transactionMetadata = utils.objectToClass(
-              httpRes?.data,
-              shared.TransactionMetadata,
-              resFieldDepth
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetSyncTransactionResponse =
+      new operations.GetSyncTransactionResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.transactionMetadata = [];
+          const resFieldDepth: number = utils.getResFieldDepth(res);
+          res.transactionMetadata = utils.objectToClass(
+            httpRes?.data,
+            shared.TransactionMetadata,
+            resFieldDepth
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -106,7 +107,7 @@ export class TransactionStatus {
    * @remarks
    * Get's the transactions and status for a sync
    */
-  listSyncTransactions(
+  async listSyncTransactions(
     req: operations.ListSyncTransactionsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -131,37 +132,38 @@ export class TransactionStatus {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListSyncTransactionsResponse =
-        new operations.ListSyncTransactionsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.transactionMetadataList = utils.objectToClass(
-              httpRes?.data,
-              shared.TransactionMetadataList
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ListSyncTransactionsResponse =
+      new operations.ListSyncTransactionsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.transactionMetadataList = utils.objectToClass(
+            httpRes?.data,
+            shared.TransactionMetadataList
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

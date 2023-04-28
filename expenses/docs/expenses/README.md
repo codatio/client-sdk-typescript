@@ -17,9 +17,8 @@ Create an expense transaction
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { CreateExpenseDatasetRequest, CreateExpenseDatasetResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
+import { CreateExpenseDatasetResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 import { ExpenseTransactionTypeEnum } from "@codat/sync-for-expenses/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatSyncExpenses({
   security: {
@@ -27,7 +26,7 @@ const sdk = new CodatSyncExpenses({
   },
 });
 
-const req: CreateExpenseDatasetRequest = {
+sdk.expenses.createExpenseDataset({
   createExpenseRequest: {
     items: [
       {
@@ -288,10 +287,8 @@ const req: CreateExpenseDatasetRequest = {
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.expenses.createExpenseDataset(req).then((res: CreateExpenseDatasetResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateExpenseDatasetResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -305,8 +302,7 @@ Creates an attachment in the accounting software against the given transactionId
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { UploadAttachmentRequest, UploadAttachmentResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { UploadAttachmentResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 
 const sdk = new CodatSyncExpenses({
   security: {
@@ -314,7 +310,7 @@ const sdk = new CodatSyncExpenses({
   },
 });
 
-const req: UploadAttachmentRequest = {
+sdk.expenses.uploadAttachment({
   requestBody: {
     content: "placeat".encode(),
     requestBody: "voluptatum",
@@ -322,10 +318,8 @@ const req: UploadAttachmentRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
   transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
-};
-
-sdk.expenses.uploadAttachment(req).then((res: UploadAttachmentResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UploadAttachmentResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

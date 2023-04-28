@@ -19,8 +19,7 @@ Gets the status of the last successfull sync
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { GetLastSuccessfulSyncRequest, GetLastSuccessfulSyncResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { GetLastSuccessfulSyncResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 
 const sdk = new CodatSyncExpenses({
   security: {
@@ -28,12 +27,10 @@ const sdk = new CodatSyncExpenses({
   },
 });
 
-const req: GetLastSuccessfulSyncRequest = {
+sdk.syncStatus.getLastSuccessfulSync({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.syncStatus.getLastSuccessfulSync(req).then((res: GetLastSuccessfulSyncResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetLastSuccessfulSyncResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -47,8 +44,7 @@ Gets the latest sync status
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { GetLatestSyncRequest, GetLatestSyncResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { GetLatestSyncResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 
 const sdk = new CodatSyncExpenses({
   security: {
@@ -56,12 +52,10 @@ const sdk = new CodatSyncExpenses({
   },
 });
 
-const req: GetLatestSyncRequest = {
+sdk.syncStatus.getLatestSync({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.syncStatus.getLatestSync(req).then((res: GetLatestSyncResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetLatestSyncResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -75,8 +69,7 @@ Get the sync status for a specified sync
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { GetSyncByIdRequest, GetSyncByIdResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { GetSyncByIdResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 
 const sdk = new CodatSyncExpenses({
   security: {
@@ -84,13 +77,11 @@ const sdk = new CodatSyncExpenses({
   },
 });
 
-const req: GetSyncByIdRequest = {
+sdk.syncStatus.getSyncById({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
-};
-
-sdk.syncStatus.getSyncById(req).then((res: GetSyncByIdResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: GetSyncByIdResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -104,8 +95,7 @@ Gets a list of sync statuses
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { ListSyncsRequest, ListSyncsResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { ListSyncsResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 
 const sdk = new CodatSyncExpenses({
   security: {
@@ -113,12 +103,10 @@ const sdk = new CodatSyncExpenses({
   },
 });
 
-const req: ListSyncsRequest = {
+sdk.syncStatus.listSyncs({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.syncStatus.listSyncs(req).then((res: ListSyncsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListSyncsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
