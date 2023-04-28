@@ -18,8 +18,7 @@ You can specify a date to download specific files for.
 
 ```typescript
 import { CodatFiles } from "@codat/files";
-import { DownloadFilesRequest, DownloadFilesResponse } from "@codat/files/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { DownloadFilesResponse } from "@codat/files/dist/sdk/models/operations";
 
 const sdk = new CodatFiles({
   security: {
@@ -27,13 +26,11 @@ const sdk = new CodatFiles({
   },
 });
 
-const req: DownloadFilesRequest = {
+sdk.files.downloadFiles({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   date: "provident",
-};
-
-sdk.files.downloadFiles(req).then((res: DownloadFilesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DownloadFilesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -47,8 +44,7 @@ Returns an array of files that have been uploaded for a given company.
 
 ```typescript
 import { CodatFiles } from "@codat/files";
-import { ListFilesRequest, ListFilesResponse } from "@codat/files/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { ListFilesResponse } from "@codat/files/dist/sdk/models/operations";
 
 const sdk = new CodatFiles({
   security: {
@@ -56,12 +52,10 @@ const sdk = new CodatFiles({
   },
 });
 
-const req: ListFilesRequest = {
+sdk.files.listFiles({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-};
-
-sdk.files.listFiles(req).then((res: ListFilesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListFilesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -75,8 +69,7 @@ Upload files
 
 ```typescript
 import { CodatFiles } from "@codat/files";
-import { UploadFilesRequest, UploadFilesResponse } from "@codat/files/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { UploadFilesResponse } from "@codat/files/dist/sdk/models/operations";
 
 const sdk = new CodatFiles({
   security: {
@@ -84,17 +77,15 @@ const sdk = new CodatFiles({
   },
 });
 
-const req: UploadFilesRequest = {
+sdk.files.uploadFiles({
   requestBody: {
     content: "distinctio".encode(),
     requestBody: "quibusdam",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-};
-
-sdk.files.uploadFiles(req).then((res: UploadFilesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UploadFilesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

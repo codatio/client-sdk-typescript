@@ -1,8 +1,7 @@
 <!-- Start SDK Example Usage -->
 ```typescript
 import { CodatFiles } from "@codat/files";
-import { DownloadFilesRequest, DownloadFilesResponse } from "@codat/files/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { DownloadFilesResponse } from "@codat/files/dist/sdk/models/operations";
 
 const sdk = new CodatFiles({
   security: {
@@ -10,13 +9,11 @@ const sdk = new CodatFiles({
   },
 });
 
-const req: DownloadFilesRequest = {
+sdk.files.downloadFiles({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   date: "corrupti",
-};
-
-sdk.files.downloadFiles(req).then((res: DownloadFilesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DownloadFilesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
