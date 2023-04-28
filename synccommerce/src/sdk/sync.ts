@@ -41,7 +41,7 @@ export class Sync {
    * Run a Commerce sync from the last successful sync up to the date provided (optional), otherwise UtcNow is used.
    * If there was no previously successful sync, the start date in the config is used.
    */
-  requestSync(
+  async requestSync(
     req: operations.RequestSyncRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -80,8 +80,9 @@ export class Sync {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "post",
         headers: headers,
@@ -90,30 +91,30 @@ export class Sync {
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.RequestSyncResponse =
-        new operations.RequestSyncResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.syncSummary = utils.objectToClass(
-              httpRes?.data,
-              shared.SyncSummary
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.RequestSyncResponse =
+      new operations.RequestSyncResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.syncSummary = utils.objectToClass(
+            httpRes?.data,
+            shared.SyncSummary
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -122,7 +123,7 @@ export class Sync {
    * @remarks
    * Run a Commerce sync from the specified start date to the specified finish date in the request payload.
    */
-  requestSyncForDateRange(
+  async requestSyncForDateRange(
     req: operations.RequestSyncForDateRangeRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -161,8 +162,9 @@ export class Sync {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "post",
         headers: headers,
@@ -171,29 +173,29 @@ export class Sync {
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.RequestSyncForDateRangeResponse =
-        new operations.RequestSyncForDateRangeResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.syncSummary = utils.objectToClass(
-              httpRes?.data,
-              shared.SyncSummary
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.RequestSyncForDateRangeResponse =
+      new operations.RequestSyncForDateRangeResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.syncSummary = utils.objectToClass(
+            httpRes?.data,
+            shared.SyncSummary
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

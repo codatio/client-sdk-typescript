@@ -40,7 +40,7 @@ export class SyncFlowPreferences {
    * @remarks
    * To enable retrieval of preferences set for the text fields on Sync Flow.
    */
-  getConfigTextSyncFlow(
+  async getConfigTextSyncFlow(
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
   ): Promise<operations.GetConfigTextSyncFlowResponse> {
@@ -55,41 +55,42 @@ export class SyncFlowPreferences {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetConfigTextSyncFlowResponse =
-        new operations.GetConfigTextSyncFlowResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.localizationInfo = {};
-            const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.localizationInfo = utils.objectToClass(
-              httpRes?.data,
-              shared.Localization,
-              resFieldDepth
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetConfigTextSyncFlowResponse =
+      new operations.GetConfigTextSyncFlowResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.localizationInfo = {};
+          const resFieldDepth: number = utils.getResFieldDepth(res);
+          res.localizationInfo = utils.objectToClass(
+            httpRes?.data,
+            shared.Localization,
+            resFieldDepth
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -98,7 +99,7 @@ export class SyncFlowPreferences {
    * @remarks
    * Get a URL for Sync Flow including a one time passcode.
    */
-  getSyncFlowUrl(
+  async getSyncFlowUrl(
     req: operations.GetSyncFlowUrlRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -123,38 +124,39 @@ export class SyncFlowPreferences {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetSyncFlowUrlResponse =
-        new operations.GetSyncFlowUrlResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.syncFlowUrl = utils.objectToClass(
-              httpRes?.data,
-              shared.SyncFlowUrl
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetSyncFlowUrlResponse =
+      new operations.GetSyncFlowUrlResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.syncFlowUrl = utils.objectToClass(
+            httpRes?.data,
+            shared.SyncFlowUrl
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -163,7 +165,7 @@ export class SyncFlowPreferences {
    * @remarks
    * Enable retrieval for accounts which are visible on sync flow.
    */
-  getVisibleAccounts(
+  async getVisibleAccounts(
     req: operations.GetVisibleAccountsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -186,38 +188,39 @@ export class SyncFlowPreferences {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetVisibleAccountsResponse =
-        new operations.GetVisibleAccountsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.visibleAccounts = utils.objectToClass(
-              httpRes?.data,
-              shared.VisibleAccounts
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetVisibleAccountsResponse =
+      new operations.GetVisibleAccountsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.visibleAccounts = utils.objectToClass(
+            httpRes?.data,
+            shared.VisibleAccounts
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -226,7 +229,7 @@ export class SyncFlowPreferences {
    * @remarks
    * To enable update of preferences set for the text fields on sync flow.
    */
-  updateConfigTextSyncFlow(
+  async updateConfigTextSyncFlow(
     req: Record<string, shared.Localization>,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -258,8 +261,9 @@ export class SyncFlowPreferences {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "patch",
         headers: headers,
@@ -268,33 +272,33 @@ export class SyncFlowPreferences {
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.UpdateConfigTextSyncFlowResponse =
-        new operations.UpdateConfigTextSyncFlowResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.localizationInfo = {};
-            const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.localizationInfo = utils.objectToClass(
-              httpRes?.data,
-              shared.Localization,
-              resFieldDepth
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.UpdateConfigTextSyncFlowResponse =
+      new operations.UpdateConfigTextSyncFlowResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.localizationInfo = {};
+          const resFieldDepth: number = utils.getResFieldDepth(res);
+          res.localizationInfo = utils.objectToClass(
+            httpRes?.data,
+            shared.Localization,
+            resFieldDepth
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -303,7 +307,7 @@ export class SyncFlowPreferences {
    * @remarks
    * To enable update of accounts visible preferences set on Sync Flow.
    */
-  updateVisibleAccountsSyncFlow(
+  async updateVisibleAccountsSyncFlow(
     req: operations.UpdateVisibleAccountsSyncFlowRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -342,8 +346,9 @@ export class SyncFlowPreferences {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "patch",
         headers: headers,
@@ -352,29 +357,29 @@ export class SyncFlowPreferences {
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.UpdateVisibleAccountsSyncFlowResponse =
-        new operations.UpdateVisibleAccountsSyncFlowResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.visibleAccounts = utils.objectToClass(
-              httpRes?.data,
-              shared.VisibleAccounts
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.UpdateVisibleAccountsSyncFlowResponse =
+      new operations.UpdateVisibleAccountsSyncFlowResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.visibleAccounts = utils.objectToClass(
+            httpRes?.data,
+            shared.VisibleAccounts
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

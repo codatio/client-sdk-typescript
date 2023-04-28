@@ -20,7 +20,6 @@ If there was no previously successful sync, the start date in the config is used
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { RequestSyncResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 import { ConnectionSourceTypeEnum, DataConnectionStatusEnum } from "@codat/sync-for-commerce/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -33,8 +32,8 @@ sdk.sync.requestSync({
     syncTo: "nulla",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: RequestSyncResponse | AxiosError) => {
-  if (res instanceof RequestSyncResponse && res.statusCode == 200) {
+}).then((res: RequestSyncResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -50,7 +49,6 @@ Run a Commerce sync from the specified start date to the specified finish date i
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { RequestSyncForDateRangeResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 import { ConnectionSourceTypeEnum, DataConnectionStatusEnum } from "@codat/sync-for-commerce/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -64,8 +62,8 @@ sdk.sync.requestSyncForDateRange({
     start: "illum",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: RequestSyncForDateRangeResponse | AxiosError) => {
-  if (res instanceof RequestSyncForDateRangeResponse && res.statusCode == 200) {
+}).then((res: RequestSyncForDateRangeResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
