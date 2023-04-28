@@ -40,7 +40,7 @@ export class BankFeedAccounts {
    * @remarks
    * Put BankFeed BankAccounts for a single data source connected to a single company.
    */
-  createBankFeed(
+  async createBankFeed(
     req: operations.CreateBankFeedRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -79,8 +79,9 @@ export class BankFeedAccounts {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "put",
         headers: headers,
@@ -89,33 +90,33 @@ export class BankFeedAccounts {
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateBankFeedResponse =
-        new operations.CreateBankFeedResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.bankFeedAccounts = [];
-            const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.bankFeedAccounts = utils.objectToClass(
-              httpRes?.data,
-              shared.BankFeedAccount,
-              resFieldDepth
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateBankFeedResponse =
+      new operations.CreateBankFeedResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.bankFeedAccounts = [];
+          const resFieldDepth: number = utils.getResFieldDepth(res);
+          res.bankFeedAccounts = utils.objectToClass(
+            httpRes?.data,
+            shared.BankFeedAccount,
+            resFieldDepth
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -124,7 +125,7 @@ export class BankFeedAccounts {
    * @remarks
    * Get BankFeed BankAccounts for a single data source connected to a single company.
    */
-  getBankFeeds(
+  async getBankFeeds(
     req: operations.GetBankFeedsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -147,41 +148,42 @@ export class BankFeedAccounts {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetBankFeedsResponse =
-        new operations.GetBankFeedsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.bankFeedAccounts = [];
-            const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.bankFeedAccounts = utils.objectToClass(
-              httpRes?.data,
-              shared.BankFeedAccount,
-              resFieldDepth
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetBankFeedsResponse =
+      new operations.GetBankFeedsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.bankFeedAccounts = [];
+          const resFieldDepth: number = utils.getResFieldDepth(res);
+          res.bankFeedAccounts = utils.objectToClass(
+            httpRes?.data,
+            shared.BankFeedAccount,
+            resFieldDepth
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -190,7 +192,7 @@ export class BankFeedAccounts {
    * @remarks
    * Update a single BankFeed BankAccount for a single data source connected to a single company.
    */
-  updateBankFeed(
+  async updateBankFeed(
     req: operations.UpdateBankFeedRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -229,8 +231,9 @@ export class BankFeedAccounts {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "patch",
         headers: headers,
@@ -239,29 +242,29 @@ export class BankFeedAccounts {
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.UpdateBankFeedResponse =
-        new operations.UpdateBankFeedResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.bankFeedAccount = utils.objectToClass(
-              httpRes?.data,
-              shared.BankFeedAccount
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.UpdateBankFeedResponse =
+      new operations.UpdateBankFeedResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.bankFeedAccount = utils.objectToClass(
+            httpRes?.data,
+            shared.BankFeedAccount
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

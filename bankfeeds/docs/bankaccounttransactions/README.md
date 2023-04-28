@@ -29,7 +29,6 @@ import {
   PushChangeTypeEnum,
   PushOperationStatusEnum,
 } from "@codat/bank-feeds/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -87,8 +86,8 @@ sdk.bankAccountTransactions.createBankTransactions({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   timeoutInMinutes: 230533,
-}).then((res: CreateBankTransactionsResponse | AxiosError) => {
-  if (res instanceof CreateBankTransactionsResponse && res.statusCode == 200) {
+}).then((res: CreateBankTransactionsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -104,7 +103,6 @@ Gets the options of pushing bank account transactions.
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { GetCreateBankAccountModelResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 import { PushOptionTypeEnum } from "@codat/bank-feeds/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -116,8 +114,8 @@ sdk.bankAccountTransactions.getCreateBankAccountModel({
   accountId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateBankAccountModelResponse | AxiosError) => {
-  if (res instanceof GetCreateBankAccountModelResponse && res.statusCode == 200) {
+}).then((res: GetCreateBankAccountModelResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -133,7 +131,6 @@ Gets bank transactions for a given bank account ID
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { ListBankAccountTransactionsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 import { BankTransactionTypeEnum } from "@codat/bank-feeds/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -149,8 +146,8 @@ sdk.bankAccountTransactions.listBankAccountTransactions({
   page: 1,
   pageSize: 100,
   query: "deserunt",
-}).then((res: ListBankAccountTransactionsResponse | AxiosError) => {
-  if (res instanceof ListBankAccountTransactionsResponse && res.statusCode == 200) {
+}).then((res: ListBankAccountTransactionsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
