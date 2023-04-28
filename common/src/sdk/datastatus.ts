@@ -40,7 +40,7 @@ export class DataStatus {
    * @remarks
    * Get the state of each data type for a company
    */
-  get(
+  async get(
     req: operations.GetCompanyDataStatusRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -63,49 +63,50 @@ export class DataStatus {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetCompanyDataStatusResponse =
-        new operations.GetCompanyDataStatusResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.dataStatusResponse = {};
-            const resFieldDepth: number = utils.getResFieldDepth(res);
-            res.dataStatusResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.DataStatus,
-              resFieldDepth
-            );
-          }
-          break;
-        case [401, 404].includes(httpRes?.status):
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.objectToClass(
-              httpRes?.data,
-              shared.ErrorMessage
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetCompanyDataStatusResponse =
+      new operations.GetCompanyDataStatusResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.dataStatusResponse = {};
+          const resFieldDepth: number = utils.getResFieldDepth(res);
+          res.dataStatusResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.DataStatus,
+            resFieldDepth
+          );
+        }
+        break;
+      case [401, 404].includes(httpRes?.status):
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.errorMessage = utils.objectToClass(
+            httpRes?.data,
+            shared.ErrorMessage
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -114,7 +115,7 @@ export class DataStatus {
    * @remarks
    * Retrieve information about a single dataset or pull operation.
    */
-  getPullOperation(
+  async getPullOperation(
     req: operations.GetPullOperationRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -137,46 +138,47 @@ export class DataStatus {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.GetPullOperationResponse =
-        new operations.GetPullOperationResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.pullOperation = utils.objectToClass(
-              httpRes?.data,
-              shared.PullOperation
-            );
-          }
-          break;
-        case [401, 404].includes(httpRes?.status):
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.objectToClass(
-              httpRes?.data,
-              shared.ErrorMessage
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.GetPullOperationResponse =
+      new operations.GetPullOperationResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.pullOperation = utils.objectToClass(
+            httpRes?.data,
+            shared.PullOperation
+          );
+        }
+        break;
+      case [401, 404].includes(httpRes?.status):
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.errorMessage = utils.objectToClass(
+            httpRes?.data,
+            shared.ErrorMessage
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -185,7 +187,7 @@ export class DataStatus {
    * @remarks
    * Gets the pull operation history (datasets) for a given company.
    */
-  listPullOperations(
+  async listPullOperations(
     req: operations.ListPullOperationsRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
@@ -210,45 +212,46 @@ export class DataStatus {
       retryConfig = new utils.RetryConfig("backoff", true);
       retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
     }
-    const r = utils.Retry(() => {
+    const httpRes: AxiosResponse = await utils.Retry(() => {
       return client.request({
+        validateStatus: () => true,
         url: url + queryParams,
         method: "get",
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListPullOperationsResponse =
-        new operations.ListPullOperationsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.dataConnectionHistory = utils.objectToClass(
-              httpRes?.data,
-              shared.DataConnectionHistory
-            );
-          }
-          break;
-        case [400, 401, 404].includes(httpRes?.status):
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.errorMessage = utils.objectToClass(
-              httpRes?.data,
-              shared.ErrorMessage
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ListPullOperationsResponse =
+      new operations.ListPullOperationsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.dataConnectionHistory = utils.objectToClass(
+            httpRes?.data,
+            shared.DataConnectionHistory
+          );
+        }
+        break;
+      case [400, 401, 404].includes(httpRes?.status):
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.errorMessage = utils.objectToClass(
+            httpRes?.data,
+            shared.ErrorMessage
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 }

@@ -22,7 +22,6 @@ Create a new company
 import { CodatCommon } from "@codat/common";
 import { CreateCompanyResponse } from "@codat/common/dist/sdk/models/operations";
 import { DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
   security: {
@@ -33,8 +32,8 @@ const sdk = new CodatCommon({
 sdk.companies.create({
   description: "corrupti",
   name: "Ben Mueller",
-}).then((res: CreateCompanyResponse | AxiosError) => {
-  if (res instanceof CreateCompanyResponse && res.statusCode == 200) {
+}).then((res: CreateCompanyResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -50,7 +49,6 @@ This operation is not reversible.
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { DeleteCompanyResponse } from "@codat/common/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
   security: {
@@ -60,8 +58,8 @@ const sdk = new CodatCommon({
 
 sdk.companies.delete({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: DeleteCompanyResponse | AxiosError) => {
-  if (res instanceof DeleteCompanyResponse && res.statusCode == 200) {
+}).then((res: DeleteCompanyResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -77,7 +75,6 @@ Get metadata for a single company
 import { CodatCommon } from "@codat/common";
 import { GetCompanyResponse } from "@codat/common/dist/sdk/models/operations";
 import { DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
   security: {
@@ -87,8 +84,8 @@ const sdk = new CodatCommon({
 
 sdk.companies.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetCompanyResponse | AxiosError) => {
-  if (res instanceof GetCompanyResponse && res.statusCode == 200) {
+}).then((res: GetCompanyResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -104,7 +101,6 @@ List all companies that you have created in Codat.
 import { CodatCommon } from "@codat/common";
 import { ListCompaniesResponse } from "@codat/common/dist/sdk/models/operations";
 import { DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
   security: {
@@ -117,8 +113,8 @@ sdk.companies.list({
   page: 1,
   pageSize: 100,
   query: "iure",
-}).then((res: ListCompaniesResponse | AxiosError) => {
-  if (res instanceof ListCompaniesResponse && res.statusCode == 200) {
+}).then((res: ListCompaniesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -134,7 +130,6 @@ Updates the given company with a new name and description
 import { CodatCommon } from "@codat/common";
 import { UpdateCompanyResponse } from "@codat/common/dist/sdk/models/operations";
 import { DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
   security: {
@@ -148,8 +143,8 @@ sdk.companies.update({
     name: "Larry Windler",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: UpdateCompanyResponse | AxiosError) => {
-  if (res instanceof UpdateCompanyResponse && res.statusCode == 200) {
+}).then((res: UpdateCompanyResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

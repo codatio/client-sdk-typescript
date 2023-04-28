@@ -19,7 +19,6 @@ Fetch your Codat profile.
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { GetProfileResponse } from "@codat/common/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
   security: {
@@ -27,8 +26,8 @@ const sdk = new CodatCommon({
   },
 });
 
-sdk.settings.getProfile().then((res: GetProfileResponse | AxiosError) => {
-  if (res instanceof GetProfileResponse && res.statusCode == 200) {
+sdk.settings.getProfile().then((res: GetProfileResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -44,7 +43,6 @@ Update sync settings for all data types.
 import { CodatCommon } from "@codat/common";
 import { UpdateSyncSettingsResponse } from "@codat/common/dist/sdk/models/operations";
 import { SyncSettingDataTypeEnum } from "@codat/common/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
   security: {
@@ -67,8 +65,8 @@ sdk.settings.getSyncSettings({
       syncSchedule: 24,
     },
   ],
-}).then((res: UpdateSyncSettingsResponse | AxiosError) => {
-  if (res instanceof UpdateSyncSettingsResponse && res.statusCode == 200) {
+}).then((res: UpdateSyncSettingsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -83,7 +81,6 @@ Update your Codat profile
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { UpdateProfileResponse } from "@codat/common/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
   security: {
@@ -104,8 +101,8 @@ sdk.settings.updateProfile({
     "https://bobs-burgers.com",
     "https://bobs-burgers.com",
   ],
-}).then((res: UpdateProfileResponse | AxiosError) => {
-  if (res instanceof UpdateProfileResponse && res.statusCode == 200) {
+}).then((res: UpdateProfileResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

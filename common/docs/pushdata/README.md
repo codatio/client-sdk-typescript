@@ -29,7 +29,6 @@ Codat tries not to limit users to pushing to a very limited number of standard c
 import { CodatCommon } from "@codat/common";
 import { GetCreateUpdateModelOptionsByDataTypeResponse } from "@codat/common/dist/sdk/models/operations";
 import { DataTypeEnum, PushOptionTypeEnum } from "@codat/common/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
   security: {
@@ -41,8 +40,8 @@ sdk.pushData.getModelOptions({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   dataType: DataTypeEnum.Invoices,
-}).then((res: GetCreateUpdateModelOptionsByDataTypeResponse | AxiosError) => {
-  if (res instanceof GetCreateUpdateModelOptionsByDataTypeResponse && res.statusCode == 200) {
+}).then((res: GetCreateUpdateModelOptionsByDataTypeResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -58,7 +57,6 @@ Retrieve push operation.
 import { CodatCommon } from "@codat/common";
 import { GetPushOperationResponse } from "@codat/common/dist/sdk/models/operations";
 import { DataTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/common/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
   security: {
@@ -69,8 +67,8 @@ const sdk = new CodatCommon({
 sdk.pushData.getOperation({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   pushOperationKey: "a05dfc2d-df7c-4c78-8a1b-a928fc816742",
-}).then((res: GetPushOperationResponse | AxiosError) => {
-  if (res instanceof GetPushOperationResponse && res.statusCode == 200) {
+}).then((res: GetPushOperationResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -86,7 +84,6 @@ List push operation records.
 import { CodatCommon } from "@codat/common";
 import { GetCompanyPushHistoryResponse } from "@codat/common/dist/sdk/models/operations";
 import { DataTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/common/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatCommon({
   security: {
@@ -100,8 +97,8 @@ sdk.pushData.listOperations({
   page: 1,
   pageSize: 100,
   query: "impedit",
-}).then((res: GetCompanyPushHistoryResponse | AxiosError) => {
-  if (res instanceof GetCompanyPushHistoryResponse && res.statusCode == 200) {
+}).then((res: GetCompanyPushHistoryResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
