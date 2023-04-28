@@ -19,7 +19,6 @@ Retrieve current config preferences.
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { GetConfigurationResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -29,8 +28,8 @@ const sdk = new CodatSyncCommerce({
 
 sdk.configuration.getConfiguration({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetConfigurationResponse | AxiosError) => {
-  if (res instanceof GetConfigurationResponse && res.statusCode == 200) {
+}).then((res: GetConfigurationResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -45,7 +44,6 @@ Check the sync history and sync status for a company.
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { GetSyncStatusResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -55,8 +53,8 @@ const sdk = new CodatSyncCommerce({
 
 sdk.configuration.getSyncStatus({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetSyncStatusResponse | AxiosError) => {
-  if (res instanceof GetSyncStatusResponse && res.statusCode == 200) {
+}).then((res: GetSyncStatusResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -71,7 +69,6 @@ Make changes to configuration preferences.
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { SetConfigurationResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -81,8 +78,8 @@ const sdk = new CodatSyncCommerce({
 
 sdk.configuration.setConfiguration({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: SetConfigurationResponse | AxiosError) => {
-  if (res instanceof SetConfigurationResponse && res.statusCode == 200) {
+}).then((res: SetConfigurationResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

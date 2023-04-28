@@ -22,7 +22,6 @@ Creates a Codat company with a commerce partner data connection.
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { CreateCompanyResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 import { ConnectionSourceTypeEnum, DataConnectionStatusEnum } from "@codat/sync-for-commerce/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -32,8 +31,8 @@ const sdk = new CodatSyncCommerce({
 
 sdk.companyManagement.createCompany({
   name: "Bob's Burgers",
-}).then((res: CreateCompanyResponse | AxiosError) => {
-  if (res instanceof CreateCompanyResponse && res.statusCode == 200) {
+}).then((res: CreateCompanyResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -49,7 +48,6 @@ Create a data connection for company.
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { CreateConnectionResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 import { ConnectionSourceTypeEnum, DataConnectionStatusEnum } from "@codat/sync-for-commerce/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -60,8 +58,8 @@ const sdk = new CodatSyncCommerce({
 sdk.companyManagement.createConnection({
   requestBody: "corrupti",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: CreateConnectionResponse | AxiosError) => {
-  if (res instanceof CreateConnectionResponse && res.statusCode == 200) {
+}).then((res: CreateConnectionResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -77,7 +75,6 @@ Retrieve a list of all companies the client has created.
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { ListCompaniesResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 import { ConnectionSourceTypeEnum, DataConnectionStatusEnum } from "@codat/sync-for-commerce/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -90,8 +87,8 @@ sdk.companyManagement.listCompanies({
   page: 1,
   pageSize: 100,
   query: "provident",
-}).then((res: ListCompaniesResponse | AxiosError) => {
-  if (res instanceof ListCompaniesResponse && res.statusCode == 200) {
+}).then((res: ListCompaniesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -107,7 +104,6 @@ Retrieve previously created data connections.
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { ListConnectionsResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 import { ConnectionSourceTypeEnum, DataConnectionStatusEnum } from "@codat/sync-for-commerce/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -121,8 +117,8 @@ sdk.companyManagement.listConnections({
   page: 1,
   pageSize: 100,
   query: "distinctio",
-}).then((res: ListConnectionsResponse | AxiosError) => {
-  if (res instanceof ListConnectionsResponse && res.statusCode == 200) {
+}).then((res: ListConnectionsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -138,7 +134,6 @@ Update a data connection
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { UpdateConnectionResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 import { ConnectionSourceTypeEnum, DataConnectionStatusEnum } from "@codat/sync-for-commerce/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -152,8 +147,8 @@ sdk.companyManagement.updateConnection({
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: UpdateConnectionResponse | AxiosError) => {
-  if (res instanceof UpdateConnectionResponse && res.statusCode == 200) {
+}).then((res: UpdateConnectionResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

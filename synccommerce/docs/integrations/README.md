@@ -18,7 +18,6 @@ Retrieve Integration branding assets.
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { GetIntegrationBrandingResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -28,8 +27,8 @@ const sdk = new CodatSyncCommerce({
 
 sdk.integrations.getIntegrationBranding({
   platformKey: "quibusdam",
-}).then((res: GetIntegrationBrandingResponse | AxiosError) => {
-  if (res instanceof GetIntegrationBrandingResponse && res.statusCode == 200) {
+}).then((res: GetIntegrationBrandingResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -45,7 +44,6 @@ Retrieve a list of available integrations support by datatype and state of relea
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { ListIntegrationsResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 import { DataTypeFeatureDataTypeEnum, FeatureStateEnum, FeatureTypeEnum, SourceTypeEnum } from "@codat/sync-for-commerce/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -58,8 +56,8 @@ sdk.integrations.listIntegrations({
   page: 1,
   pageSize: 100,
   query: "unde",
-}).then((res: ListIntegrationsResponse | AxiosError) => {
-  if (res instanceof ListIntegrationsResponse && res.statusCode == 200) {
+}).then((res: ListIntegrationsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
