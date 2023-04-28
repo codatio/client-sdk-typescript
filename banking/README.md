@@ -24,7 +24,6 @@ yarn add @codat/banking
 ```typescript
 import { CodatBanking } from "@codat/banking";
 import { ListAccountBalancesResponse } from "@codat/banking/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatBanking({
   security: {
@@ -39,8 +38,8 @@ sdk.accountBalances.list({
   page: 1,
   pageSize: 100,
   query: "corrupti",
-}).then((res: ListAccountBalancesResponse | AxiosError) => {
-  if (res instanceof ListAccountBalancesResponse && res.statusCode == 200) {
+}).then((res: ListAccountBalancesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
