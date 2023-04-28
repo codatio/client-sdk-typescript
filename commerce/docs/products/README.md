@@ -19,7 +19,6 @@ The Products data type provides the company's product inventory, and includes th
 import { CodatCommerce } from "@codat/commerce";
 import { ListProductsResponse } from "@codat/commerce/dist/sdk/models/operations";
 import { ProductVariantStatusEnum } from "@codat/commerce/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatCommerce({
   security: {
@@ -34,8 +33,8 @@ sdk.products.list({
   page: 1,
   pageSize: 100,
   query: "nulla",
-}).then((res: ListProductsResponse | AxiosError) => {
-  if (res instanceof ListProductsResponse && res.statusCode == 200) {
+}).then((res: ListProductsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -50,7 +49,6 @@ Product categories are used to classify a group of products together, either by 
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
 import { ListProductCategoriesResponse } from "@codat/commerce/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new CodatCommerce({
   security: {
@@ -65,8 +63,8 @@ sdk.products.listCategories({
   page: 1,
   pageSize: 100,
   query: "corrupti",
-}).then((res: ListProductCategoriesResponse | AxiosError) => {
-  if (res instanceof ListProductCategoriesResponse && res.statusCode == 200) {
+}).then((res: ListProductCategoriesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

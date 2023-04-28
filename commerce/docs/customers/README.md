@@ -18,7 +18,6 @@ List all commerce customers for the given company and data connection
 import { CodatCommerce } from "@codat/commerce";
 import { ListCustomersResponse } from "@codat/commerce/dist/sdk/models/operations";
 import { AddressTypeEnum } from "@codat/commerce/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatCommerce({
   security: {
@@ -33,8 +32,8 @@ sdk.customers.list({
   page: 1,
   pageSize: 100,
   query: "corrupti",
-}).then((res: ListCustomersResponse | AxiosError) => {
-  if (res instanceof ListCustomersResponse && res.statusCode == 200) {
+}).then((res: ListCustomersResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

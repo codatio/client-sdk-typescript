@@ -18,7 +18,6 @@ Details of all financial transactions recorded in the commerce or point of sale 
 import { CodatCommerce } from "@codat/commerce";
 import { ListTransactionsResponse } from "@codat/commerce/dist/sdk/models/operations";
 import { TransactionSourceTypeEnum, TransactionTypeEnum } from "@codat/commerce/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatCommerce({
   security: {
@@ -33,8 +32,8 @@ sdk.transactions.list({
   page: 1,
   pageSize: 100,
   query: "illum",
-}).then((res: ListTransactionsResponse | AxiosError) => {
-  if (res instanceof ListTransactionsResponse && res.statusCode == 200) {
+}).then((res: ListTransactionsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

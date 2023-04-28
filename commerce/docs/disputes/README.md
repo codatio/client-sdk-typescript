@@ -18,7 +18,6 @@ List commerce disputes
 import { CodatCommerce } from "@codat/commerce";
 import { ListDisputesResponse } from "@codat/commerce/dist/sdk/models/operations";
 import { DisputeStatusEnum, TransactionSourceTypeEnum } from "@codat/commerce/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new CodatCommerce({
   security: {
@@ -33,8 +32,8 @@ sdk.disputes.list({
   page: 1,
   pageSize: 100,
   query: "provident",
-}).then((res: ListDisputesResponse | AxiosError) => {
-  if (res instanceof ListDisputesResponse && res.statusCode == 200) {
+}).then((res: ListDisputesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
