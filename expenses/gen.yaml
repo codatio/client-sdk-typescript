@@ -2,13 +2,13 @@ configVersion: 1.0.0
 management:
   docChecksum: 5118ff49cce305b395dc4f260d52c736
   docVersion: prealpha
-  speakeasyVersion: 1.26.4
-  generationVersion: 2.23.4
+  speakeasyVersion: 1.26.5
+  generationVersion: 2.23.6
 generation:
   telemetryEnabled: false
   sdkClassName: CodatSyncExpenses
   singleTagPerOp: false
 typescript:
-  version: 0.13.3
+  version: 0.13.4
   author: Speakeasy
   packageName: '@codat/sync-for-expenses'
