@@ -98,8 +98,8 @@ export class CodatCommerce {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.12.5";
-  private _genVersion = "2.23.6";
+  private _sdkVersion = "0.13.0";
+  private _genVersion = "2.24.0";
   private _globals: any;
 
   constructor(props?: SDKProps) {
