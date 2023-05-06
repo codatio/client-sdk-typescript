@@ -84,7 +84,7 @@ sdk.dataStatus.listPullOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "quis",
+  query: "suscipit",
 }).then((res: ListPullOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

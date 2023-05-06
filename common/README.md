@@ -30,8 +30,8 @@ const sdk = new CodatCommon({
 });
 
 sdk.companies.create({
-  description: "corrupti",
-  name: "Kelvin Sporer",
+  description: "Requested early access to the new financing scheme.",
+  name: "Bank of Dave",
 }).then((res: CreateCompanyResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -32,11 +32,10 @@ sdk.webhooks.create({
   notifiers: {
     emails: [
       "info@client.com",
-      "info@client.com",
     ],
     webhook: "https://webhook.client.com",
   },
-  type: "minima",
+  type: "reiciendis",
 }).then((res: CreateRuleResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -89,7 +88,7 @@ sdk.webhooks.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "excepturi",
+  query: "est",
 }).then((res: ListRulesResponse) => {
   if (res.statusCode == 200) {
     // handle response
