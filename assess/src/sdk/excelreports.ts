@@ -39,6 +39,8 @@ export class ExcelReports {
    *
    * @remarks
    * Download the previously generated Excel report to a local drive.
+   *
+   * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
    */
   async downloadExcelReport(
     req: operations.DownloadExcelReportRequest,

@@ -6,15 +6,17 @@ Downloadable reports
 
 ### Available Operations
 
-* [downloadExcelReport](#downloadexcelreport) - Download generated excel report
+* [~~downloadExcelReport~~](#downloadexcelreport) - Download generated excel report :warning: **Deprecated**
 * [generateExcelReport](#generateexcelreport) - Generate an Excel report
 * [getAccountingMarketingMetrics](#getaccountingmarketingmetrics) - Get the marketing metrics from an accounting source for a given company.
 * [getExcelReport](#getexcelreport) - Download generated excel report
 * [getExcelReportGenerationStatus](#getexcelreportgenerationstatus) - Get status of Excel report
 
-## downloadExcelReport
+## ~~downloadExcelReport~~
 
 Download the previously generated Excel report to a local drive.
+
+> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -31,7 +33,7 @@ const sdk = new CodatAssess({
 
 sdk.excelReports.downloadExcelReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportTypeEnum.Audit,
+  reportType: ExcelReportTypeEnum.EnhancedFinancials,
 }).then((res: DownloadExcelReportResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -58,7 +60,7 @@ const sdk = new CodatAssess({
 
 sdk.excelReports.generateExcelReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportTypeEnum.Assess,
+  reportType: ExcelReportTypeEnum.Banking,
 }).then((res: GenerateExcelReportResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -118,7 +120,7 @@ const sdk = new CodatAssess({
 
 sdk.excelReports.getExcelReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportTypeEnum.Assess,
+  reportType: ExcelReportTypeEnum.Banking,
 }).then((res: GetExcelReportResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -145,7 +147,7 @@ const sdk = new CodatAssess({
 
 sdk.excelReports.getExcelReportGenerationStatus({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportTypeEnum.Assess,
+  reportType: ExcelReportTypeEnum.Audit,
 }).then((res: GetExcelReportGenerationStatusResponse) => {
   if (res.statusCode == 200) {
     // handle response

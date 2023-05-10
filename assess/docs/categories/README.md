@@ -6,15 +6,17 @@ Categorisation
 
 ### Available Operations
 
-* [getAccountCategory](#getaccountcategory) - Get suggested and/or confirmed category for a specific account
-* [listAccountsCategories](#listaccountscategories) - List suggested and confirmed account categories
-* [listAvailableAccountCategories](#listavailableaccountcategories) - List account categories
-* [updateAccountCategory](#updateaccountcategory) - Patch account categories
-* [updateAccountsCategories](#updateaccountscategories) - Confirm categories for accounts
+* [~~getAccountCategory~~](#getaccountcategory) - Get suggested and/or confirmed category for a specific account :warning: **Deprecated**
+* [~~listAccountsCategories~~](#listaccountscategories) - List suggested and confirmed account categories :warning: **Deprecated**
+* [~~listAvailableAccountCategories~~](#listavailableaccountcategories) - List account categories :warning: **Deprecated**
+* [~~updateAccountCategory~~](#updateaccountcategory) - Patch account categories :warning: **Deprecated**
+* [~~updateAccountsCategories~~](#updateaccountscategories) - Confirm categories for accounts :warning: **Deprecated**
 
-## getAccountCategory
+## ~~getAccountCategory~~
 
 Get category for specific nominal account.
+
+> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -39,9 +41,11 @@ sdk.categories.getAccountCategory({
 });
 ```
 
-## listAccountsCategories
+## ~~listAccountsCategories~~
 
 Lists suggested and confirmed chart of account categories for the given company and data connection.
+
+> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -69,9 +73,11 @@ sdk.categories.listAccountsCategories({
 });
 ```
 
-## listAvailableAccountCategories
+## ~~listAvailableAccountCategories~~
 
 Lists available account categories Codat's categorisation engine can provide. 
+
+> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -92,9 +98,11 @@ sdk.categories.listAvailableAccountCategories().then((res: ListAvailableAccountC
 });
 ```
 
-## updateAccountCategory
+## ~~updateAccountCategory~~
 
 Update category for a specific nominal account
+
+> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -126,9 +134,11 @@ sdk.categories.updateAccountCategory({
 });
 ```
 
-## updateAccountsCategories
+## ~~updateAccountsCategories~~
 
 Comfirms the categories for all or a batch of accounts for a specific connection.
+
+> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

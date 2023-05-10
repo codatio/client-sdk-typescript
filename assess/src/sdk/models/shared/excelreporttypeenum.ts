@@ -8,4 +8,7 @@
 export enum ExcelReportTypeEnum {
   Assess = "assess",
   Audit = "audit",
+  Banking = "banking",
+  EnhancedFinancials = "enhancedFinancials",
+  EnhancedInvoices = "enhancedInvoices",
 }

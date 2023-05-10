@@ -39,6 +39,8 @@ export class Categories {
    *
    * @remarks
    * Get category for specific nominal account.
+   *
+   * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
    */
   async getAccountCategory(
     req: operations.GetAccountCategoryRequest,
@@ -103,6 +105,8 @@ export class Categories {
    *
    * @remarks
    * Lists suggested and confirmed chart of account categories for the given company and data connection.
+   *
+   * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
    */
   async listAccountsCategories(
     req: operations.ListAccountsCategoriesRequest,
@@ -169,6 +173,8 @@ export class Categories {
    *
    * @remarks
    * Lists available account categories Codat's categorisation engine can provide.
+   *
+   * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
    */
   async listAvailableAccountCategories(
     retries?: utils.RetryConfig,
@@ -228,6 +234,8 @@ export class Categories {
    *
    * @remarks
    * Update category for a specific nominal account
+   *
+   * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
    */
   async updateAccountCategory(
     req: operations.UpdateAccountCategoryRequest,
@@ -310,6 +318,8 @@ export class Categories {
    *
    * @remarks
    * Comfirms the categories for all or a batch of accounts for a specific connection.
+   *
+   * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
    */
   async updateAccountsCategories(
     req: operations.UpdateAccountsCategoriesRequest,
