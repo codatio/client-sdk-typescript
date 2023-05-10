@@ -86,7 +86,7 @@ sdk.companies.create({
 
 ### [settings](docs/settings/README.md)
 
-* [getProfile](docs/settings/README.md#getprofile) - Get profile
+* [~~getProfile~~](docs/settings/README.md#getprofile) - Get profile :warning: **Deprecated**
 * [getSyncSettings](docs/settings/README.md#getsyncsettings) - Update all sync settings
 * [updateProfile](docs/settings/README.md#updateprofile) - Update profile
 
