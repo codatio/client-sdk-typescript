@@ -279,3 +279,11 @@ Based on:
 - Speakeasy CLI 1.29.1 (2.26.1) https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [NPM v0.15.1] https://www.npmjs.com/package/@codat/files/v/0.15.1 - files
+
+## 2023-05-10 00:21:14
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Files.yaml
+- Speakeasy CLI 1.29.2 (2.26.2) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.15.2] https://www.npmjs.com/package/@codat/files/v/0.15.2 - files
