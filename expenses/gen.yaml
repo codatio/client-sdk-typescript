@@ -1,15 +1,15 @@
 configVersion: 1.0.0
 management:
-  docChecksum: d59e70f15084a9a30aa3f2ccc9153017
+  docChecksum: ff41860d360a0d7785ed4654a5cde37d
   docVersion: prealpha
-  speakeasyVersion: 1.29.2
-  generationVersion: 2.26.2
+  speakeasyVersion: 1.30.0
+  generationVersion: 2.26.3
 generation:
   telemetryEnabled: false
   sdkClassName: CodatSyncExpenses
   singleTagPerOp: false
 typescript:
-  version: 0.15.2
+  version: 0.15.3
   author: Speakeasy
   maxMethodParams: 0
   packageName: '@codat/sync-for-expenses'
