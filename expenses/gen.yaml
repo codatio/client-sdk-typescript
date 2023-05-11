@@ -5,7 +5,7 @@ management:
   speakeasyVersion: 1.26.2
   generationVersion: 2.23.2
 generation:
-  telemetryEnabled: false
+  telemetryEnabled: true
   sdkClassName: CodatSyncExpenses
   singleTagPerOp: false
 typescript:
