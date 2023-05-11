@@ -55,7 +55,7 @@ const sdk = new CodatCommon({
 
 sdk.refreshData.byDataType({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "b7392059-2939-46fe-a759-6eb10faaa235",
+  connectionId: "8ca1ba92-8fc8-4167-82cb-739205929396",
   dataType: DataTypeEnum.Invoices,
 }).then((res: CreatePullOperationResponse) => {
   if (res.statusCode == 200) {

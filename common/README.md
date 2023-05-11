@@ -30,8 +30,8 @@ const sdk = new CodatCommon({
 });
 
 sdk.companies.create({
-  description: "corrupti",
-  name: "Kelvin Sporer",
+  description: "Requested early access to the new financing scheme.",
+  name: "Bank of Dave",
 }).then((res: CreateCompanyResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -86,7 +86,7 @@ sdk.companies.create({
 
 ### [settings](docs/settings/README.md)
 
-* [getProfile](docs/settings/README.md#getprofile) - Get profile
+* [~~getProfile~~](docs/settings/README.md#getprofile) - Get profile :warning: **Deprecated**
 * [getSyncSettings](docs/settings/README.md#getsyncsettings) - Update all sync settings
 * [updateProfile](docs/settings/README.md#updateprofile) - Update profile
 

@@ -30,8 +30,8 @@ const sdk = new CodatCommon({
 });
 
 sdk.companies.create({
-  description: "corrupti",
-  name: "Ben Mueller",
+  description: "Requested early access to the new financing scheme.",
+  name: "Bank of Dave",
 }).then((res: CreateCompanyResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -112,7 +112,7 @@ sdk.companies.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "iure",
+  query: "corrupti",
 }).then((res: ListCompaniesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -139,8 +139,8 @@ const sdk = new CodatCommon({
 
 sdk.companies.update({
   companyRequestBody: {
-    description: "magnam",
-    name: "Larry Windler",
+    description: "Requested early access to the new financing scheme.",
+    name: "Bank of Dave",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: UpdateCompanyResponse) => {

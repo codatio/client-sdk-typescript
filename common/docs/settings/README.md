@@ -6,13 +6,15 @@ Manage your Codat instance.
 
 ### Available Operations
 
-* [getProfile](#getprofile) - Get profile
+* [~~getProfile~~](#getprofile) - Get profile :warning: **Deprecated**
 * [getSyncSettings](#getsyncsettings) - Update all sync settings
 * [updateProfile](#updateprofile) - Update profile
 
-## getProfile
+## ~~getProfile~~
 
 Fetch your Codat profile.
+
+> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -59,9 +61,39 @@ sdk.settings.getSyncSettings({
       fetchOnFirstLink: false,
       isLocked: false,
       monthsToSync: 24,
-      syncFromUtc: "nobis",
+      syncFromUtc: "saepe",
       syncFromWindow: 24,
-      syncOrder: 315428,
+      syncOrder: 681820,
+      syncSchedule: 24,
+    },
+    {
+      dataType: SyncSettingDataTypeEnum.Invoices,
+      fetchOnFirstLink: false,
+      isLocked: false,
+      monthsToSync: 24,
+      syncFromUtc: "in",
+      syncFromWindow: 24,
+      syncOrder: 359508,
+      syncSchedule: 24,
+    },
+    {
+      dataType: SyncSettingDataTypeEnum.Invoices,
+      fetchOnFirstLink: false,
+      isLocked: false,
+      monthsToSync: 24,
+      syncFromUtc: "iste",
+      syncFromWindow: 24,
+      syncOrder: 437032,
+      syncSchedule: 24,
+    },
+    {
+      dataType: SyncSettingDataTypeEnum.Invoices,
+      fetchOnFirstLink: false,
+      isLocked: false,
+      monthsToSync: 24,
+      syncFromUtc: "saepe",
+      syncFromWindow: 24,
+      syncOrder: 697631,
       syncSchedule: 24,
     },
   ],
@@ -97,8 +129,6 @@ sdk.settings.updateProfile({
   name: "Bob's Burgers",
   redirectUrl: "https://bobs-burgers.{countrySuffix}/{companyId}",
   whiteListUrls: [
-    "https://bobs-burgers.com",
-    "https://bobs-burgers.com",
     "https://bobs-burgers.com",
   ],
 }).then((res: UpdateProfileResponse) => {
