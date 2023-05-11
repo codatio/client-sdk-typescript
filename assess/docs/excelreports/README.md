@@ -33,7 +33,7 @@ const sdk = new CodatAssess({
 
 sdk.excelReports.downloadExcelReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportTypeEnum.EnhancedFinancials,
+  reportType: ExcelReportTypeEnum.EnhancedInvoices,
 }).then((res: DownloadExcelReportResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -60,7 +60,7 @@ const sdk = new CodatAssess({
 
 sdk.excelReports.generateExcelReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportTypeEnum.Banking,
+  reportType: ExcelReportTypeEnum.EnhancedFinancials,
 }).then((res: GenerateExcelReportResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -120,7 +120,7 @@ const sdk = new CodatAssess({
 
 sdk.excelReports.getExcelReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportTypeEnum.Banking,
+  reportType: ExcelReportTypeEnum.EnhancedFinancials,
 }).then((res: GetExcelReportResponse) => {
   if (res.statusCode == 200) {
     // handle response
