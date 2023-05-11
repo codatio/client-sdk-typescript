@@ -102,9 +102,7 @@ src/sdk/models/shared/enhancedinvoicesreport.ts
 src/sdk/models/shared/enhancedinvoicereportitem.ts
 src/sdk/models/shared/invoicestatusenum.ts
 src/sdk/models/shared/payment.ts
-src/sdk/models/shared/paymentline.ts
-src/sdk/models/shared/paymentlinelink.ts
-src/sdk/models/shared/paymentlinktypeenum.ts
+src/sdk/models/shared/bankingtransactionref.ts
 src/sdk/models/shared/customerref.ts
 src/sdk/models/shared/security.ts
 src/sdk/models/shared/accountcategoriesupdatedwebhook.ts

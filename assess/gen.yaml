@@ -1,14 +1,15 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 881b878ded57a84fd45496103119121c
+  docChecksum: fb61058c8f4bb08a03c4bcab528aeb9b
   docVersion: "1.0"
-  speakeasyVersion: 1.26.2
-  generationVersion: 2.23.2
+  speakeasyVersion: 1.30.0
+  generationVersion: 2.26.3
 generation:
   telemetryEnabled: true
   sdkClassName: CodatAssess
   singleTagPerOp: false
 typescript:
-  version: 0.13.2
+  version: 0.15.3
   author: Speakeasy
+  maxMethodParams: 0
   packageName: '@codat/assess'

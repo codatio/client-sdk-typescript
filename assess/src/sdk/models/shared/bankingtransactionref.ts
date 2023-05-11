@@ -3,10 +3,25 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { PaymentLineLink } from "./paymentlinelink";
-import { Expose, Type } from "class-transformer";
+import { Expose } from "class-transformer";
 
-export class PaymentLine extends SpeakeasyBase {
+export class BankingTransactionRef extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  @Expose({ name: "accountId" })
+  accountId?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "accountName" })
+  accountName?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "amount" })
+  amount?: number;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "dataConnectionId" })
+  dataConnectionId?: string;
+
   /**
    * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
    *
@@ -31,18 +46,14 @@ export class PaymentLine extends SpeakeasyBase {
    * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
    */
   @SpeakeasyMetadata()
-  @Expose({ name: "allocatedOnDate" })
-  allocatedOnDate?: string;
+  @Expose({ name: "date" })
+  date?: string;
 
-  /**
-   * Amount in the payment currency.
-   */
   @SpeakeasyMetadata()
-  @Expose({ name: "amount" })
-  amount: number;
+  @Expose({ name: "description" })
+  description?: string;
 
-  @SpeakeasyMetadata({ elemType: PaymentLineLink })
-  @Expose({ name: "links" })
-  @Type(() => PaymentLineLink)
-  links?: PaymentLineLink[];
+  @SpeakeasyMetadata()
+  @Expose({ name: "id" })
+  id?: string;
 }

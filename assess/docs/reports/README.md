@@ -13,11 +13,11 @@ Data integrity is important
 * [getCommerceOrdersMetrics](#getcommerceordersmetrics) - Get order information for a specific company
 * [getCommerceRefundsMetrics](#getcommercerefundsmetrics) - Get the refunds information for a specific company
 * [getCommerceRevenueMetrics](#getcommercerevenuemetrics) - Commerce Revenue Metrics
-* [getEnhancedBalanceSheet](#getenhancedbalancesheet) - Enhanced Balance Sheet
+* [~~getEnhancedBalanceSheet~~](#getenhancedbalancesheet) - Enhanced Balance Sheet :warning: **Deprecated**
 * [getEnhancedCashFlowTransactions](#getenhancedcashflowtransactions) - Get enhanced cash flow report
-* [getEnhancedFinancialMetrics](#getenhancedfinancialmetrics) - List financial metrics
+* [~~getEnhancedFinancialMetrics~~](#getenhancedfinancialmetrics) - List financial metrics :warning: **Deprecated**
 * [getEnhancedInvoicesReport](#getenhancedinvoicesreport) - Enhanced Invoices Report
-* [getEnhancedProfitAndLoss](#getenhancedprofitandloss) - Enhanced Profit and Loss
+* [~~getEnhancedProfitAndLoss~~](#getenhancedprofitandloss) - Enhanced Profit and Loss :warning: **Deprecated**
 * [getRecurringRevenueMetrics](#getrecurringrevenuemetrics) - Get key metrics for subscription revenue
 * [requestRecurringRevenueMetrics](#requestrecurringrevenuemetrics) - Request production of key subscription revenue metrics
 
@@ -239,9 +239,11 @@ sdk.reports.getCommerceRevenueMetrics({
 });
 ```
 
-## getEnhancedBalanceSheet
+## ~~getEnhancedBalanceSheet~~
 
 Gets a fully categorized balance sheet statement for a given company, over one or more period(s).
+
+> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -297,9 +299,11 @@ sdk.reports.getEnhancedCashFlowTransactions({
 });
 ```
 
-## getEnhancedFinancialMetrics
+## ~~getEnhancedFinancialMetrics~~
 
 Gets all the available financial metrics for a given company, over one or more periods.
+
+> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -345,7 +349,7 @@ Gets a list of invoices linked to the corresponding banking transaction
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetEnhancedInvoicesReportResponse } from "@codat/assess/dist/sdk/models/operations";
-import { InvoiceStatusEnum, PaymentLinkTypeEnum } from "@codat/assess/dist/sdk/models/shared";
+import { InvoiceStatusEnum } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
@@ -365,9 +369,11 @@ sdk.reports.getEnhancedInvoicesReport({
 });
 ```
 
-## getEnhancedProfitAndLoss
+## ~~getEnhancedProfitAndLoss~~
 
 Gets a fully categorized profit and loss statement for a given company, over one or more period(s).
+
+> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

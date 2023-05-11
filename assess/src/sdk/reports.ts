@@ -490,6 +490,8 @@ export class Reports {
    *
    * @remarks
    * Gets a fully categorized balance sheet statement for a given company, over one or more period(s).
+   *
+   * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
    */
   async getEnhancedBalanceSheet(
     req: operations.GetEnhancedBalanceSheetRequest,
@@ -619,6 +621,8 @@ export class Reports {
    *
    * @remarks
    * Gets all the available financial metrics for a given company, over one or more periods.
+   *
+   * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
    */
   async getEnhancedFinancialMetrics(
     req: operations.GetEnhancedFinancialMetricsRequest,
@@ -751,6 +755,8 @@ export class Reports {
    *
    * @remarks
    * Gets a fully categorized profit and loss statement for a given company, over one or more period(s).
+   *
+   * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
    */
   async getEnhancedProfitAndLoss(
     req: operations.GetEnhancedProfitAndLossRequest,
