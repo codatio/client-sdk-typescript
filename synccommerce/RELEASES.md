@@ -191,3 +191,59 @@ Based on:
 - Speakeasy CLI 1.26.2 (2.23.2) https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [NPM v0.10.2] https://www.npmjs.com/package/@codat/sync-for-commerce/v/0.10.2 - synccommerce
+
+## 2023-04-29 00:01:12
+### Changes
+Based on:
+- OpenAPI Doc 1.1 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Commerce.yaml
+- Speakeasy CLI 1.26.3 (2.23.3) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.10.3] https://www.npmjs.com/package/@codat/sync-for-commerce/v/0.10.3 - synccommerce
+
+## 2023-04-30 00:01:43
+### Changes
+Based on:
+- OpenAPI Doc 1.1 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Commerce.yaml
+- Speakeasy CLI 1.26.4 (2.23.4) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.10.4] https://www.npmjs.com/package/@codat/sync-for-commerce/v/0.10.4 - synccommerce
+
+## 2023-05-03 00:01:32
+### Changes
+Based on:
+- OpenAPI Doc 1.1 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Commerce.yaml
+- Speakeasy CLI 1.27.0 (2.24.0) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.11.0] https://www.npmjs.com/package/@codat/sync-for-commerce/v/0.11.0 - synccommerce
+
+## 2023-05-05 00:01:19
+### Changes
+Based on:
+- OpenAPI Doc 1.1 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Commerce.yaml
+- Speakeasy CLI 1.29.0 (2.26.0) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.12.0] https://www.npmjs.com/package/@codat/sync-for-commerce/v/0.12.0 - synccommerce
+
+## 2023-05-06 00:01:17
+### Changes
+Based on:
+- OpenAPI Doc 1.1 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Commerce.yaml
+- Speakeasy CLI 1.29.1 (2.26.1) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.12.1] https://www.npmjs.com/package/@codat/sync-for-commerce/v/0.12.1 - synccommerce
+
+## 2023-05-10 00:01:23
+### Changes
+Based on:
+- OpenAPI Doc 1.1 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Commerce.yaml
+- Speakeasy CLI 1.29.2 (2.26.2) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.12.2] https://www.npmjs.com/package/@codat/sync-for-commerce/v/0.12.2 - synccommerce
+
+## 2023-05-11 00:01:18
+### Changes
+Based on:
+- OpenAPI Doc 1.1 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Commerce.yaml
+- Speakeasy CLI 1.30.0 (2.26.3) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.12.3] https://www.npmjs.com/package/@codat/sync-for-commerce/v/0.12.3 - synccommerce
