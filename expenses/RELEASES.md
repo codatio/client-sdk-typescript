@@ -327,3 +327,43 @@ Based on:
 - Speakeasy CLI 1.30.0 (2.26.3) https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [NPM v0.15.3] https://www.npmjs.com/package/@codat/sync-for-expenses/v/0.15.3 - expenses
+
+## 2023-05-12 00:19:40
+### Changes
+Based on:
+- OpenAPI Doc prealpha https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Expenses.yaml
+- Speakeasy CLI 1.30.1 (2.26.4) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.15.4] https://www.npmjs.com/package/@codat/sync-for-expenses/v/0.15.4 - expenses
+
+## 2023-05-13 00:19:31
+### Changes
+Based on:
+- OpenAPI Doc prealpha https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Expenses.yaml
+- Speakeasy CLI 1.31.1 (2.27.0) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.16.0] https://www.npmjs.com/package/@codat/sync-for-expenses/v/0.16.0 - expenses
+
+## 2023-05-16 00:21:01
+### Changes
+Based on:
+- OpenAPI Doc prealpha https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Expenses.yaml
+- Speakeasy CLI 1.32.0 (2.28.0) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.17.0] https://www.npmjs.com/package/@codat/sync-for-expenses/v/0.17.0 - expenses
+
+## 2023-05-17 00:23:30
+### Changes
+Based on:
+- OpenAPI Doc prealpha https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Expenses.yaml
+- Speakeasy CLI 1.33.2 (2.29.0) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.18.0] https://www.npmjs.com/package/@codat/sync-for-expenses/v/0.18.0 - expenses
+
+## 2023-05-18 00:20:27
+### Changes
+Based on:
+- OpenAPI Doc prealpha https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Expenses.yaml
+- Speakeasy CLI 1.34.0 (2.30.0) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.19.0] https://www.npmjs.com/package/@codat/sync-for-expenses/v/0.19.0 - expenses
