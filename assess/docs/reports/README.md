@@ -88,7 +88,7 @@ Gets the customer retention metrics for a specific company connection, over one 
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetCommerceCustomerRetentionMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
-import { PeriodUnitEnum } from "@codat/assess/dist/sdk/models/shared";
+import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
@@ -102,7 +102,7 @@ sdk.reports.getCommerceCustomerRetentionMetrics({
   includeDisplayNames: false,
   numberOfPeriods: 359444,
   periodLength: 296140,
-  periodUnit: PeriodUnitEnum.Week,
+  periodUnit: PeriodUnit.Week,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceCustomerRetentionMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -120,7 +120,7 @@ Gets the lifetime value metric for a specific company connection, over one or mo
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetCommerceLifetimeValueMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
-import { PeriodUnitEnum } from "@codat/assess/dist/sdk/models/shared";
+import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
@@ -134,7 +134,7 @@ sdk.reports.getCommerceLifetimeValueMetrics({
   includeDisplayNames: false,
   numberOfPeriods: 118727,
   periodLength: 688661,
-  periodUnit: PeriodUnitEnum.Week,
+  periodUnit: PeriodUnit.Week,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceLifetimeValueMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -152,7 +152,7 @@ Gets the order information for a specific company connection, over one or more p
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetCommerceOrdersMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
-import { PeriodUnitEnum } from "@codat/assess/dist/sdk/models/shared";
+import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
@@ -166,7 +166,7 @@ sdk.reports.getCommerceOrdersMetrics({
   includeDisplayNames: false,
   numberOfPeriods: 880476,
   periodLength: 414263,
-  periodUnit: PeriodUnitEnum.Year,
+  periodUnit: PeriodUnit.Year,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceOrdersMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -184,7 +184,7 @@ Gets the refunds information for a specific company connection, over one or more
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetCommerceRefundsMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
-import { PeriodUnitEnum } from "@codat/assess/dist/sdk/models/shared";
+import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
@@ -198,7 +198,7 @@ sdk.reports.getCommerceRefundsMetrics({
   includeDisplayNames: false,
   numberOfPeriods: 64147,
   periodLength: 216822,
-  periodUnit: PeriodUnitEnum.Month,
+  periodUnit: PeriodUnit.Month,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceRefundsMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -216,7 +216,7 @@ Get the revenue and revenue growth for a specific company connection, over one o
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetCommerceRevenueMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
-import { PeriodUnitEnum } from "@codat/assess/dist/sdk/models/shared";
+import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
@@ -230,7 +230,7 @@ sdk.reports.getCommerceRevenueMetrics({
   includeDisplayNames: false,
   numberOfPeriods: 565189,
   periodLength: 566602,
-  periodUnit: PeriodUnitEnum.Year,
+  periodUnit: PeriodUnit.Year,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceRevenueMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -311,12 +311,12 @@ Gets all the available financial metrics for a given company, over one or more p
 import { CodatAssess } from "@codat/assess";
 import { GetEnhancedFinancialMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
 import {
-  FinancialMetricErrorsTypeEnum,
-  FinancialMetricErrorTypeEnum,
-  FinancialMetricKeyEnum,
-  FinancialMetricMetricUnitEnum,
-  FinancialMetricPeriodsErrorsTypeEnum,
-  FinancialMetricsPeriodUnitEnum,
+  FinancialMetricErrorsType,
+  FinancialMetricErrorType,
+  FinancialMetricKey,
+  FinancialMetricMetricUnit,
+  FinancialMetricPeriodsErrorsType,
+  FinancialMetricsPeriodUnit,
 } from "@codat/assess/dist/sdk/models/shared";
 import { RFCDate } from "@codat/assess/dist/sdk/types";
 
@@ -349,7 +349,7 @@ Gets a list of invoices linked to the corresponding banking transaction
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetEnhancedInvoicesReportResponse } from "@codat/assess/dist/sdk/models/operations";
-import { InvoiceStatusEnum } from "@codat/assess/dist/sdk/models/shared";
+import { InvoiceStatus } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {

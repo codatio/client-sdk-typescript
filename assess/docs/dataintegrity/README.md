@@ -19,7 +19,7 @@ Gets record-by-record match results for a given company and datatype, optionally
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetDataIntegrityDetailsResponse } from "@codat/assess/dist/sdk/models/operations";
-import { DataIntegrityDataTypeEnum } from "@codat/assess/dist/sdk/models/shared";
+import { DataIntegrityDataType } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
@@ -29,7 +29,7 @@ const sdk = new CodatAssess({
 
 sdk.dataIntegrity.getDataIntegrityDetails({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  dataType: DataIntegrityDataTypeEnum.BankingAccounts,
+  dataType: DataIntegrityDataType.BankingAccounts,
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
@@ -50,7 +50,7 @@ Gets match status for a given company and datatype.
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetDataIntegrityStatusResponse } from "@codat/assess/dist/sdk/models/operations";
-import { DataIntegrityDataTypeEnum, IntegrityStatusEnum } from "@codat/assess/dist/sdk/models/shared";
+import { DataIntegrityDataType, IntegrityStatus } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
@@ -60,7 +60,7 @@ const sdk = new CodatAssess({
 
 sdk.dataIntegrity.getDataIntegrityStatus({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  dataType: DataIntegrityDataTypeEnum.BankingAccounts,
+  dataType: DataIntegrityDataType.BankingAccounts,
 }).then((res: GetDataIntegrityStatusResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -77,7 +77,7 @@ Gets match summary for a given company and datatype, optionally restricted by a 
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetDataIntegritySummariesResponse } from "@codat/assess/dist/sdk/models/operations";
-import { DataIntegrityDataTypeEnum } from "@codat/assess/dist/sdk/models/shared";
+import { DataIntegrityDataType } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
@@ -87,7 +87,7 @@ const sdk = new CodatAssess({
 
 sdk.dataIntegrity.getDataIntegritySummaries({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  dataType: DataIntegrityDataTypeEnum.BankingAccounts,
+  dataType: DataIntegrityDataType.BankingAccounts,
   query: "ipsa",
 }).then((res: GetDataIntegritySummariesResponse) => {
   if (res.statusCode == 200) {

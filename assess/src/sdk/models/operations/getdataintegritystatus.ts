@@ -18,7 +18,7 @@ export class GetDataIntegrityStatusRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=dataType",
   })
-  dataType: shared.DataIntegrityDataTypeEnum;
+  dataType: shared.DataIntegrityDataType;
 }
 
 export class GetDataIntegrityStatusResponse extends SpeakeasyBase {

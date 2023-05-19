@@ -18,7 +18,7 @@ export class GetDataIntegrityDetailsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=dataType",
   })
-  dataType: shared.DataIntegrityDataTypeEnum;
+  dataType: shared.DataIntegrityDataType;
 
   /**
    * Field to order results by. [Read more](https://docs.codat.io/using-the-api/ordering-results).

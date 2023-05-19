@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { CustomerRef } from "./customerref";
-import { InvoiceStatusEnum } from "./invoicestatusenum";
+import { InvoiceStatus } from "./invoicestatus";
 import { Payment } from "./payment";
 import { Expose, Type } from "class-transformer";
 
@@ -151,7 +151,7 @@ export class EnhancedInvoiceReportItem extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status?: InvoiceStatusEnum;
+  status?: InvoiceStatus;
 
   @SpeakeasyMetadata()
   @Expose({ name: "totalAmount" })

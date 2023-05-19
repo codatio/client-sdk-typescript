@@ -62,11 +62,11 @@ src/sdk/models/shared/confirmcategories.ts
 src/sdk/models/shared/details.ts
 src/sdk/models/shared/dataintegritydetails.ts
 src/sdk/models/shared/dataintegritymatch.ts
-src/sdk/models/shared/dataintegritydatatypeenum.ts
+src/sdk/models/shared/dataintegritydatatype.ts
 src/sdk/models/shared/status.ts
 src/sdk/models/shared/dataintegritystatus.ts
 src/sdk/models/shared/dataintegritystatusinfo.ts
-src/sdk/models/shared/integritystatusenum.ts
+src/sdk/models/shared/integritystatus.ts
 src/sdk/models/shared/dataintegritydates.ts
 src/sdk/models/shared/dataintegrityconnectionid.ts
 src/sdk/models/shared/dataintegrityamounts.ts
@@ -74,7 +74,7 @@ src/sdk/models/shared/summaries.ts
 src/sdk/models/shared/dataintegritysummary.ts
 src/sdk/models/shared/dataintegritybycount.ts
 src/sdk/models/shared/dataintegritybyamount.ts
-src/sdk/models/shared/excelreporttypeenum.ts
+src/sdk/models/shared/excelreporttype.ts
 src/sdk/models/shared/excelstatus.ts
 src/sdk/models/shared/report.ts
 src/sdk/models/shared/reportcomponent.ts
@@ -82,7 +82,7 @@ src/sdk/models/shared/reportcomponentmeasure.ts
 src/sdk/models/shared/reportmeasure.ts
 src/sdk/models/shared/reporterror.ts
 src/sdk/models/shared/reportdimension.ts
-src/sdk/models/shared/periodunitenum.ts
+src/sdk/models/shared/periodunit.ts
 src/sdk/models/shared/enhancedreport.ts
 src/sdk/models/shared/enhancedreportaccountcategory.ts
 src/sdk/models/shared/accountcategorylevel.ts
@@ -100,7 +100,7 @@ src/sdk/models/shared/financialmetric.ts
 src/sdk/models/shared/financialmetricerror.ts
 src/sdk/models/shared/enhancedinvoicesreport.ts
 src/sdk/models/shared/enhancedinvoicereportitem.ts
-src/sdk/models/shared/invoicestatusenum.ts
+src/sdk/models/shared/invoicestatus.ts
 src/sdk/models/shared/payment.ts
 src/sdk/models/shared/bankingtransactionref.ts
 src/sdk/models/shared/customerref.ts

@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { IntegrityStatusEnum } from "./integritystatusenum";
+import { IntegrityStatus } from "./integritystatus";
 import { Expose } from "class-transformer";
 
 export class DataIntegrityStatusInfo extends SpeakeasyBase {
@@ -12,7 +12,7 @@ export class DataIntegrityStatusInfo extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "currentStatus" })
-  currentStatus?: IntegrityStatusEnum;
+  currentStatus?: IntegrityStatus;
 
   /**
    * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:

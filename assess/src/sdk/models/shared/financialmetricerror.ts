@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export enum FinancialMetricErrorTypeEnum {
+export enum FinancialMetricErrorType {
   DataNotSynced = "DataNotSynced",
   DataNotSupported = "DataNotSupported",
   DataSyncFailed = "DataSyncFailed",
@@ -19,5 +19,5 @@ export class FinancialMetricError extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: FinancialMetricErrorTypeEnum;
+  type?: FinancialMetricErrorType;
 }

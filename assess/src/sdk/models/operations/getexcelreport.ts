@@ -18,7 +18,7 @@ export class GetExcelReportRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=reportType",
   })
-  reportType: shared.ExcelReportTypeEnum;
+  reportType: shared.ExcelReportType;
 }
 
 export class GetExcelReportResponse extends SpeakeasyBase {

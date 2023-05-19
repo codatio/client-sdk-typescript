@@ -5,7 +5,7 @@
 /**
  * The period unit of time returned.
  */
-export enum PeriodUnitEnum {
+export enum PeriodUnit {
   Day = "Day",
   Week = "Week",
   Month = "Month",

@@ -9,7 +9,7 @@ import { Expose, Transform, Type } from "class-transformer";
 /**
  * Metric level error.
  */
-export enum FinancialMetricErrorsTypeEnum {
+export enum FinancialMetricErrorsType {
   UncategorizedAccounts = "UncategorizedAccounts",
   MissingInputData = "MissingInputData",
   InputDataError = "InputDataError",
@@ -35,10 +35,10 @@ export class FinancialMetricErrors extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: FinancialMetricErrorsTypeEnum;
+  type?: FinancialMetricErrorsType;
 }
 
-export enum FinancialMetricKeyEnum {
+export enum FinancialMetricKey {
   Unknown = "Unknown",
   Ebitda = "EBITDA",
   DebtServiceCoverageRatio = "DebtServiceCoverageRatio",
@@ -62,7 +62,7 @@ export enum FinancialMetricKeyEnum {
   DaysPayablesOutstanding = "DaysPayablesOutstanding",
 }
 
-export enum FinancialMetricMetricUnitEnum {
+export enum FinancialMetricMetricUnit {
   Ratio = "Ratio",
   Money = "Money",
 }
@@ -70,7 +70,7 @@ export enum FinancialMetricMetricUnitEnum {
 /**
  * Period error type.
  */
-export enum FinancialMetricPeriodsErrorsTypeEnum {
+export enum FinancialMetricPeriodsErrorsType {
   MissingAccountData = "MissingAccountData",
   DatesOutOfRange = "DatesOutOfRange",
 }
@@ -95,7 +95,7 @@ export class FinancialMetricPeriodsErrors extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: FinancialMetricPeriodsErrorsTypeEnum;
+  type?: FinancialMetricPeriodsErrorsType;
 }
 
 export class FinancialMetricPeriodsInputs extends SpeakeasyBase {
@@ -161,11 +161,11 @@ export class FinancialMetric extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "key" })
-  key?: FinancialMetricKeyEnum;
+  key?: FinancialMetricKey;
 
   @SpeakeasyMetadata()
   @Expose({ name: "metricUnit" })
-  metricUnit?: FinancialMetricMetricUnitEnum;
+  metricUnit?: FinancialMetricMetricUnit;
 
   /**
    * Metric name.

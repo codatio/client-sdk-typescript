@@ -7,7 +7,7 @@ import { FinancialMetric } from "./financialmetric";
 import { FinancialMetricError } from "./financialmetricerror";
 import { Expose, Type } from "class-transformer";
 
-export enum FinancialMetricsPeriodUnitEnum {
+export enum FinancialMetricsPeriodUnit {
   Month = "Month",
   Week = "Week",
   Day = "Day",
@@ -47,5 +47,5 @@ export class FinancialMetrics extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "periodUnit" })
-  periodUnit?: FinancialMetricsPeriodUnitEnum;
+  periodUnit?: FinancialMetricsPeriodUnit;
 }
