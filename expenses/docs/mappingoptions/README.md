@@ -18,9 +18,9 @@ Gets the expense mapping options for a companies accounting software
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 import { GetMappingOptionsResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 import {
-  AccountMappingInfoAccountTypeEnum,
-  AccountMappingInfoValidTransactionTypesEnum,
-  TaxRateMappingInfoValidTransactionTypesEnum,
+  AccountMappingInfoAccountType,
+  AccountMappingInfoValidTransactionTypes,
+  TaxRateMappingInfoValidTransactionTypes,
 } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
 const sdk = new CodatSyncExpenses({

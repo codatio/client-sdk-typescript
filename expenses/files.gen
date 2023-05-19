@@ -44,7 +44,7 @@ src/sdk/models/shared/customer.ts
 src/sdk/models/shared/bankaccount.ts
 src/sdk/models/shared/codaterrormessage.ts
 src/sdk/models/shared/dataconnection.ts
-src/sdk/models/shared/dataconnectionstatusenum.ts
+src/sdk/models/shared/dataconnectionstatus.ts
 src/sdk/models/shared/dataconnectionerror.ts
 src/sdk/models/shared/createexpenseresponse.ts
 src/sdk/models/shared/createexpenserequest.ts
@@ -60,8 +60,8 @@ src/sdk/models/shared/syncinitiated.ts
 src/sdk/models/shared/postsync.ts
 src/sdk/models/shared/companysyncstatus.ts
 src/sdk/models/shared/transactionmetadata.ts
-src/sdk/models/shared/transactionstatusenum.ts
-src/sdk/models/shared/integrationtypeenum.ts
+src/sdk/models/shared/transactionstatus.ts
+src/sdk/models/shared/integrationtype.ts
 src/sdk/models/shared/transactionmetadatalist.ts
 src/sdk/models/shared/hallink.ts
 src/sdk/models/shared/security.ts
