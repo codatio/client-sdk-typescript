@@ -21,7 +21,7 @@ yarn add @codat/common
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { CreateCompanyResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
+import { DataConnectionStatus, SourceType } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {

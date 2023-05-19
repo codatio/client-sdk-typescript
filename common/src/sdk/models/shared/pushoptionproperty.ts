@@ -8,7 +8,7 @@ import {
   SpeakeasyMetadata,
 } from "../../../internal/utils";
 import { PushOptionChoice } from "./pushoptionchoice";
-import { PushOptionTypeEnum } from "./pushoptiontypeenum";
+import { PushOptionType } from "./pushoptiontype";
 import { PushValidationInfo } from "./pushvalidationinfo";
 import { Expose, Transform, Type } from "class-transformer";
 
@@ -46,7 +46,7 @@ export class PushOptionProperty extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: PushOptionTypeEnum;
+  type: PushOptionType;
 
   @SpeakeasyMetadata()
   @Expose({ name: "validation" })

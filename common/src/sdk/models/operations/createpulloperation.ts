@@ -26,7 +26,7 @@ export class CreatePullOperationRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=dataType",
   })
-  dataType: shared.DataTypeEnum;
+  dataType: shared.DataType;
 }
 
 export class CreatePullOperationResponse extends SpeakeasyBase {

@@ -5,7 +5,7 @@
 /**
  * Available Data types
  */
-export enum DataTypeEnum {
+export enum DataType {
   AccountTransactions = "accountTransactions",
   BalanceSheet = "balanceSheet",
   BankAccounts = "bankAccounts",

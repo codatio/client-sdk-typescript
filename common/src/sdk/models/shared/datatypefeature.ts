@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { DataTypeEnum } from "./datatypeenum";
+import { DataType } from "./datatype";
 import { SupportedFeature } from "./supportedfeature";
 import { Expose, Type } from "class-transformer";
 
@@ -16,7 +16,7 @@ export class DataTypeFeature extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
-  dataType?: DataTypeEnum;
+  dataType?: DataType;
 
   @SpeakeasyMetadata({ elemType: SupportedFeature })
   @Expose({ name: "supportedFeatures" })

@@ -44,7 +44,7 @@ Update sync settings for all data types.
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { UpdateSyncSettingsResponse } from "@codat/common/dist/sdk/models/operations";
-import { SyncSettingDataTypeEnum } from "@codat/common/dist/sdk/models/shared";
+import { SyncSettingDataType } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
@@ -57,7 +57,7 @@ sdk.settings.getSyncSettings({
   overridesDefaults: false,
   settings: [
     {
-      dataType: SyncSettingDataTypeEnum.Invoices,
+      dataType: SyncSettingDataType.Invoices,
       fetchOnFirstLink: false,
       isLocked: false,
       monthsToSync: 24,
@@ -67,7 +67,7 @@ sdk.settings.getSyncSettings({
       syncSchedule: 24,
     },
     {
-      dataType: SyncSettingDataTypeEnum.Invoices,
+      dataType: SyncSettingDataType.Invoices,
       fetchOnFirstLink: false,
       isLocked: false,
       monthsToSync: 24,
@@ -77,7 +77,7 @@ sdk.settings.getSyncSettings({
       syncSchedule: 24,
     },
     {
-      dataType: SyncSettingDataTypeEnum.Invoices,
+      dataType: SyncSettingDataType.Invoices,
       fetchOnFirstLink: false,
       isLocked: false,
       monthsToSync: 24,
@@ -87,7 +87,7 @@ sdk.settings.getSyncSettings({
       syncSchedule: 24,
     },
     {
-      dataType: SyncSettingDataTypeEnum.Invoices,
+      dataType: SyncSettingDataType.Invoices,
       fetchOnFirstLink: false,
       isLocked: false,
       monthsToSync: 24,

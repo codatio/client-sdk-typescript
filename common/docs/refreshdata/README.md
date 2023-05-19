@@ -45,7 +45,7 @@ This will bring updated data into Codat from the linked integration for you to v
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { CreatePullOperationResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataTypeEnum, PullOperationStatusEnum } from "@codat/common/dist/sdk/models/shared";
+import { DataType, PullOperationStatus } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
@@ -56,7 +56,7 @@ const sdk = new CodatCommon({
 sdk.refreshData.byDataType({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "8ca1ba92-8fc8-4167-82cb-739205929396",
-  dataType: DataTypeEnum.Invoices,
+  dataType: DataType.Invoices,
 }).then((res: CreatePullOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response

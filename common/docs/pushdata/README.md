@@ -21,14 +21,14 @@ Codat tries not to limit users to pushing to a very limited number of standard c
 
 > **Supported Integrations**
 > 
-> Check out our [Knowledge UI](https://knowledge.codat.io/) for integrations that support push (POST/PUT methods).
+> Check out our [coverage explorer](https://knowledge.codat.io/) for integrations that support push (POST/PUT methods).
 
 ### Example Usage
 
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { GetCreateUpdateModelOptionsByDataTypeResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataTypeEnum, PushOptionTypeEnum } from "@codat/common/dist/sdk/models/shared";
+import { DataType, PushOptionType } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
@@ -39,7 +39,7 @@ const sdk = new CodatCommon({
 sdk.pushData.getModelOptions({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  dataType: DataTypeEnum.Invoices,
+  dataType: DataType.Invoices,
 }).then((res: GetCreateUpdateModelOptionsByDataTypeResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -56,7 +56,7 @@ Retrieve push operation.
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { GetPushOperationResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/common/dist/sdk/models/shared";
+import { DataType, PushChangeType, PushOperationStatus } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
@@ -83,7 +83,7 @@ List push operation records.
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { GetCompanyPushHistoryResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/common/dist/sdk/models/shared";
+import { DataType, PushChangeType, PushOperationStatus } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {

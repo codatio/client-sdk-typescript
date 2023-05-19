@@ -22,7 +22,7 @@ Create a data connection for a company
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { CreateDataConnectionResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
+import { DataConnectionStatus, SourceType } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
@@ -78,7 +78,7 @@ Get a single connection for a company
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { GetCompanyConnectionResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
+import { DataConnectionStatus, SourceType } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
@@ -105,7 +105,7 @@ List the connections for a company
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { ListCompanyConnectionsResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
+import { DataConnectionStatus, SourceType } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
@@ -135,7 +135,7 @@ This allows you to deauthorize a connection, without deleting it from Codat. Thi
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { UnlinkConnectionResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
+import { DataConnectionStatus, SourceType } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
@@ -165,7 +165,7 @@ Update data connection's authorization.
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { UpdateConnectionAuthorizationResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataConnectionStatusEnum, SourceTypeEnum } from "@codat/common/dist/sdk/models/shared";
+import { DataConnectionStatus, SourceType } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {

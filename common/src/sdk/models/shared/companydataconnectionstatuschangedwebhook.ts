@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { ConnectionStatusEnum } from "./connectionstatusenum";
+import { ConnectionStatus } from "./connectionstatus";
 import { Expose, Type } from "class-transformer";
 
 export class CompanyDataConnectionStatusChangedWebhookData extends SpeakeasyBase {
@@ -19,14 +19,14 @@ export class CompanyDataConnectionStatusChangedWebhookData extends SpeakeasyBase
    */
   @SpeakeasyMetadata()
   @Expose({ name: "newStatus" })
-  newStatus?: ConnectionStatusEnum;
+  newStatus?: ConnectionStatus;
 
   /**
    * The current authorization status of the data connection.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "oldStatus" })
-  oldStatus?: ConnectionStatusEnum;
+  oldStatus?: ConnectionStatus;
 
   /**
    * A unique 4-letter key to represent a platform in each integration. View [accounting](https://docs.codat.io/integrations/accounting/accounting-platform-keys), [banking](https://docs.codat.io/integrations/banking/banking-platform-keys), and [commerce](https://docs.codat.io/integrations/commerce/commerce-platform-keys) platform keys.

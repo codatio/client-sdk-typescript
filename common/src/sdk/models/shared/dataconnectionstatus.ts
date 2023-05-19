@@ -5,7 +5,7 @@
 /**
  * The current authorization status of the data connection.
  */
-export enum DataConnectionStatusEnum {
+export enum DataConnectionStatus {
   PendingAuth = "PendingAuth",
   Linked = "Linked",
   Unlinked = "Unlinked",
