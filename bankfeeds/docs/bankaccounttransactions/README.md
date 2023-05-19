@@ -16,19 +16,14 @@ Posts bank transactions to the accounting package for a given company.
 
 > **Supported Integrations**
 > 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankTransactions) for integrations that support POST methods.
+> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankTransactions) for integrations that support POST methods.
 
 ### Example Usage
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { CreateBankTransactionsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-import {
-  BankTransactionTypeEnum,
-  DataTypeEnum,
-  PushChangeTypeEnum,
-  PushOperationStatusEnum,
-} from "@codat/bank-feeds/dist/sdk/models/shared";
+import { BankTransactionType, DataType, PushChangeType, PushOperationStatus } from "@codat/bank-feeds/dist/sdk/models/shared";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -51,7 +46,7 @@ sdk.bankAccountTransactions.createBankTransactions({
         reconciled: false,
         reference: "commodi",
         sourceModifiedDate: "repudiandae",
-        transactionType: BankTransactionTypeEnum.Credit,
+        transactionType: BankTransactionType.Credit,
       },
       {
         amount: 2168.22,
@@ -64,7 +59,7 @@ sdk.bankAccountTransactions.createBankTransactions({
         reconciled: false,
         reference: "tempora",
         sourceModifiedDate: "facilis",
-        transactionType: BankTransactionTypeEnum.Cash,
+        transactionType: BankTransactionType.Cash,
       },
       {
         amount: 2884.76,
@@ -77,7 +72,7 @@ sdk.bankAccountTransactions.createBankTransactions({
         reconciled: false,
         reference: "blanditiis",
         sourceModifiedDate: "deleniti",
-        transactionType: BankTransactionTypeEnum.Other,
+        transactionType: BankTransactionType.Other,
       },
     ],
   },
@@ -102,7 +97,7 @@ Gets the options of pushing bank account transactions.
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { GetCreateBankAccountModelResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-import { PushOptionTypeEnum } from "@codat/bank-feeds/dist/sdk/models/shared";
+import { PushOptionType } from "@codat/bank-feeds/dist/sdk/models/shared";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -130,7 +125,7 @@ Gets bank transactions for a given bank account ID
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { ListBankAccountTransactionsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-import { BankTransactionTypeEnum } from "@codat/bank-feeds/dist/sdk/models/shared";
+import { BankTransactionType } from "@codat/bank-feeds/dist/sdk/models/shared";
 
 const sdk = new CodatBankFeeds({
   security: {

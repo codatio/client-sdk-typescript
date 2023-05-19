@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { PushChangeTypeEnum } from "./pushchangetypeenum";
+import { PushChangeType } from "./pushchangetype";
 import { PushOperationRef } from "./pushoperationref";
 import { Expose, Type } from "class-transformer";
 
@@ -19,5 +19,5 @@ export class PushOperationChange extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: PushChangeTypeEnum;
+  type?: PushChangeType;
 }

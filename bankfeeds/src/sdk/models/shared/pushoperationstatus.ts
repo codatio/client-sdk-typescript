@@ -5,7 +5,7 @@
 /**
  * The status of the push operation.
  */
-export enum PushOperationStatusEnum {
+export enum PushOperationStatus {
   Pending = "Pending",
   Failed = "Failed",
   Success = "Success",

@@ -5,7 +5,7 @@
 /**
  * Type of transaction for the bank statement line
  */
-export enum BankTransactionTypeEnum {
+export enum BankTransactionType {
   Unknown = "Unknown",
   Credit = "Credit",
   Debit = "Debit",

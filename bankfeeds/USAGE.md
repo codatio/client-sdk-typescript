@@ -2,12 +2,7 @@
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { CreateBankTransactionsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-import {
-  BankTransactionTypeEnum,
-  DataTypeEnum,
-  PushChangeTypeEnum,
-  PushOperationStatusEnum,
-} from "@codat/bank-feeds/dist/sdk/models/shared";
+import { BankTransactionType, DataType, PushChangeType, PushOperationStatus } from "@codat/bank-feeds/dist/sdk/models/shared";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -30,7 +25,7 @@ sdk.bankAccountTransactions.createBankTransactions({
         reconciled: false,
         reference: "at",
         sourceModifiedDate: "maiores",
-        transactionType: BankTransactionTypeEnum.Atm,
+        transactionType: BankTransactionType.Atm,
       },
       {
         amount: 7991.59,
@@ -43,7 +38,7 @@ sdk.bankAccountTransactions.createBankTransactions({
         reconciled: false,
         reference: "in",
         sourceModifiedDate: "corporis",
-        transactionType: BankTransactionTypeEnum.Check,
+        transactionType: BankTransactionType.Check,
       },
       {
         amount: 4370.32,
@@ -56,7 +51,7 @@ sdk.bankAccountTransactions.createBankTransactions({
         reconciled: false,
         reference: "error",
         sourceModifiedDate: "quia",
-        transactionType: BankTransactionTypeEnum.SerChg,
+        transactionType: BankTransactionType.SerChg,
       },
     ],
   },

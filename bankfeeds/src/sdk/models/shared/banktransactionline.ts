@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { BankTransactionTypeEnum } from "./banktransactiontypeenum";
+import { BankTransactionType } from "./banktransactiontype";
 import { Expose } from "class-transformer";
 
 export class BankTransactionLine extends SpeakeasyBase {
@@ -75,5 +75,5 @@ export class BankTransactionLine extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "transactionType" })
-  transactionType: BankTransactionTypeEnum;
+  transactionType: BankTransactionType;
 }
