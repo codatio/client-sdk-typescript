@@ -19,7 +19,7 @@ A `location` is a geographic place at which stocks of products may be held, or f
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
 import { ListLocationsResponse } from "@codat/commerce/dist/sdk/models/operations";
-import { AddressTypeEnum } from "@codat/commerce/dist/sdk/models/shared";
+import { AddressType } from "@codat/commerce/dist/sdk/models/shared";
 
 const sdk = new CodatCommerce({
   security: {

@@ -5,7 +5,7 @@
 /**
  * The type of the address
  */
-export enum AddressTypeEnum {
+export enum AddressType {
   Billing = "Billing",
   Delivery = "Delivery",
   Order = "Order",

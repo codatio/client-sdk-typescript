@@ -5,7 +5,7 @@
 /**
  * Status of the payment
  */
-export enum PaymentStatusEnum {
+export enum PaymentStatus {
   Pending = "Pending",
   Authorized = "Authorized",
   Paid = "Paid",

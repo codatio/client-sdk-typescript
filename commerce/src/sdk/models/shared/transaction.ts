@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { TransactionSourceRef } from "./transactionsourceref";
-import { TransactionTypeEnum } from "./transactiontypeenum";
+import { TransactionType } from "./transactiontype";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -143,5 +143,5 @@ export class Transaction extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: TransactionTypeEnum;
+  type?: TransactionType;
 }

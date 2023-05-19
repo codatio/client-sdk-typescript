@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { PaymentMethodRef } from "./paymentmethodref";
-import { PaymentStatusEnum } from "./paymentstatusenum";
+import { PaymentStatus } from "./paymentstatus";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -130,5 +130,5 @@ export class Payment extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status?: PaymentStatusEnum;
+  status?: PaymentStatus;
 }

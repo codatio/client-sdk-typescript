@@ -5,7 +5,7 @@
 /**
  * Status of the Payment Method
  */
-export enum PaymentMethodStatusEnum {
+export enum PaymentMethodStatus {
   Active = "Active",
   Archived = "Archived",
   Unknown = "Unknown",

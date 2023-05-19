@@ -17,7 +17,7 @@ Get a list of orders placed or held on the linked commerce platform
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
 import { ListOrdersResponse } from "@codat/commerce/dist/sdk/models/operations";
-import { PaymentStatusEnum, PaymentTypeEnum, ServiceChargeTypeEnum } from "@codat/commerce/dist/sdk/models/shared";
+import { PaymentStatus, PaymentType, ServiceChargeType } from "@codat/commerce/dist/sdk/models/shared";
 
 const sdk = new CodatCommerce({
   security: {
