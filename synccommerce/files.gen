@@ -42,7 +42,7 @@ src/sdk/models/operations/updatevisibleaccountssyncflow.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/company.ts
 src/sdk/models/shared/connection.ts
-src/sdk/models/shared/dataconnectionstatusenum.ts
+src/sdk/models/shared/dataconnectionstatus.ts
 src/sdk/models/shared/dataconnectionerror.ts
 src/sdk/models/shared/createcompany.ts
 src/sdk/models/shared/companies.ts
@@ -76,11 +76,11 @@ src/sdk/models/shared/imagereference.ts
 src/sdk/models/shared/brandingbutton.ts
 src/sdk/models/shared/integrations.ts
 src/sdk/models/shared/integration.ts
-src/sdk/models/shared/sourcetypeenum.ts
+src/sdk/models/shared/sourcetype.ts
 src/sdk/models/shared/datatypefeature.ts
 src/sdk/models/shared/supportedfeature.ts
-src/sdk/models/shared/featuretypeenum.ts
-src/sdk/models/shared/featurestateenum.ts
+src/sdk/models/shared/featuretype.ts
+src/sdk/models/shared/featurestate.ts
 src/sdk/models/shared/syncsummary.ts
 src/sdk/models/shared/daterange.ts
 src/sdk/models/shared/synctolatestargs.ts

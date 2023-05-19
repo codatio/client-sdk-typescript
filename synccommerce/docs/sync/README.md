@@ -19,7 +19,7 @@ If there was no previously successful sync, the start date in the config is used
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { RequestSyncResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
-import { ConnectionSourceTypeEnum, DataConnectionStatusEnum } from "@codat/sync-for-commerce/dist/sdk/models/shared";
+import { ConnectionSourceType, DataConnectionStatus } from "@codat/sync-for-commerce/dist/sdk/models/shared";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -48,7 +48,7 @@ Run a Commerce sync from the specified start date to the specified finish date i
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { RequestSyncForDateRangeResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
-import { ConnectionSourceTypeEnum, DataConnectionStatusEnum } from "@codat/sync-for-commerce/dist/sdk/models/shared";
+import { ConnectionSourceType, DataConnectionStatus } from "@codat/sync-for-commerce/dist/sdk/models/shared";
 
 const sdk = new CodatSyncCommerce({
   security: {

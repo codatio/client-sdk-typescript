@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { DataTypeFeature } from "./datatypefeature";
-import { SourceTypeEnum } from "./sourcetypeenum";
+import { SourceType } from "./sourcetype";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -69,5 +69,5 @@ export class Integration extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceType" })
-  sourceType?: SourceTypeEnum;
+  sourceType?: SourceType;
 }
