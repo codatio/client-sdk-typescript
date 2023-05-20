@@ -32,7 +32,7 @@ export class GetDataIntegrityDetailsRequest extends SpeakeasyBase {
    * Page number. [Read more](https://docs.codat.io/using-the-api/paging).
    */
   @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
-  page: number;
+  page?: number;
 
   /**
    * Number of records to return in a page. [Read more](https://docs.codat.io/using-the-api/paging).
