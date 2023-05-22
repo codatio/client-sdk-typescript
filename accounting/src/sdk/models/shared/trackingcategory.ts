@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { StatusEnum } from "./statusenum";
+import { Status } from "./status";
 import { Expose } from "class-transformer";
 
 /**
@@ -78,5 +78,5 @@ export class TrackingCategory extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status?: StatusEnum;
+  status?: Status;
 }

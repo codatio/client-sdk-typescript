@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { BillLineItem } from "./billlineitem";
-import { BillStatusEnum } from "./billstatusenum";
+import { BillStatus } from "./billstatus";
 import { Metadata } from "./metadata";
 import { PaymentAllocationPayment } from "./paymentallocationpayment";
 import { PurchaseOrderRef } from "./purchaseorderref";
@@ -269,7 +269,7 @@ export class Bill extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: BillStatusEnum;
+  status: BillStatus;
 
   /**
    * Total amount of the bill, excluding any taxes.

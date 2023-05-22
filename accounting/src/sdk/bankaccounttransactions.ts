@@ -42,7 +42,7 @@ export class BankAccountTransactions {
    *
    * > **Supported Integrations**
    * >
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankTransactions) for integrations that support POST methods.
+   * > Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankTransactions) for integrations that support POST methods.
    */
   async create(
     req: operations.CreateBankTransactionsRequest,
@@ -78,6 +78,10 @@ export class BankAccountTransactions {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req);
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
     let retryConfig: any = retries;
     if (!retryConfig) {
@@ -145,6 +149,12 @@ export class BankAccountTransactions {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
     let retryConfig: any = retries;
     if (!retryConfig) {
       retryConfig = new utils.RetryConfig("backoff", true);
@@ -155,6 +165,7 @@ export class BankAccountTransactions {
         validateStatus: () => true,
         url: url,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -209,7 +220,12 @@ export class BankAccountTransactions {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req);
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
     let retryConfig: any = retries;
     if (!retryConfig) {
@@ -221,6 +237,7 @@ export class BankAccountTransactions {
         validateStatus: () => true,
         url: url + queryParams,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -243,72 +260,6 @@ export class BankAccountTransactions {
           res.bankTransactionsResponse = utils.objectToClass(
             httpRes?.data,
             shared.BankTransactionsResponse
-          );
-        }
-        break;
-    }
-
-    return res;
-  }
-
-  /**
-   * List all bank transactions
-   *
-   * @remarks
-   * Gets the latest bank transactions for given account ID and company. Doesn't require connection ID.
-   */
-  async listTransactions(
-    req: operations.ListBankTransactionsRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.ListBankTransactionsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ListBankTransactionsRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/data/bankAccounts/{accountId}/transactions",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const queryParams: string = utils.serializeQueryParams(req);
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const httpRes: AxiosResponse = await utils.Retry(() => {
-      return client.request({
-        validateStatus: () => true,
-        url: url + queryParams,
-        method: "get",
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.ListBankTransactionsResponse =
-      new operations.ListBankTransactionsResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.bankAccountTransactions = utils.objectToClass(
-            httpRes?.data,
-            shared.BankAccountTransactions
           );
         }
         break;

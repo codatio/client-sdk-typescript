@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { ProfitAndLossReport } from "./profitandlossreport";
-import { ReportBasisEnum } from "./reportbasisenum";
+import { ReportBasis } from "./reportbasis";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -100,7 +100,7 @@ export class ProfitAndLossReport1 extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "reportBasis" })
-  reportBasis: ReportBasisEnum;
+  reportBasis: ReportBasis;
 
   /**
    * An array of profit and loss reports.

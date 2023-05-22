@@ -17,13 +17,13 @@ Customers
 
 ## create
 
-Posts an individual customer for a given company.
+﻿Posts an individual customer for a given company.
 
 Required data may vary by integration. To see what data to post, first call [Get create/update customer model](https://docs.codat.io/accounting-api#/operations/get-create-update-customers-model).
 
 > **Supported Integrations**
 > 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support creating customers.
+> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support creating customers.
 
 ### Example Usage
 
@@ -31,12 +31,12 @@ Required data may vary by integration. To see what data to post, first call [Get
 import { CodatAccounting } from "@codat/accounting";
 import { CreateCustomerResponse } from "@codat/accounting/dist/sdk/models/operations";
 import {
-  AddressTypeEnum,
-  CustomerStatusEnum,
-  DataTypeEnum,
-  PhoneNumberTypeEnum,
-  PushChangeTypeEnum,
-  PushOperationStatusEnum,
+  AddressType,
+  CustomerStatus,
+  DataType,
+  PhoneNumberType,
+  PushChangeType,
+  PushOperationStatus,
 } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
@@ -49,99 +49,117 @@ sdk.customers.create({
   customer: {
     addresses: [
       {
-        city: "Cartwrightstad",
-        country: "Ukraine",
-        line1: "assumenda",
-        line2: "optio",
-        postalCode: "94549",
-        region: "adipisci",
-        type: AddressTypeEnum.Unknown,
+        city: "Port Clevelandtown",
+        country: "Turkmenistan",
+        line1: "culpa",
+        line2: "at",
+        postalCode: "10296",
+        region: "dolore",
+        type: AddressType.Unknown,
       },
       {
-        city: "Apopka",
-        country: "Equatorial Guinea",
-        line1: "rerum",
-        line2: "nesciunt",
-        postalCode: "28807-3440",
-        region: "recusandae",
-        type: AddressTypeEnum.Delivery,
+        city: "Abbyport",
+        country: "Philippines",
+        line1: "voluptatibus",
+        line2: "sequi",
+        postalCode: "37221",
+        region: "quas",
+        type: AddressType.Unknown,
       },
       {
-        city: "East Martina",
-        country: "Svalbard & Jan Mayen Islands",
-        line1: "dolor",
-        line2: "porro",
-        postalCode: "91773-0293",
-        region: "quod",
-        type: AddressTypeEnum.Unknown,
+        city: "Burdetteland",
+        country: "Vietnam",
+        line1: "nulla",
+        line2: "libero",
+        postalCode: "94593",
+        region: "unde",
+        type: AddressType.Unknown,
       },
       {
-        city: "Reichelfort",
-        country: "South Africa",
-        line1: "alias",
-        line2: "deserunt",
-        postalCode: "15095",
-        region: "nemo",
-        type: AddressTypeEnum.Billing,
+        city: "South Paul",
+        country: "Lesotho",
+        line1: "ab",
+        line2: "quo",
+        postalCode: "58178-2135",
+        region: "temporibus",
+        type: AddressType.Unknown,
       },
     ],
-    contactName: "reiciendis",
+    contactName: "amet",
     contacts: [
       {
         address: {
-          city: "Freedaton",
-          country: "Mali",
-          line1: "natus",
-          line2: "culpa",
-          postalCode: "48950-4669",
-          region: "quae",
-          type: AddressTypeEnum.Unknown,
+          city: "Margaretestad",
+          country: "Burkina Faso",
+          line1: "placeat",
+          line2: "rem",
+          postalCode: "59914",
+          region: "ullam",
+          type: AddressType.Unknown,
         },
-        email: "Cristal_Fisher48@hotmail.com",
-        modifiedDate: "unde",
-        name: "Alton McKenzie",
+        email: "Buster49@hotmail.com",
+        modifiedDate: "quod",
+        name: "Marjorie Funk",
         phone: [
           {
-            number: "aut",
-            type: PhoneNumberTypeEnum.Landline,
-          },
-          {
-            number: "quia",
-            type: PhoneNumberTypeEnum.Fax,
+            number: "quaerat",
+            type: PhoneNumberType.Landline,
           },
         ],
-        status: CustomerStatusEnum.Archived,
+        status: CustomerStatus.Archived,
+      },
+      {
+        address: {
+          city: "Howellland",
+          country: "Mayotte",
+          line1: "distinctio",
+          line2: "cum",
+          postalCode: "82083",
+          region: "laborum",
+          type: AddressType.Unknown,
+        },
+        email: "Warren19@gmail.com",
+        modifiedDate: "autem",
+        name: "Edgar Cremin",
+        phone: [
+          {
+            number: "velit",
+            type: PhoneNumberType.Landline,
+          },
+        ],
+        status: CustomerStatus.Archived,
       },
     ],
-    customerName: "qui",
-    defaultCurrency: "commodi",
-    emailAddress: "a",
-    id: "d368ba92-16bc-4b41-9835-c73641723133",
+    customerName: "natus",
+    defaultCurrency: "minima",
+    emailAddress: "minus",
+    id: "9d237397-c785-4b5d-b4f5-00183febdf67",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "recusandae",
-    phone: "(802) 568-3142 x77862",
-    registrationNumber: "molestias",
-    sourceModifiedDate: "dolores",
-    status: CustomerStatusEnum.Unknown,
+    modifiedDate: "aliquid",
+    phone: "510.586.7430 x0316",
+    registrationNumber: "ad",
+    sourceModifiedDate: "nisi",
+    status: CustomerStatus.Unknown,
     supplementalData: {
       content: {
-        "minus": {
-          "odit": "maxime",
-          "aspernatur": "magni",
+        "officiis": {
+          "minus": "tempora",
+          "sequi": "natus",
+          "saepe": "quibusdam",
+          "corrupti": "maxime",
         },
-        "minus": {
-          "ipsam": "sequi",
-          "quaerat": "accusantium",
+        "aliquam": {
+          "explicabo": "eaque",
         },
       },
     },
-    taxNumber: "incidunt",
+    taxNumber: "hic",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 583959,
+  timeoutInMinutes: 276828,
 }).then((res: CreateCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -151,7 +169,7 @@ sdk.customers.create({
 
 ## downloadAttachment
 
-Download customer attachment
+﻿Download customer attachment.
 
 ### Example Usage
 
@@ -169,7 +187,7 @@ sdk.customers.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "minima",
+  customerId: "quae",
 }).then((res: DownloadCustomerAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -179,14 +197,14 @@ sdk.customers.downloadAttachment({
 
 ## get
 
-Gets a single customer corresponding to the given ID.
+﻿Gets a single customer corresponding to the given ID.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCustomerResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressTypeEnum, CustomerStatusEnum, PhoneNumberTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { AddressType, CustomerStatus, PhoneNumberType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -196,7 +214,7 @@ const sdk = new CodatAccounting({
 
 sdk.customers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  customerId: "quo",
+  customerId: "eos",
 }).then((res: GetCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -206,7 +224,7 @@ sdk.customers.get({
 
 ## getAttachment
 
-Get  customer attachment
+﻿Get  customer attachment.
 
 ### Example Usage
 
@@ -224,7 +242,7 @@ sdk.customers.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "quis",
+  customerId: "eius",
 }).then((res: GetCustomerAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -234,20 +252,20 @@ sdk.customers.getAttachment({
 
 ## getCreateUpdateModel
 
-Get create/update customer model. Returns the expected data for the request payload.
+﻿Get create/update customer model. Returns the expected data for the request payload.
 
 See the examples for integration-specific indicative models.
 
 > **Supported Integrations**
 > 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support creating and updating customers.
+> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support creating and updating customers.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateUpdateCustomersModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -267,14 +285,14 @@ sdk.customers.getCreateUpdateModel({
 
 ## list
 
-Gets the latest customers for a company, with pagination
+﻿Gets the latest customers for a company, with pagination.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListCustomersResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressTypeEnum, CustomerStatusEnum, PhoneNumberTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { AddressType, CustomerStatus, PhoneNumberType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -287,7 +305,7 @@ sdk.customers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "facere",
+  query: "voluptatem",
 }).then((res: ListCustomersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -297,7 +315,7 @@ sdk.customers.list({
 
 ## listAttachments
 
-List customer attachments
+﻿List customer attachments
 
 ### Example Usage
 
@@ -314,7 +332,7 @@ const sdk = new CodatAccounting({
 sdk.customers.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "quidem",
+  customerId: "temporibus",
 }).then((res: ListCustomerAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -324,13 +342,13 @@ sdk.customers.listAttachments({
 
 ## update
 
-Posts an updated customer for a given company.
+﻿Posts an updated customer for a given company.
 
 Required data may vary by integration. To see what data to post, first call [Get create/update customer model](https://docs.codat.io/accounting-api#/operations/get-create-update-customers-model).
 
 > **Supported Integrations**
 > 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support updating customers.
+> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support updating customers.
 
 ### Example Usage
 
@@ -338,12 +356,12 @@ Required data may vary by integration. To see what data to post, first call [Get
 import { CodatAccounting } from "@codat/accounting";
 import { UpdateCustomerResponse } from "@codat/accounting/dist/sdk/models/operations";
 import {
-  AddressTypeEnum,
-  CustomerStatusEnum,
-  DataTypeEnum,
-  PhoneNumberTypeEnum,
-  PushChangeTypeEnum,
-  PushOperationStatusEnum,
+  AddressType,
+  CustomerStatus,
+  DataType,
+  PhoneNumberType,
+  PushChangeType,
+  PushOperationStatus,
 } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
@@ -356,143 +374,115 @@ sdk.customers.update({
   customer: {
     addresses: [
       {
-        city: "Port Eriberto",
-        country: "Jersey",
-        line1: "quo",
-        line2: "vitae",
-        postalCode: "26519-5661",
-        region: "enim",
-        type: AddressTypeEnum.Billing,
+        city: "New Jayde",
+        country: "Nigeria",
+        line1: "porro",
+        line2: "voluptas",
+        postalCode: "27537-1668",
+        region: "magni",
+        type: AddressType.Unknown,
       },
       {
-        city: "South San Francisco",
-        country: "Sao Tome and Principe",
-        line1: "quasi",
-        line2: "sint",
-        postalCode: "19688",
-        region: "eum",
-        type: AddressTypeEnum.Unknown,
-      },
-      {
-        city: "Williamsonfield",
-        country: "Samoa",
-        line1: "veniam",
-        line2: "magnam",
-        postalCode: "68300",
-        region: "quis",
-        type: AddressTypeEnum.Delivery,
+        city: "Joanhaven",
+        country: "Lebanon",
+        line1: "unde",
+        line2: "ad",
+        postalCode: "62198-2033",
+        region: "laboriosam",
+        type: AddressType.Billing,
       },
     ],
-    contactName: "reiciendis",
+    contactName: "tenetur",
     contacts: [
       {
         address: {
-          city: "Lesterview",
-          country: "Burundi",
-          line1: "voluptatem",
-          line2: "voluptas",
-          postalCode: "89160-6192",
-          region: "quia",
-          type: AddressTypeEnum.Delivery,
+          city: "O'Konton",
+          country: "Argentina",
+          line1: "voluptas",
+          line2: "pariatur",
+          postalCode: "01252",
+          region: "ullam",
+          type: AddressType.Unknown,
         },
-        email: "Lydia7@gmail.com",
-        modifiedDate: "perferendis",
-        name: "Andy Paucek",
+        email: "Aurelia.Mraz77@yahoo.com",
+        modifiedDate: "ipsum",
+        name: "Carl Pollich IV",
         phone: [
           {
-            number: "necessitatibus",
-            type: PhoneNumberTypeEnum.Fax,
+            number: "incidunt",
+            type: PhoneNumberType.Primary,
+          },
+          {
+            number: "nisi",
+            type: PhoneNumberType.Primary,
           },
         ],
-        status: CustomerStatusEnum.Unknown,
+        status: CustomerStatus.Archived,
       },
       {
         address: {
-          city: "West Ethelyn",
-          country: "Martinique",
-          line1: "ea",
-          line2: "fugiat",
-          postalCode: "59595",
-          region: "reprehenderit",
-          type: AddressTypeEnum.Billing,
+          city: "North Cloydton",
+          country: "Austria",
+          line1: "possimus",
+          line2: "perferendis",
+          postalCode: "28760",
+          region: "beatae",
+          type: AddressType.Delivery,
         },
-        email: "Mittie_Williamson13@gmail.com",
-        modifiedDate: "nam",
-        name: "Erik Stehr",
+        email: "Mae.Willms66@yahoo.com",
+        modifiedDate: "commodi",
+        name: "Tom Gutkowski",
         phone: [
           {
-            number: "deserunt",
-            type: PhoneNumberTypeEnum.Mobile,
+            number: "id",
+            type: PhoneNumberType.Unknown,
           },
           {
-            number: "modi",
-            type: PhoneNumberTypeEnum.Fax,
-          },
-          {
-            number: "repellendus",
-            type: PhoneNumberTypeEnum.Mobile,
-          },
-          {
-            number: "unde",
-            type: PhoneNumberTypeEnum.Fax,
+            number: "molestias",
+            type: PhoneNumberType.Unknown,
           },
         ],
-        status: CustomerStatusEnum.Unknown,
-      },
-      {
-        address: {
-          city: "Port Gavinland",
-          country: "Central African Republic",
-          line1: "numquam",
-          line2: "velit",
-          postalCode: "21540",
-          region: "cumque",
-          type: AddressTypeEnum.Delivery,
-        },
-        email: "Josiah19@yahoo.com",
-        modifiedDate: "fuga",
-        name: "Miss Don Dach",
-        phone: [
-          {
-            number: "nesciunt",
-            type: PhoneNumberTypeEnum.Unknown,
-          },
-          {
-            number: "beatae",
-            type: PhoneNumberTypeEnum.Unknown,
-          },
-        ],
-        status: CustomerStatusEnum.Unknown,
+        status: CustomerStatus.Active,
       },
     ],
-    customerName: "quo",
-    defaultCurrency: "libero",
-    emailAddress: "eaque",
-    id: "a0003eb2-2d9b-43a7-8d94-faa741c57d1f",
+    customerName: "occaecati",
+    defaultCurrency: "eos",
+    emailAddress: "veniam",
+    id: "3c8962f4-896b-4f51-a465-2d3c343d6177",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "vero",
-    phone: "(810) 408-1587 x17905",
-    registrationNumber: "nostrum",
-    sourceModifiedDate: "labore",
-    status: CustomerStatusEnum.Active,
+    modifiedDate: "atque",
+    phone: "1-935-212-4413 x9410",
+    registrationNumber: "iste",
+    sourceModifiedDate: "aut",
+    status: CustomerStatus.Active,
     supplementalData: {
       content: {
-        "tenetur": {
-          "necessitatibus": "necessitatibus",
-          "autem": "natus",
-          "quasi": "iure",
+        "error": {
+          "ipsa": "dolore",
+        },
+        "labore": {
+          "ullam": "quibusdam",
+          "recusandae": "ad",
+          "omnis": "mollitia",
+        },
+        "placeat": {
+          "ducimus": "eaque",
+          "aliquid": "ea",
+        },
+        "odio": {
+          "quisquam": "delectus",
         },
       },
     },
-    taxNumber: "ex",
+    taxNumber: "et",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "error",
+  customerId: "optio",
   forceUpdate: false,
-  timeoutInMinutes: 535903,
+  timeoutInMinutes: 953679,
 }).then((res: UpdateCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response

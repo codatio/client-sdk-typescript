@@ -5,9 +5,10 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { CustomerRef } from "./customerref";
 import { InvoiceLineItem } from "./invoicelineitem";
-import { InvoiceStatusEnum } from "./invoicestatusenum";
+import { InvoiceStatus } from "./invoicestatus";
 import { Items } from "./items";
 import { Metadata } from "./metadata";
+import { SalesOrderRef } from "./salesorderref";
 import { SupplementalData } from "./supplementaldata";
 import { WithholdingTaxitems } from "./withholdingtaxitems";
 import { Expose, Type } from "class-transformer";
@@ -249,9 +250,10 @@ export class Invoice extends SpeakeasyBase {
   /**
    * List of references to related Sales orders.
    */
-  @SpeakeasyMetadata()
+  @SpeakeasyMetadata({ elemType: SalesOrderRef })
   @Expose({ name: "salesOrderRefs" })
-  salesOrderRefs?: string[];
+  @Type(() => SalesOrderRef)
+  salesOrderRefs?: SalesOrderRef[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
@@ -270,7 +272,7 @@ export class Invoice extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: InvoiceStatusEnum;
+  status: InvoiceStatus;
 
   /**
    * Total amount of the invoice excluding any taxes.

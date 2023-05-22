@@ -4,8 +4,8 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Metadata } from "./metadata";
-import { PaymentMethodStatusEnum } from "./paymentmethodstatusenum";
-import { PaymentMethodTypeEnum } from "./paymentmethodtypeenum";
+import { PaymentMethodStatus } from "./paymentmethodstatus";
+import { PaymentMethodType } from "./paymentmethodtype";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -50,12 +50,12 @@ export class PaymentMethod extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status?: PaymentMethodStatusEnum;
+  status?: PaymentMethodStatus;
 
   /**
    * Method of payment.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: PaymentMethodTypeEnum;
+  type?: PaymentMethodType;
 }

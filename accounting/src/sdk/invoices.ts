@@ -80,6 +80,10 @@ export class Invoices {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req);
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
     let retryConfig: any = retries;
     if (!retryConfig) {
@@ -127,11 +131,32 @@ export class Invoices {
    * Delete invoice
    *
    * @remarks
-   * Deletes an invoice from the accounting package for a given company.
+   * The _Delete Invoices_ endpoint allows you to delete a specified Invoice from an accounting platform.
+   *
+   * ### Process
+   * 1. Pass the `{invoiceId}` to the _Delete Invoices_ endpoint and store the `pushOperationKey` returned.
+   * 2. Check the status of the delete operation by checking the status of push operation either via
+   *     1. [Push operation webhook](/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
+   *     2. [Push operation status endpoint](https://docs.codat.io/codat-api#/operations/get-push-operation).
+   *
+   *    A `Success` status indicates that the Invoice object was deleted from the accounting platform.
+   * 3. (Optional) Check that the Invoice was deleted from the accounting platform.
+   *
+   * ### Effect on related objects
+   *
+   * Be aware that deleting an Invoice from an accounting platform might cause related objects to be modified. For example, if you delete a paid invoice from QuickBooks Online, the invoice is deleted but the payment against that invoice is not. The payment is converted to a payment on account.
+   *
+   * ## Integration specifics
+   * Integrations that support soft delete do not permanently delete the object in the accounting platform.
+   *
+   * | Integration | Soft Deleted |
+   * |-------------|--------------|
+   * | QuickBooks Online | Yes    |
    *
    * > **Supported Integrations**
    * >
    * > This functionality is currently only supported for our QuickBooks Online integration. Check out our [public roadmap](https://portal.productboard.com/codat/7-public-product-roadmap/tabs/46-accounting-api) to see what we're building next, and to submit ideas for new features.
+   * > We're increasing support for object deletion across various accounting platforms and data types. You can check our [Accounting API Public Product Roadmap](https://portal.productboard.com/codat/7-public-product-roadmap/tabs/46-accounting-api) for the latest status.
    */
   async delete(
     req: operations.DeleteInvoiceRequest,
@@ -151,6 +176,12 @@ export class Invoices {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
     let retryConfig: any = retries;
     if (!retryConfig) {
       retryConfig = new utils.RetryConfig("backoff", true);
@@ -161,6 +192,7 @@ export class Invoices {
         validateStatus: () => true,
         url: url,
         method: "delete",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -195,15 +227,15 @@ export class Invoices {
    * Download invoice attachment
    *
    * @remarks
-   * Download invoice attachments
+   * Download invoice attachment.
    */
   async downloadAttachment(
-    req: operations.DownloadInvoiceAttachmentRequest,
+    req: operations.DownloadInvoicesAttachmentRequest,
     retries?: utils.RetryConfig,
     config?: AxiosRequestConfig
-  ): Promise<operations.DownloadInvoiceAttachmentResponse> {
+  ): Promise<operations.DownloadInvoicesAttachmentResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.DownloadInvoiceAttachmentRequest(req);
+      req = new operations.DownloadInvoicesAttachmentRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -215,6 +247,12 @@ export class Invoices {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
+    headers["Accept"] = "application/octet-stream";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
     let retryConfig: any = retries;
     if (!retryConfig) {
       retryConfig = new utils.RetryConfig("backoff", true);
@@ -225,6 +263,7 @@ export class Invoices {
         validateStatus: () => true,
         url: url,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -235,8 +274,8 @@ export class Invoices {
       throw new Error(`status code not found in response: ${httpRes}`);
     }
 
-    const res: operations.DownloadInvoiceAttachmentResponse =
-      new operations.DownloadInvoiceAttachmentResponse({
+    const res: operations.DownloadInvoicesAttachmentResponse =
+      new operations.DownloadInvoicesAttachmentResponse({
         statusCode: httpRes.status,
         contentType: contentType,
         rawResponse: httpRes,
@@ -260,7 +299,7 @@ export class Invoices {
    * Get invoice as PDF
    *
    * @remarks
-   * Get invoice as PDF
+   * Download invoice as a pdf.
    */
   async downloadPdf(
     req: operations.DownloadInvoicePdfRequest,
@@ -280,6 +319,12 @@ export class Invoices {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
+    headers["Accept"] = "application/octet-stream";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
     let retryConfig: any = retries;
     if (!retryConfig) {
       retryConfig = new utils.RetryConfig("backoff", true);
@@ -290,6 +335,7 @@ export class Invoices {
         validateStatus: () => true,
         url: url,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -325,7 +371,7 @@ export class Invoices {
    * Get invoice
    *
    * @remarks
-   * Get invoice
+   * Get an invoice.
    */
   async get(
     req: operations.GetInvoiceRequest,
@@ -345,6 +391,12 @@ export class Invoices {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
     let retryConfig: any = retries;
     if (!retryConfig) {
       retryConfig = new utils.RetryConfig("backoff", true);
@@ -355,6 +407,7 @@ export class Invoices {
         validateStatus: () => true,
         url: url,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -386,7 +439,7 @@ export class Invoices {
    * Get invoice attachment
    *
    * @remarks
-   * Get invoice attachment
+   * Get invoice attachment.
    */
   async getAttachment(
     req: operations.GetInvoiceAttachmentRequest,
@@ -406,6 +459,12 @@ export class Invoices {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
     let retryConfig: any = retries;
     if (!retryConfig) {
       retryConfig = new utils.RetryConfig("backoff", true);
@@ -416,6 +475,7 @@ export class Invoices {
         validateStatus: () => true,
         url: url,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -476,6 +536,12 @@ export class Invoices {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
     let retryConfig: any = retries;
     if (!retryConfig) {
       retryConfig = new utils.RetryConfig("backoff", true);
@@ -486,6 +552,7 @@ export class Invoices {
         validateStatus: () => true,
         url: url,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -520,7 +587,7 @@ export class Invoices {
    * List invoices
    *
    * @remarks
-   * Gets the latest invoices for a company, with pagination
+   * Gets the latest invoices for a company, with pagination.
    */
   async list(
     req: operations.ListInvoicesRequest,
@@ -540,7 +607,12 @@ export class Invoices {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req);
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
     let retryConfig: any = retries;
     if (!retryConfig) {
@@ -552,6 +624,7 @@ export class Invoices {
         validateStatus: () => true,
         url: url + queryParams,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -603,6 +676,12 @@ export class Invoices {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
     let retryConfig: any = retries;
     if (!retryConfig) {
       retryConfig = new utils.RetryConfig("backoff", true);
@@ -613,6 +692,7 @@ export class Invoices {
         validateStatus: () => true,
         url: url,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -654,6 +734,7 @@ export class Invoices {
    * > **Supported Integrations**
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=invoices) for integrations that support updating invoices.
+   * operationId: update-invoice
    */
   async update(
     req: operations.UpdateInvoiceRequest,
@@ -689,6 +770,10 @@ export class Invoices {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req);
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
     let retryConfig: any = retries;
     if (!retryConfig) {
@@ -736,7 +821,7 @@ export class Invoices {
    * Push invoice attachment
    *
    * @remarks
-   * Push invoice attachment
+   * Upload invoice attachment.
    */
   async uploadAttachment(
     req: operations.UploadInvoiceAttachmentRequest,
@@ -771,6 +856,10 @@ export class Invoices {
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
+    headers["Accept"] = "*/*";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
     let retryConfig: any = retries;
     if (!retryConfig) {

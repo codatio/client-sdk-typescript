@@ -13,7 +13,7 @@ import { Expose, Type } from "class-transformer";
  * For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.
  * For Debit accounts, positive balances are assets, and positive transactions **increase** assets.
  */
-export enum BankAccountBankAccountTypeEnum {
+export enum BankAccountBankAccountType {
   Unknown = "Unknown",
   Credit = "Credit",
   Debit = "Debit",
@@ -71,7 +71,7 @@ export class BankAccount extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "accountType" })
-  accountType?: BankAccountBankAccountTypeEnum;
+  accountType?: BankAccountBankAccountType;
 
   /**
    * Total available balance of the bank account as reported by the underlying data source. This may take into account overdrafts or pending transactions for example.

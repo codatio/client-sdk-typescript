@@ -18,7 +18,7 @@ Gets the specified tax rate for a given company.
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetTaxRateResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { TaxRateStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { TaxRateStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -28,7 +28,7 @@ const sdk = new CodatAccounting({
 
 sdk.taxRates.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  taxRateId: "inventore",
+  taxRateId: "culpa",
 }).then((res: GetTaxRateResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -45,7 +45,7 @@ Gets the latest tax rates for a given company.
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListTaxRatesResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { TaxRateStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { TaxRateStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -58,7 +58,7 @@ sdk.taxRates.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "eligendi",
+  query: "sunt",
 }).then((res: ListTaxRatesResponse) => {
   if (res.statusCode == 200) {
     // handle response

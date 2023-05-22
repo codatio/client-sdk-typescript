@@ -18,7 +18,7 @@ import { Expose, Type } from "class-transformer";
  * - Invoices
  * - Transfers
  */
-export class TrackingInvoiceTo extends SpeakeasyBase {
+export class TrackingRecordReference extends SpeakeasyBase {
   /**
    * Name of the 'dataType'.
    */
@@ -49,8 +49,8 @@ export class Tracking extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "invoiceTo" })
-  @Type(() => TrackingInvoiceTo)
-  invoiceTo?: TrackingInvoiceTo;
+  @Type(() => TrackingRecordReference)
+  invoiceTo?: TrackingRecordReference;
 
   @SpeakeasyMetadata({ elemType: InvoiceTo })
   @Expose({ name: "recordRefs" })

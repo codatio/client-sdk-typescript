@@ -58,6 +58,12 @@ export class AccountTransactions {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
     let retryConfig: any = retries;
     if (!retryConfig) {
       retryConfig = new utils.RetryConfig("backoff", true);
@@ -68,6 +74,7 @@ export class AccountTransactions {
         validateStatus: () => true,
         url: url,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -102,7 +109,8 @@ export class AccountTransactions {
    * List account transactions
    *
    * @remarks
-   * Returns a list of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction) for a given company's connection.
+   * The *List account transactions* endpoint returns a list of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction) for a given company's connection.
+   *
    */
   async list(
     req: operations.ListAccountTransactionsRequest,
@@ -122,7 +130,12 @@ export class AccountTransactions {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req);
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
     let retryConfig: any = retries;
     if (!retryConfig) {
@@ -134,6 +147,7 @@ export class AccountTransactions {
         validateStatus: () => true,
         url: url + queryParams,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));

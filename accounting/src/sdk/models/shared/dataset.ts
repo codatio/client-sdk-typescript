@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export enum DatasetStatusEnum {
+export enum DatasetStatus {
   Initial = "Initial",
   Queued = "Queued",
   Fetching = "Fetching",
@@ -125,7 +125,7 @@ export class Dataset extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: DatasetStatusEnum;
+  status: DatasetStatus;
 
   @SpeakeasyMetadata()
   @Expose({ name: "validationInformationUrl" })

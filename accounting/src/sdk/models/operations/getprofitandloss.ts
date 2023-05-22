@@ -12,11 +12,17 @@ export class GetProfitAndLossRequest extends SpeakeasyBase {
   })
   companyId: string;
 
+  /**
+   * Number of months defining the period of interest.
+   */
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=periodLength",
   })
   periodLength: number;
 
+  /**
+   * Number of periods with `periodLength` to compare.
+   */
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=periodsToCompare",
   })

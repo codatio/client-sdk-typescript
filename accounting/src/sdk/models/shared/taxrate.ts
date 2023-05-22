@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Metadata } from "./metadata";
 import { TaxRateComponent } from "./taxratecomponent";
-import { TaxRateStatusEnum } from "./taxratestatusenum";
+import { TaxRateStatus } from "./taxratestatus";
 import { ValidDataTypeLinks } from "./validdatatypelinks";
 import { Expose, Type } from "class-transformer";
 
@@ -90,7 +90,7 @@ export class TaxRate extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status?: TaxRateStatusEnum;
+  status?: TaxRateStatus;
 
   /**
    * Total (not compounded) sum of the components of a tax rate.

@@ -9,7 +9,6 @@ Bank transactions for bank accounts
 * [create](#create) - Create bank transactions
 * [getCreateModel](#getcreatemodel) - List push options for bank account bank transactions
 * [list](#list) - List bank transactions for bank account
-* [listTransactions](#listtransactions) - List all bank transactions
 
 ## create
 
@@ -17,19 +16,14 @@ Posts bank transactions to the accounting package for a given company.
 
 > **Supported Integrations**
 > 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankTransactions) for integrations that support POST methods.
+> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankTransactions) for integrations that support POST methods.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateBankTransactionsResponse } from "@codat/accounting/dist/sdk/models/operations";
-import {
-  BankTransactionTypeEnum,
-  DataTypeEnum,
-  PushChangeTypeEnum,
-  PushOperationStatusEnum,
-} from "@codat/accounting/dist/sdk/models/shared";
+import { BankTransactionType, DataType, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -52,7 +46,7 @@ sdk.bankAccountTransactions.create({
         reconciled: false,
         reference: "perferendis",
         sourceModifiedDate: "ad",
-        transactionType: BankTransactionTypeEnum.Check,
+        transactionType: BankTransactionType.Check,
       },
     ],
   },
@@ -77,7 +71,7 @@ Gets the options of pushing bank account transactions.
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateBankAccountModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -105,7 +99,7 @@ Gets bank transactions for a given bank account ID
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListBankAccountTransactionsResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { BankTransactionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { BankTransactionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -122,37 +116,6 @@ sdk.bankAccountTransactions.list({
   pageSize: 100,
   query: "iste",
 }).then((res: ListBankAccountTransactionsResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-## listTransactions
-
-Gets the latest bank transactions for given account ID and company. Doesn't require connection ID.
-
-### Example Usage
-
-```typescript
-import { CodatAccounting } from "@codat/accounting";
-import { ListBankTransactionsResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { BankTransactionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
-
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "YOUR_API_KEY_HERE",
-  },
-});
-
-sdk.bankAccountTransactions.listTransactions({
-  accountId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "dolor",
-}).then((res: ListBankTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

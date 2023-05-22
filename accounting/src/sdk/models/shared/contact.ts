@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Addressesitems } from "./addressesitems";
-import { CustomerStatusEnum } from "./customerstatusenum";
+import { CustomerStatus } from "./customerstatus";
 import { PhoneNumbersitems } from "./phonenumbersitems";
 import { Expose, Type } from "class-transformer";
 
@@ -68,5 +68,5 @@ export class Contact extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: CustomerStatusEnum;
+  status: CustomerStatus;
 }

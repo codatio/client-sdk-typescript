@@ -23,14 +23,14 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 > **Supported Integrations**
 > 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support creating direct costs.
+> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support creating direct costs.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateDirectCostResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { DataTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { DataType, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -41,239 +41,322 @@ const sdk = new CodatAccounting({
 sdk.directCosts.create({
   directCost: {
     contactRef: {
-      dataType: "tempore",
-      id: "e3444eac-8b3a-4287-9c6c-1fe606d07d2a",
+      dataType: "quis",
+      id: "93260525-1e66-4bb4-a689-7d99a2d33567",
     },
-    currency: "error",
-    currencyRate: 7699.22,
-    id: "87ae50c1-6661-4a1d-9136-a7e8d53213f3",
-    issueDate: "asperiores",
+    currency: "ipsa",
+    currencyRate: 8842.06,
+    id: "93ee6cf5-9f35-48aa-aaca-e323a31bf7ba",
+    issueDate: "architecto",
     lineItems: [
       {
         accountRef: {
-          id: "58752db7-64c5-49f0-a56c-ebcada29ca79",
-          name: "Margie Bosco",
+          id: "c97716c8-02cc-49e0-87d9-d323f1aa63ed",
+          name: "Miss Earnest Zemlak",
         },
-        description: "ipsam",
-        discountAmount: 3887.15,
-        discountPercentage: 4752.38,
+        description: "nemo",
+        discountAmount: 4125.09,
+        discountPercentage: 7425.62,
         itemRef: {
-          id: "1663c530-b566-4516-ba36-38512ab2521b",
-          name: "Emmett Daugherty IV",
+          id: "cba51ef2-454a-447f-acf1-16cdd5444a75",
+          name: "Andrea Lang",
         },
-        quantity: 1632.92,
-        subTotal: 3028.14,
-        taxAmount: 4199.95,
+        quantity: 8116.96,
+        subTotal: 4938,
+        taxAmount: 8445.24,
         taxRateRef: {
-          effectiveTaxRate: 4450.23,
-          id: "b8a40bc0-5fab-40d6-90ed-f22a94d20ec9",
-          name: "Raquel O'Keefe PhD",
+          effectiveTaxRate: 8127.53,
+          id: "9efaf43d-c623-4620-b313-8f30df3db022",
+          name: "Donnie Ondricka",
         },
-        totalAmount: 1004.36,
+        totalAmount: 3413.59,
         tracking: {
           invoiceTo: {
-            dataType: "hic",
-            id: "465e8515-6fff-473f-9f54-fdd5ea954339",
+            dataType: "delectus",
+            id: "b8f652eb-b9d3-4838-b879-0243b293dab3",
           },
           recordRefs: [
             {
-              dataType: "illum",
-              id: "afb42a8d-6338-48e4-9803-9ea5f9b18a24",
-            },
-            {
-              dataType: "modi",
-              id: "fd619039-dacd-438e-90dc-671dc7f1e3af",
-            },
-            {
-              dataType: "quasi",
-              id: "5920c90d-1b49-401f-abd8-9c8a32639da5",
+              dataType: "vero",
+              id: "917f50fd-a04c-48b1-bb55-a292b0bc3bb7",
             },
           ],
         },
         trackingCategoryRefs: [
           {
-            id: "7b6902b8-81a9-44f6-8366-4a8f0af8c691",
-            name: "Clinton Ernser",
+            id: "4664eb1d-0338-48b0-91bb-17afee74b6fe",
+            name: "Marion Greenfelder",
           },
           {
-            id: "9fbaf947-6a2a-4e8d-8c50-c8a3512c7378",
-            name: "Gwendolyn McLaughlin IV",
-          },
-          {
-            id: "50a00e96-6ec7-436d-8319-4398c783c923",
-            name: "Max Tillman",
+            id: "c7edaf39-d16f-4bf7-afd1-62b303e3023b",
+            name: "Manuel Tillman",
           },
         ],
-        unitAmount: 8639.57,
+        unitAmount: 1973.88,
       },
       {
         accountRef: {
-          id: "3ab7ca3c-5ca8-4649-a70c-fd5d6989b720",
-          name: "Mr. Danielle Hamill",
+          id: "16cf55b4-3135-453c-8f1c-204c4adcc990",
+          name: "Ms. Jody Hamill",
         },
-        description: "voluptate",
-        discountAmount: 8494.86,
-        discountPercentage: 879.6,
+        description: "cum",
+        discountAmount: 5405.93,
+        discountPercentage: 3840.98,
         itemRef: {
-          id: "9ea83d49-2ed1-44b8-a2c1-954545e955dc",
-          name: "Henry Langosh",
+          id: "48cefa78-f1e2-4d3b-901e-0952bbb4cbb1",
+          name: "Mrs. Courtney Kuhic",
         },
-        quantity: 6691.93,
-        subTotal: 3007.59,
-        taxAmount: 6029.32,
+        quantity: 5685.48,
+        subTotal: 3158.92,
+        taxAmount: 6366.25,
         taxRateRef: {
-          effectiveTaxRate: 65.39,
-          id: "1c7c43ad-2daa-4784-aba3-d230edf73811",
-          name: "Albert Bruen",
+          effectiveTaxRate: 2930.95,
+          id: "169c1387-271e-418e-a9e4-5118c2cc57fb",
+          name: "Tyler Abernathy MD",
         },
-        totalAmount: 5162.31,
+        totalAmount: 4645.41,
         tracking: {
           invoiceTo: {
-            dataType: "consequuntur",
-            id: "bd7ed565-0762-41c5-8f4d-7396564c20a0",
+            dataType: "molestias",
+            id: "ed29a9d4-eea8-4565-8c2d-4f4c88be4f27",
           },
           recordRefs: [
             {
-              dataType: "dicta",
-              id: "1a961d24-a7db-4b8f-932d-892cf7812cb5",
+              dataType: "tenetur",
+              id: "d9667e46-c51d-42ff-aa58-dcef234c955b",
             },
             {
-              dataType: "architecto",
-              id: "2c878240-bf54-48f8-8f8f-1bf0bc8e1f20",
+              dataType: "natus",
+              id: "bdf2190a-bd9b-4bcc-a725-ec2659ce0280",
+            },
+            {
+              dataType: "corrupti",
+              id: "40c69ef6-8e45-4c8a-9dfa-c754500430c6",
             },
           ],
         },
         trackingCategoryRefs: [
           {
-            id: "d5d831d0-0810-490f-a706-673f3a681c57",
-            name: "Vickie Simonis",
+            id: "32b4391f-df01-4c3e-91e8-f7bc69d460a7",
+            name: "Alyssa Satterfield",
           },
           {
-            id: "742409a2-15e0-4860-9489-a5f63e3af3dd",
-            name: "Marty Spencer",
+            id: "26d10f1e-f263-41c7-80f0-f873f9d5c25f",
+            name: "Miss Alfred VonRueden",
           },
         ],
-        unitAmount: 2439.65,
+        unitAmount: 6464.87,
+      },
+      {
+        accountRef: {
+          id: "4a4253c3-0257-411f-82c7-e7dc548be09e",
+          name: "Diane Paucek",
+        },
+        description: "dolores",
+        discountAmount: 816.73,
+        discountPercentage: 3686.17,
+        itemRef: {
+          id: "ca12a4ba-9d59-4988-992c-fd0c77c53e7e",
+          name: "Chelsea Gibson",
+        },
+        quantity: 3952.6,
+        subTotal: 9251.57,
+        taxAmount: 5344.54,
+        taxRateRef: {
+          effectiveTaxRate: 7493.37,
+          id: "90bac384-e239-4670-bfec-31c50824d189",
+          name: "Curtis Keebler",
+        },
+        totalAmount: 6908.65,
+        tracking: {
+          invoiceTo: {
+            dataType: "sunt",
+            id: "d27eb707-aa60-4c8f-a46e-6177db9db3b7",
+          },
+          recordRefs: [
+            {
+              dataType: "voluptatibus",
+              id: "fbb6970e-e770-4e36-897e-f7c206e61b0d",
+            },
+          ],
+        },
+        trackingCategoryRefs: [
+          {
+            id: "08714c20-a3d9-4863-bca8-5c3fe65574db",
+            name: "Dominick Mraz",
+          },
+        ],
+        unitAmount: 4622.78,
+      },
+      {
+        accountRef: {
+          id: "c98f13af-28db-42cf-abf4-f3ded356d7e1",
+          name: "Miss Whitney Dach",
+        },
+        description: "occaecati",
+        discountAmount: 5317.63,
+        discountPercentage: 1078.63,
+        itemRef: {
+          id: "96d55af6-9a1c-44b7-9ae3-3681c23c39a7",
+          name: "Ms. Michael Torphy",
+        },
+        quantity: 7162.96,
+        subTotal: 938.38,
+        taxAmount: 1709.49,
+        taxRateRef: {
+          effectiveTaxRate: 7710.42,
+          id: "5ba825fe-22cd-45cb-a6fb-fec932af6813",
+          name: "Angel Harvey",
+        },
+        totalAmount: 9353.01,
+        tracking: {
+          invoiceTo: {
+            dataType: "placeat",
+            id: "ec2dd691-6f7f-4c7d-9a70-ec60e6075894",
+          },
+          recordRefs: [
+            {
+              dataType: "autem",
+              id: "1c14cd90-227e-437c-8d97-7f1a5491abe9",
+            },
+            {
+              dataType: "dignissimos",
+              id: "51b106d2-3e03-4e69-815a-ae99fcde9e72",
+            },
+            {
+              dataType: "iste",
+              id: "c9d4f2d8-a446-440c-a60d-b73a2f93f467",
+            },
+            {
+              dataType: "at",
+              id: "c0d8da56-1220-426a-b8f2-77485c1976af",
+            },
+          ],
+        },
+        trackingCategoryRefs: [
+          {
+            id: "80da7a08-9fc4-44db-a745-30e5cc7c6d0c",
+            name: "Spencer Wintheiser",
+          },
+          {
+            id: "d334b6f6-23bc-4eca-b50a-ee5e0da8b9af",
+            name: "Mrs. Alberta Stoltenberg",
+          },
+          {
+            id: "86e7b413-cbe2-4d17-adc1-c43d40f61d17",
+            name: "Christine Hane",
+          },
+        ],
+        unitAmount: 7322.16,
       },
     ],
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "vero",
-    note: "placeat",
+    modifiedDate: "debitis",
+    note: "enim",
     paymentAllocations: [
       {
         allocation: {
-          allocatedOnDate: "vel",
+          allocatedOnDate: "saepe",
           currency: "non",
-          currencyRate: 2799.65,
-          totalAmount: 5083.73,
+          currencyRate: 9407.97,
+          totalAmount: 4601.8,
         },
         payment: {
           accountRef: {
-            id: "3e4a7a98-e4df-437e-85b8-955d413e13a4",
-            name: "Mr. Todd Feil",
+            id: "21184077-2f32-4e3b-89db-e0f23b7b6d99",
+            name: "Dianne Simonis",
           },
-          currency: "perferendis",
-          currencyRate: 4391.35,
-          id: "bd354c09-2bd7-434f-8244-9d86f4bb20fe",
-          note: "nostrum",
-          paidOnDate: "quibusdam",
-          reference: "provident",
-          totalAmount: 857.97,
+          currency: "facere",
+          currencyRate: 8999.7,
+          id: "d477680f-c7a1-47a8-ae5e-82fd28d1040a",
+          note: "iusto",
+          paidOnDate: "debitis",
+          reference: "sint",
+          totalAmount: 1083.49,
         },
       },
       {
         allocation: {
-          allocatedOnDate: "sunt",
-          currency: "quod",
-          currencyRate: 7101.48,
-          totalAmount: 9611.71,
+          allocatedOnDate: "ratione",
+          currency: "omnis",
+          currencyRate: 1850.41,
+          totalAmount: 6781.29,
         },
         payment: {
           accountRef: {
-            id: "e749caf4-5a27-4f69-a2c9-e6d10e9db3ad",
-            name: "Rosalie Kautzer I",
+            id: "b44cb183-5008-4f46-9ce5-3e914498a9ba",
+            name: "Alma Beahan",
           },
-          currency: "quasi",
-          currencyRate: 374.55,
-          id: "8d9c3374-7308-42b9-8f2a-b1fd5671e9c3",
-          note: "dolores",
-          paidOnDate: "commodi",
-          reference: "neque",
-          totalAmount: 3182.94,
+          currency: "pariatur",
+          currencyRate: 9692.94,
+          id: "de410c37-daa9-4182-a49d-9625d3caffc1",
+          note: "cupiditate",
+          paidOnDate: "blanditiis",
+          reference: "voluptates",
+          totalAmount: 9025.46,
         },
       },
       {
         allocation: {
-          allocatedOnDate: "eaque",
-          currency: "officia",
-          currencyRate: 2702.53,
-          totalAmount: 4310.35,
+          allocatedOnDate: "animi",
+          currency: "modi",
+          currencyRate: 3101.3,
+          totalAmount: 3390.36,
         },
         payment: {
           accountRef: {
-            id: "7143789c-e0e9-4915-94d9-3a74c0252fe3",
-            name: "Alex Rippin",
+            id: "2792bcd4-40ea-498b-acce-0486de0d56d7",
+            name: "Mrs. Verna Anderson",
           },
-          currency: "rerum",
-          currencyRate: 5394.26,
-          id: "b778ebb6-e1d2-4cf5-82ba-fb2cbc4635d5",
-          note: "eveniet",
-          paidOnDate: "eum",
-          reference: "exercitationem",
-          totalAmount: 8718.88,
+          currency: "accusantium",
+          currencyRate: 2062.3,
+          id: "e8dc626f-f77c-4656-b5f5-b70e3e4cfcc6",
+          note: "dolorum",
+          paidOnDate: "cupiditate",
+          reference: "ab",
+          totalAmount: 8969.21,
         },
       },
       {
         allocation: {
-          allocatedOnDate: "culpa",
-          currency: "alias",
-          currencyRate: 1759.37,
-          totalAmount: 5500.66,
+          allocatedOnDate: "maxime",
+          currency: "veniam",
+          currencyRate: 1816.73,
+          totalAmount: 3974.18,
         },
         payment: {
           accountRef: {
-            id: "c3e951a1-e30f-4da9-a648-9d7b78673e13",
-            name: "Arthur Dare",
+            id: "24d00014-ef45-4cea-91ac-53ebb6587f34",
+            name: "Megan Bergnaum",
           },
-          currency: "rerum",
-          currencyRate: 5872.48,
-          id: "92494594-487f-45c8-8383-6b86b3cdf641",
-          note: "minima",
-          paidOnDate: "facilis",
-          reference: "sit",
-          totalAmount: 2799.72,
+          currency: "ipsam",
+          currencyRate: 7395.69,
+          id: "9acee400-ae9f-492c-af1b-025f1d14718c",
+          note: "nisi",
+          paidOnDate: "voluptatibus",
+          reference: "est",
+          totalAmount: 1274.87,
         },
       },
     ],
-    reference: "magnam",
-    sourceModifiedDate: "molestias",
-    subTotal: 9417.1,
+    reference: "doloribus",
+    sourceModifiedDate: "mollitia",
+    subTotal: 8418.47,
     supplementalData: {
       content: {
-        "repellendus": {
-          "dicta": "ratione",
-          "delectus": "ut",
-          "officiis": "itaque",
-          "nulla": "distinctio",
-        },
-        "recusandae": {
-          "deleniti": "tempore",
-          "reiciendis": "commodi",
-        },
-        "sit": {
-          "molestias": "quia",
-          "ipsam": "rem",
+        "cumque": {
+          "commodi": "porro",
         },
       },
     },
-    taxAmount: 5640.67,
-    totalAmount: 2626.64,
+    taxAmount: 3298.49,
+    totalAmount: 8155.84,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 898366,
+  timeoutInMinutes: 571303,
 }).then((res: CreateDirectCostResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -372,14 +455,14 @@ See the examples for integration-specific indicative models.
 
 > **Supported Integrations**
 > 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support creating direct costs.
+> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support creating direct costs.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateDirectCostsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -419,7 +502,7 @@ sdk.directCosts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "culpa",
+  query: "exercitationem",
 }).then((res: ListDirectCostsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -472,8 +555,8 @@ const sdk = new CodatAccounting({
 
 sdk.directCosts.uploadAttachment({
   requestBody: {
-    content: "in".encode(),
-    requestBody: "aliquid",
+    content: "quaerat".encode(),
+    requestBody: "in",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",

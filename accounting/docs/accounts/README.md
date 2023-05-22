@@ -13,26 +13,22 @@ Accounts
 
 ## create
 
-Creates a new account for a given company.
+﻿The *Create accounts* endpoint creates a new [accounts](https://docs.codat.io/accounting-api#/schemas/Account) for a given company.
 
 Required data may vary by integration. To see what data to post, first call [Get create account model](https://docs.codat.io/accounting-api#/operations/get-create-chartOfAccounts-model).
 
 > **Supported Integrations**
 > 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
+> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
+
+[Accounts](https://docs.codat.io/accounting-api#/schemas/Account) are the categories a business uses to record accounting transactions.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateAccountResponse } from "@codat/accounting/dist/sdk/models/operations";
-import {
-  AccountStatusEnum,
-  AccountTypeEnum,
-  DataTypeEnum,
-  PushChangeTypeEnum,
-  PushOperationStatusEnum,
-} from "@codat/accounting/dist/sdk/models/shared";
+import { AccountStatus, AccountType, DataType, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -56,8 +52,8 @@ sdk.accounts.create({
     name: "Accounts Receivable",
     nominalCode: "610",
     sourceModifiedDate: "corrupti",
-    status: AccountStatusEnum.Active,
-    type: AccountTypeEnum.Asset,
+    status: AccountStatus.Active,
+    type: AccountType.Asset,
     validDatatypeLinks: [
       {
         links: [
@@ -104,14 +100,16 @@ sdk.accounts.create({
 
 ## get
 
-Gets a single account corresponding to the given ID.
+﻿The *Get account* endpoint returns a single [accounts](https://docs.codat.io/accounting-api#/schemas/Account) for a given `accountId`.
+
+[Accounts](https://docs.codat.io/accounting-api#/schemas/Account) are the categories a business uses to record accounting transactions.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetAccountResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AccountStatusEnum, AccountTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { AccountStatus, AccountType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -131,20 +129,22 @@ sdk.accounts.get({
 
 ## getCreateModel
 
-Get create account model. Returns the expected data for the request payload.
+﻿The *Get create account model* endpoint returns the expected data for the request payload when creating an [account](https://docs.codat.io/accounting-api#/schemas/Account) for a given company and integration.
 
 See the examples for integration-specific indicative models.
 
 > **Supported Integrations**
 > 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
+> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
+
+[Accounts](https://docs.codat.io/accounting-api#/schemas/Account) are the categories a business uses to record accounting transactions.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateChartOfAccountsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -164,14 +164,16 @@ sdk.accounts.getCreateModel({
 
 ## list
 
-Gets the latest accounts for a company
+﻿The *List accounts* endpoint returns a list of [accounts](https://docs.codat.io/accounting-api#/schemas/Account) for a given company's connection.
+
+[Accounts](https://docs.codat.io/accounting-api#/schemas/Account) are the categories a business uses to record accounting transactions.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListAccountsResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AccountStatusEnum, AccountTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { AccountStatus, AccountType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {

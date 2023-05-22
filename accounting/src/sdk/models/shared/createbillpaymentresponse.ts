@@ -4,9 +4,9 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { BillPayment } from "./billpayment";
-import { DataTypeEnum } from "./datatypeenum";
+import { DataType } from "./datatype";
 import { PushOperationChange } from "./pushoperationchange";
-import { PushOperationStatusEnum } from "./pushoperationstatusenum";
+import { PushOperationStatus } from "./pushoperationstatus";
 import { Validation } from "./validation";
 import { Expose, Type } from "class-transformer";
 
@@ -225,7 +225,7 @@ export class CreateBillPaymentResponse extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "dataType" })
-  dataType?: DataTypeEnum;
+  dataType?: DataType;
 
   @SpeakeasyMetadata()
   @Expose({ name: "errorMessage" })
@@ -270,7 +270,7 @@ export class CreateBillPaymentResponse extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: PushOperationStatusEnum;
+  status: PushOperationStatus;
 
   @SpeakeasyMetadata()
   @Expose({ name: "statusCode" })

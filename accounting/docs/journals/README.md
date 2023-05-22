@@ -19,14 +19,14 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 > **Supported Integrations**
 > 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journals) for integrations that support creating journals.
+> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journals) for integrations that support creating journals.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateJournalResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { DataTypeEnum, JournalStatusEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { DataType, JournalStatus, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -36,23 +36,23 @@ const sdk = new CodatAccounting({
 
 sdk.journals.create({
   journal: {
-    createdOn: "eos",
+    createdOn: "cum",
     hasChildren: false,
-    id: "3394a68c-c80d-430f-b721-64d0a91fe9d9",
-    journalCode: "autem",
+    id: "56065a50-74be-4fb8-af68-49d2b9940436",
+    journalCode: "adipisci",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "minima",
-    name: "Sherry Reynolds",
-    parentId: "necessitatibus",
-    sourceModifiedDate: "perferendis",
-    status: JournalStatusEnum.Unknown,
-    type: "doloremque",
+    modifiedDate: "mollitia",
+    name: "Faye Huels",
+    parentId: "voluptatem",
+    sourceModifiedDate: "ipsam",
+    status: JournalStatus.Unknown,
+    type: "praesentium",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 569651,
+  timeoutInMinutes: 452831,
 }).then((res: CreateJournalResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -69,7 +69,7 @@ Gets a single journal corresponding to the given ID.
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetJournalResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { JournalStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { JournalStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -79,7 +79,7 @@ const sdk = new CodatAccounting({
 
 sdk.journals.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalId: "quod",
+  journalId: "ea",
 }).then((res: GetJournalResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -95,14 +95,14 @@ See the examples for integration-specific indicative models.
 
 > **Supported Integrations**
 > 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journals) for integrations that support creating journals.
+> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journals) for integrations that support creating journals.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateJournalsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -129,7 +129,7 @@ Gets the latest journals for a company, with pagination
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListJournalsResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { JournalStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { JournalStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -142,7 +142,7 @@ sdk.journals.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "vel",
+  query: "eveniet",
 }).then((res: ListJournalsResponse) => {
   if (res.statusCode == 200) {
     // handle response

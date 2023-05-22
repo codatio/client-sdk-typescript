@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { BilledToTypeEnum1 } from "./billedtotypeenum1";
+import { BilledToType1 } from "./billedtotype1";
 import { CustomerRef } from "./customerref";
 import { ProjectRef } from "./projectref";
 import { TrackingCategoryRef } from "./trackingcategoryref";
@@ -25,11 +25,11 @@ export class Propertiestracking1 extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "isBilledTo" })
-  isBilledTo: BilledToTypeEnum1;
+  isBilledTo: BilledToType1;
 
   @SpeakeasyMetadata()
   @Expose({ name: "isRebilledTo" })
-  isRebilledTo: BilledToTypeEnum1;
+  isRebilledTo: BilledToType1;
 
   @SpeakeasyMetadata()
   @Expose({ name: "projectRef" })

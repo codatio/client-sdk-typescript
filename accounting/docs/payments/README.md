@@ -19,14 +19,14 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 > **Supported Integrations**
 > 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=payments) for integrations that support creating payments.
+> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=payments) for integrations that support creating payments.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreatePaymentResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { DataTypeEnum, PaymentLinkTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { DataType, PaymentLinkType, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -37,69 +37,33 @@ const sdk = new CodatAccounting({
 sdk.payments.create({
   payment: {
     accountRef: {
-      id: "2de7b356-2201-4a6a-ab4a-e7b1a5b908d4",
-      name: "Jeffery Aufderhar",
+      id: "def9c765-dfd7-4354-a5cb-94977017a262",
+      name: "Monica Reinger",
     },
-    currency: "quae",
-    currencyRate: 6765.76,
+    currency: "eum",
+    currencyRate: 7979.17,
     customerRef: {
-      companyName: "fuga",
-      id: "35d4a839-f03b-4ab7-bb91-8f0313984507",
+      companyName: "laborum",
+      id: "4e999828-79de-4fc0-b239-606cf90ad989",
     },
-    date: "officiis",
-    id: "0e39c7e2-3ecb-4060-8652-e23a3d6c657e",
+    date: "recusandae",
+    id: "1a34715a-cda0-444f-aaed-6e13a620e2e9",
     lines: [
       {
-        allocatedOnDate: "quibusdam",
-        amount: 8936.05,
+        allocatedOnDate: "totam",
+        amount: 7539.55,
         links: [
           {
-            amount: 9387.2,
-            currencyRate: 4758.76,
-            id: "f002d198-6aa9-49d3-a1d3-2329e45837e8",
-            type: PaymentLinkTypeEnum.Discount,
+            amount: 3390.23,
+            currencyRate: 7169.63,
+            id: "0486cf39-8a0b-4374-a17d-d95ce3044be4",
+            type: PaymentLinkType.Discount,
           },
           {
-            amount: 1859.89,
-            currencyRate: 6377.7,
-            id: "d6bb10e2-55fd-4c48-8d6e-3308675cbf18",
-            type: PaymentLinkTypeEnum.CreditNote,
-          },
-          {
-            amount: 5604.72,
-            currencyRate: 3424.33,
-            id: "6a7e82cd-f9d0-4fc2-82c6-66af3c3f5589",
-            type: PaymentLinkTypeEnum.PaymentOnAccount,
-          },
-        ],
-      },
-      {
-        allocatedOnDate: "accusamus",
-        amount: 6668.05,
-        links: [
-          {
-            amount: 8213.45,
-            currencyRate: 1736.08,
-            id: "64e41e2c-a848-422e-913f-6d9d2ad37c30",
-            type: PaymentLinkTypeEnum.Payment,
-          },
-          {
-            amount: 5821.15,
-            currencyRate: 328.36,
-            id: "77c10b68-7921-463e-a7d4-8860543c0a30",
-            type: PaymentLinkTypeEnum.Invoice,
-          },
-        ],
-      },
-      {
-        allocatedOnDate: "excepturi",
-        amount: 7879.41,
-        links: [
-          {
-            amount: 8004.56,
-            currencyRate: 9757.5,
-            id: "6c0276e7-b21b-4ad9-8d27-43fd6c2a10e6",
-            type: PaymentLinkTypeEnum.ManualJournal,
+            amount: 7139.18,
+            currencyRate: 2076.75,
+            id: "b31cb503-c314-40d8-b72c-535e1dd6bf64",
+            type: PaymentLinkType.PaymentOnAccount,
           },
         ],
       },
@@ -107,37 +71,44 @@ sdk.payments.create({
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "odit",
-    note: "natus",
+    modifiedDate: "non",
+    note: "quis",
     paymentMethodRef: {
-      id: "78ec256a-5b09-4227-bcc4-7996c977bbc5",
-      name: "Jeannie Dibbert",
+      id: "4e9831e7-95f0-4e57-b54e-bf2d2b46097e",
+      name: "Carlton Grady",
     },
-    reference: "eos",
-    sourceModifiedDate: "quos",
+    reference: "voluptatum",
+    sourceModifiedDate: "quibusdam",
     supplementalData: {
       content: {
-        "blanditiis": {
-          "ipsa": "eaque",
-          "quo": "ad",
+        "earum": {
+          "sit": "cumque",
+          "quibusdam": "quibusdam",
         },
-        "atque": {
-          "eum": "iusto",
-          "facere": "ea",
-          "sequi": "voluptates",
-          "tempora": "similique",
+        "inventore": {
+          "enim": "perferendis",
+          "soluta": "tenetur",
+          "ipsam": "dolorum",
         },
-        "officia": {
-          "laboriosam": "quos",
-          "aliquam": "vel",
+        "ipsa": {
+          "soluta": "impedit",
+          "quas": "facilis",
+          "quam": "blanditiis",
+          "commodi": "eaque",
+        },
+        "similique": {
+          "voluptates": "similique",
+          "autem": "nobis",
+          "laboriosam": "non",
+          "corporis": "ab",
         },
       },
     },
-    totalAmount: 2546.16,
+    totalAmount: 1991.9,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 321921,
+  timeoutInMinutes: 179221,
 }).then((res: CreatePaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -154,7 +125,7 @@ Get payment
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetPaymentResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PaymentLinkTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { PaymentLinkType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -164,7 +135,7 @@ const sdk = new CodatAccounting({
 
 sdk.payments.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  paymentId: "odio",
+  paymentId: "repellendus",
 }).then((res: GetPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -180,14 +151,14 @@ See the examples for integration-specific indicative models.
 
 > **Supported Integrations**
 > 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=payments) for integrations that support creating payments.
+> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=payments) for integrations that support creating payments.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreatePaymentsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -226,7 +197,7 @@ sdk.payments.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "omnis",
+  query: "ipsam",
 }).then((res: ListPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

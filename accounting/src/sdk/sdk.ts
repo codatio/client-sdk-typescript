@@ -15,7 +15,6 @@ import { CreditNotes } from "./creditnotes";
 import { Customers } from "./customers";
 import { DirectCosts } from "./directcosts";
 import { DirectIncomes } from "./directincomes";
-import { Financials } from "./financials";
 import { Invoices } from "./invoices";
 import { Items } from "./items";
 import { JournalEntries } from "./journalentries";
@@ -122,10 +121,6 @@ export class CodatAccounting {
    */
   public directIncomes: DirectIncomes;
   /**
-   * Financials
-   */
-  public financials: Financials;
-  /**
    * Invoices
    */
   public invoices: Invoices;
@@ -182,8 +177,8 @@ export class CodatAccounting {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "0.13.0";
-  private _genVersion = "2.24.0";
+  private _sdkVersion = "0.14.0";
+  private _genVersion = "2.32.2";
   private _globals: any;
 
   constructor(props?: SDKProps) {
@@ -303,15 +298,6 @@ export class CodatAccounting {
     );
 
     this.directIncomes = new DirectIncomes(
-      this._defaultClient,
-      this._securityClient,
-      this._serverURL,
-      this._language,
-      this._sdkVersion,
-      this._genVersion
-    );
-
-    this.financials = new Financials(
       this._defaultClient,
       this._securityClient,
       this._serverURL,

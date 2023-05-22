@@ -6,9 +6,9 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Addressesitems } from "./addressesitems";
 import { CustomerRef } from "./customerref";
 import { Metadata } from "./metadata";
-import { SalesOrderInvoiceStatusEnum } from "./salesorderinvoicestatusenum";
+import { SalesOrderInvoiceStatus } from "./salesorderinvoicestatus";
 import { SalesOrderLineItem } from "./salesorderlineitem";
-import { SalesOrderStatusEnum } from "./salesorderstatusenum";
+import { SalesOrderStatus } from "./salesorderstatus";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -164,7 +164,7 @@ export class SalesOrder extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "invoicingStatus" })
-  invoicingStatus?: SalesOrderInvoiceStatusEnum;
+  invoicingStatus?: SalesOrderInvoiceStatus;
 
   /**
    * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
@@ -241,7 +241,7 @@ export class SalesOrder extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status?: SalesOrderStatusEnum;
+  status?: SalesOrderStatus;
 
   /**
    * Total amount of the sales order, including discounts but excluding tax.

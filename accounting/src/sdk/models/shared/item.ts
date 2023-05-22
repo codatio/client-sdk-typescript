@@ -5,7 +5,8 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { BillItem } from "./billitem";
 import { InvoiceItem } from "./invoiceitem";
-import { ItemStatusEnum } from "./itemstatusenum";
+import { ItemStatus } from "./itemstatus";
+import { ItemType } from "./itemtype";
 import { Metadata } from "./metadata";
 import { Expose, Type } from "class-transformer";
 
@@ -77,7 +78,7 @@ export class Item extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "itemStatus" })
-  itemStatus: ItemStatusEnum;
+  itemStatus: ItemStatus;
 
   @SpeakeasyMetadata()
   @Expose({ name: "metadata" })
@@ -99,7 +100,10 @@ export class Item extends SpeakeasyBase {
   @Expose({ name: "sourceModifiedDate" })
   sourceModifiedDate?: string;
 
+  /**
+   * Type of the item.
+   */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: any;
+  type: ItemType;
 }

@@ -45,7 +45,7 @@ export class CreditNotes {
    *
    * > **Supported Integrations**
    * >
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=creditNotes) for integrations that support creating a credit note.
+   * > Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=creditNotes) for integrations that support creating a credit note.
    */
   async create(
     req: operations.CreateCreditNoteRequest,
@@ -81,6 +81,10 @@ export class CreditNotes {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req);
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
     let retryConfig: any = retries;
     if (!retryConfig) {
@@ -148,6 +152,12 @@ export class CreditNotes {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
     let retryConfig: any = retries;
     if (!retryConfig) {
       retryConfig = new utils.RetryConfig("backoff", true);
@@ -158,6 +168,7 @@ export class CreditNotes {
         validateStatus: () => true,
         url: url,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -198,7 +209,7 @@ export class CreditNotes {
    *
    * > **Supported Integrations**
    * >
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=creditNotes) for integrations that support creating and updating a credit note.
+   * > Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=creditNotes) for integrations that support creating and updating a credit note.
    */
   async getCreateUpdateModel(
     req: operations.GetCreateUpdateCreditNotesModelRequest,
@@ -218,6 +229,12 @@ export class CreditNotes {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
     let retryConfig: any = retries;
     if (!retryConfig) {
       retryConfig = new utils.RetryConfig("backoff", true);
@@ -228,6 +245,7 @@ export class CreditNotes {
         validateStatus: () => true,
         url: url,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -262,7 +280,7 @@ export class CreditNotes {
    * List credit notes
    *
    * @remarks
-   * Gets a list of all credit notes for a company, with pagination
+   * Gets a list of all credit notes for a company, with pagination.
    */
   async list(
     req: operations.ListCreditNotesRequest,
@@ -282,7 +300,12 @@ export class CreditNotes {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req);
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
     let retryConfig: any = retries;
     if (!retryConfig) {
@@ -294,6 +317,7 @@ export class CreditNotes {
         validateStatus: () => true,
         url: url + queryParams,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -334,7 +358,7 @@ export class CreditNotes {
    *
    * > **Supported Integrations**
    * >
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=creditNotes) for integrations that support updating a credit note.
+   * > Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=creditNotes) for integrations that support updating a credit note.
    */
   async update(
     req: operations.UpdateCreditNoteRequest,
@@ -370,6 +394,10 @@ export class CreditNotes {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req);
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
     let retryConfig: any = retries;
     if (!retryConfig) {

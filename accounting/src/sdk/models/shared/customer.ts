@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Addressesitems } from "./addressesitems";
 import { Contact } from "./contact";
-import { CustomerStatusEnum } from "./customerstatusenum";
+import { CustomerStatus } from "./customerstatus";
 import { Metadata } from "./metadata";
 import { SupplementalData } from "./supplementaldata";
 import { Expose, Type } from "class-transformer";
@@ -114,7 +114,7 @@ export class Customer extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: CustomerStatusEnum;
+  status: CustomerStatus;
 
   /**
    * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.

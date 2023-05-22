@@ -14,20 +14,21 @@ Journal entries
 
 ## create
 
-Posts a new journalEntry to the accounting package for a given company.
+﻿Posts a new journalEntry to the accounting package for a given company.
 
 Required data may vary by integration. To see what data to post, first call [Get create journal entry model](https://docs.codat.io/accounting-api#/operations/get-create-journalEntries-model).
 
 > **Supported Integrations**
 > 
 > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journalEntries) for integrations that support creating journal entries.
+ 
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateJournalEntryResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { DataTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { DataType, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -37,137 +38,87 @@ const sdk = new CodatAccounting({
 
 sdk.journalEntries.create({
   journalEntry: {
-    createdOn: "delectus",
-    description: "id",
-    id: "1011a091-b3ec-48b5-b862-de1a9d14fe72",
+    createdOn: "quibusdam",
+    description: "natus",
+    id: "8ccf89d3-8611-486e-976c-002facb13ac2",
     journalLines: [
       {
         accountRef: {
-          id: "521f9030-3dfc-4338-b97f-ffa6d1d32090",
-          name: "Salvatore Boyer",
+          id: "c8143b86-6c57-45a1-a266-8730be37b0e8",
+          name: "Alton Schmitt",
         },
-        currency: "mollitia",
-        description: "cumque",
-        netAmount: 5632.6,
+        currency: "facere",
+        description: "temporibus",
+        netAmount: 7790.58,
         tracking: {
           recordRefs: [
-            {
-              dataType: "accusamus",
-              id: "1961ce9b-e41c-4869-9d7d-9719d07b200a",
-            },
-            {
-              dataType: "corporis",
-              id: "8ffd2967-df8f-4d88-aa8e-60be620cd9c5",
-            },
-            {
-              dataType: "officia",
-              id: "fdd04c37-5251-42be-ae1d-87ecc5fdcea8",
-            },
-            {
-              dataType: "eveniet",
-              id: "7a883116-62cd-4a6d-b7c1-d86066237d42",
-            },
-          ],
-        },
-      },
-      {
-        accountRef: {
-          id: "27866db8-a749-4e39-8451-1cc75e4f0c00",
-          name: "Patty Harber",
-        },
-        currency: "molestiae",
-        description: "ipsam",
-        netAmount: 5541.62,
-        tracking: {
-          recordRefs: [
-            {
-              dataType: "nobis",
-              id: "94562f00-6968-45fc-91a1-73d84bbe24f2",
-            },
-            {
-              dataType: "error",
-              id: "834afb07-35cb-4628-9d4a-29aaa1e16915",
-            },
-            {
-              dataType: "nisi",
-              id: "f7d2ee20-9505-4bf0-ba93-e94480ca37fb",
-            },
-            {
-              dataType: "ab",
-              id: "0789032a-c333-4172-a2dd-79ec74ba7e88",
-            },
-          ],
-        },
-      },
-      {
-        accountRef: {
-          id: "ddb36fd1-ccc3-441c-8657-3474f0a740fb",
-          name: "Sandy Reichel",
-        },
-        currency: "illo",
-        description: "impedit",
-        netAmount: 2164.48,
-        tracking: {
-          recordRefs: [
-            {
-              dataType: "doloremque",
-              id: "9e763995-d808-4bbe-b944-55ebc550a1c4",
-            },
-            {
-              dataType: "qui",
-              id: "6b59c836-6fdc-4c13-9582-c1b855e889d9",
-            },
             {
               dataType: "officiis",
-              id: "f932e900-0a13-4ad8-9242-08efd2341189",
+              id: "69b53510-5050-414d-8a10-5882484c36e9",
+            },
+            {
+              dataType: "ut",
+              id: "8892782d-34e0-4b8f-80d5-9f57b9f9820b",
             },
           ],
         },
       },
       {
         accountRef: {
-          id: "8e73879e-fbe8-4bae-babb-794536e90351",
-          name: "Rickey Miller",
+          id: "e07808c3-6c9e-42f7-8344-e00f478eb539",
+          name: "Maxine Dietrich",
         },
-        currency: "adipisci",
-        description: "architecto",
-        netAmount: 4393.34,
+        currency: "dolore",
+        description: "blanditiis",
+        netAmount: 9119.94,
         tracking: {
           recordRefs: [
             {
-              dataType: "voluptatem",
-              id: "b77a5a53-65a7-49f1-9271-f01c0d361fed",
+              dataType: "delectus",
+              id: "ccb69d54-1b4b-4393-b356-6625bea32201",
+            },
+            {
+              dataType: "temporibus",
+              id: "ec379c59-8ea1-4d48-85c2-f9e21d90fd53",
+            },
+            {
+              dataType: "esse",
+              id: "76bfc767-7f0f-4504-a6e4-828fb6daee19",
+            },
+            {
+              dataType: "cumque",
+              id: "26c0cb61-8c63-431c-abda-b767a444dd0d",
             },
           ],
         },
       },
     ],
     journalRef: {
-      id: "8dc5effb-453e-4908-9e87-1fdb4d697bdd",
-      name: "Sylvester Maggio",
+      id: "a0abe58e-b3d5-44ba-9cb3-ad49b8e5c18b",
+      name: "Holly Trantow",
     },
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "repudiandae",
-    postedOn: "incidunt",
+    modifiedDate: "maiores",
+    postedOn: "ea",
     recordRef: {
-      dataType: "neque",
-      id: "734a5d72-d9ed-4d78-9be5-e7afe55297ba",
+      dataType: "incidunt",
+      id: "823255be-95c0-4cbc-b2ca-87908d73809a",
     },
-    sourceModifiedDate: "laboriosam",
+    sourceModifiedDate: "aut",
     supplementalData: {
       content: {
-        "laudantium": {
-          "repellat": "aliquam",
+        "doloribus": {
+          "eum": "itaque",
         },
       },
     },
-    updatedOn: "modi",
+    updatedOn: "unde",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 907650,
+  timeoutInMinutes: 148478,
 }).then((res: CreateJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -177,7 +128,33 @@ sdk.journalEntries.create({
 
 ## delete
 
-Deletes a journal entry from the accounting package for a given company.
+﻿> **Use with caution**
+>
+>Because Journal Entries underpin every transaction in an accounting platform, deleting a Journal Entry can affect every transaction for a given company.
+> 
+> **Before you proceed, make sure you understand the implications of deleting Journal Entries from an accounting perspective.**
+
+The _Delete Journal entries_ endpoint allows you to delete a specified Journal entry from an accounting platform.
+
+### Process
+1. Pass the `{journalEntryId}` to the _Delete Journal Entries_ endpoint and store the `pushOperationKey` returned.
+2. Check the status of the delete by checking the status of push operation either via
+   1. [Push operation webhook](/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
+   2. [Push operation status endpoint](https://docs.codat.io/codat-api#/operations/get-push-operation). 
+   
+   A `Success` status indicates that the Journal Entry object was deleted from the accounting platform.
+3. (Optional) Check that the Journal Entry was deleted from the accounting platform.
+
+### Effect on related objects
+
+Be aware that deleting a Journal Entry from an accounting platform might cause related objects to be modified. For example, if you delete the Journal Entry for a paid invoice in QuickBooks Online, the invoice is deleted but the payment against that invoice is not. The payment is converted to a payment on account.
+
+## Integration specifics
+Integrations that support soft delete do not permanently delete the object in the accounting platform.
+
+| Integration | Soft Deleted | 
+|-------------|--------------|
+| QuickBooks Online | Yes    |       
 
 > **Supported Integrations**
 > 
@@ -188,7 +165,7 @@ Deletes a journal entry from the accounting package for a given company.
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { DeleteJournalEntryResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { DataTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { DataType, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -225,7 +202,7 @@ const sdk = new CodatAccounting({
 
 sdk.journalEntries.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalEntryId: "dolorem",
+  journalEntryId: "qui",
 }).then((res: GetJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -235,7 +212,7 @@ sdk.journalEntries.get({
 
 ## getCreateModel
 
-Get create journal entry model. Returns the expected data for the request payload.
+﻿Get create journal entry model. Returns the expected data for the request payload.
 
 See the examples for integration-specific indicative models.
 
@@ -248,7 +225,7 @@ See the examples for integration-specific indicative models.
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateJournalEntriesModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -268,7 +245,7 @@ sdk.journalEntries.getCreateModel({
 
 ## list
 
-Gets the latest journal entries for a company, with pagination
+﻿Gets the latest journal entries for a company, with pagination.
 
 ### Example Usage
 
@@ -287,7 +264,7 @@ sdk.journalEntries.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "laborum",
+  query: "totam",
 }).then((res: ListJournalEntriesResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { StatusEnum } from "./statusenum";
+import { Status } from "./status";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -51,7 +51,7 @@ export class TrackingCategoryTree extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status?: StatusEnum;
+  status?: Status;
 
   /**
    * A collection of subcategories that are nested beneath this category.

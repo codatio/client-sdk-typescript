@@ -45,6 +45,7 @@ export class JournalEntries {
    * > **Supported Integrations**
    * >
    * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journalEntries) for integrations that support creating journal entries.
+   *
    */
   async create(
     req: operations.CreateJournalEntryRequest,
@@ -80,6 +81,10 @@ export class JournalEntries {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req);
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
     let retryConfig: any = retries;
     if (!retryConfig) {
@@ -127,7 +132,33 @@ export class JournalEntries {
    * Delete journal entry
    *
    * @remarks
-   * Deletes a journal entry from the accounting package for a given company.
+   * > **Use with caution**
+   * >
+   * >Because Journal Entries underpin every transaction in an accounting platform, deleting a Journal Entry can affect every transaction for a given company.
+   * >
+   * > **Before you proceed, make sure you understand the implications of deleting Journal Entries from an accounting perspective.**
+   *
+   * The _Delete Journal entries_ endpoint allows you to delete a specified Journal entry from an accounting platform.
+   *
+   * ### Process
+   * 1. Pass the `{journalEntryId}` to the _Delete Journal Entries_ endpoint and store the `pushOperationKey` returned.
+   * 2. Check the status of the delete by checking the status of push operation either via
+   *    1. [Push operation webhook](/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
+   *    2. [Push operation status endpoint](https://docs.codat.io/codat-api#/operations/get-push-operation).
+   *
+   *    A `Success` status indicates that the Journal Entry object was deleted from the accounting platform.
+   * 3. (Optional) Check that the Journal Entry was deleted from the accounting platform.
+   *
+   * ### Effect on related objects
+   *
+   * Be aware that deleting a Journal Entry from an accounting platform might cause related objects to be modified. For example, if you delete the Journal Entry for a paid invoice in QuickBooks Online, the invoice is deleted but the payment against that invoice is not. The payment is converted to a payment on account.
+   *
+   * ## Integration specifics
+   * Integrations that support soft delete do not permanently delete the object in the accounting platform.
+   *
+   * | Integration | Soft Deleted |
+   * |-------------|--------------|
+   * | QuickBooks Online | Yes    |
    *
    * > **Supported Integrations**
    * >
@@ -151,6 +182,12 @@ export class JournalEntries {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
     let retryConfig: any = retries;
     if (!retryConfig) {
       retryConfig = new utils.RetryConfig("backoff", true);
@@ -161,6 +198,7 @@ export class JournalEntries {
         validateStatus: () => true,
         url: url,
         method: "delete",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -215,6 +253,12 @@ export class JournalEntries {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
     let retryConfig: any = retries;
     if (!retryConfig) {
       retryConfig = new utils.RetryConfig("backoff", true);
@@ -225,6 +269,7 @@ export class JournalEntries {
         validateStatus: () => true,
         url: url,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -285,6 +330,12 @@ export class JournalEntries {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
     let retryConfig: any = retries;
     if (!retryConfig) {
       retryConfig = new utils.RetryConfig("backoff", true);
@@ -295,6 +346,7 @@ export class JournalEntries {
         validateStatus: () => true,
         url: url,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -329,7 +381,7 @@ export class JournalEntries {
    * List journal entries
    *
    * @remarks
-   * Gets the latest journal entries for a company, with pagination
+   * Gets the latest journal entries for a company, with pagination.
    */
   async list(
     req: operations.ListJournalEntriesRequest,
@@ -349,7 +401,12 @@ export class JournalEntries {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req);
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
     let retryConfig: any = retries;
     if (!retryConfig) {
@@ -361,6 +418,7 @@ export class JournalEntries {
         validateStatus: () => true,
         url: url + queryParams,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));

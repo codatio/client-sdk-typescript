@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountRef } from "./accountref";
-import { BilledToTypeEnum1 } from "./billedtotypeenum1";
+import { BilledToType1 } from "./billedtotype1";
 import { CustomerRef } from "./customerref";
 import { ItemRef } from "./itemref";
 import { ProjectRef } from "./projectref";
@@ -28,11 +28,11 @@ export class CreditNoteLineItemTracking extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "isBilledTo" })
-  isBilledTo: BilledToTypeEnum1;
+  isBilledTo: BilledToType1;
 
   @SpeakeasyMetadata()
   @Expose({ name: "isRebilledTo" })
-  isRebilledTo: BilledToTypeEnum1;
+  isRebilledTo: BilledToType1;
 
   @SpeakeasyMetadata()
   @Expose({ name: "projectRef" })

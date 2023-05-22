@@ -58,7 +58,12 @@ export class Reports {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req);
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
     let retryConfig: any = retries;
     if (!retryConfig) {
@@ -70,6 +75,7 @@ export class Reports {
         validateStatus: () => true,
         url: url + queryParams,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -124,7 +130,12 @@ export class Reports {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req);
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
     let retryConfig: any = retries;
     if (!retryConfig) {
@@ -136,6 +147,7 @@ export class Reports {
         validateStatus: () => true,
         url: url + queryParams,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -158,6 +170,222 @@ export class Reports {
           res.agedDebtorReport = utils.objectToClass(
             httpRes?.data,
             shared.AgedDebtorReport
+          );
+        }
+        break;
+    }
+
+    return res;
+  }
+
+  /**
+   * Get balance sheet
+   *
+   * @remarks
+   * Gets the latest balance sheet for a company.
+   */
+  async getBalanceSheet(
+    req: operations.GetBalanceSheetRequest,
+    retries?: utils.RetryConfig,
+    config?: AxiosRequestConfig
+  ): Promise<operations.GetBalanceSheetResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.GetBalanceSheetRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/data/financials/balanceSheet",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const headers = { ...config?.headers };
+    const queryParams: string = utils.serializeQueryParams(req);
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const httpRes: AxiosResponse = await utils.Retry(() => {
+      return client.request({
+        validateStatus: () => true,
+        url: url + queryParams,
+        method: "get",
+        headers: headers,
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
+
+    const res: operations.GetBalanceSheetResponse =
+      new operations.GetBalanceSheetResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.balanceSheet = utils.objectToClass(
+            httpRes?.data,
+            shared.BalanceSheet1
+          );
+        }
+        break;
+    }
+
+    return res;
+  }
+
+  /**
+   * Get cash flow statement
+   *
+   * @remarks
+   * Gets the latest cash flow statement for a company.
+   */
+  async getCashFlowStatement(
+    req: operations.GetCashFlowStatementRequest,
+    retries?: utils.RetryConfig,
+    config?: AxiosRequestConfig
+  ): Promise<operations.GetCashFlowStatementResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.GetCashFlowStatementRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/data/financials/cashFlowStatement",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const headers = { ...config?.headers };
+    const queryParams: string = utils.serializeQueryParams(req);
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const httpRes: AxiosResponse = await utils.Retry(() => {
+      return client.request({
+        validateStatus: () => true,
+        url: url + queryParams,
+        method: "get",
+        headers: headers,
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
+
+    const res: operations.GetCashFlowStatementResponse =
+      new operations.GetCashFlowStatementResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.cashFlowStatement = utils.objectToClass(
+            httpRes?.data,
+            shared.CashFlowStatement1
+          );
+        }
+        break;
+    }
+
+    return res;
+  }
+
+  /**
+   * Get profit and loss
+   *
+   * @remarks
+   * Gets the latest profit and loss for a company.
+   */
+  async getProfitAndLoss(
+    req: operations.GetProfitAndLossRequest,
+    retries?: utils.RetryConfig,
+    config?: AxiosRequestConfig
+  ): Promise<operations.GetProfitAndLossResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.GetProfitAndLossRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/data/financials/profitAndLoss",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const headers = { ...config?.headers };
+    const queryParams: string = utils.serializeQueryParams(req);
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const httpRes: AxiosResponse = await utils.Retry(() => {
+      return client.request({
+        validateStatus: () => true,
+        url: url + queryParams,
+        method: "get",
+        headers: headers,
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
+
+    const res: operations.GetProfitAndLossResponse =
+      new operations.GetProfitAndLossResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.profitAndLossReport = utils.objectToClass(
+            httpRes?.data,
+            shared.ProfitAndLossReport1
           );
         }
         break;
@@ -190,6 +418,12 @@ export class Reports {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
     let retryConfig: any = retries;
     if (!retryConfig) {
       retryConfig = new utils.RetryConfig("backoff", true);
@@ -200,6 +434,7 @@ export class Reports {
         validateStatus: () => true,
         url: url,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -252,6 +487,12 @@ export class Reports {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
     let retryConfig: any = retries;
     if (!retryConfig) {
       retryConfig = new utils.RetryConfig("backoff", true);
@@ -262,6 +503,7 @@ export class Reports {
         validateStatus: () => true,
         url: url,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));

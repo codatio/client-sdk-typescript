@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { JournalStatusEnum } from "./journalstatusenum";
+import { JournalStatus } from "./journalstatus";
 import { Metadata } from "./metadata";
 import { Expose, Type } from "class-transformer";
 
@@ -121,7 +121,7 @@ export class Journal extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status?: JournalStatusEnum;
+  status?: JournalStatus;
 
   /**
    * The type of the journal.

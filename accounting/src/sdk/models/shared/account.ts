@@ -3,8 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { AccountStatusEnum } from "./accountstatusenum";
-import { AccountTypeEnum } from "./accounttypeenum";
+import { AccountStatus } from "./accountstatus";
+import { AccountType } from "./accounttype";
 import { Metadata } from "./metadata";
 import { ValidDataTypeLinks } from "./validdatatypelinks";
 import { Expose, Type } from "class-transformer";
@@ -130,14 +130,14 @@ export class Account extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: AccountStatusEnum;
+  status: AccountStatus;
 
   /**
    * Type of account
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: AccountTypeEnum;
+  type: AccountType;
 
   /**
    * The validDatatypeLinks can be used to determine whether an account can be correctly mapped to another object; for example, accounts with a `type` of `income` might only support being used on an Invoice and Direct Income. For more information, see [Valid Data Type Links](/accounting-api#/schemas/ValidDataTypeLinks).

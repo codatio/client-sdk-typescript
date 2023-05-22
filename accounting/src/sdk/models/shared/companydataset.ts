@@ -3,8 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { AddressTypeEnum } from "./addresstypeenum";
-import { PhoneNumberTypeEnum } from "./phonenumbertypeenum";
+import { AddressType } from "./addresstype";
+import { PhoneNumberType } from "./phonenumbertype";
 import { Expose, Type } from "class-transformer";
 
 export class CompanyDatasetAddresses extends SpeakeasyBase {
@@ -55,7 +55,7 @@ export class CompanyDatasetAddresses extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: AddressTypeEnum;
+  type: AddressType;
 }
 
 export class CompanyDatasetPhone extends SpeakeasyBase {
@@ -71,13 +71,13 @@ export class CompanyDatasetPhone extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: PhoneNumberTypeEnum;
+  type: PhoneNumberType;
 }
 
 /**
  * The type of the weblink.
  */
-export enum CompanyDatasetWeblinkTypeEnum {
+export enum CompanyDatasetWeblinkType {
   Website = "Website",
   Social = "Social",
   Unknown = "Unknown",
@@ -92,7 +92,7 @@ export class CompanyDatasetWeblink extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: CompanyDatasetWeblinkTypeEnum;
+  type?: CompanyDatasetWeblinkType;
 
   /**
    * The full URL for the weblink.

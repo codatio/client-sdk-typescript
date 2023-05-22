@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Addressesitems } from "./addressesitems";
 import { Metadata } from "./metadata";
 import { SupplementalData } from "./supplementaldata";
-import { SupplierStatusEnum } from "./supplierstatusenum";
+import { SupplierStatus } from "./supplierstatus";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -87,7 +87,7 @@ export class Supplier extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: SupplierStatusEnum;
+  status: SupplierStatus;
 
   /**
    * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.

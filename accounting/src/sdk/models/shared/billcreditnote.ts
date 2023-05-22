@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { BillCreditNoteLineItem } from "./billcreditnotelineitem";
-import { BillCreditNoteStatusEnum } from "./billcreditnotestatusenum";
+import { BillCreditNoteStatus } from "./billcreditnotestatus";
 import { Items } from "./items";
 import { Metadata } from "./metadata";
 import { SupplementalData } from "./supplementaldata";
@@ -191,7 +191,7 @@ export class BillCreditNote extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "remainingCredit" })
-  remainingCredit: number;
+  remainingCredit?: number;
 
   @SpeakeasyMetadata()
   @Expose({ name: "sourceModifiedDate" })
@@ -202,7 +202,7 @@ export class BillCreditNote extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: BillCreditNoteStatusEnum;
+  status: BillCreditNoteStatus;
 
   /**
    * Total amount of the bill credit note, including discounts but excluding tax.

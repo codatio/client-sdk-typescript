@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { CreditNoteLineItem } from "./creditnotelineitem";
-import { CreditNoteStatusEnum } from "./creditnotestatusenum";
+import { CreditNoteStatus } from "./creditnotestatus";
 import { CustomerRef } from "./customerref";
 import { Items } from "./items";
 import { Metadata } from "./metadata";
@@ -205,7 +205,7 @@ export class CreditNote extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: CreditNoteStatusEnum;
+  status: CreditNoteStatus;
 
   /**
    * Value of the credit note, including discounts and excluding tax.

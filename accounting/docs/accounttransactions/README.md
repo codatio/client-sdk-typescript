@@ -11,14 +11,14 @@ Account transactions
 
 ## get
 
-Returns a specific [account transaction](https://docs.codat.io/accounting-api#/schemas/AccountTransaction).
+﻿Returns a specific [account transaction](https://docs.codat.io/accounting-api#/schemas/AccountTransaction).
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetAccountTransactionResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AccountTransactionStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { AccountTransactionStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -39,14 +39,15 @@ sdk.accountTransactions.get({
 
 ## list
 
-Returns a list of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction) for a given company's connection.
+﻿The *List account transactions* endpoint returns a list of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction) for a given company's connection.
+
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListAccountTransactionsResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AccountTransactionStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { AccountTransactionStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {

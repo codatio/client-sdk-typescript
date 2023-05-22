@@ -44,7 +44,7 @@ export class Bills {
    *
    * > **Supported Integrations**
    * >
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support creating a bill.
+   * > Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support creating a bill.
    */
   async create(
     req: operations.CreateBillRequest,
@@ -80,6 +80,10 @@ export class Bills {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req);
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
     let retryConfig: any = retries;
     if (!retryConfig) {
@@ -127,11 +131,32 @@ export class Bills {
    * Delete bill
    *
    * @remarks
-   * Deletes a bill from the accounting package for a given company.
+   * The _Delete Bills_ endpoint allows you to delete a specified Bill from an accounting platform.
+   *
+   * ### Process
+   * 1. Pass the `{billId}` to the _Delete Bills_ endpoint and store the `pushOperationKey` returned.
+   * 2. Check the status of the delete operation by checking the status of push operation either via
+   *     1. [Push operation webhook](/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
+   *     2. [Push operation status endpoint](https://docs.codat.io/codat-api#/operations/get-push-operation).
+   *
+   *    A `Success` status indicates that the Bill object was deleted from the accounting platform.
+   * 3. (Optional) Check that the Bill was deleted from the accounting platform.
+   *
+   * ### Effect on related objects
+   *
+   * Be aware that deleting a Bill from an accounting platform might cause related objects to be modified. For example, if you delete a paid Bill in QuickBooks Online, the bill is deleted but the bill payment against that bill is not. The bill payment is converted to a payment on account.
+   *
+   * ## Integration specifics
+   * Integrations that support soft delete do not permanently delete the object in the accounting platform.
+   *
+   * | Integration | Soft Delete | Details                                                                                                      |
+   * |-------------|-------------|--------------------------------------------------------------------------------------------------------------|
+   * | QuickBooks Online | No          | -                                                                                                            |
+   * | Oracle NetSuite   | No          | When deleting a Bill that's already linked to a Bill payment, you must delete the linked Bill payment first. |
    *
    * > **Supported Integrations**
    * >
-   * > This functionality is currently only supported for our Oracle NetSuite and QuickBooks Online integrations. Check out our [public roadmap](https://portal.productboard.com/codat/7-public-product-roadmap/tabs/46-accounting-api) to see what we're building next, and to submit ideas for new features.
+   * > This functionality is currently only supported for our QuickBooks Online abd Oracle NetSuite integrations. Check out our [public roadmap](https://portal.productboard.com/codat/7-public-product-roadmap/tabs/46-accounting-api) to see what we're building next, and to submit ideas for new features.
    */
   async delete(
     req: operations.DeleteBillRequest,
@@ -151,6 +176,12 @@ export class Bills {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
     let retryConfig: any = retries;
     if (!retryConfig) {
       retryConfig = new utils.RetryConfig("backoff", true);
@@ -161,6 +192,7 @@ export class Bills {
         validateStatus: () => true,
         url: url,
         method: "delete",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -195,7 +227,7 @@ export class Bills {
    * Download bill attachment
    *
    * @remarks
-   * Download bill attachment
+   * Download bill attachment.
    */
   async downloadAttachment(
     req: operations.DownloadBillAttachmentRequest,
@@ -215,6 +247,12 @@ export class Bills {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
+    headers["Accept"] = "application/octet-stream";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
     let retryConfig: any = retries;
     if (!retryConfig) {
       retryConfig = new utils.RetryConfig("backoff", true);
@@ -225,6 +263,7 @@ export class Bills {
         validateStatus: () => true,
         url: url,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -260,7 +299,7 @@ export class Bills {
    * Get bill
    *
    * @remarks
-   * Get bill
+   * Get a bill.
    */
   async get(
     req: operations.GetBillRequest,
@@ -280,6 +319,12 @@ export class Bills {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
     let retryConfig: any = retries;
     if (!retryConfig) {
       retryConfig = new utils.RetryConfig("backoff", true);
@@ -290,6 +335,7 @@ export class Bills {
         validateStatus: () => true,
         url: url,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -320,7 +366,7 @@ export class Bills {
    * Get bill attachment
    *
    * @remarks
-   * Get bill attachment
+   * Get bill attachment.
    */
   async getAttachment(
     req: operations.GetBillAttachmentRequest,
@@ -340,6 +386,12 @@ export class Bills {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
     let retryConfig: any = retries;
     if (!retryConfig) {
       retryConfig = new utils.RetryConfig("backoff", true);
@@ -350,6 +402,7 @@ export class Bills {
         validateStatus: () => true,
         url: url,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -386,9 +439,9 @@ export class Bills {
    * @remarks
    * Get create/update bill model.
    *
-   *  > **Supported Integrations**
+   * > **Supported Integrations**
    * >
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support creating and updating a bill.
+   * > Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support creating and updating a bill.
    */
   async getCreateUpdateModel(
     req: operations.GetCreateUpdateBillsModelRequest,
@@ -408,6 +461,12 @@ export class Bills {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
     let retryConfig: any = retries;
     if (!retryConfig) {
       retryConfig = new utils.RetryConfig("backoff", true);
@@ -418,6 +477,7 @@ export class Bills {
         validateStatus: () => true,
         url: url,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -452,7 +512,7 @@ export class Bills {
    * List bills
    *
    * @remarks
-   * Gets the latest bills for a company, with pagination
+   * Gets the latest bills for a company, with pagination.
    */
   async list(
     req: operations.ListBillsRequest,
@@ -472,7 +532,12 @@ export class Bills {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req);
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
     let retryConfig: any = retries;
     if (!retryConfig) {
@@ -484,6 +549,7 @@ export class Bills {
         validateStatus: () => true,
         url: url + queryParams,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -514,7 +580,7 @@ export class Bills {
    * List bill attachments
    *
    * @remarks
-   * List bill attachments
+   * List bill attachments.
    */
   async listAttachments(
     req: operations.ListBillAttachmentsRequest,
@@ -534,6 +600,12 @@ export class Bills {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
     let retryConfig: any = retries;
     if (!retryConfig) {
       retryConfig = new utils.RetryConfig("backoff", true);
@@ -544,6 +616,7 @@ export class Bills {
         validateStatus: () => true,
         url: url,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -584,7 +657,7 @@ export class Bills {
    *
    * > **Supported Integrations**
    * >
-   * > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support updating a bill.
+   * > Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support updating a bill.
    */
   async update(
     req: operations.UpdateBillRequest,
@@ -620,6 +693,10 @@ export class Bills {
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req);
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
     let retryConfig: any = retries;
     if (!retryConfig) {
@@ -667,7 +744,7 @@ export class Bills {
    * Upload bill attachment
    *
    * @remarks
-   * Upload bill attachment
+   * Upload bill attachment.
    */
   async uploadAttachment(
     req: operations.UploadBillAttachmentRequest,
@@ -702,6 +779,10 @@ export class Bills {
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
+    headers["Accept"] = "*/*";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
     let retryConfig: any = retries;
     if (!retryConfig) {

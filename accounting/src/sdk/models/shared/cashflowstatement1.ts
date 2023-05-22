@@ -4,8 +4,8 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { CashFlowStatement } from "./cashflowstatement";
-import { ReportBasisEnum } from "./reportbasisenum";
-import { ReportInputEnum } from "./reportinputenum";
+import { ReportBasis } from "./reportbasis";
+import { ReportInput } from "./reportinput";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -100,14 +100,14 @@ export class CashFlowStatement1 extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "reportBasis" })
-  reportBasis: ReportBasisEnum;
+  reportBasis: ReportBasis;
 
   /**
    * Accounting method used to prepare the cash flow statement.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "reportInput" })
-  reportInput: ReportInputEnum;
+  reportInput: ReportInput;
 
   /**
    * Array of cash flow statements.

@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { PushOptionTypeEnum } from "./pushoptiontypeenum";
+import { PushOptionType } from "./pushoptiontype";
 import { Expose } from "class-transformer";
 
 export class PushOptionChoice extends SpeakeasyBase {
@@ -21,7 +21,7 @@ export class PushOptionChoice extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: PushOptionTypeEnum;
+  type?: PushOptionType;
 
   /**
    * Allowed value for field.

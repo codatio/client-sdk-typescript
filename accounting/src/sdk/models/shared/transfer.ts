@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { InvoiceTo } from "./invoiceto";
 import { Metadata } from "./metadata";
 import { SupplementalData } from "./supplementaldata";
 import { TrackingCategoryRef } from "./trackingcategoryref";
@@ -68,9 +69,10 @@ export class Transfer extends SpeakeasyBase {
   /**
    * List of selected transactions to associate with the transfer. Use this field to include transactions which are posted to the _undeposited funds_ (or other holding) account within the transfer.
    */
-  @SpeakeasyMetadata()
+  @SpeakeasyMetadata({ elemType: InvoiceTo })
   @Expose({ name: "depositedRecordRefs" })
-  depositedRecordRefs?: string[];
+  @Type(() => InvoiceTo)
+  depositedRecordRefs?: InvoiceTo[];
 
   /**
    * Description of the transfer.

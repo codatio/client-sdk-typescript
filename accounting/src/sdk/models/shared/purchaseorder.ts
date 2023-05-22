@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Metadata } from "./metadata";
 import { PurchaseOrderLineItem } from "./purchaseorderlineitem";
-import { PurchaseOrderStatusEnum } from "./purchaseorderstatusenum";
+import { PurchaseOrderStatus } from "./purchaseorderstatus";
 import { ShipTo } from "./shipto";
 import { SupplierRef } from "./supplierref";
 import { Expose, Type } from "class-transformer";
@@ -231,7 +231,7 @@ export class PurchaseOrder extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status?: PurchaseOrderStatusEnum;
+  status?: PurchaseOrderStatus;
 
   /**
    * Total amount of the purchase order, including discounts but excluding tax.

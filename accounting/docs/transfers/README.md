@@ -19,14 +19,14 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 > **Supported Integrations**
 > 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=transfers) for integrations that support creating transfers.
+> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=transfers) for integrations that support creating transfers.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateTransferResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { DataTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { DataType, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -37,70 +37,77 @@ const sdk = new CodatAccounting({
 sdk.transfers.create({
   transfer: {
     contactRef: {
-      dataType: "laborum",
-      id: "9ffc5619-29cc-4a95-a0a1-395918da1d48",
+      dataType: "explicabo",
+      id: "1f06d4d1-7852-4d28-be1d-b01d6919f831",
     },
-    date: "recusandae",
+    date: "nemo",
     depositedRecordRefs: [
-      "quas",
-      "officiis",
+      {
+        dataType: "dolorem",
+        id: "a84ea7db-15c4-4c15-be6c-d097a675597e",
+      },
+      {
+        dataType: "cumque",
+        id: "beb7982b-af9a-47da-ac29-b938e51a7e6e",
+      },
+      {
+        dataType: "nulla",
+        id: "6f7ff04f-da04-4669-aae8-182403655aa9",
+      },
     ],
-    description: "ipsum",
+    description: "consequuntur",
     from: {
       accountRef: {
-        id: "cf8e1143-da93-408b-a7a0-8af22184439b",
-        name: "Desiree Walsh",
+        id: "3c49919e-bd1c-4f77-9538-cbbfcdf4ece9",
+        name: "Jodi Schamberger",
       },
-      amount: 3395.66,
-      currency: "eum",
+      amount: 7140.11,
+      currency: "modi",
     },
-    id: "ccce470c-d214-47b6-a615-2cf01d0d8c3a",
+    id: "2c330496-17cb-471d-9c25-0b60c751d2ae",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "magnam",
-    sourceModifiedDate: "facilis",
+    modifiedDate: "expedita",
+    sourceModifiedDate: "necessitatibus",
     supplementalData: {
       content: {
-        "laborum": {
-          "quidem": "repellat",
-          "molestias": "amet",
-        },
-        "veniam": {
-          "voluptatibus": "vero",
-          "provident": "iure",
-          "incidunt": "repellat",
-          "similique": "ut",
-        },
         "tempore": {
-          "voluptates": "excepturi",
+          "rem": "consequuntur",
+          "molestias": "officiis",
+          "qui": "vel",
+        },
+        "aliquam": {
+          "ab": "dolorum",
+          "veniam": "officiis",
+        },
+        "minus": {
+          "corrupti": "reprehenderit",
+          "a": "quam",
+          "cupiditate": "incidunt",
         },
       },
     },
     to: {
       accountRef: {
-        id: "c097eda6-2344-42e1-a923-7e9984c80b47",
-        name: "Bert Lind V",
+        id: "f04f4144-6f79-43d3-b100-20147cd1b831",
+        name: "Amy Price",
       },
-      amount: 1752.16,
-      currency: "dolorem",
+      amount: 2218.09,
+      currency: "voluptates",
     },
     trackingCategoryRefs: [
       {
-        id: "18ca8d69-c568-4921-8fa2-0207e4fae038",
-        name: "Carroll Klocko DDS",
+        id: "8960a0aa-fc7a-4867-8ba5-00a8f4cb72ed",
+        name: "Kara Wilderman",
       },
       {
-        id: "c2cabaf7-fc2c-4cba-8bef-0df68eaedb2e",
-        name: "Darryl Altenwerth",
+        id: "25d55615-8803-4212-b7b5-9b7154642b9e",
+        name: "Stella Schroeder",
       },
       {
-        id: "069fb36a-dd70-4408-8e0a-3fc73a5a034b",
-        name: "Rebecca Graham",
-      },
-      {
-        id: "243afa69-87a4-472b-b09a-153e22301068",
-        name: "Tracy Monahan",
+        id: "c3d3ca49-1837-4978-88d1-56f01ae36bb8",
+        name: "Jose Adams",
       },
     ],
   },
@@ -132,7 +139,7 @@ const sdk = new CodatAccounting({
 sdk.transfers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  transferId: "ipsa",
+  transferId: "eveniet",
 }).then((res: GetTransferResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -148,14 +155,14 @@ See the examples for integration-specific indicative models.
 
 > **Supported Integrations**
 > 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=transfers) for integrations that support creating transfers.
+> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=transfers) for integrations that support creating transfers.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateTransfersModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -195,7 +202,7 @@ sdk.transfers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "perspiciatis",
+  query: "ratione",
 }).then((res: ListTransfersResponse) => {
   if (res.statusCode == 200) {
     // handle response

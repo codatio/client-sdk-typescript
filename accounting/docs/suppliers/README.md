@@ -25,18 +25,13 @@ Required data may vary by integration. To see what data to post, first call [Get
 > 
 > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support creating suppliers.
 
+
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateSupplierResponse } from "@codat/accounting/dist/sdk/models/operations";
-import {
-  AddressTypeEnum,
-  DataTypeEnum,
-  PushChangeTypeEnum,
-  PushOperationStatusEnum,
-  SupplierStatusEnum,
-} from "@codat/accounting/dist/sdk/models/shared";
+import { AddressType, DataType, PushChangeType, PushOperationStatus, SupplierStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -48,43 +43,70 @@ sdk.suppliers.create({
   supplier: {
     addresses: [
       {
-        city: "Thousand Oaks",
-        country: "Papua New Guinea",
-        line1: "amet",
-        line2: "tempore",
-        postalCode: "81317",
-        region: "adipisci",
-        type: AddressTypeEnum.Unknown,
+        city: "Madelynnberg",
+        country: "Denmark",
+        line1: "culpa",
+        line2: "corrupti",
+        postalCode: "77168",
+        region: "voluptatibus",
+        type: AddressType.Billing,
+      },
+      {
+        city: "East Isabella",
+        country: "British Indian Ocean Territory (Chagos Archipelago)",
+        line1: "est",
+        line2: "consequatur",
+        postalCode: "32501",
+        region: "incidunt",
+        type: AddressType.Delivery,
+      },
+      {
+        city: "Arlington",
+        country: "Mongolia",
+        line1: "assumenda",
+        line2: "alias",
+        postalCode: "74089-9599",
+        region: "aut",
+        type: AddressType.Delivery,
       },
     ],
-    contactName: "alias",
-    defaultCurrency: "occaecati",
-    emailAddress: "perspiciatis",
-    id: "83663c66-dcbb-47df-acb0-9c8b408e0713",
+    contactName: "eaque",
+    defaultCurrency: "officiis",
+    emailAddress: "tempora",
+    id: "6f225e29-d79d-439d-8790-e2e6014a33d9",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "molestiae",
-    phone: "489.499.8000 x854",
-    registrationNumber: "praesentium",
-    sourceModifiedDate: "aperiam",
-    status: SupplierStatusEnum.Archived,
+    modifiedDate: "iusto",
+    phone: "717-420-7972",
+    registrationNumber: "doloremque",
+    sourceModifiedDate: "necessitatibus",
+    status: SupplierStatus.Archived,
     supplementalData: {
       content: {
-        "doloremque": {
-          "eius": "odio",
-          "rerum": "provident",
-          "nostrum": "perferendis",
-          "aliquam": "accusantium",
+        "dolor": {
+          "rem": "eveniet",
+          "veniam": "vero",
+          "dolor": "occaecati",
+          "explicabo": "delectus",
+        },
+        "fugit": {
+          "dolorum": "voluptate",
+        },
+        "ducimus": {
+          "rerum": "iusto",
+          "deserunt": "asperiores",
+          "ab": "tempore",
+          "suscipit": "neque",
         },
       },
     },
-    supplierName: "possimus",
-    taxNumber: "vel",
+    supplierName: "eveniet",
+    taxNumber: "placeat",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 796063,
+  timeoutInMinutes: 867440,
 }).then((res: CreateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -129,7 +151,7 @@ Gets a single supplier corresponding to the given ID.
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetSupplierResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressTypeEnum, SupplierStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { AddressType, SupplierStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -149,7 +171,7 @@ sdk.suppliers.get({
 
 ## getAttachment
 
-Get supplier attachment
+﻿Get supplier attachment.
 
 ### Example Usage
 
@@ -190,7 +212,7 @@ See the examples for integration-specific indicative models.
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateUpdateSuppliersModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -217,7 +239,7 @@ Gets the latest suppliers for a company, with pagination
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListSuppliersResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressTypeEnum, SupplierStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { AddressType, SupplierStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -230,7 +252,7 @@ sdk.suppliers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "blanditiis",
+  query: "officiis",
 }).then((res: ListSuppliersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -273,20 +295,14 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 > **Supported Integrations**
 > 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support updating suppliers.
+> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support updating suppliers.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { UpdateSupplierResponse } from "@codat/accounting/dist/sdk/models/operations";
-import {
-  AddressTypeEnum,
-  DataTypeEnum,
-  PushChangeTypeEnum,
-  PushOperationStatusEnum,
-  SupplierStatusEnum,
-} from "@codat/accounting/dist/sdk/models/shared";
+import { AddressType, DataType, PushChangeType, PushOperationStatus, SupplierStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -298,70 +314,58 @@ sdk.suppliers.update({
   supplier: {
     addresses: [
       {
-        city: "Lake Gabriellashire",
-        country: "Afghanistan",
-        line1: "perferendis",
-        line2: "aspernatur",
-        postalCode: "04820",
-        region: "dolore",
-        type: AddressTypeEnum.Billing,
-      },
-      {
-        city: "Mountain View",
-        country: "Armenia",
-        line1: "alias",
-        line2: "sit",
-        postalCode: "98150-1458",
-        region: "quidem",
-        type: AddressTypeEnum.Unknown,
-      },
-      {
-        city: "Watersfurt",
-        country: "Syrian Arab Republic",
-        line1: "suscipit",
-        line2: "ut",
-        postalCode: "40961",
-        region: "corporis",
-        type: AddressTypeEnum.Unknown,
+        city: "Alyceworth",
+        country: "Peru",
+        line1: "deleniti",
+        line2: "consequatur",
+        postalCode: "03324-7318",
+        region: "ut",
+        type: AddressType.Unknown,
       },
     ],
-    contactName: "alias",
-    defaultCurrency: "ratione",
-    emailAddress: "sed",
-    id: "3b2c09b9-2477-41f5-a69e-5b7ec7626649",
+    contactName: "ipsam",
+    defaultCurrency: "occaecati",
+    emailAddress: "error",
+    id: "55c5c717-6045-497f-b771-9dd8c8482c02",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "possimus",
-    phone: "487-692-7981 x1448",
-    registrationNumber: "sit",
-    sourceModifiedDate: "expedita",
-    status: SupplierStatusEnum.Active,
+    modifiedDate: "aliquid",
+    phone: "(851) 827-5759 x560",
+    registrationNumber: "deserunt",
+    sourceModifiedDate: "impedit",
+    status: SupplierStatus.Unknown,
     supplementalData: {
       content: {
-        "repellat": {
-          "atque": "iure",
-          "nulla": "aliquid",
-          "asperiores": "similique",
+        "perferendis": {
+          "illum": "aspernatur",
+          "officia": "cumque",
         },
-        "veniam": {
-          "vel": "earum",
-          "corrupti": "temporibus",
-          "libero": "sapiente",
+        "eveniet": {
+          "aut": "minus",
+          "temporibus": "repudiandae",
+          "perferendis": "aperiam",
         },
-        "praesentium": {
-          "qui": "asperiores",
+        "itaque": {
+          "necessitatibus": "quisquam",
+          "delectus": "blanditiis",
+          "inventore": "quos",
+        },
+        "culpa": {
+          "amet": "consequatur",
+          "dolor": "saepe",
+          "sint": "dolorem",
         },
       },
     },
-    supplierName: "blanditiis",
-    taxNumber: "nesciunt",
+    supplierName: "doloribus",
+    taxNumber: "sit",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
   supplierId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  timeoutInMinutes: 721212,
+  timeoutInMinutes: 40967,
 }).then((res: UpdateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response

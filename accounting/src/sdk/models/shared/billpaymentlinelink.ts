@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { BillPaymentLineLinkTypeEnum } from "./billpaymentlinelinktypeenum";
+import { BillPaymentLineLinkType } from "./billpaymentlinelinktype";
 import { Expose } from "class-transformer";
 
 export class BillPaymentLineLink extends SpeakeasyBase {
@@ -62,5 +62,5 @@ export class BillPaymentLineLink extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: BillPaymentLineLinkTypeEnum;
+  type: BillPaymentLineLinkType;
 }
