@@ -18,7 +18,7 @@ Create an expense transaction
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 import { CreateExpenseDatasetResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
-import { ExpenseTransactionTypeEnum } from "@codat/sync-for-expenses/dist/sdk/models/shared";
+import { ExpenseTransactionType } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
 const sdk = new CodatSyncExpenses({
   security: {
@@ -128,7 +128,7 @@ sdk.expenses.createExpenseDataset({
         ],
         merchantName: "Amazon UK",
         notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-        type: ExpenseTransactionTypeEnum.Payment,
+        type: ExpenseTransactionType.Payment,
       },
       {
         currency: "GBP",
@@ -193,7 +193,7 @@ sdk.expenses.createExpenseDataset({
         ],
         merchantName: "Amazon UK",
         notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-        type: ExpenseTransactionTypeEnum.Payment,
+        type: ExpenseTransactionType.Payment,
       },
       {
         currency: "GBP",
@@ -282,7 +282,7 @@ sdk.expenses.createExpenseDataset({
         ],
         merchantName: "Amazon UK",
         notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-        type: ExpenseTransactionTypeEnum.Payment,
+        type: ExpenseTransactionType.Payment,
       },
     ],
   },

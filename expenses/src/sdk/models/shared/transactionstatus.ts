@@ -5,7 +5,7 @@
 /**
  * Status of the transaction.
  */
-export enum TransactionStatusEnum {
+export enum TransactionStatus {
   Unknown = "Unknown",
   Pending = "Pending",
   ValidationError = "ValidationError",

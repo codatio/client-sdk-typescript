@@ -9,7 +9,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * The type of transaction.
  */
-export enum ExpenseTransactionTypeEnum {
+export enum ExpenseTransactionType {
   Payment = "Payment",
   Refund = "Refund",
   Reward = "Reward",
@@ -120,5 +120,5 @@ export class ExpenseTransaction extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: ExpenseTransactionTypeEnum;
+  type: ExpenseTransactionType;
 }

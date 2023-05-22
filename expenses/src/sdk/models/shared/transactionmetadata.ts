@@ -3,8 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { IntegrationTypeEnum } from "./integrationtypeenum";
-import { TransactionStatusEnum } from "./transactionstatusenum";
+import { IntegrationType } from "./integrationtype";
+import { TransactionStatus } from "./transactionstatus";
 import { Expose } from "class-transformer";
 
 export class TransactionMetadata extends SpeakeasyBase {
@@ -13,7 +13,7 @@ export class TransactionMetadata extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "integrationType" })
-  integrationType?: IntegrationTypeEnum;
+  integrationType?: IntegrationType;
 
   /**
    * Metadata such as validation errors or the resulting record created in the accounting software.
@@ -27,7 +27,7 @@ export class TransactionMetadata extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status?: TransactionStatusEnum;
+  status?: TransactionStatus;
 
   /**
    * Your unique idenfier of the transaction.

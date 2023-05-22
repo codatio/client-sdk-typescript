@@ -17,7 +17,7 @@ Creates a Partner Expense data connection
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 import { CreatePartnerExpenseConnectionResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
-import { DataConnectionSourceTypeEnum, DataConnectionStatusEnum } from "@codat/sync-for-expenses/dist/sdk/models/shared";
+import { DataConnectionSourceType, DataConnectionStatus } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
 const sdk = new CodatSyncExpenses({
   security: {

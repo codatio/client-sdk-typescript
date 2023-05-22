@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export enum TaxRateMappingInfoValidTransactionTypesEnum {
+export enum TaxRateMappingInfoValidTransactionTypes {
   Payment = "Payment",
   Refund = "Refund",
   Reward = "Reward",
@@ -57,5 +57,5 @@ export class TaxRateMappingInfo extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "validTransactionTypes" })
-  validTransactionTypes?: TaxRateMappingInfoValidTransactionTypesEnum[];
+  validTransactionTypes?: TaxRateMappingInfoValidTransactionTypes[];
 }
