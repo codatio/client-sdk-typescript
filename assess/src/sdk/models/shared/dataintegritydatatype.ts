@@ -5,7 +5,7 @@
 /**
  * A key for a Codat data type.
  */
-export enum DataIntegrityDataTypeEnum {
+export enum DataIntegrityDataType {
   BankingAccounts = "banking-accounts",
   BankingTransactions = "banking-transactions",
   BankAccounts = "bankAccounts",

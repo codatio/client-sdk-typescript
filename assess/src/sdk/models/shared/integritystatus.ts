@@ -5,7 +5,7 @@
 /**
  * The current status of the most recently run matching algorithm.
  */
-export enum IntegrityStatusEnum {
+export enum IntegrityStatus {
   Unknown = "Unknown",
   DoesNotExist = "DoesNotExist",
   Error = "Error",

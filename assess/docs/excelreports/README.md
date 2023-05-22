@@ -23,7 +23,7 @@ Download the previously generated Excel report to a local drive.
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { DownloadExcelReportResponse } from "@codat/assess/dist/sdk/models/operations";
-import { ExcelReportTypeEnum } from "@codat/assess/dist/sdk/models/shared";
+import { ExcelReportType } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
@@ -33,7 +33,7 @@ const sdk = new CodatAssess({
 
 sdk.excelReports.downloadExcelReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportTypeEnum.EnhancedInvoices,
+  reportType: ExcelReportType.EnhancedInvoices,
 }).then((res: DownloadExcelReportResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -50,7 +50,7 @@ Generate an Excel report which can subsequently be downloaded.
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GenerateExcelReportResponse } from "@codat/assess/dist/sdk/models/operations";
-import { ExcelReportTypeEnum } from "@codat/assess/dist/sdk/models/shared";
+import { ExcelReportType } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
@@ -60,7 +60,7 @@ const sdk = new CodatAssess({
 
 sdk.excelReports.generateExcelReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportTypeEnum.EnhancedFinancials,
+  reportType: ExcelReportType.EnhancedFinancials,
 }).then((res: GenerateExcelReportResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -77,7 +77,7 @@ Request an Excel report for download.
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetAccountingMarketingMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
-import { PeriodUnitEnum } from "@codat/assess/dist/sdk/models/shared";
+import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
@@ -91,7 +91,7 @@ sdk.excelReports.getAccountingMarketingMetrics({
   includeDisplayNames: false,
   numberOfPeriods: 739264,
   periodLength: 19987,
-  periodUnit: PeriodUnitEnum.Day,
+  periodUnit: PeriodUnit.Day,
   reportDate: "29-09-2020",
   showInputValues: false,
 }).then((res: GetAccountingMarketingMetricsResponse) => {
@@ -110,7 +110,7 @@ Download the previously generated Excel report to a local drive.
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetExcelReportResponse } from "@codat/assess/dist/sdk/models/operations";
-import { ExcelReportTypeEnum } from "@codat/assess/dist/sdk/models/shared";
+import { ExcelReportType } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
@@ -120,7 +120,7 @@ const sdk = new CodatAssess({
 
 sdk.excelReports.getExcelReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportTypeEnum.EnhancedFinancials,
+  reportType: ExcelReportType.EnhancedFinancials,
 }).then((res: GetExcelReportResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -137,7 +137,7 @@ Returns the status of the latest report requested.
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetExcelReportGenerationStatusResponse } from "@codat/assess/dist/sdk/models/operations";
-import { ExcelReportTypeEnum } from "@codat/assess/dist/sdk/models/shared";
+import { ExcelReportType } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
@@ -147,7 +147,7 @@ const sdk = new CodatAssess({
 
 sdk.excelReports.getExcelReportGenerationStatus({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportTypeEnum.Audit,
+  reportType: ExcelReportType.Audit,
 }).then((res: GetExcelReportGenerationStatusResponse) => {
   if (res.statusCode == 200) {
     // handle response

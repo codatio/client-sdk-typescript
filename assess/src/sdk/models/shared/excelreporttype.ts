@@ -5,7 +5,7 @@
 /**
  * The type of report you want to generate and download.
  */
-export enum ExcelReportTypeEnum {
+export enum ExcelReportType {
   Assess = "assess",
   Audit = "audit",
   EnhancedFinancials = "enhancedFinancials",

@@ -47,7 +47,7 @@ export class GetCommerceRevenueMetricsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "queryParam, style=form;explode=true;name=periodUnit",
   })
-  periodUnit: shared.PeriodUnitEnum;
+  periodUnit: shared.PeriodUnit;
 
   /**
    * The date in which the report is created up to. Users must specify a specific date, however the response will be provided for the full month.

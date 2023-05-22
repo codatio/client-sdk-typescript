@@ -18,7 +18,7 @@ export class GetDataIntegritySummariesRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=dataType",
   })
-  dataType: shared.DataIntegrityDataTypeEnum;
+  dataType: shared.DataIntegrityDataType;
 
   /**
    * Codat query string. [Read more](https://docs.codat.io/using-the-api/querying).
