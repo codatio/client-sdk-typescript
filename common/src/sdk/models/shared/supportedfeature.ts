@@ -3,16 +3,16 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { FeatureStateEnum } from "./featurestateenum";
-import { FeatureTypeEnum } from "./featuretypeenum";
+import { FeatureState } from "./featurestate";
+import { FeatureType } from "./featuretype";
 import { Expose } from "class-transformer";
 
 export class SupportedFeature extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "featureState" })
-  featureState: FeatureStateEnum;
+  featureState: FeatureState;
 
   @SpeakeasyMetadata()
   @Expose({ name: "featureType" })
-  featureType: FeatureTypeEnum;
+  featureType: FeatureType;
 }

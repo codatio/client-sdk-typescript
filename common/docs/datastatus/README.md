@@ -44,7 +44,7 @@ Retrieve information about a single dataset or pull operation.
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { GetPullOperationResponse } from "@codat/common/dist/sdk/models/operations";
-import { PullOperationStatusEnum } from "@codat/common/dist/sdk/models/shared";
+import { PullOperationStatus } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
@@ -71,7 +71,7 @@ Gets the pull operation history (datasets) for a given company.
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { ListPullOperationsResponse } from "@codat/common/dist/sdk/models/operations";
-import { PullOperationStatusEnum } from "@codat/common/dist/sdk/models/shared";
+import { PullOperationStatus } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {

@@ -4,8 +4,8 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { DataConnectionError } from "./dataconnectionerror";
-import { DataConnectionStatusEnum } from "./dataconnectionstatusenum";
-import { SourceTypeEnum } from "./sourcetypeenum";
+import { DataConnectionStatus } from "./dataconnectionstatus";
+import { SourceType } from "./sourcetype";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -120,12 +120,12 @@ export class Connection extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "sourceType" })
-  sourceType: SourceTypeEnum;
+  sourceType: SourceType;
 
   /**
    * The current authorization status of the data connection.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: DataConnectionStatusEnum;
+  status: DataConnectionStatus;
 }

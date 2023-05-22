@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export enum PullOperationStatusEnum {
+export enum PullOperationStatus {
   Initial = "Initial",
   Queued = "Queued",
   Fetching = "Fetching",
@@ -95,5 +95,5 @@ export class PullOperation extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status: PullOperationStatusEnum;
+  status: PullOperationStatus;
 }
