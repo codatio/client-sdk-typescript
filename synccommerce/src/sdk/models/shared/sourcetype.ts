@@ -5,7 +5,7 @@
 /**
  * The type of platform of the connection.
  */
-export enum SourceTypeEnum {
+export enum SourceType {
   Accounting = "Accounting",
   Banking = "Banking",
   Commerce = "Commerce",

@@ -23,7 +23,7 @@ yarn add @codat/sync-for-commerce
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { CreateCompanyResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
-import { ConnectionSourceTypeEnum, DataConnectionStatusEnum } from "@codat/sync-for-commerce/dist/sdk/models/shared";
+import { ConnectionSourceType, DataConnectionStatus } from "@codat/sync-for-commerce/dist/sdk/models/shared";
 
 const sdk = new CodatSyncCommerce({
   security: {
