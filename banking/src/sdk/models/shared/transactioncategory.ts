@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { TransactionCategoryStatusEnum } from "./transactioncategorystatusenum";
+import { TransactionCategoryStatus } from "./transactioncategorystatus";
 import { Expose } from "class-transformer";
 
 /**
@@ -48,5 +48,5 @@ export class TransactionCategory extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status?: TransactionCategoryStatusEnum;
+  status?: TransactionCategoryStatus;
 }

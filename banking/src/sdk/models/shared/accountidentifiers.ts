@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { AccountIdentifierTypeEnum } from "./accountidentifiertypeenum";
+import { AccountIdentifierType } from "./accountidentifiertype";
 import { Expose } from "class-transformer";
 
 /**
@@ -64,5 +64,5 @@ export class AccountIdentifiers extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: AccountIdentifierTypeEnum;
+  type: AccountIdentifierType;
 }

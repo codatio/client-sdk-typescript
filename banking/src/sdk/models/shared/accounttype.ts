@@ -9,7 +9,7 @@
  * For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.
  * For Debit accounts, positive balances are assets, and positive transactions **increase** assets.
  */
-export enum AccountTypeEnum {
+export enum AccountType {
   Unknown = "Unknown",
   Credit = "Credit",
   Debit = "Debit",

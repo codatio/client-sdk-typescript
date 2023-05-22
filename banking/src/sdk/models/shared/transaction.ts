@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { TransactionCategoryRef } from "./transactioncategoryref";
-import { TransactionCodeEnum } from "./transactioncodeenum";
+import { TransactionCode } from "./transactioncode";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -63,7 +63,7 @@ export class Transaction extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "code" })
-  code?: TransactionCodeEnum;
+  code?: TransactionCode;
 
   /**
    * The currency of the bank transaction.

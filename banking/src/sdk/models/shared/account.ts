@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountBalanceAmounts } from "./accountbalanceamounts";
 import { AccountIdentifiers } from "./accountidentifiers";
 import { AccountInstitution } from "./accountinstitution";
-import { AccountTypeEnum } from "./accounttypeenum";
+import { AccountType } from "./accounttype";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -95,5 +95,5 @@ export class Account extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: AccountTypeEnum;
+  type: AccountType;
 }

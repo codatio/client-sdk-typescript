@@ -18,7 +18,7 @@ Gets a specified bank account for a given company
 ```typescript
 import { CodatBanking } from "@codat/banking";
 import { GetAccountResponse } from "@codat/banking/dist/sdk/models/operations";
-import { AccountIdentifierTypeEnum, AccountTypeEnum } from "@codat/banking/dist/sdk/models/shared";
+import { AccountIdentifierType, AccountType } from "@codat/banking/dist/sdk/models/shared";
 
 const sdk = new CodatBanking({
   security: {
@@ -46,7 +46,7 @@ Gets a list of all bank accounts of the SMB, with rich data like balances, accou
 ```typescript
 import { CodatBanking } from "@codat/banking";
 import { ListAccountsResponse } from "@codat/banking/dist/sdk/models/operations";
-import { AccountIdentifierTypeEnum, AccountTypeEnum } from "@codat/banking/dist/sdk/models/shared";
+import { AccountIdentifierType, AccountType } from "@codat/banking/dist/sdk/models/shared";
 
 const sdk = new CodatBanking({
   security: {
