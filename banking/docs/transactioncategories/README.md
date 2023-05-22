@@ -18,7 +18,7 @@ Gets a specified bank transaction category for a given company
 ```typescript
 import { CodatBanking } from "@codat/banking";
 import { GetTransactionCategoryResponse } from "@codat/banking/dist/sdk/models/operations";
-import { TransactionCategoryStatusEnum } from "@codat/banking/dist/sdk/models/shared";
+import { TransactionCategoryStatus } from "@codat/banking/dist/sdk/models/shared";
 
 const sdk = new CodatBanking({
   security: {
@@ -46,7 +46,7 @@ Gets a list of hierarchical categories associated with a transaction for greater
 ```typescript
 import { CodatBanking } from "@codat/banking";
 import { ListTransactionCategoriesResponse } from "@codat/banking/dist/sdk/models/operations";
-import { TransactionCategoryStatusEnum } from "@codat/banking/dist/sdk/models/shared";
+import { TransactionCategoryStatus } from "@codat/banking/dist/sdk/models/shared";
 
 const sdk = new CodatBanking({
   security: {

@@ -5,7 +5,7 @@
 /**
  * Code to identify the underlying transaction.
  */
-export enum TransactionCodeEnum {
+export enum TransactionCode {
   Unknown = "Unknown",
   Fee = "Fee",
   Payment = "Payment",

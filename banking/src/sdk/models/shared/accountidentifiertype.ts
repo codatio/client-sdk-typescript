@@ -5,7 +5,7 @@
 /**
  * Type of account
  */
-export enum AccountIdentifierTypeEnum {
+export enum AccountIdentifierType {
   Account = "Account",
   Card = "Card",
   Credit = "Credit",

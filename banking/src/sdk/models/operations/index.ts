@@ -7,5 +7,6 @@ export * from "./gettransaction";
 export * from "./gettransactioncategory";
 export * from "./listaccountbalances";
 export * from "./listaccounts";
+export * from "./listbanktransactions";
 export * from "./listtransactioncategories";
 export * from "./listtransactions";

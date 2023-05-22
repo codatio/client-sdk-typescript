@@ -58,6 +58,12 @@ export class Transactions {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
     let retryConfig: any = retries;
     if (!retryConfig) {
       retryConfig = new utils.RetryConfig("backoff", true);
@@ -68,6 +74,7 @@ export class Transactions {
         validateStatus: () => true,
         url: url,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -122,7 +129,12 @@ export class Transactions {
 
     const client: AxiosInstance = this._securityClient || this._defaultClient;
 
+    const headers = { ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req);
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
     let retryConfig: any = retries;
     if (!retryConfig) {
@@ -134,6 +146,7 @@ export class Transactions {
         validateStatus: () => true,
         url: url + queryParams,
         method: "get",
+        headers: headers,
         ...config,
       });
     }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -146,6 +159,80 @@ export class Transactions {
 
     const res: operations.ListTransactionsResponse =
       new operations.ListTransactionsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.transactions = utils.objectToClass(
+            httpRes?.data,
+            shared.Transactions
+          );
+        }
+        break;
+    }
+
+    return res;
+  }
+
+  /**
+   * List banking transactions
+   *
+   * @remarks
+   * Gets a list of transactions incurred by a company across all bank accounts.
+   *
+   * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible. Use list instead
+   */
+  async listBankTransactions(
+    req: operations.ListBankTransactionsRequest,
+    retries?: utils.RetryConfig,
+    config?: AxiosRequestConfig
+  ): Promise<operations.ListBankTransactionsResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.ListBankTransactionsRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/companies/{companyId}/data/banking-transactions",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const headers = { ...config?.headers };
+    const queryParams: string = utils.serializeQueryParams(req);
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const httpRes: AxiosResponse = await utils.Retry(() => {
+      return client.request({
+        validateStatus: () => true,
+        url: url + queryParams,
+        method: "get",
+        headers: headers,
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
+
+    const res: operations.ListBankTransactionsResponse =
+      new operations.ListBankTransactionsResponse({
         statusCode: httpRes.status,
         contentType: contentType,
         rawResponse: httpRes,
