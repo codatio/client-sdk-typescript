@@ -2,7 +2,7 @@
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
 import { GetCompanyInfoResponse } from "@codat/commerce/dist/sdk/models/operations";
-import { AddressTypeEnum, CompanyInfoWeblinkTypeEnum, PhoneNumberTypeEnum } from "@codat/commerce/dist/sdk/models/shared";
+import { AddressType, CompanyInfoWeblinkType, PhoneNumberType } from "@codat/commerce/dist/sdk/models/shared";
 
 const sdk = new CodatCommerce({
   security: {

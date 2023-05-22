@@ -5,7 +5,7 @@
 /**
  * The type of phone number
  */
-export enum PhoneNumberTypeEnum {
+export enum PhoneNumberType {
   Primary = "Primary",
   Landline = "Landline",
   Mobile = "Mobile",

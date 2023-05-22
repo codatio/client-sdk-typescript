@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { DisputeStatusEnum } from "./disputestatusenum";
+import { DisputeStatus } from "./disputestatus";
 import { TransactionSourceRef } from "./transactionsourceref";
 import { Expose, Type } from "class-transformer";
 
@@ -124,7 +124,7 @@ export class Dispute extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status?: DisputeStatusEnum;
+  status?: DisputeStatus;
 
   /**
    * Total transaction amount that is under dispute.

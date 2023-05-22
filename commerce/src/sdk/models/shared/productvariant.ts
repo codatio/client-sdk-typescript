@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { ProductInventory } from "./productinventory";
 import { ProductPrice } from "./productprice";
-import { ProductVariantStatusEnum } from "./productvariantstatusenum";
+import { ProductVariantStatus } from "./productvariantstatus";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -110,7 +110,7 @@ export class ProductVariant extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "status" })
-  status?: ProductVariantStatusEnum;
+  status?: ProductVariantStatus;
 
   /**
    * Unit of measure for the variant, such as `kg` or `meters`.

@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { PhoneNumberTypeEnum } from "./phonenumbertypeenum";
+import { PhoneNumberType } from "./phonenumbertype";
 import { Expose } from "class-transformer";
 
 export class PhoneNumber extends SpeakeasyBase {
@@ -19,5 +19,5 @@ export class PhoneNumber extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type: PhoneNumberTypeEnum;
+  type: PhoneNumberType;
 }

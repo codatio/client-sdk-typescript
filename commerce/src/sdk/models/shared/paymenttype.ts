@@ -5,7 +5,7 @@
 /**
  * Status of the payment
  */
-export enum PaymentTypeEnum {
+export enum PaymentType {
   Cash = "Cash",
   Card = "Card",
   Invoice = "Invoice",

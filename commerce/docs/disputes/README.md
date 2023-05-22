@@ -17,7 +17,7 @@ List commerce disputes
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
 import { ListDisputesResponse } from "@codat/commerce/dist/sdk/models/operations";
-import { DisputeStatusEnum, TransactionSourceTypeEnum } from "@codat/commerce/dist/sdk/models/shared";
+import { DisputeStatus, TransactionSourceType } from "@codat/commerce/dist/sdk/models/shared";
 
 const sdk = new CodatCommerce({
   security: {

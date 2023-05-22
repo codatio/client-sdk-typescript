@@ -18,7 +18,7 @@ The Products data type provides the company's product inventory, and includes th
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
 import { ListProductsResponse } from "@codat/commerce/dist/sdk/models/operations";
-import { ProductVariantStatusEnum } from "@codat/commerce/dist/sdk/models/shared";
+import { ProductVariantStatus } from "@codat/commerce/dist/sdk/models/shared";
 
 const sdk = new CodatCommerce({
   security: {

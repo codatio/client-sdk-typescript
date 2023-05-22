@@ -5,7 +5,7 @@
 /**
  * Current status of the dispute
  */
-export enum DisputeStatusEnum {
+export enum DisputeStatus {
   Won = "Won",
   Lost = "Lost",
   Accepted = "Accepted",

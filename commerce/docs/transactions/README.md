@@ -17,7 +17,7 @@ Details of all financial transactions recorded in the commerce or point of sale 
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
 import { ListTransactionsResponse } from "@codat/commerce/dist/sdk/models/operations";
-import { TransactionSourceTypeEnum, TransactionTypeEnum } from "@codat/commerce/dist/sdk/models/shared";
+import { TransactionSourceType, TransactionType } from "@codat/commerce/dist/sdk/models/shared";
 
 const sdk = new CodatCommerce({
   security: {

@@ -18,7 +18,7 @@ List commerce payments for the given company & data connection.
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
 import { ListPaymentsResponse } from "@codat/commerce/dist/sdk/models/operations";
-import { PaymentStatusEnum } from "@codat/commerce/dist/sdk/models/shared";
+import { PaymentStatus } from "@codat/commerce/dist/sdk/models/shared";
 
 const sdk = new CodatCommerce({
   security: {
@@ -49,7 +49,7 @@ Retrieve a list of payment methods, such as card, cash or other online payment m
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
 import { ListPaymentMethodsResponse } from "@codat/commerce/dist/sdk/models/operations";
-import { PaymentMethodStatusEnum } from "@codat/commerce/dist/sdk/models/shared";
+import { PaymentMethodStatus } from "@codat/commerce/dist/sdk/models/shared";
 
 const sdk = new CodatCommerce({
   security: {

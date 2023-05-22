@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { ServiceChargeTypeEnum } from "./servicechargetypeenum";
+import { ServiceChargeType } from "./servicechargetype";
 import { TaxComponentAllocation } from "./taxcomponentallocation";
 import { Expose, Type } from "class-transformer";
 
@@ -56,5 +56,5 @@ export class ServiceCharge extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "type" })
-  type?: ServiceChargeTypeEnum;
+  type?: ServiceChargeType;
 }

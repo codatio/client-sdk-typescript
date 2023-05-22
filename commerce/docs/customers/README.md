@@ -17,7 +17,7 @@ List all commerce customers for the given company and data connection
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
 import { ListCustomersResponse } from "@codat/commerce/dist/sdk/models/operations";
-import { AddressTypeEnum } from "@codat/commerce/dist/sdk/models/shared";
+import { AddressType } from "@codat/commerce/dist/sdk/models/shared";
 
 const sdk = new CodatCommerce({
   security: {
