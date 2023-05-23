@@ -52,7 +52,7 @@ sdk.categories.getAccountCategory({
 * [~~getAccountCategory~~](docs/categories/README.md#getaccountcategory) - Get suggested and/or confirmed category for a specific account :warning: **Deprecated**
 * [~~listAccountsCategories~~](docs/categories/README.md#listaccountscategories) - List suggested and confirmed account categories :warning: **Deprecated**
 * [~~listAvailableAccountCategories~~](docs/categories/README.md#listavailableaccountcategories) - List account categories :warning: **Deprecated**
-* [~~updateAccountCategory~~](docs/categories/README.md#updateaccountcategory) - Patch account categories :warning: **Deprecated**
+* [~~updateAccountCategory~~](docs/categories/README.md#updateaccountcategory) - Update account categories :warning: **Deprecated**
 * [~~updateAccountsCategories~~](docs/categories/README.md#updateaccountscategories) - Confirm categories for accounts :warning: **Deprecated**
 
 ### [dataIntegrity](docs/dataintegrity/README.md)
@@ -63,28 +63,27 @@ sdk.categories.getAccountCategory({
 
 ### [excelReports](docs/excelreports/README.md)
 
-* [~~downloadExcelReport~~](docs/excelreports/README.md#downloadexcelreport) - Download generated excel report :warning: **Deprecated**
-* [generateExcelReport](docs/excelreports/README.md#generateexcelreport) - Generate an Excel report
-* [getAccountingMarketingMetrics](docs/excelreports/README.md#getaccountingmarketingmetrics) - Get the marketing metrics from an accounting source for a given company.
-* [getExcelReport](docs/excelreports/README.md#getexcelreport) - Download generated excel report
-* [getExcelReportGenerationStatus](docs/excelreports/README.md#getexcelreportgenerationstatus) - Get status of Excel report
+* [generateExcelReport](docs/excelreports/README.md#generateexcelreport) - Generate Excel report
+* [getAccountingMarketingMetrics](docs/excelreports/README.md#getaccountingmarketingmetrics) - Get marketing metrics report
+* [getExcelReport](docs/excelreports/README.md#getexcelreport) - Download Excel report
+* [getExcelReportGenerationStatus](docs/excelreports/README.md#getexcelreportgenerationstatus) - Get Excel report status
 
 ### [reports](docs/reports/README.md)
 
-* [getAccountsForEnhancedBalanceSheet](docs/reports/README.md#getaccountsforenhancedbalancesheet) - Enhanced Balance Sheet Accounts
-* [getAccountsForEnhancedProfitAndLoss](docs/reports/README.md#getaccountsforenhancedprofitandloss) - Enhanced Profit and Loss Accounts
-* [getCommerceCustomerRetentionMetrics](docs/reports/README.md#getcommercecustomerretentionmetrics) - Get the customer retention metrics for a specific company.
-* [getCommerceLifetimeValueMetrics](docs/reports/README.md#getcommercelifetimevaluemetrics) - Get the lifetime value metric for a specific company.
-* [getCommerceOrdersMetrics](docs/reports/README.md#getcommerceordersmetrics) - Get order information for a specific company
-* [getCommerceRefundsMetrics](docs/reports/README.md#getcommercerefundsmetrics) - Get the refunds information for a specific company
-* [getCommerceRevenueMetrics](docs/reports/README.md#getcommercerevenuemetrics) - Commerce Revenue Metrics
-* [~~getEnhancedBalanceSheet~~](docs/reports/README.md#getenhancedbalancesheet) - Enhanced Balance Sheet :warning: **Deprecated**
+* [getAccountsForEnhancedBalanceSheet](docs/reports/README.md#getaccountsforenhancedbalancesheet) - Get enhanced balance sheet accounts
+* [getAccountsForEnhancedProfitAndLoss](docs/reports/README.md#getaccountsforenhancedprofitandloss) - Get enhanced profit and loss accounts
+* [getCommerceCustomerRetentionMetrics](docs/reports/README.md#getcommercecustomerretentionmetrics) - Get customer retention metrics
+* [getCommerceLifetimeValueMetrics](docs/reports/README.md#getcommercelifetimevaluemetrics) - Get lifetime value metric
+* [getCommerceOrdersMetrics](docs/reports/README.md#getcommerceordersmetrics) - Get orders report
+* [getCommerceRefundsMetrics](docs/reports/README.md#getcommercerefundsmetrics) - Get refunds report
+* [getCommerceRevenueMetrics](docs/reports/README.md#getcommercerevenuemetrics) - Commerce revenue metrics
+* [~~getEnhancedBalanceSheet~~](docs/reports/README.md#getenhancedbalancesheet) - Get enhanced balance sheet report :warning: **Deprecated**
 * [getEnhancedCashFlowTransactions](docs/reports/README.md#getenhancedcashflowtransactions) - Get enhanced cash flow report
 * [~~getEnhancedFinancialMetrics~~](docs/reports/README.md#getenhancedfinancialmetrics) - List financial metrics :warning: **Deprecated**
-* [getEnhancedInvoicesReport](docs/reports/README.md#getenhancedinvoicesreport) - Enhanced Invoices Report
-* [~~getEnhancedProfitAndLoss~~](docs/reports/README.md#getenhancedprofitandloss) - Enhanced Profit and Loss :warning: **Deprecated**
-* [getRecurringRevenueMetrics](docs/reports/README.md#getrecurringrevenuemetrics) - Get key metrics for subscription revenue
-* [requestRecurringRevenueMetrics](docs/reports/README.md#requestrecurringrevenuemetrics) - Request production of key subscription revenue metrics
+* [getEnhancedInvoicesReport](docs/reports/README.md#getenhancedinvoicesreport) - Get enhanced invoices report
+* [~~getEnhancedProfitAndLoss~~](docs/reports/README.md#getenhancedprofitandloss) - Get enhanced profit and loss report :warning: **Deprecated**
+* [getRecurringRevenueMetrics](docs/reports/README.md#getrecurringrevenuemetrics) - Get key subscription revenue metrics
+* [requestRecurringRevenueMetrics](docs/reports/README.md#requestrecurringrevenuemetrics) - Generate key subscription revenue metrics
 <!-- End SDK Available Operations -->
 
 ### SDK Generated by [Speakeasy](https://docs.speakeasyapi.dev/docs/using-speakeasy/client-sdks)

@@ -35,82 +35,7 @@ export class ExcelReports {
   }
 
   /**
-   * Download generated excel report
-   *
-   * @remarks
-   * Download the previously generated Excel report to a local drive.
-   *
-   * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
-   */
-  async downloadExcelReport(
-    req: operations.DownloadExcelReportRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.DownloadExcelReportResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.DownloadExcelReportRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/data/companies/{companyId}/assess/excel/download",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/octet-stream";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const httpRes: AxiosResponse = await utils.Retry(() => {
-      return client.request({
-        validateStatus: () => true,
-        url: url + queryParams,
-        method: "post",
-        headers: headers,
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.DownloadExcelReportResponse =
-      new operations.DownloadExcelReportResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/octet-stream`)) {
-          const resBody: string = JSON.stringify(httpRes?.data, null, 0);
-          const out: Uint8Array = new Uint8Array(resBody.length);
-          for (let i = 0; i < resBody.length; i++)
-            out[i] = resBody.charCodeAt(i);
-          res.body = out;
-        }
-        break;
-    }
-
-    return res;
-  }
-
-  /**
-   * Generate an Excel report
+   * Generate Excel report
    *
    * @remarks
    * Generate an Excel report which can subsequently be downloaded.
@@ -182,9 +107,11 @@ export class ExcelReports {
   }
 
   /**
-   * Get the marketing metrics from an accounting source for a given company.
+   * Get marketing metrics report
    *
    * @remarks
+   * Get the marketing metrics from an accounting source for a given company.
+   *
    * Request an Excel report for download.
    */
   async getAccountingMarketingMetrics(
@@ -251,7 +178,7 @@ export class ExcelReports {
   }
 
   /**
-   * Download generated excel report
+   * Download Excel report
    *
    * @remarks
    * Download the previously generated Excel report to a local drive.
@@ -324,7 +251,7 @@ export class ExcelReports {
   }
 
   /**
-   * Get status of Excel report
+   * Get Excel report status
    *
    * @remarks
    * Returns the status of the latest report requested.

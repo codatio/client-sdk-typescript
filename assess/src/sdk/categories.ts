@@ -250,7 +250,7 @@ export class Categories {
   }
 
   /**
-   * Patch account categories
+   * Update account categories
    *
    * @remarks
    * Update category for a specific nominal account

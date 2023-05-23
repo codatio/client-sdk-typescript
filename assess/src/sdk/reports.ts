@@ -35,7 +35,7 @@ export class Reports {
   }
 
   /**
-   * Enhanced Balance Sheet Accounts
+   * Get enhanced balance sheet accounts
    *
    * @remarks
    * The Enhanced Balance Sheet Accounts endpoint returns a list of categorized accounts that appear on a company’s Balance Sheet along with a balance per financial statement date.
@@ -109,7 +109,7 @@ export class Reports {
   }
 
   /**
-   * Enhanced Profit and Loss Accounts
+   * Get enhanced profit and loss accounts
    *
    * @remarks
    * The Enhanced Profit and Loss Accounts endpoint returns a list of categorized accounts that appear on a company’s Profit and Loss. It also includes a balance per the financial statement date.
@@ -183,7 +183,7 @@ export class Reports {
   }
 
   /**
-   * Get the customer retention metrics for a specific company.
+   * Get customer retention metrics
    *
    * @remarks
    * Gets the customer retention metrics for a specific company connection, over one or more periods of time.
@@ -252,7 +252,7 @@ export class Reports {
   }
 
   /**
-   * Get the lifetime value metric for a specific company.
+   * Get lifetime value metric
    *
    * @remarks
    * Gets the lifetime value metric for a specific company connection, over one or more periods of time.
@@ -321,7 +321,7 @@ export class Reports {
   }
 
   /**
-   * Get order information for a specific company
+   * Get orders report
    *
    * @remarks
    * Gets the order information for a specific company connection, over one or more periods of time.
@@ -390,7 +390,7 @@ export class Reports {
   }
 
   /**
-   * Get the refunds information for a specific company
+   * Get refunds report
    *
    * @remarks
    * Gets the refunds information for a specific company connection, over one or more periods of time.
@@ -459,7 +459,7 @@ export class Reports {
   }
 
   /**
-   * Commerce Revenue Metrics
+   * Commerce revenue metrics
    *
    * @remarks
    * Get the revenue and revenue growth for a specific company connection, over one or more periods of time.
@@ -528,7 +528,7 @@ export class Reports {
   }
 
   /**
-   * Enhanced Balance Sheet
+   * Get enhanced balance sheet report
    *
    * @remarks
    * Gets a fully categorized balance sheet statement for a given company, over one or more period(s).
@@ -602,6 +602,10 @@ export class Reports {
    * Get enhanced cash flow report
    *
    * @remarks
+   * > **Categorization engine**
+   * >
+   * > The categorization engine uses machine learning and has been fully trained against Plaid and TrueLayer banking data sources. It is not fully trained against the Basiq banking data source.
+   *
    * The Enhanced Cash Flow Transactions endpoint provides a fully categorized list of banking transactions for a company. Accounts and transaction data are obtained from the company's banking data sources.
    */
   async getEnhancedCashFlowTransactions(
@@ -745,7 +749,7 @@ export class Reports {
   }
 
   /**
-   * Enhanced Invoices Report
+   * Get enhanced invoices report
    *
    * @remarks
    * Gets a list of invoices linked to the corresponding banking transaction
@@ -817,7 +821,7 @@ export class Reports {
   }
 
   /**
-   * Enhanced Profit and Loss
+   * Get enhanced profit and loss report
    *
    * @remarks
    * Gets a fully categorized profit and loss statement for a given company, over one or more period(s).
@@ -888,7 +892,7 @@ export class Reports {
   }
 
   /**
-   * Get key metrics for subscription revenue
+   * Get key subscription revenue metrics
    *
    * @remarks
    * Gets key metrics for subscription revenue.
@@ -956,10 +960,10 @@ export class Reports {
   }
 
   /**
-   * Request production of key subscription revenue metrics
+   * Generate key subscription revenue metrics
    *
    * @remarks
-   * Request production of key subscription revenue metrics.
+   * Requests production of key subscription revenue metrics.
    */
   async requestRecurringRevenueMetrics(
     req: operations.RequestRecurringRevenueMetricsRequest,

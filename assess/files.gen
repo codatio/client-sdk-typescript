@@ -29,7 +29,6 @@ src/sdk/models/operations/updateaccountscategories.ts
 src/sdk/models/operations/getdataintegritydetails.ts
 src/sdk/models/operations/getdataintegritystatus.ts
 src/sdk/models/operations/getdataintegritysummaries.ts
-src/sdk/models/operations/downloadexcelreport.ts
 src/sdk/models/operations/generateexcelreport.ts
 src/sdk/models/operations/getaccountingmarketingmetrics.ts
 src/sdk/models/operations/getexcelreport.ts
@@ -74,8 +73,8 @@ src/sdk/models/shared/summaries.ts
 src/sdk/models/shared/dataintegritysummary.ts
 src/sdk/models/shared/dataintegritybycount.ts
 src/sdk/models/shared/dataintegritybyamount.ts
-src/sdk/models/shared/excelreporttype.ts
 src/sdk/models/shared/excelstatus.ts
+src/sdk/models/shared/excelreporttype.ts
 src/sdk/models/shared/report.ts
 src/sdk/models/shared/reportcomponent.ts
 src/sdk/models/shared/reportcomponentmeasure.ts

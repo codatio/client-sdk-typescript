@@ -9,7 +9,7 @@ Categorisation
 * [~~getAccountCategory~~](#getaccountcategory) - Get suggested and/or confirmed category for a specific account :warning: **Deprecated**
 * [~~listAccountsCategories~~](#listaccountscategories) - List suggested and confirmed account categories :warning: **Deprecated**
 * [~~listAvailableAccountCategories~~](#listavailableaccountcategories) - List account categories :warning: **Deprecated**
-* [~~updateAccountCategory~~](#updateaccountcategory) - Patch account categories :warning: **Deprecated**
+* [~~updateAccountCategory~~](#updateaccountcategory) - Update account categories :warning: **Deprecated**
 * [~~updateAccountsCategories~~](#updateaccountscategories) - Confirm categories for accounts :warning: **Deprecated**
 
 ## ~~getAccountCategory~~
