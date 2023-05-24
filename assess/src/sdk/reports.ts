@@ -459,7 +459,7 @@ export class Reports {
   }
 
   /**
-   * Commerce revenue metrics
+   * Get commerce revenue metrics
    *
    * @remarks
    * Get the revenue and revenue growth for a specific company connection, over one or more periods of time.

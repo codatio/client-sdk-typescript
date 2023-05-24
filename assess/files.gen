@@ -26,9 +26,9 @@ src/sdk/models/operations/listaccountscategories.ts
 src/sdk/models/operations/listavailableaccountcategories.ts
 src/sdk/models/operations/updateaccountcategory.ts
 src/sdk/models/operations/updateaccountscategories.ts
-src/sdk/models/operations/getdataintegritydetails.ts
 src/sdk/models/operations/getdataintegritystatus.ts
 src/sdk/models/operations/getdataintegritysummaries.ts
+src/sdk/models/operations/listdatatypedataintegritydetails.ts
 src/sdk/models/operations/generateexcelreport.ts
 src/sdk/models/operations/getaccountingmarketingmetrics.ts
 src/sdk/models/operations/getexcelreport.ts
@@ -58,10 +58,6 @@ src/sdk/models/shared/categories.ts
 src/sdk/models/shared/confirmcategory.ts
 src/sdk/models/shared/accountcategory.ts
 src/sdk/models/shared/confirmcategories.ts
-src/sdk/models/shared/details.ts
-src/sdk/models/shared/dataintegritydetails.ts
-src/sdk/models/shared/dataintegritymatch.ts
-src/sdk/models/shared/dataintegritydatatype.ts
 src/sdk/models/shared/status.ts
 src/sdk/models/shared/dataintegritystatus.ts
 src/sdk/models/shared/dataintegritystatusinfo.ts
@@ -69,10 +65,14 @@ src/sdk/models/shared/integritystatus.ts
 src/sdk/models/shared/dataintegritydates.ts
 src/sdk/models/shared/dataintegrityconnectionid.ts
 src/sdk/models/shared/dataintegrityamounts.ts
+src/sdk/models/shared/dataintegritydatatype.ts
 src/sdk/models/shared/summaries.ts
 src/sdk/models/shared/dataintegritysummary.ts
 src/sdk/models/shared/dataintegritybycount.ts
 src/sdk/models/shared/dataintegritybyamount.ts
+src/sdk/models/shared/details.ts
+src/sdk/models/shared/dataintegritydetails.ts
+src/sdk/models/shared/dataintegritymatch.ts
 src/sdk/models/shared/excelstatus.ts
 src/sdk/models/shared/excelreporttype.ts
 src/sdk/models/shared/report.ts

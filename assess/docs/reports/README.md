@@ -12,7 +12,7 @@ Data integrity is important
 * [getCommerceLifetimeValueMetrics](#getcommercelifetimevaluemetrics) - Get lifetime value metric
 * [getCommerceOrdersMetrics](#getcommerceordersmetrics) - Get orders report
 * [getCommerceRefundsMetrics](#getcommercerefundsmetrics) - Get refunds report
-* [getCommerceRevenueMetrics](#getcommercerevenuemetrics) - Commerce revenue metrics
+* [getCommerceRevenueMetrics](#getcommercerevenuemetrics) - Get commerce revenue metrics
 * [~~getEnhancedBalanceSheet~~](#getenhancedbalancesheet) - Get enhanced balance sheet report :warning: **Deprecated**
 * [getEnhancedCashFlowTransactions](#getenhancedcashflowtransactions) - Get enhanced cash flow report
 * [~~getEnhancedFinancialMetrics~~](#getenhancedfinancialmetrics) - List financial metrics :warning: **Deprecated**

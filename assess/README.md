@@ -57,9 +57,9 @@ sdk.categories.getAccountCategory({
 
 ### [dataIntegrity](docs/dataintegrity/README.md)
 
-* [getDataIntegrityDetails](docs/dataintegrity/README.md#getdataintegritydetails) - Lists data integrity details for date type
 * [getDataIntegrityStatus](docs/dataintegrity/README.md#getdataintegritystatus) - Get data integrity status
 * [getDataIntegritySummaries](docs/dataintegrity/README.md#getdataintegritysummaries) - Get data integrity summary
+* [listDataTypeDataIntegrityDetails](docs/dataintegrity/README.md#listdatatypedataintegritydetails) - List data type data integrity
 
 ### [excelReports](docs/excelreports/README.md)
 
@@ -76,7 +76,7 @@ sdk.categories.getAccountCategory({
 * [getCommerceLifetimeValueMetrics](docs/reports/README.md#getcommercelifetimevaluemetrics) - Get lifetime value metric
 * [getCommerceOrdersMetrics](docs/reports/README.md#getcommerceordersmetrics) - Get orders report
 * [getCommerceRefundsMetrics](docs/reports/README.md#getcommercerefundsmetrics) - Get refunds report
-* [getCommerceRevenueMetrics](docs/reports/README.md#getcommercerevenuemetrics) - Commerce revenue metrics
+* [getCommerceRevenueMetrics](docs/reports/README.md#getcommercerevenuemetrics) - Get commerce revenue metrics
 * [~~getEnhancedBalanceSheet~~](docs/reports/README.md#getenhancedbalancesheet) - Get enhanced balance sheet report :warning: **Deprecated**
 * [getEnhancedCashFlowTransactions](docs/reports/README.md#getenhancedcashflowtransactions) - Get enhanced cash flow report
 * [~~getEnhancedFinancialMetrics~~](docs/reports/README.md#getenhancedfinancialmetrics) - List financial metrics :warning: **Deprecated**

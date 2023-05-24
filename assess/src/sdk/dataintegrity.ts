@@ -35,75 +35,6 @@ export class DataIntegrity {
   }
 
   /**
-   * Lists data integrity details for date type
-   *
-   * @remarks
-   * Gets record-by-record match results for a given company and datatype, optionally restricted by a Codat query string.
-   */
-  async getDataIntegrityDetails(
-    req: operations.GetDataIntegrityDetailsRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetDataIntegrityDetailsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetDataIntegrityDetailsRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/data/companies/{companyId}/assess/dataTypes/{dataType}/dataIntegrity/details",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const httpRes: AxiosResponse = await utils.Retry(() => {
-      return client.request({
-        validateStatus: () => true,
-        url: url + queryParams,
-        method: "get",
-        headers: headers,
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetDataIntegrityDetailsResponse =
-      new operations.GetDataIntegrityDetailsResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.details = utils.objectToClass(httpRes?.data, shared.Details);
-        }
-        break;
-    }
-
-    return res;
-  }
-
-  /**
    * Get data integrity status
    *
    * @remarks
@@ -233,6 +164,75 @@ export class DataIntegrity {
       case httpRes?.status == 200:
         if (utils.matchContentType(contentType, `application/json`)) {
           res.summaries = utils.objectToClass(httpRes?.data, shared.Summaries);
+        }
+        break;
+    }
+
+    return res;
+  }
+
+  /**
+   * List data type data integrity
+   *
+   * @remarks
+   * Gets record-by-record match results for a given company and datatype, optionally restricted by a Codat query string.
+   */
+  async listDataTypeDataIntegrityDetails(
+    req: operations.ListDataTypeDataIntegrityDetailsRequest,
+    retries?: utils.RetryConfig,
+    config?: AxiosRequestConfig
+  ): Promise<operations.ListDataTypeDataIntegrityDetailsResponse> {
+    if (!(req instanceof utils.SpeakeasyBase)) {
+      req = new operations.ListDataTypeDataIntegrityDetailsRequest(req);
+    }
+
+    const baseURL: string = this._serverURL;
+    const url: string = utils.generateURL(
+      baseURL,
+      "/data/companies/{companyId}/assess/dataTypes/{dataType}/dataIntegrity/details",
+      req
+    );
+
+    const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+    const headers = { ...config?.headers };
+    const queryParams: string = utils.serializeQueryParams(req);
+    headers["Accept"] = "application/json";
+    headers[
+      "user-agent"
+    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+    let retryConfig: any = retries;
+    if (!retryConfig) {
+      retryConfig = new utils.RetryConfig("backoff", true);
+      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+    }
+    const httpRes: AxiosResponse = await utils.Retry(() => {
+      return client.request({
+        validateStatus: () => true,
+        url: url + queryParams,
+        method: "get",
+        headers: headers,
+        ...config,
+      });
+    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
+
+    const res: operations.ListDataTypeDataIntegrityDetailsResponse =
+      new operations.ListDataTypeDataIntegrityDetailsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.details = utils.objectToClass(httpRes?.data, shared.Details);
         }
         break;
     }
