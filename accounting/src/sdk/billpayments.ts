@@ -393,7 +393,8 @@ export class BillPayments {
 
     const headers = { ...config?.headers };
     const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json";
+    headers["Accept"] =
+      "application/json;q=1, application/json;q=0.7, application/json;q=0";
     headers[
       "user-agent"
     ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
@@ -431,6 +432,19 @@ export class BillPayments {
           res.billPayments = utils.objectToClass(
             httpRes?.data,
             shared.BillPayments
+          );
+        }
+        break;
+      case [400, 401, 404].includes(httpRes?.status):
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+        }
+        break;
+      case httpRes?.status == 409:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listBillPayments409ApplicationJSONObject = utils.objectToClass(
+            httpRes?.data,
+            operations.ListBillPayments409ApplicationJSON
           );
         }
         break;

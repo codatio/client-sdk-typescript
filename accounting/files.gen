@@ -173,6 +173,7 @@ src/sdk/models/shared/metadata.ts
 src/sdk/models/shared/accounttransactionline.ts
 src/sdk/models/shared/invoiceto.ts
 src/sdk/models/shared/bankaccountref.ts
+src/sdk/models/shared/schema.ts
 src/sdk/models/shared/accounttransactions.ts
 src/sdk/models/shared/links.ts
 src/sdk/models/shared/halref.ts

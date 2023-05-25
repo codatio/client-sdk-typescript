@@ -149,6 +149,7 @@ export * from "./salesorderlineitem";
 export * from "./salesorderref";
 export * from "./salesorders";
 export * from "./salesorderstatus";
+export * from "./schema";
 export * from "./security";
 export * from "./shipto";
 export * from "./status";
