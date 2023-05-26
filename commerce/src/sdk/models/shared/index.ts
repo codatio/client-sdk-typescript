@@ -44,6 +44,7 @@ export * from "./productvariant";
 export * from "./productvariantref";
 export * from "./productvariantstatus";
 export * from "./recordref";
+export * from "./schema";
 export * from "./security";
 export * from "./servicecharge";
 export * from "./servicechargetype";

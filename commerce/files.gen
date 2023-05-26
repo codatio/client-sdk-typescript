@@ -44,6 +44,7 @@ src/sdk/models/shared/phonenumbertype.ts
 src/sdk/models/shared/address.ts
 src/sdk/models/shared/addresstype.ts
 src/sdk/models/shared/accountbalance.ts
+src/sdk/models/shared/schema.ts
 src/sdk/models/shared/customers.ts
 src/sdk/models/shared/customer.ts
 src/sdk/models/shared/links.ts

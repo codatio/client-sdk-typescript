@@ -5,6 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
+import { Expose } from "class-transformer";
 
 export class ListProductsRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -46,6 +47,35 @@ export class ListProductsRequest extends SpeakeasyBase {
   query?: string;
 }
 
+/**
+ * The data type's dataset has not been requested or is still syncing.
+ */
+export class ListProducts409ApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  @Expose({ name: "canBeRetried" })
+  canBeRetried?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "correlationId" })
+  correlationId?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "detailedErrorCode" })
+  detailedErrorCode?: number;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "error" })
+  error?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "service" })
+  service?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "statusCode" })
+  statusCode?: number;
+}
+
 export class ListProductsResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
@@ -61,4 +91,16 @@ export class ListProductsResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
+
+  /**
+   * The data type's dataset has not been requested or is still syncing.
+   */
+  @SpeakeasyMetadata()
+  listProducts409ApplicationJSONObject?: ListProducts409ApplicationJSON;
+
+  /**
+   * Your `query` parameter was not correctly formed
+   */
+  @SpeakeasyMetadata()
+  schema?: shared.Schema;
 }
