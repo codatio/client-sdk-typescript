@@ -13,6 +13,7 @@ export * from "./accounts";
 export * from "./accounttype";
 export * from "./href";
 export * from "./links";
+export * from "./schema";
 export * from "./security";
 export * from "./transaction";
 export * from "./transactioncategories";
