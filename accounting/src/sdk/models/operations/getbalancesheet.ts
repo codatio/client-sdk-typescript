@@ -5,6 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
+import { Expose } from "class-transformer";
 
 export class GetBalanceSheetRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -34,6 +35,35 @@ export class GetBalanceSheetRequest extends SpeakeasyBase {
   startMonth?: string;
 }
 
+/**
+ * The data type's dataset has not been requested or is still syncing.
+ */
+export class GetBalanceSheet409ApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  @Expose({ name: "canBeRetried" })
+  canBeRetried?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "correlationId" })
+  correlationId?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "detailedErrorCode" })
+  detailedErrorCode?: number;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "error" })
+  error?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "service" })
+  service?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "statusCode" })
+  statusCode?: number;
+}
+
 export class GetBalanceSheetResponse extends SpeakeasyBase {
   /**
    * Success
@@ -49,4 +79,16 @@ export class GetBalanceSheetResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
+
+  /**
+   * The data type's dataset has not been requested or is still syncing.
+   */
+  @SpeakeasyMetadata()
+  getBalanceSheet409ApplicationJSONObject?: GetBalanceSheet409ApplicationJSON;
+
+  /**
+   * Your API request was not properly authorized.
+   */
+  @SpeakeasyMetadata()
+  schema?: shared.Schema;
 }

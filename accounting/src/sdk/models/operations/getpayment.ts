@@ -5,6 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
+import { Expose } from "class-transformer";
 
 export class GetPaymentRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -16,6 +17,35 @@ export class GetPaymentRequest extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=paymentId",
   })
   paymentId: string;
+}
+
+/**
+ * The data type's dataset has not been requested or is still syncing.
+ */
+export class GetPayment409ApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  @Expose({ name: "canBeRetried" })
+  canBeRetried?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "correlationId" })
+  correlationId?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "detailedErrorCode" })
+  detailedErrorCode?: number;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "error" })
+  error?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "service" })
+  service?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "statusCode" })
+  statusCode?: number;
 }
 
 export class GetPaymentResponse extends SpeakeasyBase {
@@ -33,4 +63,16 @@ export class GetPaymentResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   rawResponse?: AxiosResponse;
+
+  /**
+   * The data type's dataset has not been requested or is still syncing.
+   */
+  @SpeakeasyMetadata()
+  getPayment409ApplicationJSONObject?: GetPayment409ApplicationJSON;
+
+  /**
+   * Your API request was not properly authorized.
+   */
+  @SpeakeasyMetadata()
+  schema?: shared.Schema;
 }

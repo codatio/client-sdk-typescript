@@ -5,6 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
+import { Expose } from "class-transformer";
 
 export class GetSupplierRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
@@ -19,6 +20,35 @@ export class GetSupplierRequest extends SpeakeasyBase {
     data: "pathParam, style=simple;explode=false;name=supplierId",
   })
   supplierId: string;
+}
+
+/**
+ * The data type's dataset has not been requested or is still syncing.
+ */
+export class GetSupplier409ApplicationJSON extends SpeakeasyBase {
+  @SpeakeasyMetadata()
+  @Expose({ name: "canBeRetried" })
+  canBeRetried?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "correlationId" })
+  correlationId?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "detailedErrorCode" })
+  detailedErrorCode?: number;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "error" })
+  error?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "service" })
+  service?: string;
+
+  @SpeakeasyMetadata()
+  @Expose({ name: "statusCode" })
+  statusCode?: number;
 }
 
 export class GetSupplierResponse extends SpeakeasyBase {
@@ -36,4 +66,16 @@ export class GetSupplierResponse extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   supplier?: shared.Supplier;
+
+  /**
+   * The data type's dataset has not been requested or is still syncing.
+   */
+  @SpeakeasyMetadata()
+  getSupplier409ApplicationJSONObject?: GetSupplier409ApplicationJSON;
+
+  /**
+   * Your API request was not properly authorized.
+   */
+  @SpeakeasyMetadata()
+  schema?: shared.Schema;
 }
