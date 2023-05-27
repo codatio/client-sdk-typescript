@@ -7,30 +7,26 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetCompanyInfoRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+    connectionId: string;
 }
 
 export class GetCompanyInfoResponse extends SpeakeasyBase {
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  companyInfo?: shared.CompanyInfo;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    companyInfo?: shared.CompanyInfo;
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

@@ -10,12 +10,12 @@ import { Expose, Type } from "class-transformer";
  * Information about the total inventory as well as the locations inventory is in.
  */
 export class ProductInventory extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ProductInventoryLocation })
-  @Expose({ name: "locations" })
-  @Type(() => ProductInventoryLocation)
-  locations?: ProductInventoryLocation[];
+    @SpeakeasyMetadata({ elemType: ProductInventoryLocation })
+    @Expose({ name: "locations" })
+    @Type(() => ProductInventoryLocation)
+    locations?: ProductInventoryLocation[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "totalQuantity" })
-  totalQuantity?: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "totalQuantity" })
+    totalQuantity?: number;
 }

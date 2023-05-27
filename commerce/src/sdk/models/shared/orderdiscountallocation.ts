@@ -6,17 +6,17 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class OrderDiscountAllocation extends SpeakeasyBase {
-  /**
-   * Name of the discount in the commerce or point of sale platform.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * Name of the discount in the commerce or point of sale platform.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 
-  /**
-   * Total amount of discount applied.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "totalAmount" })
-  totalAmount?: number;
+    /**
+     * Total amount of discount applied.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "totalAmount" })
+    totalAmount?: number;
 }

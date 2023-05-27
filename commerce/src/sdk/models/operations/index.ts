@@ -3,7 +3,6 @@
  */
 
 export * from "./getcompanyinfo";
-export * from "./gettaxcomponents";
 export * from "./listcustomers";
 export * from "./listdisputes";
 export * from "./listlocations";
@@ -12,4 +11,5 @@ export * from "./listpaymentmethods";
 export * from "./listpayments";
 export * from "./listproductcategories";
 export * from "./listproducts";
+export * from "./listtaxcomponents";
 export * from "./listtransactions";

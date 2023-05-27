@@ -9,17 +9,17 @@ import { Expose } from "class-transformer";
  * Taxes rates reference object depending on the rates being available on source commerce package.
  */
 export class TaxComponentRef extends SpeakeasyBase {
-  /**
-   * The unique identitifer of the tax component being referenced.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * The unique identitifer of the tax component being referenced.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * Name of the tax component being referenced.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
+    /**
+     * Name of the tax component being referenced.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name: string;
 }

@@ -7,7 +7,7 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
-export class ListProductCategoriesRequest extends SpeakeasyBase {
+export class ListTaxComponentsRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 
@@ -42,7 +42,7 @@ export class ListProductCategoriesRequest extends SpeakeasyBase {
 /**
  * The data type's dataset has not been requested or is still syncing.
  */
-export class ListProductCategories409ApplicationJSON extends SpeakeasyBase {
+export class ListTaxComponents409ApplicationJSON extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "canBeRetried" })
     canBeRetried?: string;
@@ -68,15 +68,9 @@ export class ListProductCategories409ApplicationJSON extends SpeakeasyBase {
     statusCode?: number;
 }
 
-export class ListProductCategoriesResponse extends SpeakeasyBase {
+export class ListTaxComponentsResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    productCategories?: shared.ProductCategories;
 
     @SpeakeasyMetadata()
     statusCode: number;
@@ -85,10 +79,16 @@ export class ListProductCategoriesResponse extends SpeakeasyBase {
     rawResponse?: AxiosResponse;
 
     /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    taxComponents?: shared.TaxComponents;
+
+    /**
      * The data type's dataset has not been requested or is still syncing.
      */
     @SpeakeasyMetadata()
-    listProductCategories409ApplicationJSONObject?: ListProductCategories409ApplicationJSON;
+    listTaxComponents409ApplicationJSONObject?: ListTaxComponents409ApplicationJSON;
 
     /**
      * Your `query` parameter was not correctly formed

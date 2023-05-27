@@ -9,17 +9,17 @@ import { Expose } from "class-transformer";
  * Reference to the geographic location where the order was placed.
  */
 export class LocationRef extends SpeakeasyBase {
-  /**
-   * The unique identitifer of the location being referenced.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * The unique identitifer of the location being referenced.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * Name of the location being referenced.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * Name of the location being referenced.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 }

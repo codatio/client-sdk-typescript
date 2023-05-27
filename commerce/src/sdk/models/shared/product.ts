@@ -15,47 +15,47 @@ import { Expose, Type } from "class-transformer";
  *
  */
 export class Product extends SpeakeasyBase {
-  /**
-   * Retail category that the product is assigned to
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "categorization" })
-  categorization?: string;
+    /**
+     * Retail category that the product is assigned to
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "categorization" })
+    categorization?: string;
 
-  /**
-   * Description of the product recorded in the commerce or point of sale platform.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "description" })
-  description?: string;
+    /**
+     * Description of the product recorded in the commerce or point of sale platform.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "description" })
+    description?: string;
 
-  /**
-   * A unique, persistent identifier for this record
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * A unique, persistent identifier for this record
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * Whether the product represents a gift card or voucher that
-   *
-   * @remarks
-   * can be redeemed in the commerce or POS platform
-   *
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "isGiftCard" })
-  isGiftCard?: boolean;
+    /**
+     * Whether the product represents a gift card or voucher that
+     *
+     * @remarks
+     * can be redeemed in the commerce or POS platform
+     *
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "isGiftCard" })
+    isGiftCard?: boolean;
 
-  /**
-   * Name of the product in the commerce or POS system
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * Name of the product in the commerce or POS system
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 
-  @SpeakeasyMetadata({ elemType: ProductVariant })
-  @Expose({ name: "variants" })
-  @Type(() => ProductVariant)
-  variants?: ProductVariant[];
+    @SpeakeasyMetadata({ elemType: ProductVariant })
+    @Expose({ name: "variants" })
+    @Type(() => ProductVariant)
+    variants?: ProductVariant[];
 }

@@ -6,10 +6,10 @@
  * Status of the payment
  */
 export enum PaymentStatus {
-  Pending = "Pending",
-  Authorized = "Authorized",
-  Paid = "Paid",
-  Failed = "Failed",
-  Cancelled = "Cancelled",
-  Unknown = "Unknown",
+    Pending = "Pending",
+    Authorized = "Authorized",
+    Paid = "Paid",
+    Failed = "Failed",
+    Cancelled = "Cancelled",
+    Unknown = "Unknown",
 }

@@ -6,9 +6,9 @@ Retrieve standardized data from linked commerce platforms.
 
 ### Available Operations
 
-* [get](#get) - List tax components
+* [list](#list) - List tax components
 
-## get
+## list
 
 This endpoint returns a lists of tax rates from the commerce platform, including tax rate names and values. This supports the mapping of tax rates from the commerce platform to the accounting platform.
 
@@ -16,7 +16,7 @@ This endpoint returns a lists of tax rates from the commerce platform, including
 
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
-import { GetTaxComponentsResponse } from "@codat/commerce/dist/sdk/models/operations";
+import { ListTaxComponentsResponse } from "@codat/commerce/dist/sdk/models/operations";
 
 const sdk = new CodatCommerce({
   security: {
@@ -24,10 +24,14 @@ const sdk = new CodatCommerce({
   },
 });
 
-sdk.taxComponents.get({
+sdk.taxComponents.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetTaxComponentsResponse) => {
+  orderBy: "-modifiedDate",
+  page: 1,
+  pageSize: 100,
+  query: "illum",
+}).then((res: ListTaxComponentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

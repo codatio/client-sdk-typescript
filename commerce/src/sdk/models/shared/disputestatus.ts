@@ -6,15 +6,15 @@
  * Current status of the dispute
  */
 export enum DisputeStatus {
-  Won = "Won",
-  Lost = "Lost",
-  Accepted = "Accepted",
-  Processing = "Processing",
-  ChargeRefunded = "ChargeRefunded",
-  EvidenceRequired = "EvidenceRequired",
-  InquiryEvidenceRequired = "InquiryEvidenceRequired",
-  InquiryProcessing = "InquiryProcessing",
-  InquiryClosed = "InquiryClosed",
-  WaitingThirdParty = "WaitingThirdParty",
-  Unknown = "Unknown",
+    Won = "Won",
+    Lost = "Lost",
+    Accepted = "Accepted",
+    Processing = "Processing",
+    ChargeRefunded = "ChargeRefunded",
+    EvidenceRequired = "EvidenceRequired",
+    InquiryEvidenceRequired = "InquiryEvidenceRequired",
+    InquiryProcessing = "InquiryProcessing",
+    InquiryClosed = "InquiryClosed",
+    WaitingThirdParty = "WaitingThirdParty",
+    Unknown = "Unknown",
 }

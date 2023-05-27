@@ -14,32 +14,32 @@ import { Expose } from "class-transformer";
  * Explore our [data coverage](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-paymentMethods) for this data type.
  */
 export class PaymentMethod extends SpeakeasyBase {
-  /**
-   * A unique, persistent identifier for this record
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * A unique, persistent identifier for this record
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "modifiedDate" })
+    modifiedDate?: string;
 
-  /**
-   * The name of the PaymentMethod
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * The name of the PaymentMethod
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "sourceModifiedDate" })
+    sourceModifiedDate?: string;
 
-  /**
-   * Status of the Payment Method
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status?: PaymentMethodStatus;
+    /**
+     * Status of the Payment Method
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status?: PaymentMethodStatus;
 }

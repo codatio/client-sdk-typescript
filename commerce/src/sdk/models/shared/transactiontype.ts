@@ -16,12 +16,12 @@
  * - `Transfer` — Secure transfer of funds to the seller's bank account.
  */
 export enum TransactionType {
-  Payment = "Payment",
-  Refund = "Refund",
-  Payout = "Payout",
-  FailedPayout = "FailedPayout",
-  Transfer = "Transfer",
-  PaymentFee = "PaymentFee",
-  PaymentFeeRefund = "PaymentFeeRefund",
-  Unknown = "Unknown",
+    Payment = "Payment",
+    Refund = "Refund",
+    Payout = "Payout",
+    FailedPayout = "FailedPayout",
+    Transfer = "Transfer",
+    PaymentFee = "PaymentFee",
+    PaymentFeeRefund = "PaymentFeeRefund",
+    Unknown = "Unknown",
 }

@@ -6,16 +6,16 @@
  * Status of the payment
  */
 export enum PaymentType {
-  Cash = "Cash",
-  Card = "Card",
-  Invoice = "Invoice",
-  OnlineCard = "OnlineCard",
-  Swish = "Swish",
-  Vipps = "Vipps",
-  Mobile = "Mobile",
-  StoreCredit = "StoreCredit",
-  Paypal = "Paypal",
-  Custom = "Custom",
-  Prepaid = "Prepaid",
-  Unknown = "Unknown",
+    Cash = "Cash",
+    Card = "Card",
+    Invoice = "Invoice",
+    OnlineCard = "OnlineCard",
+    Swish = "Swish",
+    Vipps = "Vipps",
+    Mobile = "Mobile",
+    StoreCredit = "StoreCredit",
+    Paypal = "Paypal",
+    Custom = "Custom",
+    Prepaid = "Prepaid",
+    Unknown = "Unknown",
 }

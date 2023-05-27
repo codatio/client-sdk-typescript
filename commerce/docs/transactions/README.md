@@ -31,7 +31,7 @@ sdk.transactions.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "illum",
+  query: "vel",
 }).then((res: ListTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response

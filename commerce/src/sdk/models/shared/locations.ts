@@ -16,30 +16,30 @@ import { Expose, Type } from "class-transformer";
  * Explore our [data coverage](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-locations) for this data type.
  */
 export class Locations extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "address" })
-  @Type(() => Address)
-  address?: Address;
+    @SpeakeasyMetadata()
+    @Expose({ name: "address" })
+    @Type(() => Address)
+    address?: Address;
 
-  /**
-   * A unique, persistent identifier for this record
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * A unique, persistent identifier for this record
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "modifiedDate" })
+    modifiedDate?: string;
 
-  /**
-   * Name of this location
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * Name of this location
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "sourceModifiedDate" })
+    sourceModifiedDate?: string;
 }

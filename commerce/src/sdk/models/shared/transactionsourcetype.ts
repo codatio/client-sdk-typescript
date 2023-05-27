@@ -3,9 +3,9 @@
  */
 
 export enum TransactionSourceType {
-  Fee = "Fee",
-  Order = "Order",
-  Payment = "Payment",
-  ServiceCharge = "ServiceCharge",
-  Unknown = "Unknown",
+    Fee = "Fee",
+    Order = "Order",
+    Payment = "Payment",
+    ServiceCharge = "ServiceCharge",
+    Unknown = "Unknown",
 }

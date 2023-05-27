@@ -35,7 +35,7 @@ src/sdk/models/operations/listpayments.ts
 src/sdk/models/operations/listpaymentmethods.ts
 src/sdk/models/operations/listproducts.ts
 src/sdk/models/operations/listproductcategories.ts
-src/sdk/models/operations/gettaxcomponents.ts
+src/sdk/models/operations/listtaxcomponents.ts
 src/sdk/models/operations/listtransactions.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/companyinfo.ts

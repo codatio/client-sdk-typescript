@@ -6,9 +6,9 @@
  * The type of phone number
  */
 export enum PhoneNumberType {
-  Primary = "Primary",
-  Landline = "Landline",
-  Mobile = "Mobile",
-  Fax = "Fax",
-  Unknown = "Unknown",
+    Primary = "Primary",
+    Landline = "Landline",
+    Mobile = "Mobile",
+    Fax = "Fax",
+    Unknown = "Unknown",
 }

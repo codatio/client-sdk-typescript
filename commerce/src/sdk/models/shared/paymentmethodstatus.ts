@@ -6,7 +6,7 @@
  * Status of the Payment Method
  */
 export enum PaymentMethodStatus {
-  Active = "Active",
-  Archived = "Archived",
-  Unknown = "Unknown",
+    Active = "Active",
+    Archived = "Archived",
+    Unknown = "Unknown",
 }

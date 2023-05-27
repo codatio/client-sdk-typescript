@@ -7,17 +7,17 @@ import { PhoneNumberType } from "./phonenumbertype";
 import { Expose } from "class-transformer";
 
 export class PhoneNumber extends SpeakeasyBase {
-  /**
-   * A phone number.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "number" })
-  number: string;
+    /**
+     * A phone number.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "number" })
+    number: string;
 
-  /**
-   * The type of phone number
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type: PhoneNumberType;
+    /**
+     * The type of phone number
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type: PhoneNumberType;
 }

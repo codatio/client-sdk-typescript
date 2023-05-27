@@ -14,40 +14,40 @@ import { Expose, Type } from "class-transformer";
  * Explore our [data coverage](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-productCategories) for this data type.
  */
 export class ProductCategory extends SpeakeasyBase {
-  /**
-   * A collection of parent product categories implicitly ordered with the immediate parent last in the list.
-   */
-  @SpeakeasyMetadata({ elemType: RecordRef })
-  @Expose({ name: "ancestorRefs" })
-  @Type(() => RecordRef)
-  ancestorRefs?: RecordRef[];
+    /**
+     * A collection of parent product categories implicitly ordered with the immediate parent last in the list.
+     */
+    @SpeakeasyMetadata({ elemType: RecordRef })
+    @Expose({ name: "ancestorRefs" })
+    @Type(() => RecordRef)
+    ancestorRefs?: RecordRef[];
 
-  /**
-   * A boolean indicating whether there are other product categories beneath this one in the hierarchy.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "hasChildren" })
-  hasChildren?: boolean;
+    /**
+     * A boolean indicating whether there are other product categories beneath this one in the hierarchy.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "hasChildren" })
+    hasChildren?: boolean;
 
-  /**
-   * The unique identifier of the product category
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    /**
+     * The unique identifier of the product category
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "modifiedDate" })
+    modifiedDate?: string;
 
-  /**
-   * The name of the product category
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * The name of the product category
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "sourceModifiedDate" })
+    sourceModifiedDate?: string;
 }
