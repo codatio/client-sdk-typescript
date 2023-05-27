@@ -22,6 +22,7 @@ src/sdk/models/operations/downloadfiles.ts
 src/sdk/models/operations/listfiles.ts
 src/sdk/models/operations/uploadfiles.ts
 src/sdk/models/operations/index.ts
+src/sdk/models/shared/schema.ts
 src/sdk/models/shared/file.ts
 src/sdk/models/shared/security.ts
 src/sdk/models/shared/index.ts
