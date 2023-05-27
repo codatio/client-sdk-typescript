@@ -1,6 +1,5 @@
 src/sdk/companies.ts
 src/sdk/connections.ts
-src/sdk/datastatus.ts
 src/sdk/integrations.ts
 src/sdk/pushdata.ts
 src/sdk/refreshdata.ts
@@ -36,9 +35,6 @@ src/sdk/models/operations/getcompanyconnection.ts
 src/sdk/models/operations/listcompanyconnections.ts
 src/sdk/models/operations/unlinkconnection.ts
 src/sdk/models/operations/updateconnectionauthorization.ts
-src/sdk/models/operations/getcompanydatastatus.ts
-src/sdk/models/operations/getpulloperation.ts
-src/sdk/models/operations/listpulloperations.ts
 src/sdk/models/operations/getintegration.ts
 src/sdk/models/operations/getintegrationsbranding.ts
 src/sdk/models/operations/listintegrations.ts
@@ -46,7 +42,10 @@ src/sdk/models/operations/getcreateupdatemodeloptionsbydatatype.ts
 src/sdk/models/operations/getpushoperation.ts
 src/sdk/models/operations/getcompanypushhistory.ts
 src/sdk/models/operations/refreshcompanydata.ts
-src/sdk/models/operations/createpulloperation.ts
+src/sdk/models/operations/refreshdatatype.ts
+src/sdk/models/operations/getcompanydatastatus.ts
+src/sdk/models/operations/getpulloperation.ts
+src/sdk/models/operations/listpulloperations.ts
 src/sdk/models/operations/getprofile.ts
 src/sdk/models/operations/updatesyncsettings.ts
 src/sdk/models/operations/updateprofile.ts
@@ -65,9 +64,6 @@ src/sdk/models/shared/companies.ts
 src/sdk/models/shared/links.ts
 src/sdk/models/shared/href.ts
 src/sdk/models/shared/connections.ts
-src/sdk/models/shared/datastatus.ts
-src/sdk/models/shared/pulloperation.ts
-src/sdk/models/shared/dataconnectionhistory.ts
 src/sdk/models/shared/integration.ts
 src/sdk/models/shared/datatypefeature.ts
 src/sdk/models/shared/supportedfeature.ts
@@ -95,6 +91,9 @@ src/sdk/models/shared/pushchangetype.ts
 src/sdk/models/shared/pushoperationref.ts
 src/sdk/models/shared/pushhistoryresponse.ts
 src/sdk/models/shared/pushoperationsummary.ts
+src/sdk/models/shared/pulloperation.ts
+src/sdk/models/shared/datastatus.ts
+src/sdk/models/shared/dataconnectionhistory.ts
 src/sdk/models/shared/profile.ts
 src/sdk/models/shared/syncsetting.ts
 src/sdk/models/shared/rule.ts
@@ -120,7 +119,6 @@ src/sdk/models/webhooks/index.ts
 docs/codatcommon/README.md
 docs/companies/README.md
 docs/connections/README.md
-docs/datastatus/README.md
 docs/integrations/README.md
 docs/pushdata/README.md
 docs/refreshdata/README.md

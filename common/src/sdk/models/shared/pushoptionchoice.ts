@@ -7,26 +7,26 @@ import { PushOptionType } from "./pushoptiontype";
 import { Expose } from "class-transformer";
 
 export class PushOptionChoice extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "description" })
-  description?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "description" })
+    description?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "displayName" })
-  displayName?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "displayName" })
+    displayName?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "required" })
-  required?: boolean;
+    @SpeakeasyMetadata()
+    @Expose({ name: "required" })
+    required?: boolean;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: PushOptionType;
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type?: PushOptionType;
 
-  /**
-   * Allowed value for field.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "value" })
-  value?: string;
+    /**
+     * Allowed value for field.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "value" })
+    value?: string;
 }

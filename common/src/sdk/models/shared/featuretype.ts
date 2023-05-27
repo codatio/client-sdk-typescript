@@ -3,14 +3,14 @@
  */
 
 export enum FeatureType {
-  Get = "Get",
-  Post = "Post",
-  Categorization = "Categorization",
-  Delete = "Delete",
-  Put = "Put",
-  GetAsPdf = "GetAsPdf",
-  DownloadAttachment = "DownloadAttachment",
-  GetAttachment = "GetAttachment",
-  GetAttachments = "GetAttachments",
-  UploadAttachment = "UploadAttachment",
+    Get = "Get",
+    Post = "Post",
+    Categorization = "Categorization",
+    Delete = "Delete",
+    Put = "Put",
+    GetAsPdf = "GetAsPdf",
+    DownloadAttachment = "DownloadAttachment",
+    GetAttachment = "GetAttachment",
+    GetAttachments = "GetAttachments",
+    UploadAttachment = "UploadAttachment",
 }

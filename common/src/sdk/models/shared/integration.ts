@@ -11,63 +11,63 @@ import { Expose, Type } from "class-transformer";
  * An integration that Codat supports
  */
 export class Integration extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "dataProvidedBy" })
-  dataProvidedBy?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "dataProvidedBy" })
+    dataProvidedBy?: string;
 
-  @SpeakeasyMetadata({ elemType: DataTypeFeature })
-  @Expose({ name: "datatypeFeatures" })
-  @Type(() => DataTypeFeature)
-  datatypeFeatures?: DataTypeFeature[];
+    @SpeakeasyMetadata({ elemType: DataTypeFeature })
+    @Expose({ name: "datatypeFeatures" })
+    @Type(() => DataTypeFeature)
+    datatypeFeatures?: DataTypeFeature[];
 
-  /**
-   * Whether this integration is enabled for your customers to use
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "enabled" })
-  enabled: boolean;
+    /**
+     * Whether this integration is enabled for your customers to use
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "enabled" })
+    enabled: boolean;
 
-  /**
-   * A Codat ID representing the integration.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "integrationId" })
-  integrationId?: string;
+    /**
+     * A Codat ID representing the integration.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "integrationId" })
+    integrationId?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "isBeta" })
-  isBeta?: boolean;
+    @SpeakeasyMetadata()
+    @Expose({ name: "isBeta" })
+    isBeta?: boolean;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "isOfflineConnector" })
-  isOfflineConnector?: boolean;
+    @SpeakeasyMetadata()
+    @Expose({ name: "isOfflineConnector" })
+    isOfflineConnector?: boolean;
 
-  /**
-   * A unique 4-letter key to represent a platform in each integration. View [accounting](https://docs.codat.io/integrations/accounting/accounting-platform-keys), [banking](https://docs.codat.io/integrations/banking/banking-platform-keys), and [commerce](https://docs.codat.io/integrations/commerce/commerce-platform-keys) platform keys.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "key" })
-  key: string;
+    /**
+     * A unique 4-letter key to represent a platform in each integration. View [accounting](https://docs.codat.io/integrations/accounting/accounting-platform-keys), [banking](https://docs.codat.io/integrations/banking/banking-platform-keys), and [commerce](https://docs.codat.io/integrations/commerce/commerce-platform-keys) platform keys.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "key" })
+    key: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "logoUrl" })
-  logoUrl: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "logoUrl" })
+    logoUrl: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name: string;
 
-  /**
-   * A source-specific ID used to distinguish between different sources originating from the same data connection. In general, a data connection is a single data source. However, for TrueLayer, `sourceId` is associated with a specific bank and has a many-to-one relationship with the `integrationId`.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceId" })
-  sourceId?: string;
+    /**
+     * A source-specific ID used to distinguish between different sources originating from the same data connection. In general, a data connection is a single data source. However, for TrueLayer, `sourceId` is associated with a specific bank and has a many-to-one relationship with the `integrationId`.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "sourceId" })
+    sourceId?: string;
 
-  /**
-   * The type of platform of the connection.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceType" })
-  sourceType?: SourceType;
+    /**
+     * The type of platform of the connection.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "sourceType" })
+    sourceType?: SourceType;
 }

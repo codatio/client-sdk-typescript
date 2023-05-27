@@ -7,76 +7,76 @@ import { ConnectionStatus } from "./connectionstatus";
 import { Expose, Type } from "class-transformer";
 
 export class CompanyDataConnectionStatusChangedWebhookData extends SpeakeasyBase {
-  /**
-   * Unique identifier for a company's data connection.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "dataConnectionId" })
-  dataConnectionId?: string;
+    /**
+     * Unique identifier for a company's data connection.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "dataConnectionId" })
+    dataConnectionId?: string;
 
-  /**
-   * The current authorization status of the data connection.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "newStatus" })
-  newStatus?: ConnectionStatus;
+    /**
+     * The current authorization status of the data connection.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "newStatus" })
+    newStatus?: ConnectionStatus;
 
-  /**
-   * The current authorization status of the data connection.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "oldStatus" })
-  oldStatus?: ConnectionStatus;
+    /**
+     * The current authorization status of the data connection.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "oldStatus" })
+    oldStatus?: ConnectionStatus;
 
-  /**
-   * A unique 4-letter key to represent a platform in each integration. View [accounting](https://docs.codat.io/integrations/accounting/accounting-platform-keys), [banking](https://docs.codat.io/integrations/banking/banking-platform-keys), and [commerce](https://docs.codat.io/integrations/commerce/commerce-platform-keys) platform keys.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "platformKey" })
-  platformKey?: string;
+    /**
+     * A unique 4-letter key to represent a platform in each integration. View [accounting](https://docs.codat.io/integrations/accounting/accounting-platform-keys), [banking](https://docs.codat.io/integrations/banking/banking-platform-keys), and [commerce](https://docs.codat.io/integrations/commerce/commerce-platform-keys) platform keys.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "platformKey" })
+    platformKey?: string;
 }
 
 /**
  * Webhook request body for a company's data connection status changed.
  */
 export class CompanyDataConnectionStatusChangedWebhook extends SpeakeasyBase {
-  /**
-   * Unique identifier of the alert.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "alertId" })
-  alertId?: string;
+    /**
+     * Unique identifier of the alert.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "alertId" })
+    alertId?: string;
 
-  /**
-   * Unique identifier for your SMB in Codat.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "companyId" })
-  companyId?: string;
+    /**
+     * Unique identifier for your SMB in Codat.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "companyId" })
+    companyId?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "data" })
-  @Type(() => CompanyDataConnectionStatusChangedWebhookData)
-  data?: CompanyDataConnectionStatusChangedWebhookData;
+    @SpeakeasyMetadata()
+    @Expose({ name: "data" })
+    @Type(() => CompanyDataConnectionStatusChangedWebhookData)
+    data?: CompanyDataConnectionStatusChangedWebhookData;
 
-  /**
-   * A human readable message about the webhook.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    /**
+     * A human readable message about the webhook.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 
-  /**
-   * Unique identifier for the rule.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "ruleId" })
-  ruleId?: string;
+    /**
+     * Unique identifier for the rule.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "ruleId" })
+    ruleId?: string;
 
-  /**
-   * The type of rule.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "ruleType" })
-  ruleType?: string;
+    /**
+     * The type of rule.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "ruleType" })
+    ruleType?: string;
 }

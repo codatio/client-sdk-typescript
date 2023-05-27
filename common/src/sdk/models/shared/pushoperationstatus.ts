@@ -6,8 +6,8 @@
  * The status of the push operation.
  */
 export enum PushOperationStatus {
-  Pending = "Pending",
-  Failed = "Failed",
-  Success = "Success",
-  TimedOut = "TimedOut",
+    Pending = "Pending",
+    Failed = "Failed",
+    Success = "Success",
+    TimedOut = "TimedOut",
 }

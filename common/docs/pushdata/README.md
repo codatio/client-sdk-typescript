@@ -66,7 +66,7 @@ const sdk = new CodatCommon({
 
 sdk.pushData.getOperation({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "4e0f467c-c879-46ed-951a-05dfc2ddf7cc",
+  pushOperationKey: "74e0f467-cc87-496e-9151-a05dfc2ddf7c",
 }).then((res: GetPushOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -96,7 +96,7 @@ sdk.pushData.listOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "esse",
+  query: "quod",
 }).then((res: GetCompanyPushHistoryResponse) => {
   if (res.statusCode == 200) {
     // handle response

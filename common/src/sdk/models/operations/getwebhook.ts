@@ -7,34 +7,32 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetWebhookRequest extends SpeakeasyBase {
-  /**
-   * Unique ID of the webhook or rule.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=ruleId",
-  })
-  ruleId: string;
+    /**
+     * Unique ID of the webhook or rule.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=ruleId" })
+    ruleId: string;
 }
 
 export class GetWebhookResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * Your API request was not properly authorized.
-   */
-  @SpeakeasyMetadata()
-  errorMessage?: shared.ErrorMessage;
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  rule?: shared.Rule;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    rule?: shared.Rule;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

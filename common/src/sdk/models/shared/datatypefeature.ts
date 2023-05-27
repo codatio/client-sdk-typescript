@@ -11,15 +11,15 @@ import { Expose, Type } from "class-transformer";
  * Describes support for a given datatype and associated operations
  */
 export class DataTypeFeature extends SpeakeasyBase {
-  /**
-   * Available Data types
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "dataType" })
-  dataType?: DataType;
+    /**
+     * Available Data types
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "dataType" })
+    dataType?: DataType;
 
-  @SpeakeasyMetadata({ elemType: SupportedFeature })
-  @Expose({ name: "supportedFeatures" })
-  @Type(() => SupportedFeature)
-  supportedFeatures: SupportedFeature[];
+    @SpeakeasyMetadata({ elemType: SupportedFeature })
+    @Expose({ name: "supportedFeatures" })
+    @Type(() => SupportedFeature)
+    supportedFeatures: SupportedFeature[];
 }

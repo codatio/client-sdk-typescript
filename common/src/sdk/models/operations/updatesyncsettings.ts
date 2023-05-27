@@ -14,33 +14,33 @@ import { Expose, Type } from "class-transformer";
  * `syncFromWindow`, `syncFromUTC` & `monthsToSync` only need to be included if you wish to set a value for them.
  */
 export class UpdateSyncSettingsRequestBody extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "clientId" })
-  clientId: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "clientId" })
+    clientId: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "overridesDefaults" })
-  overridesDefaults: boolean;
+    @SpeakeasyMetadata()
+    @Expose({ name: "overridesDefaults" })
+    overridesDefaults: boolean;
 
-  @SpeakeasyMetadata({ elemType: shared.SyncSetting })
-  @Expose({ name: "settings" })
-  @Type(() => shared.SyncSetting)
-  settings: shared.SyncSetting[];
+    @SpeakeasyMetadata({ elemType: shared.SyncSetting })
+    @Expose({ name: "settings" })
+    @Type(() => shared.SyncSetting)
+    settings: shared.SyncSetting[];
 }
 
 export class UpdateSyncSettingsResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * Your API request was not properly authorized.
-   */
-  @SpeakeasyMetadata()
-  errorMessage?: shared.ErrorMessage;
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

@@ -7,38 +7,38 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetCreateUpdateModelOptionsByDataTypeRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+    connectionId: string;
 
-  /**
-   * The key of a Codat data type
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=dataType",
-  })
-  dataType: shared.DataType;
+    /**
+     * The key of a Codat data type
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=dataType" })
+    dataType: shared.DataType;
 }
 
 export class GetCreateUpdateModelOptionsByDataTypeResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  pushOption?: shared.PushOption;
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    pushOption?: shared.PushOption;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    statusCode: number;
+
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

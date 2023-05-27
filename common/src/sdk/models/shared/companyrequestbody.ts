@@ -6,17 +6,17 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class CompanyRequestBody extends SpeakeasyBase {
-  /**
-   * Additional information about the company. This can be used to store foreign IDs, references, etc.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "description" })
-  description?: string;
+    /**
+     * Additional information about the company. This can be used to store foreign IDs, references, etc.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "description" })
+    description?: string;
 
-  /**
-   * Name of company being connected.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
+    /**
+     * Name of company being connected.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name: string;
 }

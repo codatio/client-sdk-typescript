@@ -7,23 +7,23 @@ import { HRef } from "./href";
 import { Expose, Type } from "class-transformer";
 
 export class Links extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "current" })
-  @Type(() => HRef)
-  current: HRef;
+    @SpeakeasyMetadata()
+    @Expose({ name: "current" })
+    @Type(() => HRef)
+    current: HRef;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "next" })
-  @Type(() => HRef)
-  next?: HRef;
+    @SpeakeasyMetadata()
+    @Expose({ name: "next" })
+    @Type(() => HRef)
+    next?: HRef;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "previous" })
-  @Type(() => HRef)
-  previous?: HRef;
+    @SpeakeasyMetadata()
+    @Expose({ name: "previous" })
+    @Type(() => HRef)
+    previous?: HRef;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "self" })
-  @Type(() => HRef)
-  self: HRef;
+    @SpeakeasyMetadata()
+    @Expose({ name: "self" })
+    @Type(() => HRef)
+    self: HRef;
 }

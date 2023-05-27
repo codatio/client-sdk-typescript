@@ -82,7 +82,7 @@ sdk.integrations.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "iure",
+  query: "suscipit",
 }).then((res: ListIntegrationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
