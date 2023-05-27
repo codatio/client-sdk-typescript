@@ -7,13 +7,13 @@ import { PushFieldValidation } from "./pushfieldvalidation";
 import { Expose, Type } from "class-transformer";
 
 export class PushValidationInfo extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: PushFieldValidation })
-  @Expose({ name: "information" })
-  @Type(() => PushFieldValidation)
-  information?: PushFieldValidation[];
+    @SpeakeasyMetadata({ elemType: PushFieldValidation })
+    @Expose({ name: "information" })
+    @Type(() => PushFieldValidation)
+    information?: PushFieldValidation[];
 
-  @SpeakeasyMetadata({ elemType: PushFieldValidation })
-  @Expose({ name: "warnings" })
-  @Type(() => PushFieldValidation)
-  warnings?: PushFieldValidation[];
+    @SpeakeasyMetadata({ elemType: PushFieldValidation })
+    @Expose({ name: "warnings" })
+    @Type(() => PushFieldValidation)
+    warnings?: PushFieldValidation[];
 }

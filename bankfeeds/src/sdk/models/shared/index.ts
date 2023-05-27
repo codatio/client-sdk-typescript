@@ -21,6 +21,7 @@ export * from "./pushoptionchoice";
 export * from "./pushoptionproperty";
 export * from "./pushoptiontype";
 export * from "./pushvalidationinfo";
+export * from "./schema";
 export * from "./security";
 export * from "./validation";
 export * from "./validationitem";

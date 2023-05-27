@@ -7,51 +7,47 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class CreateBankTransactionsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  bankTransactions?: shared.BankTransactions;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    bankTransactions?: shared.BankTransactions;
 
-  /**
-   * Unique identifier for an account
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=accountId",
-  })
-  accountId: string;
+    /**
+     * Unique identifier for an account
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=accountId" })
+    accountId: string;
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=allowSyncOnPushComplete",
-  })
-  allowSyncOnPushComplete?: boolean;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=allowSyncOnPushComplete" })
+    allowSyncOnPushComplete?: boolean;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+    connectionId: string;
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
-  })
-  timeoutInMinutes?: number;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=timeoutInMinutes" })
+    timeoutInMinutes?: number;
 }
 
 export class CreateBankTransactionsResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata()
-  createBankTransactionsResponse?: shared.CreateBankTransactionsResponse;
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata()
+    createBankTransactionsResponse?: shared.CreateBankTransactionsResponse;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
+
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    schema?: shared.Schema;
 }

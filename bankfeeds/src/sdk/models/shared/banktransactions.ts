@@ -27,12 +27,12 @@ import { Expose, Type } from "class-transformer";
  * * Transaction type, for example, credit, debit, or transfer.
  */
 export class BankTransactions extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "accountId" })
-  accountId?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "accountId" })
+    accountId?: string;
 
-  @SpeakeasyMetadata({ elemType: BankTransactionLine })
-  @Expose({ name: "transactions" })
-  @Type(() => BankTransactionLine)
-  transactions?: BankTransactionLine[];
+    @SpeakeasyMetadata({ elemType: BankTransactionLine })
+    @Expose({ name: "transactions" })
+    @Type(() => BankTransactionLine)
+    transactions?: BankTransactionLine[];
 }

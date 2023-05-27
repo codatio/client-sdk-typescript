@@ -26,6 +26,7 @@ src/sdk/models/operations/createbankfeed.ts
 src/sdk/models/operations/getbankfeeds.ts
 src/sdk/models/operations/updatebankfeed.ts
 src/sdk/models/operations/index.ts
+src/sdk/models/shared/schema.ts
 src/sdk/models/shared/createbanktransactionsresponse.ts
 src/sdk/models/shared/validation.ts
 src/sdk/models/shared/validationitem.ts
