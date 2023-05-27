@@ -10,7 +10,7 @@
  * For Debit accounts, positive balances are assets, and positive transactions **increase** assets.
  */
 export enum AccountType {
-  Unknown = "Unknown",
-  Credit = "Credit",
-  Debit = "Debit",
+    Unknown = "Unknown",
+    Credit = "Credit",
+    Debit = "Debit",
 }

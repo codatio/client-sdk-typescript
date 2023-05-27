@@ -19,81 +19,81 @@ import { Expose, Type } from "class-transformer";
  * Responses are paged, so you should provide `page` and `pageSize` query parameters in your request.
  */
 export class Account extends SpeakeasyBase {
-  /**
-   * Depending on the data provided by the underlying bank, not all balances are always available.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "balance" })
-  @Type(() => AccountBalanceAmounts)
-  balance: AccountBalanceAmounts;
+    /**
+     * Depending on the data provided by the underlying bank, not all balances are always available.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "balance" })
+    @Type(() => AccountBalanceAmounts)
+    balance: AccountBalanceAmounts;
 
-  /**
-   * The currency code for the account.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "currency" })
-  currency: string;
+    /**
+     * The currency code for the account.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "currency" })
+    currency: string;
 
-  /**
-   * The name of the person or company who holds the account.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "holder" })
-  holder?: string;
+    /**
+     * The name of the person or company who holds the account.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "holder" })
+    holder?: string;
 
-  /**
-   * The ID of the account from the provider.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * The ID of the account from the provider.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * An object containing bank account identification information.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "identifiers" })
-  @Type(() => AccountIdentifiers)
-  identifiers: AccountIdentifiers;
+    /**
+     * An object containing bank account identification information.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "identifiers" })
+    @Type(() => AccountIdentifiers)
+    identifiers: AccountIdentifiers;
 
-  /**
-   * The friendly name of the account, chosen by the holder. This may not have been set by the account holder and therefore is not always available.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "informalName" })
-  informalName?: string;
+    /**
+     * The friendly name of the account, chosen by the holder. This may not have been set by the account holder and therefore is not always available.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "informalName" })
+    informalName?: string;
 
-  /**
-   * The bank or other financial institution providing the account.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "institution" })
-  @Type(() => AccountInstitution)
-  institution: AccountInstitution;
+    /**
+     * The bank or other financial institution providing the account.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "institution" })
+    @Type(() => AccountInstitution)
+    institution: AccountInstitution;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "modifiedDate" })
+    modifiedDate?: string;
 
-  /**
-   * The name of the account according to the provider.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
+    /**
+     * The name of the account according to the provider.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "sourceModifiedDate" })
+    sourceModifiedDate?: string;
 
-  /**
-   * The type of transactions and balances on the account.
-   *
-   * @remarks
-   * For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.
-   * For Debit accounts, positive balances are assets, and positive transactions **increase** assets.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type: AccountType;
+    /**
+     * The type of transactions and balances on the account.
+     *
+     * @remarks
+     * For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.
+     * For Debit accounts, positive balances are assets, and positive transactions **increase** assets.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type: AccountType;
 }
