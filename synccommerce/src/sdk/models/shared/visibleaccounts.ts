@@ -9,10 +9,10 @@ import { Expose } from "class-transformer";
  * Success
  */
 export class VisibleAccounts extends SpeakeasyBase {
-  /**
-   * Visible accounts on sync flow.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "visibleAccounts" })
-  visibleAccounts?: string[];
+    /**
+     * Visible accounts on sync flow.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "visibleAccounts" })
+    visibleAccounts?: string[];
 }

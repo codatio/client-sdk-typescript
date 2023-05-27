@@ -7,44 +7,38 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetSyncFlowUrlRequest extends SpeakeasyBase {
-  /**
-   * Accounting platform key
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=accountingKey",
-  })
-  accountingKey: string;
+    /**
+     * Accounting platform key
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=accountingKey" })
+    accountingKey: string;
 
-  /**
-   * Commerce platform key
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=commerceKey",
-  })
-  commerceKey: string;
+    /**
+     * Commerce platform key
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=commerceKey" })
+    commerceKey: string;
 
-  /**
-   * Identifier for your merchant, can be the merchant name or Codat company id.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=merchantIdentifier",
-  })
-  merchantIdentifier?: string;
+    /**
+     * Identifier for your merchant, can be the merchant name or Codat company id.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=merchantIdentifier" })
+    merchantIdentifier?: string;
 }
 
 export class GetSyncFlowUrlResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata()
-  syncFlowUrl?: shared.SyncFlowUrl;
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata()
+    syncFlowUrl?: shared.SyncFlowUrl;
 }

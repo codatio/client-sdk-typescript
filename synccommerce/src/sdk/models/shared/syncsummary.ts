@@ -11,92 +11,92 @@ import { Expose, Type } from "class-transformer";
  * Success
  */
 export class SyncSummary extends SpeakeasyBase {
-  /**
-   * Unique identifier for the sync in Codat.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "commerceSyncId" })
-  commerceSyncId?: string;
+    /**
+     * Unique identifier for the sync in Codat.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "commerceSyncId" })
+    commerceSyncId?: string;
 
-  /**
-   * Unique identifier for your SMB in Codat.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "companyId" })
-  companyId?: string;
+    /**
+     * Unique identifier for your SMB in Codat.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "companyId" })
+    companyId?: string;
 
-  /**
-   * Array of containing objects data connection information for the company.
-   */
-  @SpeakeasyMetadata({ elemType: Connection })
-  @Expose({ name: "dataConnections" })
-  @Type(() => Connection)
-  dataConnections?: Connection[];
+    /**
+     * Array of containing objects data connection information for the company.
+     */
+    @SpeakeasyMetadata({ elemType: Connection })
+    @Expose({ name: "dataConnections" })
+    @Type(() => Connection)
+    dataConnections?: Connection[];
 
-  /**
-   * Boolean indicator for data being pushed during a sync operation.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "dataPushed" })
-  dataPushed?: boolean;
+    /**
+     * Boolean indicator for data being pushed during a sync operation.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "dataPushed" })
+    dataPushed?: boolean;
 
-  /**
-   * Friendly error message for the sync operation.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "errorMessage" })
-  errorMessage?: string;
+    /**
+     * Friendly error message for the sync operation.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "errorMessage" })
+    errorMessage?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "syncDateRangeUtc" })
-  @Type(() => DateRange)
-  syncDateRangeUtc?: DateRange;
+    @SpeakeasyMetadata()
+    @Expose({ name: "syncDateRangeUtc" })
+    @Type(() => DateRange)
+    syncDateRangeUtc?: DateRange;
 
-  /**
-   * Exception message for the sync operation.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "syncExceptionMessage" })
-  syncExceptionMessage?: string;
+    /**
+     * Exception message for the sync operation.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "syncExceptionMessage" })
+    syncExceptionMessage?: string;
 
-  /**
-   * Status of the sync of the company data. This is linked to status code.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "syncStatus" })
-  syncStatus?: string;
+    /**
+     * Status of the sync of the company data. This is linked to status code.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "syncStatus" })
+    syncStatus?: string;
 
-  /**
-   * Numerical status code sync of the company data.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "syncStatusCode" })
-  syncStatusCode?: number;
+    /**
+     * Numerical status code sync of the company data.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "syncStatusCode" })
+    syncStatusCode?: number;
 
-  /**
-   * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
-   *
-   * @remarks
-   *
-   * ```
-   * 2020-10-08T22:40:50Z
-   * 2021-01-01T00:00:00
-   * ```
-   *
-   *
-   *
-   * When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
-   *
-   * - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
-   * - Unqualified local time: `2021-11-15T01:00:00`
-   * - UTC time offsets: `2021-11-15T01:00:00-05:00`
-   *
-   * > Time zones
-   * >
-   * > Not all dates from Codat will contain information about time zones.
-   * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "syncUtc" })
-  syncUtc?: string;
+    /**
+     * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+     *
+     * @remarks
+     *
+     * ```
+     * 2020-10-08T22:40:50Z
+     * 2021-01-01T00:00:00
+     * ```
+     *
+     *
+     *
+     * When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
+     *
+     * - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
+     * - Unqualified local time: `2021-11-15T01:00:00`
+     * - UTC time offsets: `2021-11-15T01:00:00-05:00`
+     *
+     * > Time zones
+     * >
+     * > Not all dates from Codat will contain information about time zones.
+     * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "syncUtc" })
+    syncUtc?: string;
 }

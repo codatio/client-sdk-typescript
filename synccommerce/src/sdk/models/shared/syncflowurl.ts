@@ -9,10 +9,10 @@ import { Expose } from "class-transformer";
  * Success
  */
 export class SyncFlowUrl extends SpeakeasyBase {
-  /**
-   * Sync flow URL.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "url" })
-  url?: string;
+    /**
+     * Sync flow URL.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "url" })
+    url?: string;
 }

@@ -6,31 +6,31 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class AccountOption extends SpeakeasyBase {
-  /**
-   * Classification of the type of G/L account.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "classification" })
-  classification?: string;
+    /**
+     * Classification of the type of G/L account.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "classification" })
+    classification?: string;
 
-  /**
-   * Identifier for the account, unique for the company.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    /**
+     * Identifier for the account, unique for the company.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 
-  /**
-   * Name of the account.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * Name of the account.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 
-  /**
-   * Reference given to each nominal account for a business. It ensures money is allocated to the correct account. This code isn't a unique identifier in the Codat system.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "nominalCode" })
-  nominalCode?: string;
+    /**
+     * Reference given to each nominal account for a business. It ensures money is allocated to the correct account. This code isn't a unique identifier in the Codat system.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "nominalCode" })
+    nominalCode?: string;
 }

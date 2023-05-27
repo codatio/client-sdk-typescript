@@ -6,17 +6,17 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class GroupingPeriod extends SpeakeasyBase {
-  /**
-   * Array of grouping period options.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "groupingPeriodOptions" })
-  groupingPeriodOptions?: string[];
+    /**
+     * Array of grouping period options.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "groupingPeriodOptions" })
+    groupingPeriodOptions?: string[];
 
-  /**
-   * Grouping period i.e. Daily sales.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "selectedGroupingPeriod" })
-  selectedGroupingPeriod?: string;
+    /**
+     * Grouping period i.e. Daily sales.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "selectedGroupingPeriod" })
+    selectedGroupingPeriod?: string;
 }

@@ -10,13 +10,13 @@ import { Expose, Type } from "class-transformer";
  * Button branding references.
  */
 export class BrandingButton extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "default" })
-  @Type(() => BrandingImage)
-  default?: BrandingImage;
+    @SpeakeasyMetadata()
+    @Expose({ name: "default" })
+    @Type(() => BrandingImage)
+    default?: BrandingImage;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "hover" })
-  @Type(() => BrandingImage)
-  hover?: BrandingImage;
+    @SpeakeasyMetadata()
+    @Expose({ name: "hover" })
+    @Type(() => BrandingImage)
+    hover?: BrandingImage;
 }

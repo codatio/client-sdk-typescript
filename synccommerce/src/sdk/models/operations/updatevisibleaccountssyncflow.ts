@@ -7,28 +7,26 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class UpdateVisibleAccountsSyncFlowRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  visibleAccounts?: shared.VisibleAccounts;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    visibleAccounts?: shared.VisibleAccounts;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=commerceKey",
-  })
-  commerceKey: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=commerceKey" })
+    commerceKey: string;
 }
 
 export class UpdateVisibleAccountsSyncFlowResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata()
-  visibleAccounts?: shared.VisibleAccounts;
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata()
+    visibleAccounts?: shared.VisibleAccounts;
 }

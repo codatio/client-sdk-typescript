@@ -7,23 +7,23 @@ import { HalRef } from "./halref";
 import { Expose, Type } from "class-transformer";
 
 export class Links extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "current" })
-  @Type(() => HalRef)
-  current: HalRef;
+    @SpeakeasyMetadata()
+    @Expose({ name: "current" })
+    @Type(() => HalRef)
+    current: HalRef;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "next" })
-  @Type(() => HalRef)
-  next?: HalRef;
+    @SpeakeasyMetadata()
+    @Expose({ name: "next" })
+    @Type(() => HalRef)
+    next?: HalRef;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "previous" })
-  @Type(() => HalRef)
-  previous?: HalRef;
+    @SpeakeasyMetadata()
+    @Expose({ name: "previous" })
+    @Type(() => HalRef)
+    previous?: HalRef;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "self" })
-  @Type(() => HalRef)
-  self: HalRef;
+    @SpeakeasyMetadata()
+    @Expose({ name: "self" })
+    @Type(() => HalRef)
+    self: HalRef;
 }
