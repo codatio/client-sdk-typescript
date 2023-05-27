@@ -11,198 +11,200 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
  * Create expense datasets and upload receipts.
  */
 export class Expenses {
-  _defaultClient: AxiosInstance;
-  _securityClient: AxiosInstance;
-  _serverURL: string;
-  _language: string;
-  _sdkVersion: string;
-  _genVersion: string;
+    _defaultClient: AxiosInstance;
+    _securityClient: AxiosInstance;
+    _serverURL: string;
+    _language: string;
+    _sdkVersion: string;
+    _genVersion: string;
 
-  constructor(
-    defaultClient: AxiosInstance,
-    securityClient: AxiosInstance,
-    serverURL: string,
-    language: string,
-    sdkVersion: string,
-    genVersion: string
-  ) {
-    this._defaultClient = defaultClient;
-    this._securityClient = securityClient;
-    this._serverURL = serverURL;
-    this._language = language;
-    this._sdkVersion = sdkVersion;
-    this._genVersion = genVersion;
-  }
-
-  /**
-   * Create expense-transactions
-   *
-   * @remarks
-   * Create an expense transaction
-   */
-  async createExpenseDataset(
-    req: operations.CreateExpenseDatasetRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.CreateExpenseDatasetResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CreateExpenseDatasetRequest(req);
+    constructor(
+        defaultClient: AxiosInstance,
+        securityClient: AxiosInstance,
+        serverURL: string,
+        language: string,
+        sdkVersion: string,
+        genVersion: string
+    ) {
+        this._defaultClient = defaultClient;
+        this._securityClient = securityClient;
+        this._serverURL = serverURL;
+        this._language = language;
+        this._sdkVersion = sdkVersion;
+        this._genVersion = genVersion;
     }
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/sync/expenses/data/expense-transactions",
-      req
-    );
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-        req,
-        "createExpenseRequest",
-        "json"
-      );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...reqBodyHeaders, ...config?.headers };
-    headers["Accept"] = "application/json";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const httpRes: AxiosResponse = await utils.Retry(() => {
-      return client.request({
-        validateStatus: () => true,
-        url: url,
-        method: "post",
-        headers: headers,
-        data: reqBody,
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.CreateExpenseDatasetResponse =
-      new operations.CreateExpenseDatasetResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.createExpenseResponse = utils.objectToClass(
-            httpRes?.data,
-            shared.CreateExpenseResponse
-          );
+    /**
+     * Create expense-transactions
+     *
+     * @remarks
+     * Create an expense transaction
+     */
+    async createExpenseDataset(
+        req: operations.CreateExpenseDatasetRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.CreateExpenseDatasetResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.CreateExpenseDatasetRequest(req);
         }
-        break;
-    }
 
-    return res;
-  }
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/companies/{companyId}/sync/expenses/data/expense-transactions",
+            req
+        );
 
-  /**
-   * Upload attachment
-   *
-   * @remarks
-   * Creates an attachment in the accounting software against the given transactionId
-   */
-  async uploadAttachment(
-    req: operations.UploadAttachmentRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.UploadAttachmentResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.UploadAttachmentRequest(req);
-    }
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/sync/expenses/syncs/{syncId}/transactions/{transactionId}/attachments",
-      req
-    );
-
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-        req,
-        "requestBody",
-        "multipart"
-      );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...reqBodyHeaders, ...config?.headers };
-    headers["Accept"] = "application/json";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const httpRes: AxiosResponse = await utils.Retry(() => {
-      return client.request({
-        validateStatus: () => true,
-        url: url,
-        method: "post",
-        headers: headers,
-        data: reqBody,
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.UploadAttachmentResponse =
-      new operations.UploadAttachmentResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.attachment = utils.objectToClass(
-            httpRes?.data,
-            shared.Attachment
-          );
+        try {
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+                req,
+                "createExpenseRequest",
+                "json"
+            );
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                throw new Error(`Error serializing request body, cause: ${e.message}`);
+            }
         }
-        break;
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig("backoff", true);
+            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url,
+                method: "post",
+                headers: headers,
+                data: reqBody,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.CreateExpenseDatasetResponse =
+            new operations.CreateExpenseDatasetResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.createExpenseResponse = utils.objectToClass(
+                        httpRes?.data,
+                        shared.CreateExpenseResponse
+                    );
+                }
+                break;
+            case [400, 401, 404, 429].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                }
+                break;
+        }
+
+        return res;
     }
 
-    return res;
-  }
+    /**
+     * Upload attachment
+     *
+     * @remarks
+     * Creates an attachment in the accounting software against the given transactionId
+     */
+    async uploadAttachment(
+        req: operations.UploadAttachmentRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.UploadAttachmentResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.UploadAttachmentRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/companies/{companyId}/sync/expenses/syncs/{syncId}/transactions/{transactionId}/attachments",
+            req
+        );
+
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+        try {
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "multipart");
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                throw new Error(`Error serializing request body, cause: ${e.message}`);
+            }
+        }
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig("backoff", true);
+            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url,
+                method: "post",
+                headers: headers,
+                data: reqBody,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.UploadAttachmentResponse = new operations.UploadAttachmentResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.attachment = utils.objectToClass(httpRes?.data, shared.Attachment);
+                }
+                break;
+            case [400, 401, 404, 429].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                }
+                break;
+        }
+
+        return res;
+    }
 }

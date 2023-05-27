@@ -9,7 +9,7 @@ import { Expose } from "class-transformer";
  * Returns the newly created SyncId
  */
 export class SyncInitiated extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "syncId" })
-  syncId?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "syncId" })
+    syncId?: string;
 }

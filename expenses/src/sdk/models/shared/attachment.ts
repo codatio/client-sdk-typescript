@@ -9,24 +9,24 @@ import { Expose } from "class-transformer";
  * OK
  */
 export class Attachment extends SpeakeasyBase {
-  /**
-   * Unique ID of company in Codat
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "companyId" })
-  companyId?: string;
+    /**
+     * Unique ID of company in Codat
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "companyId" })
+    companyId?: string;
 
-  /**
-   * Unique identifier of attachment
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    /**
+     * Unique identifier of attachment
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 
-  /**
-   * Unique identifier of transaction
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "transactionId" })
-  transactionId?: string;
+    /**
+     * Unique identifier of transaction
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "transactionId" })
+    transactionId?: string;
 }

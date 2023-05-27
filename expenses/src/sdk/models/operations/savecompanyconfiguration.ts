@@ -7,34 +7,32 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class SaveCompanyConfigurationRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  companyConfiguration?: shared.CompanyConfiguration;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    companyConfiguration?: shared.CompanyConfiguration;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 }
 
 export class SaveCompanyConfigurationResponse extends SpeakeasyBase {
-  /**
-   * Bad Request
-   */
-  @SpeakeasyMetadata()
-  codatErrorMessage?: shared.CodatErrorMessage;
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata()
+    companyConfiguration?: shared.CompanyConfiguration;
 
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata()
-  companyConfiguration?: shared.CompanyConfiguration;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    /**
+     * The request made is not valid.
+     */
+    @SpeakeasyMetadata()
+    schema?: shared.Schema;
 }

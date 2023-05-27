@@ -6,10 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class Supplier extends SpeakeasyBase {
-  /**
-   * id of the supplier for all purchases to be associated to
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    /**
+     * id of the supplier for all purchases to be associated to
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 }

@@ -21,6 +21,7 @@ export * from "./integrationtype";
 export * from "./mappingoptions";
 export * from "./postsync";
 export * from "./recordref";
+export * from "./schema";
 export * from "./security";
 export * from "./supplier";
 export * from "./syncinitiated";

@@ -6,10 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class BankAccount extends SpeakeasyBase {
-  /**
-   * The id of the account from which purchases are made
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    /**
+     * The id of the account from which purchases are made
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 }
