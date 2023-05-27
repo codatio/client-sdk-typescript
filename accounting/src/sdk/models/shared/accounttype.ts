@@ -6,10 +6,10 @@
  * Type of account
  */
 export enum AccountType {
-  Unknown = "Unknown",
-  Asset = "Asset",
-  Expense = "Expense",
-  Income = "Income",
-  Liability = "Liability",
-  Equity = "Equity",
+    Unknown = "Unknown",
+    Asset = "Asset",
+    Expense = "Expense",
+    Income = "Income",
+    Liability = "Liability",
+    Equity = "Equity",
 }

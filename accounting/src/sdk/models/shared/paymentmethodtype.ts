@@ -6,11 +6,11 @@
  * Method of payment.
  */
 export enum PaymentMethodType {
-  Unknown = "Unknown",
-  Cash = "Cash",
-  Check = "Check",
-  CreditCard = "CreditCard",
-  DebitCard = "DebitCard",
-  BankTransfer = "BankTransfer",
-  Other = "Other",
+    Unknown = "Unknown",
+    Cash = "Cash",
+    Check = "Check",
+    CreditCard = "CreditCard",
+    DebitCard = "DebitCard",
+    BankTransfer = "BankTransfer",
+    Other = "Other",
 }

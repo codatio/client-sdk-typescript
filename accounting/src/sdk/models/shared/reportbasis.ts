@@ -6,7 +6,7 @@
  * Accounting method used when aggregating the report data. In this case, `Cash`.
  */
 export enum ReportBasis {
-  Unknown = "Unknown",
-  Accrual = "Accrual",
-  Cash = "Cash",
+    Unknown = "Unknown",
+    Accrual = "Accrual",
+    Cash = "Cash",
 }

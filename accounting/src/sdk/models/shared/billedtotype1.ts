@@ -3,7 +3,7 @@
  */
 
 export enum BilledToType1 {
-  Unknown = "Unknown",
-  NotApplicable = "NotApplicable",
-  Project = "Project",
+    Unknown = "Unknown",
+    NotApplicable = "NotApplicable",
+    Project = "Project",
 }

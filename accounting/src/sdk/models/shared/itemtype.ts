@@ -6,8 +6,8 @@
  * Type of the item.
  */
 export enum ItemType {
-  Unknown = "Unknown",
-  Inventory = "Inventory",
-  NonInventory = "NonInventory",
-  Service = "Service",
+    Unknown = "Unknown",
+    Inventory = "Inventory",
+    NonInventory = "NonInventory",
+    Service = "Service",
 }

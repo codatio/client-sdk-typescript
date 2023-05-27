@@ -13,26 +13,26 @@ import { Expose, Type } from "class-transformer";
  * Categories, and a project and customer, against which the item is tracked.
  */
 export class Propertiestracking1 extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: TrackingCategoryRef })
-  @Expose({ name: "categoryRefs" })
-  @Type(() => TrackingCategoryRef)
-  categoryRefs: TrackingCategoryRef[];
+    @SpeakeasyMetadata({ elemType: TrackingCategoryRef })
+    @Expose({ name: "categoryRefs" })
+    @Type(() => TrackingCategoryRef)
+    categoryRefs: TrackingCategoryRef[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "customerRef" })
-  @Type(() => CustomerRef)
-  customerRef?: CustomerRef;
+    @SpeakeasyMetadata()
+    @Expose({ name: "customerRef" })
+    @Type(() => CustomerRef)
+    customerRef?: CustomerRef;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "isBilledTo" })
-  isBilledTo: BilledToType1;
+    @SpeakeasyMetadata()
+    @Expose({ name: "isBilledTo" })
+    isBilledTo: BilledToType1;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "isRebilledTo" })
-  isRebilledTo: BilledToType1;
+    @SpeakeasyMetadata()
+    @Expose({ name: "isRebilledTo" })
+    isRebilledTo: BilledToType1;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "projectRef" })
-  @Type(() => ProjectRef)
-  projectRef?: ProjectRef;
+    @SpeakeasyMetadata()
+    @Expose({ name: "projectRef" })
+    @Type(() => ProjectRef)
+    projectRef?: ProjectRef;
 }

@@ -10,42 +10,42 @@ import { Expose, Type } from "class-transformer";
  * Details of the named contact at the delivery address.
  */
 export class ShipToContact extends SpeakeasyBase {
-  /**
-   * Email address of the contact at the delivery address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "email" })
-  email?: string;
+    /**
+     * Email address of the contact at the delivery address.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "email" })
+    email?: string;
 
-  /**
-   * Name of the contact at the delivery address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * Name of the contact at the delivery address.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 
-  /**
-   * Phone number of the contact at the delivery address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "phone" })
-  phone?: string;
+    /**
+     * Phone number of the contact at the delivery address.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "phone" })
+    phone?: string;
 }
 
 /**
  * Delivery details for any goods that have been ordered.
  */
 export class ShipTo extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "address" })
-  @Type(() => Addressesitems)
-  address?: Addressesitems;
+    @SpeakeasyMetadata()
+    @Expose({ name: "address" })
+    @Type(() => Addressesitems)
+    address?: Addressesitems;
 
-  /**
-   * Details of the named contact at the delivery address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "contact" })
-  @Type(() => ShipToContact)
-  contact?: ShipToContact;
+    /**
+     * Details of the named contact at the delivery address.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "contact" })
+    @Type(() => ShipToContact)
+    contact?: ShipToContact;
 }

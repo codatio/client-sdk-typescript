@@ -9,7 +9,7 @@ import { Expose } from "class-transformer";
  * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
  */
 export class SupplementalData extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "content" })
-  content?: Record<string, Record<string, any>>;
+    @SpeakeasyMetadata()
+    @Expose({ name: "content" })
+    content?: Record<string, Record<string, any>>;
 }

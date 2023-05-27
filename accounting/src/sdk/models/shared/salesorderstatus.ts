@@ -6,9 +6,9 @@
  * Current state of the sales order.
  */
 export enum SalesOrderStatus {
-  Unknown = "Unknown",
-  Draft = "Draft",
-  Open = "Open",
-  Closed = "Closed",
-  Void = "Void",
+    Unknown = "Unknown",
+    Draft = "Draft",
+    Open = "Open",
+    Closed = "Closed",
+    Void = "Void",
 }

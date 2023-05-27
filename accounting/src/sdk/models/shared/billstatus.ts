@@ -6,10 +6,10 @@
  * Current state of the bill.
  */
 export enum BillStatus {
-  Unknown = "Unknown",
-  Open = "Open",
-  PartiallyPaid = "PartiallyPaid",
-  Paid = "Paid",
-  Void = "Void",
-  Draft = "Draft",
+    Unknown = "Unknown",
+    Open = "Open",
+    PartiallyPaid = "PartiallyPaid",
+    Paid = "Paid",
+    Void = "Void",
+    Draft = "Draft",
 }

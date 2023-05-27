@@ -8,55 +8,47 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetAgedCreditorsReportRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  /**
-   * Number of periods to include in the report.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=numberOfPeriods",
-  })
-  numberOfPeriods?: number;
+    /**
+     * Number of periods to include in the report.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=numberOfPeriods" })
+    numberOfPeriods?: number;
 
-  /**
-   * The length of period in days.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=periodLengthDays",
-  })
-  periodLengthDays?: number;
+    /**
+     * The length of period in days.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=periodLengthDays" })
+    periodLengthDays?: number;
 
-  /**
-   * Date the report is generated up to.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=reportDate",
-  })
-  reportDate?: RFCDate;
+    /**
+     * Date the report is generated up to.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=reportDate" })
+    reportDate?: RFCDate;
 }
 
 export class GetAgedCreditorsReportResponse extends SpeakeasyBase {
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  agedCreditorReport?: shared.AgedCreditorReport;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    agedCreditorReport?: shared.AgedCreditorReport;
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Your API request was not properly authorized.
-   */
-  @SpeakeasyMetadata()
-  schema?: shared.Schema;
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    schema?: shared.Schema;
 }

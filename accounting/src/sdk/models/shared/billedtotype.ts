@@ -3,8 +3,8 @@
  */
 
 export enum BilledToType {
-  Unknown = "Unknown",
-  NotApplicable = "NotApplicable",
-  Customer = "Customer",
-  Project = "Project",
+    Unknown = "Unknown",
+    NotApplicable = "NotApplicable",
+    Customer = "Customer",
+    Project = "Project",
 }

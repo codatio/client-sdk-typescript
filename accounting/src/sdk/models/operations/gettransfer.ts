@@ -8,76 +8,70 @@ import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
 export class GetTransferRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+    connectionId: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=transferId",
-  })
-  transferId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=transferId" })
+    transferId: string;
 }
 
 /**
  * The data type's dataset has not been requested or is still syncing.
  */
 export class GetTransfer409ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "canBeRetried" })
-  canBeRetried?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "canBeRetried" })
+    canBeRetried?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "correlationId" })
-  correlationId?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "correlationId" })
+    correlationId?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailedErrorCode" })
-  detailedErrorCode?: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "detailedErrorCode" })
+    detailedErrorCode?: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  error?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "error" })
+    error?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "service" })
-  service?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "service" })
+    service?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusCode" })
-  statusCode?: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "statusCode" })
+    statusCode?: number;
 }
 
 export class GetTransferResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata()
-  transfer?: shared.Transfer;
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata()
+    transfer?: shared.Transfer;
 
-  /**
-   * The data type's dataset has not been requested or is still syncing.
-   */
-  @SpeakeasyMetadata()
-  getTransfer409ApplicationJSONObject?: GetTransfer409ApplicationJSON;
+    /**
+     * The data type's dataset has not been requested or is still syncing.
+     */
+    @SpeakeasyMetadata()
+    getTransfer409ApplicationJSONObject?: GetTransfer409ApplicationJSON;
 
-  /**
-   * Your API request was not properly authorized.
-   */
-  @SpeakeasyMetadata()
-  schema?: shared.Schema;
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    schema?: shared.Schema;
 }

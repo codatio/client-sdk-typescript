@@ -8,74 +8,70 @@ import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
 export class GetSupplierRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  /**
-   * Unique identifier for a supplier
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=supplierId",
-  })
-  supplierId: string;
+    /**
+     * Unique identifier for a supplier
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=supplierId" })
+    supplierId: string;
 }
 
 /**
  * The data type's dataset has not been requested or is still syncing.
  */
 export class GetSupplier409ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "canBeRetried" })
-  canBeRetried?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "canBeRetried" })
+    canBeRetried?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "correlationId" })
-  correlationId?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "correlationId" })
+    correlationId?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailedErrorCode" })
-  detailedErrorCode?: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "detailedErrorCode" })
+    detailedErrorCode?: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  error?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "error" })
+    error?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "service" })
-  service?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "service" })
+    service?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusCode" })
-  statusCode?: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "statusCode" })
+    statusCode?: number;
 }
 
 export class GetSupplierResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata()
-  supplier?: shared.Supplier;
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata()
+    supplier?: shared.Supplier;
 
-  /**
-   * The data type's dataset has not been requested or is still syncing.
-   */
-  @SpeakeasyMetadata()
-  getSupplier409ApplicationJSONObject?: GetSupplier409ApplicationJSON;
+    /**
+     * The data type's dataset has not been requested or is still syncing.
+     */
+    @SpeakeasyMetadata()
+    getSupplier409ApplicationJSONObject?: GetSupplier409ApplicationJSON;
 
-  /**
-   * Your API request was not properly authorized.
-   */
-  @SpeakeasyMetadata()
-  schema?: shared.Schema;
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    schema?: shared.Schema;
 }

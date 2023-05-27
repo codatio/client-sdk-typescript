@@ -6,7 +6,7 @@
  * Accounting method used to prepare the cash flow statement.
  */
 export enum ReportInput {
-  Unknown = "Unknown",
-  Indirect = "Indirect",
-  Direct = "Direct",
+    Unknown = "Unknown",
+    Indirect = "Indirect",
+    Direct = "Direct",
 }

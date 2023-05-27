@@ -6,7 +6,7 @@
  * Status of the supplier.
  */
 export enum SupplierStatus {
-  Unknown = "Unknown",
-  Active = "Active",
-  Archived = "Archived",
+    Unknown = "Unknown",
+    Active = "Active",
+    Archived = "Archived",
 }

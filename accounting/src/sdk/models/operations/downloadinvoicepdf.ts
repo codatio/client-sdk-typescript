@@ -6,33 +6,29 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 
 export class DownloadInvoicePdfRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  /**
-   * Unique identifier for an invoice
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=invoiceId",
-  })
-  invoiceId: string;
+    /**
+     * Unique identifier for an invoice
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=invoiceId" })
+    invoiceId: string;
 }
 
 export class DownloadInvoicePdfResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata()
-  data?: Uint8Array;
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata()
+    data?: Uint8Array;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

@@ -14,14 +14,12 @@ Journal entries
 
 ## create
 
-﻿Posts a new journalEntry to the accounting package for a given company.
+Posts a new journalEntry to the accounting package for a given company.
 
 Required data may vary by integration. To see what data to post, first call [Get create journal entry model](https://docs.codat.io/accounting-api#/operations/get-create-journalEntries-model).
 
-> **Supported Integrations**
-> 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journalEntries) for integrations that support creating journal entries.
- 
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journalEntries) to see which integrations support this endpoint.
+
 
 ### Example Usage
 

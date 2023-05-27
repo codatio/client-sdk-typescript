@@ -8,94 +8,88 @@ import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
 export class ListSuppliersRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  /**
-   * Field to order results by. [Read more](https://docs.codat.io/using-the-api/ordering-results).
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=orderBy",
-  })
-  orderBy?: string;
+    /**
+     * Field to order results by. [Read more](https://docs.codat.io/using-the-api/ordering-results).
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+    orderBy?: string;
 
-  /**
-   * Page number. [Read more](https://docs.codat.io/using-the-api/paging).
-   */
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
-  page?: number;
+    /**
+     * Page number. [Read more](https://docs.codat.io/using-the-api/paging).
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
+    page?: number;
 
-  /**
-   * Number of records to return in a page. [Read more](https://docs.codat.io/using-the-api/paging).
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=pageSize",
-  })
-  pageSize?: number;
+    /**
+     * Number of records to return in a page. [Read more](https://docs.codat.io/using-the-api/paging).
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+    pageSize?: number;
 
-  /**
-   * Codat query string. [Read more](https://docs.codat.io/using-the-api/querying).
-   */
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
-  query?: string;
+    /**
+     * Codat query string. [Read more](https://docs.codat.io/using-the-api/querying).
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
+    query?: string;
 }
 
 /**
  * The data type's dataset has not been requested or is still syncing.
  */
 export class ListSuppliers409ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "canBeRetried" })
-  canBeRetried?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "canBeRetried" })
+    canBeRetried?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "correlationId" })
-  correlationId?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "correlationId" })
+    correlationId?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailedErrorCode" })
-  detailedErrorCode?: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "detailedErrorCode" })
+    detailedErrorCode?: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  error?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "error" })
+    error?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "service" })
-  service?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "service" })
+    service?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusCode" })
-  statusCode?: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "statusCode" })
+    statusCode?: number;
 }
 
 export class ListSuppliersResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata()
-  suppliers?: shared.Suppliers;
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata()
+    suppliers?: shared.Suppliers;
 
-  /**
-   * The data type's dataset has not been requested or is still syncing.
-   */
-  @SpeakeasyMetadata()
-  listSuppliers409ApplicationJSONObject?: ListSuppliers409ApplicationJSON;
+    /**
+     * The data type's dataset has not been requested or is still syncing.
+     */
+    @SpeakeasyMetadata()
+    listSuppliers409ApplicationJSONObject?: ListSuppliers409ApplicationJSON;
 
-  /**
-   * Your `query` parameter was not correctly formed
-   */
-  @SpeakeasyMetadata()
-  schema?: shared.Schema;
+    /**
+     * Your `query` parameter was not correctly formed
+     */
+    @SpeakeasyMetadata()
+    schema?: shared.Schema;
 }

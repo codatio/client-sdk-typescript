@@ -10,54 +10,54 @@ import { Expose, Type } from "class-transformer";
  * The full structure of a specific tracking category including any child or subcategories.
  */
 export class TrackingCategoryTree extends SpeakeasyBase {
-  /**
-   * Boolean value indicating whether this category has SubCategories
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "hasChildren" })
-  hasChildren?: boolean;
+    /**
+     * Boolean value indicating whether this category has SubCategories
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "hasChildren" })
+    hasChildren?: boolean;
 
-  /**
-   * The identifier for the item, unique per tracking category
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    /**
+     * The identifier for the item, unique per tracking category
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "modifiedDate" })
+    modifiedDate?: string;
 
-  /**
-   * The name of the tracking category
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * The name of the tracking category
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 
-  /**
-   * The identifier for this item's immediate parent
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "parentId" })
-  parentId?: string;
+    /**
+     * The identifier for this item's immediate parent
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "parentId" })
+    parentId?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "sourceModifiedDate" })
+    sourceModifiedDate?: string;
 
-  /**
-   * Current state of the tracking category.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status?: Status;
+    /**
+     * Current state of the tracking category.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status?: Status;
 
-  /**
-   * A collection of subcategories that are nested beneath this category.
-   */
-  @SpeakeasyMetadata({ elemType: TrackingCategoryTree })
-  @Expose({ name: "subCategories" })
-  @Type(() => TrackingCategoryTree)
-  subCategories?: TrackingCategoryTree[];
+    /**
+     * A collection of subcategories that are nested beneath this category.
+     */
+    @SpeakeasyMetadata({ elemType: TrackingCategoryTree })
+    @Expose({ name: "subCategories" })
+    @Type(() => TrackingCategoryTree)
+    subCategories?: TrackingCategoryTree[];
 }

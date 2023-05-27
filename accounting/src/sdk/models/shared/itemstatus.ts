@@ -14,7 +14,7 @@
  * Due to a [limitation in Xero's API](https://docs.codat.io/integrations/accounting/xero/xero-faq#why-do-all-of-my-items-from-xero-have-their-status-as-unknown), all items from Xero are mapped as `Unknown`.
  */
 export enum ItemStatus {
-  Unknown = "Unknown",
-  Active = "Active",
-  Archived = "Archived",
+    Unknown = "Unknown",
+    Active = "Active",
+    Archived = "Archived",
 }

@@ -20,24 +20,24 @@ import { Expose } from "class-transformer";
  * - Items
  */
 export class TaxRateRef extends SpeakeasyBase {
-  /**
-   * Applicable tax rate.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "effectiveTaxRate" })
-  effectiveTaxRate?: number;
+    /**
+     * Applicable tax rate.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "effectiveTaxRate" })
+    effectiveTaxRate?: number;
 
-  /**
-   * Unique identifier for the tax rate in the accounting platform.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    /**
+     * Unique identifier for the tax rate in the accounting platform.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 
-  /**
-   * Name of the tax rate in the accounting platform.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * Name of the tax rate in the accounting platform.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 }

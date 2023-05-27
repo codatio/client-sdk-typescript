@@ -50,17 +50,17 @@ import { Expose } from "class-transformer";
  * If you'd like us to extend support to more data types or integrations, suggest or vote for this on our <a href="https://portal.productboard.com/codat/5-product-roadmap">Product Roadmap</a>.
  */
 export class ValidDataTypeLinks extends SpeakeasyBase {
-  /**
-   * Supported `dataTypes` that the record can be linked to.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "links" })
-  links?: string[];
+    /**
+     * Supported `dataTypes` that the record can be linked to.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "links" })
+    links?: string[];
 
-  /**
-   * The property from the account that can be linked.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "property" })
-  property?: string;
+    /**
+     * The property from the account that can be linked.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "property" })
+    property?: string;
 }

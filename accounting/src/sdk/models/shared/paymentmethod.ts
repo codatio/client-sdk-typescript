@@ -18,44 +18,44 @@ import { Expose, Type } from "class-transformer";
  * A Payment Method represents the payment method(s) used to pay a Bill. Payment Methods are referenced on [Bill Payments](https://docs.codat.io/accounting-api#/schemas/BillPayment) and [Payments](https://docs.codat.io/accounting-api#/schemas/Payment).
  */
 export class PaymentMethod extends SpeakeasyBase {
-  /**
-   * Unique identifier for the payment method.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    /**
+     * Unique identifier for the payment method.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "metadata" })
-  @Type(() => Metadata)
-  metadata?: Metadata;
+    @SpeakeasyMetadata()
+    @Expose({ name: "metadata" })
+    @Type(() => Metadata)
+    metadata?: Metadata;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "modifiedDate" })
+    modifiedDate?: string;
 
-  /**
-   * Name of the payment method.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * Name of the payment method.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "sourceModifiedDate" })
+    sourceModifiedDate?: string;
 
-  /**
-   * Status of the Payment Method.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status?: PaymentMethodStatus;
+    /**
+     * Status of the Payment Method.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status?: PaymentMethodStatus;
 
-  /**
-   * Method of payment.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: PaymentMethodType;
+    /**
+     * Method of payment.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type?: PaymentMethodType;
 }

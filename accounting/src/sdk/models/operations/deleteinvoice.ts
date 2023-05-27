@@ -7,38 +7,32 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class DeleteInvoiceRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+    connectionId: string;
 
-  /**
-   * Unique identifier for an invoice
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=invoiceId",
-  })
-  invoiceId: string;
+    /**
+     * Unique identifier for an invoice
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=invoiceId" })
+    invoiceId: string;
 }
 
 export class DeleteInvoiceResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  pushOperationSummary?: shared.PushOperationSummary;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    pushOperationSummary?: shared.PushOperationSummary;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

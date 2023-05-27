@@ -11,44 +11,44 @@ import { Expose, Type } from "class-transformer";
  * Item details that are only for bills.
  */
 export class InvoiceItem extends SpeakeasyBase {
-  /**
-   * Data types that reference an account, for example bill and invoice line items, use an accountRef that includes the ID and name of the linked account.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "accountRef" })
-  @Type(() => AccountRef)
-  accountRef?: AccountRef;
+    /**
+     * Data types that reference an account, for example bill and invoice line items, use an accountRef that includes the ID and name of the linked account.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "accountRef" })
+    @Type(() => AccountRef)
+    accountRef?: AccountRef;
 
-  /**
-   * Short description of the product or service that has been bought by the customer.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "description" })
-  description?: string;
+    /**
+     * Short description of the product or service that has been bought by the customer.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "description" })
+    description?: string;
 
-  /**
-   * Data types that reference a tax rate, for example invoice and bill line items, use a taxRateRef that includes the ID and name of the linked tax rate.
-   *
-   * @remarks
-   *
-   * Found on:
-   *
-   * - Bill line items
-   * - Bill Credit Note line items
-   * - Credit Note line items
-   * - Direct incomes line items
-   * - Invoice line items
-   * - Items
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "taxRateRef" })
-  @Type(() => TaxRateRef)
-  taxRateRef?: TaxRateRef;
+    /**
+     * Data types that reference a tax rate, for example invoice and bill line items, use a taxRateRef that includes the ID and name of the linked tax rate.
+     *
+     * @remarks
+     *
+     * Found on:
+     *
+     * - Bill line items
+     * - Bill Credit Note line items
+     * - Credit Note line items
+     * - Direct incomes line items
+     * - Invoice line items
+     * - Items
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "taxRateRef" })
+    @Type(() => TaxRateRef)
+    taxRateRef?: TaxRateRef;
 
-  /**
-   * Unit price of the product or service.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "unitPrice" })
-  unitPrice?: number;
+    /**
+     * Unit price of the product or service.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "unitPrice" })
+    unitPrice?: number;
 }

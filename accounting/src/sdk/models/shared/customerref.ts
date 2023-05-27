@@ -6,17 +6,17 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class CustomerRef extends SpeakeasyBase {
-  /**
-   * `customerName` from the Customer data type
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "companyName" })
-  companyName?: string;
+    /**
+     * `customerName` from the Customer data type
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "companyName" })
+    companyName?: string;
 
-  /**
-   * `id` from the Customers data type
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * `id` from the Customers data type
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 }

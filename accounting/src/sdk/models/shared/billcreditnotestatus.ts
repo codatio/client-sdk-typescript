@@ -6,10 +6,10 @@
  * Current state of the bill credit note
  */
 export enum BillCreditNoteStatus {
-  Unknown = "Unknown",
-  Draft = "Draft",
-  Submitted = "Submitted",
-  Paid = "Paid",
-  Void = "Void",
-  PartiallyPaid = "PartiallyPaid",
+    Unknown = "Unknown",
+    Draft = "Draft",
+    Submitted = "Submitted",
+    Paid = "Paid",
+    Void = "Void",
+    PartiallyPaid = "PartiallyPaid",
 }

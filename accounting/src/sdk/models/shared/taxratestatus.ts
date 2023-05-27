@@ -11,7 +11,7 @@
  * - `Unknown` - Where the status of the tax rate cannot be determined from the underlying platform.
  */
 export enum TaxRateStatus {
-  Unknown = "Unknown",
-  Active = "Active",
-  Archived = "Archived",
+    Unknown = "Unknown",
+    Active = "Active",
+    Archived = "Archived",
 }

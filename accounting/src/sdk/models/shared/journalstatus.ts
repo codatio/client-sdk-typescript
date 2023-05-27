@@ -6,7 +6,7 @@
  * Current journal status.
  */
 export enum JournalStatus {
-  Unknown = "Unknown",
-  Active = "Active",
-  Archived = "Archived",
+    Unknown = "Unknown",
+    Active = "Active",
+    Archived = "Archived",
 }

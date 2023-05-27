@@ -9,24 +9,24 @@ import { Expose } from "class-transformer";
  * A tax rate can be made up of multiple sub taxes, often called components of the tax.
  */
 export class TaxRateComponent extends SpeakeasyBase {
-  /**
-   * A flag to indicate with the tax is calculated using the principle of compounding.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "isCompound" })
-  isCompound: boolean;
+    /**
+     * A flag to indicate with the tax is calculated using the principle of compounding.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "isCompound" })
+    isCompound: boolean;
 
-  /**
-   * Name of the tax rate component.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * Name of the tax rate component.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 
-  /**
-   * The rate of the tax rate component, usually a percentage.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "rate" })
-  rate?: number;
+    /**
+     * The rate of the tax rate component, usually a percentage.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "rate" })
+    rate?: number;
 }

@@ -6,7 +6,7 @@
  * Status of customer.
  */
 export enum CustomerStatus {
-  Unknown = "Unknown",
-  Active = "Active",
-  Archived = "Archived",
+    Unknown = "Unknown",
+    Active = "Active",
+    Archived = "Archived",
 }

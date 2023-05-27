@@ -23,111 +23,111 @@ import { Expose, Type } from "class-transformer";
  *
  */
 export class Customer extends SpeakeasyBase {
-  /**
-   * An array of Addresses.
-   */
-  @SpeakeasyMetadata({ elemType: Addressesitems })
-  @Expose({ name: "addresses" })
-  @Type(() => Addressesitems)
-  addresses?: Addressesitems[];
+    /**
+     * An array of Addresses.
+     */
+    @SpeakeasyMetadata({ elemType: Addressesitems })
+    @Expose({ name: "addresses" })
+    @Type(() => Addressesitems)
+    addresses?: Addressesitems[];
 
-  /**
-   * Name of the main contact for the identified customer.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "contactName" })
-  contactName?: string;
+    /**
+     * Name of the main contact for the identified customer.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "contactName" })
+    contactName?: string;
 
-  /**
-   * An array of Contacts.
-   */
-  @SpeakeasyMetadata({ elemType: Contact })
-  @Expose({ name: "contacts" })
-  @Type(() => Contact)
-  contacts?: Contact[];
+    /**
+     * An array of Contacts.
+     */
+    @SpeakeasyMetadata({ elemType: Contact })
+    @Expose({ name: "contacts" })
+    @Type(() => Contact)
+    contacts?: Contact[];
 
-  /**
-   * Name of the customer as recorded in the accounting system, typically the company name.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "customerName" })
-  customerName?: string;
+    /**
+     * Name of the customer as recorded in the accounting system, typically the company name.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "customerName" })
+    customerName?: string;
 
-  /**
-   * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
-   *
-   * @remarks
-   *
-   * ## Unknown currencies
-   *
-   * In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction.
-   *
-   * There are only a very small number of edge cases where this currency code is returned by the Codat system.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "defaultCurrency" })
-  defaultCurrency?: string;
+    /**
+     * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
+     *
+     * @remarks
+     *
+     * ## Unknown currencies
+     *
+     * In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction.
+     *
+     * There are only a very small number of edge cases where this currency code is returned by the Codat system.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "defaultCurrency" })
+    defaultCurrency?: string;
 
-  /**
-   * Email address the customer can be contacted by.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "emailAddress" })
-  emailAddress?: string;
+    /**
+     * Email address the customer can be contacted by.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "emailAddress" })
+    emailAddress?: string;
 
-  /**
-   * Identifier for the customer, unique to the company in the accounting platform.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    /**
+     * Identifier for the customer, unique to the company in the accounting platform.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "metadata" })
-  @Type(() => Metadata)
-  metadata?: Metadata;
+    @SpeakeasyMetadata()
+    @Expose({ name: "metadata" })
+    @Type(() => Metadata)
+    metadata?: Metadata;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "modifiedDate" })
+    modifiedDate?: string;
 
-  /**
-   * Phone number the customer can be contacted by.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "phone" })
-  phone?: string;
+    /**
+     * Phone number the customer can be contacted by.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "phone" })
+    phone?: string;
 
-  /**
-   * Company number. In the UK, this is typically the Companies House company registration number.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "registrationNumber" })
-  registrationNumber?: string;
+    /**
+     * Company number. In the UK, this is typically the Companies House company registration number.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "registrationNumber" })
+    registrationNumber?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "sourceModifiedDate" })
+    sourceModifiedDate?: string;
 
-  /**
-   * Status of customer.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status: CustomerStatus;
+    /**
+     * Status of customer.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status: CustomerStatus;
 
-  /**
-   * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "supplementalData" })
-  @Type(() => SupplementalData)
-  supplementalData?: SupplementalData;
+    /**
+     * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "supplementalData" })
+    @Type(() => SupplementalData)
+    supplementalData?: SupplementalData;
 
-  /**
-   * Company tax number.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "taxNumber" })
-  taxNumber?: string;
+    /**
+     * Company tax number.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "taxNumber" })
+    taxNumber?: string;
 }

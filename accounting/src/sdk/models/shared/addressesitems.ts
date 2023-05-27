@@ -7,52 +7,52 @@ import { AddressType } from "./addresstype";
 import { Expose } from "class-transformer";
 
 export class Addressesitems extends SpeakeasyBase {
-  /**
-   * City of the customer address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "city" })
-  city?: string;
+    /**
+     * City of the customer address.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "city" })
+    city?: string;
 
-  /**
-   * Country of the customer address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "country" })
-  country?: string;
+    /**
+     * Country of the customer address.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "country" })
+    country?: string;
 
-  /**
-   * Line 1 of the customer address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "line1" })
-  line1?: string;
+    /**
+     * Line 1 of the customer address.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "line1" })
+    line1?: string;
 
-  /**
-   * Line 2 of the customer address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "line2" })
-  line2?: string;
+    /**
+     * Line 2 of the customer address.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "line2" })
+    line2?: string;
 
-  /**
-   * Postal code or zip code.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "postalCode" })
-  postalCode?: string;
+    /**
+     * Postal code or zip code.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "postalCode" })
+    postalCode?: string;
 
-  /**
-   * Region of the customer address.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "region" })
-  region?: string;
+    /**
+     * Region of the customer address.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "region" })
+    region?: string;
 
-  /**
-   * The type of the address
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type: AddressType;
+    /**
+     * The type of the address
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type: AddressType;
 }

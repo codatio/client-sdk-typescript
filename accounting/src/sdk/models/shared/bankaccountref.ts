@@ -9,17 +9,17 @@ import { Expose } from "class-transformer";
  * Links to the Account transactions data type.
  */
 export class BankAccountRef extends SpeakeasyBase {
-  /**
-   * Bank account 'id' for the account transaction.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    /**
+     * Bank account 'id' for the account transaction.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 
-  /**
-   * bank account 'name' for the account transaction.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * bank account 'name' for the account transaction.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 }

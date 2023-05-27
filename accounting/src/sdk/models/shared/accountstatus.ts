@@ -6,8 +6,8 @@
  * Status of the account
  */
 export enum AccountStatus {
-  Unknown = "Unknown",
-  Active = "Active",
-  Archived = "Archived",
-  Pending = "Pending",
+    Unknown = "Unknown",
+    Active = "Active",
+    Archived = "Archived",
+    Pending = "Pending",
 }

@@ -6,7 +6,7 @@
  * Current state of the tracking category.
  */
 export enum Status {
-  Unknown = "Unknown",
-  Active = "Active",
-  Archived = "Archived",
+    Unknown = "Unknown",
+    Active = "Active",
+    Archived = "Archived",
 }

@@ -8,87 +8,79 @@ import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
 export class GetCashFlowStatementRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  /**
-   * Number of months defining the period of interest.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=periodLength",
-  })
-  periodLength: number;
+    /**
+     * Number of months defining the period of interest.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=periodLength" })
+    periodLength: number;
 
-  /**
-   * Number of periods with `periodLength` to compare.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=periodsToCompare",
-  })
-  periodsToCompare: number;
+    /**
+     * Number of periods with `periodLength` to compare.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=periodsToCompare" })
+    periodsToCompare: number;
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=startMonth",
-  })
-  startMonth?: string;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=startMonth" })
+    startMonth?: string;
 }
 
 /**
  * The data type's dataset has not been requested or is still syncing.
  */
 export class GetCashFlowStatement409ApplicationJSON extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "canBeRetried" })
-  canBeRetried?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "canBeRetried" })
+    canBeRetried?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "correlationId" })
-  correlationId?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "correlationId" })
+    correlationId?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailedErrorCode" })
-  detailedErrorCode?: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "detailedErrorCode" })
+    detailedErrorCode?: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  error?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "error" })
+    error?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "service" })
-  service?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "service" })
+    service?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusCode" })
-  statusCode?: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "statusCode" })
+    statusCode?: number;
 }
 
 export class GetCashFlowStatementResponse extends SpeakeasyBase {
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata()
-  cashFlowStatement?: shared.CashFlowStatement1;
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata()
+    cashFlowStatement?: shared.CashFlowStatement1;
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * The data type's dataset has not been requested or is still syncing.
-   */
-  @SpeakeasyMetadata()
-  getCashFlowStatement409ApplicationJSONObject?: GetCashFlowStatement409ApplicationJSON;
+    /**
+     * The data type's dataset has not been requested or is still syncing.
+     */
+    @SpeakeasyMetadata()
+    getCashFlowStatement409ApplicationJSONObject?: GetCashFlowStatement409ApplicationJSON;
 
-  /**
-   * Your API request was not properly authorized.
-   */
-  @SpeakeasyMetadata()
-  schema?: shared.Schema;
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    schema?: shared.Schema;
 }

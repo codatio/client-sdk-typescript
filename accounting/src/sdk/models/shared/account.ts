@@ -34,116 +34,116 @@ import { Expose, Type } from "class-transformer";
  * > This approach gives a true representation of the company's accounts whilst preventing distorting financials such as a company's profit and loss and balance sheet reports.
  */
 export class Account extends SpeakeasyBase {
-  /**
-   * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
-   *
-   * @remarks
-   *
-   * ## Unknown currencies
-   *
-   * In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction.
-   *
-   * There are only a very small number of edge cases where this currency code is returned by the Codat system.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "currency" })
-  currency?: string;
+    /**
+     * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
+     *
+     * @remarks
+     *
+     * ## Unknown currencies
+     *
+     * In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction.
+     *
+     * There are only a very small number of edge cases where this currency code is returned by the Codat system.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "currency" })
+    currency?: string;
 
-  /**
-   * Current balance in the account.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "currentBalance" })
-  currentBalance?: number;
+    /**
+     * Current balance in the account.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "currentBalance" })
+    currentBalance?: number;
 
-  /**
-   * Description for the account.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "description" })
-  description?: string;
+    /**
+     * Description for the account.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "description" })
+    description?: string;
 
-  /**
-   * Full category of the account. For example:
-   *
-   * @remarks
-   * Liability.Current or Income.Revenue. See example data.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "fullyQualifiedCategory" })
-  fullyQualifiedCategory?: string;
+    /**
+     * Full category of the account. For example:
+     *
+     * @remarks
+     * Liability.Current or Income.Revenue. See example data.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "fullyQualifiedCategory" })
+    fullyQualifiedCategory?: string;
 
-  /**
-   * Full name of the account, for example:
-   *
-   * @remarks
-   * - `Liability.Current.VAT`
-   * - `Income.Revenue.Sales`
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "fullyQualifiedName" })
-  fullyQualifiedName?: string;
+    /**
+     * Full name of the account, for example:
+     *
+     * @remarks
+     * - `Liability.Current.VAT`
+     * - `Income.Revenue.Sales`
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "fullyQualifiedName" })
+    fullyQualifiedName?: string;
 
-  /**
-   * Identifier for the account, unique for the company.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    /**
+     * Identifier for the account, unique for the company.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 
-  /**
-   * Confirms whether the account is a bank account or not.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "isBankAccount" })
-  isBankAccount: boolean;
+    /**
+     * Confirms whether the account is a bank account or not.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "isBankAccount" })
+    isBankAccount: boolean;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "metadata" })
-  @Type(() => Metadata)
-  metadata?: Metadata;
+    @SpeakeasyMetadata()
+    @Expose({ name: "metadata" })
+    @Type(() => Metadata)
+    metadata?: Metadata;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "modifiedDate" })
+    modifiedDate?: string;
 
-  /**
-   * Name of the account.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * Name of the account.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 
-  /**
-   * Reference given to each nominal account for a business. It ensures money is allocated to the correct account. This code isn't a unique identifier in the Codat system.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "nominalCode" })
-  nominalCode?: string;
+    /**
+     * Reference given to each nominal account for a business. It ensures money is allocated to the correct account. This code isn't a unique identifier in the Codat system.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "nominalCode" })
+    nominalCode?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "sourceModifiedDate" })
+    sourceModifiedDate?: string;
 
-  /**
-   * Status of the account
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status: AccountStatus;
+    /**
+     * Status of the account
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status: AccountStatus;
 
-  /**
-   * Type of account
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type: AccountType;
+    /**
+     * Type of account
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type: AccountType;
 
-  /**
-   * The validDatatypeLinks can be used to determine whether an account can be correctly mapped to another object; for example, accounts with a `type` of `income` might only support being used on an Invoice and Direct Income. For more information, see [Valid Data Type Links](/accounting-api#/schemas/ValidDataTypeLinks).
-   */
-  @SpeakeasyMetadata({ elemType: ValidDataTypeLinks })
-  @Expose({ name: "validDatatypeLinks" })
-  @Type(() => ValidDataTypeLinks)
-  validDatatypeLinks?: ValidDataTypeLinks[];
+    /**
+     * The validDatatypeLinks can be used to determine whether an account can be correctly mapped to another object; for example, accounts with a `type` of `income` might only support being used on an Invoice and Direct Income. For more information, see [Valid Data Type Links](/accounting-api#/schemas/ValidDataTypeLinks).
+     */
+    @SpeakeasyMetadata({ elemType: ValidDataTypeLinks })
+    @Expose({ name: "validDatatypeLinks" })
+    @Type(() => ValidDataTypeLinks)
+    validDatatypeLinks?: ValidDataTypeLinks[];
 }

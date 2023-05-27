@@ -6,9 +6,9 @@
  * Current state of the purchase order
  */
 export enum PurchaseOrderStatus {
-  Unknown = "Unknown",
-  Draft = "Draft",
-  Open = "Open",
-  Closed = "Closed",
-  Void = "Void",
+    Unknown = "Unknown",
+    Draft = "Draft",
+    Open = "Open",
+    Closed = "Closed",
+    Void = "Void",
 }

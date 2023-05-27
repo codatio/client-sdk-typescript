@@ -6,7 +6,7 @@
  * The type of the address
  */
 export enum AddressType {
-  Unknown = "Unknown",
-  Billing = "Billing",
-  Delivery = "Delivery",
+    Unknown = "Unknown",
+    Billing = "Billing",
+    Delivery = "Delivery",
 }
