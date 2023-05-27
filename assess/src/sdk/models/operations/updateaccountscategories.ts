@@ -7,33 +7,29 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class UpdateAccountsCategoriesRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  confirmCategories?: shared.ConfirmCategories;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    confirmCategories?: shared.ConfirmCategories;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+    connectionId: string;
 }
 
 export class UpdateAccountsCategoriesResponse extends SpeakeasyBase {
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata({ elemType: shared.CategorisedAccount })
-  categorisedAccounts?: shared.CategorisedAccount[];
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata({ elemType: shared.CategorisedAccount })
+    categorisedAccounts?: shared.CategorisedAccount[];
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

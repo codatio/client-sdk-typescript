@@ -6,8 +6,8 @@
  * The period unit of time returned.
  */
 export enum PeriodUnit {
-  Day = "Day",
-  Week = "Week",
-  Month = "Month",
-  Year = "Year",
+    Day = "Day",
+    Week = "Week",
+    Month = "Month",
+    Year = "Year",
 }

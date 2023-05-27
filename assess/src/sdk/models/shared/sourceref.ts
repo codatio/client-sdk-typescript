@@ -9,7 +9,7 @@ import { Expose } from "class-transformer";
  * A source reference containing the `sourceType` object "Banking".
  */
 export class SourceRef extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceType" })
-  sourceType?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "sourceType" })
+    sourceType?: string;
 }

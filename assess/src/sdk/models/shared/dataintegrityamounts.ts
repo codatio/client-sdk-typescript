@@ -9,32 +9,32 @@ import { Expose } from "class-transformer";
  * Only returned for transactions. For accounts, there is nothing returned.
  */
 export class DataIntegrityAmounts extends SpeakeasyBase {
-  /**
-   * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
-   *
-   * @remarks
-   *
-   * ## Unknown currencies
-   *
-   * In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction.
-   *
-   * There are only a very small number of edge cases where this currency code is returned by the Codat system.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "currency" })
-  currency?: string;
+    /**
+     * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
+     *
+     * @remarks
+     *
+     * ## Unknown currencies
+     *
+     * In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction.
+     *
+     * There are only a very small number of edge cases where this currency code is returned by the Codat system.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "currency" })
+    currency?: string;
 
-  /**
-   * Highest value of transaction set.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "max" })
-  max?: number;
+    /**
+     * Highest value of transaction set.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "max" })
+    max?: number;
 
-  /**
-   * Lowest value of transaction set.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "min" })
-  min?: number;
+    /**
+     * Lowest value of transaction set.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "min" })
+    min?: number;
 }

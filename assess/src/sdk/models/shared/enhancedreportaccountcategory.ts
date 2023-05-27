@@ -7,15 +7,15 @@ import { AccountCategoryLevel } from "./accountcategorylevel";
 import { Expose, Type } from "class-transformer";
 
 export class EnhancedReportAccountCategory extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: AccountCategoryLevel })
-  @Expose({ name: "levels" })
-  @Type(() => AccountCategoryLevel)
-  levels?: AccountCategoryLevel[];
+    @SpeakeasyMetadata({ elemType: AccountCategoryLevel })
+    @Expose({ name: "levels" })
+    @Type(() => AccountCategoryLevel)
+    levels?: AccountCategoryLevel[];
 
-  /**
-   * Returns a status of "Suggested" or "Confirmed". If an account has a confirmed category, it will replace any suggested category returned.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status?: string;
+    /**
+     * Returns a status of "Suggested" or "Confirmed". If an account has a confirmed category, it will replace any suggested category returned.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status?: string;
 }

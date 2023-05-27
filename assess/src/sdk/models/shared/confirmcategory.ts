@@ -7,8 +7,8 @@ import { AccountCategory } from "./accountcategory";
 import { Expose, Type } from "class-transformer";
 
 export class ConfirmCategory extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "confirmed" })
-  @Type(() => AccountCategory)
-  confirmed: AccountCategory;
+    @SpeakeasyMetadata()
+    @Expose({ name: "confirmed" })
+    @Type(() => AccountCategory)
+    confirmed: AccountCategory;
 }

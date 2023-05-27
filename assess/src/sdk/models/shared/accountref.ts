@@ -9,17 +9,17 @@ import { Expose } from "class-transformer";
  * An object containing account reference data.
  */
 export class AccountRef extends SpeakeasyBase {
-  /**
-   * 'id' from the Accounts data type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    /**
+     * 'id' from the Accounts data type.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 
-  /**
-   * 'name' from the Accounts data type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * 'name' from the Accounts data type.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 }

@@ -10,8 +10,8 @@ import { Expose, Type } from "class-transformer";
  * OK
  */
 export class Status extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: DataIntegrityStatus })
-  @Expose({ name: "metadata" })
-  @Type(() => DataIntegrityStatus)
-  metadata?: DataIntegrityStatus[];
+    @SpeakeasyMetadata({ elemType: DataIntegrityStatus })
+    @Expose({ name: "metadata" })
+    @Type(() => DataIntegrityStatus)
+    metadata?: DataIntegrityStatus[];
 }

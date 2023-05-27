@@ -6,8 +6,8 @@
  * A key for a Codat data type.
  */
 export enum DataIntegrityDataType {
-  BankingAccounts = "banking-accounts",
-  BankingTransactions = "banking-transactions",
-  BankAccounts = "bankAccounts",
-  AccountTransactions = "accountTransactions",
+    BankingAccounts = "banking-accounts",
+    BankingTransactions = "banking-transactions",
+    BankAccounts = "bankAccounts",
+    AccountTransactions = "accountTransactions",
 }

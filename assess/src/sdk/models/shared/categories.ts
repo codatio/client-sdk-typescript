@@ -6,45 +6,45 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class Categories extends SpeakeasyBase {
-  /**
-   * Most granular chart of account type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailType" })
-  detailType?: string;
+    /**
+     * Most granular chart of account type.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "detailType" })
+    detailType?: string;
 
-  /**
-   * A description of the fully categorized (to detail type) account.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailTypeDescription" })
-  detailTypeDescription?: string;
+    /**
+     * A description of the fully categorized (to detail type) account.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "detailTypeDescription" })
+    detailTypeDescription?: string;
 
-  /**
-   * Human readable detailType display name.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailTypeDisplayName" })
-  detailTypeDisplayName?: string;
+    /**
+     * Human readable detailType display name.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "detailTypeDisplayName" })
+    detailTypeDisplayName?: string;
 
-  /**
-   * The account subtype.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "subtype" })
-  subtype?: string;
+    /**
+     * The account subtype.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "subtype" })
+    subtype?: string;
 
-  /**
-   * Human readable subtype display name.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "subtypeDisplayName" })
-  subtypeDisplayName?: string;
+    /**
+     * Human readable subtype display name.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "subtypeDisplayName" })
+    subtypeDisplayName?: string;
 
-  /**
-   * The top level account type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: string;
+    /**
+     * The top level account type.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type?: string;
 }

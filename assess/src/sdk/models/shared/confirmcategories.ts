@@ -7,32 +7,32 @@ import { AccountCategory } from "./accountcategory";
 import { Expose, Type } from "class-transformer";
 
 export class ConfirmCategoriesCategoriesAccountRef extends SpeakeasyBase {
-  /**
-   * A unique, persistent identifier for this record
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * A unique, persistent identifier for this record
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 }
 
 export class ConfirmCategoriesCategories extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "accountRef" })
-  @Type(() => ConfirmCategoriesCategoriesAccountRef)
-  accountRef?: ConfirmCategoriesCategoriesAccountRef;
+    @SpeakeasyMetadata()
+    @Expose({ name: "accountRef" })
+    @Type(() => ConfirmCategoriesCategoriesAccountRef)
+    accountRef?: ConfirmCategoriesCategoriesAccountRef;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "confirmed" })
-  @Type(() => AccountCategory)
-  confirmed?: AccountCategory;
+    @SpeakeasyMetadata()
+    @Expose({ name: "confirmed" })
+    @Type(() => AccountCategory)
+    confirmed?: AccountCategory;
 }
 
 export class ConfirmCategories extends SpeakeasyBase {
-  /**
-   * List of confirmed account categories set manually by the user.
-   */
-  @SpeakeasyMetadata({ elemType: ConfirmCategoriesCategories })
-  @Expose({ name: "categories" })
-  @Type(() => ConfirmCategoriesCategories)
-  categories?: ConfirmCategoriesCategories[];
+    /**
+     * List of confirmed account categories set manually by the user.
+     */
+    @SpeakeasyMetadata({ elemType: ConfirmCategoriesCategories })
+    @Expose({ name: "categories" })
+    @Type(() => ConfirmCategoriesCategories)
+    categories?: ConfirmCategoriesCategories[];
 }

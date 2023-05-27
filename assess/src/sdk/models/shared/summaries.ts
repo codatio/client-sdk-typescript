@@ -10,8 +10,8 @@ import { Expose, Type } from "class-transformer";
  * OK
  */
 export class Summaries extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: DataIntegritySummary })
-  @Expose({ name: "summaries" })
-  @Type(() => DataIntegritySummary)
-  summaries?: DataIntegritySummary[];
+    @SpeakeasyMetadata({ elemType: DataIntegritySummary })
+    @Expose({ name: "summaries" })
+    @Type(() => DataIntegritySummary)
+    summaries?: DataIntegritySummary[];
 }

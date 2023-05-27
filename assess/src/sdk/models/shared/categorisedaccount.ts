@@ -11,21 +11,21 @@ import { Expose, Type } from "class-transformer";
  * OK
  */
 export class CategorisedAccount extends SpeakeasyBase {
-  /**
-   * An object containing account reference data.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "accountRef" })
-  @Type(() => AccountRef)
-  accountRef?: AccountRef;
+    /**
+     * An object containing account reference data.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "accountRef" })
+    @Type(() => AccountRef)
+    accountRef?: AccountRef;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "confirmed" })
-  @Type(() => AccountCategoryDeprecated)
-  confirmed?: AccountCategoryDeprecated;
+    @SpeakeasyMetadata()
+    @Expose({ name: "confirmed" })
+    @Type(() => AccountCategoryDeprecated)
+    confirmed?: AccountCategoryDeprecated;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "suggested" })
-  @Type(() => AccountCategoryDeprecated)
-  suggested?: AccountCategoryDeprecated;
+    @SpeakeasyMetadata()
+    @Expose({ name: "suggested" })
+    @Type(() => AccountCategoryDeprecated)
+    suggested?: AccountCategoryDeprecated;
 }

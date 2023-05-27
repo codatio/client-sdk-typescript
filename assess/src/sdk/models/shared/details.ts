@@ -11,25 +11,25 @@ import { Expose, Type } from "class-transformer";
  * OK
  */
 export class Details extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "_links" })
-  @Type(() => Links)
-  links: Links;
+    @SpeakeasyMetadata()
+    @Expose({ name: "_links" })
+    @Type(() => Links)
+    links: Links;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "pageNumber" })
-  pageNumber: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "pageNumber" })
+    pageNumber: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "pageSize" })
-  pageSize: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "pageSize" })
+    pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: DataIntegrityDetails })
-  @Expose({ name: "results" })
-  @Type(() => DataIntegrityDetails)
-  results?: DataIntegrityDetails[];
+    @SpeakeasyMetadata({ elemType: DataIntegrityDetails })
+    @Expose({ name: "results" })
+    @Type(() => DataIntegrityDetails)
+    results?: DataIntegrityDetails[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "totalResults" })
-  totalResults: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "totalResults" })
+    totalResults: number;
 }

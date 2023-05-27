@@ -6,28 +6,28 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class AccountCategoryDeprecated extends SpeakeasyBase {
-  /**
-   * Most granular chart of account type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailType" })
-  detailType?: string;
+    /**
+     * Most granular chart of account type.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "detailType" })
+    detailType?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "modifiedDate" })
+    modifiedDate?: string;
 
-  /**
-   * The account subtype.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "subtype" })
-  subtype?: string;
+    /**
+     * The account subtype.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "subtype" })
+    subtype?: string;
 
-  /**
-   * The top level account type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: string;
+    /**
+     * The top level account type.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type?: string;
 }

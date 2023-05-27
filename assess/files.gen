@@ -58,6 +58,7 @@ src/sdk/models/shared/categories.ts
 src/sdk/models/shared/confirmcategory.ts
 src/sdk/models/shared/accountcategory.ts
 src/sdk/models/shared/confirmcategories.ts
+src/sdk/models/shared/schema.ts
 src/sdk/models/shared/status.ts
 src/sdk/models/shared/dataintegritystatus.ts
 src/sdk/models/shared/dataintegritystatusinfo.ts

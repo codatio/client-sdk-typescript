@@ -10,36 +10,36 @@ import { DataIntegrityStatusInfo } from "./dataintegritystatusinfo";
 import { Expose, Type } from "class-transformer";
 
 export class DataIntegrityStatus extends SpeakeasyBase {
-  /**
-   * Only returned for transactions. For accounts, there is nothing returned.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "amounts" })
-  @Type(() => DataIntegrityAmounts)
-  amounts?: DataIntegrityAmounts;
+    /**
+     * Only returned for transactions. For accounts, there is nothing returned.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "amounts" })
+    @Type(() => DataIntegrityAmounts)
+    amounts?: DataIntegrityAmounts;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "connectionIds" })
-  @Type(() => DataIntegrityConnectionId)
-  connectionIds?: DataIntegrityConnectionId;
+    @SpeakeasyMetadata()
+    @Expose({ name: "connectionIds" })
+    @Type(() => DataIntegrityConnectionId)
+    connectionIds?: DataIntegrityConnectionId;
 
-  /**
-   * Only returned for transactions. For accounts, there is nothing returned.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "dates" })
-  @Type(() => DataIntegrityDates)
-  dates?: DataIntegrityDates;
+    /**
+     * Only returned for transactions. For accounts, there is nothing returned.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "dates" })
+    @Type(() => DataIntegrityDates)
+    dates?: DataIntegrityDates;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusInfo" })
-  @Type(() => DataIntegrityStatusInfo)
-  statusInfo?: DataIntegrityStatusInfo;
+    @SpeakeasyMetadata()
+    @Expose({ name: "statusInfo" })
+    @Type(() => DataIntegrityStatusInfo)
+    statusInfo?: DataIntegrityStatusInfo;
 
-  /**
-   * The data type which the data type in the URL has been matched against. For example, if you've matched accountTransactions and banking-transactions, and you call this endpoint with accountTransactions in the URL, this property would be banking-transactions.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: string;
+    /**
+     * The data type which the data type in the URL has been matched against. For example, if you've matched accountTransactions and banking-transactions, and you call this endpoint with accountTransactions in the URL, this property would be banking-transactions.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type?: string;
 }
