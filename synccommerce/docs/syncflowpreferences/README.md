@@ -24,7 +24,7 @@ import { GetConfigTextSyncFlowResponse } from "@codat/sync-for-commerce/dist/sdk
 
 const sdk = new CodatSyncCommerce({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -47,7 +47,7 @@ import { GetSyncFlowUrlResponse } from "@codat/sync-for-commerce/dist/sdk/models
 
 const sdk = new CodatSyncCommerce({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -74,7 +74,7 @@ import { GetVisibleAccountsResponse } from "@codat/sync-for-commerce/dist/sdk/mo
 
 const sdk = new CodatSyncCommerce({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -100,7 +100,7 @@ import { UpdateConfigTextSyncFlowResponse } from "@codat/sync-for-commerce/dist/
 
 const sdk = new CodatSyncCommerce({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -128,7 +128,7 @@ import { UpdateVisibleAccountsSyncFlowResponse } from "@codat/sync-for-commerce/
 
 const sdk = new CodatSyncCommerce({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 

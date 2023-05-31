@@ -21,7 +21,7 @@ import { GetIntegrationBrandingResponse } from "@codat/sync-for-commerce/dist/sd
 
 const sdk = new CodatSyncCommerce({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -47,7 +47,7 @@ import { DataTypeFeatureDataType, FeatureState, FeatureType, SourceType } from "
 
 const sdk = new CodatSyncCommerce({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 

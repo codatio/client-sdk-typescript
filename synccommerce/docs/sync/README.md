@@ -23,7 +23,7 @@ import { ConnectionSourceType, DataConnectionStatus } from "@codat/sync-for-comm
 
 const sdk = new CodatSyncCommerce({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -52,7 +52,7 @@ import { ConnectionSourceType, DataConnectionStatus } from "@codat/sync-for-comm
 
 const sdk = new CodatSyncCommerce({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
