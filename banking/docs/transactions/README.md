@@ -23,7 +23,7 @@ import { TransactionCode } from "@codat/banking/dist/sdk/models/shared";
 
 const sdk = new CodatBanking({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -51,7 +51,7 @@ import { TransactionCode } from "@codat/banking/dist/sdk/models/shared";
 
 const sdk = new CodatBanking({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -84,7 +84,7 @@ import { TransactionCode } from "@codat/banking/dist/sdk/models/shared";
 
 const sdk = new CodatBanking({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 

@@ -22,7 +22,7 @@ import { AccountIdentifierType, AccountType } from "@codat/banking/dist/sdk/mode
 
 const sdk = new CodatBanking({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -50,7 +50,7 @@ import { AccountIdentifierType, AccountType } from "@codat/banking/dist/sdk/mode
 
 const sdk = new CodatBanking({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
