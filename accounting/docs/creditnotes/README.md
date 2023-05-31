@@ -31,7 +31,7 @@ import { BilledToType1, CreditNoteStatus, DataType, PushChangeType, PushOperatio
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -309,7 +309,7 @@ import { BilledToType1, CreditNoteStatus } from "@codat/accounting/dist/sdk/mode
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -342,7 +342,7 @@ import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -369,7 +369,7 @@ import { BilledToType1, CreditNoteStatus } from "@codat/accounting/dist/sdk/mode
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -405,7 +405,7 @@ import { BilledToType1, CreditNoteStatus, DataType, PushChangeType, PushOperatio
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 

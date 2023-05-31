@@ -22,7 +22,7 @@ import { AddressType, SalesOrderInvoiceStatus, SalesOrderStatus } from "@codat/a
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -49,7 +49,7 @@ import { AddressType, SalesOrderInvoiceStatus, SalesOrderStatus } from "@codat/a
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 

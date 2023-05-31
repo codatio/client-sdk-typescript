@@ -29,7 +29,7 @@ import { AddressType, DataType, PurchaseOrderStatus, PushChangeType, PushOperati
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -244,7 +244,7 @@ import { AddressType, PurchaseOrderStatus } from "@codat/accounting/dist/sdk/mod
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -277,7 +277,7 @@ import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -304,7 +304,7 @@ import { AddressType, PurchaseOrderStatus } from "@codat/accounting/dist/sdk/mod
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -340,7 +340,7 @@ import { AddressType, DataType, PurchaseOrderStatus, PushChangeType, PushOperati
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 

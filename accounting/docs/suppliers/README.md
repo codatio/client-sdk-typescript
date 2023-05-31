@@ -33,7 +33,7 @@ import { AddressType, DataType, PushChangeType, PushOperationStatus, SupplierSta
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -124,7 +124,7 @@ import { DownloadSupplierAttachmentResponse } from "@codat/accounting/dist/sdk/m
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -153,7 +153,7 @@ import { AddressType, SupplierStatus } from "@codat/accounting/dist/sdk/models/s
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -179,7 +179,7 @@ import { GetSupplierAttachmentResponse } from "@codat/accounting/dist/sdk/models
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -214,7 +214,7 @@ import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -241,7 +241,7 @@ import { AddressType, SupplierStatus } from "@codat/accounting/dist/sdk/models/s
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -270,7 +270,7 @@ import { ListSupplierAttachmentsResponse } from "@codat/accounting/dist/sdk/mode
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -304,7 +304,7 @@ import { AddressType, DataType, PushChangeType, PushOperationStatus, SupplierSta
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 

@@ -35,7 +35,7 @@ import { BilledToType, BillStatus, DataType, PushChangeType, PushOperationStatus
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -377,7 +377,7 @@ import { DataType, PushChangeType, PushOperationStatus } from "@codat/accounting
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -404,7 +404,7 @@ import { DownloadBillAttachmentResponse } from "@codat/accounting/dist/sdk/model
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -433,7 +433,7 @@ import { BilledToType, BillStatus } from "@codat/accounting/dist/sdk/models/shar
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -459,7 +459,7 @@ import { GetBillAttachmentResponse } from "@codat/accounting/dist/sdk/models/ope
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -492,7 +492,7 @@ import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -519,7 +519,7 @@ import { BilledToType, BillStatus } from "@codat/accounting/dist/sdk/models/shar
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -548,7 +548,7 @@ import { ListBillAttachmentsResponse } from "@codat/accounting/dist/sdk/models/o
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -582,7 +582,7 @@ import { BilledToType, BillStatus, DataType, PushChangeType, PushOperationStatus
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -978,7 +978,7 @@ import { UploadBillAttachmentResponse } from "@codat/accounting/dist/sdk/models/
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 

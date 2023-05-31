@@ -32,7 +32,7 @@ import { DataType, PushChangeType, PushOperationStatus } from "@codat/accounting
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -374,7 +374,7 @@ import { DownloadDirectCostAttachmentResponse } from "@codat/accounting/dist/sdk
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -402,7 +402,7 @@ import { GetDirectCostResponse } from "@codat/accounting/dist/sdk/models/operati
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -429,7 +429,7 @@ import { GetDirectCostAttachmentResponse } from "@codat/accounting/dist/sdk/mode
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -464,7 +464,7 @@ import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -490,7 +490,7 @@ import { ListDirectCostsResponse } from "@codat/accounting/dist/sdk/models/opera
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -520,7 +520,7 @@ import { ListDirectCostAttachmentsResponse } from "@codat/accounting/dist/sdk/mo
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -547,7 +547,7 @@ import { UploadDirectCostAttachmentResponse } from "@codat/accounting/dist/sdk/m
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 

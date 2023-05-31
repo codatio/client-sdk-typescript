@@ -27,7 +27,7 @@ import { RFCDate } from "@codat/accounting/dist/sdk/types";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -56,7 +56,7 @@ import { RFCDate } from "@codat/accounting/dist/sdk/types";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -84,7 +84,7 @@ import { GetBalanceSheetResponse } from "@codat/accounting/dist/sdk/models/opera
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -113,7 +113,7 @@ import { ReportBasis, ReportInput } from "@codat/accounting/dist/sdk/models/shar
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -142,7 +142,7 @@ import { ReportBasis } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -170,7 +170,7 @@ import { IsAgedCreditorsReportAvailableResponse } from "@codat/accounting/dist/s
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -195,7 +195,7 @@ import { IsAgedDebtorReportAvailableResponse } from "@codat/accounting/dist/sdk/
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 

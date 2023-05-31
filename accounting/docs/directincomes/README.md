@@ -32,7 +32,7 @@ import { DataType, PushChangeType, PushOperationStatus } from "@codat/accounting
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -268,7 +268,7 @@ import { DownloadDirectIncomeAttachmentResponse } from "@codat/accounting/dist/s
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -296,7 +296,7 @@ import { GetDirectIncomeResponse } from "@codat/accounting/dist/sdk/models/opera
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -323,7 +323,7 @@ import { GetDirectIncomeAttachmentResponse } from "@codat/accounting/dist/sdk/mo
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -359,7 +359,7 @@ import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -385,7 +385,7 @@ import { ListDirectIncomesResponse } from "@codat/accounting/dist/sdk/models/ope
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -415,7 +415,7 @@ import { ListDirectIncomeAttachmentsResponse } from "@codat/accounting/dist/sdk/
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -442,7 +442,7 @@ import { UploadDirectIncomeAttachmentResponse } from "@codat/accounting/dist/sdk
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
