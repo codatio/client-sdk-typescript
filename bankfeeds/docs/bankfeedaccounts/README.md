@@ -22,7 +22,7 @@ import { CreateBankFeedResponse } from "@codat/bank-feeds/dist/sdk/models/operat
 
 const sdk = new CodatBankFeeds({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -74,7 +74,7 @@ import { GetBankFeedsResponse } from "@codat/bank-feeds/dist/sdk/models/operatio
 
 const sdk = new CodatBankFeeds({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -100,7 +100,7 @@ import { UpdateBankFeedResponse } from "@codat/bank-feeds/dist/sdk/models/operat
 
 const sdk = new CodatBankFeeds({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
