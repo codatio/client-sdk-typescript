@@ -38,13 +38,13 @@ src/sdk/models/operations/listproductcategories.ts
 src/sdk/models/operations/listtaxcomponents.ts
 src/sdk/models/operations/listtransactions.ts
 src/sdk/models/operations/index.ts
+src/sdk/models/shared/schema.ts
 src/sdk/models/shared/companyinfo.ts
 src/sdk/models/shared/phonenumber.ts
 src/sdk/models/shared/phonenumbertype.ts
 src/sdk/models/shared/address.ts
 src/sdk/models/shared/addresstype.ts
 src/sdk/models/shared/accountbalance.ts
-src/sdk/models/shared/schema.ts
 src/sdk/models/shared/customers.ts
 src/sdk/models/shared/customer.ts
 src/sdk/models/shared/links.ts

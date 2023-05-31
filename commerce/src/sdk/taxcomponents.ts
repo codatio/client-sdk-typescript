@@ -97,7 +97,7 @@ export class TaxComponents {
                     res.taxComponents = utils.objectToClass(httpRes?.data, shared.TaxComponents);
                 }
                 break;
-            case [400, 401, 404].includes(httpRes?.status):
+            case [400, 401, 404, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
                 }
