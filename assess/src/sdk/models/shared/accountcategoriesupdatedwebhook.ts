@@ -76,6 +76,6 @@ export class AccountCategoriesUpdatedWebhook extends SpeakeasyBase {
      * The type of rule.
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "ruleType" })
-    ruleType?: string;
+    @Expose({ name: "type" })
+    type?: string;
 }
