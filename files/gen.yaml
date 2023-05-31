@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: e6c32be7905105ae63ff401441338491
+  docChecksum: a840628ec16624727f01593d82c33746
   docVersion: 2.1.0
   speakeasyVersion: 1.39.0
   generationVersion: 2.32.7
@@ -9,7 +9,7 @@ generation:
   singleTagPerOp: false
   telemetryEnabled: true
 typescript:
-  version: 0.21.1
+  version: 0.21.2
   author: Speakeasy
   maxMethodParams: 0
   packageName: '@codat/files'
