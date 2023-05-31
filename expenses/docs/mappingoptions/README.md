@@ -25,7 +25,7 @@ import {
 
 const sdk = new CodatSyncExpenses({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 

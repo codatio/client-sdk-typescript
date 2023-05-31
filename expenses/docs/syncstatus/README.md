@@ -23,7 +23,7 @@ import { GetLastSuccessfulSyncResponse } from "@codat/sync-for-expenses/dist/sdk
 
 const sdk = new CodatSyncExpenses({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -48,7 +48,7 @@ import { GetLatestSyncResponse } from "@codat/sync-for-expenses/dist/sdk/models/
 
 const sdk = new CodatSyncExpenses({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -73,7 +73,7 @@ import { GetSyncByIdResponse } from "@codat/sync-for-expenses/dist/sdk/models/op
 
 const sdk = new CodatSyncExpenses({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -99,7 +99,7 @@ import { ListSyncsResponse } from "@codat/sync-for-expenses/dist/sdk/models/oper
 
 const sdk = new CodatSyncExpenses({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
