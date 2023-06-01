@@ -4,6 +4,7 @@ src/sdk/transactioncategories.ts
 src/sdk/transactions.ts
 src/sdk/sdk.ts
 .eslintrc.yml
+.gitignore
 jest.config.js
 package-lock.json
 package.json
@@ -30,6 +31,7 @@ src/sdk/models/operations/gettransaction.ts
 src/sdk/models/operations/listtransactions.ts
 src/sdk/models/operations/listbanktransactions.ts
 src/sdk/models/operations/index.ts
+src/sdk/models/shared/schema.ts
 src/sdk/models/shared/accountbalances.ts
 src/sdk/models/shared/accountbalance.ts
 src/sdk/models/shared/accountbalanceamounts.ts

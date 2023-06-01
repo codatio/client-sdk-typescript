@@ -9,17 +9,17 @@ import { Expose } from "class-transformer";
  * An object of bank transaction category reference data.
  */
 export class TransactionCategoryRef extends SpeakeasyBase {
-  /**
-   * The unique category reference id for the bank transaction.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * The unique category reference id for the bank transaction.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * The category name reference for the bank transaction.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * The category name reference for the bank transaction.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 }

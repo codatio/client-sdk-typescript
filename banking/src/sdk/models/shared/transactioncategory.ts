@@ -10,43 +10,43 @@ import { Expose } from "class-transformer";
  * Status of the bank transaction category.
  */
 export class TransactionCategory extends SpeakeasyBase {
-  /**
-   * A Boolean indicating whether there are other bank transaction categories beneath this one in the hierarchy.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "hasChildren" })
-  hasChildren?: boolean;
+    /**
+     * A Boolean indicating whether there are other bank transaction categories beneath this one in the hierarchy.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "hasChildren" })
+    hasChildren?: boolean;
 
-  /**
-   * The unique identifier of the bank transaction category.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * The unique identifier of the bank transaction category.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "modifiedDate" })
+    modifiedDate?: string;
 
-  /**
-   * The name of the bank transaction category.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name: string;
+    /**
+     * The name of the bank transaction category.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name: string;
 
-  /**
-   * The unique identifier of the parent bank transaction category.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "parentId" })
-  parentId?: string;
+    /**
+     * The unique identifier of the parent bank transaction category.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "parentId" })
+    parentId?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "sourceModifiedDate" })
+    sourceModifiedDate?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status?: TransactionCategoryStatus;
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status?: TransactionCategoryStatus;
 }

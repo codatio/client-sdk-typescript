@@ -15,28 +15,28 @@ import { AxiosInstance } from "axios";
  * Contains the list of servers available to the SDK
  */
 export const ServerList = [
-  /**
-   * Production
-   */
-  "https://api.codat.io",
+    /**
+     * Production
+     */
+    "https://api.codat.io",
 ] as const;
 
 /**
  * The available configuration options for the SDK
  */
 export type SDKProps = {
-  /**
-   * The security details required to authenticate the SDK
-   */
-  security?: shared.Security;
-  /**
-   * Allows overriding the default axios client used by the SDK
-   */
-  defaultClient?: AxiosInstance;
-  /**
-   * Allows overriding the default server URL used by the SDK
-   */
-  serverURL?: string;
+    /**
+     * The security details required to authenticate the SDK
+     */
+    security?: shared.Security;
+    /**
+     * Allows overriding the default axios client used by the SDK
+     */
+    defaultClient?: AxiosInstance;
+    /**
+     * Allows overriding the default server URL used by the SDK
+     */
+    serverURL?: string;
 };
 
 /**
@@ -52,82 +52,78 @@ export type SDKProps = {
  * [See our OpenAPI spec](https://github.com/codatio/oas)
  */
 export class CodatBanking {
-  /**
-   * Balances for a bank account including end-of-day batch balance or running balances per transaction.
-   */
-  public accountBalances: AccountBalances;
-  /**
-   * Where payments are made or received, and bank transactions are recorded.
-   */
-  public accounts: Accounts;
-  /**
-   * Hierarchical categories associated with a transaction for greater contextual meaning to transaction activity.
-   */
-  public transactionCategories: TransactionCategories;
-  /**
-   * An immutable source of up-to-date information on income and expenditure.
-   */
-  public transactions: Transactions;
+    /**
+     * Balances for a bank account including end-of-day batch balance or running balances per transaction.
+     */
+    public accountBalances: AccountBalances;
+    /**
+     * Where payments are made or received, and bank transactions are recorded.
+     */
+    public accounts: Accounts;
+    /**
+     * Hierarchical categories associated with a transaction for greater contextual meaning to transaction activity.
+     */
+    public transactionCategories: TransactionCategories;
+    /**
+     * An immutable source of up-to-date information on income and expenditure.
+     */
+    public transactions: Transactions;
 
-  public _defaultClient: AxiosInstance;
-  public _securityClient: AxiosInstance;
-  public _serverURL: string;
-  private _language = "typescript";
-  private _sdkVersion = "0.15.0";
-  private _genVersion = "2.32.0";
-  private _globals: any;
+    public _defaultClient: AxiosInstance;
+    public _securityClient: AxiosInstance;
+    public _serverURL: string;
+    private _language = "typescript";
+    private _sdkVersion = "0.16.1";
+    private _genVersion = "2.34.7";
+    private _globals: any;
 
-  constructor(props?: SDKProps) {
-    this._serverURL = props?.serverURL ?? ServerList[0];
+    constructor(props?: SDKProps) {
+        this._serverURL = props?.serverURL ?? ServerList[0];
 
-    this._defaultClient =
-      props?.defaultClient ?? axios.create({ baseURL: this._serverURL });
-    if (props?.security) {
-      let security: shared.Security = props.security;
-      if (!(props.security instanceof utils.SpeakeasyBase))
-        security = new shared.Security(props.security);
-      this._securityClient = utils.createSecurityClient(
-        this._defaultClient,
-        security
-      );
-    } else {
-      this._securityClient = this._defaultClient;
+        this._defaultClient = props?.defaultClient ?? axios.create({ baseURL: this._serverURL });
+        if (props?.security) {
+            let security: shared.Security = props.security;
+            if (!(props.security instanceof utils.SpeakeasyBase))
+                security = new shared.Security(props.security);
+            this._securityClient = utils.createSecurityClient(this._defaultClient, security);
+        } else {
+            this._securityClient = this._defaultClient;
+        }
+
+        this.accountBalances = new AccountBalances(
+            this._defaultClient,
+            this._securityClient,
+            this._serverURL,
+            this._language,
+            this._sdkVersion,
+            this._genVersion
+        );
+
+        this.accounts = new Accounts(
+            this._defaultClient,
+            this._securityClient,
+            this._serverURL,
+            this._language,
+            this._sdkVersion,
+            this._genVersion
+        );
+
+        this.transactionCategories = new TransactionCategories(
+            this._defaultClient,
+            this._securityClient,
+            this._serverURL,
+            this._language,
+            this._sdkVersion,
+            this._genVersion
+        );
+
+        this.transactions = new Transactions(
+            this._defaultClient,
+            this._securityClient,
+            this._serverURL,
+            this._language,
+            this._sdkVersion,
+            this._genVersion
+        );
     }
-
-    this.accountBalances = new AccountBalances(
-      this._defaultClient,
-      this._securityClient,
-      this._serverURL,
-      this._language,
-      this._sdkVersion,
-      this._genVersion
-    );
-
-    this.accounts = new Accounts(
-      this._defaultClient,
-      this._securityClient,
-      this._serverURL,
-      this._language,
-      this._sdkVersion,
-      this._genVersion
-    );
-
-    this.transactionCategories = new TransactionCategories(
-      this._defaultClient,
-      this._securityClient,
-      this._serverURL,
-      this._language,
-      this._sdkVersion,
-      this._genVersion
-    );
-
-    this.transactions = new Transactions(
-      this._defaultClient,
-      this._securityClient,
-      this._serverURL,
-      this._language,
-      this._sdkVersion,
-      this._genVersion
-    );
-  }
 }

@@ -7,38 +7,32 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetTransactionCategoryRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+    connectionId: string;
 
-  /**
-   * The unique identifier for a banking transaction category
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=transactionCategoryId",
-  })
-  transactionCategoryId: string;
+    /**
+     * The unique identifier for a banking transaction category
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=transactionCategoryId" })
+    transactionCategoryId: string;
 }
 
 export class GetTransactionCategoryResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata()
-  transactionCategory?: shared.TransactionCategory;
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata()
+    transactionCategory?: shared.TransactionCategory;
 }

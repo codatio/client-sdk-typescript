@@ -6,11 +6,11 @@
  * Type of account
  */
 export enum AccountIdentifierType {
-  Account = "Account",
-  Card = "Card",
-  Credit = "Credit",
-  Depository = "Depository",
-  Investment = "Investment",
-  Loan = "Loan",
-  Other = "Other",
+    Account = "Account",
+    Card = "Card",
+    Credit = "Credit",
+    Depository = "Depository",
+    Investment = "Investment",
+    Loan = "Loan",
+    Other = "Other",
 }

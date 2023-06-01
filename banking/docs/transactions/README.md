@@ -23,14 +23,14 @@ import { TransactionCode } from "@codat/banking/dist/sdk/models/shared";
 
 const sdk = new CodatBanking({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
 sdk.transactions.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  transactionId: "nulla",
+  transactionId: "corrupti",
 }).then((res: GetTransactionResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -51,7 +51,7 @@ import { TransactionCode } from "@codat/banking/dist/sdk/models/shared";
 
 const sdk = new CodatBanking({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -61,7 +61,7 @@ sdk.transactions.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "corrupti",
+  query: "illum",
 }).then((res: ListTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -84,7 +84,7 @@ import { TransactionCode } from "@codat/banking/dist/sdk/models/shared";
 
 const sdk = new CodatBanking({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -93,7 +93,7 @@ sdk.transactions.listBankTransactions({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "illum",
+  query: "vel",
 }).then((res: ListBankTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
