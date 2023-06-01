@@ -7,38 +7,38 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetCreateBankAccountModelRequest extends SpeakeasyBase {
-  /**
-   * Unique identifier for an account
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=accountId",
-  })
-  accountId: string;
+    /**
+     * Unique identifier for an account
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=accountId" })
+    accountId: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+    connectionId: string;
 }
 
 export class GetCreateBankAccountModelResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata()
-  pushOption?: shared.PushOption;
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata()
+    pushOption?: shared.PushOption;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
+
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    schema?: shared.Schema;
 }

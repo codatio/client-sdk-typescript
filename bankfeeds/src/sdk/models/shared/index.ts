@@ -3,11 +3,17 @@
  */
 
 export * from "./bankfeedaccount";
-export * from "./banktransactionline";
 export * from "./banktransactions";
 export * from "./banktransactionsresponse";
 export * from "./banktransactiontype";
+export * from "./companies";
+export * from "./company";
+export * from "./companyrequestbody";
+export * from "./connection";
+export * from "./connections";
 export * from "./createbanktransactionsresponse";
+export * from "./dataconnectionerror";
+export * from "./dataconnectionstatus";
 export * from "./datatype";
 export * from "./href";
 export * from "./links";
@@ -21,6 +27,7 @@ export * from "./pushoptionchoice";
 export * from "./pushoptionproperty";
 export * from "./pushoptiontype";
 export * from "./pushvalidationinfo";
+export * from "./schema";
 export * from "./security";
 export * from "./validation";
 export * from "./validationitem";

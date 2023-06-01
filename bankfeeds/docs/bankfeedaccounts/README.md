@@ -6,11 +6,11 @@ Bank feed bank accounts
 
 ### Available Operations
 
-* [createBankFeed](#createbankfeed) - Create bank feed bank accounts
-* [getBankFeeds](#getbankfeeds) - List bank feed bank accounts
-* [updateBankFeed](#updatebankfeed) - Update bank feed bank account
+* [create](#create) - Create bank feed bank accounts
+* [get](#get) - List bank feed bank accounts
+* [update](#update) - Update bank feed bank account
 
-## createBankFeed
+## create
 
 Put BankFeed BankAccounts for a single data source connected to a single company.
 
@@ -22,35 +22,23 @@ import { CreateBankFeedResponse } from "@codat/bank-feeds/dist/sdk/models/operat
 
 const sdk = new CodatBankFeeds({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
-sdk.bankFeedAccounts.createBankFeed({
+sdk.bankFeedAccounts.create({
   requestBody: [
     {
-      accountName: "vel",
-      accountNumber: "natus",
-      accountType: "omnis",
-      balance: 4748.67,
-      currency: "perferendis",
-      feedStartDate: "nihil",
-      id: "4ba4469b-6e21-4419-9989-0afa563e2516",
-      modifiedDate: "doloribus",
-      sortCode: "debitis",
-      status: "eius",
-    },
-    {
-      accountName: "maxime",
-      accountNumber: "deleniti",
-      accountType: "facilis",
-      balance: 4479.26,
-      currency: "architecto",
-      feedStartDate: "architecto",
-      id: "e5b7fd2e-d028-4921-8ddc-692601fb576b",
-      modifiedDate: "eaque",
-      sortCode: "pariatur",
-      status: "nemo",
+      accountName: "ipsa",
+      accountNumber: "reiciendis",
+      accountType: "est",
+      balance: 6531.4,
+      currency: "laborum",
+      feedStartDate: "dolores",
+      id: "352c5955-907a-4ff1-a3a2-fa9467739251",
+      modifiedDate: "laborum",
+      sortCode: "animi",
+      status: "enim",
     },
   ],
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -62,7 +50,7 @@ sdk.bankFeedAccounts.createBankFeed({
 });
 ```
 
-## getBankFeeds
+## get
 
 Get BankFeed BankAccounts for a single data source connected to a single company.
 
@@ -74,11 +62,11 @@ import { GetBankFeedsResponse } from "@codat/bank-feeds/dist/sdk/models/operatio
 
 const sdk = new CodatBankFeeds({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
-sdk.bankFeedAccounts.getBankFeeds({
+sdk.bankFeedAccounts.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetBankFeedsResponse) => {
@@ -88,7 +76,7 @@ sdk.bankFeedAccounts.getBankFeeds({
 });
 ```
 
-## updateBankFeed
+## update
 
 Update a single BankFeed BankAccount for a single data source connected to a single company.
 
@@ -100,24 +88,24 @@ import { UpdateBankFeedResponse } from "@codat/bank-feeds/dist/sdk/models/operat
 
 const sdk = new CodatBankFeeds({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
-sdk.bankFeedAccounts.updateBankFeed({
+sdk.bankFeedAccounts.update({
   bankFeedAccount: {
-    accountName: "voluptatibus",
-    accountNumber: "perferendis",
-    accountType: "fugiat",
-    balance: 2307.42,
-    currency: "aut",
-    feedStartDate: "cumque",
-    id: "5fbb2587-0532-402c-b3d5-fe9b90c28909",
-    modifiedDate: "rerum",
-    sortCode: "adipisci",
-    status: "asperiores",
+    accountName: "odit",
+    accountNumber: "quo",
+    accountType: "sequi",
+    balance: 9495.72,
+    currency: "ipsam",
+    feedStartDate: "id",
+    id: "d019da1f-fe78-4f09-bb00-74f15471b5e6",
+    modifiedDate: "repudiandae",
+    sortCode: "quae",
+    status: "ipsum",
   },
-  accountId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  accountId: "quidem",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: UpdateBankFeedResponse) => {

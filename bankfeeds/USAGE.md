@@ -6,60 +6,28 @@ import { BankTransactionType, DataType, PushChangeType, PushOperationStatus } fr
 
 const sdk = new CodatBankFeeds({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
-sdk.bankAccountTransactions.createBankTransactions({
+sdk.bankAccountTransactions.create({
   bankTransactions: {
     accountId: "corrupti",
-    transactions: [
-      {
-        amount: 7151.9,
-        balance: 8442.66,
-        clearedOnDate: "unde",
-        counterparty: "nulla",
-        description: "corrupti",
-        id: "d69a674e-0f46-47cc-8796-ed151a05dfc2",
-        modifiedDate: "at",
-        reconciled: false,
-        reference: "at",
-        sourceModifiedDate: "maiores",
-        transactionType: BankTransactionType.Atm,
-      },
-      {
-        amount: 7991.59,
-        balance: 8009.11,
-        clearedOnDate: "esse",
-        counterparty: "totam",
-        description: "porro",
-        id: "a1ba928f-c816-4742-8b73-9205929396fe",
-        modifiedDate: "fuga",
-        reconciled: false,
-        reference: "in",
-        sourceModifiedDate: "corporis",
-        transactionType: BankTransactionType.Check,
-      },
-      {
-        amount: 4370.32,
-        balance: 9023.49,
-        clearedOnDate: "quidem",
-        counterparty: "architecto",
-        description: "ipsa",
-        id: "faaa2352-c595-4590-baff-1a3a2fa94677",
-        modifiedDate: "velit",
-        reconciled: false,
-        reference: "error",
-        sourceModifiedDate: "quia",
-        transactionType: BankTransactionType.SerChg,
-      },
-    ],
+    amount: 5928.45,
+    balance: 7151.9,
+    clearedOnDate: "quibusdam",
+    description: "unde",
+    id: "d8d69a67-4e0f-4467-8c87-96ed151a05df",
+    modifiedDate: "quo",
+    reconciled: false,
+    sourceModifiedDate: "odit",
+    transactionType: BankTransactionType.DirectDebit,
   },
-  accountId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  accountId: "at",
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 110375,
+  timeoutInMinutes: 978619,
 }).then((res: CreateBankTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response

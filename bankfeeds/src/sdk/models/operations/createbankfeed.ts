@@ -7,36 +7,38 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class CreateBankFeedRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "request, media_type=application/json",
-    elemType: shared.BankFeedAccount,
-  })
-  requestBody?: shared.BankFeedAccount[];
+    @SpeakeasyMetadata({
+        data: "request, media_type=application/json",
+        elemType: shared.BankFeedAccount,
+    })
+    requestBody?: shared.BankFeedAccount[];
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+    connectionId: string;
 }
 
 export class CreateBankFeedResponse extends SpeakeasyBase {
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata({ elemType: shared.BankFeedAccount })
-  bankFeedAccounts?: shared.BankFeedAccount[];
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata({ elemType: shared.BankFeedAccount })
+    bankFeedAccounts?: shared.BankFeedAccount[];
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
+
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    schema?: shared.Schema;
 }
