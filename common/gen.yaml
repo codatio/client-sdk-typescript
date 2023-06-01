@@ -1,15 +1,15 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 5e9fd635a7bb2fadff0c38fa8661315a
+  docChecksum: 358dd7caa3e4107c4b7bd69c083ede84
   docVersion: 2.1.0
-  speakeasyVersion: 1.39.0
-  generationVersion: 2.32.7
+  speakeasyVersion: 1.40.2
+  generationVersion: 2.34.2
 generation:
   sdkClassName: CodatCommon
   singleTagPerOp: false
   telemetryEnabled: true
 typescript:
-  version: 0.20.3
+  version: 0.21.0
   author: Speakeasy
   maxMethodParams: 0
   packageName: '@codat/common'

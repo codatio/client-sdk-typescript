@@ -401,7 +401,7 @@ export class Connections {
                     res.connection = utils.objectToClass(httpRes?.data, shared.Connection);
                 }
                 break;
-            case [400, 401, 404, 429].includes(httpRes?.status):
+            case [401, 404, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(httpRes?.data, shared.ErrorMessage);
                 }

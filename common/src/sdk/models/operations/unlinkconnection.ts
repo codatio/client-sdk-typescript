@@ -35,7 +35,7 @@ export class UnlinkConnectionResponse extends SpeakeasyBase {
     contentType: string;
 
     /**
-     * The request made is not valid.
+     * Your API request was not properly authorized.
      */
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
