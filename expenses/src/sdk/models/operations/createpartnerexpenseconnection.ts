@@ -7,25 +7,29 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class CreatePartnerExpenseConnectionRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 }
 
 export class CreatePartnerExpenseConnectionResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata()
-  dataConnection?: shared.DataConnection;
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata()
+    dataConnection?: shared.DataConnection;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
+
+    /**
+     * The request made is not valid.
+     */
+    @SpeakeasyMetadata()
+    schema?: shared.Schema;
 }

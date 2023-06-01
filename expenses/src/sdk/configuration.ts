@@ -11,191 +11,193 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
  * Companies sync configuration.
  */
 export class Configuration {
-  _defaultClient: AxiosInstance;
-  _securityClient: AxiosInstance;
-  _serverURL: string;
-  _language: string;
-  _sdkVersion: string;
-  _genVersion: string;
+    _defaultClient: AxiosInstance;
+    _securityClient: AxiosInstance;
+    _serverURL: string;
+    _language: string;
+    _sdkVersion: string;
+    _genVersion: string;
 
-  constructor(
-    defaultClient: AxiosInstance,
-    securityClient: AxiosInstance,
-    serverURL: string,
-    language: string,
-    sdkVersion: string,
-    genVersion: string
-  ) {
-    this._defaultClient = defaultClient;
-    this._securityClient = securityClient;
-    this._serverURL = serverURL;
-    this._language = language;
-    this._sdkVersion = sdkVersion;
-    this._genVersion = genVersion;
-  }
-
-  /**
-   * Get company configuration
-   *
-   * @remarks
-   * Gets a companies expense sync configuration
-   */
-  async getCompanyConfiguration(
-    req: operations.GetCompanyConfigurationRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetCompanyConfigurationResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCompanyConfigurationRequest(req);
+    constructor(
+        defaultClient: AxiosInstance,
+        securityClient: AxiosInstance,
+        serverURL: string,
+        language: string,
+        sdkVersion: string,
+        genVersion: string
+    ) {
+        this._defaultClient = defaultClient;
+        this._securityClient = securityClient;
+        this._serverURL = serverURL;
+        this._language = language;
+        this._sdkVersion = sdkVersion;
+        this._genVersion = genVersion;
     }
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/sync/expenses/config",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    headers["Accept"] = "application/json";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const httpRes: AxiosResponse = await utils.Retry(() => {
-      return client.request({
-        validateStatus: () => true,
-        url: url,
-        method: "get",
-        headers: headers,
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetCompanyConfigurationResponse =
-      new operations.GetCompanyConfigurationResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.companyConfiguration = utils.objectToClass(
-            httpRes?.data,
-            shared.CompanyConfiguration
-          );
+    /**
+     * Get company configuration
+     *
+     * @remarks
+     * Gets a companies expense sync configuration
+     */
+    async getCompanyConfiguration(
+        req: operations.GetCompanyConfigurationRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetCompanyConfigurationResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetCompanyConfigurationRequest(req);
         }
-        break;
-    }
 
-    return res;
-  }
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/companies/{companyId}/sync/expenses/config",
+            req
+        );
 
-  /**
-   * Set company configuration
-   *
-   * @remarks
-   * Sets a companies expense sync configuration
-   */
-  async saveCompanyConfiguration(
-    req: operations.SaveCompanyConfigurationRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.SaveCompanyConfigurationResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.SaveCompanyConfigurationRequest(req);
-    }
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/sync/expenses/config",
-      req
-    );
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
-    let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-    try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-        req,
-        "companyConfiguration",
-        "json"
-      );
-    } catch (e: unknown) {
-      if (e instanceof Error) {
-        throw new Error(`Error serializing request body, cause: ${e.message}`);
-      }
-    }
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...reqBodyHeaders, ...config?.headers };
-    headers["Accept"] = "application/json;q=1, application/json;q=0";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const httpRes: AxiosResponse = await utils.Retry(() => {
-      return client.request({
-        validateStatus: () => true,
-        url: url,
-        method: "post",
-        headers: headers,
-        data: reqBody,
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.SaveCompanyConfigurationResponse =
-      new operations.SaveCompanyConfigurationResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.companyConfiguration = utils.objectToClass(
-            httpRes?.data,
-            shared.CompanyConfiguration
-          );
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig("backoff", true);
+            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
         }
-        break;
-      case httpRes?.status == 400:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.codatErrorMessage = utils.objectToClass(
-            httpRes?.data,
-            shared.CodatErrorMessage
-          );
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url,
+                method: "get",
+                headers: headers,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
+
+        const res: operations.GetCompanyConfigurationResponse =
+            new operations.GetCompanyConfigurationResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.companyConfiguration = utils.objectToClass(
+                        httpRes?.data,
+                        shared.CompanyConfiguration
+                    );
+                }
+                break;
+            case [401, 404, 429].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                }
+                break;
+        }
+
+        return res;
     }
 
-    return res;
-  }
+    /**
+     * Set company configuration
+     *
+     * @remarks
+     * Sets a companies expense sync configuration
+     */
+    async saveCompanyConfiguration(
+        req: operations.SaveCompanyConfigurationRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.SaveCompanyConfigurationResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.SaveCompanyConfigurationRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/companies/{companyId}/sync/expenses/config",
+            req
+        );
+
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+        try {
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+                req,
+                "companyConfiguration",
+                "json"
+            );
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                throw new Error(`Error serializing request body, cause: ${e.message}`);
+            }
+        }
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig("backoff", true);
+            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url,
+                method: "post",
+                headers: headers,
+                data: reqBody,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.SaveCompanyConfigurationResponse =
+            new operations.SaveCompanyConfigurationResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.companyConfiguration = utils.objectToClass(
+                        httpRes?.data,
+                        shared.CompanyConfiguration
+                    );
+                }
+                break;
+            case [400, 401, 404, 429].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                }
+                break;
+        }
+
+        return res;
+    }
 }

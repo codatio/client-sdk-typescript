@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class PostSync extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "datasetIds" })
-  datasetIds?: string[];
+    @SpeakeasyMetadata()
+    @Expose({ name: "datasetIds" })
+    datasetIds?: string[];
 }

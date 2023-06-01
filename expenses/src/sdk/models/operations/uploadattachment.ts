@@ -7,54 +7,54 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class UploadAttachmentRequestBody extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "multipart_form, content=true" })
-  content: Uint8Array;
+    @SpeakeasyMetadata({ data: "multipart_form, content=true" })
+    content: Uint8Array;
 
-  @SpeakeasyMetadata({ data: "multipart_form, name=requestBody" })
-  requestBody: string;
+    @SpeakeasyMetadata({ data: "multipart_form, name=requestBody" })
+    requestBody: string;
 }
 
 export class UploadAttachmentRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "multipart_form, file=true, request, media_type=multipart/form-data",
-  })
-  requestBody?: UploadAttachmentRequestBody;
+    @SpeakeasyMetadata({
+        data: "multipart_form, file=true, request, media_type=multipart/form-data",
+    })
+    requestBody?: UploadAttachmentRequestBody;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  /**
-   * Unique identifier for a sync.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=syncId",
-  })
-  syncId: string;
+    /**
+     * Unique identifier for a sync.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=syncId" })
+    syncId: string;
 
-  /**
-   * The unique identifier for your SMB's transaction.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=transactionId",
-  })
-  transactionId: string;
+    /**
+     * The unique identifier for your SMB's transaction.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=transactionId" })
+    transactionId: string;
 }
 
 export class UploadAttachmentResponse extends SpeakeasyBase {
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  attachment?: shared.Attachment;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    attachment?: shared.Attachment;
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
+
+    /**
+     * The request made is not valid.
+     */
+    @SpeakeasyMetadata()
+    schema?: shared.Schema;
 }

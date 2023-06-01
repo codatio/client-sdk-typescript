@@ -9,10 +9,10 @@ import { Expose } from "class-transformer";
  * OK
  */
 export class CreateExpenseResponse extends SpeakeasyBase {
-  /**
-   * Unique id of dataset created
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "datasetId" })
-  datasetId?: string;
+    /**
+     * Unique id of dataset created
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "datasetId" })
+    datasetId?: string;
 }

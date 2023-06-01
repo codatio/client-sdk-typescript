@@ -6,6 +6,6 @@
  * Type of transaction that has been processed e.g. Expense or Bank Feed.
  */
 export enum IntegrationType {
-  Expenses = "expenses",
-  Bankfeeds = "bankfeeds",
+    Expenses = "expenses",
+    Bankfeeds = "bankfeeds",
 }

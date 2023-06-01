@@ -12,18 +12,18 @@ import { Expose, Type } from "class-transformer";
  * Success
  */
 export class CompanyConfiguration extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "bankAccount" })
-  @Type(() => BankAccount)
-  bankAccount: BankAccount;
+    @SpeakeasyMetadata()
+    @Expose({ name: "bankAccount" })
+    @Type(() => BankAccount)
+    bankAccount: BankAccount;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "customer" })
-  @Type(() => Customer)
-  customer: Customer;
+    @SpeakeasyMetadata()
+    @Expose({ name: "customer" })
+    @Type(() => Customer)
+    customer: Customer;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "supplier" })
-  @Type(() => Supplier)
-  supplier: Supplier;
+    @SpeakeasyMetadata()
+    @Expose({ name: "supplier" })
+    @Type(() => Supplier)
+    supplier: Supplier;
 }

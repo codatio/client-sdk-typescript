@@ -22,7 +22,7 @@ import { ExpenseTransactionType } from "@codat/sync-for-expenses/dist/sdk/models
 
 const sdk = new CodatSyncExpenses({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -306,7 +306,7 @@ import { UploadAttachmentResponse } from "@codat/sync-for-expenses/dist/sdk/mode
 
 const sdk = new CodatSyncExpenses({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 

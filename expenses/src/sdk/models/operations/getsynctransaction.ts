@@ -7,41 +7,41 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetSyncTransactionRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  /**
-   * Unique identifier for a sync.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=syncId",
-  })
-  syncId: string;
+    /**
+     * Unique identifier for a sync.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=syncId" })
+    syncId: string;
 
-  /**
-   * The unique identifier for your SMB's transaction.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=transactionId",
-  })
-  transactionId: string;
+    /**
+     * The unique identifier for your SMB's transaction.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=transactionId" })
+    transactionId: string;
 }
 
 export class GetSyncTransactionResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata({ elemType: shared.TransactionMetadata })
-  transactionMetadata?: shared.TransactionMetadata[];
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata({ elemType: shared.TransactionMetadata })
+    transactionMetadata?: shared.TransactionMetadata[];
+
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    schema?: shared.Schema;
 }

@@ -9,57 +9,57 @@ import { Expose } from "class-transformer";
  * Type of the account.
  */
 export enum AccountMappingInfoAccountType {
-  Asset = "Asset",
-  Liability = "Liability",
-  Income = "Income",
-  Expense = "Expense",
-  Equity = "Equity",
+    Asset = "Asset",
+    Liability = "Liability",
+    Income = "Income",
+    Expense = "Expense",
+    Equity = "Equity",
 }
 
 export enum AccountMappingInfoValidTransactionTypes {
-  Payment = "Payment",
-  Refund = "Refund",
-  Reward = "Reward",
-  Chargeback = "Chargeback",
-  TransferIn = "TransferIn",
-  TransferOut = "TransferOut",
-  AdjustmentIn = "AdjustmentIn",
-  AdjustmentOut = "AdjustmentOut",
+    Payment = "Payment",
+    Refund = "Refund",
+    Reward = "Reward",
+    Chargeback = "Chargeback",
+    TransferIn = "TransferIn",
+    TransferOut = "TransferOut",
+    AdjustmentIn = "AdjustmentIn",
+    AdjustmentOut = "AdjustmentOut",
 }
 
 export class AccountMappingInfo extends SpeakeasyBase {
-  /**
-   * Type of the account.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "accountType" })
-  accountType?: AccountMappingInfoAccountType;
+    /**
+     * Type of the account.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "accountType" })
+    accountType?: AccountMappingInfoAccountType;
 
-  /**
-   * Currency of the account.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "currency" })
-  currency?: string;
+    /**
+     * Currency of the account.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "currency" })
+    currency?: string;
 
-  /**
-   * Unique identifier of account.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    /**
+     * Unique identifier of account.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 
-  /**
-   * Name of the account as it appears in the companies accounting software.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * Name of the account as it appears in the companies accounting software.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 
-  /**
-   * Supported transaction types for the account.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "validTransactionTypes" })
-  validTransactionTypes?: AccountMappingInfoValidTransactionTypes[];
+    /**
+     * Supported transaction types for the account.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "validTransactionTypes" })
+    validTransactionTypes?: AccountMappingInfoValidTransactionTypes[];
 }

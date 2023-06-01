@@ -7,34 +7,32 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class IntiateSyncRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  postSync?: shared.PostSync;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    postSync?: shared.PostSync;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 }
 
 export class IntiateSyncResponse extends SpeakeasyBase {
-  /**
-   * If model is incorrect
-   */
-  @SpeakeasyMetadata()
-  codatErrorMessage?: shared.CodatErrorMessage;
+    /**
+     * If model is incorrect
+     */
+    @SpeakeasyMetadata()
+    codatErrorMessage?: shared.CodatErrorMessage;
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Returns the newly created SyncId
-   */
-  @SpeakeasyMetadata()
-  syncInitiated?: shared.SyncInitiated;
+    /**
+     * Returns the newly created SyncId
+     */
+    @SpeakeasyMetadata()
+    syncInitiated?: shared.SyncInitiated;
 }

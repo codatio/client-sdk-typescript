@@ -7,32 +7,32 @@ import { RecordRef } from "./recordref";
 import { Expose, Type } from "class-transformer";
 
 export class ExpenseTransactionLine extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "accountRef" })
-  @Type(() => RecordRef)
-  accountRef: RecordRef;
+    @SpeakeasyMetadata()
+    @Expose({ name: "accountRef" })
+    @Type(() => RecordRef)
+    accountRef: RecordRef;
 
-  /**
-   * Amount of the line, exclusive of tax.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "netAmount" })
-  netAmount: number;
+    /**
+     * Amount of the line, exclusive of tax.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "netAmount" })
+    netAmount: number;
 
-  /**
-   * Amount of tax for the line.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "taxAmount" })
-  taxAmount: number;
+    /**
+     * Amount of tax for the line.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "taxAmount" })
+    taxAmount: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "taxRateRef" })
-  @Type(() => RecordRef)
-  taxRateRef?: RecordRef;
+    @SpeakeasyMetadata()
+    @Expose({ name: "taxRateRef" })
+    @Type(() => RecordRef)
+    taxRateRef?: RecordRef;
 
-  @SpeakeasyMetadata({ elemType: RecordRef })
-  @Expose({ name: "trackingRefs" })
-  @Type(() => RecordRef)
-  trackingRefs?: RecordRef[];
+    @SpeakeasyMetadata({ elemType: RecordRef })
+    @Expose({ name: "trackingRefs" })
+    @Type(() => RecordRef)
+    trackingRefs?: RecordRef[];
 }
