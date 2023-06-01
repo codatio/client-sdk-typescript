@@ -36,88 +36,145 @@ const sdk = new CodatAccounting({
 
 sdk.journalEntries.create({
   journalEntry: {
-    createdOn: "quas",
-    description: "soluta",
-    id: "d380c29a-a8dd-471b-9daa-30b7b91449ae",
+    createdOn: "corporis",
+    description: "omnis",
+    id: "b855d015-b62c-48b8-ba38-a8a88c144200",
     journalLines: [
       {
         accountRef: {
-          id: "9c088d41-8bb7-4180-8f42-3d543935f377",
-          name: "Devin Hintz",
+          id: "2caeb1ae-1ecf-48c3-8946-bba7a05a8b4a",
+          name: "Noah Rutherford",
         },
-        currency: "nam",
-        description: "ducimus",
-        netAmount: 8873.03,
+        currency: "amet",
+        description: "eum",
+        netAmount: 5102.81,
         tracking: {
           recordRefs: [
             {
-              dataType: "velit",
-              id: "b6a3c523-105e-47c3-8cab-0ecb812a6614",
+              dataType: "maxime",
+              id: "ca363272-760e-4966-a97e-054103347d78",
             },
             {
-              dataType: "atque",
-              id: "944a8e90-8507-45bc-a538-253343fb0a4e",
+              dataType: "asperiores",
+              id: "f2491145-fab9-4e59-a4af-336664eaa6bf",
             },
             {
-              dataType: "autem",
-              id: "6ea47578-d171-4e29-8181-8fc679b6b2f2",
+              dataType: "dolores",
+              id: "ff14e8c1-b352-4acc-adac-c5227814eca0",
             },
           ],
         },
       },
       {
         accountRef: {
-          id: "5359b855-d015-4b62-88b8-3a38a8a88c14",
-          name: "Miss Andrea Bartell",
+          id: "16bc41ea-1342-4d41-84a2-5ef71de57a11",
+          name: "Franklin Brown",
         },
-        currency: "maxime",
-        description: "deserunt",
-        netAmount: 9204.81,
+        currency: "tempora",
+        description: "velit",
+        netAmount: 1191.73,
         tracking: {
           recordRefs: [
             {
-              dataType: "et",
-              id: "ae1ecf8c-3494-46bb-a7a0-5a8b4a9ec5b3",
+              dataType: "laboriosam",
+              id: "92ea4867-3d52-42b8-a8a9-030660f024c7",
             },
             {
-              dataType: "eum",
-              id: "88cca363-2727-460e-966e-97e054103347",
+              dataType: "sint",
+              id: "b4cc64c2-b3a3-42c4-88ad-e62f6aa558a6",
+            },
+          ],
+        },
+      },
+      {
+        accountRef: {
+          id: "5e208301-6ca3-44bb-87d4-f62127a607d1",
+          name: "Betty Jacobi",
+        },
+        currency: "quaerat",
+        description: "nostrum",
+        netAmount: 1080.29,
+        tracking: {
+          recordRefs: [
+            {
+              dataType: "cumque",
+              id: "3db9ca9f-38bd-42be-8787-03493f49aa84",
             },
             {
-              dataType: "pariatur",
-              id: "78ff2491-145f-4ab9-a59a-4af336664eaa",
+              dataType: "ex",
+              id: "5a328327-9b71-49d1-8ea6-73d86e3b35e4",
+            },
+          ],
+        },
+      },
+      {
+        accountRef: {
+          id: "9a313577-8ce5-44ca-8b0e-3ea975045bac",
+          name: "Nathaniel DuBuque",
+        },
+        currency: "quasi",
+        description: "nemo",
+        netAmount: 1217.04,
+        tracking: {
+          recordRefs: [
+            {
+              dataType: "commodi",
+              id: "ab5e3a02-2614-4315-9156-8299e61afc71",
+            },
+            {
+              dataType: "totam",
+              id: "6ff20b7a-73df-440c-a0d7-657c1641bbf0",
+            },
+            {
+              dataType: "nostrum",
+              id: "5271b251-1dd6-406d-91b2-8272bc9c3221",
             },
           ],
         },
       },
     ],
     journalRef: {
-      id: "6bf2ff14-e8c1-4b35-aacc-edacc5227814",
-      name: "Mr. Sherman Pfannerstill",
+      id: "697b1880-fcbb-42b9-bc15-f670bd178483",
+      name: "Kristin Herman",
     },
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "cum",
-    postedOn: "quo",
+    modifiedDate: "necessitatibus",
+    postedOn: "harum",
     recordRef: {
-      dataType: "aliquam",
-      id: "1ea1342d-4104-4a25-af71-de57a11d614a",
+      dataType: "amet",
+      id: "b6e241c3-1099-4836-a3c6-6dcbb7df6cb0",
     },
-    sourceModifiedDate: "tempora",
+    sourceModifiedDate: "molestias",
     supplementalData: {
       content: {
+        "totam": {
+          "modi": "aperiam",
+          "praesentium": "recusandae",
+          "eaque": "nihil",
+        },
         "dicta": {
-          "laboriosam": "sint",
-          "dolores": "repudiandae",
+          "molestiae": "in",
+        },
+        "magnam": {
+          "saepe": "non",
+          "a": "voluptates",
+          "vero": "quae",
+          "doloremque": "et",
+        },
+        "possimus": {
+          "esse": "praesentium",
+          "aperiam": "laborum",
+          "dicta": "doloremque",
         },
       },
     },
-    updatedOn: "fuga",
+    updatedOn: "minus",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 284514,
+  timeoutInMinutes: 260242,
 }).then((res: CreateJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -175,7 +232,7 @@ const sdk = new CodatAccounting({
 sdk.journalEntries.delete({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  journalEntryId: "totam",
+  journalEntryId: "odio",
 }).then((res: DeleteJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -201,7 +258,7 @@ const sdk = new CodatAccounting({
 
 sdk.journalEntries.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalEntryId: "laboriosam",
+  journalEntryId: "rerum",
 }).then((res: GetJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -263,7 +320,7 @@ sdk.journalEntries.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "esse",
+  query: "provident",
 }).then((res: ListJournalEntriesResponse) => {
   if (res.statusCode == 200) {
     // handle response

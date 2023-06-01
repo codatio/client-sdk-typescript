@@ -43,28 +43,28 @@ const sdk = new CodatAccounting({
 
 sdk.bankAccounts.create({
   bankAccount: {
-    accountName: "iusto",
-    accountNumber: "dicta",
+    accountName: "natus",
+    accountNumber: "laboriosam",
     accountType: BankAccountBankAccountType.Debit,
-    availableBalance: 3179.83,
-    balance: 8804.76,
-    currency: "commodi",
-    iBan: "repudiandae",
-    id: "13b99d48-8e1e-491e-850a-d2abd4426980",
-    institution: "magni",
+    availableBalance: 9025.99,
+    balance: 6818.2,
+    currency: "in",
+    iBan: "corporis",
+    id: "96eb10fa-aa23-452c-9955-907aff1a3a2f",
+    institution: "mollitia",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "assumenda",
-    nominalCode: "ipsam",
-    overdraftLimit: 46.95,
-    sortCode: "fugit",
-    sourceModifiedDate: "dolorum",
+    modifiedDate: "occaecati",
+    nominalCode: "numquam",
+    overdraftLimit: 4143.69,
+    sortCode: "quam",
+    sourceModifiedDate: "molestiae",
   },
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 569618,
+  timeoutInMinutes: 244425,
 }).then((res: CreateBankAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -92,7 +92,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bankAccounts.get({
-  accountId: "tempora",
+  accountId: "error",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetBankAccountResponse) => {
@@ -159,7 +159,7 @@ sdk.bankAccounts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "facilis",
+  query: "quia",
 }).then((res: ListBankAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -192,29 +192,29 @@ const sdk = new CodatAccounting({
 
 sdk.bankAccounts.update({
   bankAccount: {
-    accountName: "tempore",
-    accountNumber: "labore",
+    accountName: "quis",
+    accountNumber: "vitae",
     accountType: BankAccountBankAccountType.Debit,
-    availableBalance: 4332.88,
-    balance: 2487.53,
-    currency: "eligendi",
-    iBan: "sint",
-    id: "69e9a3ef-a77d-4fb1-8cd6-6ae395efb9ba",
-    institution: "blanditiis",
+    availableBalance: 6563.3,
+    balance: 3172.02,
+    currency: "odit",
+    iBan: "quo",
+    id: "3f5ad019-da1f-4fe7-8f09-7b0074f15471",
+    institution: "harum",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "deleniti",
-    nominalCode: "sapiente",
-    overdraftLimit: 2305.33,
-    sortCode: "deserunt",
-    sourceModifiedDate: "nisi",
+    modifiedDate: "enim",
+    nominalCode: "accusamus",
+    overdraftLimit: 4142.63,
+    sortCode: "repudiandae",
+    sourceModifiedDate: "quae",
   },
-  bankAccountId: "vel",
+  bankAccountId: "ipsum",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  timeoutInMinutes: 618809,
+  timeoutInMinutes: 692472,
 }).then((res: UpdateBankAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response

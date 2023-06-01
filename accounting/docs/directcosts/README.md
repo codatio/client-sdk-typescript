@@ -39,168 +39,124 @@ const sdk = new CodatAccounting({
 sdk.directCosts.create({
   directCost: {
     contactRef: {
-      dataType: "consequuntur",
-      id: "bd7ed565-0762-41c5-8f4d-7396564c20a0",
+      dataType: "doloremque",
+      id: "6d212494-5081-49d7-83b1-b41844060e00",
     },
-    currency: "reprehenderit",
-    currencyRate: 1171.17,
-    id: "1a961d24-a7db-4b8f-932d-892cf7812cb5",
-    issueDate: "architecto",
+    currency: "nesciunt",
+    currencyRate: 827.23,
+    id: "0d023dc9-01f5-4afd-aa6c-44846ae9d892",
+    issueDate: "veniam",
     lineItems: [
       {
         accountRef: {
-          id: "c878240b-f548-4f88-b8f1-bf0bc8e1f206",
-          name: "Corey Streich",
+          id: "c8962f48-96bf-451e-8652-d3c343d61778",
+          name: "Amos Hahn Sr.",
         },
-        description: "illo",
-        discountAmount: 8384.02,
-        discountPercentage: 403.46,
+        description: "numquam",
+        discountAmount: 4553.55,
+        discountPercentage: 4837.72,
         itemRef: {
-          id: "081090f6-7066-473f-ba68-1c5768dce742",
-          name: "Donna Mann",
+          id: "25e62190-9e91-4044-a5de-59ac7706670c",
+          name: "Henry Ruecker",
         },
-        quantity: 1058.74,
-        subTotal: 3497.12,
-        taxAmount: 8881.17,
+        quantity: 6035.57,
+        subTotal: 2347.4,
+        taxAmount: 1862.22,
         taxRateRef: {
-          effectiveTaxRate: 532.16,
-          id: "8601489a-5f63-4e3a-b3dd-9dda33dcd634",
-          name: "Nathan Ward",
+          effectiveTaxRate: 4003.27,
+          id: "05251e66-bb42-4689-bd99-a2d335670e93",
+          name: "Clay Hyatt",
         },
-        totalAmount: 4568.09,
+        totalAmount: 3195.13,
         tracking: {
           invoiceTo: {
-            dataType: "id",
-            id: "98e4df37-e45b-4895-9d41-3e13a4823109",
+            dataType: "perspiciatis",
+            id: "f358aaea-cae3-423a-b1bf-7ba1cc97716c",
           },
           recordRefs: [
             {
-              dataType: "iure",
-              id: "bd354c09-2bd7-434f-8244-9d86f4bb20fe",
+              dataType: "accusantium",
+              id: "2cc9e0c7-d9d3-423f-9aa6-3ed9cf1c856b",
+            },
+            {
+              dataType: "quo",
+              id: "ba51ef24-54a4-47fa-8f11-6cdd5444a756",
+            },
+            {
+              dataType: "consequuntur",
+              id: "873c7dd9-efaf-443d-8623-620f3138f30d",
             },
           ],
         },
         trackingCategoryRefs: [
           {
-            id: "d911cbfe-749c-4af4-9a27-f69e2c9e6d10",
-            name: "Arturo Smith",
+            id: "3db022fa-a565-4fb8-b652-ebb9d3838387",
+            name: "Jason Considine",
           },
           {
-            id: "ad4c6b03-108d-49c3-b747-3082b94f2ab1",
-            name: "Rufus Hickle",
+            id: "b293dab3-0e91-47f5-8fda-04c8b1bb55a2",
+            name: "Miss Russell Ritchie",
+          },
+          {
+            id: "3bb74466-4eb1-4d03-b88b-0d1bb17afee7",
+            name: "Latoya Hodkiewicz",
+          },
+          {
+            id: "b9457c7e-daf3-49d1-afbf-76fd162b303e",
+            name: "Sarah Cremin",
           },
         ],
-        unitAmount: 837,
+        unitAmount: 5677.5,
       },
     ],
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "voluptates",
-    note: "unde",
+    modifiedDate: "ipsum",
+    note: "accusamus",
     paymentAllocations: [
       {
         allocation: {
-          allocatedOnDate: "amet",
-          currency: "dolores",
-          currencyRate: 4167.82,
-          totalAmount: 2051.5,
+          allocatedOnDate: "tempora",
+          currency: "sequi",
+          currencyRate: 893.2,
+          totalAmount: 3986.87,
         },
         payment: {
           accountRef: {
-            id: "50a46714-3789-4ce0-a991-594d93a74c02",
-            name: "Jane Wilkinson",
+            id: "cf55b431-3553-4ccf-9c20-4c4adcc9904c",
+            name: "Debra Medhurst",
           },
-          currency: "quidem",
-          currencyRate: 3102.12,
-          id: "b4db8b77-8ebb-46e1-92cf-502bafb2cbc4",
-          note: "aliquid",
-          paidOnDate: "adipisci",
-          reference: "ipsam",
-          totalAmount: 8526.23,
-        },
-      },
-      {
-        allocation: {
-          allocatedOnDate: "enim",
-          currency: "eveniet",
-          currencyRate: 4330.83,
-          totalAmount: 3470.5,
-        },
-        payment: {
-          accountRef: {
-            id: "da028c3e-951a-41e3-8fda-966489d7b786",
-            name: "Mrs. Josephine Tromp",
-          },
-          currency: "quasi",
-          currencyRate: 1772.5,
-          id: "a6b99249-4594-4487-b5c8-43836b86b3cd",
-          note: "a",
-          paidOnDate: "ex",
-          reference: "dolore",
-          totalAmount: 1158.7,
-        },
-      },
-      {
-        allocation: {
-          allocatedOnDate: "minima",
-          currency: "facilis",
-          currencyRate: 223.76,
-          totalAmount: 2799.72,
-        },
-        payment: {
-          accountRef: {
-            id: "49f9df13-f4ee-4dbe-b8bf-606825894ea7",
-            name: "Grace Stehr",
-          },
-          currency: "in",
-          currencyRate: 1479.33,
-          id: "795b7851-48d6-4d54-9e56-35b33bc0f970",
-          note: "placeat",
-          paidOnDate: "dolore",
-          reference: "magni",
-          totalAmount: 9730.03,
-        },
-      },
-      {
-        allocation: {
-          allocatedOnDate: "quod",
-          currency: "provident",
-          currencyRate: 9624.68,
-          totalAmount: 2930.13,
-        },
-        payment: {
-          accountRef: {
-            id: "844225e7-5b79-4606-9c0e-fa6f93b90a1b",
-            name: "Colin Mills",
-          },
-          currency: "accusamus",
-          currencyRate: 1147.52,
-          id: "254b739f-4fe7-4721-8d1f-6558c99c722d",
-          note: "fugit",
-          paidOnDate: "nam",
-          reference: "optio",
-          totalAmount: 349.2,
+          currency: "atque",
+          currencyRate: 3840.98,
+          id: "48cefa78-f1e2-4d3b-901e-0952bbb4cbb1",
+          note: "iste",
+          paidOnDate: "voluptatibus",
+          reference: "odio",
+          totalAmount: 665.27,
         },
       },
     ],
-    reference: "earum",
-    sourceModifiedDate: "excepturi",
-    subTotal: 2568.9,
+    reference: "neque",
+    sourceModifiedDate: "pariatur",
+    subTotal: 5685.48,
     supplementalData: {
       content: {
-        "voluptatum": {
-          "possimus": "unde",
-          "maxime": "culpa",
+        "culpa": {
+          "sunt": "nisi",
+          "molestias": "impedit",
+        },
+        "quasi": {
+          "corrupti": "in",
         },
       },
     },
-    taxAmount: 6428.58,
-    totalAmount: 9268.79,
+    taxAmount: 1589.19,
+    totalAmount: 4888.02,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 42929,
+  timeoutInMinutes: 119013,
 }).then((res: CreateDirectCostResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -228,7 +184,7 @@ sdk.directCosts.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "magnam",
+  directCostId: "eveniet",
 }).then((res: DownloadDirectCostAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -255,7 +211,7 @@ const sdk = new CodatAccounting({
 sdk.directCosts.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "quia",
+  directCostId: "vitae",
 }).then((res: GetDirectCostResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -283,7 +239,7 @@ sdk.directCosts.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "quibusdam",
+  directCostId: "quos",
 }).then((res: GetDirectCostAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -346,7 +302,7 @@ sdk.directCosts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "temporibus",
+  query: "eveniet",
 }).then((res: ListDirectCostsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -373,7 +329,7 @@ const sdk = new CodatAccounting({
 sdk.directCosts.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "voluptate",
+  directCostId: "officia",
 }).then((res: ListDirectCostAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -399,12 +355,12 @@ const sdk = new CodatAccounting({
 
 sdk.directCosts.uploadAttachment({
   requestBody: {
-    content: "placeat".encode(),
-    requestBody: "est",
+    content: "perspiciatis".encode(),
+    requestBody: "debitis",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "est",
+  directCostId: "non",
 }).then((res: UploadDirectCostAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response

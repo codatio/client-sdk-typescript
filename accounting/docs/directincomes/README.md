@@ -39,276 +39,244 @@ const sdk = new CodatAccounting({
 sdk.directIncomes.create({
   directIncome: {
     contactRef: {
-      dataType: "placeat",
-      id: "9b4caa1c-fe9e-415d-b903-907f37831983",
+      dataType: "veniam",
+      id: "118c2cc5-7fbd-460b-9a78-ed29a9d4eea8",
     },
-    currency: "fugiat",
-    currencyRate: 2628.24,
-    id: "2e54a854-6659-47c5-8233-c1471d51aaa6",
-    issueDate: "illum",
+    currency: "ullam",
+    currencyRate: 3917.15,
+    id: "58c2d4f4-c88b-4e4f-a78f-d9667e46c51d",
+    issueDate: "dolores",
     lineItems: [
       {
         accountRef: {
-          id: "f5abd648-7c5f-4c2b-862a-00bef69e1001",
-          name: "Jo Homenick DDS",
+          id: "faa58dce-f234-4c95-9b9b-df2190abd9bb",
+          name: "Delbert Cummerata",
         },
-        description: "quibusdam",
-        discountAmount: 6828.88,
-        discountPercentage: 4685.8,
+        description: "ullam",
+        discountAmount: 9045.07,
+        discountPercentage: 7703.76,
         itemRef: {
-          id: "afded84a-35a4-4123-8e1a-735ac26ae33b",
-          name: "Cary Medhurst MD",
+          id: "2659ce02-8084-40c6-9ef6-8e45c8addfac",
+          name: "Bernice Gottlieb Jr.",
         },
-        quantity: 5021.5,
-        subTotal: 9993.15,
-        taxAmount: 2679.18,
+        quantity: 3079.36,
+        subTotal: 2029.21,
+        taxAmount: 462.58,
         taxRateRef: {
-          effectiveTaxRate: 4014.66,
-          id: "bca1106f-e965-4b71-9d08-cf88ec9f7b99",
-          name: "Miss Maurice Hauck",
+          effectiveTaxRate: 7597.31,
+          id: "6632b439-1fdf-401c-be91-e8f7bc69d460",
+          name: "Tyrone Kuhn",
         },
-        totalAmount: 3393.33,
+        totalAmount: 9053.64,
         trackingCategoryRefs: [
           {
-            id: "ed333bb0-ce8a-4a65-832a-986eb7e14ca5",
-            name: "Ellen Baumbach",
+            id: "26d10f1e-f263-41c7-80f0-f873f9d5c25f",
+            name: "Miss Alfred VonRueden",
           },
           {
-            id: "15009701-9a48-4f88-ace7-bf904e01105d",
-            name: "Ms. Marsha Marks III",
+            id: "a4a4253c-3025-4711-b42c-7e7dc548be09",
+            name: "Bradley Boyle",
+          },
+          {
+            id: "a215ca12-a4ba-49d5-9988-192cfd0c77c5",
+            name: "Meghan Koelpin",
           },
         ],
-        unitAmount: 1337.9,
+        unitAmount: 8136.42,
       },
       {
         accountRef: {
-          id: "c6beb68a-0f65-47b7-903a-1480f8de30f0",
-          name: "Shelly Steuber Jr.",
+          id: "4ee6e8b9-0bac-4384-a239-6703fec31c50",
+          name: "Shawn Gulgowski IV",
         },
-        description: "commodi",
-        discountAmount: 1030.68,
-        discountPercentage: 5433.17,
+        description: "perspiciatis",
+        discountAmount: 6461.08,
+        discountPercentage: 2236.36,
         itemRef: {
-          id: "d97e1522-9751-40da-8031-2292cc61c2a7",
-          name: "Kathy Reichel",
+          id: "6a6b2d27-eb70-47aa-a0c8-fe46e6177db9",
+          name: "Dominic Ernser",
         },
-        quantity: 4877.46,
-        subTotal: 9182.86,
-        taxAmount: 8796.44,
+        quantity: 508.59,
+        subTotal: 9759.09,
+        taxAmount: 9767,
         taxRateRef: {
-          effectiveTaxRate: 935.56,
-          id: "02da2de3-5f8e-401b-b33e-aab45402ac17",
-          name: "Amber Rogahn DDS",
+          effectiveTaxRate: 7372.75,
+          id: "b6970ee7-70e3-4609-bef7-c206e61b0d30",
+          name: "Kelly Blick",
         },
-        totalAmount: 8111.67,
+        totalAmount: 1644.32,
         trackingCategoryRefs: [
           {
-            id: "fc61aae5-eb5f-40c4-92b5-744d08a2267a",
-            name: "Sheldon Toy",
-          },
-          {
-            id: "e3c71ad3-1bec-4b83-9237-8ae3bfc23d94",
-            name: "Sarah Okuneva",
-          },
-          {
-            id: "6a495bac-707f-406b-a8ec-c86492386f62",
-            name: "Wade Kemmer",
+            id: "a3d98637-ca85-4c3f-a655-74dbaf94a7c9",
+            name: "Randal Blanda",
           },
         ],
-        unitAmount: 2765.07,
+        unitAmount: 9616.33,
       },
       {
         accountRef: {
-          id: "cc6b7889-0a3f-4d3c-81da-10f8c23df931",
-          name: "Homer Franecki",
+          id: "28db2cf2-bf4f-43de-9356-d7e14b21cd98",
+          name: "Faye Jacobi",
         },
-        description: "tempore",
-        discountAmount: 3267.12,
-        discountPercentage: 1152.02,
+        description: "quis",
+        discountAmount: 6606.91,
+        discountPercentage: 9651.45,
         itemRef: {
-          id: "fad94acc-9435-4137-b26d-15321b832a56",
-          name: "Ms. Brent Marquardt DVM",
+          id: "69a1c4b7-9ae3-4368-9c23-c39a7c0e17cb",
+          name: "Jacqueline Russel",
         },
-        quantity: 9463.17,
-        subTotal: 4373.51,
-        taxAmount: 84.69,
+        quantity: 6321.21,
+        subTotal: 5137.34,
+        taxAmount: 1478.83,
         taxRateRef: {
-          effectiveTaxRate: 8836.41,
-          id: "b9a6658e-69a4-4b84-bd38-2dbec75c68c6",
-          name: "Alma Hartmann",
+          effectiveTaxRate: 3588.82,
+          id: "fe22cd5c-ba6f-4bfe-8932-af6813d65bfe",
+          name: "Elbert Schmidt",
         },
-        totalAmount: 3818.37,
+        totalAmount: 8717.9,
         trackingCategoryRefs: [
           {
-            id: "ce304d88-49bf-4821-8c33-7f96bb0c69e3",
-            name: "Theresa Schumm I",
+            id: "916f7fc7-dda7-40ec-a0e6-075894d61c14",
+            name: "Mr. Irving Mann",
           },
           {
-            id: "44ba9f78-a5c0-4ed7-aab6-2e97261fb0c5",
-            name: "Lionel Connelly",
-          },
-          {
-            id: "51996b5b-4b50-4eef-b12b-7a7ab0344b17",
-            name: "Nancy Johnson",
+            id: "7e37c0d9-77f1-4a54-91ab-e9751b106d23",
+            name: "Kenneth Effertz",
           },
         ],
-        unitAmount: 8478.05,
+        unitAmount: 6179.29,
       },
       {
         accountRef: {
-          id: "eebef897-f3dd-40cc-933f-11b3e4e080aa",
-          name: "Ms. Cynthia Gorczany",
+          id: "815aae99-fcde-49e7-a9c9-d4f2d8a44640",
+          name: "Dr. Wilbur Jerde",
         },
-        description: "accusamus",
-        discountAmount: 7590.59,
-        discountPercentage: 4841.4,
+        description: "nihil",
+        discountAmount: 2079.6,
+        discountPercentage: 6657.15,
         itemRef: {
-          id: "59e02f37-02c5-4c8e-ad30-ead3104fa447",
-          name: "Tanya Prohaska",
+          id: "2f93f467-dc0d-48da-9612-2026ab8f2774",
+          name: "Ms. Greg Sanford",
         },
-        quantity: 4960.06,
-        subTotal: 3249.55,
-        taxAmount: 7261.44,
+        quantity: 3771.77,
+        subTotal: 6271.29,
+        taxAmount: 9494,
         taxRateRef: {
-          effectiveTaxRate: 2839.36,
-          id: "4282821f-db2f-469e-9926-7c71cc8d3cd4",
-          name: "Dolores Lehner I",
+          effectiveTaxRate: 6235.78,
+          id: "80da7a08-9fc4-44db-a745-30e5cc7c6d0c",
+          name: "Spencer Wintheiser",
         },
-        totalAmount: 3691.81,
+        totalAmount: 8196.32,
         trackingCategoryRefs: [
           {
-            id: "a82c808f-e275-41a2-847c-0449e143f961",
-            name: "Kelvin Robel",
-          },
-          {
-            id: "40d5a11f-a436-4e62-9923-3f95c9d23739",
-            name: "Leticia Kris",
-          },
-          {
-            id: "b5db4f50-0183-4feb-9f67-6b7206dab750",
-            name: "Jill Davis",
+            id: "34b6f623-bcec-4ab5-8aee-5e0da8b9af6a",
+            name: "Christopher Hermiston",
           },
         ],
-        unitAmount: 3951.94,
+        unitAmount: 3905.07,
       },
     ],
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "dolore",
-    note: "in",
+    modifiedDate: "repudiandae",
+    note: "odio",
     paymentAllocations: [
       {
         allocation: {
+          allocatedOnDate: "aliquam",
+          currency: "quasi",
+          currencyRate: 2144.25,
+          totalAmount: 7771.39,
+        },
+        payment: {
+          accountRef: {
+            id: "be2d176d-c1c4-43d4-8f61-d171157cbe5e",
+            name: "Francis Weimann",
+          },
+          currency: "quasi",
+          currencyRate: 933.86,
+          id: "840772f3-2e3b-449d-be0f-23b7b6d9948d",
+          note: "aliquid",
+          paidOnDate: "saepe",
+          reference: "facere",
+          totalAmount: 8999.7,
+        },
+      },
+      {
+        allocation: {
           allocatedOnDate: "fugiat",
-          currency: "minus",
-          currencyRate: 2693.91,
-          totalAmount: 1928.71,
+          currency: "eius",
+          currencyRate: 4515.93,
+          totalAmount: 4844.89,
         },
         payment: {
           accountRef: {
-            id: "9ed8c432-0f41-4240-9448-7ac693b94c3b",
-            name: "Ismael Cummings",
+            id: "680fc7a1-7a82-4e5e-82fd-28d1040a7e91",
+            name: "Belinda Denesik",
           },
-          currency: "blanditiis",
-          currencyRate: 8422.41,
-          id: "795aa42f-c405-4669-b69a-006d21249450",
-          note: "atque",
-          paidOnDate: "quasi",
-          reference: "natus",
-          totalAmount: 8518.84,
+          currency: "incidunt",
+          currencyRate: 3084.29,
+          id: "cb183500-8f46-41ce-93e9-14498a9ba460",
+          note: "similique",
+          paidOnDate: "nulla",
+          reference: "pariatur",
+          totalAmount: 9692.94,
         },
       },
       {
         allocation: {
-          allocatedOnDate: "odio",
-          currency: "quo",
-          currencyRate: 2153.91,
-          totalAmount: 7379.94,
+          allocatedOnDate: "temporibus",
+          currency: "officiis",
+          currencyRate: 2522.9,
+          totalAmount: 826.1,
         },
         payment: {
           accountRef: {
-            id: "1b418440-60e0-4031-8d02-3dc901f5afd2",
-            name: "Rafael Sanford",
+            id: "0c37daa9-182a-449d-9625-d3caffc198ee",
+            name: "Edwin Hagenes",
           },
-          currency: "praesentium",
-          currencyRate: 2573.24,
-          id: "6ae9d892-53c8-4962-b489-6bf51e4652d3",
-          note: "cumque",
-          paidOnDate: "nesciunt",
-          reference: "aliquam",
-          totalAmount: 2338.04,
-        },
-      },
-      {
-        allocation: {
-          allocatedOnDate: "at",
-          currency: "suscipit",
-          currencyRate: 625.56,
-          totalAmount: 4649.44,
-        },
-        payment: {
-          accountRef: {
-            id: "78af4912-4772-45e6-a190-9e91044a5de5",
-            name: "Shaun Schowalter",
-          },
-          currency: "eaque",
-          currencyRate: 3973.05,
-          id: "670cf1cf-5932-4605-a51e-66bb426897d9",
-          note: "omnis",
-          paidOnDate: "dolorum",
-          reference: "qui",
-          totalAmount: 8610.2,
-        },
-      },
-      {
-        allocation: {
-          allocatedOnDate: "velit",
-          currency: "amet",
-          currencyRate: 3714.09,
-          totalAmount: 3815.34,
-        },
-        payment: {
-          accountRef: {
-            id: "70e93ee6-cf59-4f35-8aae-acae323a31bf",
-            name: "Miss Luz Osinski",
-          },
-          currency: "molestias",
-          currencyRate: 4623.08,
-          id: "716c802c-c9e0-4c7d-9d32-3f1aa63ed9cf",
-          note: "et",
-          paidOnDate: "nobis",
-          reference: "quas",
-          totalAmount: 3675.11,
+          currency: "dignissimos",
+          currencyRate: 6043.08,
+          id: "2bcd440e-a98b-4ecc-a048-6de0d56d73b0",
+          note: "quae",
+          paidOnDate: "quis",
+          reference: "nemo",
+          totalAmount: 345.89,
         },
       },
     ],
-    reference: "commodi",
-    sourceModifiedDate: "soluta",
-    subTotal: 7787.26,
+    reference: "neque",
+    sourceModifiedDate: "voluptates",
+    subTotal: 5187.95,
     supplementalData: {
       content: {
-        "id": {
-          "inventore": "accusamus",
-          "maiores": "odit",
+        "impedit": {
+          "explicabo": "ea",
+          "doloribus": "maiores",
         },
-        "numquam": {
-          "numquam": "culpa",
-          "aliquam": "iusto",
+        "nihil": {
+          "impedit": "iure",
+          "ullam": "aliquid",
         },
-        "voluptatibus": {
-          "maxime": "repellat",
-          "veritatis": "inventore",
-          "autem": "optio",
+        "odio": {
+          "delectus": "nostrum",
+          "harum": "reprehenderit",
+        },
+        "sit": {
+          "consectetur": "vero",
+          "eius": "optio",
+          "sapiente": "porro",
+          "impedit": "vel",
         },
       },
     },
-    taxAmount: 8552.86,
-    totalAmount: 8174.25,
+    taxAmount: 6786.31,
+    totalAmount: 5828.22,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 349223,
+  timeoutInMinutes: 69650,
 }).then((res: CreateDirectIncomeResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -336,7 +304,7 @@ sdk.directIncomes.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "ut",
+  directIncomeId: "necessitatibus",
 }).then((res: DownloadDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -363,7 +331,7 @@ const sdk = new CodatAccounting({
 sdk.directIncomes.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "dolore",
+  directIncomeId: "maxime",
 }).then((res: GetDirectIncomeResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -391,8 +359,8 @@ sdk.directIncomes.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "numquam",
-  timeoutInMinutes: 639401,
+  directIncomeId: "veniam",
+  timeoutInMinutes: 181673,
 }).then((res: GetDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -455,7 +423,7 @@ sdk.directIncomes.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "reprehenderit",
+  query: "aliquid",
 }).then((res: ListDirectIncomesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -482,7 +450,7 @@ const sdk = new CodatAccounting({
 sdk.directIncomes.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "nemo",
+  directIncomeId: "sed",
 }).then((res: ListDirectIncomeAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -508,12 +476,12 @@ const sdk = new CodatAccounting({
 
 sdk.directIncomes.uploadAttachment({
   requestBody: {
-    content: "nisi".encode(),
-    requestBody: "consequuntur",
+    content: "modi".encode(),
+    requestBody: "at",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "praesentium",
+  directIncomeId: "aperiam",
 }).then((res: UploadDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response

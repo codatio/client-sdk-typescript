@@ -199,7 +199,6 @@ src/sdk/models/shared/pushoptionchoice.ts
 src/sdk/models/shared/accounts.ts
 src/sdk/models/shared/createbanktransactionsresponse.ts
 src/sdk/models/shared/banktransactions.ts
-src/sdk/models/shared/banktransactionline.ts
 src/sdk/models/shared/banktransactiontype.ts
 src/sdk/models/shared/banktransactionsresponse.ts
 src/sdk/models/shared/createbankaccountresponse.ts

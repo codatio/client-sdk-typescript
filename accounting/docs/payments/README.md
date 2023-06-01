@@ -35,63 +35,69 @@ const sdk = new CodatAccounting({
 sdk.payments.create({
   payment: {
     accountRef: {
-      id: "aa558a65-e208-4301-aca3-4bb87d4f6212",
-      name: "Ms. Kristi Jast",
+      id: "61e91500-323b-42c0-9b92-4771f5669e5b",
+      name: "Tricia Sawayn",
     },
-    currency: "architecto",
-    currencyRate: 3766.39,
+    currency: "magni",
+    currencyRate: 4374.89,
     customerRef: {
-      companyName: "voluptatem",
-      id: "6294514c-3db9-4ca9-b38b-d2be87870349",
+      companyName: "ea",
+      id: "49d84eb9-e4cf-4d22-b6e0-b88fb87d6fa5",
     },
-    date: "adipisci",
-    id: "f49aa846-5a32-4832-b9b7-19d1cea673d8",
+    date: "cum",
+    id: "6e8dbf81-2f83-4b1c-a6a9-ffc561929cca",
     lines: [
       {
-        allocatedOnDate: "itaque",
-        amount: 1984.56,
+        allocatedOnDate: "nemo",
+        amount: 3864.41,
         links: [
           {
-            amount: 1976.2,
-            currencyRate: 3400.87,
-            id: "e49a3135-778c-4e54-8acb-0e3ea975045b",
-            type: PaymentLinkType.Payment,
-          },
-          {
-            amount: 7977.88,
-            currencyRate: 9916.87,
-            id: "63b21518-6ab5-4e3a-8226-14315d156829",
-            type: PaymentLinkType.Refund,
-          },
-          {
-            amount: 9207.5,
-            currencyRate: 3778.77,
-            id: "1afc7186-ff20-4b7a-b3df-40ca0d7657c1",
-            type: PaymentLinkType.Other,
+            amount: 6814.58,
+            currencyRate: 977.35,
+            id: "395918da-1d48-4e78-a3cf-8e1143da9308",
+            type: PaymentLinkType.PaymentOnAccount,
           },
         ],
       },
       {
-        allocatedOnDate: "eius",
-        amount: 698.78,
+        allocatedOnDate: "magni",
+        amount: 4682.52,
         links: [
           {
-            amount: 7083.87,
-            currencyRate: 9823,
-            id: "055271b2-511d-4d60-add1-b28272bc9c32",
-            type: PaymentLinkType.Unlinked,
+            amount: 137,
+            currencyRate: 5312.36,
+            id: "af221844-39b3-4de8-b56c-cce470cd2147",
+            type: PaymentLinkType.Payment,
           },
           {
-            amount: 1125.17,
-            currencyRate: 4058.4,
-            id: "97b1880f-cbb2-4b93-815f-670bd1784831",
-            type: PaymentLinkType.Other,
+            amount: 4308.75,
+            currencyRate: 9267.48,
+            id: "6152cf01-d0d8-4c3a-8b9a-5bf935dfe974",
+            type: PaymentLinkType.Discount,
           },
           {
-            amount: 3516.07,
-            currencyRate: 2234.48,
-            id: "eeb3b6e2-41c3-4109-9836-63c66dcbb7df",
-            type: PaymentLinkType.CreditNote,
+            amount: 6309.83,
+            currencyRate: 2828,
+            id: "b1e9c097-eda6-4234-82e1-a9237e9984c8",
+            type: PaymentLinkType.Unknown,
+          },
+        ],
+      },
+      {
+        allocatedOnDate: "facilis",
+        amount: 2810.64,
+        links: [
+          {
+            amount: 5745.91,
+            currencyRate: 9051.54,
+            id: "891923c1-8ca8-4d69-8568-9214fa20207e",
+            type: PaymentLinkType.Invoice,
+          },
+          {
+            amount: 9643.29,
+            currencyRate: 6295.82,
+            id: "e038cd7f-1bc2-4cab-af7f-c2ccba4bef0d",
+            type: PaymentLinkType.Discount,
           },
         ],
       },
@@ -99,32 +105,32 @@ sdk.payments.create({
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "porro",
-    note: "soluta",
+    modifiedDate: "nisi",
+    note: "voluptatum",
     paymentMethodRef: {
-      id: "09c8b408-e071-4377-8de4-fee101d9780a",
-      name: "Laura Schimmel",
+      id: "eaedb2ee-70be-4069-bb36-add704080e0a",
+      name: "Lorene Schneider",
     },
-    reference: "rerum",
-    sourceModifiedDate: "provident",
+    reference: "animi",
+    sourceModifiedDate: "ullam",
     supplementalData: {
       content: {
-        "perferendis": {
-          "accusantium": "possimus",
-          "vel": "minus",
+        "aperiam": {
+          "aliquam": "soluta",
         },
-        "blanditiis": {
-          "quia": "similique",
-          "ipsam": "a",
-          "alias": "perferendis",
+        "inventore": {
+          "ut": "sint",
+        },
+        "sint": {
+          "eius": "ratione",
         },
       },
     },
-    totalAmount: 1333.46,
+    totalAmount: 6253.92,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 152643,
+  timeoutInMinutes: 979832,
 }).then((res: CreatePaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -151,7 +157,7 @@ const sdk = new CodatAccounting({
 
 sdk.payments.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  paymentId: "sit",
+  paymentId: "mollitia",
 }).then((res: GetPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -213,7 +219,7 @@ sdk.payments.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "esse",
+  query: "suscipit",
 }).then((res: ListPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

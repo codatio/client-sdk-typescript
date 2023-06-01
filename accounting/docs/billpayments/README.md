@@ -37,59 +37,53 @@ const sdk = new CodatAccounting({
 sdk.billPayments.create({
   billPayment: {
     accountRef: {
-      id: "8502a55e-7f73-4bc8-85e3-20a319f4badf",
-      name: "Jesus Kreiger",
+      id: "ebf60c32-1f02-43b7-9d23-67fe1a0cc8df",
+      name: "Miss Daisy Willms",
     },
-    currency: "animi",
-    currencyRate: 5287.42,
-    date: "aliquid",
+    currency: "provident",
+    currencyRate: 4047.74,
+    date: "repellendus",
     id: "3d5a8e00-d108-4045-8823-7f342676cffa",
     lines: [
       {
-        allocatedOnDate: "facilis",
-        amount: 7594.51,
+        allocatedOnDate: "alias",
+        amount: 7719.31,
         links: [
           {
-            amount: 1782.01,
-            currencyRate: 2993.79,
-            id: "26665816-ddca-48ef-91fc-b4c593ec12cd",
-            type: BillPaymentLineLinkType.PaymentOnAccount,
-          },
-          {
-            amount: 6615.78,
-            currencyRate: 8409.92,
-            id: "0ec7afed-bd80-4df4-88a4-7f9390c58880",
-            type: BillPaymentLineLinkType.BillPayment,
+            amount: 4130.86,
+            currencyRate: 2871.41,
+            id: "b7c15dfb-ace1-488b-9c4e-e2c8c6ce611f",
+            type: BillPaymentLineLinkType.Discount,
           },
         ],
       },
       {
-        allocatedOnDate: "quas",
-        amount: 2184.13,
+        allocatedOnDate: "vero",
+        amount: 6943.94,
         links: [
           {
-            amount: 6834.9,
-            currencyRate: 7047.32,
-            id: "f9ef3ffd-d9f7-4f07-9af4-d35724cdb0f4",
+            amount: 7782.42,
+            currencyRate: 4909.66,
+            id: "cbdb6eec-7437-48ba-a531-7747dc915ad2",
             type: BillPaymentLineLinkType.ManualJournal,
           },
+        ],
+      },
+      {
+        allocatedOnDate: "dolorum",
+        amount: 9983.55,
+        links: [
           {
-            amount: 1776.51,
-            currencyRate: 5556.63,
-            id: "1187d568-44ed-4ed8-9a90-65e628bdfc20",
-            type: BillPaymentLineLinkType.Bill,
+            amount: 8473.08,
+            currencyRate: 8450.86,
+            id: "6723dc0f-5ae2-4f3a-ab70-0878756143f5",
+            type: BillPaymentLineLinkType.PaymentOnAccount,
           },
           {
-            amount: 1553.71,
-            currencyRate: 6937.24,
-            id: "6c879923-b7e1-4358-8f7a-e12c6891f82c",
-            type: BillPaymentLineLinkType.Discount,
-          },
-          {
-            amount: 1171.42,
-            currencyRate: 810.53,
-            id: "57172305-377d-4cfa-89df-975e35668609",
-            type: BillPaymentLineLinkType.Unlinked,
+            amount: 4351.42,
+            currencyRate: 7876.29,
+            id: "98b55554-080d-440b-8acc-6cbd6b5f3ec9",
+            type: BillPaymentLineLinkType.Unknown,
           },
         ],
       },
@@ -97,44 +91,41 @@ sdk.billPayments.create({
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "itaque",
+    modifiedDate: "provident",
     note: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
     paymentMethodRef: {
-      id: "9c3ddc5f-111d-4ea1-826d-541a4d190feb",
-      name: "Evelyn Kuhlman MD",
+      id: "304f926b-ad25-4538-99b4-74b0ed20e562",
+      name: "Vickie Welch",
     },
-    reference: "placeat",
-    sourceModifiedDate: "quod",
+    reference: "autem",
+    sourceModifiedDate: "nesciunt",
     supplementalData: {
       content: {
-        "sit": {
-          "distinctio": "distinctio",
-          "assumenda": "illum",
-          "soluta": "magnam",
-          "laudantium": "tempora",
+        "animi": {
+          "beatae": "ipsa",
+          "mollitia": "nam",
+          "assumenda": "quo",
         },
-        "esse": {
-          "corrupti": "reiciendis",
+        "fuga": {
+          "commodi": "fugit",
+          "suscipit": "voluptate",
+          "nisi": "aliquid",
         },
-        "facilis": {
-          "repudiandae": "amet",
-          "natus": "ab",
-        },
-        "officiis": {
-          "rerum": "placeat",
-          "ab": "ad",
+        "provident": {
+          "accusamus": "ab",
+          "itaque": "quisquam",
         },
       },
     },
     supplierRef: {
-      id: "8c4c4e54-599e-4a34-a260-e9b200ce78a1",
-      supplierName: "expedita",
+      id: "00221b33-5d89-4acb-becf-da8d0c549ef0",
+      supplierName: "ipsum",
     },
     totalAmount: 1329.54,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 842921,
+  timeoutInMinutes: 367,
 }).then((res: CreateBillPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -183,7 +174,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.billPayments.delete({
-  billPaymentId: "quos",
+  billPaymentId: "doloremque",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: DeleteBillPaymentResponse) => {
@@ -211,7 +202,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.billPayments.get({
-  billPaymentId: "maiores",
+  billPaymentId: "tempora",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetBillPaymentsResponse) => {
   if (res.statusCode == 200) {
@@ -273,7 +264,7 @@ sdk.billPayments.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "quidem",
+  query: "perspiciatis",
 }).then((res: ListBillPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

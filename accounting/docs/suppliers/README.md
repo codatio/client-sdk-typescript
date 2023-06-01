@@ -41,58 +41,59 @@ sdk.suppliers.create({
   supplier: {
     addresses: [
       {
-        city: "Stephaniastead",
-        country: "Swaziland",
-        line1: "laudantium",
-        line2: "eos",
-        postalCode: "38203-9334",
-        region: "aliquid",
+        city: "Kirkland",
+        country: "Netherlands",
+        line1: "doloremque",
+        line2: "autem",
+        postalCode: "25088",
+        region: "laudantium",
         type: AddressType.Delivery,
       },
       {
-        city: "Port Rosalinda",
-        country: "Turkmenistan",
-        line1: "cum",
-        line2: "consequatur",
-        postalCode: "54807",
-        region: "maxime",
+        city: "Ankundingfort",
+        country: "Kyrgyz Republic",
+        line1: "repellendus",
+        line2: "beatae",
+        postalCode: "42514",
+        region: "facilis",
         type: AddressType.Unknown,
       },
-      {
-        city: "Lake Arnoldo",
-        country: "Martinique",
-        line1: "id",
-        line2: "expedita",
-        postalCode: "45919",
-        region: "quisquam",
-        type: AddressType.Delivery,
-      },
     ],
-    contactName: "maiores",
-    defaultCurrency: "laudantium",
-    emailAddress: "beatae",
-    id: "ddf7e088-f74e-4f54-8921-6e8926313bb6",
+    contactName: "cumque",
+    defaultCurrency: "doloribus",
+    emailAddress: "minima",
+    id: "e6cb6eba-be5e-40b9-9f3b-1358d6a87bb7",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "hic",
-    phone: "375-814-0006 x46446",
-    registrationNumber: "fugiat",
-    sourceModifiedDate: "laboriosam",
+    modifiedDate: "est",
+    phone: "1-869-446-8407 x70355",
+    registrationNumber: "sit",
+    sourceModifiedDate: "dignissimos",
     status: SupplierStatus.Archived,
     supplementalData: {
       content: {
-        "recusandae": {
-          "pariatur": "excepturi",
+        "praesentium": {
+          "incidunt": "incidunt",
+          "vitae": "incidunt",
+          "nostrum": "explicabo",
+        },
+        "culpa": {
+          "voluptatibus": "ipsa",
+          "quasi": "sapiente",
+          "dolorem": "quaerat",
+        },
+        "incidunt": {
+          "cumque": "vel",
         },
       },
     },
-    supplierName: "fugiat",
-    taxNumber: "ipsum",
+    supplierName: "inventore",
+    taxNumber: "quidem",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 730689,
+  timeoutInMinutes: 894398,
 }).then((res: CreateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -120,7 +121,7 @@ sdk.suppliers.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "voluptas",
+  supplierId: "quae",
 }).then((res: DownloadSupplierAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -147,7 +148,7 @@ const sdk = new CodatAccounting({
 
 sdk.suppliers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  supplierId: "aliquid",
+  supplierId: "ipsum",
 }).then((res: GetSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -175,7 +176,7 @@ sdk.suppliers.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "perferendis",
+  supplierId: "nesciunt",
 }).then((res: GetSupplierAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -238,7 +239,7 @@ sdk.suppliers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "nesciunt",
+  query: "distinctio",
 }).then((res: ListSuppliersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -265,7 +266,7 @@ const sdk = new CodatAccounting({
 sdk.suppliers.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "non",
+  supplierId: "dolorum",
 }).then((res: ListSupplierAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -300,60 +301,86 @@ sdk.suppliers.update({
   supplier: {
     addresses: [
       {
-        city: "Carterland",
-        country: "Northern Mariana Islands",
-        line1: "id",
-        line2: "ab",
-        postalCode: "38112-4885",
-        region: "libero",
+        city: "The Hammocks",
+        country: "Guinea",
+        line1: "neque",
+        line2: "eos",
+        postalCode: "43139-5315",
+        region: "corporis",
         type: AddressType.Unknown,
       },
       {
-        city: "Enterprise",
-        country: "Honduras",
-        line1: "quasi",
-        line2: "ducimus",
-        postalCode: "84456",
-        region: "perspiciatis",
+        city: "Towson",
+        country: "Christmas Island",
+        line1: "laudantium",
+        line2: "enim",
+        postalCode: "88211-1109",
+        region: "earum",
+        type: AddressType.Billing,
+      },
+      {
+        city: "South Electa",
+        country: "Saint Lucia",
+        line1: "numquam",
+        line2: "quae",
+        postalCode: "19763-8760",
+        region: "eum",
+        type: AddressType.Billing,
+      },
+      {
+        city: "Littlehaven",
+        country: "Cambodia",
+        line1: "cupiditate",
+        line2: "dicta",
+        postalCode: "97500-6166",
+        region: "atque",
         type: AddressType.Billing,
       },
     ],
-    contactName: "nobis",
-    defaultCurrency: "facilis",
-    emailAddress: "sequi",
-    id: "98788398-eba1-4bbf-b143-356f6349a164",
+    contactName: "aliquam",
+    defaultCurrency: "perspiciatis",
+    emailAddress: "labore",
+    id: "79edd4fc-f7b5-40cf-87f0-8f39271076a2",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "explicabo",
-    phone: "671-217-9347 x630",
-    registrationNumber: "vel",
-    sourceModifiedDate: "enim",
-    status: SupplierStatus.Unknown,
+    modifiedDate: "dolore",
+    phone: "407.690.5799 x0051",
+    registrationNumber: "saepe",
+    sourceModifiedDate: "laudantium",
+    status: SupplierStatus.Active,
     supplementalData: {
       content: {
-        "beatae": {
-          "atque": "optio",
-          "culpa": "excepturi",
+        "blanditiis": {
+          "occaecati": "natus",
+          "voluptas": "optio",
         },
-        "et": {
-          "odit": "reiciendis",
-          "voluptatem": "veniam",
+        "totam": {
+          "odit": "eos",
+          "libero": "eveniet",
+          "aut": "similique",
+          "ipsum": "maxime",
         },
-        "consequuntur": {
-          "dolor": "quia",
-          "harum": "sequi",
+        "tenetur": {
+          "voluptate": "blanditiis",
+          "sint": "dolorem",
+        },
+        "soluta": {
+          "fugit": "neque",
+          "asperiores": "corrupti",
+          "autem": "autem",
+          "alias": "eaque",
         },
       },
     },
-    supplierName: "quae",
-    taxNumber: "porro",
+    supplierName: "minus",
+    taxNumber: "commodi",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  supplierId: "harum",
-  timeoutInMinutes: 868742,
+  supplierId: "inventore",
+  timeoutInMinutes: 784398,
 }).then((res: UpdateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response

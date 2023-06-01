@@ -24,7 +24,6 @@ export * from "./balancesheet1";
 export * from "./bankaccount";
 export * from "./bankaccountref";
 export * from "./bankaccounts";
-export * from "./banktransactionline";
 export * from "./banktransactions";
 export * from "./banktransactionsresponse";
 export * from "./banktransactiontype";

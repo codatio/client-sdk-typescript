@@ -36,46 +36,46 @@ sdk.items.create({
   item: {
     billItem: {
       accountRef: {
-        id: "3cf6c027-6e7b-421b-ad90-d2743fd6c2a1",
-        name: "Gwen Jast",
+        id: "e8ab4a9c-492c-45e8-ba5d-4aa4a508bd38",
+        name: "Kara Cremin",
       },
-      description: "natus",
+      description: "deserunt",
       taxRateRef: {
-        effectiveTaxRate: 4616.76,
-        id: "8ec256a5-b092-427f-8c47-996c977bbc57",
-        name: "Sean Lakin",
+        effectiveTaxRate: 5230.55,
+        id: "dd71bdda-a30b-47b9-9449-ae69c088d418",
+        name: "Ms. Wm Kohler II",
       },
-      unitPrice: 5542.89,
+      unitPrice: 9965.22,
     },
-    code: "est",
-    id: "8600c58d-67d6-43e4-aa56-8464579cfc6c",
+    code: "modi",
+    id: "23d54393-5f37-47ac-9c9b-7e93b6a3c523",
     invoiceItem: {
       accountRef: {
-        id: "0e503f56-831f-41d8-ad87-b28e8afabc98",
-        name: "Jana Cruickshank DVM",
+        id: "105e7c34-cab0-4ecb-812a-66148944a8e9",
+        name: "Ms. Jennie Hartmann",
       },
-      description: "magnam",
+      description: "nam",
       taxRateRef: {
-        effectiveTaxRate: 2124.42,
-        id: "b2342417-d13e-43f6-aaa9-ae4ae8ab4a9c",
-        name: "Becky Crona",
+        effectiveTaxRate: 7904.63,
+        id: "25382533-43fb-40a4-a66e-a47578d171e2",
+        name: "Frederick Bogan IV",
       },
-      unitPrice: 9000.58,
+      unitPrice: 9823.15,
     },
     isBillItem: false,
     isInvoiceItem: false,
-    itemStatus: ItemStatus.Active,
+    itemStatus: ItemStatus.Archived,
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "quidem",
-    name: "Dan Skiles",
-    sourceModifiedDate: "culpa",
-    type: ItemType.Inventory,
+    modifiedDate: "aliquid",
+    name: "Shelly Purdy",
+    sourceModifiedDate: "quia",
+    type: ItemType.Service,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 631429,
+  timeoutInMinutes: 125551,
 }).then((res: CreateItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -165,7 +165,7 @@ sdk.items.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "sit",
+  query: "dolorem",
 }).then((res: ListItemsResponse) => {
   if (res.statusCode == 200) {
     // handle response
