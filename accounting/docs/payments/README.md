@@ -17,89 +17,87 @@ Posts a new payment to the accounting package for a given company.
 
 Required data may vary by integration. To see what data to post, first call [Get create payment model](https://docs.codat.io/accounting-api#/operations/get-create-payments-model).
 
-> **Supported Integrations**
-> 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=payments) for integrations that support creating payments.
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=payments) to see which integrations support this endpoint.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreatePaymentResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { DataTypeEnum, PaymentLinkTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { DataType, PaymentLinkType, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
 sdk.payments.create({
   payment: {
     accountRef: {
-      id: "2de7b356-2201-4a6a-ab4a-e7b1a5b908d4",
-      name: "Jeffery Aufderhar",
+      id: "61e91500-323b-42c0-9b92-4771f5669e5b",
+      name: "Tricia Sawayn",
     },
-    currency: "quae",
-    currencyRate: 6765.76,
+    currency: "magni",
+    currencyRate: 4374.89,
     customerRef: {
-      companyName: "fuga",
-      id: "35d4a839-f03b-4ab7-bb91-8f0313984507",
+      companyName: "ea",
+      id: "49d84eb9-e4cf-4d22-b6e0-b88fb87d6fa5",
     },
-    date: "officiis",
-    id: "0e39c7e2-3ecb-4060-8652-e23a3d6c657e",
+    date: "cum",
+    id: "6e8dbf81-2f83-4b1c-a6a9-ffc561929cca",
     lines: [
       {
-        allocatedOnDate: "quibusdam",
-        amount: 8936.05,
+        allocatedOnDate: "nemo",
+        amount: 3864.41,
         links: [
           {
-            amount: 9387.2,
-            currencyRate: 4758.76,
-            id: "f002d198-6aa9-49d3-a1d3-2329e45837e8",
-            type: PaymentLinkTypeEnum.Discount,
-          },
-          {
-            amount: 1859.89,
-            currencyRate: 6377.7,
-            id: "d6bb10e2-55fd-4c48-8d6e-3308675cbf18",
-            type: PaymentLinkTypeEnum.CreditNote,
-          },
-          {
-            amount: 5604.72,
-            currencyRate: 3424.33,
-            id: "6a7e82cd-f9d0-4fc2-82c6-66af3c3f5589",
-            type: PaymentLinkTypeEnum.PaymentOnAccount,
+            amount: 6814.58,
+            currencyRate: 977.35,
+            id: "395918da-1d48-4e78-a3cf-8e1143da9308",
+            type: PaymentLinkType.PaymentOnAccount,
           },
         ],
       },
       {
-        allocatedOnDate: "accusamus",
-        amount: 6668.05,
+        allocatedOnDate: "magni",
+        amount: 4682.52,
         links: [
           {
-            amount: 8213.45,
-            currencyRate: 1736.08,
-            id: "64e41e2c-a848-422e-913f-6d9d2ad37c30",
-            type: PaymentLinkTypeEnum.Payment,
+            amount: 137,
+            currencyRate: 5312.36,
+            id: "af221844-39b3-4de8-b56c-cce470cd2147",
+            type: PaymentLinkType.Payment,
           },
           {
-            amount: 5821.15,
-            currencyRate: 328.36,
-            id: "77c10b68-7921-463e-a7d4-8860543c0a30",
-            type: PaymentLinkTypeEnum.Invoice,
+            amount: 4308.75,
+            currencyRate: 9267.48,
+            id: "6152cf01-d0d8-4c3a-8b9a-5bf935dfe974",
+            type: PaymentLinkType.Discount,
+          },
+          {
+            amount: 6309.83,
+            currencyRate: 2828,
+            id: "b1e9c097-eda6-4234-82e1-a9237e9984c8",
+            type: PaymentLinkType.Unknown,
           },
         ],
       },
       {
-        allocatedOnDate: "excepturi",
-        amount: 7879.41,
+        allocatedOnDate: "facilis",
+        amount: 2810.64,
         links: [
           {
-            amount: 8004.56,
-            currencyRate: 9757.5,
-            id: "6c0276e7-b21b-4ad9-8d27-43fd6c2a10e6",
-            type: PaymentLinkTypeEnum.ManualJournal,
+            amount: 5745.91,
+            currencyRate: 9051.54,
+            id: "891923c1-8ca8-4d69-8568-9214fa20207e",
+            type: PaymentLinkType.Invoice,
+          },
+          {
+            amount: 9643.29,
+            currencyRate: 6295.82,
+            id: "e038cd7f-1bc2-4cab-af7f-c2ccba4bef0d",
+            type: PaymentLinkType.Discount,
           },
         ],
       },
@@ -107,37 +105,32 @@ sdk.payments.create({
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "odit",
-    note: "natus",
+    modifiedDate: "nisi",
+    note: "voluptatum",
     paymentMethodRef: {
-      id: "78ec256a-5b09-4227-bcc4-7996c977bbc5",
-      name: "Jeannie Dibbert",
+      id: "eaedb2ee-70be-4069-bb36-add704080e0a",
+      name: "Lorene Schneider",
     },
-    reference: "eos",
-    sourceModifiedDate: "quos",
+    reference: "animi",
+    sourceModifiedDate: "ullam",
     supplementalData: {
       content: {
-        "blanditiis": {
-          "ipsa": "eaque",
-          "quo": "ad",
+        "aperiam": {
+          "aliquam": "soluta",
         },
-        "atque": {
-          "eum": "iusto",
-          "facere": "ea",
-          "sequi": "voluptates",
-          "tempora": "similique",
+        "inventore": {
+          "ut": "sint",
         },
-        "officia": {
-          "laboriosam": "quos",
-          "aliquam": "vel",
+        "sint": {
+          "eius": "ratione",
         },
       },
     },
-    totalAmount: 2546.16,
+    totalAmount: 6253.92,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 321921,
+  timeoutInMinutes: 979832,
 }).then((res: CreatePaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -154,17 +147,17 @@ Get payment
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetPaymentResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PaymentLinkTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { PaymentLinkType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
 sdk.payments.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  paymentId: "odio",
+  paymentId: "mollitia",
 }).then((res: GetPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -180,18 +173,18 @@ See the examples for integration-specific indicative models.
 
 > **Supported Integrations**
 > 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=payments) for integrations that support creating payments.
+> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=payments) for integrations that support creating payments.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreatePaymentsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -217,7 +210,7 @@ import { ListPaymentsResponse } from "@codat/accounting/dist/sdk/models/operatio
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -226,7 +219,7 @@ sdk.payments.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "omnis",
+  query: "suscipit",
 }).then((res: ListPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

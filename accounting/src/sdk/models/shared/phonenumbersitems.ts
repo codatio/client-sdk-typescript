@@ -3,21 +3,21 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { PhoneNumberTypeEnum } from "./phonenumbertypeenum";
+import { PhoneNumberType } from "./phonenumbertype";
 import { Expose } from "class-transformer";
 
 export class PhoneNumbersitems extends SpeakeasyBase {
-  /**
-   * A phone number.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "number" })
-  number: string;
+    /**
+     * A phone number.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "number" })
+    number: string;
 
-  /**
-   * The type of phone number
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type: PhoneNumberTypeEnum;
+    /**
+     * The type of phone number
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type: PhoneNumberType;
 }

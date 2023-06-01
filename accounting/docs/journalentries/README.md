@@ -18,156 +18,163 @@ Posts a new journalEntry to the accounting package for a given company.
 
 Required data may vary by integration. To see what data to post, first call [Get create journal entry model](https://docs.codat.io/accounting-api#/operations/get-create-journalEntries-model).
 
-> **Supported Integrations**
-> 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journalEntries) for integrations that support creating journal entries.
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journalEntries) to see which integrations support this endpoint.
+
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateJournalEntryResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { DataTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { DataType, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
 sdk.journalEntries.create({
   journalEntry: {
-    createdOn: "delectus",
-    description: "id",
-    id: "1011a091-b3ec-48b5-b862-de1a9d14fe72",
+    createdOn: "corporis",
+    description: "omnis",
+    id: "b855d015-b62c-48b8-ba38-a8a88c144200",
     journalLines: [
       {
         accountRef: {
-          id: "521f9030-3dfc-4338-b97f-ffa6d1d32090",
-          name: "Salvatore Boyer",
+          id: "2caeb1ae-1ecf-48c3-8946-bba7a05a8b4a",
+          name: "Noah Rutherford",
         },
-        currency: "mollitia",
-        description: "cumque",
-        netAmount: 5632.6,
+        currency: "amet",
+        description: "eum",
+        netAmount: 5102.81,
         tracking: {
           recordRefs: [
             {
-              dataType: "accusamus",
-              id: "1961ce9b-e41c-4869-9d7d-9719d07b200a",
+              dataType: "maxime",
+              id: "ca363272-760e-4966-a97e-054103347d78",
             },
             {
-              dataType: "corporis",
-              id: "8ffd2967-df8f-4d88-aa8e-60be620cd9c5",
+              dataType: "asperiores",
+              id: "f2491145-fab9-4e59-a4af-336664eaa6bf",
             },
             {
-              dataType: "officia",
-              id: "fdd04c37-5251-42be-ae1d-87ecc5fdcea8",
-            },
-            {
-              dataType: "eveniet",
-              id: "7a883116-62cd-4a6d-b7c1-d86066237d42",
+              dataType: "dolores",
+              id: "ff14e8c1-b352-4acc-adac-c5227814eca0",
             },
           ],
         },
       },
       {
         accountRef: {
-          id: "27866db8-a749-4e39-8451-1cc75e4f0c00",
-          name: "Patty Harber",
+          id: "16bc41ea-1342-4d41-84a2-5ef71de57a11",
+          name: "Franklin Brown",
         },
-        currency: "molestiae",
-        description: "ipsam",
-        netAmount: 5541.62,
+        currency: "tempora",
+        description: "velit",
+        netAmount: 1191.73,
         tracking: {
           recordRefs: [
             {
-              dataType: "nobis",
-              id: "94562f00-6968-45fc-91a1-73d84bbe24f2",
+              dataType: "laboriosam",
+              id: "92ea4867-3d52-42b8-a8a9-030660f024c7",
             },
             {
-              dataType: "error",
-              id: "834afb07-35cb-4628-9d4a-29aaa1e16915",
-            },
-            {
-              dataType: "nisi",
-              id: "f7d2ee20-9505-4bf0-ba93-e94480ca37fb",
-            },
-            {
-              dataType: "ab",
-              id: "0789032a-c333-4172-a2dd-79ec74ba7e88",
+              dataType: "sint",
+              id: "b4cc64c2-b3a3-42c4-88ad-e62f6aa558a6",
             },
           ],
         },
       },
       {
         accountRef: {
-          id: "ddb36fd1-ccc3-441c-8657-3474f0a740fb",
-          name: "Sandy Reichel",
+          id: "5e208301-6ca3-44bb-87d4-f62127a607d1",
+          name: "Betty Jacobi",
         },
-        currency: "illo",
-        description: "impedit",
-        netAmount: 2164.48,
+        currency: "quaerat",
+        description: "nostrum",
+        netAmount: 1080.29,
         tracking: {
           recordRefs: [
             {
-              dataType: "doloremque",
-              id: "9e763995-d808-4bbe-b944-55ebc550a1c4",
+              dataType: "cumque",
+              id: "3db9ca9f-38bd-42be-8787-03493f49aa84",
             },
             {
-              dataType: "qui",
-              id: "6b59c836-6fdc-4c13-9582-c1b855e889d9",
-            },
-            {
-              dataType: "officiis",
-              id: "f932e900-0a13-4ad8-9242-08efd2341189",
+              dataType: "ex",
+              id: "5a328327-9b71-49d1-8ea6-73d86e3b35e4",
             },
           ],
         },
       },
       {
         accountRef: {
-          id: "8e73879e-fbe8-4bae-babb-794536e90351",
-          name: "Rickey Miller",
+          id: "9a313577-8ce5-44ca-8b0e-3ea975045bac",
+          name: "Nathaniel DuBuque",
         },
-        currency: "adipisci",
-        description: "architecto",
-        netAmount: 4393.34,
+        currency: "quasi",
+        description: "nemo",
+        netAmount: 1217.04,
         tracking: {
           recordRefs: [
             {
-              dataType: "voluptatem",
-              id: "b77a5a53-65a7-49f1-9271-f01c0d361fed",
+              dataType: "commodi",
+              id: "ab5e3a02-2614-4315-9156-8299e61afc71",
+            },
+            {
+              dataType: "totam",
+              id: "6ff20b7a-73df-440c-a0d7-657c1641bbf0",
+            },
+            {
+              dataType: "nostrum",
+              id: "5271b251-1dd6-406d-91b2-8272bc9c3221",
             },
           ],
         },
       },
     ],
     journalRef: {
-      id: "8dc5effb-453e-4908-9e87-1fdb4d697bdd",
-      name: "Sylvester Maggio",
+      id: "697b1880-fcbb-42b9-bc15-f670bd178483",
+      name: "Kristin Herman",
     },
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "repudiandae",
-    postedOn: "incidunt",
+    modifiedDate: "necessitatibus",
+    postedOn: "harum",
     recordRef: {
-      dataType: "neque",
-      id: "734a5d72-d9ed-4d78-9be5-e7afe55297ba",
+      dataType: "amet",
+      id: "b6e241c3-1099-4836-a3c6-6dcbb7df6cb0",
     },
-    sourceModifiedDate: "laboriosam",
+    sourceModifiedDate: "molestias",
     supplementalData: {
       content: {
-        "laudantium": {
-          "repellat": "aliquam",
+        "totam": {
+          "modi": "aperiam",
+          "praesentium": "recusandae",
+          "eaque": "nihil",
+        },
+        "dicta": {
+          "molestiae": "in",
+        },
+        "magnam": {
+          "saepe": "non",
+          "a": "voluptates",
+          "vero": "quae",
+          "doloremque": "et",
+        },
+        "possimus": {
+          "esse": "praesentium",
+          "aperiam": "laborum",
+          "dicta": "doloremque",
         },
       },
     },
-    updatedOn: "modi",
+    updatedOn: "minus",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 907650,
+  timeoutInMinutes: 260242,
 }).then((res: CreateJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -177,7 +184,33 @@ sdk.journalEntries.create({
 
 ## delete
 
-Deletes a journal entry from the accounting package for a given company.
+﻿> **Use with caution**
+>
+>Because Journal Entries underpin every transaction in an accounting platform, deleting a Journal Entry can affect every transaction for a given company.
+> 
+> **Before you proceed, make sure you understand the implications of deleting Journal Entries from an accounting perspective.**
+
+The _Delete Journal entries_ endpoint allows you to delete a specified Journal entry from an accounting platform.
+
+### Process
+1. Pass the `{journalEntryId}` to the _Delete Journal Entries_ endpoint and store the `pushOperationKey` returned.
+2. Check the status of the delete by checking the status of push operation either via
+   1. [Push operation webhook](/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
+   2. [Push operation status endpoint](https://docs.codat.io/codat-api#/operations/get-push-operation). 
+   
+   A `Success` status indicates that the Journal Entry object was deleted from the accounting platform.
+3. (Optional) Check that the Journal Entry was deleted from the accounting platform.
+
+### Effect on related objects
+
+Be aware that deleting a Journal Entry from an accounting platform might cause related objects to be modified. For example, if you delete the Journal Entry for a paid invoice in QuickBooks Online, the invoice is deleted but the payment against that invoice is not. The payment is converted to a payment on account.
+
+## Integration specifics
+Integrations that support soft delete do not permanently delete the object in the accounting platform.
+
+| Integration | Soft Deleted | 
+|-------------|--------------|
+| QuickBooks Online | Yes    |       
 
 > **Supported Integrations**
 > 
@@ -188,18 +221,18 @@ Deletes a journal entry from the accounting package for a given company.
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { DeleteJournalEntryResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { DataTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { DataType, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
 sdk.journalEntries.delete({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  journalEntryId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  journalEntryId: "odio",
 }).then((res: DeleteJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -219,13 +252,13 @@ import { GetJournalEntryResponse } from "@codat/accounting/dist/sdk/models/opera
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
 sdk.journalEntries.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalEntryId: "dolorem",
+  journalEntryId: "rerum",
 }).then((res: GetJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -235,7 +268,7 @@ sdk.journalEntries.get({
 
 ## getCreateModel
 
-Get create journal entry model. Returns the expected data for the request payload.
+﻿Get create journal entry model. Returns the expected data for the request payload.
 
 See the examples for integration-specific indicative models.
 
@@ -248,11 +281,11 @@ See the examples for integration-specific indicative models.
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateJournalEntriesModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -268,7 +301,7 @@ sdk.journalEntries.getCreateModel({
 
 ## list
 
-Gets the latest journal entries for a company, with pagination
+﻿Gets the latest journal entries for a company, with pagination.
 
 ### Example Usage
 
@@ -278,7 +311,7 @@ import { ListJournalEntriesResponse } from "@codat/accounting/dist/sdk/models/op
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -287,7 +320,7 @@ sdk.journalEntries.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "laborum",
+  query: "provident",
 }).then((res: ListJournalEntriesResponse) => {
   if (res.statusCode == 200) {
     // handle response

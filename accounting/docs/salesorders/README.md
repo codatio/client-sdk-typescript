@@ -18,17 +18,17 @@ Get sales order
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetSalesOrderResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressTypeEnum, SalesOrderInvoiceStatusEnum, SalesOrderStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { AddressType, SalesOrderInvoiceStatus, SalesOrderStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
 sdk.salesOrders.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  salesOrderId: "vel",
+  salesOrderId: "officiis",
 }).then((res: GetSalesOrderResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -45,11 +45,11 @@ Get sales orders
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListSalesOrdersResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressTypeEnum, SalesOrderInvoiceStatusEnum, SalesOrderStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { AddressType, SalesOrderInvoiceStatus, SalesOrderStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -58,7 +58,7 @@ sdk.salesOrders.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "exercitationem",
+  query: "saepe",
 }).then((res: ListSalesOrdersResponse) => {
   if (res.statusCode == 200) {
     // handle response

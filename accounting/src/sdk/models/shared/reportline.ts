@@ -6,32 +6,32 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Type } from "class-transformer";
 
 export class ReportLine extends SpeakeasyBase {
-  /**
-   * Identifier for the account, unique for the company in the accounting platform.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "accountId" })
-  accountId?: string;
+    /**
+     * Identifier for the account, unique for the company in the accounting platform.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "accountId" })
+    accountId?: string;
 
-  /**
-   * An array of ReportLine items.
-   */
-  @SpeakeasyMetadata({ elemType: ReportLine })
-  @Expose({ name: "items" })
-  @Type(() => ReportLine)
-  items?: ReportLine[];
+    /**
+     * An array of ReportLine items.
+     */
+    @SpeakeasyMetadata({ elemType: ReportLine })
+    @Expose({ name: "items" })
+    @Type(() => ReportLine)
+    items?: ReportLine[];
 
-  /**
-   * Name of the report line item.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * Name of the report line item.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 
-  /**
-   * Numerical value of the line item.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "value" })
-  value: number;
+    /**
+     * Numerical value of the line item.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "value" })
+    value: number;
 }

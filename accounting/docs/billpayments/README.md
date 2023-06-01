@@ -18,96 +18,72 @@ Posts a new bill payment to the accounting package for a given company.
 
 Required data may vary by integration. To see what data to post, first call [Get create bill payment model](https://docs.codat.io/accounting-api#/operations/get-create-billPayments-model).
 
-> **Supported Integrations**
-> 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billPayments) for integrations that support creating bill payments.
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billPayments) to see which integrations support this endpoint.
+
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateBillPaymentResponse } from "@codat/accounting/dist/sdk/models/operations";
-import {
-  BillPaymentLineLinkTypeEnum,
-  DataTypeEnum,
-  PushChangeTypeEnum,
-  PushOperationStatusEnum,
-} from "@codat/accounting/dist/sdk/models/shared";
+import { BillPaymentLineLinkType, DataType, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
 sdk.billPayments.create({
   billPayment: {
     accountRef: {
-      id: "57eb809e-2810-4331-b398-1d4c700b607f",
-      name: "Francis McKenzie",
+      id: "ebf60c32-1f02-43b7-9d23-67fe1a0cc8df",
+      name: "Miss Daisy Willms",
     },
-    currency: "dignissimos",
-    currencyRate: 2358.34,
-    date: "soluta",
+    currency: "provident",
+    currencyRate: 4047.74,
+    date: "repellendus",
     id: "3d5a8e00-d108-4045-8823-7f342676cffa",
     lines: [
       {
-        allocatedOnDate: "temporibus",
-        amount: 6396.22,
+        allocatedOnDate: "alias",
+        amount: 7719.31,
         links: [
           {
-            amount: 9485.41,
-            currencyRate: 1339.49,
-            id: "ceda7e23-f225-4741-9faf-4b7544e472e8",
-            type: BillPaymentLineLinkTypeEnum.Unknown,
+            amount: 4130.86,
+            currencyRate: 2871.41,
+            id: "b7c15dfb-ace1-488b-9c4e-e2c8c6ce611f",
+            type: BillPaymentLineLinkType.Discount,
           },
         ],
       },
       {
-        allocatedOnDate: "odit",
-        amount: 5358.02,
+        allocatedOnDate: "vero",
+        amount: 6943.94,
         links: [
           {
-            amount: 4527.3,
-            currencyRate: 6267.07,
-            id: "5b40463a-7d57-45f1-800e-764ad7334ec1",
-            type: BillPaymentLineLinkTypeEnum.Refund,
-          },
-          {
-            amount: 4813.75,
-            currencyRate: 5580.51,
-            id: "1b36a080-88d1-400e-bada-200ef0422eb2",
-            type: BillPaymentLineLinkTypeEnum.Unlinked,
+            amount: 7782.42,
+            currencyRate: 4909.66,
+            id: "cbdb6eec-7437-48ba-a531-7747dc915ad2",
+            type: BillPaymentLineLinkType.ManualJournal,
           },
         ],
       },
       {
-        allocatedOnDate: "aliquid",
-        amount: 2646.49,
+        allocatedOnDate: "dolorum",
+        amount: 9983.55,
         links: [
           {
-            amount: 9750.95,
-            currencyRate: 5629.48,
-            id: "ab8366c7-23ff-4da9-a06b-ee4825c1fc0e",
-            type: BillPaymentLineLinkTypeEnum.Unlinked,
+            amount: 8473.08,
+            currencyRate: 8450.86,
+            id: "6723dc0f-5ae2-4f3a-ab70-0878756143f5",
+            type: BillPaymentLineLinkType.PaymentOnAccount,
           },
           {
-            amount: 1002.51,
-            currencyRate: 3178.98,
-            id: "c80bff91-8544-4ec4-adef-cce8f1977773",
-            type: BillPaymentLineLinkTypeEnum.ManualJournal,
-          },
-          {
-            amount: 4235.88,
-            currencyRate: 2086.83,
-            id: "562a7b40-8f05-4e3d-88fd-af313a1f5fd9",
-            type: BillPaymentLineLinkTypeEnum.Bill,
-          },
-          {
-            amount: 1280.21,
-            currencyRate: 3684.91,
-            id: "9c0b36f2-5ea9-444f-bb75-6c11f6c37a51",
-            type: BillPaymentLineLinkTypeEnum.Unlinked,
+            amount: 4351.42,
+            currencyRate: 7876.29,
+            id: "98b55554-080d-440b-8acc-6cbd6b5f3ec9",
+            type: BillPaymentLineLinkType.Unknown,
           },
         ],
       },
@@ -115,30 +91,41 @@ sdk.billPayments.create({
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "aliquid",
+    modifiedDate: "provident",
     note: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
     paymentMethodRef: {
-      id: "243835bb-c05a-423a-85ce-fc5fde10a0ce",
-      name: "Mildred Kautzer",
+      id: "304f926b-ad25-4538-99b4-74b0ed20e562",
+      name: "Vickie Welch",
     },
-    reference: "ullam",
-    sourceModifiedDate: "architecto",
+    reference: "autem",
+    sourceModifiedDate: "nesciunt",
     supplementalData: {
       content: {
-        "perferendis": {
-          "provident": "cumque",
+        "animi": {
+          "beatae": "ipsa",
+          "mollitia": "nam",
+          "assumenda": "quo",
+        },
+        "fuga": {
+          "commodi": "fugit",
+          "suscipit": "voluptate",
+          "nisi": "aliquid",
+        },
+        "provident": {
+          "accusamus": "ab",
+          "itaque": "quisquam",
         },
       },
     },
     supplierRef: {
-      id: "6dc5e347-6279-49bf-bbe6-949fb2bb4eca",
-      supplierName: "saepe",
+      id: "00221b33-5d89-4acb-becf-da8d0c549ef0",
+      supplierName: "ipsum",
     },
     totalAmount: 1329.54,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 423054,
+  timeoutInMinutes: 367,
 }).then((res: CreateBillPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -148,29 +135,48 @@ sdk.billPayments.create({
 
 ## delete
 
-Deletes a bill payment from the accounting package for a given company.
+﻿The _Delete Bill Payments_ endpoint allows you to delete a specified Bill Payment from an accounting platform.
+
+### Process
+1. Pass the `{billPaymentId}` to the _Delete Bill Payments_ endpoint and store the `pushOperationKey` returned.
+2. Check the status of the delete operation by checking the status of push operation either via
+    1. [Push operation webhook](/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
+    2. [Push operation status endpoint](https://docs.codat.io/codat-api#/operations/get-push-operation).
+
+   A `Success` status indicates that the Bill Payment object was deleted from the accounting platform.
+3. (Optional) Check that the Bill Payment was deleted from the accounting platform.
+
+### Effect on related objects
+Be aware that deleting a Bill Payment from an accounting platform might cause related objects to be modified.
+
+## Integration specifics
+Integrations that support soft delete do not permanently delete the object in the accounting platform.
+
+| Integration | Soft Delete | Details                                                                                             |  
+|-------------|-------------|-----------------------------------------------------------------------------------------------------|
+| Oracle NetSuite   | No          | See [here](/integrations/accounting/netsuite/how-deleting-bill-payments-works) to learn more. |
 
 > **Supported Integrations**
-> 
-> This functionality is currently only supported for our Oracle NetSuite integration. Check out our [public roadmap](https://portal.productboard.com/codat/7-public-product-roadmap/tabs/46-accounting-api) to see what we're building next, and to submit ideas for new features.
+>
+> This functionality is currently only supported for our QuickBooks Online abd Oracle NetSuite integrations. Check out our [public roadmap](https://portal.productboard.com/codat/7-public-product-roadmap/tabs/46-accounting-api) to see what we're building next, and to submit ideas for new features.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { DeleteBillPaymentResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { DataTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { DataType, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
 sdk.billPayments.delete({
-  billPaymentId: "quo",
-  companyId: "nesciunt",
-  connectionId: "illum",
+  billPaymentId: "doloremque",
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: DeleteBillPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -180,23 +186,23 @@ sdk.billPayments.delete({
 
 ## get
 
-Get a bill payment
+﻿Get a bill payment.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetBillPaymentsResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { BillPaymentLineLinkTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { BillPaymentLineLinkType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
 sdk.billPayments.get({
-  billPaymentId: "nemo",
+  billPaymentId: "tempora",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetBillPaymentsResponse) => {
   if (res.statusCode == 200) {
@@ -207,22 +213,22 @@ sdk.billPayments.get({
 
 ## getCreateModel
 
-Get create bill payment model.
+﻿Get create bill payment model.
 
 > **Supported Integrations**
 > 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billPayments) for integrations that support creating and deleting bill payments.
+> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billPayments) for integrations that support creating and deleting bill payments.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateBillPaymentsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -238,18 +244,18 @@ sdk.billPayments.getCreateModel({
 
 ## list
 
-Gets the latest billPayments for a company, with pagination
+﻿Gets the latest billPayments for a company, with pagination.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListBillPaymentsResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { BillPaymentLineLinkTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { BillPaymentLineLinkType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -258,7 +264,7 @@ sdk.billPayments.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "illum",
+  query: "perspiciatis",
 }).then((res: ListBillPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

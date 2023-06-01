@@ -21,26 +21,19 @@ Push suppliers
 
 Required data may vary by integration. To see what data to post, first call [Get create/update supplier model](https://docs.codat.io/accounting-api#/operations/get-create-update-suppliers-model).
 
-> **Supported Integrations**
-> 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support creating suppliers.
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) to see which integrations support this endpoint.
+
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateSupplierResponse } from "@codat/accounting/dist/sdk/models/operations";
-import {
-  AddressTypeEnum,
-  DataTypeEnum,
-  PushChangeTypeEnum,
-  PushOperationStatusEnum,
-  SupplierStatusEnum,
-} from "@codat/accounting/dist/sdk/models/shared";
+import { AddressType, DataType, PushChangeType, PushOperationStatus, SupplierStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -48,43 +41,59 @@ sdk.suppliers.create({
   supplier: {
     addresses: [
       {
-        city: "Thousand Oaks",
-        country: "Papua New Guinea",
-        line1: "amet",
-        line2: "tempore",
-        postalCode: "81317",
-        region: "adipisci",
-        type: AddressTypeEnum.Unknown,
+        city: "Kirkland",
+        country: "Netherlands",
+        line1: "doloremque",
+        line2: "autem",
+        postalCode: "25088",
+        region: "laudantium",
+        type: AddressType.Delivery,
+      },
+      {
+        city: "Ankundingfort",
+        country: "Kyrgyz Republic",
+        line1: "repellendus",
+        line2: "beatae",
+        postalCode: "42514",
+        region: "facilis",
+        type: AddressType.Unknown,
       },
     ],
-    contactName: "alias",
-    defaultCurrency: "occaecati",
-    emailAddress: "perspiciatis",
-    id: "83663c66-dcbb-47df-acb0-9c8b408e0713",
+    contactName: "cumque",
+    defaultCurrency: "doloribus",
+    emailAddress: "minima",
+    id: "e6cb6eba-be5e-40b9-9f3b-1358d6a87bb7",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "molestiae",
-    phone: "489.499.8000 x854",
-    registrationNumber: "praesentium",
-    sourceModifiedDate: "aperiam",
-    status: SupplierStatusEnum.Archived,
+    modifiedDate: "est",
+    phone: "1-869-446-8407 x70355",
+    registrationNumber: "sit",
+    sourceModifiedDate: "dignissimos",
+    status: SupplierStatus.Archived,
     supplementalData: {
       content: {
-        "doloremque": {
-          "eius": "odio",
-          "rerum": "provident",
-          "nostrum": "perferendis",
-          "aliquam": "accusantium",
+        "praesentium": {
+          "incidunt": "incidunt",
+          "vitae": "incidunt",
+          "nostrum": "explicabo",
+        },
+        "culpa": {
+          "voluptatibus": "ipsa",
+          "quasi": "sapiente",
+          "dolorem": "quaerat",
+        },
+        "incidunt": {
+          "cumque": "vel",
         },
       },
     },
-    supplierName: "possimus",
-    taxNumber: "vel",
+    supplierName: "inventore",
+    taxNumber: "quidem",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 796063,
+  timeoutInMinutes: 894398,
 }).then((res: CreateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -104,7 +113,7 @@ import { DownloadSupplierAttachmentResponse } from "@codat/accounting/dist/sdk/m
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -112,7 +121,7 @@ sdk.suppliers.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  supplierId: "quae",
 }).then((res: DownloadSupplierAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -129,17 +138,17 @@ Gets a single supplier corresponding to the given ID.
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetSupplierResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressTypeEnum, SupplierStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { AddressType, SupplierStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
 sdk.suppliers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  supplierId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  supplierId: "ipsum",
 }).then((res: GetSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -149,7 +158,7 @@ sdk.suppliers.get({
 
 ## getAttachment
 
-Get supplier attachment
+﻿Get supplier attachment.
 
 ### Example Usage
 
@@ -159,7 +168,7 @@ import { GetSupplierAttachmentResponse } from "@codat/accounting/dist/sdk/models
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -167,7 +176,7 @@ sdk.suppliers.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  supplierId: "nesciunt",
 }).then((res: GetSupplierAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -190,11 +199,11 @@ See the examples for integration-specific indicative models.
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateUpdateSuppliersModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -217,11 +226,11 @@ Gets the latest suppliers for a company, with pagination
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListSuppliersResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressTypeEnum, SupplierStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { AddressType, SupplierStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -230,7 +239,7 @@ sdk.suppliers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "blanditiis",
+  query: "distinctio",
 }).then((res: ListSuppliersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -250,14 +259,14 @@ import { ListSupplierAttachmentsResponse } from "@codat/accounting/dist/sdk/mode
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
 sdk.suppliers.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  supplierId: "dolorum",
 }).then((res: ListSupplierAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -273,24 +282,18 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 > **Supported Integrations**
 > 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support updating suppliers.
+> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support updating suppliers.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { UpdateSupplierResponse } from "@codat/accounting/dist/sdk/models/operations";
-import {
-  AddressTypeEnum,
-  DataTypeEnum,
-  PushChangeTypeEnum,
-  PushOperationStatusEnum,
-  SupplierStatusEnum,
-} from "@codat/accounting/dist/sdk/models/shared";
+import { AddressType, DataType, PushChangeType, PushOperationStatus, SupplierStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -298,70 +301,86 @@ sdk.suppliers.update({
   supplier: {
     addresses: [
       {
-        city: "Lake Gabriellashire",
-        country: "Afghanistan",
-        line1: "perferendis",
-        line2: "aspernatur",
-        postalCode: "04820",
-        region: "dolore",
-        type: AddressTypeEnum.Billing,
-      },
-      {
-        city: "Mountain View",
-        country: "Armenia",
-        line1: "alias",
-        line2: "sit",
-        postalCode: "98150-1458",
-        region: "quidem",
-        type: AddressTypeEnum.Unknown,
-      },
-      {
-        city: "Watersfurt",
-        country: "Syrian Arab Republic",
-        line1: "suscipit",
-        line2: "ut",
-        postalCode: "40961",
+        city: "The Hammocks",
+        country: "Guinea",
+        line1: "neque",
+        line2: "eos",
+        postalCode: "43139-5315",
         region: "corporis",
-        type: AddressTypeEnum.Unknown,
+        type: AddressType.Unknown,
+      },
+      {
+        city: "Towson",
+        country: "Christmas Island",
+        line1: "laudantium",
+        line2: "enim",
+        postalCode: "88211-1109",
+        region: "earum",
+        type: AddressType.Billing,
+      },
+      {
+        city: "South Electa",
+        country: "Saint Lucia",
+        line1: "numquam",
+        line2: "quae",
+        postalCode: "19763-8760",
+        region: "eum",
+        type: AddressType.Billing,
+      },
+      {
+        city: "Littlehaven",
+        country: "Cambodia",
+        line1: "cupiditate",
+        line2: "dicta",
+        postalCode: "97500-6166",
+        region: "atque",
+        type: AddressType.Billing,
       },
     ],
-    contactName: "alias",
-    defaultCurrency: "ratione",
-    emailAddress: "sed",
-    id: "3b2c09b9-2477-41f5-a69e-5b7ec7626649",
+    contactName: "aliquam",
+    defaultCurrency: "perspiciatis",
+    emailAddress: "labore",
+    id: "79edd4fc-f7b5-40cf-87f0-8f39271076a2",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "possimus",
-    phone: "487-692-7981 x1448",
-    registrationNumber: "sit",
-    sourceModifiedDate: "expedita",
-    status: SupplierStatusEnum.Active,
+    modifiedDate: "dolore",
+    phone: "407.690.5799 x0051",
+    registrationNumber: "saepe",
+    sourceModifiedDate: "laudantium",
+    status: SupplierStatus.Active,
     supplementalData: {
       content: {
-        "repellat": {
-          "atque": "iure",
-          "nulla": "aliquid",
-          "asperiores": "similique",
+        "blanditiis": {
+          "occaecati": "natus",
+          "voluptas": "optio",
         },
-        "veniam": {
-          "vel": "earum",
-          "corrupti": "temporibus",
-          "libero": "sapiente",
+        "totam": {
+          "odit": "eos",
+          "libero": "eveniet",
+          "aut": "similique",
+          "ipsum": "maxime",
         },
-        "praesentium": {
-          "qui": "asperiores",
+        "tenetur": {
+          "voluptate": "blanditiis",
+          "sint": "dolorem",
+        },
+        "soluta": {
+          "fugit": "neque",
+          "asperiores": "corrupti",
+          "autem": "autem",
+          "alias": "eaque",
         },
       },
     },
-    supplierName: "blanditiis",
-    taxNumber: "nesciunt",
+    supplierName: "minus",
+    taxNumber: "commodi",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  supplierId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  timeoutInMinutes: 721212,
+  supplierId: "inventore",
+  timeoutInMinutes: 784398,
 }).then((res: UpdateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response

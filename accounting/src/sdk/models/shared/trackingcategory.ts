@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { StatusEnum } from "./statusenum";
+import { Status } from "./status";
 import { Expose } from "class-transformer";
 
 /**
@@ -37,46 +37,46 @@ import { Expose } from "class-transformer";
  * If a tracking category has a parent category, the ID of that parent category is displayed. There is also a `hasChildren` field that shows whether there are child subcategories nested beneath.
  */
 export class TrackingCategory extends SpeakeasyBase {
-  /**
-   * Boolean value indicating whether this category has SubCategories
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "hasChildren" })
-  hasChildren?: boolean;
+    /**
+     * Boolean value indicating whether this category has SubCategories
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "hasChildren" })
+    hasChildren?: boolean;
 
-  /**
-   * The identifier for the item, unique per tracking category
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    /**
+     * The identifier for the item, unique per tracking category
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "modifiedDate" })
+    modifiedDate?: string;
 
-  /**
-   * The name of the tracking category
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * The name of the tracking category
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 
-  /**
-   * The identifier for this item's immediate parent
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "parentId" })
-  parentId?: string;
+    /**
+     * The identifier for this item's immediate parent
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "parentId" })
+    parentId?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "sourceModifiedDate" })
+    sourceModifiedDate?: string;
 
-  /**
-   * Current state of the tracking category.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status?: StatusEnum;
+    /**
+     * Current state of the tracking category.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status?: Status;
 }

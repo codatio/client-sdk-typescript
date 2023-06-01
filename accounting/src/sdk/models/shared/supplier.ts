@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Addressesitems } from "./addressesitems";
 import { Metadata } from "./metadata";
 import { SupplementalData } from "./supplementaldata";
-import { SupplierStatusEnum } from "./supplierstatusenum";
+import { SupplierStatus } from "./supplierstatus";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -19,95 +19,95 @@ import { Expose, Type } from "class-transformer";
  * From the **Suppliers** endpoints, you can retrieve a list of [all the suppliers for a company](https://docs.codat.io/accounting-api#/operations/list-suppliers). Suppliers' data links to accounts payable [bills](https://docs.codat.io/accounting-api#/schemas/Bill).
  */
 export class Supplier extends SpeakeasyBase {
-  /**
-   * An array of Addresses.
-   */
-  @SpeakeasyMetadata({ elemType: Addressesitems })
-  @Expose({ name: "addresses" })
-  @Type(() => Addressesitems)
-  addresses?: Addressesitems[];
+    /**
+     * An array of Addresses.
+     */
+    @SpeakeasyMetadata({ elemType: Addressesitems })
+    @Expose({ name: "addresses" })
+    @Type(() => Addressesitems)
+    addresses?: Addressesitems[];
 
-  /**
-   * Name of the main contact for the supplier.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "contactName" })
-  contactName?: string;
+    /**
+     * Name of the main contact for the supplier.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "contactName" })
+    contactName?: string;
 
-  /**
-   * Default currency the supplier's transactional data is recorded in.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "defaultCurrency" })
-  defaultCurrency?: string;
+    /**
+     * Default currency the supplier's transactional data is recorded in.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "defaultCurrency" })
+    defaultCurrency?: string;
 
-  /**
-   * Email address that the supplier may be contacted on.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "emailAddress" })
-  emailAddress?: string;
+    /**
+     * Email address that the supplier may be contacted on.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "emailAddress" })
+    emailAddress?: string;
 
-  /**
-   * Identifier for the supplier, unique to the company in the accounting platform.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    /**
+     * Identifier for the supplier, unique to the company in the accounting platform.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "metadata" })
-  @Type(() => Metadata)
-  metadata?: Metadata;
+    @SpeakeasyMetadata()
+    @Expose({ name: "metadata" })
+    @Type(() => Metadata)
+    metadata?: Metadata;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "modifiedDate" })
+    modifiedDate?: string;
 
-  /**
-   * Phone number that the supplier may be contacted on.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "phone" })
-  phone?: string;
+    /**
+     * Phone number that the supplier may be contacted on.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "phone" })
+    phone?: string;
 
-  /**
-   * Company number of the supplier. In the UK, this is typically the company registration number issued by Companies House.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "registrationNumber" })
-  registrationNumber?: string;
+    /**
+     * Company number of the supplier. In the UK, this is typically the company registration number issued by Companies House.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "registrationNumber" })
+    registrationNumber?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "sourceModifiedDate" })
+    sourceModifiedDate?: string;
 
-  /**
-   * Status of the supplier.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status: SupplierStatusEnum;
+    /**
+     * Status of the supplier.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status: SupplierStatus;
 
-  /**
-   * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "supplementalData" })
-  @Type(() => SupplementalData)
-  supplementalData?: SupplementalData;
+    /**
+     * Reference to a configured dynamic key value pair that is unique to the accounting platform. This feature is in private beta, contact us if you would like to learn more.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "supplementalData" })
+    @Type(() => SupplementalData)
+    supplementalData?: SupplementalData;
 
-  /**
-   * Name of the supplier as recorded in the accounting system, typically the company name.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "supplierName" })
-  supplierName?: string;
+    /**
+     * Name of the supplier as recorded in the accounting system, typically the company name.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "supplierName" })
+    supplierName?: string;
 
-  /**
-   * Supplier's company tax number.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "taxNumber" })
-  taxNumber?: string;
+    /**
+     * Supplier's company tax number.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "taxNumber" })
+    taxNumber?: string;
 }

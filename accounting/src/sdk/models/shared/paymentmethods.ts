@@ -3,33 +3,33 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Bill } from "./bill";
 import { Links } from "./links";
+import { PaymentMethod } from "./paymentmethod";
 import { Expose, Type } from "class-transformer";
 
 /**
  * Success
  */
 export class PaymentMethods extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "_links" })
-  @Type(() => Links)
-  links: Links;
+    @SpeakeasyMetadata()
+    @Expose({ name: "_links" })
+    @Type(() => Links)
+    links: Links;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "pageNumber" })
-  pageNumber: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "pageNumber" })
+    pageNumber: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "pageSize" })
-  pageSize: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "pageSize" })
+    pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: Bill })
-  @Expose({ name: "results" })
-  @Type(() => Bill)
-  results?: Bill[];
+    @SpeakeasyMetadata({ elemType: PaymentMethod })
+    @Expose({ name: "results" })
+    @Type(() => PaymentMethod)
+    results?: PaymentMethod[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "totalResults" })
-  totalResults: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "totalResults" })
+    totalResults: number;
 }

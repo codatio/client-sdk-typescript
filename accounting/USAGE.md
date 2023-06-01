@@ -2,11 +2,11 @@
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetAccountTransactionResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AccountTransactionStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { AccountTransactionStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 

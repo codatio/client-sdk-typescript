@@ -7,38 +7,38 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class DeleteBillRequest extends SpeakeasyBase {
-  /**
-   * Unique identifier for a bill
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=billId",
-  })
-  billId: string;
+    /**
+     * Unique identifier for a bill
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=billId" })
+    billId: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+    connectionId: string;
 }
 
 export class DeleteBillResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  pushOperationSummary?: shared.PushOperationSummary;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    pushOperationSummary?: shared.PushOperationSummary;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
+
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    schema?: shared.Schema;
 }

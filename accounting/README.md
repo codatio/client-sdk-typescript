@@ -24,11 +24,11 @@ yarn add @codat/accounting
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetAccountTransactionResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AccountTransactionStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { AccountTransactionStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -65,12 +65,11 @@ sdk.accountTransactions.get({
 * [create](docs/bankaccounttransactions/README.md#create) - Create bank transactions
 * [getCreateModel](docs/bankaccounttransactions/README.md#getcreatemodel) - List push options for bank account bank transactions
 * [list](docs/bankaccounttransactions/README.md#list) - List bank transactions for bank account
-* [listTransactions](docs/bankaccounttransactions/README.md#listtransactions) - List all bank transactions
 
 ### [bankAccounts](docs/bankaccounts/README.md)
 
 * [create](docs/bankaccounts/README.md#create) - Create bank account
-* [get](docs/bankaccounts/README.md#get) - Get bank account
+* [~~get~~](docs/bankaccounts/README.md#get) - Get bank account :warning: **Deprecated**
 * [getCreateUpdateModel](docs/bankaccounts/README.md#getcreateupdatemodel) - Get create/update bank account model
 * [list](docs/bankaccounts/README.md#list) - List bank accounts
 * [update](docs/bankaccounts/README.md#update) - Update bank account
@@ -150,12 +149,6 @@ sdk.accountTransactions.get({
 * [listAttachments](docs/directincomes/README.md#listattachments) - List direct income attachments
 * [uploadAttachment](docs/directincomes/README.md#uploadattachment) - Create direct income attachment
 
-### [financials](docs/financials/README.md)
-
-* [getBalanceSheet](docs/financials/README.md#getbalancesheet) - Get balance sheet
-* [getCashFlowStatement](docs/financials/README.md#getcashflowstatement) - Get cash flow statement
-* [getProfitAndLoss](docs/financials/README.md#getprofitandloss) - Get profit and loss
-
 ### [invoices](docs/invoices/README.md)
 
 * [create](docs/invoices/README.md#create) - Create invoice
@@ -216,6 +209,9 @@ sdk.accountTransactions.get({
 
 * [getAgedCreditorsReport](docs/reports/README.md#getagedcreditorsreport) - Aged creditors report
 * [getAgedDebtorsReport](docs/reports/README.md#getageddebtorsreport) - Aged debtors report
+* [getBalanceSheet](docs/reports/README.md#getbalancesheet) - Get balance sheet
+* [getCashFlowStatement](docs/reports/README.md#getcashflowstatement) - Get cash flow statement
+* [getProfitAndLoss](docs/reports/README.md#getprofitandloss) - Get profit and loss
 * [isAgedCreditorsReportAvailable](docs/reports/README.md#isagedcreditorsreportavailable) - Aged creditors report available
 * [isAgedDebtorReportAvailable](docs/reports/README.md#isageddebtorreportavailable) - Aged debtors report available
 

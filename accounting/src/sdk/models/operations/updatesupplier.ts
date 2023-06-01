@@ -7,54 +7,50 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class UpdateSupplierRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  supplier?: shared.Supplier;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    supplier?: shared.Supplier;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+    connectionId: string;
 
-  /**
-   * When updating data in the destination platform Codat checks the `sourceModifiedDate` against the `lastupdated` date from the accounting platform, if they're different Codat will return an error suggesting you should initiate another pull of the data. If this is set to `true` then the update will override this check.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=forceUpdate",
-  })
-  forceUpdate?: boolean;
+    /**
+     * When updating data in the destination platform Codat checks the `sourceModifiedDate` against the `lastupdated` date from the accounting platform, if they're different Codat will return an error suggesting you should initiate another pull of the data. If this is set to `true` then the update will override this check.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=forceUpdate" })
+    forceUpdate?: boolean;
 
-  /**
-   * Unique identifier for a supplier
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=supplierId",
-  })
-  supplierId: string;
+    /**
+     * Unique identifier for a supplier
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=supplierId" })
+    supplierId: string;
 
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=timeoutInMinutes",
-  })
-  timeoutInMinutes?: number;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=timeoutInMinutes" })
+    timeoutInMinutes?: number;
 }
 
 export class UpdateSupplierResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata()
-  updateSupplierResponse?: shared.UpdateSupplierResponse;
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata()
+    updateSupplierResponse?: shared.UpdateSupplierResponse;
+
+    /**
+     * The request made is not valid.
+     */
+    @SpeakeasyMetadata()
+    schema?: shared.Schema;
 }

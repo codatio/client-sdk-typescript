@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Metadata } from "./metadata";
 import { TaxRateComponent } from "./taxratecomponent";
-import { TaxRateStatusEnum } from "./taxratestatusenum";
+import { TaxRateStatus } from "./taxratestatus";
 import { ValidDataTypeLinks } from "./validdatatypelinks";
 import { Expose, Type } from "class-transformer";
 
@@ -34,73 +34,73 @@ import { Expose, Type } from "class-transformer";
  * > - For QuickBooks Online, Codat doesn't use compound rates. Instead, the calculated effective tax rate for each component is shown. This means that the effective and total rates are the same because the total tax rate is a sum of the component rates.
  */
 export class TaxRate extends SpeakeasyBase {
-  /**
-   * Code for the tax rate from the accounting platform.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "code" })
-  code?: string;
+    /**
+     * Code for the tax rate from the accounting platform.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "code" })
+    code?: string;
 
-  @SpeakeasyMetadata({ elemType: TaxRateComponent })
-  @Expose({ name: "components" })
-  @Type(() => TaxRateComponent)
-  components?: TaxRateComponent[];
+    @SpeakeasyMetadata({ elemType: TaxRateComponent })
+    @Expose({ name: "components" })
+    @Type(() => TaxRateComponent)
+    components?: TaxRateComponent[];
 
-  /**
-   * See Effective tax rates description.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "effectiveTaxRate" })
-  effectiveTaxRate?: number;
+    /**
+     * See Effective tax rates description.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "effectiveTaxRate" })
+    effectiveTaxRate?: number;
 
-  /**
-   * Identifier for the tax rate, unique for the company in the accounting platform.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    /**
+     * Identifier for the tax rate, unique for the company in the accounting platform.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "metadata" })
-  @Type(() => Metadata)
-  metadata?: Metadata;
+    @SpeakeasyMetadata()
+    @Expose({ name: "metadata" })
+    @Type(() => Metadata)
+    metadata?: Metadata;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "modifiedDate" })
+    modifiedDate?: string;
 
-  /**
-   * Codat-augmented name of the tax rate in the accounting platform.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * Codat-augmented name of the tax rate in the accounting platform.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "sourceModifiedDate" })
+    sourceModifiedDate?: string;
 
-  /**
-   * Status of the tax rate in the accounting platform.
-   *
-   * @remarks
-   * - `Active` - An active tax rate in use by a company.
-   * - `Archived` - A tax rate that has been archived or is inactive in the accounting platform.
-   * - `Unknown` - Where the status of the tax rate cannot be determined from the underlying platform.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status?: TaxRateStatusEnum;
+    /**
+     * Status of the tax rate in the accounting platform.
+     *
+     * @remarks
+     * - `Active` - An active tax rate in use by a company.
+     * - `Archived` - A tax rate that has been archived or is inactive in the accounting platform.
+     * - `Unknown` - Where the status of the tax rate cannot be determined from the underlying platform.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status?: TaxRateStatus;
 
-  /**
-   * Total (not compounded) sum of the components of a tax rate.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "totalTaxRate" })
-  totalTaxRate?: number;
+    /**
+     * Total (not compounded) sum of the components of a tax rate.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "totalTaxRate" })
+    totalTaxRate?: number;
 
-  @SpeakeasyMetadata({ elemType: ValidDataTypeLinks })
-  @Expose({ name: "validDatatypeLinks" })
-  @Type(() => ValidDataTypeLinks)
-  validDatatypeLinks?: ValidDataTypeLinks[];
+    @SpeakeasyMetadata({ elemType: ValidDataTypeLinks })
+    @Expose({ name: "validDatatypeLinks" })
+    @Type(() => ValidDataTypeLinks)
+    validDatatypeLinks?: ValidDataTypeLinks[];
 }

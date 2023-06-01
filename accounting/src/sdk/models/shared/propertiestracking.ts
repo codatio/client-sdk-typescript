@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { BilledToTypeEnum } from "./billedtotypeenum";
+import { BilledToType } from "./billedtotype";
 import { CustomerRef } from "./customerref";
 import { ProjectRef } from "./projectref";
 import { TrackingCategoryRef } from "./trackingcategoryref";
@@ -13,26 +13,26 @@ import { Expose, Type } from "class-transformer";
  * Categories, and a project and customer, against which the item is tracked.
  */
 export class Propertiestracking extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: TrackingCategoryRef })
-  @Expose({ name: "categoryRefs" })
-  @Type(() => TrackingCategoryRef)
-  categoryRefs: TrackingCategoryRef[];
+    @SpeakeasyMetadata({ elemType: TrackingCategoryRef })
+    @Expose({ name: "categoryRefs" })
+    @Type(() => TrackingCategoryRef)
+    categoryRefs: TrackingCategoryRef[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "customerRef" })
-  @Type(() => CustomerRef)
-  customerRef?: CustomerRef;
+    @SpeakeasyMetadata()
+    @Expose({ name: "customerRef" })
+    @Type(() => CustomerRef)
+    customerRef?: CustomerRef;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "isBilledTo" })
-  isBilledTo: BilledToTypeEnum;
+    @SpeakeasyMetadata()
+    @Expose({ name: "isBilledTo" })
+    isBilledTo: BilledToType;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "isRebilledTo" })
-  isRebilledTo: BilledToTypeEnum;
+    @SpeakeasyMetadata()
+    @Expose({ name: "isRebilledTo" })
+    isRebilledTo: BilledToType;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "projectRef" })
-  @Type(() => ProjectRef)
-  projectRef?: ProjectRef;
+    @SpeakeasyMetadata()
+    @Expose({ name: "projectRef" })
+    @Type(() => ProjectRef)
+    projectRef?: ProjectRef;
 }

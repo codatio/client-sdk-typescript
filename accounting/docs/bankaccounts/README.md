@@ -7,7 +7,7 @@ Bank accounts
 ### Available Operations
 
 * [create](#create) - Create bank account
-* [get](#get) - Get bank account
+* [~~get~~](#get) - Get bank account :warning: **Deprecated**
 * [getCreateUpdateModel](#getcreateupdatemodel) - Get create/update bank account model
 * [list](#list) - List bank accounts
 * [update](#update) - Update bank account
@@ -16,11 +16,10 @@ Bank accounts
 
 Posts a new bank account to the accounting package for a given company.
 
-Required data may vary by integration. To see what data to post, first call []().
+Required data may vary by integration. To see what data to post, first call [Get create/update bank account model](https://docs.codat.io/accounting-api#/operations/get-create-update-bankAccounts-model).
 
-> **Supported Integrations**
-> 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) for integrations that support creating bank accounts.
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) to see which integrations support this endpoint.
+
 
 ### Example Usage
 
@@ -28,17 +27,17 @@ Required data may vary by integration. To see what data to post, first call []()
 import { CodatAccounting } from "@codat/accounting";
 import { CreateBankAccountResponse } from "@codat/accounting/dist/sdk/models/operations";
 import {
-  AccountStatusEnum,
-  AccountTypeEnum,
-  BankAccountBankAccountTypeEnum,
-  DataTypeEnum,
-  PushChangeTypeEnum,
-  PushOperationStatusEnum,
+  AccountStatus,
+  AccountType,
+  BankAccountBankAccountType,
+  DataType,
+  PushChangeType,
+  PushOperationStatus,
 } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -46,7 +45,7 @@ sdk.bankAccounts.create({
   bankAccount: {
     accountName: "natus",
     accountNumber: "laboriosam",
-    accountType: BankAccountBankAccountTypeEnum.Debit,
+    accountType: BankAccountBankAccountType.Debit,
     availableBalance: 9025.99,
     balance: 6818.2,
     currency: "in",
@@ -73,25 +72,27 @@ sdk.bankAccounts.create({
 });
 ```
 
-## get
+## ~~get~~
 
 Gets the bank account with a given ID
+
+> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetBankAccountResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { BankAccountBankAccountTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { BankAccountBankAccountType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
 sdk.bankAccounts.get({
-  accountId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  accountId: "error",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetBankAccountResponse) => {
@@ -111,16 +112,17 @@ See the examples for integration-specific indicative models.
 > 
 > Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) for integrations that support creating and updating bank accounts.
 
+
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateUpdateBankAccountsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -143,11 +145,11 @@ Gets the list of bank accounts for a given connection
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListBankAccountsResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { BankAccountBankAccountTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { BankAccountBankAccountType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -157,7 +159,7 @@ sdk.bankAccounts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "error",
+  query: "quia",
 }).then((res: ListBankAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -173,51 +175,46 @@ Required data may vary by integration. To see what data to post, first call []()
 
 > **Supported Integrations**
 > 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) for integrations that support updating bank accounts.
+> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) for integrations that support updating bank accounts.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { UpdateBankAccountResponse } from "@codat/accounting/dist/sdk/models/operations";
-import {
-  BankAccountBankAccountTypeEnum,
-  DataTypeEnum,
-  PushChangeTypeEnum,
-  PushOperationStatusEnum,
-} from "@codat/accounting/dist/sdk/models/shared";
+import { BankAccountBankAccountType, DataType, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
 sdk.bankAccounts.update({
   bankAccount: {
-    accountName: "quia",
-    accountNumber: "quis",
-    accountType: BankAccountBankAccountTypeEnum.Unknown,
-    availableBalance: 6747.52,
-    balance: 6563.3,
-    currency: "enim",
-    iBan: "odit",
-    id: "c3f5ad01-9da1-4ffe-b8f0-97b0074f1547",
-    institution: "dicta",
+    accountName: "quis",
+    accountNumber: "vitae",
+    accountType: BankAccountBankAccountType.Debit,
+    availableBalance: 6563.3,
+    balance: 3172.02,
+    currency: "odit",
+    iBan: "quo",
+    id: "3f5ad019-da1f-4fe7-8f09-7b0074f15471",
+    institution: "harum",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "harum",
-    nominalCode: "enim",
-    overdraftLimit: 8804.76,
-    sortCode: "commodi",
-    sourceModifiedDate: "repudiandae",
+    modifiedDate: "enim",
+    nominalCode: "accusamus",
+    overdraftLimit: 4142.63,
+    sortCode: "repudiandae",
+    sourceModifiedDate: "quae",
   },
-  bankAccountId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  bankAccountId: "ipsum",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  timeoutInMinutes: 64147,
+  timeoutInMinutes: 692472,
 }).then((res: UpdateBankAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response

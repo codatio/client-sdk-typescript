@@ -17,90 +17,81 @@ Posts a new transfer to the accounting package for a given company.
 
 Required data may vary by integration. To see what data to post, first call [Get create transfer model](https://docs.codat.io/accounting-api#/operations/get-create-transfers-model).
 
-> **Supported Integrations**
-> 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=transfers) for integrations that support creating transfers.
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=transfers) to see which integrations support this endpoint.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateTransferResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { DataTypeEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { DataType, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
 sdk.transfers.create({
   transfer: {
     contactRef: {
-      dataType: "laborum",
-      id: "9ffc5619-29cc-4a95-a0a1-395918da1d48",
+      dataType: "magni",
+      id: "73caa911-8b38-4f1b-a1a3-31a54dc10294",
     },
-    date: "recusandae",
+    date: "reiciendis",
     depositedRecordRefs: [
-      "quas",
-      "officiis",
+      {
+        dataType: "eos",
+        id: "fed939ba-8f71-4e29-92c2-0ee1228ac3ad",
+      },
+      {
+        dataType: "optio",
+        id: "647d240b-c11e-4a48-a824-ccc6a2f0f5b9",
+      },
+      {
+        dataType: "quibusdam",
+        id: "3cb11a76-87d3-4100-a8e2-b9b0d746d2a7",
+      },
     ],
-    description: "ipsum",
+    description: "quisquam",
     from: {
       accountRef: {
-        id: "cf8e1143-da93-408b-a7a0-8af22184439b",
-        name: "Desiree Walsh",
+        id: "7d1ea0e7-9fa9-4bbe-9f17-9f650b1e707e",
+        name: "Rochelle Grimes",
       },
-      amount: 3395.66,
-      currency: "eum",
+      amount: 4097.14,
+      currency: "odio",
     },
-    id: "ccce470c-d214-47b6-a615-2cf01d0d8c3a",
+    id: "13bacce0-72ab-4d61-918d-279c10c18516",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "magnam",
-    sourceModifiedDate: "facilis",
+    modifiedDate: "doloribus",
+    sourceModifiedDate: "repellendus",
     supplementalData: {
       content: {
-        "laborum": {
-          "quidem": "repellat",
-          "molestias": "amet",
+        "praesentium": {
+          "repudiandae": "fugit",
+          "vel": "fugit",
+          "ab": "quia",
         },
-        "veniam": {
-          "voluptatibus": "vero",
-          "provident": "iure",
-          "incidunt": "repellat",
-          "similique": "ut",
-        },
-        "tempore": {
-          "voluptates": "excepturi",
+        "esse": {
+          "ea": "odit",
         },
       },
     },
     to: {
       accountRef: {
-        id: "c097eda6-2344-42e1-a923-7e9984c80b47",
-        name: "Bert Lind V",
+        id: "8fa50396-2867-4e72-b3a6-5024b157f9bb",
+        name: "Delia Zulauf",
       },
-      amount: 1752.16,
-      currency: "dolorem",
+      amount: 6278.1,
+      currency: "ad",
     },
     trackingCategoryRefs: [
       {
-        id: "18ca8d69-c568-4921-8fa2-0207e4fae038",
-        name: "Carroll Klocko DDS",
-      },
-      {
-        id: "c2cabaf7-fc2c-4cba-8bef-0df68eaedb2e",
-        name: "Darryl Altenwerth",
-      },
-      {
-        id: "069fb36a-dd70-4408-8e0a-3fc73a5a034b",
-        name: "Rebecca Graham",
-      },
-      {
-        id: "243afa69-87a4-472b-b09a-153e22301068",
-        name: "Tracy Monahan",
+        id: "871d99b6-61a7-4def-968b-6ccb2822b4a9",
+        name: "Roberto Abshire",
       },
     ],
   },
@@ -125,14 +116,14 @@ import { GetTransferResponse } from "@codat/accounting/dist/sdk/models/operation
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
 sdk.transfers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  transferId: "ipsa",
+  transferId: "magni",
 }).then((res: GetTransferResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -148,18 +139,18 @@ See the examples for integration-specific indicative models.
 
 > **Supported Integrations**
 > 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=transfers) for integrations that support creating transfers.
+> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=transfers) for integrations that support creating transfers.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateTransfersModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -185,7 +176,7 @@ import { ListTransfersResponse } from "@codat/accounting/dist/sdk/models/operati
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -195,7 +186,7 @@ sdk.transfers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "perspiciatis",
+  query: "doloribus",
 }).then((res: ListTransfersResponse) => {
   if (res.statusCode == 200) {
     // handle response

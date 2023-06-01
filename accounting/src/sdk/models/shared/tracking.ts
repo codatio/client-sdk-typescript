@@ -18,42 +18,42 @@ import { Expose, Type } from "class-transformer";
  * - Invoices
  * - Transfers
  */
-export class TrackingInvoiceTo extends SpeakeasyBase {
-  /**
-   * Name of the 'dataType'.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "dataType" })
-  dataType?: string;
+export class TrackingRecordReference extends SpeakeasyBase {
+    /**
+     * Name of the 'dataType'.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "dataType" })
+    dataType?: string;
 
-  /**
-   * 'id' of the underlying record or data type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    /**
+     * 'id' of the underlying record or data type.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 }
 
 export class Tracking extends SpeakeasyBase {
-  /**
-   * Links to the underlying record or data type.
-   *
-   * @remarks
-   *
-   * Found on:
-   *
-   * - Journal entries
-   * - Account transactions
-   * - Invoices
-   * - Transfers
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "invoiceTo" })
-  @Type(() => TrackingInvoiceTo)
-  invoiceTo?: TrackingInvoiceTo;
+    /**
+     * Links to the underlying record or data type.
+     *
+     * @remarks
+     *
+     * Found on:
+     *
+     * - Journal entries
+     * - Account transactions
+     * - Invoices
+     * - Transfers
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "invoiceTo" })
+    @Type(() => TrackingRecordReference)
+    invoiceTo?: TrackingRecordReference;
 
-  @SpeakeasyMetadata({ elemType: InvoiceTo })
-  @Expose({ name: "recordRefs" })
-  @Type(() => InvoiceTo)
-  recordRefs: InvoiceTo[];
+    @SpeakeasyMetadata({ elemType: InvoiceTo })
+    @Expose({ name: "recordRefs" })
+    @Type(() => InvoiceTo)
+    recordRefs: InvoiceTo[];
 }

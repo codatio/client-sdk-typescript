@@ -8,6 +8,9 @@ Reports
 
 * [getAgedCreditorsReport](#getagedcreditorsreport) - Aged creditors report
 * [getAgedDebtorsReport](#getageddebtorsreport) - Aged debtors report
+* [getBalanceSheet](#getbalancesheet) - Get balance sheet
+* [getCashFlowStatement](#getcashflowstatement) - Get cash flow statement
+* [getProfitAndLoss](#getprofitandloss) - Get profit and loss
 * [isAgedCreditorsReportAvailable](#isagedcreditorsreportavailable) - Aged creditors report available
 * [isAgedDebtorReportAvailable](#isageddebtorreportavailable) - Aged debtors report available
 
@@ -24,7 +27,7 @@ import { RFCDate } from "@codat/accounting/dist/sdk/types";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -53,7 +56,7 @@ import { RFCDate } from "@codat/accounting/dist/sdk/types";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -63,6 +66,92 @@ sdk.reports.getAgedDebtorsReport({
   periodLengthDays: 30,
   reportDate: new RFCDate("2022-12-31"),
 }).then((res: GetAgedDebtorsReportResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+## getBalanceSheet
+
+Gets the latest balance sheet for a company.
+
+### Example Usage
+
+```typescript
+import { CodatAccounting } from "@codat/accounting";
+import { GetBalanceSheetResponse } from "@codat/accounting/dist/sdk/models/operations";
+
+const sdk = new CodatAccounting({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.reports.getBalanceSheet({
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  periodLength: 4,
+  periodsToCompare: 20,
+  startMonth: "quas",
+}).then((res: GetBalanceSheetResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+## getCashFlowStatement
+
+Gets the latest cash flow statement for a company.
+
+### Example Usage
+
+```typescript
+import { CodatAccounting } from "@codat/accounting";
+import { GetCashFlowStatementResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ReportBasis, ReportInput } from "@codat/accounting/dist/sdk/models/shared";
+
+const sdk = new CodatAccounting({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.reports.getCashFlowStatement({
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  periodLength: 4,
+  periodsToCompare: 20,
+  startMonth: "placeat",
+}).then((res: GetCashFlowStatementResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+## getProfitAndLoss
+
+Gets the latest profit and loss for a company.
+
+### Example Usage
+
+```typescript
+import { CodatAccounting } from "@codat/accounting";
+import { GetProfitAndLossResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { ReportBasis } from "@codat/accounting/dist/sdk/models/shared";
+
+const sdk = new CodatAccounting({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.reports.getProfitAndLoss({
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  periodLength: 4,
+  periodsToCompare: 20,
+  startMonth: "beatae",
+}).then((res: GetProfitAndLossResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -81,7 +170,7 @@ import { IsAgedCreditorsReportAvailableResponse } from "@codat/accounting/dist/s
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -106,7 +195,7 @@ import { IsAgedDebtorReportAvailableResponse } from "@codat/accounting/dist/sdk/
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 

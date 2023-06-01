@@ -5,7 +5,8 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { BillItem } from "./billitem";
 import { InvoiceItem } from "./invoiceitem";
-import { ItemStatusEnum } from "./itemstatusenum";
+import { ItemStatus } from "./itemstatus";
+import { ItemType } from "./itemtype";
 import { Metadata } from "./metadata";
 import { Expose, Type } from "class-transformer";
 
@@ -20,86 +21,89 @@ import { Expose, Type } from "class-transformer";
  *
  */
 export class Item extends SpeakeasyBase {
-  /**
-   * Item details that are only for bills.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "billItem" })
-  @Type(() => BillItem)
-  billItem?: BillItem;
+    /**
+     * Item details that are only for bills.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "billItem" })
+    @Type(() => BillItem)
+    billItem?: BillItem;
 
-  /**
-   * Friendly reference for the item.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "code" })
-  code?: string;
+    /**
+     * Friendly reference for the item.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "code" })
+    code?: string;
 
-  /**
-   * Identifier for the item that is unique to a company in the accounting platform.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    /**
+     * Identifier for the item that is unique to a company in the accounting platform.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 
-  /**
-   * Item details that are only for bills.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "invoiceItem" })
-  @Type(() => InvoiceItem)
-  invoiceItem?: InvoiceItem;
+    /**
+     * Item details that are only for bills.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "invoiceItem" })
+    @Type(() => InvoiceItem)
+    invoiceItem?: InvoiceItem;
 
-  /**
-   * Whether you can use this item for bills.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "isBillItem" })
-  isBillItem: boolean;
+    /**
+     * Whether you can use this item for bills.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "isBillItem" })
+    isBillItem: boolean;
 
-  /**
-   * Whether you can use this item for invoices.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "isInvoiceItem" })
-  isInvoiceItem: boolean;
+    /**
+     * Whether you can use this item for invoices.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "isInvoiceItem" })
+    isInvoiceItem: boolean;
 
-  /**
-   * Current state of the item, either:
-   *
-   * @remarks
-   *
-   * - `Active`: Available for use
-   * - `Archived`: Unavailable
-   * - `Unknown`
-   *
-   * Due to a [limitation in Xero's API](https://docs.codat.io/integrations/accounting/xero/xero-faq#why-do-all-of-my-items-from-xero-have-their-status-as-unknown), all items from Xero are mapped as `Unknown`.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "itemStatus" })
-  itemStatus: ItemStatusEnum;
+    /**
+     * Current state of the item, either:
+     *
+     * @remarks
+     *
+     * - `Active`: Available for use
+     * - `Archived`: Unavailable
+     * - `Unknown`
+     *
+     * Due to a [limitation in Xero's API](https://docs.codat.io/integrations/accounting/xero/xero-faq#why-do-all-of-my-items-from-xero-have-their-status-as-unknown), all items from Xero are mapped as `Unknown`.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "itemStatus" })
+    itemStatus: ItemStatus;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "metadata" })
-  @Type(() => Metadata)
-  metadata?: Metadata;
+    @SpeakeasyMetadata()
+    @Expose({ name: "metadata" })
+    @Type(() => Metadata)
+    metadata?: Metadata;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "modifiedDate" })
+    modifiedDate?: string;
 
-  /**
-   * Name of the item in the accounting platform.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * Name of the item in the accounting platform.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "sourceModifiedDate" })
+    sourceModifiedDate?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type: any;
+    /**
+     * Type of the item.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type: ItemType;
 }

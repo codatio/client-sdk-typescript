@@ -18,11 +18,11 @@ Gets the latest basic info for a company.
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCompanyInfoResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressTypeEnum, CompanyDatasetWeblinkTypeEnum, PhoneNumberTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { AddressType, CompanyDatasetWeblinkType, PhoneNumberType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -44,11 +44,11 @@ Initiates the process of synchronising basic info for a company
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { RefreshCompanyInfoResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { DatasetStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { DatasetStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 

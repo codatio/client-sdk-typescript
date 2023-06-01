@@ -5,32 +5,70 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
+import { Expose } from "class-transformer";
 
 export class GetJournalRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=journalId",
-  })
-  journalId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=journalId" })
+    journalId: string;
+}
+
+/**
+ * The data type's dataset has not been requested or is still syncing.
+ */
+export class GetJournal409ApplicationJSON extends SpeakeasyBase {
+    @SpeakeasyMetadata()
+    @Expose({ name: "canBeRetried" })
+    canBeRetried?: string;
+
+    @SpeakeasyMetadata()
+    @Expose({ name: "correlationId" })
+    correlationId?: string;
+
+    @SpeakeasyMetadata()
+    @Expose({ name: "detailedErrorCode" })
+    detailedErrorCode?: number;
+
+    @SpeakeasyMetadata()
+    @Expose({ name: "error" })
+    error?: string;
+
+    @SpeakeasyMetadata()
+    @Expose({ name: "service" })
+    service?: string;
+
+    @SpeakeasyMetadata()
+    @Expose({ name: "statusCode" })
+    statusCode?: number;
 }
 
 export class GetJournalResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata()
-  journal?: shared.Journal;
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata()
+    journal?: shared.Journal;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
+
+    /**
+     * The data type's dataset has not been requested or is still syncing.
+     */
+    @SpeakeasyMetadata()
+    getJournal409ApplicationJSONObject?: GetJournal409ApplicationJSON;
+
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    schema?: shared.Schema;
 }

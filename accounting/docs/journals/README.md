@@ -17,42 +17,40 @@ Posts a new journal to the accounting package for a given company.
 
 Required data may vary by integration. To see what data to post, first call [Get create journal model](https://docs.codat.io/accounting-api#/operations/get-create-journals-model).
 
-> **Supported Integrations**
-> 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journals) for integrations that support creating journals.
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journals) to see which integrations support this endpoint.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateJournalResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { DataTypeEnum, JournalStatusEnum, PushChangeTypeEnum, PushOperationStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { DataType, JournalStatus, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
 sdk.journals.create({
   journal: {
-    createdOn: "eos",
+    createdOn: "nostrum",
     hasChildren: false,
-    id: "3394a68c-c80d-430f-b721-64d0a91fe9d9",
-    journalCode: "autem",
+    id: "040d6c8b-2a5f-4002-a07e-4048f90009ed",
+    journalCode: "consequuntur",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "minima",
-    name: "Sherry Reynolds",
-    parentId: "necessitatibus",
-    sourceModifiedDate: "perferendis",
-    status: JournalStatusEnum.Unknown,
-    type: "doloremque",
+    modifiedDate: "occaecati",
+    name: "Phyllis Koch",
+    parentId: "quidem",
+    sourceModifiedDate: "aliquam",
+    status: JournalStatus.Archived,
+    type: "itaque",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 569651,
+  timeoutInMinutes: 612118,
 }).then((res: CreateJournalResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -69,17 +67,17 @@ Gets a single journal corresponding to the given ID.
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetJournalResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { JournalStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { JournalStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
 sdk.journals.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalId: "quod",
+  journalId: "pariatur",
 }).then((res: GetJournalResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -95,18 +93,18 @@ See the examples for integration-specific indicative models.
 
 > **Supported Integrations**
 > 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journals) for integrations that support creating journals.
+> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journals) for integrations that support creating journals.
 
 ### Example Usage
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateJournalsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionTypeEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -129,11 +127,11 @@ Gets the latest journals for a company, with pagination
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListJournalsResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { JournalStatusEnum } from "@codat/accounting/dist/sdk/models/shared";
+import { JournalStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -142,7 +140,7 @@ sdk.journals.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "vel",
+  query: "suscipit",
 }).then((res: ListJournalsResponse) => {
   if (res.statusCode == 200) {
     // handle response

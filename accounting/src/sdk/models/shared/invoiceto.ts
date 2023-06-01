@@ -18,17 +18,17 @@ import { Expose } from "class-transformer";
  * - Transfers
  */
 export class InvoiceTo extends SpeakeasyBase {
-  /**
-   * Name of the 'dataType'.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "dataType" })
-  dataType?: string;
+    /**
+     * Name of the 'dataType'.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "dataType" })
+    dataType?: string;
 
-  /**
-   * 'id' of the underlying record or data type.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    /**
+     * 'id' of the underlying record or data type.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 }

@@ -3,18 +3,18 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { DataTypeEnum } from "./datatypeenum";
+import { DataType } from "./datatype";
 import { Expose } from "class-transformer";
 
 export class PushOperationRef extends SpeakeasyBase {
-  /**
-   * Available Data types
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "dataType" })
-  dataType?: DataTypeEnum;
+    /**
+     * Available Data types
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "dataType" })
+    dataType?: DataType;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
 }
