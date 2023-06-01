@@ -7,30 +7,32 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetExcelReportRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  /**
-   * The type of report you want to generate and download.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=reportType",
-  })
-  reportType: shared.ExcelReportType;
+    /**
+     * The type of report you want to generate and download.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=reportType" })
+    reportType: shared.ExcelReportType;
 }
 
 export class GetExcelReportResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  body?: Uint8Array;
+    @SpeakeasyMetadata()
+    body?: Uint8Array;
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
+
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    schema?: shared.Schema;
 }

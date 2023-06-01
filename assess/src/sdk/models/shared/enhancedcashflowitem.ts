@@ -7,11 +7,11 @@ import { EnhancedCashFlowTransaction } from "./enhancedcashflowtransaction";
 import { Expose, Type } from "class-transformer";
 
 export class EnhancedCashFlowItem extends SpeakeasyBase {
-  /**
-   * An array of transaction data.
-   */
-  @SpeakeasyMetadata({ elemType: EnhancedCashFlowTransaction })
-  @Expose({ name: "transactions" })
-  @Type(() => EnhancedCashFlowTransaction)
-  transactions?: EnhancedCashFlowTransaction[];
+    /**
+     * An array of transaction data.
+     */
+    @SpeakeasyMetadata({ elemType: EnhancedCashFlowTransaction })
+    @Expose({ name: "transactions" })
+    @Type(() => EnhancedCashFlowTransaction)
+    transactions?: EnhancedCashFlowTransaction[];
 }

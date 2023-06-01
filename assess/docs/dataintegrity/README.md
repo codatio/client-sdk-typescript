@@ -6,40 +6,9 @@ Data integrity is important
 
 ### Available Operations
 
-* [getDataIntegrityDetails](#getdataintegritydetails) - Lists data integrity details for date type
 * [getDataIntegrityStatus](#getdataintegritystatus) - Get data integrity status
 * [getDataIntegritySummaries](#getdataintegritysummaries) - Get data integrity summary
-
-## getDataIntegrityDetails
-
-Gets record-by-record match results for a given company and datatype, optionally restricted by a Codat query string.
-
-### Example Usage
-
-```typescript
-import { CodatAssess } from "@codat/assess";
-import { GetDataIntegrityDetailsResponse } from "@codat/assess/dist/sdk/models/operations";
-import { DataIntegrityDataType } from "@codat/assess/dist/sdk/models/shared";
-
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "YOUR_API_KEY_HERE",
-  },
-});
-
-sdk.dataIntegrity.getDataIntegrityDetails({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  dataType: DataIntegrityDataType.BankingAccounts,
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "voluptatibus",
-}).then((res: GetDataIntegrityDetailsResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
-```
+* [listDataTypeDataIntegrityDetails](#listdatatypedataintegritydetails) - List data type data integrity
 
 ## getDataIntegrityStatus
 
@@ -54,7 +23,7 @@ import { DataIntegrityDataType, IntegrityStatus } from "@codat/assess/dist/sdk/m
 
 const sdk = new CodatAssess({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -81,15 +50,46 @@ import { DataIntegrityDataType } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
 sdk.dataIntegrity.getDataIntegritySummaries({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   dataType: DataIntegrityDataType.BankingAccounts,
-  query: "ipsa",
+  query: "voluptatibus",
 }).then((res: GetDataIntegritySummariesResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+## listDataTypeDataIntegrityDetails
+
+Gets record-by-record match results for a given company and datatype, optionally restricted by a Codat query string.
+
+### Example Usage
+
+```typescript
+import { CodatAssess } from "@codat/assess";
+import { ListDataTypeDataIntegrityDetailsResponse } from "@codat/assess/dist/sdk/models/operations";
+import { DataIntegrityDataType } from "@codat/assess/dist/sdk/models/shared";
+
+const sdk = new CodatAssess({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.dataIntegrity.listDataTypeDataIntegrityDetails({
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  dataType: DataIntegrityDataType.BankingAccounts,
+  orderBy: "-modifiedDate",
+  page: 1,
+  pageSize: 100,
+  query: "ipsa",
+}).then((res: ListDataTypeDataIntegrityDetailsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

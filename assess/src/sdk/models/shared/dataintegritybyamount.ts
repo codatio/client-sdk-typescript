@@ -6,46 +6,46 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class DataIntegrityByAmount extends SpeakeasyBase {
-  /**
-   * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
-   *
-   * @remarks
-   *
-   * ## Unknown currencies
-   *
-   * In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction.
-   *
-   * There are only a very small number of edge cases where this currency code is returned by the Codat system.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "currency" })
-  currency?: string;
+    /**
+     * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
+     *
+     * @remarks
+     *
+     * ## Unknown currencies
+     *
+     * In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction.
+     *
+     * There are only a very small number of edge cases where this currency code is returned by the Codat system.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "currency" })
+    currency?: string;
 
-  /**
-   * The percentage of the absolute value of transactions of the type specified in the route which have a match.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "matchPercentage" })
-  matchPercentage?: number;
+    /**
+     * The percentage of the absolute value of transactions of the type specified in the route which have a match.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "matchPercentage" })
+    matchPercentage?: number;
 
-  /**
-   * The sum of the absolute value of transactions of the type specified in the route which have a match.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "matched" })
-  matched?: number;
+    /**
+     * The sum of the absolute value of transactions of the type specified in the route which have a match.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "matched" })
+    matched?: number;
 
-  /**
-   * The total of unmatched and matched.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "total" })
-  total?: number;
+    /**
+     * The total of unmatched and matched.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "total" })
+    total?: number;
 
-  /**
-   * The sum of the absolute value of transactions of the type specified in the route which don't have a match.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "unmatched" })
-  unmatched?: number;
+    /**
+     * The sum of the absolute value of transactions of the type specified in the route which don't have a match.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "unmatched" })
+    unmatched?: number;
 }

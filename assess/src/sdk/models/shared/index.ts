@@ -54,6 +54,7 @@ export * from "./reportdimension";
 export * from "./reporterror";
 export * from "./reportinfo";
 export * from "./reportmeasure";
+export * from "./schema";
 export * from "./security";
 export * from "./sourceref";
 export * from "./status";

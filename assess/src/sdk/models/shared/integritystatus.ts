@@ -6,8 +6,8 @@
  * The current status of the most recently run matching algorithm.
  */
 export enum IntegrityStatus {
-  Unknown = "Unknown",
-  DoesNotExist = "DoesNotExist",
-  Error = "Error",
-  Complete = "Complete",
+    Unknown = "Unknown",
+    DoesNotExist = "DoesNotExist",
+    Error = "Error",
+    Complete = "Complete",
 }

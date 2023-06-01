@@ -6,12 +6,15 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class ListAccountsCategoriesRequest extends SpeakeasyBase {
+export class ListDataTypeDataIntegrityDetailsRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 
-    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
-    connectionId: string;
+    /**
+     * A key for a Codat data type.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=dataType" })
+    dataType: shared.DataIntegrityDataType;
 
     /**
      * Field to order results by. [Read more](https://docs.codat.io/using-the-api/ordering-results).
@@ -38,19 +41,25 @@ export class ListAccountsCategoriesRequest extends SpeakeasyBase {
     query?: string;
 }
 
-export class ListAccountsCategoriesResponse extends SpeakeasyBase {
+export class ListDataTypeDataIntegrityDetailsResponse extends SpeakeasyBase {
+    @SpeakeasyMetadata()
+    contentType: string;
+
     /**
      * OK
      */
     @SpeakeasyMetadata()
-    categorisedAccounts?: shared.CategorisedAccounts;
-
-    @SpeakeasyMetadata()
-    contentType: string;
+    details?: shared.Details;
 
     @SpeakeasyMetadata()
     statusCode: number;
 
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
+
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    schema?: shared.Schema;
 }

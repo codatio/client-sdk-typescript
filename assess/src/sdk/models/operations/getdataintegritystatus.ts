@@ -7,33 +7,35 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetDataIntegrityStatusRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  /**
-   * A key for a Codat data type.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=dataType",
-  })
-  dataType: shared.DataIntegrityDataType;
+    /**
+     * A key for a Codat data type.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=dataType" })
+    dataType: shared.DataIntegrityDataType;
 }
 
 export class GetDataIntegrityStatusResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  status?: shared.Status;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    status?: shared.Status;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
+
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    schema?: shared.Schema;
 }

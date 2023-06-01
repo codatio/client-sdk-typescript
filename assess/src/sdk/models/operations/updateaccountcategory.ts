@@ -7,41 +7,35 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class UpdateAccountCategoryRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  confirmCategory?: shared.ConfirmCategory;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    confirmCategory?: shared.ConfirmCategory;
 
-  /**
-   * Nominal account id
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=accountId",
-  })
-  accountId: string;
+    /**
+     * Nominal account id
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=accountId" })
+    accountId: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+    connectionId: string;
 }
 
 export class UpdateAccountCategoryResponse extends SpeakeasyBase {
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  categorisedAccount?: shared.CategorisedAccount;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    categorisedAccount?: shared.CategorisedAccount;
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

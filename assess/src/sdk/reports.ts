@@ -11,1015 +11,1078 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
  * Data integrity is important
  */
 export class Reports {
-  _defaultClient: AxiosInstance;
-  _securityClient: AxiosInstance;
-  _serverURL: string;
-  _language: string;
-  _sdkVersion: string;
-  _genVersion: string;
+    _defaultClient: AxiosInstance;
+    _securityClient: AxiosInstance;
+    _serverURL: string;
+    _language: string;
+    _sdkVersion: string;
+    _genVersion: string;
 
-  constructor(
-    defaultClient: AxiosInstance,
-    securityClient: AxiosInstance,
-    serverURL: string,
-    language: string,
-    sdkVersion: string,
-    genVersion: string
-  ) {
-    this._defaultClient = defaultClient;
-    this._securityClient = securityClient;
-    this._serverURL = serverURL;
-    this._language = language;
-    this._sdkVersion = sdkVersion;
-    this._genVersion = genVersion;
-  }
-
-  /**
-   * Enhanced Balance Sheet Accounts
-   *
-   * @remarks
-   * The Enhanced Balance Sheet Accounts endpoint returns a list of categorized accounts that appear on a company’s Balance Sheet along with a balance per financial statement date.
-   *
-   * Codat suggests a category for each account automatically, but you can [change it](/docs/assess-categorizing-accounts-ecommerce-lending) to a more suitable one.
-   */
-  async getAccountsForEnhancedBalanceSheet(
-    req: operations.GetAccountsForEnhancedBalanceSheetRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetAccountsForEnhancedBalanceSheetResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetAccountsForEnhancedBalanceSheetRequest(req);
+    constructor(
+        defaultClient: AxiosInstance,
+        securityClient: AxiosInstance,
+        serverURL: string,
+        language: string,
+        sdkVersion: string,
+        genVersion: string
+    ) {
+        this._defaultClient = defaultClient;
+        this._securityClient = securityClient;
+        this._serverURL = serverURL;
+        this._language = language;
+        this._sdkVersion = sdkVersion;
+        this._genVersion = genVersion;
     }
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/reports/enhancedBalanceSheet/accounts",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const httpRes: AxiosResponse = await utils.Retry(() => {
-      return client.request({
-        validateStatus: () => true,
-        url: url + queryParams,
-        method: "get",
-        headers: headers,
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetAccountsForEnhancedBalanceSheetResponse =
-      new operations.GetAccountsForEnhancedBalanceSheetResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.enhancedReport = utils.objectToClass(
-            httpRes?.data,
-            shared.EnhancedReport
-          );
+    /**
+     * Get enhanced balance sheet accounts
+     *
+     * @remarks
+     * The Enhanced Balance Sheet Accounts endpoint returns a list of categorized accounts that appear on a company’s Balance Sheet along with a balance per financial statement date.
+     *
+     * Codat suggests a category for each account automatically, but you can [change it](/docs/assess-categorizing-accounts-ecommerce-lending) to a more suitable one.
+     */
+    async getAccountsForEnhancedBalanceSheet(
+        req: operations.GetAccountsForEnhancedBalanceSheetRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetAccountsForEnhancedBalanceSheetResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetAccountsForEnhancedBalanceSheetRequest(req);
         }
-        break;
-    }
 
-    return res;
-  }
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/companies/{companyId}/reports/enhancedBalanceSheet/accounts",
+            req
+        );
 
-  /**
-   * Enhanced Profit and Loss Accounts
-   *
-   * @remarks
-   * The Enhanced Profit and Loss Accounts endpoint returns a list of categorized accounts that appear on a company’s Profit and Loss. It also includes a balance per the financial statement date.
-   *
-   * Codat suggests a category for each account automatically, but you can [change it](/docs/assess-categorizing-accounts-ecommerce-lending) to a more suitable one.
-   */
-  async getAccountsForEnhancedProfitAndLoss(
-    req: operations.GetAccountsForEnhancedProfitAndLossRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetAccountsForEnhancedProfitAndLossResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetAccountsForEnhancedProfitAndLossRequest(req);
-    }
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/reports/enhancedProfitAndLoss/accounts",
-      req
-    );
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const httpRes: AxiosResponse = await utils.Retry(() => {
-      return client.request({
-        validateStatus: () => true,
-        url: url + queryParams,
-        method: "get",
-        headers: headers,
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetAccountsForEnhancedProfitAndLossResponse =
-      new operations.GetAccountsForEnhancedProfitAndLossResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.enhancedReport = utils.objectToClass(
-            httpRes?.data,
-            shared.EnhancedReport
-          );
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig("backoff", true);
+            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
         }
-        break;
-    }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url + queryParams,
+                method: "get",
+                headers: headers,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return res;
-  }
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-  /**
-   * Get the customer retention metrics for a specific company.
-   *
-   * @remarks
-   * Gets the customer retention metrics for a specific company connection, over one or more periods of time.
-   */
-  async getCommerceCustomerRetentionMetrics(
-    req: operations.GetCommerceCustomerRetentionMetricsRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetCommerceCustomerRetentionMetricsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCommerceCustomerRetentionMetricsRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/customerRetention",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const httpRes: AxiosResponse = await utils.Retry(() => {
-      return client.request({
-        validateStatus: () => true,
-        url: url + queryParams,
-        method: "get",
-        headers: headers,
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetCommerceCustomerRetentionMetricsResponse =
-      new operations.GetCommerceCustomerRetentionMetricsResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.report = utils.objectToClass(httpRes?.data, shared.Report);
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
-    }
 
-    return res;
-  }
-
-  /**
-   * Get the lifetime value metric for a specific company.
-   *
-   * @remarks
-   * Gets the lifetime value metric for a specific company connection, over one or more periods of time.
-   */
-  async getCommerceLifetimeValueMetrics(
-    req: operations.GetCommerceLifetimeValueMetricsRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetCommerceLifetimeValueMetricsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCommerceLifetimeValueMetricsRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/lifetimeValue",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const httpRes: AxiosResponse = await utils.Retry(() => {
-      return client.request({
-        validateStatus: () => true,
-        url: url + queryParams,
-        method: "get",
-        headers: headers,
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetCommerceLifetimeValueMetricsResponse =
-      new operations.GetCommerceLifetimeValueMetricsResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.report = utils.objectToClass(httpRes?.data, shared.Report);
+        const res: operations.GetAccountsForEnhancedBalanceSheetResponse =
+            new operations.GetAccountsForEnhancedBalanceSheetResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.enhancedReport = utils.objectToClass(httpRes?.data, shared.EnhancedReport);
+                }
+                break;
+            case [401, 404].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                }
+                break;
         }
-        break;
+
+        return res;
     }
 
-    return res;
-  }
-
-  /**
-   * Get order information for a specific company
-   *
-   * @remarks
-   * Gets the order information for a specific company connection, over one or more periods of time.
-   */
-  async getCommerceOrdersMetrics(
-    req: operations.GetCommerceOrdersMetricsRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetCommerceOrdersMetricsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCommerceOrdersMetricsRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/orders",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const httpRes: AxiosResponse = await utils.Retry(() => {
-      return client.request({
-        validateStatus: () => true,
-        url: url + queryParams,
-        method: "get",
-        headers: headers,
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetCommerceOrdersMetricsResponse =
-      new operations.GetCommerceOrdersMetricsResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.report = utils.objectToClass(httpRes?.data, shared.Report);
+    /**
+     * Get enhanced profit and loss accounts
+     *
+     * @remarks
+     * The Enhanced Profit and Loss Accounts endpoint returns a list of categorized accounts that appear on a company’s Profit and Loss. It also includes a balance per the financial statement date.
+     *
+     * Codat suggests a category for each account automatically, but you can [change it](/docs/assess-categorizing-accounts-ecommerce-lending) to a more suitable one.
+     */
+    async getAccountsForEnhancedProfitAndLoss(
+        req: operations.GetAccountsForEnhancedProfitAndLossRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetAccountsForEnhancedProfitAndLossResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetAccountsForEnhancedProfitAndLossRequest(req);
         }
-        break;
-    }
 
-    return res;
-  }
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/companies/{companyId}/reports/enhancedProfitAndLoss/accounts",
+            req
+        );
 
-  /**
-   * Get the refunds information for a specific company
-   *
-   * @remarks
-   * Gets the refunds information for a specific company connection, over one or more periods of time.
-   */
-  async getCommerceRefundsMetrics(
-    req: operations.GetCommerceRefundsMetricsRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetCommerceRefundsMetricsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCommerceRefundsMetricsRequest(req);
-    }
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/refunds",
-      req
-    );
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const httpRes: AxiosResponse = await utils.Retry(() => {
-      return client.request({
-        validateStatus: () => true,
-        url: url + queryParams,
-        method: "get",
-        headers: headers,
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetCommerceRefundsMetricsResponse =
-      new operations.GetCommerceRefundsMetricsResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.report = utils.objectToClass(httpRes?.data, shared.Report);
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig("backoff", true);
+            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
         }
-        break;
-    }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url + queryParams,
+                method: "get",
+                headers: headers,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return res;
-  }
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-  /**
-   * Commerce Revenue Metrics
-   *
-   * @remarks
-   * Get the revenue and revenue growth for a specific company connection, over one or more periods of time.
-   */
-  async getCommerceRevenueMetrics(
-    req: operations.GetCommerceRevenueMetricsRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetCommerceRevenueMetricsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetCommerceRevenueMetricsRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/revenue",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const httpRes: AxiosResponse = await utils.Retry(() => {
-      return client.request({
-        validateStatus: () => true,
-        url: url + queryParams,
-        method: "get",
-        headers: headers,
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetCommerceRevenueMetricsResponse =
-      new operations.GetCommerceRevenueMetricsResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.report = utils.objectToClass(httpRes?.data, shared.Report);
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
-    }
 
-    return res;
-  }
-
-  /**
-   * Enhanced Balance Sheet
-   *
-   * @remarks
-   * Gets a fully categorized balance sheet statement for a given company, over one or more period(s).
-   *
-   * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
-   */
-  async getEnhancedBalanceSheet(
-    req: operations.GetEnhancedBalanceSheetRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetEnhancedBalanceSheetResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetEnhancedBalanceSheetRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/data/companies/{companyId}/connections/{connectionId}/assess/enhancedBalanceSheet",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const httpRes: AxiosResponse = await utils.Retry(() => {
-      return client.request({
-        validateStatus: () => true,
-        url: url + queryParams,
-        method: "get",
-        headers: headers,
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetEnhancedBalanceSheetResponse =
-      new operations.GetEnhancedBalanceSheetResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.report = utils.objectToClass(httpRes?.data, shared.Report);
+        const res: operations.GetAccountsForEnhancedProfitAndLossResponse =
+            new operations.GetAccountsForEnhancedProfitAndLossResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.enhancedReport = utils.objectToClass(httpRes?.data, shared.EnhancedReport);
+                }
+                break;
+            case [401, 404].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                }
+                break;
         }
-        break;
+
+        return res;
     }
 
-    return res;
-  }
-
-  /**
-   * Get enhanced cash flow report
-   *
-   * @remarks
-   * The Enhanced Cash Flow Transactions endpoint provides a fully categorized list of banking transactions for a company. Accounts and transaction data are obtained from the company's banking data sources.
-   */
-  async getEnhancedCashFlowTransactions(
-    req: operations.GetEnhancedCashFlowTransactionsRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetEnhancedCashFlowTransactionsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetEnhancedCashFlowTransactionsRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/reports/enhancedCashFlow/transactions",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const httpRes: AxiosResponse = await utils.Retry(() => {
-      return client.request({
-        validateStatus: () => true,
-        url: url + queryParams,
-        method: "get",
-        headers: headers,
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetEnhancedCashFlowTransactionsResponse =
-      new operations.GetEnhancedCashFlowTransactionsResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.enhancedCashFlowTransactions = utils.objectToClass(
-            httpRes?.data,
-            shared.EnhancedCashFlowTransactions
-          );
+    /**
+     * Get customer retention metrics
+     *
+     * @remarks
+     * Gets the customer retention metrics for a specific company connection, over one or more periods of time.
+     */
+    async getCommerceCustomerRetentionMetrics(
+        req: operations.GetCommerceCustomerRetentionMetricsRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetCommerceCustomerRetentionMetricsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetCommerceCustomerRetentionMetricsRequest(req);
         }
-        break;
-    }
 
-    return res;
-  }
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/customerRetention",
+            req
+        );
 
-  /**
-   * List financial metrics
-   *
-   * @remarks
-   * Gets all the available financial metrics for a given company, over one or more periods.
-   *
-   * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
-   */
-  async getEnhancedFinancialMetrics(
-    req: operations.GetEnhancedFinancialMetricsRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetEnhancedFinancialMetricsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetEnhancedFinancialMetricsRequest(req);
-    }
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/data/companies/{companyId}/connections/{connectionId}/assess/financialMetrics",
-      req
-    );
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const httpRes: AxiosResponse = await utils.Retry(() => {
-      return client.request({
-        validateStatus: () => true,
-        url: url + queryParams,
-        method: "get",
-        headers: headers,
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetEnhancedFinancialMetricsResponse =
-      new operations.GetEnhancedFinancialMetricsResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.financialMetrics = utils.objectToClass(
-            httpRes?.data,
-            shared.FinancialMetrics
-          );
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig("backoff", true);
+            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
         }
-        break;
-    }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url + queryParams,
+                method: "get",
+                headers: headers,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-    return res;
-  }
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-  /**
-   * Enhanced Invoices Report
-   *
-   * @remarks
-   * Gets a list of invoices linked to the corresponding banking transaction
-   */
-  async getEnhancedInvoicesReport(
-    req: operations.GetEnhancedInvoicesReportRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetEnhancedInvoicesReportResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetEnhancedInvoicesReportRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/companies/{companyId}/reports/enhancedInvoices",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const httpRes: AxiosResponse = await utils.Retry(() => {
-      return client.request({
-        validateStatus: () => true,
-        url: url + queryParams,
-        method: "get",
-        headers: headers,
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetEnhancedInvoicesReportResponse =
-      new operations.GetEnhancedInvoicesReportResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.enhancedInvoicesReport = utils.objectToClass(
-            httpRes?.data,
-            shared.EnhancedInvoicesReport
-          );
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
         }
-        break;
-    }
 
-    return res;
-  }
-
-  /**
-   * Enhanced Profit and Loss
-   *
-   * @remarks
-   * Gets a fully categorized profit and loss statement for a given company, over one or more period(s).
-   *
-   * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
-   */
-  async getEnhancedProfitAndLoss(
-    req: operations.GetEnhancedProfitAndLossRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetEnhancedProfitAndLossResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetEnhancedProfitAndLossRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/data/companies/{companyId}/connections/{connectionId}/assess/enhancedProfitAndLoss",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const httpRes: AxiosResponse = await utils.Retry(() => {
-      return client.request({
-        validateStatus: () => true,
-        url: url + queryParams,
-        method: "get",
-        headers: headers,
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetEnhancedProfitAndLossResponse =
-      new operations.GetEnhancedProfitAndLossResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.report = utils.objectToClass(httpRes?.data, shared.Report);
+        const res: operations.GetCommerceCustomerRetentionMetricsResponse =
+            new operations.GetCommerceCustomerRetentionMetricsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.report = utils.objectToClass(httpRes?.data, shared.Report);
+                }
+                break;
+            case [401, 404].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                }
+                break;
         }
-        break;
+
+        return res;
     }
 
-    return res;
-  }
-
-  /**
-   * Get key metrics for subscription revenue
-   *
-   * @remarks
-   * Gets key metrics for subscription revenue.
-   */
-  async getRecurringRevenueMetrics(
-    req: operations.GetRecurringRevenueMetricsRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetRecurringRevenueMetricsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetRecurringRevenueMetricsRequest(req);
-    }
-
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/data/companies/{companyId}/connections/{connectionId}/assess/subscriptions/mrr",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    headers["Accept"] = "application/json";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const httpRes: AxiosResponse = await utils.Retry(() => {
-      return client.request({
-        validateStatus: () => true,
-        url: url,
-        method: "get",
-        headers: headers,
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetRecurringRevenueMetricsResponse =
-      new operations.GetRecurringRevenueMetricsResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.report = utils.objectToClass(httpRes?.data, shared.Report);
+    /**
+     * Get lifetime value metric
+     *
+     * @remarks
+     * Gets the lifetime value metric for a specific company connection, over one or more periods of time.
+     */
+    async getCommerceLifetimeValueMetrics(
+        req: operations.GetCommerceLifetimeValueMetricsRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetCommerceLifetimeValueMetricsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetCommerceLifetimeValueMetricsRequest(req);
         }
-        break;
-    }
 
-    return res;
-  }
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/lifetimeValue",
+            req
+        );
 
-  /**
-   * Request production of key subscription revenue metrics
-   *
-   * @remarks
-   * Request production of key subscription revenue metrics.
-   */
-  async requestRecurringRevenueMetrics(
-    req: operations.RequestRecurringRevenueMetricsRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.RequestRecurringRevenueMetricsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.RequestRecurringRevenueMetricsRequest(req);
-    }
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/data/companies/{companyId}/connections/{connectionId}/assess/subscriptions/process",
-      req
-    );
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    headers["Accept"] = "application/json";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const httpRes: AxiosResponse = await utils.Retry(() => {
-      return client.request({
-        validateStatus: () => true,
-        url: url,
-        method: "get",
-        headers: headers,
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.RequestRecurringRevenueMetricsResponse =
-      new operations.RequestRecurringRevenueMetricsResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.report = utils.objectToClass(httpRes?.data, shared.Report);
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig("backoff", true);
+            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
         }
-        break;
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url + queryParams,
+                method: "get",
+                headers: headers,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetCommerceLifetimeValueMetricsResponse =
+            new operations.GetCommerceLifetimeValueMetricsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.report = utils.objectToClass(httpRes?.data, shared.Report);
+                }
+                break;
+            case [401, 404].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                }
+                break;
+        }
+
+        return res;
     }
 
-    return res;
-  }
+    /**
+     * Get orders report
+     *
+     * @remarks
+     * Gets the order information for a specific company connection, over one or more periods of time.
+     */
+    async getCommerceOrdersMetrics(
+        req: operations.GetCommerceOrdersMetricsRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetCommerceOrdersMetricsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetCommerceOrdersMetricsRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/orders",
+            req
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig("backoff", true);
+            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url + queryParams,
+                method: "get",
+                headers: headers,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetCommerceOrdersMetricsResponse =
+            new operations.GetCommerceOrdersMetricsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.report = utils.objectToClass(httpRes?.data, shared.Report);
+                }
+                break;
+            case [401, 404].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * Get refunds report
+     *
+     * @remarks
+     * Gets the refunds information for a specific company connection, over one or more periods of time.
+     */
+    async getCommerceRefundsMetrics(
+        req: operations.GetCommerceRefundsMetricsRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetCommerceRefundsMetricsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetCommerceRefundsMetricsRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/refunds",
+            req
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig("backoff", true);
+            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url + queryParams,
+                method: "get",
+                headers: headers,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetCommerceRefundsMetricsResponse =
+            new operations.GetCommerceRefundsMetricsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.report = utils.objectToClass(httpRes?.data, shared.Report);
+                }
+                break;
+            case [401, 404].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * Get commerce revenue metrics
+     *
+     * @remarks
+     * Get the revenue and revenue growth for a specific company connection, over one or more periods of time.
+     */
+    async getCommerceRevenueMetrics(
+        req: operations.GetCommerceRevenueMetricsRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetCommerceRevenueMetricsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetCommerceRevenueMetricsRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/revenue",
+            req
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig("backoff", true);
+            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url + queryParams,
+                method: "get",
+                headers: headers,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetCommerceRevenueMetricsResponse =
+            new operations.GetCommerceRevenueMetricsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.report = utils.objectToClass(httpRes?.data, shared.Report);
+                }
+                break;
+            case [401, 404].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * Get enhanced balance sheet report
+     *
+     * @remarks
+     * Gets a fully categorized balance sheet statement for a given company, over one or more period(s).
+     *
+     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     */
+    async getEnhancedBalanceSheet(
+        req: operations.GetEnhancedBalanceSheetRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetEnhancedBalanceSheetResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetEnhancedBalanceSheetRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/data/companies/{companyId}/connections/{connectionId}/assess/enhancedBalanceSheet",
+            req
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig("backoff", true);
+            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url + queryParams,
+                method: "get",
+                headers: headers,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetEnhancedBalanceSheetResponse =
+            new operations.GetEnhancedBalanceSheetResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.report = utils.objectToClass(httpRes?.data, shared.Report);
+                }
+                break;
+            case [401, 404].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * Get enhanced cash flow report
+     *
+     * @remarks
+     * > **Categorization engine**
+     * >
+     * > The categorization engine uses machine learning and has been fully trained against Plaid and TrueLayer banking data sources. It is not fully trained against the Basiq banking data source.
+     *
+     * The Enhanced Cash Flow Transactions endpoint provides a fully categorized list of banking transactions for a company. Accounts and transaction data are obtained from the company's banking data sources.
+     */
+    async getEnhancedCashFlowTransactions(
+        req: operations.GetEnhancedCashFlowTransactionsRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetEnhancedCashFlowTransactionsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetEnhancedCashFlowTransactionsRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/companies/{companyId}/reports/enhancedCashFlow/transactions",
+            req
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig("backoff", true);
+            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url + queryParams,
+                method: "get",
+                headers: headers,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetEnhancedCashFlowTransactionsResponse =
+            new operations.GetEnhancedCashFlowTransactionsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.enhancedCashFlowTransactions = utils.objectToClass(
+                        httpRes?.data,
+                        shared.EnhancedCashFlowTransactions
+                    );
+                }
+                break;
+            case [401, 404].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * List financial metrics
+     *
+     * @remarks
+     * Gets all the available financial metrics for a given company, over one or more periods.
+     *
+     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     */
+    async getEnhancedFinancialMetrics(
+        req: operations.GetEnhancedFinancialMetricsRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetEnhancedFinancialMetricsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetEnhancedFinancialMetricsRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/data/companies/{companyId}/connections/{connectionId}/assess/financialMetrics",
+            req
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig("backoff", true);
+            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url + queryParams,
+                method: "get",
+                headers: headers,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetEnhancedFinancialMetricsResponse =
+            new operations.GetEnhancedFinancialMetricsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.financialMetrics = utils.objectToClass(
+                        httpRes?.data,
+                        shared.FinancialMetrics
+                    );
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * Get enhanced invoices report
+     *
+     * @remarks
+     * Gets a list of invoices linked to the corresponding banking transaction
+     */
+    async getEnhancedInvoicesReport(
+        req: operations.GetEnhancedInvoicesReportRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetEnhancedInvoicesReportResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetEnhancedInvoicesReportRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/companies/{companyId}/reports/enhancedInvoices",
+            req
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig("backoff", true);
+            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url + queryParams,
+                method: "get",
+                headers: headers,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetEnhancedInvoicesReportResponse =
+            new operations.GetEnhancedInvoicesReportResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.enhancedInvoicesReport = utils.objectToClass(
+                        httpRes?.data,
+                        shared.EnhancedInvoicesReport
+                    );
+                }
+                break;
+            case [401, 404].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * Get enhanced profit and loss report
+     *
+     * @remarks
+     * Gets a fully categorized profit and loss statement for a given company, over one or more period(s).
+     *
+     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     */
+    async getEnhancedProfitAndLoss(
+        req: operations.GetEnhancedProfitAndLossRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetEnhancedProfitAndLossResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetEnhancedProfitAndLossRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/data/companies/{companyId}/connections/{connectionId}/assess/enhancedProfitAndLoss",
+            req
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig("backoff", true);
+            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url + queryParams,
+                method: "get",
+                headers: headers,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetEnhancedProfitAndLossResponse =
+            new operations.GetEnhancedProfitAndLossResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.report = utils.objectToClass(httpRes?.data, shared.Report);
+                }
+                break;
+            case [401, 404].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * Get key subscription revenue metrics
+     *
+     * @remarks
+     * Gets key metrics for subscription revenue.
+     */
+    async getRecurringRevenueMetrics(
+        req: operations.GetRecurringRevenueMetricsRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetRecurringRevenueMetricsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetRecurringRevenueMetricsRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/data/companies/{companyId}/connections/{connectionId}/assess/subscriptions/mrr",
+            req
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig("backoff", true);
+            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url,
+                method: "get",
+                headers: headers,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetRecurringRevenueMetricsResponse =
+            new operations.GetRecurringRevenueMetricsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.report = utils.objectToClass(httpRes?.data, shared.Report);
+                }
+                break;
+            case [401, 404].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * Generate key subscription revenue metrics
+     *
+     * @remarks
+     * Requests production of key subscription revenue metrics.
+     */
+    async requestRecurringRevenueMetrics(
+        req: operations.RequestRecurringRevenueMetricsRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.RequestRecurringRevenueMetricsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.RequestRecurringRevenueMetricsRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/data/companies/{companyId}/connections/{connectionId}/assess/subscriptions/process",
+            req
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig("backoff", true);
+            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url,
+                method: "get",
+                headers: headers,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.RequestRecurringRevenueMetricsResponse =
+            new operations.RequestRecurringRevenueMetricsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.report = utils.objectToClass(httpRes?.data, shared.Report);
+                }
+                break;
+            case [401, 404].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                }
+                break;
+        }
+
+        return res;
+    }
 }

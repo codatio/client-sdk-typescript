@@ -7,29 +7,29 @@ import { ReportComponentMeasure } from "./reportcomponentmeasure";
 import { Expose, Type } from "class-transformer";
 
 export class ReportComponent extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: ReportComponent })
-  @Expose({ name: "components" })
-  @Type(() => ReportComponent)
-  components?: ReportComponent[];
+    @SpeakeasyMetadata({ elemType: ReportComponent })
+    @Expose({ name: "components" })
+    @Type(() => ReportComponent)
+    components?: ReportComponent[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "dimension" })
-  dimension?: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "dimension" })
+    dimension?: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "dimensionDisplayName" })
-  dimensionDisplayName?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "dimensionDisplayName" })
+    dimensionDisplayName?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "item" })
-  item?: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "item" })
+    item?: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "itemDisplayName" })
-  itemDisplayName?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "itemDisplayName" })
+    itemDisplayName?: string;
 
-  @SpeakeasyMetadata({ elemType: ReportComponentMeasure })
-  @Expose({ name: "measures" })
-  @Type(() => ReportComponentMeasure)
-  measures?: ReportComponentMeasure[];
+    @SpeakeasyMetadata({ elemType: ReportComponentMeasure })
+    @Expose({ name: "measures" })
+    @Type(() => ReportComponentMeasure)
+    measures?: ReportComponentMeasure[];
 }

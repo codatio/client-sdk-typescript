@@ -6,40 +6,10 @@ Downloadable reports
 
 ### Available Operations
 
-* [~~downloadExcelReport~~](#downloadexcelreport) - Download generated excel report :warning: **Deprecated**
-* [generateExcelReport](#generateexcelreport) - Generate an Excel report
-* [getAccountingMarketingMetrics](#getaccountingmarketingmetrics) - Get the marketing metrics from an accounting source for a given company.
-* [getExcelReport](#getexcelreport) - Download generated excel report
-* [getExcelReportGenerationStatus](#getexcelreportgenerationstatus) - Get status of Excel report
-
-## ~~downloadExcelReport~~
-
-Download the previously generated Excel report to a local drive.
-
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-```typescript
-import { CodatAssess } from "@codat/assess";
-import { DownloadExcelReportResponse } from "@codat/assess/dist/sdk/models/operations";
-import { ExcelReportType } from "@codat/assess/dist/sdk/models/shared";
-
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "YOUR_API_KEY_HERE",
-  },
-});
-
-sdk.excelReports.downloadExcelReport({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportType.EnhancedInvoices,
-}).then((res: DownloadExcelReportResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
-```
+* [generateExcelReport](#generateexcelreport) - Generate Excel report
+* [getAccountingMarketingMetrics](#getaccountingmarketingmetrics) - Get marketing metrics report
+* [getExcelReport](#getexcelreport) - Download Excel report
+* [getExcelReportGenerationStatus](#getexcelreportgenerationstatus) - Get Excel report status
 
 ## generateExcelReport
 
@@ -54,13 +24,13 @@ import { ExcelReportType } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
 sdk.excelReports.generateExcelReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportType.EnhancedFinancials,
+  reportType: ExcelReportType.EnhancedInvoices,
 }).then((res: GenerateExcelReportResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -69,6 +39,8 @@ sdk.excelReports.generateExcelReport({
 ```
 
 ## getAccountingMarketingMetrics
+
+Get the marketing metrics from an accounting source for a given company.
 
 Request an Excel report for download.
 
@@ -81,7 +53,7 @@ import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -89,8 +61,8 @@ sdk.excelReports.getAccountingMarketingMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 739264,
-  periodLength: 19987,
+  numberOfPeriods: 451159,
+  periodLength: 739264,
   periodUnit: PeriodUnit.Day,
   reportDate: "29-09-2020",
   showInputValues: false,
@@ -114,13 +86,13 @@ import { ExcelReportType } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
 sdk.excelReports.getExcelReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportType.EnhancedFinancials,
+  reportType: ExcelReportType.Assess,
 }).then((res: GetExcelReportResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -141,13 +113,13 @@ import { ExcelReportType } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
 sdk.excelReports.getExcelReportGenerationStatus({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportType.Audit,
+  reportType: ExcelReportType.EnhancedFinancials,
 }).then((res: GetExcelReportGenerationStatusResponse) => {
   if (res.statusCode == 200) {
     // handle response

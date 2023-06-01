@@ -6,20 +6,20 @@ Data integrity is important
 
 ### Available Operations
 
-* [getAccountsForEnhancedBalanceSheet](#getaccountsforenhancedbalancesheet) - Enhanced Balance Sheet Accounts
-* [getAccountsForEnhancedProfitAndLoss](#getaccountsforenhancedprofitandloss) - Enhanced Profit and Loss Accounts
-* [getCommerceCustomerRetentionMetrics](#getcommercecustomerretentionmetrics) - Get the customer retention metrics for a specific company.
-* [getCommerceLifetimeValueMetrics](#getcommercelifetimevaluemetrics) - Get the lifetime value metric for a specific company.
-* [getCommerceOrdersMetrics](#getcommerceordersmetrics) - Get order information for a specific company
-* [getCommerceRefundsMetrics](#getcommercerefundsmetrics) - Get the refunds information for a specific company
-* [getCommerceRevenueMetrics](#getcommercerevenuemetrics) - Commerce Revenue Metrics
-* [~~getEnhancedBalanceSheet~~](#getenhancedbalancesheet) - Enhanced Balance Sheet :warning: **Deprecated**
+* [getAccountsForEnhancedBalanceSheet](#getaccountsforenhancedbalancesheet) - Get enhanced balance sheet accounts
+* [getAccountsForEnhancedProfitAndLoss](#getaccountsforenhancedprofitandloss) - Get enhanced profit and loss accounts
+* [getCommerceCustomerRetentionMetrics](#getcommercecustomerretentionmetrics) - Get customer retention metrics
+* [getCommerceLifetimeValueMetrics](#getcommercelifetimevaluemetrics) - Get lifetime value metric
+* [getCommerceOrdersMetrics](#getcommerceordersmetrics) - Get orders report
+* [getCommerceRefundsMetrics](#getcommercerefundsmetrics) - Get refunds report
+* [getCommerceRevenueMetrics](#getcommercerevenuemetrics) - Get commerce revenue metrics
+* [~~getEnhancedBalanceSheet~~](#getenhancedbalancesheet) - Get enhanced balance sheet report :warning: **Deprecated**
 * [getEnhancedCashFlowTransactions](#getenhancedcashflowtransactions) - Get enhanced cash flow report
 * [~~getEnhancedFinancialMetrics~~](#getenhancedfinancialmetrics) - List financial metrics :warning: **Deprecated**
-* [getEnhancedInvoicesReport](#getenhancedinvoicesreport) - Enhanced Invoices Report
-* [~~getEnhancedProfitAndLoss~~](#getenhancedprofitandloss) - Enhanced Profit and Loss :warning: **Deprecated**
-* [getRecurringRevenueMetrics](#getrecurringrevenuemetrics) - Get key metrics for subscription revenue
-* [requestRecurringRevenueMetrics](#requestrecurringrevenuemetrics) - Request production of key subscription revenue metrics
+* [getEnhancedInvoicesReport](#getenhancedinvoicesreport) - Get enhanced invoices report
+* [~~getEnhancedProfitAndLoss~~](#getenhancedprofitandloss) - Get enhanced profit and loss report :warning: **Deprecated**
+* [getRecurringRevenueMetrics](#getrecurringrevenuemetrics) - Get key subscription revenue metrics
+* [requestRecurringRevenueMetrics](#requestrecurringrevenuemetrics) - Generate key subscription revenue metrics
 
 ## getAccountsForEnhancedBalanceSheet
 
@@ -35,13 +35,13 @@ import { GetAccountsForEnhancedBalanceSheetResponse } from "@codat/assess/dist/s
 
 const sdk = new CodatAssess({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
 sdk.reports.getAccountsForEnhancedBalanceSheet({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  numberOfPeriods: 979587,
+  numberOfPeriods: 282807,
   reportDate: "29-09-2020",
 }).then((res: GetAccountsForEnhancedBalanceSheetResponse) => {
   if (res.statusCode == 200) {
@@ -64,13 +64,13 @@ import { GetAccountsForEnhancedProfitAndLossResponse } from "@codat/assess/dist/
 
 const sdk = new CodatAssess({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
 sdk.reports.getAccountsForEnhancedProfitAndLoss({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  numberOfPeriods: 120196,
+  numberOfPeriods: 979587,
   reportDate: "29-09-2020",
 }).then((res: GetAccountsForEnhancedProfitAndLossResponse) => {
   if (res.statusCode == 200) {
@@ -92,7 +92,7 @@ import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -100,8 +100,8 @@ sdk.reports.getCommerceCustomerRetentionMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 359444,
-  periodLength: 296140,
+  numberOfPeriods: 120196,
+  periodLength: 359444,
   periodUnit: PeriodUnit.Week,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceCustomerRetentionMetricsResponse) => {
@@ -124,7 +124,7 @@ import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -132,9 +132,9 @@ sdk.reports.getCommerceLifetimeValueMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 118727,
-  periodLength: 688661,
-  periodUnit: PeriodUnit.Week,
+  numberOfPeriods: 480894,
+  periodLength: 118727,
+  periodUnit: PeriodUnit.Month,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceLifetimeValueMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -156,7 +156,7 @@ import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -164,9 +164,9 @@ sdk.reports.getCommerceOrdersMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 880476,
-  periodLength: 414263,
-  periodUnit: PeriodUnit.Year,
+  numberOfPeriods: 317983,
+  periodLength: 880476,
+  periodUnit: PeriodUnit.Week,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceOrdersMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -188,7 +188,7 @@ import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -196,9 +196,9 @@ sdk.reports.getCommerceRefundsMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 64147,
-  periodLength: 216822,
-  periodUnit: PeriodUnit.Month,
+  numberOfPeriods: 918236,
+  periodLength: 64147,
+  periodUnit: PeriodUnit.Day,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceRefundsMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -220,7 +220,7 @@ import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -228,9 +228,9 @@ sdk.reports.getCommerceRevenueMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 565189,
-  periodLength: 566602,
-  periodUnit: PeriodUnit.Year,
+  numberOfPeriods: 692472,
+  periodLength: 565189,
+  periodUnit: PeriodUnit.Month,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceRevenueMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -253,7 +253,7 @@ import { GetEnhancedBalanceSheetResponse } from "@codat/assess/dist/sdk/models/o
 
 const sdk = new CodatAssess({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -261,8 +261,8 @@ sdk.reports.getEnhancedBalanceSheet({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 265389,
-  periodLength: 508969,
+  numberOfPeriods: 865103,
+  periodLength: 265389,
   reportDate: "29-09-2020",
 }).then((res: GetEnhancedBalanceSheetResponse) => {
   if (res.statusCode == 200) {
@@ -272,6 +272,10 @@ sdk.reports.getEnhancedBalanceSheet({
 ```
 
 ## getEnhancedCashFlowTransactions
+
+> **Categorization engine**
+> 
+> The categorization engine uses machine learning and has been fully trained against Plaid and TrueLayer banking data sources. It is not fully trained against the Basiq banking data source.
 
 The Enhanced Cash Flow Transactions endpoint provides a fully categorized list of banking transactions for a company. Accounts and transaction data are obtained from the company's banking data sources.
 
@@ -283,7 +287,7 @@ import { GetEnhancedCashFlowTransactionsResponse } from "@codat/assess/dist/sdk/
 
 const sdk = new CodatAssess({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -291,7 +295,7 @@ sdk.reports.getEnhancedCashFlowTransactions({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   page: 1,
   pageSize: 100,
-  query: "rem",
+  query: "praesentium",
 }).then((res: GetEnhancedCashFlowTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -322,15 +326,15 @@ import { RFCDate } from "@codat/assess/dist/sdk/types";
 
 const sdk = new CodatAssess({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
 sdk.reports.getEnhancedFinancialMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  numberOfPeriods: 916723,
-  periodLength: 93940,
+  numberOfPeriods: 523248,
+  periodLength: 916723,
   reportDate: "29-09-2020",
   showMetricInputs: false,
 }).then((res: GetEnhancedFinancialMetricsResponse) => {
@@ -353,7 +357,7 @@ import { InvoiceStatus } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -361,7 +365,7 @@ sdk.reports.getEnhancedInvoicesReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   page: 1,
   pageSize: 100,
-  query: "repudiandae",
+  query: "quasi",
 }).then((res: GetEnhancedInvoicesReportResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -383,7 +387,7 @@ import { GetEnhancedProfitAndLossResponse } from "@codat/assess/dist/sdk/models/
 
 const sdk = new CodatAssess({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -391,8 +395,8 @@ sdk.reports.getEnhancedProfitAndLoss({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 575947,
-  periodLength: 83112,
+  numberOfPeriods: 921158,
+  periodLength: 575947,
   reportDate: "29-09-2020",
 }).then((res: GetEnhancedProfitAndLossResponse) => {
   if (res.statusCode == 200) {
@@ -413,7 +417,7 @@ import { GetRecurringRevenueMetricsResponse } from "@codat/assess/dist/sdk/model
 
 const sdk = new CodatAssess({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -429,7 +433,7 @@ sdk.reports.getRecurringRevenueMetrics({
 
 ## requestRecurringRevenueMetrics
 
-Request production of key subscription revenue metrics.
+Requests production of key subscription revenue metrics.
 
 ### Example Usage
 
@@ -439,7 +443,7 @@ import { RequestRecurringRevenueMetricsResponse } from "@codat/assess/dist/sdk/m
 
 const sdk = new CodatAssess({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 

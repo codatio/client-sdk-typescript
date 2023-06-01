@@ -9,7 +9,7 @@ Categorisation
 * [~~getAccountCategory~~](#getaccountcategory) - Get suggested and/or confirmed category for a specific account :warning: **Deprecated**
 * [~~listAccountsCategories~~](#listaccountscategories) - List suggested and confirmed account categories :warning: **Deprecated**
 * [~~listAvailableAccountCategories~~](#listavailableaccountcategories) - List account categories :warning: **Deprecated**
-* [~~updateAccountCategory~~](#updateaccountcategory) - Patch account categories :warning: **Deprecated**
+* [~~updateAccountCategory~~](#updateaccountcategory) - Update account categories :warning: **Deprecated**
 * [~~updateAccountsCategories~~](#updateaccountscategories) - Confirm categories for accounts :warning: **Deprecated**
 
 ## ~~getAccountCategory~~
@@ -26,7 +26,7 @@ import { GetAccountCategoryResponse } from "@codat/assess/dist/sdk/models/operat
 
 const sdk = new CodatAssess({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -55,7 +55,7 @@ import { ListAccountsCategoriesResponse } from "@codat/assess/dist/sdk/models/op
 
 const sdk = new CodatAssess({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -87,7 +87,7 @@ import { ListAvailableAccountCategoriesResponse } from "@codat/assess/dist/sdk/m
 
 const sdk = new CodatAssess({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -112,7 +112,7 @@ import { UpdateAccountCategoryResponse } from "@codat/assess/dist/sdk/models/ope
 
 const sdk = new CodatAssess({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -148,7 +148,7 @@ import { UpdateAccountsCategoriesResponse } from "@codat/assess/dist/sdk/models/
 
 const sdk = new CodatAssess({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 

@@ -14,10 +14,10 @@
  * - `Void` - An invoice can become Void when it's deleted, refunded, written off, or cancelled. A voided invoice may still be PartiallyPaid, and so all outstanding amounts on voided invoices are removed from the accounts receivable account.
  */
 export enum InvoiceStatus {
-  Unknown = "Unknown",
-  Draft = "Draft",
-  Submitted = "Submitted",
-  PartiallyPaid = "PartiallyPaid",
-  Paid = "Paid",
-  Void = "Void",
+    Unknown = "Unknown",
+    Draft = "Draft",
+    Submitted = "Submitted",
+    PartiallyPaid = "PartiallyPaid",
+    Paid = "Paid",
+    Void = "Void",
 }

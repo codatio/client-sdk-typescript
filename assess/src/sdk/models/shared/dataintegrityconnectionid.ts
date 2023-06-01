@@ -6,17 +6,17 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class DataIntegrityConnectionId extends SpeakeasyBase {
-  /**
-   * An array of strings. The connection IDs for the type specified in the url.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "source" })
-  source?: string[];
+    /**
+     * An array of strings. The connection IDs for the type specified in the url.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "source" })
+    source?: string[];
 
-  /**
-   * An array of strings. The connection IDs for the type being matched to.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "target" })
-  target?: string[];
+    /**
+     * An array of strings. The connection IDs for the type being matched to.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "target" })
+    target?: string[];
 }

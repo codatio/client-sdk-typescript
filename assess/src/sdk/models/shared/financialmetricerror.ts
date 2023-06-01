@@ -6,18 +6,18 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export enum FinancialMetricErrorType {
-  DataNotSynced = "DataNotSynced",
-  DataNotSupported = "DataNotSupported",
-  DataSyncFailed = "DataSyncFailed",
-  DataTypeNotEnabled = "DataTypeNotEnabled",
+    DataNotSynced = "DataNotSynced",
+    DataNotSupported = "DataNotSupported",
+    DataSyncFailed = "DataSyncFailed",
+    DataTypeNotEnabled = "DataTypeNotEnabled",
 }
 
 export class FinancialMetricError extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: FinancialMetricErrorType;
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type?: FinancialMetricErrorType;
 }

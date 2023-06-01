@@ -11,28 +11,28 @@ import { Expose, Type } from "class-transformer";
  * OK
  */
 export class CategorisedAccounts extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "_links" })
-  @Type(() => Links)
-  links: Links;
+    @SpeakeasyMetadata()
+    @Expose({ name: "_links" })
+    @Type(() => Links)
+    links: Links;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "pageNumber" })
-  pageNumber: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "pageNumber" })
+    pageNumber: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "pageSize" })
-  pageSize: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "pageSize" })
+    pageSize: number;
 
-  /**
-   * A list confirmed and suggested account categories.
-   */
-  @SpeakeasyMetadata({ elemType: CategorisedAccount })
-  @Expose({ name: "results" })
-  @Type(() => CategorisedAccount)
-  results?: CategorisedAccount[];
+    /**
+     * A list confirmed and suggested account categories.
+     */
+    @SpeakeasyMetadata({ elemType: CategorisedAccount })
+    @Expose({ name: "results" })
+    @Type(() => CategorisedAccount)
+    results?: CategorisedAccount[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "totalResults" })
-  totalResults: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "totalResults" })
+    totalResults: number;
 }

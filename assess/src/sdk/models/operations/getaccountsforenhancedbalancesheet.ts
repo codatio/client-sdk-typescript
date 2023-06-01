@@ -7,41 +7,41 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetAccountsForEnhancedBalanceSheetRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  /**
-   * The number of periods to return.  There will be no pagination as a query parameter, however Codat will limit the number of periods to request to 12 periods.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=numberOfPeriods",
-  })
-  numberOfPeriods: number;
+    /**
+     * The number of periods to return.  There will be no pagination as a query parameter, however Codat will limit the number of periods to request to 12 periods.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=numberOfPeriods" })
+    numberOfPeriods: number;
 
-  /**
-   * The date in which the report is created up to. Users must specify a specific date, however the response will be provided for the full month.
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=reportDate",
-  })
-  reportDate: string;
+    /**
+     * The date in which the report is created up to. Users must specify a specific date, however the response will be provided for the full month.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=reportDate" })
+    reportDate: string;
 }
 
 export class GetAccountsForEnhancedBalanceSheetResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  enhancedReport?: shared.EnhancedReport;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    enhancedReport?: shared.EnhancedReport;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
+
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    schema?: shared.Schema;
 }
