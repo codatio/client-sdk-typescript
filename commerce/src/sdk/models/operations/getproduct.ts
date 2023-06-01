@@ -7,18 +7,24 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
-export class ListLocationsRequest extends SpeakeasyBase {
+export class GetProductRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
     connectionId: string;
+
+    /**
+     * Unique identifier for a product.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=productId" })
+    productId: string;
 }
 
 /**
  * The data type's dataset has not been requested or is still syncing.
  */
-export class ListLocations409ApplicationJSON extends SpeakeasyBase {
+export class GetProduct409ApplicationJSON extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "canBeRetried" })
     canBeRetried?: string;
@@ -44,7 +50,7 @@ export class ListLocations409ApplicationJSON extends SpeakeasyBase {
     statusCode?: number;
 }
 
-export class ListLocationsResponse extends SpeakeasyBase {
+export class GetProductResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -52,7 +58,7 @@ export class ListLocationsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    locations?: shared.Locations;
+    product?: shared.Product;
 
     @SpeakeasyMetadata()
     statusCode: number;
@@ -64,10 +70,10 @@ export class ListLocationsResponse extends SpeakeasyBase {
      * The data type's dataset has not been requested or is still syncing.
      */
     @SpeakeasyMetadata()
-    listLocations409ApplicationJSONObject?: ListLocations409ApplicationJSON;
+    getProduct409ApplicationJSONObject?: GetProduct409ApplicationJSON;
 
     /**
-     * Your `query` parameter was not correctly formed
+     * Your API request was not properly authorized.
      */
     @SpeakeasyMetadata()
     schema?: shared.Schema;

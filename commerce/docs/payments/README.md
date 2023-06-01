@@ -6,8 +6,66 @@ Retrieve standardized data from linked commerce platforms.
 
 ### Available Operations
 
+* [get](#get) - Get payment
+* [getMethod](#getmethod) - Get payment method
 * [list](#list) - List payments
 * [listMethods](#listmethods) - List payment methods
+
+## get
+
+Get a specific commerce payment for the given company & data connection.
+
+### Example Usage
+
+```typescript
+import { CodatCommerce } from "@codat/commerce";
+import { GetPaymentResponse } from "@codat/commerce/dist/sdk/models/operations";
+import { PaymentStatus } from "@codat/commerce/dist/sdk/models/shared";
+
+const sdk = new CodatCommerce({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.payments.get({
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  paymentId: "illum",
+}).then((res: GetPaymentResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+## getMethod
+
+Retrieve a specific payment method, such as card, cash or other online payment methods, as held in the linked commerce platform.
+
+### Example Usage
+
+```typescript
+import { CodatCommerce } from "@codat/commerce";
+import { GetPaymentMethodResponse } from "@codat/commerce/dist/sdk/models/operations";
+import { PaymentMethodStatus } from "@codat/commerce/dist/sdk/models/shared";
+
+const sdk = new CodatCommerce({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.payments.getMethod({
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  paymentMethodId: "vel",
+}).then((res: GetPaymentMethodResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
 
 ## list
 
@@ -32,7 +90,7 @@ sdk.payments.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "quibusdam",
+  query: "error",
 }).then((res: ListPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -63,7 +121,7 @@ sdk.payments.listMethods({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "unde",
+  query: "deserunt",
 }).then((res: ListPaymentMethodsResponse) => {
   if (res.statusCode == 200) {
     // handle response

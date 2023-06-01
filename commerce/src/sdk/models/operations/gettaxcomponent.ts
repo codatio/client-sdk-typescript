@@ -7,18 +7,24 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
-export class ListLocationsRequest extends SpeakeasyBase {
+export class GetTaxComponentRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
     connectionId: string;
+
+    /**
+     * Unique identifier for a tax component.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=taxId" })
+    taxId: string;
 }
 
 /**
  * The data type's dataset has not been requested or is still syncing.
  */
-export class ListLocations409ApplicationJSON extends SpeakeasyBase {
+export class GetTaxComponent409ApplicationJSON extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "canBeRetried" })
     canBeRetried?: string;
@@ -44,15 +50,9 @@ export class ListLocations409ApplicationJSON extends SpeakeasyBase {
     statusCode?: number;
 }
 
-export class ListLocationsResponse extends SpeakeasyBase {
+export class GetTaxComponentResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    locations?: shared.Locations;
 
     @SpeakeasyMetadata()
     statusCode: number;
@@ -61,13 +61,19 @@ export class ListLocationsResponse extends SpeakeasyBase {
     rawResponse?: AxiosResponse;
 
     /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    taxComponent?: shared.TaxComponent;
+
+    /**
      * The data type's dataset has not been requested or is still syncing.
      */
     @SpeakeasyMetadata()
-    listLocations409ApplicationJSONObject?: ListLocations409ApplicationJSON;
+    getTaxComponent409ApplicationJSONObject?: GetTaxComponent409ApplicationJSON;
 
     /**
-     * Your `query` parameter was not correctly formed
+     * Your API request was not properly authorized.
      */
     @SpeakeasyMetadata()
     schema?: shared.Schema;

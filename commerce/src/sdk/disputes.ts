@@ -35,6 +35,86 @@ export class Disputes {
     }
 
     /**
+     * Get dispute
+     *
+     * @remarks
+     * Get a specific commerce dispute.
+     */
+    async get(
+        req: operations.GetDisputeRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetDisputeResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetDisputeRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/companies/{companyId}/connections/{connectionId}/data/commerce-disputes/{disputeId}",
+            req
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json;q=1, application/json;q=0.7, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig("backoff", true);
+            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url,
+                method: "get",
+                headers: headers,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetDisputeResponse = new operations.GetDisputeResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.dispute = utils.objectToClass(httpRes?.data, shared.Dispute);
+                }
+                break;
+            case [401, 404, 429].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                }
+                break;
+            case httpRes?.status == 409:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getDispute409ApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.GetDispute409ApplicationJSON
+                    );
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
      * List disputes
      *
      * @remarks
@@ -97,7 +177,7 @@ export class Disputes {
                     res.disputes = utils.objectToClass(httpRes?.data, shared.Disputes);
                 }
                 break;
-            case [400, 401, 404].includes(httpRes?.status):
+            case [400, 401, 404, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
                 }

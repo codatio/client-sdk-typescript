@@ -3,43 +3,33 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Address } from "./address";
+import { Links } from "./links";
+import { Location } from "./location";
 import { Expose, Type } from "class-transformer";
 
 /**
- * The Locations datatype holds information on geographic locations at which stocks of products may be held, as referenced in the Products data type.
- *
- * @remarks
- *
- * Locations also holds information on geographic locations where orders were placed, as referenced in the Orders data type.
- *
- * Explore our [data coverage](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-locations) for this data type.
+ * OK
  */
 export class Locations extends SpeakeasyBase {
     @SpeakeasyMetadata()
-    @Expose({ name: "address" })
-    @Type(() => Address)
-    address?: Address;
-
-    /**
-     * A unique, persistent identifier for this record
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "id" })
-    id: string;
+    @Expose({ name: "_links" })
+    @Type(() => Links)
+    links: Links;
 
     @SpeakeasyMetadata()
-    @Expose({ name: "modifiedDate" })
-    modifiedDate?: string;
-
-    /**
-     * Name of this location
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "name" })
-    name?: string;
+    @Expose({ name: "pageNumber" })
+    pageNumber: number;
 
     @SpeakeasyMetadata()
-    @Expose({ name: "sourceModifiedDate" })
-    sourceModifiedDate?: string;
+    @Expose({ name: "pageSize" })
+    pageSize: number;
+
+    @SpeakeasyMetadata({ elemType: Location })
+    @Expose({ name: "results" })
+    @Type(() => Location)
+    results?: Location[];
+
+    @SpeakeasyMetadata()
+    @Expose({ name: "totalResults" })
+    totalResults: number;
 }

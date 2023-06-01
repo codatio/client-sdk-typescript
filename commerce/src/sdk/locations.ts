@@ -35,6 +35,88 @@ export class Locations {
     }
 
     /**
+     * Get location
+     *
+     * @remarks
+     * Retrieve a location as seen in the commerce platform.
+     *
+     * A `location` is a geographic place at which stocks of products may be held, or from where orders were placed.
+     */
+    async get(
+        req: operations.GetLocationRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetLocationResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetLocationRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/companies/{companyId}/connections/{connectionId}/data/commerce-locations/{locationId}",
+            req
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json;q=1, application/json;q=0.7, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig("backoff", true);
+            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url,
+                method: "get",
+                headers: headers,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetLocationResponse = new operations.GetLocationResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.location = utils.objectToClass(httpRes?.data, shared.Location);
+                }
+                break;
+            case [401, 404, 429].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                }
+                break;
+            case httpRes?.status == 409:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getLocation409ApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.GetLocation409ApplicationJSON
+                    );
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
      * List locations
      *
      * @remarks
@@ -95,13 +177,10 @@ export class Locations {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.locationsResponse = utils.objectToClass(
-                        httpRes?.data,
-                        shared.LocationsResponse
-                    );
+                    res.locations = utils.objectToClass(httpRes?.data, shared.Locations);
                 }
                 break;
-            case [400, 401, 404].includes(httpRes?.status):
+            case [400, 401, 404, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
                 }

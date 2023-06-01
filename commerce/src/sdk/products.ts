@@ -35,6 +35,170 @@ export class Products {
     }
 
     /**
+     * Get product
+     *
+     * @remarks
+     * The Products data type provides the company's product inventory, and includes the price and quantity of all products, and product variants, available for sale.
+     */
+    async get(
+        req: operations.GetProductRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetProductResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetProductRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/companies/{companyId}/connections/{connectionId}/data/commerce-products/{productId}",
+            req
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json;q=1, application/json;q=0.7, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig("backoff", true);
+            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url,
+                method: "get",
+                headers: headers,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetProductResponse = new operations.GetProductResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.product = utils.objectToClass(httpRes?.data, shared.Product);
+                }
+                break;
+            case [401, 404, 429].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                }
+                break;
+            case httpRes?.status == 409:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getProduct409ApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.GetProduct409ApplicationJSON
+                    );
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * Get product category
+     *
+     * @remarks
+     * Product categories are used to classify a group of products together, either by type (e.g. "Furniture") or sometimes by tax profile.
+     */
+    async getCategory(
+        req: operations.GetProductCategoryRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetProductCategoryResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetProductCategoryRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/companies/{companyId}/connections/{connectionId}/data/commerce-productCategories/{productId}",
+            req
+        );
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json;q=1, application/json;q=0.7, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig("backoff", true);
+            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url,
+                method: "get",
+                headers: headers,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetProductCategoryResponse =
+            new operations.GetProductCategoryResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.productCategory = utils.objectToClass(
+                        httpRes?.data,
+                        shared.ProductCategory
+                    );
+                }
+                break;
+            case [401, 404, 429].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                }
+                break;
+            case httpRes?.status == 409:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.getProductCategory409ApplicationJSONObject = utils.objectToClass(
+                        httpRes?.data,
+                        operations.GetProductCategory409ApplicationJSON
+                    );
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
      * List products
      *
      * @remarks
@@ -97,7 +261,7 @@ export class Products {
                     res.products = utils.objectToClass(httpRes?.data, shared.Products);
                 }
                 break;
-            case [400, 401, 404].includes(httpRes?.status):
+            case [400, 401, 404, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
                 }
@@ -182,7 +346,7 @@ export class Products {
                     );
                 }
                 break;
-            case [400, 401, 404].includes(httpRes?.status):
+            case [400, 401, 404, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
                 }
