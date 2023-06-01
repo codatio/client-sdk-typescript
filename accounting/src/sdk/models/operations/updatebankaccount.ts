@@ -47,4 +47,10 @@ export class UpdateBankAccountResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     updateBankAccountResponse?: shared.UpdateBankAccountResponse;
+
+    /**
+     * The request made is not valid.
+     */
+    @SpeakeasyMetadata()
+    schema?: shared.Schema;
 }

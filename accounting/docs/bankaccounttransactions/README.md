@@ -31,28 +31,54 @@ const sdk = new CodatAccounting({
 
 sdk.bankAccountTransactions.create({
   bankTransactions: {
-    accountId: "quis",
+    accountId: "veritatis",
     transactions: [
       {
-        amount: 6481.72,
-        balance: 202.18,
-        clearedOnDate: "ipsam",
-        counterparty: "repellendus",
-        description: "sapiente",
-        id: "c2ddf7cc-78ca-41ba-928f-c816742cb739",
-        modifiedDate: "aspernatur",
+        amount: 202.18,
+        balance: 3682.41,
+        clearedOnDate: "repellendus",
+        counterparty: "sapiente",
+        description: "quo",
+        id: "2ddf7cc7-8ca1-4ba9-a8fc-816742cb7392",
+        modifiedDate: "perferendis",
+        reconciled: false,
+        reference: "ad",
+        sourceModifiedDate: "natus",
+        transactionType: BankTransactionType.Debit,
+      },
+      {
+        amount: 6120.96,
+        balance: 2223.21,
+        clearedOnDate: "natus",
+        counterparty: "laboriosam",
+        description: "hic",
+        id: "ea7596eb-10fa-4aa2-b52c-5955907aff1a",
+        modifiedDate: "dolorem",
+        reconciled: false,
+        reference: "culpa",
+        sourceModifiedDate: "consequuntur",
+        transactionType: BankTransactionType.Other,
+      },
+      {
+        amount: 6531.08,
+        balance: 5818.5,
+        clearedOnDate: "numquam",
+        counterparty: "commodi",
+        description: "quam",
+        id: "739251aa-52c3-4f5a-9019-da1ffe78f097",
+        modifiedDate: "cum",
         reconciled: false,
         reference: "perferendis",
-        sourceModifiedDate: "ad",
-        transactionType: BankTransactionType.Check,
+        sourceModifiedDate: "doloremque",
+        transactionType: BankTransactionType.Dep,
       },
     ],
   },
-  accountId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  accountId: "ut",
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 149675,
+  timeoutInMinutes: 979587,
 }).then((res: CreateBankTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -78,7 +104,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bankAccountTransactions.getCreateModel({
-  accountId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  accountId: "dicta",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetCreateBankAccountModelResponse) => {
@@ -106,13 +132,13 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bankAccountTransactions.list({
-  accountId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  accountId: "corporis",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "iste",
+  query: "dolore",
 }).then((res: ListBankAccountTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response

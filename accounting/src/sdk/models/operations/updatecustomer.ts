@@ -44,4 +44,10 @@ export class UpdateCustomerResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     updateCustomerResponse?: shared.UpdateCustomerResponse;
+
+    /**
+     * The request made is not valid.
+     */
+    @SpeakeasyMetadata()
+    schema?: shared.Schema;
 }

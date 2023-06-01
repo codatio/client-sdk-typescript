@@ -48,60 +48,68 @@ sdk.customers.create({
   customer: {
     addresses: [
       {
-        city: "Port Clevelandtown",
-        country: "Turkmenistan",
-        line1: "culpa",
-        line2: "at",
-        postalCode: "10296",
-        region: "dolore",
+        city: "South Carterboro",
+        country: "Ireland",
+        line1: "reprehenderit",
+        line2: "quidem",
+        postalCode: "62077-0396",
+        region: "libero",
         type: AddressType.Unknown,
       },
       {
-        city: "Abbyport",
-        country: "Philippines",
-        line1: "voluptatibus",
-        line2: "sequi",
-        postalCode: "37221",
-        region: "quas",
-        type: AddressType.Unknown,
+        city: "Hicksville",
+        country: "Greenland",
+        line1: "perferendis",
+        line2: "itaque",
+        postalCode: "91165-2810",
+        region: "itaque",
+        type: AddressType.Delivery,
       },
       {
-        city: "Burdetteland",
-        country: "Vietnam",
-        line1: "nulla",
-        line2: "libero",
-        postalCode: "94593",
-        region: "unde",
-        type: AddressType.Unknown,
+        city: "Alfonsoside",
+        country: "Niue",
+        line1: "aliquam",
+        line2: "quasi",
+        postalCode: "19233-9530",
+        region: "minima",
+        type: AddressType.Billing,
       },
       {
-        city: "South Paul",
-        country: "Lesotho",
-        line1: "ab",
-        line2: "quo",
-        postalCode: "58178-2135",
-        region: "temporibus",
-        type: AddressType.Unknown,
+        city: "Wesley Chapel",
+        country: "Uruguay",
+        line1: "molestiae",
+        line2: "amet",
+        postalCode: "89329-8839",
+        region: "deserunt",
+        type: AddressType.Billing,
       },
     ],
-    contactName: "amet",
+    contactName: "minima",
     contacts: [
       {
         address: {
-          city: "Margaretestad",
-          country: "Burkina Faso",
-          line1: "placeat",
-          line2: "rem",
-          postalCode: "59914",
-          region: "ullam",
-          type: AddressType.Unknown,
+          city: "East Korbinstad",
+          country: "Svalbard & Jan Mayen Islands",
+          line1: "laborum",
+          line2: "sapiente",
+          postalCode: "21658-4225",
+          region: "quos",
+          type: AddressType.Delivery,
         },
-        email: "Buster49@hotmail.com",
-        modifiedDate: "quod",
-        name: "Marjorie Funk",
+        email: "Samanta20@gmail.com",
+        modifiedDate: "error",
+        name: "Trevor Hauck",
         phone: [
           {
-            number: "quaerat",
+            number: "sunt",
+            type: PhoneNumberType.Mobile,
+          },
+          {
+            number: "similique",
+            type: PhoneNumberType.Primary,
+          },
+          {
+            number: "tempora",
             type: PhoneNumberType.Landline,
           },
         ],
@@ -109,56 +117,57 @@ sdk.customers.create({
       },
       {
         address: {
-          city: "Howellland",
-          country: "Mayotte",
-          line1: "distinctio",
-          line2: "cum",
-          postalCode: "82083",
-          region: "laborum",
-          type: AddressType.Unknown,
+          city: "Hicksville",
+          country: "Bahrain",
+          line1: "omnis",
+          line2: "aut",
+          postalCode: "68688",
+          region: "velit",
+          type: AddressType.Billing,
         },
-        email: "Warren19@gmail.com",
-        modifiedDate: "autem",
-        name: "Edgar Cremin",
+        email: "Roosevelt_Batz38@hotmail.com",
+        modifiedDate: "esse",
+        name: "Dianna Ruecker",
         phone: [
           {
-            number: "velit",
+            number: "vero",
             type: PhoneNumberType.Landline,
           },
         ],
-        status: CustomerStatus.Archived,
+        status: CustomerStatus.Active,
       },
     ],
-    customerName: "natus",
-    defaultCurrency: "minima",
-    emailAddress: "minus",
-    id: "9d237397-c785-4b5d-b4f5-00183febdf67",
+    customerName: "asperiores",
+    defaultCurrency: "quasi",
+    emailAddress: "veniam",
+    id: "920c90d1-b490-41f2-bd89-c8a32639da5b",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "aliquid",
-    phone: "510.586.7430 x0316",
-    registrationNumber: "ad",
+    modifiedDate: "in",
+    phone: "560.375.5065 x2942",
+    registrationNumber: "sequi",
     sourceModifiedDate: "nisi",
-    status: CustomerStatus.Unknown,
+    status: CustomerStatus.Active,
     supplementalData: {
       content: {
-        "officiis": {
-          "minus": "tempora",
-          "sequi": "natus",
-          "saepe": "quibusdam",
-          "corrupti": "maxime",
+        "mollitia": {
+          "hic": "doloremque",
+          "id": "asperiores",
+          "rem": "quod",
         },
-        "aliquam": {
-          "explicabo": "eaque",
+        "commodi": {
+          "beatae": "placeat",
+          "molestiae": "dolor",
+          "quia": "nulla",
         },
       },
     },
-    taxNumber: "hic",
+    taxNumber: "occaecati",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 276828,
+  timeoutInMinutes: 983596,
 }).then((res: CreateCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -186,7 +195,7 @@ sdk.customers.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "quae",
+  customerId: "libero",
 }).then((res: DownloadCustomerAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -213,7 +222,7 @@ const sdk = new CodatAccounting({
 
 sdk.customers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  customerId: "eos",
+  customerId: "culpa",
 }).then((res: GetCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -241,7 +250,7 @@ sdk.customers.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "eius",
+  customerId: "tenetur",
 }).then((res: GetCustomerAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -304,7 +313,7 @@ sdk.customers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "voluptatem",
+  query: "molestias",
 }).then((res: ListCustomersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -331,7 +340,7 @@ const sdk = new CodatAccounting({
 sdk.customers.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "temporibus",
+  customerId: "magnam",
 }).then((res: ListCustomerAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -373,115 +382,110 @@ sdk.customers.update({
   customer: {
     addresses: [
       {
-        city: "New Jayde",
-        country: "Nigeria",
-        line1: "porro",
-        line2: "voluptas",
-        postalCode: "27537-1668",
-        region: "magni",
+        city: "Lake Christ",
+        country: "Norfolk Island",
+        line1: "vero",
+        line2: "quas",
+        postalCode: "77308-5623",
+        region: "dicta",
         type: AddressType.Unknown,
       },
       {
-        city: "Joanhaven",
-        country: "Lebanon",
-        line1: "unde",
-        line2: "ad",
-        postalCode: "62198-2033",
-        region: "laboriosam",
+        city: "Kshlerinberg",
+        country: "Kazakhstan",
+        line1: "blanditiis",
+        line2: "dolore",
+        postalCode: "52043-0600",
+        region: "accusamus",
         type: AddressType.Billing,
       },
     ],
-    contactName: "tenetur",
+    contactName: "commodi",
     contacts: [
       {
         address: {
-          city: "O'Konton",
-          country: "Argentina",
-          line1: "voluptas",
-          line2: "pariatur",
-          postalCode: "01252",
-          region: "ullam",
-          type: AddressType.Unknown,
+          city: "Rockwall",
+          country: "Liberia",
+          line1: "dolorem",
+          line2: "eum",
+          postalCode: "22063-1657",
+          region: "molestiae",
+          type: AddressType.Billing,
         },
-        email: "Aurelia.Mraz77@yahoo.com",
-        modifiedDate: "ipsum",
-        name: "Carl Pollich IV",
+        email: "Nils22@gmail.com",
+        modifiedDate: "cupiditate",
+        name: "Sheldon Stiedemann",
         phone: [
           {
-            number: "incidunt",
-            type: PhoneNumberType.Primary,
-          },
-          {
-            number: "nisi",
-            type: PhoneNumberType.Primary,
-          },
-        ],
-        status: CustomerStatus.Archived,
-      },
-      {
-        address: {
-          city: "North Cloydton",
-          country: "Austria",
-          line1: "possimus",
-          line2: "perferendis",
-          postalCode: "28760",
-          region: "beatae",
-          type: AddressType.Delivery,
-        },
-        email: "Mae.Willms66@yahoo.com",
-        modifiedDate: "commodi",
-        name: "Tom Gutkowski",
-        phone: [
-          {
-            number: "id",
-            type: PhoneNumberType.Unknown,
-          },
-          {
-            number: "molestias",
-            type: PhoneNumberType.Unknown,
+            number: "deserunt",
+            type: PhoneNumberType.Fax,
           },
         ],
         status: CustomerStatus.Active,
       },
+      {
+        address: {
+          city: "Pasco",
+          country: "Ecuador",
+          line1: "placeat",
+          line2: "veniam",
+          postalCode: "65336-6407",
+          region: "reiciendis",
+          type: AddressType.Delivery,
+        },
+        email: "Salvador_Johnson@gmail.com",
+        modifiedDate: "iste",
+        name: "Mrs. Harvey Crooks",
+        phone: [
+          {
+            number: "quae",
+            type: PhoneNumberType.Primary,
+          },
+          {
+            number: "iure",
+            type: PhoneNumberType.Mobile,
+          },
+        ],
+        status: CustomerStatus.Archived,
+      },
     ],
-    customerName: "occaecati",
-    defaultCurrency: "eos",
-    emailAddress: "veniam",
-    id: "3c8962f4-896b-4f51-a465-2d3c343d6177",
+    customerName: "et",
+    defaultCurrency: "perspiciatis",
+    emailAddress: "accusamus",
+    id: "a83d492e-d14b-48a2-8195-4545e955dcc1",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "atque",
-    phone: "1-935-212-4413 x9410",
-    registrationNumber: "iste",
-    sourceModifiedDate: "aut",
-    status: CustomerStatus.Active,
+    modifiedDate: "praesentium",
+    phone: "(963) 601-7473 x168",
+    registrationNumber: "explicabo",
+    sourceModifiedDate: "nulla",
+    status: CustomerStatus.Archived,
     supplementalData: {
       content: {
-        "error": {
-          "ipsa": "dolore",
+        "quam": {
+          "incidunt": "similique",
+          "nobis": "culpa",
+          "ratione": "illum",
         },
-        "labore": {
-          "ullam": "quibusdam",
-          "recusandae": "ad",
-          "omnis": "mollitia",
+        "sed": {
+          "aut": "voluptates",
         },
-        "placeat": {
-          "ducimus": "eaque",
-          "aliquid": "ea",
-        },
-        "odio": {
-          "quisquam": "delectus",
+        "nulla": {
+          "dignissimos": "dolor",
+          "totam": "beatae",
+          "vitae": "laborum",
+          "beatae": "vitae",
         },
       },
     },
-    taxNumber: "et",
+    taxNumber: "veniam",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "optio",
+  customerId: "non",
   forceUpdate: false,
-  timeoutInMinutes: 953679,
+  timeoutInMinutes: 516231,
 }).then((res: UpdateCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response

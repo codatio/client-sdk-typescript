@@ -92,7 +92,7 @@ sdk.reports.getBalanceSheet({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   periodLength: 4,
   periodsToCompare: 20,
-  startMonth: "ducimus",
+  startMonth: "tempora",
 }).then((res: GetBalanceSheetResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -121,7 +121,7 @@ sdk.reports.getCashFlowStatement({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   periodLength: 4,
   periodsToCompare: 20,
-  startMonth: "nemo",
+  startMonth: "aut",
 }).then((res: GetCashFlowStatementResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -150,7 +150,7 @@ sdk.reports.getProfitAndLoss({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   periodLength: 4,
   periodsToCompare: 20,
-  startMonth: "illo",
+  startMonth: "possimus",
 }).then((res: GetProfitAndLossResponse) => {
   if (res.statusCode == 200) {
     // handle response

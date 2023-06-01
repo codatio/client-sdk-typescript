@@ -120,7 +120,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.accounts.get({
-  accountId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  accountId: "ab",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountResponse) => {
   if (res.statusCode == 200) {
@@ -190,7 +190,7 @@ sdk.accounts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "ab",
+  query: "quis",
 }).then((res: ListAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response

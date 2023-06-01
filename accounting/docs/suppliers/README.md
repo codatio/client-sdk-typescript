@@ -41,70 +41,58 @@ sdk.suppliers.create({
   supplier: {
     addresses: [
       {
-        city: "Madelynnberg",
-        country: "Denmark",
-        line1: "culpa",
-        line2: "corrupti",
-        postalCode: "77168",
-        region: "voluptatibus",
-        type: AddressType.Billing,
-      },
-      {
-        city: "East Isabella",
-        country: "British Indian Ocean Territory (Chagos Archipelago)",
-        line1: "est",
-        line2: "consequatur",
-        postalCode: "32501",
-        region: "incidunt",
+        city: "Stephaniastead",
+        country: "Swaziland",
+        line1: "laudantium",
+        line2: "eos",
+        postalCode: "38203-9334",
+        region: "aliquid",
         type: AddressType.Delivery,
       },
       {
-        city: "Arlington",
-        country: "Mongolia",
-        line1: "assumenda",
-        line2: "alias",
-        postalCode: "74089-9599",
-        region: "aut",
+        city: "Port Rosalinda",
+        country: "Turkmenistan",
+        line1: "cum",
+        line2: "consequatur",
+        postalCode: "54807",
+        region: "maxime",
+        type: AddressType.Unknown,
+      },
+      {
+        city: "Lake Arnoldo",
+        country: "Martinique",
+        line1: "id",
+        line2: "expedita",
+        postalCode: "45919",
+        region: "quisquam",
         type: AddressType.Delivery,
       },
     ],
-    contactName: "eaque",
-    defaultCurrency: "officiis",
-    emailAddress: "tempora",
-    id: "6f225e29-d79d-439d-8790-e2e6014a33d9",
+    contactName: "maiores",
+    defaultCurrency: "laudantium",
+    emailAddress: "beatae",
+    id: "ddf7e088-f74e-4f54-8921-6e8926313bb6",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "iusto",
-    phone: "717-420-7972",
-    registrationNumber: "doloremque",
-    sourceModifiedDate: "necessitatibus",
+    modifiedDate: "hic",
+    phone: "375-814-0006 x46446",
+    registrationNumber: "fugiat",
+    sourceModifiedDate: "laboriosam",
     status: SupplierStatus.Archived,
     supplementalData: {
       content: {
-        "dolor": {
-          "rem": "eveniet",
-          "veniam": "vero",
-          "dolor": "occaecati",
-          "explicabo": "delectus",
-        },
-        "fugit": {
-          "dolorum": "voluptate",
-        },
-        "ducimus": {
-          "rerum": "iusto",
-          "deserunt": "asperiores",
-          "ab": "tempore",
-          "suscipit": "neque",
+        "recusandae": {
+          "pariatur": "excepturi",
         },
       },
     },
-    supplierName: "eveniet",
-    taxNumber: "placeat",
+    supplierName: "fugiat",
+    taxNumber: "ipsum",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 867440,
+  timeoutInMinutes: 730689,
 }).then((res: CreateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -132,7 +120,7 @@ sdk.suppliers.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  supplierId: "voluptas",
 }).then((res: DownloadSupplierAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -159,7 +147,7 @@ const sdk = new CodatAccounting({
 
 sdk.suppliers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  supplierId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  supplierId: "aliquid",
 }).then((res: GetSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -187,7 +175,7 @@ sdk.suppliers.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  supplierId: "perferendis",
 }).then((res: GetSupplierAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -250,7 +238,7 @@ sdk.suppliers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "officiis",
+  query: "nesciunt",
 }).then((res: ListSuppliersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -277,7 +265,7 @@ const sdk = new CodatAccounting({
 sdk.suppliers.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  supplierId: "non",
 }).then((res: ListSupplierAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -312,58 +300,60 @@ sdk.suppliers.update({
   supplier: {
     addresses: [
       {
-        city: "Alyceworth",
-        country: "Peru",
-        line1: "deleniti",
-        line2: "consequatur",
-        postalCode: "03324-7318",
-        region: "ut",
+        city: "Carterland",
+        country: "Northern Mariana Islands",
+        line1: "id",
+        line2: "ab",
+        postalCode: "38112-4885",
+        region: "libero",
         type: AddressType.Unknown,
       },
+      {
+        city: "Enterprise",
+        country: "Honduras",
+        line1: "quasi",
+        line2: "ducimus",
+        postalCode: "84456",
+        region: "perspiciatis",
+        type: AddressType.Billing,
+      },
     ],
-    contactName: "ipsam",
-    defaultCurrency: "occaecati",
-    emailAddress: "error",
-    id: "55c5c717-6045-497f-b771-9dd8c8482c02",
+    contactName: "nobis",
+    defaultCurrency: "facilis",
+    emailAddress: "sequi",
+    id: "98788398-eba1-4bbf-b143-356f6349a164",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "aliquid",
-    phone: "(851) 827-5759 x560",
-    registrationNumber: "deserunt",
-    sourceModifiedDate: "impedit",
+    modifiedDate: "explicabo",
+    phone: "671-217-9347 x630",
+    registrationNumber: "vel",
+    sourceModifiedDate: "enim",
     status: SupplierStatus.Unknown,
     supplementalData: {
       content: {
-        "perferendis": {
-          "illum": "aspernatur",
-          "officia": "cumque",
+        "beatae": {
+          "atque": "optio",
+          "culpa": "excepturi",
         },
-        "eveniet": {
-          "aut": "minus",
-          "temporibus": "repudiandae",
-          "perferendis": "aperiam",
+        "et": {
+          "odit": "reiciendis",
+          "voluptatem": "veniam",
         },
-        "itaque": {
-          "necessitatibus": "quisquam",
-          "delectus": "blanditiis",
-          "inventore": "quos",
-        },
-        "culpa": {
-          "amet": "consequatur",
-          "dolor": "saepe",
-          "sint": "dolorem",
+        "consequuntur": {
+          "dolor": "quia",
+          "harum": "sequi",
         },
       },
     },
-    supplierName: "doloribus",
-    taxNumber: "sit",
+    supplierName: "quae",
+    taxNumber: "porro",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  supplierId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  timeoutInMinutes: 40967,
+  supplierId: "harum",
+  timeoutInMinutes: 868742,
 }).then((res: UpdateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response

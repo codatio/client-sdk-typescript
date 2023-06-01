@@ -47,4 +47,10 @@ export class UpdateInvoiceResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     updateInvoiceResponse?: shared.UpdateInvoiceResponse;
+
+    /**
+     * The request made is not valid.
+     */
+    @SpeakeasyMetadata()
+    schema?: shared.Schema;
 }

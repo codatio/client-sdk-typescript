@@ -36,31 +36,31 @@ sdk.items.create({
   item: {
     billItem: {
       accountRef: {
-        id: "d9ca6075-656f-4c0e-be67-155e2d06a307",
-        name: "Janis Kautzer",
+        id: "3cf6c027-6e7b-421b-ad90-d2743fd6c2a1",
+        name: "Gwen Jast",
       },
       description: "natus",
       taxRateRef: {
-        effectiveTaxRate: 4461.28,
-        id: "f581faba-aa7d-4801-8880-76ff5f6ed298",
-        name: "Carrie Beer",
+        effectiveTaxRate: 4616.76,
+        id: "8ec256a5-b092-427f-8c47-996c977bbc57",
+        name: "Sean Lakin",
       },
-      unitPrice: 1272.71,
+      unitPrice: 5542.89,
     },
-    code: "aliquid",
-    id: "9b6a70b0-dd82-4f94-bffb-d1e1e21ddc69",
+    code: "est",
+    id: "8600c58d-67d6-43e4-aa56-8464579cfc6c",
     invoiceItem: {
       accountRef: {
-        id: "038b1d18-7b51-4eb5-bd30-bfe03490cf20",
-        name: "Annette Hackett",
+        id: "0e503f56-831f-41d8-ad87-b28e8afabc98",
+        name: "Jana Cruickshank DVM",
       },
-      description: "ad",
+      description: "magnam",
       taxRateRef: {
-        effectiveTaxRate: 6012.27,
-        id: "043cb462-d6bc-4991-bf98-e4792b979a41",
-        name: "Eula Hudson",
+        effectiveTaxRate: 2124.42,
+        id: "b2342417-d13e-43f6-aaa9-ae4ae8ab4a9c",
+        name: "Becky Crona",
       },
-      unitPrice: 7729.87,
+      unitPrice: 9000.58,
     },
     isBillItem: false,
     isInvoiceItem: false,
@@ -68,14 +68,14 @@ sdk.items.create({
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "vitae",
-    name: "Christy Douglas",
-    sourceModifiedDate: "rem",
+    modifiedDate: "quidem",
+    name: "Dan Skiles",
+    sourceModifiedDate: "culpa",
     type: ItemType.Inventory,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 99209,
+  timeoutInMinutes: 631429,
 }).then((res: CreateItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -102,7 +102,7 @@ const sdk = new CodatAccounting({
 
 sdk.items.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  itemId: "illum",
+  itemId: "veniam",
 }).then((res: GetItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -165,7 +165,7 @@ sdk.items.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "quae",
+  query: "sit",
 }).then((res: ListItemsResponse) => {
   if (res.statusCode == 200) {
     // handle response

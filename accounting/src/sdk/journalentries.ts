@@ -75,7 +75,7 @@ export class JournalEntries {
 
         const headers = { ...reqBodyHeaders, ...config?.headers };
         const queryParams: string = utils.serializeQueryParams(req);
-        headers["Accept"] = "application/json";
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
@@ -115,6 +115,11 @@ export class JournalEntries {
                         httpRes?.data,
                         shared.CreateJournalEntryResponse
                     );
+                }
+                break;
+            case [400, 401, 404, 429].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
                 }
                 break;
         }
@@ -177,7 +182,7 @@ export class JournalEntries {
         const client: AxiosInstance = this._securityClient || this._defaultClient;
 
         const headers = { ...config?.headers };
-        headers["Accept"] = "application/json";
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
@@ -216,6 +221,11 @@ export class JournalEntries {
                         httpRes?.data,
                         shared.PushOperationSummary
                     );
+                }
+                break;
+            case [401, 404, 429].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
                 }
                 break;
         }
@@ -334,7 +344,7 @@ export class JournalEntries {
         const client: AxiosInstance = this._securityClient || this._defaultClient;
 
         const headers = { ...config?.headers };
-        headers["Accept"] = "application/json";
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
@@ -370,6 +380,11 @@ export class JournalEntries {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.pushOption = utils.objectToClass(httpRes?.data, shared.PushOption);
+                }
+                break;
+            case [401, 404, 429].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
                 }
                 break;
         }

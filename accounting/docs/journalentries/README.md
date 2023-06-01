@@ -36,87 +36,88 @@ const sdk = new CodatAccounting({
 
 sdk.journalEntries.create({
   journalEntry: {
-    createdOn: "quibusdam",
-    description: "natus",
-    id: "8ccf89d3-8611-486e-976c-002facb13ac2",
+    createdOn: "quas",
+    description: "soluta",
+    id: "d380c29a-a8dd-471b-9daa-30b7b91449ae",
     journalLines: [
       {
         accountRef: {
-          id: "c8143b86-6c57-45a1-a266-8730be37b0e8",
-          name: "Alton Schmitt",
+          id: "9c088d41-8bb7-4180-8f42-3d543935f377",
+          name: "Devin Hintz",
         },
-        currency: "facere",
-        description: "temporibus",
-        netAmount: 7790.58,
+        currency: "nam",
+        description: "ducimus",
+        netAmount: 8873.03,
         tracking: {
           recordRefs: [
             {
-              dataType: "officiis",
-              id: "69b53510-5050-414d-8a10-5882484c36e9",
+              dataType: "velit",
+              id: "b6a3c523-105e-47c3-8cab-0ecb812a6614",
             },
             {
-              dataType: "ut",
-              id: "8892782d-34e0-4b8f-80d5-9f57b9f9820b",
+              dataType: "atque",
+              id: "944a8e90-8507-45bc-a538-253343fb0a4e",
+            },
+            {
+              dataType: "autem",
+              id: "6ea47578-d171-4e29-8181-8fc679b6b2f2",
             },
           ],
         },
       },
       {
         accountRef: {
-          id: "e07808c3-6c9e-42f7-8344-e00f478eb539",
-          name: "Maxine Dietrich",
+          id: "5359b855-d015-4b62-88b8-3a38a8a88c14",
+          name: "Miss Andrea Bartell",
         },
-        currency: "dolore",
-        description: "blanditiis",
-        netAmount: 9119.94,
+        currency: "maxime",
+        description: "deserunt",
+        netAmount: 9204.81,
         tracking: {
           recordRefs: [
             {
-              dataType: "delectus",
-              id: "ccb69d54-1b4b-4393-b356-6625bea32201",
+              dataType: "et",
+              id: "ae1ecf8c-3494-46bb-a7a0-5a8b4a9ec5b3",
             },
             {
-              dataType: "temporibus",
-              id: "ec379c59-8ea1-4d48-85c2-f9e21d90fd53",
+              dataType: "eum",
+              id: "88cca363-2727-460e-966e-97e054103347",
             },
             {
-              dataType: "esse",
-              id: "76bfc767-7f0f-4504-a6e4-828fb6daee19",
-            },
-            {
-              dataType: "cumque",
-              id: "26c0cb61-8c63-431c-abda-b767a444dd0d",
+              dataType: "pariatur",
+              id: "78ff2491-145f-4ab9-a59a-4af336664eaa",
             },
           ],
         },
       },
     ],
     journalRef: {
-      id: "a0abe58e-b3d5-44ba-9cb3-ad49b8e5c18b",
-      name: "Holly Trantow",
+      id: "6bf2ff14-e8c1-4b35-aacc-edacc5227814",
+      name: "Mr. Sherman Pfannerstill",
     },
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "maiores",
-    postedOn: "ea",
+    modifiedDate: "cum",
+    postedOn: "quo",
     recordRef: {
-      dataType: "incidunt",
-      id: "823255be-95c0-4cbc-b2ca-87908d73809a",
+      dataType: "aliquam",
+      id: "1ea1342d-4104-4a25-af71-de57a11d614a",
     },
-    sourceModifiedDate: "aut",
+    sourceModifiedDate: "tempora",
     supplementalData: {
       content: {
-        "doloribus": {
-          "eum": "itaque",
+        "dicta": {
+          "laboriosam": "sint",
+          "dolores": "repudiandae",
         },
       },
     },
-    updatedOn: "unde",
+    updatedOn: "fuga",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 148478,
+  timeoutInMinutes: 284514,
 }).then((res: CreateJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -174,7 +175,7 @@ const sdk = new CodatAccounting({
 sdk.journalEntries.delete({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  journalEntryId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  journalEntryId: "totam",
 }).then((res: DeleteJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -200,7 +201,7 @@ const sdk = new CodatAccounting({
 
 sdk.journalEntries.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalEntryId: "qui",
+  journalEntryId: "laboriosam",
 }).then((res: GetJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -262,7 +263,7 @@ sdk.journalEntries.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "totam",
+  query: "esse",
 }).then((res: ListJournalEntriesResponse) => {
   if (res.statusCode == 200) {
     // handle response

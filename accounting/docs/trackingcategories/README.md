@@ -28,7 +28,7 @@ const sdk = new CodatAccounting({
 
 sdk.trackingCategories.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  trackingCategoryId: "quas",
+  trackingCategoryId: "fugit",
 }).then((res: GetTrackingCategoryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -58,7 +58,7 @@ sdk.trackingCategories.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "expedita",
+  query: "a",
 }).then((res: ListTrackingCategoriesResponse) => {
   if (res.statusCode == 200) {
     // handle response

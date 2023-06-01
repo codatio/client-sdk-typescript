@@ -44,4 +44,10 @@ export class UpdatePurchaseOrderResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     updatePurchaseOrderResponse?: shared.UpdatePurchaseOrderResponse;
+
+    /**
+     * The request made is not valid.
+     */
+    @SpeakeasyMetadata()
+    schema?: shared.Schema;
 }

@@ -44,4 +44,10 @@ export class UpdateCreditNoteResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     updateCreditNoteResponse?: shared.UpdateCreditNoteResponse;
+
+    /**
+     * The request made is not valid.
+     */
+    @SpeakeasyMetadata()
+    schema?: shared.Schema;
 }

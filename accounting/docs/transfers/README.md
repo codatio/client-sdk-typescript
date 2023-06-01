@@ -35,77 +35,71 @@ const sdk = new CodatAccounting({
 sdk.transfers.create({
   transfer: {
     contactRef: {
-      dataType: "explicabo",
-      id: "1f06d4d1-7852-4d28-be1d-b01d6919f831",
+      dataType: "maiores",
+      id: "c8745005-e9d3-4d93-8e03-6f5c388664f6",
     },
-    date: "nemo",
+    date: "error",
     depositedRecordRefs: [
       {
-        dataType: "dolorem",
-        id: "a84ea7db-15c4-4c15-be6c-d097a675597e",
+        dataType: "corporis",
+        id: "530a2e2a-ed6a-4af8-a3c2-8d040c69a3d9",
       },
       {
-        dataType: "cumque",
-        id: "beb7982b-af9a-47da-ac29-b938e51a7e6e",
+        dataType: "voluptatem",
+        id: "6f6ebd5a-d7ec-4739-8f25-f634b3730714",
       },
       {
-        dataType: "nulla",
-        id: "6f7ff04f-da04-4669-aae8-182403655aa9",
+        dataType: "itaque",
+        id: "6be8c3e0-9c64-4d34-aac2-99a6e5e7aef1",
       },
     ],
-    description: "consequuntur",
+    description: "amet",
     from: {
       accountRef: {
-        id: "3c49919e-bd1c-4f77-9538-cbbfcdf4ece9",
-        name: "Jodi Schamberger",
+        id: "402e945f-5374-43ef-9e11-98221f9b1f7d",
+        name: "Gerard Weimann",
       },
-      amount: 7140.11,
-      currency: "modi",
+      amount: 4322.15,
+      currency: "omnis",
     },
-    id: "2c330496-17cb-471d-9c25-0b60c751d2ae",
+    id: "682aceef-b04f-48c5-92ca-abea708ed579",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "expedita",
-    sourceModifiedDate: "necessitatibus",
+    modifiedDate: "rem",
+    sourceModifiedDate: "facere",
     supplementalData: {
       content: {
-        "tempore": {
-          "rem": "consequuntur",
-          "molestias": "officiis",
-          "qui": "vel",
-        },
-        "aliquam": {
-          "ab": "dolorum",
-          "veniam": "officiis",
-        },
-        "minus": {
-          "corrupti": "reprehenderit",
-          "a": "quam",
-          "cupiditate": "incidunt",
+        "quas": {
+          "illum": "labore",
+          "ea": "aperiam",
         },
       },
     },
     to: {
       accountRef: {
-        id: "f04f4144-6f79-43d3-b100-20147cd1b831",
-        name: "Amy Price",
+        id: "599d5c33-4957-46d5-9209-e9a2253b6d76",
+        name: "Irma Larkin",
       },
-      amount: 2218.09,
-      currency: "voluptates",
+      amount: 9345.12,
+      currency: "similique",
     },
     trackingCategoryRefs: [
       {
-        id: "8960a0aa-fc7a-4867-8ba5-00a8f4cb72ed",
-        name: "Kara Wilderman",
+        id: "5fd4b39f-8a14-4906-b8f1-3c686d839fc9",
+        name: "Joshua Koelpin",
       },
       {
-        id: "25d55615-8803-4212-b7b5-9b7154642b9e",
-        name: "Stella Schroeder",
+        id: "fa906ae5-59b7-42eb-a746-030fe18376c2",
+        name: "Merle Strosin",
       },
       {
-        id: "c3d3ca49-1837-4978-88d1-56f01ae36bb8",
-        name: "Jose Adams",
+        id: "76790ed0-c16a-47ba-8784-04489f6770ef",
+        name: "Ms. Suzanne Lang MD",
+      },
+      {
+        id: "2ba25ee6-c75a-4f8a-a0a7-ae346e0979e5",
+        name: "Timmy Trantow V",
       },
     ],
   },
@@ -137,7 +131,7 @@ const sdk = new CodatAccounting({
 sdk.transfers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  transferId: "eveniet",
+  transferId: "impedit",
 }).then((res: GetTransferResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -200,7 +194,7 @@ sdk.transfers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "ratione",
+  query: "culpa",
 }).then((res: ListTransfersResponse) => {
   if (res.statusCode == 200) {
     // handle response
