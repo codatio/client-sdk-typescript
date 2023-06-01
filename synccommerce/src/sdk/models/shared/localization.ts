@@ -6,14 +6,14 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class Localization extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "required" })
-  required?: boolean;
+    @SpeakeasyMetadata()
+    @Expose({ name: "required" })
+    required?: boolean;
 
-  /**
-   * Value of the property.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "text" })
-  text?: string;
+    /**
+     * Value of the property.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "text" })
+    text?: string;
 }

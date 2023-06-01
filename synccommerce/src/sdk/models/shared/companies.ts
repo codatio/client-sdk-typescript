@@ -11,25 +11,25 @@ import { Expose, Type } from "class-transformer";
  * Success
  */
 export class Companies extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "_links" })
-  @Type(() => Links)
-  links: Links;
+    @SpeakeasyMetadata()
+    @Expose({ name: "_links" })
+    @Type(() => Links)
+    links: Links;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "pageNumber" })
-  pageNumber: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "pageNumber" })
+    pageNumber: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "pageSize" })
-  pageSize: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "pageSize" })
+    pageSize: number;
 
-  @SpeakeasyMetadata({ elemType: Company })
-  @Expose({ name: "results" })
-  @Type(() => Company)
-  results?: Company[];
+    @SpeakeasyMetadata({ elemType: Company })
+    @Expose({ name: "results" })
+    @Type(() => Company)
+    results?: Company[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "totalResults" })
-  totalResults: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "totalResults" })
+    totalResults: number;
 }

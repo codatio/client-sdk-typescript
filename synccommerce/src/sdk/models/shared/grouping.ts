@@ -8,13 +8,13 @@ import { GroupingPeriod } from "./groupingperiod";
 import { Expose, Type } from "class-transformer";
 
 export class Grouping extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "groupingLevels" })
-  @Type(() => GroupingLevels)
-  groupingLevels?: GroupingLevels;
+    @SpeakeasyMetadata()
+    @Expose({ name: "groupingLevels" })
+    @Type(() => GroupingLevels)
+    groupingLevels?: GroupingLevels;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "groupingPeriod" })
-  @Type(() => GroupingPeriod)
-  groupingPeriod?: GroupingPeriod;
+    @SpeakeasyMetadata()
+    @Expose({ name: "groupingPeriod" })
+    @Type(() => GroupingPeriod)
+    groupingPeriod?: GroupingPeriod;
 }

@@ -7,18 +7,18 @@ import { Option } from "./option";
 import { Expose, Type } from "class-transformer";
 
 export class FeesSupplier extends SpeakeasyBase {
-  /**
-   * Selected supplier id from the list of supplier records on the accounting software.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "selectedSupplierId" })
-  selectedSupplierId?: string;
+    /**
+     * Selected supplier id from the list of supplier records on the accounting software.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "selectedSupplierId" })
+    selectedSupplierId?: string;
 
-  /**
-   * List of supplier options from the list of supplier records on the accounting software.
-   */
-  @SpeakeasyMetadata({ elemType: Option })
-  @Expose({ name: "supplierOptions" })
-  @Type(() => Option)
-  supplierOptions?: Option[];
+    /**
+     * List of supplier options from the list of supplier records on the accounting software.
+     */
+    @SpeakeasyMetadata({ elemType: Option })
+    @Expose({ name: "supplierOptions" })
+    @Type(() => Option)
+    supplierOptions?: Option[];
 }

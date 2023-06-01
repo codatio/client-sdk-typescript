@@ -8,42 +8,42 @@ import { TaxRateMapping } from "./taxratemapping";
 import { Expose, Type } from "class-transformer";
 
 export class NewTaxRates extends SpeakeasyBase {
-  /**
-   * Array of accounting tax rate options.
-   */
-  @SpeakeasyMetadata({ elemType: Option })
-  @Expose({ name: "accountingTaxRateOptions" })
-  @Type(() => Option)
-  accountingTaxRateOptions?: Option[];
+    /**
+     * Array of accounting tax rate options.
+     */
+    @SpeakeasyMetadata({ elemType: Option })
+    @Expose({ name: "accountingTaxRateOptions" })
+    @Type(() => Option)
+    accountingTaxRateOptions?: Option[];
 
-  /**
-   * Array of tax component options.
-   */
-  @SpeakeasyMetadata({ elemType: Option })
-  @Expose({ name: "commerceTaxRateOptions" })
-  @Type(() => Option)
-  commerceTaxRateOptions?: Option[];
+    /**
+     * Array of tax component options.
+     */
+    @SpeakeasyMetadata({ elemType: Option })
+    @Expose({ name: "commerceTaxRateOptions" })
+    @Type(() => Option)
+    commerceTaxRateOptions?: Option[];
 
-  /**
-   * Default zero tax rate selected for sync.
-   */
-  @SpeakeasyMetadata({ elemType: Option })
-  @Expose({ name: "defaultZeroTaxRateOptions" })
-  @Type(() => Option)
-  defaultZeroTaxRateOptions?: Option[];
+    /**
+     * Default zero tax rate selected for sync.
+     */
+    @SpeakeasyMetadata({ elemType: Option })
+    @Expose({ name: "defaultZeroTaxRateOptions" })
+    @Type(() => Option)
+    defaultZeroTaxRateOptions?: Option[];
 
-  /**
-   * Default tax rate selected for sync.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "selectedDefaultZeroTaxRateId" })
-  selectedDefaultZeroTaxRateId?: string;
+    /**
+     * Default tax rate selected for sync.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "selectedDefaultZeroTaxRateId" })
+    selectedDefaultZeroTaxRateId?: string;
 
-  /**
-   * Array of tax component to rate mapppings.
-   */
-  @SpeakeasyMetadata({ elemType: TaxRateMapping })
-  @Expose({ name: "taxRateMappings" })
-  @Type(() => TaxRateMapping)
-  taxRateMappings?: TaxRateMapping[];
+    /**
+     * Array of tax component to rate mapppings.
+     */
+    @SpeakeasyMetadata({ elemType: TaxRateMapping })
+    @Expose({ name: "taxRateMappings" })
+    @Type(() => TaxRateMapping)
+    taxRateMappings?: TaxRateMapping[];
 }

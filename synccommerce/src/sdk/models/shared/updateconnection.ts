@@ -6,10 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class UpdateConnection extends SpeakeasyBase {
-  /**
-   * The current authorization status of the data connection.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status?: string;
+    /**
+     * The current authorization status of the data connection.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status?: string;
 }

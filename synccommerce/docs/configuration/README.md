@@ -22,7 +22,7 @@ import { GetConfigurationResponse } from "@codat/sync-for-commerce/dist/sdk/mode
 
 const sdk = new CodatSyncCommerce({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -47,7 +47,7 @@ import { GetSyncStatusResponse } from "@codat/sync-for-commerce/dist/sdk/models/
 
 const sdk = new CodatSyncCommerce({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -72,7 +72,7 @@ import { SetConfigurationResponse } from "@codat/sync-for-commerce/dist/sdk/mode
 
 const sdk = new CodatSyncCommerce({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 

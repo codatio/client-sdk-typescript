@@ -7,33 +7,29 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class UpdateConnectionRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  updateConnection?: shared.UpdateConnection;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    updateConnection?: shared.UpdateConnection;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=connectionId",
-  })
-  connectionId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+    connectionId: string;
 }
 
 export class UpdateConnectionResponse extends SpeakeasyBase {
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata()
-  connection?: shared.Connection;
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata()
+    connection?: shared.Connection;
 
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

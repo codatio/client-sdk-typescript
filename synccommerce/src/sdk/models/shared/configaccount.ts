@@ -10,39 +10,39 @@ import { Expose, Type } from "class-transformer";
  * G/L account object for configuration.
  */
 export class ConfigAccount extends SpeakeasyBase {
-  /**
-   * Object containing account options.
-   */
-  @SpeakeasyMetadata({ elemType: AccountOption })
-  @Expose({ name: "accountOptions" })
-  @Type(() => AccountOption)
-  accountOptions?: AccountOption[];
+    /**
+     * Object containing account options.
+     */
+    @SpeakeasyMetadata({ elemType: AccountOption })
+    @Expose({ name: "accountOptions" })
+    @Type(() => AccountOption)
+    accountOptions?: AccountOption[];
 
-  /**
-   * Descriprtive text for sales configuration section.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "descriptionText" })
-  descriptionText?: string;
+    /**
+     * Descriprtive text for sales configuration section.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "descriptionText" })
+    descriptionText?: string;
 
-  /**
-   * Label text for sales configuration section.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "labelText" })
-  labelText?: string;
+    /**
+     * Label text for sales configuration section.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "labelText" })
+    labelText?: string;
 
-  /**
-   * Required section to be configured for sync.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "required" })
-  required?: boolean;
+    /**
+     * Required section to be configured for sync.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "required" })
+    required?: boolean;
 
-  /**
-   * Selected account id from the list of available accounts.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "selectedAccountId" })
-  selectedAccountId?: string;
+    /**
+     * Selected account id from the list of available accounts.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "selectedAccountId" })
+    selectedAccountId?: string;
 }

@@ -7,28 +7,26 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class RequestSyncForDateRangeRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  dateRange?: shared.DateRange;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    dateRange?: shared.DateRange;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 }
 
 export class RequestSyncForDateRangeResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata()
-  syncSummary?: shared.SyncSummary;
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata()
+    syncSummary?: shared.SyncSummary;
 }

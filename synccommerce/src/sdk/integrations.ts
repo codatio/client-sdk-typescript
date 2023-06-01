@@ -11,162 +11,158 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
  * View useful information about codat's integrations.
  */
 export class Integrations {
-  _defaultClient: AxiosInstance;
-  _securityClient: AxiosInstance;
-  _serverURL: string;
-  _language: string;
-  _sdkVersion: string;
-  _genVersion: string;
+    _defaultClient: AxiosInstance;
+    _securityClient: AxiosInstance;
+    _serverURL: string;
+    _language: string;
+    _sdkVersion: string;
+    _genVersion: string;
 
-  constructor(
-    defaultClient: AxiosInstance,
-    securityClient: AxiosInstance,
-    serverURL: string,
-    language: string,
-    sdkVersion: string,
-    genVersion: string
-  ) {
-    this._defaultClient = defaultClient;
-    this._securityClient = securityClient;
-    this._serverURL = serverURL;
-    this._language = language;
-    this._sdkVersion = sdkVersion;
-    this._genVersion = genVersion;
-  }
-
-  /**
-   * Get branding for an integration
-   *
-   * @remarks
-   * Retrieve Integration branding assets.
-   */
-  async getIntegrationBranding(
-    req: operations.GetIntegrationBrandingRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.GetIntegrationBrandingResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.GetIntegrationBrandingRequest(req);
+    constructor(
+        defaultClient: AxiosInstance,
+        securityClient: AxiosInstance,
+        serverURL: string,
+        language: string,
+        sdkVersion: string,
+        genVersion: string
+    ) {
+        this._defaultClient = defaultClient;
+        this._securityClient = securityClient;
+        this._serverURL = serverURL;
+        this._language = language;
+        this._sdkVersion = sdkVersion;
+        this._genVersion = genVersion;
     }
 
-    const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/config/integrations/{platformKey}/branding",
-      req
-    );
-
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    headers["Accept"] = "application/json";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const httpRes: AxiosResponse = await utils.Retry(() => {
-      return client.request({
-        validateStatus: () => true,
-        url: url,
-        method: "get",
-        headers: headers,
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.GetIntegrationBrandingResponse =
-      new operations.GetIntegrationBrandingResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.branding = utils.objectToClass(httpRes?.data, shared.Branding);
+    /**
+     * Get branding for an integration
+     *
+     * @remarks
+     * Retrieve Integration branding assets.
+     */
+    async getIntegrationBranding(
+        req: operations.GetIntegrationBrandingRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetIntegrationBrandingResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetIntegrationBrandingRequest(req);
         }
-        break;
-    }
 
-    return res;
-  }
+        const baseURL: string = this._serverURL;
+        const url: string = utils.generateURL(
+            baseURL,
+            "/config/integrations/{platformKey}/branding",
+            req
+        );
 
-  /**
-   * List information on Codat's supported integrations
-   *
-   * @remarks
-   * Retrieve a list of available integrations support by datatype and state of release.
-   */
-  async listIntegrations(
-    req: operations.ListIntegrationsRequest,
-    retries?: utils.RetryConfig,
-    config?: AxiosRequestConfig
-  ): Promise<operations.ListIntegrationsResponse> {
-    if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.ListIntegrationsRequest(req);
-    }
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
 
-    const baseURL: string = this._serverURL;
-    const url: string = baseURL.replace(/\/$/, "") + "/config/integrations";
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
 
-    const client: AxiosInstance = this._securityClient || this._defaultClient;
-
-    const headers = { ...config?.headers };
-    const queryParams: string = utils.serializeQueryParams(req);
-    headers["Accept"] = "application/json";
-    headers[
-      "user-agent"
-    ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
-
-    let retryConfig: any = retries;
-    if (!retryConfig) {
-      retryConfig = new utils.RetryConfig("backoff", true);
-      retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
-    }
-    const httpRes: AxiosResponse = await utils.Retry(() => {
-      return client.request({
-        validateStatus: () => true,
-        url: url + queryParams,
-        method: "get",
-        headers: headers,
-        ...config,
-      });
-    }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-    if (httpRes?.status == null) {
-      throw new Error(`status code not found in response: ${httpRes}`);
-    }
-
-    const res: operations.ListIntegrationsResponse =
-      new operations.ListIntegrationsResponse({
-        statusCode: httpRes.status,
-        contentType: contentType,
-        rawResponse: httpRes,
-      });
-    switch (true) {
-      case httpRes?.status == 200:
-        if (utils.matchContentType(contentType, `application/json`)) {
-          res.integrations = utils.objectToClass(
-            httpRes?.data,
-            shared.Integrations
-          );
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig("backoff", true);
+            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
         }
-        break;
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url,
+                method: "get",
+                headers: headers,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetIntegrationBrandingResponse =
+            new operations.GetIntegrationBrandingResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.branding = utils.objectToClass(httpRes?.data, shared.Branding);
+                }
+                break;
+        }
+
+        return res;
     }
 
-    return res;
-  }
+    /**
+     * List information on Codat's supported integrations
+     *
+     * @remarks
+     * Retrieve a list of available integrations support by datatype and state of release.
+     */
+    async listIntegrations(
+        req: operations.ListIntegrationsRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.ListIntegrationsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.ListIntegrationsRequest(req);
+        }
+
+        const baseURL: string = this._serverURL;
+        const url: string = baseURL.replace(/\/$/, "") + "/config/integrations";
+
+        const client: AxiosInstance = this._securityClient || this._defaultClient;
+
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this._language} ${this._sdkVersion} ${this._genVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig("backoff", true);
+            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url + queryParams,
+                method: "get",
+                headers: headers,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.ListIntegrationsResponse = new operations.ListIntegrationsResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.integrations = utils.objectToClass(httpRes?.data, shared.Integrations);
+                }
+                break;
+        }
+
+        return res;
+    }
 }

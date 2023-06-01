@@ -10,13 +10,13 @@ import { Expose, Type } from "class-transformer";
  * Logo branding references.
  */
 export class BrandingLogo extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "full" })
-  @Type(() => BrandingImage)
-  full?: BrandingImage;
+    @SpeakeasyMetadata()
+    @Expose({ name: "full" })
+    @Type(() => BrandingImage)
+    full?: BrandingImage;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "square" })
-  @Type(() => BrandingImage)
-  square?: BrandingImage;
+    @SpeakeasyMetadata()
+    @Expose({ name: "square" })
+    @Type(() => BrandingImage)
+    square?: BrandingImage;
 }

@@ -6,17 +6,17 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class InvoiceLineLevelSelection extends SpeakeasyBase {
-  /**
-   * Options for grouping on invoice lines.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "groupByOptions" })
-  groupByOptions?: string[];
+    /**
+     * Options for grouping on invoice lines.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "groupByOptions" })
+    groupByOptions?: string[];
 
-  /**
-   * Invoice line level selection.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "selectedGroupByOptions" })
-  selectedGroupByOptions?: string[];
+    /**
+     * Invoice line level selection.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "selectedGroupByOptions" })
+    selectedGroupByOptions?: string[];
 }

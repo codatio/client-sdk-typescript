@@ -7,30 +7,26 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetVisibleAccountsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=clientId",
-  })
-  clientId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=clientId" })
+    clientId: string;
 
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=platformKey",
-  })
-  platformKey: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=platformKey" })
+    platformKey: string;
 }
 
 export class GetVisibleAccountsResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 
-  /**
-   * Success
-   */
-  @SpeakeasyMetadata()
-  visibleAccounts?: shared.VisibleAccounts;
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata()
+    visibleAccounts?: shared.VisibleAccounts;
 }
