@@ -42,7 +42,7 @@ export class BankAccountTransactions {
      *
      * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankTransactions) to see which integrations support this endpoint.
      */
-    async createBankTransactions(
+    async create(
         req: operations.CreateBankTransactionsRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
@@ -130,7 +130,7 @@ export class BankAccountTransactions {
      * @remarks
      * Gets the options of pushing bank account transactions.
      */
-    async getCreateBankAccountModel(
+    async get(
         req: operations.GetCreateBankAccountModelRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
@@ -203,7 +203,7 @@ export class BankAccountTransactions {
      * @remarks
      * Gets bank transactions for a given bank account ID
      */
-    async listBankAccountTransactions(
+    async list(
         req: operations.ListBankAccountTransactionsRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig

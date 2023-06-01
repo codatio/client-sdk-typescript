@@ -6,11 +6,11 @@ Bank feed bank accounts
 
 ### Available Operations
 
-* [createBankTransactions](#createbanktransactions) - Create bank transactions
-* [getCreateBankAccountModel](#getcreatebankaccountmodel) - List push options for bank account bank transactions
-* [listBankAccountTransactions](#listbankaccounttransactions) - List bank transactions for bank account
+* [create](#create) - Create bank transactions
+* [get](#get) - List push options for bank account bank transactions
+* [list](#list) - List bank transactions for bank account
 
-## createBankTransactions
+## create
 
 Posts bank transactions to the accounting package for a given company.
 
@@ -29,56 +29,43 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-sdk.bankAccountTransactions.createBankTransactions({
+sdk.bankAccountTransactions.create({
   bankTransactions: {
-    accountId: "laborum",
+    accountId: "animi",
     transactions: [
       {
-        amount: 3172.02,
-        balance: 1381.83,
-        clearedOnDate: "quo",
-        counterparty: "sequi",
-        description: "tenetur",
-        id: "5ad019da-1ffe-478f-897b-0074f15471b5",
-        modifiedDate: "accusamus",
+        amount: 1381.83,
+        balance: 7783.46,
+        clearedOnDate: "sequi",
+        counterparty: "tenetur",
+        description: "ipsam",
+        id: "ad019da1-ffe7-48f0-97b0-074f15471b5e",
+        modifiedDate: "commodi",
         reconciled: false,
-        reference: "commodi",
-        sourceModifiedDate: "repudiandae",
-        transactionType: BankTransactionType.Credit,
+        reference: "repudiandae",
+        sourceModifiedDate: "quae",
+        transactionType: BankTransactionType.Int,
       },
       {
-        amount: 2168.22,
-        balance: 6924.72,
-        clearedOnDate: "molestias",
-        counterparty: "excepturi",
-        description: "pariatur",
-        id: "488e1e91-e450-4ad2-abd4-4269802d502a",
-        modifiedDate: "excepturi",
+        amount: 6924.72,
+        balance: 5651.89,
+        clearedOnDate: "excepturi",
+        counterparty: "pariatur",
+        description: "modi",
+        id: "88e1e91e-450a-4d2a-bd44-269802d502a9",
+        modifiedDate: "tempora",
         reconciled: false,
-        reference: "tempora",
-        sourceModifiedDate: "facilis",
-        transactionType: BankTransactionType.Cash,
-      },
-      {
-        amount: 2884.76,
-        balance: 9621.89,
-        clearedOnDate: "eum",
-        counterparty: "non",
-        description: "eligendi",
-        id: "969e9a3e-fa77-4dfb-94cd-66ae395efb9b",
-        modifiedDate: "id",
-        reconciled: false,
-        reference: "blanditiis",
-        sourceModifiedDate: "deleniti",
-        transactionType: BankTransactionType.Other,
+        reference: "facilis",
+        sourceModifiedDate: "tempore",
+        transactionType: BankTransactionType.Fee,
       },
     ],
   },
-  accountId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  accountId: "delectus",
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 230533,
+  timeoutInMinutes: 433288,
 }).then((res: CreateBankTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -86,7 +73,7 @@ sdk.bankAccountTransactions.createBankTransactions({
 });
 ```
 
-## getCreateBankAccountModel
+## get
 
 Gets the options of pushing bank account transactions.
 
@@ -103,8 +90,8 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-sdk.bankAccountTransactions.getCreateBankAccountModel({
-  accountId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+sdk.bankAccountTransactions.get({
+  accountId: "non",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetCreateBankAccountModelResponse) => {
@@ -114,7 +101,7 @@ sdk.bankAccountTransactions.getCreateBankAccountModel({
 });
 ```
 
-## listBankAccountTransactions
+## list
 
 Gets bank transactions for a given bank account ID
 
@@ -131,14 +118,14 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-sdk.bankAccountTransactions.listBankAccountTransactions({
-  accountId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+sdk.bankAccountTransactions.list({
+  accountId: "eligendi",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "deserunt",
+  query: "sint",
 }).then((res: ListBankAccountTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response

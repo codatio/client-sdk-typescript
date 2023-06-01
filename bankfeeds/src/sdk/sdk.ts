@@ -5,6 +5,8 @@
 import * as utils from "../internal/utils";
 import { BankAccountTransactions } from "./bankaccounttransactions";
 import { BankFeedAccounts } from "./bankfeedaccounts";
+import { Companies } from "./companies";
+import { Connections } from "./connections";
 import * as shared from "./models/shared";
 import axios from "axios";
 import { AxiosInstance } from "axios";
@@ -57,13 +59,21 @@ export class CodatBankFeeds {
      * Bank feed bank accounts
      */
     public bankFeedAccounts: BankFeedAccounts;
+    /**
+     * Create and manage your Codat companies.
+     */
+    public companies: Companies;
+    /**
+     * Manage your companies' data connections.
+     */
+    public connections: Connections;
 
     public _defaultClient: AxiosInstance;
     public _securityClient: AxiosInstance;
     public _serverURL: string;
     private _language = "typescript";
-    private _sdkVersion = "0.21.2";
-    private _genVersion = "2.32.7";
+    private _sdkVersion = "0.22.0";
+    private _genVersion = "2.34.2";
     private _globals: any;
 
     constructor(props?: SDKProps) {
@@ -89,6 +99,24 @@ export class CodatBankFeeds {
         );
 
         this.bankFeedAccounts = new BankFeedAccounts(
+            this._defaultClient,
+            this._securityClient,
+            this._serverURL,
+            this._language,
+            this._sdkVersion,
+            this._genVersion
+        );
+
+        this.companies = new Companies(
+            this._defaultClient,
+            this._securityClient,
+            this._serverURL,
+            this._language,
+            this._sdkVersion,
+            this._genVersion
+        );
+
+        this.connections = new Connections(
             this._defaultClient,
             this._securityClient,
             this._serverURL,

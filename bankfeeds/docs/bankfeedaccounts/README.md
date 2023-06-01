@@ -6,11 +6,11 @@ Bank feed bank accounts
 
 ### Available Operations
 
-* [createBankFeed](#createbankfeed) - Create bank feed bank accounts
-* [getBankFeeds](#getbankfeeds) - List bank feed bank accounts
-* [updateBankFeed](#updatebankfeed) - Update bank feed bank account
+* [create](#create) - Create bank feed bank accounts
+* [get](#get) - List bank feed bank accounts
+* [update](#update) - Update bank feed bank account
 
-## createBankFeed
+## create
 
 Put BankFeed BankAccounts for a single data source connected to a single company.
 
@@ -26,31 +26,31 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-sdk.bankFeedAccounts.createBankFeed({
+sdk.bankFeedAccounts.create({
   requestBody: [
     {
-      accountName: "vel",
-      accountNumber: "natus",
-      accountType: "omnis",
-      balance: 4748.67,
-      currency: "perferendis",
-      feedStartDate: "nihil",
-      id: "4ba4469b-6e21-4419-9989-0afa563e2516",
-      modifiedDate: "doloribus",
-      sortCode: "debitis",
-      status: "eius",
+      accountName: "provident",
+      accountNumber: "necessitatibus",
+      accountType: "sint",
+      balance: 6389.21,
+      currency: "dolor",
+      feedStartDate: "debitis",
+      id: "fa77dfb1-4cd6-46ae-b95e-fb9ba88f3a66",
+      modifiedDate: "natus",
+      sortCode: "omnis",
+      status: "molestiae",
     },
     {
-      accountName: "maxime",
-      accountNumber: "deleniti",
-      accountType: "facilis",
-      balance: 4479.26,
-      currency: "architecto",
-      feedStartDate: "architecto",
-      id: "e5b7fd2e-d028-4921-8ddc-692601fb576b",
-      modifiedDate: "eaque",
-      sortCode: "pariatur",
-      status: "nemo",
+      accountName: "perferendis",
+      accountNumber: "nihil",
+      accountType: "magnam",
+      balance: 7160.75,
+      currency: "id",
+      feedStartDate: "labore",
+      id: "469b6e21-4195-4989-8afa-563e2516fe4c",
+      modifiedDate: "deleniti",
+      sortCode: "facilis",
+      status: "in",
     },
   ],
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -62,7 +62,7 @@ sdk.bankFeedAccounts.createBankFeed({
 });
 ```
 
-## getBankFeeds
+## get
 
 Get BankFeed BankAccounts for a single data source connected to a single company.
 
@@ -78,7 +78,7 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-sdk.bankFeedAccounts.getBankFeeds({
+sdk.bankFeedAccounts.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetBankFeedsResponse) => {
@@ -88,7 +88,7 @@ sdk.bankFeedAccounts.getBankFeeds({
 });
 ```
 
-## updateBankFeed
+## update
 
 Update a single BankFeed BankAccount for a single data source connected to a single company.
 
@@ -104,20 +104,20 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-sdk.bankFeedAccounts.updateBankFeed({
+sdk.bankFeedAccounts.update({
   bankFeedAccount: {
-    accountName: "voluptatibus",
-    accountNumber: "perferendis",
-    accountType: "fugiat",
-    balance: 2307.42,
-    currency: "aut",
-    feedStartDate: "cumque",
-    id: "5fbb2587-0532-402c-b3d5-fe9b90c28909",
-    modifiedDate: "rerum",
-    sortCode: "adipisci",
-    status: "asperiores",
+    accountName: "architecto",
+    accountNumber: "architecto",
+    accountType: "repudiandae",
+    balance: 3523.12,
+    currency: "expedita",
+    feedStartDate: "nihil",
+    id: "fd2ed028-921c-4ddc-a926-01fb576b0d5f",
+    modifiedDate: "perferendis",
+    sortCode: "fugiat",
+    status: "amet",
   },
-  accountId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  accountId: "aut",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: UpdateBankFeedResponse) => {

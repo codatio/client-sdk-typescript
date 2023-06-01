@@ -10,7 +10,7 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-sdk.bankAccountTransactions.createBankTransactions({
+sdk.bankAccountTransactions.create({
   bankTransactions: {
     accountId: "corrupti",
     transactions: [
@@ -55,11 +55,11 @@ sdk.bankAccountTransactions.createBankTransactions({
       },
     ],
   },
-  accountId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  accountId: "vitae",
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 110375,
+  timeoutInMinutes: 674752,
 }).then((res: CreateBankTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
