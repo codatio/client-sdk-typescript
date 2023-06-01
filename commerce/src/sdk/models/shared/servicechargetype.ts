@@ -6,8 +6,8 @@
  * The type of the service charge.
  */
 export enum ServiceChargeType {
-  Generic = "Generic",
-  Shipping = "Shipping",
-  Overpayment = "Overpayment",
-  Unknown = "Unknown",
+    Generic = "Generic",
+    Shipping = "Shipping",
+    Overpayment = "Overpayment",
+    Unknown = "Unknown",
 }

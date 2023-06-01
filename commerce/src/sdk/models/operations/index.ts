@@ -3,7 +3,16 @@
  */
 
 export * from "./getcompanyinfo";
-export * from "./gettaxcomponents";
+export * from "./getcustomer";
+export * from "./getdispute";
+export * from "./getlocation";
+export * from "./getorder";
+export * from "./getpayment";
+export * from "./getpaymentmethod";
+export * from "./getproduct";
+export * from "./getproductcategory";
+export * from "./gettaxcomponent";
+export * from "./gettransaction";
 export * from "./listcustomers";
 export * from "./listdisputes";
 export * from "./listlocations";
@@ -12,4 +21,5 @@ export * from "./listpaymentmethods";
 export * from "./listpayments";
 export * from "./listproductcategories";
 export * from "./listproducts";
+export * from "./listtaxcomponents";
 export * from "./listtransactions";

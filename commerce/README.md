@@ -28,7 +28,7 @@ import { AddressType, CompanyInfoWeblinkType, PhoneNumberType } from "@codat/com
 
 const sdk = new CodatCommerce({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
   },
 });
 
@@ -53,36 +53,46 @@ sdk.companyInfo.get({
 
 ### [customers](docs/customers/README.md)
 
+* [get](docs/customers/README.md#get) - Get customer
 * [list](docs/customers/README.md#list) - List customers
 
 ### [disputes](docs/disputes/README.md)
 
+* [get](docs/disputes/README.md#get) - Get dispute
 * [list](docs/disputes/README.md#list) - List disputes
 
 ### [locations](docs/locations/README.md)
 
+* [get](docs/locations/README.md#get) - Get location
 * [list](docs/locations/README.md#list) - List locations
 
 ### [orders](docs/orders/README.md)
 
+* [get](docs/orders/README.md#get) - Get order
 * [list](docs/orders/README.md#list) - List orders
 
 ### [payments](docs/payments/README.md)
 
+* [get](docs/payments/README.md#get) - Get payment
+* [getMethod](docs/payments/README.md#getmethod) - Get payment method
 * [list](docs/payments/README.md#list) - List payments
 * [listMethods](docs/payments/README.md#listmethods) - List payment methods
 
 ### [products](docs/products/README.md)
 
+* [get](docs/products/README.md#get) - Get product
+* [getCategory](docs/products/README.md#getcategory) - Get product category
 * [list](docs/products/README.md#list) - List products
 * [listCategories](docs/products/README.md#listcategories) - List product categories
 
 ### [taxComponents](docs/taxcomponents/README.md)
 
-* [get](docs/taxcomponents/README.md#get) - List tax components
+* [get](docs/taxcomponents/README.md#get) - Get tax component
+* [list](docs/taxcomponents/README.md#list) - List tax components
 
 ### [transactions](docs/transactions/README.md)
 
+* [get](docs/transactions/README.md#get) - Get transaction
 * [list](docs/transactions/README.md#list) - List transactions
 <!-- End SDK Available Operations -->
 

@@ -9,17 +9,17 @@ import { Expose } from "class-transformer";
  * The payment method the payment is linked to in the commerce platform.
  */
 export class PaymentMethodRef extends SpeakeasyBase {
-  /**
-   * The unique identitifer of the location being referenced.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * The unique identitifer of the location being referenced.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * Name of the location being referenced.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * Name of the location being referenced.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 }

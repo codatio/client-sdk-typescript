@@ -7,15 +7,15 @@ import { LocationRef } from "./locationref";
 import { Expose, Type } from "class-transformer";
 
 export class ProductInventoryLocation extends SpeakeasyBase {
-  /**
-   * Reference to the geographic location where the order was placed.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "locationRef" })
-  @Type(() => LocationRef)
-  locationRef?: LocationRef;
+    /**
+     * Reference to the geographic location where the order was placed.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "locationRef" })
+    @Type(() => LocationRef)
+    locationRef?: LocationRef;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "quantity" })
-  quantity?: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "quantity" })
+    quantity?: number;
 }

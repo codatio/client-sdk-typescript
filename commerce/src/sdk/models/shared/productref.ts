@@ -9,17 +9,17 @@ import { Expose } from "class-transformer";
  * Reference that links the line item to the correct product details.
  */
 export class ProductRef extends SpeakeasyBase {
-  /**
-   * The unique identitifer of the product being referenced.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * The unique identitifer of the product being referenced.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * Name of the product being referenced.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * Name of the product being referenced.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 }

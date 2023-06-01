@@ -3,7 +3,7 @@
  */
 
 export enum ProductVariantStatus {
-  Unknown = "Unknown",
-  Published = "Published",
-  Unpublished = "Unpublished",
+    Unknown = "Unknown",
+    Published = "Published",
+    Unpublished = "Unpublished",
 }

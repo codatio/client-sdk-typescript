@@ -10,78 +10,78 @@ import { TaxComponentAllocation } from "./taxcomponentallocation";
 import { Expose, Type } from "class-transformer";
 
 export class OrderLineItem extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: OrderDiscountAllocation })
-  @Expose({ name: "discountAllocations" })
-  @Type(() => OrderDiscountAllocation)
-  discountAllocations?: OrderDiscountAllocation[];
+    @SpeakeasyMetadata({ elemType: OrderDiscountAllocation })
+    @Expose({ name: "discountAllocations" })
+    @Type(() => OrderDiscountAllocation)
+    discountAllocations?: OrderDiscountAllocation[];
 
-  /**
-   * A unique, persistent identifier for this record
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * A unique, persistent identifier for this record
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * Reference that links the line item to the correct product details.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "productRef" })
-  @Type(() => ProductRef)
-  productRef?: ProductRef;
+    /**
+     * Reference that links the line item to the correct product details.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "productRef" })
+    @Type(() => ProductRef)
+    productRef?: ProductRef;
 
-  /**
-   * Reference that links the line item to the specific version of product that has been ordered.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "productVariantRef" })
-  @Type(() => ProductVariantRef)
-  productVariantRef?: ProductVariantRef;
+    /**
+     * Reference that links the line item to the specific version of product that has been ordered.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "productVariantRef" })
+    @Type(() => ProductVariantRef)
+    productVariantRef?: ProductVariantRef;
 
-  /**
-   * Number of units of the product sold.
-   *
-   * @remarks
-   * For refunds, quantity is a negative value.
-   *
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "quantity" })
-  quantity?: number;
+    /**
+     * Number of units of the product sold.
+     *
+     * @remarks
+     * For refunds, quantity is a negative value.
+     *
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "quantity" })
+    quantity?: number;
 
-  /**
-   * Percentage rate (from 0 to 100) of any sale tax applied to the unit amount.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "taxPercentage" })
-  taxPercentage?: number;
+    /**
+     * Percentage rate (from 0 to 100) of any sale tax applied to the unit amount.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "taxPercentage" })
+    taxPercentage?: number;
 
-  /**
-   * Taxes breakdown as applied to order lines.
-   */
-  @SpeakeasyMetadata({ elemType: TaxComponentAllocation })
-  @Expose({ name: "taxes" })
-  @Type(() => TaxComponentAllocation)
-  taxes?: TaxComponentAllocation[];
+    /**
+     * Taxes breakdown as applied to order lines.
+     */
+    @SpeakeasyMetadata({ elemType: TaxComponentAllocation })
+    @Expose({ name: "taxes" })
+    @Type(() => TaxComponentAllocation)
+    taxes?: TaxComponentAllocation[];
 
-  /**
-   * Total price of the line item, including discounts, tax and minus any refunds.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "totalAmount" })
-  totalAmount?: number;
+    /**
+     * Total price of the line item, including discounts, tax and minus any refunds.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "totalAmount" })
+    totalAmount?: number;
 
-  /**
-   * Total amount of tax applied to the line item.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "totalTaxAmount" })
-  totalTaxAmount?: number;
+    /**
+     * Total amount of tax applied to the line item.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "totalTaxAmount" })
+    totalTaxAmount?: number;
 
-  /**
-   * Price per unit of goods or service.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "unitPrice" })
-  unitPrice?: number;
+    /**
+     * Price per unit of goods or service.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "unitPrice" })
+    unitPrice?: number;
 }

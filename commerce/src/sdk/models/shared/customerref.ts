@@ -9,17 +9,17 @@ import { Expose } from "class-transformer";
  * Reference to the customer that placed the order.
  */
 export class CustomerRef extends SpeakeasyBase {
-  /**
-   * The unique identitifer of the customer being referenced
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * The unique identitifer of the customer being referenced
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * Name of the customer being referenced.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * Name of the customer being referenced.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 }

@@ -8,53 +8,53 @@ import { TaxComponentAllocation } from "./taxcomponentallocation";
 import { Expose, Type } from "class-transformer";
 
 export class ServiceCharge extends SpeakeasyBase {
-  /**
-   * Service charges for this order.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "description" })
-  description?: string;
+    /**
+     * Service charges for this order.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "description" })
+    description?: string;
 
-  /**
-   * The number of times the charge is charged.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "quantity" })
-  quantity?: number;
+    /**
+     * The number of times the charge is charged.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "quantity" })
+    quantity?: number;
 
-  /**
-   * Amount of the service charge that is tax.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "taxAmount" })
-  taxAmount?: number;
+    /**
+     * Amount of the service charge that is tax.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "taxAmount" })
+    taxAmount?: number;
 
-  /**
-   * Percentage rate (from 0 to 100) of any tax applied to the service charge.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "taxPercentage" })
-  taxPercentage?: number;
+    /**
+     * Percentage rate (from 0 to 100) of any tax applied to the service charge.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "taxPercentage" })
+    taxPercentage?: number;
 
-  /**
-   * Taxes breakdown as applied to service charges.
-   */
-  @SpeakeasyMetadata({ elemType: TaxComponentAllocation })
-  @Expose({ name: "taxes" })
-  @Type(() => TaxComponentAllocation)
-  taxes?: TaxComponentAllocation[];
+    /**
+     * Taxes breakdown as applied to service charges.
+     */
+    @SpeakeasyMetadata({ elemType: TaxComponentAllocation })
+    @Expose({ name: "taxes" })
+    @Type(() => TaxComponentAllocation)
+    taxes?: TaxComponentAllocation[];
 
-  /**
-   * Total service charge, including taxes.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "totalAmount" })
-  totalAmount?: number;
+    /**
+     * Total service charge, including taxes.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "totalAmount" })
+    totalAmount?: number;
 
-  /**
-   * The type of the service charge.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: ServiceChargeType;
+    /**
+     * The type of the service charge.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type?: ServiceChargeType;
 }

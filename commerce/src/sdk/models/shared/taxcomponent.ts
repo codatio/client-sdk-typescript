@@ -13,39 +13,39 @@ import { Expose } from "class-transformer";
  * Explore our [data coverage](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-disputes) for this data type.
  */
 export class TaxComponent extends SpeakeasyBase {
-  /**
-   * A unique, persistent identifier for this record
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * A unique, persistent identifier for this record
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  /**
-   * The Boolean flag to indicate when a Tax Rate Component compounds on a sale.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "isCompound" })
-  isCompound?: boolean;
+    /**
+     * The Boolean flag to indicate when a Tax Rate Component compounds on a sale.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "isCompound" })
+    isCompound?: boolean;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "modifiedDate" })
-  modifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "modifiedDate" })
+    modifiedDate?: string;
 
-  /**
-   * Name of the Tax Rate Component in the source commerce platform.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * Name of the Tax Rate Component in the source commerce platform.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 
-  /**
-   * Rate of taxation represented as a fraction of the net price (typically in the range 0.00 - 1.00).
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "rate" })
-  rate?: number;
+    /**
+     * Rate of taxation represented as a fraction of the net price (typically in the range 0.00 - 1.00).
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "rate" })
+    rate?: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "sourceModifiedDate" })
-  sourceModifiedDate?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "sourceModifiedDate" })
+    sourceModifiedDate?: string;
 }

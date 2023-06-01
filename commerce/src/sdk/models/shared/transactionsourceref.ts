@@ -7,14 +7,14 @@ import { TransactionSourceType } from "./transactionsourcetype";
 import { Expose } from "class-transformer";
 
 export class TransactionSourceRef extends SpeakeasyBase {
-  /**
-   * The unique identitifer of the record being referenced
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    /**
+     * The unique identitifer of the record being referenced
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type: TransactionSourceType;
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type: TransactionSourceType;
 }
