@@ -3,9 +3,9 @@
  */
 
 export enum PushChangeType {
-  Unknown = "Unknown",
-  Created = "Created",
-  Modified = "Modified",
-  Deleted = "Deleted",
-  AttachmentUploaded = "AttachmentUploaded",
+    Unknown = "Unknown",
+    Created = "Created",
+    Modified = "Modified",
+    Deleted = "Deleted",
+    AttachmentUploaded = "AttachmentUploaded",
 }

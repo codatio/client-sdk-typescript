@@ -7,31 +7,29 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetIntegrationRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=platformKey",
-  })
-  platformKey: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=platformKey" })
+    platformKey: string;
 }
 
 export class GetIntegrationResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * Your API request was not properly authorized.
-   */
-  @SpeakeasyMetadata()
-  errorMessage?: shared.ErrorMessage;
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  integration?: shared.Integration;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    integration?: shared.Integration;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

@@ -7,11 +7,11 @@ import { ImageReference } from "./imagereference";
 import { Expose, Type } from "class-transformer";
 
 export class BrandingImage extends SpeakeasyBase {
-  /**
-   * Image reference.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "image" })
-  @Type(() => ImageReference)
-  image?: ImageReference;
+    /**
+     * Image reference.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "image" })
+    @Type(() => ImageReference)
+    image?: ImageReference;
 }

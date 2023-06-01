@@ -8,16 +8,16 @@ import { PushOperationRef } from "./pushoperationref";
 import { Expose, Type } from "class-transformer";
 
 export class PushOperationChange extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "attachmentId" })
-  attachmentId?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "attachmentId" })
+    attachmentId?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "recordRef" })
-  @Type(() => PushOperationRef)
-  recordRef?: PushOperationRef;
+    @SpeakeasyMetadata()
+    @Expose({ name: "recordRef" })
+    @Type(() => PushOperationRef)
+    recordRef?: PushOperationRef;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "type" })
-  type?: PushChangeType;
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type?: PushChangeType;
 }

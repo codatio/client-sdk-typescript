@@ -5,29 +5,25 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose } from "class-transformer";
 
-export class CreateDataConnectionRequestBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "platformKey" })
-    platformKey?: string;
-}
-
-export class CreateDataConnectionRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    requestBody?: CreateDataConnectionRequestBody;
-
+export class RefreshDataTypeRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
+
+    /**
+     * Optionally, provide a data connection id to only queue pull operations on that connection.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=connectionId" })
+    connectionId?: string;
+
+    /**
+     * The key of a Codat data type
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=dataType" })
+    dataType: shared.DataType;
 }
 
-export class CreateDataConnectionResponse extends SpeakeasyBase {
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    connection?: shared.Connection;
-
+export class RefreshDataTypeResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -36,6 +32,12 @@ export class CreateDataConnectionResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
+
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    pullOperation?: shared.PullOperation;
 
     @SpeakeasyMetadata()
     statusCode: number;

@@ -61,12 +61,6 @@ sdk.companies.create({
 * [unlinkConnection](docs/connections/README.md#unlinkconnection) - Unlink connection
 * [updateAuthorization](docs/connections/README.md#updateauthorization) - Update authorization
 
-### [dataStatus](docs/datastatus/README.md)
-
-* [get](docs/datastatus/README.md#get) - Get data status
-* [getPullOperation](docs/datastatus/README.md#getpulloperation) - Get pull operation
-* [listPullOperations](docs/datastatus/README.md#listpulloperations) - Get pull operations
-
 ### [integrations](docs/integrations/README.md)
 
 * [get](docs/integrations/README.md#get) - Get integration
@@ -81,8 +75,11 @@ sdk.companies.create({
 
 ### [refreshData](docs/refreshdata/README.md)
 
-* [all](docs/refreshdata/README.md#all) - Queue pull operations
-* [byDataType](docs/refreshdata/README.md#bydatatype) - Queue pull operation
+* [all](docs/refreshdata/README.md#all) - Refresh all data
+* [byDataType](docs/refreshdata/README.md#bydatatype) - Refresh data type
+* [get](docs/refreshdata/README.md#get) - Get data status
+* [getPullOperation](docs/refreshdata/README.md#getpulloperation) - Get pull operation
+* [listPullOperations](docs/refreshdata/README.md#listpulloperations) - List pull operations
 
 ### [settings](docs/settings/README.md)
 

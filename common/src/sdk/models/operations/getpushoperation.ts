@@ -7,33 +7,35 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetPushOperationRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  /**
-   * Push operation key.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=pushOperationKey",
-  })
-  pushOperationKey: string;
+    /**
+     * Push operation key.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=pushOperationKey" })
+    pushOperationKey: string;
 }
 
 export class GetPushOperationResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  pushOperation?: shared.PushOperation;
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    pushOperation?: shared.PushOperation;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    statusCode: number;
+
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

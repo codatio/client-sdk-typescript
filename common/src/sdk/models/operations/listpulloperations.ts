@@ -7,59 +7,53 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class ListPullOperationsRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 
-  /**
-   * Field to order results by. [Read more](https://docs.codat.io/using-the-api/ordering-results).
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=orderBy",
-  })
-  orderBy?: string;
+    /**
+     * Field to order results by. [Read more](https://docs.codat.io/using-the-api/ordering-results).
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
+    orderBy?: string;
 
-  /**
-   * Page number. [Read more](https://docs.codat.io/using-the-api/paging).
-   */
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
-  page?: number;
+    /**
+     * Page number. [Read more](https://docs.codat.io/using-the-api/paging).
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=page" })
+    page?: number;
 
-  /**
-   * Number of records to return in a page. [Read more](https://docs.codat.io/using-the-api/paging).
-   */
-  @SpeakeasyMetadata({
-    data: "queryParam, style=form;explode=true;name=pageSize",
-  })
-  pageSize?: number;
+    /**
+     * Number of records to return in a page. [Read more](https://docs.codat.io/using-the-api/paging).
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=pageSize" })
+    pageSize?: number;
 
-  /**
-   * Codat query string. [Read more](https://docs.codat.io/using-the-api/querying).
-   */
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
-  query?: string;
+    /**
+     * Codat query string. [Read more](https://docs.codat.io/using-the-api/querying).
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
+    query?: string;
 }
 
 export class ListPullOperationsResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  dataConnectionHistory?: shared.DataConnectionHistory;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    dataConnectionHistory?: shared.DataConnectionHistory;
 
-  /**
-   * Your `query` parameter was not correctly formed
-   */
-  @SpeakeasyMetadata()
-  errorMessage?: shared.ErrorMessage;
+    /**
+     * Your `query` parameter was not correctly formed
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

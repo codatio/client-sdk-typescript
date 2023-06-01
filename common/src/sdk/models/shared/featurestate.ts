@@ -3,10 +3,10 @@
  */
 
 export enum FeatureState {
-  Release = "Release",
-  Alpha = "Alpha",
-  Beta = "Beta",
-  Deprecated = "Deprecated",
-  NotSupported = "NotSupported",
-  NotImplemented = "NotImplemented",
+    Release = "Release",
+    Alpha = "Alpha",
+    Beta = "Beta",
+    Deprecated = "Deprecated",
+    NotSupported = "NotSupported",
+    NotImplemented = "NotImplemented",
 }

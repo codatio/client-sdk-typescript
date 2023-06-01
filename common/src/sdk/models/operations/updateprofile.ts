@@ -7,24 +7,24 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class UpdateProfileResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * Your API request was not properly authorized.
-   */
-  @SpeakeasyMetadata()
-  errorMessage?: shared.ErrorMessage;
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  profile?: shared.Profile;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    profile?: shared.Profile;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

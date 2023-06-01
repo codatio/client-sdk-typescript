@@ -6,69 +6,69 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Type } from "class-transformer";
 
 export class PushOperationStatusChangedWebhookData extends SpeakeasyBase {
-  /**
-   * Data type used in the push operation.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "dataType" })
-  dataType?: string;
+    /**
+     * Data type used in the push operation.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "dataType" })
+    dataType?: string;
 
-  /**
-   * Unique identifier for the push operation.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "pushOperationKey" })
-  pushOperationKey?: string;
+    /**
+     * Unique identifier for the push operation.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "pushOperationKey" })
+    pushOperationKey?: string;
 
-  /**
-   * The current status of the push operation.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status?: string;
+    /**
+     * The current status of the push operation.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status?: string;
 }
 
 /**
  * Webhook request body for a push operation status change.
  */
 export class PushOperationStatusChangedWebhook extends SpeakeasyBase {
-  /**
-   * Unique identifier of the alert.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "alertId" })
-  alertId?: string;
+    /**
+     * Unique identifier of the alert.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "alertId" })
+    alertId?: string;
 
-  /**
-   * Unique identifier for your SMB in Codat.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "companyId" })
-  companyId?: string;
+    /**
+     * Unique identifier for your SMB in Codat.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "companyId" })
+    companyId?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "data" })
-  @Type(() => PushOperationStatusChangedWebhookData)
-  data?: PushOperationStatusChangedWebhookData;
+    @SpeakeasyMetadata()
+    @Expose({ name: "data" })
+    @Type(() => PushOperationStatusChangedWebhookData)
+    data?: PushOperationStatusChangedWebhookData;
 
-  /**
-   * A human readable message about the webhook.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message?: string;
+    /**
+     * A human readable message about the webhook.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
 
-  /**
-   * Unique identifier for the rule.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "ruleId" })
-  ruleId?: string;
+    /**
+     * Unique identifier for the rule.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "ruleId" })
+    ruleId?: string;
 
-  /**
-   * The type of rule.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "ruleType" })
-  ruleType?: string;
+    /**
+     * The type of rule.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type?: string;
 }

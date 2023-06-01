@@ -7,31 +7,29 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetCompanyDataStatusRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=companyId",
-  })
-  companyId: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
 }
 
 export class GetCompanyDataStatusResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata({ elemType: shared.DataStatus })
-  dataStatusResponse?: Record<string, shared.DataStatus>;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata({ elemType: shared.DataStatus })
+    dataStatusResponse?: Record<string, shared.DataStatus>;
 
-  /**
-   * Your API request was not properly authorized.
-   */
-  @SpeakeasyMetadata()
-  errorMessage?: shared.ErrorMessage;
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

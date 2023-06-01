@@ -8,11 +8,11 @@ import { FeatureType } from "./featuretype";
 import { Expose } from "class-transformer";
 
 export class SupportedFeature extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "featureState" })
-  featureState: FeatureState;
+    @SpeakeasyMetadata()
+    @Expose({ name: "featureState" })
+    featureState: FeatureState;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "featureType" })
-  featureType: FeatureType;
+    @SpeakeasyMetadata()
+    @Expose({ name: "featureType" })
+    featureType: FeatureType;
 }

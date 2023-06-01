@@ -4,7 +4,6 @@
 
 export * from "./createcompany";
 export * from "./createdataconnection";
-export * from "./createpulloperation";
 export * from "./createrule";
 export * from "./deletecompany";
 export * from "./deletecompanyconnection";
@@ -25,6 +24,7 @@ export * from "./listintegrations";
 export * from "./listpulloperations";
 export * from "./listrules";
 export * from "./refreshcompanydata";
+export * from "./refreshdatatype";
 export * from "./unlinkconnection";
 export * from "./updatecompany";
 export * from "./updateconnectionauthorization";

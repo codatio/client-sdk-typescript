@@ -9,27 +9,27 @@ import { Expose } from "class-transformer";
  * Your `query` parameter was not correctly formed
  */
 export class ErrorMessage extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "canBeRetried" })
-  canBeRetried?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "canBeRetried" })
+    canBeRetried?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "correlationId" })
-  correlationId?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "correlationId" })
+    correlationId?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "detailedErrorCode" })
-  detailedErrorCode?: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "detailedErrorCode" })
+    detailedErrorCode?: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "error" })
-  error?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "error" })
+    error?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "service" })
-  service?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "service" })
+    service?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "statusCode" })
-  statusCode?: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "statusCode" })
+    statusCode?: number;
 }
