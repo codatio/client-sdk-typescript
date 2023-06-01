@@ -3,4 +3,5 @@
  */
 
 export * from "./file";
+export * from "./schema";
 export * from "./security";
