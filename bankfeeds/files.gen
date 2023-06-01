@@ -47,7 +47,6 @@ src/sdk/models/shared/validationitem.ts
 src/sdk/models/shared/pushoperationstatus.ts
 src/sdk/models/shared/datatype.ts
 src/sdk/models/shared/banktransactions.ts
-src/sdk/models/shared/banktransactionline.ts
 src/sdk/models/shared/banktransactiontype.ts
 src/sdk/models/shared/pushoperationchange.ts
 src/sdk/models/shared/pushchangetype.ts

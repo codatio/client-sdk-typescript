@@ -3,7 +3,6 @@
  */
 
 export * from "./bankfeedaccount";
-export * from "./banktransactionline";
 export * from "./banktransactions";
 export * from "./banktransactionsresponse";
 export * from "./banktransactiontype";

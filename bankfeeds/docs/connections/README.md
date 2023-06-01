@@ -10,7 +10,7 @@ Manage your companies' data connections.
 * [delete](#delete) - Delete connection
 * [get](#get) - Get connection
 * [list](#list) - List connections
-* [proxy](#proxy) - A proxy or passthrough endpoint used to query unsupported third party endpoints.
+* [proxy](#proxy) - Proxy
 * [unlinkConnection](#unlinkconnection) - Unlink connection
 
 ## create
@@ -32,7 +32,7 @@ const sdk = new CodatBankFeeds({
 
 sdk.connections.create({
   requestBody: {
-    platformKey: "corporis",
+    platformKey: "excepturi",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: CreateDataConnectionResponse) => {
@@ -118,7 +118,7 @@ sdk.connections.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "hic",
+  query: "pariatur",
 }).then((res: ListCompanyConnectionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -172,7 +172,7 @@ const sdk = new CodatBankFeeds({
 
 sdk.connections.unlinkConnection({
   requestBody: {
-    status: "libero",
+    status: "modi",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",

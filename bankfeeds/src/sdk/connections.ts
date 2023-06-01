@@ -329,6 +329,9 @@ export class Connections {
     }
 
     /**
+     * Proxy
+     *
+     * @remarks
      * A proxy or passthrough endpoint used to query unsupported third party endpoints.
      */
     async proxy(

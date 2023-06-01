@@ -112,7 +112,7 @@ sdk.companies.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "cumque",
+  query: "molestias",
 }).then((res: ListCompaniesResponse) => {
   if (res.statusCode == 200) {
     // handle response
