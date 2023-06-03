@@ -36,11 +36,31 @@ export type SDKProps = {
      * Allows overriding the default axios client used by the SDK
      */
     defaultClient?: AxiosInstance;
+
+    /**
+     * Allows overriding the default server used by the SDK
+     */
+    serverIdx?: number;
+
     /**
      * Allows overriding the default server URL used by the SDK
      */
     serverURL?: string;
 };
+
+export class SDKConfiguration {
+    defaultClient: AxiosInstance;
+    securityClient: AxiosInstance;
+    serverURL: string;
+    serverDefaults: any;
+    language = "typescript";
+    sdkVersion = "0.22.0";
+    genVersion = "2.35.3";
+
+    public constructor(init?: Partial<SDKConfiguration>) {
+        Object.assign(this, init);
+    }
+}
 
 /**
  * Common API
@@ -84,88 +104,39 @@ export class CodatCommon {
      */
     public webhooks: Webhooks;
 
-    public _defaultClient: AxiosInstance;
-    public _securityClient: AxiosInstance;
-    public _serverURL: string;
-    private _language = "typescript";
-    private _sdkVersion = "0.21.1";
-    private _genVersion = "2.34.7";
-    private _globals: any;
+    private sdkConfiguration: SDKConfiguration;
 
     constructor(props?: SDKProps) {
-        this._serverURL = props?.serverURL ?? ServerList[0];
+        let serverURL = props?.serverURL;
+        const serverIdx = props?.serverIdx ?? 0;
 
-        this._defaultClient = props?.defaultClient ?? axios.create({ baseURL: this._serverURL });
-        if (props?.security) {
-            let security: shared.Security = props.security;
-            if (!(props.security instanceof utils.SpeakeasyBase))
-                security = new shared.Security(props.security);
-            this._securityClient = utils.createSecurityClient(this._defaultClient, security);
-        } else {
-            this._securityClient = this._defaultClient;
+        if (!serverURL) {
+            serverURL = ServerList[serverIdx];
         }
 
-        this.companies = new Companies(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion
-        );
+        const defaultClient = props?.defaultClient ?? axios.create({ baseURL: serverURL });
+        let securityClient = defaultClient;
 
-        this.connections = new Connections(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion
-        );
+        if (props?.security) {
+            let security: shared.Security = props.security;
+            if (!(props.security instanceof utils.SpeakeasyBase)) {
+                security = new shared.Security(props.security);
+            }
+            securityClient = utils.createSecurityClient(defaultClient, security);
+        }
 
-        this.integrations = new Integrations(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion
-        );
+        this.sdkConfiguration = new SDKConfiguration({
+            defaultClient: defaultClient,
+            securityClient: securityClient,
+            serverURL: serverURL,
+        });
 
-        this.pushData = new PushData(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion
-        );
-
-        this.refreshData = new RefreshData(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion
-        );
-
-        this.settings = new Settings(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion
-        );
-
-        this.webhooks = new Webhooks(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion
-        );
+        this.companies = new Companies(this.sdkConfiguration);
+        this.connections = new Connections(this.sdkConfiguration);
+        this.integrations = new Integrations(this.sdkConfiguration);
+        this.pushData = new PushData(this.sdkConfiguration);
+        this.refreshData = new RefreshData(this.sdkConfiguration);
+        this.settings = new Settings(this.sdkConfiguration);
+        this.webhooks = new Webhooks(this.sdkConfiguration);
     }
 }
