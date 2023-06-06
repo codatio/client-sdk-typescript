@@ -48,8 +48,8 @@ export class SDKConfiguration {
     serverURL: string;
     serverDefaults: any;
     language = "typescript";
-    sdkVersion = "0.23.0";
-    genVersion = "2.35.3";
+    sdkVersion = "0.23.1";
+    genVersion = "2.35.9";
 
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -57,7 +57,7 @@ export class SDKConfiguration {
 }
 
 /**
- * An API for uploading and downloading files from 'File Upload' Integrations.
+ * Files API: An API for uploading and downloading files from 'File Upload' Integrations.
  *
  * @remarks
  *
