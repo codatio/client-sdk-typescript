@@ -10,7 +10,7 @@ import { Expose } from "class-transformer";
  */
 export class NewCompanySynchronizedWebhook extends SpeakeasyBase {
     /**
-     * Unique identifier of the alert.
+     * Unique identifier of the webhook event.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "alertId" })

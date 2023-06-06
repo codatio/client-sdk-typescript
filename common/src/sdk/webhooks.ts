@@ -9,7 +9,7 @@ import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
- * Manage webhooks, rules and alerts.
+ * Manage webhooks, rules, and events.
  */
 export class Webhooks {
     private sdkConfiguration: SDKConfiguration;

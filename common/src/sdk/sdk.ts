@@ -54,8 +54,8 @@ export class SDKConfiguration {
     serverURL: string;
     serverDefaults: any;
     language = "typescript";
-    sdkVersion = "0.22.0";
-    genVersion = "2.35.3";
+    sdkVersion = "0.22.1";
+    genVersion = "2.35.9";
 
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -63,7 +63,7 @@ export class SDKConfiguration {
 }
 
 /**
- * Common API
+ * Common API: Common API
  *
  * @remarks
  * An API for the common components of all of Codat's products.
@@ -100,7 +100,7 @@ export class CodatCommon {
      */
     public settings: Settings;
     /**
-     * Manage webhooks, rules and alerts.
+     * Manage webhooks, rules, and events.
      */
     public webhooks: Webhooks;
 

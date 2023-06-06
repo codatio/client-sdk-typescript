@@ -41,7 +41,7 @@ export class CompanyDataConnectionStatusChangedWebhookData extends SpeakeasyBase
  */
 export class CompanyDataConnectionStatusChangedWebhook extends SpeakeasyBase {
     /**
-     * Unique identifier of the alert.
+     * Unique identifier of the webhook event.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "alertId" })

@@ -33,7 +33,7 @@ export class DatasetStatusChangedErrorWebhookData extends SpeakeasyBase {
  */
 export class DatasetStatusChangedErrorWebhook extends SpeakeasyBase {
     /**
-     * Unique identifier of the alert.
+     * Unique identifier of the webhook event.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "alertId" })
