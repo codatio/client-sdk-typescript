@@ -19,7 +19,7 @@ export class AccountCategoriesUpdatedWebhookData extends SpeakeasyBase {
  */
 export class AccountCategoriesUpdatedWebhook extends SpeakeasyBase {
     /**
-     * Unique identifier of the alert.
+     * Unique identifier of the webhook event.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "alertId" })
