@@ -1,6 +1,6 @@
 {
   "name": "@codat/banking",
-  "version": "0.16.1",
+  "version": "0.17.1",
   "author": "Speakeasy",
   "scripts": {
     "prepare": "tsc --build"
