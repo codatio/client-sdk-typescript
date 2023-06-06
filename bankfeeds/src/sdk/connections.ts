@@ -372,7 +372,7 @@ export class Connections {
             return client.request({
                 validateStatus: () => true,
                 url: url + queryParams,
-                method: "get",
+                method: "post",
                 headers: headers,
                 ...config,
             });

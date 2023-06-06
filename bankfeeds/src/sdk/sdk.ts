@@ -51,8 +51,8 @@ export class SDKConfiguration {
     serverURL: string;
     serverDefaults: any;
     language = "typescript";
-    sdkVersion = "0.23.0";
-    genVersion = "2.35.3";
+    sdkVersion = "0.23.1";
+    genVersion = "2.35.9";
 
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -60,7 +60,7 @@ export class SDKConfiguration {
 }
 
 /**
- * Bank Feeds API enables your SMB users to set up bank feeds from accounts in your application to supported accounting platforms.
+ * Bank Feeds API: Bank Feeds API enables your SMB users to set up bank feeds from accounts in your application to supported accounting platforms.
  *
  * @remarks
  *
