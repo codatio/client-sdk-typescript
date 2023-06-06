@@ -33,7 +33,7 @@ export class PushOperationStatusChangedWebhookData extends SpeakeasyBase {
  */
 export class PushOperationStatusChangedWebhook extends SpeakeasyBase {
     /**
-     * Unique identifier of the alert.
+     * Unique identifier of the webhook event.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "alertId" })

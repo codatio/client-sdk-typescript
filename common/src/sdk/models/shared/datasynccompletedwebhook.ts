@@ -26,7 +26,7 @@ export class DataSyncCompletedWebhookData extends SpeakeasyBase {
  */
 export class DataSyncCompletedWebhook extends SpeakeasyBase {
     /**
-     * Unique identifier of the alert.
+     * Unique identifier of the webhook event.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "alertId" })

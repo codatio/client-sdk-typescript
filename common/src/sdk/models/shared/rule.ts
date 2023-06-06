@@ -16,7 +16,7 @@ export class RuleNotifiers extends SpeakeasyBase {
 }
 
 /**
- * Configuration to alert to a url or list of email addresses based on the given type / condition.
+ * Configuration to provide an event notification to a URL or list of email addresses based on the given type or condition.
  */
 export class Rule extends SpeakeasyBase {
     @SpeakeasyMetadata()
