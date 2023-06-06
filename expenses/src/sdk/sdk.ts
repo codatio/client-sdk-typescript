@@ -49,8 +49,8 @@ export class SDKConfiguration {
     serverURL: string;
     serverDefaults: any;
     language = "typescript";
-    sdkVersion = "0.23.0";
-    genVersion = "2.35.3";
+    sdkVersion = "0.23.1";
+    genVersion = "2.35.9";
 
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -58,7 +58,7 @@ export class SDKConfiguration {
 }
 
 /**
- * The API for Sync for Expenses.
+ * Sync for Expenses API: The API for Sync for Expenses.
  *
  * @remarks
  * Sync for Expenses is an API and a set of supporting tools. It has been built to enable corporate card and expense management platforms to provide high-quality integrations with multiple accounting platforms through a standardized API.
