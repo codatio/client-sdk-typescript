@@ -33,14 +33,34 @@ export type SDKProps = {
      * Allows overriding the default axios client used by the SDK
      */
     defaultClient?: AxiosInstance;
+
+    /**
+     * Allows overriding the default server used by the SDK
+     */
+    serverIdx?: number;
+
     /**
      * Allows overriding the default server URL used by the SDK
      */
     serverURL?: string;
 };
 
+export class SDKConfiguration {
+    defaultClient: AxiosInstance;
+    securityClient: AxiosInstance;
+    serverURL: string;
+    serverDefaults: any;
+    language = "typescript";
+    sdkVersion = "0.23.1";
+    genVersion = "2.35.9";
+
+    public constructor(init?: Partial<SDKConfiguration>) {
+        Object.assign(this, init);
+    }
+}
+
 /**
- * Bank Feeds API enables your SMB users to set up bank feeds from accounts in your application to supported accounting platforms.
+ * Bank Feeds API: Bank Feeds API enables your SMB users to set up bank feeds from accounts in your application to supported accounting platforms.
  *
  * @remarks
  *
@@ -68,61 +88,36 @@ export class CodatBankFeeds {
      */
     public connections: Connections;
 
-    public _defaultClient: AxiosInstance;
-    public _securityClient: AxiosInstance;
-    public _serverURL: string;
-    private _language = "typescript";
-    private _sdkVersion = "0.22.1";
-    private _genVersion = "2.34.7";
-    private _globals: any;
+    private sdkConfiguration: SDKConfiguration;
 
     constructor(props?: SDKProps) {
-        this._serverURL = props?.serverURL ?? ServerList[0];
+        let serverURL = props?.serverURL;
+        const serverIdx = props?.serverIdx ?? 0;
 
-        this._defaultClient = props?.defaultClient ?? axios.create({ baseURL: this._serverURL });
-        if (props?.security) {
-            let security: shared.Security = props.security;
-            if (!(props.security instanceof utils.SpeakeasyBase))
-                security = new shared.Security(props.security);
-            this._securityClient = utils.createSecurityClient(this._defaultClient, security);
-        } else {
-            this._securityClient = this._defaultClient;
+        if (!serverURL) {
+            serverURL = ServerList[serverIdx];
         }
 
-        this.bankAccountTransactions = new BankAccountTransactions(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion
-        );
+        const defaultClient = props?.defaultClient ?? axios.create({ baseURL: serverURL });
+        let securityClient = defaultClient;
 
-        this.bankFeedAccounts = new BankFeedAccounts(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion
-        );
+        if (props?.security) {
+            let security: shared.Security = props.security;
+            if (!(props.security instanceof utils.SpeakeasyBase)) {
+                security = new shared.Security(props.security);
+            }
+            securityClient = utils.createSecurityClient(defaultClient, security);
+        }
 
-        this.companies = new Companies(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion
-        );
+        this.sdkConfiguration = new SDKConfiguration({
+            defaultClient: defaultClient,
+            securityClient: securityClient,
+            serverURL: serverURL,
+        });
 
-        this.connections = new Connections(
-            this._defaultClient,
-            this._securityClient,
-            this._serverURL,
-            this._language,
-            this._sdkVersion,
-            this._genVersion
-        );
+        this.bankAccountTransactions = new BankAccountTransactions(this.sdkConfiguration);
+        this.bankFeedAccounts = new BankFeedAccounts(this.sdkConfiguration);
+        this.companies = new Companies(this.sdkConfiguration);
+        this.connections = new Connections(this.sdkConfiguration);
     }
 }
