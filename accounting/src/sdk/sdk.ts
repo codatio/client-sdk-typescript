@@ -72,8 +72,8 @@ export class SDKConfiguration {
     serverURL: string;
     serverDefaults: any;
     language = "typescript";
-    sdkVersion = "0.16.0";
-    genVersion = "2.35.3";
+    sdkVersion = "0.16.1";
+    genVersion = "2.35.9";
 
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -81,7 +81,7 @@ export class SDKConfiguration {
 }
 
 /**
- * A flexible API for pulling accounting data, normalized and aggregated from 20 accounting integrations.
+ * Accounting API: A flexible API for pulling accounting data, normalized and aggregated from 20 accounting integrations.
  *
  * @remarks
  *
