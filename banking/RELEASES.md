@@ -359,3 +359,11 @@ Based on:
 - Speakeasy CLI 1.43.0 (2.35.3) https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [NPM v0.17.0] https://www.npmjs.com/package/@codat/banking/v/0.17.0 - banking
+
+## 2023-06-06 20:42:51
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Banking.yaml
+- Speakeasy CLI 1.44.2 (2.35.9) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.17.1] https://www.npmjs.com/package/@codat/banking/v/0.17.1 - banking

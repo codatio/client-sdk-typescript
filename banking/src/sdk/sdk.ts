@@ -51,8 +51,8 @@ export class SDKConfiguration {
     serverURL: string;
     serverDefaults: any;
     language = "typescript";
-    sdkVersion = "0.17.0";
-    genVersion = "2.35.3";
+    sdkVersion = "0.17.1";
+    genVersion = "2.35.9";
 
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -60,7 +60,7 @@ export class SDKConfiguration {
 }
 
 /**
- * Codat's standardized API for accessing banking data.
+ * Banking API: Codat's standardized API for accessing banking data.
  *
  * @remarks
  * Codat's Banking API allows you to access standardised data from over bank accounts via third party providers.
