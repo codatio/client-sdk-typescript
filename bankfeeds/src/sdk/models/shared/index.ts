@@ -11,6 +11,8 @@ export * from "./company";
 export * from "./companyrequestbody";
 export * from "./connection";
 export * from "./connections";
+export * from "./createbankaccounttransaction";
+export * from "./createbanktransactions";
 export * from "./createbanktransactionsresponse";
 export * from "./dataconnectionerror";
 export * from "./dataconnectionstatus";

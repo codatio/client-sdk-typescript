@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class CreateBankTransactionsRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    bankTransactions?: shared.BankTransactions;
+    createBankTransactions?: shared.CreateBankTransactions;
 
     /**
      * Unique identifier for an account

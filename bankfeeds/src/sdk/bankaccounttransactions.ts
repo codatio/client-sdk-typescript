@@ -48,7 +48,11 @@ export class BankAccountTransactions {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "bankTransactions", "json");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+                req,
+                "createBankTransactions",
+                "json"
+            );
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);

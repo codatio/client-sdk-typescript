@@ -32,7 +32,7 @@ const sdk = new CodatBankFeeds({
 
 sdk.connections.create({
   requestBody: {
-    platformKey: "excepturi",
+    platformKey: "quaerat",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: CreateDataConnectionResponse) => {
@@ -118,7 +118,7 @@ sdk.connections.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "pariatur",
+  query: "quos",
 }).then((res: ListCompanyConnectionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -172,7 +172,7 @@ const sdk = new CodatBankFeeds({
 
 sdk.connections.unlinkConnection({
   requestBody: {
-    status: "modi",
+    status: "aliquid",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",

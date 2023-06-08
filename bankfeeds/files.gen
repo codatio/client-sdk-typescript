@@ -46,8 +46,8 @@ src/sdk/models/shared/validation.ts
 src/sdk/models/shared/validationitem.ts
 src/sdk/models/shared/pushoperationstatus.ts
 src/sdk/models/shared/datatype.ts
-src/sdk/models/shared/banktransactions.ts
-src/sdk/models/shared/banktransactiontype.ts
+src/sdk/models/shared/createbanktransactions.ts
+src/sdk/models/shared/createbankaccounttransaction.ts
 src/sdk/models/shared/pushoperationchange.ts
 src/sdk/models/shared/pushchangetype.ts
 src/sdk/models/shared/pushoperationref.ts
@@ -58,6 +58,8 @@ src/sdk/models/shared/pushoptiontype.ts
 src/sdk/models/shared/pushoptionproperty.ts
 src/sdk/models/shared/pushoptionchoice.ts
 src/sdk/models/shared/banktransactionsresponse.ts
+src/sdk/models/shared/banktransactions.ts
+src/sdk/models/shared/banktransactiontype.ts
 src/sdk/models/shared/links.ts
 src/sdk/models/shared/href.ts
 src/sdk/models/shared/bankfeedaccount.ts

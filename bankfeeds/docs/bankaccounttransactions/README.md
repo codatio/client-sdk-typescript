@@ -21,7 +21,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { CreateBankTransactionsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-import { BankTransactionType, DataType, PushChangeType, PushOperationStatus } from "@codat/bank-feeds/dist/sdk/models/shared";
+import { DataType, PushChangeType, PushOperationStatus } from "@codat/bank-feeds/dist/sdk/models/shared";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -30,23 +30,34 @@ const sdk = new CodatBankFeeds({
 });
 
 sdk.bankAccountTransactions.create({
-  bankTransactions: {
-    accountId: "molestiae",
-    amount: 7991.59,
-    balance: 8009.11,
-    clearedOnDate: "2022-10-23T00:00:00.000Z",
-    description: "totam",
-    id: "ca1ba928-fc81-4674-acb7-39205929396f",
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    reconciled: false,
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    transactionType: BankTransactionType.Atm,
+  createBankTransactions: {
+    accountId: "architecto",
+    transactions: [
+      {
+        amount: 2088.76,
+        date: "2022-10-23T00:00:00.000Z",
+        description: "consequuntur",
+        id: "fa946773-9251-4aa5-ac3f-5ad019da1ffe",
+      },
+      {
+        amount: 4686.51,
+        date: "2022-10-23T00:00:00.000Z",
+        description: "voluptatibus",
+        id: "097b0074-f154-471b-9e6e-13b99d488e1e",
+      },
+      {
+        amount: 5759.47,
+        date: "2022-10-23T00:00:00.000Z",
+        description: "itaque",
+        id: "450ad2ab-d442-4698-82d5-02a94bb4f63c",
+      },
+    ],
   },
-  accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+  accountId: "7110701885",
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 613064,
+  timeoutInMinutes: 396098,
 }).then((res: CreateBankTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -72,7 +83,7 @@ const sdk = new CodatBankFeeds({
 });
 
 sdk.bankAccountTransactions.get({
-  accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+  accountId: "7110701885",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetCreateBankAccountModelResponse) => {
@@ -106,7 +117,7 @@ sdk.bankAccountTransactions.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "quidem",
+  query: "sint",
 }).then((res: ListBankAccountTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
