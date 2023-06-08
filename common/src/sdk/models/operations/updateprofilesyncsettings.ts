@@ -13,7 +13,7 @@ import { Expose, Type } from "class-transformer";
  * @remarks
  * `syncFromWindow`, `syncFromUTC` & `monthsToSync` only need to be included if you wish to set a value for them.
  */
-export class UpdateSyncSettingsRequestBody extends SpeakeasyBase {
+export class UpdateProfileSyncSettingsRequestBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "clientId" })
     clientId: string;
@@ -28,7 +28,7 @@ export class UpdateSyncSettingsRequestBody extends SpeakeasyBase {
     settings: shared.SyncSetting[];
 }
 
-export class UpdateSyncSettingsResponse extends SpeakeasyBase {
+export class UpdateProfileSyncSettingsResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
 

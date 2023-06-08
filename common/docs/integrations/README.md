@@ -23,7 +23,7 @@ import { DataType, FeatureState, FeatureType, SourceType } from "@codat/common/d
 
 const sdk = new CodatCommon({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "",
   },
 });
 
@@ -48,7 +48,7 @@ import { GetIntegrationsBrandingResponse } from "@codat/common/dist/sdk/models/o
 
 const sdk = new CodatCommon({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "",
   },
 });
 
@@ -74,7 +74,7 @@ import { DataType, FeatureState, FeatureType, SourceType } from "@codat/common/d
 
 const sdk = new CodatCommon({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "",
   },
 });
 

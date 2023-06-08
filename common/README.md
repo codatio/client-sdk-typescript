@@ -25,7 +25,7 @@ import { DataConnectionStatus, SourceType } from "@codat/common/dist/sdk/models/
 
 const sdk = new CodatCommon({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "",
   },
 });
 
@@ -84,8 +84,9 @@ sdk.companies.create({
 ### [settings](docs/settings/README.md)
 
 * [~~getProfile~~](docs/settings/README.md#getprofile) - Get profile :warning: **Deprecated**
-* [getSyncSettings](docs/settings/README.md#getsyncsettings) - Update all sync settings
+* [getSyncSettings](docs/settings/README.md#getsyncsettings) - Get sync settings
 * [updateProfile](docs/settings/README.md#updateprofile) - Update profile
+* [updateSyncSettings](docs/settings/README.md#updatesyncsettings) - Update all sync settings
 
 ### [webhooks](docs/webhooks/README.md)
 

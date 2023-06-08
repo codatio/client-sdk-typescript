@@ -22,7 +22,7 @@ import { CreateRuleResponse } from "@codat/common/dist/sdk/models/operations";
 
 const sdk = new CodatCommon({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "",
   },
 });
 
@@ -55,7 +55,7 @@ import { GetWebhookResponse } from "@codat/common/dist/sdk/models/operations";
 
 const sdk = new CodatCommon({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "",
   },
 });
 
@@ -80,7 +80,7 @@ import { ListRulesResponse } from "@codat/common/dist/sdk/models/operations";
 
 const sdk = new CodatCommon({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "",
   },
 });
 

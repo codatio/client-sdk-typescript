@@ -28,7 +28,7 @@ import { RefreshCompanyDataResponse } from "@codat/common/dist/sdk/models/operat
 
 const sdk = new CodatCommon({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "",
   },
 });
 
@@ -56,7 +56,7 @@ import { DataType, PullOperationStatus } from "@codat/common/dist/sdk/models/sha
 
 const sdk = new CodatCommon({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "",
   },
 });
 
@@ -83,7 +83,7 @@ import { GetCompanyDataStatusResponse } from "@codat/common/dist/sdk/models/oper
 
 const sdk = new CodatCommon({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "",
   },
 });
 
@@ -109,7 +109,7 @@ import { PullOperationStatus } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "",
   },
 });
 
@@ -136,7 +136,7 @@ import { PullOperationStatus } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "",
   },
 });
 

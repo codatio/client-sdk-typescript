@@ -48,8 +48,9 @@ src/sdk/models/operations/getcompanydatastatus.ts
 src/sdk/models/operations/getpulloperation.ts
 src/sdk/models/operations/listpulloperations.ts
 src/sdk/models/operations/getprofile.ts
-src/sdk/models/operations/updatesyncsettings.ts
+src/sdk/models/operations/getprofilesyncsettings.ts
 src/sdk/models/operations/updateprofile.ts
+src/sdk/models/operations/updateprofilesyncsettings.ts
 src/sdk/models/operations/createrule.ts
 src/sdk/models/operations/getwebhook.ts
 src/sdk/models/operations/listrules.ts
@@ -96,6 +97,7 @@ src/sdk/models/shared/pulloperation.ts
 src/sdk/models/shared/datastatus.ts
 src/sdk/models/shared/dataconnectionhistory.ts
 src/sdk/models/shared/profile.ts
+src/sdk/models/shared/syncsettings.ts
 src/sdk/models/shared/syncsetting.ts
 src/sdk/models/shared/rule.ts
 src/sdk/models/shared/rules.ts

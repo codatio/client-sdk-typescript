@@ -32,7 +32,7 @@ import { DataType, PushOptionType } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "",
   },
 });
 
@@ -60,7 +60,7 @@ import { DataType, PushChangeType, PushOperationStatus } from "@codat/common/dis
 
 const sdk = new CodatCommon({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "",
   },
 });
 
@@ -87,7 +87,7 @@ import { DataType, PushChangeType, PushOperationStatus } from "@codat/common/dis
 
 const sdk = new CodatCommon({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "",
   },
 });
 

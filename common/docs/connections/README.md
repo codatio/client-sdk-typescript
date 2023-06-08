@@ -26,7 +26,7 @@ import { DataConnectionStatus, SourceType } from "@codat/common/dist/sdk/models/
 
 const sdk = new CodatCommon({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "",
   },
 });
 
@@ -55,7 +55,7 @@ import { DeleteCompanyConnectionResponse } from "@codat/common/dist/sdk/models/o
 
 const sdk = new CodatCommon({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "",
   },
 });
 
@@ -82,7 +82,7 @@ import { DataConnectionStatus, SourceType } from "@codat/common/dist/sdk/models/
 
 const sdk = new CodatCommon({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "",
   },
 });
 
@@ -109,7 +109,7 @@ import { DataConnectionStatus, SourceType } from "@codat/common/dist/sdk/models/
 
 const sdk = new CodatCommon({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "",
   },
 });
 
@@ -139,7 +139,7 @@ import { DataConnectionStatus, SourceType } from "@codat/common/dist/sdk/models/
 
 const sdk = new CodatCommon({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "",
   },
 });
 
@@ -169,7 +169,7 @@ import { DataConnectionStatus, SourceType } from "@codat/common/dist/sdk/models/
 
 const sdk = new CodatCommon({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "",
   },
 });
 

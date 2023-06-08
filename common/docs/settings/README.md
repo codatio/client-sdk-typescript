@@ -7,8 +7,9 @@ Manage your Codat instance.
 ### Available Operations
 
 * [~~getProfile~~](#getprofile) - Get profile :warning: **Deprecated**
-* [getSyncSettings](#getsyncsettings) - Update all sync settings
+* [getSyncSettings](#getsyncsettings) - Get sync settings
 * [updateProfile](#updateprofile) - Update profile
+* [updateSyncSettings](#updatesyncsettings) - Update all sync settings
 
 ## ~~getProfile~~
 
@@ -24,7 +25,7 @@ import { GetProfileResponse } from "@codat/common/dist/sdk/models/operations";
 
 const sdk = new CodatCommon({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "",
   },
 });
 
@@ -37,67 +38,22 @@ sdk.settings.getProfile().then((res: GetProfileResponse) => {
 
 ## getSyncSettings
 
-Update sync settings for all data types.
+Retrieve the sync settings for your client. This includes how often data types should be queued to be updated, and how much history should be fetched.
 
 ### Example Usage
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { UpdateSyncSettingsResponse } from "@codat/common/dist/sdk/models/operations";
+import { GetProfileSyncSettingsResponse } from "@codat/common/dist/sdk/models/operations";
 import { SyncSettingDataType } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "",
   },
 });
 
-sdk.settings.getSyncSettings({
-  clientId: "367f7975-267b-439b-90c6-a6040ee680f3",
-  overridesDefaults: false,
-  settings: [
-    {
-      dataType: SyncSettingDataType.Invoices,
-      fetchOnFirstLink: false,
-      isLocked: false,
-      monthsToSync: 24,
-      syncFromUtc: "saepe",
-      syncFromWindow: 24,
-      syncOrder: 681820,
-      syncSchedule: 24,
-    },
-    {
-      dataType: SyncSettingDataType.Invoices,
-      fetchOnFirstLink: false,
-      isLocked: false,
-      monthsToSync: 24,
-      syncFromUtc: "in",
-      syncFromWindow: 24,
-      syncOrder: 359508,
-      syncSchedule: 24,
-    },
-    {
-      dataType: SyncSettingDataType.Invoices,
-      fetchOnFirstLink: false,
-      isLocked: false,
-      monthsToSync: 24,
-      syncFromUtc: "iste",
-      syncFromWindow: 24,
-      syncOrder: 437032,
-      syncSchedule: 24,
-    },
-    {
-      dataType: SyncSettingDataType.Invoices,
-      fetchOnFirstLink: false,
-      isLocked: false,
-      monthsToSync: 24,
-      syncFromUtc: "saepe",
-      syncFromWindow: 24,
-      syncOrder: 697631,
-      syncSchedule: 24,
-    },
-  ],
-}).then((res: UpdateSyncSettingsResponse) => {
+sdk.settings.getSyncSettings().then((res: GetProfileSyncSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -116,7 +72,7 @@ import { UpdateProfileResponse } from "@codat/common/dist/sdk/models/operations"
 
 const sdk = new CodatCommon({
   security: {
-    authHeader: "YOUR_API_KEY_HERE",
+    authHeader: "",
   },
 });
 
@@ -130,8 +86,80 @@ sdk.settings.updateProfile({
   redirectUrl: "https://bobs-burgers.{countrySuffix}/{companyId}",
   whiteListUrls: [
     "https://bobs-burgers.com",
+    "https://bobs-burgers.com",
+    "https://bobs-burgers.com",
+    "https://bobs-burgers.com",
   ],
 }).then((res: UpdateProfileResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+## updateSyncSettings
+
+Update sync settings for all data types.
+
+### Example Usage
+
+```typescript
+import { CodatCommon } from "@codat/common";
+import { UpdateProfileSyncSettingsResponse } from "@codat/common/dist/sdk/models/operations";
+import { SyncSettingDataType } from "@codat/common/dist/sdk/models/shared";
+
+const sdk = new CodatCommon({
+  security: {
+    authHeader: "",
+  },
+});
+
+sdk.settings.updateSyncSettings({
+  clientId: "367f7975-267b-439b-90c6-a6040ee680f3",
+  overridesDefaults: false,
+  settings: [
+    {
+      dataType: SyncSettingDataType.Invoices,
+      fetchOnFirstLink: false,
+      isLocked: false,
+      monthsToSync: 24,
+      syncFromUtc: "2022-10-23T00:00:00.000Z",
+      syncFromWindow: 24,
+      syncOrder: 449950,
+      syncSchedule: 24,
+    },
+    {
+      dataType: SyncSettingDataType.Invoices,
+      fetchOnFirstLink: false,
+      isLocked: false,
+      monthsToSync: 24,
+      syncFromUtc: "2022-10-23T00:00:00.000Z",
+      syncFromWindow: 24,
+      syncOrder: 613064,
+      syncSchedule: 24,
+    },
+    {
+      dataType: SyncSettingDataType.Invoices,
+      fetchOnFirstLink: false,
+      isLocked: false,
+      monthsToSync: 24,
+      syncFromUtc: "2022-10-23T00:00:00.000Z",
+      syncFromWindow: 24,
+      syncOrder: 902349,
+      syncSchedule: 24,
+    },
+    {
+      dataType: SyncSettingDataType.Invoices,
+      fetchOnFirstLink: false,
+      isLocked: false,
+      monthsToSync: 24,
+      syncFromUtc: "2022-10-23T00:00:00.000Z",
+      syncFromWindow: 24,
+      syncOrder: 99280,
+      syncSchedule: 24,
+    },
+  ],
+}).then((res: UpdateProfileSyncSettingsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
