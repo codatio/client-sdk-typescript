@@ -38,8 +38,8 @@ const sdk = new CodatAccounting({
 
 sdk.accounts.create({
   account: {
-    currency: "quibusdam",
-    currentBalance: 6027.63,
+    currency: "EUR",
+    currentBalance: 0,
     description: "Invoices the business has issued but has not yet collected payment on.",
     fullyQualifiedCategory: "Asset.Current",
     fullyQualifiedName: "Asset.Current.Accounts Receivable",
@@ -48,49 +48,41 @@ sdk.accounts.create({
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "nulla",
+    modifiedDate: "2022-10-23T00:00:00.000Z",
     name: "Accounts Receivable",
     nominalCode: "610",
-    sourceModifiedDate: "corrupti",
+    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     status: AccountStatus.Active,
     type: AccountType.Asset,
     validDatatypeLinks: [
       {
         links: [
+          "vel",
           "error",
           "deserunt",
+          "suscipit",
         ],
-        property: "suscipit",
+        property: "iure",
       },
       {
         links: [
-          "magnam",
           "debitis",
+          "ipsa",
         ],
-        property: "ipsa",
+        property: "delectus",
       },
       {
         links: [
-          "tempora",
           "suscipit",
           "molestiae",
-          "minus",
         ],
-        property: "placeat",
-      },
-      {
-        links: [
-          "iusto",
-          "excepturi",
-          "nisi",
-        ],
-        property: "recusandae",
+        property: "minus",
       },
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 836079,
+  timeoutInMinutes: 812169,
 }).then((res: CreateAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -120,7 +112,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.accounts.get({
-  accountId: "ab",
+  accountId: "voluptatum",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountResponse) => {
   if (res.statusCode == 200) {
@@ -190,7 +182,7 @@ sdk.accounts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "quis",
+  query: "iusto",
 }).then((res: ListAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response

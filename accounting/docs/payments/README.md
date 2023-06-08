@@ -35,69 +35,39 @@ const sdk = new CodatAccounting({
 sdk.payments.create({
   payment: {
     accountRef: {
-      id: "61e91500-323b-42c0-9b92-4771f5669e5b",
-      name: "Tricia Sawayn",
+      id: "306f5576-f5cd-4eb0-a86d-0bc43b18ab37",
+      name: "Darrin Crooks",
     },
-    currency: "magni",
-    currencyRate: 4374.89,
+    currency: "EUR",
+    currencyRate: 9819.74,
     customerRef: {
-      companyName: "ea",
-      id: "49d84eb9-e4cf-4d22-b6e0-b88fb87d6fa5",
+      companyName: "laudantium",
+      id: "1ddf7e08-8f74-4ef5-8c92-16e8926313bb",
     },
-    date: "cum",
-    id: "6e8dbf81-2f83-4b1c-a6a9-ffc561929cca",
+    date: "2022-10-23T00:00:00.000Z",
+    id: "fc2c8d27-0109-46b6-aad6-e3e1d9d3b660",
     lines: [
       {
-        allocatedOnDate: "nemo",
-        amount: 3864.41,
+        allocatedOnDate: "2022-10-23T00:00:00.000Z",
+        amount: 3089.27,
         links: [
           {
-            amount: 6814.58,
-            currencyRate: 977.35,
-            id: "395918da-1d48-4e78-a3cf-8e1143da9308",
-            type: PaymentLinkType.PaymentOnAccount,
-          },
-        ],
-      },
-      {
-        allocatedOnDate: "magni",
-        amount: 4682.52,
-        links: [
-          {
-            amount: 137,
-            currencyRate: 5312.36,
-            id: "af221844-39b3-4de8-b56c-cce470cd2147",
+            amount: 1192.28,
+            currencyRate: 1231.37,
+            id: "aa1d5d22-47de-49b3-9461-70e768a96bb3",
             type: PaymentLinkType.Payment,
           },
           {
-            amount: 4308.75,
-            currencyRate: 9267.48,
-            id: "6152cf01-d0d8-4c3a-8b9a-5bf935dfe974",
-            type: PaymentLinkType.Discount,
+            amount: 5218.9,
+            currencyRate: 4416.03,
+            id: "88398eba-1bbf-4714-b356-f6349a164249",
+            type: PaymentLinkType.PaymentOnAccount,
           },
           {
-            amount: 6309.83,
-            currencyRate: 2828,
-            id: "b1e9c097-eda6-4234-82e1-a9237e9984c8",
+            amount: 1747.15,
+            currencyRate: 1088.29,
+            id: "1ce46b95-1652-4b15-8ca9-142f052632b3",
             type: PaymentLinkType.Unknown,
-          },
-        ],
-      },
-      {
-        allocatedOnDate: "facilis",
-        amount: 2810.64,
-        links: [
-          {
-            amount: 5745.91,
-            currencyRate: 9051.54,
-            id: "891923c1-8ca8-4d69-8568-9214fa20207e",
-            type: PaymentLinkType.Invoice,
-          },
-          {
-            amount: 9643.29,
-            currencyRate: 6295.82,
-            id: "e038cd7f-1bc2-4cab-af7f-c2ccba4bef0d",
-            type: PaymentLinkType.Discount,
           },
         ],
       },
@@ -105,32 +75,34 @@ sdk.payments.create({
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "nisi",
-    note: "voluptatum",
+    modifiedDate: "2022-10-23T00:00:00.000Z",
+    note: "harum",
     paymentMethodRef: {
-      id: "eaedb2ee-70be-4069-bb36-add704080e0a",
-      name: "Lorene Schneider",
+      id: "d692ffc8-7450-405e-9d3d-934e036f5c38",
+      name: "Brett Hudson",
     },
-    reference: "animi",
-    sourceModifiedDate: "ullam",
+    reference: "ea",
+    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "aperiam": {
-          "aliquam": "soluta",
+        "corporis": {
+          "ipsum": "perferendis",
+          "est": "fugit",
         },
-        "inventore": {
-          "ut": "sint",
+        "repudiandae": {
+          "similique": "repudiandae",
         },
-        "sint": {
-          "eius": "ratione",
+        "assumenda": {
+          "fuga": "est",
+          "tenetur": "atque",
         },
       },
     },
-    totalAmount: 6253.92,
+    totalAmount: 4072.09,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 979832,
+  timeoutInMinutes: 199180,
 }).then((res: CreatePaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -157,7 +129,7 @@ const sdk = new CodatAccounting({
 
 sdk.payments.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  paymentId: "mollitia",
+  paymentId: "impedit",
 }).then((res: GetPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -219,7 +191,7 @@ sdk.payments.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "suscipit",
+  query: "eos",
 }).then((res: ListPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

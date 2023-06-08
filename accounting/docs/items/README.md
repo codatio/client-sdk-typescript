@@ -36,46 +36,46 @@ sdk.items.create({
   item: {
     billItem: {
       accountRef: {
-        id: "e8ab4a9c-492c-45e8-ba5d-4aa4a508bd38",
-        name: "Kara Cremin",
+        id: "d64161e9-1500-4323-b2c0-9b924771f566",
+        name: "Pat Hickle",
       },
-      description: "deserunt",
+      description: "saepe",
       taxRateRef: {
-        effectiveTaxRate: 5230.55,
-        id: "dd71bdda-a30b-47b9-9449-ae69c088d418",
-        name: "Ms. Wm Kohler II",
+        effectiveTaxRate: 7828.51,
+        id: "7626649d-84eb-49e4-8fd2-276e0b88fb87",
+        name: "Gilbert Zboncak",
       },
-      unitPrice: 9965.22,
+      unitPrice: 7370.08,
     },
-    code: "modi",
-    id: "23d54393-5f37-47ac-9c9b-7e93b6a3c523",
+    code: "vel",
+    id: "e8dbf812-f83b-41ca-aa9f-fc561929cca9",
     invoiceItem: {
       accountRef: {
-        id: "105e7c34-cab0-4ecb-812a-66148944a8e9",
-        name: "Ms. Jennie Hartmann",
+        id: "560a1395-918d-4a1d-88e7-8e3cf8e1143d",
+        name: "Ms. Wendell Dooley",
       },
-      description: "nam",
+      description: "magni",
       taxRateRef: {
-        effectiveTaxRate: 7904.63,
-        id: "25382533-43fb-40a4-a66e-a47578d171e2",
-        name: "Frederick Bogan IV",
+        effectiveTaxRate: 4682.52,
+        id: "a08af221-8443-49b3-9e87-56ccce470cd2",
+        name: "Elaine Kihn",
       },
-      unitPrice: 9823.15,
+      unitPrice: 9267.48,
     },
     isBillItem: false,
     isInvoiceItem: false,
-    itemStatus: ItemStatus.Archived,
+    itemStatus: ItemStatus.Active,
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "aliquid",
-    name: "Shelly Purdy",
-    sourceModifiedDate: "quia",
-    type: ItemType.Service,
+    modifiedDate: "2022-10-23T00:00:00.000Z",
+    name: "Nicole Schowalter Sr.",
+    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+    type: ItemType.Unknown,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 125551,
+  timeoutInMinutes: 873982,
 }).then((res: CreateItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -102,7 +102,7 @@ const sdk = new CodatAccounting({
 
 sdk.items.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  itemId: "veniam",
+  itemId: "voluptatum",
 }).then((res: GetItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -165,7 +165,7 @@ sdk.items.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "dolorem",
+  query: "eligendi",
 }).then((res: ListItemsResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -43,28 +43,28 @@ const sdk = new CodatAccounting({
 
 sdk.bankAccounts.create({
   bankAccount: {
-    accountName: "natus",
-    accountNumber: "laboriosam",
-    accountType: BankAccountBankAccountType.Debit,
-    availableBalance: 9025.99,
-    balance: 6818.2,
-    currency: "in",
-    iBan: "corporis",
-    id: "96eb10fa-aa23-452c-9955-907aff1a3a2f",
-    institution: "mollitia",
+    accountName: "minima",
+    accountNumber: "excepturi",
+    accountType: BankAccountBankAccountType.Unknown,
+    availableBalance: 4386.01,
+    balance: 6342.74,
+    currency: "EUR",
+    iBan: "sapiente",
+    id: "1a3a2fa9-4677-4392-91aa-52c3f5ad019d",
+    institution: "laborum",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "occaecati",
-    nominalCode: "numquam",
-    overdraftLimit: 4143.69,
-    sortCode: "quam",
-    sourceModifiedDate: "molestiae",
+    modifiedDate: "2022-10-23T00:00:00.000Z",
+    nominalCode: "reiciendis",
+    overdraftLimit: 9764.6,
+    sortCode: "vero",
+    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
   },
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 244425,
+  timeoutInMinutes: 509624,
 }).then((res: CreateBankAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -92,7 +92,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bankAccounts.get({
-  accountId: "error",
+  accountId: "voluptatibus",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetBankAccountResponse) => {
@@ -159,7 +159,7 @@ sdk.bankAccounts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "quia",
+  query: "ipsa",
 }).then((res: ListBankAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -192,29 +192,29 @@ const sdk = new CodatAccounting({
 
 sdk.bankAccounts.update({
   bankAccount: {
-    accountName: "quis",
-    accountNumber: "vitae",
+    accountName: "omnis",
+    accountNumber: "voluptate",
     accountType: BankAccountBankAccountType.Debit,
-    availableBalance: 6563.3,
-    balance: 3172.02,
-    currency: "odit",
-    iBan: "quo",
-    id: "3f5ad019-da1f-4fe7-8f09-7b0074f15471",
-    institution: "harum",
+    availableBalance: 199.87,
+    balance: 391.87,
+    currency: "USD",
+    iBan: "ut",
+    id: "f15471b5-e6e1-43b9-9d48-8e1e91e450ad",
+    institution: "explicabo",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "enim",
-    nominalCode: "accusamus",
-    overdraftLimit: 4142.63,
-    sortCode: "repudiandae",
-    sourceModifiedDate: "quae",
+    modifiedDate: "2022-10-23T00:00:00.000Z",
+    nominalCode: "distinctio",
+    overdraftLimit: 8413.86,
+    sortCode: "labore",
+    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
   },
-  bankAccountId: "ipsum",
+  bankAccountId: "qui",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  timeoutInMinutes: 692472,
+  timeoutInMinutes: 397821,
 }).then((res: UpdateBankAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response

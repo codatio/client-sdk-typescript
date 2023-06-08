@@ -21,7 +21,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateBankTransactionsResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { BankTransactionType, DataType, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
+import { DataType, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -30,23 +30,28 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bankAccountTransactions.create({
-  bankTransactions: {
-    accountId: "veritatis",
-    amount: 6481.72,
-    balance: 202.18,
-    clearedOnDate: "ipsam",
-    description: "repellendus",
-    id: "fc2ddf7c-c78c-4a1b-a928-fc816742cb73",
-    modifiedDate: "excepturi",
-    reconciled: false,
-    sourceModifiedDate: "aspernatur",
-    transactionType: BankTransactionType.Unknown,
+  createBankTransactions: {
+    accountId: "excepturi",
+    transactions: [
+      {
+        amount: 9255.97,
+        date: "2022-10-23T00:00:00.000Z",
+        description: "ab",
+        id: "51a05dfc-2ddf-47cc-b8ca-1ba928fc8167",
+      },
+      {
+        amount: 2645.55,
+        date: "2022-10-23T00:00:00.000Z",
+        description: "impedit",
+        id: "b7392059-2939-46fe-a759-6eb10faaa235",
+      },
+    ],
   },
-  accountId: "ad",
+  accountId: "explicabo",
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 617636,
+  timeoutInMinutes: 750686,
 }).then((res: CreateBankTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -72,7 +77,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bankAccountTransactions.getCreateModel({
-  accountId: "sed",
+  accountId: "enim",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetCreateBankAccountModelResponse) => {
@@ -100,13 +105,13 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bankAccountTransactions.list({
-  accountId: "iste",
+  accountId: "omnis",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "dolor",
+  query: "nemo",
 }).then((res: ListBankAccountTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
