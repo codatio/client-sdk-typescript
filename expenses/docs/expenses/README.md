@@ -33,7 +33,7 @@ sdk.expenses.createExpenseDataset({
         currency: "GBP",
         currencyRate: 5928.45,
         id: "4d7c6929-7770-412b-91bb-44d3bc71d111",
-        issueDate: "distinctio",
+        issueDate: "2022-10-23T00:00:00.000Z",
         lines: [
           {
             accountRef: {
@@ -134,7 +134,7 @@ sdk.expenses.createExpenseDataset({
         currency: "GBP",
         currencyRate: 4236.55,
         id: "4d7c6929-7770-412b-91bb-44d3bc71d111",
-        issueDate: "error",
+        issueDate: "2022-10-23T00:00:00.000Z",
         lines: [
           {
             accountRef: {
@@ -199,7 +199,7 @@ sdk.expenses.createExpenseDataset({
         currency: "GBP",
         currencyRate: 8917.73,
         id: "4d7c6929-7770-412b-91bb-44d3bc71d111",
-        issueDate: "ipsa",
+        issueDate: "2022-10-23T00:00:00.000Z",
         lines: [
           {
             accountRef: {
