@@ -28,7 +28,7 @@ const sdk = new CodatFiles({
 
 sdk.files.downloadFiles({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  date: "provident",
+  date: "2022-10-23T00:00:00.000Z",
 }).then((res: DownloadFilesResponse) => {
   if (res.statusCode == 200) {
     // handle response
