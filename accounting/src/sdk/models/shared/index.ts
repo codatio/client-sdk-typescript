@@ -50,6 +50,8 @@ export * from "./contact";
 export * from "./contactref";
 export * from "./createaccountresponse";
 export * from "./createbankaccountresponse";
+export * from "./createbankaccounttransaction";
+export * from "./createbanktransactions";
 export * from "./createbanktransactionsresponse";
 export * from "./createbillcreditnoteresponse";
 export * from "./createbillpaymentresponse";

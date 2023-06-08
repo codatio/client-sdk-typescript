@@ -35,63 +35,91 @@ const sdk = new CodatAccounting({
 sdk.transfers.create({
   transfer: {
     contactRef: {
-      dataType: "magni",
-      id: "73caa911-8b38-4f1b-a1a3-31a54dc10294",
+      dataType: "maiores",
+      id: "a2795836-7363-4da0-b909-6faeb8648073",
     },
-    date: "reiciendis",
+    date: "2022-10-23T00:00:00.000Z",
     depositedRecordRefs: [
       {
-        dataType: "eos",
-        id: "fed939ba-8f71-4e29-92c2-0ee1228ac3ad",
+        dataType: "laudantium",
+        id: "f8b89d9c-a607-4565-afc0-ebe67155e2d0",
       },
       {
-        dataType: "optio",
-        id: "647d240b-c11e-4a48-a824-ccc6a2f0f5b9",
+        dataType: "autem",
+        id: "a3070d6e-297f-4581-baba-aa7d80108807",
       },
       {
-        dataType: "quibusdam",
-        id: "3cb11a76-87d3-4100-a8e2-b9b0d746d2a7",
+        dataType: "laboriosam",
+        id: "ff5f6ed2-9814-4088-a69b-6a70b0dd82f9",
+      },
+      {
+        dataType: "numquam",
+        id: "fffbd1e1-e21d-4dc6-9038-b1d187b51eb5",
       },
     ],
-    description: "quisquam",
+    description: "doloribus",
     from: {
       accountRef: {
-        id: "7d1ea0e7-9fa9-4bbe-9f17-9f650b1e707e",
-        name: "Rochelle Grimes",
+        id: "d30bfe03-490c-4f20-a54a-959043cb462d",
+        name: "Karla Schimmel",
       },
-      amount: 4097.14,
-      currency: "odio",
+      amount: 944.75,
+      currency: "USD",
     },
-    id: "13bacce0-72ab-4d61-918d-279c10c18516",
+    id: "f98e4792-b979-4a41-bd6a-8c91683bd861",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "doloribus",
-    sourceModifiedDate: "repellendus",
+    modifiedDate: "2022-10-23T00:00:00.000Z",
+    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "praesentium": {
-          "repudiandae": "fugit",
-          "vel": "fugit",
-          "ab": "quia",
+        "natus": {
+          "quod": "quo",
+          "repellat": "voluptatum",
+          "excepturi": "illum",
         },
-        "esse": {
-          "ea": "odit",
+        "amet": {
+          "ex": "quae",
+          "beatae": "praesentium",
+          "commodi": "vero",
+        },
+        "temporibus": {
+          "nisi": "minus",
+          "eaque": "consequatur",
+        },
+        "magni": {
+          "est": "cumque",
+          "harum": "dicta",
+          "nesciunt": "dolorum",
+          "placeat": "sed",
         },
       },
     },
     to: {
       accountRef: {
-        id: "8fa50396-2867-4e72-b3a6-5024b157f9bb",
-        name: "Delia Zulauf",
+        id: "4c8143b8-66c5-475a-9e26-68730be37b0e",
+        name: "Terrell Reichert",
       },
-      amount: 6278.1,
-      currency: "ad",
+      amount: 5391.45,
+      currency: "EUR",
     },
     trackingCategoryRefs: [
       {
-        id: "871d99b6-61a7-4def-968b-6ccb2822b4a9",
-        name: "Roberto Abshire",
+        id: "c7e69b53-5105-4050-94dc-a105882484c3",
+        name: "Raquel Metz",
+      },
+      {
+        id: "892782d3-4e0b-48fc-8d59-f57b9f9820be",
+        name: "Ms. Heidi Lind",
+      },
+      {
+        id: "36c9e2f7-0344-4e00-b478-eb539483f748",
+        name: "Santiago Windler",
+      },
+      {
+        id: "b69d541b-4b39-43f3-9666-25bea32201de",
+        name: "Earl Kiehn",
       },
     ],
   },
@@ -123,7 +151,7 @@ const sdk = new CodatAccounting({
 sdk.transfers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  transferId: "magni",
+  transferId: "voluptas",
 }).then((res: GetTransferResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -186,7 +214,7 @@ sdk.transfers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "doloribus",
+  query: "error",
 }).then((res: ListTransfersResponse) => {
   if (res.statusCode == 200) {
     // handle response

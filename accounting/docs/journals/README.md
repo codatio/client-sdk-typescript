@@ -34,23 +34,23 @@ const sdk = new CodatAccounting({
 
 sdk.journals.create({
   journal: {
-    createdOn: "nostrum",
+    createdOn: "2022-10-23T00:00:00.000Z",
     hasChildren: false,
-    id: "040d6c8b-2a5f-4002-a07e-4048f90009ed",
-    journalCode: "consequuntur",
+    id: "d72a2d4a-f415-48ac-ad0f-0f58c3b87b47",
+    journalCode: "eaque",
     metadata: {
       isDeleted: false,
     },
-    modifiedDate: "occaecati",
-    name: "Phyllis Koch",
-    parentId: "quidem",
-    sourceModifiedDate: "aliquam",
-    status: JournalStatus.Archived,
-    type: "itaque",
+    modifiedDate: "2022-10-23T00:00:00.000Z",
+    name: "Elena Anderson",
+    parentId: "quos",
+    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+    status: JournalStatus.Active,
+    type: "fugiat",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 612118,
+  timeoutInMinutes: 513534,
 }).then((res: CreateJournalResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -77,7 +77,7 @@ const sdk = new CodatAccounting({
 
 sdk.journals.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalId: "pariatur",
+  journalId: "eos",
 }).then((res: GetJournalResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -140,7 +140,7 @@ sdk.journals.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "suscipit",
+  query: "porro",
 }).then((res: ListJournalsResponse) => {
   if (res.statusCode == 200) {
     // handle response
