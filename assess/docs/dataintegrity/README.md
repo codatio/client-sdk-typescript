@@ -57,7 +57,7 @@ const sdk = new CodatAssess({
 sdk.dataIntegrity.getDataIntegritySummaries({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   dataType: DataIntegrityDataType.BankingAccounts,
-  query: "voluptatibus",
+  query: "excepturi",
 }).then((res: GetDataIntegritySummariesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -88,7 +88,7 @@ sdk.dataIntegrity.listDataTypeDataIntegrityDetails({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "ipsa",
+  query: "nisi",
 }).then((res: ListDataTypeDataIntegrityDetailsResponse) => {
   if (res.statusCode == 200) {
     // handle response

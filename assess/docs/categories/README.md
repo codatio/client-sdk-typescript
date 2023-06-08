@@ -157,42 +157,42 @@ sdk.categories.updateAccountsCategories({
     categories: [
       {
         accountRef: {
-          id: "69a674e0-f467-4cc8-b96e-d151a05dfc2d",
+          id: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
         },
         confirmed: {
-          detailType: "at",
-          subtype: "maiores",
+          detailType: "error",
+          subtype: "deserunt",
+          type: "suscipit",
+        },
+      },
+      {
+        accountRef: {
+          id: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+        },
+        confirmed: {
+          detailType: "magnam",
+          subtype: "debitis",
+          type: "ipsa",
+        },
+      },
+      {
+        accountRef: {
+          id: "EILBDVJVNUAGVKRQ",
+        },
+        confirmed: {
+          detailType: "tempora",
+          subtype: "suscipit",
           type: "molestiae",
         },
       },
       {
         accountRef: {
-          id: "cc78ca1b-a928-4fc8-9674-2cb739205929",
+          id: "EILBDVJVNUAGVKRQ",
         },
         confirmed: {
-          detailType: "dolor",
-          subtype: "natus",
-          type: "laboriosam",
-        },
-      },
-      {
-        accountRef: {
-          id: "fea7596e-b10f-4aaa-a352-c5955907aff1",
-        },
-        confirmed: {
-          detailType: "mollitia",
-          subtype: "dolorem",
-          type: "culpa",
-        },
-      },
-      {
-        accountRef: {
-          id: "2fa94677-3925-41aa-92c3-f5ad019da1ff",
-        },
-        confirmed: {
-          detailType: "vero",
-          subtype: "nihil",
-          type: "praesentium",
+          detailType: "placeat",
+          subtype: "voluptatum",
+          type: "iusto",
         },
       },
     ],

@@ -30,7 +30,7 @@ const sdk = new CodatAssess({
 
 sdk.excelReports.generateExcelReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportType.EnhancedInvoices,
+  reportType: ExcelReportType.EnhancedCashFlow,
 }).then((res: GenerateExcelReportResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -61,9 +61,9 @@ sdk.excelReports.getAccountingMarketingMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 451159,
-  periodLength: 739264,
-  periodUnit: PeriodUnit.Day,
+  numberOfPeriods: 836079,
+  periodLength: 71036,
+  periodUnit: PeriodUnit.Week,
   reportDate: "29-09-2020",
   showInputValues: false,
 }).then((res: GetAccountingMarketingMetricsResponse) => {
@@ -119,7 +119,7 @@ const sdk = new CodatAssess({
 
 sdk.excelReports.getExcelReportGenerationStatus({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportType.EnhancedFinancials,
+  reportType: ExcelReportType.EnhancedInvoices,
 }).then((res: GetExcelReportGenerationStatusResponse) => {
   if (res.statusCode == 200) {
     // handle response

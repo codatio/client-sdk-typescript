@@ -41,7 +41,7 @@ const sdk = new CodatAssess({
 
 sdk.reports.getAccountsForEnhancedBalanceSheet({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  numberOfPeriods: 282807,
+  numberOfPeriods: 20218,
   reportDate: "29-09-2020",
 }).then((res: GetAccountsForEnhancedBalanceSheetResponse) => {
   if (res.statusCode == 200) {
@@ -70,7 +70,7 @@ const sdk = new CodatAssess({
 
 sdk.reports.getAccountsForEnhancedProfitAndLoss({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  numberOfPeriods: 979587,
+  numberOfPeriods: 368241,
   reportDate: "29-09-2020",
 }).then((res: GetAccountsForEnhancedProfitAndLossResponse) => {
   if (res.statusCode == 200) {
@@ -100,9 +100,9 @@ sdk.reports.getCommerceCustomerRetentionMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 120196,
-  periodLength: 359444,
-  periodUnit: PeriodUnit.Week,
+  numberOfPeriods: 832620,
+  periodLength: 957156,
+  periodUnit: PeriodUnit.Year,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceCustomerRetentionMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -132,9 +132,9 @@ sdk.reports.getCommerceLifetimeValueMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 480894,
-  periodLength: 118727,
-  periodUnit: PeriodUnit.Month,
+  numberOfPeriods: 140350,
+  periodLength: 870013,
+  periodUnit: PeriodUnit.Year,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceLifetimeValueMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -164,9 +164,9 @@ sdk.reports.getCommerceOrdersMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 317983,
-  periodLength: 880476,
-  periodUnit: PeriodUnit.Week,
+  numberOfPeriods: 978619,
+  periodLength: 473608,
+  periodUnit: PeriodUnit.Year,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceOrdersMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -196,9 +196,9 @@ sdk.reports.getCommerceRefundsMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 918236,
-  periodLength: 64147,
-  periodUnit: PeriodUnit.Day,
+  numberOfPeriods: 800911,
+  periodLength: 461479,
+  periodUnit: PeriodUnit.Month,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceRefundsMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -228,9 +228,9 @@ sdk.reports.getCommerceRevenueMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 692472,
-  periodLength: 565189,
-  periodUnit: PeriodUnit.Month,
+  numberOfPeriods: 780529,
+  periodLength: 678880,
+  periodUnit: PeriodUnit.Day,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceRevenueMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -261,8 +261,8 @@ sdk.reports.getEnhancedBalanceSheet({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 865103,
-  periodLength: 265389,
+  numberOfPeriods: 720633,
+  periodLength: 639921,
   reportDate: "29-09-2020",
 }).then((res: GetEnhancedBalanceSheetResponse) => {
   if (res.statusCode == 200) {
@@ -295,7 +295,7 @@ sdk.reports.getEnhancedCashFlowTransactions({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   page: 1,
   pageSize: 100,
-  query: "praesentium",
+  query: "occaecati",
 }).then((res: GetEnhancedCashFlowTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -333,8 +333,8 @@ const sdk = new CodatAssess({
 sdk.reports.getEnhancedFinancialMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  numberOfPeriods: 523248,
-  periodLength: 916723,
+  numberOfPeriods: 143353,
+  periodLength: 537373,
   reportDate: "29-09-2020",
   showMetricInputs: false,
 }).then((res: GetEnhancedFinancialMetricsResponse) => {
@@ -365,7 +365,7 @@ sdk.reports.getEnhancedInvoicesReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   page: 1,
   pageSize: 100,
-  query: "quasi",
+  query: "hic",
 }).then((res: GetEnhancedInvoicesReportResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -395,8 +395,8 @@ sdk.reports.getEnhancedProfitAndLoss({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 921158,
-  periodLength: 575947,
+  numberOfPeriods: 758616,
+  periodLength: 521848,
   reportDate: "29-09-2020",
 }).then((res: GetEnhancedProfitAndLossResponse) => {
   if (res.statusCode == 200) {
