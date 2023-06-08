@@ -29,7 +29,7 @@ const sdk = new CodatSyncCommerce({
 
 sdk.sync.requestSync({
   syncToLatestArgs: {
-    syncTo: "nulla",
+    syncTo: "2022-10-23T00:00:00.000Z",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: RequestSyncResponse) => {
@@ -58,8 +58,8 @@ const sdk = new CodatSyncCommerce({
 
 sdk.sync.requestSyncForDateRange({
   dateRange: {
-    finish: "corrupti",
-    start: "illum",
+    finish: "2022-10-23T00:00:00.000Z",
+    start: "2022-10-23T00:00:00.000Z",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: RequestSyncForDateRangeResponse) => {
