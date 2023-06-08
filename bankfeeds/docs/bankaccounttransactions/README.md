@@ -34,15 +34,15 @@ sdk.bankAccountTransactions.create({
     accountId: "molestiae",
     amount: 7991.59,
     balance: 8009.11,
-    clearedOnDate: "esse",
+    clearedOnDate: "2022-10-23T00:00:00.000Z",
     description: "totam",
     id: "ca1ba928-fc81-4674-acb7-39205929396f",
-    modifiedDate: "saepe",
+    modifiedDate: "2022-10-23T00:00:00.000Z",
     reconciled: false,
-    sourceModifiedDate: "fuga",
+    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     transactionType: BankTransactionType.Atm,
   },
-  accountId: "corporis",
+  accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -72,7 +72,7 @@ const sdk = new CodatBankFeeds({
 });
 
 sdk.bankAccountTransactions.get({
-  accountId: "iure",
+  accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetCreateBankAccountModelResponse) => {
@@ -100,7 +100,7 @@ const sdk = new CodatBankFeeds({
 });
 
 sdk.bankAccountTransactions.list({
-  accountId: "saepe",
+  accountId: "EILBDVJVNUAGVKRQ",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
