@@ -17,6 +17,11 @@ export class GetExcelReportRequest extends SpeakeasyBase {
     reportType: shared.ExcelReportType;
 }
 
+/**
+ * OK
+ */
+export class GetExcelReport200ApplicationOctetStream extends SpeakeasyBase {}
+
 export class GetExcelReportResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     body?: Uint8Array;
