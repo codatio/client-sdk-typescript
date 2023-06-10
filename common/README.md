@@ -44,55 +44,55 @@ sdk.companies.create({
 ## Available Resources and Operations
 
 
-### [companies](docs/companies/README.md)
+### [companies](docs/sdks/companies/README.md)
 
-* [create](docs/companies/README.md#create) - Create company
-* [delete](docs/companies/README.md#delete) - Delete a company
-* [get](docs/companies/README.md#get) - Get company
-* [list](docs/companies/README.md#list) - List companies
-* [update](docs/companies/README.md#update) - Update company
+* [create](docs/sdks/companies/README.md#create) - Create company
+* [delete](docs/sdks/companies/README.md#delete) - Delete a company
+* [get](docs/sdks/companies/README.md#get) - Get company
+* [list](docs/sdks/companies/README.md#list) - List companies
+* [update](docs/sdks/companies/README.md#update) - Update company
 
-### [connections](docs/connections/README.md)
+### [connections](docs/sdks/connections/README.md)
 
-* [create](docs/connections/README.md#create) - Create connection
-* [delete](docs/connections/README.md#delete) - Delete connection
-* [get](docs/connections/README.md#get) - Get connection
-* [list](docs/connections/README.md#list) - List connections
-* [unlinkConnection](docs/connections/README.md#unlinkconnection) - Unlink connection
-* [updateAuthorization](docs/connections/README.md#updateauthorization) - Update authorization
+* [create](docs/sdks/connections/README.md#create) - Create connection
+* [delete](docs/sdks/connections/README.md#delete) - Delete connection
+* [get](docs/sdks/connections/README.md#get) - Get connection
+* [list](docs/sdks/connections/README.md#list) - List connections
+* [unlinkConnection](docs/sdks/connections/README.md#unlinkconnection) - Unlink connection
+* [updateAuthorization](docs/sdks/connections/README.md#updateauthorization) - Update authorization
 
-### [integrations](docs/integrations/README.md)
+### [integrations](docs/sdks/integrations/README.md)
 
-* [get](docs/integrations/README.md#get) - Get integration
-* [getBranding](docs/integrations/README.md#getbranding) - Get branding
-* [list](docs/integrations/README.md#list) - List integrations
+* [get](docs/sdks/integrations/README.md#get) - Get integration
+* [getBranding](docs/sdks/integrations/README.md#getbranding) - Get branding
+* [list](docs/sdks/integrations/README.md#list) - List integrations
 
-### [pushData](docs/pushdata/README.md)
+### [pushData](docs/sdks/pushdata/README.md)
 
-* [getModelOptions](docs/pushdata/README.md#getmodeloptions) - Get push options
-* [getOperation](docs/pushdata/README.md#getoperation) - Get push operation
-* [listOperations](docs/pushdata/README.md#listoperations) - List push operations
+* [getModelOptions](docs/sdks/pushdata/README.md#getmodeloptions) - Get push options
+* [getOperation](docs/sdks/pushdata/README.md#getoperation) - Get push operation
+* [listOperations](docs/sdks/pushdata/README.md#listoperations) - List push operations
 
-### [refreshData](docs/refreshdata/README.md)
+### [refreshData](docs/sdks/refreshdata/README.md)
 
-* [all](docs/refreshdata/README.md#all) - Refresh all data
-* [byDataType](docs/refreshdata/README.md#bydatatype) - Refresh data type
-* [get](docs/refreshdata/README.md#get) - Get data status
-* [getPullOperation](docs/refreshdata/README.md#getpulloperation) - Get pull operation
-* [listPullOperations](docs/refreshdata/README.md#listpulloperations) - List pull operations
+* [all](docs/sdks/refreshdata/README.md#all) - Refresh all data
+* [byDataType](docs/sdks/refreshdata/README.md#bydatatype) - Refresh data type
+* [get](docs/sdks/refreshdata/README.md#get) - Get data status
+* [getPullOperation](docs/sdks/refreshdata/README.md#getpulloperation) - Get pull operation
+* [listPullOperations](docs/sdks/refreshdata/README.md#listpulloperations) - List pull operations
 
-### [settings](docs/settings/README.md)
+### [settings](docs/sdks/settings/README.md)
 
-* [~~getProfile~~](docs/settings/README.md#getprofile) - Get profile :warning: **Deprecated**
-* [getSyncSettings](docs/settings/README.md#getsyncsettings) - Get sync settings
-* [updateProfile](docs/settings/README.md#updateprofile) - Update profile
-* [updateSyncSettings](docs/settings/README.md#updatesyncsettings) - Update all sync settings
+* [~~getProfile~~](docs/sdks/settings/README.md#getprofile) - Get profile :warning: **Deprecated**
+* [getSyncSettings](docs/sdks/settings/README.md#getsyncsettings) - Get sync settings
+* [updateProfile](docs/sdks/settings/README.md#updateprofile) - Update profile
+* [updateSyncSettings](docs/sdks/settings/README.md#updatesyncsettings) - Update all sync settings
 
-### [webhooks](docs/webhooks/README.md)
+### [webhooks](docs/sdks/webhooks/README.md)
 
-* [create](docs/webhooks/README.md#create) - Create webhook
-* [get](docs/webhooks/README.md#get) - Get webhook
-* [list](docs/webhooks/README.md#list) - List webhooks
+* [create](docs/sdks/webhooks/README.md#create) - Create webhook
+* [get](docs/sdks/webhooks/README.md#get) - Get webhook
+* [list](docs/sdks/webhooks/README.md#list) - List webhooks
 <!-- End SDK Available Operations -->
 
 ### SDK Generated by [Speakeasy](https://docs.speakeasyapi.dev/docs/using-speakeasy/client-sdks)
