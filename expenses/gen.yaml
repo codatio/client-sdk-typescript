@@ -9,7 +9,7 @@ generation:
   singleTagPerOp: false
   telemetryEnabled: true
 typescript:
-  version: 0.25.1
+  version: 0.25.2
   author: Speakeasy
   maxMethodParams: 0
   packageName: '@codat/sync-for-expenses'
