@@ -431,3 +431,51 @@ Based on:
 - Speakeasy CLI 1.44.2 (2.35.9) https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [NPM v0.22.1] https://www.npmjs.com/package/@codat/commerce/v/0.22.1 - commerce
+
+## 2023-06-08 00:10:12
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Commerce.yaml
+- Speakeasy CLI 1.45.0 (2.37.0) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.23.0] https://www.npmjs.com/package/@codat/commerce/v/0.23.0 - commerce
+
+## 2023-06-08 09:08:15
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Commerce.yaml
+- Speakeasy CLI 1.45.0 (2.37.0) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.23.1] https://www.npmjs.com/package/@codat/commerce/v/0.23.1 - commerce
+
+## 2023-06-09 00:10:24
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Commerce.yaml
+- Speakeasy CLI 1.45.2 (2.37.2) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.23.2] https://www.npmjs.com/package/@codat/commerce/v/0.23.2 - commerce
+
+## 2023-06-10 00:09:47
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Commerce.yaml
+- Speakeasy CLI 1.47.0 (2.39.0) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.24.0] https://www.npmjs.com/package/@codat/commerce/v/0.24.0 - commerce
+
+## 2023-06-11 00:10:55
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Commerce.yaml
+- Speakeasy CLI 1.47.1 (2.39.2) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.24.1] https://www.npmjs.com/package/@codat/commerce/v/0.24.1 - commerce
+
+## 2023-06-12 09:26:29
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Commerce.yaml
+- Speakeasy CLI 1.47.1 (2.39.2) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.24.2] https://www.npmjs.com/package/@codat/commerce/v/0.24.2 - commerce
