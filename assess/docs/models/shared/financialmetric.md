@@ -1,0 +1,12 @@
+# FinancialMetric
+
+
+## Fields
+
+| Field                                                                         | Type                                                                          | Required                                                                      | Description                                                                   |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `errors`                                                                      | [FinancialMetricErrors](../../models/shared/financialmetricerrors.md)[]       | :heavy_minus_sign:                                                            | N/A                                                                           |
+| `key`                                                                         | [FinancialMetricKey](../../models/shared/financialmetrickey.md)               | :heavy_minus_sign:                                                            | N/A                                                                           |
+| `metricUnit`                                                                  | [FinancialMetricMetricUnit](../../models/shared/financialmetricmetricunit.md) | :heavy_minus_sign:                                                            | N/A                                                                           |
+| `name`                                                                        | *string*                                                                      | :heavy_minus_sign:                                                            | Metric name.                                                                  |
+| `periods`                                                                     | [FinancialMetricPeriods](../../models/shared/financialmetricperiods.md)[]     | :heavy_minus_sign:                                                            | N/A                                                                           |
