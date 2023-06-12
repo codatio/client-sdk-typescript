@@ -43,7 +43,7 @@ export class Settings {
         headers["Accept"] = "application/json;q=1, application/json;q=0";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         let retryConfig: any = retries;
         if (!retryConfig) {
@@ -88,44 +88,29 @@ export class Settings {
     }
 
     /**
-     * Update all sync settings
+     * Get sync settings
      *
      * @remarks
-     * Update sync settings for all data types.
+     * Retrieve the sync settings for your client. This includes how often data types should be queued to be updated, and how much history should be fetched.
      */
     async getSyncSettings(
-        req: operations.UpdateSyncSettingsRequestBody,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.UpdateSyncSettingsResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateSyncSettingsRequestBody(req);
-        }
-
+    ): Promise<operations.GetProfileSyncSettingsResponse> {
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
         const url: string = baseURL.replace(/\/$/, "") + "/profile/syncSettings";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-        try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
-        } catch (e: unknown) {
-            if (e instanceof Error) {
-                throw new Error(`Error serializing request body, cause: ${e.message}`);
-            }
-        }
-
         const client: AxiosInstance =
             this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
 
-        const headers = { ...reqBodyHeaders, ...config?.headers };
-        headers["Accept"] = "application/json";
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         let retryConfig: any = retries;
         if (!retryConfig) {
@@ -136,9 +121,8 @@ export class Settings {
             return client.request({
                 validateStatus: () => true,
                 url: url,
-                method: "post",
+                method: "get",
                 headers: headers,
-                data: reqBody,
                 ...config,
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -149,14 +133,17 @@ export class Settings {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.UpdateSyncSettingsResponse =
-            new operations.UpdateSyncSettingsResponse({
+        const res: operations.GetProfileSyncSettingsResponse =
+            new operations.GetProfileSyncSettingsResponse({
                 statusCode: httpRes.status,
                 contentType: contentType,
                 rawResponse: httpRes,
             });
         switch (true) {
-            case httpRes?.status == 204:
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.syncSettings = utils.objectToClass(httpRes?.data, shared.SyncSettings);
+                }
                 break;
             case [401, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
@@ -206,7 +193,7 @@ export class Settings {
         headers["Accept"] = "application/json;q=1, application/json;q=0";
         headers[
             "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion}`;
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
         let retryConfig: any = retries;
         if (!retryConfig) {
@@ -240,6 +227,87 @@ export class Settings {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.profile = utils.objectToClass(httpRes?.data, shared.Profile);
                 }
+                break;
+            case [401, 429].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.errorMessage = utils.objectToClass(httpRes?.data, shared.ErrorMessage);
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * Update all sync settings
+     *
+     * @remarks
+     * Update sync settings for all data types.
+     */
+    async updateSyncSettings(
+        req: operations.UpdateProfileSyncSettingsRequestBody,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.UpdateProfileSyncSettingsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.UpdateProfileSyncSettingsRequestBody(req);
+        }
+
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
+        const url: string = baseURL.replace(/\/$/, "") + "/profile/syncSettings";
+
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+        try {
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                throw new Error(`Error serializing request body, cause: ${e.message}`);
+            }
+        }
+
+        const client: AxiosInstance =
+            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        headers["Accept"] = "application/json";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig("backoff", true);
+            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url,
+                method: "post",
+                headers: headers,
+                data: reqBody,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.UpdateProfileSyncSettingsResponse =
+            new operations.UpdateProfileSyncSettingsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        switch (true) {
+            case httpRes?.status == 204:
                 break;
             case [401, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
