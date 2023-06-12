@@ -367,3 +367,51 @@ Based on:
 - Speakeasy CLI 1.44.2 (2.35.9) https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [NPM v0.17.1] https://www.npmjs.com/package/@codat/banking/v/0.17.1 - banking
+
+## 2023-06-08 00:26:01
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Banking.yaml
+- Speakeasy CLI 1.45.0 (2.37.0) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.18.0] https://www.npmjs.com/package/@codat/banking/v/0.18.0 - banking
+
+## 2023-06-08 09:08:13
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Banking.yaml
+- Speakeasy CLI 1.45.0 (2.37.0) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.18.1] https://www.npmjs.com/package/@codat/banking/v/0.18.1 - banking
+
+## 2023-06-09 00:27:22
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Banking.yaml
+- Speakeasy CLI 1.45.2 (2.37.2) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.18.2] https://www.npmjs.com/package/@codat/banking/v/0.18.2 - banking
+
+## 2023-06-10 00:24:22
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Banking.yaml
+- Speakeasy CLI 1.47.0 (2.39.0) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.19.0] https://www.npmjs.com/package/@codat/banking/v/0.19.0 - banking
+
+## 2023-06-11 00:28:35
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Banking.yaml
+- Speakeasy CLI 1.47.1 (2.39.2) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.19.1] https://www.npmjs.com/package/@codat/banking/v/0.19.1 - banking
+
+## 2023-06-12 09:26:15
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Banking.yaml
+- Speakeasy CLI 1.47.1 (2.39.2) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.19.2] https://www.npmjs.com/package/@codat/banking/v/0.19.2 - banking
