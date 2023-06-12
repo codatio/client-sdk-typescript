@@ -23,7 +23,7 @@ yarn add @codat/bank-feeds
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { CreateBankTransactionsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-import { BankTransactionType, DataType, PushChangeType, PushOperationStatus } from "@codat/bank-feeds/dist/sdk/models/shared";
+import { DataType, PushChangeType, PushOperationStatus } from "@codat/bank-feeds/dist/sdk/models/shared";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -32,23 +32,34 @@ const sdk = new CodatBankFeeds({
 });
 
 sdk.bankAccountTransactions.create({
-  bankTransactions: {
+  createBankTransactions: {
     accountId: "corrupti",
-    amount: 5928.45,
-    balance: 7151.9,
-    clearedOnDate: "quibusdam",
-    description: "unde",
-    id: "d8d69a67-4e0f-4467-8c87-96ed151a05df",
-    modifiedDate: "quo",
-    reconciled: false,
-    sourceModifiedDate: "odit",
-    transactionType: BankTransactionType.DirectDebit,
+    transactions: [
+      {
+        amount: 7151.9,
+        date: "2022-10-23T00:00:00.000Z",
+        description: "unde",
+        id: "d8d69a67-4e0f-4467-8c87-96ed151a05df",
+      },
+      {
+        amount: 7781.57,
+        date: "2022-10-23T00:00:00.000Z",
+        description: "at",
+        id: "df7cc78c-a1ba-4928-bc81-6742cb739205",
+      },
+      {
+        amount: 6176.36,
+        date: "2022-10-23T00:00:00.000Z",
+        description: "iste",
+        id: "396fea75-96eb-410f-aaa2-352c5955907a",
+      },
+    ],
   },
-  accountId: "at",
+  accountId: "EILBDVJVNUAGVKRQ",
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 978619,
+  timeoutInMinutes: 958950,
 }).then((res: CreateBankTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -61,34 +72,34 @@ sdk.bankAccountTransactions.create({
 ## Available Resources and Operations
 
 
-### [bankAccountTransactions](docs/bankaccounttransactions/README.md)
+### [bankAccountTransactions](docs/sdks/bankaccounttransactions/README.md)
 
-* [create](docs/bankaccounttransactions/README.md#create) - Create bank transactions
-* [get](docs/bankaccounttransactions/README.md#get) - List push options for bank account bank transactions
-* [list](docs/bankaccounttransactions/README.md#list) - List bank transactions for bank account
+* [create](docs/sdks/bankaccounttransactions/README.md#create) - Create bank transactions
+* [get](docs/sdks/bankaccounttransactions/README.md#get) - List push options for bank account bank transactions
+* [list](docs/sdks/bankaccounttransactions/README.md#list) - List bank transactions for bank account
 
-### [bankFeedAccounts](docs/bankfeedaccounts/README.md)
+### [bankFeedAccounts](docs/sdks/bankfeedaccounts/README.md)
 
-* [create](docs/bankfeedaccounts/README.md#create) - Create bank feed bank accounts
-* [get](docs/bankfeedaccounts/README.md#get) - List bank feed bank accounts
-* [update](docs/bankfeedaccounts/README.md#update) - Update bank feed bank account
+* [create](docs/sdks/bankfeedaccounts/README.md#create) - Create bank feed bank accounts
+* [get](docs/sdks/bankfeedaccounts/README.md#get) - List bank feed bank accounts
+* [update](docs/sdks/bankfeedaccounts/README.md#update) - Update bank feed bank account
 
-### [companies](docs/companies/README.md)
+### [companies](docs/sdks/companies/README.md)
 
-* [create](docs/companies/README.md#create) - Create company
-* [delete](docs/companies/README.md#delete) - Delete a company
-* [get](docs/companies/README.md#get) - Get company
-* [list](docs/companies/README.md#list) - List companies
-* [update](docs/companies/README.md#update) - Update company
+* [create](docs/sdks/companies/README.md#create) - Create company
+* [delete](docs/sdks/companies/README.md#delete) - Delete a company
+* [get](docs/sdks/companies/README.md#get) - Get company
+* [list](docs/sdks/companies/README.md#list) - List companies
+* [update](docs/sdks/companies/README.md#update) - Update company
 
-### [connections](docs/connections/README.md)
+### [connections](docs/sdks/connections/README.md)
 
-* [create](docs/connections/README.md#create) - Create connection
-* [delete](docs/connections/README.md#delete) - Delete connection
-* [get](docs/connections/README.md#get) - Get connection
-* [list](docs/connections/README.md#list) - List connections
-* [proxy](docs/connections/README.md#proxy) - Proxy
-* [unlinkConnection](docs/connections/README.md#unlinkconnection) - Unlink connection
+* [create](docs/sdks/connections/README.md#create) - Create connection
+* [delete](docs/sdks/connections/README.md#delete) - Delete connection
+* [get](docs/sdks/connections/README.md#get) - Get connection
+* [list](docs/sdks/connections/README.md#list) - List connections
+* [proxy](docs/sdks/connections/README.md#proxy) - Proxy
+* [unlinkConnection](docs/sdks/connections/README.md#unlinkconnection) - Unlink connection
 <!-- End SDK Available Operations -->
 
 ### SDK Generated by [Speakeasy](https://docs.speakeasyapi.dev/docs/using-speakeasy/client-sdks)
