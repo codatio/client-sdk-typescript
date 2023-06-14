@@ -54,8 +54,11 @@ export class Payments {
 
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig("backoff", true);
-            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -63,6 +66,7 @@ export class Payments {
                 url: url,
                 method: "get",
                 headers: headers,
+                responseType: "arraybuffer",
                 ...config,
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -78,21 +82,22 @@ export class Payments {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.payment = utils.objectToClass(httpRes?.data, shared.Payment);
+                    res.payment = utils.objectToClass(JSON.parse(decodedRes), shared.Payment);
                 }
                 break;
             case [401, 404, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
                 }
                 break;
             case httpRes?.status == 409:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getPayment409ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetPayment409ApplicationJSON
                     );
                 }
@@ -138,8 +143,11 @@ export class Payments {
 
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig("backoff", true);
-            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -147,6 +155,7 @@ export class Payments {
                 url: url,
                 method: "get",
                 headers: headers,
+                responseType: "arraybuffer",
                 ...config,
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -162,21 +171,25 @@ export class Payments {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.paymentMethod = utils.objectToClass(httpRes?.data, shared.PaymentMethod);
+                    res.paymentMethod = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.PaymentMethod
+                    );
                 }
                 break;
             case [401, 404, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
                 }
                 break;
             case httpRes?.status == 409:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getPaymentMethod409ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetPaymentMethod409ApplicationJSON
                     );
                 }
@@ -223,8 +236,11 @@ export class Payments {
 
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig("backoff", true);
-            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -232,6 +248,7 @@ export class Payments {
                 url: url + queryParams,
                 method: "get",
                 headers: headers,
+                responseType: "arraybuffer",
                 ...config,
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -247,21 +264,22 @@ export class Payments {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.payments = utils.objectToClass(httpRes?.data, shared.Payments);
+                    res.payments = utils.objectToClass(JSON.parse(decodedRes), shared.Payments);
                 }
                 break;
             case [400, 401, 404, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
                 }
                 break;
             case httpRes?.status == 409:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listPayments409ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListPayments409ApplicationJSON
                     );
                 }
@@ -308,8 +326,11 @@ export class Payments {
 
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig("backoff", true);
-            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -317,6 +338,7 @@ export class Payments {
                 url: url + queryParams,
                 method: "get",
                 headers: headers,
+                responseType: "arraybuffer",
                 ...config,
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -333,21 +355,25 @@ export class Payments {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.paymentMethods = utils.objectToClass(httpRes?.data, shared.PaymentMethods);
+                    res.paymentMethods = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.PaymentMethods
+                    );
                 }
                 break;
             case [400, 401, 404, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
                 }
                 break;
             case httpRes?.status == 409:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listPaymentMethods409ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListPaymentMethods409ApplicationJSON
                     );
                 }
