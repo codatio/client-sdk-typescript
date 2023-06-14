@@ -26,14 +26,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateBankAccountResponse } from "@codat/accounting/dist/sdk/models/operations";
-import {
-  AccountStatus,
-  AccountType,
-  BankAccountBankAccountType,
-  DataType,
-  PushChangeType,
-  PushOperationStatus,
-} from "@codat/accounting/dist/sdk/models/shared";
+import { BankAccountBankAccountType, DataType, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
