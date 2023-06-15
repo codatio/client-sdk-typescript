@@ -107,6 +107,8 @@ export class BillLineItem extends SpeakeasyBase {
 
     /**
      * Collection of categories against which this item is tracked.
+     *
+     * @deprecated this field will be removed in a future release, please migrate away from it as soon as possible
      */
     @SpeakeasyMetadata({ elemType: TrackingCategoryRef })
     @Expose({ name: "trackingCategoryRefs" })

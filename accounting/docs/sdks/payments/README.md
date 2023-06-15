@@ -221,6 +221,7 @@ Gets the latest payments for a company, with pagination
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListPaymentsResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { PaymentLinkType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
