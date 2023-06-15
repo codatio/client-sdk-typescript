@@ -152,6 +152,9 @@ export class CreateJournalResponse extends SpeakeasyBase {
     @Expose({ name: "timeoutInMinutes" })
     timeoutInMinutes?: number;
 
+    /**
+     * @deprecated this field will be removed in a future release, please migrate away from it as soon as possible
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "timeoutInSeconds" })
     timeoutInSeconds?: number;
