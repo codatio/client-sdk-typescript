@@ -94,6 +94,9 @@ export class Company extends SpeakeasyBase {
     @Expose({ name: "name" })
     name: string;
 
+    /**
+     * @deprecated this field will be removed in a future release, please migrate away from it as soon as possible
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "platform" })
     platform?: string;
