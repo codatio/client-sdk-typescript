@@ -9,7 +9,6 @@ src/sdk/taxcomponents.ts
 src/sdk/transactions.ts
 src/sdk/sdk.ts
 .eslintrc.yml
-.gitignore
 jest.config.js
 package-lock.json
 package.json
