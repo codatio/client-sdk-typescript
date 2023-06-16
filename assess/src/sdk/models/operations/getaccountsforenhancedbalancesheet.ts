@@ -11,10 +11,10 @@ export class GetAccountsForEnhancedBalanceSheetRequest extends SpeakeasyBase {
     companyId: string;
 
     /**
-     * The number of periods to return.  There will be no pagination as a query parameter, however Codat will limit the number of periods to request to 12 periods.
+     * The number of periods to return. If not provided, 12 periods will be used as the default value.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=numberOfPeriods" })
-    numberOfPeriods: number;
+    numberOfPeriods?: number;
 
     /**
      * The date in which the report is created up to. Users must specify a specific date, however the response will be provided for the full month.

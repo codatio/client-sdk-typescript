@@ -54,8 +54,11 @@ export class DataIntegrity {
 
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig("backoff", true);
-            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -63,6 +66,7 @@ export class DataIntegrity {
                 url: url,
                 method: "get",
                 headers: headers,
+                responseType: "arraybuffer",
                 ...config,
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -79,15 +83,16 @@ export class DataIntegrity {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.status = utils.objectToClass(httpRes?.data, shared.Status);
+                    res.status = utils.objectToClass(JSON.parse(decodedRes), shared.Status);
                 }
                 break;
             case [401, 404].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
                 }
                 break;
         }
@@ -132,8 +137,11 @@ export class DataIntegrity {
 
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig("backoff", true);
-            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -141,6 +149,7 @@ export class DataIntegrity {
                 url: url + queryParams,
                 method: "get",
                 headers: headers,
+                responseType: "arraybuffer",
                 ...config,
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -157,15 +166,16 @@ export class DataIntegrity {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.summaries = utils.objectToClass(httpRes?.data, shared.Summaries);
+                    res.summaries = utils.objectToClass(JSON.parse(decodedRes), shared.Summaries);
                 }
                 break;
             case [401, 404].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
                 }
                 break;
         }
@@ -210,8 +220,11 @@ export class DataIntegrity {
 
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig("backoff", true);
-            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -219,6 +232,7 @@ export class DataIntegrity {
                 url: url + queryParams,
                 method: "get",
                 headers: headers,
+                responseType: "arraybuffer",
                 ...config,
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -235,15 +249,16 @@ export class DataIntegrity {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.details = utils.objectToClass(httpRes?.data, shared.Details);
+                    res.details = utils.objectToClass(JSON.parse(decodedRes), shared.Details);
                 }
                 break;
             case [401, 404].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
                 }
                 break;
         }

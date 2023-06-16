@@ -14,7 +14,7 @@ export class GetEnhancedFinancialMetricsRequest extends SpeakeasyBase {
     connectionId: string;
 
     /**
-     * The number of periods to return.  There will be no pagination as a query parameter, however Codat will limit the number of periods to request to 12 periods.
+     * The number of periods to return. There will be no pagination as a query parameter.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=numberOfPeriods" })
     numberOfPeriods: number;
