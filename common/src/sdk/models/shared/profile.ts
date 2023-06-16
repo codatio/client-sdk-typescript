@@ -13,10 +13,16 @@ export class Profile extends SpeakeasyBase {
     @Expose({ name: "alertAuthHeader" })
     alertAuthHeader?: string;
 
+    /**
+     * @deprecated this field will be removed in a future release, please migrate away from it as soon as possible
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "apiKey" })
     apiKey?: string;
 
+    /**
+     * @deprecated this field will be removed in a future release, please migrate away from it as soon as possible
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "confirmCompanyName" })
     confirmCompanyName?: boolean;
