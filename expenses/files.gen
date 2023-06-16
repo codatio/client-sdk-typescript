@@ -7,7 +7,6 @@ src/sdk/syncstatus.ts
 src/sdk/transactionstatus.ts
 src/sdk/sdk.ts
 .eslintrc.yml
-.gitignore
 jest.config.js
 package-lock.json
 package.json
