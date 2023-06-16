@@ -54,8 +54,11 @@ export class Integrations {
 
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig("backoff", true);
-            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -63,6 +66,7 @@ export class Integrations {
                 url: url,
                 method: "get",
                 headers: headers,
+                responseType: "arraybuffer",
                 ...config,
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -79,10 +83,11 @@ export class Integrations {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.branding = utils.objectToClass(httpRes?.data, shared.Branding);
+                    res.branding = utils.objectToClass(JSON.parse(decodedRes), shared.Branding);
                 }
                 break;
         }
@@ -123,8 +128,11 @@ export class Integrations {
 
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig("backoff", true);
-            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -132,6 +140,7 @@ export class Integrations {
                 url: url + queryParams,
                 method: "get",
                 headers: headers,
+                responseType: "arraybuffer",
                 ...config,
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -147,10 +156,14 @@ export class Integrations {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.integrations = utils.objectToClass(httpRes?.data, shared.Integrations);
+                    res.integrations = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.Integrations
+                    );
                 }
                 break;
         }

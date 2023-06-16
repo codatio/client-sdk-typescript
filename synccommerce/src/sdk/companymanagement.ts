@@ -60,8 +60,11 @@ export class CompanyManagement {
 
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig("backoff", true);
-            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -69,6 +72,7 @@ export class CompanyManagement {
                 url: url,
                 method: "post",
                 headers: headers,
+                responseType: "arraybuffer",
                 data: reqBody,
                 ...config,
             });
@@ -85,10 +89,11 @@ export class CompanyManagement {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.company = utils.objectToClass(httpRes?.data, shared.Company);
+                    res.company = utils.objectToClass(JSON.parse(decodedRes), shared.Company);
                 }
                 break;
         }
@@ -142,8 +147,11 @@ export class CompanyManagement {
 
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig("backoff", true);
-            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -151,6 +159,7 @@ export class CompanyManagement {
                 url: url,
                 method: "post",
                 headers: headers,
+                responseType: "arraybuffer",
                 data: reqBody,
                 ...config,
             });
@@ -167,10 +176,11 @@ export class CompanyManagement {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.connection = utils.objectToClass(httpRes?.data, shared.Connection);
+                    res.connection = utils.objectToClass(JSON.parse(decodedRes), shared.Connection);
                 }
                 break;
         }
@@ -211,8 +221,11 @@ export class CompanyManagement {
 
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig("backoff", true);
-            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -220,6 +233,7 @@ export class CompanyManagement {
                 url: url + queryParams,
                 method: "get",
                 headers: headers,
+                responseType: "arraybuffer",
                 ...config,
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -235,10 +249,11 @@ export class CompanyManagement {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.companies = utils.objectToClass(httpRes?.data, shared.Companies);
+                    res.companies = utils.objectToClass(JSON.parse(decodedRes), shared.Companies);
                 }
                 break;
         }
@@ -283,8 +298,11 @@ export class CompanyManagement {
 
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig("backoff", true);
-            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -292,6 +310,7 @@ export class CompanyManagement {
                 url: url + queryParams,
                 method: "get",
                 headers: headers,
+                responseType: "arraybuffer",
                 ...config,
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -307,10 +326,14 @@ export class CompanyManagement {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.connections = utils.objectToClass(httpRes?.data, shared.Connections);
+                    res.connections = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.Connections
+                    );
                 }
                 break;
         }
@@ -364,8 +387,11 @@ export class CompanyManagement {
 
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig("backoff", true);
-            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -373,6 +399,7 @@ export class CompanyManagement {
                 url: url,
                 method: "patch",
                 headers: headers,
+                responseType: "arraybuffer",
                 data: reqBody,
                 ...config,
             });
@@ -389,10 +416,11 @@ export class CompanyManagement {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.connection = utils.objectToClass(httpRes?.data, shared.Connection);
+                    res.connection = utils.objectToClass(JSON.parse(decodedRes), shared.Connection);
                 }
                 break;
         }
