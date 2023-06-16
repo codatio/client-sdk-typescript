@@ -471,3 +471,35 @@ Based on:
 - Speakeasy CLI 1.47.1 (2.39.2) https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [NPM v0.25.2] https://www.npmjs.com/package/@codat/bank-feeds/v/0.25.2 - bankfeeds
+
+## 2023-06-14 00:04:28
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Bank-Feeds.yaml
+- Speakeasy CLI 1.47.2 (2.39.8) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.25.3] https://www.npmjs.com/package/@codat/bank-feeds/v/0.25.3 - bankfeeds
+
+## 2023-06-15 00:04:13
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Bank-Feeds.yaml
+- Speakeasy CLI 1.47.4 (2.40.1) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.26.0] https://www.npmjs.com/package/@codat/bank-feeds/v/0.26.0 - bankfeeds
+
+## 2023-06-16 00:04:23
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Bank-Feeds.yaml
+- Speakeasy CLI 1.48.0 (2.41.1) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.27.0] https://www.npmjs.com/package/@codat/bank-feeds/v/0.27.0 - bankfeeds
+
+## 2023-06-16 11:00:33
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Bank-Feeds.yaml
+- Speakeasy CLI 1.48.0 (2.41.1) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.27.1] https://www.npmjs.com/package/@codat/bank-feeds/v/0.27.1 - bankfeeds
