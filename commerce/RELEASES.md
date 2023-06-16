@@ -479,3 +479,35 @@ Based on:
 - Speakeasy CLI 1.47.1 (2.39.2) https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [NPM v0.24.2] https://www.npmjs.com/package/@codat/commerce/v/0.24.2 - commerce
+
+## 2023-06-14 00:09:40
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Commerce.yaml
+- Speakeasy CLI 1.47.2 (2.39.8) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.24.3] https://www.npmjs.com/package/@codat/commerce/v/0.24.3 - commerce
+
+## 2023-06-15 00:09:52
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Commerce.yaml
+- Speakeasy CLI 1.47.4 (2.40.1) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.25.0] https://www.npmjs.com/package/@codat/commerce/v/0.25.0 - commerce
+
+## 2023-06-16 00:10:22
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Commerce.yaml
+- Speakeasy CLI 1.48.0 (2.41.1) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.26.0] https://www.npmjs.com/package/@codat/commerce/v/0.26.0 - commerce
+
+## 2023-06-16 11:00:43
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Commerce.yaml
+- Speakeasy CLI 1.48.0 (2.41.1) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.26.1] https://www.npmjs.com/package/@codat/commerce/v/0.26.1 - commerce

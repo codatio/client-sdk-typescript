@@ -56,8 +56,11 @@ export class Locations {
 
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig("backoff", true);
-            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -65,6 +68,7 @@ export class Locations {
                 url: url,
                 method: "get",
                 headers: headers,
+                responseType: "arraybuffer",
                 ...config,
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -80,21 +84,22 @@ export class Locations {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.location = utils.objectToClass(httpRes?.data, shared.Location);
+                    res.location = utils.objectToClass(JSON.parse(decodedRes), shared.Location);
                 }
                 break;
             case [401, 404, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
                 }
                 break;
             case httpRes?.status == 409:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getLocation409ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetLocation409ApplicationJSON
                     );
                 }
@@ -142,8 +147,11 @@ export class Locations {
 
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig("backoff", true);
-            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -151,6 +159,7 @@ export class Locations {
                 url: url,
                 method: "get",
                 headers: headers,
+                responseType: "arraybuffer",
                 ...config,
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -166,21 +175,22 @@ export class Locations {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.locations = utils.objectToClass(httpRes?.data, shared.Locations);
+                    res.locations = utils.objectToClass(JSON.parse(decodedRes), shared.Locations);
                 }
                 break;
             case [400, 401, 404, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
                 }
                 break;
             case httpRes?.status == 409:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listLocations409ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListLocations409ApplicationJSON
                     );
                 }

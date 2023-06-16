@@ -54,8 +54,11 @@ export class TaxComponents {
 
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig("backoff", true);
-            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -63,6 +66,7 @@ export class TaxComponents {
                 url: url,
                 method: "get",
                 headers: headers,
+                responseType: "arraybuffer",
                 ...config,
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -78,21 +82,25 @@ export class TaxComponents {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.taxComponent = utils.objectToClass(httpRes?.data, shared.TaxComponent);
+                    res.taxComponent = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.TaxComponent
+                    );
                 }
                 break;
             case [401, 404, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
                 }
                 break;
             case httpRes?.status == 409:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.getTaxComponent409ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.GetTaxComponent409ApplicationJSON
                     );
                 }
@@ -139,8 +147,11 @@ export class TaxComponents {
 
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig("backoff", true);
-            retryConfig.backoff = new utils.BackoffStrategy(500, 60000, 1.5, 3600000);
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -148,6 +159,7 @@ export class TaxComponents {
                 url: url + queryParams,
                 method: "get",
                 headers: headers,
+                responseType: "arraybuffer",
                 ...config,
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -163,21 +175,25 @@ export class TaxComponents {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.taxComponents = utils.objectToClass(httpRes?.data, shared.TaxComponents);
+                    res.taxComponents = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.TaxComponents
+                    );
                 }
                 break;
             case [400, 401, 404, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(httpRes?.data, shared.Schema);
+                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
                 }
                 break;
             case httpRes?.status == 409:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listTaxComponents409ApplicationJSONObject = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         operations.ListTaxComponents409ApplicationJSON
                     );
                 }
