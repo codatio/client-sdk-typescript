@@ -19,7 +19,7 @@ export class Sync {
     }
 
     /**
-     * Run a Commerce sync from the last successful sync
+     * Sync new
      *
      * @remarks
      * Run a Commerce sync from the last successful sync up to the date provided (optional), otherwise UtcNow is used.
@@ -110,7 +110,7 @@ export class Sync {
     }
 
     /**
-     * Run a Commerce sync from a given date range
+     * Sync range
      *
      * @remarks
      * Run a Commerce sync from the specified start date to the specified finish date in the request payload.
@@ -137,7 +137,7 @@ export class Sync {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "dateRange", "json");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "syncRange", "json");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);

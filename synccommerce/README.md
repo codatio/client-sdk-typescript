@@ -66,8 +66,8 @@ sdk.companyManagement.createCompany({
 
 ### [sync](docs/sdks/sync/README.md)
 
-* [requestSync](docs/sdks/sync/README.md#requestsync) - Run a Commerce sync from the last successful sync
-* [requestSyncForDateRange](docs/sdks/sync/README.md#requestsyncfordaterange) - Run a Commerce sync from a given date range
+* [requestSync](docs/sdks/sync/README.md#requestsync) - Sync new
+* [requestSyncForDateRange](docs/sdks/sync/README.md#requestsyncfordaterange) - Sync range
 
 ### [syncFlowPreferences](docs/sdks/syncflowpreferences/README.md)
 

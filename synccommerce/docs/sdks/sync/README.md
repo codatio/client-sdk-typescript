@@ -6,8 +6,8 @@ Initiate a sync of Sync for Commerce company data into their respective accounti
 
 ### Available Operations
 
-* [requestSync](#requestsync) - Run a Commerce sync from the last successful sync
-* [requestSyncForDateRange](#requestsyncfordaterange) - Run a Commerce sync from a given date range
+* [requestSync](#requestsync) - Sync new
+* [requestSyncForDateRange](#requestsyncfordaterange) - Sync range
 
 ## requestSync
 
@@ -71,9 +71,11 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.sync.requestSyncForDateRange({
-  dateRange: {
-    finish: "2022-10-23T00:00:00.000Z",
-    start: "2022-10-23T00:00:00.000Z",
+  syncRange: {
+    dateRange: {
+      finish: "2022-10-23T00:00:00.000Z",
+      start: "2022-10-23T00:00:00.000Z",
+    },
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: RequestSyncForDateRangeResponse) => {

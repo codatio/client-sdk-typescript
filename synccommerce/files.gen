@@ -84,6 +84,7 @@ src/sdk/models/shared/featurestate.ts
 src/sdk/models/shared/syncsummary.ts
 src/sdk/models/shared/daterange.ts
 src/sdk/models/shared/synctolatestargs.ts
+src/sdk/models/shared/syncrange.ts
 src/sdk/models/shared/localization.ts
 src/sdk/models/shared/syncflowurl.ts
 src/sdk/models/shared/visibleaccounts.ts
@@ -174,6 +175,8 @@ docs/models/shared/featurestate.md
 docs/models/shared/syncsummary.md
 docs/models/shared/daterange.md
 docs/models/shared/synctolatestargs.md
+docs/models/shared/syncrangedaterange.md
+docs/models/shared/syncrange.md
 docs/models/shared/localization.md
 docs/models/shared/syncflowurl.md
 docs/models/shared/visibleaccounts.md

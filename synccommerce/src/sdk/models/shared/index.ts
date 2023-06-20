@@ -44,6 +44,7 @@ export * from "./security";
 export * from "./sourcetype";
 export * from "./supportedfeature";
 export * from "./syncflowurl";
+export * from "./syncrange";
 export * from "./syncsummary";
 export * from "./synctolatestargs";
 export * from "./taxrateamount";
