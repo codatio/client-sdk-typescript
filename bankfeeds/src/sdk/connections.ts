@@ -22,7 +22,9 @@ export class Connections {
      * Create connection
      *
      * @remarks
-     * Create a data connection for a company
+     * Creates a connection for the company by providing a valid `platformKey`.
+     *
+     * Use the [List Integrations](https://docs.codat.io/codat-api#/operations/list-integrations) endpoint to access valid platform keys.
      */
     async create(
         req: operations.CreateDataConnectionRequest,
@@ -112,7 +114,7 @@ export class Connections {
      *
      * @remarks
      * Revoke and remove a connection from a company.
-     * This operation is not reversible - the end user would need to reauthorize a new data connection if you wish to view new data for this company.
+     * This operation is not reversible. The end user would need to reauthorize a new data connection if you wish to view new data for this company.
      */
     async delete(
         req: operations.DeleteCompanyConnectionRequest,
@@ -191,7 +193,7 @@ export class Connections {
      * Get connection
      *
      * @remarks
-     * Get a single connection for a company
+     * Returns a specific connection for a company when valid identifiers are provided. If the identifiers are for a deleted company and/or connection, a not found response is returned.
      */
     async get(
         req: operations.GetCompanyConnectionRequest,
@@ -273,7 +275,7 @@ export class Connections {
      * List connections
      *
      * @remarks
-     * List the connections for a company
+     * List the connections for a company.
      */
     async list(
         req: operations.ListCompanyConnectionsRequest,
