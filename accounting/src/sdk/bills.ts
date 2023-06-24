@@ -570,7 +570,12 @@ export class Bills {
      * List bills
      *
      * @remarks
-     * Gets the latest bills for a company, with pagination.
+     * The *List bills* endpoint returns a list of [bills](https://docs.codat.io/accounting-api#/schemas/Bill) for a given company's connection.
+     *
+     * [Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are itemized records of goods received or services provided to the SMB.
+     *
+     * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+     *
      */
     async list(
         req: operations.ListBillsRequest,

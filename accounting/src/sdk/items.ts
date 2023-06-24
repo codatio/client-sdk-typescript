@@ -299,7 +299,12 @@ export class Items {
      * List items
      *
      * @remarks
-     * Gets the items for a given company.
+     * The *List items* endpoint returns a list of [items](https://docs.codat.io/accounting-api#/schemas/Item) for a given company's connection.
+     *
+     * [Items](https://docs.codat.io/accounting-api#/schemas/Item) allow your customers to save and track details of the products and services that they buy and sell.
+     *
+     * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+     *
      */
     async list(
         req: operations.ListItemsRequest,

@@ -419,7 +419,12 @@ export class JournalEntries {
      * List journal entries
      *
      * @remarks
-     * Gets the latest journal entries for a company, with pagination.
+     * The *List journal entries* endpoint returns a list of [journal entries](https://docs.codat.io/accounting-api#/schemas/JournalEntry) for a given company's connection.
+     *
+     * [Journal entries](https://docs.codat.io/accounting-api#/schemas/JournalEntry) are  made in a company's general ledger, or accounts, when transactions are approved.
+     *
+     * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+     *
      */
     async list(
         req: operations.ListJournalEntriesRequest,

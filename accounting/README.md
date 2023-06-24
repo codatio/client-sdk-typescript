@@ -188,7 +188,7 @@ sdk.accountTransactions.get({
 ### [paymentMethods](docs/sdks/paymentmethods/README.md)
 
 * [get](docs/sdks/paymentmethods/README.md#get) - Get payment method
-* [list](docs/sdks/paymentmethods/README.md#list) - List all payment methods
+* [list](docs/sdks/paymentmethods/README.md#list) - List payment methods
 
 ### [payments](docs/sdks/payments/README.md)
 

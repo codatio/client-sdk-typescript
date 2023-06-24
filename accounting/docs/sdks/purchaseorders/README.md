@@ -294,7 +294,12 @@ sdk.purchaseOrders.getCreateUpdateModel({
 
 ## list
 
-Get purchase orders
+The *List purchase orders* endpoint returns a list of [purchase orders](https://docs.codat.io/accounting-api#/schemas/PurchaseOrder) for a given company's connection.
+
+[Purchase orders](https://docs.codat.io/accounting-api#/schemas/PurchaseOrder) represent a business's intent to purchase goods or services from a supplier.
+
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+    
 
 ### Example Usage
 

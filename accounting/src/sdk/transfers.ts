@@ -298,7 +298,12 @@ export class Transfers {
      * List transfers
      *
      * @remarks
-     * Gets the transfers for a given company.
+     * The *List transfers* endpoint returns a list of [transfers](https://docs.codat.io/accounting-api#/schemas/Transfer) for a given company's connection.
+     *
+     * [Transfers](https://docs.codat.io/accounting-api#/schemas/Transfer) record the movement of money between two bank accounts, or between a bank account and a nominal account.
+     *
+     * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+     *
      */
     async list(
         req: operations.ListTransfersRequest,

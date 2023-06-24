@@ -464,7 +464,12 @@ export class Customers {
      * List customers
      *
      * @remarks
-     * Gets the latest customers for a company, with pagination.
+     * The *List customers* endpoint returns a list of [customers](https://docs.codat.io/accounting-api#/schemas/Customers) for a given company's connection.
+     *
+     * [Customers](https://docs.codat.io/accounting-api#/schemas/Customers) are people or organizations that buy goods or services from the SMB.
+     *
+     * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+     *
      */
     async list(
         req: operations.ListCustomersRequest,

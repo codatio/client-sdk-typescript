@@ -306,7 +306,12 @@ export class BankAccounts {
      * List bank accounts
      *
      * @remarks
-     * Gets the list of bank accounts for a given connection
+     * The *List bank accounts* endpoint returns a list of [bank accounts](https://docs.codat.io/accounting-api#/schemas/BankAccount) for a given company's connection.
+     *
+     * [Bank accounts](https://docs.codat.io/accounting-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
+     *
+     * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+     *
      */
     async list(
         req: operations.ListBankAccountsRequest,
