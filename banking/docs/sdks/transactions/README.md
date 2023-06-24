@@ -54,7 +54,12 @@ sdk.transactions.get({
 
 ## list
 
-Gets a list of transactions incurred by a bank account.
+The *List transactions* endpoint returns a list of [transactions](https://docs.codat.io/banking-api#/schemas/Transaction) for a given company's connection.
+
+[Transactions](https://docs.codat.io/banking-api#/schemas/Transaction) provide an immutable source of up-to-date information on income and expenditure.
+
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+    
 
 ### Example Usage
 
@@ -99,7 +104,12 @@ sdk.transactions.list({
 
 ## ~~listBankTransactions~~
 
-Gets a list of transactions incurred by a company across all bank accounts.
+The *List transactions* endpoint returns a list of [transactions](https://docs.codat.io/banking-api#/schemas/Transaction) for a given company's connection.
+
+[Transactions](https://docs.codat.io/banking-api#/schemas/Transaction) provide an immutable source of up-to-date information on income and expenditure.
+
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+    
 
 > :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible. Use `list` instead.
 
