@@ -31,33 +31,39 @@ const sdk = new CodatBankFeeds({
 
 sdk.bankAccountTransactions.create({
   createBankTransactions: {
-    accountId: "architecto",
+    accountId: "corrupti",
     transactions: [
       {
-        amount: 2088.76,
+        amount: 4236.55,
         date: "2022-10-23T00:00:00.000Z",
-        description: "consequuntur",
-        id: "fa946773-9251-4aa5-ac3f-5ad019da1ffe",
+        description: "deserunt",
+        id: "674e0f46-7cc8-4796-ad15-1a05dfc2ddf7",
       },
       {
-        amount: 4686.51,
+        amount: 7991.59,
         date: "2022-10-23T00:00:00.000Z",
-        description: "voluptatibus",
-        id: "097b0074-f154-471b-9e6e-13b99d488e1e",
+        description: "esse",
+        id: "8ca1ba92-8fc8-4167-82cb-739205929396",
       },
       {
-        amount: 5759.47,
+        amount: 9437.49,
         date: "2022-10-23T00:00:00.000Z",
-        description: "itaque",
-        id: "450ad2ab-d442-4698-82d5-02a94bb4f63c",
+        description: "fuga",
+        id: "7596eb10-faaa-4235-ac59-55907aff1a3a",
+      },
+      {
+        amount: 1613.09,
+        date: "2022-10-23T00:00:00.000Z",
+        description: "mollitia",
+        id: "94677392-51aa-452c-bf5a-d019da1ffe78",
       },
     ],
   },
-  accountId: "7110701885",
+  accountId: "EILBDVJVNUAGVKRQ",
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 396098,
+  timeoutInMinutes: 55714,
 }).then((res: CreateBankTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -139,13 +145,13 @@ const sdk = new CodatBankFeeds({
 });
 
 sdk.bankAccountTransactions.list({
-  accountId: "EILBDVJVNUAGVKRQ",
+  accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "sint",
+  query: "cum",
 }).then((res: ListBankAccountTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response

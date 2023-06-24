@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import { BankAccountMapping } from "./bankaccountmapping";
 import { BankAccountTransactions } from "./bankaccounttransactions";
 import { BankFeedAccounts } from "./bankfeedaccounts";
 import { Companies } from "./companies";
@@ -52,7 +53,7 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "2.1.0";
-    sdkVersion = "0.28.0";
+    sdkVersion = "0.28.1";
     genVersion = "2.43.2";
 
     public constructor(init?: Partial<SDKConfiguration>) {
@@ -72,6 +73,10 @@ export class SDKConfiguration {
  * [See our OpenAPI spec](https://github.com/codatio/oas)
  */
 export class CodatBankFeeds {
+    /**
+     * Bank feed bank account mapping
+     */
+    public bankAccountMapping: BankAccountMapping;
     /**
      * Bank feed bank accounts
      */
@@ -116,6 +121,7 @@ export class CodatBankFeeds {
             serverURL: serverURL,
         });
 
+        this.bankAccountMapping = new BankAccountMapping(this.sdkConfiguration);
         this.bankAccountTransactions = new BankAccountTransactions(this.sdkConfiguration);
         this.bankFeedAccounts = new BankFeedAccounts(this.sdkConfiguration);
         this.companies = new Companies(this.sdkConfiguration);
