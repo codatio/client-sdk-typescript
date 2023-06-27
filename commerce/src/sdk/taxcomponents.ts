@@ -22,7 +22,14 @@ export class TaxComponents {
      * Get tax component
      *
      * @remarks
-     * This endpoint returns a specific tax rate from the commerce platform, including tax rate names and values. This supports the mapping of tax rates from the commerce platform to the accounting platform.
+     * The *Get tax* endpoint returns a single tax for a given taxId.
+     *
+     * [Tax components](https://docs.codat.io/commerce-api#/schemas/TaxComponent) are tax rates from the commerce platform, including tax rate's name and value.
+     *
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-taxComponents) for integrations that support getting a specific tax.
+     *
+     * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+     *
      */
     async get(
         req: operations.GetTaxComponentRequest,
