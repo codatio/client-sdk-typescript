@@ -7,19 +7,22 @@ Bank accounts
 ### Available Operations
 
 * [create](#create) - Create bank account
-* [~~get~~](#get) - Get bank account :warning: **Deprecated**
+* [get](#get) - Get bank account
 * [getCreateUpdateModel](#getcreateupdatemodel) - Get create/update bank account model
 * [list](#list) - List bank accounts
 * [update](#update) - Update bank account
 
 ## create
 
-Posts a new bank account to the accounting package for a given company.
+The *Create bank account* endpoint creates a new [bank account](https://docs.codat.io/accounting-api#/schemas/BankAccount) for a given company's connection.
+
+[Bank accounts](https://docs.codat.io/accounting-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
+
+**Integration-specific behaviour**
 
 Required data may vary by integration. To see what data to post, first call [Get create/update bank account model](https://docs.codat.io/accounting-api#/operations/get-create-update-bankAccounts-model).
 
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) to see which integrations support this endpoint.
-
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) for integrations that support creating an account.
 
 ### Example Usage
 
@@ -79,11 +82,16 @@ sdk.bankAccounts.create({
 **Promise<[operations.CreateBankAccountResponse](../../models/operations/createbankaccountresponse.md)>**
 
 
-## ~~get~~
+## get
 
-Gets the bank account with a given ID
+The *Get bank account* endpoint returns a single account for a given accountId.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+[Bank accounts](https://docs.codat.io/accounting-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) for integrations that support getting a specific bank account.
+
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+
 
 ### Example Usage
 
@@ -125,13 +133,15 @@ sdk.bankAccounts.get({
 
 ## getCreateUpdateModel
 
-Get create/update bank account model. Returns the expected data for the request payload.
+The *Get create/update bank account model* endpoint returns the expected data for the request payload when creating and updating a [bank account](https://docs.codat.io/accounting-api#/schemas/BankAccount) for a given company and integration.
 
-See the examples for integration-specific indicative models.
+[Bank accounts](https://docs.codat.io/accounting-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
 
-> **Supported Integrations**
-> 
-> Check out our [Knowledge UI](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) for integrations that support creating and updating bank accounts.
+**Integration-specific behaviour**
+
+See the *response examples* for integration-specific indicative models.
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) for integrations that support creating and updating a bank account.
 
 
 ### Example Usage
@@ -223,13 +233,16 @@ sdk.bankAccounts.list({
 
 ## update
 
-Posts an updated bank account to the accounting package for a given company.
+The *Update bank account* endpoint updates an existing [bank account](https://docs.codat.io/accounting-api#/schemas/BankAccount) for a given company's connection.
 
-Required data may vary by integration. To see what data to post, first call []().
+[Bank accounts](https://docs.codat.io/accounting-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
 
-> **Supported Integrations**
-> 
-> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) for integrations that support updating bank accounts.
+**Integration-specific behaviour**
+
+Required data may vary by integration. To see what data to post, first call [Get create/update bank account model](https://docs.codat.io/accounting-api#/operations/get-create-update-bankAccounts-model).
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) for integrations that support creating an account.
+
 
 ### Example Usage
 

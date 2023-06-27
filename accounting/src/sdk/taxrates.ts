@@ -22,7 +22,14 @@ export class TaxRates {
      * Get tax rate
      *
      * @remarks
-     * Gets the specified tax rate for a given company.
+     * The *Get tax rate* endpoint returns a single tax rate for a given taxRateId.
+     *
+     * [Tax rates](https://docs.codat.io/accounting-api#/schemas/TaxRate) are a set of taxes and associated rates within the SMB's accounting package.
+     *
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=taxRates) for integrations that support getting a specific tax rate.
+     *
+     * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+     *
      */
     async get(
         req: operations.GetTaxRateRequest,

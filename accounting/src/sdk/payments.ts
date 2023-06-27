@@ -22,11 +22,16 @@ export class Payments {
      * Create payment
      *
      * @remarks
-     * Posts a new payment to the accounting package for a given company.
+     * The *Create payment* endpoint creates a new [payment](https://docs.codat.io/accounting-api#/schemas/Payment) for a given company's connection.
+     *
+     * [Payments](https://docs.codat.io/accounting-api#/schemas/Payment) represent an allocation of money within any customer accounts receivable account.
+     *
+     * **Integration-specific behaviour**
      *
      * Required data may vary by integration. To see what data to post, first call [Get create payment model](https://docs.codat.io/accounting-api#/operations/get-create-payments-model).
      *
-     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=payments) to see which integrations support this endpoint.
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=payments) for integrations that support creating an account.
+     *
      */
     async create(
         req: operations.CreatePaymentRequest,
@@ -122,7 +127,14 @@ export class Payments {
      * Get payment
      *
      * @remarks
-     * Get payment
+     * The *Get payment* endpoint returns a single payment for a given paymentId.
+     *
+     * [Payments](https://docs.codat.io/accounting-api#/schemas/Payment) represent an allocation of money within any customer accounts receivable account.
+     *
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=payments) for integrations that support getting a specific payment.
+     *
+     * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+     *
      */
     async get(
         req: operations.GetPaymentRequest,
@@ -211,13 +223,16 @@ export class Payments {
      * Get create payment model
      *
      * @remarks
-     * Get create payment model. Returns the expected data for the request payload.
+     * The *Get create payment model* endpoint returns the expected data for the request payload when creating a [payment](https://docs.codat.io/accounting-api#/schemas/Payment) for a given company and integration.
      *
-     * See the examples for integration-specific indicative models.
+     * [Payments](https://docs.codat.io/accounting-api#/schemas/Payment) represent an allocation of money within any customer accounts receivable account.
      *
-     * > **Supported Integrations**
-     * >
-     * > Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=payments) for integrations that support creating payments.
+     * **Integration-specific behaviour**
+     *
+     * See the *response examples* for integration-specific indicative models.
+     *
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=payments) for integrations that support creating a payment.
+     *
      */
     async getCreateModel(
         req: operations.GetCreatePaymentsModelRequest,

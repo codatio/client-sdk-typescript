@@ -22,11 +22,15 @@ export class Bills {
      * Create bill
      *
      * @remarks
-     * Posts a new bill to the accounting package for a given company.
+     * The *Create bill* endpoint creates a new [bill](https://docs.codat.io/accounting-api#/schemas/Bill) for a given company's connection.
+     *
+     * [Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are itemized records of goods received or services provided to the SMB.
+     *
+     * **Integration-specific behaviour**
      *
      * Required data may vary by integration. To see what data to post, first call [Get create/update bill model](https://docs.codat.io/accounting-api#/operations/get-create-update-bills-model).
      *
-     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) to see which integrations support this endpoint.
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support creating an account.
      *
      */
     async create(
@@ -232,7 +236,12 @@ export class Bills {
      * Download bill attachment
      *
      * @remarks
-     * Download bill attachment.
+     * The *Download bill attachment* endpoint downloads a specific attachment for a given `billId` and `attachmentId`.
+     *
+     * [Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are itemized records of goods received or services provided to the SMB.
+     *
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support downloading a bill attachment.
+     *
      */
     async downloadAttachment(
         req: operations.DownloadBillAttachmentRequest,
@@ -314,7 +323,14 @@ export class Bills {
      * Get bill
      *
      * @remarks
-     * Get a bill.
+     * The *Get bill* endpoint returns a single bill for a given billId.
+     *
+     * [Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are itemized records of goods received or services provided to the SMB.
+     *
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support getting a specific bill.
+     *
+     * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+     *
      */
     async get(
         req: operations.GetBillRequest,
@@ -403,7 +419,12 @@ export class Bills {
      * Get bill attachment
      *
      * @remarks
-     * Get bill attachment.
+     * The *Get bill attachment* endpoint returns a specific attachment for a given `billId` and `attachmentId`.
+     *
+     * [Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are itemized records of goods received or services provided to the SMB.
+     *
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support getting a bill attachment.
+     *
      */
     async getAttachment(
         req: operations.GetBillAttachmentRequest,
@@ -484,11 +505,16 @@ export class Bills {
      * Get create/update bill model
      *
      * @remarks
-     * Get create/update bill model.
+     * The *Get create/update bill model* endpoint returns the expected data for the request payload when creating and updating a [bill](https://docs.codat.io/accounting-api#/schemas/Bill) for a given company and integration.
      *
-     * > **Supported Integrations**
-     * >
-     * > Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support creating and updating a bill.
+     * [Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are itemized records of goods received or services provided to the SMB.
+     *
+     * **Integration-specific behaviour**
+     *
+     * See the *response examples* for integration-specific indicative models.
+     *
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support creating and updating a bill.
+     *
      */
     async getCreateUpdateModel(
         req: operations.GetCreateUpdateBillsModelRequest,
@@ -661,7 +687,12 @@ export class Bills {
      * List bill attachments
      *
      * @remarks
-     * List bill attachments.
+     * The *List bill attachments* endpoint returns a list of attachments avialable to download for given `billId`.
+     *
+     * [Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are itemized records of goods received or services provided to the SMB.
+     *
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support listing bill attachments.
+     *
      */
     async listAttachments(
         req: operations.ListBillAttachmentsRequest,
@@ -746,13 +777,16 @@ export class Bills {
      * Update bill
      *
      * @remarks
-     * Posts an updated bill to the accounting package for a given company.
+     * The *Update bill* endpoint updates an existing [bill](https://docs.codat.io/accounting-api#/schemas/Bill) for a given company's connection.
+     *
+     * [Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are itemized records of goods received or services provided to the SMB.
+     *
+     * **Integration-specific behaviour**
      *
      * Required data may vary by integration. To see what data to post, first call [Get create/update bill model](https://docs.codat.io/accounting-api#/operations/get-create-update-bills-model).
      *
-     * > **Supported Integrations**
-     * >
-     * > Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support updating a bill.
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support creating an account.
+     *
      */
     async update(
         req: operations.UpdateBillRequest,
@@ -848,7 +882,16 @@ export class Bills {
      * Upload bill attachment
      *
      * @remarks
-     * Upload bill attachment.
+     * The *Upload bill attachment* endpoint uploads an attachment and assigns it against a specific `billId`.
+     *
+     * [Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are itemized records of goods received or services provided to the SMB.
+     *
+     * **Integration-specific behaviour**
+     *
+     * For more details on supported file types by integration see [Attachments](https://docs.codat.io/accounting-api#/schemas/Attachment).
+     *
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support uploading a bill attachment.
+     *
      */
     async uploadAttachment(
         req: operations.UploadBillAttachmentRequest,

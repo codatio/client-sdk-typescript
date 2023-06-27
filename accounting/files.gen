@@ -109,7 +109,7 @@ src/sdk/models/operations/listdirectincomeattachments.ts
 src/sdk/models/operations/uploaddirectincomeattachment.ts
 src/sdk/models/operations/createinvoice.ts
 src/sdk/models/operations/deleteinvoice.ts
-src/sdk/models/operations/downloadinvoicesattachment.ts
+src/sdk/models/operations/downloadinvoiceattachment.ts
 src/sdk/models/operations/downloadinvoicepdf.ts
 src/sdk/models/operations/getinvoice.ts
 src/sdk/models/operations/getinvoiceattachment.ts
@@ -538,8 +538,8 @@ docs/models/operations/createinvoicerequest.md
 docs/models/operations/createinvoiceresponse.md
 docs/models/operations/deleteinvoicerequest.md
 docs/models/operations/deleteinvoiceresponse.md
-docs/models/operations/downloadinvoicesattachmentrequest.md
-docs/models/operations/downloadinvoicesattachmentresponse.md
+docs/models/operations/downloadinvoiceattachmentrequest.md
+docs/models/operations/downloadinvoiceattachmentresponse.md
 docs/models/operations/downloadinvoicepdfrequest.md
 docs/models/operations/downloadinvoicepdfresponse.md
 docs/models/operations/getinvoicerequest.md
