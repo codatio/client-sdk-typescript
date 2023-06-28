@@ -17,9 +17,9 @@ Customers
 
 ## create
 
-The *Create customer* endpoint creates a new [customer](https://docs.codat.io/accounting-api#/schemas/Customers) for a given company's connection.
+The *Create customer* endpoint creates a new [customer](https://docs.codat.io/accounting-api#/schemas/Customer) for a given company's connection.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customers) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 **Integration-specific behaviour**
 
@@ -161,7 +161,7 @@ sdk.customers.create({
 
 The *Download customer attachment* endpoint downloads a specific attachment for a given `customerId` and `attachmentId`.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customers) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support downloading a customer attachment.
 
@@ -208,7 +208,7 @@ sdk.customers.downloadAttachment({
 
 The *Get customer* endpoint returns a single customer for a given customerId.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customers) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support getting a specific customer.
 
@@ -256,7 +256,7 @@ sdk.customers.get({
 
 The *Get customer attachment* endpoint returns a specific attachment for a given `customerId` and `attachmentId`.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customers) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support getting a customer attachment.
 
@@ -301,9 +301,9 @@ sdk.customers.getAttachment({
 
 ## getCreateUpdateModel
 
-﻿The *Get create/update customer model* endpoint returns the expected data for the request payload when creating and updating a [customer](https://docs.codat.io/accounting-api#/schemas/Customers) for a given company and integration.
+﻿The *Get create/update customer model* endpoint returns the expected data for the request payload when creating and updating a [customer](https://docs.codat.io/accounting-api#/schemas/Customer) for a given company and integration.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customers) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 **Integration-specific behaviour**
 
@@ -351,9 +351,9 @@ sdk.customers.getCreateUpdateModel({
 
 ## list
 
-The *List customers* endpoint returns a list of [customers](https://docs.codat.io/accounting-api#/schemas/Customers) for a given company's connection.
+The *List customers* endpoint returns a list of [customers](https://docs.codat.io/accounting-api#/schemas/Customer) for a given company's connection.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customers) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
     
@@ -402,7 +402,7 @@ sdk.customers.list({
 
 The *List customer attachments* endpoint returns a list of attachments avialable to download for given `customerId`.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customers) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support listing customer attachments.
 
@@ -446,9 +446,9 @@ sdk.customers.listAttachments({
 
 ## update
 
-The *Update customer* endpoint updates an existing [customer](https://docs.codat.io/accounting-api#/schemas/Customers) for a given company's connection.
+The *Update customer* endpoint updates an existing [customer](https://docs.codat.io/accounting-api#/schemas/Customer) for a given company's connection.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customers) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 **Integration-specific behaviour**
 

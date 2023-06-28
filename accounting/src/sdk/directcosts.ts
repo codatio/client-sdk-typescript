@@ -586,7 +586,7 @@ export class DirectCosts {
      * List direct cost attachments
      *
      * @remarks
-     * The *List direct cost attachments* endpoint returns a list of attachments avialable to download for given `directCostId`.
+     * The *List direct cost attachments* endpoint returns a list of attachments available to download for given `directCostId`.
      *
      * [Direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
      *
