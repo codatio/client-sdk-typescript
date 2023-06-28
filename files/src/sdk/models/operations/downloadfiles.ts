@@ -12,7 +12,7 @@ export class DownloadFilesRequest extends SpeakeasyBase {
     companyId: string;
 
     /**
-     * Only download files uploaded on this date
+     * Only download files uploaded on this date.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=date" })
     date?: string;
