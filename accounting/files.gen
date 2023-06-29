@@ -49,7 +49,7 @@ src/sdk/models/operations/getaccount.ts
 src/sdk/models/operations/getcreatechartofaccountsmodel.ts
 src/sdk/models/operations/listaccounts.ts
 src/sdk/models/operations/createbanktransactions.ts
-src/sdk/models/operations/getcreatebankaccountmodel.ts
+src/sdk/models/operations/getcreatebanktransactionsmodel.ts
 src/sdk/models/operations/listbankaccounttransactions.ts
 src/sdk/models/operations/createbankaccount.ts
 src/sdk/models/operations/getbankaccount.ts
@@ -397,8 +397,8 @@ docs/models/operations/listaccounts409applicationjson.md
 docs/models/operations/listaccountsresponse.md
 docs/models/operations/createbanktransactionsrequest.md
 docs/models/operations/createbanktransactionsresponse.md
-docs/models/operations/getcreatebankaccountmodelrequest.md
-docs/models/operations/getcreatebankaccountmodelresponse.md
+docs/models/operations/getcreatebanktransactionsmodelrequest.md
+docs/models/operations/getcreatebanktransactionsmodelresponse.md
 docs/models/operations/listbankaccounttransactionsrequest.md
 docs/models/operations/listbankaccounttransactions409applicationjson.md
 docs/models/operations/listbankaccounttransactionsresponse.md

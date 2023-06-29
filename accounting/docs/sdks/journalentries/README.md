@@ -140,7 +140,7 @@ sdk.journalEntries.create({
 
 The *Delete journal entry* endpoint allows you to delete a specified journal entry from an accounting platform.
 
-[Journal entries](https://docs.codat.io/accounting-api#/schemas/JournalEntry) are  made in a company's general ledger, or accounts, when transactions are approved.
+[Journal entries](https://docs.codat.io/accounting-api#/schemas/JournalEntry) are made in a company's general ledger, or accounts, when transactions are approved.
 
 ### Process
 1. Pass the `{journalEntryId}` to the *Delete journal entry* endpoint and store the `pushOperationKey` returned.

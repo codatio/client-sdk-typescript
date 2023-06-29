@@ -62,9 +62,9 @@ sdk.accountTransactions.get({
 
 ### [bankAccountTransactions](docs/sdks/bankaccounttransactions/README.md)
 
-* [create](docs/sdks/bankaccounttransactions/README.md#create) - Create bank transactions
-* [getCreateModel](docs/sdks/bankaccounttransactions/README.md#getcreatemodel) - List push options for bank account bank transactions
-* [list](docs/sdks/bankaccounttransactions/README.md#list) - List bank transactions for bank account
+* [create](docs/sdks/bankaccounttransactions/README.md#create) - Create bank account transactions
+* [getCreateModel](docs/sdks/bankaccounttransactions/README.md#getcreatemodel) - Get create bank account transactions model
+* [list](docs/sdks/bankaccounttransactions/README.md#list) - List bank account transactions
 
 ### [bankAccounts](docs/sdks/bankaccounts/README.md)
 

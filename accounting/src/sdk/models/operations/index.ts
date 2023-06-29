@@ -43,7 +43,7 @@ export * from "./getbillcreditnote";
 export * from "./getbillpayments";
 export * from "./getcashflowstatement";
 export * from "./getcompanyinfo";
-export * from "./getcreatebankaccountmodel";
+export * from "./getcreatebanktransactionsmodel";
 export * from "./getcreatebillpaymentsmodel";
 export * from "./getcreatechartofaccountsmodel";
 export * from "./getcreatedirectcostsmodel";
