@@ -13,7 +13,7 @@ export * from "./getbankaccountmapping";
 export * from "./getbankfeeds";
 export * from "./getcompany";
 export * from "./getcompanyconnection";
-export * from "./getcreatebankaccountmodel";
+export * from "./getcreatebanktransactionsmodel";
 export * from "./listbankaccounttransactions";
 export * from "./listcompanies";
 export * from "./listcompanyconnections";

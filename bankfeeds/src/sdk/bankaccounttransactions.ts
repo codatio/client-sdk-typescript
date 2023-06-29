@@ -19,12 +19,19 @@ export class BankAccountTransactions {
     }
 
     /**
-     * Create bank transactions
+     * Create bank account transactions
      *
      * @remarks
-     * Posts bank transactions to the accounting package for a given company.
+     * The *Create bank account transactions* endpoint creates new [bank account transactions](https://docs.codat.io/accounting-api#/schemas/BankTransactions) for a given company's connection.
      *
-     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankTransactions) to see which integrations support this endpoint.
+     * [Bank account transactions](https://docs.codat.io/accounting-api#/schemas/BankTransactions) are records of money that has moved in and out of an SMB's bank account.
+     *
+     * **Integration-specific behaviour**
+     *
+     * Required data may vary by integration. To see what data to post, first call [Get create bank transaction model](https://docs.codat.io/accounting-api#/operations/get-create-bankTransactions-model).
+     *
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankTransactions) for integrations that support creating a bank account transactions.
+     *
      */
     async create(
         req: operations.CreateBankTransactionsRequest,
@@ -122,18 +129,27 @@ export class BankAccountTransactions {
     }
 
     /**
-     * List push options for bank account bank transactions
+     * Get create bank account transactions model
      *
      * @remarks
-     * Gets the options of pushing bank account transactions.
+     * The *Get create bank account transactions model* endpoint returns the expected data for the request payload when creating [bank account transactions](https://docs.codat.io/accounting-api#/schemas/BankTransactions) for a given company and integration.
+     *
+     * [Bank account transactions](https://docs.codat.io/accounting-api#/schemas/BankTransactions) are records of money that has moved in and out of an SMB's bank account.
+     *
+     * **Integration-specific behaviour**
+     *
+     * See the *response examples* for integration-specific indicative models.
+     *
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankTransactions) for integrations that support creating an bank transaction.
+     *
      */
     async get(
-        req: operations.GetCreateBankAccountModelRequest,
+        req: operations.GetCreateBankTransactionsModelRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.GetCreateBankAccountModelResponse> {
+    ): Promise<operations.GetCreateBankTransactionsModelResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetCreateBankAccountModelRequest(req);
+            req = new operations.GetCreateBankTransactionsModelRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -180,8 +196,8 @@ export class BankAccountTransactions {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.GetCreateBankAccountModelResponse =
-            new operations.GetCreateBankAccountModelResponse({
+        const res: operations.GetCreateBankTransactionsModelResponse =
+            new operations.GetCreateBankTransactionsModelResponse({
                 statusCode: httpRes.status,
                 contentType: contentType,
                 rawResponse: httpRes,
@@ -204,10 +220,17 @@ export class BankAccountTransactions {
     }
 
     /**
-     * List bank transactions for bank account
+     * List bank account transactions
      *
      * @remarks
-     * Gets bank transactions for a given bank account ID
+     * The *List account bank transactions* endpoint returns a list of [bank account transactions](https://docs.codat.io/accounting-api#/schemas/BankTransactions) for a given company's connection.
+     *
+     * [Bank account transactions](https://docs.codat.io/accounting-api#/schemas/BankTransactions) are records of money that has moved in and out of an SMB's bank account.
+     *
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankTransactions) for integrations that support listing bank transactions.
+     *
+     * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+     *
      */
     async list(
         req: operations.ListBankAccountTransactionsRequest,
