@@ -6,13 +6,13 @@ Bank feed bank accounts
 
 ### Available Operations
 
-* [create](#create) - Create bank feed bank accounts
+* [create](#create) - Create a bank feed bank account
 * [get](#get) - List bank feed bank accounts
 * [update](#update) - Update bank feed bank account
 
 ## create
 
-Put BankFeed BankAccounts for a single data source connected to a single company.
+Post a BankFeed BankAccount for a single data source connected to a single company.
 
 ### Example Usage
 
@@ -27,20 +27,18 @@ const sdk = new CodatBankFeeds({
 });
 
 sdk.bankFeedAccounts.create({
-  requestBody: [
-    {
-      accountName: "doloremque",
-      accountNumber: "reprehenderit",
-      accountType: "ut",
-      balance: 9795.87,
-      currency: "GBP",
-      feedStartDate: "2022-10-23T00:00:00.000Z",
-      id: "471b5e6e-13b9-49d4-88e1-e91e450ad2ab",
-      modifiedDate: "2022-10-23T00:00:00.000Z",
-      sortCode: "labore",
-      status: "modi",
-    },
-  ],
+  bankFeedAccount: {
+    accountName: "maiores",
+    accountNumber: "dicta",
+    accountType: "corporis",
+    balance: 2961.4,
+    currency: "USD",
+    feedStartDate: "2022-10-23T00:00:00.000Z",
+    id: "b5e6e13b-99d4-488e-9e91-e450ad2abd44",
+    modifiedDate: "2022-10-23T00:00:00.000Z",
+    sortCode: "aliquid",
+    status: "cupiditate",
+  },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: CreateBankFeedResponse) => {
@@ -122,18 +120,18 @@ const sdk = new CodatBankFeeds({
 
 sdk.bankFeedAccounts.update({
   bankFeedAccount: {
-    accountName: "qui",
-    accountNumber: "aliquid",
-    accountType: "cupiditate",
-    balance: 5528.22,
-    currency: "GBP",
+    accountName: "quos",
+    accountNumber: "perferendis",
+    accountType: "magni",
+    balance: 8289.4,
+    currency: "USD",
     feedStartDate: "2022-10-23T00:00:00.000Z",
-    id: "d502a94b-b4f6-43c9-a9e9-a3efa77dfb14",
+    id: "2a94bb4f-63c9-469e-9a3e-fa77dfb14cd6",
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    sortCode: "facere",
-    status: "ea",
+    sortCode: "laborum",
+    status: "accusamus",
   },
-  accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+  accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: UpdateBankFeedResponse) => {

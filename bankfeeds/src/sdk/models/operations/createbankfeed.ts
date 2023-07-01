@@ -7,11 +7,8 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class CreateBankFeedRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({
-        data: "request, media_type=application/json",
-        elemType: shared.BankFeedAccount,
-    })
-    requestBody?: shared.BankFeedAccount[];
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    bankFeedAccount?: shared.BankFeedAccount;
 
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
@@ -24,8 +21,8 @@ export class CreateBankFeedResponse extends SpeakeasyBase {
     /**
      * Success
      */
-    @SpeakeasyMetadata({ elemType: shared.BankFeedAccount })
-    bankFeedAccounts?: shared.BankFeedAccount[];
+    @SpeakeasyMetadata()
+    bankFeedAccount?: shared.BankFeedAccount;
 
     @SpeakeasyMetadata()
     contentType: string;
@@ -37,7 +34,7 @@ export class CreateBankFeedResponse extends SpeakeasyBase {
     rawResponse?: AxiosResponse;
 
     /**
-     * Your API request was not properly authorized.
+     * The request made is not valid.
      */
     @SpeakeasyMetadata()
     schema?: shared.Schema;

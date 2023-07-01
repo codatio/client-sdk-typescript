@@ -42,35 +42,39 @@ sdk.bankAccountTransactions.create({
     transactions: [
       {
         amount: 4236.55,
+        balance: 6235.64,
         date: "2022-10-23T00:00:00.000Z",
-        description: "deserunt",
-        id: "674e0f46-7cc8-4796-ad15-1a05dfc2ddf7",
+        description: "suscipit",
+        id: "74e0f467-cc87-496e-9151-a05dfc2ddf7c",
       },
       {
-        amount: 7991.59,
+        amount: 8009.11,
+        balance: 4614.79,
         date: "2022-10-23T00:00:00.000Z",
-        description: "esse",
-        id: "8ca1ba92-8fc8-4167-82cb-739205929396",
+        description: "porro",
+        id: "a1ba928f-c816-4742-8b73-9205929396fe",
       },
       {
-        amount: 9437.49,
+        amount: 6818.2,
+        balance: 4499.5,
         date: "2022-10-23T00:00:00.000Z",
-        description: "fuga",
-        id: "7596eb10-faaa-4235-ac59-55907aff1a3a",
+        description: "iste",
+        id: "6eb10faa-a235-42c5-9559-07aff1a3a2fa",
       },
       {
-        amount: 1613.09,
+        amount: 5818.5,
+        balance: 2532.91,
         date: "2022-10-23T00:00:00.000Z",
-        description: "mollitia",
-        id: "94677392-51aa-452c-bf5a-d019da1ffe78",
+        description: "quam",
+        id: "739251aa-52c3-4f5a-9019-da1ffe78f097",
       },
     ],
   },
-  accountId: "EILBDVJVNUAGVKRQ",
+  accountId: "7110701885",
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 55714,
+  timeoutInMinutes: 19987,
 }).then((res: CreateBankTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -119,7 +123,7 @@ const sdk = new CodatBankFeeds({
 });
 
 sdk.bankAccountTransactions.get({
-  accountId: "7110701885",
+  accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetCreateBankTransactionsModelResponse) => {
@@ -174,7 +178,7 @@ sdk.bankAccountTransactions.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "cum",
+  query: "ut",
 }).then((res: ListBankAccountTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response

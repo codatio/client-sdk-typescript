@@ -19,10 +19,10 @@ export class BankFeedAccounts {
     }
 
     /**
-     * Create bank feed bank accounts
+     * Create a bank feed bank account
      *
      * @remarks
-     * Put BankFeed BankAccounts for a single data source connected to a single company.
+     * Post a BankFeed BankAccount for a single data source connected to a single company.
      */
     async create(
         req: operations.CreateBankFeedRequest,
@@ -46,7 +46,7 @@ export class BankFeedAccounts {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "json");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "bankFeedAccount", "json");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -74,7 +74,7 @@ export class BankFeedAccounts {
             return client.request({
                 validateStatus: () => true,
                 url: url,
-                method: "put",
+                method: "post",
                 headers: headers,
                 responseType: "arraybuffer",
                 data: reqBody,
@@ -97,16 +97,13 @@ export class BankFeedAccounts {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.bankFeedAccounts = [];
-                    const resFieldDepth: number = utils.getResFieldDepth(res);
-                    res.bankFeedAccounts = utils.objectToClass(
+                    res.bankFeedAccount = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.BankFeedAccount,
-                        resFieldDepth
+                        shared.BankFeedAccount
                     );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [400, 401, 404, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
                 }
