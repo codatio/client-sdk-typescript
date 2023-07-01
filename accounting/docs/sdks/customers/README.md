@@ -52,90 +52,158 @@ sdk.customers.create({
   customer: {
     addresses: [
       {
-        city: "Diamond Bar",
-        country: "Switzerland",
-        line1: "vero",
-        line2: "natus",
-        postalCode: "86228-8842",
-        region: "incidunt",
-        type: AddressType.Billing,
-      },
-      {
-        city: "Fort Dena",
-        country: "Palau",
-        line1: "esse",
-        line2: "id",
-        postalCode: "59289-2483",
-        region: "nostrum",
+        city: "San Antonio",
+        country: "New Zealand",
+        line1: "architecto",
+        line2: "iure",
+        postalCode: "95623-0684",
+        region: "nisi",
         type: AddressType.Delivery,
       },
-      {
-        city: "Lenoreborough",
-        country: "Grenada",
-        line1: "facere",
-        line2: "aliquam",
-        postalCode: "29026",
-        region: "numquam",
-        type: AddressType.Billing,
-      },
     ],
-    contactName: "dolores",
+    contactName: "officiis",
     contacts: [
       {
         address: {
-          city: "North Kristatown",
-          country: "Japan",
-          line1: "cum",
-          line2: "facere",
-          postalCode: "32705",
-          region: "sed",
+          city: "Hilllton",
+          country: "Mauritius",
+          line1: "impedit",
+          line2: "modi",
+          postalCode: "61968-2330",
+          region: "odit",
           type: AddressType.Delivery,
         },
-        email: "Janie95@hotmail.com",
+        email: "Gina93@gmail.com",
         modifiedDate: "2022-10-23T00:00:00.000Z",
-        name: "Marjorie Fritsch",
+        name: "Lance Cruickshank DVM",
         phone: [
           {
-            number: "(877) 492-8687",
-            type: PhoneNumberType.Unknown,
+            number: "+44 25691 154789",
+            type: PhoneNumberType.Mobile,
           },
           {
-            number: "+44 25691 154789",
+            number: "(877) 492-8687",
+            type: PhoneNumberType.Mobile,
+          },
+        ],
+        status: CustomerStatus.Active,
+      },
+      {
+        address: {
+          city: "Adamsboro",
+          country: "Chile",
+          line1: "labore",
+          line2: "earum",
+          postalCode: "06184",
+          region: "voluptates",
+          type: AddressType.Delivery,
+        },
+        email: "Domenick41@yahoo.com",
+        modifiedDate: "2022-10-23T00:00:00.000Z",
+        name: "Cristina Beer V",
+        phone: [
+          {
+            number: "01224 658 999",
             type: PhoneNumberType.Fax,
           },
           {
             number: "01224 658 999",
-            type: PhoneNumberType.Primary,
+            type: PhoneNumberType.Fax,
           },
         ],
-        status: CustomerStatus.Unknown,
+        status: CustomerStatus.Active,
+      },
+      {
+        address: {
+          city: "Runolfssonside",
+          country: "Uruguay",
+          line1: "tenetur",
+          line2: "ipsam",
+          postalCode: "70098-3083",
+          region: "aspernatur",
+          type: AddressType.Billing,
+        },
+        email: "Diana_Hammes@yahoo.com",
+        modifiedDate: "2022-10-23T00:00:00.000Z",
+        name: "Verna Lang",
+        phone: [
+          {
+            number: "01224 658 999",
+            type: PhoneNumberType.Unknown,
+          },
+          {
+            number: "+44 25691 154789",
+            type: PhoneNumberType.Unknown,
+          },
+          {
+            number: "(877) 492-8687",
+            type: PhoneNumberType.Fax,
+          },
+        ],
+        status: CustomerStatus.Archived,
+      },
+      {
+        address: {
+          city: "Reychester",
+          country: "French Guiana",
+          line1: "veritatis",
+          line2: "fugit",
+          postalCode: "88364",
+          region: "hic",
+          type: AddressType.Delivery,
+        },
+        email: "Jaden62@gmail.com",
+        modifiedDate: "2022-10-23T00:00:00.000Z",
+        name: "Verna Sauer",
+        phone: [
+          {
+            number: "(877) 492-8687",
+            type: PhoneNumberType.Landline,
+          },
+          {
+            number: "01224 658 999",
+            type: PhoneNumberType.Unknown,
+          },
+          {
+            number: "01224 658 999",
+            type: PhoneNumberType.Fax,
+          },
+        ],
+        status: CustomerStatus.Active,
       },
     ],
-    customerName: "asperiores",
+    customerName: "incidunt",
     defaultCurrency: "EUR",
-    emailAddress: "nostrum",
-    id: "d911cbfe-749c-4af4-9a27-f69e2c9e6d10",
+    emailAddress: "nihil",
+    id: "7b4848bd-6a6f-4044-9d2c-3b808094373e",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "(862) 782-7470 x2005",
-    registrationNumber: "facere",
+    phone: "1-223-679-7768 x019",
+    registrationNumber: "sunt",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: CustomerStatus.Archived,
+    status: CustomerStatus.Active,
     supplementalData: {
       content: {
-        "sequi": {
-          "modi": "nihil",
-          "velit": "aut",
+        "quidem": {
+          "a": "et",
+          "ipsam": "eos",
+          "exercitationem": "minima",
+          "laudantium": "quibusdam",
+        },
+        "fuga": {
+          "excepturi": "corporis",
+          "nam": "itaque",
+          "suscipit": "porro",
         },
       },
     },
-    taxNumber: "rem",
+    taxNumber: "nulla",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 142520,
+  timeoutInMinutes: 10447,
 }).then((res: CreateCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -182,7 +250,7 @@ sdk.customers.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "libero",
+  customerId: "qui",
 }).then((res: DownloadCustomerAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -230,7 +298,7 @@ const sdk = new CodatAccounting({
 
 sdk.customers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  customerId: "error",
+  customerId: "in",
 }).then((res: GetCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -277,7 +345,7 @@ sdk.customers.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "incidunt",
+  customerId: "enim",
 }).then((res: GetCustomerAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -376,7 +444,7 @@ sdk.customers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "asperiores",
+  query: "vel",
 }).then((res: ListCustomersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -422,7 +490,7 @@ const sdk = new CodatAccounting({
 sdk.customers.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "eos",
+  customerId: "impedit",
 }).then((res: ListCustomerAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -481,70 +549,35 @@ sdk.customers.update({
   customer: {
     addresses: [
       {
-        city: "Cartershire",
-        country: "Somalia",
-        line1: "nemo",
-        line2: "eum",
-        postalCode: "09572",
-        region: "dolores",
-        type: AddressType.Billing,
-      },
-      {
-        city: "West Amira",
-        country: "Nicaragua",
-        line1: "tempora",
-        line2: "eum",
-        postalCode: "13245",
-        region: "natus",
-        type: AddressType.Delivery,
-      },
-      {
-        city: "Allen",
-        country: "Tuvalu",
-        line1: "iste",
-        line2: "error",
-        postalCode: "36286",
-        region: "amet",
+        city: "West Marcelina",
+        country: "Palestinian Territory",
+        line1: "labore",
+        line2: "adipisci",
+        postalCode: "73480",
+        region: "esse",
         type: AddressType.Billing,
       },
     ],
-    contactName: "ducimus",
+    contactName: "amet",
     contacts: [
       {
         address: {
-          city: "Beerberg",
-          country: "Guatemala",
-          line1: "sed",
-          line2: "a",
-          postalCode: "26372-8757",
-          region: "odio",
+          city: "East Abdul",
+          country: "Libyan Arab Jamahiriya",
+          line1: "eligendi",
+          line2: "qui",
+          postalCode: "95501",
+          region: "repellendus",
           type: AddressType.Billing,
         },
-        email: "Taryn.Raynor88@yahoo.com",
+        email: "Verona.Abshire34@gmail.com",
         modifiedDate: "2022-10-23T00:00:00.000Z",
-        name: "Brandon Rutherford",
+        name: "Ray Pfannerstill",
         phone: [
           {
-            number: "+44 25691 154789",
-            type: PhoneNumberType.Fax,
+            number: "(877) 492-8687",
+            type: PhoneNumberType.Landline,
           },
-        ],
-        status: CustomerStatus.Archived,
-      },
-      {
-        address: {
-          city: "Plymouth",
-          country: "Brunei Darussalam",
-          line1: "eligendi",
-          line2: "nam",
-          postalCode: "33238-3943",
-          region: "at",
-          type: AddressType.Billing,
-        },
-        email: "Charity.Lubowitz88@gmail.com",
-        modifiedDate: "2022-10-23T00:00:00.000Z",
-        name: "Dr. Marie O'Hara",
-        phone: [
           {
             number: "01224 658 999",
             type: PhoneNumberType.Unknown,
@@ -552,35 +585,118 @@ sdk.customers.update({
         ],
         status: CustomerStatus.Active,
       },
+      {
+        address: {
+          city: "Windlerfort",
+          country: "Brazil",
+          line1: "rem",
+          line2: "itaque",
+          postalCode: "74945-4921",
+          region: "recusandae",
+          type: AddressType.Unknown,
+        },
+        email: "May.Donnelly89@gmail.com",
+        modifiedDate: "2022-10-23T00:00:00.000Z",
+        name: "Myra Hermann",
+        phone: [
+          {
+            number: "01224 658 999",
+            type: PhoneNumberType.Unknown,
+          },
+        ],
+        status: CustomerStatus.Unknown,
+      },
+      {
+        address: {
+          city: "Lake Roxaneburgh",
+          country: "Sao Tome and Principe",
+          line1: "iste",
+          line2: "earum",
+          postalCode: "77302",
+          region: "repellat",
+          type: AddressType.Billing,
+        },
+        email: "Columbus_Moore82@hotmail.com",
+        modifiedDate: "2022-10-23T00:00:00.000Z",
+        name: "Duane Dibbert DVM",
+        phone: [
+          {
+            number: "(877) 492-8687",
+            type: PhoneNumberType.Mobile,
+          },
+          {
+            number: "01224 658 999",
+            type: PhoneNumberType.Primary,
+          },
+          {
+            number: "(877) 492-8687",
+            type: PhoneNumberType.Landline,
+          },
+        ],
+        status: CustomerStatus.Unknown,
+      },
+      {
+        address: {
+          city: "Lexifurt",
+          country: "Somalia",
+          line1: "molestiae",
+          line2: "officiis",
+          postalCode: "50466-9029",
+          region: "dolorem",
+          type: AddressType.Unknown,
+        },
+        email: "Lizeth_Kuhlman@hotmail.com",
+        modifiedDate: "2022-10-23T00:00:00.000Z",
+        name: "Nicolas Walker I",
+        phone: [
+          {
+            number: "01224 658 999",
+            type: PhoneNumberType.Fax,
+          },
+        ],
+        status: CustomerStatus.Unknown,
+      },
     ],
-    customerName: "sint",
-    defaultCurrency: "USD",
-    emailAddress: "commodi",
-    id: "489d7b78-673e-413a-92a6-b99249459448",
+    customerName: "commodi",
+    defaultCurrency: "EUR",
+    emailAddress: "temporibus",
+    id: "368ba921-6bcb-4415-835c-73641723133e",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "475.425.1475 x36278",
-    registrationNumber: "a",
+    phone: "224-783-1427 x78625",
+    registrationNumber: "dolores",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: CustomerStatus.Unknown,
+    status: CustomerStatus.Active,
     supplementalData: {
       content: {
-        "minima": {
-          "sit": "incidunt",
-          "magnam": "molestias",
-          "hic": "error",
+        "non": {
+          "maxime": "aspernatur",
+        },
+        "magni": {
+          "minima": "ipsam",
+          "sequi": "quaerat",
+          "accusantium": "incidunt",
+          "cupiditate": "minima",
+        },
+        "quo": {
+          "facere": "quidem",
+          "harum": "adipisci",
+        },
+        "optio": {
+          "reprehenderit": "quo",
+          "vitae": "voluptates",
         },
       },
     },
-    taxNumber: "repellendus",
+    taxNumber: "tempora",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "delectus",
+  customerId: "iste",
   forceUpdate: false,
-  timeoutInMinutes: 118986,
+  timeoutInMinutes: 560736,
 }).then((res: UpdateCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response

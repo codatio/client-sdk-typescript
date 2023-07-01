@@ -41,21 +41,21 @@ sdk.journals.create({
   journal: {
     createdOn: "2022-10-23T00:00:00.000Z",
     hasChildren: false,
-    id: "d72a2d4a-f415-48ac-ad0f-0f58c3b87b47",
-    journalCode: "eaque",
+    id: "9d3a1d32-329e-4458-b7e8-f2ad6bb10e25",
+    journalCode: "ipsam",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    name: "Elena Anderson",
-    parentId: "quos",
+    name: "Noel Gutmann PhD",
+    parentId: "voluptas",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: JournalStatus.Active,
-    type: "fugiat",
+    status: JournalStatus.Unknown,
+    type: "ipsum",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 513534,
+  timeoutInMinutes: 56059,
 }).then((res: CreateJournalResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -103,7 +103,7 @@ const sdk = new CodatAccounting({
 
 sdk.journals.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalId: "eos",
+  journalId: "totam",
 }).then((res: GetJournalResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -202,7 +202,7 @@ sdk.journals.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "porro",
+  query: "aliquid",
 }).then((res: ListJournalsResponse) => {
   if (res.statusCode == 200) {
     // handle response

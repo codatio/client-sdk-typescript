@@ -41,46 +41,46 @@ sdk.items.create({
   item: {
     billItem: {
       accountRef: {
-        id: "d64161e9-1500-4323-b2c0-9b924771f566",
-        name: "Pat Hickle",
+        id: "9834afb0-735c-4b62-85d4-a29aaa1e1691",
+        name: "Alma Ziemann",
       },
-      description: "saepe",
+      description: "aspernatur",
       taxRateRef: {
-        effectiveTaxRate: 7828.51,
-        id: "7626649d-84eb-49e4-8fd2-276e0b88fb87",
-        name: "Gilbert Zboncak",
+        effectiveTaxRate: 9264.79,
+        id: "e209505b-f03a-493e-9448-0ca37fb10789",
+        name: "Emily Considine",
       },
-      unitPrice: 7370.08,
+      unitPrice: 2261.31,
     },
-    code: "vel",
-    id: "e8dbf812-f83b-41ca-aa9f-fc561929cca9",
+    code: "amet",
+    id: "3172e2dd-79ec-474b-a7e8-8ddb36fd1ccc",
     invoiceItem: {
       accountRef: {
-        id: "560a1395-918d-4a1d-88e7-8e3cf8e1143d",
-        name: "Ms. Wendell Dooley",
+        id: "341c8657-3474-4f0a-b40f-b4ab441c3a09",
+        name: "Claude Johns",
       },
-      description: "magni",
+      description: "omnis",
       taxRateRef: {
-        effectiveTaxRate: 4682.52,
-        id: "a08af221-8443-49b3-9e87-56ccce470cd2",
-        name: "Elaine Kihn",
+        effectiveTaxRate: 3289.22,
+        id: "d808bbe7-9445-45eb-8550-a1c426b59c83",
+        name: "Terri Zemlak",
       },
-      unitPrice: 9267.48,
+      unitPrice: 7934.38,
     },
     isBillItem: false,
     isInvoiceItem: false,
-    itemStatus: ItemStatus.Active,
+    itemStatus: ItemStatus.Unknown,
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    name: "Nicole Schowalter Sr.",
+    name: "Ida Lemke",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    type: ItemType.Unknown,
+    type: ItemType.NonInventory,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 873982,
+  timeoutInMinutes: 554193,
 }).then((res: CreateItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -128,7 +128,7 @@ const sdk = new CodatAccounting({
 
 sdk.items.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  itemId: "voluptatum",
+  itemId: "veniam",
 }).then((res: GetItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -227,7 +227,7 @@ sdk.items.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "eligendi",
+  query: "ad",
 }).then((res: ListItemsResponse) => {
   if (res.statusCode == 200) {
     // handle response

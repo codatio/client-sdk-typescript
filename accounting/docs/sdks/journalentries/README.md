@@ -41,42 +41,59 @@ const sdk = new CodatAccounting({
 sdk.journalEntries.create({
   journalEntry: {
     createdOn: "2022-10-23T00:00:00.000Z",
-    description: "culpa",
-    id: "4b9a5bf9-35df-4e97-8fa4-b1e9c097eda6",
+    description: "laudantium",
+    id: "89d9ef93-2e90-400a-93ad-8124208efd23",
     journalLines: [
       {
         accountRef: {
-          id: "3442e1a9-237e-4998-8c80-b479e891923c",
-          name: "Nina Runolfsson",
+          id: "11898e73-879e-4fbe-8bae-babb794536e9",
+          name: "Miss Shannon Hauck",
         },
-        currency: "facere",
-        description: "vel",
-        netAmount: 5838.27,
+        currency: "unde",
+        description: "odio",
+        netAmount: 4332.19,
         tracking: {
           recordRefs: [
             {
-              dataType: "enim",
-              id: "689214fa-2020-47e4-bae0-38cd7f1bc2ca",
+              dataType: "architecto",
+              id: "720b77a5-a536-45a7-9f15-271f01c0d361",
+            },
+          ],
+        },
+      },
+      {
+        accountRef: {
+          id: "fed8dc5e-ffb4-453e-9089-e871fdb4d697",
+          name: "Bryant Strosin",
+        },
+        currency: "molestias",
+        description: "corrupti",
+        netAmount: 3623.77,
+        tracking: {
+          recordRefs: [
+            {
+              dataType: "incidunt",
+              id: "3734a5d7-2d9e-4dd7-85be-5e7afe55297b",
             },
             {
-              dataType: "nam",
-              id: "af7fc2cc-ba4b-4ef0-9f68-eaedb2ee70be",
+              dataType: "mollitia",
+              id: "6281f44e-3a23-4394-a68c-c80d30ff7216",
             },
             {
-              dataType: "alias",
-              id: "69fb36ad-d704-4080-a0a3-fc73a5a034b1",
+              dataType: "quaerat",
+              id: "d0a91fe9-d965-453b-89e0-009c6692de7b",
             },
             {
-              dataType: "ab",
-              id: "499243af-a698-47a4-b2b7-09a153e22301",
+              dataType: "ipsum",
+              id: "562201a6-aab4-4ae7-b1a5-b908d4e30491",
             },
           ],
         },
       },
     ],
     journalRef: {
-      id: "068539ce-0932-4d10-acd1-5d8cc306b786",
-      name: "Stanley Swaniawski",
+      id: "aa35d4a8-39f0-43ba-b77b-918f03139845",
+      name: "Dr. Delores Towne",
     },
     metadata: {
       isDeleted: false,
@@ -84,23 +101,14 @@ sdk.journalEntries.create({
     modifiedDate: "2022-10-23T00:00:00.000Z",
     postedOn: "2022-10-23T00:00:00.000Z",
     recordRef: {
-      dataType: "sed",
-      id: "04a1f340-bb36-4f67-ba48-519c33749028",
+      dataType: "quam",
+      id: "e23ecb06-0465-42e2-ba3d-6c657e9de8f7",
     },
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "quos": {
-          "ex": "nam",
-        },
-        "distinctio": {
-          "consectetur": "porro",
-        },
-        "nihil": {
-          "possimus": "consequuntur",
-          "odit": "enim",
-          "debitis": "dolore",
-          "in": "corrupti",
+        "consequatur": {
+          "fugiat": "veritatis",
         },
       },
     },
@@ -108,7 +116,7 @@ sdk.journalEntries.create({
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 100075,
+  timeoutInMinutes: 526773,
 }).then((res: CreateJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -182,7 +190,7 @@ const sdk = new CodatAccounting({
 sdk.journalEntries.delete({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  journalEntryId: "culpa",
+  journalEntryId: "ex",
 }).then((res: DeleteJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -229,7 +237,7 @@ const sdk = new CodatAccounting({
 
 sdk.journalEntries.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalEntryId: "blanditiis",
+  journalEntryId: "dolorum",
 }).then((res: GetJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -327,7 +335,7 @@ sdk.journalEntries.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "atque",
+  query: "officia",
 }).then((res: ListJournalEntriesResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -42,23 +42,25 @@ sdk.bankAccountTransactions.create({
     transactions: [
       {
         amount: 9255.97,
+        balance: 8360.79,
         date: "2022-10-23T00:00:00.000Z",
-        description: "ab",
-        id: "51a05dfc-2ddf-47cc-b8ca-1ba928fc8167",
+        description: "quis",
+        id: "1a05dfc2-ddf7-4cc7-8ca1-ba928fc81674",
       },
       {
-        amount: 2645.55,
+        amount: 1863.32,
+        balance: 7742.34,
         date: "2022-10-23T00:00:00.000Z",
-        description: "impedit",
-        id: "b7392059-2939-46fe-a759-6eb10faaa235",
+        description: "esse",
+        id: "39205929-396f-4ea7-996e-b10faaa2352c",
       },
     ],
   },
-  accountId: "explicabo",
+  accountId: "enim",
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 750686,
+  timeoutInMinutes: 607831,
 }).then((res: CreateBankTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -107,7 +109,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bankAccountTransactions.getCreateModel({
-  accountId: "enim",
+  accountId: "nemo",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetCreateBankTransactionsModelResponse) => {
@@ -156,13 +158,13 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bankAccountTransactions.list({
-  accountId: "omnis",
+  accountId: "minima",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "nemo",
+  query: "excepturi",
 }).then((res: ListBankAccountTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response

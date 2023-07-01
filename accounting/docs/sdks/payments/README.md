@@ -40,39 +40,69 @@ const sdk = new CodatAccounting({
 sdk.payments.create({
   payment: {
     accountRef: {
-      id: "306f5576-f5cd-4eb0-a86d-0bc43b18ab37",
-      name: "Darrin Crooks",
+      id: "cbf18685-6a7e-482c-9f9d-0fc282c666af",
+      name: "Jacquelyn Dicki",
     },
-    currency: "EUR",
-    currencyRate: 9819.74,
+    currency: "USD",
+    currencyRate: 5194.41,
     customerRef: {
-      companyName: "laudantium",
-      id: "1ddf7e08-8f74-4ef5-8c92-16e8926313bb",
+      companyName: "provident",
+      id: "bea5d264-e41e-42ca-8482-2e513f6d9d2a",
     },
     date: "2022-10-23T00:00:00.000Z",
-    id: "fc2c8d27-0109-46b6-aad6-e3e1d9d3b660",
+    id: "37c30990-77c1-40b6-8792-163e67d48860",
     lines: [
       {
         allocatedOnDate: "2022-10-23T00:00:00.000Z",
-        amount: 3089.27,
+        amount: 2316.11,
         links: [
           {
-            amount: 1192.28,
-            currencyRate: 1231.37,
-            id: "aa1d5d22-47de-49b3-9461-70e768a96bb3",
-            type: PaymentLinkType.Payment,
+            amount: 470,
+            currencyRate: 6419.14,
+            id: "3049c3cf-6c02-476e-bb21-bad90d2743fd",
+            type: PaymentLinkType.Other,
           },
           {
-            amount: 5218.9,
-            currencyRate: 4416.03,
-            id: "88398eba-1bbf-4714-b356-f6349a164249",
+            amount: 7649.53,
+            currencyRate: 1702.52,
+            id: "a10e6c29-78ec-4256-a5b0-9227fcc47996",
             type: PaymentLinkType.PaymentOnAccount,
           },
           {
-            amount: 1747.15,
-            currencyRate: 1088.29,
-            id: "1ce46b95-1652-4b15-8ca9-142f052632b3",
-            type: PaymentLinkType.Unknown,
+            amount: 5744.03,
+            currencyRate: 4585.85,
+            id: "7bbc57f3-8928-4a86-80c5-8d67d63e4aa5",
+            type: PaymentLinkType.CreditNote,
+          },
+          {
+            amount: 5547.96,
+            currencyRate: 3030.69,
+            id: "64579cfc-6c0e-4503-b568-31f1d8ed87b2",
+            type: PaymentLinkType.Refund,
+          },
+        ],
+      },
+      {
+        allocatedOnDate: "2022-10-23T00:00:00.000Z",
+        amount: 5394.5,
+        links: [
+          {
+            amount: 9515.01,
+            currencyRate: 6325.21,
+            id: "bc986e24-1e43-4b23-8241-7d13e3f62aa9",
+            type: PaymentLinkType.Payment,
+          },
+          {
+            amount: 9236.58,
+            currencyRate: 2889.02,
+            id: "ae8ab4a9-c492-4c5e-8ba5-d4aa4a508bd3",
+            type: PaymentLinkType.Refund,
+          },
+          {
+            amount: 544.9,
+            currencyRate: 7608.41,
+            id: "29aa8dd7-1bdd-4aa3-8b7b-91449ae69c08",
+            type: PaymentLinkType.Refund,
           },
         ],
       },
@@ -81,33 +111,40 @@ sdk.payments.create({
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "harum",
+    note: "labore",
     paymentMethodRef: {
-      id: "d692ffc8-7450-405e-9d3d-934e036f5c38",
-      name: "Brett Hudson",
+      id: "18bb7180-4f42-43d5-8393-5f377ac5c9b7",
+      name: "Joey Frami",
     },
-    reference: "ea",
+    reference: "id",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "corporis": {
-          "ipsum": "perferendis",
-          "est": "fugit",
+        "minima": {
+          "amet": "quasi",
         },
-        "repudiandae": {
-          "similique": "repudiandae",
+        "doloremque": {
+          "recusandae": "iusto",
+          "impedit": "dolor",
         },
-        "assumenda": {
-          "fuga": "est",
-          "tenetur": "atque",
+        "quaerat": {
+          "deserunt": "distinctio",
+          "alias": "voluptates",
+          "optio": "libero",
+          "voluptatum": "beatae",
+        },
+        "explicabo": {
+          "laboriosam": "ea",
+          "beatae": "eius",
+          "atque": "unde",
         },
       },
     },
-    totalAmount: 4072.09,
+    totalAmount: 2811.64,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 199180,
+  timeoutInMinutes: 302190,
 }).then((res: CreatePaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -155,7 +192,7 @@ const sdk = new CodatAccounting({
 
 sdk.payments.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  paymentId: "impedit",
+  paymentId: "fuga",
 }).then((res: GetPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -254,7 +291,7 @@ sdk.payments.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "eos",
+  query: "voluptatum",
 }).then((res: ListPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

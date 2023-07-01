@@ -35,7 +35,7 @@ const sdk = new CodatAccounting({
 
 sdk.salesOrders.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  salesOrderId: "officia",
+  salesOrderId: "sint",
 }).then((res: GetSalesOrderResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -84,7 +84,7 @@ sdk.salesOrders.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "mollitia",
+  query: "sint",
 }).then((res: ListSalesOrdersResponse) => {
   if (res.statusCode == 200) {
     // handle response
