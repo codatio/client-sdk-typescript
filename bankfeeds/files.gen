@@ -28,7 +28,8 @@ src/sdk/models/operations/createbanktransactions.ts
 src/sdk/models/operations/getcreatebanktransactionsmodel.ts
 src/sdk/models/operations/listbankaccounttransactions.ts
 src/sdk/models/operations/createbankfeed.ts
-src/sdk/models/operations/getbankfeeds.ts
+src/sdk/models/operations/listbankfeeds.ts
+src/sdk/models/operations/putbankfeed.ts
 src/sdk/models/operations/updatebankfeed.ts
 src/sdk/models/operations/createcompany.ts
 src/sdk/models/operations/deletecompany.ts
@@ -99,8 +100,10 @@ docs/models/operations/listbankaccounttransactions409applicationjson.md
 docs/models/operations/listbankaccounttransactionsresponse.md
 docs/models/operations/createbankfeedrequest.md
 docs/models/operations/createbankfeedresponse.md
-docs/models/operations/getbankfeedsrequest.md
-docs/models/operations/getbankfeedsresponse.md
+docs/models/operations/listbankfeedsrequest.md
+docs/models/operations/listbankfeedsresponse.md
+docs/models/operations/putbankfeedrequest.md
+docs/models/operations/putbankfeedresponse.md
 docs/models/operations/updatebankfeedrequest.md
 docs/models/operations/updatebankfeedresponse.md
 docs/models/operations/createcompanyresponse.md

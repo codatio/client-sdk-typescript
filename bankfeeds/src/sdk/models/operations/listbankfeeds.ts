@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class GetBankFeedsRequest extends SpeakeasyBase {
+export class ListBankFeedsRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 
@@ -14,7 +14,7 @@ export class GetBankFeedsRequest extends SpeakeasyBase {
     connectionId: string;
 }
 
-export class GetBankFeedsResponse extends SpeakeasyBase {
+export class ListBankFeedsResponse extends SpeakeasyBase {
     /**
      * Success
      */

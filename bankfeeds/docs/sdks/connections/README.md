@@ -34,7 +34,7 @@ const sdk = new CodatBankFeeds({
 
 sdk.connections.create({
   requestBody: {
-    platformKey: "enim",
+    platformKey: "facilis",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: CreateDataConnectionResponse) => {
@@ -162,7 +162,7 @@ sdk.connections.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "accusamus",
+  query: "perspiciatis",
 }).then((res: ListCompanyConnectionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -186,7 +186,9 @@ sdk.connections.list({
 
 ## proxy
 
-A proxy or passthrough endpoint used to query unsupported third party endpoints.
+﻿The *Proxy* endpoint can be used to generate credentials from QuickBooks Online for authentication of the Bank Feed in their portal.
+
+See the example provided for the `endpoint` query parameter when generating credentials for QuickBooks Online.
 
 ### Example Usage
 
@@ -244,7 +246,7 @@ const sdk = new CodatBankFeeds({
 
 sdk.connections.unlinkConnection({
   requestBody: {
-    status: "delectus",
+    status: "voluptatem",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",

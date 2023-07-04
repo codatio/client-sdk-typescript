@@ -357,7 +357,9 @@ export class Connections {
      * Proxy
      *
      * @remarks
-     * A proxy or passthrough endpoint used to query unsupported third party endpoints.
+     * The *Proxy* endpoint can be used to generate credentials from QuickBooks Online for authentication of the Bank Feed in their portal.
+     *
+     * See the example provided for the `endpoint` query parameter when generating credentials for QuickBooks Online.
      */
     async proxy(
         req: operations.ProxyRequest,
@@ -400,7 +402,7 @@ export class Connections {
             return client.request({
                 validateStatus: () => true,
                 url: url + queryParams,
-                method: "post",
+                method: "get",
                 headers: headers,
                 responseType: "arraybuffer",
                 ...config,
