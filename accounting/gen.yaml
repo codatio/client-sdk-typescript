@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 08fc9e18418db1b7d793cca21452ee7d
+  docChecksum: d17fd1d3cc6216aa77551dbf3bbe4fab
   docVersion: 2.1.0
   speakeasyVersion: 1.52.0
   generationVersion: 2.55.0
@@ -9,7 +9,7 @@ generation:
   singleTagPerOp: false
   telemetryEnabled: true
 typescript:
-  version: 0.24.0
+  version: 0.24.1
   author: Speakeasy
   maxMethodParams: 0
   packageName: '@codat/accounting'
