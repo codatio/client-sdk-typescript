@@ -14,4 +14,5 @@ export * from "./intiatesync";
 export * from "./listsyncs";
 export * from "./listsynctransactions";
 export * from "./savecompanyconfiguration";
+export * from "./updateexpensedataset";
 export * from "./uploadattachment";
