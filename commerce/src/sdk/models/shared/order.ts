@@ -8,6 +8,7 @@ import { LocationRef } from "./locationref";
 import { OrderLineItem } from "./orderlineitem";
 import { PaymentRef } from "./paymentref";
 import { ServiceCharge } from "./servicecharge";
+import { SupplementalData } from "./supplementaldata";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -142,6 +143,18 @@ export class Order extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "sourceModifiedDate" })
     sourceModifiedDate?: string;
+
+    /**
+     * Supplemental data is additional data you can include in our standard data types.
+     *
+     * @remarks
+     *
+     * It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/additional-data) about supplemental data.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "supplementalData" })
+    @Type(() => SupplementalData)
+    supplementalData?: SupplementalData;
 
     /**
      * Total amount of the order, including tax, net of any discounts and refunds.

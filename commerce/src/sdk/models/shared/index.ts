@@ -48,6 +48,7 @@ export * from "./schema";
 export * from "./security";
 export * from "./servicecharge";
 export * from "./servicechargetype";
+export * from "./supplementaldata";
 export * from "./taxcomponent";
 export * from "./taxcomponentallocation";
 export * from "./taxcomponentref";
