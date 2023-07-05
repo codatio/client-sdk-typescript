@@ -1039,6 +1039,87 @@ export class Reports {
     }
 
     /**
+     * Get enhanced loan summaries
+     */
+    async getLoanSummary(
+        req: operations.GetLoanSummaryRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetLoanSummaryResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetLoanSummaryRequest(req);
+        }
+
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
+        const url: string = utils.generateURL(
+            baseURL,
+            "/data/companies/{companyId}/assess/reports/enhancedLiabilities/loan",
+            req
+        );
+
+        const client: AxiosInstance =
+            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url,
+                method: "get",
+                headers: headers,
+                responseType: "arraybuffer",
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetLoanSummaryResponse = new operations.GetLoanSummaryResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.loanSummary = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.LoanSummary
+                    );
+                }
+                break;
+            case [401, 404].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
      * Get key subscription revenue metrics
      *
      * @remarks
@@ -1108,6 +1189,89 @@ export class Reports {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.report = utils.objectToClass(JSON.parse(decodedRes), shared.Report);
+                }
+                break;
+            case [401, 404].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * List enhanced loan transactions
+     */
+    async listLoanTransactions(
+        req: operations.ListLoanTransactionsRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.ListLoanTransactionsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.ListLoanTransactionsRequest(req);
+        }
+
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
+        const url: string = utils.generateURL(
+            baseURL,
+            "/data/companies/{companyId}/assess/reports/enhancedLiabilities/loan/transactions",
+            req
+        );
+
+        const client: AxiosInstance =
+            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
+
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url + queryParams,
+                method: "get",
+                headers: headers,
+                responseType: "arraybuffer",
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.ListLoanTransactionsResponse =
+            new operations.ListLoanTransactionsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.loanTransactions = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.LoanTransactions
+                    );
                 }
                 break;
             case [401, 404].includes(httpRes?.status):
