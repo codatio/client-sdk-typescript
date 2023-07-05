@@ -10,6 +10,7 @@ import * as shared from "./models/shared";
 import { PushData } from "./pushdata";
 import { RefreshData } from "./refreshdata";
 import { Settings } from "./settings";
+import { SupplementalData } from "./supplementaldata";
 import { Webhooks } from "./webhooks";
 import axios from "axios";
 import { AxiosInstance } from "axios";
@@ -55,7 +56,7 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "2.1.0";
-    sdkVersion = "0.30.0";
+    sdkVersion = "0.30.1";
     genVersion = "2.55.0";
 
     public constructor(init?: Partial<SDKConfiguration>) {
@@ -101,6 +102,10 @@ export class CodatCommon {
      */
     public settings: Settings;
     /**
+     * View and configure supplemental data for supported data types.
+     */
+    public supplementalData: SupplementalData;
+    /**
      * Manage webhooks, rules, and events.
      */
     public webhooks: Webhooks;
@@ -138,6 +143,7 @@ export class CodatCommon {
         this.pushData = new PushData(this.sdkConfiguration);
         this.refreshData = new RefreshData(this.sdkConfiguration);
         this.settings = new Settings(this.sdkConfiguration);
+        this.supplementalData = new SupplementalData(this.sdkConfiguration);
         this.webhooks = new Webhooks(this.sdkConfiguration);
     }
 }

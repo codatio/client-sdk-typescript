@@ -52,6 +52,7 @@ export * from "./rule";
 export * from "./rules";
 export * from "./security";
 export * from "./sourcetype";
+export * from "./supplementaldataconfiguration";
 export * from "./supportedfeature";
 export * from "./syncsetting";
 export * from "./syncsettings";

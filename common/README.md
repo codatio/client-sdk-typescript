@@ -88,6 +88,11 @@ sdk.companies.create({
 * [updateProfile](docs/sdks/settings/README.md#updateprofile) - Update profile
 * [updateSyncSettings](docs/sdks/settings/README.md#updatesyncsettings) - Update all sync settings
 
+### [supplementalData](docs/sdks/supplementaldata/README.md)
+
+* [configure](docs/sdks/supplementaldata/README.md#configure) - Configure
+* [getConfiguration](docs/sdks/supplementaldata/README.md#getconfiguration) - Get configuration
+
 ### [webhooks](docs/sdks/webhooks/README.md)
 
 * [create](docs/sdks/webhooks/README.md#create) - Create webhook
