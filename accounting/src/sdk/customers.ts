@@ -22,11 +22,15 @@ export class Customers {
      * Create customer
      *
      * @remarks
-     * Posts an individual customer for a given company.
+     * The *Create customer* endpoint creates a new [customer](https://docs.codat.io/accounting-api#/schemas/Customer) for a given company's connection.
+     *
+     * [Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+     *
+     * **Integration-specific behaviour**
      *
      * Required data may vary by integration. To see what data to post, first call [Get create/update customer model](https://docs.codat.io/accounting-api#/operations/get-create-update-customers-model).
      *
-     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) to see which integrations support this endpoint.
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support creating an account.
      *
      */
     async create(
@@ -123,7 +127,12 @@ export class Customers {
      * Download customer attachment
      *
      * @remarks
-     * Download customer attachment.
+     * The *Download customer attachment* endpoint downloads a specific attachment for a given `customerId` and `attachmentId`.
+     *
+     * [Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+     *
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support downloading a customer attachment.
+     *
      */
     async downloadAttachment(
         req: operations.DownloadCustomerAttachmentRequest,
@@ -205,7 +214,14 @@ export class Customers {
      * Get customer
      *
      * @remarks
-     * Gets a single customer corresponding to the given ID.
+     * The *Get customer* endpoint returns a single customer for a given customerId.
+     *
+     * [Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+     *
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support getting a specific customer.
+     *
+     * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+     *
      */
     async get(
         req: operations.GetCustomerRequest,
@@ -294,7 +310,12 @@ export class Customers {
      * Get customer attachment
      *
      * @remarks
-     * Get  customer attachment.
+     * The *Get customer attachment* endpoint returns a specific attachment for a given `customerId` and `attachmentId`.
+     *
+     * [Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+     *
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support getting a customer attachment.
+     *
      */
     async getAttachment(
         req: operations.GetCustomerAttachmentRequest,
@@ -376,13 +397,16 @@ export class Customers {
      * Get create/update customer model
      *
      * @remarks
-     * Get create/update customer model. Returns the expected data for the request payload.
+     * The *Get create/update customer model* endpoint returns the expected data for the request payload when creating and updating a [customer](https://docs.codat.io/accounting-api#/schemas/Customer) for a given company and integration.
      *
-     * See the examples for integration-specific indicative models.
+     * [Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
      *
-     * > **Supported Integrations**
-     * >
-     * > Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support creating and updating customers.
+     * **Integration-specific behaviour**
+     *
+     * See the *response examples* for integration-specific indicative models.
+     *
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support creating and updating a customer.
+     *
      */
     async getCreateUpdateModel(
         req: operations.GetCreateUpdateCustomersModelRequest,
@@ -464,7 +488,12 @@ export class Customers {
      * List customers
      *
      * @remarks
-     * Gets the latest customers for a company, with pagination.
+     * The *List customers* endpoint returns a list of [customers](https://docs.codat.io/accounting-api#/schemas/Customer) for a given company's connection.
+     *
+     * [Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+     *
+     * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+     *
      */
     async list(
         req: operations.ListCustomersRequest,
@@ -554,7 +583,12 @@ export class Customers {
      * List customer attachments
      *
      * @remarks
-     * List customer attachments
+     * The *List customer attachments* endpoint returns a list of attachments avialable to download for given `customerId`.
+     *
+     * [Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+     *
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support listing customer attachments.
+     *
      */
     async listAttachments(
         req: operations.ListCustomerAttachmentsRequest,
@@ -639,13 +673,16 @@ export class Customers {
      * Update customer
      *
      * @remarks
-     * Posts an updated customer for a given company.
+     * The *Update customer* endpoint updates an existing [customer](https://docs.codat.io/accounting-api#/schemas/Customer) for a given company's connection.
+     *
+     * [Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+     *
+     * **Integration-specific behaviour**
      *
      * Required data may vary by integration. To see what data to post, first call [Get create/update customer model](https://docs.codat.io/accounting-api#/operations/get-create-update-customers-model).
      *
-     * > **Supported Integrations**
-     * >
-     * > Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support updating customers.
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support creating an account.
+     *
      */
     async update(
         req: operations.UpdateCustomerRequest,

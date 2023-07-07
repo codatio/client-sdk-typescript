@@ -22,11 +22,16 @@ export class PurchaseOrders {
      * Create purchase order
      *
      * @remarks
-     * Posts a new purchase order to the accounting package for a given company.
+     * The *Create purchase order* endpoint creates a new [purchase order](https://docs.codat.io/accounting-api#/schemas/PurchaseOrder) for a given company's connection.
+     *
+     * [Purchase orders](https://docs.codat.io/accounting-api#/schemas/PurchaseOrder) represent a business's intent to purchase goods or services from a supplier.
+     *
+     * **Integration-specific behaviour**
      *
      * Required data may vary by integration. To see what data to post, first call [Get create/update purchase order model](https://docs.codat.io/accounting-api#/operations/get-create-update-purchaseOrders-model).
      *
-     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=purchaseOrders) to see which integrations support this endpoint.
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=purchaseOrders) for integrations that support creating an account.
+     *
      */
     async create(
         req: operations.CreatePurchaseOrderRequest,
@@ -123,7 +128,14 @@ export class PurchaseOrders {
      * Get purchase order
      *
      * @remarks
-     * Get purchase order
+     * The *Get purchase order* endpoint returns a single purchase order for a given purchaseOrderId.
+     *
+     * [Purchase orders](https://docs.codat.io/accounting-api#/schemas/PurchaseOrder) represent a business's intent to purchase goods or services from a supplier.
+     *
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=purchaseOrders) for integrations that support getting a specific purchase order.
+     *
+     * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+     *
      */
     async get(
         req: operations.GetPurchaseOrderRequest,
@@ -215,13 +227,16 @@ export class PurchaseOrders {
      * Get create/update purchase order model
      *
      * @remarks
-     * Get create/update purchase order model. Returns the expected data for the request payload.
+     * The *Get create/update purchase order model* endpoint returns the expected data for the request payload when creating and updating a [purchase order](https://docs.codat.io/accounting-api#/schemas/PurchaseOrder) for a given company and integration.
      *
-     * See the examples for integration-specific indicative models.
+     * [Purchase orders](https://docs.codat.io/accounting-api#/schemas/PurchaseOrder) represent a business's intent to purchase goods or services from a supplier.
      *
-     * > **Supported Integrations**
-     * >
-     * > Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=purchaseOrders) for integrations that support creating and updating purchase orders.
+     * **Integration-specific behaviour**
+     *
+     * See the *response examples* for integration-specific indicative models.
+     *
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=purchaseOrders) for integrations that support creating and updating a purchase order.
+     *
      */
     async getCreateUpdateModel(
         req: operations.GetCreateUpdatePurchaseOrdersModelRequest,
@@ -303,7 +318,12 @@ export class PurchaseOrders {
      * List purchase orders
      *
      * @remarks
-     * Get purchase orders
+     * The *List purchase orders* endpoint returns a list of [purchase orders](https://docs.codat.io/accounting-api#/schemas/PurchaseOrder) for a given company's connection.
+     *
+     * [Purchase orders](https://docs.codat.io/accounting-api#/schemas/PurchaseOrder) represent a business's intent to purchase goods or services from a supplier.
+     *
+     * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+     *
      */
     async list(
         req: operations.ListPurchaseOrdersRequest,
@@ -397,13 +417,16 @@ export class PurchaseOrders {
      * Update purchase order
      *
      * @remarks
-     * Posts an updated purchase order to the accounting package for a given company.
+     * The *Update purchase order* endpoint updates an existing [purchase order](https://docs.codat.io/accounting-api#/schemas/PurchaseOrder) for a given company's connection.
      *
-     * Required data may vary by integration. To see what data to post, first call []().
+     * [Purchase orders](https://docs.codat.io/accounting-api#/schemas/PurchaseOrder) represent a business's intent to purchase goods or services from a supplier.
      *
-     * > **Supported Integrations**
-     * >
-     * > Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=purchaseOrders) for integrations that support updating purchase orders.
+     * **Integration-specific behaviour**
+     *
+     * Required data may vary by integration. To see what data to post, first call [Get create/update purchase order model](https://docs.codat.io/accounting-api#/operations/get-create-update-purchaseOrders-model).
+     *
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=purchaseOrders) for integrations that support creating an account.
+     *
      */
     async update(
         req: operations.UpdatePurchaseOrderRequest,

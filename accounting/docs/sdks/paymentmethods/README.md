@@ -7,11 +7,18 @@ Payment methods
 ### Available Operations
 
 * [get](#get) - Get payment method
-* [list](#list) - List all payment methods
+* [list](#list) - List payment methods
 
 ## get
 
-Gets the specified payment method for a given company.
+The *Get payment method* endpoint returns a single payment method for a given paymentMethodId.
+
+[Payment methods](https://docs.codat.io/accounting-api#/schemas/PaymentMethod) are used to pay a Bill. Payment Methods are referenced on [Bill Payments](https://docs.codat.io/accounting-api#/schemas/BillPayment) and [Payments](https://docs.codat.io/accounting-api#/schemas/Payment).
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=paymentMethods) for integrations that support getting a specific payment method.
+
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+
 
 ### Example Usage
 
@@ -28,7 +35,7 @@ const sdk = new CodatAccounting({
 
 sdk.paymentMethods.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  paymentMethodId: "nostrum",
+  paymentMethodId: "dignissimos",
 }).then((res: GetPaymentMethodResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -52,7 +59,12 @@ sdk.paymentMethods.get({
 
 ## list
 
-Gets the payment methods for a given company.
+The *List payment methods* endpoint returns a list of [payment methods](https://docs.codat.io/accounting-api#/schemas/PaymentMethod) for a given company's connection.
+
+[Payment methods](https://docs.codat.io/accounting-api#/schemas/PaymentMethod) are used to pay a Bill. Payment Methods are referenced on [Bill Payments](https://docs.codat.io/accounting-api#/schemas/BillPayment) and [Payments](https://docs.codat.io/accounting-api#/schemas/Payment).
+
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+    
 
 ### Example Usage
 
@@ -72,7 +84,7 @@ sdk.paymentMethods.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "officiis",
+  query: "exercitationem",
 }).then((res: ListPaymentMethodsResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -11,7 +11,14 @@ Tracking categories
 
 ## get
 
-Gets the specified tracking categories for a given company.
+The *Get tracking category* endpoint returns a single tracking category for a given trackingCategoryId.
+
+[Tracking categories](https://docs.codat.io/accounting-api#/schemas/TrackingCategory) are used to monitor cost centres and control budgets that sit outside the standard set of accounts.
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=trackingCategories) for integrations that support getting a specific tracking category.
+
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+
 
 ### Example Usage
 
@@ -28,7 +35,7 @@ const sdk = new CodatAccounting({
 
 sdk.trackingCategories.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  trackingCategoryId: "nihil",
+  trackingCategoryId: "maiores",
 }).then((res: GetTrackingCategoryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -52,7 +59,12 @@ sdk.trackingCategories.get({
 
 ## list
 
-Gets the latest tracking categories for a given company.
+The *List tracking categories* endpoint returns a list of [tracking categories](https://docs.codat.io/accounting-api#/schemas/TrackingCategory) for a given company's connection.
+
+[Tracking categories](https://docs.codat.io/accounting-api#/schemas/TrackingCategory) are used to monitor cost centres and control budgets that sit outside the standard set of accounts.
+
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+    
 
 ### Example Usage
 
@@ -72,7 +84,7 @@ sdk.trackingCategories.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "praesentium",
+  query: "maiores",
 }).then((res: ListTrackingCategoriesResponse) => {
   if (res.statusCode == 200) {
     // handle response

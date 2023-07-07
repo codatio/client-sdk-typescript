@@ -11,7 +11,14 @@ Tax rates
 
 ## get
 
-Gets the specified tax rate for a given company.
+The *Get tax rate* endpoint returns a single tax rate for a given taxRateId.
+
+[Tax rates](https://docs.codat.io/accounting-api#/schemas/TaxRate) are a set of taxes and associated rates within the SMB's accounting package.
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=taxRates) for integrations that support getting a specific tax rate.
+
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+
 
 ### Example Usage
 
@@ -28,7 +35,7 @@ const sdk = new CodatAccounting({
 
 sdk.taxRates.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  taxRateId: "iusto",
+  taxRateId: "asperiores",
 }).then((res: GetTaxRateResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -52,7 +59,12 @@ sdk.taxRates.get({
 
 ## list
 
-Gets the latest tax rates for a given company.
+The *List tax rates* endpoint returns a list of [tax rates](https://docs.codat.io/accounting-api#/schemas/TaxRate) for a given company's connection.
+
+[Tax rates](https://docs.codat.io/accounting-api#/schemas/TaxRate) are a set of taxes and associated rates within the SMB's accounting package.
+
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+    
 
 ### Example Usage
 
@@ -72,7 +84,7 @@ sdk.taxRates.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "vel",
+  query: "quisquam",
 }).then((res: ListTaxRatesResponse) => {
   if (res.statusCode == 200) {
     // handle response

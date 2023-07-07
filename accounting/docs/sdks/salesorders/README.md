@@ -11,7 +11,14 @@ Sales orders
 
 ## get
 
-Get sales order
+The *Get sales order* endpoint returns a single sales order for a given salesOrderId.
+
+[Sales orders](https://docs.codat.io/accounting-api#/schemas/SalesOrder) represent a customer's intention to purchase goods or services from the SMB.
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=salesOrders) for integrations that support getting a specific sales order.
+
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+
 
 ### Example Usage
 
@@ -28,7 +35,7 @@ const sdk = new CodatAccounting({
 
 sdk.salesOrders.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  salesOrderId: "officia",
+  salesOrderId: "sint",
 }).then((res: GetSalesOrderResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -52,7 +59,12 @@ sdk.salesOrders.get({
 
 ## list
 
-Get sales orders
+The *List sales orders* endpoint returns a list of [sales orders](https://docs.codat.io/accounting-api#/schemas/SalesOrder) for a given company's connection.
+
+[Sales orders](https://docs.codat.io/accounting-api#/schemas/SalesOrder) represent a customer's intention to purchase goods or services from the SMB.
+
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+    
 
 ### Example Usage
 
@@ -72,7 +84,7 @@ sdk.salesOrders.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "mollitia",
+  query: "sint",
 }).then((res: ListSalesOrdersResponse) => {
   if (res.statusCode == 200) {
     // handle response

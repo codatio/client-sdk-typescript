@@ -14,11 +14,15 @@ Bill payments
 
 ## create
 
-Posts a new bill payment to the accounting package for a given company.
+The *Create bill payment* endpoint creates a new [bill payment](https://docs.codat.io/accounting-api#/schemas/BillPayment) for a given company's connection.
+
+[Bill payments](https://docs.codat.io/accounting-api#/schemas/BillPayment) are an allocation of money within any customer accounts payable account.
+
+**Integration-specific behaviour**
 
 Required data may vary by integration. To see what data to post, first call [Get create bill payment model](https://docs.codat.io/accounting-api#/operations/get-create-billPayments-model).
 
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billPayments) to see which integrations support this endpoint.
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billPayments) for integrations that support creating an account.
 
 
 ### Example Usage
@@ -37,71 +41,47 @@ const sdk = new CodatAccounting({
 sdk.billPayments.create({
   billPayment: {
     accountRef: {
-      id: "99171b51-c1bd-4b1c-b4b8-88ebdfc4ccca",
-      name: "Tracy Reinger",
+      id: "929921ae-fb9f-458c-8d86-e68e4be05601",
+      name: "Shawna Hamill",
     },
-    currency: "EUR",
-    currencyRate: 8022.16,
+    currency: "USD",
+    currencyRate: 4585.03,
     date: "2022-10-23T00:00:00.000Z",
     id: "3d5a8e00-d108-4045-8823-7f342676cffa",
     lines: [
       {
         allocatedOnDate: "2022-10-23T00:00:00.000Z",
-        amount: 8662.92,
+        amount: 3361.02,
         links: [
           {
-            amount: 9274.9,
-            currencyRate: 837.91,
-            id: "0873e42b-006d-4678-878b-a8581a58208c",
-            type: BillPaymentLineLinkType.Other,
+            amount: 8806.79,
+            currencyRate: 7746.84,
+            id: "fef66ef1-caa3-4383-82be-b477373c8d72",
+            type: BillPaymentLineLinkType.Discount,
           },
           {
-            amount: 2864.53,
-            currencyRate: 9580.68,
-            id: "efa9c95f-2eac-4556-9d30-7cfee81206e2",
-            type: BillPaymentLineLinkType.BillPayment,
+            amount: 4269.04,
+            currencyRate: 3008.24,
+            id: "d1db1f2c-4310-4661-a963-49e1cf9e06e3",
+            type: BillPaymentLineLinkType.PaymentOnAccount,
           },
           {
-            amount: 1227.44,
-            currencyRate: 2001.9,
-            id: "fa4a41c4-80d3-4f21-b2af-03102d514f4c",
-            type: BillPaymentLineLinkType.Refund,
-          },
-          {
-            amount: 4044.22,
-            currencyRate: 9980.23,
-            id: "18bf9621-a6a4-4f77-a87e-e3e4be752c65",
-            type: BillPaymentLineLinkType.Refund,
-          },
-        ],
-      },
-      {
-        allocatedOnDate: "2022-10-23T00:00:00.000Z",
-        amount: 2848.85,
-        links: [
-          {
-            amount: 1039.88,
-            currencyRate: 5069.66,
-            id: "e3bb91c8-d975-4e0e-8419-d8f84f144f3e",
+            amount: 2503.98,
+            currencyRate: 2244.67,
+            id: "7000ae6b-6bc9-4b8f-b59e-ac55a9741d31",
             type: BillPaymentLineLinkType.Unknown,
           },
-          {
-            amount: 4587.23,
-            currencyRate: 8913.02,
-            id: "dcc4aa5f-3cab-4d90-9a97-2e056728227b",
-            type: BillPaymentLineLinkType.Unlinked,
-          },
         ],
       },
       {
         allocatedOnDate: "2022-10-23T00:00:00.000Z",
-        amount: 1998.79,
+        amount: 3220.17,
         links: [
           {
-            amount: 5751.39,
-            currencyRate: 2913.89,
-            id: "70bf7a4f-a87c-4f53-9a6f-ae54ebf60c32",
-            type: BillPaymentLineLinkType.Unlinked,
+            amount: 6113.28,
+            currencyRate: 4030.26,
+            id: "5bb8a720-2611-4435-a139-dbc2259b1abd",
+            type: BillPaymentLineLinkType.PaymentOnAccount,
           },
         ],
       },
@@ -112,41 +92,38 @@ sdk.billPayments.create({
     modifiedDate: "2022-10-23T00:00:00.000Z",
     note: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
     paymentMethodRef: {
-      id: "023b75d2-367f-4e1a-8cc8-df79f0a396d9",
-      name: "Leticia Donnelly",
+      id: "c070e108-4cb0-4672-91ad-879eeb9665b8",
+      name: "Cecelia Wiza",
     },
-    reference: "expedita",
+    reference: "alias",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "sunt": {
-          "nulla": "maiores",
-          "distinctio": "mollitia",
+        "fuga": {
+          "accusantium": "expedita",
+          "officiis": "eos",
+          "quibusdam": "odio",
+          "praesentium": "odit",
         },
-        "impedit": {
-          "et": "quas",
-          "blanditiis": "cum",
-          "dicta": "impedit",
-          "tempora": "eveniet",
+        "explicabo": {
+          "error": "earum",
+          "adipisci": "recusandae",
         },
-        "repudiandae": {
-          "impedit": "quas",
-        },
-        "impedit": {
-          "eligendi": "recusandae",
-          "ex": "beatae",
+        "similique": {
+          "quidem": "quis",
+          "beatae": "unde",
         },
       },
     },
     supplierRef: {
-      id: "1feeb1c7-cbdb-46ee-8743-78ba25317747",
-      supplierName: "nulla",
+      id: "7f92443d-a7ce-452b-895c-537c6454efb0",
+      supplierName: "libero",
     },
     totalAmount: 1329.54,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 771406,
+  timeoutInMinutes: 189753,
 }).then((res: CreateBillPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -170,19 +147,21 @@ sdk.billPayments.create({
 
 ## delete
 
-﻿The _Delete Bill Payments_ endpoint allows you to delete a specified Bill Payment from an accounting platform.
+﻿The *Delete bill payment* endpoint allows you to delete a specified bill payment from an accounting platform.
+
+[Bill payments](https://docs.codat.io/accounting-api#/schemas/BillPayment) are an allocation of money within any customer accounts payable account.
 
 ### Process
-1. Pass the `{billPaymentId}` to the _Delete Bill Payments_ endpoint and store the `pushOperationKey` returned.
+1. Pass the `{billPaymentId}` to the *Delete bill payment* endpoint and store the `pushOperationKey` returned.
 2. Check the status of the delete operation by checking the status of push operation either via
-    1. [Push operation webhook](/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
+    1. [Push operation webhook](https://docs.codat.io/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
     2. [Push operation status endpoint](https://docs.codat.io/codat-api#/operations/get-push-operation).
 
-   A `Success` status indicates that the Bill Payment object was deleted from the accounting platform.
-3. (Optional) Check that the Bill Payment was deleted from the accounting platform.
+   A `Success` status indicates that the bill payment object was deleted from the accounting platform.
+3. (Optional) Check that the bill payment was deleted from the accounting platform.
 
 ### Effect on related objects
-Be aware that deleting a Bill Payment from an accounting platform might cause related objects to be modified.
+Be aware that deleting a bill payment from an accounting platform might cause related objects to be modified.
 
 ## Integration specifics
 Integrations that support soft delete do not permanently delete the object in the accounting platform.
@@ -209,7 +188,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.billPayments.delete({
-  billPaymentId: "cupiditate",
+  billPaymentId: "labore",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: DeleteBillPaymentResponse) => {
@@ -235,7 +214,14 @@ sdk.billPayments.delete({
 
 ## get
 
-﻿Get a bill payment.
+The *Get bill payment* endpoint returns a single bill payment for a given billPaymentId.
+
+[Bill payments](https://docs.codat.io/accounting-api#/schemas/BillPayment) are an allocation of money within any customer accounts payable account.
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billPayments) for integrations that support getting a specific bill payment.
+
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+
 
 ### Example Usage
 
@@ -251,7 +237,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.billPayments.get({
-  billPaymentId: "illo",
+  billPaymentId: "totam",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetBillPaymentsResponse) => {
   if (res.statusCode == 200) {
@@ -276,11 +262,16 @@ sdk.billPayments.get({
 
 ## getCreateModel
 
-﻿Get create bill payment model.
+The *Get create bill payment model* endpoint returns the expected data for the request payload when creating a [bill payment](https://docs.codat.io/accounting-api#/schemas/BillPayment) for a given company and integration.
 
-> **Supported Integrations**
-> 
-> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billPayments) for integrations that support creating and deleting bill payments.
+[Bill payments](https://docs.codat.io/accounting-api#/schemas/BillPayment) are an allocation of money within any customer accounts payable account.
+
+**Integration-specific behaviour**
+
+See the *response examples* for integration-specific indicative models.
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billPayments) for integrations that support creating a bill payment.
+
 
 ### Example Usage
 
@@ -321,7 +312,12 @@ sdk.billPayments.getCreateModel({
 
 ## list
 
-﻿Gets the latest billPayments for a company, with pagination.
+The *List bill payments* endpoint returns a list of [bill payments](https://docs.codat.io/accounting-api#/schemas/BillPayment) for a given company's connection.
+
+[Bill payments](https://docs.codat.io/accounting-api#/schemas/BillPayment) are an allocation of money within any customer accounts payable account.
+
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+    
 
 ### Example Usage
 
@@ -341,7 +337,7 @@ sdk.billPayments.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "exercitationem",
+  query: "occaecati",
 }).then((res: ListBillPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

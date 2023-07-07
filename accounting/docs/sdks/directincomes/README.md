@@ -17,11 +17,16 @@ Direct incomes
 
 ## create
 
-Posts a new direct income to the accounting package for a given company.
+The *Create direct income* endpoint creates a new [direct income](https://docs.codat.io/accounting-api#/schemas/DirectIncome) for a given company's connection.
+
+[Direct incomes](https://docs.codat.io/accounting-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
+
+**Integration-specific behaviour**
 
 Required data may vary by integration. To see what data to post, first call [Get create direct income model](https://docs.codat.io/accounting-api#/operations/get-create-directIncomes-model).
 
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes) to see which integrations support this endpoint.
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes) for integrations that support creating an account.
+
 
 ### Example Usage
 
@@ -39,164 +44,259 @@ const sdk = new CodatAccounting({
 sdk.directIncomes.create({
   directIncome: {
     contactRef: {
-      dataType: "soluta",
-      id: "6feb9457-c7ed-4af3-9d16-fbf76fd162b3",
+      dataType: "totam",
+      id: "9c8a3263-9da5-4b7b-a902-b881a94f6436",
     },
-    currency: "GBP",
-    currencyRate: 2210,
-    id: "e3023b93-e343-416c-b55b-4313553ccf1c",
+    currency: "USD",
+    currencyRate: 2725.62,
+    id: "a8f0af8c-691d-4732-99fb-af9476a2ae8d",
     issueDate: "2022-10-23T00:00:00.000Z",
     lineItems: [
       {
         accountRef: {
-          id: "4c4adcc9-904c-4519-9b86-48cefa78f1e2",
-          name: "Danny Reinger Sr.",
+          id: "50c8a351-2c73-4784-8930-750a00e966ec",
+          name: "Florence Keeling",
         },
-        description: "saepe",
-        discountAmount: 289.94,
-        discountPercentage: 5725.89,
+        description: "neque",
+        discountAmount: 816.89,
+        discountPercentage: 6064.72,
         itemRef: {
-          id: "52bbb4cb-b19f-4713-995a-4169c1387271",
-          name: "Terry Luettgen",
+          id: "4398c783-c923-498e-93d3-ab7ca3c5ca86",
+          name: "Isabel Okuneva DDS",
         },
-        quantity: 5980.87,
-        subTotal: 8940.82,
-        taxAmount: 2501.58,
+        quantity: 9687.73,
+        subTotal: 8458.89,
+        taxAmount: 3297,
         taxRateRef: {
-          effectiveTaxRate: 3333.54,
-          id: "118c2cc5-7fbd-460b-9a78-ed29a9d4eea8",
-          name: "Alma Hickle",
+          effectiveTaxRate: 8638.28,
+          id: "6989b720-6451-4077-919e-a83d492ed14b",
+          name: "Blake Connelly V",
         },
-        totalAmount: 1452.42,
+        totalAmount: 3475.83,
         trackingCategoryRefs: [
           {
-            id: "4f4c88be-4f27-48fd-9667-e46c51d2ffaa",
-            name: "Carole Smith",
+            id: "545e955d-cc18-45ea-8901-c7c43ad2daa7",
+            name: "Troy Murphy",
           },
           {
-            id: "f234c955-b9bd-4f21-90ab-d9bbcc2725ec",
-            name: "Jeanette Hilpert",
-          },
-          {
-            id: "e0280840-c69e-4f68-a45c-8addfac75450",
-            name: "Miss Michele Douglas",
-          },
-          {
-            id: "632b4391-fdf0-41c3-a91e-8f7bc69d460a",
-            name: "Courtney Trantow",
+            id: "3d230edf-7381-41a1-9538-2bd7ed565076",
+            name: "Christine Sauer",
           },
         ],
-        unitAmount: 7355.86,
+        unitAmount: 9851.55,
+      },
+      {
+        accountRef: {
+          id: "4d739656-4c20-4a07-91a9-61d24a7dbb8f",
+          name: "Shannon Cremin",
+        },
+        description: "perspiciatis",
+        discountAmount: 1421.56,
+        discountPercentage: 7540.53,
+        itemRef: {
+          id: "f7812cb5-12c8-4782-80bf-548f88f8f1bf",
+          name: "Hannah Schmidt",
+        },
+        quantity: 1202.57,
+        subTotal: 9822.77,
+        taxAmount: 1756.76,
+        taxRateRef: {
+          effectiveTaxRate: 195.51,
+          id: "6d5d831d-0081-4090-b670-6673f3a681c5",
+          name: "Vera Kutch",
+        },
+        totalAmount: 9328.07,
+        trackingCategoryRefs: [
+          {
+            id: "42409a21-5e08-4601-889a-5f63e3af3dd9",
+            name: "Marty Nikolaus",
+          },
+          {
+            id: "dcd63483-e4a7-4a98-a4df-37e45b8955d4",
+            name: "Mrs. Tracy Walker",
+          },
+        ],
+        unitAmount: 2578.35,
+      },
+      {
+        accountRef: {
+          id: "82310907-bd35-44c0-92bd-734f02449d86",
+          name: "Edwin Rath",
+        },
+        description: "eaque",
+        discountAmount: 9915.63,
+        discountPercentage: 8906.06,
+        itemRef: {
+          id: "5d911cbf-e749-4caf-85a2-7f69e2c9e6d1",
+          name: "Henrietta Moen",
+        },
+        quantity: 2060.11,
+        subTotal: 6648.58,
+        taxAmount: 8344.57,
+        taxRateRef: {
+          effectiveTaxRate: 2719.56,
+          id: "c6b03108-d9c3-4374-b308-2b94f2ab1fd5",
+          name: "Glenda Boehm",
+        },
+        totalAmount: 7725.66,
+        trackingCategoryRefs: [
+          {
+            id: "26350a46-7143-4789-8e0e-991594d93a74",
+            name: "Jeffrey Dare",
+          },
+        ],
+        unitAmount: 9545.42,
+      },
+      {
+        accountRef: {
+          id: "e3b4b4db-8b77-48eb-b6e1-d2cf502bafb2",
+          name: "Archie Schroeder",
+        },
+        description: "adipisci",
+        discountAmount: 3732.03,
+        discountPercentage: 8526.23,
+        itemRef: {
+          id: "5e65da02-8c3e-4951-a1e3-0fda966489d7",
+          name: "Darryl Kuvalis",
+        },
+        quantity: 2412.36,
+        subTotal: 8992.58,
+        taxAmount: 844.51,
+        taxRateRef: {
+          effectiveTaxRate: 2323.42,
+          id: "a12a6b99-2494-4594-887f-5c843836b86b",
+          name: "Adrienne Stokes",
+        },
+        totalAmount: 2950.58,
+        trackingCategoryRefs: [
+          {
+            id: "5b0449f9-df13-4f4e-adbe-78bf60682589",
+            name: "Kelley Nader",
+          },
+        ],
+        unitAmount: 2274.52,
       },
     ],
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "nisi",
+    note: "corporis",
     paymentAllocations: [
       {
         allocation: {
           allocatedOnDate: "2022-10-23T00:00:00.000Z",
           currency: "GBP",
-          currencyRate: 9517.68,
-          totalAmount: 923.49,
+          currencyRate: 4549.34,
+          totalAmount: 5910.92,
         },
         payment: {
           accountRef: {
-            id: "ef2631c7-c0f0-4f87-bf9d-5c25fd3e0b4a",
-            name: "Blanche Gusikowski",
+            id: "5b785148-d6d5-449e-9635-b33bc0f970c4",
+            name: "Shari Schmeler",
           },
           currency: "GBP",
-          currencyRate: 8051.65,
-          id: "3025711f-42c7-4e7d-8548-be09e41a7a21",
-          note: "ipsam",
+          currencyRate: 5170.23,
+          id: "44225e75-b796-4065-80ef-a6f93b90a1b8",
+          note: "eligendi",
           paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "officia",
-          totalAmount: 901.86,
+          reference: "veniam",
+          totalAmount: 7243.07,
+        },
+      },
+      {
+        allocation: {
+          allocatedOnDate: "2022-10-23T00:00:00.000Z",
+          currency: "GBP",
+          currencyRate: 1317.05,
+          totalAmount: 3572.56,
+        },
+        payment: {
+          accountRef: {
+            id: "4b739f4f-e772-410d-9f65-58c99c722d2b",
+            name: "Steven Weimann",
+          },
+          currency: "GBP",
+          currencyRate: 5286.46,
+          id: "7d9caae0-42dd-47ca-ac9b-4caa1cfe9e15",
+          note: "nulla",
+          paidOnDate: "2022-10-23T00:00:00.000Z",
+          reference: "molestias",
+          totalAmount: 576.67,
         },
       },
       {
         allocation: {
           allocatedOnDate: "2022-10-23T00:00:00.000Z",
           currency: "USD",
-          currencyRate: 2891.08,
-          totalAmount: 6905.07,
+          currencyRate: 455.46,
+          totalAmount: 4952.25,
         },
         payment: {
           accountRef: {
-            id: "a9d59988-192c-4fd0-877c-53e7e7d4ee6e",
-            name: "Miss Robin Marks",
-          },
-          currency: "EUR",
-          currencyRate: 2321.12,
-          id: "84e23967-03fe-4c31-8508-24d189a36a6b",
-          note: "sunt",
-          paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "dolores",
-          totalAmount: 4465.83,
-        },
-      },
-      {
-        allocation: {
-          allocatedOnDate: "2022-10-23T00:00:00.000Z",
-          currency: "EUR",
-          currencyRate: 4576.32,
-          totalAmount: 351.52,
-        },
-        payment: {
-          accountRef: {
-            id: "7aa60c8f-e46e-4617-bdb9-db3b70ffbb69",
-            name: "Sarah VonRueden",
-          },
-          currency: "USD",
-          currencyRate: 580.86,
-          id: "e36097ef-7c20-46e6-9b0d-308714c20a3d",
-          note: "perspiciatis",
-          paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "ea",
-          totalAmount: 1937.94,
-        },
-      },
-      {
-        allocation: {
-          allocatedOnDate: "2022-10-23T00:00:00.000Z",
-          currency: "EUR",
-          currencyRate: 6699.87,
-          totalAmount: 5213.33,
-        },
-        payment: {
-          accountRef: {
-            id: "5c3fe655-74db-4af9-8a7c-98f13af28db2",
-            name: "Timmy Cruickshank",
+            id: "f3783198-3d42-4e54-a854-66597c50233c",
+            name: "Dr. Pauline Koss",
           },
           currency: "GBP",
-          currencyRate: 9761.21,
-          id: "3ded356d-7e14-4b21-8d98-196d55af69a1",
-          note: "quod",
+          currencyRate: 6798.99,
+          id: "aa6ddf5a-bd64-487c-9fc2-b862a00bef69",
+          note: "saepe",
           paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "facilis",
-          totalAmount: 4962.61,
+          reference: "aperiam",
+          totalAmount: 617.28,
+        },
+      },
+      {
+        allocation: {
+          allocatedOnDate: "2022-10-23T00:00:00.000Z",
+          currency: "GBP",
+          currencyRate: 4998.83,
+          totalAmount: 3808.84,
+        },
+        payment: {
+          accountRef: {
+            id: "30bda7af-ded8-44a3-9a41-238e1a735ac2",
+            name: "Kristi Turcotte",
+          },
+          currency: "EUR",
+          currencyRate: 9305.47,
+          id: "f971a8f4-6bca-4110-afe9-65b711d08cf8",
+          note: "deleniti",
+          paidOnDate: "2022-10-23T00:00:00.000Z",
+          reference: "cumque",
+          totalAmount: 6116.3,
         },
       },
     ],
-    reference: "natus",
+    reference: "reiciendis",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    subTotal: 9064.68,
+    subTotal: 7293.47,
     supplementalData: {
       content: {
-        "non": {
-          "praesentium": "beatae",
-          "eligendi": "eos",
+        "occaecati": {
+          "nemo": "quis",
+          "doloremque": "similique",
+          "eum": "quis",
+        },
+        "commodi": {
+          "possimus": "dolor",
+          "ratione": "velit",
+          "soluta": "cum",
+          "accusantium": "quo",
+        },
+        "officiis": {
+          "est": "fuga",
+          "autem": "quis",
+          "modi": "consectetur",
         },
       },
     },
-    taxAmount: 2240.34,
-    totalAmount: 7581.17,
+    taxAmount: 1844.01,
+    totalAmount: 6424.34,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 211693,
+  timeoutInMinutes: 585645,
 }).then((res: CreateDirectIncomeResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -220,7 +320,12 @@ sdk.directIncomes.create({
 
 ## downloadAttachment
 
-Downloads an attachment for the specified direct income for a given company.
+The *Download direct income attachment* endpoint downloads a specific attachment for a given `directIncomeId` and `attachmentId`.
+
+[Direct incomes](https://docs.codat.io/accounting-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes) for integrations that support downloading a direct income attachment.
+
 
 ### Example Usage
 
@@ -238,7 +343,7 @@ sdk.directIncomes.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "omnis",
+  directIncomeId: "rem",
 }).then((res: DownloadDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -262,7 +367,14 @@ sdk.directIncomes.downloadAttachment({
 
 ## get
 
-Gets the specified direct income for a given company and connection.
+The *Get direct income* endpoint returns a single direct income for a given directIncomeId.
+
+[Direct incomes](https://docs.codat.io/accounting-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes) for integrations that support getting a specific direct income.
+
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+
 
 ### Example Usage
 
@@ -279,7 +391,7 @@ const sdk = new CodatAccounting({
 sdk.directIncomes.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "fuga",
+  directIncomeId: "ea",
 }).then((res: GetDirectIncomeResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -303,7 +415,12 @@ sdk.directIncomes.get({
 
 ## getAttachment
 
-Gets the specified direct income attachment for a given company.
+The *Get direct income attachment* endpoint returns a specific attachment for a given `directIncomeId` and `attachmentId`.
+
+[Direct incomes](https://docs.codat.io/accounting-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes) for integrations that support getting a direct income attachment.
+
 
 ### Example Usage
 
@@ -321,8 +438,8 @@ sdk.directIncomes.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "voluptate",
-  timeoutInMinutes: 780639,
+  directIncomeId: "debitis",
+  timeoutInMinutes: 743023,
 }).then((res: GetDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -346,13 +463,16 @@ sdk.directIncomes.getAttachment({
 
 ## getCreateModel
 
-Get create direct income model. Returns the expected data for the request payload.
+The *Get create direct income model* endpoint returns the expected data for the request payload when creating a [direct income](https://docs.codat.io/accounting-api#/schemas/DirectIncome) for a given company and integration.
 
-See the examples for integration-specific indicative models.
+[Direct incomes](https://docs.codat.io/accounting-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
 
-> **Supported Integrations**
-> 
-> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes) for integrations that support creating direct incomes.
+**Integration-specific behaviour**
+
+See the *response examples* for integration-specific indicative models.
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes) for integrations that support creating a direct income.
+
 
 ### Example Usage
 
@@ -393,7 +513,12 @@ sdk.directIncomes.getCreateModel({
 
 ## list
 
-Lists the direct incomes for a given company.
+The *List direct incomes* endpoint returns a list of [direct incomes](https://docs.codat.io/accounting-api#/schemas/DirectIncome) for a given company's connection.
+
+[Direct incomes](https://docs.codat.io/accounting-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
+
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+    
 
 ### Example Usage
 
@@ -413,7 +538,7 @@ sdk.directIncomes.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "consequatur",
+  query: "odio",
 }).then((res: ListDirectIncomesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -437,7 +562,12 @@ sdk.directIncomes.list({
 
 ## listAttachments
 
-Gets all attachments for the specified direct income for a given company.
+The *List direct income attachments* endpoint returns a list of attachments available to download for given `directIncomeId`.
+
+[Direct incomes](https://docs.codat.io/accounting-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes) for integrations that support listing direct income attachments.
+
 
 ### Example Usage
 
@@ -454,7 +584,7 @@ const sdk = new CodatAccounting({
 sdk.directIncomes.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "officiis",
+  directIncomeId: "eveniet",
 }).then((res: ListDirectIncomeAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -478,7 +608,16 @@ sdk.directIncomes.listAttachments({
 
 ## uploadAttachment
 
-Posts a new direct income attachment for a given company.
+The *Upload direct income attachment* endpoint uploads an attachment and assigns it against a specific `directIncomeId`.
+
+[Direct incomes](https://docs.codat.io/accounting-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
+
+**Integration-specific behaviour**
+
+For more details on supported file types by integration see [Attachments](https://docs.codat.io/accounting-api#/schemas/Attachment).
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes) for integrations that support uploading a direct income attachment.
+
 
 ### Example Usage
 
@@ -494,12 +633,12 @@ const sdk = new CodatAccounting({
 
 sdk.directIncomes.uploadAttachment({
   requestBody: {
-    content: "ab".encode(),
-    requestBody: "in",
+    content: "beatae".encode(),
+    requestBody: "dolore",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "optio",
+  directIncomeId: "quisquam",
 }).then((res: UploadDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response

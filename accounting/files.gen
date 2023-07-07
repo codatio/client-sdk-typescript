@@ -49,7 +49,7 @@ src/sdk/models/operations/getaccount.ts
 src/sdk/models/operations/getcreatechartofaccountsmodel.ts
 src/sdk/models/operations/listaccounts.ts
 src/sdk/models/operations/createbanktransactions.ts
-src/sdk/models/operations/getcreatebankaccountmodel.ts
+src/sdk/models/operations/getcreatebanktransactionsmodel.ts
 src/sdk/models/operations/listbankaccounttransactions.ts
 src/sdk/models/operations/createbankaccount.ts
 src/sdk/models/operations/getbankaccount.ts
@@ -109,7 +109,7 @@ src/sdk/models/operations/listdirectincomeattachments.ts
 src/sdk/models/operations/uploaddirectincomeattachment.ts
 src/sdk/models/operations/createinvoice.ts
 src/sdk/models/operations/deleteinvoice.ts
-src/sdk/models/operations/downloadinvoicesattachment.ts
+src/sdk/models/operations/downloadinvoiceattachment.ts
 src/sdk/models/operations/downloadinvoicepdf.ts
 src/sdk/models/operations/getinvoice.ts
 src/sdk/models/operations/getinvoiceattachment.ts
@@ -397,8 +397,8 @@ docs/models/operations/listaccounts409applicationjson.md
 docs/models/operations/listaccountsresponse.md
 docs/models/operations/createbanktransactionsrequest.md
 docs/models/operations/createbanktransactionsresponse.md
-docs/models/operations/getcreatebankaccountmodelrequest.md
-docs/models/operations/getcreatebankaccountmodelresponse.md
+docs/models/operations/getcreatebanktransactionsmodelrequest.md
+docs/models/operations/getcreatebanktransactionsmodelresponse.md
 docs/models/operations/listbankaccounttransactionsrequest.md
 docs/models/operations/listbankaccounttransactions409applicationjson.md
 docs/models/operations/listbankaccounttransactionsresponse.md
@@ -538,8 +538,8 @@ docs/models/operations/createinvoicerequest.md
 docs/models/operations/createinvoiceresponse.md
 docs/models/operations/deleteinvoicerequest.md
 docs/models/operations/deleteinvoiceresponse.md
-docs/models/operations/downloadinvoicesattachmentrequest.md
-docs/models/operations/downloadinvoicesattachmentresponse.md
+docs/models/operations/downloadinvoiceattachmentrequest.md
+docs/models/operations/downloadinvoiceattachmentresponse.md
 docs/models/operations/downloadinvoicepdfrequest.md
 docs/models/operations/downloadinvoicepdfresponse.md
 docs/models/operations/getinvoicerequest.md

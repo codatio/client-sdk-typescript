@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class DownloadInvoicesAttachmentRequest extends SpeakeasyBase {
+export class DownloadInvoiceAttachmentRequest extends SpeakeasyBase {
     /**
      * Unique identifier for an attachment
      */
@@ -26,7 +26,7 @@ export class DownloadInvoicesAttachmentRequest extends SpeakeasyBase {
     invoiceId: string;
 }
 
-export class DownloadInvoicesAttachmentResponse extends SpeakeasyBase {
+export class DownloadInvoiceAttachmentResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
 

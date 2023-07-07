@@ -13,11 +13,16 @@ Transfers
 
 ## create
 
-Posts a new transfer to the accounting package for a given company.
+The *Create transfer* endpoint creates a new [transfer](https://docs.codat.io/accounting-api#/schemas/Transfer) for a given company's connection.
+
+[Transfers](https://docs.codat.io/accounting-api#/schemas/Transfer) record the movement of money between two bank accounts, or between a bank account and a nominal account.
+
+**Integration-specific behaviour**
 
 Required data may vary by integration. To see what data to post, first call [Get create transfer model](https://docs.codat.io/accounting-api#/operations/get-create-transfers-model).
 
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=transfers) to see which integrations support this endpoint.
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=transfers) for integrations that support creating an account.
+
 
 ### Example Usage
 
@@ -35,38 +40,38 @@ const sdk = new CodatAccounting({
 sdk.transfers.create({
   transfer: {
     contactRef: {
-      dataType: "maiores",
-      id: "a2795836-7363-4da0-b909-6faeb8648073",
+      dataType: "laudantium",
+      id: "1ddf7e08-8f74-4ef5-8c92-16e8926313bb",
     },
     date: "2022-10-23T00:00:00.000Z",
     depositedRecordRefs: [
       {
-        dataType: "laudantium",
-        id: "f8b89d9c-a607-4565-afc0-ebe67155e2d0",
+        dataType: "quo",
+        id: "2c8d2701-096b-466a-96e3-e1d9d3b66033",
       },
       {
-        dataType: "autem",
-        id: "a3070d6e-297f-4581-baba-aa7d80108807",
+        dataType: "quaerat",
+        id: "a11aa1d5-d224-47de-9b3d-46170e768a96",
       },
       {
-        dataType: "laboriosam",
-        id: "ff5f6ed2-9814-4088-a69b-6a70b0dd82f9",
+        dataType: "nobis",
+        id: "b3987883-98eb-4a1b-bf71-43356f6349a1",
       },
       {
-        dataType: "numquam",
-        id: "fffbd1e1-e21d-4dc6-9038-b1d187b51eb5",
+        dataType: "voluptas",
+        id: "4249b211-ce46-4b95-9652-b158ca9142f0",
       },
     ],
-    description: "doloribus",
+    description: "veniam",
     from: {
       accountRef: {
-        id: "d30bfe03-490c-4f20-a54a-959043cb462d",
-        name: "Karla Schimmel",
+        id: "2632b31c-ad69-42ff-8874-5005e9d3d934",
+        name: "Kevin Franecki",
       },
-      amount: 944.75,
-      currency: "USD",
+      amount: 3566.2,
+      currency: "EUR",
     },
-    id: "f98e4792-b979-4a41-bd6a-8c91683bd861",
+    id: "388664f6-9855-430a-ae2a-ed6aaf863c28",
     metadata: {
       isDeleted: false,
     },
@@ -74,52 +79,30 @@ sdk.transfers.create({
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "natus": {
-          "quod": "quo",
-          "repellat": "voluptatum",
-          "excepturi": "illum",
+        "aut": {
+          "vel": "perspiciatis",
+          "id": "amet",
+          "pariatur": "iste",
+          "voluptatem": "voluptas",
         },
-        "amet": {
-          "ex": "quae",
-          "beatae": "praesentium",
-          "commodi": "vero",
-        },
-        "temporibus": {
-          "nisi": "minus",
-          "eaque": "consequatur",
-        },
-        "magni": {
-          "est": "cumque",
-          "harum": "dicta",
-          "nesciunt": "dolorum",
-          "placeat": "sed",
+        "hic": {
+          "officiis": "soluta",
+          "at": "nostrum",
         },
       },
     },
     to: {
       accountRef: {
-        id: "4c8143b8-66c5-475a-9e26-68730be37b0e",
-        name: "Terrell Reichert",
+        id: "ad7ec739-4f25-4f63-8b37-30714e6be8c3",
+        name: "Michael Mertz",
       },
-      amount: 5391.45,
+      amount: 3122.98,
       currency: "EUR",
     },
     trackingCategoryRefs: [
       {
-        id: "c7e69b53-5105-4050-94dc-a105882484c3",
-        name: "Raquel Metz",
-      },
-      {
-        id: "892782d3-4e0b-48fc-8d59-f57b9f9820be",
-        name: "Ms. Heidi Lind",
-      },
-      {
-        id: "36c9e2f7-0344-4e00-b478-eb539483f748",
-        name: "Santiago Windler",
-      },
-      {
-        id: "b69d541b-4b39-43f3-9666-25bea32201de",
-        name: "Earl Kiehn",
+        id: "42ac299a-6e5e-47ae-b134-02e945f53743",
+        name: "Moses Schulist Jr.",
       },
     ],
   },
@@ -148,7 +131,14 @@ sdk.transfers.create({
 
 ## get
 
-Gets the specified transfer for a given company.
+The *Get transfer* endpoint returns a single transfer for a given transferId.
+
+[Transfers](https://docs.codat.io/accounting-api#/schemas/Transfer) record the movement of money between two bank accounts, or between a bank account and a nominal account.
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=transfers) for integrations that support getting a specific transfer.
+
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+
 
 ### Example Usage
 
@@ -165,7 +155,7 @@ const sdk = new CodatAccounting({
 sdk.transfers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  transferId: "voluptas",
+  transferId: "sint",
 }).then((res: GetTransferResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -189,13 +179,16 @@ sdk.transfers.get({
 
 ## getCreateModel
 
-Get create transfer model. Returns the expected data for the request payload.
+The *Get create transfer model* endpoint returns the expected data for the request payload when creating a [transfer](https://docs.codat.io/accounting-api#/schemas/Transfer) for a given company and integration.
 
-See the examples for integration-specific indicative models.
+[Transfers](https://docs.codat.io/accounting-api#/schemas/Transfer) record the movement of money between two bank accounts, or between a bank account and a nominal account.
 
-> **Supported Integrations**
-> 
-> Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=transfers) for integrations that support creating transfers.
+**Integration-specific behaviour**
+
+See the *response examples* for integration-specific indicative models.
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=transfers) for integrations that support creating a transfer.
+
 
 ### Example Usage
 
@@ -236,7 +229,12 @@ sdk.transfers.getCreateModel({
 
 ## list
 
-Gets the transfers for a given company.
+The *List transfers* endpoint returns a list of [transfers](https://docs.codat.io/accounting-api#/schemas/Transfer) for a given company's connection.
+
+[Transfers](https://docs.codat.io/accounting-api#/schemas/Transfer) record the movement of money between two bank accounts, or between a bank account and a nominal account.
+
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+    
 
 ### Example Usage
 
@@ -256,7 +254,7 @@ sdk.transfers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "error",
+  query: "praesentium",
 }).then((res: ListTransfersResponse) => {
   if (res.statusCode == 200) {
     // handle response
