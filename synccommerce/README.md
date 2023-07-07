@@ -56,7 +56,6 @@ sdk.companyManagement.createCompany({
 ### [configuration](docs/sdks/configuration/README.md)
 
 * [getConfiguration](docs/sdks/configuration/README.md#getconfiguration) - Retrieve config preferences set for a company.
-* [getSyncStatus](docs/sdks/configuration/README.md#getsyncstatus) - Get status for a company's syncs
 * [setConfiguration](docs/sdks/configuration/README.md#setconfiguration) - Create or update configuration.
 
 ### [integrations](docs/sdks/integrations/README.md)
@@ -66,6 +65,7 @@ sdk.companyManagement.createCompany({
 
 ### [sync](docs/sdks/sync/README.md)
 
+* [getSyncStatus](docs/sdks/sync/README.md#getsyncstatus) - Get status for a company's syncs
 * [requestSync](docs/sdks/sync/README.md#requestsync) - Sync new
 * [requestSyncForDateRange](docs/sdks/sync/README.md#requestsyncfordaterange) - Sync range
 
