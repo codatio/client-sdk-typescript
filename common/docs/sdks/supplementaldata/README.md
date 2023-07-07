@@ -31,17 +31,19 @@ const sdk = new CodatCommon({
 });
 
 sdk.supplementalData.configure({
-  requestBody: {
-    "reiciendis": {
-      dataSource: "est",
-      pullData: {
-        "laborum": "dolores",
-        "dolorem": "corporis",
-        "explicabo": "nobis",
-      },
-      pushData: {
-        "omnis": "nemo",
-        "minima": "excepturi",
+  supplementalDataConfiguration: {
+    supplementalDataConfig: {
+      "reiciendis": {
+        dataSource: "est",
+        pullData: {
+          "laborum": "dolores",
+          "dolorem": "corporis",
+          "explicabo": "nobis",
+        },
+        pushData: {
+          "omnis": "nemo",
+          "minima": "excepturi",
+        },
       },
     },
   },

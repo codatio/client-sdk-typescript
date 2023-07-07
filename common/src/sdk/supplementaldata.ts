@@ -51,7 +51,11 @@ export class SupplementalData {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "json");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+                req,
+                "supplementalDataConfiguration",
+                "json"
+            );
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -187,12 +191,9 @@ export class SupplementalData {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.supplementalDataConfiguration = {};
-                    const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.supplementalDataConfiguration = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.SupplementalDataConfiguration,
-                        resFieldDepth
+                        shared.SupplementalDataConfiguration
                     );
                 }
                 break;

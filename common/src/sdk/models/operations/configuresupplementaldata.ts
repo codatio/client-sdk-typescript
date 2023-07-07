@@ -37,11 +37,8 @@ export class ConfigureSupplementalDataRequest extends SpeakeasyBase {
     /**
      * The configuration for the specified platform and data type.
      */
-    @SpeakeasyMetadata({
-        data: "request, media_type=application/json",
-        elemType: shared.SupplementalDataConfiguration,
-    })
-    requestBody?: Record<string, shared.SupplementalDataConfiguration>;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    supplementalDataConfiguration?: shared.SupplementalDataConfiguration;
 
     /**
      * Data types that support supplemental data

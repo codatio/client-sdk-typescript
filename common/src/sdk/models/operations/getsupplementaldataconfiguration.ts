@@ -63,6 +63,6 @@ export class GetSupplementalDataConfigurationResponse extends SpeakeasyBase {
     /**
      * OK
      */
-    @SpeakeasyMetadata({ elemType: shared.SupplementalDataConfiguration })
-    supplementalDataConfiguration?: Record<string, shared.SupplementalDataConfiguration>;
+    @SpeakeasyMetadata()
+    supplementalDataConfiguration?: shared.SupplementalDataConfiguration;
 }
