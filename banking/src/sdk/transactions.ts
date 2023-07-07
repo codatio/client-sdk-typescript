@@ -22,7 +22,14 @@ export class Transactions {
      * Get bank transaction
      *
      * @remarks
-     * Gets a specified bank transaction for a given company
+     * The *Get transaction* endpoint returns a single transaction for a given transactionId.
+     *
+     * [Transactions](https://docs.codat.io/banking-api#/schemas/Transaction) provide an immutable source of up-to-date information on income and expenditure.
+     *
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/banking?view=tab-by-data-type&dataType=banking-transactions) for integrations that support getting a specific transaction.
+     *
+     * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+     *
      */
     async get(
         req: operations.GetTransactionRequest,
@@ -101,7 +108,12 @@ export class Transactions {
      * List transactions
      *
      * @remarks
-     * Gets a list of transactions incurred by a bank account.
+     * The *List transactions* endpoint returns a list of [transactions](https://docs.codat.io/banking-api#/schemas/Transaction) for a given company's connection.
+     *
+     * [Transactions](https://docs.codat.io/banking-api#/schemas/Transaction) provide an immutable source of up-to-date information on income and expenditure.
+     *
+     * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+     *
      */
     async list(
         req: operations.ListTransactionsRequest,
@@ -194,7 +206,12 @@ export class Transactions {
      * List banking transactions
      *
      * @remarks
-     * Gets a list of transactions incurred by a company across all bank accounts.
+     * The *List transactions* endpoint returns a list of [transactions](https://docs.codat.io/banking-api#/schemas/Transaction) for a given company's connection.
+     *
+     * [Transactions](https://docs.codat.io/banking-api#/schemas/Transaction) provide an immutable source of up-to-date information on income and expenditure.
+     *
+     * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
+     *
      *
      * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible. Use list instead
      */
