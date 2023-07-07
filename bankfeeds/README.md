@@ -22,8 +22,7 @@ yarn add @codat/bank-feeds
 <!-- Start SDK Example Usage -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { CreateBankTransactionsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-import { DataType, PushChangeType, PushOperationStatus } from "@codat/bank-feeds/dist/sdk/models/shared";
+import { CreateBankAccountMappingResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -31,36 +30,15 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-sdk.bankAccountTransactions.create({
-  createBankTransactions: {
-    accountId: "corrupti",
-    transactions: [
-      {
-        amount: 7151.9,
-        date: "2022-10-23T00:00:00.000Z",
-        description: "unde",
-        id: "d8d69a67-4e0f-4467-8c87-96ed151a05df",
-      },
-      {
-        amount: 7781.57,
-        date: "2022-10-23T00:00:00.000Z",
-        description: "at",
-        id: "df7cc78c-a1ba-4928-bc81-6742cb739205",
-      },
-      {
-        amount: 6176.36,
-        date: "2022-10-23T00:00:00.000Z",
-        description: "iste",
-        id: "396fea75-96eb-410f-aaa2-352c5955907a",
-      },
-    ],
+sdk.bankAccountMapping.create({
+  bankFeedAccountMapping: {
+    feedStartDate: "2022-10-23T00:00:00.000Z",
+    sourceAccountId: "provident",
+    targetAccountId: "distinctio",
   },
-  accountId: "EILBDVJVNUAGVKRQ",
-  allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 958950,
-}).then((res: CreateBankTransactionsResponse) => {
+}).then((res: CreateBankAccountMappingResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -72,17 +50,23 @@ sdk.bankAccountTransactions.create({
 ## Available Resources and Operations
 
 
+### [bankAccountMapping](docs/sdks/bankaccountmapping/README.md)
+
+* [create](docs/sdks/bankaccountmapping/README.md#create) - Create bank feed bank account mapping
+* [get](docs/sdks/bankaccountmapping/README.md#get) - List bank feed account mappings
+
 ### [bankAccountTransactions](docs/sdks/bankaccounttransactions/README.md)
 
-* [create](docs/sdks/bankaccounttransactions/README.md#create) - Create bank transactions
-* [get](docs/sdks/bankaccounttransactions/README.md#get) - List push options for bank account bank transactions
-* [list](docs/sdks/bankaccounttransactions/README.md#list) - List bank transactions for bank account
+* [create](docs/sdks/bankaccounttransactions/README.md#create) - Create bank account transactions
+* [getCreateModel](docs/sdks/bankaccounttransactions/README.md#getcreatemodel) - Get create bank account transactions model
+* [list](docs/sdks/bankaccounttransactions/README.md#list) - List bank account transactions
 
 ### [bankFeedAccounts](docs/sdks/bankfeedaccounts/README.md)
 
-* [create](docs/sdks/bankfeedaccounts/README.md#create) - Create bank feed bank accounts
-* [get](docs/sdks/bankfeedaccounts/README.md#get) - List bank feed bank accounts
-* [update](docs/sdks/bankfeedaccounts/README.md#update) - Update bank feed bank account
+* [create](docs/sdks/bankfeedaccounts/README.md#create) - Create a bank feed bank account
+* [list](docs/sdks/bankfeedaccounts/README.md#list) - List bank feed bank accounts
+* [~~putBankFeed~~](docs/sdks/bankfeedaccounts/README.md#putbankfeed) - Create bank feed bank accounts :warning: **Deprecated**
+* [~~update~~](docs/sdks/bankfeedaccounts/README.md#update) - Update bank feed bank account :warning: **Deprecated**
 
 ### [companies](docs/sdks/companies/README.md)
 

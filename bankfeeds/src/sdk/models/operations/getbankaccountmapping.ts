@@ -6,13 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class GetCreateBankAccountModelRequest extends SpeakeasyBase {
-    /**
-     * Unique identifier for an account
-     */
-    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=accountId" })
-    accountId: string;
-
+export class GetBankAccountMappingRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 
@@ -20,15 +14,15 @@ export class GetCreateBankAccountModelRequest extends SpeakeasyBase {
     connectionId: string;
 }
 
-export class GetCreateBankAccountModelResponse extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    contentType: string;
-
+export class GetBankAccountMappingResponse extends SpeakeasyBase {
     /**
      * Success
      */
     @SpeakeasyMetadata()
-    pushOption?: shared.PushOption;
+    bankFeedMappings?: shared.BankFeedMappings;
+
+    @SpeakeasyMetadata()
+    contentType: string;
 
     @SpeakeasyMetadata()
     statusCode: number;

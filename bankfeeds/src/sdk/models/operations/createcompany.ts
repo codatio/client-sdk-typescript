@@ -23,7 +23,7 @@ export class CreateCompanyResponse extends SpeakeasyBase {
     rawResponse?: AxiosResponse;
 
     /**
-     * Your API request was not properly authorized.
+     * The request made is not valid.
      */
     @SpeakeasyMetadata()
     schema?: shared.Schema;

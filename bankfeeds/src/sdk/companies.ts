@@ -22,7 +22,11 @@ export class Companies {
      * Create company
      *
      * @remarks
-     * Create a new company
+     * Creates a new company that can be used to assign connections to.
+     *
+     * If forbidden characters (see `name` pattern) are present in the request, a company will be created with the forbidden characters removed. For example, `Company (Codat[1])` with be created as `Company Codat1`.
+     *
+     *
      */
     async create(
         req: shared.CompanyRequestBody,
@@ -96,7 +100,7 @@ export class Companies {
                     res.company = utils.objectToClass(JSON.parse(decodedRes), shared.Company);
                 }
                 break;
-            case [401, 429].includes(httpRes?.status):
+            case [400, 401, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
                 }
@@ -110,8 +114,8 @@ export class Companies {
      * Delete a company
      *
      * @remarks
-     * Delete the given company from Codat.
-     * This operation is not reversible.
+     *
+     * Permanently deletes a company, its connections and any cached data. This operation is irreversible. If the company ID does not exist an error is returned.
      */
     async delete(
         req: operations.DeleteCompanyRequest,
@@ -185,7 +189,7 @@ export class Companies {
      * Get company
      *
      * @remarks
-     * Get metadata for a single company
+     * Returns the company for a valid identifier. If the identifier is for a deleted company, a not found response is returned.
      */
     async get(
         req: operations.GetCompanyRequest,
@@ -262,7 +266,7 @@ export class Companies {
      * List companies
      *
      * @remarks
-     * List all companies that you have created in Codat.
+     * Returns a list of your companies. The company schema contains a list of [connections](https://docs.codat.io/codat-api#/schemas/Connection) related to the company.
      */
     async list(
         req: operations.ListCompaniesRequest,
@@ -340,7 +344,7 @@ export class Companies {
      * Update company
      *
      * @remarks
-     * Updates the given company with a new name and description
+     * Updates both the name and description of the company.
      */
     async update(
         req: operations.UpdateCompanyRequest,

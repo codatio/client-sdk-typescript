@@ -6,9 +6,9 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class CreateBankFeedRequest extends SpeakeasyBase {
+export class CreateBankAccountMappingRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    bankFeedAccount?: shared.BankFeedAccount;
+    bankFeedAccountMapping?: shared.BankFeedAccountMapping;
 
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
@@ -17,12 +17,12 @@ export class CreateBankFeedRequest extends SpeakeasyBase {
     connectionId: string;
 }
 
-export class CreateBankFeedResponse extends SpeakeasyBase {
+export class CreateBankAccountMappingResponse extends SpeakeasyBase {
     /**
      * Success
      */
     @SpeakeasyMetadata()
-    bankFeedAccount?: shared.BankFeedAccount;
+    accountMappingResult?: shared.AccountMappingResult;
 
     @SpeakeasyMetadata()
     contentType: string;

@@ -6,9 +6,12 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class CreateBankFeedRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    bankFeedAccount?: shared.BankFeedAccount;
+export class PutBankFeedRequest extends SpeakeasyBase {
+    @SpeakeasyMetadata({
+        data: "request, media_type=application/json",
+        elemType: shared.BankFeedAccount,
+    })
+    requestBody?: shared.BankFeedAccount[];
 
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
@@ -17,12 +20,12 @@ export class CreateBankFeedRequest extends SpeakeasyBase {
     connectionId: string;
 }
 
-export class CreateBankFeedResponse extends SpeakeasyBase {
+export class PutBankFeedResponse extends SpeakeasyBase {
     /**
      * Success
      */
-    @SpeakeasyMetadata()
-    bankFeedAccount?: shared.BankFeedAccount;
+    @SpeakeasyMetadata({ elemType: shared.BankFeedAccount })
+    bankFeedAccounts?: shared.BankFeedAccount[];
 
     @SpeakeasyMetadata()
     contentType: string;
@@ -34,7 +37,7 @@ export class CreateBankFeedResponse extends SpeakeasyBase {
     rawResponse?: AxiosResponse;
 
     /**
-     * The request made is not valid.
+     * Your API request was not properly authorized.
      */
     @SpeakeasyMetadata()
     schema?: shared.Schema;
