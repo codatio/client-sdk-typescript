@@ -143,7 +143,7 @@ export class BankAccountTransactions {
      * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankTransactions) for integrations that support creating an bank transaction.
      *
      */
-    async get(
+    async getCreateModel(
         req: operations.GetCreateBankTransactionsModelRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig

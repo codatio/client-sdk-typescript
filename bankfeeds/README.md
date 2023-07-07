@@ -58,7 +58,7 @@ sdk.bankAccountMapping.create({
 ### [bankAccountTransactions](docs/sdks/bankaccounttransactions/README.md)
 
 * [create](docs/sdks/bankaccounttransactions/README.md#create) - Create bank account transactions
-* [get](docs/sdks/bankaccounttransactions/README.md#get) - Get create bank account transactions model
+* [getCreateModel](docs/sdks/bankaccounttransactions/README.md#getcreatemodel) - Get create bank account transactions model
 * [list](docs/sdks/bankaccounttransactions/README.md#list) - List bank account transactions
 
 ### [bankFeedAccounts](docs/sdks/bankfeedaccounts/README.md)

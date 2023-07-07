@@ -7,7 +7,7 @@ Bank feed bank accounts
 ### Available Operations
 
 * [create](#create) - Create bank account transactions
-* [get](#get) - Get create bank account transactions model
+* [getCreateModel](#getcreatemodel) - Get create bank account transactions model
 * [list](#list) - List bank account transactions
 
 ## create
@@ -96,7 +96,7 @@ sdk.bankAccountTransactions.create({
 **Promise<[operations.CreateBankTransactionsResponse](../../models/operations/createbanktransactionsresponse.md)>**
 
 
-## get
+## getCreateModel
 
 ﻿The *Get create bank account transactions model* endpoint returns the expected data for the request payload when creating [bank account transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) for a given company and integration.
 
@@ -122,7 +122,7 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-sdk.bankAccountTransactions.get({
+sdk.bankAccountTransactions.getCreateModel({
   accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
