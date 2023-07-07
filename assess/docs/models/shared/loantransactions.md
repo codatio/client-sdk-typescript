@@ -1,0 +1,12 @@
+# LoanTransactions
+
+OK
+
+
+## Fields
+
+| Field                                                                                                                      | Type                                                                                                                       | Required                                                                                                                   | Description                                                                                                                |
+| -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `errors`                                                                                                                   | *any*[]                                                                                                                    | :heavy_minus_sign:                                                                                                         | If there are no errors, an empty array is returned.                                                                        |
+| `reportInfo`                                                                                                               | [LoanTransactionsReportInfo](../../models/shared/loantransactionsreportinfo.md)                                            | :heavy_minus_sign:                                                                                                         | N/A                                                                                                                        |
+| `reportItems`                                                                                                              | [ReportItems1](../../models/shared/reportitems1.md)[]                                                                      | :heavy_minus_sign:                                                                                                         | Contains object of reporting properties. The loan ref will reference a different object depending on the integration type. |

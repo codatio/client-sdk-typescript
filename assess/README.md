@@ -82,7 +82,9 @@ sdk.categories.getAccountCategory({
 * [~~getEnhancedFinancialMetrics~~](docs/sdks/reports/README.md#getenhancedfinancialmetrics) - List financial metrics :warning: **Deprecated**
 * [getEnhancedInvoicesReport](docs/sdks/reports/README.md#getenhancedinvoicesreport) - Get enhanced invoices report
 * [~~getEnhancedProfitAndLoss~~](docs/sdks/reports/README.md#getenhancedprofitandloss) - Get enhanced profit and loss report :warning: **Deprecated**
+* [getLoanSummary](docs/sdks/reports/README.md#getloansummary) - Get enhanced loan summaries
 * [getRecurringRevenueMetrics](docs/sdks/reports/README.md#getrecurringrevenuemetrics) - Get key subscription revenue metrics
+* [listLoanTransactions](docs/sdks/reports/README.md#listloantransactions) - List enhanced loan transactions
 * [requestRecurringRevenueMetrics](docs/sdks/reports/README.md#requestrecurringrevenuemetrics) - Generate key subscription revenue metrics
 <!-- End SDK Available Operations -->
 

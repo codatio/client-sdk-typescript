@@ -18,7 +18,9 @@ Data integrity is important
 * [~~getEnhancedFinancialMetrics~~](#getenhancedfinancialmetrics) - List financial metrics :warning: **Deprecated**
 * [getEnhancedInvoicesReport](#getenhancedinvoicesreport) - Get enhanced invoices report
 * [~~getEnhancedProfitAndLoss~~](#getenhancedprofitandloss) - Get enhanced profit and loss report :warning: **Deprecated**
+* [getLoanSummary](#getloansummary) - Get enhanced loan summaries
 * [getRecurringRevenueMetrics](#getrecurringrevenuemetrics) - Get key subscription revenue metrics
+* [listLoanTransactions](#listloantransactions) - List enhanced loan transactions
 * [requestRecurringRevenueMetrics](#requestrecurringrevenuemetrics) - Generate key subscription revenue metrics
 
 ## getAccountsForEnhancedBalanceSheet
@@ -573,6 +575,46 @@ sdk.reports.getEnhancedProfitAndLoss({
 **Promise<[operations.GetEnhancedProfitAndLossResponse](../../models/operations/getenhancedprofitandlossresponse.md)>**
 
 
+## getLoanSummary
+
+Get enhanced loan summaries
+
+### Example Usage
+
+```typescript
+import { CodatAssess } from "@codat/assess";
+import { GetLoanSummaryResponse } from "@codat/assess/dist/sdk/models/operations";
+import { RecordRefIntegrationType, RecordRefRecordRefType } from "@codat/assess/dist/sdk/models/shared";
+
+const sdk = new CodatAssess({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.reports.getLoanSummary({
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+}).then((res: GetLoanSummaryResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.GetLoanSummaryRequest](../../models/operations/getloansummaryrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `retries`                                                                            | [utils.RetryConfig](../../models/utils/retryconfig.md)                               | :heavy_minus_sign:                                                                   | Configuration to override the default retry behavior of the client.                  |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+
+
+### Response
+
+**Promise<[operations.GetLoanSummaryResponse](../../models/operations/getloansummaryresponse.md)>**
+
+
 ## getRecurringRevenueMetrics
 
 Gets key metrics for subscription revenue.
@@ -611,6 +653,47 @@ sdk.reports.getRecurringRevenueMetrics({
 ### Response
 
 **Promise<[operations.GetRecurringRevenueMetricsResponse](../../models/operations/getrecurringrevenuemetricsresponse.md)>**
+
+
+## listLoanTransactions
+
+List enhanced loan transactions
+
+### Example Usage
+
+```typescript
+import { CodatAssess } from "@codat/assess";
+import { ListLoanTransactionsResponse, ListLoanTransactionsSourceType } from "@codat/assess/dist/sdk/models/operations";
+import { ReportItemsLoanTransactionType } from "@codat/assess/dist/sdk/models/shared";
+
+const sdk = new CodatAssess({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.reports.listLoanTransactions({
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  sourceType: ListLoanTransactionsSourceType.Banking,
+}).then((res: ListLoanTransactionsResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.ListLoanTransactionsRequest](../../models/operations/listloantransactionsrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `retries`                                                                                        | [utils.RetryConfig](../../models/utils/retryconfig.md)                                           | :heavy_minus_sign:                                                                               | Configuration to override the default retry behavior of the client.                              |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+
+
+### Response
+
+**Promise<[operations.ListLoanTransactionsResponse](../../models/operations/listloantransactionsresponse.md)>**
 
 
 ## requestRecurringRevenueMetrics
