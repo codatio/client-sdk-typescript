@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class RequestSyncForDateRangeRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    dateRange?: shared.DateRange;
+    syncRange?: shared.SyncRange;
 
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;

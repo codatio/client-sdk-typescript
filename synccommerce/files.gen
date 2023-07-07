@@ -28,10 +28,10 @@ src/sdk/models/operations/listcompanies.ts
 src/sdk/models/operations/listconnections.ts
 src/sdk/models/operations/updateconnection.ts
 src/sdk/models/operations/getconfiguration.ts
-src/sdk/models/operations/getsyncstatus.ts
 src/sdk/models/operations/setconfiguration.ts
 src/sdk/models/operations/getintegrationbranding.ts
 src/sdk/models/operations/listintegrations.ts
+src/sdk/models/operations/getsyncstatus.ts
 src/sdk/models/operations/requestsync.ts
 src/sdk/models/operations/requestsyncfordaterange.ts
 src/sdk/models/operations/getconfigtextsyncflow.ts
@@ -84,6 +84,7 @@ src/sdk/models/shared/featurestate.ts
 src/sdk/models/shared/syncsummary.ts
 src/sdk/models/shared/daterange.ts
 src/sdk/models/shared/synctolatestargs.ts
+src/sdk/models/shared/syncrange.ts
 src/sdk/models/shared/localization.ts
 src/sdk/models/shared/syncflowurl.ts
 src/sdk/models/shared/visibleaccounts.ts
@@ -108,14 +109,14 @@ docs/models/operations/updateconnectionrequest.md
 docs/models/operations/updateconnectionresponse.md
 docs/models/operations/getconfigurationrequest.md
 docs/models/operations/getconfigurationresponse.md
-docs/models/operations/getsyncstatusrequest.md
-docs/models/operations/getsyncstatusresponse.md
 docs/models/operations/setconfigurationrequest.md
 docs/models/operations/setconfigurationresponse.md
 docs/models/operations/getintegrationbrandingrequest.md
 docs/models/operations/getintegrationbrandingresponse.md
 docs/models/operations/listintegrationsrequest.md
 docs/models/operations/listintegrationsresponse.md
+docs/models/operations/getsyncstatusrequest.md
+docs/models/operations/getsyncstatusresponse.md
 docs/models/operations/requestsyncrequest.md
 docs/models/operations/requestsyncresponse.md
 docs/models/operations/requestsyncfordaterangerequest.md
@@ -174,6 +175,8 @@ docs/models/shared/featurestate.md
 docs/models/shared/syncsummary.md
 docs/models/shared/daterange.md
 docs/models/shared/synctolatestargs.md
+docs/models/shared/syncrangedaterange.md
+docs/models/shared/syncrange.md
 docs/models/shared/localization.md
 docs/models/shared/syncflowurl.md
 docs/models/shared/visibleaccounts.md

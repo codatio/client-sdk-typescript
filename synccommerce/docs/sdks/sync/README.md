@@ -6,8 +6,48 @@ Initiate a sync of Sync for Commerce company data into their respective accounti
 
 ### Available Operations
 
-* [requestSync](#requestsync) - Run a Commerce sync from the last successful sync
-* [requestSyncForDateRange](#requestsyncfordaterange) - Run a Commerce sync from a given date range
+* [getSyncStatus](#getsyncstatus) - Get status for a company's syncs
+* [requestSync](#requestsync) - Sync new
+* [requestSyncForDateRange](#requestsyncfordaterange) - Sync range
+
+## getSyncStatus
+
+Check the sync history and sync status for a company.
+
+### Example Usage
+
+```typescript
+import { CodatSyncCommerce } from "@codat/sync-for-commerce";
+import { GetSyncStatusResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
+
+const sdk = new CodatSyncCommerce({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.sync.getSyncStatus({
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+}).then((res: GetSyncStatusResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.GetSyncStatusRequest](../../models/operations/getsyncstatusrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `retries`                                                                          | [utils.RetryConfig](../../models/utils/retryconfig.md)                             | :heavy_minus_sign:                                                                 | Configuration to override the default retry behavior of the client.                |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+
+
+### Response
+
+**Promise<[operations.GetSyncStatusResponse](../../models/operations/getsyncstatusresponse.md)>**
+
 
 ## requestSync
 
@@ -71,9 +111,11 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.sync.requestSyncForDateRange({
-  dateRange: {
-    finish: "2022-10-23T00:00:00.000Z",
-    start: "2022-10-23T00:00:00.000Z",
+  syncRange: {
+    dateRange: {
+      finish: "2022-10-23T00:00:00.000Z",
+      start: "2022-10-23T00:00:00.000Z",
+    },
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: RequestSyncForDateRangeResponse) => {
