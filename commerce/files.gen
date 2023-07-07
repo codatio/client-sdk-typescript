@@ -50,7 +50,6 @@ src/sdk/models/operations/listtransactions.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/schema.ts
 src/sdk/models/shared/companyinfo.ts
-src/sdk/models/shared/supplementaldata.ts
 src/sdk/models/shared/phonenumber.ts
 src/sdk/models/shared/phonenumbertype.ts
 src/sdk/models/shared/address.ts
@@ -184,10 +183,8 @@ docs/models/shared/schema.md
 docs/models/shared/companyinfoweblinktype.md
 docs/models/shared/companyinfoweblink.md
 docs/models/shared/companyinfo.md
-docs/models/shared/supplementaldata.md
 docs/models/shared/phonenumber.md
 docs/models/shared/phonenumbertype.md
-docs/models/shared/addresssupplementaldata.md
 docs/models/shared/address.md
 docs/models/shared/addresstype.md
 docs/models/shared/accountbalance.md
@@ -202,6 +199,7 @@ docs/models/shared/transactionsourcetype.md
 docs/models/shared/disputes.md
 docs/models/shared/location.md
 docs/models/shared/locations.md
+docs/models/shared/ordersupplementaldata.md
 docs/models/shared/order.md
 docs/models/shared/servicecharge.md
 docs/models/shared/servicechargetype.md

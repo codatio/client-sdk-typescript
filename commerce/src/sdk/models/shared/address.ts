@@ -4,20 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AddressType } from "./addresstype";
-import { Expose, Type } from "class-transformer";
-
-/**
- * Supplemental data is additional data you can include in our standard data types.
- *
- * @remarks
- *
- * It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/additional-data) about supplemental data.
- */
-export class AddressSupplementalData extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "content" })
-    content?: Record<string, Record<string, any>>;
-}
+import { Expose } from "class-transformer";
 
 export class Address extends SpeakeasyBase {
     /**
@@ -61,18 +48,6 @@ export class Address extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "region" })
     region?: string;
-
-    /**
-     * Supplemental data is additional data you can include in our standard data types.
-     *
-     * @remarks
-     *
-     * It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/additional-data) about supplemental data.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "supplementalData" })
-    @Type(() => AddressSupplementalData)
-    supplementalData?: AddressSupplementalData;
 
     /**
      * The type of the address

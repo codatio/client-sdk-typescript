@@ -4,8 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { PaymentMethodStatus } from "./paymentmethodstatus";
-import { SupplementalData } from "./supplementaldata";
-import { Expose, Type } from "class-transformer";
+import { Expose } from "class-transformer";
 
 /**
  * A Payment Method represents the payment method(s) used to make payments.
@@ -43,16 +42,4 @@ export class PaymentMethod extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
     status?: PaymentMethodStatus;
-
-    /**
-     * Supplemental data is additional data you can include in our standard data types.
-     *
-     * @remarks
-     *
-     * It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/additional-data) about supplemental data.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "supplementalData" })
-    @Type(() => SupplementalData)
-    supplementalData?: SupplementalData;
 }

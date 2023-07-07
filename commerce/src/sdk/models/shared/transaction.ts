@@ -3,7 +3,6 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { SupplementalData } from "./supplementaldata";
 import { TransactionSourceRef } from "./transactionsourceref";
 import { TransactionType } from "./transactiontype";
 import { Expose, Type } from "class-transformer";
@@ -113,18 +112,6 @@ export class Transaction extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "subType" })
     subType?: string;
-
-    /**
-     * Supplemental data is additional data you can include in our standard data types.
-     *
-     * @remarks
-     *
-     * It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/additional-data) about supplemental data.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "supplementalData" })
-    @Type(() => SupplementalData)
-    supplementalData?: SupplementalData;
 
     /**
      * The total transaction amount
