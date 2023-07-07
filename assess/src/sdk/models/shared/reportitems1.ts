@@ -11,6 +11,7 @@ export enum ReportItemsLoanTransactionType {
     Investment = "Investment",
     Repayment = "Repayment",
     Interest = "Interest",
+    AccuredInterest = "AccuredInterest",
 }
 
 export class ReportItems1 extends SpeakeasyBase {

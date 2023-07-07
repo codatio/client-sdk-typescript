@@ -8,7 +8,7 @@ import { Expose, Type } from "class-transformer";
 
 export class ReportItems extends SpeakeasyBase {
     /**
-     * The total loan investments minus the total loan repayments for that company.
+     * The loan outstanding balance.  This may not equal totalDrawdowns - totalRepayments due to interest which has been accrued.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "balance" })
@@ -54,14 +54,14 @@ export class ReportItems extends SpeakeasyBase {
     startDate?: string;
 
     /**
-     * The total loan investments for that company.
+     * The total loan drawdowns.
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "totalInvestments" })
-    totalInvestments?: number;
+    @Expose({ name: "totalDrawdowns" })
+    totalDrawdowns?: number;
 
     /**
-     * The total loan repayments for that company.
+     * The total loan repayments which includes capital plus any interest.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "totalRepayments" })

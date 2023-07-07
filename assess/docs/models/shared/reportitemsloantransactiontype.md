@@ -3,8 +3,9 @@
 
 ## Values
 
-| Name         | Value        |
-| ------------ | ------------ |
-| `Investment` | Investment   |
-| `Repayment`  | Repayment    |
-| `Interest`   | Interest     |
+| Name              | Value             |
+| ----------------- | ----------------- |
+| `Investment`      | Investment        |
+| `Repayment`       | Repayment         |
+| `Interest`        | Interest          |
+| `AccuredInterest` | AccuredInterest   |
