@@ -56,6 +56,7 @@ sdk.configuration.getCompanyConfiguration({
 ### [expenses](docs/sdks/expenses/README.md)
 
 * [createExpenseDataset](docs/sdks/expenses/README.md#createexpensedataset) - Create expense-transactions
+* [updateExpenseDataset](docs/sdks/expenses/README.md#updateexpensedataset) - Update expense-transactions
 * [uploadAttachment](docs/sdks/expenses/README.md#uploadattachment) - Upload attachment
 
 ### [mappingOptions](docs/sdks/mappingoptions/README.md)

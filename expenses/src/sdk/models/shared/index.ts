@@ -30,3 +30,4 @@ export * from "./trackingcategorymappinginfo";
 export * from "./transactionmetadata";
 export * from "./transactionmetadatalist";
 export * from "./transactionstatus";
+export * from "./updateexpenserequest";
