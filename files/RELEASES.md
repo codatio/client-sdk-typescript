@@ -479,3 +479,83 @@ Based on:
 - Speakeasy CLI 1.48.0 (2.41.1) https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [NPM v0.27.1] https://www.npmjs.com/package/@codat/files/v/0.27.1 - files
+
+## 2023-06-20 00:23:12
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Files.yaml
+- Speakeasy CLI 1.49.0 (2.41.4) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.27.2] https://www.npmjs.com/package/@codat/files/v/0.27.2 - files
+
+## 2023-06-21 00:24:32
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Files.yaml
+- Speakeasy CLI 1.49.1 (2.41.5) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.27.3] https://www.npmjs.com/package/@codat/files/v/0.27.3 - files
+
+## 2023-06-23 00:27:57
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Files.yaml
+- Speakeasy CLI 1.50.1 (2.43.2) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.28.0] https://www.npmjs.com/package/@codat/files/v/0.28.0 - files
+
+## 2023-06-27 00:27:04
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Files.yaml
+- Speakeasy CLI 1.51.1 (2.50.2) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.29.0] https://www.npmjs.com/package/@codat/files/v/0.29.0 - files
+
+## 2023-06-28 00:26:51
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Files.yaml
+- Speakeasy CLI 1.51.1 (2.50.2) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.29.1] https://www.npmjs.com/package/@codat/files/v/0.29.1 - files
+
+## 2023-06-29 00:26:40
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Files.yaml
+- Speakeasy CLI 1.51.3 (2.52.2) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.30.0] https://www.npmjs.com/package/@codat/files/v/0.30.0 - files
+
+## 2023-07-01 00:29:48
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Files.yaml
+- Speakeasy CLI 1.52.0 (2.55.0) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.31.0] https://www.npmjs.com/package/@codat/files/v/0.31.0 - files
+
+## 2023-07-06 00:28:20
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Files.yaml
+- Speakeasy CLI 1.52.2 (2.57.2) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.32.0] https://www.npmjs.com/package/@codat/files/v/0.32.0 - files
+
+## 2023-07-07 00:27:24
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Files.yaml
+- Speakeasy CLI 1.53.0 (2.58.0) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.33.0] https://www.npmjs.com/package/@codat/files/v/0.33.0 - files
+
+## 2023-07-07 09:21:34
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Files.yaml
+- Speakeasy CLI 1.53.0 (2.58.0) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.33.1] https://www.npmjs.com/package/@codat/files/v/0.33.1 - files
