@@ -44,18 +44,18 @@ export class CompanyDataConnectionStatusChangedWebhook extends SpeakeasyBase {
      * Unique identifier of the webhook event.
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "alertId" })
+    @Expose({ name: "AlertId" })
     alertId?: string;
 
     /**
      * Unique identifier for your SMB in Codat.
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "companyId" })
+    @Expose({ name: "CompanyId" })
     companyId?: string;
 
     @SpeakeasyMetadata()
-    @Expose({ name: "data" })
+    @Expose({ name: "Data" })
     @Type(() => CompanyDataConnectionStatusChangedWebhookData)
     data?: CompanyDataConnectionStatusChangedWebhookData;
 
@@ -63,20 +63,20 @@ export class CompanyDataConnectionStatusChangedWebhook extends SpeakeasyBase {
      * A human readable message about the webhook.
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "message" })
+    @Expose({ name: "Message" })
     message?: string;
 
     /**
      * Unique identifier for the rule.
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "ruleId" })
+    @Expose({ name: "RuleId" })
     ruleId?: string;
 
     /**
      * The type of rule.
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "type" })
+    @Expose({ name: "Type" })
     type?: string;
 }
