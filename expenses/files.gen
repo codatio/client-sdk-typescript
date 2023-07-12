@@ -68,7 +68,14 @@ src/sdk/models/shared/integrationtype.ts
 src/sdk/models/shared/transactionmetadatalist.ts
 src/sdk/models/shared/hallink.ts
 src/sdk/models/shared/security.ts
+src/sdk/models/shared/synccompletewebhook.ts
+src/sdk/models/shared/syncfailedwebhook.ts
+src/sdk/models/shared/syncstartedwebhook.ts
 src/sdk/models/shared/index.ts
+src/sdk/models/webhooks/synccomplete.ts
+src/sdk/models/webhooks/syncfailed.ts
+src/sdk/models/webhooks/syncstarted.ts
+src/sdk/models/webhooks/index.ts
 docs/sdks/codatsyncexpenses/README.md
 docs/models/utils/retryconfig.md
 docs/sdks/configuration/README.md
@@ -148,3 +155,12 @@ docs/models/shared/transactionmetadatalistlinks.md
 docs/models/shared/transactionmetadatalist.md
 docs/models/shared/hallink.md
 docs/models/shared/security.md
+docs/models/shared/synccompletewebhookdata.md
+docs/models/shared/synccompletewebhook.md
+docs/models/shared/syncfailedwebhookdata.md
+docs/models/shared/syncfailedwebhook.md
+docs/models/shared/syncstartedwebhookdata.md
+docs/models/shared/syncstartedwebhook.md
+docs/models/webhooks/synccompleteresponse.md
+docs/models/webhooks/syncfailedresponse.md
+docs/models/webhooks/syncstartedresponse.md
