@@ -3,7 +3,6 @@
  */
 
 import * as utils from "../internal/utils";
-import { Categories } from "./categories";
 import { DataIntegrity } from "./dataintegrity";
 import { ExcelReports } from "./excelreports";
 import * as shared from "./models/shared";
@@ -52,8 +51,8 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "1.0";
-    sdkVersion = "0.31.0";
-    genVersion = "2.61.0";
+    sdkVersion = "0.31.1";
+    genVersion = "2.61.4";
 
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -71,10 +70,6 @@ export class SDKConfiguration {
  * [See our OpenAPI spec](https://github.com/codatio/oas)
  */
 export class CodatAssess {
-    /**
-     * Categorisation
-     */
-    public categories: Categories;
     /**
      * Data integrity is important
      */
@@ -115,7 +110,6 @@ export class CodatAssess {
             serverURL: serverURL,
         });
 
-        this.categories = new Categories(this.sdkConfiguration);
         this.dataIntegrity = new DataIntegrity(this.sdkConfiguration);
         this.excelReports = new ExcelReports(this.sdkConfiguration);
         this.reports = new Reports(this.sdkConfiguration);

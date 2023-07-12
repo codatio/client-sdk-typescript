@@ -1,9 +1,0 @@
-# FinancialMetricError
-
-
-## Fields
-
-| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 | Example                                                                     |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `message`                                                                   | *string*                                                                    | :heavy_minus_sign:                                                          | N/A                                                                         | Account categories data has not been synced                                 |
-| `type`                                                                      | [FinancialMetricErrorType](../../models/shared/financialmetricerrortype.md) | :heavy_minus_sign:                                                          | N/A                                                                         |                                                                             |

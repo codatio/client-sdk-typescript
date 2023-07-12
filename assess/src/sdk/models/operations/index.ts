@@ -3,7 +3,6 @@
  */
 
 export * from "./generateexcelreport";
-export * from "./getaccountcategory";
 export * from "./getaccountingmarketingmetrics";
 export * from "./getaccountsforenhancedbalancesheet";
 export * from "./getaccountsforenhancedprofitandloss";
@@ -14,19 +13,12 @@ export * from "./getcommercerefundsmetrics";
 export * from "./getcommercerevenuemetrics";
 export * from "./getdataintegritystatus";
 export * from "./getdataintegritysummaries";
-export * from "./getenhancedbalancesheet";
 export * from "./getenhancedcashflowtransactions";
-export * from "./getenhancedfinancialmetrics";
 export * from "./getenhancedinvoicesreport";
-export * from "./getenhancedprofitandloss";
 export * from "./getexcelreport";
 export * from "./getexcelreportgenerationstatus";
 export * from "./getloansummary";
 export * from "./getrecurringrevenuemetrics";
-export * from "./listaccountscategories";
-export * from "./listavailableaccountcategories";
 export * from "./listdatatypedataintegritydetails";
 export * from "./listloantransactions";
 export * from "./requestrecurringrevenuemetrics";
-export * from "./updateaccountcategory";
-export * from "./updateaccountscategories";
