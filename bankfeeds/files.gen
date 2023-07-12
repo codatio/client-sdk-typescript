@@ -46,7 +46,7 @@ src/sdk/models/operations/index.ts
 src/sdk/models/shared/schema.ts
 src/sdk/models/shared/accountmappingresult.ts
 src/sdk/models/shared/bankfeedaccountmapping.ts
-src/sdk/models/shared/bankfeedmappings.ts
+src/sdk/models/shared/bankfeedmapping.ts
 src/sdk/models/shared/targetaccountoption.ts
 src/sdk/models/shared/createbanktransactionsresponse.ts
 src/sdk/models/shared/validation.ts
@@ -132,8 +132,7 @@ docs/models/operations/unlinkconnectionresponse.md
 docs/models/shared/schema.md
 docs/models/shared/accountmappingresult.md
 docs/models/shared/bankfeedaccountmapping.md
-docs/models/shared/bankfeedmappingsbankfeedmapping.md
-docs/models/shared/bankfeedmappings.md
+docs/models/shared/bankfeedmapping.md
 docs/models/shared/targetaccountoption.md
 docs/models/shared/createbanktransactionsresponse.md
 docs/models/shared/validation.md

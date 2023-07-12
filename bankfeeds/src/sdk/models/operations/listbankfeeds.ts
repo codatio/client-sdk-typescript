@@ -18,8 +18,8 @@ export class ListBankFeedsResponse extends SpeakeasyBase {
     /**
      * Success
      */
-    @SpeakeasyMetadata({ elemType: shared.BankFeedAccount })
-    bankFeedAccounts?: shared.BankFeedAccount[];
+    @SpeakeasyMetadata()
+    bankFeedAccount?: shared.BankFeedAccount;
 
     @SpeakeasyMetadata()
     contentType: string;

@@ -197,9 +197,9 @@ export class BankAccountMapping {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.bankFeedMappings = utils.objectToClass(
+                    res.bankFeedMapping = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.BankFeedMappings
+                        shared.BankFeedMapping
                     );
                 }
                 break;

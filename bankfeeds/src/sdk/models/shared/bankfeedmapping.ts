@@ -9,7 +9,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * A bank feed connection between a source account and a target account, including potential target accounts.
  */
-export class BankFeedMappingsBankFeedMapping extends SpeakeasyBase {
+export class BankFeedMapping extends SpeakeasyBase {
     /**
      * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
      *
@@ -105,14 +105,4 @@ export class BankFeedMappingsBankFeedMapping extends SpeakeasyBase {
     @Expose({ name: "targetAccountOptions" })
     @Type(() => TargetAccountOption)
     targetAccountOptions?: TargetAccountOption[];
-}
-
-/**
- * Success
- */
-export class BankFeedMappings extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: BankFeedMappingsBankFeedMapping })
-    @Expose({ name: "results" })
-    @Type(() => BankFeedMappingsBankFeedMapping)
-    results?: BankFeedMappingsBankFeedMapping[];
 }

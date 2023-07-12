@@ -9,7 +9,7 @@ Bank feed bank accounts
 * [create](#create) - Create a bank feed bank account
 * [list](#list) - List bank feed bank accounts
 * [~~putBankFeed~~](#putbankfeed) - Create bank feed bank accounts :warning: **Deprecated**
-* [~~update~~](#update) - Update bank feed bank account :warning: **Deprecated**
+* [update](#update) - Update bank feed bank account
 
 ## create
 
@@ -187,11 +187,9 @@ sdk.bankFeedAccounts.putBankFeed({
 **Promise<[operations.PutBankFeedResponse](../../models/operations/putbankfeedresponse.md)>**
 
 
-## ~~update~~
+## update
 
 ﻿The *Update bank feed bank account* endpoint updates a single bank feed bank account for a single data source connected to a single company.
-
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

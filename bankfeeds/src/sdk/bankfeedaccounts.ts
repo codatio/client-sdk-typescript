@@ -185,12 +185,9 @@ export class BankFeedAccounts {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.bankFeedAccounts = [];
-                    const resFieldDepth: number = utils.getResFieldDepth(res);
-                    res.bankFeedAccounts = utils.objectToClass(
+                    res.bankFeedAccount = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.BankFeedAccount,
-                        resFieldDepth
+                        shared.BankFeedAccount
                     );
                 }
                 break;
@@ -309,8 +306,6 @@ export class BankFeedAccounts {
      *
      * @remarks
      * The *Update bank feed bank account* endpoint updates a single bank feed bank account for a single data source connected to a single company.
-     *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
      */
     async update(
         req: operations.UpdateBankFeedRequest,

@@ -19,7 +19,7 @@ export class GetBankAccountMappingResponse extends SpeakeasyBase {
      * Success
      */
     @SpeakeasyMetadata()
-    bankFeedMappings?: shared.BankFeedMappings;
+    bankFeedMapping?: shared.BankFeedMapping;
 
     @SpeakeasyMetadata()
     contentType: string;
