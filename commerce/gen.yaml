@@ -1,15 +1,15 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 5a58a84dccd04eae890e3352dca24957
+  docChecksum: ba0d454f3f3f05bfa4e35957400959c7
   docVersion: 2.1.0
-  speakeasyVersion: 1.56.0
-  generationVersion: 2.61.0
+  speakeasyVersion: 1.56.3
+  generationVersion: 2.61.4
 generation:
   sdkClassName: CodatCommerce
   singleTagPerOp: false
   telemetryEnabled: true
 typescript:
-  version: 0.33.0
+  version: 0.33.1
   author: Speakeasy
   maxMethodParams: 0
   packageName: '@codat/commerce'

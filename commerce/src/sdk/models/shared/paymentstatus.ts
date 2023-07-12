@@ -3,7 +3,7 @@
  */
 
 /**
- * Status of the payment
+ * Status of the payment.
  */
 export enum PaymentStatus {
     Pending = "Pending",
