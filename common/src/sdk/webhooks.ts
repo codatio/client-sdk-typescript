@@ -25,12 +25,12 @@ export class Webhooks {
      * Create a new webhook configuration
      */
     async create(
-        req: shared.Rule,
+        req: shared.CreateRule,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateRuleResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.Rule(req);
+            req = new shared.CreateRule(req);
         }
 
         const baseURL: string = utils.templateUrl(

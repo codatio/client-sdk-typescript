@@ -66,7 +66,7 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { RefreshDataTypeResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataType, PullOperationStatus } from "@codat/common/dist/sdk/models/shared";
+import { DataType } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
@@ -147,7 +147,6 @@ Retrieve information about a single dataset or pull operation.
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { GetPullOperationResponse } from "@codat/common/dist/sdk/models/operations";
-import { PullOperationStatus } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
@@ -188,7 +187,6 @@ Gets the pull operation history (datasets) for a given company.
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { ListPullOperationsResponse } from "@codat/common/dist/sdk/models/operations";
-import { PullOperationStatus } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {

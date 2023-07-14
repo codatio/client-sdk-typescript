@@ -19,7 +19,6 @@ Get single integration, by platformKey
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { GetIntegrationResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataType, FeatureState, FeatureType, SourceType } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
@@ -98,7 +97,6 @@ List your available integrations
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { ListIntegrationsResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataType, FeatureState, FeatureType, SourceType } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {

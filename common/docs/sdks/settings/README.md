@@ -58,7 +58,6 @@ Retrieve the sync settings for your client. This includes how often data types s
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { GetProfileSyncSettingsResponse } from "@codat/common/dist/sdk/models/operations";
-import { SyncSettingDataType } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {

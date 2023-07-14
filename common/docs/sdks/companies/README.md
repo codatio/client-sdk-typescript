@@ -25,7 +25,6 @@ If forbidden characters (see `name` pattern) are present in the request, a compa
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { CreateCompanyResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataConnectionStatus, SourceType } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
@@ -106,7 +105,6 @@ sdk.companies.delete({
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { GetCompanyResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataConnectionStatus, SourceType } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
@@ -146,7 +144,6 @@ sdk.companies.get({
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { ListCompaniesResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataConnectionStatus, SourceType } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
@@ -189,7 +186,6 @@ sdk.companies.list({
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { UpdateCompanyResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataConnectionStatus, SourceType } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
