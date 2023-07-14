@@ -21,7 +21,6 @@ Creates a Codat company with a commerce partner data connection.
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { CreateCompanyResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
-import { ConnectionSourceType, DataConnectionStatus } from "@codat/sync-for-commerce/dist/sdk/models/shared";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -61,7 +60,6 @@ Create a data connection for company.
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { CreateConnectionResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
-import { ConnectionSourceType, DataConnectionStatus } from "@codat/sync-for-commerce/dist/sdk/models/shared";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -102,7 +100,6 @@ Retrieve a list of all companies the client has created.
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { ListCompaniesResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
-import { ConnectionSourceType, DataConnectionStatus } from "@codat/sync-for-commerce/dist/sdk/models/shared";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -145,7 +142,6 @@ Retrieve previously created data connections.
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { ListConnectionsResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
-import { ConnectionSourceType, DataConnectionStatus } from "@codat/sync-for-commerce/dist/sdk/models/shared";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -189,7 +185,6 @@ Update a data connection
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { UpdateConnectionResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
-import { ConnectionSourceType, DataConnectionStatus } from "@codat/sync-for-commerce/dist/sdk/models/shared";
 
 const sdk = new CodatSyncCommerce({
   security: {

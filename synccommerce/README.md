@@ -20,10 +20,11 @@ yarn add @codat/sync-for-commerce
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
+
+
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { CreateCompanyResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
-import { ConnectionSourceType, DataConnectionStatus } from "@codat/sync-for-commerce/dist/sdk/models/shared";
 
 const sdk = new CodatSyncCommerce({
   security: {

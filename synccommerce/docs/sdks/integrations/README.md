@@ -57,7 +57,6 @@ Retrieve a list of available integrations support by datatype and state of relea
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { ListIntegrationsResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
-import { DataTypeFeatureDataType, FeatureState, FeatureType, SourceType } from "@codat/sync-for-commerce/dist/sdk/models/shared";
 
 const sdk = new CodatSyncCommerce({
   security: {
