@@ -17,11 +17,6 @@ Gets the expense mapping options for a companies accounting software
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 import { GetMappingOptionsResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
-import {
-  AccountMappingInfoAccountType,
-  AccountMappingInfoValidTransactionTypes,
-  TaxRateMappingInfoValidTransactionTypes,
-} from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
 const sdk = new CodatSyncExpenses({
   security: {
