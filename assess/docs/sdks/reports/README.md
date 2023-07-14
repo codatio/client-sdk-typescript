@@ -391,7 +391,6 @@ Gets a list of invoices linked to the corresponding banking transaction
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetEnhancedInvoicesReportResponse } from "@codat/assess/dist/sdk/models/operations";
-import { InvoiceStatus } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
@@ -434,7 +433,6 @@ Get enhanced loan summaries
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetLoanSummaryResponse } from "@codat/assess/dist/sdk/models/operations";
-import { RecordRefIntegrationType, RecordRefRecordRefType } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
@@ -514,7 +512,6 @@ List enhanced loan transactions
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { ListLoanTransactionsResponse, ListLoanTransactionsSourceType } from "@codat/assess/dist/sdk/models/operations";
-import { ReportItemsLoanTransactionType } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {

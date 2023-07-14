@@ -1,8 +1,10 @@
 <!-- Start SDK Example Usage -->
+
+
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetDataIntegrityStatusResponse } from "@codat/assess/dist/sdk/models/operations";
-import { DataIntegrityDataType, IntegrityStatus } from "@codat/assess/dist/sdk/models/shared";
+import { DataIntegrityDataType } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {

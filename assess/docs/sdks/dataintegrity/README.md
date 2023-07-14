@@ -19,7 +19,7 @@ Gets match status for a given company and datatype.
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetDataIntegrityStatusResponse } from "@codat/assess/dist/sdk/models/operations";
-import { DataIntegrityDataType, IntegrityStatus } from "@codat/assess/dist/sdk/models/shared";
+import { DataIntegrityDataType } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
