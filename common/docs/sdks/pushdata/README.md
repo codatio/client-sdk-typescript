@@ -28,7 +28,7 @@ Codat tries not to limit users to pushing to a very limited number of standard c
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { GetCreateUpdateModelOptionsByDataTypeResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataType, PushOptionType } from "@codat/common/dist/sdk/models/shared";
+import { DataType } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
@@ -70,7 +70,6 @@ Retrieve push operation.
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { GetPushOperationResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataType, PushChangeType, PushOperationStatus } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
@@ -111,7 +110,6 @@ List push operation records.
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { GetCompanyPushHistoryResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataType, PushChangeType, PushOperationStatus } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {

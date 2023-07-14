@@ -24,7 +24,6 @@ Use the [List Integrations](https://docs.codat.io/codat-api#/operations/list-int
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { CreateDataConnectionResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataConnectionStatus, SourceType } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
@@ -108,7 +107,6 @@ sdk.connections.delete({
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { GetCompanyConnectionResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataConnectionStatus, SourceType } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
@@ -149,7 +147,6 @@ sdk.connections.get({
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { ListCompanyConnectionsResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataConnectionStatus, SourceType } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
@@ -193,7 +190,6 @@ sdk.connections.list({
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { UnlinkConnectionResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataConnectionStatus, SourceType } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
@@ -237,7 +233,6 @@ Update data connection's authorization.
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { UpdateConnectionAuthorizationResponse } from "@codat/common/dist/sdk/models/operations";
-import { DataConnectionStatus, SourceType } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
