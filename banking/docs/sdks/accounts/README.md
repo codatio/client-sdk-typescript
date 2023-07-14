@@ -25,7 +25,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatBanking } from "@codat/banking";
 import { GetAccountResponse } from "@codat/banking/dist/sdk/models/operations";
-import { AccountIdentifierType, AccountType } from "@codat/banking/dist/sdk/models/shared";
 
 const sdk = new CodatBanking({
   security: {
@@ -72,7 +71,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatBanking } from "@codat/banking";
 import { ListAccountsResponse } from "@codat/banking/dist/sdk/models/operations";
-import { AccountIdentifierType, AccountType } from "@codat/banking/dist/sdk/models/shared";
 
 const sdk = new CodatBanking({
   security: {

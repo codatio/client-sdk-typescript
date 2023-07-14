@@ -26,7 +26,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatBanking } from "@codat/banking";
 import { GetTransactionResponse } from "@codat/banking/dist/sdk/models/operations";
-import { TransactionCode } from "@codat/banking/dist/sdk/models/shared";
 
 const sdk = new CodatBanking({
   security: {
@@ -73,7 +72,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatBanking } from "@codat/banking";
 import { ListTransactionsResponse } from "@codat/banking/dist/sdk/models/operations";
-import { TransactionCode } from "@codat/banking/dist/sdk/models/shared";
 
 const sdk = new CodatBanking({
   security: {
@@ -125,7 +123,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatBanking } from "@codat/banking";
 import { ListBankTransactionsResponse } from "@codat/banking/dist/sdk/models/operations";
-import { TransactionCode } from "@codat/banking/dist/sdk/models/shared";
 
 const sdk = new CodatBanking({
   security: {
