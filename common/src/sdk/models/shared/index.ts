@@ -13,6 +13,7 @@ export * from "./companyrequestbody";
 export * from "./connection";
 export * from "./connections";
 export * from "./connectionstatus";
+export * from "./createrule";
 export * from "./dataconnectionerror";
 export * from "./dataconnectionhistory";
 export * from "./dataconnectionstatus";

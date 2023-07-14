@@ -28,7 +28,6 @@ const sdk = new CodatCommon({
 
 sdk.webhooks.create({
   companyId: "39b73b17-cc2e-429e-915d-71654e9dcd1e",
-  id: "ff89c50e-a719-4ef5-a182-9917e53927b6",
   notifiers: {
     emails: [
       "info@client.com",
@@ -49,7 +48,7 @@ sdk.webhooks.create({
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `request`                                                           | [shared.Rule](../../models/shared/rule.md)                          | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `request`                                                           | [shared.CreateRule](../../models/shared/createrule.md)              | :heavy_check_mark:                                                  | The request object to use for the request.                          |
 | `retries`                                                           | [utils.RetryConfig](../../models/utils/retryconfig.md)              | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 | `config`                                                            | [AxiosRequestConfig](https://axios-http.com/docs/req_config)        | :heavy_minus_sign:                                                  | Available config options for making requests.                       |
 
