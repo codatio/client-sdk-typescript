@@ -33,14 +33,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateCustomerResponse } from "@codat/accounting/dist/sdk/models/operations";
-import {
-  AddressType,
-  CustomerStatus,
-  DataType,
-  PhoneNumberType,
-  PushChangeType,
-  PushOperationStatus,
-} from "@codat/accounting/dist/sdk/models/shared";
+import { AddressType, CustomerStatus, PhoneNumberType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -288,7 +281,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCustomerResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressType, CustomerStatus, PhoneNumberType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -385,7 +377,6 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateUpdateCustomersModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -431,7 +422,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListCustomersResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressType, CustomerStatus, PhoneNumberType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -530,14 +520,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { UpdateCustomerResponse } from "@codat/accounting/dist/sdk/models/operations";
-import {
-  AddressType,
-  CustomerStatus,
-  DataType,
-  PhoneNumberType,
-  PushChangeType,
-  PushOperationStatus,
-} from "@codat/accounting/dist/sdk/models/shared";
+import { AddressType, CustomerStatus, PhoneNumberType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {

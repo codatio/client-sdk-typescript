@@ -30,13 +30,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateBillCreditNoteResponse } from "@codat/accounting/dist/sdk/models/operations";
-import {
-  BillCreditNoteStatus,
-  BilledToType,
-  DataType,
-  PushChangeType,
-  PushOperationStatus,
-} from "@codat/accounting/dist/sdk/models/shared";
+import { BillCreditNoteStatus, BilledToType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -234,7 +228,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetBillCreditNoteResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { BillCreditNoteStatus, BilledToType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -284,7 +277,6 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateUpdateBillCreditNotesModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -330,7 +322,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListBillCreditNotesResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { BillCreditNoteStatus, BilledToType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -383,13 +374,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { UpdateBillCreditNoteResponse } from "@codat/accounting/dist/sdk/models/operations";
-import {
-  BillCreditNoteStatus,
-  BilledToType,
-  DataType,
-  PushChangeType,
-  PushOperationStatus,
-} from "@codat/accounting/dist/sdk/models/shared";
+import { BillCreditNoteStatus, BilledToType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {

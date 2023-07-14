@@ -29,7 +29,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateItemResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { DataType, ItemStatus, ItemType, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
+import { ItemStatus, ItemType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -118,7 +118,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetItemResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { ItemStatus, ItemType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -168,7 +167,6 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateItemsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -214,7 +212,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListItemsResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { ItemStatus, ItemType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {

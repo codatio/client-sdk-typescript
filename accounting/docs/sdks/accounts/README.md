@@ -29,7 +29,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateAccountResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AccountStatus, AccountType, DataType, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
+import { AccountStatus, AccountType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -121,7 +121,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetAccountResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AccountStatus, AccountType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -171,7 +170,6 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateChartOfAccountsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -216,7 +214,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListAccountsResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AccountStatus, AccountType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {

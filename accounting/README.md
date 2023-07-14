@@ -21,10 +21,11 @@ yarn add @codat/accounting
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
+
+
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetAccountTransactionResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AccountTransactionStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {

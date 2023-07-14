@@ -30,7 +30,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreatePurchaseOrderResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressType, DataType, PurchaseOrderStatus, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
+import { AddressType, PurchaseOrderStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -163,7 +163,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetPurchaseOrderResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressType, PurchaseOrderStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -213,7 +212,6 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateUpdatePurchaseOrdersModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -259,7 +257,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListPurchaseOrdersResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressType, PurchaseOrderStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -312,7 +309,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { UpdatePurchaseOrderResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressType, DataType, PurchaseOrderStatus, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
+import { AddressType, PurchaseOrderStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
