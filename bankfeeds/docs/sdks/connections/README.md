@@ -24,7 +24,6 @@ Use the [List Integrations](https://docs.codat.io/codat-api#/operations/list-int
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { CreateDataConnectionResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-import { ConnectionSourceType, DataConnectionStatus } from "@codat/bank-feeds/dist/sdk/models/shared";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -108,7 +107,6 @@ sdk.connections.delete({
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { GetCompanyConnectionResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-import { ConnectionSourceType, DataConnectionStatus } from "@codat/bank-feeds/dist/sdk/models/shared";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -149,7 +147,6 @@ sdk.connections.get({
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { ListCompanyConnectionsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-import { ConnectionSourceType, DataConnectionStatus } from "@codat/bank-feeds/dist/sdk/models/shared";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -236,7 +233,6 @@ sdk.connections.proxy({
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { UnlinkConnectionResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-import { ConnectionSourceType, DataConnectionStatus } from "@codat/bank-feeds/dist/sdk/models/shared";
 
 const sdk = new CodatBankFeeds({
   security: {

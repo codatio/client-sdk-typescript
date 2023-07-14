@@ -20,6 +20,8 @@ yarn add @codat/bank-feeds
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
+
+
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { CreateBankAccountMappingResponse } from "@codat/bank-feeds/dist/sdk/models/operations";

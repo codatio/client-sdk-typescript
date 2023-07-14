@@ -28,7 +28,6 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { CreateBankTransactionsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-import { DataType, PushChangeType, PushOperationStatus } from "@codat/bank-feeds/dist/sdk/models/shared";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -114,7 +113,6 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { GetCreateBankTransactionsModelResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-import { PushOptionType } from "@codat/bank-feeds/dist/sdk/models/shared";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -163,7 +161,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { ListBankAccountTransactionsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-import { BankTransactionType } from "@codat/bank-feeds/dist/sdk/models/shared";
 
 const sdk = new CodatBankFeeds({
   security: {
