@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -106,11 +107,25 @@ export class Expenses {
                         JSON.parse(decodedRes),
                         shared.CreateExpenseResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case [400, 401, 404, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -206,11 +221,25 @@ export class Expenses {
                         JSON.parse(decodedRes),
                         operations.UpdateExpenseDataset202ApplicationJSON
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case [400, 401, 404, 422, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -298,11 +327,25 @@ export class Expenses {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.attachment = utils.objectToClass(JSON.parse(decodedRes), shared.Attachment);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case [400, 401, 404, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }

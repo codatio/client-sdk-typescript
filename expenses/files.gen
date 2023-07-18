@@ -21,6 +21,7 @@ src/internal/utils/retries.ts
 src/internal/utils/security.ts
 src/internal/utils/utils.ts
 src/sdk/index.ts
+src/sdk/models/errors/sdkerror.ts
 src/sdk/types/index.ts
 src/sdk/types/rfcdate.ts
 tsconfig.json
@@ -76,6 +77,7 @@ src/sdk/models/webhooks/synccomplete.ts
 src/sdk/models/webhooks/syncfailed.ts
 src/sdk/models/webhooks/syncstarted.ts
 src/sdk/models/webhooks/index.ts
+src/sdk/models/errors/index.ts
 docs/sdks/codatsyncexpenses/README.md
 docs/models/utils/retryconfig.md
 docs/sdks/configuration/README.md

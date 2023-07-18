@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -101,6 +102,13 @@ export class Sync {
                         JSON.parse(decodedRes),
                         shared.SyncInitiated
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case [400, 404, 422].includes(httpRes?.status):
@@ -108,6 +116,13 @@ export class Sync {
                     res.codatErrorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.CodatErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
