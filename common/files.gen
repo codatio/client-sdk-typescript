@@ -22,6 +22,7 @@ src/internal/utils/retries.ts
 src/internal/utils/security.ts
 src/internal/utils/utils.ts
 src/sdk/index.ts
+src/sdk/models/errors/sdkerror.ts
 src/sdk/types/index.ts
 src/sdk/types/rfcdate.ts
 tsconfig.json
@@ -123,6 +124,7 @@ src/sdk/models/webhooks/newcompanysynchronized.ts
 src/sdk/models/webhooks/pushoperationhastimedout.ts
 src/sdk/models/webhooks/pushoperationstatushaschanged.ts
 src/sdk/models/webhooks/index.ts
+src/sdk/models/errors/index.ts
 docs/sdks/codatcommon/README.md
 docs/models/utils/retryconfig.md
 docs/sdks/companies/README.md
