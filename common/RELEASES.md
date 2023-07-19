@@ -639,3 +639,11 @@ Based on:
 - Speakeasy CLI 1.61.0 (2.70.0) https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [NPM v0.36.0] https://www.npmjs.com/package/@codat/common/v/0.36.0 - common
+
+## 2023-07-19 00:03:40
+### Changes
+Based on:
+- OpenAPI Doc 2.1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Common.yaml
+- Speakeasy CLI 1.62.1 (2.70.2) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v0.36.1] https://www.npmjs.com/package/@codat/common/v/0.36.1 - common
