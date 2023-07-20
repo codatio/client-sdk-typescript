@@ -7,6 +7,7 @@ Bank feed bank accounts
 ### Available Operations
 
 * [create](#create) - Create a bank feed bank account
+* [delete](#delete) - delete bank feed bank account
 * [list](#list) - List bank feed bank accounts
 * [~~putBankFeed~~](#putbankfeed) - Create bank feed bank accounts :warning: **Deprecated**
 * [update](#update) - Update bank feed bank account
@@ -61,6 +62,61 @@ sdk.bankFeedAccounts.create({
 ### Response
 
 **Promise<[operations.CreateBankFeedResponse](../../models/operations/createbankfeedresponse.md)>**
+
+
+## delete
+
+The *delete bank feed bank account* endpoint enables you to remove a source account.
+
+Removing a source account will also remove any mapping between the source bank feed bank accounts and the target bankfeed bank account.
+
+### Example Usage
+
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+import { DeleteBankFeedBankAccountResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
+
+const sdk = new CodatBankFeeds({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.bankFeedAccounts.delete({
+  bankFeedAccount: {
+    accountName: "quos",
+    accountNumber: "perferendis",
+    accountType: "magni",
+    balance: 8289.4,
+    currency: "USD",
+    feedStartDate: "2022-10-23T00:00:00.000Z",
+    id: "2a94bb4f-63c9-469e-9a3e-fa77dfb14cd6",
+    modifiedDate: "2022-10-23T00:00:00.000Z",
+    sortCode: "laborum",
+    status: "accusamus",
+  },
+  accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+}).then((res: DeleteBankFeedBankAccountResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                  | [operations.DeleteBankFeedBankAccountRequest](../../models/operations/deletebankfeedbankaccountrequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
+| `retries`                                                                                                  | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                     | :heavy_minus_sign:                                                                                         | Configuration to override the default retry behavior of the client.                                        |
+| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
+
+
+### Response
+
+**Promise<[operations.DeleteBankFeedBankAccountResponse](../../models/operations/deletebankfeedbankaccountresponse.md)>**
 
 
 ## list
@@ -128,40 +184,40 @@ const sdk = new CodatBankFeeds({
 sdk.bankFeedAccounts.putBankFeed({
   requestBody: [
     {
-      accountName: "perferendis",
-      accountNumber: "magni",
-      accountType: "assumenda",
-      balance: 3698.08,
-      currency: "GBP",
-      feedStartDate: "2022-10-23T00:00:00.000Z",
-      id: "a94bb4f6-3c96-49e9-a3ef-a77dfb14cd66",
-      modifiedDate: "2022-10-23T00:00:00.000Z",
-      sortCode: "accusamus",
-      status: "non",
-    },
-    {
-      accountName: "occaecati",
-      accountNumber: "enim",
-      accountType: "accusamus",
-      balance: 9654.17,
-      currency: "EUR",
-      feedStartDate: "2022-10-23T00:00:00.000Z",
-      id: "ba88f3a6-6997-4074-ba44-69b6e2141959",
-      modifiedDate: "2022-10-23T00:00:00.000Z",
-      sortCode: "sint",
-      status: "accusantium",
-    },
-    {
-      accountName: "mollitia",
-      accountNumber: "reiciendis",
-      accountType: "mollitia",
-      balance: 3209.97,
+      accountName: "enim",
+      accountNumber: "accusamus",
+      accountType: "delectus",
+      balance: 6925.32,
       currency: "USD",
       feedStartDate: "2022-10-23T00:00:00.000Z",
-      id: "e2516fe4-c8b7-411e-9b7f-d2ed028921cd",
+      id: "a88f3a66-9970-474b-a446-9b6e21419598",
       modifiedDate: "2022-10-23T00:00:00.000Z",
-      sortCode: "maxime",
-      status: "ea",
+      sortCode: "accusantium",
+      status: "mollitia",
+    },
+    {
+      accountName: "reiciendis",
+      accountNumber: "mollitia",
+      accountType: "ad",
+      balance: 4314.18,
+      currency: "GBP",
+      feedStartDate: "2022-10-23T00:00:00.000Z",
+      id: "2516fe4c-8b71-41e5-b7fd-2ed028921cdd",
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      sortCode: "ea",
+      status: "excepturi",
+    },
+    {
+      accountName: "odit",
+      accountNumber: "ea",
+      accountType: "accusantium",
+      balance: 691.67,
+      currency: "EUR",
+      feedStartDate: "2022-10-23T00:00:00.000Z",
+      id: "576b0d5f-0d30-4c5f-bb25-87053202c73d",
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      sortCode: "hic",
+      status: "recusandae",
     },
   ],
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -205,18 +261,18 @@ const sdk = new CodatBankFeeds({
 
 sdk.bankFeedAccounts.update({
   bankFeedAccount: {
-    accountName: "excepturi",
-    accountNumber: "odit",
-    accountType: "ea",
-    balance: 332.22,
-    currency: "GBP",
+    accountName: "omnis",
+    accountNumber: "facilis",
+    accountType: "perspiciatis",
+    balance: 318.38,
+    currency: "EUR",
     feedStartDate: "2022-10-23T00:00:00.000Z",
-    id: "b576b0d5-f0d3-40c5-bbb2-587053202c73",
+    id: "8909b3fe-49a8-4d9c-bf48-633323f9b77f",
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    sortCode: "nostrum",
-    status: "hic",
+    sortCode: "dolorum",
+    status: "numquam",
   },
-  accountId: "EILBDVJVNUAGVKRQ",
+  accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: UpdateBankFeedResponse) => {

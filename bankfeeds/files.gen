@@ -29,6 +29,7 @@ src/sdk/models/operations/createbanktransactions.ts
 src/sdk/models/operations/getcreatebanktransactionsmodel.ts
 src/sdk/models/operations/listbankaccounttransactions.ts
 src/sdk/models/operations/createbankfeed.ts
+src/sdk/models/operations/deletebankfeedbankaccount.ts
 src/sdk/models/operations/listbankfeeds.ts
 src/sdk/models/operations/putbankfeed.ts
 src/sdk/models/operations/updatebankfeed.ts
@@ -71,6 +72,7 @@ src/sdk/models/shared/banktransactiontype.ts
 src/sdk/models/shared/links.ts
 src/sdk/models/shared/href.ts
 src/sdk/models/shared/bankfeedaccount.ts
+src/sdk/models/shared/pushoperation.ts
 src/sdk/models/shared/company.ts
 src/sdk/models/shared/connection.ts
 src/sdk/models/shared/dataconnectionstatus.ts
@@ -102,6 +104,8 @@ docs/models/operations/listbankaccounttransactions409applicationjson.md
 docs/models/operations/listbankaccounttransactionsresponse.md
 docs/models/operations/createbankfeedrequest.md
 docs/models/operations/createbankfeedresponse.md
+docs/models/operations/deletebankfeedbankaccountrequest.md
+docs/models/operations/deletebankfeedbankaccountresponse.md
 docs/models/operations/listbankfeedsrequest.md
 docs/models/operations/listbankfeedsresponse.md
 docs/models/operations/putbankfeedrequest.md
@@ -158,6 +162,7 @@ docs/models/shared/banktransactiontype.md
 docs/models/shared/links.md
 docs/models/shared/href.md
 docs/models/shared/bankfeedaccount.md
+docs/models/shared/pushoperation.md
 docs/models/shared/company.md
 docs/models/shared/connectionsourcetype.md
 docs/models/shared/connection.md

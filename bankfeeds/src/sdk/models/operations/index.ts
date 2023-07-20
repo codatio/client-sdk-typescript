@@ -7,6 +7,7 @@ export * from "./createbankfeed";
 export * from "./createbanktransactions";
 export * from "./createcompany";
 export * from "./createdataconnection";
+export * from "./deletebankfeedbankaccount";
 export * from "./deletecompany";
 export * from "./deletecompanyconnection";
 export * from "./getbankaccountmapping";

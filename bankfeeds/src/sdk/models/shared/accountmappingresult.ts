@@ -17,21 +17,21 @@ export class AccountMappingResult extends SpeakeasyBase {
     error?: string;
 
     /**
-     * Status of the POST request
+     * Status of the POST request.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "Status" })
     status?: string;
 
     /**
-     * Unique ID for the source account
+     * Unique ID for the source account.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "sourceAccountId" })
     sourceAccountId?: string;
 
     /**
-     * Unique ID for the target account
+     * Unique ID for the target account.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "targetAccountId" })
