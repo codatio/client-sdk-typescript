@@ -1,6 +1,6 @@
 {
   "name": "@codat/bank-feeds",
-  "version": "0.37.2",
+  "version": "0.37.3",
   "author": "Speakeasy",
   "scripts": {
     "prepare": "tsc --build"
