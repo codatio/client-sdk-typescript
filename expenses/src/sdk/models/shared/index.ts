@@ -8,6 +8,7 @@ export * from "./bankaccount";
 export * from "./codaterrormessage";
 export * from "./companyconfiguration";
 export * from "./companysyncstatus";
+export * from "./contactref";
 export * from "./createexpenserequest";
 export * from "./createexpenseresponse";
 export * from "./customer";

@@ -23,7 +23,7 @@ export class SyncStatus {
      * Last successful sync
      *
      * @remarks
-     * Gets the status of the last successfull sync
+     * Gets the status of the last successful sync
      */
     async getLastSuccessfulSync(
         req: operations.GetLastSuccessfulSyncRequest,
