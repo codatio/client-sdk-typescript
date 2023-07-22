@@ -43,7 +43,7 @@ sdk.accounts.create({
     currentBalance: 0,
     description: "Invoices the business has issued but has not yet collected payment on.",
     fullyQualifiedCategory: "Asset.Current",
-    fullyQualifiedName: "Asset.Current.Accounts Receivable",
+    fullyQualifiedName: "Fixed Asset",
     id: "1b6266d1-1e44-46c5-8eb5-a8f98e03124e",
     isBankAccount: false,
     metadata: {
@@ -58,32 +58,40 @@ sdk.accounts.create({
     validDatatypeLinks: [
       {
         links: [
-          "vel",
           "error",
           "deserunt",
-          "suscipit",
         ],
-        property: "iure",
+        property: "suscipit",
       },
       {
         links: [
+          "magnam",
           "debitis",
-          "ipsa",
         ],
-        property: "delectus",
+        property: "ipsa",
       },
       {
         links: [
+          "tempora",
           "suscipit",
           "molestiae",
+          "minus",
         ],
-        property: "minus",
+        property: "placeat",
+      },
+      {
+        links: [
+          "iusto",
+          "excepturi",
+          "nisi",
+        ],
+        property: "recusandae",
       },
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 812169,
+  timeoutInMinutes: 836079,
 }).then((res: CreateAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -129,7 +137,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.accounts.get({
-  accountId: "voluptatum",
+  accountId: "ab",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountResponse) => {
   if (res.statusCode == 200) {
@@ -226,7 +234,7 @@ sdk.accounts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "iusto",
+  query: "quis",
 }).then((res: ListAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response

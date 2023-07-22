@@ -19,7 +19,7 @@ Direct costs
 
 The *Create direct cost* endpoint creates a new [direct cost](https://docs.codat.io/accounting-api#/schemas/DirectCost) for a given company's connection.
 
-[Direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+[Direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost) are the expenses associated with a business' operations. For example, purchases of raw materials that are paid off at the point of the purchase and service fees are considered direct costs.
 
 **Integration-specific behaviour**
 
@@ -43,128 +43,187 @@ const sdk = new CodatAccounting({
 sdk.directCosts.create({
   directCost: {
     contactRef: {
-      dataType: "beatae",
-      id: "e8aa257d-dc19-412e-bde6-4bfcc5469d40",
+      dataType: "inventore",
+      id: "fdf01c3e-91e8-4f7b-869d-460a77eceb26",
     },
-    currency: "GBP",
-    currencyRate: 3383.08,
-    id: "dfa79620-6bef-42b0-a3e4-2c1aa010e9aa",
+    currency: "EUR",
+    currencyRate: 1008.13,
+    id: "0f1ef263-1c7c-40f0-b873-f9d5c25fd3e0",
     issueDate: "2022-10-23T00:00:00.000Z",
     lineItems: [
       {
         accountRef: {
-          id: "e9135586-d18f-49f9-ba4b-fad2bf7d67ca",
-          name: "Edwin Olson",
+          id: "a4a4253c-3025-4711-b42c-7e7dc548be09",
+          name: "Bradley Boyle",
         },
-        description: "unde",
-        discountAmount: 7121.86,
-        discountPercentage: 2626.11,
+        description: "culpa",
+        discountAmount: 1734.29,
+        discountPercentage: 816.73,
         itemRef: {
-          id: "1d612435-3187-40cf-a8b0-3ad421bd43d1",
-          name: "Larry Sanford MD",
+          id: "5ca12a4b-a9d5-4998-8192-cfd0c77c53e7",
+          name: "Julio Schulist",
         },
-        quantity: 393.88,
-        subTotal: 81.99,
-        taxAmount: 210.15,
+        quantity: 8787.52,
+        subTotal: 3952.6,
+        taxAmount: 9251.57,
         taxRateRef: {
-          effectiveTaxRate: 2214.8,
-          id: "eb22d9b3-a70d-494f-aa74-1c57d1fedc20",
-          name: "Michelle Sipes",
+          effectiveTaxRate: 5344.54,
+          id: "b90bac38-4e23-4967-83fe-c31c50824d18",
+          name: "Kenny Fadel",
         },
-        totalAmount: 8630.37,
+        totalAmount: 4356.32,
         tracking: {
           invoiceTo: {
-            dataType: "quo",
-            id: "3ce18547-2f9e-4e69-966a-8be3444eac8b",
+            dataType: "accountTransaction",
+            id: "2d27eb70-7aa6-40c8-be46-e6177db9db3b",
           },
           recordRefs: [
             {
-              dataType: "laborum",
-              id: "2875c6c1-fe60-46d0-bd2a-9c87ae50c166",
+              dataType: "journalEntry",
+              id: "ffbb6970-ee77-40e3-a097-ef7c206e61b0",
+            },
+            {
+              dataType: "transfer",
+              id: "308714c2-0a3d-4986-b7ca-85c3fe65574d",
             },
           ],
         },
         trackingCategoryRefs: [
           {
-            id: "1a1d9136-a7e8-4d53-a13f-3f658752db76",
-            name: "Jody Hegmann",
+            id: "af94a7c9-8f13-4af2-8db2-cf2bf4f3ded3",
+            name: "Terri Stehr",
           },
           {
-            id: "0a56cebc-ada2-49ca-b918-1c95671663c5",
-            name: "Cynthia Reichert",
+            id: "14b21cd9-8196-4d55-af69-a1c4b79ae336",
+            name: "Albert Roob",
+          },
+          {
+            id: "c39a7c0e-17cb-412c-9ba8-25fe22cd5cba",
+            name: "May Rogahn",
           },
         ],
-        unitAmount: 3905.83,
+        unitAmount: 7892.35,
+      },
+      {
+        accountRef: {
+          id: "932af681-3d65-4bfe-8ec2-dd6916f7fc7d",
+          name: "Dr. Matt Kreiger",
+        },
+        description: "aliquid",
+        discountAmount: 257.44,
+        discountPercentage: 8786.54,
+        itemRef: {
+          id: "6075894d-61c1-44cd-9022-7e37c0d977f1",
+          name: "Greg Gerlach V",
+        },
+        quantity: 6973.14,
+        subTotal: 8869.03,
+        taxAmount: 5900.02,
+        taxRateRef: {
+          effectiveTaxRate: 4925.06,
+          id: "51b106d2-3e03-4e69-815a-ae99fcde9e72",
+          name: "Colin Mueller",
+        },
+        totalAmount: 9831.05,
+        tracking: {
+          invoiceTo: {
+            dataType: "journalEntry",
+            id: "d8a44640-ca60-4db7-ba2f-93f467dc0d8d",
+          },
+          recordRefs: [
+            {
+              dataType: "invoice",
+              id: "6122026a-b8f2-4774-85c1-976af980da7a",
+            },
+            {
+              dataType: "journalEntry",
+              id: "89fc44db-2745-430e-9cc7-c6d0cbcfdcd3",
+            },
+            {
+              dataType: "journalEntry",
+              id: "4b6f623b-ceca-4b50-aee5-e0da8b9af6ad",
+            },
+          ],
+        },
+        trackingCategoryRefs: [
+          {
+            id: "5486e7b4-13cb-4e2d-976d-c1c43d40f61d",
+            name: "Mrs. Melinda Borer",
+          },
+        ],
+        unitAmount: 7638.37,
       },
     ],
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "et",
+    note: "debitis",
     paymentAllocations: [
       {
         allocation: {
           allocatedOnDate: "2022-10-23T00:00:00.000Z",
-          currency: "USD",
-          currencyRate: 2495.41,
-          totalAmount: 3829.28,
+          currency: "EUR",
+          currencyRate: 2524.07,
+          totalAmount: 9407.97,
         },
         payment: {
           accountRef: {
-            id: "38512ab2-521b-49f2-a072-467b8a40bc05",
-            name: "Dr. Omar Reinger",
+            id: "72118407-72f3-42e3-b49d-be0f23b7b6d9",
+            name: "Theodore Lynch",
           },
-          currency: "USD",
-          currencyRate: 196.1,
-          id: "edf22a94-d20e-4c90-aa41-d1f465e85156",
-          note: "repellat",
+          currency: "EUR",
+          currencyRate: 8165.56,
+          id: "ed477680-fc7a-417a-82e5-e82fd28d1040",
+          note: "harum",
           paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "a",
-          totalAmount: 4778.26,
+          reference: "debitis",
+          totalAmount: 5723.68,
         },
       },
       {
         allocation: {
           allocatedOnDate: "2022-10-23T00:00:00.000Z",
-          currency: "EUR",
-          currencyRate: 8372.02,
-          totalAmount: 9459.21,
+          currency: "GBP",
+          currencyRate: 6096.53,
+          totalAmount: 1850.41,
         },
         payment: {
           accountRef: {
-            id: "54fdd5ea-9543-4398-9afb-42a8d63388e4",
-            name: "Casey Anderson",
+            id: "ab44cb18-3500-48f4-a1ce-53e914498a9b",
+            name: "Miss Theodore Huel",
           },
           currency: "EUR",
-          currencyRate: 6353.96,
-          id: "5f9b18a2-44fd-4619-839d-acd38ed0dc67",
-          note: "et",
+          currencyRate: 9692.94,
+          id: "de410c37-daa9-4182-a49d-9625d3caffc1",
+          note: "cupiditate",
           paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "optio",
-          totalAmount: 4654.86,
+          reference: "voluptates",
+          totalAmount: 9025.46,
         },
       },
     ],
-    reference: "delectus",
+    reference: "animi",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    subTotal: 8783.61,
+    subTotal: 3101.3,
     supplementalData: {
       content: {
-        "culpa": {
-          "quasi": "veniam",
-          "provident": "consequuntur",
-          "aut": "maxime",
-          "provident": "aperiam",
+        "dolores": {
+          "unde": "odit",
+          "tempore": "maxime",
+        },
+        "possimus": {
+          "ut": "ipsa",
+          "saepe": "id",
         },
       },
     },
-    taxAmount: 8337.06,
-    totalAmount: 664.08,
+    taxAmount: 5779.71,
+    totalAmount: 5452.98,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 741454,
+  timeoutInMinutes: 723093,
 }).then((res: CreateDirectCostResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -211,7 +270,7 @@ sdk.directCosts.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "magnam",
+  directCostId: "itaque",
 }).then((res: DownloadDirectCostAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -259,7 +318,7 @@ const sdk = new CodatAccounting({
 sdk.directCosts.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "natus",
+  directCostId: "placeat",
 }).then((res: GetDirectCostResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -306,7 +365,7 @@ sdk.directCosts.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "aperiam",
+  directCostId: "porro",
 }).then((res: GetDirectCostAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -404,7 +463,7 @@ sdk.directCosts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "dicta",
+  query: "itaque",
 }).then((res: ListDirectCostsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -450,7 +509,7 @@ const sdk = new CodatAccounting({
 sdk.directCosts.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "repellat",
+  directCostId: "accusantium",
 }).then((res: ListDirectCostAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -499,12 +558,12 @@ const sdk = new CodatAccounting({
 
 sdk.directCosts.uploadAttachment({
   requestBody: {
-    content: "dolores".encode(),
-    requestBody: "harum",
+    content: "labore".encode(),
+    requestBody: "voluptatum",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "quibusdam",
+  directCostId: "nisi",
 }).then((res: UploadDirectCostAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response

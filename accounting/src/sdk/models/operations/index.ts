@@ -124,6 +124,7 @@ export * from "./updateinvoice";
 export * from "./updatepurchaseorder";
 export * from "./updatesupplier";
 export * from "./uploadbillattachment";
+export * from "./uploadbillcreditnoteattachment";
 export * from "./uploaddirectcostattachment";
 export * from "./uploaddirectincomeattachment";
 export * from "./uploadinvoiceattachment";

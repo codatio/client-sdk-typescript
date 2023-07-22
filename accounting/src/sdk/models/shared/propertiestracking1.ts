@@ -5,6 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { BilledToType1 } from "./billedtotype1";
 import { CustomerRef } from "./customerref";
+import { InvoiceTo } from "./invoiceto";
 import { ProjectRef } from "./projectref";
 import { TrackingCategoryRef } from "./trackingcategoryref";
 import { Expose, Type } from "class-transformer";
@@ -35,4 +36,16 @@ export class Propertiestracking1 extends SpeakeasyBase {
     @Expose({ name: "projectRef" })
     @Type(() => ProjectRef)
     projectRef?: ProjectRef;
+
+    /**
+     * Links the current record to the underlying record or data type that created it.
+     *
+     * @remarks
+     *
+     * For example, if a journal entry is generated based on an invoice, this property allows you to connect the journal entry to the underlying invoice in our data model.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "recordRef" })
+    @Type(() => InvoiceTo)
+    recordRef?: InvoiceTo;
 }

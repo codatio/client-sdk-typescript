@@ -19,6 +19,8 @@ import { Expose, Type } from "class-transformer";
  *
  * ## Overview
  *
+ * Direct incomes are incomes received directly from the business' operations. For example, cash sales of items to a customer, referral commissions, and service fee refunds are considered direct incomes.
+ *
  * Direct incomes include:
  *
  * - Selling an item directly to a contact, and receiving payment at the point of the sale.

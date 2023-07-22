@@ -39,38 +39,38 @@ const sdk = new CodatAccounting({
 sdk.transfers.create({
   transfer: {
     contactRef: {
-      dataType: "laudantium",
-      id: "1ddf7e08-8f74-4ef5-8c92-16e8926313bb",
+      dataType: "magni",
+      id: "b46097ef-a44a-48df-b40c-dd1850bf5a0c",
     },
     date: "2022-10-23T00:00:00.000Z",
     depositedRecordRefs: [
       {
-        dataType: "quo",
-        id: "2c8d2701-096b-466a-96e3-e1d9d3b66033",
+        dataType: "accountTransaction",
+        id: "b7860afe-a6c6-4351-b2d5-3086c10a856a",
       },
       {
-        dataType: "quaerat",
-        id: "a11aa1d5-d224-47de-9b3d-46170e768a96",
+        dataType: "journalEntry",
+        id: "9d4665ba-9725-4987-9dc0-cecbc78bd248",
       },
       {
-        dataType: "nobis",
-        id: "b3987883-98eb-4a1b-bf71-43356f6349a1",
+        dataType: "transfer",
+        id: "c6e8b240-b1c0-46c9-8064-9d2bdd9e58dd",
       },
       {
-        dataType: "voluptas",
-        id: "4249b211-ce46-4b95-9652-b158ca9142f0",
+        dataType: "accountTransaction",
+        id: "1665c312-c7f5-450d-8721-c176292dd787",
       },
     ],
-    description: "veniam",
+    description: "blanditiis",
     from: {
       accountRef: {
-        id: "2632b31c-ad69-42ff-8874-5005e9d3d934",
-        name: "Kevin Franecki",
+        id: "e71bf8c1-4184-41fe-9f87-ea103a9806ea",
+        name: "Tonya Beier",
       },
-      amount: 3566.2,
-      currency: "EUR",
+      amount: 5840.2,
+      currency: "USD",
     },
-    id: "388664f6-9855-430a-ae2a-ed6aaf863c28",
+    id: "ef17b817-58d4-4ab5-bc80-dea77fd9931e",
     metadata: {
       isDeleted: false,
     },
@@ -78,30 +78,41 @@ sdk.transfers.create({
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "aut": {
-          "vel": "perspiciatis",
-          "id": "amet",
-          "pariatur": "iste",
-          "voluptatem": "voluptas",
+        "quasi": {
+          "aliquid": "impedit",
         },
-        "hic": {
-          "officiis": "soluta",
-          "at": "nostrum",
+        "tenetur": {
+          "magni": "quisquam",
+          "dolores": "aliquid",
+          "culpa": "distinctio",
+          "corrupti": "dolore",
+        },
+        "doloremque": {
+          "quia": "totam",
+          "repudiandae": "id",
+          "aperiam": "commodi",
+        },
+        "ducimus": {
+          "quibusdam": "autem",
         },
       },
     },
     to: {
       accountRef: {
-        id: "ad7ec739-4f25-4f63-8b37-30714e6be8c3",
-        name: "Michael Mertz",
+        id: "b73a34ca-434c-4db3-949a-19f252078a18",
+        name: "Dr. Oscar Renner",
       },
-      amount: 3122.98,
+      amount: 8886.44,
       currency: "EUR",
     },
     trackingCategoryRefs: [
       {
-        id: "42ac299a-6e5e-47ae-b134-02e945f53743",
-        name: "Moses Schulist Jr.",
+        id: "b5cf0616-ee92-4275-b5bd-60daa0e149cd",
+        name: "Sadie Schmitt",
+      },
+      {
+        id: "362bbf92-3900-415f-a689-9cf4ffeb9bec",
+        name: "Ms. Sarah Douglas",
       },
     ],
   },
@@ -154,7 +165,7 @@ const sdk = new CodatAccounting({
 sdk.transfers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  transferId: "sint",
+  transferId: "voluptatum",
 }).then((res: GetTransferResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -252,7 +263,7 @@ sdk.transfers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "praesentium",
+  query: "vitae",
 }).then((res: ListTransfersResponse) => {
   if (res.statusCode == 200) {
     // handle response

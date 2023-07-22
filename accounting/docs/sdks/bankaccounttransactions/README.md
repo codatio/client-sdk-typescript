@@ -37,29 +37,36 @@ const sdk = new CodatAccounting({
 
 sdk.bankAccountTransactions.create({
   createBankTransactions: {
-    accountId: "excepturi",
+    accountId: "veritatis",
     transactions: [
       {
-        amount: 9255.97,
-        balance: 8360.79,
+        amount: 202.18,
+        balance: 3682.41,
         date: "2022-10-23T00:00:00.000Z",
-        description: "quis",
-        id: "1a05dfc2-ddf7-4cc7-8ca1-ba928fc81674",
+        description: "sapiente",
+        id: "c2ddf7cc-78ca-41ba-928f-c816742cb739",
       },
       {
-        amount: 1863.32,
-        balance: 7742.34,
+        amount: 1352.18,
+        balance: 187.89,
         date: "2022-10-23T00:00:00.000Z",
-        description: "esse",
-        id: "39205929-396f-4ea7-996e-b10faaa2352c",
+        description: "natus",
+        id: "29396fea-7596-4eb1-8faa-a2352c595590",
+      },
+      {
+        amount: 4386.01,
+        balance: 6342.74,
+        date: "2022-10-23T00:00:00.000Z",
+        description: "sapiente",
+        id: "1a3a2fa9-4677-4392-91aa-52c3f5ad019d",
       },
     ],
   },
-  accountId: "enim",
+  accountId: "laborum",
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 607831,
+  timeoutInMinutes: 96098,
 }).then((res: CreateBankTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -107,7 +114,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bankAccountTransactions.getCreateModel({
-  accountId: "nemo",
+  accountId: "reiciendis",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetCreateBankTransactionsModelResponse) => {
@@ -155,13 +162,13 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bankAccountTransactions.list({
-  accountId: "minima",
+  accountId: "voluptatibus",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "excepturi",
+  query: "vero",
 }).then((res: ListBankAccountTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response

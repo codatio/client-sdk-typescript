@@ -27,6 +27,14 @@ import { Expose, Type } from "class-transformer";
  *   * Liability
  *   * Equity.
  *
+ * The same account may have a different category based on the integration it is used in. For example, a current account (known as checking in the US) should be categorized as `Asset.Current` for Xero, and `Asset.Bank.Checking` for QuickBooks Online.
+ *
+ * At the same time, each integration may have its own requirements to the categories. For example, a Paypal account in Xero is of the `Asset.Bank` category and therefore requires additional properties to be provided.
+ *
+ * To determine the list of allowed categories for a specific integration, you can:
+ * - Follow our [Create, update, delete data](https://docs.codat.io/using-the-api/push) guide and use the [Get create account model](https://docs.codat.io/accounting-api#/operations/get-create-chartOfAccounts-model).
+ * - Refer to the integration's own documentation.
+ *
  * > **Accounts with no category**
  * >
  * > If an account is pulled from the chart of accounts and its nominal code does not lie within the category layout for the company's accounts, then the **type** is `Unknown`. The **fullyQualifiedCategory** and **fullyQualifiedName** fields return `null`.
@@ -64,10 +72,11 @@ export class Account extends SpeakeasyBase {
     description?: string;
 
     /**
-     * Full category of the account. For example:
+     * Full category of the account.
      *
      * @remarks
-     * Liability.Current or Income.Revenue. See example data.
+     *
+     * For example, `Liability.Current` or `Income.Revenue`. To determine a list of possible categories for each integration, see our examples, follow our [Create, update, delete data](https://docs.codat.io/using-the-api/push) guide, or refer to the integration's own documentation.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "fullyQualifiedCategory" })
@@ -77,8 +86,9 @@ export class Account extends SpeakeasyBase {
      * Full name of the account, for example:
      *
      * @remarks
-     * - `Liability.Current.VAT`
-     * - `Income.Revenue.Sales`
+     * - `Cash On Hand`
+     * - `Rents Held In Trust`
+     * - `Fixed Asset`
      */
     @SpeakeasyMetadata()
     @Expose({ name: "fullyQualifiedName" })
@@ -96,7 +106,7 @@ export class Account extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "isBankAccount" })
-    isBankAccount: boolean;
+    isBankAccount?: boolean;
 
     @SpeakeasyMetadata()
     @Expose({ name: "metadata" })
@@ -130,14 +140,14 @@ export class Account extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status: AccountStatus;
+    status?: AccountStatus;
 
     /**
      * Type of account
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type: AccountType;
+    type?: AccountType;
 
     /**
      * The validDatatypeLinks can be used to determine whether an account can be correctly mapped to another object; for example, accounts with a `type` of `income` might only support being used on an Invoice and Direct Income. For more information, see [Valid Data Type Links](/accounting-api#/schemas/ValidDataTypeLinks).

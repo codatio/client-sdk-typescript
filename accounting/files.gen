@@ -62,6 +62,7 @@ src/sdk/models/operations/getbillcreditnote.ts
 src/sdk/models/operations/getcreateupdatebillcreditnotesmodel.ts
 src/sdk/models/operations/listbillcreditnotes.ts
 src/sdk/models/operations/updatebillcreditnote.ts
+src/sdk/models/operations/uploadbillcreditnoteattachment.ts
 src/sdk/models/operations/createbillpayment.ts
 src/sdk/models/operations/deletebillpayment.ts
 src/sdk/models/operations/getbillpayments.ts
@@ -428,6 +429,9 @@ docs/models/operations/listbillcreditnotes409applicationjson.md
 docs/models/operations/listbillcreditnotesresponse.md
 docs/models/operations/updatebillcreditnoterequest.md
 docs/models/operations/updatebillcreditnoteresponse.md
+docs/models/operations/uploadbillcreditnoteattachmentrequestbody.md
+docs/models/operations/uploadbillcreditnoteattachmentrequest.md
+docs/models/operations/uploadbillcreditnoteattachmentresponse.md
 docs/models/operations/createbillpaymentrequest.md
 docs/models/operations/createbillpaymentresponse.md
 docs/models/operations/deletebillpaymentrequest.md

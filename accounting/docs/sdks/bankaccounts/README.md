@@ -39,28 +39,28 @@ const sdk = new CodatAccounting({
 
 sdk.bankAccounts.create({
   bankAccount: {
-    accountName: "accusantium",
-    accountNumber: "iure",
-    accountType: BankAccountBankAccountType.Credit,
-    availableBalance: 9883.74,
-    balance: 9589.5,
-    currency: "GBP",
-    iBan: "mollitia",
-    id: "3a2fa946-7739-4251-aa52-c3f5ad019da1",
-    institution: "reiciendis",
+    accountName: "nihil",
+    accountNumber: "praesentium",
+    accountType: BankAccountBankAccountType.Debit,
+    availableBalance: 557.14,
+    balance: 6048.46,
+    currency: "USD",
+    iBan: "cum",
+    id: "0074f154-71b5-4e6e-93b9-9d488e1e91e4",
+    institution: "enim",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    nominalCode: "vero",
-    overdraftLimit: 4686.51,
-    sortCode: "praesentium",
+    nominalCode: "est",
+    overdraftLimit: 8423.42,
+    sortCode: "explicabo",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
   },
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 55714,
+  timeoutInMinutes: 716327,
 }).then((res: CreateBankAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -106,7 +106,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bankAccounts.get({
-  accountId: "omnis",
+  accountId: "quibusdam",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetBankAccountResponse) => {
@@ -206,7 +206,7 @@ sdk.bankAccounts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "voluptate",
+  query: "labore",
 }).then((res: ListBankAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -256,29 +256,29 @@ const sdk = new CodatAccounting({
 
 sdk.bankAccounts.update({
   bankAccount: {
-    accountName: "cum",
-    accountNumber: "perferendis",
-    accountType: BankAccountBankAccountType.Unknown,
-    availableBalance: 4417.11,
-    balance: 2828.07,
-    currency: "EUR",
-    iBan: "dicta",
-    id: "5471b5e6-e13b-499d-888e-1e91e450ad2a",
-    institution: "distinctio",
+    accountName: "modi",
+    accountNumber: "qui",
+    accountType: BankAccountBankAccountType.Credit,
+    availableBalance: 5865.13,
+    balance: 5528.22,
+    currency: "GBP",
+    iBan: "magni",
+    id: "d502a94b-b4f6-43c9-a9e9-a3efa77dfb14",
+    institution: "cumque",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    nominalCode: "labore",
-    overdraftLimit: 2647.3,
-    sortCode: "qui",
+    nominalCode: "ea",
+    overdraftLimit: 3965.06,
+    sortCode: "laborum",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
   },
-  bankAccountId: "cupiditate",
+  bankAccountId: "non",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  timeoutInMinutes: 552822,
+  timeoutInMinutes: 581273,
 }).then((res: UpdateBankAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response

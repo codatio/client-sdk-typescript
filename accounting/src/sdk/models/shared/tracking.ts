@@ -7,20 +7,15 @@ import { InvoiceTo } from "./invoiceto";
 import { Expose, Type } from "class-transformer";
 
 /**
- * Links to the underlying record or data type.
+ * Links the current record to the underlying record or data type that created it.
  *
  * @remarks
  *
- * Found on:
- *
- * - Journal entries
- * - Account transactions
- * - Invoices
- * - Transfers
+ * For example, if a journal entry is generated based on an invoice, this property allows you to connect the journal entry to the underlying invoice in our data model.
  */
 export class TrackingRecordReference extends SpeakeasyBase {
     /**
-     * Name of the 'dataType'.
+     * Allowed name of the 'dataType'.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "dataType" })
@@ -36,16 +31,11 @@ export class TrackingRecordReference extends SpeakeasyBase {
 
 export class Tracking extends SpeakeasyBase {
     /**
-     * Links to the underlying record or data type.
+     * Links the current record to the underlying record or data type that created it.
      *
      * @remarks
      *
-     * Found on:
-     *
-     * - Journal entries
-     * - Account transactions
-     * - Invoices
-     * - Transfers
+     * For example, if a journal entry is generated based on an invoice, this property allows you to connect the journal entry to the underlying invoice in our data model.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "invoiceTo" })
