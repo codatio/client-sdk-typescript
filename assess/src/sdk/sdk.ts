@@ -51,7 +51,7 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "1.0";
-    sdkVersion = "0.35.0";
+    sdkVersion = "0.35.1";
     genVersion = "2.71.0";
 
     public constructor(init?: Partial<SDKConfiguration>) {
@@ -63,9 +63,9 @@ export class SDKConfiguration {
  * Assess API: Codat's financial insights API
  *
  * @remarks
- * Codat's Assess API enable you to make smarter credit decisions on your small business customers. Assess enriches your customer's accounting, commerce and banking data to surface actionable insights you didn't have before.
+ * Check that you have enabled the [data types required by Assess](https://docs.codat.io/assess/get-started#prerequisites) for all of its features to work.
  *
- * [Read more...](https://www.codat.io/assess/)
+ * [Read more...](https://www.docs.codat.io/assess/)
  *
  * [See our OpenAPI spec](https://github.com/codatio/oas)
  */
