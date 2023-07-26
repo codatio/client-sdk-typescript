@@ -155,21 +155,11 @@ export class BankFeedAccounts {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-        try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "bankFeedAccount", "json");
-        } catch (e: unknown) {
-            if (e instanceof Error) {
-                throw new Error(`Error serializing request body, cause: ${e.message}`);
-            }
-        }
-
         const client: AxiosInstance =
             this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
 
-        const headers = { ...reqBodyHeaders, ...config?.headers };
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -189,7 +179,6 @@ export class BankFeedAccounts {
                 method: "delete",
                 headers: headers,
                 responseType: "arraybuffer",
-                data: reqBody,
                 ...config,
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -208,22 +197,9 @@ export class BankFeedAccounts {
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
-            case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.pushOperation = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.PushOperation
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
+            case httpRes?.status == 204:
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
                 } else {

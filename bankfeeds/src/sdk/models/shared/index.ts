@@ -24,7 +24,6 @@ export * from "./href";
 export * from "./links";
 export * from "./pushchangetype";
 export * from "./pushfieldvalidation";
-export * from "./pushoperation";
 export * from "./pushoperationchange";
 export * from "./pushoperationref";
 export * from "./pushoperationstatus";

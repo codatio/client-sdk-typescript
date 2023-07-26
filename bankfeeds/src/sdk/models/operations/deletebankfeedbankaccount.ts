@@ -7,9 +7,6 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class DeleteBankFeedBankAccountRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    bankFeedAccount?: shared.BankFeedAccount;
-
     /**
      * Unique identifier for an account
      */
@@ -26,12 +23,6 @@ export class DeleteBankFeedBankAccountRequest extends SpeakeasyBase {
 export class DeleteBankFeedBankAccountResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    pushOperation?: shared.PushOperation;
 
     @SpeakeasyMetadata()
     statusCode: number;
