@@ -605,7 +605,7 @@ export class BillCreditNotes {
     }
 
     /**
-     * Push invoice attachment
+     * Upload bill credit note attachment
      *
      * @remarks
      * ---
