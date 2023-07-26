@@ -1,91 +1,15 @@
 # Assess
-
-Assess helps you make smarter credit decisions on small businesses by enabling you to pull your customers' latest data from the operating systems they are already using.
+    
+﻿Assess helps you make smarter credit decisions on small businesses by enabling you to pull your customers' latest data from the operating systems they are already using.
 You can use that data for automating decisioning and surfacing new insights on the customer, all via one API.
 
 <!-- Start SDK Installation -->
-## SDK Installation
-
-### NPM
-
-```bash
-npm add @codat/assess
-```
-
-### Yarn
-
-```bash
-yarn add @codat/assess
-```
 <!-- End SDK Installation -->
-
-## SDK Example Usage
+    
+## Example Usage
 <!-- Start SDK Example Usage -->
-```typescript
-import { CodatAssess } from "@codat/assess";
-import { GetAccountCategoryResponse } from "@codat/assess/dist/sdk/models/operations";
-
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.categories.getAccountCategory({
-  accountId: "corrupti",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetAccountCategoryResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
-```
 <!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
-## Available Resources and Operations
-
-
-### [categories](docs/sdks/categories/README.md)
-
-* [~~getAccountCategory~~](docs/sdks/categories/README.md#getaccountcategory) - Get suggested and/or confirmed category for a specific account :warning: **Deprecated**
-* [~~listAccountsCategories~~](docs/sdks/categories/README.md#listaccountscategories) - List suggested and confirmed account categories :warning: **Deprecated**
-* [~~listAvailableAccountCategories~~](docs/sdks/categories/README.md#listavailableaccountcategories) - List account categories :warning: **Deprecated**
-* [~~updateAccountCategory~~](docs/sdks/categories/README.md#updateaccountcategory) - Update account categories :warning: **Deprecated**
-* [~~updateAccountsCategories~~](docs/sdks/categories/README.md#updateaccountscategories) - Confirm categories for accounts :warning: **Deprecated**
-
-### [dataIntegrity](docs/sdks/dataintegrity/README.md)
-
-* [getDataIntegrityStatus](docs/sdks/dataintegrity/README.md#getdataintegritystatus) - Get data integrity status
-* [getDataIntegritySummaries](docs/sdks/dataintegrity/README.md#getdataintegritysummaries) - Get data integrity summary
-* [listDataTypeDataIntegrityDetails](docs/sdks/dataintegrity/README.md#listdatatypedataintegritydetails) - List data type data integrity
-
-### [excelReports](docs/sdks/excelreports/README.md)
-
-* [generateExcelReport](docs/sdks/excelreports/README.md#generateexcelreport) - Generate Excel report
-* [getAccountingMarketingMetrics](docs/sdks/excelreports/README.md#getaccountingmarketingmetrics) - Get marketing metrics report
-* [getExcelReport](docs/sdks/excelreports/README.md#getexcelreport) - Download Excel report
-* [getExcelReportGenerationStatus](docs/sdks/excelreports/README.md#getexcelreportgenerationstatus) - Get Excel report status
-
-### [reports](docs/sdks/reports/README.md)
-
-* [getAccountsForEnhancedBalanceSheet](docs/sdks/reports/README.md#getaccountsforenhancedbalancesheet) - Get enhanced balance sheet accounts
-* [getAccountsForEnhancedProfitAndLoss](docs/sdks/reports/README.md#getaccountsforenhancedprofitandloss) - Get enhanced profit and loss accounts
-* [getCommerceCustomerRetentionMetrics](docs/sdks/reports/README.md#getcommercecustomerretentionmetrics) - Get customer retention metrics
-* [getCommerceLifetimeValueMetrics](docs/sdks/reports/README.md#getcommercelifetimevaluemetrics) - Get lifetime value metric
-* [getCommerceOrdersMetrics](docs/sdks/reports/README.md#getcommerceordersmetrics) - Get orders report
-* [getCommerceRefundsMetrics](docs/sdks/reports/README.md#getcommercerefundsmetrics) - Get refunds report
-* [getCommerceRevenueMetrics](docs/sdks/reports/README.md#getcommercerevenuemetrics) - Get commerce revenue metrics
-* [~~getEnhancedBalanceSheet~~](docs/sdks/reports/README.md#getenhancedbalancesheet) - Get enhanced balance sheet report :warning: **Deprecated**
-* [getEnhancedCashFlowTransactions](docs/sdks/reports/README.md#getenhancedcashflowtransactions) - Get enhanced cash flow report
-* [~~getEnhancedFinancialMetrics~~](docs/sdks/reports/README.md#getenhancedfinancialmetrics) - List financial metrics :warning: **Deprecated**
-* [getEnhancedInvoicesReport](docs/sdks/reports/README.md#getenhancedinvoicesreport) - Get enhanced invoices report
-* [~~getEnhancedProfitAndLoss~~](docs/sdks/reports/README.md#getenhancedprofitandloss) - Get enhanced profit and loss report :warning: **Deprecated**
-* [getLoanSummary](docs/sdks/reports/README.md#getloansummary) - Get enhanced loan summaries
-* [getRecurringRevenueMetrics](docs/sdks/reports/README.md#getrecurringrevenuemetrics) - Get key subscription revenue metrics
-* [listLoanTransactions](docs/sdks/reports/README.md#listloantransactions) - List enhanced loan transactions
-* [requestRecurringRevenueMetrics](docs/sdks/reports/README.md#requestrecurringrevenuemetrics) - Generate key subscription revenue metrics
 <!-- End SDK Available Operations -->
-
-### SDK Generated by [Speakeasy](https://docs.speakeasyapi.dev/docs/using-speakeasy/client-sdks)
+### Library generated by [Speakeasy](https://docs.speakeasyapi.dev/docs/using-speakeasy/client-sdks)

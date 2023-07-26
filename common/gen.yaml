@@ -1,15 +1,17 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 9d7c6aa08e1e5ceaa9cd30a987411bb2
+  docChecksum: 853aebc76021ec17db9b1abb7a33f340
   docVersion: 2.1.0
-  speakeasyVersion: 1.59.0
-  generationVersion: 2.65.0
+  speakeasyVersion: 1.53.0
+  generationVersion: 2.58.0
 generation:
   sdkClassName: CodatCommon
   singleTagPerOp: false
   telemetryEnabled: true
 typescript:
-  version: 0.35.1
-  author: Speakeasy
+  version: 0.0.0
+  author: Codat
+  description: Manage the building blocks of Codat, including companies, connections,
+    and more.
   maxMethodParams: 0
   packageName: '@codat/common'
