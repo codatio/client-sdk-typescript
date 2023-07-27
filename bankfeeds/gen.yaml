@@ -1,15 +1,15 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 8c314c3a18f736994b1024779262d7f2
+  docChecksum: 412d8ccf107f6ee99af35559ed732f3f
   docVersion: 2.1.0
-  speakeasyVersion: 1.65.0
-  generationVersion: 2.73.0
+  speakeasyVersion: 1.65.1
+  generationVersion: 2.73.1
 generation:
   sdkClassName: CodatBankFeeds
   singleTagPerOp: false
   telemetryEnabled: true
 typescript:
-  version: 0.39.0
+  version: 0.39.1
   author: Speakeasy
   maxMethodParams: 0
   packageName: '@codat/bank-feeds'
