@@ -42,15 +42,15 @@ export class ListCompaniesResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * Your `query` parameter was not correctly formed
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
+
     @SpeakeasyMetadata()
     statusCode: number;
 
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * Your `query` parameter was not correctly formed
-     */
-    @SpeakeasyMetadata()
-    schema?: shared.Schema;
 }
