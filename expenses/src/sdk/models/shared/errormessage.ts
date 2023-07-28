@@ -8,7 +8,7 @@ import { Expose } from "class-transformer";
 /**
  * Your API request was not properly authorized.
  */
-export class Schema extends SpeakeasyBase {
+export class ErrorMessage extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "canBeRetried" })
     canBeRetried?: string;

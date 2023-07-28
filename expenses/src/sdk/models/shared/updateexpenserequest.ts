@@ -5,6 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { ContactRef } from "./contactref";
 import { ExpenseTransactionLine } from "./expensetransactionline";
+import { ExpenseType } from "./expensetype";
 import { Expose, Type } from "class-transformer";
 
 export class UpdateExpenseRequest extends SpeakeasyBase {
@@ -82,7 +83,10 @@ export class UpdateExpenseRequest extends SpeakeasyBase {
     @Expose({ name: "notes" })
     notes?: string;
 
+    /**
+     * The type of transaction.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type: any;
+    type: ExpenseType;
 }

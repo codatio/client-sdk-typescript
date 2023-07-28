@@ -40,7 +40,7 @@ src/sdk/models/operations/listsyncs.ts
 src/sdk/models/operations/getsynctransaction.ts
 src/sdk/models/operations/listsynctransactions.ts
 src/sdk/models/operations/index.ts
-src/sdk/models/shared/schema.ts
+src/sdk/models/shared/errormessage.ts
 src/sdk/models/shared/companyconfiguration.ts
 src/sdk/models/shared/supplier.ts
 src/sdk/models/shared/customer.ts
@@ -55,6 +55,7 @@ src/sdk/models/shared/expensetransactionline.ts
 src/sdk/models/shared/recordref.ts
 src/sdk/models/shared/contactref.ts
 src/sdk/models/shared/updateexpenserequest.ts
+src/sdk/models/shared/expensetype.ts
 src/sdk/models/shared/attachment.ts
 src/sdk/models/shared/mappingoptions.ts
 src/sdk/models/shared/trackingcategorymappinginfo.ts
@@ -119,7 +120,7 @@ docs/models/operations/getsynctransactionrequest.md
 docs/models/operations/getsynctransactionresponse.md
 docs/models/operations/listsynctransactionsrequest.md
 docs/models/operations/listsynctransactionsresponse.md
-docs/models/shared/schema.md
+docs/models/shared/errormessage.md
 docs/models/shared/companyconfiguration.md
 docs/models/shared/supplier.md
 docs/models/shared/customer.md
@@ -137,6 +138,7 @@ docs/models/shared/recordref.md
 docs/models/shared/contactrefcontacttype.md
 docs/models/shared/contactref.md
 docs/models/shared/updateexpenserequest.md
+docs/models/shared/expensetype.md
 docs/models/shared/attachment.md
 docs/models/shared/mappingoptions.md
 docs/models/shared/trackingcategorymappinginfo.md
