@@ -23,7 +23,7 @@ src/sdk/models/operations/downloadfiles.ts
 src/sdk/models/operations/listfiles.ts
 src/sdk/models/operations/uploadfiles.ts
 src/sdk/models/operations/index.ts
-src/sdk/models/shared/schema.ts
+src/sdk/models/shared/errormessage.ts
 src/sdk/models/shared/file.ts
 src/sdk/models/shared/security.ts
 src/sdk/models/shared/index.ts
@@ -33,15 +33,12 @@ docs/models/utils/retryconfig.md
 docs/sdks/files/README.md
 USAGE.md
 docs/models/operations/downloadfilesrequest.md
-docs/models/operations/downloadfiles404applicationjson.md
 docs/models/operations/downloadfilesresponse.md
 docs/models/operations/listfilesrequest.md
-docs/models/operations/listfiles404applicationjson.md
 docs/models/operations/listfilesresponse.md
 docs/models/operations/uploadfilesrequestbody.md
 docs/models/operations/uploadfilesrequest.md
-docs/models/operations/uploadfiles404applicationjson.md
 docs/models/operations/uploadfilesresponse.md
-docs/models/shared/schema.md
+docs/models/shared/errormessage.md
 docs/models/shared/file.md
 docs/models/shared/security.md

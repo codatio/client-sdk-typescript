@@ -109,23 +109,11 @@ export class Files {
                     );
                 }
                 break;
-            case [400, 401, 429].includes(httpRes?.status):
+            case [400, 401, 404, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case httpRes?.status == 404:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.downloadFiles404ApplicationJSONObject = utils.objectToClass(
+                    res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.DownloadFiles404ApplicationJSON
+                        shared.ErrorMessage
                     );
                 } else {
                     throw new errors.SDKError(
@@ -222,23 +210,11 @@ export class Files {
                     );
                 }
                 break;
-            case [401, 429].includes(httpRes?.status):
+            case [401, 404, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case httpRes?.status == 404:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listFiles404ApplicationJSONObject = utils.objectToClass(
+                    res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListFiles404ApplicationJSON
+                        shared.ErrorMessage
                     );
                 } else {
                     throw new errors.SDKError(
@@ -340,23 +316,11 @@ export class Files {
         switch (true) {
             case httpRes?.status == 200:
                 break;
-            case [400, 401, 429].includes(httpRes?.status):
+            case [400, 401, 404, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case httpRes?.status == 404:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.uploadFiles404ApplicationJSONObject = utils.objectToClass(
+                    res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.UploadFiles404ApplicationJSON
+                        shared.ErrorMessage
                     );
                 } else {
                     throw new errors.SDKError(
