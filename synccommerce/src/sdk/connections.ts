@@ -10,10 +10,10 @@ import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
- * Expressively configure preferences for any given Sync for Commerce company.
+ * Create new and manage existing Sync for Commerce companies using the Sync flow UI.
  */
 
-export class Configuration {
+export class Connections {
     private sdkConfiguration: SDKConfiguration;
 
     constructor(sdkConfig: SDKConfiguration) {
@@ -21,18 +21,18 @@ export class Configuration {
     }
 
     /**
-     * Retrieve config preferences set for a company.
+     * Retrieve sync flow url
      *
      * @remarks
-     * Retrieve current config preferences.
+     * Get a URL for Sync Flow including a one time passcode.
      */
-    async getConfiguration(
-        req: operations.GetConfigurationRequest,
+    async getSyncFlowUrl(
+        req: operations.GetSyncFlowUrlRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.GetConfigurationResponse> {
+    ): Promise<operations.GetSyncFlowUrlResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetConfigurationRequest(req);
+            req = new operations.GetSyncFlowUrlRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -41,7 +41,7 @@ export class Configuration {
         );
         const url: string = utils.generateURL(
             baseURL,
-            "/config/companies/{companyId}/sync/commerce",
+            "/config/sync/commerce/{commerceKey}/{accountingKey}/start",
             req
         );
 
@@ -49,6 +49,7 @@ export class Configuration {
             this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
 
         const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
         headers[
@@ -66,7 +67,7 @@ export class Configuration {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: url + queryParams,
                 method: "get",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -80,7 +81,7 @@ export class Configuration {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.GetConfigurationResponse = new operations.GetConfigurationResponse({
+        const res: operations.GetSyncFlowUrlResponse = new operations.GetSyncFlowUrlResponse({
             statusCode: httpRes.status,
             contentType: contentType,
             rawResponse: httpRes,
@@ -89,9 +90,9 @@ export class Configuration {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.configuration = utils.objectToClass(
+                    res.syncFlowUrl = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.Configuration
+                        shared.SyncFlowUrl
                     );
                 } else {
                     throw new errors.SDKError(
@@ -108,34 +109,31 @@ export class Configuration {
     }
 
     /**
-     * Create or update configuration.
+     * List companies
      *
      * @remarks
-     * Make changes to configuration preferences.
+     * Returns a list of companies.
      */
-    async setConfiguration(
-        req: operations.SetConfigurationRequest,
+    async listCompanies(
+        req: operations.ListCompaniesRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.SetConfigurationResponse> {
+    ): Promise<operations.ListCompaniesResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.SetConfigurationRequest(req);
+            req = new operations.ListCompaniesRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
-            baseURL,
-            "/config/companies/{companyId}/sync/commerce",
-            req
-        );
+        const url: string = baseURL.replace(/\/$/, "") + "/companies";
 
         const client: AxiosInstance =
             this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
 
         const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
         headers[
@@ -153,8 +151,8 @@ export class Configuration {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
-                method: "post",
+                url: url + queryParams,
+                method: "get",
                 headers: headers,
                 responseType: "arraybuffer",
                 ...config,
@@ -167,7 +165,7 @@ export class Configuration {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.SetConfigurationResponse = new operations.SetConfigurationResponse({
+        const res: operations.ListCompaniesResponse = new operations.ListCompaniesResponse({
             statusCode: httpRes.status,
             contentType: contentType,
             rawResponse: httpRes,
@@ -176,10 +174,7 @@ export class Configuration {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.configuration = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.Configuration
-                    );
+                    res.companies = utils.objectToClass(JSON.parse(decodedRes), shared.Companies);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,

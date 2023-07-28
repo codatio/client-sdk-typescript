@@ -6,15 +6,14 @@ Configure preferences for any given Sync for Commerce company using sync flow.
 
 ### Available Operations
 
-* [getConfigTextSyncFlow](#getconfigtextsyncflow) - Retrieve preferences for text fields on Sync Flow
-* [getSyncFlowUrl](#getsyncflowurl) - Retrieve sync flow url
+* [getConfigTextSyncFlow](#getconfigtextsyncflow) - Get preferences for text fields
 * [getVisibleAccounts](#getvisibleaccounts) - List visible accounts
-* [updateConfigTextSyncFlow](#updateconfigtextsyncflow) - Update preferences for text fields on sync flow
-* [updateVisibleAccountsSyncFlow](#updatevisibleaccountssyncflow) - Update the visible accounts on Sync Flow
+* [updateConfigTextSyncFlow](#updateconfigtextsyncflow) - Update preferences for text fields
+* [updateVisibleAccountsSyncFlow](#updatevisibleaccountssyncflow) - Update visible accounts
 
 ## getConfigTextSyncFlow
 
-To enable retrieval of preferences set for the text fields on Sync Flow.
+Return preferences set for the text fields on sync flow.
 
 ### Example Usage
 
@@ -48,50 +47,9 @@ sdk.syncFlowPreferences.getConfigTextSyncFlow().then((res: GetConfigTextSyncFlow
 **Promise<[operations.GetConfigTextSyncFlowResponse](../../models/operations/getconfigtextsyncflowresponse.md)>**
 
 
-## getSyncFlowUrl
-
-Get a URL for Sync Flow including a one time passcode.
-
-### Example Usage
-
-```typescript
-import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { GetSyncFlowUrlResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
-
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.syncFlowPreferences.getSyncFlowUrl({
-  accountingKey: "vel",
-  commerceKey: "error",
-  merchantIdentifier: "deserunt",
-}).then((res: GetSyncFlowUrlResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-### Parameters
-
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.GetSyncFlowUrlRequest](../../models/operations/getsyncflowurlrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `retries`                                                                            | [utils.RetryConfig](../../models/utils/retryconfig.md)                               | :heavy_minus_sign:                                                                   | Configuration to override the default retry behavior of the client.                  |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
-
-
-### Response
-
-**Promise<[operations.GetSyncFlowUrlResponse](../../models/operations/getsyncflowurlresponse.md)>**
-
-
 ## getVisibleAccounts
 
-Enable retrieval for accounts which are visible on sync flow.
+Return accounts which are visible on sync flow.
 
 ### Example Usage
 
@@ -131,7 +89,7 @@ sdk.syncFlowPreferences.getVisibleAccounts({
 
 ## updateConfigTextSyncFlow
 
-To enable update of preferences set for the text fields on sync flow.
+Set preferences for the text fields on sync flow.
 
 ### Example Usage
 
@@ -173,7 +131,7 @@ sdk.syncFlowPreferences.updateConfigTextSyncFlow({
 
 ## updateVisibleAccountsSyncFlow
 
-To enable update of accounts visible preferences set on Sync Flow.
+Update which accounts are visible on sync flow.
 
 ### Example Usage
 
