@@ -49,6 +49,12 @@ export class GetCommerceRefundsMetricsResponse extends SpeakeasyBase {
     contentType: string;
 
     /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
+
+    /**
      * OK
      */
     @SpeakeasyMetadata()
@@ -59,10 +65,4 @@ export class GetCommerceRefundsMetricsResponse extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * Your API request was not properly authorized.
-     */
-    @SpeakeasyMetadata()
-    schema?: shared.Schema;
 }

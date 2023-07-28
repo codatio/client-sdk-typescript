@@ -42,7 +42,6 @@ src/sdk/models/operations/getrecurringrevenuemetrics.ts
 src/sdk/models/operations/listloantransactions.ts
 src/sdk/models/operations/requestrecurringrevenuemetrics.ts
 src/sdk/models/operations/index.ts
-src/sdk/models/shared/schema.ts
 src/sdk/models/shared/status.ts
 src/sdk/models/shared/dataintegritystatus.ts
 src/sdk/models/shared/dataintegritystatusinfo.ts
@@ -50,6 +49,7 @@ src/sdk/models/shared/integritystatus.ts
 src/sdk/models/shared/dataintegritydates.ts
 src/sdk/models/shared/dataintegrityconnectionid.ts
 src/sdk/models/shared/dataintegrityamounts.ts
+src/sdk/models/shared/errormessage.ts
 src/sdk/models/shared/dataintegritydatatype.ts
 src/sdk/models/shared/summaries.ts
 src/sdk/models/shared/dataintegritysummary.ts
@@ -78,6 +78,7 @@ src/sdk/models/shared/enhancedcashflowitem.ts
 src/sdk/models/shared/enhancedcashflowtransaction.ts
 src/sdk/models/shared/transactioncategory.ts
 src/sdk/models/shared/sourceref.ts
+src/sdk/models/shared/accountref.ts
 src/sdk/models/shared/reportinfo.ts
 src/sdk/models/shared/datasource.ts
 src/sdk/models/shared/accounts.ts
@@ -150,7 +151,6 @@ docs/models/operations/listloantransactionsrequest.md
 docs/models/operations/listloantransactionsresponse.md
 docs/models/operations/requestrecurringrevenuemetricsrequest.md
 docs/models/operations/requestrecurringrevenuemetricsresponse.md
-docs/models/shared/schema.md
 docs/models/shared/status.md
 docs/models/shared/dataintegritystatus.md
 docs/models/shared/dataintegritystatusinfo.md
@@ -158,6 +158,7 @@ docs/models/shared/integritystatus.md
 docs/models/shared/dataintegritydates.md
 docs/models/shared/dataintegrityconnectionid.md
 docs/models/shared/dataintegrityamounts.md
+docs/models/shared/errormessage.md
 docs/models/shared/dataintegritydatatype.md
 docs/models/shared/summaries.md
 docs/models/shared/dataintegritysummary.md
@@ -188,6 +189,7 @@ docs/models/shared/enhancedcashflowitem.md
 docs/models/shared/enhancedcashflowtransaction.md
 docs/models/shared/transactioncategory.md
 docs/models/shared/sourceref.md
+docs/models/shared/accountref.md
 docs/models/shared/reportinfo.md
 docs/models/shared/datasource.md
 docs/models/shared/accounts.md

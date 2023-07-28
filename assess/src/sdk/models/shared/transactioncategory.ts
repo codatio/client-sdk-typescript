@@ -7,14 +7,14 @@ import { Expose } from "class-transformer";
 
 export class TransactionCategory extends SpeakeasyBase {
     /**
-     * Returns the confidence of the suggested category for the transaction.
+     * Returns the confidence of the suggested category for the transaction. The value is between 0 and 100.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "confidence" })
     confidence?: number;
 
     /**
-     * An array of category levels against an individual transaction.
+     * The suggested category is an ordered array of category levels where each element (or level) is a subcategory of the previous element (or level).
      */
     @SpeakeasyMetadata()
     @Expose({ name: "levels" })
