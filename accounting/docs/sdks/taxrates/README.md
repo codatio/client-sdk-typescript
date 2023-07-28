@@ -25,7 +25,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetTaxRateResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { TaxRateStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -35,7 +34,7 @@ const sdk = new CodatAccounting({
 
 sdk.taxRates.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  taxRateId: "asperiores",
+  taxRateId: "nam",
 }).then((res: GetTaxRateResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -71,7 +70,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListTaxRatesResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { TaxRateStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -84,7 +82,7 @@ sdk.taxRates.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "quisquam",
+  query: "delectus",
 }).then((res: ListTaxRatesResponse) => {
   if (res.statusCode == 200) {
     // handle response

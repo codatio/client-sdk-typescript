@@ -6,6 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountRef } from "./accountref";
 import { BilledToType1 } from "./billedtotype1";
 import { CustomerRef } from "./customerref";
+import { InvoiceTo } from "./invoiceto";
 import { ItemRef } from "./itemref";
 import { ProjectRef } from "./projectref";
 import { TaxRateRef } from "./taxrateref";
@@ -38,6 +39,18 @@ export class CreditNoteLineItemTracking extends SpeakeasyBase {
     @Expose({ name: "projectRef" })
     @Type(() => ProjectRef)
     projectRef?: ProjectRef;
+
+    /**
+     * Links the current record to the underlying record or data type that created it.
+     *
+     * @remarks
+     *
+     * For example, if a journal entry is generated based on an invoice, this property allows you to connect the journal entry to the underlying invoice in our data model.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "recordRef" })
+    @Type(() => InvoiceTo)
+    recordRef?: InvoiceTo;
 }
 
 export class CreditNoteLineItem extends SpeakeasyBase {

@@ -25,7 +25,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetSalesOrderResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressType, SalesOrderInvoiceStatus, SalesOrderStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -35,7 +34,7 @@ const sdk = new CodatAccounting({
 
 sdk.salesOrders.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  salesOrderId: "sint",
+  salesOrderId: "libero",
 }).then((res: GetSalesOrderResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -71,7 +70,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListSalesOrdersResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressType, SalesOrderInvoiceStatus, SalesOrderStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -84,7 +82,7 @@ sdk.salesOrders.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "sint",
+  query: "soluta",
 }).then((res: ListSalesOrdersResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -131,16 +131,11 @@ export class JournalEntry extends SpeakeasyBase {
     postedOn?: string;
 
     /**
-     * Links to the underlying record or data type.
+     * Links the current record to the underlying record or data type that created it.
      *
      * @remarks
      *
-     * Found on:
-     *
-     * - Journal entries
-     * - Account transactions
-     * - Invoices
-     * - Transfers
+     * For example, if a journal entry is generated based on an invoice, this property allows you to connect the journal entry to the underlying invoice in our data model.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "recordRef" })

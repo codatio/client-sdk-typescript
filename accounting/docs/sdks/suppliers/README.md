@@ -33,7 +33,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateSupplierResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressType, DataType, PushChangeType, PushOperationStatus, SupplierStatus } from "@codat/accounting/dist/sdk/models/shared";
+import { AddressType, SupplierStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -45,45 +45,41 @@ sdk.suppliers.create({
   supplier: {
     addresses: [
       {
-        city: "East Lionel",
-        country: "Wallis and Futuna",
-        line1: "mollitia",
-        line2: "suscipit",
-        postalCode: "54624-1740",
-        region: "iste",
-        type: AddressType.Delivery,
+        city: "Piercechester",
+        country: "Equatorial Guinea",
+        line1: "eveniet",
+        line2: "cupiditate",
+        postalCode: "55154-6889",
+        region: "optio",
+        type: AddressType.Unknown,
       },
     ],
-    contactName: "vitae",
-    defaultCurrency: "minima",
-    emailAddress: "ipsum",
-    id: "e2230106-8539-4ce0-932d-10acd15d8cc3",
+    contactName: "harum",
+    defaultCurrency: "fugit",
+    emailAddress: "velit",
+    id: "9606cf90-ad98-49e1-a347-15acda044faa",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "(877) 492-8687",
-    registrationNumber: "quidem",
+    phone: "01224 658 999",
+    registrationNumber: "ex",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: SupplierStatus.Active,
+    status: SupplierStatus.Unknown,
     supplementalData: {
       content: {
-        "libero": {
-          "at": "amet",
-        },
-        "ducimus": {
-          "fugiat": "sed",
-          "aut": "ut",
-          "similique": "quae",
+        "mollitia": {
+          "consequuntur": "quae",
+          "saepe": "fugit",
         },
       },
     },
-    supplierName: "doloribus",
-    taxNumber: "ipsum",
+    supplierName: "accusamus",
+    taxNumber: "cupiditate",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 293648,
+  timeoutInMinutes: 73561,
 }).then((res: CreateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -130,7 +126,7 @@ sdk.suppliers.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "accusantium",
+  supplierId: "totam",
 }).then((res: DownloadSupplierAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -168,7 +164,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetSupplierResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressType, SupplierStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -178,7 +173,7 @@ const sdk = new CodatAccounting({
 
 sdk.suppliers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  supplierId: "nam",
+  supplierId: "eligendi",
 }).then((res: GetSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -225,7 +220,7 @@ sdk.suppliers.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "rerum",
+  supplierId: "iure",
 }).then((res: GetSupplierAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -265,7 +260,6 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateUpdateSuppliersModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -311,7 +305,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListSuppliersResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressType, SupplierStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -324,7 +317,7 @@ sdk.suppliers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "dolor",
+  query: "quis",
 }).then((res: ListSuppliersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -370,7 +363,7 @@ const sdk = new CodatAccounting({
 sdk.suppliers.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "ex",
+  supplierId: "distinctio",
 }).then((res: ListSupplierAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -410,7 +403,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { UpdateSupplierResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressType, DataType, PushChangeType, PushOperationStatus, SupplierStatus } from "@codat/accounting/dist/sdk/models/shared";
+import { AddressType, SupplierStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -422,78 +415,55 @@ sdk.suppliers.update({
   supplier: {
     addresses: [
       {
-        city: "South Jeanette",
-        country: "Palau",
-        line1: "eius",
-        line2: "praesentium",
-        postalCode: "05722",
-        region: "quam",
-        type: AddressType.Unknown,
-      },
-      {
-        city: "Alexanderville",
-        country: "Martinique",
-        line1: "aliquam",
-        line2: "deleniti",
-        postalCode: "14770-2749",
-        region: "possimus",
-        type: AddressType.Unknown,
-      },
-      {
-        city: "West Solonboro",
-        country: "Jordan",
-        line1: "corrupti",
-        line2: "iusto",
-        postalCode: "65588",
-        region: "in",
-        type: AddressType.Unknown,
-      },
-      {
-        city: "Christiansenhaven",
-        country: "Eritrea",
-        line1: "est",
-        line2: "repellat",
-        postalCode: "03567",
-        region: "magni",
+        city: "New Harvey",
+        country: "Serbia",
+        line1: "earum",
+        line2: "amet",
+        postalCode: "56072-4241",
+        region: "nihil",
         type: AddressType.Delivery,
       },
     ],
-    contactName: "doloremque",
-    defaultCurrency: "sapiente",
-    emailAddress: "sit",
-    id: "f58c3b87-b470-440d-8d98-e9d82c5e306f",
+    contactName: "nulla",
+    defaultCurrency: "sint",
+    emailAddress: "nemo",
+    id: "ce3044be-4eb3-4b31-8b50-3c3140d8772c",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "(877) 492-8687",
-    registrationNumber: "molestiae",
+    phone: "+44 25691 154789",
+    registrationNumber: "ad",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: SupplierStatus.Archived,
+    status: SupplierStatus.Unknown,
     supplementalData: {
       content: {
-        "quisquam": {
-          "voluptates": "cum",
-          "consequatur": "eos",
-          "totam": "ea",
-          "pariatur": "alias",
+        "possimus": {
+          "tempore": "sapiente",
+          "iure": "modi",
         },
-        "distinctio": {
-          "aliquam": "adipisci",
-          "harum": "veritatis",
-          "quas": "id",
-          "expedita": "ipsum",
+        "rerum": {
+          "quis": "labore",
+          "earum": "natus",
+        },
+        "blanditiis": {
+          "vitae": "accusamus",
+        },
+        "molestiae": {
+          "corporis": "tenetur",
+          "accusantium": "debitis",
+          "exercitationem": "ducimus",
         },
       },
     },
-    supplierName: "molestiae",
-    taxNumber: "corrupti",
+    supplierName: "voluptatibus",
+    taxNumber: "enim",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  supplierId: "sapiente",
-  timeoutInMinutes: 161205,
+  supplierId: "eius",
+  timeoutInMinutes: 898500,
 }).then((res: UpdateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response

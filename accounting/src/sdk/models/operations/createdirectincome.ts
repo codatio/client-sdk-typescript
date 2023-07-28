@@ -30,15 +30,15 @@ export class CreateDirectIncomeResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     createDirectIncomeResponse?: shared.CreateDirectIncomeResponse;
 
+    /**
+     * The request made is not valid.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
+
     @SpeakeasyMetadata()
     statusCode: number;
 
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * The request made is not valid.
-     */
-    @SpeakeasyMetadata()
-    schema?: shared.Schema;
 }

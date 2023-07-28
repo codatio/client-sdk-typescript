@@ -33,6 +33,12 @@ export class UpdateCustomerResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * The request made is not valid.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
+
     @SpeakeasyMetadata()
     statusCode: number;
 
@@ -44,10 +50,4 @@ export class UpdateCustomerResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     updateCustomerResponse?: shared.UpdateCustomerResponse;
-
-    /**
-     * The request made is not valid.
-     */
-    @SpeakeasyMetadata()
-    schema?: shared.Schema;
 }

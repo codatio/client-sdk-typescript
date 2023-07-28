@@ -33,15 +33,15 @@ export class CreateBankAccountResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     createBankAccountResponse?: shared.CreateBankAccountResponse;
 
+    /**
+     * The request made is not valid.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
+
     @SpeakeasyMetadata()
     statusCode: number;
 
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * The request made is not valid.
-     */
-    @SpeakeasyMetadata()
-    schema?: shared.Schema;
 }

@@ -151,7 +151,6 @@ Gets the latest cash flow statement for a company.
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCashFlowStatementResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { ReportBasis, ReportInput } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -194,7 +193,6 @@ Gets the latest profit and loss for a company.
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetProfitAndLossResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { ReportBasis } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {

@@ -29,7 +29,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreatePaymentResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { DataType, PaymentLinkType, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
+import { PaymentLinkType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -40,68 +40,80 @@ const sdk = new CodatAccounting({
 sdk.payments.create({
   payment: {
     accountRef: {
-      id: "cbf18685-6a7e-482c-9f9d-0fc282c666af",
-      name: "Jacquelyn Dicki",
+      id: "211ce46b-9516-452b-958c-a9142f052632",
+      name: "Earl Bergnaum",
     },
-    currency: "USD",
-    currencyRate: 5194.41,
+    currency: "EUR",
+    currencyRate: 4054.28,
     customerRef: {
-      companyName: "provident",
-      id: "bea5d264-e41e-42ca-8482-2e513f6d9d2a",
+      companyName: "unde",
+      id: "2ffc8745-005e-49d3-9934-e036f5c38866",
     },
     date: "2022-10-23T00:00:00.000Z",
-    id: "37c30990-77c1-40b6-8792-163e67d48860",
+    id: "f6985530-a2e2-4aed-aaaf-863c28d040c6",
     lines: [
       {
         allocatedOnDate: "2022-10-23T00:00:00.000Z",
-        amount: 2316.11,
+        amount: 2296.56,
         links: [
           {
-            amount: 470,
-            currencyRate: 6419.14,
-            id: "3049c3cf-6c02-476e-bb21-bad90d2743fd",
-            type: PaymentLinkType.Other,
+            amount: 6128.01,
+            currencyRate: 326.23,
+            id: "6f6ebd5a-d7ec-4739-8f25-f634b3730714",
+            type: PaymentLinkType.Discount,
           },
           {
-            amount: 7649.53,
-            currencyRate: 1702.52,
-            id: "a10e6c29-78ec-4256-a5b0-9227fcc47996",
-            type: PaymentLinkType.PaymentOnAccount,
+            amount: 4161.71,
+            currencyRate: 7445.43,
+            id: "e8c3e09c-64d3-442a-8299-a6e5e7aef134",
+            type: PaymentLinkType.Unknown,
           },
           {
-            amount: 5744.03,
-            currencyRate: 4585.85,
-            id: "7bbc57f3-8928-4a86-80c5-8d67d63e4aa5",
-            type: PaymentLinkType.CreditNote,
+            amount: 1852.99,
+            currencyRate: 9217.07,
+            id: "945f5374-3efd-4e11-9822-1f9b1f7d9aff",
+            type: PaymentLinkType.Discount,
           },
           {
-            amount: 5547.96,
-            currencyRate: 3030.69,
-            id: "64579cfc-6c0e-4503-b568-31f1d8ed87b2",
+            amount: 4322.15,
+            currencyRate: 6074.58,
+            id: "682aceef-b04f-48c5-92ca-abea708ed579",
             type: PaymentLinkType.Refund,
           },
         ],
       },
       {
         allocatedOnDate: "2022-10-23T00:00:00.000Z",
-        amount: 5394.5,
+        amount: 2443.59,
         links: [
           {
-            amount: 9515.01,
-            currencyRate: 6325.21,
-            id: "bc986e24-1e43-4b23-8241-7d13e3f62aa9",
-            type: PaymentLinkType.Payment,
+            amount: 3304.22,
+            currencyRate: 8493.01,
+            id: "460599d5-c334-4957-ad55-209e9a2253b6",
+            type: PaymentLinkType.ManualJournal,
           },
           {
-            amount: 9236.58,
-            currencyRate: 2889.02,
-            id: "ae8ab4a9-c492-4c5e-8ba5-d4aa4a508bd3",
-            type: PaymentLinkType.Refund,
+            amount: 4763.88,
+            currencyRate: 3916.82,
+            id: "5886eeae-5fd4-4b39-b8a1-490678f13c68",
+            type: PaymentLinkType.CreditNote,
           },
           {
-            amount: 544.9,
-            currencyRate: 7608.41,
-            id: "29aa8dd7-1bdd-4aa3-8b7b-91449ae69c08",
+            amount: 8309.31,
+            currencyRate: 5517.59,
+            id: "39fc9e17-5ffa-4906-ae55-9b72eb674603",
+            type: PaymentLinkType.Unknown,
+          },
+        ],
+      },
+      {
+        allocatedOnDate: "2022-10-23T00:00:00.000Z",
+        amount: 8814.78,
+        links: [
+          {
+            amount: 5605.61,
+            currencyRate: 2034.92,
+            id: "76c2bede-e767-490e-90c1-6a7ba4784044",
             type: PaymentLinkType.Refund,
           },
         ],
@@ -111,40 +123,26 @@ sdk.payments.create({
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "labore",
+    note: "repellat",
     paymentMethodRef: {
-      id: "18bb7180-4f42-43d5-8393-5f377ac5c9b7",
-      name: "Joey Frami",
+      id: "6770ef04-8091-4a2b-a25e-e6c75af8a60a",
+      name: "Janie Vandervort",
     },
-    reference: "id",
+    reference: "vel",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "minima": {
-          "amet": "quasi",
-        },
-        "doloremque": {
-          "recusandae": "iusto",
-          "impedit": "dolor",
-        },
-        "quaerat": {
-          "deserunt": "distinctio",
-          "alias": "voluptates",
-          "optio": "libero",
-          "voluptatum": "beatae",
-        },
-        "explicabo": {
-          "laboriosam": "ea",
-          "beatae": "eius",
-          "atque": "unde",
+        "iste": {
+          "cupiditate": "debitis",
+          "nemo": "officia",
         },
       },
     },
-    totalAmount: 2811.64,
+    totalAmount: 9569.24,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 302190,
+  timeoutInMinutes: 893129,
 }).then((res: CreatePaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -182,7 +180,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetPaymentResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PaymentLinkType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -192,7 +189,7 @@ const sdk = new CodatAccounting({
 
 sdk.payments.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  paymentId: "fuga",
+  paymentId: "eum",
 }).then((res: GetPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -232,7 +229,6 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreatePaymentsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -278,7 +274,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListPaymentsResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PaymentLinkType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -291,7 +286,7 @@ sdk.payments.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "voluptatum",
+  query: "consequatur",
 }).then((res: ListPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

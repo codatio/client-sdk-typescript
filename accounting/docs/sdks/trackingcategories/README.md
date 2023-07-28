@@ -25,7 +25,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetTrackingCategoryResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { Status } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -35,7 +34,7 @@ const sdk = new CodatAccounting({
 
 sdk.trackingCategories.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  trackingCategoryId: "maiores",
+  trackingCategoryId: "quia",
 }).then((res: GetTrackingCategoryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -71,7 +70,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListTrackingCategoriesResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { Status } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -84,7 +82,7 @@ sdk.trackingCategories.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "maiores",
+  query: "pariatur",
 }).then((res: ListTrackingCategoriesResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -29,7 +29,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateJournalResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { DataType, JournalStatus, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
+import { JournalStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -41,21 +41,21 @@ sdk.journals.create({
   journal: {
     createdOn: "2022-10-23T00:00:00.000Z",
     hasChildren: false,
-    id: "9d3a1d32-329e-4458-b7e8-f2ad6bb10e25",
-    journalCode: "ipsam",
+    id: "70e768a9-6bb3-4987-8839-8eba1bbf7143",
+    journalCode: "dolor",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    name: "Noel Gutmann PhD",
-    parentId: "voluptas",
+    name: "Essie Jacobs",
+    parentId: "molestias",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     status: JournalStatus.Unknown,
-    type: "ipsum",
+    type: "voluptas",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 56059,
+  timeoutInMinutes: 270667,
 }).then((res: CreateJournalResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -93,7 +93,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetJournalResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { JournalStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -103,7 +102,7 @@ const sdk = new CodatAccounting({
 
 sdk.journals.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalId: "totam",
+  journalId: "explicabo",
 }).then((res: GetJournalResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -143,7 +142,6 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateJournalsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -189,7 +187,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListJournalsResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { JournalStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -202,7 +199,7 @@ sdk.journals.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "aliquid",
+  query: "incidunt",
 }).then((res: ListJournalsResponse) => {
   if (res.statusCode == 200) {
     // handle response

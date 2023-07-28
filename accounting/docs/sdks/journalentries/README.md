@@ -30,7 +30,6 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateJournalEntryResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { DataType, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -41,59 +40,38 @@ const sdk = new CodatAccounting({
 sdk.journalEntries.create({
   journalEntry: {
     createdOn: "2022-10-23T00:00:00.000Z",
-    description: "laudantium",
-    id: "89d9ef93-2e90-400a-93ad-8124208efd23",
+    description: "possimus",
+    id: "15d8cc30-6b78-46b3-937b-d204a1f340bb",
     journalLines: [
       {
         accountRef: {
-          id: "11898e73-879e-4fbe-8bae-babb794536e9",
-          name: "Miss Shannon Hauck",
+          id: "6f677a48-519c-4337-8902-848826bb03c7",
+          name: "Rufus Cronin",
         },
-        currency: "unde",
-        description: "odio",
-        netAmount: 4332.19,
+        currency: "debitis",
+        description: "dolore",
+        netAmount: 4472.46,
         tracking: {
           recordRefs: [
             {
-              dataType: "architecto",
-              id: "720b77a5-a536-45a7-9f15-271f01c0d361",
-            },
-          ],
-        },
-      },
-      {
-        accountRef: {
-          id: "fed8dc5e-ffb4-453e-9089-e871fdb4d697",
-          name: "Bryant Strosin",
-        },
-        currency: "molestias",
-        description: "corrupti",
-        netAmount: 3623.77,
-        tracking: {
-          recordRefs: [
-            {
-              dataType: "incidunt",
-              id: "3734a5d7-2d9e-4dd7-85be-5e7afe55297b",
+              dataType: "invoice",
+              id: "1a88ed72-a2d4-4af4-958a-c2d0f0f58c3b",
             },
             {
-              dataType: "mollitia",
-              id: "6281f44e-3a23-4394-a68c-c80d30ff7216",
+              dataType: "accountTransaction",
+              id: "7b47040d-0d98-4e9d-82c5-e306f5576f5c",
             },
             {
-              dataType: "quaerat",
-              id: "d0a91fe9-d965-453b-89e0-009c6692de7b",
-            },
-            {
-              dataType: "ipsum",
-              id: "562201a6-aab4-4ae7-b1a5-b908d4e30491",
+              dataType: "transfer",
+              id: "eb0286d0-bc43-4b18-ab37-8f2fcff81ddf",
             },
           ],
         },
       },
     ],
     journalRef: {
-      id: "aa35d4a8-39f0-43ba-b77b-918f03139845",
-      name: "Dr. Delores Towne",
+      id: "7e088f74-ef54-4c92-96e8-926313bb6fc2",
+      name: "Sidney Stark",
     },
     metadata: {
       isDeleted: false,
@@ -101,14 +79,15 @@ sdk.journalEntries.create({
     modifiedDate: "2022-10-23T00:00:00.000Z",
     postedOn: "2022-10-23T00:00:00.000Z",
     recordRef: {
-      dataType: "quam",
-      id: "e23ecb06-0465-42e2-ba3d-6c657e9de8f7",
+      dataType: "journalEntry",
+      id: "96b66ad6-e3e1-4d9d-bb66-0334a11aa1d5",
     },
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "consequatur": {
-          "fugiat": "veritatis",
+        "quia": {
+          "nihil": "assumenda",
+          "debitis": "perspiciatis",
         },
       },
     },
@@ -116,7 +95,7 @@ sdk.journalEntries.create({
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 526773,
+  timeoutInMinutes: 213487,
 }).then((res: CreateJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -179,7 +158,6 @@ Integrations that support soft delete do not permanently delete the object in th
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { DeleteJournalEntryResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { DataType, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -190,7 +168,7 @@ const sdk = new CodatAccounting({
 sdk.journalEntries.delete({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  journalEntryId: "ex",
+  journalEntryId: "pariatur",
 }).then((res: DeleteJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -237,7 +215,7 @@ const sdk = new CodatAccounting({
 
 sdk.journalEntries.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalEntryId: "dolorum",
+  journalEntryId: "labore",
 }).then((res: GetJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -277,7 +255,6 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateJournalEntriesModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -335,7 +312,7 @@ sdk.journalEntries.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "officia",
+  query: "laboriosam",
 }).then((res: ListJournalEntriesResponse) => {
   if (res.statusCode == 200) {
     // handle response

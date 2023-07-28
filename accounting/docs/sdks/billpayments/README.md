@@ -30,7 +30,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateBillPaymentResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { BillPaymentLineLinkType, DataType, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
+import { BillPaymentLineLinkType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -41,46 +41,52 @@ const sdk = new CodatAccounting({
 sdk.billPayments.create({
   billPayment: {
     accountRef: {
-      id: "929921ae-fb9f-458c-8d86-e68e4be05601",
-      name: "Shawna Hamill",
+      id: "23b75d23-67fe-41a0-8c8d-f79f0a396d90",
+      name: "Jimmy Jerde",
     },
     currency: "USD",
-    currencyRate: 4585.03,
+    currencyRate: 7898.7,
     date: "2022-10-23T00:00:00.000Z",
     id: "3d5a8e00-d108-4045-8823-7f342676cffa",
     lines: [
       {
         allocatedOnDate: "2022-10-23T00:00:00.000Z",
-        amount: 3361.02,
+        amount: 9792.71,
         links: [
           {
-            amount: 8806.79,
-            currencyRate: 7746.84,
-            id: "fef66ef1-caa3-4383-82be-b477373c8d72",
-            type: BillPaymentLineLinkType.Discount,
+            amount: 6496.57,
+            currencyRate: 7709.97,
+            id: "e188b1c4-ee2c-48c6-8e61-1feeb1c7cbdb",
+            type: BillPaymentLineLinkType.Other,
           },
           {
-            amount: 4269.04,
-            currencyRate: 3008.24,
-            id: "d1db1f2c-4310-4661-a963-49e1cf9e06e3",
-            type: BillPaymentLineLinkType.PaymentOnAccount,
+            amount: 9064.95,
+            currencyRate: 9347.82,
+            id: "c74378ba-2531-4774-bdc9-15ad2caf5dd6",
+            type: BillPaymentLineLinkType.CreditNote,
           },
           {
-            amount: 2503.98,
-            currencyRate: 2244.67,
-            id: "7000ae6b-6bc9-4b8f-b59e-ac55a9741d31",
-            type: BillPaymentLineLinkType.Unknown,
+            amount: 1274.99,
+            currencyRate: 2337.08,
+            id: "dc0f5ae2-f3a6-4b70-8878-756143f5a6c9",
+            type: BillPaymentLineLinkType.BillPayment,
           },
         ],
       },
       {
         allocatedOnDate: "2022-10-23T00:00:00.000Z",
-        amount: 3220.17,
+        amount: 3661.47,
         links: [
           {
-            amount: 6113.28,
-            currencyRate: 4030.26,
-            id: "5bb8a720-2611-4435-a139-dbc2259b1abd",
+            amount: 3712.13,
+            currencyRate: 3289.54,
+            id: "4080d40b-cacc-46cb-96b5-f3ec909304f9",
+            type: BillPaymentLineLinkType.Unlinked,
+          },
+          {
+            amount: 4258.17,
+            currencyRate: 7403.47,
+            id: "ad255381-9b47-44b0-ad20-e56248fff639",
             type: BillPaymentLineLinkType.PaymentOnAccount,
           },
         ],
@@ -92,38 +98,43 @@ sdk.billPayments.create({
     modifiedDate: "2022-10-23T00:00:00.000Z",
     note: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
     paymentMethodRef: {
-      id: "c070e108-4cb0-4672-91ad-879eeb9665b8",
-      name: "Cecelia Wiza",
+      id: "10abdcab-6267-4669-ae1e-c00221b335d8",
+      name: "Donnie Romaguera",
     },
-    reference: "alias",
+    reference: "debitis",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "fuga": {
-          "accusantium": "expedita",
-          "officiis": "eos",
-          "quibusdam": "odio",
-          "praesentium": "odit",
+        "temporibus": {
+          "atque": "quibusdam",
+          "sit": "quo",
+          "veniam": "aliquam",
         },
-        "explicabo": {
-          "error": "earum",
-          "adipisci": "recusandae",
+        "provident": {
+          "earum": "doloremque",
+          "ipsum": "alias",
+          "doloremque": "tempora",
+          "perspiciatis": "quam",
         },
-        "similique": {
-          "quidem": "quis",
-          "beatae": "unde",
+        "atque": {
+          "ex": "architecto",
+          "a": "laborum",
+          "veritatis": "quod",
+        },
+        "a": {
+          "accusantium": "commodi",
         },
       },
     },
     supplierRef: {
-      id: "7f92443d-a7ce-452b-895c-537c6454efb0",
-      supplierName: "libero",
+      id: "88f77c1f-fc71-4dca-963f-2a3c80a97ff3",
+      supplierName: "adipisci",
     },
     totalAmount: 1329.54,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 189753,
+  timeoutInMinutes: 250298,
 }).then((res: CreateBillPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -179,7 +190,6 @@ Integrations that support soft delete do not permanently delete the object in th
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { DeleteBillPaymentResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { DataType, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -188,7 +198,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.billPayments.delete({
-  billPaymentId: "labore",
+  billPaymentId: "optio",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: DeleteBillPaymentResponse) => {
@@ -228,7 +238,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetBillPaymentsResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { BillPaymentLineLinkType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -237,7 +246,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.billPayments.get({
-  billPaymentId: "totam",
+  billPaymentId: "illum",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetBillPaymentsResponse) => {
   if (res.statusCode == 200) {
@@ -278,7 +287,6 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateBillPaymentsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -324,7 +332,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListBillPaymentsResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { BillPaymentLineLinkType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -337,7 +344,7 @@ sdk.billPayments.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "occaecati",
+  query: "at",
 }).then((res: ListBillPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

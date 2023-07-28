@@ -5,7 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose } from "class-transformer";
 
 export class GetAccountRequest extends SpeakeasyBase {
     /**
@@ -18,35 +17,6 @@ export class GetAccountRequest extends SpeakeasyBase {
     companyId: string;
 }
 
-/**
- * The data type's dataset has not been requested or is still syncing.
- */
-export class GetAccount409ApplicationJSON extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "canBeRetried" })
-    canBeRetried?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "correlationId" })
-    correlationId?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "detailedErrorCode" })
-    detailedErrorCode?: number;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "service" })
-    service?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "statusCode" })
-    statusCode?: number;
-}
-
 export class GetAccountResponse extends SpeakeasyBase {
     /**
      * Success
@@ -57,21 +27,15 @@ export class GetAccountResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
+
     @SpeakeasyMetadata()
     statusCode: number;
 
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * The data type's dataset has not been requested or is still syncing.
-     */
-    @SpeakeasyMetadata()
-    getAccount409ApplicationJSONObject?: GetAccount409ApplicationJSON;
-
-    /**
-     * Your API request was not properly authorized.
-     */
-    @SpeakeasyMetadata()
-    schema?: shared.Schema;
 }

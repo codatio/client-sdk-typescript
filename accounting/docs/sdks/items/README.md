@@ -29,7 +29,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateItemResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { DataType, ItemStatus, ItemType, PushChangeType, PushOperationStatus } from "@codat/accounting/dist/sdk/models/shared";
+import { ItemStatus, ItemType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -41,31 +41,31 @@ sdk.items.create({
   item: {
     billItem: {
       accountRef: {
-        id: "9834afb0-735c-4b62-85d4-a29aaa1e1691",
-        name: "Alma Ziemann",
+        id: "4b1e9c09-7eda-4623-842e-1a9237e9984c",
+        name: "Michael Quigley",
       },
-      description: "aspernatur",
+      description: "sint",
       taxRateRef: {
-        effectiveTaxRate: 9264.79,
-        id: "e209505b-f03a-493e-9448-0ca37fb10789",
-        name: "Emily Considine",
+        effectiveTaxRate: 9051.54,
+        id: "891923c1-8ca8-4d69-8568-9214fa20207e",
+        name: "Marta Murphy I",
       },
-      unitPrice: 2261.31,
+      unitPrice: 5291.71,
     },
-    code: "amet",
-    id: "3172e2dd-79ec-474b-a7e8-8ddb36fd1ccc",
+    code: "eligendi",
+    id: "d7f1bc2c-abaf-47fc-accb-a4bef0df68ea",
     invoiceItem: {
       accountRef: {
-        id: "341c8657-3474-4f0a-b40f-b4ab441c3a09",
-        name: "Claude Johns",
+        id: "edb2ee70-be06-49fb-b6ad-d704080e0a3f",
+        name: "Arnold Ernser",
       },
-      description: "omnis",
+      description: "similique",
       taxRateRef: {
-        effectiveTaxRate: 3289.22,
-        id: "d808bbe7-9445-45eb-8550-a1c426b59c83",
-        name: "Terri Zemlak",
+        effectiveTaxRate: 465.74,
+        id: "34b11499-243a-4fa6-987a-472b709a153e",
+        name: "Mr. Theresa Fay III",
       },
-      unitPrice: 7934.38,
+      unitPrice: 5221.85,
     },
     isBillItem: false,
     isInvoiceItem: false,
@@ -74,13 +74,13 @@ sdk.items.create({
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    name: "Ida Lemke",
+    name: "Ms. Delbert Turner",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    type: ItemType.NonInventory,
+    type: ItemType.Service,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 554193,
+  timeoutInMinutes: 111385,
 }).then((res: CreateItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -118,7 +118,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetItemResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { ItemStatus, ItemType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -128,7 +127,7 @@ const sdk = new CodatAccounting({
 
 sdk.items.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  itemId: "veniam",
+  itemId: "aperiam",
 }).then((res: GetItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -168,7 +167,6 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetCreateItemsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { PushOptionType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -214,7 +212,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { ListItemsResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { ItemStatus, ItemType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -227,7 +224,7 @@ sdk.items.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "ad",
+  query: "animi",
 }).then((res: ListItemsResponse) => {
   if (res.statusCode == 200) {
     // handle response
