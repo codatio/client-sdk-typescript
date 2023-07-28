@@ -5,7 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose } from "class-transformer";
 
 export class GetCreditNoteRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
@@ -13,35 +12,6 @@ export class GetCreditNoteRequest extends SpeakeasyBase {
 
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=creditNoteId" })
     creditNoteId: string;
-}
-
-/**
- * The data type's dataset has not been requested or is still syncing.
- */
-export class GetCreditNote409ApplicationJSON extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "canBeRetried" })
-    canBeRetried?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "correlationId" })
-    correlationId?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "detailedErrorCode" })
-    detailedErrorCode?: number;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "service" })
-    service?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "statusCode" })
-    statusCode?: number;
 }
 
 export class GetCreditNoteResponse extends SpeakeasyBase {
@@ -54,21 +24,15 @@ export class GetCreditNoteResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     creditNote?: shared.CreditNote;
 
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
+
     @SpeakeasyMetadata()
     statusCode: number;
 
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * The data type's dataset has not been requested or is still syncing.
-     */
-    @SpeakeasyMetadata()
-    getCreditNote409ApplicationJSONObject?: GetCreditNote409ApplicationJSON;
-
-    /**
-     * Your API request was not properly authorized.
-     */
-    @SpeakeasyMetadata()
-    schema?: shared.Schema;
 }

@@ -110,23 +110,11 @@ export class AccountTransactions {
                     );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 404, 409, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case httpRes?.status == 409:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getAccountTransaction409ApplicationJSONObject = utils.objectToClass(
+                    res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetAccountTransaction409ApplicationJSON
+                        shared.ErrorMessage
                     );
                 } else {
                     throw new errors.SDKError(
@@ -231,23 +219,11 @@ export class AccountTransactions {
                     );
                 }
                 break;
-            case [400, 401, 404].includes(httpRes?.status):
+            case [400, 401, 404, 409].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case httpRes?.status == 409:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listAccountTransactions409ApplicationJSONObject = utils.objectToClass(
+                    res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListAccountTransactions409ApplicationJSON
+                        shared.ErrorMessage
                     );
                 } else {
                     throw new errors.SDKError(

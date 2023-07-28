@@ -30,15 +30,15 @@ export class CreatePaymentResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     createPaymentResponse?: shared.CreatePaymentResponse;
 
+    /**
+     * The request made is not valid.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
+
     @SpeakeasyMetadata()
     statusCode: number;
 
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * The request made is not valid.
-     */
-    @SpeakeasyMetadata()
-    schema?: shared.Schema;
 }

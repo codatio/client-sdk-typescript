@@ -5,7 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose } from "class-transformer";
 
 export class ListBankAccountsRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
@@ -39,35 +38,6 @@ export class ListBankAccountsRequest extends SpeakeasyBase {
     query?: string;
 }
 
-/**
- * The data type's dataset has not been requested or is still syncing.
- */
-export class ListBankAccounts409ApplicationJSON extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "canBeRetried" })
-    canBeRetried?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "correlationId" })
-    correlationId?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "detailedErrorCode" })
-    detailedErrorCode?: number;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "service" })
-    service?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "statusCode" })
-    statusCode?: number;
-}
-
 export class ListBankAccountsResponse extends SpeakeasyBase {
     /**
      * Success
@@ -78,21 +48,15 @@ export class ListBankAccountsResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * Your `query` parameter was not correctly formed
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
+
     @SpeakeasyMetadata()
     statusCode: number;
 
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * The data type's dataset has not been requested or is still syncing.
-     */
-    @SpeakeasyMetadata()
-    listBankAccounts409ApplicationJSONObject?: ListBankAccounts409ApplicationJSON;
-
-    /**
-     * Your `query` parameter was not correctly formed
-     */
-    @SpeakeasyMetadata()
-    schema?: shared.Schema;
 }

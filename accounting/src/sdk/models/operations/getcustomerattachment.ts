@@ -33,15 +33,15 @@ export class GetCustomerAttachmentResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
+
     @SpeakeasyMetadata()
     statusCode: number;
 
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * Your API request was not properly authorized.
-     */
-    @SpeakeasyMetadata()
-    schema?: shared.Schema;
 }

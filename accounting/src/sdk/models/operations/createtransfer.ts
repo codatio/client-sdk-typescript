@@ -27,15 +27,15 @@ export class CreateTransferResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     createTransferResponse?: shared.CreateTransferResponse;
 
+    /**
+     * The request made is not valid.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
+
     @SpeakeasyMetadata()
     statusCode: number;
 
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * The request made is not valid.
-     */
-    @SpeakeasyMetadata()
-    schema?: shared.Schema;
 }

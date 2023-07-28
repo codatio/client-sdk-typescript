@@ -5,7 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose } from "class-transformer";
 
 export class GetAccountTransactionRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=accountTransactionId" })
@@ -18,35 +17,6 @@ export class GetAccountTransactionRequest extends SpeakeasyBase {
     connectionId: string;
 }
 
-/**
- * The data type's dataset has not been requested or is still syncing.
- */
-export class GetAccountTransaction409ApplicationJSON extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "canBeRetried" })
-    canBeRetried?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "correlationId" })
-    correlationId?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "detailedErrorCode" })
-    detailedErrorCode?: number;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "service" })
-    service?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "statusCode" })
-    statusCode?: number;
-}
-
 export class GetAccountTransactionResponse extends SpeakeasyBase {
     /**
      * Success
@@ -57,21 +27,15 @@ export class GetAccountTransactionResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
+
     @SpeakeasyMetadata()
     statusCode: number;
 
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * The data type's dataset has not been requested or is still syncing.
-     */
-    @SpeakeasyMetadata()
-    getAccountTransaction409ApplicationJSONObject?: GetAccountTransaction409ApplicationJSON;
-
-    /**
-     * Your API request was not properly authorized.
-     */
-    @SpeakeasyMetadata()
-    schema?: shared.Schema;
 }
