@@ -337,7 +337,7 @@ export class BankFeedAccounts {
      * @remarks
      * Put BankFeed BankAccounts for a single data source connected to a single company.
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async putBankFeed(
         req: operations.PutBankFeedRequest,
