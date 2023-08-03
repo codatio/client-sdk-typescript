@@ -233,7 +233,7 @@ export class Transactions {
      * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
      *
      *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible. Use list instead
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible. Use list instead.
      */
     async listBankTransactions(
         req: operations.ListBankTransactionsRequest,
