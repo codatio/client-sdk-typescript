@@ -3,9 +3,9 @@
 
 ## Fields
 
-| Field                               | Type                                | Required                            | Description                         |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| `current`                           | [HRef](../../models/shared/href.md) | :heavy_check_mark:                  | N/A                                 |
-| `next`                              | [HRef](../../models/shared/href.md) | :heavy_minus_sign:                  | N/A                                 |
-| `previous`                          | [HRef](../../models/shared/href.md) | :heavy_minus_sign:                  | N/A                                 |
-| `self`                              | [HRef](../../models/shared/href.md) | :heavy_check_mark:                  | N/A                                 |
+| Field                                   | Type                                    | Required                                | Description                             |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| `current`                               | [HalRef](../../models/shared/halref.md) | :heavy_check_mark:                      | N/A                                     |
+| `next`                                  | [HalRef](../../models/shared/halref.md) | :heavy_minus_sign:                      | N/A                                     |
+| `previous`                              | [HalRef](../../models/shared/halref.md) | :heavy_minus_sign:                      | N/A                                     |
+| `self`                                  | [HalRef](../../models/shared/halref.md) | :heavy_check_mark:                      | N/A                                     |

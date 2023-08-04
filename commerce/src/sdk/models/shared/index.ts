@@ -13,7 +13,7 @@ export * from "./dispute";
 export * from "./disputes";
 export * from "./disputestatus";
 export * from "./errormessage";
-export * from "./href";
+export * from "./halref";
 export * from "./links";
 export * from "./location";
 export * from "./locationref";
