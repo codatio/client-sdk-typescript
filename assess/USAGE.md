@@ -3,7 +3,7 @@
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GetDataIntegrityStatusResponse } from "@codat/assess/dist/sdk/models/operations";
+import { ListDataTypeDataIntegrityDetailsResponse } from "@codat/assess/dist/sdk/models/operations";
 import { DataIntegrityDataType } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
@@ -12,10 +12,14 @@ const sdk = new CodatAssess({
   },
 });
 
-sdk.dataIntegrity.getDataIntegrityStatus({
+sdk.dataIntegrity.details({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   dataType: DataIntegrityDataType.BankingAccounts,
-}).then((res: GetDataIntegrityStatusResponse) => {
+  orderBy: "-modifiedDate",
+  page: 1,
+  pageSize: 100,
+  query: "corrupti",
+}).then((res: ListDataTypeDataIntegrityDetailsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

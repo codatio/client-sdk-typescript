@@ -40,7 +40,7 @@ const sdk = new CodatAssess({
 
 sdk.reports.getAccountsForEnhancedBalanceSheet({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  numberOfPeriods: 423655,
+  numberOfPeriods: 623564,
   reportDate: "29-09-2020",
 }).then((res: GetAccountsForEnhancedBalanceSheetResponse) => {
   if (res.statusCode == 200) {
@@ -83,7 +83,7 @@ const sdk = new CodatAssess({
 
 sdk.reports.getAccountsForEnhancedProfitAndLoss({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  numberOfPeriods: 623564,
+  numberOfPeriods: 645894,
   reportDate: "29-09-2020",
 }).then((res: GetAccountsForEnhancedProfitAndLossResponse) => {
   if (res.statusCode == 200) {
@@ -127,8 +127,8 @@ sdk.reports.getCommerceCustomerRetentionMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 645894,
-  periodLength: 384382,
+  numberOfPeriods: 384382,
+  periodLength: 437587,
   periodUnit: PeriodUnit.Week,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceCustomerRetentionMetricsResponse) => {
@@ -173,9 +173,9 @@ sdk.reports.getCommerceLifetimeValueMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 297534,
-  periodLength: 891773,
-  periodUnit: PeriodUnit.Day,
+  numberOfPeriods: 891773,
+  periodLength: 56713,
+  periodUnit: PeriodUnit.Year,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceLifetimeValueMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -219,8 +219,8 @@ sdk.reports.getCommerceOrdersMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 963663,
-  periodLength: 272656,
+  numberOfPeriods: 272656,
+  periodLength: 383441,
   periodUnit: PeriodUnit.Week,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceOrdersMetricsResponse) => {
@@ -265,9 +265,9 @@ sdk.reports.getCommerceRefundsMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 477665,
-  periodLength: 791725,
-  periodUnit: PeriodUnit.Year,
+  numberOfPeriods: 791725,
+  periodLength: 812169,
+  periodUnit: PeriodUnit.Month,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceRefundsMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -311,9 +311,9 @@ sdk.reports.getCommerceRevenueMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 528895,
-  periodLength: 479977,
-  periodUnit: PeriodUnit.Month,
+  numberOfPeriods: 479977,
+  periodLength: 568045,
+  periodUnit: PeriodUnit.Week,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceRevenueMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -360,7 +360,7 @@ sdk.reports.getEnhancedCashFlowTransactions({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   page: 1,
   pageSize: 100,
-  query: "nisi",
+  query: "recusandae",
 }).then((res: GetEnhancedCashFlowTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -402,7 +402,7 @@ sdk.reports.getEnhancedInvoicesReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   page: 1,
   pageSize: 100,
-  query: "recusandae",
+  query: "temporibus",
 }).then((res: GetEnhancedInvoicesReportResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -521,7 +521,7 @@ const sdk = new CodatAssess({
 
 sdk.reports.listLoanTransactions({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  sourceType: ListLoanTransactionsSourceType.Accounting,
+  sourceType: ListLoanTransactionsSourceType.Banking,
 }).then((res: ListLoanTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
