@@ -9,6 +9,8 @@ import { BankFeedAccounts } from "./bankfeedaccounts";
 import { Companies } from "./companies";
 import { Connections } from "./connections";
 import * as shared from "./models/shared";
+import { PushData } from "./pushdata";
+import { RefreshData } from "./refreshdata";
 import axios from "axios";
 import { AxiosInstance } from "axios";
 
@@ -52,9 +54,9 @@ export class SDKConfiguration {
     serverURL: string;
     serverDefaults: any;
     language = "typescript";
-    openapiDocVersion = "2.1.0";
-    sdkVersion = "0.41.0";
-    genVersion = "2.77.1";
+    openapiDocVersion = "3.0.0";
+    sdkVersion = "1.0.0";
+    genVersion = "2.81.1";
 
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -66,7 +68,7 @@ export class SDKConfiguration {
  *
  * @remarks
  *
- * A bank feed is a connection between a source bank account—in your application—and a target bank account in a supported accounting package.
+ * A bank feed is a connection between a source bank account�in your application and a target bank account in a supported accounting package.
  *
  * [Read more...](https://docs.codat.io/bank-feeds-api/overview)
  *
@@ -93,6 +95,14 @@ export class CodatBankFeeds {
      * Manage your companies' data connections.
      */
     public connections: Connections;
+    /**
+     * View push options and get push statuses.
+     */
+    public pushData: PushData;
+    /**
+     * Asynchronously retrieve data from an integration to refresh data in Codat.
+     */
+    public refreshData: RefreshData;
 
     private sdkConfiguration: SDKConfiguration;
 
@@ -126,5 +136,7 @@ export class CodatBankFeeds {
         this.bankFeedAccounts = new BankFeedAccounts(this.sdkConfiguration);
         this.companies = new Companies(this.sdkConfiguration);
         this.connections = new Connections(this.sdkConfiguration);
+        this.pushData = new PushData(this.sdkConfiguration);
+        this.refreshData = new RefreshData(this.sdkConfiguration);
     }
 }
