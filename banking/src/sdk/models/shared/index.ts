@@ -12,7 +12,7 @@ export * from "./accountinstitution";
 export * from "./accounts";
 export * from "./accounttype";
 export * from "./errormessage";
-export * from "./href";
+export * from "./halref";
 export * from "./links";
 export * from "./security";
 export * from "./transaction";
