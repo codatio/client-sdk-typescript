@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export class HRef extends SpeakeasyBase {
+export class HalRef extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "href" })
     href?: string;

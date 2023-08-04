@@ -67,7 +67,7 @@ src/sdk/models/shared/dataconnectionerror.ts
 src/sdk/models/shared/companyrequestbody.ts
 src/sdk/models/shared/companies.ts
 src/sdk/models/shared/links.ts
-src/sdk/models/shared/href.ts
+src/sdk/models/shared/halref.ts
 src/sdk/models/shared/connections.ts
 src/sdk/models/shared/integration.ts
 src/sdk/models/shared/datatypefeature.ts
@@ -206,7 +206,7 @@ docs/models/shared/dataconnectionerror.md
 docs/models/shared/companyrequestbody.md
 docs/models/shared/companies.md
 docs/models/shared/links.md
-docs/models/shared/href.md
+docs/models/shared/halref.md
 docs/models/shared/connections.md
 docs/models/shared/integration.md
 docs/models/shared/datatypefeature.md

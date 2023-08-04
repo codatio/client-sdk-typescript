@@ -1,6 +1,6 @@
 {
   "name": "@codat/common",
-  "version": "0.40.0",
+  "version": "1.0.0",
   "author": "Speakeasy",
   "scripts": {
     "prepare": "tsc --build"

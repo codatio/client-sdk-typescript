@@ -26,7 +26,7 @@ export * from "./datatypefeature";
 export * from "./errormessage";
 export * from "./featurestate";
 export * from "./featuretype";
-export * from "./href";
+export * from "./halref";
 export * from "./imagereference";
 export * from "./integration";
 export * from "./integrations";
