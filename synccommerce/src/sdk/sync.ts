@@ -10,7 +10,7 @@ import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
- * Initiate a sync of Sync for Commerce company data into their respective accounting software.
+ * Initiate and monitor the sync of company data into accounting software.
  */
 
 export class Sync {
@@ -18,6 +18,79 @@ export class Sync {
 
     constructor(sdkConfig: SDKConfiguration) {
         this.sdkConfiguration = sdkConfig;
+    }
+
+    /**
+     * Get sync status
+     *
+     * @remarks
+     * Gets a list of sync statuses.
+     */
+    async getSyncStatus(
+        req: operations.GetSyncStatusRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetSyncStatusResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetSyncStatusRequest(req);
+        }
+
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
+        const url: string = utils.generateURL(
+            baseURL,
+            "/meta/companies/{companyId}/sync/commerce/status",
+            req
+        );
+
+        const client: AxiosInstance =
+            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "*/*";
+
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url,
+                method: "get",
+                headers: headers,
+                responseType: "arraybuffer",
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetSyncStatusResponse = new operations.GetSyncStatusResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        switch (true) {
+            case httpRes?.status == 200:
+                break;
+        }
+
+        return res;
     }
 
     /**

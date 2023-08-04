@@ -10,7 +10,6 @@ import { Integrations } from "./integrations";
 import * as shared from "./models/shared";
 import { Sync } from "./sync";
 import { SyncFlowPreferences } from "./syncflowpreferences";
-import { SyncStatus } from "./syncstatus";
 import axios from "axios";
 import { AxiosInstance } from "axios";
 
@@ -55,8 +54,8 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "1.1";
-    sdkVersion = "0.38.0";
-    genVersion = "2.77.1";
+    sdkVersion = "0.39.0";
+    genVersion = "2.81.1";
 
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -64,10 +63,15 @@ export class SDKConfiguration {
 }
 
 /**
- * Sync for Commerce API: The API for Sync for Commerce. Sync for Commerce is an API and a set of supporting tools. It has been built to enable e-commerce, point of sale platforms to provide high-quality integrations with numerous accounting platform through standardized API, seamlessly transforming business sale's data into accounting artefacts.
+ * Sync for Commerce API: The API for Sync for Commerce.
  *
  * @remarks
- * [Read More...](https://docs.codat.io/sfc/overview)
+ *
+ * Sync for Commerce is an API and a set of supporting tools built to enable e-commerce and point of sale platforms to provide high-quality integrations with numerous accounting platform through standardized API, seamlessly transforming business sale's data into accounting artefacts.
+ *
+ * [Read More...](https://docs.codat.io/commerce/overview)
+ *
+ * <!-- Not seeing the end points you're expecting? We've reorganized our products, and you may be using a [different version of Sync for Commerce](https://docs.codat.io/sync-for-commerce-v1-api#/). -->
  */
 export class CodatSyncCommerce {
     /**
@@ -87,17 +91,13 @@ export class CodatSyncCommerce {
      */
     public integrations: Integrations;
     /**
-     * Initiate a sync of Sync for Commerce company data into their respective accounting software.
+     * Initiate and monitor the sync of company data into accounting software.
      */
     public sync: Sync;
     /**
      * Configure preferences for any given Sync for Commerce company using sync flow.
      */
     public syncFlowPreferences: SyncFlowPreferences;
-    /**
-     * Status of the sync between commerce company data into their respective accounting software.
-     */
-    public syncStatus: SyncStatus;
 
     private sdkConfiguration: SDKConfiguration;
 
@@ -132,6 +132,5 @@ export class CodatSyncCommerce {
         this.integrations = new Integrations(this.sdkConfiguration);
         this.sync = new Sync(this.sdkConfiguration);
         this.syncFlowPreferences = new SyncFlowPreferences(this.sdkConfiguration);
-        this.syncStatus = new SyncStatus(this.sdkConfiguration);
     }
 }

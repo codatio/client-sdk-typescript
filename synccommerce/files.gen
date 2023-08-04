@@ -4,7 +4,6 @@ src/sdk/connectionsadvanced.ts
 src/sdk/integrations.ts
 src/sdk/sync.ts
 src/sdk/syncflowpreferences.ts
-src/sdk/syncstatus.ts
 src/sdk/sdk.ts
 .eslintrc.yml
 jest.config.js
@@ -35,13 +34,13 @@ src/sdk/models/operations/listconnections.ts
 src/sdk/models/operations/updateconnection.ts
 src/sdk/models/operations/getintegrationbranding.ts
 src/sdk/models/operations/listintegrations.ts
+src/sdk/models/operations/getsyncstatus.ts
 src/sdk/models/operations/requestsync.ts
 src/sdk/models/operations/requestsyncfordaterange.ts
 src/sdk/models/operations/getconfigtextsyncflow.ts
 src/sdk/models/operations/getvisibleaccounts.ts
 src/sdk/models/operations/updateconfigtextsyncflow.ts
 src/sdk/models/operations/updatevisibleaccountssyncflow.ts
-src/sdk/models/operations/getsyncstatus.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/configuration.ts
 src/sdk/models/shared/sales.ts
@@ -102,7 +101,6 @@ docs/sdks/connectionsadvanced/README.md
 docs/sdks/integrations/README.md
 docs/sdks/sync/README.md
 docs/sdks/syncflowpreferences/README.md
-docs/sdks/syncstatus/README.md
 USAGE.md
 docs/models/operations/getconfigurationrequest.md
 docs/models/operations/getconfigurationresponse.md
@@ -123,6 +121,8 @@ docs/models/operations/getintegrationbrandingrequest.md
 docs/models/operations/getintegrationbrandingresponse.md
 docs/models/operations/listintegrationsrequest.md
 docs/models/operations/listintegrationsresponse.md
+docs/models/operations/getsyncstatusrequest.md
+docs/models/operations/getsyncstatusresponse.md
 docs/models/operations/requestsyncrequest.md
 docs/models/operations/requestsyncresponse.md
 docs/models/operations/requestsyncfordaterangerequest.md
@@ -133,8 +133,6 @@ docs/models/operations/getvisibleaccountsresponse.md
 docs/models/operations/updateconfigtextsyncflowresponse.md
 docs/models/operations/updatevisibleaccountssyncflowrequest.md
 docs/models/operations/updatevisibleaccountssyncflowresponse.md
-docs/models/operations/getsyncstatusrequest.md
-docs/models/operations/getsyncstatusresponse.md
 docs/models/shared/configuration.md
 docs/models/shared/sales.md
 docs/models/shared/taxrateamount.md
