@@ -10,7 +10,7 @@ import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
- * Data integrity is important
+ * Match mutable accounting data with immutable banking data to increase confidence in financial data
  */
 
 export class DataIntegrity {

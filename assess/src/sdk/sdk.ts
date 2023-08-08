@@ -51,8 +51,8 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "1.0";
-    sdkVersion = "0.39.0";
-    genVersion = "2.81.1";
+    sdkVersion = "0.40.0";
+    genVersion = "2.82.0";
 
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -71,7 +71,7 @@ export class SDKConfiguration {
  */
 export class CodatAssess {
     /**
-     * Data integrity is important
+     * Match mutable accounting data with immutable banking data to increase confidence in financial data
      */
     public dataIntegrity: DataIntegrity;
     /**
@@ -79,7 +79,7 @@ export class CodatAssess {
      */
     public excelReports: ExcelReports;
     /**
-     * Data integrity is important
+     * Enriched reports and analyses of financial data
      */
     public reports: Reports;
 

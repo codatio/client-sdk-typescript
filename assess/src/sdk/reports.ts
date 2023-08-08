@@ -10,7 +10,7 @@ import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
- * Data integrity is important
+ * Enriched reports and analyses of financial data
  */
 
 export class Reports {
