@@ -14,6 +14,9 @@ import { Expose, Type } from "class-transformer";
  * Success
  */
 export class UpdateBankAccountResponse extends SpeakeasyBase {
+    /**
+     * Contains a single entry that communicates which record has changed and the manner in which it changed.
+     */
     @SpeakeasyMetadata({ elemType: PushOperationChange })
     @Expose({ name: "changes" })
     @Type(() => PushOperationChange)
