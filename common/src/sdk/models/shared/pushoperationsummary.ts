@@ -10,6 +10,9 @@ import { Validation } from "./validation";
 import { Expose, Type } from "class-transformer";
 
 export class PushOperationSummary extends SpeakeasyBase {
+    /**
+     * Contains a single entry that communicates which record has changed and the manner in which it changed.
+     */
     @SpeakeasyMetadata({ elemType: PushOperationChange })
     @Expose({ name: "changes" })
     @Type(() => PushOperationChange)
