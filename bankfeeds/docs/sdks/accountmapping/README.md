@@ -1,8 +1,8 @@
-# bankAccountMapping
+# accountMapping
 
 ## Overview
 
-Bank feed bank account mapping
+Bank feed bank account mapping.
 
 ### Available Operations
 
@@ -31,7 +31,7 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-sdk.bankAccountMapping.create({
+sdk.accountMapping.create({
   bankFeedAccountMapping: {
     feedStartDate: "2022-10-23T00:00:00.000Z",
     sourceAccountId: "unde",
@@ -80,7 +80,7 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-sdk.bankAccountMapping.get({
+sdk.accountMapping.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetBankAccountMappingResponse) => {

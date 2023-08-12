@@ -10,10 +10,10 @@ import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
- * View push options and get push statuses.
+ * Bank feed bank account mapping.
  */
 
-export class PushData {
+export class AccountMapping {
     private sdkConfiguration: SDKConfiguration;
 
     constructor(sdkConfig: SDKConfiguration) {
@@ -21,18 +21,24 @@ export class PushData {
     }
 
     /**
-     * Get push operation
+     * Create bank feed bank account mapping
      *
      * @remarks
-     * Retrieve push operation.
+     * The *Create bank account mapping* endpoint creates a new mapping between a source bank account and a potential account in the accounting platform (target account).
+     *
+     * A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end users account in the underlying platform).
+     *
+     * To find valid target account options, first call list bank feed account mappings.
+     *
+     * This endpoint is only needed if building an account management UI.
      */
-    async getOperation(
-        req: operations.GetPushOperationRequest,
+    async create(
+        req: operations.CreateBankAccountMappingRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.GetPushOperationResponse> {
+    ): Promise<operations.CreateBankAccountMappingResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetPushOperationRequest(req);
+            req = new operations.CreateBankAccountMappingRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -41,7 +47,129 @@ export class PushData {
         );
         const url: string = utils.generateURL(
             baseURL,
-            "/companies/{companyId}/push/{pushOperationKey}",
+            "/companies/{companyId}/connections/{connectionId}/bankFeedAccounts/mapping",
+            req
+        );
+
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+        try {
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+                req,
+                "bankFeedAccountMapping",
+                "json"
+            );
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                throw new Error(`Error serializing request body, cause: ${e.message}`);
+            }
+        }
+
+        const client: AxiosInstance =
+            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        headers["Accept"] = "application/json";
+
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url,
+                method: "post",
+                headers: headers,
+                responseType: "arraybuffer",
+                data: reqBody,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.CreateBankAccountMappingResponse =
+            new operations.CreateBankAccountMappingResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.accountMappingResult = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.AccountMappingResult
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case [400, 401, 404, 429].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.errorMessage = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * List bank feed account mappings
+     *
+     * @remarks
+     * The *List bank account mappings* endpoint returns information about a source bank account and any current or potential target mapping accounts.
+     *
+     * A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end users account in the underlying platform).
+     *
+     * This endpoint is only needed if building an account management UI.
+     */
+    async get(
+        req: operations.GetBankAccountMappingRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetBankAccountMappingResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetBankAccountMappingRequest(req);
+        }
+
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
+        const url: string = utils.generateURL(
+            baseURL,
+            "/companies/{companyId}/connections/{connectionId}/bankFeedAccounts/mapping",
             req
         );
 
@@ -80,107 +208,8 @@ export class PushData {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.GetPushOperationResponse = new operations.GetPushOperationResponse({
-            statusCode: httpRes.status,
-            contentType: contentType,
-            rawResponse: httpRes,
-        });
-        const decodedRes = new TextDecoder().decode(httpRes?.data);
-        switch (true) {
-            case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.pushOperation = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.PushOperation
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case [401, 404, 429].includes(httpRes?.status):
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.errorMessage = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.ErrorMessage
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-        }
-
-        return res;
-    }
-
-    /**
-     * List push operations
-     *
-     * @remarks
-     * List push operation records.
-     */
-    async listOperations(
-        req: operations.GetCompanyPushHistoryRequest,
-        retries?: utils.RetryConfig,
-        config?: AxiosRequestConfig
-    ): Promise<operations.GetCompanyPushHistoryResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetCompanyPushHistoryRequest(req);
-        }
-
-        const baseURL: string = utils.templateUrl(
-            this.sdkConfiguration.serverURL,
-            this.sdkConfiguration.serverDefaults
-        );
-        const url: string = utils.generateURL(baseURL, "/companies/{companyId}/push", req);
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
-        const queryParams: string = utils.serializeQueryParams(req);
-        headers["Accept"] = "application/json";
-
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
-
-        let retryConfig: any = retries;
-        if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
-        }
-        const httpRes: AxiosResponse = await utils.Retry(() => {
-            return client.request({
-                validateStatus: () => true,
-                url: url + queryParams,
-                method: "get",
-                headers: headers,
-                responseType: "arraybuffer",
-                ...config,
-            });
-        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) {
-            throw new Error(`status code not found in response: ${httpRes}`);
-        }
-
-        const res: operations.GetCompanyPushHistoryResponse =
-            new operations.GetCompanyPushHistoryResponse({
+        const res: operations.GetBankAccountMappingResponse =
+            new operations.GetBankAccountMappingResponse({
                 statusCode: httpRes.status,
                 contentType: contentType,
                 rawResponse: httpRes,
@@ -189,9 +218,9 @@ export class PushData {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.pushHistoryResponse = utils.objectToClass(
+                    res.bankFeedMapping = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.PushHistoryResponse
+                        shared.BankFeedMapping
                     );
                 } else {
                     throw new errors.SDKError(
@@ -202,7 +231,7 @@ export class PushData {
                     );
                 }
                 break;
-            case [400, 401, 404, 429].includes(httpRes?.status):
+            case [401, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),

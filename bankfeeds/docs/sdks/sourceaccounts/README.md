@@ -1,15 +1,14 @@
-# bankFeedAccounts
+# sourceAccounts
 
 ## Overview
 
-Bank feed bank accounts
+Source accounts act as a bridge to bank accounts in accounting software.
 
 ### Available Operations
 
 * [create](#create) - Create a bank feed bank account
 * [delete](#delete) - delete bank feed bank account
 * [list](#list) - List bank feed bank accounts
-* [~~putBankFeed~~](#putbankfeed) - Create bank feed bank accounts :warning: **Deprecated**
 * [update](#update) - Update bank feed bank account
 
 ## create
@@ -28,18 +27,18 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-sdk.bankFeedAccounts.create({
+sdk.sourceAccounts.create({
   bankFeedAccount: {
-    accountName: "maiores",
-    accountNumber: "dicta",
-    accountType: "corporis",
-    balance: 2961.4,
-    currency: "USD",
+    accountName: "deserunt",
+    accountNumber: "suscipit",
+    accountType: "iure",
+    balance: 2975.34,
+    currency: "EUR",
     feedStartDate: "2022-10-23T00:00:00.000Z",
-    id: "b5e6e13b-99d4-488e-9e91-e450ad2abd44",
+    id: "f467cc87-96ed-4151-a05d-fc2ddf7cc78c",
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    sortCode: "aliquid",
-    status: "cupiditate",
+    sortCode: "dicta",
+    status: "nam",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -82,7 +81,7 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-sdk.bankFeedAccounts.delete({
+sdk.sourceAccounts.delete({
   accountId: "7110701885",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -127,7 +126,7 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-sdk.bankFeedAccounts.list({
+sdk.sourceAccounts.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: ListBankFeedsResponse) => {
@@ -151,62 +150,6 @@ sdk.bankFeedAccounts.list({
 **Promise<[operations.ListBankFeedsResponse](../../models/operations/listbankfeedsresponse.md)>**
 
 
-## ~~putBankFeed~~
-
-Put BankFeed BankAccounts for a single data source connected to a single company.
-
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-```typescript
-import { CodatBankFeeds } from "@codat/bank-feeds";
-import { PutBankFeedResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-
-const sdk = new CodatBankFeeds({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.bankFeedAccounts.putBankFeed({
-  requestBody: [
-    {
-      accountName: "magni",
-      accountNumber: "assumenda",
-      accountType: "ipsam",
-      balance: 46.95,
-      currency: "GBP",
-      feedStartDate: "2022-10-23T00:00:00.000Z",
-      id: "94bb4f63-c969-4e9a-befa-77dfb14cd66a",
-      modifiedDate: "2022-10-23T00:00:00.000Z",
-      sortCode: "non",
-      status: "occaecati",
-    },
-  ],
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: PutBankFeedResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-### Parameters
-
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [operations.PutBankFeedRequest](../../models/operations/putbankfeedrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `retries`                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                         | :heavy_minus_sign:                                                             | Configuration to override the default retry behavior of the client.            |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
-
-
-### Response
-
-**Promise<[operations.PutBankFeedResponse](../../models/operations/putbankfeedresponse.md)>**
-
-
 ## update
 
 ﻿The *Update bank feed bank account* endpoint updates a single bank feed bank account for a single data source connected to a single company.
@@ -223,20 +166,20 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-sdk.bankFeedAccounts.update({
+sdk.sourceAccounts.update({
   bankFeedAccount: {
-    accountName: "enim",
-    accountNumber: "accusamus",
-    accountType: "delectus",
-    balance: 6925.32,
-    currency: "USD",
+    accountName: "occaecati",
+    accountNumber: "fugit",
+    accountType: "deleniti",
+    balance: 9446.69,
+    currency: "EUR",
     feedStartDate: "2022-10-23T00:00:00.000Z",
-    id: "a88f3a66-9970-474b-a446-9b6e21419598",
+    id: "16742cb7-3920-4592-9396-fea7596eb10f",
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    sortCode: "accusantium",
-    status: "mollitia",
+    sortCode: "mollitia",
+    status: "laborum",
   },
-  accountId: "EILBDVJVNUAGVKRQ",
+  accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: UpdateBankFeedResponse) => {

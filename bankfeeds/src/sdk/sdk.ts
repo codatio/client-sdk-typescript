@@ -3,14 +3,12 @@
  */
 
 import * as utils from "../internal/utils";
-import { BankAccountMapping } from "./bankaccountmapping";
-import { BankAccountTransactions } from "./bankaccounttransactions";
-import { BankFeedAccounts } from "./bankfeedaccounts";
+import { AccountMapping } from "./accountmapping";
 import { Companies } from "./companies";
 import { Connections } from "./connections";
 import * as shared from "./models/shared";
-import { PushData } from "./pushdata";
-import { RefreshData } from "./refreshdata";
+import { SourceAccounts } from "./sourceaccounts";
+import { Transactions } from "./transactions";
 import axios from "axios";
 import { AxiosInstance } from "axios";
 
@@ -55,8 +53,8 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "3.0.0";
-    sdkVersion = "1.1.0";
-    genVersion = "2.82.0";
+    sdkVersion = "1.1.1";
+    genVersion = "2.83.3";
 
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -76,17 +74,9 @@ export class SDKConfiguration {
  */
 export class CodatBankFeeds {
     /**
-     * Bank feed bank account mapping
+     * Bank feed bank account mapping.
      */
-    public bankAccountMapping: BankAccountMapping;
-    /**
-     * Bank feed bank accounts
-     */
-    public bankAccountTransactions: BankAccountTransactions;
-    /**
-     * Bank feed bank accounts
-     */
-    public bankFeedAccounts: BankFeedAccounts;
+    public accountMapping: AccountMapping;
     /**
      * Create and manage your Codat companies.
      */
@@ -96,13 +86,13 @@ export class CodatBankFeeds {
      */
     public connections: Connections;
     /**
-     * View push options and get push statuses.
+     * Source accounts act as a bridge to bank accounts in accounting software.
      */
-    public pushData: PushData;
+    public sourceAccounts: SourceAccounts;
     /**
-     * Asynchronously retrieve data from an integration to refresh data in Codat.
+     * Transactions represent debits and credits from a source account.
      */
-    public refreshData: RefreshData;
+    public transactions: Transactions;
 
     private sdkConfiguration: SDKConfiguration;
 
@@ -131,12 +121,10 @@ export class CodatBankFeeds {
             serverURL: serverURL,
         });
 
-        this.bankAccountMapping = new BankAccountMapping(this.sdkConfiguration);
-        this.bankAccountTransactions = new BankAccountTransactions(this.sdkConfiguration);
-        this.bankFeedAccounts = new BankFeedAccounts(this.sdkConfiguration);
+        this.accountMapping = new AccountMapping(this.sdkConfiguration);
         this.companies = new Companies(this.sdkConfiguration);
         this.connections = new Connections(this.sdkConfiguration);
-        this.pushData = new PushData(this.sdkConfiguration);
-        this.refreshData = new RefreshData(this.sdkConfiguration);
+        this.sourceAccounts = new SourceAccounts(this.sdkConfiguration);
+        this.transactions = new Transactions(this.sdkConfiguration);
     }
 }

@@ -11,7 +11,7 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-sdk.bankAccountMapping.create({
+sdk.accountMapping.create({
   bankFeedAccountMapping: {
     feedStartDate: "2022-10-23T00:00:00.000Z",
     sourceAccountId: "provident",
