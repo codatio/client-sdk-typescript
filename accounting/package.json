@@ -1,6 +1,6 @@
 {
   "name": "@codat/accounting",
-  "version": "0.33.1",
+  "version": "0.34.0",
   "author": "Speakeasy",
   "scripts": {
     "prepare": "tsc --build"

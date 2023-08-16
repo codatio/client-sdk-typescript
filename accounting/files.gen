@@ -169,6 +169,7 @@ src/sdk/models/operations/createtransfer.ts
 src/sdk/models/operations/gettransfer.ts
 src/sdk/models/operations/getcreatetransfersmodel.ts
 src/sdk/models/operations/listtransfers.ts
+src/sdk/models/operations/uploadtransferattachment.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/errormessage.ts
 src/sdk/models/shared/accounttransaction.ts
@@ -640,6 +641,9 @@ docs/models/operations/getcreatetransfersmodelrequest.md
 docs/models/operations/getcreatetransfersmodelresponse.md
 docs/models/operations/listtransfersrequest.md
 docs/models/operations/listtransfersresponse.md
+docs/models/operations/uploadtransferattachmentrequestbody.md
+docs/models/operations/uploadtransferattachmentrequest.md
+docs/models/operations/uploadtransferattachmentresponse.md
 docs/models/shared/errormessage.md
 docs/models/shared/accounttransactionstatus.md
 docs/models/shared/accounttransaction.md

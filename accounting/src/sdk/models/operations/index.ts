@@ -128,3 +128,4 @@ export * from "./uploadbillcreditnoteattachment";
 export * from "./uploaddirectcostattachment";
 export * from "./uploaddirectincomeattachment";
 export * from "./uploadinvoiceattachment";
+export * from "./uploadtransferattachment";
