@@ -25,7 +25,6 @@ If forbidden characters (see `name` pattern) are present in the request, a compa
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { CreateCompanyResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-import { ConnectionSourceType, DataConnectionStatus } from "@codat/bank-feeds/dist/sdk/models/shared";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -106,7 +105,6 @@ sdk.companies.delete({
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { GetCompanyResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-import { ConnectionSourceType, DataConnectionStatus } from "@codat/bank-feeds/dist/sdk/models/shared";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -146,7 +144,6 @@ sdk.companies.get({
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { ListCompaniesResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-import { ConnectionSourceType, DataConnectionStatus } from "@codat/bank-feeds/dist/sdk/models/shared";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -158,7 +155,7 @@ sdk.companies.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "omnis",
+  query: "corrupti",
 }).then((res: ListCompaniesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -189,7 +186,6 @@ sdk.companies.list({
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { UpdateCompanyResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-import { ConnectionSourceType, DataConnectionStatus } from "@codat/bank-feeds/dist/sdk/models/shared";
 
 const sdk = new CodatBankFeeds({
   security: {

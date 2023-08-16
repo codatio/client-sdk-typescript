@@ -24,7 +24,6 @@ Use the [List Integrations](https://docs.codat.io/codat-api#/operations/list-int
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { CreateDataConnectionResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-import { ConnectionSourceType, DataConnectionStatus } from "@codat/bank-feeds/dist/sdk/models/shared";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -34,7 +33,7 @@ const sdk = new CodatBankFeeds({
 
 sdk.connections.create({
   requestBody: {
-    platformKey: "facilis",
+    platformKey: "illum",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: CreateDataConnectionResponse) => {
@@ -108,7 +107,6 @@ sdk.connections.delete({
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { GetCompanyConnectionResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-import { ConnectionSourceType, DataConnectionStatus } from "@codat/bank-feeds/dist/sdk/models/shared";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -149,7 +147,6 @@ sdk.connections.get({
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { ListCompanyConnectionsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-import { ConnectionSourceType, DataConnectionStatus } from "@codat/bank-feeds/dist/sdk/models/shared";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -162,7 +159,7 @@ sdk.connections.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "perspiciatis",
+  query: "vel",
 }).then((res: ListCompanyConnectionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -236,7 +233,6 @@ sdk.connections.proxy({
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { UnlinkConnectionResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
-import { ConnectionSourceType, DataConnectionStatus } from "@codat/bank-feeds/dist/sdk/models/shared";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -246,7 +242,7 @@ const sdk = new CodatBankFeeds({
 
 sdk.connections.unlinkConnection({
   requestBody: {
-    status: "voluptatem",
+    status: "error",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
