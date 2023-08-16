@@ -20,6 +20,8 @@ yarn add @codat/sync-for-expenses
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
+
+
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 import { GetCompanyConfigurationResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
