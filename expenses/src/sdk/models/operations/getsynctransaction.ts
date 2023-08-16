@@ -27,6 +27,12 @@ export class GetSyncTransactionResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
 
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
+
     @SpeakeasyMetadata()
     statusCode: number;
 
@@ -38,10 +44,4 @@ export class GetSyncTransactionResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ elemType: shared.TransactionMetadata })
     transactionMetadata?: shared.TransactionMetadata[];
-
-    /**
-     * Your API request was not properly authorized.
-     */
-    @SpeakeasyMetadata()
-    schema?: shared.Schema;
 }

@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { ContactRef } from "./contactref";
 import { ExpenseTransactionLine } from "./expensetransactionline";
 import { Expose, Type } from "class-transformer";
 
@@ -21,6 +22,11 @@ export enum ExpenseTransactionType {
 }
 
 export class ExpenseTransaction extends SpeakeasyBase {
+    @SpeakeasyMetadata()
+    @Expose({ name: "contactRef" })
+    @Type(() => ContactRef)
+    contactRef?: ContactRef;
+
     /**
      * Currency the transaction was recorded in.
      */

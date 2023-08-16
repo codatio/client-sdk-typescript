@@ -18,7 +18,6 @@ Gets the status of a transaction for a sync
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 import { GetSyncTransactionResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
-import { IntegrationType, TransactionStatus } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
 const sdk = new CodatSyncExpenses({
   security: {
@@ -60,7 +59,6 @@ Get's the transactions and status for a sync
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 import { ListSyncTransactionsResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
-import { IntegrationType, TransactionStatus } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
 const sdk = new CodatSyncExpenses({
   security: {

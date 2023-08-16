@@ -21,6 +21,7 @@ src/internal/utils/retries.ts
 src/internal/utils/security.ts
 src/internal/utils/utils.ts
 src/sdk/index.ts
+src/sdk/models/errors/sdkerror.ts
 src/sdk/types/index.ts
 src/sdk/types/rfcdate.ts
 tsconfig.json
@@ -39,7 +40,7 @@ src/sdk/models/operations/listsyncs.ts
 src/sdk/models/operations/getsynctransaction.ts
 src/sdk/models/operations/listsynctransactions.ts
 src/sdk/models/operations/index.ts
-src/sdk/models/shared/schema.ts
+src/sdk/models/shared/errormessage.ts
 src/sdk/models/shared/companyconfiguration.ts
 src/sdk/models/shared/supplier.ts
 src/sdk/models/shared/customer.ts
@@ -52,7 +53,9 @@ src/sdk/models/shared/createexpenserequest.ts
 src/sdk/models/shared/expensetransaction.ts
 src/sdk/models/shared/expensetransactionline.ts
 src/sdk/models/shared/recordref.ts
+src/sdk/models/shared/contactref.ts
 src/sdk/models/shared/updateexpenserequest.ts
+src/sdk/models/shared/expensetype.ts
 src/sdk/models/shared/attachment.ts
 src/sdk/models/shared/mappingoptions.ts
 src/sdk/models/shared/trackingcategorymappinginfo.ts
@@ -68,7 +71,15 @@ src/sdk/models/shared/integrationtype.ts
 src/sdk/models/shared/transactionmetadatalist.ts
 src/sdk/models/shared/hallink.ts
 src/sdk/models/shared/security.ts
+src/sdk/models/shared/synccompletewebhook.ts
+src/sdk/models/shared/syncfailedwebhook.ts
+src/sdk/models/shared/syncstartedwebhook.ts
 src/sdk/models/shared/index.ts
+src/sdk/models/webhooks/synccomplete.ts
+src/sdk/models/webhooks/syncfailed.ts
+src/sdk/models/webhooks/syncstarted.ts
+src/sdk/models/webhooks/index.ts
+src/sdk/models/errors/index.ts
 docs/sdks/codatsyncexpenses/README.md
 docs/models/utils/retryconfig.md
 docs/sdks/configuration/README.md
@@ -109,7 +120,7 @@ docs/models/operations/getsynctransactionrequest.md
 docs/models/operations/getsynctransactionresponse.md
 docs/models/operations/listsynctransactionsrequest.md
 docs/models/operations/listsynctransactionsresponse.md
-docs/models/shared/schema.md
+docs/models/shared/errormessage.md
 docs/models/shared/companyconfiguration.md
 docs/models/shared/supplier.md
 docs/models/shared/customer.md
@@ -124,7 +135,10 @@ docs/models/shared/expensetransactiontype.md
 docs/models/shared/expensetransaction.md
 docs/models/shared/expensetransactionline.md
 docs/models/shared/recordref.md
+docs/models/shared/contactrefcontacttype.md
+docs/models/shared/contactref.md
 docs/models/shared/updateexpenserequest.md
+docs/models/shared/expensetype.md
 docs/models/shared/attachment.md
 docs/models/shared/mappingoptions.md
 docs/models/shared/trackingcategorymappinginfo.md
@@ -148,3 +162,12 @@ docs/models/shared/transactionmetadatalistlinks.md
 docs/models/shared/transactionmetadatalist.md
 docs/models/shared/hallink.md
 docs/models/shared/security.md
+docs/models/shared/synccompletewebhookdata.md
+docs/models/shared/synccompletewebhook.md
+docs/models/shared/syncfailedwebhookdata.md
+docs/models/shared/syncfailedwebhook.md
+docs/models/shared/syncstartedwebhookdata.md
+docs/models/shared/syncstartedwebhook.md
+docs/models/webhooks/synccompleteresponse.md
+docs/models/webhooks/syncfailedresponse.md
+docs/models/webhooks/syncstartedresponse.md
