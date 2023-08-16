@@ -1,11 +1,11 @@
 # AccountRef
 
-An object containing account reference data.
+An account reference containing the account id and name.
 
 
 ## Fields
 
-| Field                               | Type                                | Required                            | Description                         |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| `id`                                | *string*                            | :heavy_minus_sign:                  | 'id' from the Accounts data type.   |
-| `name`                              | *string*                            | :heavy_minus_sign:                  | 'name' from the Accounts data type. |
+| Field                    | Type                     | Required                 | Description              |
+| ------------------------ | ------------------------ | ------------------------ | ------------------------ |
+| `id`                     | *string*                 | :heavy_minus_sign:       | The id of the account.   |
+| `name`                   | *string*                 | :heavy_minus_sign:       | The name of the account. |

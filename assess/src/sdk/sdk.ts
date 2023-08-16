@@ -3,7 +3,6 @@
  */
 
 import * as utils from "../internal/utils";
-import { Categories } from "./categories";
 import { DataIntegrity } from "./dataintegrity";
 import { ExcelReports } from "./excelreports";
 import * as shared from "./models/shared";
@@ -52,8 +51,8 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "1.0";
-    sdkVersion = "0.30.1";
-    genVersion = "2.58.0";
+    sdkVersion = "0.31.0";
+    genVersion = "2.84.3";
 
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -64,19 +63,15 @@ export class SDKConfiguration {
  * Assess API: Codat's financial insights API
  *
  * @remarks
- * Codat's Assess API enable you to make smarter credit decisions on your small business customers. Assess enriches your customer's accounting, commerce and banking data to surface actionable insights you didn't have before.
+ * Check that you have enabled the [data types required by Assess](https://docs.codat.io/assess/get-started#prerequisites) for all of its features to work.
  *
- * [Read more...](https://www.codat.io/assess/)
+ * [Read more...](https://www.docs.codat.io/assess/)
  *
  * [See our OpenAPI spec](https://github.com/codatio/oas)
  */
 export class CodatAssess {
     /**
-     * Categorisation
-     */
-    public categories: Categories;
-    /**
-     * Data integrity is important
+     * Match mutable accounting data with immutable banking data to increase confidence in financial data
      */
     public dataIntegrity: DataIntegrity;
     /**
@@ -84,7 +79,7 @@ export class CodatAssess {
      */
     public excelReports: ExcelReports;
     /**
-     * Data integrity is important
+     * Enriched reports and analyses of financial data
      */
     public reports: Reports;
 
@@ -115,7 +110,6 @@ export class CodatAssess {
             serverURL: serverURL,
         });
 
-        this.categories = new Categories(this.sdkConfiguration);
         this.dataIntegrity = new DataIntegrity(this.sdkConfiguration);
         this.excelReports = new ExcelReports(this.sdkConfiguration);
         this.reports = new Reports(this.sdkConfiguration);

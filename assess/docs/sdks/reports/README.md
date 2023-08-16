@@ -2,7 +2,7 @@
 
 ## Overview
 
-Data integrity is important
+Enriched reports and analyses of financial data
 
 ### Available Operations
 
@@ -13,11 +13,8 @@ Data integrity is important
 * [getCommerceOrdersMetrics](#getcommerceordersmetrics) - Get orders report
 * [getCommerceRefundsMetrics](#getcommercerefundsmetrics) - Get refunds report
 * [getCommerceRevenueMetrics](#getcommercerevenuemetrics) - Get commerce revenue metrics
-* [~~getEnhancedBalanceSheet~~](#getenhancedbalancesheet) - Get enhanced balance sheet report :warning: **Deprecated**
 * [getEnhancedCashFlowTransactions](#getenhancedcashflowtransactions) - Get enhanced cash flow report
-* [~~getEnhancedFinancialMetrics~~](#getenhancedfinancialmetrics) - List financial metrics :warning: **Deprecated**
 * [getEnhancedInvoicesReport](#getenhancedinvoicesreport) - Get enhanced invoices report
-* [~~getEnhancedProfitAndLoss~~](#getenhancedprofitandloss) - Get enhanced profit and loss report :warning: **Deprecated**
 * [getLoanSummary](#getloansummary) - Get enhanced loan summaries
 * [getRecurringRevenueMetrics](#getrecurringrevenuemetrics) - Get key subscription revenue metrics
 * [listLoanTransactions](#listloantransactions) - List enhanced loan transactions
@@ -43,7 +40,7 @@ const sdk = new CodatAssess({
 
 sdk.reports.getAccountsForEnhancedBalanceSheet({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  numberOfPeriods: 20218,
+  numberOfPeriods: 623564,
   reportDate: "29-09-2020",
 }).then((res: GetAccountsForEnhancedBalanceSheetResponse) => {
   if (res.statusCode == 200) {
@@ -86,7 +83,7 @@ const sdk = new CodatAssess({
 
 sdk.reports.getAccountsForEnhancedProfitAndLoss({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  numberOfPeriods: 368241,
+  numberOfPeriods: 645894,
   reportDate: "29-09-2020",
 }).then((res: GetAccountsForEnhancedProfitAndLossResponse) => {
   if (res.statusCode == 200) {
@@ -130,9 +127,9 @@ sdk.reports.getCommerceCustomerRetentionMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 832620,
-  periodLength: 957156,
-  periodUnit: PeriodUnit.Year,
+  numberOfPeriods: 384382,
+  periodLength: 437587,
+  periodUnit: PeriodUnit.Week,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceCustomerRetentionMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -176,8 +173,8 @@ sdk.reports.getCommerceLifetimeValueMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 140350,
-  periodLength: 870013,
+  numberOfPeriods: 891773,
+  periodLength: 56713,
   periodUnit: PeriodUnit.Year,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceLifetimeValueMetricsResponse) => {
@@ -222,9 +219,9 @@ sdk.reports.getCommerceOrdersMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 978619,
-  periodLength: 473608,
-  periodUnit: PeriodUnit.Year,
+  numberOfPeriods: 272656,
+  periodLength: 383441,
+  periodUnit: PeriodUnit.Week,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceOrdersMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -268,8 +265,8 @@ sdk.reports.getCommerceRefundsMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 800911,
-  periodLength: 461479,
+  numberOfPeriods: 791725,
+  periodLength: 812169,
   periodUnit: PeriodUnit.Month,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceRefundsMetricsResponse) => {
@@ -314,9 +311,9 @@ sdk.reports.getCommerceRevenueMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 780529,
-  periodLength: 678880,
-  periodUnit: PeriodUnit.Day,
+  numberOfPeriods: 479977,
+  periodLength: 568045,
+  periodUnit: PeriodUnit.Week,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceRevenueMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -337,52 +334,6 @@ sdk.reports.getCommerceRevenueMetrics({
 ### Response
 
 **Promise<[operations.GetCommerceRevenueMetricsResponse](../../models/operations/getcommercerevenuemetricsresponse.md)>**
-
-
-## ~~getEnhancedBalanceSheet~~
-
-Gets a fully categorized balance sheet statement for a given company, over one or more period(s).
-
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-```typescript
-import { CodatAssess } from "@codat/assess";
-import { GetEnhancedBalanceSheetResponse } from "@codat/assess/dist/sdk/models/operations";
-
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.reports.getEnhancedBalanceSheet({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  includeDisplayNames: false,
-  numberOfPeriods: 720633,
-  periodLength: 639921,
-  reportDate: "29-09-2020",
-}).then((res: GetEnhancedBalanceSheetResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-### Parameters
-
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                              | [operations.GetEnhancedBalanceSheetRequest](../../models/operations/getenhancedbalancesheetrequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `retries`                                                                                              | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                 | :heavy_minus_sign:                                                                                     | Configuration to override the default retry behavior of the client.                                    |
-| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
-
-
-### Response
-
-**Promise<[operations.GetEnhancedBalanceSheetResponse](../../models/operations/getenhancedbalancesheetresponse.md)>**
 
 
 ## getEnhancedCashFlowTransactions
@@ -409,7 +360,7 @@ sdk.reports.getEnhancedCashFlowTransactions({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   page: 1,
   pageSize: 100,
-  query: "occaecati",
+  query: "recusandae",
 }).then((res: GetEnhancedCashFlowTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -431,61 +382,6 @@ sdk.reports.getEnhancedCashFlowTransactions({
 **Promise<[operations.GetEnhancedCashFlowTransactionsResponse](../../models/operations/getenhancedcashflowtransactionsresponse.md)>**
 
 
-## ~~getEnhancedFinancialMetrics~~
-
-Gets all the available financial metrics for a given company, over one or more periods.
-
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-```typescript
-import { CodatAssess } from "@codat/assess";
-import { GetEnhancedFinancialMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
-import {
-  FinancialMetricErrorsType,
-  FinancialMetricErrorType,
-  FinancialMetricKey,
-  FinancialMetricMetricUnit,
-  FinancialMetricPeriodsErrorsType,
-  FinancialMetricsPeriodUnit,
-} from "@codat/assess/dist/sdk/models/shared";
-import { RFCDate } from "@codat/assess/dist/sdk/types";
-
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.reports.getEnhancedFinancialMetrics({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  numberOfPeriods: 143353,
-  periodLength: 537373,
-  reportDate: "29-09-2020",
-  showMetricInputs: false,
-}).then((res: GetEnhancedFinancialMetricsResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-### Parameters
-
-| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
-| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                      | [operations.GetEnhancedFinancialMetricsRequest](../../models/operations/getenhancedfinancialmetricsrequest.md) | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
-| `retries`                                                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                         | :heavy_minus_sign:                                                                                             | Configuration to override the default retry behavior of the client.                                            |
-| `config`                                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                   | :heavy_minus_sign:                                                                                             | Available config options for making requests.                                                                  |
-
-
-### Response
-
-**Promise<[operations.GetEnhancedFinancialMetricsResponse](../../models/operations/getenhancedfinancialmetricsresponse.md)>**
-
-
 ## getEnhancedInvoicesReport
 
 Gets a list of invoices linked to the corresponding banking transaction
@@ -495,7 +391,6 @@ Gets a list of invoices linked to the corresponding banking transaction
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetEnhancedInvoicesReportResponse } from "@codat/assess/dist/sdk/models/operations";
-import { InvoiceStatus } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
@@ -507,7 +402,7 @@ sdk.reports.getEnhancedInvoicesReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   page: 1,
   pageSize: 100,
-  query: "hic",
+  query: "temporibus",
 }).then((res: GetEnhancedInvoicesReportResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -529,52 +424,6 @@ sdk.reports.getEnhancedInvoicesReport({
 **Promise<[operations.GetEnhancedInvoicesReportResponse](../../models/operations/getenhancedinvoicesreportresponse.md)>**
 
 
-## ~~getEnhancedProfitAndLoss~~
-
-Gets a fully categorized profit and loss statement for a given company, over one or more period(s).
-
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-```typescript
-import { CodatAssess } from "@codat/assess";
-import { GetEnhancedProfitAndLossResponse } from "@codat/assess/dist/sdk/models/operations";
-
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.reports.getEnhancedProfitAndLoss({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  includeDisplayNames: false,
-  numberOfPeriods: 758616,
-  periodLength: 521848,
-  reportDate: "29-09-2020",
-}).then((res: GetEnhancedProfitAndLossResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-### Parameters
-
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                | [operations.GetEnhancedProfitAndLossRequest](../../models/operations/getenhancedprofitandlossrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
-| `retries`                                                                                                | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                   | :heavy_minus_sign:                                                                                       | Configuration to override the default retry behavior of the client.                                      |
-| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
-
-
-### Response
-
-**Promise<[operations.GetEnhancedProfitAndLossResponse](../../models/operations/getenhancedprofitandlossresponse.md)>**
-
-
 ## getLoanSummary
 
 Get enhanced loan summaries
@@ -584,7 +433,6 @@ Get enhanced loan summaries
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { GetLoanSummaryResponse } from "@codat/assess/dist/sdk/models/operations";
-import { RecordRefIntegrationType, RecordRefRecordRefType } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
@@ -664,7 +512,6 @@ List enhanced loan transactions
 ```typescript
 import { CodatAssess } from "@codat/assess";
 import { ListLoanTransactionsResponse, ListLoanTransactionsSourceType } from "@codat/assess/dist/sdk/models/operations";
-import { ReportItemsLoanTransactionType } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {

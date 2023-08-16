@@ -3,11 +3,20 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AccountRef } from "./accountref";
 import { SourceRef } from "./sourceref";
 import { TransactionCategory } from "./transactioncategory";
 import { Expose, Type } from "class-transformer";
 
 export class EnhancedCashFlowTransaction extends SpeakeasyBase {
+    /**
+     * An account reference containing the account id and name.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "accountRef" })
+    @Type(() => AccountRef)
+    accountRef?: AccountRef;
+
     /**
      * The bank transaction amount.
      */
@@ -59,6 +68,13 @@ export class EnhancedCashFlowTransaction extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id?: string;
+
+    /**
+     * Returns the payment processor responsible for the transaction.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "platformName" })
+    platformName?: string;
 
     /**
      * A source reference containing the `sourceType` object "Banking".

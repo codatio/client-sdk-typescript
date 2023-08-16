@@ -1,7 +1,10 @@
 <!-- Start SDK Example Usage -->
+
+
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GetAccountCategoryResponse } from "@codat/assess/dist/sdk/models/operations";
+import { ListDataTypeDataIntegrityDetailsResponse } from "@codat/assess/dist/sdk/models/operations";
+import { DataIntegrityDataType } from "@codat/assess/dist/sdk/models/shared";
 
 const sdk = new CodatAssess({
   security: {
@@ -9,11 +12,14 @@ const sdk = new CodatAssess({
   },
 });
 
-sdk.categories.getAccountCategory({
-  accountId: "corrupti",
+sdk.dataIntegrity.details({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetAccountCategoryResponse) => {
+  dataType: DataIntegrityDataType.BankingAccounts,
+  orderBy: "-modifiedDate",
+  page: 1,
+  pageSize: 100,
+  query: "corrupti",
+}).then((res: ListDataTypeDataIntegrityDetailsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

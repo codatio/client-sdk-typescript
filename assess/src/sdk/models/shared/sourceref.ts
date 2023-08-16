@@ -9,6 +9,9 @@ import { Expose } from "class-transformer";
  * A source reference containing the `sourceType` object "Banking".
  */
 export class SourceRef extends SpeakeasyBase {
+    /**
+     * The data source type.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "sourceType" })
     sourceType?: string;
