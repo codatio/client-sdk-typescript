@@ -8,7 +8,7 @@ import { Expose } from "class-transformer";
 /**
  * References a category against which the item is tracked.
  *
- * @deprecated this class will be removed in a future release, please migrate away from it as soon as possible
+ * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 export class TrackingCategoryRef extends SpeakeasyBase {
     @SpeakeasyMetadata()

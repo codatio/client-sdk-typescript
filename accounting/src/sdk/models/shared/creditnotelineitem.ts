@@ -150,7 +150,7 @@ export class CreditNoteLineItem extends SpeakeasyBase {
     /**
      * Reference to the tracking categories to which the line item is linked.
      *
-     * @deprecated this field will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @SpeakeasyMetadata({ elemType: TrackingCategoryRef })
     @Expose({ name: "trackingCategoryRefs" })

@@ -461,4 +461,114 @@ export class Transfers {
 
         return res;
     }
+
+    /**
+     * Push invoice attachment
+     *
+     * @remarks
+     * The *Upload transfer attachment* endpoint uploads an attachment and assigns it against a specific `transferId`.
+     *
+     * [Transfers](https://docs.codat.io/accounting-api#/schemas/Transfer) are issued by a supplier for the purpose of recording transfer.
+     *
+     * **Integration-specific behaviour**
+     *
+     * For more details on supported file types by integration see [Attachments](https://docs.codat.io/accounting-api#/schemas/Attachment).
+     *
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=transfers) for integrations that support uploading a transfer attachment.
+     *
+     */
+    async uploadAttachment(
+        req: operations.UploadTransferAttachmentRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.UploadTransferAttachmentResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.UploadTransferAttachmentRequest(req);
+        }
+
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
+        const url: string = utils.generateURL(
+            baseURL,
+            "/companies/{companyId}/connections/{connectionId}/push/transfers/{transferId}/attachment",
+            req
+        );
+
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+        try {
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "multipart");
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                throw new Error(`Error serializing request body, cause: ${e.message}`);
+            }
+        }
+
+        const client: AxiosInstance =
+            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        headers["Accept"] = "application/json";
+
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url,
+                method: "post",
+                headers: headers,
+                responseType: "arraybuffer",
+                data: reqBody,
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.UploadTransferAttachmentResponse =
+            new operations.UploadTransferAttachmentResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
+        switch (true) {
+            case httpRes?.status == 200:
+                break;
+            case [401, 404, 429].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.errorMessage = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+        }
+
+        return res;
+    }
 }
