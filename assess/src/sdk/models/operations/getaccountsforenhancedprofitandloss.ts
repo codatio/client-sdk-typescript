@@ -33,15 +33,15 @@ export class GetAccountsForEnhancedProfitAndLossResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     enhancedReport?: shared.EnhancedReport;
 
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
+
     @SpeakeasyMetadata()
     statusCode: number;
 
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * Your API request was not properly authorized.
-     */
-    @SpeakeasyMetadata()
-    schema?: shared.Schema;
 }

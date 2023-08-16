@@ -3,17 +3,10 @@
  */
 
 export * from "./accountcategoriesupdatedwebhook";
-export * from "./accountcategory";
-export * from "./accountcategorydeprecated";
 export * from "./accountcategorylevel";
 export * from "./accountref";
 export * from "./accounts";
 export * from "./bankingtransactionref";
-export * from "./categories";
-export * from "./categorisedaccount";
-export * from "./categorisedaccounts";
-export * from "./confirmcategories";
-export * from "./confirmcategory";
 export * from "./customerref";
 export * from "./dataintegrityamounts";
 export * from "./dataintegritybyamount";
@@ -36,11 +29,9 @@ export * from "./enhancedinvoicesreport";
 export * from "./enhancedreport";
 export * from "./enhancedreportaccountcategory";
 export * from "./enhancedreportinfo";
+export * from "./errormessage";
 export * from "./excelreporttype";
 export * from "./excelstatus";
-export * from "./financialmetric";
-export * from "./financialmetricerror";
-export * from "./financialmetrics";
 export * from "./halref";
 export * from "./integritystatus";
 export * from "./invoicestatus";
@@ -63,7 +54,6 @@ export * from "./reportinfo";
 export * from "./reportitems";
 export * from "./reportitems1";
 export * from "./reportmeasure";
-export * from "./schema";
 export * from "./security";
 export * from "./sourceref";
 export * from "./status";
