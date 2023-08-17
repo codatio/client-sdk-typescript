@@ -1,15 +1,24 @@
 configVersion: 1.0.0
 management:
-  docChecksum: fc8c7e4872770024e52b188ffa277ed5
-  docVersion: 2.1.0
-  speakeasyVersion: 1.53.0
-  generationVersion: 2.58.0
+  docChecksum: 2bc6d478eb9485af1d4a810575268c6c
+  docVersion: 3.0.0
+  speakeasyVersion: 1.73.1
+  generationVersion: 2.84.3
 generation:
   sdkClassName: CodatBanking
   singleTagPerOp: false
   telemetryEnabled: true
+features:
+  typescript:
+    core: 2.82.0
+    deprecations: 2.81.1
+    examples: 2.81.1
+    globalSecurity: 2.81.1
+    globalServerURLs: 2.82.0
+    nameOverrides: 2.81.1
+    retries: 2.81.1
 typescript:
-  version: 0.27.1
+  version: 0.28.0
   author: Speakeasy
   maxMethodParams: 0
   packageName: '@codat/banking'

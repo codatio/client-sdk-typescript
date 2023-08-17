@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -11,6 +12,7 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 /**
  * Balances for a bank account including end-of-day batch balance or running balances per transaction.
  */
+
 export class AccountBalances {
     private sdkConfiguration: SDKConfiguration;
 
@@ -53,7 +55,8 @@ export class AccountBalances {
 
         const headers = { ...config?.headers };
         const queryParams: string = utils.serializeQueryParams(req);
-        headers["Accept"] = "application/json;q=1, application/json;q=0.7, application/json;q=0";
+        headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -97,18 +100,27 @@ export class AccountBalances {
                         JSON.parse(decodedRes),
                         shared.AccountBalances
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
-            case [400, 401, 404].includes(httpRes?.status):
+            case [400, 401, 404, 409].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
-                }
-                break;
-            case httpRes?.status == 409:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listAccountBalances409ApplicationJSONObject = utils.objectToClass(
+                    res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListAccountBalances409ApplicationJSON
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
