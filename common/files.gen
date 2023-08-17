@@ -22,6 +22,7 @@ src/internal/utils/retries.ts
 src/internal/utils/security.ts
 src/internal/utils/utils.ts
 src/sdk/index.ts
+src/sdk/models/errors/sdkerror.ts
 src/sdk/types/index.ts
 src/sdk/types/rfcdate.ts
 tsconfig.json
@@ -66,7 +67,7 @@ src/sdk/models/shared/dataconnectionerror.ts
 src/sdk/models/shared/companyrequestbody.ts
 src/sdk/models/shared/companies.ts
 src/sdk/models/shared/links.ts
-src/sdk/models/shared/href.ts
+src/sdk/models/shared/halref.ts
 src/sdk/models/shared/connections.ts
 src/sdk/models/shared/integration.ts
 src/sdk/models/shared/datatypefeature.ts
@@ -123,6 +124,7 @@ src/sdk/models/webhooks/newcompanysynchronized.ts
 src/sdk/models/webhooks/pushoperationhastimedout.ts
 src/sdk/models/webhooks/pushoperationstatushaschanged.ts
 src/sdk/models/webhooks/index.ts
+src/sdk/models/errors/index.ts
 docs/sdks/codatcommon/README.md
 docs/models/utils/retryconfig.md
 docs/sdks/companies/README.md
@@ -204,7 +206,7 @@ docs/models/shared/dataconnectionerror.md
 docs/models/shared/companyrequestbody.md
 docs/models/shared/companies.md
 docs/models/shared/links.md
-docs/models/shared/href.md
+docs/models/shared/halref.md
 docs/models/shared/connections.md
 docs/models/shared/integration.md
 docs/models/shared/datatypefeature.md

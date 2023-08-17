@@ -55,9 +55,9 @@ export class SDKConfiguration {
     serverURL: string;
     serverDefaults: any;
     language = "typescript";
-    openapiDocVersion = "2.1.0";
-    sdkVersion = "0.35.1";
-    genVersion = "2.65.0";
+    openapiDocVersion = "3.0.0";
+    sdkVersion = "0.36.0";
+    genVersion = "2.84.3";
 
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -65,7 +65,7 @@ export class SDKConfiguration {
 }
 
 /**
- * Common API: Common API
+ * Platform API: Platform API
  *
  * @remarks
  * An API for the common components of all of Codat's products.

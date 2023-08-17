@@ -10,6 +10,9 @@ import { Validation } from "./validation";
 import { Expose, Type } from "class-transformer";
 
 export class PushOperationSummary extends SpeakeasyBase {
+    /**
+     * Contains a single entry that communicates which record has changed and the manner in which it changed.
+     */
     @SpeakeasyMetadata({ elemType: PushOperationChange })
     @Expose({ name: "changes" })
     @Type(() => PushOperationChange)
@@ -117,7 +120,7 @@ export class PushOperationSummary extends SpeakeasyBase {
     timeoutInMinutes?: number;
 
     /**
-     * @deprecated this field will be removed in a future release, please migrate away from it as soon as possible
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "timeoutInSeconds" })
