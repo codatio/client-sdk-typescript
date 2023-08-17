@@ -126,7 +126,7 @@ export class Payment extends SpeakeasyBase {
     sourceModifiedDate?: string;
 
     /**
-     * Status of the payment
+     * Status of the payment.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
