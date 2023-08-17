@@ -26,7 +26,7 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.integrations.getIntegrationBranding({
-  platformKey: "quibusdam",
+  platformKey: "corrupti",
 }).then((res: GetIntegrationBrandingResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -57,7 +57,6 @@ Retrieve a list of available integrations support by datatype and state of relea
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { ListIntegrationsResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
-import { DataTypeFeatureDataType, FeatureState, FeatureType, SourceType } from "@codat/sync-for-commerce/dist/sdk/models/shared";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -69,7 +68,7 @@ sdk.integrations.listIntegrations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "unde",
+  query: "illum",
 }).then((res: ListIntegrationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -1,8 +1,9 @@
 <!-- Start SDK Example Usage -->
+
+
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { CreateCompanyResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
-import { ConnectionSourceType, DataConnectionStatus } from "@codat/sync-for-commerce/dist/sdk/models/shared";
+import { GetConfigurationResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -10,9 +11,9 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-sdk.companyManagement.createCompany({
-  name: "Bob's Burgers",
-}).then((res: CreateCompanyResponse) => {
+sdk.configurationAdvanced.getConfiguration({
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+}).then((res: GetConfigurationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

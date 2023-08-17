@@ -1,4 +1,4 @@
-# configuration
+# configurationAdvanced
 
 ## Overview
 
@@ -6,12 +6,12 @@ Expressively configure preferences for any given Sync for Commerce company.
 
 ### Available Operations
 
-* [getConfiguration](#getconfiguration) - Retrieve config preferences set for a company.
-* [setConfiguration](#setconfiguration) - Create or update configuration.
+* [getConfiguration](#getconfiguration) - Get company configuration
+* [setConfiguration](#setconfiguration) - Set configuration.
 
 ## getConfiguration
 
-Retrieve current config preferences.
+Returns a company's commerce sync configuration'.
 
 ### Example Usage
 
@@ -25,7 +25,7 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-sdk.configuration.getConfiguration({
+sdk.configurationAdvanced.getConfiguration({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetConfigurationResponse) => {
   if (res.statusCode == 200) {
@@ -50,7 +50,7 @@ sdk.configuration.getConfiguration({
 
 ## setConfiguration
 
-Make changes to configuration preferences.
+Sets a company's commerce sync configuration'.
 
 ### Example Usage
 
@@ -64,7 +64,7 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-sdk.configuration.setConfiguration({
+sdk.configurationAdvanced.setConfiguration({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: SetConfigurationResponse) => {
   if (res.statusCode == 200) {

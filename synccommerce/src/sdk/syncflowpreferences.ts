@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -11,6 +12,7 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 /**
  * Configure preferences for any given Sync for Commerce company using sync flow.
  */
+
 export class SyncFlowPreferences {
     private sdkConfiguration: SDKConfiguration;
 
@@ -19,10 +21,10 @@ export class SyncFlowPreferences {
     }
 
     /**
-     * Retrieve preferences for text fields on Sync Flow
+     * Get preferences for text fields
      *
      * @remarks
-     * To enable retrieval of preferences set for the text fields on Sync Flow.
+     * Return preferences set for the text fields on sync flow.
      */
     async getConfigTextSyncFlow(
         retries?: utils.RetryConfig,
@@ -39,6 +41,7 @@ export class SyncFlowPreferences {
 
         const headers = { ...config?.headers };
         headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -85,85 +88,12 @@ export class SyncFlowPreferences {
                         shared.Localization,
                         resFieldDepth
                     );
-                }
-                break;
-        }
-
-        return res;
-    }
-
-    /**
-     * Retrieve sync flow url
-     *
-     * @remarks
-     * Get a URL for Sync Flow including a one time passcode.
-     */
-    async getSyncFlowUrl(
-        req: operations.GetSyncFlowUrlRequest,
-        retries?: utils.RetryConfig,
-        config?: AxiosRequestConfig
-    ): Promise<operations.GetSyncFlowUrlResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetSyncFlowUrlRequest(req);
-        }
-
-        const baseURL: string = utils.templateUrl(
-            this.sdkConfiguration.serverURL,
-            this.sdkConfiguration.serverDefaults
-        );
-        const url: string = utils.generateURL(
-            baseURL,
-            "/config/sync/commerce/{commerceKey}/{accountingKey}/start",
-            req
-        );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
-        const queryParams: string = utils.serializeQueryParams(req);
-        headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
-
-        let retryConfig: any = retries;
-        if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
-        }
-        const httpRes: AxiosResponse = await utils.Retry(() => {
-            return client.request({
-                validateStatus: () => true,
-                url: url + queryParams,
-                method: "get",
-                headers: headers,
-                responseType: "arraybuffer",
-                ...config,
-            });
-        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) {
-            throw new Error(`status code not found in response: ${httpRes}`);
-        }
-
-        const res: operations.GetSyncFlowUrlResponse = new operations.GetSyncFlowUrlResponse({
-            statusCode: httpRes.status,
-            contentType: contentType,
-            rawResponse: httpRes,
-        });
-        const decodedRes = new TextDecoder().decode(httpRes?.data);
-        switch (true) {
-            case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.syncFlowUrl = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.SyncFlowUrl
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -176,7 +106,7 @@ export class SyncFlowPreferences {
      * List visible accounts
      *
      * @remarks
-     * Enable retrieval for accounts which are visible on sync flow.
+     * Return accounts which are visible on sync flow.
      */
     async getVisibleAccounts(
         req: operations.GetVisibleAccountsRequest,
@@ -202,6 +132,7 @@ export class SyncFlowPreferences {
 
         const headers = { ...config?.headers };
         headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -245,6 +176,13 @@ export class SyncFlowPreferences {
                         JSON.parse(decodedRes),
                         shared.VisibleAccounts
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -253,10 +191,10 @@ export class SyncFlowPreferences {
     }
 
     /**
-     * Update preferences for text fields on sync flow
+     * Update preferences for text fields
      *
      * @remarks
-     * To enable update of preferences set for the text fields on sync flow.
+     * Set preferences for the text fields on sync flow.
      */
     async updateConfigTextSyncFlow(
         req: Record<string, shared.Localization>,
@@ -284,6 +222,7 @@ export class SyncFlowPreferences {
 
         const headers = { ...reqBodyHeaders, ...config?.headers };
         headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -331,6 +270,13 @@ export class SyncFlowPreferences {
                         shared.Localization,
                         resFieldDepth
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -339,10 +285,10 @@ export class SyncFlowPreferences {
     }
 
     /**
-     * Update the visible accounts on Sync Flow
+     * Update visible accounts
      *
      * @remarks
-     * To enable update of accounts visible preferences set on Sync Flow.
+     * Update which accounts are visible on sync flow.
      */
     async updateVisibleAccountsSyncFlow(
         req: operations.UpdateVisibleAccountsSyncFlowRequest,
@@ -378,6 +324,7 @@ export class SyncFlowPreferences {
 
         const headers = { ...reqBodyHeaders, ...config?.headers };
         headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -421,6 +368,13 @@ export class SyncFlowPreferences {
                     res.visibleAccounts = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.VisibleAccounts
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

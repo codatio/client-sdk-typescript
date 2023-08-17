@@ -2,17 +2,17 @@
 
 ## Overview
 
-Initiate a sync of Sync for Commerce company data into their respective accounting software.
+Initiate and monitor the sync of company data into accounting software.
 
 ### Available Operations
 
-* [getSyncStatus](#getsyncstatus) - Get status for a company's syncs
-* [requestSync](#requestsync) - Sync new
-* [requestSyncForDateRange](#requestsyncfordaterange) - Sync range
+* [getSyncStatus](#getsyncstatus) - Get sync status
+* [requestSync](#requestsync) - Initiate new sync
+* [requestSyncForDateRange](#requestsyncfordaterange) - Initiate sync for specific range
 
 ## getSyncStatus
 
-Check the sync history and sync status for a company.
+Gets a list of sync statuses.
 
 ### Example Usage
 
@@ -51,15 +51,13 @@ sdk.sync.getSyncStatus({
 
 ## requestSync
 
-Run a Commerce sync from the last successful sync up to the date provided (optional), otherwise UtcNow is used.
-If there was no previously successful sync, the start date in the config is used.
+Run a Commerce sync from the last successful sync up to the date provided (optional), otherwise UtcNow is used.\r\nIf there was no previously successful sync, the start date in the config is used.
 
 ### Example Usage
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { RequestSyncResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
-import { ConnectionSourceType, DataConnectionStatus } from "@codat/sync-for-commerce/dist/sdk/models/shared";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -95,14 +93,13 @@ sdk.sync.requestSync({
 
 ## requestSyncForDateRange
 
-Run a Commerce sync from the specified start date to the specified finish date in the request payload.
+Initiate a sync for the specified start date to the specified finish date in the request payload.
 
 ### Example Usage
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { RequestSyncForDateRangeResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
-import { ConnectionSourceType, DataConnectionStatus } from "@codat/sync-for-commerce/dist/sdk/models/shared";
 
 const sdk = new CodatSyncCommerce({
   security: {

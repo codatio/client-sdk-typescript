@@ -10,10 +10,10 @@ import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
- * Initiate and monitor the sync of company data into accounting software.
+ * Expressively configure preferences for any given Sync for Commerce company.
  */
 
-export class Sync {
+export class ConfigurationAdvanced {
     private sdkConfiguration: SDKConfiguration;
 
     constructor(sdkConfig: SDKConfiguration) {
@@ -21,18 +21,18 @@ export class Sync {
     }
 
     /**
-     * Get sync status
+     * Get company configuration
      *
      * @remarks
-     * Gets a list of sync statuses.
+     * Returns a company's commerce sync configuration'.
      */
-    async getSyncStatus(
-        req: operations.GetSyncStatusRequest,
+    async getConfiguration(
+        req: operations.GetConfigurationRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.GetSyncStatusResponse> {
+    ): Promise<operations.GetConfigurationResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetSyncStatusRequest(req);
+            req = new operations.GetConfigurationRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -41,7 +41,7 @@ export class Sync {
         );
         const url: string = utils.generateURL(
             baseURL,
-            "/meta/companies/{companyId}/sync/commerce/status",
+            "/config/companies/{companyId}/sync/commerce",
             req
         );
 
@@ -49,7 +49,7 @@ export class Sync {
             this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
 
         const headers = { ...config?.headers };
-        headers["Accept"] = "*/*";
+        headers["Accept"] = "application/json";
 
         headers[
             "user-agent"
@@ -80,91 +80,7 @@ export class Sync {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.GetSyncStatusResponse = new operations.GetSyncStatusResponse({
-            statusCode: httpRes.status,
-            contentType: contentType,
-            rawResponse: httpRes,
-        });
-        switch (true) {
-            case httpRes?.status == 200:
-                break;
-        }
-
-        return res;
-    }
-
-    /**
-     * Initiate new sync
-     *
-     * @remarks
-     * Run a Commerce sync from the last successful sync up to the date provided (optional), otherwise UtcNow is used.\r\nIf there was no previously successful sync, the start date in the config is used.
-     */
-    async requestSync(
-        req: operations.RequestSyncRequest,
-        retries?: utils.RetryConfig,
-        config?: AxiosRequestConfig
-    ): Promise<operations.RequestSyncResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.RequestSyncRequest(req);
-        }
-
-        const baseURL: string = utils.templateUrl(
-            this.sdkConfiguration.serverURL,
-            this.sdkConfiguration.serverDefaults
-        );
-        const url: string = utils.generateURL(
-            baseURL,
-            "/companies/{companyId}/sync/commerce/latest",
-            req
-        );
-
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-        try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "syncToLatestArgs", "json");
-        } catch (e: unknown) {
-            if (e instanceof Error) {
-                throw new Error(`Error serializing request body, cause: ${e.message}`);
-            }
-        }
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
-        headers["Accept"] = "application/json";
-
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
-
-        let retryConfig: any = retries;
-        if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
-        }
-        const httpRes: AxiosResponse = await utils.Retry(() => {
-            return client.request({
-                validateStatus: () => true,
-                url: url,
-                method: "post",
-                headers: headers,
-                responseType: "arraybuffer",
-                data: reqBody,
-                ...config,
-            });
-        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) {
-            throw new Error(`status code not found in response: ${httpRes}`);
-        }
-
-        const res: operations.RequestSyncResponse = new operations.RequestSyncResponse({
+        const res: operations.GetConfigurationResponse = new operations.GetConfigurationResponse({
             statusCode: httpRes.status,
             contentType: contentType,
             rawResponse: httpRes,
@@ -173,9 +89,9 @@ export class Sync {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.syncSummary = utils.objectToClass(
+                    res.configuration = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.SyncSummary
+                        shared.Configuration
                     );
                 } else {
                     throw new errors.SDKError(
@@ -192,18 +108,18 @@ export class Sync {
     }
 
     /**
-     * Initiate sync for specific range
+     * Set configuration.
      *
      * @remarks
-     * Initiate a sync for the specified start date to the specified finish date in the request payload.
+     * Sets a company's commerce sync configuration'.
      */
-    async requestSyncForDateRange(
-        req: operations.RequestSyncForDateRangeRequest,
+    async setConfiguration(
+        req: operations.SetConfigurationRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.RequestSyncForDateRangeResponse> {
+    ): Promise<operations.SetConfigurationResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.RequestSyncForDateRangeRequest(req);
+            req = new operations.SetConfigurationRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -212,24 +128,14 @@ export class Sync {
         );
         const url: string = utils.generateURL(
             baseURL,
-            "/meta/companies/{companyId}/sync/commerce/historic",
+            "/config/companies/{companyId}/sync/commerce",
             req
         );
-
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-        try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "syncRange", "json");
-        } catch (e: unknown) {
-            if (e instanceof Error) {
-                throw new Error(`Error serializing request body, cause: ${e.message}`);
-            }
-        }
 
         const client: AxiosInstance =
             this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
 
-        const headers = { ...reqBodyHeaders, ...config?.headers };
+        const headers = { ...config?.headers };
         headers["Accept"] = "application/json";
 
         headers[
@@ -251,7 +157,6 @@ export class Sync {
                 method: "post",
                 headers: headers,
                 responseType: "arraybuffer",
-                data: reqBody,
                 ...config,
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
@@ -262,19 +167,18 @@ export class Sync {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.RequestSyncForDateRangeResponse =
-            new operations.RequestSyncForDateRangeResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes,
-            });
+        const res: operations.SetConfigurationResponse = new operations.SetConfigurationResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.syncSummary = utils.objectToClass(
+                    res.configuration = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.SyncSummary
+                        shared.Configuration
                     );
                 } else {
                     throw new errors.SDKError(
