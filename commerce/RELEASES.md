@@ -609,3 +609,13 @@ Based on:
 - [typescript v0.33.0] commerce
 ### Releases
 - [NPM v0.33.0] https://www.npmjs.com/package/@codat/commerce/v/0.33.0 - commerce
+
+## 2023-08-23 00:09:01
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Commerce.yaml
+- Speakeasy CLI 1.74.7 (2.86.6) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.33.1] commerce
+### Releases
+- [NPM v0.33.1] https://www.npmjs.com/package/@codat/commerce/v/0.33.1 - commerce
