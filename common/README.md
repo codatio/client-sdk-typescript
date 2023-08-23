@@ -84,8 +84,11 @@ sdk.companies.create({
 
 ### [settings](docs/sdks/settings/README.md)
 
+* [createApiKey](docs/sdks/settings/README.md#createapikey) - Create API key
+* [deleteApiKey](docs/sdks/settings/README.md#deleteapikey) - Delete api key
 * [~~getProfile~~](docs/sdks/settings/README.md#getprofile) - Get profile :warning: **Deprecated**
 * [getSyncSettings](docs/sdks/settings/README.md#getsyncsettings) - Get sync settings
+* [listApiKeys](docs/sdks/settings/README.md#listapikeys) - List API keys
 * [updateProfile](docs/sdks/settings/README.md#updateprofile) - Update profile
 * [updateSyncSettings](docs/sdks/settings/README.md#updatesyncsettings) - Update all sync settings
 
