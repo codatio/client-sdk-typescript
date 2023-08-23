@@ -577,3 +577,13 @@ Based on:
 - [typescript v0.31.0] assess
 ### Releases
 - [NPM v0.31.0] https://www.npmjs.com/package/@codat/assess/v/0.31.0 - assess
+
+## 2023-08-23 00:19:25
+### Changes
+Based on:
+- OpenAPI Doc 1.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Assess.yaml
+- Speakeasy CLI 1.74.7 (2.86.6) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.31.1] assess
+### Releases
+- [NPM v0.31.1] https://www.npmjs.com/package/@codat/assess/v/0.31.1 - assess
