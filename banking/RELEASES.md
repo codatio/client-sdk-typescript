@@ -539,3 +539,13 @@ Based on:
 - [typescript v0.28.1] banking
 ### Releases
 - [NPM v0.28.1] https://www.npmjs.com/package/@codat/banking/v/0.28.1 - banking
+
+## 2023-08-24 00:20:54
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Banking.yaml
+- Speakeasy CLI 1.74.9 (2.86.10) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.28.2] banking
+### Releases
+- [NPM v0.28.2] https://www.npmjs.com/package/@codat/banking/v/0.28.2 - banking
