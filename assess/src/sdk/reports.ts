@@ -967,7 +967,7 @@ export class Reports {
         );
         const url: string = utils.generateURL(
             baseURL,
-            "/data/companies/{companyId}/assess/reports/enhancedLiabilities/loan",
+            "/companies/{companyId}/reports/enhancedLiabilities/loan",
             req
         );
 
@@ -1166,7 +1166,7 @@ export class Reports {
         );
         const url: string = utils.generateURL(
             baseURL,
-            "/data/companies/{companyId}/assess/reports/enhancedLiabilities/loan/transactions",
+            "/companies/{companyId}/reports/enhancedLiabilities/loan/transactions",
             req
         );
 
