@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: 723983c8bec9967d04de51acf9898587
   docVersion: 3.0.0
-  speakeasyVersion: 1.74.11
-  generationVersion: 2.87.1
+  speakeasyVersion: 1.74.15
+  generationVersion: 2.88.2
 generation:
   sdkClassName: CodatFiles
   singleTagPerOp: false
@@ -11,13 +11,13 @@ generation:
 features:
   typescript:
     acceptHeaders: 2.81.1
-    core: 2.82.1
+    core: 2.83.1
     examples: 2.81.1
     globalSecurity: 2.81.1
     globalServerURLs: 2.82.0
     retries: 2.81.1
 typescript:
-  version: 0.34.2
+  version: 0.35.0
   author: Speakeasy
   maxMethodParams: 0
   packageName: '@codat/files'
