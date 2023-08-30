@@ -26,7 +26,7 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.integrations.getIntegrationBranding({
-  platformKey: "corrupti",
+  platformKey: "magnam",
 }).then((res: GetIntegrationBrandingResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -68,7 +68,7 @@ sdk.integrations.listIntegrations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "illum",
+  query: "debitis",
 }).then((res: ListIntegrationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

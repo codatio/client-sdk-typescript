@@ -10,8 +10,8 @@ export class UpdateVisibleAccountsSyncFlowRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
     visibleAccounts?: shared.VisibleAccounts;
 
-    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=commerceKey" })
-    commerceKey: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=platformKey" })
+    platformKey: string;
 }
 
 export class UpdateVisibleAccountsSyncFlowResponse extends SpeakeasyBase {

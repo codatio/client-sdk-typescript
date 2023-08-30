@@ -55,6 +55,7 @@ sdk.configurationAdvanced.getConfiguration({
 
 * [getSyncFlowUrl](docs/sdks/connections/README.md#getsyncflowurl) - Retrieve sync flow url
 * [listCompanies](docs/sdks/connections/README.md#listcompanies) - List companies
+* [updateAuthorization](docs/sdks/connections/README.md#updateauthorization) - Update authorization
 
 ### [connectionsAdvanced](docs/sdks/connectionsadvanced/README.md)
 

@@ -64,8 +64,8 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.syncFlowPreferences.getVisibleAccounts({
-  clientId: "674e0f46-7cc8-4796-ad15-1a05dfc2ddf7",
-  platformKey: "cc78ca1b-a928-4fc8-9674-2cb739205929",
+  clientId: "67cc8796-ed15-41a0-9dfc-2ddf7cc78ca1",
+  platformKey: "ba928fc8-1674-42cb-b392-05929396fea7",
 }).then((res: GetVisibleAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -104,9 +104,13 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.syncFlowPreferences.updateConfigTextSyncFlow({
-  "natus": {
+  "iste": {
     required: false,
-    text: "laboriosam",
+    text: "iure",
+  },
+  "saepe": {
+    required: false,
+    text: "quidem",
   },
 }).then((res: UpdateConfigTextSyncFlowResponse) => {
   if (res.statusCode == 200) {
@@ -148,13 +152,10 @@ const sdk = new CodatSyncCommerce({
 sdk.syncFlowPreferences.updateVisibleAccountsSyncFlow({
   visibleAccounts: {
     visibleAccounts: [
-      "saepe",
-      "fuga",
-      "in",
-      "corporis",
+      "ipsa",
     ],
   },
-  commerceKey: "96eb10fa-aa23-452c-9955-907aff1a3a2f",
+  platformKey: "faaa2352-c595-4590-baff-1a3a2fa94677",
 }).then((res: UpdateVisibleAccountsSyncFlowResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -305,7 +305,7 @@ export class SyncFlowPreferences {
         );
         const url: string = utils.generateURL(
             baseURL,
-            "/sync/commerce/config/ui/accounts/platform/{commerceKey}",
+            "/sync/commerce/config/ui/accounts/platform/{platformKey}",
             req
         );
 
@@ -341,7 +341,7 @@ export class SyncFlowPreferences {
             return client.request({
                 validateStatus: () => true,
                 url: url,
-                method: "patch",
+                method: "post",
                 headers: headers,
                 responseType: "arraybuffer",
                 data: reqBody,

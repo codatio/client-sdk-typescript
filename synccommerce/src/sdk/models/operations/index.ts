@@ -18,4 +18,5 @@ export * from "./requestsyncfordaterange";
 export * from "./setconfiguration";
 export * from "./updateconfigtextsyncflow";
 export * from "./updateconnection";
+export * from "./updateconnectionauthorization";
 export * from "./updatevisibleaccountssyncflow";

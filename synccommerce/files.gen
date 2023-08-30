@@ -28,6 +28,7 @@ src/sdk/models/operations/getconfiguration.ts
 src/sdk/models/operations/setconfiguration.ts
 src/sdk/models/operations/getsyncflowurl.ts
 src/sdk/models/operations/listcompanies.ts
+src/sdk/models/operations/updateconnectionauthorization.ts
 src/sdk/models/operations/createcompany.ts
 src/sdk/models/operations/createconnection.ts
 src/sdk/models/operations/listconnections.ts
@@ -110,6 +111,8 @@ docs/models/operations/getsyncflowurlrequest.md
 docs/models/operations/getsyncflowurlresponse.md
 docs/models/operations/listcompaniesrequest.md
 docs/models/operations/listcompaniesresponse.md
+docs/models/operations/updateconnectionauthorizationrequest.md
+docs/models/operations/updateconnectionauthorizationresponse.md
 docs/models/operations/createcompanyresponse.md
 docs/models/operations/createconnectionrequest.md
 docs/models/operations/createconnectionresponse.md

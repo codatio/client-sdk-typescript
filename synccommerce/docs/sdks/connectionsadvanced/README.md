@@ -67,7 +67,7 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.connectionsAdvanced.createConnection({
-  requestBody: "unde",
+  requestBody: "suscipit",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: CreateConnectionResponse) => {
   if (res.statusCode == 200) {
@@ -111,7 +111,7 @@ sdk.connectionsAdvanced.listConnections({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "nulla",
+  query: "iure",
 }).then((res: ListConnectionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
