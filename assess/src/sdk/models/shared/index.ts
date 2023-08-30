@@ -31,6 +31,7 @@ export * from "./enhancedreportaccountcategory";
 export * from "./enhancedreportinfo";
 export * from "./errormessage";
 export * from "./excelreporttype";
+export * from "./excelreporttypes";
 export * from "./excelstatus";
 export * from "./halref";
 export * from "./integritystatus";

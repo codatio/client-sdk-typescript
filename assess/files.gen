@@ -61,6 +61,7 @@ src/sdk/models/shared/dataintegritysummary.ts
 src/sdk/models/shared/dataintegritybycount.ts
 src/sdk/models/shared/dataintegritybyamount.ts
 src/sdk/models/shared/excelstatus.ts
+src/sdk/models/shared/excelreporttypes.ts
 src/sdk/models/shared/excelreporttype.ts
 src/sdk/models/shared/report.ts
 src/sdk/models/shared/reportcomponent.ts
@@ -170,6 +171,7 @@ docs/models/shared/dataintegritysummary.md
 docs/models/shared/dataintegritybycount.md
 docs/models/shared/dataintegritybyamount.md
 docs/models/shared/excelstatus.md
+docs/models/shared/excelreporttypes.md
 docs/models/shared/excelreporttype.md
 docs/models/shared/report.md
 docs/models/shared/reportcomponent.md

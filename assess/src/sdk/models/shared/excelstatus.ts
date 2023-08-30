@@ -3,20 +3,30 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { ExcelReportTypes } from "./excelreporttypes";
 import { Expose } from "class-transformer";
 
 /**
  * OK
  */
 export class ExcelStatus extends SpeakeasyBase {
+    /**
+     * Error details in case the report generation request was unsuccessful.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "errorMessage" })
     errorMessage?: string;
 
+    /**
+     * The file size in Bytes is populated upon successful generation of the report.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "fileSize" })
     fileSize?: number;
 
+    /**
+     * When true, the request was successful and the report is being generated. If false, the request was unsuccessful and the report is not being generated.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "inProgress" })
     inProgress?: boolean;
@@ -48,18 +58,30 @@ export class ExcelStatus extends SpeakeasyBase {
     @Expose({ name: "lastGenerated" })
     lastGenerated?: string;
 
+    /**
+     * A unique ID generated for this request.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "lastInvocationId" })
     lastInvocationId?: string;
 
+    /**
+     * The date and time of when a successful request was queued for the most recent report.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "queued" })
     queued?: string;
 
+    /**
+     * The type of the report requested in the query string.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "reportType" })
-    reportType?: string;
+    reportType?: ExcelReportTypes;
 
+    /**
+     * True if the requested report was successfully queued and false if the requested report was not able to be queued.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "success" })
     success?: boolean;
