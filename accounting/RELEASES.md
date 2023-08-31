@@ -679,3 +679,13 @@ Based on:
 - [typescript v0.35.0] accounting
 ### Releases
 - [NPM v0.35.0] https://www.npmjs.com/package/@codat/accounting/v/0.35.0 - accounting
+
+## 2023-08-31 00:03:56
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Accounting.yaml
+- Speakeasy CLI 1.75.0 (2.89.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.36.0] accounting
+### Releases
+- [NPM v0.36.0] https://www.npmjs.com/package/@codat/accounting/v/0.36.0 - accounting

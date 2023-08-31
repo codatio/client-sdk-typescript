@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 85cddd026d0b85da1a44257ddcfd9bd9
+  docChecksum: 30a7257922466c57e53a1634218a2e9b
   docVersion: 3.0.0
-  speakeasyVersion: 1.74.15
-  generationVersion: 2.88.2
+  speakeasyVersion: 1.75.0
+  generationVersion: 2.89.1
 generation:
   sdkClassName: CodatAccounting
   singleTagPerOp: false
@@ -11,7 +11,7 @@ generation:
 features:
   typescript:
     acceptHeaders: 2.81.1
-    core: 2.83.1
+    core: 2.84.1
     deprecations: 2.81.1
     examples: 2.81.1
     globalSecurity: 2.81.1
@@ -19,7 +19,7 @@ features:
     nameOverrides: 2.81.1
     retries: 2.81.1
 typescript:
-  version: 0.35.0
+  version: 0.36.0
   author: Speakeasy
   maxMethodParams: 0
   packageName: '@codat/accounting'
