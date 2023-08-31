@@ -3,6 +3,7 @@
  */
 
 export * from "./accountmappingresult";
+export * from "./bankaccountcredentials";
 export * from "./bankfeedaccount";
 export * from "./bankfeedaccountmapping";
 export * from "./bankfeedmapping";

@@ -71,13 +71,14 @@ sdk.accountMapping.create({
 * [delete](docs/sdks/connections/README.md#delete) - Delete connection
 * [get](docs/sdks/connections/README.md#get) - Get connection
 * [list](docs/sdks/connections/README.md#list) - List connections
-* [proxy](docs/sdks/connections/README.md#proxy) - Proxy
 * [unlinkConnection](docs/sdks/connections/README.md#unlinkconnection) - Unlink connection
 
 ### [sourceAccounts](docs/sdks/sourceaccounts/README.md)
 
 * [create](docs/sdks/sourceaccounts/README.md#create) - Create a bank feed bank account
-* [delete](docs/sdks/sourceaccounts/README.md#delete) - delete bank feed bank account
+* [delete](docs/sdks/sourceaccounts/README.md#delete) - Delete bank feed bank account
+* [deleteCredentials](docs/sdks/sourceaccounts/README.md#deletecredentials) - Delete all source account credentials
+* [generateSourceAccountCredentials](docs/sdks/sourceaccounts/README.md#generatesourceaccountcredentials) - Generate source account credentials
 * [list](docs/sdks/sourceaccounts/README.md#list) - List bank feed bank accounts
 * [update](docs/sdks/sourceaccounts/README.md#update) - Update bank feed bank account
 
