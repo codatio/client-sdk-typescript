@@ -3,9 +3,8 @@
  */
 
 import * as utils from "../internal/utils";
-import { ConfigurationAdvanced } from "./configurationadvanced";
+import { AdvancedControls } from "./advancedcontrols";
 import { Connections } from "./connections";
-import { ConnectionsAdvanced } from "./connectionsadvanced";
 import { Integrations } from "./integrations";
 import * as shared from "./models/shared";
 import { Sync } from "./sync";
@@ -54,8 +53,8 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "1.1";
-    sdkVersion = "0.32.1";
-    genVersion = "2.88.7";
+    sdkVersion = "0.33.0";
+    genVersion = "2.89.1";
 
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -63,7 +62,7 @@ export class SDKConfiguration {
 }
 
 /**
- * Sync for Commerce API: The API for Sync for Commerce.
+ * Sync for Commerce: The API for Sync for Commerce.
  *
  * @remarks
  *
@@ -75,17 +74,13 @@ export class SDKConfiguration {
  */
 export class CodatSyncCommerce {
     /**
-     * Expressively configure preferences for any given Sync for Commerce company.
+     * Advanced company management and sync preferences.
      */
-    public configurationAdvanced: ConfigurationAdvanced;
+    public advancedControls: AdvancedControls;
     /**
      * Create new and manage existing Sync for Commerce companies using the Sync flow UI.
      */
     public connections: Connections;
-    /**
-     * Create new and manage existing Sync for Commerce companies.
-     */
-    public connectionsAdvanced: ConnectionsAdvanced;
     /**
      * View useful information about codat's integrations.
      */
@@ -126,9 +121,8 @@ export class CodatSyncCommerce {
             serverURL: serverURL,
         });
 
-        this.configurationAdvanced = new ConfigurationAdvanced(this.sdkConfiguration);
+        this.advancedControls = new AdvancedControls(this.sdkConfiguration);
         this.connections = new Connections(this.sdkConfiguration);
-        this.connectionsAdvanced = new ConnectionsAdvanced(this.sdkConfiguration);
         this.integrations = new Integrations(this.sdkConfiguration);
         this.sync = new Sync(this.sdkConfiguration);
         this.syncFlowPreferences = new SyncFlowPreferences(this.sdkConfiguration);

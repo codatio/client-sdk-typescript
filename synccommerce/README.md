@@ -24,7 +24,7 @@ yarn add @codat/sync-for-commerce
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { GetConfigurationResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
+import { CreateCompanyResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -32,9 +32,9 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-sdk.configurationAdvanced.getConfiguration({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetConfigurationResponse) => {
+sdk.advancedControls.createCompany({
+  name: "Bob's Burgers",
+}).then((res: CreateCompanyResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -46,10 +46,14 @@ sdk.configurationAdvanced.getConfiguration({
 ## Available Resources and Operations
 
 
-### [configurationAdvanced](docs/sdks/configurationadvanced/README.md)
+### [advancedControls](docs/sdks/advancedcontrols/README.md)
 
-* [getConfiguration](docs/sdks/configurationadvanced/README.md#getconfiguration) - Get company configuration
-* [setConfiguration](docs/sdks/configurationadvanced/README.md#setconfiguration) - Set configuration.
+* [createCompany](docs/sdks/advancedcontrols/README.md#createcompany) - Create company
+* [createConnection](docs/sdks/advancedcontrols/README.md#createconnection) - Create connection
+* [getConfiguration](docs/sdks/advancedcontrols/README.md#getconfiguration) - Get company configuration
+* [listConnections](docs/sdks/advancedcontrols/README.md#listconnections) - List connections
+* [setConfiguration](docs/sdks/advancedcontrols/README.md#setconfiguration) - Set configuration
+* [updateConnection](docs/sdks/advancedcontrols/README.md#updateconnection) - Update connection
 
 ### [connections](docs/sdks/connections/README.md)
 
@@ -57,17 +61,10 @@ sdk.configurationAdvanced.getConfiguration({
 * [listCompanies](docs/sdks/connections/README.md#listcompanies) - List companies
 * [updateAuthorization](docs/sdks/connections/README.md#updateauthorization) - Update authorization
 
-### [connectionsAdvanced](docs/sdks/connectionsadvanced/README.md)
-
-* [createCompany](docs/sdks/connectionsadvanced/README.md#createcompany) - Create company
-* [createConnection](docs/sdks/connectionsadvanced/README.md#createconnection) - Create connection
-* [listConnections](docs/sdks/connectionsadvanced/README.md#listconnections) - List connections
-* [updateConnection](docs/sdks/connectionsadvanced/README.md#updateconnection) - Update connection
-
 ### [integrations](docs/sdks/integrations/README.md)
 
 * [getIntegrationBranding](docs/sdks/integrations/README.md#getintegrationbranding) - Get branding for an integration
-* [listIntegrations](docs/sdks/integrations/README.md#listintegrations) - List information on Codat's supported integrations
+* [listIntegrations](docs/sdks/integrations/README.md#listintegrations) - List integrations
 
 ### [sync](docs/sdks/sync/README.md)
 

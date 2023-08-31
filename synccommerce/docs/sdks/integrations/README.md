@@ -7,7 +7,7 @@ View useful information about codat's integrations.
 ### Available Operations
 
 * [getIntegrationBranding](#getintegrationbranding) - Get branding for an integration
-* [listIntegrations](#listintegrations) - List information on Codat's supported integrations
+* [listIntegrations](#listintegrations) - List integrations
 
 ## getIntegrationBranding
 
@@ -50,7 +50,7 @@ sdk.integrations.getIntegrationBranding({
 
 ## listIntegrations
 
-Retrieve a list of available integrations support by datatype and state of release.
+Retrieve a list of available integrations support by data type and state of release.
 
 ### Example Usage
 

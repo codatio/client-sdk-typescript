@@ -27,9 +27,9 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.connections.getSyncFlowUrl({
-  accountingKey: "corrupti",
-  commerceKey: "provident",
-  merchantIdentifier: "distinctio",
+  accountingKey: "distinctio",
+  commerceKey: "quibusdam",
+  merchantIdentifier: "unde",
 }).then((res: GetSyncFlowUrlResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -71,7 +71,7 @@ sdk.connections.listCompanies({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "quibusdam",
+  query: "nulla",
 }).then((res: ListCompaniesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -111,9 +111,9 @@ const sdk = new CodatSyncCommerce({
 
 sdk.connections.updateAuthorization({
   requestBody: {
-    "nulla": "corrupti",
     "illum": "vel",
     "error": "deserunt",
+    "suscipit": "iure",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",

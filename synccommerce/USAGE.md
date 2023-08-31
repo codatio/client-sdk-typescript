@@ -3,7 +3,7 @@
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { GetConfigurationResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
+import { CreateCompanyResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -11,9 +11,9 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-sdk.configurationAdvanced.getConfiguration({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetConfigurationResponse) => {
+sdk.advancedControls.createCompany({
+  name: "Bob's Burgers",
+}).then((res: CreateCompanyResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

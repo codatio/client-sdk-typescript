@@ -106,10 +106,10 @@ export class Integrations {
     }
 
     /**
-     * List information on Codat's supported integrations
+     * List integrations
      *
      * @remarks
-     * Retrieve a list of available integrations support by datatype and state of release.
+     * Retrieve a list of available integrations support by data type and state of release.
      */
     async listIntegrations(
         req: operations.ListIntegrationsRequest,
