@@ -218,3 +218,4 @@ docs/models/shared/security.md
 docs/models/shared/accountcategoriesupdatedwebhookdata.md
 docs/models/shared/accountcategoriesupdatedwebhook.md
 docs/models/webhooks/accountcategoriesupdatedresponse.md
+.gitattributes
