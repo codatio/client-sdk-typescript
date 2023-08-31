@@ -285,3 +285,4 @@ docs/models/webhooks/datasetstatushaschangedtoanerrorstateresponse.md
 docs/models/webhooks/newcompanysynchronizedresponse.md
 docs/models/webhooks/pushoperationhastimedoutresponse.md
 docs/models/webhooks/pushoperationstatushaschangedresponse.md
+.gitattributes
