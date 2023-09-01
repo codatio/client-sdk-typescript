@@ -1,8 +1,8 @@
-# CreateDataConnectionRequestBody
+# HalRef
 
 
 ## Fields
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `platformKey`      | *string*           | :heavy_minus_sign: | N/A                |
+| `href`             | *string*           | :heavy_minus_sign: | N/A                |

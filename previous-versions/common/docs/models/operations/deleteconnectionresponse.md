@@ -1,4 +1,4 @@
-# DeleteCompanyConnectionResponse
+# DeleteConnectionResponse
 
 
 ## Fields

@@ -1,7 +1,7 @@
 {
   "name": "@codat/common",
-  "version": "0.35.1",
-  "author": "Speakeasy",
+  "version": "0.36.0",
+  "author": "Codat",
   "scripts": {
     "prepare": "tsc --build"
   },
@@ -23,11 +23,12 @@
   "main": "dist/index.js",
   "files": [
     "dist",
+    "docs",
     "README.md"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/codatio/client-sdk-typescript.git",
-    "directory": "common"
+    "directory": "previous-versions/common"
   }
 }

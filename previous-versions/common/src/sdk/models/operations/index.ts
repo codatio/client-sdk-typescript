@@ -3,15 +3,17 @@
  */
 
 export * from "./configuresupplementaldata";
+export * from "./createapikey";
 export * from "./createcompany";
-export * from "./createdataconnection";
+export * from "./createconnection";
 export * from "./createrule";
+export * from "./deleteapikey";
 export * from "./deletecompany";
-export * from "./deletecompanyconnection";
+export * from "./deleteconnection";
 export * from "./getcompany";
-export * from "./getcompanyconnection";
 export * from "./getcompanydatastatus";
 export * from "./getcompanypushhistory";
+export * from "./getconnection";
 export * from "./getcreateupdatemodeloptionsbydatatype";
 export * from "./getintegration";
 export * from "./getintegrationsbranding";
@@ -21,8 +23,9 @@ export * from "./getpulloperation";
 export * from "./getpushoperation";
 export * from "./getsupplementaldataconfiguration";
 export * from "./getwebhook";
+export * from "./listapikeys";
 export * from "./listcompanies";
-export * from "./listcompanyconnections";
+export * from "./listconnections";
 export * from "./listintegrations";
 export * from "./listpulloperations";
 export * from "./listrules";
