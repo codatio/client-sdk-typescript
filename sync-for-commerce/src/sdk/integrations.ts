@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -11,6 +12,7 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 /**
  * View useful information about codat's integrations.
  */
+
 export class Integrations {
     private sdkConfiguration: SDKConfiguration;
 
@@ -24,7 +26,7 @@ export class Integrations {
      * @remarks
      * Retrieve Integration branding assets.
      */
-    async getIntegrationBranding(
+    async getBranding(
         req: operations.GetIntegrationBrandingRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
@@ -48,6 +50,7 @@ export class Integrations {
 
         const headers = { ...config?.headers };
         headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -88,6 +91,13 @@ export class Integrations {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.branding = utils.objectToClass(JSON.parse(decodedRes), shared.Branding);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -96,12 +106,12 @@ export class Integrations {
     }
 
     /**
-     * List information on Codat's supported integrations
+     * List integrations
      *
      * @remarks
-     * Retrieve a list of available integrations support by datatype and state of release.
+     * Retrieve a list of available integrations support by data type and state of release.
      */
-    async listIntegrations(
+    async list(
         req: operations.ListIntegrationsRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
@@ -122,6 +132,7 @@ export class Integrations {
         const headers = { ...config?.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -163,6 +174,13 @@ export class Integrations {
                     res.integrations = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.Integrations
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
