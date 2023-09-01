@@ -6,10 +6,10 @@ Retrieve the status of transactions within a sync.
 
 ### Available Operations
 
-* [getSyncTransaction](#getsynctransaction) - Get Sync Transaction
-* [listSyncTransactions](#listsynctransactions) - Get Sync transactions
+* [get](#get) - Get Sync Transaction
+* [list](#list) - List sync transactions
 
-## getSyncTransaction
+## get
 
 Gets the status of a transaction for a sync
 
@@ -25,7 +25,7 @@ const sdk = new CodatSyncExpenses({
   },
 });
 
-sdk.transactionStatus.getSyncTransaction({
+sdk.transactionStatus.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
   transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
@@ -50,9 +50,9 @@ sdk.transactionStatus.getSyncTransaction({
 **Promise<[operations.GetSyncTransactionResponse](../../models/operations/getsynctransactionresponse.md)>**
 
 
-## listSyncTransactions
+## list
 
-Get's the transactions and status for a sync
+Gets the transactions and status for a sync
 
 ### Example Usage
 
@@ -66,7 +66,7 @@ const sdk = new CodatSyncExpenses({
   },
 });
 
-sdk.transactionStatus.listSyncTransactions({
+sdk.transactionStatus.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   page: 1,
   pageSize: 100,

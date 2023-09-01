@@ -6,11 +6,11 @@ Create expense datasets and upload receipts.
 
 ### Available Operations
 
-* [createExpenseDataset](#createexpensedataset) - Create expense-transactions
-* [updateExpenseDataset](#updateexpensedataset) - Update expense-transactions
+* [create](#create) - Create expense transaction
+* [update](#update) - Update expense-transactions
 * [uploadAttachment](#uploadattachment) - Upload attachment
 
-## createExpenseDataset
+## create
 
 Create an expense transaction
 
@@ -18,7 +18,7 @@ Create an expense transaction
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { CreateExpenseDatasetResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
+import { CreateExpenseTransactionResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 import { ContactRefContactType, ExpenseTransactionType } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
 const sdk = new CodatSyncExpenses({
@@ -27,16 +27,19 @@ const sdk = new CodatSyncExpenses({
   },
 });
 
-sdk.expenses.createExpenseDataset({
+sdk.expenses.create({
   createExpenseRequest: {
     items: [
       {
+        bankAccountRef: {
+          id: "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
+        },
         contactRef: {
           contactType: ContactRefContactType.Supplier,
           id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
         },
         currency: "GBP",
-        currencyRate: 5928.45,
+        currencyRate: 4614.79,
         id: "4d7c6929-7770-412b-91bb-44d3bc71d111",
         issueDate: "2022-10-23T00:00:00.000Z",
         lines: [
@@ -74,15 +77,6 @@ sdk.expenses.createExpenseDataset({
               {
                 id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
               },
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
             ],
           },
           {
@@ -116,9 +110,6 @@ sdk.expenses.createExpenseDataset({
               id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
             },
             trackingRefs: [
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
               {
                 id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
               },
@@ -136,12 +127,15 @@ sdk.expenses.createExpenseDataset({
         type: ExpenseTransactionType.Payment,
       },
       {
+        bankAccountRef: {
+          id: "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
+        },
         contactRef: {
           contactType: ContactRefContactType.Supplier,
           id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
         },
         currency: "GBP",
-        currencyRate: 4236.55,
+        currencyRate: 5820.2,
         id: "4d7c6929-7770-412b-91bb-44d3bc71d111",
         issueDate: "2022-10-23T00:00:00.000Z",
         lines: [
@@ -161,18 +155,6 @@ sdk.expenses.createExpenseDataset({
               {
                 id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
               },
-            ],
-          },
-          {
-            accountRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            netAmount: 110.42,
-            taxAmount: 14.43,
-            taxRateRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            trackingRefs: [
               {
                 id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
               },
@@ -191,6 +173,33 @@ sdk.expenses.createExpenseDataset({
               id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
             },
             trackingRefs: [
+              {
+                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+              },
+              {
+                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+              },
+              {
+                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+              },
+              {
+                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+              },
+            ],
+          },
+          {
+            accountRef: {
+              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+            },
+            netAmount: 110.42,
+            taxAmount: 14.43,
+            taxRateRef: {
+              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+            },
+            trackingRefs: [
+              {
+                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+              },
               {
                 id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
               },
@@ -205,12 +214,15 @@ sdk.expenses.createExpenseDataset({
         type: ExpenseTransactionType.Payment,
       },
       {
+        bankAccountRef: {
+          id: "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
+        },
         contactRef: {
           contactType: ContactRefContactType.Supplier,
           id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
         },
         currency: "GBP",
-        currencyRate: 8917.73,
+        currencyRate: 1059.07,
         id: "4d7c6929-7770-412b-91bb-44d3bc71d111",
         issueDate: "2022-10-23T00:00:00.000Z",
         lines: [
@@ -245,6 +257,36 @@ sdk.expenses.createExpenseDataset({
               {
                 id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
               },
+            ],
+          },
+        ],
+        merchantName: "Amazon UK",
+        notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
+        type: ExpenseTransactionType.Payment,
+      },
+      {
+        bankAccountRef: {
+          id: "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
+        },
+        contactRef: {
+          contactType: ContactRefContactType.Supplier,
+          id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+        },
+        currency: "GBP",
+        currencyRate: 7742.34,
+        id: "4d7c6929-7770-412b-91bb-44d3bc71d111",
+        issueDate: "2022-10-23T00:00:00.000Z",
+        lines: [
+          {
+            accountRef: {
+              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+            },
+            netAmount: 110.42,
+            taxAmount: 14.43,
+            taxRateRef: {
+              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+            },
+            trackingRefs: [
               {
                 id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
               },
@@ -260,27 +302,6 @@ sdk.expenses.createExpenseDataset({
               id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
             },
             trackingRefs: [
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-            ],
-          },
-          {
-            accountRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            netAmount: 110.42,
-            taxAmount: 14.43,
-            taxRateRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            trackingRefs: [
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
               {
                 id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
               },
@@ -300,7 +321,7 @@ sdk.expenses.createExpenseDataset({
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: CreateExpenseDatasetResponse) => {
+}).then((res: CreateExpenseTransactionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -309,19 +330,19 @@ sdk.expenses.createExpenseDataset({
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.CreateExpenseDatasetRequest](../../models/operations/createexpensedatasetrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `retries`                                                                                        | [utils.RetryConfig](../../models/utils/retryconfig.md)                                           | :heavy_minus_sign:                                                                               | Configuration to override the default retry behavior of the client.                              |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                | [operations.CreateExpenseTransactionRequest](../../models/operations/createexpensetransactionrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| `retries`                                                                                                | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                   | :heavy_minus_sign:                                                                                       | Configuration to override the default retry behavior of the client.                                      |
+| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
 
 
 ### Response
 
-**Promise<[operations.CreateExpenseDatasetResponse](../../models/operations/createexpensedatasetresponse.md)>**
+**Promise<[operations.CreateExpenseTransactionResponse](../../models/operations/createexpensetransactionresponse.md)>**
 
 
-## updateExpenseDataset
+## update
 
 Update an expense transaction
 
@@ -329,8 +350,8 @@ Update an expense transaction
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { UpdateExpenseDatasetResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
-import { ContactRefContactType, ExpenseType } from "@codat/sync-for-expenses/dist/sdk/models/shared";
+import { UpdateExpenseTransactionResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
+import { ContactRefContactType } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
 const sdk = new CodatSyncExpenses({
   security: {
@@ -338,55 +359,19 @@ const sdk = new CodatSyncExpenses({
   },
 });
 
-sdk.expenses.updateExpenseDataset({
+sdk.expenses.update({
   updateExpenseRequest: {
+    bankAccountRef: {
+      id: "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
+    },
     contactRef: {
       contactType: ContactRefContactType.Supplier,
       id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
     },
     currency: "GBP",
-    currencyRate: 8121.69,
+    currencyRate: 1352.18,
     issueDate: "2022-06-28T00:00:00.000Z",
     lines: [
-      {
-        accountRef: {
-          id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-        },
-        netAmount: 110.42,
-        taxAmount: 14.43,
-        taxRateRef: {
-          id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-        },
-        trackingRefs: [
-          {
-            id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-          },
-          {
-            id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-          },
-        ],
-      },
-      {
-        accountRef: {
-          id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-        },
-        netAmount: 110.42,
-        taxAmount: 14.43,
-        taxRateRef: {
-          id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-        },
-        trackingRefs: [
-          {
-            id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-          },
-          {
-            id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-          },
-          {
-            id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-          },
-        ],
-      },
       {
         accountRef: {
           id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
@@ -408,11 +393,11 @@ sdk.expenses.updateExpenseDataset({
     ],
     merchantName: "Amazon UK",
     notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-    type: ExpenseType.Payment,
+    type: "natus",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
-}).then((res: UpdateExpenseDatasetResponse) => {
+}).then((res: UpdateExpenseTransactionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -421,16 +406,16 @@ sdk.expenses.updateExpenseDataset({
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.UpdateExpenseDatasetRequest](../../models/operations/updateexpensedatasetrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `retries`                                                                                        | [utils.RetryConfig](../../models/utils/retryconfig.md)                                           | :heavy_minus_sign:                                                                               | Configuration to override the default retry behavior of the client.                              |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                | [operations.UpdateExpenseTransactionRequest](../../models/operations/updateexpensetransactionrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| `retries`                                                                                                | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                   | :heavy_minus_sign:                                                                                       | Configuration to override the default retry behavior of the client.                                      |
+| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
 
 
 ### Response
 
-**Promise<[operations.UpdateExpenseDatasetResponse](../../models/operations/updateexpensedatasetresponse.md)>**
+**Promise<[operations.UpdateExpenseTransactionResponse](../../models/operations/updateexpensetransactionresponse.md)>**
 
 
 ## uploadAttachment
@@ -441,7 +426,7 @@ Creates an attachment in the accounting software against the given transactionId
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { UploadAttachmentResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
+import { UploadExpenseAttachmentResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 
 const sdk = new CodatSyncExpenses({
   security: {
@@ -451,13 +436,13 @@ const sdk = new CodatSyncExpenses({
 
 sdk.expenses.uploadAttachment({
   requestBody: {
-    content: "recusandae".encode(),
-    requestBody: "temporibus",
+    content: "sed".encode(),
+    requestBody: "iste",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
   transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
-}).then((res: UploadAttachmentResponse) => {
+}).then((res: UploadExpenseAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -466,14 +451,14 @@ sdk.expenses.uploadAttachment({
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.UploadAttachmentRequest](../../models/operations/uploadattachmentrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `retries`                                                                                | [utils.RetryConfig](../../models/utils/retryconfig.md)                                   | :heavy_minus_sign:                                                                       | Configuration to override the default retry behavior of the client.                      |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                              | [operations.UploadExpenseAttachmentRequest](../../models/operations/uploadexpenseattachmentrequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
+| `retries`                                                                                              | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                 | :heavy_minus_sign:                                                                                     | Configuration to override the default retry behavior of the client.                                    |
+| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
 
 
 ### Response
 
-**Promise<[operations.UploadAttachmentResponse](../../models/operations/uploadattachmentresponse.md)>**
+**Promise<[operations.UploadExpenseAttachmentResponse](../../models/operations/uploadexpenseattachmentresponse.md)>**
 

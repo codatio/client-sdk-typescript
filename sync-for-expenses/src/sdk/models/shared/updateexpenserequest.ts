@@ -5,10 +5,23 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { ContactRef } from "./contactref";
 import { ExpenseTransactionLine } from "./expensetransactionline";
-import { ExpenseType } from "./expensetype";
 import { Expose, Type } from "class-transformer";
 
+export class UpdateExpenseRequestBankAccountReference extends SpeakeasyBase {
+    /**
+     * Identifier of the bank account.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
+}
+
 export class UpdateExpenseRequest extends SpeakeasyBase {
+    @SpeakeasyMetadata()
+    @Expose({ name: "bankAccountRef" })
+    @Type(() => UpdateExpenseRequestBankAccountReference)
+    bankAccountRef?: UpdateExpenseRequestBankAccountReference;
+
     @SpeakeasyMetadata()
     @Expose({ name: "contactRef" })
     @Type(() => ContactRef)
@@ -83,10 +96,7 @@ export class UpdateExpenseRequest extends SpeakeasyBase {
     @Expose({ name: "notes" })
     notes?: string;
 
-    /**
-     * The type of transaction.
-     */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type: ExpenseType;
+    type: any;
 }

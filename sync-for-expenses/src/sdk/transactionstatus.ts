@@ -26,7 +26,7 @@ export class TransactionStatus {
      * @remarks
      * Gets the status of a transaction for a sync
      */
-    async getSyncTransaction(
+    async get(
         req: operations.GetSyncTransactionRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
@@ -90,12 +90,9 @@ export class TransactionStatus {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.transactionMetadata = [];
-                    const resFieldDepth: number = utils.getResFieldDepth(res);
-                    res.transactionMetadata = utils.objectToClass(
+                    res.transaction = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TransactionMetadata,
-                        resFieldDepth
+                        shared.Transaction
                     );
                 } else {
                     throw new errors.SDKError(
@@ -127,12 +124,12 @@ export class TransactionStatus {
     }
 
     /**
-     * Get Sync transactions
+     * List sync transactions
      *
      * @remarks
-     * Get's the transactions and status for a sync
+     * Gets the transactions and status for a sync
      */
-    async listSyncTransactions(
+    async list(
         req: operations.ListSyncTransactionsRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
@@ -197,9 +194,9 @@ export class TransactionStatus {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.transactionMetadataList = utils.objectToClass(
+                    res.transactions = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.TransactionMetadataList
+                        shared.Transactions
                     );
                 } else {
                     throw new errors.SDKError(

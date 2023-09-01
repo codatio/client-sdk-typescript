@@ -21,18 +21,18 @@ export class Expenses {
     }
 
     /**
-     * Create expense-transactions
+     * Create expense transaction
      *
      * @remarks
      * Create an expense transaction
      */
-    async createExpenseDataset(
-        req: operations.CreateExpenseDatasetRequest,
+    async create(
+        req: operations.CreateExpenseTransactionRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.CreateExpenseDatasetResponse> {
+    ): Promise<operations.CreateExpenseTransactionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateExpenseDatasetRequest(req);
+            req = new operations.CreateExpenseTransactionRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -95,8 +95,8 @@ export class Expenses {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.CreateExpenseDatasetResponse =
-            new operations.CreateExpenseDatasetResponse({
+        const res: operations.CreateExpenseTransactionResponse =
+            new operations.CreateExpenseTransactionResponse({
                 statusCode: httpRes.status,
                 contentType: contentType,
                 rawResponse: httpRes,
@@ -144,13 +144,13 @@ export class Expenses {
      * @remarks
      * Update an expense transaction
      */
-    async updateExpenseDataset(
-        req: operations.UpdateExpenseDatasetRequest,
+    async update(
+        req: operations.UpdateExpenseTransactionRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.UpdateExpenseDatasetResponse> {
+    ): Promise<operations.UpdateExpenseTransactionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateExpenseDatasetRequest(req);
+            req = new operations.UpdateExpenseTransactionRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -213,8 +213,8 @@ export class Expenses {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.UpdateExpenseDatasetResponse =
-            new operations.UpdateExpenseDatasetResponse({
+        const res: operations.UpdateExpenseTransactionResponse =
+            new operations.UpdateExpenseTransactionResponse({
                 statusCode: httpRes.status,
                 contentType: contentType,
                 rawResponse: httpRes,
@@ -223,9 +223,9 @@ export class Expenses {
         switch (true) {
             case httpRes?.status == 202:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.updateExpenseDataset202ApplicationJSONObject = utils.objectToClass(
+                    res.updateExpenseResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.UpdateExpenseDataset202ApplicationJSON
+                        shared.UpdateExpenseResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -263,12 +263,12 @@ export class Expenses {
      * Creates an attachment in the accounting software against the given transactionId
      */
     async uploadAttachment(
-        req: operations.UploadAttachmentRequest,
+        req: operations.UploadExpenseAttachmentRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.UploadAttachmentResponse> {
+    ): Promise<operations.UploadExpenseAttachmentResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UploadAttachmentRequest(req);
+            req = new operations.UploadExpenseAttachmentRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -327,11 +327,12 @@ export class Expenses {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.UploadAttachmentResponse = new operations.UploadAttachmentResponse({
-            statusCode: httpRes.status,
-            contentType: contentType,
-            rawResponse: httpRes,
-        });
+        const res: operations.UploadExpenseAttachmentResponse =
+            new operations.UploadExpenseAttachmentResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:

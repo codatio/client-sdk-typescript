@@ -42,6 +42,6 @@ export class GetSyncTransactionResponse extends SpeakeasyBase {
     /**
      * Success
      */
-    @SpeakeasyMetadata({ elemType: shared.TransactionMetadata })
-    transactionMetadata?: shared.TransactionMetadata[];
+    @SpeakeasyMetadata()
+    transaction?: shared.Transaction;
 }

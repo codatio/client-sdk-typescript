@@ -5,6 +5,9 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
+/**
+ * Success
+ */
 export class Customer extends SpeakeasyBase {
     /**
      * id of the customer for all income related activities to be associated to.

@@ -12,14 +12,14 @@ export class CreatePartnerExpenseConnectionRequest extends SpeakeasyBase {
 }
 
 export class CreatePartnerExpenseConnectionResponse extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    contentType: string;
-
     /**
      * Success
      */
     @SpeakeasyMetadata()
-    dataConnection?: shared.DataConnection;
+    connection?: shared.Connection;
+
+    @SpeakeasyMetadata()
+    contentType: string;
 
     /**
      * The request made is not valid.
