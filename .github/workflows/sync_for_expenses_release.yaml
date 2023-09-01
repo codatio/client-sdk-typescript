@@ -1,8 +1,8 @@
-name: Release Commerce library
+name: Release Sync for Expenses library
 'on':
   push:
     paths:
-    - commerce/RELEASES.md
+    - sync-for-expenses/RELEASES.md
     branches:
     - main
 jobs:
