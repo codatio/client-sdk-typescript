@@ -1,4 +1,4 @@
-# ReportDimensionItems
+# CommerceReportDimensionItems
 
 
 ## Fields

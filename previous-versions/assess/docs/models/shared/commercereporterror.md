@@ -1,4 +1,4 @@
-# ReportError
+# CommerceReportError
 
 
 ## Fields

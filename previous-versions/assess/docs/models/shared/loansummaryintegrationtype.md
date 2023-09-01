@@ -1,4 +1,4 @@
-# RecordRefIntegrationType
+# LoanSummaryIntegrationType
 
 The integration type begin referred to.
 

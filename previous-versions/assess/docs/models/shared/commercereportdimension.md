@@ -1,0 +1,11 @@
+# CommerceReportDimension
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `displayName`                                                                         | *string*                                                                              | :heavy_minus_sign:                                                                    | N/A                                                                                   |
+| `index`                                                                               | *number*                                                                              | :heavy_minus_sign:                                                                    | N/A                                                                                   |
+| `items`                                                                               | [CommerceReportDimensionItems](../../models/shared/commercereportdimensionitems.md)[] | :heavy_minus_sign:                                                                    | N/A                                                                                   |
+| `type`                                                                                | *string*                                                                              | :heavy_minus_sign:                                                                    | N/A                                                                                   |

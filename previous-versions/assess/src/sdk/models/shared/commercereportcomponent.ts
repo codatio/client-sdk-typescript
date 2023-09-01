@@ -6,11 +6,11 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { ReportComponentMeasure } from "./reportcomponentmeasure";
 import { Expose, Type } from "class-transformer";
 
-export class ReportComponent extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: ReportComponent })
+export class CommerceReportComponent extends SpeakeasyBase {
+    @SpeakeasyMetadata({ elemType: CommerceReportComponent })
     @Expose({ name: "components" })
-    @Type(() => ReportComponent)
-    components?: ReportComponent[];
+    @Type(() => CommerceReportComponent)
+    components?: CommerceReportComponent[];
 
     @SpeakeasyMetadata()
     @Expose({ name: "dimension" })

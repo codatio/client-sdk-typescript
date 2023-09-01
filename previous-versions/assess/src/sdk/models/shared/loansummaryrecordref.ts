@@ -3,27 +3,11 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { LoanSummaryIntegrationType } from "./loansummaryintegrationtype";
+import { LoanSummaryRecordRefType } from "./loansummaryrecordreftype";
 import { Expose } from "class-transformer";
 
-/**
- * The integration type begin referred to.
- */
-export enum RecordRefIntegrationType {
-    Accounting = "Accounting",
-    Banking = "Banking",
-    Commerce = "Commerce",
-}
-
-/**
- * The datatype being referred to.
- */
-export enum RecordRefRecordRefType {
-    Accounts = "accounts",
-    BankingAccounts = "banking-accounts",
-    CommerceTransactions = "commerce-transactions",
-}
-
-export class RecordRef extends SpeakeasyBase {
+export class LoanSummaryRecordRef extends SpeakeasyBase {
     /**
      * The dataConnectionId the object being referred to is associated with.
      */
@@ -43,12 +27,12 @@ export class RecordRef extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "integrationType" })
-    integrationType?: RecordRefIntegrationType;
+    integrationType?: LoanSummaryIntegrationType;
 
     /**
      * The datatype being referred to.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "recordRefType" })
-    recordRefType?: RecordRefRecordRefType;
+    recordRefType?: LoanSummaryRecordRefType;
 }

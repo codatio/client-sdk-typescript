@@ -3,10 +3,10 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { ReportComponent } from "./reportcomponent";
-import { ReportDimension } from "./reportdimension";
-import { ReportError } from "./reporterror";
-import { ReportMeasure } from "./reportmeasure";
+import { CommerceReportComponent } from "./commercereportcomponent";
+import { CommerceReportDimension } from "./commercereportdimension";
+import { CommerceReportError } from "./commercereporterror";
+import { CommerceReportMeasure } from "./commercereportmeasure";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -55,25 +55,25 @@ import { Expose, Type } from "class-transformer";
  * ## Dimensions
  */
 export class Report extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: ReportDimension })
+    @SpeakeasyMetadata({ elemType: CommerceReportDimension })
     @Expose({ name: "dimensions" })
-    @Type(() => ReportDimension)
-    dimensions?: ReportDimension[];
+    @Type(() => CommerceReportDimension)
+    dimensions?: CommerceReportDimension[];
 
-    @SpeakeasyMetadata({ elemType: ReportError })
+    @SpeakeasyMetadata({ elemType: CommerceReportError })
     @Expose({ name: "errors" })
-    @Type(() => ReportError)
-    errors?: ReportError[];
+    @Type(() => CommerceReportError)
+    errors?: CommerceReportError[];
 
-    @SpeakeasyMetadata({ elemType: ReportMeasure })
+    @SpeakeasyMetadata({ elemType: CommerceReportMeasure })
     @Expose({ name: "measures" })
-    @Type(() => ReportMeasure)
-    measures?: ReportMeasure[];
+    @Type(() => CommerceReportMeasure)
+    measures?: CommerceReportMeasure[];
 
-    @SpeakeasyMetadata({ elemType: ReportComponent })
+    @SpeakeasyMetadata({ elemType: CommerceReportComponent })
     @Expose({ name: "reportData" })
-    @Type(() => ReportComponent)
-    reportData?: ReportComponent[];
+    @Type(() => CommerceReportComponent)
+    reportData?: CommerceReportComponent[];
 
     @SpeakeasyMetadata()
     @Expose({ name: "reportInfo" })

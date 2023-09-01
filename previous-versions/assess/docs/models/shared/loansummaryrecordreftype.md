@@ -1,4 +1,4 @@
-# RecordRefRecordRefType
+# LoanSummaryRecordRefType
 
 The datatype being referred to.
 

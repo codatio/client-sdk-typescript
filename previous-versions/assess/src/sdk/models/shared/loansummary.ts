@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { LoanSummaryReportInfo } from "./loansummaryreportinfo";
-import { ReportItems } from "./reportitems";
+import { LoanSummaryReportItem } from "./loansummaryreportitem";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -19,8 +19,8 @@ export class LoanSummary extends SpeakeasyBase {
     /**
      * Returns a summary of all loan activity for that integration type
      */
-    @SpeakeasyMetadata({ elemType: ReportItems })
+    @SpeakeasyMetadata({ elemType: LoanSummaryReportItem })
     @Expose({ name: "reportItems" })
-    @Type(() => ReportItems)
-    reportItems?: ReportItems[];
+    @Type(() => LoanSummaryReportItem)
+    reportItems?: LoanSummaryReportItem[];
 }

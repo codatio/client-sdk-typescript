@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export class ReportError extends SpeakeasyBase {
+export class CommerceReportError extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "details" })
     details?: Record<string, string[]>;

@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export class CustomerRef extends SpeakeasyBase {
+export class LendingCustomerRef extends SpeakeasyBase {
     /**
      * `customerName` from the Customer data type
      */

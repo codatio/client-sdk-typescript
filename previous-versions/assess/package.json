@@ -1,7 +1,7 @@
 {
   "name": "@codat/assess",
-  "version": "0.31.0",
-  "author": "Speakeasy",
+  "version": "0.32.0",
+  "author": "Codat",
   "scripts": {
     "prepare": "tsc --build"
   },
@@ -23,11 +23,12 @@
   "main": "dist/index.js",
   "files": [
     "dist",
+    "docs",
     "README.md"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/codatio/client-sdk-typescript.git",
-    "directory": "assess"
+    "directory": "previous-versions/assess"
   }
 }
