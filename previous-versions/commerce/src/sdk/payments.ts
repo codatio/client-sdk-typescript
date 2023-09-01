@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -11,6 +12,7 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 /**
  * Retrieve standardized data from linked commerce platforms.
  */
+
 export class Payments {
     private sdkConfiguration: SDKConfiguration;
 
@@ -54,7 +56,8 @@ export class Payments {
             this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
 
         const headers = { ...config?.headers };
-        headers["Accept"] = "application/json;q=1, application/json;q=0.7, application/json;q=0";
+        headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -94,18 +97,27 @@ export class Payments {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.payment = utils.objectToClass(JSON.parse(decodedRes), shared.Payment);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 404, 409, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
-                }
-                break;
-            case httpRes?.status == 409:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getPayment409ApplicationJSONObject = utils.objectToClass(
+                    res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetPayment409ApplicationJSON
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -150,7 +162,8 @@ export class Payments {
             this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
 
         const headers = { ...config?.headers };
-        headers["Accept"] = "application/json;q=1, application/json;q=0.7, application/json;q=0";
+        headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -193,18 +206,27 @@ export class Payments {
                         JSON.parse(decodedRes),
                         shared.PaymentMethod
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 404, 409, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
-                }
-                break;
-            case httpRes?.status == 409:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.getPaymentMethod409ApplicationJSONObject = utils.objectToClass(
+                    res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetPaymentMethod409ApplicationJSON
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -248,7 +270,8 @@ export class Payments {
 
         const headers = { ...config?.headers };
         const queryParams: string = utils.serializeQueryParams(req);
-        headers["Accept"] = "application/json;q=1, application/json;q=0.7, application/json;q=0";
+        headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -288,18 +311,27 @@ export class Payments {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.payments = utils.objectToClass(JSON.parse(decodedRes), shared.Payments);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
-            case [400, 401, 404, 429].includes(httpRes?.status):
+            case [400, 401, 404, 409, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
-                }
-                break;
-            case httpRes?.status == 409:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listPayments409ApplicationJSONObject = utils.objectToClass(
+                    res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListPayments409ApplicationJSON
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -343,7 +375,8 @@ export class Payments {
 
         const headers = { ...config?.headers };
         const queryParams: string = utils.serializeQueryParams(req);
-        headers["Accept"] = "application/json;q=1, application/json;q=0.7, application/json;q=0";
+        headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -387,18 +420,27 @@ export class Payments {
                         JSON.parse(decodedRes),
                         shared.PaymentMethods
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
-            case [400, 401, 404, 429].includes(httpRes?.status):
+            case [400, 401, 404, 409, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
-                }
-                break;
-            case httpRes?.status == 409:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listPaymentMethods409ApplicationJSONObject = utils.objectToClass(
+                    res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.ListPaymentMethods409ApplicationJSON
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;

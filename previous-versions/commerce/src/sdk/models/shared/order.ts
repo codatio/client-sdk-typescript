@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { CustomerRef } from "./customerref";
+import { CommerceCustomerRef } from "./commercecustomerref";
 import { LocationRef } from "./locationref";
 import { OrderLineItem } from "./orderlineitem";
 import { PaymentRef } from "./paymentref";
@@ -108,8 +108,8 @@ export class Order extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "customerRef" })
-    @Type(() => CustomerRef)
-    customerRef?: CustomerRef;
+    @Type(() => CommerceCustomerRef)
+    customerRef?: CommerceCustomerRef;
 
     /**
      * A unique, persistent identifier for this record

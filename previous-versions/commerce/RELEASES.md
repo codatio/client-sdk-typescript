@@ -599,3 +599,13 @@ Based on:
 - Speakeasy CLI 1.53.0 (2.58.0) https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [NPM v0.32.1] https://www.npmjs.com/package/@codat/commerce/v/0.32.1 - commerce
+
+## 2023-09-01 16:32:28
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Commerce.yaml
+- Speakeasy CLI 1.77.1 (2.91.4) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.33.0] previous-versions/commerce
+### Releases
+- [NPM v0.33.0] https://www.npmjs.com/package/@codat/commerce/v/0.33.0 - previous-versions/commerce

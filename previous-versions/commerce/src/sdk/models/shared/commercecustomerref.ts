@@ -8,7 +8,7 @@ import { Expose } from "class-transformer";
 /**
  * Reference to the customer that placed the order.
  */
-export class CustomerRef extends SpeakeasyBase {
+export class CommerceCustomerRef extends SpeakeasyBase {
     /**
      * The unique identitifer of the customer being referenced
      */

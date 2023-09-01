@@ -5,7 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose } from "class-transformer";
 
 export class GetTransactionRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
@@ -21,38 +20,15 @@ export class GetTransactionRequest extends SpeakeasyBase {
     transactionId: string;
 }
 
-/**
- * The data type's dataset has not been requested or is still syncing.
- */
-export class GetTransaction409ApplicationJSON extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "canBeRetried" })
-    canBeRetried?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "correlationId" })
-    correlationId?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "detailedErrorCode" })
-    detailedErrorCode?: number;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "error" })
-    error?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "service" })
-    service?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "statusCode" })
-    statusCode?: number;
-}
-
 export class GetTransactionResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
+
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
 
     @SpeakeasyMetadata()
     statusCode: number;
@@ -65,16 +41,4 @@ export class GetTransactionResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     transaction?: shared.Transaction;
-
-    /**
-     * The data type's dataset has not been requested or is still syncing.
-     */
-    @SpeakeasyMetadata()
-    getTransaction409ApplicationJSONObject?: GetTransaction409ApplicationJSON;
-
-    /**
-     * Your API request was not properly authorized.
-     */
-    @SpeakeasyMetadata()
-    schema?: shared.Schema;
 }
