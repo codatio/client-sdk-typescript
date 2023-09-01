@@ -10,7 +10,7 @@ Manage your companies' data connections.
 * [delete](#delete) - Delete connection
 * [get](#get) - Get connection
 * [list](#list) - List connections
-* [unlinkConnection](#unlinkconnection) - Unlink connection
+* [unlink](#unlink) - Unlink connection
 * [updateAuthorization](#updateauthorization) - Update authorization
 
 ## create
@@ -23,7 +23,7 @@ Use the [List Integrations](https://docs.codat.io/codat-api#/operations/list-int
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { CreateDataConnectionResponse } from "@codat/common/dist/sdk/models/operations";
+import { CreateConnectionResponse } from "@codat/common/dist/sdk/models/operations";
 
 const sdk = new CodatCommon({
   security: {
@@ -36,7 +36,7 @@ sdk.connections.create({
     platformKey: "provident",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: CreateDataConnectionResponse) => {
+}).then((res: CreateConnectionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -45,16 +45,16 @@ sdk.connections.create({
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.CreateDataConnectionRequest](../../models/operations/createdataconnectionrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `retries`                                                                                        | [utils.RetryConfig](../../models/utils/retryconfig.md)                                           | :heavy_minus_sign:                                                                               | Configuration to override the default retry behavior of the client.                              |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.CreateConnectionRequest](../../models/operations/createconnectionrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `retries`                                                                                | [utils.RetryConfig](../../models/utils/retryconfig.md)                                   | :heavy_minus_sign:                                                                       | Configuration to override the default retry behavior of the client.                      |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
 
-**Promise<[operations.CreateDataConnectionResponse](../../models/operations/createdataconnectionresponse.md)>**
+**Promise<[operations.CreateConnectionResponse](../../models/operations/createconnectionresponse.md)>**
 
 
 ## delete
@@ -66,7 +66,7 @@ This operation is not reversible. The end user would need to reauthorize a new d
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { DeleteCompanyConnectionResponse } from "@codat/common/dist/sdk/models/operations";
+import { DeleteConnectionResponse } from "@codat/common/dist/sdk/models/operations";
 
 const sdk = new CodatCommon({
   security: {
@@ -77,7 +77,7 @@ const sdk = new CodatCommon({
 sdk.connections.delete({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: DeleteCompanyConnectionResponse) => {
+}).then((res: DeleteConnectionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -86,16 +86,16 @@ sdk.connections.delete({
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                              | [operations.DeleteCompanyConnectionRequest](../../models/operations/deletecompanyconnectionrequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `retries`                                                                                              | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                 | :heavy_minus_sign:                                                                                     | Configuration to override the default retry behavior of the client.                                    |
-| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.DeleteConnectionRequest](../../models/operations/deleteconnectionrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `retries`                                                                                | [utils.RetryConfig](../../models/utils/retryconfig.md)                                   | :heavy_minus_sign:                                                                       | Configuration to override the default retry behavior of the client.                      |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
 
-**Promise<[operations.DeleteCompanyConnectionResponse](../../models/operations/deletecompanyconnectionresponse.md)>**
+**Promise<[operations.DeleteConnectionResponse](../../models/operations/deleteconnectionresponse.md)>**
 
 
 ## get
@@ -106,7 +106,7 @@ sdk.connections.delete({
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { GetCompanyConnectionResponse } from "@codat/common/dist/sdk/models/operations";
+import { GetConnectionResponse } from "@codat/common/dist/sdk/models/operations";
 
 const sdk = new CodatCommon({
   security: {
@@ -117,7 +117,7 @@ const sdk = new CodatCommon({
 sdk.connections.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCompanyConnectionResponse) => {
+}).then((res: GetConnectionResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -126,16 +126,16 @@ sdk.connections.get({
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.GetCompanyConnectionRequest](../../models/operations/getcompanyconnectionrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `retries`                                                                                        | [utils.RetryConfig](../../models/utils/retryconfig.md)                                           | :heavy_minus_sign:                                                                               | Configuration to override the default retry behavior of the client.                              |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.GetConnectionRequest](../../models/operations/getconnectionrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `retries`                                                                          | [utils.RetryConfig](../../models/utils/retryconfig.md)                             | :heavy_minus_sign:                                                                 | Configuration to override the default retry behavior of the client.                |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
 
-**Promise<[operations.GetCompanyConnectionResponse](../../models/operations/getcompanyconnectionresponse.md)>**
+**Promise<[operations.GetConnectionResponse](../../models/operations/getconnectionresponse.md)>**
 
 
 ## list
@@ -146,7 +146,7 @@ sdk.connections.get({
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { ListCompanyConnectionsResponse } from "@codat/common/dist/sdk/models/operations";
+import { ListConnectionsResponse } from "@codat/common/dist/sdk/models/operations";
 
 const sdk = new CodatCommon({
   security: {
@@ -160,7 +160,7 @@ sdk.connections.list({
   page: 1,
   pageSize: 100,
   query: "distinctio",
-}).then((res: ListCompanyConnectionsResponse) => {
+}).then((res: ListConnectionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -169,19 +169,19 @@ sdk.connections.list({
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [operations.ListCompanyConnectionsRequest](../../models/operations/listcompanyconnectionsrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `retries`                                                                                            | [utils.RetryConfig](../../models/utils/retryconfig.md)                                               | :heavy_minus_sign:                                                                                   | Configuration to override the default retry behavior of the client.                                  |
-| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.ListConnectionsRequest](../../models/operations/listconnectionsrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `retries`                                                                              | [utils.RetryConfig](../../models/utils/retryconfig.md)                                 | :heavy_minus_sign:                                                                     | Configuration to override the default retry behavior of the client.                    |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
 
-**Promise<[operations.ListCompanyConnectionsResponse](../../models/operations/listcompanyconnectionsresponse.md)>**
+**Promise<[operations.ListConnectionsResponse](../../models/operations/listconnectionsresponse.md)>**
 
 
-## unlinkConnection
+## unlink
 
 ﻿This allows you to deauthorize a connection, without deleting it from Codat. This means you can still view any data that has previously been pulled into Codat, and also lets you re-authorize in future if your customer wishes to resume sharing their data.
 
@@ -197,7 +197,7 @@ const sdk = new CodatCommon({
   },
 });
 
-sdk.connections.unlinkConnection({
+sdk.connections.unlink({
   requestBody: {
     status: "quibusdam",
   },

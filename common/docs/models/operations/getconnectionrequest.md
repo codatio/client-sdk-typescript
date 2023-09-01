@@ -1,4 +1,4 @@
-# GetCompanyConnectionRequest
+# GetConnectionRequest
 
 
 ## Fields

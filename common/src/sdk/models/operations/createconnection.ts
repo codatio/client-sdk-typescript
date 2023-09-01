@@ -5,16 +5,23 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
+import { Expose } from "class-transformer";
 
-export class GetCompanyConnectionRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
-    companyId: string;
-
-    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
-    connectionId: string;
+export class CreateConnectionRequestBody extends SpeakeasyBase {
+    @SpeakeasyMetadata()
+    @Expose({ name: "platformKey" })
+    platformKey?: string;
 }
 
-export class GetCompanyConnectionResponse extends SpeakeasyBase {
+export class CreateConnectionRequest extends SpeakeasyBase {
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    requestBody?: CreateConnectionRequestBody;
+
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
+    companyId: string;
+}
+
+export class CreateConnectionResponse extends SpeakeasyBase {
     /**
      * OK
      */

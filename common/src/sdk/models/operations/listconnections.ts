@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class ListCompanyConnectionsRequest extends SpeakeasyBase {
+export class ListConnectionsRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 
@@ -35,7 +35,7 @@ export class ListCompanyConnectionsRequest extends SpeakeasyBase {
     query?: string;
 }
 
-export class ListCompanyConnectionsResponse extends SpeakeasyBase {
+export class ListConnectionsResponse extends SpeakeasyBase {
     /**
      * OK
      */

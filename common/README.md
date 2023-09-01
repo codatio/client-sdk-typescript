@@ -59,7 +59,7 @@ sdk.companies.create({
 * [delete](docs/sdks/connections/README.md#delete) - Delete connection
 * [get](docs/sdks/connections/README.md#get) - Get connection
 * [list](docs/sdks/connections/README.md#list) - List connections
-* [unlinkConnection](docs/sdks/connections/README.md#unlinkconnection) - Unlink connection
+* [unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 * [updateAuthorization](docs/sdks/connections/README.md#updateauthorization) - Update authorization
 
 ### [integrations](docs/sdks/integrations/README.md)
