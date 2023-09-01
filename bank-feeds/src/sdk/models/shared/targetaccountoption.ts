@@ -7,6 +7,20 @@ import { Expose } from "class-transformer";
 
 export class TargetAccountOption extends SpeakeasyBase {
     /**
+     * The account number of the account.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "accountNumber" })
+    accountNumber?: string;
+
+    /**
+     * The balance of the account.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "balance" })
+    balance?: number;
+
+    /**
      * Id of the target account.
      */
     @SpeakeasyMetadata()
@@ -19,4 +33,11 @@ export class TargetAccountOption extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "name" })
     name?: string;
+
+    /**
+     * The sort code of the account.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "sortCode" })
+    sortCode?: string;
 }

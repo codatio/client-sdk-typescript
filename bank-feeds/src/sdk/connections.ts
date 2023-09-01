@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -11,6 +12,7 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 /**
  * Manage your companies' data connections.
  */
+
 export class Connections {
     private sdkConfiguration: SDKConfiguration;
 
@@ -24,15 +26,15 @@ export class Connections {
      * @remarks
      * Creates a connection for the company by providing a valid `platformKey`.
      *
-     * Use the [List Integrations](https://docs.codat.io/codat-api#/operations/list-integrations) endpoint to access valid platform keys.
+     * Use the [List Integrations](https://docs.codat.io/bank-feeds-api#/operations/list-integrations) endpoint to access valid platform keys.
      */
     async create(
-        req: operations.CreateDataConnectionRequest,
+        req: operations.CreateConnectionRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.CreateDataConnectionResponse> {
+    ): Promise<operations.CreateConnectionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateDataConnectionRequest(req);
+            req = new operations.CreateConnectionRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -55,7 +57,8 @@ export class Connections {
             this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
 
         const headers = { ...reqBodyHeaders, ...config?.headers };
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -86,22 +89,38 @@ export class Connections {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.CreateDataConnectionResponse =
-            new operations.CreateDataConnectionResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes,
-            });
+        const res: operations.CreateConnectionResponse = new operations.CreateConnectionResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.connection = utils.objectToClass(JSON.parse(decodedRes), shared.Connection);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case [401, 404, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
+                    res.errorMessage = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -117,12 +136,12 @@ export class Connections {
      * This operation is not reversible. The end user would need to reauthorize a new data connection if you wish to view new data for this company.
      */
     async delete(
-        req: operations.DeleteCompanyConnectionRequest,
+        req: operations.DeleteConnectionRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.DeleteCompanyConnectionResponse> {
+    ): Promise<operations.DeleteConnectionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteCompanyConnectionRequest(req);
+            req = new operations.DeleteConnectionRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -140,6 +159,7 @@ export class Connections {
 
         const headers = { ...config?.headers };
         headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -169,19 +189,28 @@ export class Connections {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.DeleteCompanyConnectionResponse =
-            new operations.DeleteCompanyConnectionResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes,
-            });
+        const res: operations.DeleteConnectionResponse = new operations.DeleteConnectionResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 break;
             case [401, 404, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
+                    res.errorMessage = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -196,12 +225,12 @@ export class Connections {
      * Returns a specific connection for a company when valid identifiers are provided. If the identifiers are for a deleted company and/or connection, a not found response is returned.
      */
     async get(
-        req: operations.GetCompanyConnectionRequest,
+        req: operations.GetConnectionRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.GetCompanyConnectionResponse> {
+    ): Promise<operations.GetConnectionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetCompanyConnectionRequest(req);
+            req = new operations.GetConnectionRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -218,7 +247,8 @@ export class Connections {
             this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
 
         const headers = { ...config?.headers };
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -248,22 +278,38 @@ export class Connections {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.GetCompanyConnectionResponse =
-            new operations.GetCompanyConnectionResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes,
-            });
+        const res: operations.GetConnectionResponse = new operations.GetConnectionResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.connection = utils.objectToClass(JSON.parse(decodedRes), shared.Connection);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case [401, 404, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
+                    res.errorMessage = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -278,12 +324,12 @@ export class Connections {
      * List the connections for a company.
      */
     async list(
-        req: operations.ListCompanyConnectionsRequest,
+        req: operations.ListConnectionsRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.ListCompanyConnectionsResponse> {
+    ): Promise<operations.ListConnectionsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListCompanyConnectionsRequest(req);
+            req = new operations.ListConnectionsRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -297,7 +343,8 @@ export class Connections {
 
         const headers = { ...config?.headers };
         const queryParams: string = utils.serializeQueryParams(req);
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -327,95 +374,7 @@ export class Connections {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.ListCompanyConnectionsResponse =
-            new operations.ListCompanyConnectionsResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes,
-            });
-        const decodedRes = new TextDecoder().decode(httpRes?.data);
-        switch (true) {
-            case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.connections = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.Connections
-                    );
-                }
-                break;
-            case [400, 401, 404, 429].includes(httpRes?.status):
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
-                }
-                break;
-        }
-
-        return res;
-    }
-
-    /**
-     * Proxy
-     *
-     * @remarks
-     * The *Proxy* endpoint can be used to generate credentials from QuickBooks Online for authentication of the Bank Feed in their portal.
-     *
-     * See the example provided for the `endpoint` query parameter when generating credentials for QuickBooks Online.
-     */
-    async proxy(
-        req: operations.ProxyRequest,
-        retries?: utils.RetryConfig,
-        config?: AxiosRequestConfig
-    ): Promise<operations.ProxyResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ProxyRequest(req);
-        }
-
-        const baseURL: string = utils.templateUrl(
-            this.sdkConfiguration.serverURL,
-            this.sdkConfiguration.serverDefaults
-        );
-        const url: string = utils.generateURL(
-            baseURL,
-            "/companies/{companyId}/connections/{connectionId}/data/proxy",
-            req
-        );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
-        const queryParams: string = utils.serializeQueryParams(req);
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
-
-        let retryConfig: any = retries;
-        if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
-        }
-        const httpRes: AxiosResponse = await utils.Retry(() => {
-            return client.request({
-                validateStatus: () => true,
-                url: url + queryParams,
-                method: "get",
-                headers: headers,
-                responseType: "arraybuffer",
-                ...config,
-            });
-        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) {
-            throw new Error(`status code not found in response: ${httpRes}`);
-        }
-
-        const res: operations.ProxyResponse = new operations.ProxyResponse({
+        const res: operations.ListConnectionsResponse = new operations.ListConnectionsResponse({
             statusCode: httpRes.status,
             contentType: contentType,
             rawResponse: httpRes,
@@ -424,12 +383,32 @@ export class Connections {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.proxyResponse = utils.objectToClass(JSON.parse(decodedRes));
+                    res.connections = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.Connections
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [400, 401, 404, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
+                    res.errorMessage = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -443,7 +422,7 @@ export class Connections {
      * @remarks
      * This allows you to deauthorize a connection, without deleting it from Codat. This means you can still view any data that has previously been pulled into Codat, and also lets you re-authorize in future if your customer wishes to resume sharing their data.
      */
-    async unlinkConnection(
+    async unlink(
         req: operations.UnlinkConnectionRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
@@ -476,7 +455,8 @@ export class Connections {
             this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
 
         const headers = { ...reqBodyHeaders, ...config?.headers };
-        headers["Accept"] = "application/json;q=1, application/json;q=0";
+        headers["Accept"] = "application/json";
+
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
@@ -517,11 +497,28 @@ export class Connections {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.connection = utils.objectToClass(JSON.parse(decodedRes), shared.Connection);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
             case [401, 404, 429].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
+                    res.errorMessage = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }

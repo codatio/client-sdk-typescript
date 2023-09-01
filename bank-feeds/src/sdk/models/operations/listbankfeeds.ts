@@ -18,21 +18,21 @@ export class ListBankFeedsResponse extends SpeakeasyBase {
     /**
      * Success
      */
-    @SpeakeasyMetadata({ elemType: shared.BankFeedAccount })
-    bankFeedAccounts?: shared.BankFeedAccount[];
+    @SpeakeasyMetadata()
+    bankFeedAccount?: shared.BankFeedAccount;
 
     @SpeakeasyMetadata()
     contentType: string;
+
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
 
     @SpeakeasyMetadata()
     statusCode: number;
 
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * Your API request was not properly authorized.
-     */
-    @SpeakeasyMetadata()
-    schema?: shared.Schema;
 }

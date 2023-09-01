@@ -1,4 +1,6 @@
 <!-- Start SDK Example Usage -->
+
+
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { CreateBankAccountMappingResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
@@ -9,7 +11,7 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-sdk.bankAccountMapping.create({
+sdk.accountMapping.create({
   bankFeedAccountMapping: {
     feedStartDate: "2022-10-23T00:00:00.000Z",
     sourceAccountId: "provident",

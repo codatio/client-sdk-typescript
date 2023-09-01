@@ -3,12 +3,12 @@
  */
 
 import * as utils from "../internal/utils";
-import { BankAccountMapping } from "./bankaccountmapping";
-import { BankAccountTransactions } from "./bankaccounttransactions";
-import { BankFeedAccounts } from "./bankfeedaccounts";
+import { AccountMapping } from "./accountmapping";
 import { Companies } from "./companies";
 import { Connections } from "./connections";
 import * as shared from "./models/shared";
+import { SourceAccounts } from "./sourceaccounts";
+import { Transactions } from "./transactions";
 import axios from "axios";
 import { AxiosInstance } from "axios";
 
@@ -52,9 +52,9 @@ export class SDKConfiguration {
     serverURL: string;
     serverDefaults: any;
     language = "typescript";
-    openapiDocVersion = "2.1.0";
-    sdkVersion = "0.33.1";
-    genVersion = "2.58.0";
+    openapiDocVersion = "3.0.0";
+    sdkVersion = "0.1.0";
+    genVersion = "2.91.4";
 
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -66,7 +66,7 @@ export class SDKConfiguration {
  *
  * @remarks
  *
- * A bank feed is a connection between a source bank account—in your application—and a target bank account in a supported accounting package.
+ * A bank feed is a connection between a source bank account in your application and a target bank account in a supported accounting package.
  *
  * [Read more...](https://docs.codat.io/bank-feeds-api/overview)
  *
@@ -74,17 +74,9 @@ export class SDKConfiguration {
  */
 export class CodatBankFeeds {
     /**
-     * Bank feed bank account mapping
+     * Bank feed bank account mapping.
      */
-    public bankAccountMapping: BankAccountMapping;
-    /**
-     * Bank feed bank accounts
-     */
-    public bankAccountTransactions: BankAccountTransactions;
-    /**
-     * Bank feed bank accounts
-     */
-    public bankFeedAccounts: BankFeedAccounts;
+    public accountMapping: AccountMapping;
     /**
      * Create and manage your Codat companies.
      */
@@ -93,6 +85,14 @@ export class CodatBankFeeds {
      * Manage your companies' data connections.
      */
     public connections: Connections;
+    /**
+     * Source accounts act as a bridge to bank accounts in accounting software.
+     */
+    public sourceAccounts: SourceAccounts;
+    /**
+     * Transactions represent debits and credits from a source account.
+     */
+    public transactions: Transactions;
 
     private sdkConfiguration: SDKConfiguration;
 
@@ -121,10 +121,10 @@ export class CodatBankFeeds {
             serverURL: serverURL,
         });
 
-        this.bankAccountMapping = new BankAccountMapping(this.sdkConfiguration);
-        this.bankAccountTransactions = new BankAccountTransactions(this.sdkConfiguration);
-        this.bankFeedAccounts = new BankFeedAccounts(this.sdkConfiguration);
+        this.accountMapping = new AccountMapping(this.sdkConfiguration);
         this.companies = new Companies(this.sdkConfiguration);
         this.connections = new Connections(this.sdkConfiguration);
+        this.sourceAccounts = new SourceAccounts(this.sdkConfiguration);
+        this.transactions = new Transactions(this.sdkConfiguration);
     }
 }
