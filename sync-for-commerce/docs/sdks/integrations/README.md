@@ -6,10 +6,10 @@ View useful information about codat's integrations.
 
 ### Available Operations
 
-* [getIntegrationBranding](#getintegrationbranding) - Get branding for an integration
-* [listIntegrations](#listintegrations) - List information on Codat's supported integrations
+* [getBranding](#getbranding) - Get branding for an integration
+* [list](#list) - List integrations
 
-## getIntegrationBranding
+## getBranding
 
 Retrieve Integration branding assets.
 
@@ -25,8 +25,8 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-sdk.integrations.getIntegrationBranding({
-  platformKey: "quibusdam",
+sdk.integrations.getBranding({
+  platformKey: "magnam",
 }).then((res: GetIntegrationBrandingResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -48,16 +48,15 @@ sdk.integrations.getIntegrationBranding({
 **Promise<[operations.GetIntegrationBrandingResponse](../../models/operations/getintegrationbrandingresponse.md)>**
 
 
-## listIntegrations
+## list
 
-Retrieve a list of available integrations support by datatype and state of release.
+Retrieve a list of available integrations support by data type and state of release.
 
 ### Example Usage
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { ListIntegrationsResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
-import { DataTypeFeatureDataType, FeatureState, FeatureType, SourceType } from "@codat/sync-for-commerce/dist/sdk/models/shared";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -65,11 +64,11 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-sdk.integrations.listIntegrations({
+sdk.integrations.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "unde",
+  query: "debitis",
 }).then((res: ListIntegrationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

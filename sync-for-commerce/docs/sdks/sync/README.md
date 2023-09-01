@@ -2,17 +2,139 @@
 
 ## Overview
 
-Initiate a sync of Sync for Commerce company data into their respective accounting software.
+Initiate and monitor the sync of company data into accounting software.
 
 ### Available Operations
 
-* [getSyncStatus](#getsyncstatus) - Get status for a company's syncs
-* [requestSync](#requestsync) - Sync new
-* [requestSyncForDateRange](#requestsyncfordaterange) - Sync range
+* [get](#get) - Get Sync status
+* [getLastSuccessfulSync](#getlastsuccessfulsync) - Last successful sync
+* [getLatestSync](#getlatestsync) - Latest sync status
+* [getStatus](#getstatus) - Get sync status
+* [list](#list) - List sync statuses
+* [request](#request) - Initiate new sync
+* [requestForDateRange](#requestfordaterange) - Initiate sync for specific range
 
-## getSyncStatus
+## get
 
-Check the sync history and sync status for a company.
+Get the sync status for a specified sync
+
+### Example Usage
+
+```typescript
+import { CodatSyncCommerce } from "@codat/sync-for-commerce";
+import { GetSyncByIdResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
+
+const sdk = new CodatSyncCommerce({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.sync.get({
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
+}).then((res: GetSyncByIdResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [operations.GetSyncByIdRequest](../../models/operations/getsyncbyidrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `retries`                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                         | :heavy_minus_sign:                                                             | Configuration to override the default retry behavior of the client.            |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+
+
+### Response
+
+**Promise<[operations.GetSyncByIdResponse](../../models/operations/getsyncbyidresponse.md)>**
+
+
+## getLastSuccessfulSync
+
+Gets the status of the last successful sync
+
+### Example Usage
+
+```typescript
+import { CodatSyncCommerce } from "@codat/sync-for-commerce";
+import { GetLastSuccessfulSyncResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
+
+const sdk = new CodatSyncCommerce({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.sync.getLastSuccessfulSync({
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+}).then((res: GetLastSuccessfulSyncResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.GetLastSuccessfulSyncRequest](../../models/operations/getlastsuccessfulsyncrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `retries`                                                                                          | [utils.RetryConfig](../../models/utils/retryconfig.md)                                             | :heavy_minus_sign:                                                                                 | Configuration to override the default retry behavior of the client.                                |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+
+
+### Response
+
+**Promise<[operations.GetLastSuccessfulSyncResponse](../../models/operations/getlastsuccessfulsyncresponse.md)>**
+
+
+## getLatestSync
+
+Gets the latest sync status
+
+### Example Usage
+
+```typescript
+import { CodatSyncCommerce } from "@codat/sync-for-commerce";
+import { GetLatestSyncResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
+
+const sdk = new CodatSyncCommerce({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.sync.getLatestSync({
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+}).then((res: GetLatestSyncResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.GetLatestSyncRequest](../../models/operations/getlatestsyncrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `retries`                                                                          | [utils.RetryConfig](../../models/utils/retryconfig.md)                             | :heavy_minus_sign:                                                                 | Configuration to override the default retry behavior of the client.                |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+
+
+### Response
+
+**Promise<[operations.GetLatestSyncResponse](../../models/operations/getlatestsyncresponse.md)>**
+
+
+## getStatus
+
+Gets a list of sync statuses.
 
 ### Example Usage
 
@@ -26,7 +148,7 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-sdk.sync.getSyncStatus({
+sdk.sync.getStatus({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetSyncStatusResponse) => {
   if (res.statusCode == 200) {
@@ -49,17 +171,15 @@ sdk.sync.getSyncStatus({
 **Promise<[operations.GetSyncStatusResponse](../../models/operations/getsyncstatusresponse.md)>**
 
 
-## requestSync
+## list
 
-Run a Commerce sync from the last successful sync up to the date provided (optional), otherwise UtcNow is used.
-If there was no previously successful sync, the start date in the config is used.
+Gets a list of sync statuses
 
 ### Example Usage
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { RequestSyncResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
-import { ConnectionSourceType, DataConnectionStatus } from "@codat/sync-for-commerce/dist/sdk/models/shared";
+import { ListSyncsResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -67,7 +187,46 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-sdk.sync.requestSync({
+sdk.sync.list({
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+}).then((res: ListSyncsResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `request`                                                                  | [operations.ListSyncsRequest](../../models/operations/listsyncsrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
+| `retries`                                                                  | [utils.RetryConfig](../../models/utils/retryconfig.md)                     | :heavy_minus_sign:                                                         | Configuration to override the default retry behavior of the client.        |
+| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
+
+
+### Response
+
+**Promise<[operations.ListSyncsResponse](../../models/operations/listsyncsresponse.md)>**
+
+
+## request
+
+Run a Commerce sync from the last successful sync up to the date provided (optional), otherwise UtcNow is used.\r\nIf there was no previously successful sync, the start date in the config is used.
+
+### Example Usage
+
+```typescript
+import { CodatSyncCommerce } from "@codat/sync-for-commerce";
+import { RequestSyncResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
+
+const sdk = new CodatSyncCommerce({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.sync.request({
   syncToLatestArgs: {
     syncTo: "2022-10-23T00:00:00.000Z",
   },
@@ -93,16 +252,15 @@ sdk.sync.requestSync({
 **Promise<[operations.RequestSyncResponse](../../models/operations/requestsyncresponse.md)>**
 
 
-## requestSyncForDateRange
+## requestForDateRange
 
-Run a Commerce sync from the specified start date to the specified finish date in the request payload.
+Initiate a sync for the specified start date to the specified finish date in the request payload.
 
 ### Example Usage
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { RequestSyncForDateRangeResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
-import { ConnectionSourceType, DataConnectionStatus } from "@codat/sync-for-commerce/dist/sdk/models/shared";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -110,7 +268,7 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-sdk.sync.requestSyncForDateRange({
+sdk.sync.requestForDateRange({
   syncRange: {
     dateRange: {
       finish: "2022-10-23T00:00:00.000Z",

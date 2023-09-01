@@ -5,23 +5,19 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose } from "class-transformer";
 
-export class CreateConnectionRequestBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "platformKey" })
-    platformKey?: string;
-}
-
-export class CreateConnectionRequest extends SpeakeasyBase {
+export class UpdateConnectionAuthorizationRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    requestBody?: CreateConnectionRequestBody;
+    requestBody?: Record<string, string>;
 
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
+
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+    connectionId: string;
 }
 
-export class CreateConnectionResponse extends SpeakeasyBase {
+export class UpdateConnectionAuthorizationResponse extends SpeakeasyBase {
     /**
      * OK
      */
@@ -30,12 +26,6 @@ export class CreateConnectionResponse extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     contentType: string;
-
-    /**
-     * Your API request was not properly authorized.
-     */
-    @SpeakeasyMetadata()
-    errorMessage?: shared.ErrorMessage;
 
     @SpeakeasyMetadata()
     statusCode: number;

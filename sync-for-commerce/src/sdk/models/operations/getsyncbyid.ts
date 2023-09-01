@@ -5,28 +5,24 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose } from "class-transformer";
 
-export class CreateConnectionRequestBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "platformKey" })
-    platformKey?: string;
-}
-
-export class CreateConnectionRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    requestBody?: CreateConnectionRequestBody;
-
+export class GetSyncByIdRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
+
+    /**
+     * Unique identifier for a sync.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=syncId" })
+    syncId: string;
 }
 
-export class CreateConnectionResponse extends SpeakeasyBase {
+export class GetSyncByIdResponse extends SpeakeasyBase {
     /**
-     * OK
+     * Success
      */
     @SpeakeasyMetadata()
-    connection?: shared.Connection;
+    companySyncStatus?: shared.CompanySyncStatus;
 
     @SpeakeasyMetadata()
     contentType: string;
