@@ -10,7 +10,7 @@ import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
- * Triggering a new sync of expenses to accounting software.
+ * Trigger and monitor expense syncs to accounting software.
  */
 
 export class Sync {
@@ -21,18 +21,325 @@ export class Sync {
     }
 
     /**
+     * Get Sync status
+     *
+     * @remarks
+     * Get the sync status for a specified sync
+     */
+    async get(
+        req: operations.GetSyncByIdRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetSyncByIdResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetSyncByIdRequest(req);
+        }
+
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
+        const url: string = utils.generateURL(
+            baseURL,
+            "/companies/{companyId}/sync/expenses/syncs/{syncId}/status",
+            req
+        );
+
+        const client: AxiosInstance =
+            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url,
+                method: "get",
+                headers: headers,
+                responseType: "arraybuffer",
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetSyncByIdResponse = new operations.GetSyncByIdResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.companySyncStatus = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.CompanySyncStatus
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case [401, 404, 429].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.errorMessage = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * Last successful sync
+     *
+     * @remarks
+     * Gets the status of the last successful sync
+     */
+    async getLastSuccessfulSync(
+        req: operations.GetLastSuccessfulSyncRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetLastSuccessfulSyncResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetLastSuccessfulSyncRequest(req);
+        }
+
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
+        const url: string = utils.generateURL(
+            baseURL,
+            "/companies/{companyId}/sync/expenses/syncs/lastSuccessful/status",
+            req
+        );
+
+        const client: AxiosInstance =
+            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url,
+                method: "get",
+                headers: headers,
+                responseType: "arraybuffer",
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetLastSuccessfulSyncResponse =
+            new operations.GetLastSuccessfulSyncResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.companySyncStatus = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.CompanySyncStatus
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case [401, 404, 429].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.errorMessage = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * Latest sync status
+     *
+     * @remarks
+     * Gets the latest sync status
+     */
+    async getLatestSync(
+        req: operations.GetLatestSyncRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetLatestSyncResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetLatestSyncRequest(req);
+        }
+
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
+        const url: string = utils.generateURL(
+            baseURL,
+            "/companies/{companyId}/sync/expenses/syncs/latest/status",
+            req
+        );
+
+        const client: AxiosInstance =
+            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url,
+                method: "get",
+                headers: headers,
+                responseType: "arraybuffer",
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetLatestSyncResponse = new operations.GetLatestSyncResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.companySyncStatus = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.CompanySyncStatus
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case [401, 404, 429].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.errorMessage = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
      * Initiate sync
      *
      * @remarks
      * Initiate sync of pending transactions.
      */
-    async intiateSync(
-        req: operations.IntiateSyncRequest,
+    async initiateSync(
+        req: operations.InitiateSyncRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.IntiateSyncResponse> {
+    ): Promise<operations.InitiateSyncResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.IntiateSyncRequest(req);
+            req = new operations.InitiateSyncRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -48,7 +355,7 @@ export class Sync {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "postSync", "json");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "initiateSync", "json");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -91,7 +398,7 @@ export class Sync {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.IntiateSyncResponse = new operations.IntiateSyncResponse({
+        const res: operations.InitiateSyncResponse = new operations.InitiateSyncResponse({
             statusCode: httpRes.status,
             contentType: contentType,
             rawResponse: httpRes,
@@ -115,9 +422,114 @@ export class Sync {
                 break;
             case [400, 404, 422].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.codatErrorMessage = utils.objectToClass(
+                    res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.CodatErrorMessage
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * List sync statuses
+     *
+     * @remarks
+     * Gets a list of sync statuses
+     */
+    async list(
+        req: operations.ListSyncsRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.ListSyncsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.ListSyncsRequest(req);
+        }
+
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
+        const url: string = utils.generateURL(
+            baseURL,
+            "/companies/{companyId}/sync/expenses/syncs/list/status",
+            req
+        );
+
+        const client: AxiosInstance =
+            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url,
+                method: "get",
+                headers: headers,
+                responseType: "arraybuffer",
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.ListSyncsResponse = new operations.ListSyncsResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.companySyncStatuses = [];
+                    const resFieldDepth: number = utils.getResFieldDepth(res);
+                    res.companySyncStatuses = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.CompanySyncStatus,
+                        resFieldDepth
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case [401, 404, 429].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.errorMessage = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ErrorMessage
                     );
                 } else {
                     throw new errors.SDKError(

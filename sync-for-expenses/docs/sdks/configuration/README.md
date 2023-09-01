@@ -2,14 +2,15 @@
 
 ## Overview
 
-Companies sync configuration.
+Manage mapping options and sync configuration.
 
 ### Available Operations
 
-* [getCompanyConfiguration](#getcompanyconfiguration) - Get company configuration
-* [saveCompanyConfiguration](#savecompanyconfiguration) - Set company configuration
+* [get](#get) - Get company configuration
+* [getMappingOptions](#getmappingoptions) - Mapping options
+* [set](#set) - Set company configuration
 
-## getCompanyConfiguration
+## get
 
 Gets a companies expense sync configuration
 
@@ -25,7 +26,7 @@ const sdk = new CodatSyncExpenses({
   },
 });
 
-sdk.configuration.getCompanyConfiguration({
+sdk.configuration.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetCompanyConfigurationResponse) => {
   if (res.statusCode == 200) {
@@ -48,15 +49,15 @@ sdk.configuration.getCompanyConfiguration({
 **Promise<[operations.GetCompanyConfigurationResponse](../../models/operations/getcompanyconfigurationresponse.md)>**
 
 
-## saveCompanyConfiguration
+## getMappingOptions
 
-Sets a companies expense sync configuration
+Gets the expense mapping options for a companies accounting software
 
 ### Example Usage
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { SaveCompanyConfigurationResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
+import { GetMappingOptionsResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 
 const sdk = new CodatSyncExpenses({
   security: {
@@ -64,7 +65,46 @@ const sdk = new CodatSyncExpenses({
   },
 });
 
-sdk.configuration.saveCompanyConfiguration({
+sdk.configuration.getMappingOptions({
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+}).then((res: GetMappingOptionsResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.GetMappingOptionsRequest](../../models/operations/getmappingoptionsrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `retries`                                                                                  | [utils.RetryConfig](../../models/utils/retryconfig.md)                                     | :heavy_minus_sign:                                                                         | Configuration to override the default retry behavior of the client.                        |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+
+
+### Response
+
+**Promise<[operations.GetMappingOptionsResponse](../../models/operations/getmappingoptionsresponse.md)>**
+
+
+## set
+
+Sets a companies expense sync configuration
+
+### Example Usage
+
+```typescript
+import { CodatSyncExpenses } from "@codat/sync-for-expenses";
+import { SetCompanyConfigurationResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
+
+const sdk = new CodatSyncExpenses({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.configuration.set({
   companyConfiguration: {
     bankAccount: {
       id: "32",
@@ -77,7 +117,7 @@ sdk.configuration.saveCompanyConfiguration({
     },
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: SaveCompanyConfigurationResponse) => {
+}).then((res: SetCompanyConfigurationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -86,14 +126,14 @@ sdk.configuration.saveCompanyConfiguration({
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                | [operations.SaveCompanyConfigurationRequest](../../models/operations/savecompanyconfigurationrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
-| `retries`                                                                                                | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                   | :heavy_minus_sign:                                                                                       | Configuration to override the default retry behavior of the client.                                      |
-| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
+| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                              | [operations.SetCompanyConfigurationRequest](../../models/operations/setcompanyconfigurationrequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
+| `retries`                                                                                              | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                 | :heavy_minus_sign:                                                                                     | Configuration to override the default retry behavior of the client.                                    |
+| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
 
 
 ### Response
 
-**Promise<[operations.SaveCompanyConfigurationResponse](../../models/operations/savecompanyconfigurationresponse.md)>**
+**Promise<[operations.SetCompanyConfigurationResponse](../../models/operations/setcompanyconfigurationresponse.md)>**
 

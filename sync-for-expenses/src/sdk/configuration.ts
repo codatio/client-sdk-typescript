@@ -10,7 +10,7 @@ import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
- * Companies sync configuration.
+ * Manage mapping options and sync configuration.
  */
 
 export class Configuration {
@@ -26,7 +26,7 @@ export class Configuration {
      * @remarks
      * Gets a companies expense sync configuration
      */
-    async getCompanyConfiguration(
+    async get(
         req: operations.GetCompanyConfigurationRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
@@ -124,18 +124,120 @@ export class Configuration {
     }
 
     /**
+     * Mapping options
+     *
+     * @remarks
+     * Gets the expense mapping options for a companies accounting software
+     */
+    async getMappingOptions(
+        req: operations.GetMappingOptionsRequest,
+        retries?: utils.RetryConfig,
+        config?: AxiosRequestConfig
+    ): Promise<operations.GetMappingOptionsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetMappingOptionsRequest(req);
+        }
+
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
+        const url: string = utils.generateURL(
+            baseURL,
+            "/companies/{companyId}/sync/expenses/mappingOptions",
+            req
+        );
+
+        const client: AxiosInstance =
+            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        let retryConfig: any = retries;
+        if (!retryConfig) {
+            retryConfig = new utils.RetryConfig(
+                "backoff",
+                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                true
+            );
+        }
+        const httpRes: AxiosResponse = await utils.Retry(() => {
+            return client.request({
+                validateStatus: () => true,
+                url: url,
+                method: "get",
+                headers: headers,
+                responseType: "arraybuffer",
+                ...config,
+            });
+        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.GetMappingOptionsResponse = new operations.GetMappingOptionsResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.mappingOptions = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.MappingOptions
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case [401, 404, 429].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.errorMessage = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
      * Set company configuration
      *
      * @remarks
      * Sets a companies expense sync configuration
      */
-    async saveCompanyConfiguration(
-        req: operations.SaveCompanyConfigurationRequest,
+    async set(
+        req: operations.SetCompanyConfigurationRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.SaveCompanyConfigurationResponse> {
+    ): Promise<operations.SetCompanyConfigurationResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.SaveCompanyConfigurationRequest(req);
+            req = new operations.SetCompanyConfigurationRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -198,8 +300,8 @@ export class Configuration {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.SaveCompanyConfigurationResponse =
-            new operations.SaveCompanyConfigurationResponse({
+        const res: operations.SetCompanyConfigurationResponse =
+            new operations.SetCompanyConfigurationResponse({
                 statusCode: httpRes.status,
                 contentType: contentType,
                 rawResponse: httpRes,

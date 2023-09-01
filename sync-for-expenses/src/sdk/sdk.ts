@@ -3,13 +3,17 @@
  */
 
 import * as utils from "../internal/utils";
+import { Accounts } from "./accounts";
+import { Companies } from "./companies";
 import { Configuration } from "./configuration";
 import { Connections } from "./connections";
+import { Customers } from "./customers";
 import { Expenses } from "./expenses";
-import { MappingOptions } from "./mappingoptions";
+import { ManageData } from "./managedata";
 import * as shared from "./models/shared";
+import { PushOperations } from "./pushoperations";
+import { Suppliers } from "./suppliers";
 import { Sync } from "./sync";
-import { SyncStatus } from "./syncstatus";
 import { TransactionStatus } from "./transactionstatus";
 import axios from "axios";
 import { AxiosInstance } from "axios";
@@ -50,8 +54,8 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "prealpha";
-    sdkVersion = "0.34.0";
-    genVersion = "2.84.3";
+    sdkVersion = "0.35.0";
+    genVersion = "2.91.4";
 
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -59,18 +63,31 @@ export class SDKConfiguration {
 }
 
 /**
- * Sync for Expenses API: The API for Sync for Expenses.
+ * Sync for Expenses: The API for Sync for Expenses.
  *
  * @remarks
- * Sync for Expenses is an API and a set of supporting tools. It has been built to enable corporate card and expense management platforms to provide high-quality integrations with multiple accounting platforms through a standardized API.
+ *
+ * Sync for Expenses is an API and a set of supporting tools. It has been built to
+ * enable corporate card and expense management platforms to provide high-quality
+ * integrations with multiple accounting platforms through a standardized API.
  *
  * [Read more...](https://docs.codat.io/sync-for-expenses/overview)
  *
  * [See our OpenAPI spec](https://github.com/codatio/oas)
+ *
+ * <!-- Not seeing the end points you're expecting? We've reorganized our products, and you may be using a [different version of Sync for Commerce](https://docs.codat.io/sync-for-expenses-v1-api#/). -->
  */
 export class CodatSyncExpenses {
     /**
-     * Companies sync configuration.
+     * Accounts
+     */
+    public accounts: Accounts;
+    /**
+     * Create and manage your Codat companies.
+     */
+    public companies: Companies;
+    /**
+     * Manage mapping options and sync configuration.
      */
     public configuration: Configuration;
     /**
@@ -78,21 +95,29 @@ export class CodatSyncExpenses {
      */
     public connections: Connections;
     /**
+     * Customers
+     */
+    public customers: Customers;
+    /**
      * Create expense datasets and upload receipts.
      */
     public expenses: Expenses;
     /**
-     * Mapping options for a companies expenses.
+     * Asynchronously retrieve data from an integration to refresh data in Codat.
      */
-    public mappingOptions: MappingOptions;
+    public manageData: ManageData;
     /**
-     * Triggering a new sync of expenses to accounting software.
+     * Access create, update and delete operations made to an SMB's data connection.
+     */
+    public pushOperations: PushOperations;
+    /**
+     * Suppliers
+     */
+    public suppliers: Suppliers;
+    /**
+     * Trigger and monitor expense syncs to accounting software.
      */
     public sync: Sync;
-    /**
-     * Check the status of ongoing or previous expense syncs.
-     */
-    public syncStatus: SyncStatus;
     /**
      * Retrieve the status of transactions within a sync.
      */
@@ -125,12 +150,16 @@ export class CodatSyncExpenses {
             serverURL: serverURL,
         });
 
+        this.accounts = new Accounts(this.sdkConfiguration);
+        this.companies = new Companies(this.sdkConfiguration);
         this.configuration = new Configuration(this.sdkConfiguration);
         this.connections = new Connections(this.sdkConfiguration);
+        this.customers = new Customers(this.sdkConfiguration);
         this.expenses = new Expenses(this.sdkConfiguration);
-        this.mappingOptions = new MappingOptions(this.sdkConfiguration);
+        this.manageData = new ManageData(this.sdkConfiguration);
+        this.pushOperations = new PushOperations(this.sdkConfiguration);
+        this.suppliers = new Suppliers(this.sdkConfiguration);
         this.sync = new Sync(this.sdkConfiguration);
-        this.syncStatus = new SyncStatus(this.sdkConfiguration);
         this.transactionStatus = new TransactionStatus(this.sdkConfiguration);
     }
 }

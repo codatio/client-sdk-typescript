@@ -2,21 +2,25 @@
 
 ## Overview
 
-Triggering a new sync of expenses to accounting software.
+Trigger and monitor expense syncs to accounting software.
 
 ### Available Operations
 
-* [intiateSync](#intiatesync) - Initiate sync
+* [get](#get) - Get Sync status
+* [getLastSuccessfulSync](#getlastsuccessfulsync) - Last successful sync
+* [getLatestSync](#getlatestsync) - Latest sync status
+* [initiateSync](#initiatesync) - Initiate sync
+* [list](#list) - List sync statuses
 
-## intiateSync
+## get
 
-Initiate sync of pending transactions.
+Get the sync status for a specified sync
 
 ### Example Usage
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { IntiateSyncResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
+import { GetSyncByIdResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 
 const sdk = new CodatSyncExpenses({
   security: {
@@ -24,14 +28,10 @@ const sdk = new CodatSyncExpenses({
   },
 });
 
-sdk.sync.intiateSync({
-  postSync: {
-    datasetIds: [
-      "51a05dfc-2ddf-47cc-b8ca-1ba928fc8167",
-    ],
-  },
+sdk.sync.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: IntiateSyncResponse) => {
+  syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
+}).then((res: GetSyncByIdResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -42,12 +42,174 @@ sdk.sync.intiateSync({
 
 | Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [operations.IntiateSyncRequest](../../models/operations/intiatesyncrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `request`                                                                      | [operations.GetSyncByIdRequest](../../models/operations/getsyncbyidrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
 | `retries`                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                         | :heavy_minus_sign:                                                             | Configuration to override the default retry behavior of the client.            |
 | `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response
 
-**Promise<[operations.IntiateSyncResponse](../../models/operations/intiatesyncresponse.md)>**
+**Promise<[operations.GetSyncByIdResponse](../../models/operations/getsyncbyidresponse.md)>**
+
+
+## getLastSuccessfulSync
+
+Gets the status of the last successful sync
+
+### Example Usage
+
+```typescript
+import { CodatSyncExpenses } from "@codat/sync-for-expenses";
+import { GetLastSuccessfulSyncResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
+
+const sdk = new CodatSyncExpenses({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.sync.getLastSuccessfulSync({
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+}).then((res: GetLastSuccessfulSyncResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.GetLastSuccessfulSyncRequest](../../models/operations/getlastsuccessfulsyncrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `retries`                                                                                          | [utils.RetryConfig](../../models/utils/retryconfig.md)                                             | :heavy_minus_sign:                                                                                 | Configuration to override the default retry behavior of the client.                                |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+
+
+### Response
+
+**Promise<[operations.GetLastSuccessfulSyncResponse](../../models/operations/getlastsuccessfulsyncresponse.md)>**
+
+
+## getLatestSync
+
+Gets the latest sync status
+
+### Example Usage
+
+```typescript
+import { CodatSyncExpenses } from "@codat/sync-for-expenses";
+import { GetLatestSyncResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
+
+const sdk = new CodatSyncExpenses({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.sync.getLatestSync({
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+}).then((res: GetLatestSyncResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.GetLatestSyncRequest](../../models/operations/getlatestsyncrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `retries`                                                                          | [utils.RetryConfig](../../models/utils/retryconfig.md)                             | :heavy_minus_sign:                                                                 | Configuration to override the default retry behavior of the client.                |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+
+
+### Response
+
+**Promise<[operations.GetLatestSyncResponse](../../models/operations/getlatestsyncresponse.md)>**
+
+
+## initiateSync
+
+Initiate sync of pending transactions.
+
+### Example Usage
+
+```typescript
+import { CodatSyncExpenses } from "@codat/sync-for-expenses";
+import { InitiateSyncResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
+
+const sdk = new CodatSyncExpenses({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.sync.initiateSync({
+  initiateSync: {
+    datasetIds: [
+      "8f097b00-74f1-4547-9b5e-6e13b99d488e",
+      "1e91e450-ad2a-4bd4-8269-802d502a94bb",
+    ],
+  },
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+}).then((res: InitiateSyncResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.InitiateSyncRequest](../../models/operations/initiatesyncrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `retries`                                                                        | [utils.RetryConfig](../../models/utils/retryconfig.md)                           | :heavy_minus_sign:                                                               | Configuration to override the default retry behavior of the client.              |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+
+
+### Response
+
+**Promise<[operations.InitiateSyncResponse](../../models/operations/initiatesyncresponse.md)>**
+
+
+## list
+
+Gets a list of sync statuses
+
+### Example Usage
+
+```typescript
+import { CodatSyncExpenses } from "@codat/sync-for-expenses";
+import { ListSyncsResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
+
+const sdk = new CodatSyncExpenses({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.sync.list({
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+}).then((res: ListSyncsResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `request`                                                                  | [operations.ListSyncsRequest](../../models/operations/listsyncsrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
+| `retries`                                                                  | [utils.RetryConfig](../../models/utils/retryconfig.md)                     | :heavy_minus_sign:                                                         | Configuration to override the default retry behavior of the client.        |
+| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
+
+
+### Response
+
+**Promise<[operations.ListSyncsResponse](../../models/operations/listsyncsresponse.md)>**
 

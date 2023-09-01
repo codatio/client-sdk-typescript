@@ -49,5 +49,5 @@ export class ListSyncTransactionsResponse extends SpeakeasyBase {
      * Success
      */
     @SpeakeasyMetadata()
-    transactionMetadataList?: shared.TransactionMetadataList;
+    transactions?: shared.Transactions;
 }
