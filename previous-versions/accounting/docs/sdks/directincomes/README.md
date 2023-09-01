@@ -43,131 +43,188 @@ const sdk = new CodatAccounting({
 sdk.directIncomes.create({
   directIncome: {
     contactRef: {
-      dataType: "pariatur",
-      id: "e0d56d73-b005-4503-a8dc-626ff77c6567",
+      dataType: "delectus",
+      id: "0f873f9d-5c25-4fd3-a0b4-a4a4253c3025",
     },
-    currency: "GBP",
-    currencyRate: 9648.65,
-    id: "5b70e3e4-cfcc-46a9-9ec5-2624d00014ef",
+    currency: "USD",
+    currencyRate: 1037.45,
+    id: "1f42c7e7-dc54-48be-89e4-1a7a215ca12a",
     issueDate: "2022-10-23T00:00:00.000Z",
     lineItems: [
       {
         accountRef: {
-          id: "cea11ac5-3ebb-4658-bf34-0414c5b9acee",
-          name: "Brenda Auer",
+          id: "a9d59988-192c-4fd0-877c-53e7e7d4ee6e",
+          name: "Miss Robin Marks",
         },
-        description: "provident",
-        discountAmount: 9865.72,
-        discountPercentage: 6009.39,
+        description: "porro",
+        discountAmount: 2321.12,
+        discountPercentage: 5621.92,
         itemRef: {
-          id: "2caf1b02-5f1d-4147-98c6-fa2fad0c06c5",
-          name: "Salvador Heller",
+          id: "4e239670-3fec-431c-9082-4d189a36a6b2",
+          name: "Ernest King",
         },
-        quantity: 1699.37,
-        subTotal: 7794.77,
-        taxAmount: 8682.31,
+        quantity: 4576.32,
+        subTotal: 351.52,
+        taxAmount: 4724.55,
         taxRateRef: {
-          effectiveTaxRate: 8577.05,
-          id: "14fc43b7-0bca-488f-a70c-43351c3dd1eb",
-          name: "Elijah Kuhic",
+          effectiveTaxRate: 6309.47,
+          id: "a60c8fe4-6e61-477d-b9db-3b70ffbb6970",
+          name: "Phil Kuhlman DVM",
         },
-        totalAmount: 3643.32,
+        totalAmount: 2046.97,
         trackingCategoryRefs: [
           {
-            id: "4f23f1c0-a586-4c3a-a7d7-b67feef5e142",
-            name: "Freddie Heller PhD",
+            id: "097ef7c2-06e6-41b0-9308-714c20a3d986",
+            name: "Georgia Rolfson",
           },
           {
-            id: "beceff7c-4b15-46e9-a782-75eea7681746",
-            name: "Frank Huels",
-          },
-          {
-            id: "799b7956-c0b0-4fa0-bb20-a40e7c4ae640",
-            name: "Monica Cronin",
-          },
-          {
-            id: "657b01a0-7c08-4fd3-921c-257930d6f093",
-            name: "Earl Towne",
+            id: "5c3fe655-74db-4af9-8a7c-98f13af28db2",
+            name: "Timmy Cruickshank",
           },
         ],
-        unitAmount: 3024.13,
+        unitAmount: 2633.86,
       },
       {
         accountRef: {
-          id: "6d366dfa-1011-4a09-9b3e-c8b53862de1a",
-          name: "Wilfred Buckridge",
+          id: "f3ded356-d7e1-44b2-9cd9-8196d55af69a",
+          name: "Bernadette Green",
         },
-        description: "debitis",
-        discountAmount: 4416.46,
-        discountPercentage: 1519.16,
+        description: "natus",
+        discountAmount: 6847.46,
+        discountPercentage: 9064.68,
         itemRef: {
-          id: "e521f903-03df-4c33-8397-fffa6d1d3209",
-          name: "Mrs. Ora Sanford",
+          id: "33681c23-c39a-47c0-a17c-b12c5ba825fe",
+          name: "Julia Sanford",
         },
-        quantity: 6484.42,
-        subTotal: 7648.54,
-        taxAmount: 5632.6,
+        quantity: 7634.76,
+        subTotal: 7329.06,
+        taxAmount: 6677.35,
         taxRateRef: {
-          effectiveTaxRate: 9895.78,
-          id: "e1961ce9-be41-4c86-9dd7-d9719d07b200",
-          name: "Zachary Lakin",
+          effectiveTaxRate: 4047.58,
+          id: "fbfec932-af68-413d-a5bf-ecec2dd6916f",
+          name: "Marta Schimmel",
         },
-        totalAmount: 8385.83,
+        totalAmount: 8284.89,
         trackingCategoryRefs: [
           {
-            id: "967df8fd-882a-48e6-8be6-20cd9c5afdd0",
-            name: "Sheri Douglas",
+            id: "70ec60e6-0758-494d-a1c1-4cd90227e37c",
+            name: "Mable Monahan",
+          },
+          {
+            id: "f1a5491a-be97-451b-906d-23e03e69815a",
+            name: "Stewart Moen",
+          },
+          {
+            id: "cde9e729-c9d4-4f2d-8a44-640ca60db73a",
+            name: "Josefina Mills",
           },
         ],
-        unitAmount: 1353.76,
+        unitAmount: 2884.94,
+      },
+      {
+        accountRef: {
+          id: "67dc0d8d-a561-4220-a6ab-8f277485c197",
+          name: "Marguerite Wiegand",
+        },
+        description: "aut",
+        discountAmount: 8615.52,
+        discountPercentage: 6337.32,
+        itemRef: {
+          id: "7a089fc4-4db2-4745-b0e5-cc7c6d0cbcfd",
+          name: "Owen Feest",
+        },
+        quantity: 7072.58,
+        subTotal: 4228.03,
+        taxAmount: 9964.5,
+        taxRateRef: {
+          effectiveTaxRate: 4077.32,
+          id: "23bcecab-50ae-4e5e-8da8-b9af6ad05486",
+          name: "Lonnie Rempel I",
+        },
+        totalAmount: 7771.39,
+        trackingCategoryRefs: [
+          {
+            id: "e2d176dc-1c43-4d40-b61d-171157cbe5ee",
+            name: "Darla Koelpin Sr.",
+          },
+          {
+            id: "840772f3-2e3b-449d-be0f-23b7b6d9948d",
+            name: "Tricia Schumm",
+          },
+          {
+            id: "477680fc-7a17-4a82-a5e8-2fd28d1040a7",
+            name: "Perry Brekke",
+          },
+        ],
+        unitAmount: 1850.41,
       },
     ],
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "quasi",
+    note: "distinctio",
     paymentAllocations: [
       {
         allocation: {
           allocatedOnDate: "2022-10-23T00:00:00.000Z",
           currency: "EUR",
-          currencyRate: 6484.91,
-          totalAmount: 8876.25,
+          currencyRate: 7102.56,
+          totalAmount: 1033.28,
         },
         payment: {
           accountRef: {
-            id: "1d87ecc5-fdce-4a8e-ba88-311662cda6d7",
-            name: "Jacquelyn Casper",
+            id: "835008f4-61ce-453e-9144-98a9ba460add",
+            name: "Lionel Torphy Jr.",
+          },
+          currency: "EUR",
+          currencyRate: 2396.46,
+          id: "7daa9182-a49d-4962-9d3c-affc198eea44",
+          note: "quis",
+          paidOnDate: "2022-10-23T00:00:00.000Z",
+          reference: "dignissimos",
+          totalAmount: 6043.08,
+        },
+      },
+      {
+        allocation: {
+          allocatedOnDate: "2022-10-23T00:00:00.000Z",
+          currency: "EUR",
+          currencyRate: 8037.85,
+          totalAmount: 8241.62,
+        },
+        payment: {
+          accountRef: {
+            id: "440ea98b-ecce-4048-ade0-d56d73b00550",
+            name: "Tasha Leannon",
           },
           currency: "USD",
-          currencyRate: 394.9,
-          id: "66237d42-2786-46db-8a74-9e3984511cc7",
-          note: "corporis",
+          currencyRate: 1299.24,
+          id: "6ff77c65-675f-45b7-8e3e-4cfcc6a91ec5",
+          note: "qui",
           paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "incidunt",
-          totalAmount: 9911.81,
+          reference: "sed",
+          totalAmount: 2650.82,
         },
       },
     ],
-    reference: "alias",
+    reference: "at",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    subTotal: 380.04,
+    subTotal: 50.37,
     supplementalData: {
       content: {
-        "non": {
-          "minima": "tempore",
-          "rerum": "molestiae",
-          "ipsam": "quos",
+        "quae": {
+          "repudiandae": "hic",
+          "non": "minima",
         },
       },
     },
-    taxAmount: 7965.25,
-    totalAmount: 7512.82,
+    taxAmount: 7743.39,
+    totalAmount: 8885.73,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 587166,
+  timeoutInMinutes: 657173,
 }).then((res: CreateDirectIncomeResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -214,7 +271,7 @@ sdk.directIncomes.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "tempora",
+  directIncomeId: "dicta",
 }).then((res: DownloadDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -262,7 +319,7 @@ const sdk = new CodatAccounting({
 sdk.directIncomes.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "exercitationem",
+  directIncomeId: "vitae",
 }).then((res: GetDirectIncomeResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -309,8 +366,8 @@ sdk.directIncomes.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "voluptas",
-  timeoutInMinutes: 157397,
+  directIncomeId: "laborum",
+  timeoutInMinutes: 794929,
 }).then((res: GetDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -408,7 +465,7 @@ sdk.directIncomes.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "delectus",
+  query: "minima",
 }).then((res: ListDirectIncomesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -454,7 +511,7 @@ const sdk = new CodatAccounting({
 sdk.directIncomes.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "alias",
+  directIncomeId: "neque",
 }).then((res: ListDirectIncomeAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -503,12 +560,12 @@ const sdk = new CodatAccounting({
 
 sdk.directIncomes.uploadAttachment({
   requestBody: {
-    content: "consequatur".encode(),
-    requestBody: "suscipit",
+    content: "debitis".encode(),
+    requestBody: "quidem",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "occaecati",
+  directIncomeId: "quidem",
 }).then((res: UploadDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -40,38 +40,30 @@ const sdk = new CodatAccounting({
 sdk.transfers.create({
   transfer: {
     contactRef: {
-      dataType: "magni",
-      id: "b46097ef-a44a-48df-b40c-dd1850bf5a0c",
+      dataType: "quos",
+      id: "732be509-c508-4713-9f06-f0bce55a8687",
     },
     date: "2022-10-23T00:00:00.000Z",
     depositedRecordRefs: [
       {
-        dataType: "accountTransaction",
-        id: "b7860afe-a6c6-4351-b2d5-3086c10a856a",
+        dataType: "journalEntry",
+        id: "c97905ff-797a-45da-a64b-7e778a74baaa",
       },
       {
         dataType: "journalEntry",
-        id: "9d4665ba-9725-4987-9dc0-cecbc78bd248",
-      },
-      {
-        dataType: "transfer",
-        id: "c6e8b240-b1c0-46c9-8064-9d2bdd9e58dd",
-      },
-      {
-        dataType: "accountTransaction",
-        id: "1665c312-c7f5-450d-8721-c176292dd787",
+        id: "832bb658-62d2-4a31-b9b1-4aa6bdec7f44",
       },
     ],
-    description: "blanditiis",
+    description: "dolore",
     from: {
       accountRef: {
-        id: "e71bf8c1-4184-41fe-9f87-ea103a9806ea",
-        name: "Tonya Beier",
+        id: "232e9a5d-ee1a-4cd7-aa89-981b58fe682e",
+        name: "Jasmine Collins",
       },
-      amount: 5840.2,
-      currency: "USD",
+      amount: 8972.88,
+      currency: "GBP",
     },
-    id: "ef17b817-58d4-4ab5-bc80-dea77fd9931e",
+    id: "3d58e824-7d12-42c9-b676-78fa27958367",
     metadata: {
       isDeleted: false,
     },
@@ -79,41 +71,25 @@ sdk.transfers.create({
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "quasi": {
-          "aliquid": "impedit",
-        },
-        "tenetur": {
-          "magni": "quisquam",
-          "dolores": "aliquid",
-          "culpa": "distinctio",
-          "corrupti": "dolore",
-        },
-        "doloremque": {
-          "quia": "totam",
-          "repudiandae": "id",
-          "aperiam": "commodi",
-        },
-        "ducimus": {
-          "quibusdam": "autem",
+        "facere": {
+          "aut": "iusto",
+          "excepturi": "doloremque",
+          "natus": "ea",
         },
       },
     },
     to: {
       accountRef: {
-        id: "b73a34ca-434c-4db3-949a-19f252078a18",
-        name: "Dr. Oscar Renner",
+        id: "faeb8648-0730-4d8f-8b89-d9ca6075656f",
+        name: "James Trantow",
       },
-      amount: 8886.44,
-      currency: "EUR",
+      amount: 4052.87,
+      currency: "USD",
     },
     trackingCategoryRefs: [
       {
-        id: "b5cf0616-ee92-4275-b5bd-60daa0e149cd",
-        name: "Sadie Schmitt",
-      },
-      {
-        id: "362bbf92-3900-415f-a689-9cf4ffeb9bec",
-        name: "Ms. Sarah Douglas",
+        id: "55e2d06a-3070-4d6e-a97f-581fabaaa7d8",
+        name: "Frances Barrows",
       },
     ],
   },
@@ -166,7 +142,7 @@ const sdk = new CodatAccounting({
 sdk.transfers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  transferId: "voluptatum",
+  transferId: "eaque",
 }).then((res: GetTransferResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -264,7 +240,7 @@ sdk.transfers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "vitae",
+  query: "quam",
 }).then((res: ListTransfersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -313,12 +289,12 @@ const sdk = new CodatAccounting({
 
 sdk.transfers.uploadAttachment({
   requestBody: {
-    content: "eveniet".encode(),
-    requestBody: "expedita",
+    content: "laboriosam".encode(),
+    requestBody: "asperiores",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  transferId: "consequatur",
+  transferId: "delectus",
 }).then((res: UploadTransferAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response

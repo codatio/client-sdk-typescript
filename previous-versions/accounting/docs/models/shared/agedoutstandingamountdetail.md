@@ -1,4 +1,4 @@
-# AgedCreditorAgedCurrencyOutstandingAgedOutstandingAmountAmountsOutstandingByDataType
+# AgedOutstandingAmountDetail
 
 
 ## Fields

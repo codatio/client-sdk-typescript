@@ -34,7 +34,7 @@ const sdk = new CodatAccounting({
 
 sdk.taxRates.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  taxRateId: "nam",
+  taxRateId: "dolorum",
 }).then((res: GetTaxRateResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -82,7 +82,7 @@ sdk.taxRates.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "delectus",
+  query: "voluptate",
 }).then((res: ListTaxRatesResponse) => {
   if (res.statusCode == 200) {
     // handle response

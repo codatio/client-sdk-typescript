@@ -97,44 +97,35 @@ sdk.billPayments.create({
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
     note: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
-    paymentMethodRef: {
-      id: "10abdcab-6267-4669-ae1e-c00221b335d8",
-      name: "Donnie Romaguera",
-    },
-    reference: "debitis",
+    paymentMethodRef: "beatae",
+    reference: "ipsa",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "temporibus": {
-          "atque": "quibusdam",
-          "sit": "quo",
-          "veniam": "aliquam",
+        "assumenda": {
+          "fuga": "tempore",
+          "commodi": "fugit",
+          "suscipit": "voluptate",
+          "nisi": "aliquid",
         },
         "provident": {
-          "earum": "doloremque",
-          "ipsum": "alias",
-          "doloremque": "tempora",
-          "perspiciatis": "quam",
+          "accusamus": "ab",
+          "itaque": "quisquam",
         },
-        "atque": {
-          "ex": "architecto",
-          "a": "laborum",
-          "veritatis": "quod",
-        },
-        "a": {
-          "accusantium": "commodi",
+        "eaque": {
+          "qui": "consequuntur",
         },
       },
     },
     supplierRef: {
-      id: "88f77c1f-fc71-4dca-963f-2a3c80a97ff3",
-      supplierName: "adipisci",
+      id: "1b335d89-acb3-4ecf-9a8d-0c549ef03004",
+      supplierName: "perspiciatis",
     },
     totalAmount: 1329.54,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 250298,
+  timeoutInMinutes: 462097,
 }).then((res: CreateBillPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -198,7 +189,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.billPayments.delete({
-  billPaymentId: "optio",
+  billPaymentId: "atque",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: DeleteBillPaymentResponse) => {
@@ -246,7 +237,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.billPayments.get({
-  billPaymentId: "illum",
+  billPaymentId: "officia",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetBillPaymentsResponse) => {
   if (res.statusCode == 200) {
@@ -344,7 +335,7 @@ sdk.billPayments.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "at",
+  query: "ex",
 }).then((res: ListBillPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

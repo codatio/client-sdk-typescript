@@ -33,7 +33,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateSupplierResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressType, SupplierStatus } from "@codat/accounting/dist/sdk/models/shared";
+import { AccountingAddressType, SupplierStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -45,41 +45,61 @@ sdk.suppliers.create({
   supplier: {
     addresses: [
       {
-        city: "Piercechester",
-        country: "Equatorial Guinea",
-        line1: "eveniet",
-        line2: "cupiditate",
-        postalCode: "55154-6889",
-        region: "optio",
-        type: AddressType.Unknown,
+        city: "Jaimeside",
+        country: "Kenya",
+        line1: "aspernatur",
+        line2: "nam",
+        postalCode: "64301",
+        region: "labore",
+        type: AccountingAddressType.Delivery,
+      },
+      {
+        city: "West Jasminworth",
+        country: "Mexico",
+        line1: "libero",
+        line2: "nobis",
+        postalCode: "99416",
+        region: "ad",
+        type: AccountingAddressType.Unknown,
+      },
+      {
+        city: "Jarretland",
+        country: "Taiwan",
+        line1: "unde",
+        line2: "provident",
+        postalCode: "34064-8990",
+        region: "commodi",
+        type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "harum",
-    defaultCurrency: "fugit",
-    emailAddress: "velit",
-    id: "9606cf90-ad98-49e1-a347-15acda044faa",
+    contactName: "nam",
+    defaultCurrency: "vel",
+    emailAddress: "impedit",
+    id: "cb2822b4-a985-40ed-af4a-1e9c4ae55140",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "01224 658 999",
-    registrationNumber: "ex",
+    phone: "(877) 492-8687",
+    registrationNumber: "corporis",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     status: SupplierStatus.Unknown,
     supplementalData: {
       content: {
-        "mollitia": {
-          "consequuntur": "quae",
-          "saepe": "fugit",
+        "earum": {
+          "consequatur": "nesciunt",
+        },
+        "porro": {
+          "asperiores": "aut",
         },
       },
     },
-    supplierName: "accusamus",
-    taxNumber: "cupiditate",
+    supplierName: "consequuntur",
+    taxNumber: "natus",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 73561,
+  timeoutInMinutes: 305162,
 }).then((res: CreateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -126,7 +146,7 @@ sdk.suppliers.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "totam",
+  supplierId: "architecto",
 }).then((res: DownloadSupplierAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -173,7 +193,7 @@ const sdk = new CodatAccounting({
 
 sdk.suppliers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  supplierId: "eligendi",
+  supplierId: "excepturi",
 }).then((res: GetSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -220,7 +240,7 @@ sdk.suppliers.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "iure",
+  supplierId: "sed",
 }).then((res: GetSupplierAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -317,7 +337,7 @@ sdk.suppliers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "quis",
+  query: "enim",
 }).then((res: ListSuppliersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -363,7 +383,7 @@ const sdk = new CodatAccounting({
 sdk.suppliers.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "distinctio",
+  supplierId: "architecto",
 }).then((res: ListSupplierAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -403,7 +423,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { UpdateSupplierResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { AddressType, SupplierStatus } from "@codat/accounting/dist/sdk/models/shared";
+import { AccountingAddressType, SupplierStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -415,55 +435,63 @@ sdk.suppliers.update({
   supplier: {
     addresses: [
       {
-        city: "New Harvey",
-        country: "Serbia",
-        line1: "earum",
-        line2: "amet",
-        postalCode: "56072-4241",
-        region: "nihil",
-        type: AddressType.Delivery,
+        city: "Turnerside",
+        country: "Falkland Islands (Malvinas)",
+        line1: "dicta",
+        line2: "quo",
+        postalCode: "56923-5949",
+        region: "beatae",
+        type: AccountingAddressType.Delivery,
+      },
+      {
+        city: "Boston",
+        country: "Palau",
+        line1: "adipisci",
+        line2: "a",
+        postalCode: "11734",
+        region: "omnis",
+        type: AccountingAddressType.Delivery,
+      },
+      {
+        city: "Lake Harley",
+        country: "Cambodia",
+        line1: "aliquid",
+        line2: "voluptatem",
+        postalCode: "18760",
+        region: "quis",
+        type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "nulla",
-    defaultCurrency: "sint",
-    emailAddress: "nemo",
-    id: "ce3044be-4eb3-4b31-8b50-3c3140d8772c",
+    contactName: "unde",
+    defaultCurrency: "quos",
+    emailAddress: "rem",
+    id: "c6720c31-03f1-4a40-80f3-ec8688fd8ec6",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "+44 25691 154789",
-    registrationNumber: "ad",
+    phone: "01224 658 999",
+    registrationNumber: "consequatur",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     status: SupplierStatus.Unknown,
     supplementalData: {
       content: {
-        "possimus": {
-          "tempore": "sapiente",
-          "iure": "modi",
-        },
-        "rerum": {
-          "quis": "labore",
-          "earum": "natus",
-        },
-        "blanditiis": {
-          "vitae": "accusamus",
-        },
-        "molestiae": {
-          "corporis": "tenetur",
-          "accusantium": "debitis",
-          "exercitationem": "ducimus",
+        "rem": {
+          "alias": "officia",
+          "mollitia": "animi",
+          "officiis": "vero",
+          "repudiandae": "sit",
         },
       },
     },
-    supplierName: "voluptatibus",
-    taxNumber: "enim",
+    supplierName: "aut",
+    taxNumber: "labore",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  supplierId: "eius",
-  timeoutInMinutes: 898500,
+  supplierId: "accusamus",
+  timeoutInMinutes: 719170,
 }).then((res: UpdateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response

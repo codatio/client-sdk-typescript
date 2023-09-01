@@ -6,7 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountRef } from "./accountref";
 import { BillPaymentLine } from "./billpaymentline";
 import { Metadata } from "./metadata";
-import { PaymentMethodRef } from "./paymentmethodref";
 import { SupplementalData } from "./supplementaldata";
 import { SupplierRef } from "./supplierref";
 import { Expose, Type } from "class-transformer";
@@ -249,8 +248,7 @@ export class BillPayment extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "paymentMethodRef" })
-    @Type(() => PaymentMethodRef)
-    paymentMethodRef?: PaymentMethodRef;
+    paymentMethodRef?: any;
 
     /**
      * Additional information associated with the payment.

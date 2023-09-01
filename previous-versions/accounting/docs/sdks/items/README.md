@@ -41,46 +41,46 @@ sdk.items.create({
   item: {
     billItem: {
       accountRef: {
-        id: "4b1e9c09-7eda-4623-842e-1a9237e9984c",
-        name: "Michael Quigley",
+        id: "b7a73df4-0ca0-4d76-97c1-641bbf055271",
+        name: "Mr. Alan Haley",
       },
-      description: "sint",
+      description: "assumenda",
       taxRateRef: {
-        effectiveTaxRate: 9051.54,
-        id: "891923c1-8ca8-4d69-8568-9214fa20207e",
-        name: "Marta Murphy I",
+        effectiveTaxRate: 3834.21,
+        id: "06dd1b28-272b-4c9c-b221-697b1880fcbb",
+        name: "Verna Marks",
       },
-      unitPrice: 5291.71,
+      unitPrice: 702.82,
     },
-    code: "eligendi",
-    id: "d7f1bc2c-abaf-47fc-accb-a4bef0df68ea",
+    code: "nostrum",
+    id: "f670bd17-8483-4165-beeb-3b6e241c3109",
     invoiceItem: {
       accountRef: {
-        id: "edb2ee70-be06-49fb-b6ad-d704080e0a3f",
-        name: "Arnold Ernser",
+        id: "983663c6-6dcb-4b7d-b6cb-09c8b408e071",
+        name: "Minnie Kirlin",
       },
-      description: "similique",
+      description: "saepe",
       taxRateRef: {
-        effectiveTaxRate: 465.74,
-        id: "34b11499-243a-4fa6-987a-472b709a153e",
-        name: "Mr. Theresa Fay III",
+        effectiveTaxRate: 2505.06,
+        id: "fee101d9-780a-410c-87b9-5040d6c8b2a5",
+        name: "John Aufderhar",
       },
-      unitPrice: 5221.85,
+      unitPrice: 249.94,
     },
     isBillItem: false,
     isInvoiceItem: false,
-    itemStatus: ItemStatus.Unknown,
+    itemStatus: ItemStatus.Active,
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    name: "Ms. Delbert Turner",
+    name: "Brenda Greenholt",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    type: ItemType.Service,
+    type: ItemType.Unknown,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 111385,
+  timeoutInMinutes: 4409,
 }).then((res: CreateItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -127,7 +127,7 @@ const sdk = new CodatAccounting({
 
 sdk.items.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  itemId: "aperiam",
+  itemId: "sit",
 }).then((res: GetItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -224,7 +224,7 @@ sdk.items.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "animi",
+  query: "iste",
 }).then((res: ListItemsResponse) => {
   if (res.statusCode == 200) {
     // handle response

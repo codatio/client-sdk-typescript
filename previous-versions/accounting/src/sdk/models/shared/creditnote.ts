@@ -3,9 +3,9 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AccountingCustomerRef } from "./accountingcustomerref";
 import { CreditNoteLineItem } from "./creditnotelineitem";
 import { CreditNoteStatus } from "./creditnotestatus";
-import { CustomerRef } from "./customerref";
 import { Items } from "./items";
 import { Metadata } from "./metadata";
 import { SupplementalData } from "./supplementaldata";
@@ -121,8 +121,8 @@ export class CreditNote extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "customerRef" })
-    @Type(() => CustomerRef)
-    customerRef?: CustomerRef;
+    @Type(() => AccountingCustomerRef)
+    customerRef?: AccountingCustomerRef;
 
     /**
      * Percentage rate (from 0 to 100) of discounts applied to the credit note.

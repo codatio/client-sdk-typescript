@@ -1,4 +1,4 @@
-# AddressType
+# AccountingAddressType
 
 The type of the address
 

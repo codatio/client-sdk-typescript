@@ -5,16 +5,16 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export class PaymentMethodRef extends SpeakeasyBase {
+export class AgedOutstandingAmountDetail extends SpeakeasyBase {
     /**
-     * `id` from the Payment Methods data type
+     * The amount outstanding.
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "id" })
-    id?: string;
+    @Expose({ name: "amount" })
+    amount?: number;
 
     /**
-     * `name` from the Payment Methods data type
+     * Name of data type with outstanding amount for given period.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "name" })
