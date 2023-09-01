@@ -17,7 +17,7 @@ features:
     globalServerURLs: 2.82.0
     retries: 2.81.1
 typescript:
-  version: 0.1.0
+  version: 0.33.1
   author: Codat
   description: Use Codat's Files API to upload your SMB customers' files.
   maxMethodParams: 0
