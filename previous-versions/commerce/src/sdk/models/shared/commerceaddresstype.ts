@@ -5,7 +5,7 @@
 /**
  * The type of the address
  */
-export enum AddressType {
+export enum CommerceAddressType {
     Billing = "Billing",
     Delivery = "Delivery",
     Order = "Order",

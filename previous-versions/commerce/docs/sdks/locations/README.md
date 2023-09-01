@@ -25,7 +25,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
 import { GetLocationResponse } from "@codat/commerce/dist/sdk/models/operations";
-import { AddressType } from "@codat/commerce/dist/sdk/models/shared";
 
 const sdk = new CodatCommerce({
   security: {
@@ -72,7 +71,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
 import { ListLocationsResponse } from "@codat/commerce/dist/sdk/models/operations";
-import { AddressType } from "@codat/commerce/dist/sdk/models/shared";
 
 const sdk = new CodatCommerce({
   security: {

@@ -27,7 +27,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
 import { GetPaymentResponse } from "@codat/commerce/dist/sdk/models/operations";
-import { PaymentStatus } from "@codat/commerce/dist/sdk/models/shared";
 
 const sdk = new CodatCommerce({
   security: {
@@ -76,7 +75,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
 import { GetPaymentMethodResponse } from "@codat/commerce/dist/sdk/models/operations";
-import { PaymentMethodStatus } from "@codat/commerce/dist/sdk/models/shared";
 
 const sdk = new CodatCommerce({
   security: {
@@ -123,7 +121,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
 import { ListPaymentsResponse } from "@codat/commerce/dist/sdk/models/operations";
-import { PaymentStatus } from "@codat/commerce/dist/sdk/models/shared";
 
 const sdk = new CodatCommerce({
   security: {
@@ -173,7 +170,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
 import { ListPaymentMethodsResponse } from "@codat/commerce/dist/sdk/models/operations";
-import { PaymentMethodStatus } from "@codat/commerce/dist/sdk/models/shared";
 
 const sdk = new CodatCommerce({
   security: {

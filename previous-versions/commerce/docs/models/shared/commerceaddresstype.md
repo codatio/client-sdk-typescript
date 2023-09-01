@@ -1,4 +1,4 @@
-# AddressType
+# CommerceAddressType
 
 The type of the address
 

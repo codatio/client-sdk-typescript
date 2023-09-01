@@ -3,7 +3,7 @@
  */
 
 /**
- * Status of the payment
+ * Type of payment.
  */
 export enum PaymentType {
     Cash = "Cash",

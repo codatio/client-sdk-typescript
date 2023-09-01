@@ -1,8 +1,9 @@
 <!-- Start SDK Example Usage -->
+
+
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
 import { GetCompanyInfoResponse } from "@codat/commerce/dist/sdk/models/operations";
-import { AddressType, CompanyInfoWeblinkType, PhoneNumberType } from "@codat/commerce/dist/sdk/models/shared";
 
 const sdk = new CodatCommerce({
   security: {
