@@ -3,28 +3,24 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { RecordRef } from "./recordref";
+import { ItemRef } from "./itemref";
+import { LoanRef } from "./loanref";
 import { Expose, Type } from "class-transformer";
+
+export enum ReportItemsLoanTransactionType {
+    Investment = "Investment",
+    Repayment = "Repayment",
+    Interest = "Interest",
+    AccuredInterest = "AccuredInterest",
+}
 
 export class ReportItems extends SpeakeasyBase {
     /**
-     * The loan outstanding balance.  This may not equal totalDrawdowns - totalRepayments due to interest which has been accrued.
+     * The loan transaction amount.
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "balance" })
-    balance?: number;
-
-    /**
-     * The description of the object being referred to. E.g. the account.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "description" })
-    description?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "recordRef" })
-    @Type(() => RecordRef)
-    recordRef?: RecordRef;
+    @Expose({ name: "amount" })
+    amount?: number;
 
     /**
      * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
@@ -50,20 +46,20 @@ export class ReportItems extends SpeakeasyBase {
      * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "startDate" })
-    startDate?: string;
+    @Expose({ name: "date" })
+    date?: string;
 
-    /**
-     * The total loan drawdowns.
-     */
     @SpeakeasyMetadata()
-    @Expose({ name: "totalDrawdowns" })
-    totalDrawdowns?: number;
+    @Expose({ name: "itemRef" })
+    @Type(() => ItemRef)
+    itemRef?: ItemRef;
 
-    /**
-     * The total loan repayments which includes capital plus any interest.
-     */
     @SpeakeasyMetadata()
-    @Expose({ name: "totalRepayments" })
-    totalRepayments?: number;
+    @Expose({ name: "loanRef" })
+    @Type(() => LoanRef)
+    loanRef?: LoanRef;
+
+    @SpeakeasyMetadata()
+    @Expose({ name: "loanTransactionType" })
+    loanTransactionType?: ReportItemsLoanTransactionType;
 }

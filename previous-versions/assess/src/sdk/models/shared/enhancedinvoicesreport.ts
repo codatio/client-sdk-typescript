@@ -7,13 +7,6 @@ import { EnhancedInvoiceReportItem } from "./enhancedinvoicereportitem";
 import { ReportInfo } from "./reportinfo";
 import { Expose, Type } from "class-transformer";
 
-export class EnhancedInvoicesReportReportItems extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: EnhancedInvoiceReportItem })
-    @Expose({ name: "invoices" })
-    @Type(() => EnhancedInvoiceReportItem)
-    invoices?: EnhancedInvoiceReportItem[];
-}
-
 /**
  * The enhanced invoices report takes the key elements of the Invoices report verifying those marked as paid in the accounting platform have actually been paid by matching with the bank statement.
  */
@@ -26,8 +19,8 @@ export class EnhancedInvoicesReport extends SpeakeasyBase {
     @Type(() => ReportInfo)
     reportInfo?: ReportInfo;
 
-    @SpeakeasyMetadata({ elemType: EnhancedInvoicesReportReportItems })
+    @SpeakeasyMetadata({ elemType: EnhancedInvoiceReportItem })
     @Expose({ name: "reportItems" })
-    @Type(() => EnhancedInvoicesReportReportItems)
-    reportItems?: EnhancedInvoicesReportReportItems[];
+    @Type(() => EnhancedInvoiceReportItem)
+    reportItems?: EnhancedInvoiceReportItem[];
 }

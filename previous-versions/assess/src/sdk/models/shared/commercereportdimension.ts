@@ -5,13 +5,13 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Type } from "class-transformer";
 
-export class ReportDimensionItems extends SpeakeasyBase {
+export class CommerceReportDimensionItems extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "index" })
     index?: number;
 }
 
-export class ReportDimension extends SpeakeasyBase {
+export class CommerceReportDimension extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "displayName" })
     displayName?: string;
@@ -20,10 +20,10 @@ export class ReportDimension extends SpeakeasyBase {
     @Expose({ name: "index" })
     index?: number;
 
-    @SpeakeasyMetadata({ elemType: ReportDimensionItems })
+    @SpeakeasyMetadata({ elemType: CommerceReportDimensionItems })
     @Expose({ name: "items" })
-    @Type(() => ReportDimensionItems)
-    items?: ReportDimensionItems[];
+    @Type(() => CommerceReportDimensionItems)
+    items?: CommerceReportDimensionItems[];
 
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
