@@ -42,5 +42,5 @@ To get your authorization header from the Codat Portal:
 
 | Library | Description | npm |
 | :- | :- | :- |
-| **[Accounting](https://github.com/codatio/client-sdk-typescript/tree/main/legacy/accounting)** | Access standardized accounting data from our accounting integrations.. | [@codat/accounting](https://www.npmjs.com/package/@codat/accounting) |
+| **[Accounting](https://github.com/codatio/client-sdk-typescript/tree/main/previous-versions/accounting)** | Access standardized accounting data from our accounting integrations.. | [@codat/accounting](https://www.npmjs.com/package/@codat/accounting) |
             

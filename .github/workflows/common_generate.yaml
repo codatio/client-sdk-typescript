@@ -14,8 +14,8 @@ jobs:
     with:
       speakeasy_version: latest
       openapi_doc_location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Common.yaml
-      languages:
-      - typescript: ./common
+      languages: |-
+        - typescript: ./common
       create_release: true
       mode: pr
       force: ${{ github.event.inputs.force }}

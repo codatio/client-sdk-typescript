@@ -14,8 +14,8 @@ jobs:
     with:
       speakeasy_version: latest
       openapi_doc_location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Commerce.yaml
-      languages:
-      - typescript: ./commerce
+      languages: |-
+        - typescript: ./commerce
       create_release: true
       mode: pr
       force: ${{ github.event.inputs.force }}
