@@ -1,0 +1,140 @@
+# webhooks
+
+## Overview
+
+Manage webhooks, rules, and events.
+
+### Available Operations
+
+* [create](#create) - Create webhook
+* [get](#get) - Get webhook
+* [list](#list) - List webhooks
+
+## create
+
+Create a new webhook configuration
+
+### Example Usage
+
+```typescript
+import { CodatPlatform } from "@codat/platform";
+import { CreateRuleResponse } from "@codat/platform/dist/sdk/models/operations";
+
+const sdk = new CodatPlatform({
+  security: {
+    authHeader: "",
+  },
+});
+
+sdk.webhooks.create({
+  companyId: "39b73b17-cc2e-429e-915d-71654e9dcd1e",
+  notifiers: {
+    emails: [
+      "info@client.com",
+      "info@client.com",
+      "info@client.com",
+    ],
+    webhook: "https://webhook.client.com",
+  },
+  type: "doloribus",
+}).then((res: CreateRuleResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `request`                                                           | [shared.CreateRule](../../models/shared/createrule.md)              | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `retries`                                                           | [utils.RetryConfig](../../models/utils/retryconfig.md)              | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| `config`                                                            | [AxiosRequestConfig](https://axios-http.com/docs/req_config)        | :heavy_minus_sign:                                                  | Available config options for making requests.                       |
+
+
+### Response
+
+**Promise<[operations.CreateRuleResponse](../../models/operations/createruleresponse.md)>**
+
+
+## get
+
+Get a single webhook
+
+### Example Usage
+
+```typescript
+import { CodatPlatform } from "@codat/platform";
+import { GetWebhookResponse } from "@codat/platform/dist/sdk/models/operations";
+
+const sdk = new CodatPlatform({
+  security: {
+    authHeader: "",
+  },
+});
+
+sdk.webhooks.get({
+  ruleId: "7318949f-c008-4936-a8ff-10d7ab563fa6",
+}).then((res: GetWebhookResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `request`                                                                    | [operations.GetWebhookRequest](../../models/operations/getwebhookrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `retries`                                                                    | [utils.RetryConfig](../../models/utils/retryconfig.md)                       | :heavy_minus_sign:                                                           | Configuration to override the default retry behavior of the client.          |
+| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
+
+
+### Response
+
+**Promise<[operations.GetWebhookResponse](../../models/operations/getwebhookresponse.md)>**
+
+
+## list
+
+List webhooks that you are subscribed to.
+
+### Example Usage
+
+```typescript
+import { CodatPlatform } from "@codat/platform";
+import { ListRulesResponse } from "@codat/platform/dist/sdk/models/operations";
+
+const sdk = new CodatPlatform({
+  security: {
+    authHeader: "",
+  },
+});
+
+sdk.webhooks.list({
+  orderBy: "-modifiedDate",
+  page: 1,
+  pageSize: 100,
+  query: "sapiente",
+}).then((res: ListRulesResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `request`                                                                  | [operations.ListRulesRequest](../../models/operations/listrulesrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
+| `retries`                                                                  | [utils.RetryConfig](../../models/utils/retryconfig.md)                     | :heavy_minus_sign:                                                         | Configuration to override the default retry behavior of the client.        |
+| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
+
+
+### Response
+
+**Promise<[operations.ListRulesResponse](../../models/operations/listrulesresponse.md)>**
+
