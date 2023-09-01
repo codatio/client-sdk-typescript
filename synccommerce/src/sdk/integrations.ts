@@ -26,7 +26,7 @@ export class Integrations {
      * @remarks
      * Retrieve Integration branding assets.
      */
-    async getIntegrationBranding(
+    async getBranding(
         req: operations.GetIntegrationBrandingRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
@@ -111,7 +111,7 @@ export class Integrations {
      * @remarks
      * Retrieve a list of available integrations support by data type and state of release.
      */
-    async listIntegrations(
+    async list(
         req: operations.ListIntegrationsRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig

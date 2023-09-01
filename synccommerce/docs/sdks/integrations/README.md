@@ -6,10 +6,10 @@ View useful information about codat's integrations.
 
 ### Available Operations
 
-* [getIntegrationBranding](#getintegrationbranding) - Get branding for an integration
-* [listIntegrations](#listintegrations) - List integrations
+* [getBranding](#getbranding) - Get branding for an integration
+* [list](#list) - List integrations
 
-## getIntegrationBranding
+## getBranding
 
 Retrieve Integration branding assets.
 
@@ -25,7 +25,7 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-sdk.integrations.getIntegrationBranding({
+sdk.integrations.getBranding({
   platformKey: "magnam",
 }).then((res: GetIntegrationBrandingResponse) => {
   if (res.statusCode == 200) {
@@ -48,7 +48,7 @@ sdk.integrations.getIntegrationBranding({
 **Promise<[operations.GetIntegrationBrandingResponse](../../models/operations/getintegrationbrandingresponse.md)>**
 
 
-## listIntegrations
+## list
 
 Retrieve a list of available integrations support by data type and state of release.
 
@@ -64,7 +64,7 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-sdk.integrations.listIntegrations({
+sdk.integrations.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,

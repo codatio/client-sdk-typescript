@@ -19,6 +19,7 @@ export * from "./dataconnectionerror";
 export * from "./dataconnectionstatus";
 export * from "./datatypefeature";
 export * from "./daterange";
+export * from "./errormessage";
 export * from "./featurestate";
 export * from "./featuretype";
 export * from "./fees";

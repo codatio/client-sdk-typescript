@@ -26,7 +26,7 @@ export class Sync {
      * @remarks
      * Gets a list of sync statuses.
      */
-    async getSyncStatus(
+    async getStatus(
         req: operations.GetSyncStatusRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
@@ -99,7 +99,7 @@ export class Sync {
      * @remarks
      * Run a Commerce sync from the last successful sync up to the date provided (optional), otherwise UtcNow is used.\r\nIf there was no previously successful sync, the start date in the config is used.
      */
-    async requestSync(
+    async request(
         req: operations.RequestSyncRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
@@ -197,7 +197,7 @@ export class Sync {
      * @remarks
      * Initiate a sync for the specified start date to the specified finish date in the request payload.
      */
-    async requestSyncForDateRange(
+    async requestForDateRange(
         req: operations.RequestSyncForDateRangeRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig

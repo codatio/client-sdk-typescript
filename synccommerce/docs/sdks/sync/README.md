@@ -6,11 +6,11 @@ Initiate and monitor the sync of company data into accounting software.
 
 ### Available Operations
 
-* [getSyncStatus](#getsyncstatus) - Get sync status
-* [requestSync](#requestsync) - Initiate new sync
-* [requestSyncForDateRange](#requestsyncfordaterange) - Initiate sync for specific range
+* [getStatus](#getstatus) - Get sync status
+* [request](#request) - Initiate new sync
+* [requestForDateRange](#requestfordaterange) - Initiate sync for specific range
 
-## getSyncStatus
+## getStatus
 
 Gets a list of sync statuses.
 
@@ -26,7 +26,7 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-sdk.sync.getSyncStatus({
+sdk.sync.getStatus({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetSyncStatusResponse) => {
   if (res.statusCode == 200) {
@@ -49,7 +49,7 @@ sdk.sync.getSyncStatus({
 **Promise<[operations.GetSyncStatusResponse](../../models/operations/getsyncstatusresponse.md)>**
 
 
-## requestSync
+## request
 
 Run a Commerce sync from the last successful sync up to the date provided (optional), otherwise UtcNow is used.\r\nIf there was no previously successful sync, the start date in the config is used.
 
@@ -65,7 +65,7 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-sdk.sync.requestSync({
+sdk.sync.request({
   syncToLatestArgs: {
     syncTo: "2022-10-23T00:00:00.000Z",
   },
@@ -91,7 +91,7 @@ sdk.sync.requestSync({
 **Promise<[operations.RequestSyncResponse](../../models/operations/requestsyncresponse.md)>**
 
 
-## requestSyncForDateRange
+## requestForDateRange
 
 Initiate a sync for the specified start date to the specified finish date in the request payload.
 
@@ -107,7 +107,7 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-sdk.sync.requestSyncForDateRange({
+sdk.sync.requestForDateRange({
   syncRange: {
     dateRange: {
       finish: "2022-10-23T00:00:00.000Z",

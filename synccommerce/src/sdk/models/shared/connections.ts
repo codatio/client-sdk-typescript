@@ -8,7 +8,7 @@ import { Links } from "./links";
 import { Expose, Type } from "class-transformer";
 
 /**
- * Success
+ * OK
  */
 export class Connections extends SpeakeasyBase {
     @SpeakeasyMetadata()

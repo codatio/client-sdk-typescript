@@ -112,97 +112,6 @@ export class AdvancedControls {
     }
 
     /**
-     * Create connection
-     *
-     * @remarks
-     * Creates a connection for the company by providing a valid platformKey.
-     */
-    async createConnection(
-        req: operations.CreateConnectionRequest,
-        retries?: utils.RetryConfig,
-        config?: AxiosRequestConfig
-    ): Promise<operations.CreateConnectionResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateConnectionRequest(req);
-        }
-
-        const baseURL: string = utils.templateUrl(
-            this.sdkConfiguration.serverURL,
-            this.sdkConfiguration.serverDefaults
-        );
-        const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections", req);
-
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-        try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "string");
-        } catch (e: unknown) {
-            if (e instanceof Error) {
-                throw new Error(`Error serializing request body, cause: ${e.message}`);
-            }
-        }
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
-        headers["Accept"] = "application/json";
-
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
-
-        let retryConfig: any = retries;
-        if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
-        }
-        const httpRes: AxiosResponse = await utils.Retry(() => {
-            return client.request({
-                validateStatus: () => true,
-                url: url,
-                method: "post",
-                headers: headers,
-                responseType: "arraybuffer",
-                data: reqBody,
-                ...config,
-            });
-        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) {
-            throw new Error(`status code not found in response: ${httpRes}`);
-        }
-
-        const res: operations.CreateConnectionResponse = new operations.CreateConnectionResponse({
-            statusCode: httpRes.status,
-            contentType: contentType,
-            rawResponse: httpRes,
-        });
-        const decodedRes = new TextDecoder().decode(httpRes?.data);
-        switch (true) {
-            case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.connection = utils.objectToClass(JSON.parse(decodedRes), shared.Connection);
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-        }
-
-        return res;
-    }
-
-    /**
      * Get company configuration
      *
      * @remarks
@@ -290,25 +199,25 @@ export class AdvancedControls {
     }
 
     /**
-     * List connections
+     * List companies
      *
      * @remarks
-     * List the connections for a company.
+     * Returns a list of companies.
      */
-    async listConnections(
-        req: operations.ListConnectionsRequest,
+    async listCompanies(
+        req: operations.ListCompaniesRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.ListConnectionsResponse> {
+    ): Promise<operations.ListCompaniesResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListConnectionsRequest(req);
+            req = new operations.ListCompaniesRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/companies/{companyId}/connections", req);
+        const url: string = baseURL.replace(/\/$/, "") + "/companies";
 
         const client: AxiosInstance =
             this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
@@ -346,7 +255,7 @@ export class AdvancedControls {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.ListConnectionsResponse = new operations.ListConnectionsResponse({
+        const res: operations.ListCompaniesResponse = new operations.ListCompaniesResponse({
             statusCode: httpRes.status,
             contentType: contentType,
             rawResponse: httpRes,
@@ -355,10 +264,7 @@ export class AdvancedControls {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.connections = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.Connections
-                    );
+                    res.companies = utils.objectToClass(JSON.parse(decodedRes), shared.Companies);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -446,101 +352,6 @@ export class AdvancedControls {
                         JSON.parse(decodedRes),
                         shared.Configuration
                     );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-        }
-
-        return res;
-    }
-
-    /**
-     * Update connection
-     *
-     * @remarks
-     * Update a data connection
-     */
-    async updateConnection(
-        req: operations.UpdateConnectionRequest,
-        retries?: utils.RetryConfig,
-        config?: AxiosRequestConfig
-    ): Promise<operations.UpdateConnectionResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateConnectionRequest(req);
-        }
-
-        const baseURL: string = utils.templateUrl(
-            this.sdkConfiguration.serverURL,
-            this.sdkConfiguration.serverDefaults
-        );
-        const url: string = utils.generateURL(
-            baseURL,
-            "/companies/{companyId}/connections/{connectionId}",
-            req
-        );
-
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-        try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "updateConnection", "json");
-        } catch (e: unknown) {
-            if (e instanceof Error) {
-                throw new Error(`Error serializing request body, cause: ${e.message}`);
-            }
-        }
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
-        headers["Accept"] = "application/json";
-
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
-
-        let retryConfig: any = retries;
-        if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
-        }
-        const httpRes: AxiosResponse = await utils.Retry(() => {
-            return client.request({
-                validateStatus: () => true,
-                url: url,
-                method: "patch",
-                headers: headers,
-                responseType: "arraybuffer",
-                data: reqBody,
-                ...config,
-            });
-        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) {
-            throw new Error(`status code not found in response: ${httpRes}`);
-        }
-
-        const res: operations.UpdateConnectionResponse = new operations.UpdateConnectionResponse({
-            statusCode: httpRes.status,
-            contentType: contentType,
-            rawResponse: httpRes,
-        });
-        const decodedRes = new TextDecoder().decode(httpRes?.data);
-        switch (true) {
-            case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.connection = utils.objectToClass(JSON.parse(decodedRes), shared.Connection);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,

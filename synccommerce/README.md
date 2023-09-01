@@ -49,28 +49,28 @@ sdk.advancedControls.createCompany({
 ### [advancedControls](docs/sdks/advancedcontrols/README.md)
 
 * [createCompany](docs/sdks/advancedcontrols/README.md#createcompany) - Create company
-* [createConnection](docs/sdks/advancedcontrols/README.md#createconnection) - Create connection
 * [getConfiguration](docs/sdks/advancedcontrols/README.md#getconfiguration) - Get company configuration
-* [listConnections](docs/sdks/advancedcontrols/README.md#listconnections) - List connections
+* [listCompanies](docs/sdks/advancedcontrols/README.md#listcompanies) - List companies
 * [setConfiguration](docs/sdks/advancedcontrols/README.md#setconfiguration) - Set configuration
-* [updateConnection](docs/sdks/advancedcontrols/README.md#updateconnection) - Update connection
 
 ### [connections](docs/sdks/connections/README.md)
 
+* [create](docs/sdks/connections/README.md#create) - Create connection
 * [getSyncFlowUrl](docs/sdks/connections/README.md#getsyncflowurl) - Retrieve sync flow url
-* [listCompanies](docs/sdks/connections/README.md#listcompanies) - List companies
+* [list](docs/sdks/connections/README.md#list) - List connections
 * [updateAuthorization](docs/sdks/connections/README.md#updateauthorization) - Update authorization
+* [updateConnection](docs/sdks/connections/README.md#updateconnection) - Update connection
 
 ### [integrations](docs/sdks/integrations/README.md)
 
-* [getIntegrationBranding](docs/sdks/integrations/README.md#getintegrationbranding) - Get branding for an integration
-* [listIntegrations](docs/sdks/integrations/README.md#listintegrations) - List integrations
+* [getBranding](docs/sdks/integrations/README.md#getbranding) - Get branding for an integration
+* [list](docs/sdks/integrations/README.md#list) - List integrations
 
 ### [sync](docs/sdks/sync/README.md)
 
-* [getSyncStatus](docs/sdks/sync/README.md#getsyncstatus) - Get sync status
-* [requestSync](docs/sdks/sync/README.md#requestsync) - Initiate new sync
-* [requestSyncForDateRange](docs/sdks/sync/README.md#requestsyncfordaterange) - Initiate sync for specific range
+* [getStatus](docs/sdks/sync/README.md#getstatus) - Get sync status
+* [request](docs/sdks/sync/README.md#request) - Initiate new sync
+* [requestForDateRange](docs/sdks/sync/README.md#requestfordaterange) - Initiate sync for specific range
 
 ### [syncFlowPreferences](docs/sdks/syncflowpreferences/README.md)
 

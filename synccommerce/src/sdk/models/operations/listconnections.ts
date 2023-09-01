@@ -37,13 +37,19 @@ export class ListConnectionsRequest extends SpeakeasyBase {
 
 export class ListConnectionsResponse extends SpeakeasyBase {
     /**
-     * Success
+     * OK
      */
     @SpeakeasyMetadata()
     connections?: shared.Connections;
 
     @SpeakeasyMetadata()
     contentType: string;
+
+    /**
+     * Your `query` parameter was not correctly formed
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
 
     @SpeakeasyMetadata()
     statusCode: number;
