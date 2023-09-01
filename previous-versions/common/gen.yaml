@@ -9,7 +9,7 @@ generation:
   singleTagPerOp: false
   telemetryEnabled: true
 typescript:
-  version: 0.35.1
+  version: 0.0.0
   author: Codat
   description: Manage the building blocks of Codat, including companies, connections,
     and more.

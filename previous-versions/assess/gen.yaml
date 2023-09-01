@@ -9,7 +9,7 @@ generation:
   singleTagPerOp: false
   telemetryEnabled: true
 typescript:
-  version: 0.31.0
+  version: 0.0.0
   author: Codat
   description: Make credit decisions backed by enhanced financials, metrics, reports,
     and data integrity features.
