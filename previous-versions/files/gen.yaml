@@ -9,7 +9,7 @@ generation:
   singleTagPerOp: false
   telemetryEnabled: true
 typescript:
-  version: 0.33.1
+  version: 0.0.0
   author: Codat
   description: Use Codat's Files API to upload your SMB customers' files.
   maxMethodParams: 0
