@@ -40,38 +40,76 @@ const sdk = new CodatAccounting({
 sdk.journalEntries.create({
   journalEntry: {
     createdOn: "2022-10-23T00:00:00.000Z",
-    description: "possimus",
-    id: "15d8cc30-6b78-46b3-937b-d204a1f340bb",
+    description: "illum",
+    id: "290278eb-4ae9-4d64-961e-91500323b2c0",
     journalLines: [
       {
         accountRef: {
-          id: "6f677a48-519c-4337-8902-848826bb03c7",
-          name: "Rufus Cronin",
+          id: "b924771f-5669-4e5b-bec7-626649d84eb9",
+          name: "Jesus Runte",
         },
-        currency: "debitis",
-        description: "dolore",
-        netAmount: 4472.46,
+        currency: "dolores",
+        description: "odit",
+        netAmount: 4764.38,
+        tracking: {
+          recordRefs: [
+            {
+              dataType: "transfer",
+              id: "0b88fb87-d6fa-45b6-a8db-f812f83b1ca6",
+            },
+            {
+              dataType: "accountTransaction",
+              id: "9ffc5619-29cc-4a95-a0a1-395918da1d48",
+            },
+          ],
+        },
+      },
+      {
+        accountRef: {
+          id: "e78e3cf8-e114-43da-9308-b27a08af2218",
+          name: "Bertha Fay",
+        },
+        currency: "nesciunt",
+        description: "illum",
+        netAmount: 9253.93,
         tracking: {
           recordRefs: [
             {
               dataType: "invoice",
-              id: "1a88ed72-a2d4-4af4-958a-c2d0f0f58c3b",
+              id: "56ccce47-0cd2-4147-b6e6-152cf01d0d8c",
             },
             {
-              dataType: "accountTransaction",
-              id: "7b47040d-0d98-4e9d-82c5-e306f5576f5c",
+              dataType: "journalEntry",
+              id: "a4b9a5bf-935d-4fe9-b4fa-4b1e9c097eda",
             },
+            {
+              dataType: "invoice",
+              id: "23442e1a-9237-4e99-84c8-0b479e891923",
+            },
+          ],
+        },
+      },
+      {
+        accountRef: {
+          id: "c18ca8d6-9c56-4892-94fa-20207e4fae03",
+          name: "Colin Schultz",
+        },
+        currency: "ab",
+        description: "cum",
+        netAmount: 7949.86,
+        tracking: {
+          recordRefs: [
             {
               dataType: "transfer",
-              id: "eb0286d0-bc43-4b18-ab37-8f2fcff81ddf",
+              id: "abaf7fc2-ccba-44be-b0df-68eaedb2ee70",
             },
           ],
         },
       },
     ],
     journalRef: {
-      id: "7e088f74-ef54-4c92-96e8-926313bb6fc2",
-      name: "Sidney Stark",
+      id: "be069fb3-6add-4704-880e-0a3fc73a5a03",
+      name: "Mrs. Patty Block",
     },
     metadata: {
       isDeleted: false,
@@ -79,15 +117,29 @@ sdk.journalEntries.create({
     modifiedDate: "2022-10-23T00:00:00.000Z",
     postedOn: "2022-10-23T00:00:00.000Z",
     recordRef: {
-      dataType: "journalEntry",
-      id: "96b66ad6-e3e1-4d9d-bb66-0334a11aa1d5",
+      dataType: "invoice",
+      id: "3afa6987-a472-4b70-9a15-3e2230106853",
     },
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "quia": {
-          "nihil": "assumenda",
-          "debitis": "perspiciatis",
+        "saepe": {
+          "perspiciatis": "consectetur",
+        },
+        "eos": {
+          "vitae": "aperiam",
+          "animi": "quisquam",
+          "possimus": "vitae",
+          "ad": "quibusdam",
+        },
+        "praesentium": {
+          "quisquam": "ipsum",
+          "perferendis": "ex",
+          "quidem": "esse",
+          "praesentium": "nisi",
+        },
+        "libero": {
+          "at": "amet",
         },
       },
     },
@@ -95,7 +147,7 @@ sdk.journalEntries.create({
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 213487,
+  timeoutInMinutes: 690696,
 }).then((res: CreateJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -168,7 +220,7 @@ const sdk = new CodatAccounting({
 sdk.journalEntries.delete({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  journalEntryId: "pariatur",
+  journalEntryId: "fugiat",
 }).then((res: DeleteJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -215,7 +267,7 @@ const sdk = new CodatAccounting({
 
 sdk.journalEntries.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalEntryId: "labore",
+  journalEntryId: "sed",
 }).then((res: GetJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -312,7 +364,7 @@ sdk.journalEntries.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "laboriosam",
+  query: "aut",
 }).then((res: ListJournalEntriesResponse) => {
   if (res.statusCode == 200) {
     // handle response

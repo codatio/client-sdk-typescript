@@ -3,11 +3,10 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AccountingCustomerRef } from "./accountingcustomerref";
 import { AccountRef } from "./accountref";
-import { CustomerRef } from "./customerref";
 import { Metadata } from "./metadata";
 import { PaymentLine } from "./paymentline";
-import { PaymentMethodRef } from "./paymentmethodref";
 import { SupplementalData } from "./supplementaldata";
 import { Expose, Type } from "class-transformer";
 
@@ -752,8 +751,8 @@ export class Payment extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "customerRef" })
-    @Type(() => CustomerRef)
-    customerRef?: CustomerRef;
+    @Type(() => AccountingCustomerRef)
+    customerRef?: AccountingCustomerRef;
 
     /**
      * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
@@ -815,8 +814,7 @@ export class Payment extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "paymentMethodRef" })
-    @Type(() => PaymentMethodRef)
-    paymentMethodRef?: PaymentMethodRef;
+    paymentMethodRef?: any;
 
     /**
      * Friendly reference for the payment.

@@ -3,9 +3,9 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AccountingCustomerRef } from "./accountingcustomerref";
 import { AccountRef } from "./accountref";
 import { BilledToType } from "./billedtotype";
-import { CustomerRef } from "./customerref";
 import { ItemRef } from "./itemref";
 import { ProjectRef } from "./projectref";
 import { TaxRateRef } from "./taxrateref";
@@ -23,8 +23,8 @@ export class BillCreditNoteLineItemTracking extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "customerRef" })
-    @Type(() => CustomerRef)
-    customerRef?: CustomerRef;
+    @Type(() => AccountingCustomerRef)
+    customerRef?: AccountingCustomerRef;
 
     @SpeakeasyMetadata()
     @Expose({ name: "isBilledTo" })

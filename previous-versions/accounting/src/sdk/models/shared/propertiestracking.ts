@@ -3,8 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AccountingCustomerRef } from "./accountingcustomerref";
 import { BilledToType } from "./billedtotype";
-import { CustomerRef } from "./customerref";
 import { ProjectRef } from "./projectref";
 import { TrackingCategoryRef } from "./trackingcategoryref";
 import { Expose, Type } from "class-transformer";
@@ -20,8 +20,8 @@ export class Propertiestracking extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "customerRef" })
-    @Type(() => CustomerRef)
-    customerRef?: CustomerRef;
+    @Type(() => AccountingCustomerRef)
+    customerRef?: AccountingCustomerRef;
 
     @SpeakeasyMetadata()
     @Expose({ name: "isBilledTo" })

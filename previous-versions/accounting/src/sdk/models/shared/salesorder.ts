@@ -3,8 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AccountingCustomerRef } from "./accountingcustomerref";
 import { Addressesitems } from "./addressesitems";
-import { CustomerRef } from "./customerref";
 import { Metadata } from "./metadata";
 import { SalesOrderInvoiceStatus } from "./salesorderinvoicestatus";
 import { SalesOrderLineItem } from "./salesorderlineitem";
@@ -124,8 +124,8 @@ export class SalesOrder extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "customerRef" })
-    @Type(() => CustomerRef)
-    customerRef?: CustomerRef;
+    @Type(() => AccountingCustomerRef)
+    customerRef?: AccountingCustomerRef;
 
     /**
      * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:

@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { AddressType } from "./addresstype";
+import { AccountingAddressType } from "./accountingaddresstype";
 import { Expose } from "class-transformer";
 
 export class Addressesitems extends SpeakeasyBase {
@@ -54,5 +54,5 @@ export class Addressesitems extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type: AddressType;
+    type: AccountingAddressType;
 }

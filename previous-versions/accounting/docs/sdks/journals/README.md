@@ -41,21 +41,21 @@ sdk.journals.create({
   journal: {
     createdOn: "2022-10-23T00:00:00.000Z",
     hasChildren: false,
-    id: "70e768a9-6bb3-4987-8839-8eba1bbf7143",
-    journalCode: "dolor",
+    id: "a1f340bb-36f6-477a-8851-9c3374902848",
+    journalCode: "quos",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    name: "Essie Jacobs",
-    parentId: "molestias",
+    name: "Mrs. Candice Rau",
+    parentId: "nihil",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: JournalStatus.Unknown,
-    type: "voluptas",
+    status: JournalStatus.Archived,
+    type: "consequuntur",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 270667,
+  timeoutInMinutes: 142769,
 }).then((res: CreateJournalResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -102,7 +102,7 @@ const sdk = new CodatAccounting({
 
 sdk.journals.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalId: "explicabo",
+  journalId: "enim",
 }).then((res: GetJournalResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -199,7 +199,7 @@ sdk.journals.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "incidunt",
+  query: "debitis",
 }).then((res: ListJournalsResponse) => {
   if (res.statusCode == 200) {
     // handle response

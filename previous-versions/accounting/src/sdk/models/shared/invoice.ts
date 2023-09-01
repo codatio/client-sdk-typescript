@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { CustomerRef } from "./customerref";
+import { AccountingCustomerRef } from "./accountingcustomerref";
 import { InvoiceLineItem } from "./invoicelineitem";
 import { InvoiceStatus } from "./invoicestatus";
 import { Items } from "./items";
@@ -112,8 +112,8 @@ export class Invoice extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "customerRef" })
-    @Type(() => CustomerRef)
-    customerRef?: CustomerRef;
+    @Type(() => AccountingCustomerRef)
+    customerRef?: AccountingCustomerRef;
 
     /**
      * Percentage rate (from 0 to 100) of discounts applied to the invoice. For example: A 5% discount will return a value of `5`, not `0.05`.
