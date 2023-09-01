@@ -5,8 +5,14 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export class HRef extends SpeakeasyBase {
+/**
+ * Details of the API key.
+ */
+export class CreateApiKey extends SpeakeasyBase {
+    /**
+     * A meaningful name assigned to the API key.
+     */
     @SpeakeasyMetadata()
-    @Expose({ name: "href" })
-    href?: string;
+    @Expose({ name: "name" })
+    name?: string;
 }

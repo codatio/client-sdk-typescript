@@ -1,8 +1,8 @@
-# HRef
+# CreateConnectionRequestBody
 
 
 ## Fields
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `href`             | *string*           | :heavy_minus_sign: | N/A                |
+| `platformKey`      | *string*           | :heavy_minus_sign: | N/A                |

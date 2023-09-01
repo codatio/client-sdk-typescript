@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 /**
- * Your `query` parameter was not correctly formed
+ * Your API request was not properly authorized.
  */
 export class ErrorMessage extends SpeakeasyBase {
     @SpeakeasyMetadata()

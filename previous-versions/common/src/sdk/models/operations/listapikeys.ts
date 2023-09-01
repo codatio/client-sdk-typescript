@@ -6,15 +6,13 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class DeleteCompanyConnectionRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
-    companyId: string;
+export class ListApiKeysResponse extends SpeakeasyBase {
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata()
+    apiKeys?: shared.ApiKeys;
 
-    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
-    connectionId: string;
-}
-
-export class DeleteCompanyConnectionResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
 
