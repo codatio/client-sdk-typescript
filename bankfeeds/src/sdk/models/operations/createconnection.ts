@@ -5,24 +5,28 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
+import { Expose } from "class-transformer";
 
-export class GenerateSourceAccountCredentialsRequest extends SpeakeasyBase {
+export class CreateConnectionRequestBody extends SpeakeasyBase {
+    @SpeakeasyMetadata()
+    @Expose({ name: "platformKey" })
+    platformKey?: string;
+}
+
+export class CreateConnectionRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    requestBody: Uint8Array;
+    requestBody?: CreateConnectionRequestBody;
 
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
-
-    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
-    connectionId: string;
 }
 
-export class GenerateSourceAccountCredentialsResponse extends SpeakeasyBase {
+export class CreateConnectionResponse extends SpeakeasyBase {
     /**
-     * Success
+     * OK
      */
     @SpeakeasyMetadata()
-    bankAccountCredentials?: shared.BankAccountCredentials;
+    connection?: shared.Connection;
 
     @SpeakeasyMetadata()
     contentType: string;

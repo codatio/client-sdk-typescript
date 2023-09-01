@@ -1,4 +1,4 @@
-# GetCompanyConnectionResponse
+# GetConnectionResponse
 
 
 ## Fields

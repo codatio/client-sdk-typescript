@@ -29,12 +29,12 @@ export class Connections {
      * Use the [List Integrations](https://docs.codat.io/bank-feeds-api#/operations/list-integrations) endpoint to access valid platform keys.
      */
     async create(
-        req: operations.CreateDataConnectionRequest,
+        req: operations.CreateConnectionRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.CreateDataConnectionResponse> {
+    ): Promise<operations.CreateConnectionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateDataConnectionRequest(req);
+            req = new operations.CreateConnectionRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -89,12 +89,11 @@ export class Connections {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.CreateDataConnectionResponse =
-            new operations.CreateDataConnectionResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes,
-            });
+        const res: operations.CreateConnectionResponse = new operations.CreateConnectionResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
@@ -137,12 +136,12 @@ export class Connections {
      * This operation is not reversible. The end user would need to reauthorize a new data connection if you wish to view new data for this company.
      */
     async delete(
-        req: operations.DeleteCompanyConnectionRequest,
+        req: operations.DeleteConnectionRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.DeleteCompanyConnectionResponse> {
+    ): Promise<operations.DeleteConnectionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteCompanyConnectionRequest(req);
+            req = new operations.DeleteConnectionRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -190,12 +189,11 @@ export class Connections {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.DeleteCompanyConnectionResponse =
-            new operations.DeleteCompanyConnectionResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes,
-            });
+        const res: operations.DeleteConnectionResponse = new operations.DeleteConnectionResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
@@ -227,12 +225,12 @@ export class Connections {
      * Returns a specific connection for a company when valid identifiers are provided. If the identifiers are for a deleted company and/or connection, a not found response is returned.
      */
     async get(
-        req: operations.GetCompanyConnectionRequest,
+        req: operations.GetConnectionRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.GetCompanyConnectionResponse> {
+    ): Promise<operations.GetConnectionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetCompanyConnectionRequest(req);
+            req = new operations.GetConnectionRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -280,12 +278,11 @@ export class Connections {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.GetCompanyConnectionResponse =
-            new operations.GetCompanyConnectionResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes,
-            });
+        const res: operations.GetConnectionResponse = new operations.GetConnectionResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
@@ -327,12 +324,12 @@ export class Connections {
      * List the connections for a company.
      */
     async list(
-        req: operations.ListCompanyConnectionsRequest,
+        req: operations.ListConnectionsRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.ListCompanyConnectionsResponse> {
+    ): Promise<operations.ListConnectionsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListCompanyConnectionsRequest(req);
+            req = new operations.ListConnectionsRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -377,12 +374,11 @@ export class Connections {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.ListCompanyConnectionsResponse =
-            new operations.ListCompanyConnectionsResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes,
-            });
+        const res: operations.ListConnectionsResponse = new operations.ListConnectionsResponse({
+            statusCode: httpRes.status,
+            contentType: contentType,
+            rawResponse: httpRes,
+        });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
@@ -426,7 +422,7 @@ export class Connections {
      * @remarks
      * This allows you to deauthorize a connection, without deleting it from Codat. This means you can still view any data that has previously been pulled into Codat, and also lets you re-authorize in future if your customer wishes to resume sharing their data.
      */
-    async unlinkConnection(
+    async unlink(
         req: operations.UnlinkConnectionRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig

@@ -8,7 +8,7 @@ import { Expose } from "class-transformer";
 /**
  * The result from POSTing a Bank Account mapping.
  */
-export class AccountMappingResult extends SpeakeasyBase {
+export class BankFeedAccountMappingResponse extends SpeakeasyBase {
     /**
      * Error returned during the post request
      */

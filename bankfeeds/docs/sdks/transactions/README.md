@@ -7,8 +7,8 @@ Transactions represent debits and credits from a source account.
 ### Available Operations
 
 * [create](#create) - Create bank account transactions
-* [getOperation](#getoperation) - Get push operation
-* [listOperations](#listoperations) - List push operations
+* [getCreateOperation](#getcreateoperation) - Get create operation
+* [listCreateOperations](#listcreateoperations) - List create operations
 
 ## create
 
@@ -74,7 +74,7 @@ sdk.transactions.create({
 **Promise<[operations.CreateBankTransactionsResponse](../../models/operations/createbanktransactionsresponse.md)>**
 
 
-## getOperation
+## getCreateOperation
 
 Retrieve push operation.
 
@@ -82,7 +82,7 @@ Retrieve push operation.
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { GetPushOperationResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
+import { GetCreateOperationResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -90,10 +90,10 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-sdk.transactions.getOperation({
+sdk.transactions.getCreateOperation({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   pushOperationKey: "d019da1f-fe78-4f09-bb00-74f15471b5e6",
-}).then((res: GetPushOperationResponse) => {
+}).then((res: GetCreateOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -102,27 +102,27 @@ sdk.transactions.getOperation({
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.GetPushOperationRequest](../../models/operations/getpushoperationrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `retries`                                                                                | [utils.RetryConfig](../../models/utils/retryconfig.md)                                   | :heavy_minus_sign:                                                                       | Configuration to override the default retry behavior of the client.                      |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.GetCreateOperationRequest](../../models/operations/getcreateoperationrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `retries`                                                                                    | [utils.RetryConfig](../../models/utils/retryconfig.md)                                       | :heavy_minus_sign:                                                                           | Configuration to override the default retry behavior of the client.                          |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
 
-**Promise<[operations.GetPushOperationResponse](../../models/operations/getpushoperationresponse.md)>**
+**Promise<[operations.GetCreateOperationResponse](../../models/operations/getcreateoperationresponse.md)>**
 
 
-## listOperations
+## listCreateOperations
 
-List push operation records.
+List create operations.
 
 ### Example Usage
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { GetCompanyPushHistoryResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
+import { ListCreateOperationsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -130,13 +130,13 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-sdk.transactions.listOperations({
+sdk.transactions.listCreateOperations({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
   query: "repudiandae",
-}).then((res: GetCompanyPushHistoryResponse) => {
+}).then((res: ListCreateOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -145,14 +145,14 @@ sdk.transactions.listOperations({
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `request`                                                                                          | [operations.GetCompanyPushHistoryRequest](../../models/operations/getcompanypushhistoryrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
-| `retries`                                                                                          | [utils.RetryConfig](../../models/utils/retryconfig.md)                                             | :heavy_minus_sign:                                                                                 | Configuration to override the default retry behavior of the client.                                |
-| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.ListCreateOperationsRequest](../../models/operations/listcreateoperationsrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `retries`                                                                                        | [utils.RetryConfig](../../models/utils/retryconfig.md)                                           | :heavy_minus_sign:                                                                               | Configuration to override the default retry behavior of the client.                              |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response
 
-**Promise<[operations.GetCompanyPushHistoryResponse](../../models/operations/getcompanypushhistoryresponse.md)>**
+**Promise<[operations.ListCreateOperationsResponse](../../models/operations/listcreateoperationsresponse.md)>**
 

@@ -1,4 +1,4 @@
-# GenerateSourceAccountCredentialsRequest
+# GenerateCredentialsRequest
 
 
 ## Fields

@@ -111,9 +111,9 @@ export class AccountMapping {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.accountMappingResult = utils.objectToClass(
+                    res.bankFeedAccountMappingResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.AccountMappingResult
+                        shared.BankFeedAccountMappingResponse
                     );
                 } else {
                     throw new errors.SDKError(

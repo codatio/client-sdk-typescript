@@ -6,18 +6,24 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class GetPushOperationRequest extends SpeakeasyBase {
+export class GenerateCredentialsRequest extends SpeakeasyBase {
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    requestBody: Uint8Array;
+
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 
-    /**
-     * Push operation key.
-     */
-    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=pushOperationKey" })
-    pushOperationKey: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+    connectionId: string;
 }
 
-export class GetPushOperationResponse extends SpeakeasyBase {
+export class GenerateCredentialsResponse extends SpeakeasyBase {
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata()
+    bankAccountCredentials?: shared.BankAccountCredentials;
+
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -26,12 +32,6 @@ export class GetPushOperationResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    pushOperation?: shared.PushOperation;
 
     @SpeakeasyMetadata()
     statusCode: number;

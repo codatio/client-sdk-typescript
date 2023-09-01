@@ -9,7 +9,7 @@ Source accounts act as a bridge to bank accounts in accounting software.
 * [create](#create) - Create a bank feed bank account
 * [delete](#delete) - Delete bank feed bank account
 * [deleteCredentials](#deletecredentials) - Delete all source account credentials
-* [generateSourceAccountCredentials](#generatesourceaccountcredentials) - Generate source account credentials
+* [generateCredentials](#generatecredentials) - Generate source account credentials
 * [list](#list) - List bank feed bank accounts
 * [update](#update) - Update bank feed bank account
 
@@ -150,7 +150,7 @@ sdk.sourceAccounts.deleteCredentials({
 **Promise<[operations.DeleteBankFeedCredentialsResponse](../../models/operations/deletebankfeedcredentialsresponse.md)>**
 
 
-## generateSourceAccountCredentials
+## generateCredentials
 
 ﻿The _Generate Bank Account Credentials_ endpoint can be used to generate credentials for QuickBooks Online to use for authentication of the Bank Feed in their portal, each time this is used a new set of credentials will be generated.
 
@@ -161,7 +161,7 @@ The old credentials will still be valid until the revoke credentials endpoint is
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { GenerateSourceAccountCredentialsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
+import { GenerateCredentialsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -169,11 +169,11 @@ const sdk = new CodatBankFeeds({
   },
 });
 
-sdk.sourceAccounts.generateSourceAccountCredentials({
+sdk.sourceAccounts.generateCredentials({
   requestBody: "occaecati".encode(),
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GenerateSourceAccountCredentialsResponse) => {
+}).then((res: GenerateCredentialsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -182,16 +182,16 @@ sdk.sourceAccounts.generateSourceAccountCredentials({
 
 ### Parameters
 
-| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                | [operations.GenerateSourceAccountCredentialsRequest](../../models/operations/generatesourceaccountcredentialsrequest.md) | :heavy_check_mark:                                                                                                       | The request object to use for the request.                                                                               |
-| `retries`                                                                                                                | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                                   | :heavy_minus_sign:                                                                                                       | Configuration to override the default retry behavior of the client.                                                      |
-| `config`                                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                             | :heavy_minus_sign:                                                                                                       | Available config options for making requests.                                                                            |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.GenerateCredentialsRequest](../../models/operations/generatecredentialsrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `retries`                                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                                         | :heavy_minus_sign:                                                                             | Configuration to override the default retry behavior of the client.                            |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
 
-**Promise<[operations.GenerateSourceAccountCredentialsResponse](../../models/operations/generatesourceaccountcredentialsresponse.md)>**
+**Promise<[operations.GenerateCredentialsResponse](../../models/operations/generatecredentialsresponse.md)>**
 
 
 ## list

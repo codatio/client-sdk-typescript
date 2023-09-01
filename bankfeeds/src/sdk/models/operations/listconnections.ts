@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class GetCompanyPushHistoryRequest extends SpeakeasyBase {
+export class ListConnectionsRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 
@@ -35,7 +35,13 @@ export class GetCompanyPushHistoryRequest extends SpeakeasyBase {
     query?: string;
 }
 
-export class GetCompanyPushHistoryResponse extends SpeakeasyBase {
+export class ListConnectionsResponse extends SpeakeasyBase {
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    connections?: shared.Connections;
+
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -44,12 +50,6 @@ export class GetCompanyPushHistoryResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    pushHistoryResponse?: shared.PushHistoryResponse;
 
     @SpeakeasyMetadata()
     statusCode: number;

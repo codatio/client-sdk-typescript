@@ -326,13 +326,13 @@ export class SourceAccounts {
      * The old credentials will still be valid until the revoke credentials endpoint is used, which will revoke all credentials associated to the data connection.
      *
      */
-    async generateSourceAccountCredentials(
-        req: operations.GenerateSourceAccountCredentialsRequest,
+    async generateCredentials(
+        req: operations.GenerateCredentialsRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.GenerateSourceAccountCredentialsResponse> {
+    ): Promise<operations.GenerateCredentialsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GenerateSourceAccountCredentialsRequest(req);
+            req = new operations.GenerateCredentialsRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -393,8 +393,8 @@ export class SourceAccounts {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.GenerateSourceAccountCredentialsResponse =
-            new operations.GenerateSourceAccountCredentialsResponse({
+        const res: operations.GenerateCredentialsResponse =
+            new operations.GenerateCredentialsResponse({
                 statusCode: httpRes.status,
                 contentType: contentType,
                 rawResponse: httpRes,

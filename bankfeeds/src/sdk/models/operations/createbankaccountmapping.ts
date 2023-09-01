@@ -22,7 +22,7 @@ export class CreateBankAccountMappingResponse extends SpeakeasyBase {
      * Success
      */
     @SpeakeasyMetadata()
-    accountMappingResult?: shared.AccountMappingResult;
+    bankFeedAccountMappingResponse?: shared.BankFeedAccountMappingResponse;
 
     @SpeakeasyMetadata()
     contentType: string;

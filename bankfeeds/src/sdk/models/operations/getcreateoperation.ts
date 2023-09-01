@@ -6,15 +6,18 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class DeleteCompanyConnectionRequest extends SpeakeasyBase {
+export class GetCreateOperationRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 
-    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
-    connectionId: string;
+    /**
+     * Push operation key.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=pushOperationKey" })
+    pushOperationKey: string;
 }
 
-export class DeleteCompanyConnectionResponse extends SpeakeasyBase {
+export class GetCreateOperationResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -23,6 +26,12 @@ export class DeleteCompanyConnectionResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
+
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    pushOperation?: shared.PushOperation;
 
     @SpeakeasyMetadata()
     statusCode: number;

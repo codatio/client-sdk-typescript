@@ -149,18 +149,18 @@ export class Transactions {
     }
 
     /**
-     * Get push operation
+     * Get create operation
      *
      * @remarks
      * Retrieve push operation.
      */
-    async getOperation(
-        req: operations.GetPushOperationRequest,
+    async getCreateOperation(
+        req: operations.GetCreateOperationRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.GetPushOperationResponse> {
+    ): Promise<operations.GetCreateOperationResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetPushOperationRequest(req);
+            req = new operations.GetCreateOperationRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -208,11 +208,12 @@ export class Transactions {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.GetPushOperationResponse = new operations.GetPushOperationResponse({
-            statusCode: httpRes.status,
-            contentType: contentType,
-            rawResponse: httpRes,
-        });
+        const res: operations.GetCreateOperationResponse =
+            new operations.GetCreateOperationResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
@@ -251,18 +252,18 @@ export class Transactions {
     }
 
     /**
-     * List push operations
+     * List create operations
      *
      * @remarks
-     * List push operation records.
+     * List create operations.
      */
-    async listOperations(
-        req: operations.GetCompanyPushHistoryRequest,
+    async listCreateOperations(
+        req: operations.ListCreateOperationsRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.GetCompanyPushHistoryResponse> {
+    ): Promise<operations.ListCreateOperationsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetCompanyPushHistoryRequest(req);
+            req = new operations.ListCreateOperationsRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -307,8 +308,8 @@ export class Transactions {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.GetCompanyPushHistoryResponse =
-            new operations.GetCompanyPushHistoryResponse({
+        const res: operations.ListCreateOperationsResponse =
+            new operations.ListCreateOperationsResponse({
                 statusCode: httpRes.status,
                 contentType: contentType,
                 rawResponse: httpRes,
@@ -317,9 +318,9 @@ export class Transactions {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.pushHistoryResponse = utils.objectToClass(
+                    res.listPushOperations = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.PushHistoryResponse
+                        shared.ListPushOperations
                     );
                 } else {
                     throw new errors.SDKError(
