@@ -2,7 +2,7 @@ name: Release Common library
 'on':
   push:
     paths:
-    - common/RELEASES.md
+    - previous-versions/common/RELEASES.md
     branches:
     - main
 jobs:

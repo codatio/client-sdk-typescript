@@ -5,13 +5,12 @@ management:
   speakeasyVersion: 1.53.0
   generationVersion: 2.58.0
 generation:
-  sdkClassName: CodatBankFeeds
+  sdkClassName: CodatSyncPayroll
   singleTagPerOp: false
   telemetryEnabled: true
 typescript:
-  version: 0.34.0
+  version: 0.0.0
   author: Codat
-  description: Set up bank feeds from accounts in your application to supported accounting
-    platforms.
+  description: Push payroll to accounting platforms.
   maxMethodParams: 0
-  packageName: '@codat/bank-feeds'
+  packageName: '@codat/sync-for-payroll'
