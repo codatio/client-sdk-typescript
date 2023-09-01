@@ -1,17 +1,25 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 853aebc76021ec17db9b1abb7a33f340
-  docVersion: 2.1.0
-  speakeasyVersion: 1.53.0
-  generationVersion: 2.58.0
+  docChecksum: e6945733c98b55608b6a7db81fbe9be5
+  docVersion: "1.1"
+  speakeasyVersion: 1.77.1
+  generationVersion: 2.91.4
 generation:
   sdkClassName: CodatSyncCommerce
   singleTagPerOp: false
   telemetryEnabled: true
+features:
+  typescript:
+    core: 2.85.1
+    deprecations: 2.81.1
+    examples: 2.81.1
+    globalSecurity: 2.81.1
+    globalServerURLs: 2.82.0
+    nameOverrides: 2.81.1
+    retries: 2.81.1
 typescript:
-  version: 0.0.0
+  version: 0.1.0
   author: Codat
-  description: Push merchants' data from your ecommerce or point-of-sale (POS) platform
-    into your merchants' accounting platform.
+  description: Push merchants' data from your ecommerce or point-of-sale (POS) platform into your merchants' accounting platform.
   maxMethodParams: 0
   packageName: '@codat/sync-for-commerce-version-1'
