@@ -202,7 +202,6 @@ src/sdk/models/shared/accounts.ts
 src/sdk/models/shared/createbanktransactionsresponse.ts
 src/sdk/models/shared/createbanktransactions.ts
 src/sdk/models/shared/createbankaccounttransaction.ts
-src/sdk/models/shared/banktransactionsresponse.ts
 src/sdk/models/shared/banktransactions.ts
 src/sdk/models/shared/banktransactiontype.ts
 src/sdk/models/shared/createbankaccountresponse.ts
@@ -677,7 +676,7 @@ docs/models/shared/accounts.md
 docs/models/shared/createbanktransactionsresponse.md
 docs/models/shared/createbanktransactions.md
 docs/models/shared/createbankaccounttransaction.md
-docs/models/shared/banktransactionsresponse.md
+docs/models/shared/banktransactionssourcemodifieddate.md
 docs/models/shared/banktransactions.md
 docs/models/shared/banktransactiontype.md
 docs/models/shared/createbankaccountresponse.md
@@ -726,7 +725,7 @@ docs/models/shared/attachment.md
 docs/models/shared/bills.md
 docs/models/shared/attachmentsdataset.md
 docs/models/shared/updatebillresponse.md
-docs/models/shared/companydatasetaddresses.md
+docs/models/shared/companydatasetaccountingaddress.md
 docs/models/shared/companydatasetphone.md
 docs/models/shared/companydatasetweblinktype.md
 docs/models/shared/companydatasetweblink.md

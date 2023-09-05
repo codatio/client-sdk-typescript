@@ -3,7 +3,6 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { BankAccount } from "./bankaccount";
 import { DataType } from "./datatype";
 import { PushOperationChange } from "./pushoperationchange";
 import { PushOperationStatus } from "./pushoperationstatus";
@@ -14,6 +13,10 @@ import { Expose, Type } from "class-transformer";
  * Success
  */
 export class UpdateBankAccountResponse extends SpeakeasyBase {
+    @SpeakeasyMetadata()
+    @Expose({ name: "$ref" })
+    dollarRef?: any;
+
     /**
      * Contains a single entry that communicates which record has changed and the manner in which it changed.
      */
@@ -56,30 +59,9 @@ export class UpdateBankAccountResponse extends SpeakeasyBase {
     @Expose({ name: "completedOnUtc" })
     completedOnUtc?: string;
 
-    /**
-     * > **Accessing Bank Accounts through Banking API**
-     *
-     * @remarks
-     * >
-     * > This datatype was originally used for accessing bank account data both in accounting integrations and open banking aggregators.
-     * >
-     * > To view bank account data through the Banking API, please refer to the new datatype [here](https://docs.codat.io/banking-api#/schemas/Account)
-     *
-     * > View the coverage for bank accounts in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts" target="_blank">Data coverage explorer</a>.
-     *
-     * ## Overview
-     *
-     * A list of bank accounts associated with a company and a specific data connection.
-     *
-     * Bank accounts data includes:
-     * * The name and ID of the account in the accounting platform.
-     * * The currency and balance of the account.
-     * * The sort code and account number.
-     */
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => BankAccount)
-    data?: BankAccount;
+    data?: any;
 
     /**
      * Unique identifier for a company's data connection.
