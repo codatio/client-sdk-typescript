@@ -26,7 +26,7 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.integrations.getBranding({
-  platformKey: "magnam",
+  platformKey: "debitis",
 }).then((res: GetIntegrationBrandingResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -68,7 +68,7 @@ sdk.integrations.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "debitis",
+  query: "ipsa",
 }).then((res: ListIntegrationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

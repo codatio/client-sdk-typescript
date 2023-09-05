@@ -9,7 +9,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * Available Data types
  */
-export enum DataTypeFeatureDataType {
+export enum DataTypeFeatureDataTypes {
     AccountTransactions = "accountTransactions",
     BalanceSheet = "balanceSheet",
     BankAccounts = "bankAccounts",
@@ -63,7 +63,7 @@ export class DataTypeFeature extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "dataType" })
-    dataType?: DataTypeFeatureDataType;
+    dataType?: DataTypeFeatureDataTypes;
 
     @SpeakeasyMetadata({ elemType: SupportedFeature })
     @Expose({ name: "supportedFeatures" })

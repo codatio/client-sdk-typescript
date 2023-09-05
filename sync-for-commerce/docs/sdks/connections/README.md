@@ -1,13 +1,9 @@
 # connections
 
-## Overview
-
-Create new and manage existing Sync for Commerce companies using the Sync flow UI.
-
 ### Available Operations
 
 * [create](#create) - Create connection
-* [getSyncFlowUrl](#getsyncflowurl) - Retrieve sync flow url
+* [getSyncFlowUrl](#getsyncflowurl) - Start new sync flow
 * [list](#list) - List connections
 * [updateAuthorization](#updateauthorization) - Update authorization
 * [updateConnection](#updateconnection) - Update connection
@@ -58,7 +54,7 @@ sdk.connections.create({
 
 ## getSyncFlowUrl
 
-Get a URL for Sync Flow including a one time passcode.
+Create a new company and connections. Get a URL for Sync Flow, including a one time passcode.
 
 ### Example Usage
 
@@ -194,6 +190,7 @@ Update a data connection
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 import { UpdateConnectionResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
+import { DataConnectionStatus } from "@codat/sync-for-commerce/dist/sdk/models/shared";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -203,7 +200,7 @@ const sdk = new CodatSyncCommerce({
 
 sdk.connections.updateConnection({
   updateConnection: {
-    status: "Linked",
+    status: DataConnectionStatus.Linked,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",

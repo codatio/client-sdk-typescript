@@ -1,4 +1,4 @@
-# syncFlowPreferences
+# syncFlowSettings
 
 ## Overview
 
@@ -27,7 +27,7 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-sdk.syncFlowPreferences.getConfigTextSyncFlow().then((res: GetConfigTextSyncFlowResponse) => {
+sdk.syncFlowSettings.getConfigTextSyncFlow().then((res: GetConfigTextSyncFlowResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -63,9 +63,9 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-sdk.syncFlowPreferences.getVisibleAccounts({
-  clientId: "67cc8796-ed15-41a0-9dfc-2ddf7cc78ca1",
-  platformKey: "ba928fc8-1674-42cb-b392-05929396fea7",
+sdk.syncFlowSettings.getVisibleAccounts({
+  clientId: "7cc8796e-d151-4a05-9fc2-ddf7cc78ca1b",
+  platformKey: "a928fc81-6742-4cb7-b920-5929396fea75",
 }).then((res: GetVisibleAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -103,14 +103,18 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-sdk.syncFlowPreferences.updateConfigTextSyncFlow({
-  "iste": {
+sdk.syncFlowSettings.updateConfigTextSyncFlow({
+  "iure": {
     required: false,
-    text: "iure",
+    text: "saepe",
   },
-  "saepe": {
+  "quidem": {
     required: false,
-    text: "quidem",
+    text: "architecto",
+  },
+  "ipsa": {
+    required: false,
+    text: "reiciendis",
   },
 }).then((res: UpdateConfigTextSyncFlowResponse) => {
   if (res.statusCode == 200) {
@@ -149,13 +153,15 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-sdk.syncFlowPreferences.updateVisibleAccountsSyncFlow({
+sdk.syncFlowSettings.updateVisibleAccountsSyncFlow({
   visibleAccounts: {
     visibleAccounts: [
-      "ipsa",
+      "mollitia",
+      "laborum",
+      "dolores",
     ],
   },
-  platformKey: "faaa2352-c595-4590-baff-1a3a2fa94677",
+  platformKey: "352c5955-907a-4ff1-a3a2-fa9467739251",
 }).then((res: UpdateVisibleAccountsSyncFlowResponse) => {
   if (res.statusCode == 200) {
     // handle response
