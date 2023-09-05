@@ -8,7 +8,7 @@ src/sdk/connections.ts
 src/sdk/dataintegrity.ts
 src/sdk/excelreports.ts
 src/sdk/fileupload.ts
-src/sdk/financials.ts
+src/sdk/financialstatements.ts
 src/sdk/liabilities.ts
 src/sdk/managedata.ts
 src/sdk/sales.ts
@@ -34,6 +34,7 @@ src/sdk/types/index.ts
 src/sdk/types/rfcdate.ts
 tsconfig.json
 src/sdk/models/operations/getaccountingbankaccount.ts
+src/sdk/models/operations/getcreateaccountingbanktransactionsmodel.ts
 src/sdk/models/operations/listaccountingbankaccounts.ts
 src/sdk/models/operations/listaccountingbankaccounttransactions.ts
 src/sdk/models/operations/downloadaccountingbillattachment.ts
@@ -88,8 +89,8 @@ src/sdk/models/operations/deletecompany.ts
 src/sdk/models/operations/getcompany.ts
 src/sdk/models/operations/listcompanies.ts
 src/sdk/models/operations/updatecompany.ts
-src/sdk/models/operations/getaccountingcompanyinfo.ts
-src/sdk/models/operations/getcommercecompanyinfo.ts
+src/sdk/models/operations/getaccountingprofile.ts
+src/sdk/models/operations/getcommerceprofile.ts
 src/sdk/models/operations/createconnection.ts
 src/sdk/models/operations/deleteconnection.ts
 src/sdk/models/operations/getconnection.ts
@@ -159,6 +160,11 @@ src/sdk/models/shared/errormessage.ts
 src/sdk/models/shared/accountingbankaccount.ts
 src/sdk/models/shared/metadata.ts
 src/sdk/models/shared/accountingbankaccounttype.ts
+src/sdk/models/shared/onecompanies1percent7bcompanyidpercent7d1connections1percent7bconnectionidpercent7d1options1bankaccounts1percent7baccountidpercent7d1banktransactionsgetresponses200contentapplication1jsonschemadefinitionspushvalidationinfo.ts
+src/sdk/models/shared/onecompanies1percent7bcompanyidpercent7d1connections1percent7bconnectionidpercent7d1options1bankaccounts1percent7baccountidpercent7d1banktransactionsgetresponses200contentapplication1jsonschemadefinitionspushfieldvalidation.ts
+src/sdk/models/shared/onecompanies1percent7bcompanyidpercent7d1connections1percent7bconnectionidpercent7d1options1bankaccounts1percent7baccountidpercent7d1banktransactionsgetresponses200contentapplication1jsonschemadefinitionspushoptiontype.ts
+src/sdk/models/shared/onecompanies1percent7bcompanyidpercent7d1connections1percent7bconnectionidpercent7d1options1bankaccounts1percent7baccountidpercent7d1banktransactionsgetresponses200contentapplication1jsonschemadefinitionspushoptionproperty.ts
+src/sdk/models/shared/onecompanies1percent7bcompanyidpercent7d1connections1percent7bconnectionidpercent7d1options1bankaccounts1percent7baccountidpercent7d1banktransactionsgetresponses200contentapplication1jsonschemadefinitionspushoptionchoice.ts
 src/sdk/models/shared/accountingbankaccounts.ts
 src/sdk/models/shared/links.ts
 src/sdk/models/shared/halref.ts
@@ -196,7 +202,7 @@ src/sdk/models/shared/billpaymentlinelink.ts
 src/sdk/models/shared/billpaymentlinelinktype.ts
 src/sdk/models/shared/accountingsupplier.ts
 src/sdk/models/shared/supplierstatus.ts
-src/sdk/models/shared/accountingaddress.ts
+src/sdk/models/shared/addressesitems.ts
 src/sdk/models/shared/accountingaddresstype.ts
 src/sdk/models/shared/attachments.ts
 src/sdk/models/shared/accountingbillcreditnotes.ts
@@ -404,7 +410,7 @@ docs/sdks/connections/README.md
 docs/sdks/dataintegrity/README.md
 docs/sdks/excelreports/README.md
 docs/sdks/fileupload/README.md
-docs/sdks/financials/README.md
+docs/sdks/financialstatements/README.md
 docs/sdks/liabilities/README.md
 docs/sdks/managedata/README.md
 docs/sdks/sales/README.md
@@ -412,6 +418,9 @@ docs/sdks/transactions/README.md
 USAGE.md
 docs/models/operations/getaccountingbankaccountrequest.md
 docs/models/operations/getaccountingbankaccountresponse.md
+docs/models/operations/getcreateaccountingbanktransactionsmodelrequest.md
+docs/models/operations/getcreateaccountingbanktransactionsmodelpushoption.md
+docs/models/operations/getcreateaccountingbanktransactionsmodelresponse.md
 docs/models/operations/listaccountingbankaccountsrequest.md
 docs/models/operations/listaccountingbankaccountsresponse.md
 docs/models/operations/listaccountingbankaccounttransactionsrequest.md
@@ -520,10 +529,10 @@ docs/models/operations/listcompaniesrequest.md
 docs/models/operations/listcompaniesresponse.md
 docs/models/operations/updatecompanyrequest.md
 docs/models/operations/updatecompanyresponse.md
-docs/models/operations/getaccountingcompanyinforequest.md
-docs/models/operations/getaccountingcompanyinforesponse.md
-docs/models/operations/getcommercecompanyinforequest.md
-docs/models/operations/getcommercecompanyinforesponse.md
+docs/models/operations/getaccountingprofilerequest.md
+docs/models/operations/getaccountingprofileresponse.md
+docs/models/operations/getcommerceprofilerequest.md
+docs/models/operations/getcommerceprofileresponse.md
 docs/models/operations/createconnectionrequestbody.md
 docs/models/operations/createconnectionrequest.md
 docs/models/operations/createconnectionresponse.md
@@ -660,6 +669,11 @@ docs/models/shared/errormessage.md
 docs/models/shared/accountingbankaccount.md
 docs/models/shared/metadata.md
 docs/models/shared/accountingbankaccounttype.md
+docs/models/shared/onecompanies1percent7bcompanyidpercent7d1connections1percent7bconnectionidpercent7d1options1bankaccounts1percent7baccountidpercent7d1banktransactionsgetresponses200contentapplication1jsonschemadefinitionspushvalidationinfo.md
+docs/models/shared/onecompanies1percent7bcompanyidpercent7d1connections1percent7bconnectionidpercent7d1options1bankaccounts1percent7baccountidpercent7d1banktransactionsgetresponses200contentapplication1jsonschemadefinitionspushfieldvalidation.md
+docs/models/shared/onecompanies1percent7bcompanyidpercent7d1connections1percent7bconnectionidpercent7d1options1bankaccounts1percent7baccountidpercent7d1banktransactionsgetresponses200contentapplication1jsonschemadefinitionspushoptiontype.md
+docs/models/shared/onecompanies1percent7bcompanyidpercent7d1connections1percent7bconnectionidpercent7d1options1bankaccounts1percent7baccountidpercent7d1banktransactionsgetresponses200contentapplication1jsonschemadefinitionspushoptionproperty.md
+docs/models/shared/onecompanies1percent7bcompanyidpercent7d1connections1percent7bconnectionidpercent7d1options1bankaccounts1percent7baccountidpercent7d1banktransactionsgetresponses200contentapplication1jsonschemadefinitionspushoptionchoice.md
 docs/models/shared/accountingbankaccounts.md
 docs/models/shared/links.md
 docs/models/shared/halref.md
@@ -702,7 +716,7 @@ docs/models/shared/billpaymentlinelink.md
 docs/models/shared/billpaymentlinelinktype.md
 docs/models/shared/accountingsupplier.md
 docs/models/shared/supplierstatus.md
-docs/models/shared/accountingaddress.md
+docs/models/shared/addressesitems.md
 docs/models/shared/accountingaddresstype.md
 docs/models/shared/attachments.md
 docs/models/shared/accountingbillcreditnotes.md
@@ -773,6 +787,7 @@ docs/models/shared/dataconnectionstatus.md
 docs/models/shared/dataconnectionerror.md
 docs/models/shared/companyrequestbody.md
 docs/models/shared/companies.md
+docs/models/shared/accountingcompanyinfoaccountingaddress.md
 docs/models/shared/accountingcompanyinfophone.md
 docs/models/shared/accountingcompanyinfoweblinktype.md
 docs/models/shared/accountingcompanyinfoweblink.md

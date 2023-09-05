@@ -6,17 +6,20 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class GetAccountingCompanyInfoRequest extends SpeakeasyBase {
+export class GetCommerceProfileRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
+
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+    connectionId: string;
 }
 
-export class GetAccountingCompanyInfoResponse extends SpeakeasyBase {
+export class GetCommerceProfileResponse extends SpeakeasyBase {
     /**
-     * Success
+     * OK
      */
     @SpeakeasyMetadata()
-    accountingCompanyInfo?: shared.AccountingCompanyInfo;
+    commerceCompanyInfo?: shared.CommerceCompanyInfo;
 
     @SpeakeasyMetadata()
     contentType: string;

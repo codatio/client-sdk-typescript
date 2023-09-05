@@ -7,6 +7,7 @@ Access bank transactions from an accounting platform.
 ### Available Operations
 
 * [getAccount](#getaccount) - Get bank account
+* [getCreateModel](#getcreatemodel) - Get create bank account transactions model
 * [listAccounts](#listaccounts) - List bank accounts
 * [listTransactions](#listtransactions) - List bank account transactions
 
@@ -58,6 +59,56 @@ sdk.accountingBankData.getAccount({
 **Promise<[operations.GetAccountingBankAccountResponse](../../models/operations/getaccountingbankaccountresponse.md)>**
 
 
+## getCreateModel
+
+The *Get create bank account transactions model* endpoint returns the expected data for the request payload when creating [bank account transactions](https://docs.codat.io/accounting-api#/schemas/BankTransactions) for a given company and integration.
+
+[Bank account transactions](https://docs.codat.io/accounting-api#/schemas/BankTransactions) are records of money that has moved in and out of an SMB's bank account.
+
+**Integration-specific behaviour**
+
+See the *response examples* for integration-specific indicative models.
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankTransactions) for integrations that support creating an bank transaction.
+
+
+### Example Usage
+
+```typescript
+import { CodatLending } from "@codat/lending";
+import { GetCreateAccountingBankTransactionsModelResponse } from "@codat/lending/dist/sdk/models/operations";
+
+const sdk = new CodatLending({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.accountingBankData.getCreateModel({
+  accountId: "distinctio",
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+}).then((res: GetCreateAccountingBankTransactionsModelResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                                                                                | Type                                                                                                                                     | Required                                                                                                                                 | Description                                                                                                                              |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                                | [operations.GetCreateAccountingBankTransactionsModelRequest](../../models/operations/getcreateaccountingbanktransactionsmodelrequest.md) | :heavy_check_mark:                                                                                                                       | The request object to use for the request.                                                                                               |
+| `retries`                                                                                                                                | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                                                   | :heavy_minus_sign:                                                                                                                       | Configuration to override the default retry behavior of the client.                                                                      |
+| `config`                                                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                             | :heavy_minus_sign:                                                                                                                       | Available config options for making requests.                                                                                            |
+
+
+### Response
+
+**Promise<[operations.GetCreateAccountingBankTransactionsModelResponse](../../models/operations/getcreateaccountingbanktransactionsmodelresponse.md)>**
+
+
 ## listAccounts
 
 The *List bank accounts* endpoint returns a list of [bank accounts](https://docs.codat.io/accounting-api#/schemas/BankAccount) for a given company's connection.
@@ -85,7 +136,7 @@ sdk.accountingBankData.listAccounts({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "distinctio",
+  query: "quibusdam",
 }).then((res: ListAccountingBankAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -131,13 +182,13 @@ const sdk = new CodatLending({
 });
 
 sdk.accountingBankData.listTransactions({
-  accountId: "quibusdam",
+  accountId: "unde",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "unde",
+  query: "nulla",
 }).then((res: ListAccountingBankAccountTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -39,7 +39,7 @@ const sdk = new CodatLending({
 });
 
 sdk.cashFlow.getBankAccount({
-  accountId: "molestiae",
+  accountId: "quod",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetBankingAccountResponse) => {
@@ -137,7 +137,7 @@ const sdk = new CodatLending({
 sdk.cashFlow.getBankTransactionCategory({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  transactionCategoryId: "quod",
+  transactionCategoryId: "esse",
 }).then((res: GetBankingTransactionCategoryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -183,7 +183,7 @@ sdk.cashFlow.getEnhancedCashFlowTransactions({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   page: 1,
   pageSize: 100,
-  query: "esse",
+  query: "totam",
 }).then((res: GetEnhancedCashFlowTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -232,7 +232,7 @@ sdk.cashFlow.listBankAccountBalances({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "totam",
+  query: "porro",
 }).then((res: ListBankingAccountBalancesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -281,7 +281,7 @@ sdk.cashFlow.listBankAccounts({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "porro",
+  query: "dolorum",
 }).then((res: ListBankingAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -330,7 +330,7 @@ sdk.cashFlow.listBankTransactionCategories({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "dolorum",
+  query: "dicta",
 }).then((res: ListBankingTransactionCategoriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -379,7 +379,7 @@ sdk.cashFlow.listBankTransactions({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "dicta",
+  query: "nam",
 }).then((res: ListBankingTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response

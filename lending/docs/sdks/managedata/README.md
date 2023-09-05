@@ -112,7 +112,7 @@ sdk.manageData.listPullOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "ad",
+  query: "natus",
 }).then((res: ListPullOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -198,7 +198,7 @@ const sdk = new CodatLending({
 
 sdk.manageData.refreshDataType({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "929396fe-a759-46eb-90fa-aa2352c59559",
+  connectionId: "29396fea-7596-4eb1-8faa-a2352c595590",
   dataType: DataType.Invoices,
 }).then((res: RefreshDataTypeResponse) => {
   if (res.statusCode == 200) {

@@ -33,7 +33,7 @@ const sdk = new CodatLending({
 
 sdk.excelReports.download({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportTypes.EnhancedCashFlow,
+  reportType: ExcelReportTypes.EnhancedInvoices,
 }).then((res: DownloadExcelReportResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -82,7 +82,7 @@ const sdk = new CodatLending({
 
 sdk.excelReports.generate({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportTypes.EnhancedInvoices,
+  reportType: ExcelReportTypes.Audit,
 }).then((res: GenerateExcelReportResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -127,7 +127,7 @@ const sdk = new CodatLending({
 
 sdk.excelReports.getStatus({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportTypes.Audit,
+  reportType: ExcelReportTypes.EnhancedFinancials,
 }).then((res: GetExcelReportGenerationStatusResponse) => {
   if (res.statusCode == 200) {
     // handle response

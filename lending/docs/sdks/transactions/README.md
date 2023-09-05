@@ -45,7 +45,7 @@ sdk.transactions.downloadDirectCostAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "aut",
+  directCostId: "quasi",
 }).then((res: DownloadAccountingDirectCostAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -91,7 +91,7 @@ const sdk = new CodatLending({
 });
 
 sdk.transactions.getAccountTransaction({
-  accountTransactionId: "quasi",
+  accountTransactionId: "error",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetAccountingAccountTransactionResponse) => {
@@ -141,7 +141,7 @@ const sdk = new CodatLending({
 sdk.transactions.getDirectCost({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "error",
+  directCostId: "temporibus",
 }).then((res: GetAccountingDirectCostResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -188,7 +188,7 @@ sdk.transactions.getDirectCostAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "temporibus",
+  directCostId: "laborum",
 }).then((res: GetAccountingDirectCostAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -235,7 +235,7 @@ const sdk = new CodatLending({
 
 sdk.transactions.getJournal({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalId: "laborum",
+  journalId: "quasi",
 }).then((res: GetAccountingJournalResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -282,7 +282,7 @@ const sdk = new CodatLending({
 
 sdk.transactions.getJournalEntry({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalEntryId: "quasi",
+  journalEntryId: "reiciendis",
 }).then((res: GetAccountingJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -330,7 +330,7 @@ const sdk = new CodatLending({
 sdk.transactions.getTransfer({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  transferId: "reiciendis",
+  transferId: "voluptatibus",
 }).then((res: GetAccountingTransferResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -379,7 +379,7 @@ sdk.transactions.listAccountTransactions({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "voluptatibus",
+  query: "vero",
 }).then((res: ListAccountingAccountTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -425,7 +425,7 @@ const sdk = new CodatLending({
 sdk.transactions.listDirectCostAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "vero",
+  directCostId: "nihil",
 }).then((res: ListAccountingDirectCostAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -474,7 +474,7 @@ sdk.transactions.listDirectCosts({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "nihil",
+  query: "praesentium",
 }).then((res: ListAccountingDirectCostsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -522,7 +522,7 @@ sdk.transactions.listJournalEntries({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "praesentium",
+  query: "voluptatibus",
 }).then((res: ListAccountingJournalEntriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -570,7 +570,7 @@ sdk.transactions.listJournals({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "voluptatibus",
+  query: "ipsa",
 }).then((res: ListAccountingJournalsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -619,7 +619,7 @@ sdk.transactions.listTransfers({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "ipsa",
+  query: "omnis",
 }).then((res: ListAccountingTransfersResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -155,7 +155,7 @@ sdk.companies.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "nam",
+  query: "officia",
 }).then((res: ListCompaniesResponse) => {
   if (res.statusCode == 200) {
     // handle response

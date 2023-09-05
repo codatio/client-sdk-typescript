@@ -1,4 +1,4 @@
-# financials
+# financialStatements
 
 ## Overview
 
@@ -37,8 +37,8 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.financials.getAccount({
-  accountId: "qui",
+sdk.financialStatements.getAccount({
+  accountId: "impedit",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountingAccountResponse) => {
   if (res.statusCode == 200) {
@@ -77,7 +77,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.financials.getBalanceSheet({
+sdk.financialStatements.getBalanceSheet({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   periodLength: 4,
   periodsToCompare: 20,
@@ -119,7 +119,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.financials.getCashFlowStatement({
+sdk.financialStatements.getCashFlowStatement({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   periodLength: 4,
   periodsToCompare: 20,
@@ -163,9 +163,9 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.financials.getEnhancedBalanceSheetAccounts({
+sdk.financialStatements.getEnhancedBalanceSheetAccounts({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  numberOfPeriods: 456150,
+  numberOfPeriods: 216550,
   reportDate: "29-09-2020",
 }).then((res: GetEnhancedBalanceSheetAccountsResponse) => {
   if (res.statusCode == 200) {
@@ -206,9 +206,9 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.financials.getEnhancedProfitAndLossAccounts({
+sdk.financialStatements.getEnhancedProfitAndLossAccounts({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  numberOfPeriods: 216550,
+  numberOfPeriods: 568434,
   reportDate: "29-09-2020",
 }).then((res: GetEnhancedProfitAndLossAccountsResponse) => {
   if (res.statusCode == 200) {
@@ -247,7 +247,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.financials.getProfitAndLoss({
+sdk.financialStatements.getProfitAndLoss({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   periodLength: 4,
   periodsToCompare: 20,
@@ -293,12 +293,12 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.financials.listAccounts({
+sdk.financialStatements.listAccounts({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "aspernatur",
+  query: "perferendis",
 }).then((res: ListAccountingAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
