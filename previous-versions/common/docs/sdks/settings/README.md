@@ -285,7 +285,7 @@ Update sync settings for all data types.
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { UpdateProfileSyncSettingsResponse } from "@codat/common/dist/sdk/models/operations";
-import { SyncSettingDataType } from "@codat/common/dist/sdk/models/shared";
+import { SyncSettingDataTypes } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
@@ -298,7 +298,7 @@ sdk.settings.updateSyncSettings({
   overridesDefaults: false,
   settings: [
     {
-      dataType: SyncSettingDataType.Invoices,
+      dataType: SyncSettingDataTypes.Invoices,
       fetchOnFirstLink: false,
       isLocked: false,
       monthsToSync: 24,
@@ -308,7 +308,7 @@ sdk.settings.updateSyncSettings({
       syncSchedule: 24,
     },
     {
-      dataType: SyncSettingDataType.Invoices,
+      dataType: SyncSettingDataTypes.Invoices,
       fetchOnFirstLink: false,
       isLocked: false,
       monthsToSync: 24,
@@ -318,7 +318,7 @@ sdk.settings.updateSyncSettings({
       syncSchedule: 24,
     },
     {
-      dataType: SyncSettingDataType.Invoices,
+      dataType: SyncSettingDataTypes.Invoices,
       fetchOnFirstLink: false,
       isLocked: false,
       monthsToSync: 24,
@@ -328,7 +328,7 @@ sdk.settings.updateSyncSettings({
       syncSchedule: 24,
     },
     {
-      dataType: SyncSettingDataType.Invoices,
+      dataType: SyncSettingDataTypes.Invoices,
       fetchOnFirstLink: false,
       isLocked: false,
       monthsToSync: 24,
