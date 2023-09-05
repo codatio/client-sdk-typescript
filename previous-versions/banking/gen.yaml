@@ -1,16 +1,16 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 2bd2a2119b441b4646c5f4f4a7f9a8e2
+  docChecksum: c534b114a1cdd690890407c3415b89bc
   docVersion: 3.0.0
-  speakeasyVersion: 1.77.2
-  generationVersion: 2.93.0
+  speakeasyVersion: 1.78.3
+  generationVersion: 2.96.3
 generation:
   sdkClassName: CodatBanking
   singleTagPerOp: false
   telemetryEnabled: true
 features:
   typescript:
-    core: 2.85.2
+    core: 2.87.0
     deprecations: 2.81.1
     examples: 2.81.1
     globalSecurity: 2.81.1
@@ -18,7 +18,7 @@ features:
     nameOverrides: 2.81.1
     retries: 2.81.1
 typescript:
-  version: 0.28.0
+  version: 0.29.0
   author: Codat
   description: Access standardized banking data from our banking integrations.
   maxMethodParams: 0
