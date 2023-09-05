@@ -6,22 +6,42 @@ Source accounts act as a bridge to bank accounts in accounting software.
 
 ### Available Operations
 
-* [create](#create) - Create a bank feed bank account
-* [delete](#delete) - Delete bank feed bank account
+* [create](#create) - Create source account
+* [delete](#delete) - Delete source account
 * [deleteCredentials](#deletecredentials) - Delete all source account credentials
 * [generateCredentials](#generatecredentials) - Generate source account credentials
-* [list](#list) - List bank feed bank accounts
-* [update](#update) - Update bank feed bank account
+* [list](#list) - List source accounts
+* [update](#update) - Update source account
 
 ## create
 
-Post a BankFeed BankAccount for a single data source connected. to a single company.
+The _Create Source Account_ endpoint allows you to create a representation of a bank account within Codat's domain. This source account can later be mapped to a target account in your accounting software.
+
+#### Account Mapping Variability
+
+The method of mapping this source account to your target account varies depending on the accounting package you use.
+
+#### Mapping Options:
+
+1. **API Mapping**: Integrate the mapping journey directly into your application for a seamless user experience.
+2. **Codat UI Mapping**: If you prefer a quicker setup, you can utilize Codat's provided user interface for mapping.
+3. **Accounting Platform Mapping**: For some accounting software, the mapping process must be conducted within the software itself.
+
+### Integration specific behaviour
+
+| Bank Feed Integration | API Mapping | Codat UI Mapping | Accounting Platform Mapping |
+| --------------------- | ----------- | ---------------- | --------------------------- |
+| Xero                  | ✅          | ✅               |                             |
+| FreeAgent             | ✅          | ✅               |                             |
+| QuickBooks Online     |             |                  | ✅                          |
+| Sage                  |             |                  | ✅                          |
+
 
 ### Example Usage
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { CreateBankFeedResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
+import { CreateSourceAccountResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -30,7 +50,7 @@ const sdk = new CodatBankFeeds({
 });
 
 sdk.sourceAccounts.create({
-  bankFeedAccount: {
+  sourceAccount: {
     accountName: "deserunt",
     accountNumber: "suscipit",
     accountType: "iure",
@@ -44,7 +64,7 @@ sdk.sourceAccounts.create({
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: CreateBankFeedResponse) => {
+}).then((res: CreateSourceAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -53,29 +73,30 @@ sdk.sourceAccounts.create({
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.CreateBankFeedRequest](../../models/operations/createbankfeedrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `retries`                                                                            | [utils.RetryConfig](../../models/utils/retryconfig.md)                               | :heavy_minus_sign:                                                                   | Configuration to override the default retry behavior of the client.                  |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.CreateSourceAccountRequest](../../models/operations/createsourceaccountrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `retries`                                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                                         | :heavy_minus_sign:                                                                             | Configuration to override the default retry behavior of the client.                            |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
 
-**Promise<[operations.CreateBankFeedResponse](../../models/operations/createbankfeedresponse.md)>**
+**Promise<[operations.CreateSourceAccountResponse](../../models/operations/createsourceaccountresponse.md)>**
 
 
 ## delete
 
-The *delete bank feed bank account* endpoint enables you to remove a source account.
+The _Delete source account_ endpoint enables you to remove a source account.
 
 Removing a source account will also remove any mapping between the source bank feed bank accounts and the target bankfeed bank account.
+
 
 ### Example Usage
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { DeleteBankFeedBankAccountResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
+import { DeleteSourceAccountResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -87,7 +108,7 @@ sdk.sourceAccounts.delete({
   accountId: "7110701885",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: DeleteBankFeedBankAccountResponse) => {
+}).then((res: DeleteSourceAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -96,16 +117,16 @@ sdk.sourceAccounts.delete({
 
 ### Parameters
 
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                  | [operations.DeleteBankFeedBankAccountRequest](../../models/operations/deletebankfeedbankaccountrequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
-| `retries`                                                                                                  | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                     | :heavy_minus_sign:                                                                                         | Configuration to override the default retry behavior of the client.                                        |
-| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.DeleteSourceAccountRequest](../../models/operations/deletesourceaccountrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `retries`                                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                                         | :heavy_minus_sign:                                                                             | Configuration to override the default retry behavior of the client.                            |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
 
-**Promise<[operations.DeleteBankFeedBankAccountResponse](../../models/operations/deletebankfeedbankaccountresponse.md)>**
+**Promise<[operations.DeleteSourceAccountResponse](../../models/operations/deletesourceaccountresponse.md)>**
 
 
 ## deleteCredentials
@@ -196,17 +217,16 @@ sdk.sourceAccounts.generateCredentials({
 
 ## list
 
-﻿The *List bank feed bank accounts* endpoint returns a list of [bank feed accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankFeedAccount) for a given company's connection.
+﻿The _List source accounts_ endpoint returns a list of [source accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankFeedAccount) for a given company's connection.
 
-[Bank feed accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankFeedAccount) are the bank's bank account from which transactions are synced into the accounting platform.
-
+[source accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankFeedAccount) are the bank's bank account within Codat's domain from which transactions are synced into the accounting platform.
 
 
 ### Example Usage
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { ListBankFeedsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
+import { ListSourceAccountsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -217,7 +237,7 @@ const sdk = new CodatBankFeeds({
 sdk.sourceAccounts.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: ListBankFeedsResponse) => {
+}).then((res: ListSourceAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -226,27 +246,28 @@ sdk.sourceAccounts.list({
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.ListBankFeedsRequest](../../models/operations/listbankfeedsrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `retries`                                                                          | [utils.RetryConfig](../../models/utils/retryconfig.md)                             | :heavy_minus_sign:                                                                 | Configuration to override the default retry behavior of the client.                |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.ListSourceAccountsRequest](../../models/operations/listsourceaccountsrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `retries`                                                                                    | [utils.RetryConfig](../../models/utils/retryconfig.md)                                       | :heavy_minus_sign:                                                                           | Configuration to override the default retry behavior of the client.                          |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
 
-**Promise<[operations.ListBankFeedsResponse](../../models/operations/listbankfeedsresponse.md)>**
+**Promise<[operations.ListSourceAccountsResponse](../../models/operations/listsourceaccountsresponse.md)>**
 
 
 ## update
 
-﻿The *Update bank feed bank account* endpoint updates a single bank feed bank account for a single data source connected to a single company.
+﻿The _Update source account_ endpoint updates a single source account for a single data connection connected to a single company.
+
 
 ### Example Usage
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { UpdateBankFeedResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
+import { UpdateSourceAccountResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -255,7 +276,7 @@ const sdk = new CodatBankFeeds({
 });
 
 sdk.sourceAccounts.update({
-  bankFeedAccount: {
+  sourceAccount: {
     accountName: "fugit",
     accountNumber: "deleniti",
     accountType: "hic",
@@ -270,7 +291,7 @@ sdk.sourceAccounts.update({
   accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: UpdateBankFeedResponse) => {
+}).then((res: UpdateSourceAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -279,14 +300,14 @@ sdk.sourceAccounts.update({
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.UpdateBankFeedRequest](../../models/operations/updatebankfeedrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `retries`                                                                            | [utils.RetryConfig](../../models/utils/retryconfig.md)                               | :heavy_minus_sign:                                                                   | Configuration to override the default retry behavior of the client.                  |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.UpdateSourceAccountRequest](../../models/operations/updatesourceaccountrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `retries`                                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                                         | :heavy_minus_sign:                                                                             | Configuration to override the default retry behavior of the client.                            |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
 
 
 ### Response
 
-**Promise<[operations.UpdateBankFeedResponse](../../models/operations/updatebankfeedresponse.md)>**
+**Promise<[operations.UpdateSourceAccountResponse](../../models/operations/updatesourceaccountresponse.md)>**
 

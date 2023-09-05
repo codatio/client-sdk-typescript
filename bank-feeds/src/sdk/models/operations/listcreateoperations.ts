@@ -49,7 +49,7 @@ export class ListCreateOperationsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    listPushOperations?: shared.ListPushOperations;
+    pushOperations?: shared.PushOperations;
 
     @SpeakeasyMetadata()
     statusCode: number;

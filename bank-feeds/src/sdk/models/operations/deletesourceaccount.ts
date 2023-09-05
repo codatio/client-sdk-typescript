@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class DeleteBankFeedBankAccountRequest extends SpeakeasyBase {
+export class DeleteSourceAccountRequest extends SpeakeasyBase {
     /**
      * Unique identifier for an account
      */
@@ -20,7 +20,7 @@ export class DeleteBankFeedBankAccountRequest extends SpeakeasyBase {
     connectionId: string;
 }
 
-export class DeleteBankFeedBankAccountResponse extends SpeakeasyBase {
+export class DeleteSourceAccountResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
 

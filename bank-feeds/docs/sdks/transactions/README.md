@@ -6,15 +6,15 @@ Transactions represent debits and credits from a source account.
 
 ### Available Operations
 
-* [create](#create) - Create bank account transactions
+* [create](#create) - Create bank transactions
 * [getCreateOperation](#getcreateoperation) - Get create operation
 * [listCreateOperations](#listcreateoperations) - List create operations
 
 ## create
 
-﻿The *Create bank account transactions* endpoint creates new [bank account transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) for a given company's connection.
+﻿The *Create bank transactions* endpoint creates new [bank transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) for a given company's connection.
 
-[Bank account transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) are records of monetary amounts that have moved in and out of an SMB's bank account.
+[Bank transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) are records of monetary amounts that have moved in and out of an SMB's bank account.
 
 **Integration-specific behaviour**
 
@@ -36,7 +36,7 @@ const sdk = new CodatBankFeeds({
 });
 
 sdk.transactions.create({
-  createBankTransactions: {
+  requestBody: {
     accountId: "corporis",
     transactions: [
       {

@@ -10,7 +10,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * OK
  */
-export class ListPushOperations extends SpeakeasyBase {
+export class PushOperations extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "_links" })
     @Type(() => Links)

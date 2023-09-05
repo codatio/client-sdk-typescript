@@ -8,7 +8,7 @@ import { Expose } from "class-transformer";
 /**
  * The target bank account in a supported accounting package for ingestion into a bank feed.
  */
-export class BankFeedAccount extends SpeakeasyBase {
+export class SourceAccount extends SpeakeasyBase {
     /**
      * The bank account name
      */
@@ -80,7 +80,7 @@ export class BankFeedAccount extends SpeakeasyBase {
     feedStartDate?: string;
 
     /**
-     * Unique ID for the bank feed account
+     * Unique ID for the bank account
      */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
