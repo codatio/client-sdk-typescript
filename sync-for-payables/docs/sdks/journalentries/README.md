@@ -37,92 +37,59 @@ const sdk = new CodatSyncPayables({
 sdk.journalEntries.create({
   journalEntry: {
     createdOn: "2022-10-23T00:00:00.000Z",
-    description: "nam",
-    id: "dc41ff5d-4e2a-4e4f-b5cb-35d17638f1ed",
+    description: "culpa",
+    id: "bcdc91fa-abdd-488e-b1f6-c48252d7771e",
     journalLines: [
       {
         accountRef: {
-          id: "78359ecc-5cb8-460f-8cd5-80ba73810e4f",
-          name: "Don Hagenes",
+          id: "fd074009-ef8d-429d-a1dd-7097b5da08c5",
+          name: "Ora Olson",
         },
-        currency: "magni",
-        description: "excepturi",
-        netAmount: 4576.85,
+        currency: "odio",
+        description: "atque",
+        netAmount: 6288.11,
         tracking: {
           recordRefs: [
             {
-              dataType: "transfer",
-              id: "3b1dd3bb-ce24-47b7-a84e-ff50126d71cf",
+              dataType: "journalEntry",
+              id: "6e19bafe-ca61-4914-9814-0b64ff8ae170",
+            },
+          ],
+        },
+      },
+      {
+        accountRef: {
+          id: "ef03b5f3-7e4a-4a86-8555-966732aa5dcb",
+          name: "Ella Lang",
+        },
+        currency: "expedita",
+        description: "in",
+        netAmount: 526.59,
+        tracking: {
+          recordRefs: [
+            {
+              dataType: "accountTransaction",
+              id: "cfd5fb6e-91b9-4a9f-b484-6e2c3309db05",
             },
             {
-              dataType: "transfer",
-              id: "bd0eb74b-8421-4953-b44b-d3c43159d33e",
+              dataType: "journalEntry",
+              id: "6d9e75ca-006f-4539-ac11-a25a8bf92f97",
             },
             {
               dataType: "invoice",
-              id: "953c0011-3986-43aa-81e6-c31cc2f1fcb5",
-            },
-            {
-              dataType: "journalEntry",
-              id: "c9a41ffb-e9cb-4d79-9ee6-5e076cc7abf6",
-            },
-          ],
-        },
-      },
-      {
-        accountRef: {
-          id: "16ea5c71-6419-434b-90f2-e09d19d2fc2f",
-          name: "Merle Cormier Jr.",
-        },
-        currency: "nemo",
-        description: "provident",
-        netAmount: 2529.57,
-        tracking: {
-          recordRefs: [
-            {
-              dataType: "accountTransaction",
-              id: "935d237a-72f9-4084-9d6a-ed4aecb7537c",
-            },
-            {
-              dataType: "transfer",
-              id: "9222c9ff-5749-41aa-bfa2-e761f0ca4d45",
-            },
-          ],
-        },
-      },
-      {
-        accountRef: {
-          id: "6ef1031e-6899-4f0c-a001-e22cd55cc058",
-          name: "Hattie Botsford",
-        },
-        currency: "possimus",
-        description: "nihil",
-        netAmount: 3758.77,
-        tracking: {
-          recordRefs: [
-            {
-              dataType: "accountTransaction",
-              id: "71fc820c-65b0-437b-b8e0-cc885187e4de",
-            },
-            {
-              dataType: "journalEntry",
-              id: "4af28c5d-ddb4-46aa-9cfd-6d828da01319",
-            },
-            {
-              dataType: "journalEntry",
-              id: "12964664-5c1d-481f-a904-2f569b7aff0e",
+              id: "28ad9a9f-8bf8-4221-9253-59d98387f7a7",
             },
             {
               dataType: "accountTransaction",
-              id: "2216cbe0-71bc-4163-a279-a3b084da9925",
+              id: "cd72cd24-84da-4217-a9f2-ac41ef5725f1",
             },
           ],
         },
       },
     ],
     journalRef: {
-      id: "7d04f408-47a7-442d-8449-6cbdeecf6b99",
-      name: "Wilbert Jerde",
+      id: "169ac1e4-1d8a-423c-a3e3-4f2dfa4a197f",
+      name: "Betsy Walter",
     },
     metadata: {
       isDeleted: false,
@@ -130,18 +97,19 @@ sdk.journalEntries.create({
     modifiedDate: "2022-10-23T00:00:00.000Z",
     postedOn: "2022-10-23T00:00:00.000Z",
     recordRef: {
-      dataType: "transfer",
-      id: "bfdf55c2-94c0-460b-86a1-287764eef6d0",
+      dataType: "invoice",
+      id: "1fe17120-9985-43e9-b543-d854439ee224",
     },
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "temporibus": {
-          "itaque": "nulla",
-          "excepturi": "quod",
+        "accusantium": {
+          "aliquam": "dolorem",
+          "expedita": "impedit",
         },
-        "in": {
-          "temporibus": "temporibus",
+        "architecto": {
+          "magnam": "vitae",
+          "quos": "atque",
         },
       },
     },
@@ -149,7 +117,7 @@ sdk.journalEntries.create({
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 247927,
+  timeoutInMinutes: 125488,
 }).then((res: CreateJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response

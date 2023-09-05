@@ -42,50 +42,57 @@ sdk.suppliers.create({
   supplier: {
     addresses: [
       {
-        city: "South Pollyshire",
-        country: "Cayman Islands",
-        line1: "aspernatur",
-        line2: "sequi",
-        postalCode: "85913-7808",
-        region: "inventore",
-        type: AccountingAddressType.Billing,
+        city: "West Jacey",
+        country: "Central African Republic",
+        line1: "excepturi",
+        line2: "esse",
+        postalCode: "82708-8277",
+        region: "impedit",
+        type: AccountingAddressType.Delivery,
+      },
+      {
+        city: "West Jaquanchester",
+        country: "Kenya",
+        line1: "aliquid",
+        line2: "blanditiis",
+        postalCode: "99930",
+        region: "beatae",
+        type: AccountingAddressType.Unknown,
       },
     ],
-    contactName: "quibusdam",
-    defaultCurrency: "excepturi",
-    emailAddress: "nostrum",
-    id: "9f439e39-266c-4bd9-9f7a-a2b24113695d",
+    contactName: "laboriosam",
+    defaultCurrency: "temporibus",
+    emailAddress: "in",
+    id: "1cffbd0e-b74b-4842-9953-b44bd3c43159",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "01224 658 999",
-    registrationNumber: "nisi",
+    phone: "+44 25691 154789",
+    registrationNumber: "velit",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: SupplierStatus.Active,
+    status: SupplierStatus.Unknown,
     supplementalData: {
       content: {
-        "repellat": {
-          "eligendi": "quaerat",
-          "veniam": "perspiciatis",
-          "commodi": "dolores",
-          "dicta": "molestiae",
+        "nostrum": {
+          "quod": "consequatur",
         },
-        "maxime": {
-          "molestias": "quam",
+        "accusantium": {
+          "illo": "amet",
         },
-        "molestiae": {
-          "voluptate": "eum",
-          "consectetur": "velit",
+        "occaecati": {
+          "aliquid": "sequi",
+          "culpa": "fuga",
+          "modi": "et",
         },
       },
     },
-    supplierName: "tempora",
-    taxNumber: "aspernatur",
+    supplierName: "eveniet",
+    taxNumber: "aliquid",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 323569,
+  timeoutInMinutes: 760942,
 }).then((res: CreateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -132,7 +139,7 @@ const sdk = new CodatSyncPayables({
 
 sdk.suppliers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  supplierId: "incidunt",
+  supplierId: "adipisci",
 }).then((res: GetSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -229,7 +236,7 @@ sdk.suppliers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "alias",
+  query: "ab",
 }).then((res: ListSuppliersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -281,47 +288,74 @@ sdk.suppliers.update({
   supplier: {
     addresses: [
       {
-        city: "Murlworth",
-        country: "Portugal",
-        line1: "minima",
-        line2: "cupiditate",
-        postalCode: "08550",
-        region: "perspiciatis",
+        city: "Champlinworth",
+        country: "Brazil",
+        line1: "hic",
+        line2: "porro",
+        postalCode: "31756-2099",
+        region: "distinctio",
+        type: AccountingAddressType.Delivery,
+      },
+      {
+        city: "Schmittchester",
+        country: "Sri Lanka",
+        line1: "iure",
+        line2: "natus",
+        postalCode: "99438",
+        region: "doloremque",
+        type: AccountingAddressType.Billing,
+      },
+      {
+        city: "Oswaldofield",
+        country: "Kyrgyz Republic",
+        line1: "mollitia",
+        line2: "quidem",
+        postalCode: "41396-3740",
+        region: "vel",
         type: AccountingAddressType.Unknown,
       },
+      {
+        city: "New Dellboro",
+        country: "Saint Barthelemy",
+        line1: "occaecati",
+        line2: "sit",
+        postalCode: "18058-0681",
+        region: "a",
+        type: AccountingAddressType.Delivery,
+      },
     ],
-    contactName: "corporis",
-    defaultCurrency: "ullam",
-    emailAddress: "molestiae",
-    id: "389cedba-c7fd-4a39-994d-66bc2ae48063",
+    contactName: "explicabo",
+    defaultCurrency: "delectus",
+    emailAddress: "natus",
+    id: "e2e10594-4b93-45d2-b7a7-2f90849d6aed",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "01224 658 999",
-    registrationNumber: "iste",
+    phone: "(877) 492-8687",
+    registrationNumber: "eveniet",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: SupplierStatus.Unknown,
+    status: SupplierStatus.Archived,
     supplementalData: {
       content: {
-        "libero": {
-          "voluptatibus": "id",
-          "qui": "explicabo",
+        "nemo": {
+          "esse": "placeat",
         },
-        "accusantium": {
-          "nesciunt": "commodi",
-          "molestias": "atque",
+        "at": {
+          "eos": "odit",
+          "quia": "maxime",
+          "excepturi": "sapiente",
         },
       },
     },
-    supplierName: "explicabo",
-    taxNumber: "totam",
+    supplierName: "maiores",
+    taxNumber: "exercitationem",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  supplierId: "ipsam",
-  timeoutInMinutes: 367727,
+  supplierId: "ducimus",
+  timeoutInMinutes: 293512,
 }).then((res: UpdateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response

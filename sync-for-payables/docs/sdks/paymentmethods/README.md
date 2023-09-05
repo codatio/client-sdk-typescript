@@ -34,7 +34,7 @@ const sdk = new CodatSyncPayables({
 
 sdk.paymentMethods.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  paymentMethodId: "veniam",
+  paymentMethodId: "facere",
 }).then((res: GetPaymentMethodResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -82,7 +82,7 @@ sdk.paymentMethods.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "sint",
+  query: "distinctio",
 }).then((res: ListPaymentMethodsResponse) => {
   if (res.statusCode == 200) {
     // handle response
