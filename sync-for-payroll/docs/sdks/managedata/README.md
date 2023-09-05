@@ -6,13 +6,15 @@ Asynchronously retrieve data from an integration to refresh data in Codat.
 
 ### Available Operations
 
-* [get](#get) - Get data status
+* [getDataStatus](#getdatastatus) - Get data status
 * [getPullOperation](#getpulloperation) - Get pull operation
+* [getPushOperation](#getpushoperation) - Get push operation
+* [list](#list) - List push operations
 * [listPullOperations](#listpulloperations) - List pull operations
 * [refreshAllDataTypes](#refreshalldatatypes) - Refresh all data
 * [refreshDataType](#refreshdatatype) - Refresh data type
 
-## get
+## getDataStatus
 
 Get the state of each data type for a company
 
@@ -28,7 +30,7 @@ const sdk = new CodatSyncPayroll({
   },
 });
 
-sdk.manageData.get({
+sdk.manageData.getDataStatus({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetDataStatusResponse) => {
   if (res.statusCode == 200) {
@@ -91,6 +93,89 @@ sdk.manageData.getPullOperation({
 **Promise<[operations.GetPullOperationResponse](../../models/operations/getpulloperationresponse.md)>**
 
 
+## getPushOperation
+
+Retrieve push operation.
+
+### Example Usage
+
+```typescript
+import { CodatSyncPayroll } from "@codat/sync-for-payroll";
+import { GetPushOperationResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
+
+const sdk = new CodatSyncPayroll({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.manageData.getPushOperation({
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  pushOperationKey: "25870532-02c7-43d5-be9b-90c28909b3fe",
+}).then((res: GetPushOperationResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.GetPushOperationRequest](../../models/operations/getpushoperationrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `retries`                                                                                | [utils.RetryConfig](../../models/utils/retryconfig.md)                                   | :heavy_minus_sign:                                                                       | Configuration to override the default retry behavior of the client.                      |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+
+
+### Response
+
+**Promise<[operations.GetPushOperationResponse](../../models/operations/getpushoperationresponse.md)>**
+
+
+## list
+
+List push operation records.
+
+### Example Usage
+
+```typescript
+import { CodatSyncPayroll } from "@codat/sync-for-payroll";
+import { ListPushOperationsResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
+
+const sdk = new CodatSyncPayroll({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.manageData.list({
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  orderBy: "-modifiedDate",
+  page: 1,
+  pageSize: 100,
+  query: "modi",
+}).then((res: ListPushOperationsResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.ListPushOperationsRequest](../../models/operations/listpushoperationsrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `retries`                                                                                    | [utils.RetryConfig](../../models/utils/retryconfig.md)                                       | :heavy_minus_sign:                                                                           | Configuration to override the default retry behavior of the client.                          |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+
+
+### Response
+
+**Promise<[operations.ListPushOperationsResponse](../../models/operations/listpushoperationsresponse.md)>**
+
+
 ## listPullOperations
 
 Gets the pull operation history (datasets) for a given company.
@@ -112,7 +197,7 @@ sdk.manageData.listPullOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "libero",
+  query: "iste",
 }).then((res: ListPullOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -198,7 +283,7 @@ const sdk = new CodatSyncPayroll({
 
 sdk.manageData.refreshDataType({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "b2587053-202c-473d-9fe9-b90c28909b3f",
+  connectionId: "a8d9cbf4-8633-4323-b9b7-7f3a4100674e",
   dataType: DataType.Invoices,
 }).then((res: RefreshDataTypeResponse) => {
   if (res.statusCode == 200) {

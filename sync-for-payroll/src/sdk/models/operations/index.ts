@@ -9,6 +9,7 @@ export * from "./createjournal";
 export * from "./createjournalentry";
 export * from "./deletecompany";
 export * from "./deleteconnection";
+export * from "./deletejournalentry";
 export * from "./getaccount";
 export * from "./getcompany";
 export * from "./getconnection";
