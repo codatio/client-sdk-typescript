@@ -4,13 +4,13 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Links } from "./links";
-import { PushOperationSummary } from "./pushoperationsummary";
+import { PushOperation } from "./pushoperation";
 import { Expose, Type } from "class-transformer";
 
 /**
  * OK
  */
-export class PushHistoryResponse extends SpeakeasyBase {
+export class PushOperations extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "_links" })
     @Type(() => Links)
@@ -24,10 +24,10 @@ export class PushHistoryResponse extends SpeakeasyBase {
     @Expose({ name: "pageSize" })
     pageSize: number;
 
-    @SpeakeasyMetadata({ elemType: PushOperationSummary })
+    @SpeakeasyMetadata({ elemType: PushOperation })
     @Expose({ name: "results" })
-    @Type(() => PushOperationSummary)
-    results?: PushOperationSummary[];
+    @Type(() => PushOperation)
+    results?: PushOperation[];
 
     @SpeakeasyMetadata()
     @Expose({ name: "totalResults" })

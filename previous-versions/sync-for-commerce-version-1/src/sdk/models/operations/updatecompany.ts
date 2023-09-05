@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class UpdateCompanyRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    companyRequestBody?: shared.CompanyRequestBody;
+    createCompany?: shared.CreateCompany;
 
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;

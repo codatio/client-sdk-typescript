@@ -9,7 +9,7 @@ import { RecordRef } from "./recordref";
 import { TrackingCategoryRefsitems } from "./trackingcategoryrefsitems";
 import { Expose, Type } from "class-transformer";
 
-export class TrackingProjectRef extends SpeakeasyBase {
+export class TrackingProjectReference extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id: string;
@@ -43,8 +43,8 @@ export class Tracking extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "projectRef" })
-    @Type(() => TrackingProjectRef)
-    projectRef?: TrackingProjectRef;
+    @Type(() => TrackingProjectReference)
+    projectRef?: TrackingProjectReference;
 
     /**
      * Links the current record to the underlying record or data type that created it.

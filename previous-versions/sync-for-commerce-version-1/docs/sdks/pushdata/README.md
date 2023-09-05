@@ -27,7 +27,7 @@ const sdk = new CodatSyncCommerce({
 
 sdk.pushData.getOperation({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "afd2315b-ba65-4016-8e06-f5bf6ae591bc",
+  pushOperationKey: "fd2315bb-a650-4164-a06f-5bf6ae591bc8",
 }).then((res: GetPushOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -70,7 +70,7 @@ sdk.pushData.listOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "praesentium",
+  query: "facilis",
 }).then((res: GetCompanyPushHistoryResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -106,7 +106,7 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.companies.updateCompany({
-  companyRequestBody: {
+  createCompany: {
     description: "Requested early access to the new financing scheme.",
     name: "Bank of Dave",
   },

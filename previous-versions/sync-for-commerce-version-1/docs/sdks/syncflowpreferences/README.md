@@ -65,9 +65,9 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.syncFlowPreferences.getSyncFlowUrl({
-  accountingKey: "voluptas",
-  commerceKey: "expedita",
-  merchantIdentifier: "voluptas",
+  accountingKey: "expedita",
+  commerceKey: "voluptas",
+  merchantIdentifier: "maiores",
 }).then((res: GetSyncFlowUrlResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -106,8 +106,8 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.syncFlowPreferences.getVisibleAccounts({
-  clientId: "f66fef02-0e9f-4443-b425-7b992c8dbda6",
-  platformKey: "a61efa21-9825-48fd-8a9e-ba47f7d3ef04",
+  clientId: "66fef020-e9f4-443b-8257-b992c8dbda6a",
+  platformKey: "61efa219-8258-4fd0-a9eb-a47f7d3ef049",
 }).then((res: GetVisibleAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -146,17 +146,13 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.syncFlowPreferences.updateConfigTextSyncFlow({
-  "aliquid": {
+  "dolore": {
     required: false,
-    text: "dolore",
+    text: "voluptatem",
   },
-  "voluptatem": {
+  "illum": {
     required: false,
-    text: "illum",
-  },
-  "laboriosam": {
-    required: false,
-    text: "culpa",
+    text: "laboriosam",
   },
 }).then((res: UpdateConfigTextSyncFlowResponse) => {
   if (res.statusCode == 200) {
@@ -198,10 +194,12 @@ const sdk = new CodatSyncCommerce({
 sdk.syncFlowPreferences.updateVisibleAccountsSyncFlow({
   visibleAccounts: {
     visibleAccounts: [
+      "dicta",
       "atque",
+      "ratione",
     ],
   },
-  platformKey: "31c87adf-596f-4df1-ad83-7ae80c1c19c9",
+  platformKey: "1c87adf5-96fd-4f1a-9837-ae80c1c19c95",
 }).then((res: UpdateVisibleAccountsSyncFlowResponse) => {
   if (res.statusCode == 200) {
     // handle response

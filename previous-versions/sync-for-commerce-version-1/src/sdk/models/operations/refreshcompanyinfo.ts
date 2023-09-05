@@ -12,14 +12,14 @@ export class RefreshCompanyInfoRequest extends SpeakeasyBase {
 }
 
 export class RefreshCompanyInfoResponse extends SpeakeasyBase {
+    @SpeakeasyMetadata()
+    contentType: string;
+
     /**
      * Success
      */
     @SpeakeasyMetadata()
-    accountingDataset?: shared.AccountingDataset;
-
-    @SpeakeasyMetadata()
-    contentType: string;
+    dataset?: shared.Dataset;
 
     /**
      * Your API request was not properly authorized.

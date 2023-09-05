@@ -7,7 +7,7 @@ import { AccountingAddressType } from "./accountingaddresstype";
 import { PhoneNumberType } from "./phonenumbertype";
 import { Expose, Type } from "class-transformer";
 
-export class AccountingCompanyDatasetAddresses extends SpeakeasyBase {
+export class AccountingCompanyDatasetAccountingAddress extends SpeakeasyBase {
     /**
      * City of the customer address.
      */
@@ -124,10 +124,10 @@ export class AccountingCompanyDataset extends SpeakeasyBase {
     /**
      * An array of Addresses.
      */
-    @SpeakeasyMetadata({ elemType: AccountingCompanyDatasetAddresses })
+    @SpeakeasyMetadata({ elemType: AccountingCompanyDatasetAccountingAddress })
     @Expose({ name: "addresses" })
-    @Type(() => AccountingCompanyDatasetAddresses)
-    addresses?: AccountingCompanyDatasetAddresses[];
+    @Type(() => AccountingCompanyDatasetAccountingAddress)
+    addresses?: AccountingCompanyDatasetAccountingAddress[];
 
     /**
      * Currency set in the accounting platform of the linked company. Used by the currency rate.

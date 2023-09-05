@@ -76,7 +76,7 @@ const sdk = new CodatSyncCommerce({
 
 sdk.refreshData.byDataType({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "bdef3612-b63c-4205-bda8-40774a68a9a3",
+  connectionId: "def3612b-63c2-405f-9a84-0774a68a9a35",
   dataType: DataType.Invoices,
 }).then((res: RefreshDataTypeResponse) => {
   if (res.statusCode == 200) {
@@ -199,7 +199,7 @@ sdk.refreshData.listPullOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "ad",
+  query: "illum",
 }).then((res: ListPullOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

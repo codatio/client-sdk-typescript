@@ -29,7 +29,8 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.companyManagement.createCompany({
-  name: "Bob's Burgers",
+  description: "Requested early access to the new financing scheme.",
+  name: "Bank of Dave",
 }).then((res: CreateCompanyResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -185,6 +186,7 @@ Update a data connection
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
 import { UpdateConnectionResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
+import { DataConnectionStatus } from "@codat/sync-for-commerce-version-1/dist/sdk/models/shared";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -194,7 +196,7 @@ const sdk = new CodatSyncCommerce({
 
 sdk.companyManagement.updateConnection({
   updateConnection: {
-    status: "Linked",
+    status: DataConnectionStatus.Linked,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
