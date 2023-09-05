@@ -56,13 +56,6 @@ export class PushOperation extends SpeakeasyBase {
     completedOnUtc?: string;
 
     /**
-     * Object submitted in push operation.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "data" })
-    data?: Record<string, any>;
-
-    /**
      * Unique identifier for a company's data connection.
      */
     @SpeakeasyMetadata()

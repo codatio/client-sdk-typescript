@@ -42,15 +42,15 @@ export class ListRulesResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
 
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    rules?: shared.Rules;
-
     @SpeakeasyMetadata()
     statusCode: number;
 
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
+
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    webhooks?: shared.Webhooks;
 }

@@ -4,13 +4,13 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Links } from "./links";
-import { PullOperation } from "./pulloperation";
+import { Webhook } from "./webhook";
 import { Expose, Type } from "class-transformer";
 
 /**
  * OK
  */
-export class DataConnectionHistory extends SpeakeasyBase {
+export class Webhooks extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "_links" })
     @Type(() => Links)
@@ -24,10 +24,10 @@ export class DataConnectionHistory extends SpeakeasyBase {
     @Expose({ name: "pageSize" })
     pageSize: number;
 
-    @SpeakeasyMetadata({ elemType: PullOperation })
+    @SpeakeasyMetadata({ elemType: Webhook })
     @Expose({ name: "results" })
-    @Type(() => PullOperation)
-    results?: PullOperation[];
+    @Type(() => Webhook)
+    results?: Webhook[];
 
     @SpeakeasyMetadata()
     @Expose({ name: "totalResults" })
