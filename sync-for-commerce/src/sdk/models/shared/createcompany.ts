@@ -7,7 +7,14 @@ import { Expose } from "class-transformer";
 
 export class CreateCompany extends SpeakeasyBase {
     /**
-     * Name of the company in Codat with a partner-commerce data connection.
+     * Additional information about the company. This can be used to store foreign IDs, references, etc.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "description" })
+    description?: string;
+
+    /**
+     * Name of company being connected.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "name" })

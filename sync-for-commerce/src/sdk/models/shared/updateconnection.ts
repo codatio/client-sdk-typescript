@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { DataConnectionStatus } from "./dataconnectionstatus";
 import { Expose } from "class-transformer";
 
 export class UpdateConnection extends SpeakeasyBase {
@@ -11,5 +12,5 @@ export class UpdateConnection extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: string;
+    status?: DataConnectionStatus;
 }
