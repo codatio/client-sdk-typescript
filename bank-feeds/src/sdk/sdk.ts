@@ -52,8 +52,8 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "3.0.0";
-    sdkVersion = "0.36.0";
-    genVersion = "2.96.3";
+    sdkVersion = "0.36.1";
+    genVersion = "2.96.6";
 
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -67,9 +67,19 @@ export class SDKConfiguration {
  *
  * A bank feed is a connection between a source bank account in your application and a target bank account in a supported accounting package.
  *
- * [Read more...](https://docs.codat.io/bank-feeds-api/overview)
+ * [Explore product](https://docs.codat.io/bank-feeds-api/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
  *
- * [See our OpenAPI spec](https://github.com/codatio/oas)
+ * ---
+ *
+ * ## Endpoints
+ *
+ * | Endpoints | Description |
+ * | :- | :- |
+ * | Companies | Create and manage your SMB users' companies. |
+ * | Connections | Create new and manage existing data connections for a company. |
+ * | Source accounts | Provide and manage lists of source bank accounts.   |
+ * | Transactions | Create new bank account transactions for a company's connections, and see previous operations. |
+ * | Account mapping | Extra functionality for building an account management UI |
  */
 export class CodatBankFeeds {
     /**
