@@ -13,7 +13,7 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
  * Retrieve banking data from linked bank accounts.
  */
 
-export class CashFlow {
+export class Banking {
     private sdkConfiguration: SDKConfiguration;
 
     constructor(sdkConfig: SDKConfiguration) {
@@ -320,7 +320,7 @@ export class CashFlow {
     }
 
     /**
-     * Get enhanced cash flow report
+     * Get categorized bank statement
      *
      * @remarks
      * > **Categorization engine**
@@ -329,13 +329,13 @@ export class CashFlow {
      *
      * The Enhanced Cash Flow Transactions endpoint provides a fully categorized list of banking transactions for a company. Accounts and transaction data are obtained from the company's banking data sources.
      */
-    async getEnhancedCashFlowTransactions(
-        req: operations.GetEnhancedCashFlowTransactionsRequest,
+    async getCategorizedBankStatement(
+        req: operations.GetCategorizedBankStatementRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.GetEnhancedCashFlowTransactionsResponse> {
+    ): Promise<operations.GetCategorizedBankStatementResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetEnhancedCashFlowTransactionsRequest(req);
+            req = new operations.GetCategorizedBankStatementRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -389,8 +389,8 @@ export class CashFlow {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.GetEnhancedCashFlowTransactionsResponse =
-            new operations.GetEnhancedCashFlowTransactionsResponse({
+        const res: operations.GetCategorizedBankStatementResponse =
+            new operations.GetCategorizedBankStatementResponse({
                 statusCode: httpRes.status,
                 contentType: contentType,
                 rawResponse: httpRes,

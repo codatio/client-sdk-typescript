@@ -9,8 +9,8 @@ Financial data and reports from a linked accounting platform.
 * [getAccount](#getaccount) - Get account
 * [getBalanceSheet](#getbalancesheet) - Get balance sheet
 * [getCashFlowStatement](#getcashflowstatement) - Get cash flow statement
-* [getEnhancedBalanceSheetAccounts](#getenhancedbalancesheetaccounts) - Get enhanced balance sheet accounts
-* [getEnhancedProfitAndLossAccounts](#getenhancedprofitandlossaccounts) - Get enhanced profit and loss accounts
+* [getCategorizedBalanceSheet](#getcategorizedbalancesheet) - Get categorized balance sheet statement
+* [getCategorizedProfitAndLoss](#getcategorizedprofitandloss) - Get categorized profit and loss statement
 * [getProfitAndLoss](#getprofitandloss) - Get profit and loss
 * [listAccounts](#listaccounts) - List accounts
 
@@ -145,7 +145,7 @@ sdk.financialStatements.getCashFlowStatement({
 **Promise<[operations.GetAccountingCashFlowStatementResponse](../../models/operations/getaccountingcashflowstatementresponse.md)>**
 
 
-## getEnhancedBalanceSheetAccounts
+## getCategorizedBalanceSheet
 
 ﻿The *Get enhanced balance sheet accounts* endpoint returns a list of categorized accounts that appear on a company’s Balance Sheet along with a balance per financial statement date.
 
@@ -155,7 +155,7 @@ Codat suggests a category for each account automatically, but you can [change it
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GetEnhancedBalanceSheetAccountsResponse } from "@codat/lending/dist/sdk/models/operations";
+import { GetCategorizedBalanceSheetStatementResponse } from "@codat/lending/dist/sdk/models/operations";
 
 const sdk = new CodatLending({
   security: {
@@ -163,11 +163,11 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.financialStatements.getEnhancedBalanceSheetAccounts({
+sdk.financialStatements.getCategorizedBalanceSheet({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   numberOfPeriods: 216550,
   reportDate: "29-09-2020",
-}).then((res: GetEnhancedBalanceSheetAccountsResponse) => {
+}).then((res: GetCategorizedBalanceSheetStatementResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -176,19 +176,19 @@ sdk.financialStatements.getEnhancedBalanceSheetAccounts({
 
 ### Parameters
 
-| Parameter                                                                                                              | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
-| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                              | [operations.GetEnhancedBalanceSheetAccountsRequest](../../models/operations/getenhancedbalancesheetaccountsrequest.md) | :heavy_check_mark:                                                                                                     | The request object to use for the request.                                                                             |
-| `retries`                                                                                                              | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                                 | :heavy_minus_sign:                                                                                                     | Configuration to override the default retry behavior of the client.                                                    |
-| `config`                                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                           | :heavy_minus_sign:                                                                                                     | Available config options for making requests.                                                                          |
+| Parameter                                                                                                                      | Type                                                                                                                           | Required                                                                                                                       | Description                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                      | [operations.GetCategorizedBalanceSheetStatementRequest](../../models/operations/getcategorizedbalancesheetstatementrequest.md) | :heavy_check_mark:                                                                                                             | The request object to use for the request.                                                                                     |
+| `retries`                                                                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                                         | :heavy_minus_sign:                                                                                                             | Configuration to override the default retry behavior of the client.                                                            |
+| `config`                                                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                   | :heavy_minus_sign:                                                                                                             | Available config options for making requests.                                                                                  |
 
 
 ### Response
 
-**Promise<[operations.GetEnhancedBalanceSheetAccountsResponse](../../models/operations/getenhancedbalancesheetaccountsresponse.md)>**
+**Promise<[operations.GetCategorizedBalanceSheetStatementResponse](../../models/operations/getcategorizedbalancesheetstatementresponse.md)>**
 
 
-## getEnhancedProfitAndLossAccounts
+## getCategorizedProfitAndLoss
 
 ﻿The *Get enhanced profit and loss accounts* endpoint returns a list of categorized accounts that appear on a company’s Profit and Loss statement. It also includes a balance as of the financial statement date.
 
@@ -198,7 +198,7 @@ Codat suggests a category for each account automatically, but you can [change it
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GetEnhancedProfitAndLossAccountsResponse } from "@codat/lending/dist/sdk/models/operations";
+import { GetCategorizedProfitAndLossStatementResponse } from "@codat/lending/dist/sdk/models/operations";
 
 const sdk = new CodatLending({
   security: {
@@ -206,11 +206,11 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.financialStatements.getEnhancedProfitAndLossAccounts({
+sdk.financialStatements.getCategorizedProfitAndLoss({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   numberOfPeriods: 568434,
   reportDate: "29-09-2020",
-}).then((res: GetEnhancedProfitAndLossAccountsResponse) => {
+}).then((res: GetCategorizedProfitAndLossStatementResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -219,16 +219,16 @@ sdk.financialStatements.getEnhancedProfitAndLossAccounts({
 
 ### Parameters
 
-| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                | [operations.GetEnhancedProfitAndLossAccountsRequest](../../models/operations/getenhancedprofitandlossaccountsrequest.md) | :heavy_check_mark:                                                                                                       | The request object to use for the request.                                                                               |
-| `retries`                                                                                                                | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                                   | :heavy_minus_sign:                                                                                                       | Configuration to override the default retry behavior of the client.                                                      |
-| `config`                                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                             | :heavy_minus_sign:                                                                                                       | Available config options for making requests.                                                                            |
+| Parameter                                                                                                                        | Type                                                                                                                             | Required                                                                                                                         | Description                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                        | [operations.GetCategorizedProfitAndLossStatementRequest](../../models/operations/getcategorizedprofitandlossstatementrequest.md) | :heavy_check_mark:                                                                                                               | The request object to use for the request.                                                                                       |
+| `retries`                                                                                                                        | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                                           | :heavy_minus_sign:                                                                                                               | Configuration to override the default retry behavior of the client.                                                              |
+| `config`                                                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                     | :heavy_minus_sign:                                                                                                               | Available config options for making requests.                                                                                    |
 
 
 ### Response
 
-**Promise<[operations.GetEnhancedProfitAndLossAccountsResponse](../../models/operations/getenhancedprofitandlossaccountsresponse.md)>**
+**Promise<[operations.GetCategorizedProfitAndLossStatementResponse](../../models/operations/getcategorizedprofitandlossstatementresponse.md)>**
 
 
 ## getProfitAndLoss

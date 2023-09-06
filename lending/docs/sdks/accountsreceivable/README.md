@@ -16,10 +16,10 @@ Data from a linked accounting platform representing money owed to the business f
 * [getCustomerAttachment](#getcustomerattachment) - Get customer attachment
 * [getDirectIncome](#getdirectincome) - Get direct income
 * [getDirectIncomeAttachment](#getdirectincomeattachment) - Get direct income attachment
-* [getEnhancedInvoicesReport](#getenhancedinvoicesreport) - Get enhanced invoices report
 * [getInvoice](#getinvoice) - Get invoice
 * [getInvoiceAttachment](#getinvoiceattachment) - Get invoice attachment
 * [getPayment](#getpayment) - Get payment
+* [getReconciledInvoices](#getreconciledinvoices) - Get reconciled invoices
 * [isAgedDebtorReportAvailable](#isageddebtorreportavailable) - Aged debtors report available
 * [listCreditNotes](#listcreditnotes) - List credit notes
 * [listCustomerAttachments](#listcustomerattachments) - List customer attachments
@@ -491,48 +491,6 @@ sdk.accountsReceivable.getDirectIncomeAttachment({
 **Promise<[operations.GetAccountingDirectIncomeAttachmentResponse](../../models/operations/getaccountingdirectincomeattachmentresponse.md)>**
 
 
-## getEnhancedInvoicesReport
-
-Gets a list of invoices linked to the corresponding banking transaction
-
-### Example Usage
-
-```typescript
-import { CodatLending } from "@codat/lending";
-import { GetEnhancedInvoicesReportResponse } from "@codat/lending/dist/sdk/models/operations";
-
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.accountsReceivable.getEnhancedInvoicesReport({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  page: 1,
-  pageSize: 100,
-  query: "veritatis",
-}).then((res: GetEnhancedInvoicesReportResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-### Parameters
-
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                  | [operations.GetEnhancedInvoicesReportRequest](../../models/operations/getenhancedinvoicesreportrequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
-| `retries`                                                                                                  | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                     | :heavy_minus_sign:                                                                                         | Configuration to override the default retry behavior of the client.                                        |
-| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
-
-
-### Response
-
-**Promise<[operations.GetEnhancedInvoicesReportResponse](../../models/operations/getenhancedinvoicesreportresponse.md)>**
-
-
 ## getInvoice
 
 The *Get invoice* endpoint returns a single invoice for a given invoiceId.
@@ -558,7 +516,7 @@ const sdk = new CodatLending({
 
 sdk.accountsReceivable.getInvoice({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  invoiceId: "deserunt",
+  invoiceId: "veritatis",
 }).then((res: GetAccountingInvoiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -605,7 +563,7 @@ sdk.accountsReceivable.getInvoiceAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "perferendis",
+  invoiceId: "deserunt",
 }).then((res: GetAccountingInvoiceAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -652,7 +610,7 @@ const sdk = new CodatLending({
 
 sdk.accountsReceivable.getPayment({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  paymentId: "ipsam",
+  paymentId: "perferendis",
 }).then((res: GetAccountingPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -672,6 +630,48 @@ sdk.accountsReceivable.getPayment({
 ### Response
 
 **Promise<[operations.GetAccountingPaymentResponse](../../models/operations/getaccountingpaymentresponse.md)>**
+
+
+## getReconciledInvoices
+
+Gets a list of invoices linked to the corresponding banking transaction
+
+### Example Usage
+
+```typescript
+import { CodatLending } from "@codat/lending";
+import { GetReconciledInvoicesResponse } from "@codat/lending/dist/sdk/models/operations";
+
+const sdk = new CodatLending({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.accountsReceivable.getReconciledInvoices({
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  page: 1,
+  pageSize: 100,
+  query: "ipsam",
+}).then((res: GetReconciledInvoicesResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.GetReconciledInvoicesRequest](../../models/operations/getreconciledinvoicesrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `retries`                                                                                          | [utils.RetryConfig](../../models/utils/retryconfig.md)                                             | :heavy_minus_sign:                                                                                 | Configuration to override the default retry behavior of the client.                                |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+
+
+### Response
+
+**Promise<[operations.GetReconciledInvoicesResponse](../../models/operations/getreconciledinvoicesresponse.md)>**
 
 
 ## isAgedDebtorReportAvailable

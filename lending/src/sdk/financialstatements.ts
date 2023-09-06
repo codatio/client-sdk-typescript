@@ -354,20 +354,20 @@ export class FinancialStatements {
     }
 
     /**
-     * Get enhanced balance sheet accounts
+     * Get categorized balance sheet statement
      *
      * @remarks
      * The *Get enhanced balance sheet accounts* endpoint returns a list of categorized accounts that appear on a company’s Balance Sheet along with a balance per financial statement date.
      *
      * Codat suggests a category for each account automatically, but you can [change it](https://docs.codat.io/lending/enhanced-financials/overview#categorize-accounts) to a more suitable one.
      */
-    async getEnhancedBalanceSheetAccounts(
-        req: operations.GetEnhancedBalanceSheetAccountsRequest,
+    async getCategorizedBalanceSheet(
+        req: operations.GetCategorizedBalanceSheetStatementRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.GetEnhancedBalanceSheetAccountsResponse> {
+    ): Promise<operations.GetCategorizedBalanceSheetStatementResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetEnhancedBalanceSheetAccountsRequest(req);
+            req = new operations.GetCategorizedBalanceSheetStatementRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -421,8 +421,8 @@ export class FinancialStatements {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.GetEnhancedBalanceSheetAccountsResponse =
-            new operations.GetEnhancedBalanceSheetAccountsResponse({
+        const res: operations.GetCategorizedBalanceSheetStatementResponse =
+            new operations.GetCategorizedBalanceSheetStatementResponse({
                 statusCode: httpRes.status,
                 contentType: contentType,
                 rawResponse: httpRes,
@@ -465,20 +465,20 @@ export class FinancialStatements {
     }
 
     /**
-     * Get enhanced profit and loss accounts
+     * Get categorized profit and loss statement
      *
      * @remarks
      * The *Get enhanced profit and loss accounts* endpoint returns a list of categorized accounts that appear on a company’s Profit and Loss statement. It also includes a balance as of the financial statement date.
      *
      * Codat suggests a category for each account automatically, but you can [change it](https://docs.codat.io/lending/enhanced-financials/overview#categorize-accounts) to a more suitable one.
      */
-    async getEnhancedProfitAndLossAccounts(
-        req: operations.GetEnhancedProfitAndLossAccountsRequest,
+    async getCategorizedProfitAndLoss(
+        req: operations.GetCategorizedProfitAndLossStatementRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.GetEnhancedProfitAndLossAccountsResponse> {
+    ): Promise<operations.GetCategorizedProfitAndLossStatementResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetEnhancedProfitAndLossAccountsRequest(req);
+            req = new operations.GetCategorizedProfitAndLossStatementRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -532,8 +532,8 @@ export class FinancialStatements {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.GetEnhancedProfitAndLossAccountsResponse =
-            new operations.GetEnhancedProfitAndLossAccountsResponse({
+        const res: operations.GetCategorizedProfitAndLossStatementResponse =
+            new operations.GetCategorizedProfitAndLossStatementResponse({
                 statusCode: httpRes.status,
                 contentType: contentType,
                 rawResponse: httpRes,
