@@ -12,7 +12,8 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.advancedControls.createCompany({
-  name: "Bob's Burgers",
+  description: "Requested early access to the new financing scheme.",
+  name: "Bank of Dave",
 }).then((res: CreateCompanyResponse) => {
   if (res.statusCode == 200) {
     // handle response

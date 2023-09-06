@@ -1,4 +1,4 @@
-# syncFlowPreferences
+# syncFlowSettings
 
 ## Overview
 
@@ -27,7 +27,7 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-sdk.syncFlowPreferences.getConfigTextSyncFlow().then((res: GetConfigTextSyncFlowResponse) => {
+sdk.syncFlowSettings.getConfigTextSyncFlow().then((res: GetConfigTextSyncFlowResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -63,9 +63,9 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-sdk.syncFlowPreferences.getVisibleAccounts({
-  clientId: "67cc8796-ed15-41a0-9dfc-2ddf7cc78ca1",
-  platformKey: "ba928fc8-1674-42cb-b392-05929396fea7",
+sdk.syncFlowSettings.getVisibleAccounts({
+  clientId: "e0f467cc-8796-4ed1-91a0-5dfc2ddf7cc7",
+  platformKey: "8ca1ba92-8fc8-4167-82cb-739205929396",
 }).then((res: GetVisibleAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -103,14 +103,10 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-sdk.syncFlowPreferences.updateConfigTextSyncFlow({
-  "iste": {
+sdk.syncFlowSettings.updateConfigTextSyncFlow({
+  "hic": {
     required: false,
-    text: "iure",
-  },
-  "saepe": {
-    required: false,
-    text: "quidem",
+    text: "saepe",
   },
 }).then((res: UpdateConfigTextSyncFlowResponse) => {
   if (res.statusCode == 200) {
@@ -149,13 +145,13 @@ const sdk = new CodatSyncCommerce({
   },
 });
 
-sdk.syncFlowPreferences.updateVisibleAccountsSyncFlow({
+sdk.syncFlowSettings.updateVisibleAccountsSyncFlow({
   visibleAccounts: {
     visibleAccounts: [
-      "ipsa",
+      "fuga",
     ],
   },
-  platformKey: "faaa2352-c595-4590-baff-1a3a2fa94677",
+  platformKey: "7596eb10-faaa-4235-ac59-55907aff1a3a",
 }).then((res: UpdateVisibleAccountsSyncFlowResponse) => {
   if (res.statusCode == 200) {
     // handle response
