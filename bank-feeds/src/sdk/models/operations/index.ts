@@ -3,23 +3,23 @@
  */
 
 export * from "./createbankaccountmapping";
-export * from "./createbankfeed";
 export * from "./createbanktransactions";
 export * from "./createcompany";
 export * from "./createconnection";
-export * from "./deletebankfeedbankaccount";
+export * from "./createsourceaccount";
 export * from "./deletebankfeedcredentials";
 export * from "./deletecompany";
 export * from "./deleteconnection";
+export * from "./deletesourceaccount";
 export * from "./generatecredentials";
 export * from "./getbankaccountmapping";
 export * from "./getcompany";
 export * from "./getconnection";
 export * from "./getcreateoperation";
-export * from "./listbankfeeds";
 export * from "./listcompanies";
 export * from "./listconnections";
 export * from "./listcreateoperations";
+export * from "./listsourceaccounts";
 export * from "./unlinkconnection";
-export * from "./updatebankfeed";
 export * from "./updatecompany";
+export * from "./updatesourceaccount";

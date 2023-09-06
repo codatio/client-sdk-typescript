@@ -21,18 +21,38 @@ export class SourceAccounts {
     }
 
     /**
-     * Create a bank feed bank account
+     * Create source account
      *
      * @remarks
-     * Post a BankFeed BankAccount for a single data source connected. to a single company.
+     * The _Create Source Account_ endpoint allows you to create a representation of a bank account within Codat's domain. The company can then map the source account to an existing or new target account in their accounting software.
+     *
+     * #### Account Mapping Variability
+     *
+     * The method of mapping the source account to the target account varies depending on the accounting package your company uses.
+     *
+     * #### Mapping Options:
+     *
+     * 1. **API Mapping**: Integrate the mapping journey directly into your application for a seamless user experience.
+     * 2. **Codat UI Mapping**: If you prefer a quicker setup, you can utilize Codat's provided user interface for mapping.
+     * 3. **Accounting Platform Mapping**: For some accounting software, the mapping process must be conducted within the software itself.
+     *
+     * ### Integration specific behaviour
+     *
+     * | Bank Feed Integration | API Mapping | Codat UI Mapping | Accounting Platform Mapping |
+     * | --------------------- | ----------- | ---------------- | --------------------------- |
+     * | Xero                  | ✅          | ✅               |                             |
+     * | FreeAgent             | ✅          | ✅               |                             |
+     * | QuickBooks Online     |             |                  | ✅                          |
+     * | Sage                  |             |                  | ✅                          |
+     *
      */
     async create(
-        req: operations.CreateBankFeedRequest,
+        req: operations.CreateSourceAccountRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.CreateBankFeedResponse> {
+    ): Promise<operations.CreateSourceAccountResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateBankFeedRequest(req);
+            req = new operations.CreateSourceAccountRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -48,17 +68,22 @@ export class SourceAccounts {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "bankFeedAccount", "json");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "sourceAccount", "json");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...reqBodyHeaders, ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
         headers[
@@ -91,18 +116,19 @@ export class SourceAccounts {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.CreateBankFeedResponse = new operations.CreateBankFeedResponse({
-            statusCode: httpRes.status,
-            contentType: contentType,
-            rawResponse: httpRes,
-        });
+        const res: operations.CreateSourceAccountResponse =
+            new operations.CreateSourceAccountResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.bankFeedAccount = utils.objectToClass(
+                    res.sourceAccount = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.BankFeedAccount
+                        shared.SourceAccount
                     );
                 } else {
                     throw new errors.SDKError(
@@ -134,20 +160,21 @@ export class SourceAccounts {
     }
 
     /**
-     * Delete bank feed bank account
+     * Delete source account
      *
      * @remarks
-     * The *delete bank feed bank account* endpoint enables you to remove a source account.
+     * The _Delete source account_ endpoint enables you to remove a source account.
      *
      * Removing a source account will also remove any mapping between the source bank feed bank accounts and the target bankfeed bank account.
+     *
      */
     async delete(
-        req: operations.DeleteBankFeedBankAccountRequest,
+        req: operations.DeleteSourceAccountRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.DeleteBankFeedBankAccountResponse> {
+    ): Promise<operations.DeleteSourceAccountResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.DeleteBankFeedBankAccountRequest(req);
+            req = new operations.DeleteSourceAccountRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -159,11 +186,16 @@ export class SourceAccounts {
             "/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/{accountId}",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
         headers[
@@ -195,8 +227,8 @@ export class SourceAccounts {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.DeleteBankFeedBankAccountResponse =
-            new operations.DeleteBankFeedBankAccountResponse({
+        const res: operations.DeleteSourceAccountResponse =
+            new operations.DeleteSourceAccountResponse({
                 statusCode: httpRes.status,
                 contentType: contentType,
                 rawResponse: httpRes,
@@ -251,11 +283,16 @@ export class SourceAccounts {
             "/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/credentials",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
         headers[
@@ -354,11 +391,16 @@ export class SourceAccounts {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...reqBodyHeaders, ...config?.headers, ...properties.headers };
         if (reqBody == null || Object.keys(reqBody).length === 0)
             throw new Error("request body is required");
         headers["Accept"] = "application/json";
@@ -437,22 +479,21 @@ export class SourceAccounts {
     }
 
     /**
-     * List bank feed bank accounts
+     * List source accounts
      *
      * @remarks
-     * The *List bank feed bank accounts* endpoint returns a list of [bank feed accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankFeedAccount) for a given company's connection.
+     * The _List source accounts_ endpoint returns a list of [source accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankFeedAccount) for a given company's connection.
      *
-     * [Bank feed accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankFeedAccount) are the bank's bank account from which transactions are synced into the accounting platform.
-     *
+     * [source accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankFeedAccount) are the bank's bank account within Codat's domain from which transactions are synced into the accounting platform.
      *
      */
     async list(
-        req: operations.ListBankFeedsRequest,
+        req: operations.ListSourceAccountsRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.ListBankFeedsResponse> {
+    ): Promise<operations.ListSourceAccountsResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.ListBankFeedsRequest(req);
+            req = new operations.ListSourceAccountsRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -464,11 +505,16 @@ export class SourceAccounts {
             "/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
         headers[
@@ -500,18 +546,19 @@ export class SourceAccounts {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.ListBankFeedsResponse = new operations.ListBankFeedsResponse({
-            statusCode: httpRes.status,
-            contentType: contentType,
-            rawResponse: httpRes,
-        });
+        const res: operations.ListSourceAccountsResponse =
+            new operations.ListSourceAccountsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.bankFeedAccount = utils.objectToClass(
+                    res.sourceAccount = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.BankFeedAccount
+                        shared.SourceAccount
                     );
                 } else {
                     throw new errors.SDKError(
@@ -543,18 +590,19 @@ export class SourceAccounts {
     }
 
     /**
-     * Update bank feed bank account
+     * Update source account
      *
      * @remarks
-     * The *Update bank feed bank account* endpoint updates a single bank feed bank account for a single data source connected to a single company.
+     * The _Update source account_ endpoint updates a single source account for a single data connection connected to a single company.
+     *
      */
     async update(
-        req: operations.UpdateBankFeedRequest,
+        req: operations.UpdateSourceAccountRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.UpdateBankFeedResponse> {
+    ): Promise<operations.UpdateSourceAccountResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateBankFeedRequest(req);
+            req = new operations.UpdateSourceAccountRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -570,17 +618,22 @@ export class SourceAccounts {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "bankFeedAccount", "json");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "sourceAccount", "json");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
             }
         }
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...reqBodyHeaders, ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
         headers[
@@ -613,18 +666,19 @@ export class SourceAccounts {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.UpdateBankFeedResponse = new operations.UpdateBankFeedResponse({
-            statusCode: httpRes.status,
-            contentType: contentType,
-            rawResponse: httpRes,
-        });
+        const res: operations.UpdateSourceAccountResponse =
+            new operations.UpdateSourceAccountResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.bankFeedAccount = utils.objectToClass(
+                    res.sourceAccount = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.BankFeedAccount
+                        shared.SourceAccount
                     );
                 } else {
                     throw new errors.SDKError(

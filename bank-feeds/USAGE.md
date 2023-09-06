@@ -12,7 +12,7 @@ const sdk = new CodatBankFeeds({
 });
 
 sdk.accountMapping.create({
-  bankFeedAccountMapping: {
+  requestBody: {
     feedStartDate: "2022-10-23T00:00:00.000Z",
     sourceAccountId: "provident",
     targetAccountId: "distinctio",

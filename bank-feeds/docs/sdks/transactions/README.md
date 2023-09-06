@@ -6,15 +6,15 @@ Transactions represent debits and credits from a source account.
 
 ### Available Operations
 
-* [create](#create) - Create bank account transactions
+* [create](#create) - Create bank transactions
 * [getCreateOperation](#getcreateoperation) - Get create operation
 * [listCreateOperations](#listcreateoperations) - List create operations
 
 ## create
 
-﻿The *Create bank account transactions* endpoint creates new [bank account transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) for a given company's connection.
+﻿The *Create bank transactions* endpoint creates new [bank transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) for a given company's connection.
 
-[Bank account transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) are records of monetary amounts that have moved in and out of an SMB's bank account.
+[Bank transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) are records of monetary amounts that have moved in and out of an SMB's bank account.
 
 **Integration-specific behaviour**
 
@@ -36,23 +36,23 @@ const sdk = new CodatBankFeeds({
 });
 
 sdk.transactions.create({
-  createBankTransactions: {
+  requestBody: {
     accountId: "corporis",
     transactions: [
       {
-        amount: 7506.86,
-        balance: 3154.28,
+        amount: 1289.26,
+        balance: 7506.86,
         date: "2022-10-23T00:00:00.000Z",
-        description: "nemo",
-        id: "5907aff1-a3a2-4fa9-8677-39251aa52c3f",
+        description: "omnis",
+        id: "55907aff-1a3a-42fa-9467-739251aa52c3",
       },
     ],
   },
-  accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+  accountId: "EILBDVJVNUAGVKRQ",
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 662527,
+  timeoutInMinutes: 368725,
 }).then((res: CreateBankTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -92,7 +92,7 @@ const sdk = new CodatBankFeeds({
 
 sdk.transactions.getCreateOperation({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "d019da1f-fe78-4f09-bb00-74f15471b5e6",
+  pushOperationKey: "ad019da1-ffe7-48f0-97b0-074f15471b5e",
 }).then((res: GetCreateOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -135,7 +135,7 @@ sdk.transactions.listCreateOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "repudiandae",
+  query: "commodi",
 }).then((res: ListCreateOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
