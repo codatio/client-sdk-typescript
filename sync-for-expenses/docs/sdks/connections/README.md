@@ -33,7 +33,7 @@ const sdk = new CodatSyncExpenses({
 
 sdk.connections.create({
   requestBody: {
-    platformKey: "sapiente",
+    platformKey: "ipsa",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: CreateConnectionResponse) => {
@@ -198,7 +198,7 @@ sdk.connections.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "quo",
+  query: "delectus",
 }).then((res: ListConnectionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -238,7 +238,7 @@ const sdk = new CodatSyncExpenses({
 
 sdk.connections.unlink({
   requestBody: {
-    status: "odit",
+    status: "tempora",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",

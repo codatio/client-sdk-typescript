@@ -39,7 +39,7 @@ sdk.expenses.create({
           id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
         },
         currency: "GBP",
-        currencyRate: 4614.79,
+        currencyRate: 4799.77,
         id: "4d7c6929-7770-412b-91bb-44d3bc71d111",
         issueDate: "2022-10-23T00:00:00.000Z",
         lines: [
@@ -53,261 +53,6 @@ sdk.expenses.create({
               id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
             },
             trackingRefs: [
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-            ],
-          },
-          {
-            accountRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            netAmount: 110.42,
-            taxAmount: 14.43,
-            taxRateRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            trackingRefs: [
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-            ],
-          },
-          {
-            accountRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            netAmount: 110.42,
-            taxAmount: 14.43,
-            taxRateRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            trackingRefs: [
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-            ],
-          },
-          {
-            accountRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            netAmount: 110.42,
-            taxAmount: 14.43,
-            taxRateRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            trackingRefs: [
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-            ],
-          },
-        ],
-        merchantName: "Amazon UK",
-        notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-        type: ExpenseTransactionType.Payment,
-      },
-      {
-        bankAccountRef: {
-          id: "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
-        },
-        contactRef: {
-          contactType: ContactRefContactType.Supplier,
-          id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-        },
-        currency: "GBP",
-        currencyRate: 5820.2,
-        id: "4d7c6929-7770-412b-91bb-44d3bc71d111",
-        issueDate: "2022-10-23T00:00:00.000Z",
-        lines: [
-          {
-            accountRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            netAmount: 110.42,
-            taxAmount: 14.43,
-            taxRateRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            trackingRefs: [
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-            ],
-          },
-          {
-            accountRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            netAmount: 110.42,
-            taxAmount: 14.43,
-            taxRateRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            trackingRefs: [
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-            ],
-          },
-          {
-            accountRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            netAmount: 110.42,
-            taxAmount: 14.43,
-            taxRateRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            trackingRefs: [
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-            ],
-          },
-        ],
-        merchantName: "Amazon UK",
-        notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-        type: ExpenseTransactionType.Payment,
-      },
-      {
-        bankAccountRef: {
-          id: "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
-        },
-        contactRef: {
-          contactType: ContactRefContactType.Supplier,
-          id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-        },
-        currency: "GBP",
-        currencyRate: 1059.07,
-        id: "4d7c6929-7770-412b-91bb-44d3bc71d111",
-        issueDate: "2022-10-23T00:00:00.000Z",
-        lines: [
-          {
-            accountRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            netAmount: 110.42,
-            taxAmount: 14.43,
-            taxRateRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            trackingRefs: [
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-            ],
-          },
-          {
-            accountRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            netAmount: 110.42,
-            taxAmount: 14.43,
-            taxRateRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            trackingRefs: [
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-            ],
-          },
-        ],
-        merchantName: "Amazon UK",
-        notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-        type: ExpenseTransactionType.Payment,
-      },
-      {
-        bankAccountRef: {
-          id: "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
-        },
-        contactRef: {
-          contactType: ContactRefContactType.Supplier,
-          id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-        },
-        currency: "GBP",
-        currencyRate: 7742.34,
-        id: "4d7c6929-7770-412b-91bb-44d3bc71d111",
-        issueDate: "2022-10-23T00:00:00.000Z",
-        lines: [
-          {
-            accountRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            netAmount: 110.42,
-            taxAmount: 14.43,
-            taxRateRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            trackingRefs: [
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-            ],
-          },
-          {
-            accountRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            netAmount: 110.42,
-            taxAmount: 14.43,
-            taxRateRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            trackingRefs: [
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
-              {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-              },
               {
                 id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
               },
@@ -369,7 +114,7 @@ sdk.expenses.update({
       id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
     },
     currency: "GBP",
-    currencyRate: 1352.18,
+    currencyRate: 3927.85,
     issueDate: "2022-06-28T00:00:00.000Z",
     lines: [
       {
@@ -385,15 +130,12 @@ sdk.expenses.update({
           {
             id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
           },
-          {
-            id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-          },
         ],
       },
     ],
     merchantName: "Amazon UK",
     notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-    type: "natus",
+    type: "recusandae",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
@@ -436,8 +178,8 @@ const sdk = new CodatSyncExpenses({
 
 sdk.expenses.uploadAttachment({
   requestBody: {
-    content: "sed".encode(),
-    requestBody: "iste",
+    content: "temporibus".encode(),
+    requestBody: "ab",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
