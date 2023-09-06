@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: cddbdd14e8304b0f728ee00f0f505344
+  docChecksum: f593d9effa04f11f5601f5311fe4dd9d
   docVersion: "1.1"
-  speakeasyVersion: 1.78.3
-  generationVersion: 2.96.3
+  speakeasyVersion: 1.78.8
+  generationVersion: 2.96.6
 generation:
   sdkClassName: CodatSyncCommerce
   singleTagPerOp: false
@@ -18,7 +18,7 @@ features:
     nameOverrides: 2.81.1
     retries: 2.81.1
 typescript:
-  version: 0.2.0
+  version: 0.2.1
   author: Codat
   description: Push merchants' data from your ecommerce or point-of-sale (POS) platform into your merchants' accounting platform.
   maxMethodParams: 0
