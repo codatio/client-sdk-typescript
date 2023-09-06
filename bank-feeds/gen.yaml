@@ -9,7 +9,7 @@ generation:
   singleTagPerOp: false
   telemetryEnabled: true
 typescript:
-  version: 0.34.0
+  version: 1.0.0
   author: Codat
   description: Set up bank feeds from accounts in your application to supported accounting
     platforms.

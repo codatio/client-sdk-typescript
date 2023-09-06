@@ -18,7 +18,7 @@ features:
     nameOverrides: 2.81.1
     retries: 2.81.1
 typescript:
-  version: 0.36.0
+  version: 1.0.0
   author: Codat
   description: Push expenses to accounting platforms.
   maxMethodParams: 0
