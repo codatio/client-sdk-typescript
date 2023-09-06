@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: a189100adb374c4d30c2616c96e8f6cb
+  docChecksum: 14d8b1f496c8bf37e8e4d8d3126bd9e8
   docVersion: 3.0.0
-  speakeasyVersion: 1.78.3
-  generationVersion: 2.96.3
+  speakeasyVersion: 1.78.8
+  generationVersion: 2.96.6
 generation:
   sdkClassName: CodatCommerce
   singleTagPerOp: false
@@ -17,7 +17,7 @@ features:
     nameOverrides: 2.81.1
     retries: 2.81.1
 typescript:
-  version: 0.34.0
+  version: 0.34.1
   author: Codat
   description: Access standardized commerce data from our commerce integrations.
   maxMethodParams: 0
