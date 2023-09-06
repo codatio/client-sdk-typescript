@@ -6,7 +6,7 @@ Bank feed bank account mapping.
 
 ### Available Operations
 
-* [create](#create) - Create bank feed bank account mapping
+* [create](#create) - Create bank feed account mapping
 * [get](#get) - List bank feed account mappings
 
 ## create
@@ -32,7 +32,7 @@ const sdk = new CodatBankFeeds({
 });
 
 sdk.accountMapping.create({
-  bankFeedAccountMapping: {
+  requestBody: {
     feedStartDate: "2022-10-23T00:00:00.000Z",
     sourceAccountId: "unde",
     targetAccountId: "nulla",

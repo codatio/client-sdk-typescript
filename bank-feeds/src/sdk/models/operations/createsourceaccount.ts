@@ -6,15 +6,9 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class UpdateBankFeedRequest extends SpeakeasyBase {
+export class CreateSourceAccountRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    bankFeedAccount?: shared.BankFeedAccount;
-
-    /**
-     * Unique identifier for an account
-     */
-    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=accountId" })
-    accountId: string;
+    sourceAccount?: shared.SourceAccount;
 
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
@@ -23,21 +17,21 @@ export class UpdateBankFeedRequest extends SpeakeasyBase {
     connectionId: string;
 }
 
-export class UpdateBankFeedResponse extends SpeakeasyBase {
-    /**
-     * Success
-     */
-    @SpeakeasyMetadata()
-    bankFeedAccount?: shared.BankFeedAccount;
-
+export class CreateSourceAccountResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
 
     /**
-     * Your API request was not properly authorized.
+     * The request made is not valid.
      */
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
+
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata()
+    sourceAccount?: shared.SourceAccount;
 
     @SpeakeasyMetadata()
     statusCode: number;

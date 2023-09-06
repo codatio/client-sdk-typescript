@@ -5,10 +5,15 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-/**
- * A bank feed connection between a source account and a target account.
- */
-export class BankFeedAccountMapping extends SpeakeasyBase {
+export class Onecompanies1Percent7BcompanyIdPercent7D1connections1Percent7BconnectionIdPercent7D1push1bankAccounts1Percent7BaccountIdPercent7D1bankTransactionsPostRequestBodyContentApplication1jsonSchemaDefinitionsCreateBankAccountTransaction extends SpeakeasyBase {
+    @SpeakeasyMetadata()
+    @Expose({ name: "amount" })
+    amount?: number;
+
+    @SpeakeasyMetadata()
+    @Expose({ name: "balance" })
+    balance?: number;
+
     /**
      * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
      *
@@ -33,20 +38,14 @@ export class BankFeedAccountMapping extends SpeakeasyBase {
      * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "feedStartDate" })
-    feedStartDate?: string;
+    @Expose({ name: "date" })
+    date?: string;
 
-    /**
-     * Unique ID for the source account
-     */
     @SpeakeasyMetadata()
-    @Expose({ name: "sourceAccountId" })
-    sourceAccountId?: string;
+    @Expose({ name: "description" })
+    description?: string;
 
-    /**
-     * Unique ID for the target account
-     */
     @SpeakeasyMetadata()
-    @Expose({ name: "targetAccountId" })
-    targetAccountId?: string;
+    @Expose({ name: "id" })
+    id?: string;
 }

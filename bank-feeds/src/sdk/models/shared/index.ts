@@ -3,8 +3,6 @@
  */
 
 export * from "./bankaccountcredentials";
-export * from "./bankfeedaccount";
-export * from "./bankfeedaccountmapping";
 export * from "./bankfeedaccountmappingresponse";
 export * from "./bankfeedmapping";
 export * from "./companies";
@@ -21,13 +19,15 @@ export * from "./datatype";
 export * from "./errormessage";
 export * from "./halref";
 export * from "./links";
-export * from "./listpushoperations";
+export * from "./onecompanies1percent7bcompanyidpercent7d1connections1percent7bconnectionidpercent7d1push1bankaccounts1percent7baccountidpercent7d1banktransactionspostrequestbodycontentapplication1jsonschemadefinitionscreatebankaccounttransaction";
 export * from "./pushchangetype";
 export * from "./pushoperation";
 export * from "./pushoperationchange";
 export * from "./pushoperationref";
+export * from "./pushoperations";
 export * from "./pushoperationstatus";
 export * from "./security";
+export * from "./sourceaccount";
 export * from "./targetaccountoption";
 export * from "./validation";
 export * from "./validationitem";

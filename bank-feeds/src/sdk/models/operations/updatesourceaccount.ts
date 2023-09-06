@@ -6,7 +6,16 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class ListBankFeedsRequest extends SpeakeasyBase {
+export class UpdateSourceAccountRequest extends SpeakeasyBase {
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    sourceAccount?: shared.SourceAccount;
+
+    /**
+     * Unique identifier for an account
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=accountId" })
+    accountId: string;
+
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 
@@ -14,13 +23,7 @@ export class ListBankFeedsRequest extends SpeakeasyBase {
     connectionId: string;
 }
 
-export class ListBankFeedsResponse extends SpeakeasyBase {
-    /**
-     * Success
-     */
-    @SpeakeasyMetadata()
-    bankFeedAccount?: shared.BankFeedAccount;
-
+export class UpdateSourceAccountResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -29,6 +32,12 @@ export class ListBankFeedsResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
+
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata()
+    sourceAccount?: shared.SourceAccount;
 
     @SpeakeasyMetadata()
     statusCode: number;
