@@ -49,7 +49,7 @@ export class GetCompanyPushHistoryResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    pushHistoryResponse?: shared.PushHistoryResponse;
+    pushOperations?: shared.PushOperations;
 
     @SpeakeasyMetadata()
     statusCode: number;
