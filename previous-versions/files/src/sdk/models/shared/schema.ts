@@ -8,7 +8,7 @@ import { Expose } from "class-transformer";
 /**
  * The request made is not valid.
  */
-export class ErrorMessage extends SpeakeasyBase {
+export class Schema extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "canBeRetried" })
     canBeRetried?: string;
