@@ -40,16 +40,16 @@ export class ListPullOperationsResponse extends SpeakeasyBase {
     contentType: string;
 
     /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    dataConnectionHistory?: shared.DataConnectionHistory;
-
-    /**
      * Your `query` parameter was not correctly formed
      */
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
+
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    pullOperations?: shared.PullOperations;
 
     @SpeakeasyMetadata()
     statusCode: number;
