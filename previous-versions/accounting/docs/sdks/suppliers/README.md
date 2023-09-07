@@ -45,61 +45,40 @@ sdk.suppliers.create({
   supplier: {
     addresses: [
       {
-        city: "Jaimeside",
-        country: "Kenya",
-        line1: "aspernatur",
-        line2: "nam",
-        postalCode: "64301",
-        region: "labore",
-        type: AccountingAddressType.Delivery,
-      },
-      {
-        city: "West Jasminworth",
-        country: "Mexico",
-        line1: "libero",
-        line2: "nobis",
-        postalCode: "99416",
-        region: "ad",
+        city: "Arvada",
+        country: "Serbia",
+        line1: "explicabo",
+        line2: "accusantium",
+        postalCode: "09117",
+        region: "illum",
         type: AccountingAddressType.Unknown,
       },
-      {
-        city: "Jarretland",
-        country: "Taiwan",
-        line1: "unde",
-        line2: "provident",
-        postalCode: "34064-8990",
-        region: "commodi",
-        type: AccountingAddressType.Billing,
-      },
     ],
-    contactName: "nam",
-    defaultCurrency: "vel",
-    emailAddress: "impedit",
-    id: "cb2822b4-a985-40ed-af4a-1e9c4ae55140",
+    contactName: "exercitationem",
+    defaultCurrency: "quod",
+    emailAddress: "quod",
+    id: "0584a184-d76d-4971-bc82-0c65b037bb8e",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "(877) 492-8687",
-    registrationNumber: "corporis",
+    phone: "01224 658 999",
+    registrationNumber: "impedit",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: SupplierStatus.Unknown,
+    status: SupplierStatus.Active,
     supplementalData: {
       content: {
-        "earum": {
-          "consequatur": "nesciunt",
-        },
-        "porro": {
-          "asperiores": "aut",
+        "ullam": {
+          "veritatis": "quas",
         },
       },
     },
-    supplierName: "consequuntur",
-    taxNumber: "natus",
+    supplierName: "molestiae",
+    taxNumber: "officiis",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 305162,
+  timeoutInMinutes: 287293,
 }).then((res: CreateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -146,7 +125,7 @@ sdk.suppliers.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "architecto",
+  supplierId: "nulla",
 }).then((res: DownloadSupplierAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -193,7 +172,7 @@ const sdk = new CodatAccounting({
 
 sdk.suppliers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  supplierId: "excepturi",
+  supplierId: "accusamus",
 }).then((res: GetSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -240,7 +219,7 @@ sdk.suppliers.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "sed",
+  supplierId: "consequatur",
 }).then((res: GetSupplierAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -337,7 +316,7 @@ sdk.suppliers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "enim",
+  query: "ut",
 }).then((res: ListSuppliersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -383,7 +362,7 @@ const sdk = new CodatAccounting({
 sdk.suppliers.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "architecto",
+  supplierId: "laborum",
 }).then((res: ListSupplierAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -435,63 +414,42 @@ sdk.suppliers.update({
   supplier: {
     addresses: [
       {
-        city: "Turnerside",
-        country: "Falkland Islands (Malvinas)",
-        line1: "dicta",
-        line2: "quo",
-        postalCode: "56923-5949",
-        region: "beatae",
+        city: "Cathedral City",
+        country: "Malta",
+        line1: "maxime",
+        line2: "ad",
+        postalCode: "88624-6607",
+        region: "voluptatibus",
         type: AccountingAddressType.Delivery,
-      },
-      {
-        city: "Boston",
-        country: "Palau",
-        line1: "adipisci",
-        line2: "a",
-        postalCode: "11734",
-        region: "omnis",
-        type: AccountingAddressType.Delivery,
-      },
-      {
-        city: "Lake Harley",
-        country: "Cambodia",
-        line1: "aliquid",
-        line2: "voluptatem",
-        postalCode: "18760",
-        region: "quis",
-        type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "unde",
-    defaultCurrency: "quos",
-    emailAddress: "rem",
-    id: "c6720c31-03f1-4a40-80f3-ec8688fd8ec6",
+    contactName: "ea",
+    defaultCurrency: "facere",
+    emailAddress: "corrupti",
+    id: "28da0131-9112-4964-a645-c1d81f29042f",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "01224 658 999",
-    registrationNumber: "consequatur",
+    phone: "(877) 492-8687",
+    registrationNumber: "iste",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: SupplierStatus.Unknown,
+    status: SupplierStatus.Active,
     supplementalData: {
       content: {
-        "rem": {
-          "alias": "officia",
-          "mollitia": "animi",
-          "officiis": "vero",
-          "repudiandae": "sit",
+        "culpa": {
+          "reiciendis": "a",
         },
       },
     },
-    supplierName: "aut",
-    taxNumber: "labore",
+    supplierName: "consequatur",
+    taxNumber: "voluptates",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  supplierId: "accusamus",
-  timeoutInMinutes: 719170,
+  supplierId: "dolorum",
+  timeoutInMinutes: 148004,
 }).then((res: UpdateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -41,53 +41,23 @@ const sdk = new CodatAccounting({
 sdk.billPayments.create({
   billPayment: {
     accountRef: {
-      id: "23b75d23-67fe-41a0-8c8d-f79f0a396d90",
-      name: "Jimmy Jerde",
+      id: "6555ba3c-2874-44ed-93b8-8f3a8d8f5c0b",
+      name: "Faith Cole",
     },
     currency: "USD",
-    currencyRate: 7898.7,
+    currencyRate: 7090.72,
     date: "2022-10-23T00:00:00.000Z",
     id: "3d5a8e00-d108-4045-8823-7f342676cffa",
     lines: [
       {
         allocatedOnDate: "2022-10-23T00:00:00.000Z",
-        amount: 9792.71,
+        amount: 2927.94,
         links: [
           {
-            amount: 6496.57,
-            currencyRate: 7709.97,
-            id: "e188b1c4-ee2c-48c6-8e61-1feeb1c7cbdb",
-            type: BillPaymentLineLinkType.Other,
-          },
-          {
-            amount: 9064.95,
-            currencyRate: 9347.82,
-            id: "c74378ba-2531-4774-bdc9-15ad2caf5dd6",
-            type: BillPaymentLineLinkType.CreditNote,
-          },
-          {
-            amount: 1274.99,
-            currencyRate: 2337.08,
-            id: "dc0f5ae2-f3a6-4b70-8878-756143f5a6c9",
-            type: BillPaymentLineLinkType.BillPayment,
-          },
-        ],
-      },
-      {
-        allocatedOnDate: "2022-10-23T00:00:00.000Z",
-        amount: 3661.47,
-        links: [
-          {
-            amount: 3712.13,
-            currencyRate: 3289.54,
-            id: "4080d40b-cacc-46cb-96b5-f3ec909304f9",
-            type: BillPaymentLineLinkType.Unlinked,
-          },
-          {
-            amount: 4258.17,
-            currencyRate: 7403.47,
-            id: "ad255381-9b47-44b0-ad20-e56248fff639",
-            type: BillPaymentLineLinkType.PaymentOnAccount,
+            amount: 6719.07,
+            currencyRate: 1523.54,
+            id: "76b26916-fe1f-408f-8294-e3698f447f60",
+            type: BillPaymentLineLinkType.Bill,
           },
         ],
       },
@@ -97,35 +67,25 @@ sdk.billPayments.create({
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
     note: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
-    paymentMethodRef: "beatae",
-    reference: "ipsa",
+    paymentMethodRef: "praesentium",
+    reference: "facilis",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "assumenda": {
-          "fuga": "tempore",
-          "commodi": "fugit",
-          "suscipit": "voluptate",
-          "nisi": "aliquid",
-        },
-        "provident": {
-          "accusamus": "ab",
-          "itaque": "quisquam",
-        },
-        "eaque": {
-          "qui": "consequuntur",
+        "incidunt": {
+          "ipsam": "debitis",
         },
       },
     },
     supplierRef: {
-      id: "1b335d89-acb3-4ecf-9a8d-0c549ef03004",
-      supplierName: "perspiciatis",
+      id: "80ca55ef-d20e-4457-a185-8b6a89fbe3a5",
+      supplierName: "officia",
     },
     totalAmount: 1329.54,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 462097,
+  timeoutInMinutes: 676243,
 }).then((res: CreateBillPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -189,7 +149,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.billPayments.delete({
-  billPaymentId: "atque",
+  billPaymentId: "corrupti",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: DeleteBillPaymentResponse) => {
@@ -237,7 +197,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.billPayments.get({
-  billPaymentId: "officia",
+  billPaymentId: "accusamus",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetBillPaymentsResponse) => {
   if (res.statusCode == 200) {
@@ -335,7 +295,7 @@ sdk.billPayments.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "ex",
+  query: "tempora",
 }).then((res: ListBillPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

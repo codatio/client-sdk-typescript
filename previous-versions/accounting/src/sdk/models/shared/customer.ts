@@ -121,7 +121,7 @@ export class Customer extends SpeakeasyBase {
      *
      * @remarks
      *
-     * It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/additional-data) about supplemental data.
+     * It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "supplementalData" })
