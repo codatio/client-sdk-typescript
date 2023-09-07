@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class GetEnhancedCashFlowTransactionsRequest extends SpeakeasyBase {
+export class GetReconciledInvoicesRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 
@@ -29,7 +29,7 @@ export class GetEnhancedCashFlowTransactionsRequest extends SpeakeasyBase {
     query?: string;
 }
 
-export class GetEnhancedCashFlowTransactionsResponse extends SpeakeasyBase {
+export class GetReconciledInvoicesResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -37,7 +37,7 @@ export class GetEnhancedCashFlowTransactionsResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    enhancedCashFlowTransactions?: shared.EnhancedCashFlowTransactions;
+    enhancedInvoicesReport?: shared.EnhancedInvoicesReport;
 
     /**
      * Your API request was not properly authorized.

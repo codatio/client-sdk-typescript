@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountingAddressType } from "./accountingaddresstype";
 import { Expose } from "class-transformer";
 
-export class AccountingAddress extends SpeakeasyBase {
+export class Addressesitems extends SpeakeasyBase {
     /**
      * City of the customer address.
      */
