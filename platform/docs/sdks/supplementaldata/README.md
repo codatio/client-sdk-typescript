@@ -33,22 +33,19 @@ const sdk = new CodatPlatform({
 sdk.supplementalData.configure({
   supplementalDataConfiguration: {
     supplementalDataConfig: {
-      "reiciendis": {
-        dataSource: "est",
+      "dolor": {
+        dataSource: "natus",
         pullData: {
-          "laborum": "dolores",
-          "dolorem": "corporis",
-          "explicabo": "nobis",
+          "laboriosam": "hic",
         },
         pushData: {
-          "omnis": "nemo",
-          "minima": "excepturi",
+          "saepe": "fuga",
         },
       },
     },
   },
   dataType: ConfigureSupplementalDataDataType.Invoices,
-  platformKey: "accusantium",
+  platformKey: "in",
 }).then((res: ConfigureSupplementalDataResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -93,7 +90,7 @@ const sdk = new CodatPlatform({
 
 sdk.supplementalData.getConfiguration({
   dataType: GetSupplementalDataConfigurationDataType.Invoices,
-  platformKey: "iure",
+  platformKey: "corporis",
 }).then((res: GetSupplementalDataConfigurationResponse) => {
   if (res.statusCode == 200) {
     // handle response

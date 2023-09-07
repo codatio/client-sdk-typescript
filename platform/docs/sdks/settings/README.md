@@ -251,9 +251,6 @@ sdk.settings.updateProfile({
   redirectUrl: "https://bobs-burgers.{countrySuffix}/{companyId}",
   whiteListUrls: [
     "https://bobs-burgers.com",
-    "https://bobs-burgers.com",
-    "https://bobs-burgers.com",
-    "https://bobs-burgers.com",
   ],
 }).then((res: UpdateProfileResponse) => {
   if (res.statusCode == 200) {
@@ -285,7 +282,7 @@ Update sync settings for all data types.
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 import { UpdateProfileSyncSettingsResponse } from "@codat/platform/dist/sdk/models/operations";
-import { SyncSettingDataType } from "@codat/platform/dist/sdk/models/shared";
+import { SyncSettingDataTypes } from "@codat/platform/dist/sdk/models/shared";
 
 const sdk = new CodatPlatform({
   security: {
@@ -298,43 +295,13 @@ sdk.settings.updateSyncSettings({
   overridesDefaults: false,
   settings: [
     {
-      dataType: SyncSettingDataType.Invoices,
+      dataType: SyncSettingDataTypes.Invoices,
       fetchOnFirstLink: false,
       isLocked: false,
       monthsToSync: 24,
       syncFromUtc: "2022-10-23T00:00:00.000Z",
       syncFromWindow: 24,
-      syncOrder: 449950,
-      syncSchedule: 24,
-    },
-    {
-      dataType: SyncSettingDataType.Invoices,
-      fetchOnFirstLink: false,
-      isLocked: false,
-      monthsToSync: 24,
-      syncFromUtc: "2022-10-23T00:00:00.000Z",
-      syncFromWindow: 24,
-      syncOrder: 613064,
-      syncSchedule: 24,
-    },
-    {
-      dataType: SyncSettingDataType.Invoices,
-      fetchOnFirstLink: false,
-      isLocked: false,
-      monthsToSync: 24,
-      syncFromUtc: "2022-10-23T00:00:00.000Z",
-      syncFromWindow: 24,
-      syncOrder: 902349,
-      syncSchedule: 24,
-    },
-    {
-      dataType: SyncSettingDataType.Invoices,
-      fetchOnFirstLink: false,
-      isLocked: false,
-      monthsToSync: 24,
-      syncFromUtc: "2022-10-23T00:00:00.000Z",
-      syncFromWindow: 24,
-      syncOrder: 99280,
+      syncOrder: 612096,
       syncSchedule: 24,
     },
   ],

@@ -8,7 +8,7 @@ import { Expose } from "class-transformer";
 /**
  * Available Data types
  */
-export enum SyncSettingDataType {
+export enum SyncSettingDataTypes {
     AccountTransactions = "accountTransactions",
     BalanceSheet = "balanceSheet",
     BankAccounts = "bankAccounts",
@@ -62,7 +62,7 @@ export class SyncSetting extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "dataType" })
-    dataType: SyncSettingDataType;
+    dataType: SyncSettingDataTypes;
 
     /**
      * Whether this data type should be queued after a company has authorized a connection.
