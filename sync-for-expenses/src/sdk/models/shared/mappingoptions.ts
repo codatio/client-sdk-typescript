@@ -8,9 +8,6 @@ import { TaxRateMappingInfo } from "./taxratemappinginfo";
 import { TrackingCategoryMappingInfo } from "./trackingcategorymappinginfo";
 import { Expose, Type } from "class-transformer";
 
-/**
- * Success
- */
 export class MappingOptions extends SpeakeasyBase {
     /**
      * Array of available accounts for mapping.

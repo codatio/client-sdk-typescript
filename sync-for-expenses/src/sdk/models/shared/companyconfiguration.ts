@@ -8,9 +8,6 @@ import { Customer } from "./customer";
 import { Supplier } from "./supplier";
 import { Expose, Type } from "class-transformer";
 
-/**
- * Success
- */
 export class CompanyConfiguration extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "bankAccount" })

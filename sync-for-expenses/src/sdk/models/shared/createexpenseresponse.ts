@@ -5,9 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-/**
- * OK
- */
 export class CreateExpenseResponse extends SpeakeasyBase {
     /**
      * Unique id of dataset created
