@@ -6,9 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { SyncSetting } from "./syncsetting";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class SyncSettings extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "clientId" })

@@ -1,4 +1,4 @@
-# Companies
+# Webhooks
 
 
 ## Fields
@@ -8,5 +8,5 @@
 | `links`                                     | [Links](../../models/shared/links.md)       | :heavy_check_mark:                          | N/A                                         |
 | `pageNumber`                                | *number*                                    | :heavy_check_mark:                          | N/A                                         |
 | `pageSize`                                  | *number*                                    | :heavy_check_mark:                          | N/A                                         |
-| `results`                                   | [Company](../../models/shared/company.md)[] | :heavy_minus_sign:                          | N/A                                         |
+| `results`                                   | [Webhook](../../models/shared/webhook.md)[] | :heavy_minus_sign:                          | N/A                                         |
 | `totalResults`                              | *number*                                    | :heavy_check_mark:                          | N/A                                         |

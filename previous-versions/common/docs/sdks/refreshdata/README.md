@@ -76,7 +76,7 @@ const sdk = new CodatCommon({
 
 sdk.refreshData.byDataType({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "78ca1ba9-28fc-4816-b42c-b73920592939",
+  connectionId: "df7cc78c-a1ba-4928-bc81-6742cb739205",
   dataType: DataType.Invoices,
 }).then((res: RefreshDataTypeResponse) => {
   if (res.statusCode == 200) {
@@ -199,7 +199,7 @@ sdk.refreshData.listPullOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "laboriosam",
+  query: "natus",
 }).then((res: ListPullOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
