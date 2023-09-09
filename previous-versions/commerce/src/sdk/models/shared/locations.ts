@@ -7,9 +7,6 @@ import { Links } from "./links";
 import { Location } from "./location";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class Locations extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "_links" })

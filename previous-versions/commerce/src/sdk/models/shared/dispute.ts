@@ -131,5 +131,5 @@ export class Dispute extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "totalAmount" })
-    totalAmount?: number;
+    totalAmount?: any;
 }
