@@ -9,7 +9,6 @@ export * from "./getconfiguration";
 export * from "./getintegrationbranding";
 export * from "./getlastsuccessfulsync";
 export * from "./getlatestsync";
-export * from "./getsyncbyid";
 export * from "./getsyncflowurl";
 export * from "./getsyncstatus";
 export * from "./getvisibleaccounts";

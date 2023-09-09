@@ -34,7 +34,6 @@ src/sdk/models/operations/updateconnectionauthorization.ts
 src/sdk/models/operations/updateconnection.ts
 src/sdk/models/operations/getintegrationbranding.ts
 src/sdk/models/operations/listintegrations.ts
-src/sdk/models/operations/getsyncbyid.ts
 src/sdk/models/operations/getlastsuccessfulsync.ts
 src/sdk/models/operations/getlatestsync.ts
 src/sdk/models/operations/getsyncstatus.ts
@@ -90,8 +89,8 @@ src/sdk/models/shared/supportedfeature.ts
 src/sdk/models/shared/featuretype.ts
 src/sdk/models/shared/featurestate.ts
 src/sdk/models/shared/companysyncstatus.ts
+src/sdk/models/shared/syncstatus.ts
 src/sdk/models/shared/syncsummary.ts
-src/sdk/models/shared/daterange.ts
 src/sdk/models/shared/synctolatestargs.ts
 src/sdk/models/shared/syncrange.ts
 src/sdk/models/shared/localization.ts
@@ -129,8 +128,6 @@ docs/models/operations/getintegrationbrandingrequest.md
 docs/models/operations/getintegrationbrandingresponse.md
 docs/models/operations/listintegrationsrequest.md
 docs/models/operations/listintegrationsresponse.md
-docs/models/operations/getsyncbyidrequest.md
-docs/models/operations/getsyncbyidresponse.md
 docs/models/operations/getlastsuccessfulsyncrequest.md
 docs/models/operations/getlastsuccessfulsyncresponse.md
 docs/models/operations/getlatestsyncrequest.md
@@ -195,8 +192,9 @@ docs/models/shared/supportedfeature.md
 docs/models/shared/featuretype.md
 docs/models/shared/featurestate.md
 docs/models/shared/companysyncstatus.md
+docs/models/shared/syncstatus.md
+docs/models/shared/syncsummarysyncdaterangeutc.md
 docs/models/shared/syncsummary.md
-docs/models/shared/daterange.md
 docs/models/shared/synctolatestargs.md
 docs/models/shared/syncrangedaterange.md
 docs/models/shared/syncrange.md

@@ -9,9 +9,6 @@ import { Payments } from "./payments";
 import { Sales } from "./sales";
 import { Expose, Type } from "class-transformer";
 
-/**
- * Success
- */
 export class Configuration extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "fees" })

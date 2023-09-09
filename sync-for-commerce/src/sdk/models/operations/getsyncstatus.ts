@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetSyncStatusRequest extends SpeakeasyBase {
@@ -11,12 +12,30 @@ export class GetSyncStatusRequest extends SpeakeasyBase {
 }
 
 export class GetSyncStatusResponse extends SpeakeasyBase {
+    /**
+     * Bad Request
+     */
+    @SpeakeasyMetadata()
+    badRequest?: any;
+
     @SpeakeasyMetadata()
     contentType: string;
+
+    /**
+     * Not Found
+     */
+    @SpeakeasyMetadata()
+    notFound?: any;
 
     @SpeakeasyMetadata()
     statusCode: number;
 
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
+
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata()
+    syncStatus?: shared.SyncStatus;
 }
