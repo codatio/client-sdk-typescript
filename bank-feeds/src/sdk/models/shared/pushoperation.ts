@@ -9,9 +9,6 @@ import { PushOperationStatus } from "./pushoperationstatus";
 import { Validation } from "./validation";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class PushOperation extends SpeakeasyBase {
     /**
      * Contains a single entry that communicates which record has changed and the manner in which it changed.
