@@ -1,4 +1,6 @@
 <!-- Start SDK Example Usage -->
+
+
 ```typescript
 import { CodatBanking } from "@codat/banking";
 import { ListAccountBalancesResponse } from "@codat/banking/dist/sdk/models/operations";

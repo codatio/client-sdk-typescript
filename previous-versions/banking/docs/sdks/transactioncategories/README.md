@@ -25,7 +25,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatBanking } from "@codat/banking";
 import { GetTransactionCategoryResponse } from "@codat/banking/dist/sdk/models/operations";
-import { TransactionCategoryStatus } from "@codat/banking/dist/sdk/models/shared";
 
 const sdk = new CodatBanking({
   security: {
@@ -72,7 +71,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatBanking } from "@codat/banking";
 import { ListTransactionCategoriesResponse } from "@codat/banking/dist/sdk/models/operations";
-import { TransactionCategoryStatus } from "@codat/banking/dist/sdk/models/shared";
 
 const sdk = new CodatBanking({
   security: {
