@@ -1,4 +1,4 @@
-# GetEnhancedBalanceSheetAccountsResponse
+# GetCategorizedBalanceSheetStatementResponse
 
 
 ## Fields

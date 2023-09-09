@@ -7,9 +7,6 @@ import { DataIntegrityDetail } from "./dataintegritydetail";
 import { Links } from "./links";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class DataIntegrityDetails extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "_links" })

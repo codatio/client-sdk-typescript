@@ -3,9 +3,60 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { AccountingAddress } from "./accountingaddress";
+import { AccountingAddressType } from "./accountingaddresstype";
 import { PhoneNumberType } from "./phonenumbertype";
 import { Expose, Type } from "class-transformer";
+
+export class AccountingCompanyInfoAccountingAddress extends SpeakeasyBase {
+    /**
+     * City of the customer address.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "city" })
+    city?: string;
+
+    /**
+     * Country of the customer address.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "country" })
+    country?: string;
+
+    /**
+     * Line 1 of the customer address.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "line1" })
+    line1?: string;
+
+    /**
+     * Line 2 of the customer address.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "line2" })
+    line2?: string;
+
+    /**
+     * Postal code or zip code.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "postalCode" })
+    postalCode?: string;
+
+    /**
+     * Region of the customer address.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "region" })
+    region?: string;
+
+    /**
+     * The type of the address
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type: AccountingAddressType;
+}
 
 export class AccountingCompanyInfoPhone extends SpeakeasyBase {
     /**
@@ -73,10 +124,10 @@ export class AccountingCompanyInfo extends SpeakeasyBase {
     /**
      * An array of Addresses.
      */
-    @SpeakeasyMetadata({ elemType: AccountingAddress })
+    @SpeakeasyMetadata({ elemType: AccountingCompanyInfoAccountingAddress })
     @Expose({ name: "addresses" })
-    @Type(() => AccountingAddress)
-    addresses?: AccountingAddress[];
+    @Type(() => AccountingCompanyInfoAccountingAddress)
+    addresses?: AccountingCompanyInfoAccountingAddress[];
 
     /**
      * Currency set in the accounting platform of the linked company. Used by the currency rate.

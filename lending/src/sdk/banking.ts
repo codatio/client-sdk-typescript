@@ -13,7 +13,7 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
  * Retrieve banking data from linked bank accounts.
  */
 
-export class CashFlow {
+export class Banking {
     private sdkConfiguration: SDKConfiguration;
 
     constructor(sdkConfig: SDKConfiguration) {
@@ -51,24 +51,34 @@ export class CashFlow {
             "/companies/{companyId}/connections/{connectionId}/data/banking-accounts/{accountId}",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -145,24 +155,34 @@ export class CashFlow {
             "/companies/{companyId}/connections/{connectionId}/data/banking-transactions/{transactionId}",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -240,24 +260,34 @@ export class CashFlow {
             "/companies/{companyId}/connections/{connectionId}/data/banking-transactionCategories/{transactionCategoryId}",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -305,22 +335,22 @@ export class CashFlow {
     }
 
     /**
-     * Get enhanced cash flow report
+     * Get categorized bank statement
      *
      * @remarks
      * > **Categorization engine**
      * >
      * > The categorization engine uses machine learning and has been fully trained against Plaid and TrueLayer banking data sources. It is not fully trained against the Basiq banking data source.
      *
-     * The Enhanced Cash Flow Transactions endpoint provides a fully categorized list of banking transactions for a company. Accounts and transaction data are obtained from the company's banking data sources.
+     * The _Get categorized bank statement_ endpoint provides a fully categorized list of banking transactions for a company. Accounts and transaction data are obtained from the company's banking data sources.
      */
-    async getEnhancedCashFlowTransactions(
-        req: operations.GetEnhancedCashFlowTransactionsRequest,
+    async getCategorizedBankStatement(
+        req: operations.GetCategorizedBankStatementRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.GetEnhancedCashFlowTransactionsResponse> {
+    ): Promise<operations.GetCategorizedBankStatementResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetEnhancedCashFlowTransactionsRequest(req);
+            req = new operations.GetCategorizedBankStatementRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -332,11 +362,16 @@ export class CashFlow {
             "/companies/{companyId}/reports/enhancedCashFlow/transactions",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
@@ -344,13 +379,18 @@ export class CashFlow {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -369,8 +409,8 @@ export class CashFlow {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.GetEnhancedCashFlowTransactionsResponse =
-            new operations.GetEnhancedCashFlowTransactionsResponse({
+        const res: operations.GetCategorizedBankStatementResponse =
+            new operations.GetCategorizedBankStatementResponse({
                 statusCode: httpRes.status,
                 contentType: contentType,
                 rawResponse: httpRes,
@@ -441,11 +481,16 @@ export class CashFlow {
             "/companies/{companyId}/connections/{connectionId}/data/banking-accountBalances",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
@@ -453,13 +498,18 @@ export class CashFlow {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -550,11 +600,16 @@ export class CashFlow {
             "/companies/{companyId}/connections/{connectionId}/data/banking-accounts",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
@@ -562,13 +617,18 @@ export class CashFlow {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -659,11 +719,16 @@ export class CashFlow {
             "/companies/{companyId}/connections/{connectionId}/data/banking-transactionCategories",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
@@ -671,13 +736,18 @@ export class CashFlow {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -768,11 +838,16 @@ export class CashFlow {
             "/companies/{companyId}/connections/{connectionId}/data/banking-transactions",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
@@ -780,13 +855,18 @@ export class CashFlow {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({

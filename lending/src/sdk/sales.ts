@@ -51,24 +51,34 @@ export class Sales {
             "/companies/{companyId}/connections/{connectionId}/data/commerce-customers/{customerId}",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -146,7 +156,7 @@ export class Sales {
      * - __Retention rate__: the ratio of existing customers within the specified period compared to the total customers at the end of the previous period represented as a percentage.
      * - __Repeat rate__: the ratio of existing customers to total customers over the specified period represented as a percentage.
      *
-     * Learn more about the formulas used to calculate customer retention metrics [here](/lending/commerce-metrics/overview#what-metrics-are-available).
+     * Learn more about the formulas used to calculate customer retention metrics [here](https://docs.codat.io/lending/commerce-metrics/overview#what-metrics-are-available).
      *
      * #### Response structure
      *
@@ -182,11 +192,16 @@ export class Sales {
             "/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/customerRetention",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
@@ -194,13 +209,18 @@ export class Sales {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -293,24 +313,34 @@ export class Sales {
             "/companies/{companyId}/connections/{connectionId}/data/commerce-disputes/{disputeId}",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -380,9 +410,9 @@ export class Sales {
      *
      * This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company.
      *
-     * Learn more about the formulas used to calculate the lifetime value metrics [here](/lending/commerce-metrics/overview#what-metrics-are-available).
+     * Learn more about the formulas used to calculate the lifetime value metrics [here](https://docs.codat.io/lending/commerce-metrics/overview#what-metrics-are-available).
      *
-     * Refer to the [commerce reporting structure](/lending/commerce-metrics/reporting-structure) page for more detail on commerce reports in Lending.
+     * Refer to the [commerce reporting structure](https://docs.codat.io/lending/commerce-metrics/reporting-structure) page for more detail on commerce reports in Lending.
      *
      * #### Response structure
      *
@@ -418,11 +448,16 @@ export class Sales {
             "/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/lifetimeValue",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
@@ -430,13 +465,18 @@ export class Sales {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -529,24 +569,34 @@ export class Sales {
             "/companies/{companyId}/connections/{connectionId}/data/commerce-locations/{locationId}",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -639,24 +689,34 @@ export class Sales {
             "/companies/{companyId}/connections/{connectionId}/data/commerce-orders/{orderId}",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -725,9 +785,9 @@ export class Sales {
      *
      * This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company.
      *
-     * Learn more about the formulas used to calculate the order metrics [here](/lending/commerce-metrics/overview#what-metrics-are-available).
+     * Learn more about the formulas used to calculate the order metrics [here](https://docs.codat.io/lending/commerce-metrics/overview#what-metrics-are-available).
      *
-     * Refer to the [commerce reporting structure](/lending/commerce-metrics/reporting-structure) page for more details on commerce reports in Lending.
+     * Refer to the [commerce reporting structure](https://docs.codat.io/lending/commerce-metrics/reporting-structure) page for more details on commerce reports in Lending.
      *
      * #### Response structure
      *
@@ -764,11 +824,16 @@ export class Sales {
             "/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/orders",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
@@ -776,13 +841,18 @@ export class Sales {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -875,24 +945,34 @@ export class Sales {
             "/companies/{companyId}/connections/{connectionId}/data/commerce-payments/{paymentId}",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -985,24 +1065,34 @@ export class Sales {
             "/companies/{companyId}/connections/{connectionId}/data/commerce-paymentMethods/{paymentMethodId}",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -1095,24 +1185,34 @@ export class Sales {
             "/companies/{companyId}/connections/{connectionId}/data/commerce-products/{productId}",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -1205,24 +1305,34 @@ export class Sales {
             "/companies/{companyId}/connections/{connectionId}/data/commerce-productCategories/{productId}",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -1292,9 +1402,9 @@ export class Sales {
      *
      * This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company.
      *
-     * Learn more about the formulas used to calculate the refunds metrics [here](/lending/commerce-metrics/overview#what-metrics-are-available).
+     * Learn more about the formulas used to calculate the refunds metrics [here](https://docs.codat.io/lending/commerce-metrics/overview#what-metrics-are-available).
      *
-     * Refer to the [commerce reporting structure](/lending/commerce-metrics/reporting-structure) page for more details on commerce reports in Lending.
+     * Refer to the [commerce reporting structure](https://docs.codat.io/lending/commerce-metrics/reporting-structure) page for more details on commerce reports in Lending.
      *
      * #### Response structure
      *
@@ -1332,11 +1442,16 @@ export class Sales {
             "/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/refunds",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
@@ -1344,13 +1459,18 @@ export class Sales {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -1416,7 +1536,30 @@ export class Sales {
      * Get commerce revenue metrics
      *
      * @remarks
-     * Get the revenue and revenue growth for a specific company connection, over one or more periods of time.
+     * The *Get revenue report* endpoint returns the revenue and revenue growth for a specific company connection over one or more periods of time.
+     *
+     * This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company.
+     *
+     * Learn more about the formulas used to calculate the revenue metrics [here](https://docs.codat.io/lending/commerce-metrics/overview#what-metrics-are-available).
+     *
+     * Refer to the [commerce reporting structure](https://docs.codat.io/lending/commerce-metrics/reporting-structure) page for more details on commerce reports in Lending.
+     *
+     * #### Response structure
+     *
+     * The Revenue report's dimensions and measures are:
+     *
+     * | Index         | Dimensions |
+     * |---------------|------------|
+     * |   `index` = 0 | Period     |
+     * |   `index` = 1 | Revenue    |
+     *
+     * | Index         | Measures                                                                                                                 |
+     * |---------------|--------------------------------------------------------------------------------------------------------------------------|
+     * | `index` = 0   | Value                                                                                                                    |
+     * | `index` = 1   | Percentage change, defined as the change between the current and previous periods' values and expressed as a percentage. |
+     *
+     * The report data then combines multiple reporting dimensions and measures and outputs the value of each combination.
+     *
      */
     async getRevenueMetrics(
         req: operations.GetCommerceRevenueMetricsRequest,
@@ -1436,11 +1579,16 @@ export class Sales {
             "/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/revenue",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
@@ -1448,13 +1596,18 @@ export class Sales {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -1547,24 +1700,34 @@ export class Sales {
             "/companies/{companyId}/connections/{connectionId}/data/commerce-transactions/{transactionId}",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -1655,11 +1818,16 @@ export class Sales {
             "/companies/{companyId}/connections/{connectionId}/data/commerce-customers",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
@@ -1667,13 +1835,18 @@ export class Sales {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -1764,11 +1937,16 @@ export class Sales {
             "/companies/{companyId}/connections/{connectionId}/data/commerce-disputes",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
@@ -1776,13 +1954,18 @@ export class Sales {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -1873,24 +2056,34 @@ export class Sales {
             "/companies/{companyId}/connections/{connectionId}/data/commerce-locations",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -1981,11 +2174,16 @@ export class Sales {
             "/companies/{companyId}/connections/{connectionId}/data/commerce-orders",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
@@ -1993,13 +2191,18 @@ export class Sales {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -2090,11 +2293,16 @@ export class Sales {
             "/companies/{companyId}/connections/{connectionId}/data/commerce-paymentMethods",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
@@ -2102,13 +2310,18 @@ export class Sales {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -2199,11 +2412,16 @@ export class Sales {
             "/companies/{companyId}/connections/{connectionId}/data/commerce-payments",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
@@ -2211,13 +2429,18 @@ export class Sales {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -2308,11 +2531,16 @@ export class Sales {
             "/companies/{companyId}/connections/{connectionId}/data/commerce-productCategories",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
@@ -2320,13 +2548,18 @@ export class Sales {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -2417,11 +2650,16 @@ export class Sales {
             "/companies/{companyId}/connections/{connectionId}/data/commerce-products",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
@@ -2429,13 +2667,18 @@ export class Sales {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -2526,11 +2769,16 @@ export class Sales {
             "/companies/{companyId}/connections/{connectionId}/data/commerce-transactions",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
@@ -2538,13 +2786,18 @@ export class Sales {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({

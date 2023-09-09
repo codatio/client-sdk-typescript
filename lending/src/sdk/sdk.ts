@@ -6,14 +6,14 @@ import * as utils from "../internal/utils";
 import { AccountingBankData } from "./accountingbankdata";
 import { AccountsPayable } from "./accountspayable";
 import { AccountsReceivable } from "./accountsreceivable";
-import { CashFlow } from "./cashflow";
+import { Banking } from "./banking";
 import { Companies } from "./companies";
 import { CompanyInfo } from "./companyinfo";
 import { Connections } from "./connections";
 import { DataIntegrity } from "./dataintegrity";
 import { ExcelReports } from "./excelreports";
 import { FileUpload } from "./fileupload";
-import { Financials } from "./financials";
+import { FinancialStatements } from "./financialstatements";
 import { Liabilities } from "./liabilities";
 import { ManageData } from "./managedata";
 import * as shared from "./models/shared";
@@ -39,7 +39,7 @@ export type SDKProps = {
     /**
      * The security details required to authenticate the SDK
      */
-    security?: shared.Security;
+    security?: shared.Security | (() => Promise<shared.Security>);
     /**
      * Allows overriding the default axios client used by the SDK
      */
@@ -54,33 +54,57 @@ export type SDKProps = {
      * Allows overriding the default server URL used by the SDK
      */
     serverURL?: string;
+    /**
+     * Allows overriding the default retry config used by the SDK
+     */
+    retryConfig?: utils.RetryConfig;
 };
 
 export class SDKConfiguration {
     defaultClient: AxiosInstance;
-    securityClient: AxiosInstance;
+    security?: shared.Security | (() => Promise<shared.Security>);
     serverURL: string;
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "3.0.0";
-    sdkVersion = "0.1.0";
-    genVersion = "2.91.4";
-
+    sdkVersion = "0.2.0";
+    genVersion = "2.107.3";
+    retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
     }
 }
 
 /**
- * Lending API: An API for uploading and downloading files from 'File Upload' Integrations.
+ * Lending API: Our Lending API helps you make smarter credit decisions on small businesses by enabling you to pull your customers' latest data from accounting, banking, and commerce platforms they are already using. It also includes features to help providers verify the accuracy of data and process it more efficiently.
  *
  * @remarks
  *
- * The Accounting file upload, Banking file upload, and Business documents file upload integrations provide simple file upload functionality.
+ * The Lending API is built on top of the latest accounting, commerce, and banking data, providing you with the most important data points you need to get a full picture of SMB creditworthiness and make a comprehensive assessment of your customers.
  *
- * [Read more...](https://docs.codat.io/other/file-upload)
+ * [Explore product](https://docs.codat.io/lending/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
  *
- * [See our OpenAPI spec](https://github.com/codatio/oas)
+ * ---
+ *
+ * ## Endpoints
+ *
+ * | Endpoints            | Description                                                                                                |
+ * |:---------------------|:-----------------------------------------------------------------------------------------------------------|
+ * | Companies            | Create and manage your SMB users' companies.                                                               |
+ * | Connections          | Create new and manage existing data connections for a company.                                             |
+ * | Company info         | View company profile from the source platform.                                                             |
+ * | Accounts payable     | Data from a linked accounting platform representing money the business owes money to its suppliers.        |
+ * | Accounts receivable  | Data from a linked accounting platform representing money owed to the business for sold goods or services. |
+ * | Transactions         | Data from a linked accounting platform representing transactions.                                          |
+ * | Financial statements | Financial data and reports from a linked accounting platform.                                              |
+ * | Banking              | Retrieve banking data from linked bank accounts.                                                           |
+ * | Sales                | Retrieve standardized sales data from a linked commerce platform.                                          |
+ * | Liabilities          | Debt and other liabilities.                                                                                |
+ * | Data integrity       | Match mutable accounting data with immutable banking data to increase confidence in financial data.        |
+ * | Excel reports        | Download reports in Excel format.                                                                          |
+ * | Categories           | Manage Codat's automatic account categorization functionality.                                             |
+ * | Manage data          | Control how data is retrieved from an integration.                                                         |
+ * | File upload          | Endpoints to manage uploaded files.                                                                        |
  */
 export class CodatLending {
     /**
@@ -98,7 +122,7 @@ export class CodatLending {
     /**
      * Retrieve banking data from linked bank accounts.
      */
-    public cashFlow: CashFlow;
+    public banking: Banking;
     /**
      * Create and manage your Codat companies.
      */
@@ -126,7 +150,7 @@ export class CodatLending {
     /**
      * Financial data and reports from a linked accounting platform.
      */
-    public financials: Financials;
+    public financialStatements: FinancialStatements;
     /**
      * Debt and other liabilities.
      */
@@ -155,33 +179,24 @@ export class CodatLending {
         }
 
         const defaultClient = props?.defaultClient ?? axios.create({ baseURL: serverURL });
-        let securityClient = defaultClient;
-
-        if (props?.security) {
-            let security: shared.Security = props.security;
-            if (!(props.security instanceof utils.SpeakeasyBase)) {
-                security = new shared.Security(props.security);
-            }
-            securityClient = utils.createSecurityClient(defaultClient, security);
-        }
-
         this.sdkConfiguration = new SDKConfiguration({
             defaultClient: defaultClient,
-            securityClient: securityClient,
+            security: props?.security,
             serverURL: serverURL,
+            retryConfig: props?.retryConfig,
         });
 
         this.accountingBankData = new AccountingBankData(this.sdkConfiguration);
         this.accountsPayable = new AccountsPayable(this.sdkConfiguration);
         this.accountsReceivable = new AccountsReceivable(this.sdkConfiguration);
-        this.cashFlow = new CashFlow(this.sdkConfiguration);
+        this.banking = new Banking(this.sdkConfiguration);
         this.companies = new Companies(this.sdkConfiguration);
         this.companyInfo = new CompanyInfo(this.sdkConfiguration);
         this.connections = new Connections(this.sdkConfiguration);
         this.dataIntegrity = new DataIntegrity(this.sdkConfiguration);
         this.excelReports = new ExcelReports(this.sdkConfiguration);
         this.fileUpload = new FileUpload(this.sdkConfiguration);
-        this.financials = new Financials(this.sdkConfiguration);
+        this.financialStatements = new FinancialStatements(this.sdkConfiguration);
         this.liabilities = new Liabilities(this.sdkConfiguration);
         this.manageData = new ManageData(this.sdkConfiguration);
         this.sales = new Sales(this.sdkConfiguration);

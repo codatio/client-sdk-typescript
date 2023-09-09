@@ -6,9 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { ExcelReportTypes } from "./excelreporttypes";
 import { Expose } from "class-transformer";
 
-/**
- * OK
- */
 export class ExcelStatus extends SpeakeasyBase {
     /**
      * Error details in case the report generation request was unsuccessful.

@@ -1,4 +1,4 @@
-# GetEnhancedInvoicesReportRequest
+# GetReconciledInvoicesRequest
 
 
 ## Fields

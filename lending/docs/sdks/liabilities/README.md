@@ -6,12 +6,12 @@ Debt and other liabilities.
 
 ### Available Operations
 
-* [getLoanSummary](#getloansummary) - Get enhanced loan summaries
-* [listLoanTransactions](#listloantransactions) - List enhanced loan transactions
+* [getLoanSummary](#getloansummary) - Get loan summaries
+* [listLoanTransactions](#listloantransactions) - List loan transactions
 
 ## getLoanSummary
 
-﻿The *Get enhanced loan summaries* endpoint returns a summary by integration type of all loans identified in each integration.
+The *Get loan summaries* endpoint returns a summary by integration type of all loans identified in each integration.
 
 The endpoint returns a list of a company's [loan summaries](https://docs.codat.io/lending-api#/schemas/LoanSummary) for each valid data connection.
 
@@ -55,7 +55,7 @@ sdk.liabilities.getLoanSummary({
 
 ## listLoanTransactions
 
-﻿The *List enhanced loan transactions* endpoint returns all [loan transactions](https://docs.codat.io/lending-api#/schemas/LoanTransactions) identified from a company's accounting, banking, and commerce integrations.
+The *List loan transactions* endpoint returns all [loan transactions](https://docs.codat.io/lending-api#/schemas/LoanTransactions) identified from a company's accounting, banking, and commerce integrations.
 
 This detail gives analysts a better idea of the loan obligations a company may have.
 

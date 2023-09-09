@@ -13,7 +13,7 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
  * Financial data and reports from a linked accounting platform.
  */
 
-export class Financials {
+export class FinancialStatements {
     private sdkConfiguration: SDKConfiguration;
 
     constructor(sdkConfig: SDKConfiguration) {
@@ -51,24 +51,34 @@ export class Financials {
             "/companies/{companyId}/data/accounts/{accountId}",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -154,11 +164,16 @@ export class Financials {
             "/companies/{companyId}/data/financials/balanceSheet",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
@@ -166,13 +181,18 @@ export class Financials {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -258,11 +278,16 @@ export class Financials {
             "/companies/{companyId}/data/financials/cashFlowStatement",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
@@ -270,13 +295,18 @@ export class Financials {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -339,20 +369,20 @@ export class Financials {
     }
 
     /**
-     * Get enhanced balance sheet accounts
+     * Get categorized balance sheet statement
      *
      * @remarks
-     * The *Get enhanced balance sheet accounts* endpoint returns a list of categorized accounts that appear on a company’s Balance Sheet along with a balance per financial statement date.
+     * The *Get categorized balance sheet statement* endpoint returns a list of categorized accounts that appear on a company’s Balance Sheet along with a balance per financial statement date.
      *
      * Codat suggests a category for each account automatically, but you can [change it](https://docs.codat.io/lending/enhanced-financials/overview#categorize-accounts) to a more suitable one.
      */
-    async getEnhancedBalanceSheetAccounts(
-        req: operations.GetEnhancedBalanceSheetAccountsRequest,
+    async getCategorizedBalanceSheet(
+        req: operations.GetCategorizedBalanceSheetStatementRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.GetEnhancedBalanceSheetAccountsResponse> {
+    ): Promise<operations.GetCategorizedBalanceSheetStatementResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetEnhancedBalanceSheetAccountsRequest(req);
+            req = new operations.GetCategorizedBalanceSheetStatementRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -364,11 +394,16 @@ export class Financials {
             "/companies/{companyId}/reports/enhancedBalanceSheet/accounts",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
@@ -376,13 +411,18 @@ export class Financials {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -401,8 +441,8 @@ export class Financials {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.GetEnhancedBalanceSheetAccountsResponse =
-            new operations.GetEnhancedBalanceSheetAccountsResponse({
+        const res: operations.GetCategorizedBalanceSheetStatementResponse =
+            new operations.GetCategorizedBalanceSheetStatementResponse({
                 statusCode: httpRes.status,
                 contentType: contentType,
                 rawResponse: httpRes,
@@ -445,20 +485,20 @@ export class Financials {
     }
 
     /**
-     * Get enhanced profit and loss accounts
+     * Get categorized profit and loss statement
      *
      * @remarks
-     * The *Get enhanced profit and loss accounts* endpoint returns a list of categorized accounts that appear on a company’s Profit and Loss statement. It also includes a balance as of the financial statement date.
+     * The *Get categorized profit and loss statement* endpoint returns a list of categorized accounts that appear on a company’s Profit and Loss statement. It also includes a balance as of the financial statement date.
      *
      * Codat suggests a category for each account automatically, but you can [change it](https://docs.codat.io/lending/enhanced-financials/overview#categorize-accounts) to a more suitable one.
      */
-    async getEnhancedProfitAndLossAccounts(
-        req: operations.GetEnhancedProfitAndLossAccountsRequest,
+    async getCategorizedProfitAndLoss(
+        req: operations.GetCategorizedProfitAndLossStatementRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.GetEnhancedProfitAndLossAccountsResponse> {
+    ): Promise<operations.GetCategorizedProfitAndLossStatementResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetEnhancedProfitAndLossAccountsRequest(req);
+            req = new operations.GetCategorizedProfitAndLossStatementRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -470,11 +510,16 @@ export class Financials {
             "/companies/{companyId}/reports/enhancedProfitAndLoss/accounts",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
@@ -482,13 +527,18 @@ export class Financials {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -507,8 +557,8 @@ export class Financials {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.GetEnhancedProfitAndLossAccountsResponse =
-            new operations.GetEnhancedProfitAndLossAccountsResponse({
+        const res: operations.GetCategorizedProfitAndLossStatementResponse =
+            new operations.GetCategorizedProfitAndLossStatementResponse({
                 statusCode: httpRes.status,
                 contentType: contentType,
                 rawResponse: httpRes,
@@ -574,11 +624,16 @@ export class Financials {
             "/companies/{companyId}/data/financials/profitAndLoss",
             req
         );
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
@@ -586,13 +641,18 @@ export class Financials {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -678,11 +738,16 @@ export class Financials {
             this.sdkConfiguration.serverDefaults
         );
         const url: string = utils.generateURL(baseURL, "/companies/{companyId}/data/accounts", req);
-
-        const client: AxiosInstance =
-            this.sdkConfiguration.securityClient || this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+        let globalSecurity = this.sdkConfiguration.security;
+        if (typeof globalSecurity === "function") {
+            globalSecurity = await globalSecurity();
+        }
+        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
+            globalSecurity = new shared.Security(globalSecurity);
+        }
+        const properties = utils.parseSecurityProperties(globalSecurity);
+        const headers = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
@@ -690,13 +755,18 @@ export class Financials {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({

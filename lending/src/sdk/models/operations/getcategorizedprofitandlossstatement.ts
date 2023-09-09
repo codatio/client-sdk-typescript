@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class GetEnhancedProfitAndLossAccountsRequest extends SpeakeasyBase {
+export class GetCategorizedProfitAndLossStatementRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 
@@ -23,7 +23,7 @@ export class GetEnhancedProfitAndLossAccountsRequest extends SpeakeasyBase {
     reportDate: string;
 }
 
-export class GetEnhancedProfitAndLossAccountsResponse extends SpeakeasyBase {
+export class GetCategorizedProfitAndLossStatementResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
 

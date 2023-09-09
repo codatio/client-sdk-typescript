@@ -1,4 +1,4 @@
-# cashFlow
+# banking
 
 ## Overview
 
@@ -9,7 +9,7 @@ Retrieve banking data from linked bank accounts.
 * [getBankAccount](#getbankaccount) - Get account
 * [getBankTransaction](#getbanktransaction) - Get bank transaction
 * [getBankTransactionCategory](#getbanktransactioncategory) - Get transaction category
-* [getEnhancedCashFlowTransactions](#getenhancedcashflowtransactions) - Get enhanced cash flow report
+* [getCategorizedBankStatement](#getcategorizedbankstatement) - Get categorized bank statement
 * [listBankAccountBalances](#listbankaccountbalances) - List account balances
 * [listBankAccounts](#listbankaccounts) - List accounts
 * [listBankTransactionCategories](#listbanktransactioncategories) - List transaction categories
@@ -38,7 +38,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.cashFlow.getBankAccount({
+sdk.banking.getBankAccount({
   accountId: "molestiae",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -86,7 +86,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.cashFlow.getBankTransaction({
+sdk.banking.getBankTransaction({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   transactionId: "quod",
@@ -134,7 +134,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.cashFlow.getBankTransactionCategory({
+sdk.banking.getBankTransactionCategory({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   transactionCategoryId: "quod",
@@ -159,19 +159,19 @@ sdk.cashFlow.getBankTransactionCategory({
 **Promise<[operations.GetBankingTransactionCategoryResponse](../../models/operations/getbankingtransactioncategoryresponse.md)>**
 
 
-## getEnhancedCashFlowTransactions
+## getCategorizedBankStatement
 
 > **Categorization engine**
 > 
 > The categorization engine uses machine learning and has been fully trained against Plaid and TrueLayer banking data sources. It is not fully trained against the Basiq banking data source.
 
-The Enhanced Cash Flow Transactions endpoint provides a fully categorized list of banking transactions for a company. Accounts and transaction data are obtained from the company's banking data sources.
+The _Get categorized bank statement_ endpoint provides a fully categorized list of banking transactions for a company. Accounts and transaction data are obtained from the company's banking data sources.
 
 ### Example Usage
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GetEnhancedCashFlowTransactionsResponse } from "@codat/lending/dist/sdk/models/operations";
+import { GetCategorizedBankStatementResponse } from "@codat/lending/dist/sdk/models/operations";
 
 const sdk = new CodatLending({
   security: {
@@ -179,12 +179,12 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.cashFlow.getEnhancedCashFlowTransactions({
+sdk.banking.getCategorizedBankStatement({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   page: 1,
   pageSize: 100,
   query: "esse",
-}).then((res: GetEnhancedCashFlowTransactionsResponse) => {
+}).then((res: GetCategorizedBankStatementResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -193,16 +193,16 @@ sdk.cashFlow.getEnhancedCashFlowTransactions({
 
 ### Parameters
 
-| Parameter                                                                                                              | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
-| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                              | [operations.GetEnhancedCashFlowTransactionsRequest](../../models/operations/getenhancedcashflowtransactionsrequest.md) | :heavy_check_mark:                                                                                                     | The request object to use for the request.                                                                             |
-| `retries`                                                                                                              | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                                 | :heavy_minus_sign:                                                                                                     | Configuration to override the default retry behavior of the client.                                                    |
-| `config`                                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                           | :heavy_minus_sign:                                                                                                     | Available config options for making requests.                                                                          |
+| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                      | [operations.GetCategorizedBankStatementRequest](../../models/operations/getcategorizedbankstatementrequest.md) | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
+| `retries`                                                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                         | :heavy_minus_sign:                                                                                             | Configuration to override the default retry behavior of the client.                                            |
+| `config`                                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                   | :heavy_minus_sign:                                                                                             | Available config options for making requests.                                                                  |
 
 
 ### Response
 
-**Promise<[operations.GetEnhancedCashFlowTransactionsResponse](../../models/operations/getenhancedcashflowtransactionsresponse.md)>**
+**Promise<[operations.GetCategorizedBankStatementResponse](../../models/operations/getcategorizedbankstatementresponse.md)>**
 
 
 ## listBankAccountBalances
@@ -226,7 +226,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.cashFlow.listBankAccountBalances({
+sdk.banking.listBankAccountBalances({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
@@ -275,7 +275,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.cashFlow.listBankAccounts({
+sdk.banking.listBankAccounts({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
@@ -324,7 +324,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.cashFlow.listBankTransactionCategories({
+sdk.banking.listBankTransactionCategories({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
@@ -373,7 +373,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.cashFlow.listBankTransactions({
+sdk.banking.listBankTransactions({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",

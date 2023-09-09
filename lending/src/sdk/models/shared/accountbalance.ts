@@ -32,5 +32,5 @@ export class AccountBalance extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "reserved" })
-    reserved?: number;
+    reserved?: any;
 }
