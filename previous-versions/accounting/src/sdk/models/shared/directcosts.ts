@@ -7,9 +7,6 @@ import { DirectCost } from "./directcost";
 import { Links } from "./links";
 import { Expose, Type } from "class-transformer";
 
-/**
- * Success
- */
 export class DirectCosts extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "_links" })

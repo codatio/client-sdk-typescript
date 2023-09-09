@@ -43,188 +43,88 @@ const sdk = new CodatAccounting({
 sdk.directIncomes.create({
   directIncome: {
     contactRef: {
-      dataType: "delectus",
-      id: "0f873f9d-5c25-4fd3-a0b4-a4a4253c3025",
+      dataType: "unde",
+      id: "ad030c4e-cc11-4a08-b642-9068b8502a55",
     },
-    currency: "USD",
-    currencyRate: 1037.45,
-    id: "1f42c7e7-dc54-48be-89e4-1a7a215ca12a",
+    currency: "EUR",
+    currencyRate: 4813.07,
+    id: "f73bc845-e320-4a31-9f4b-adf947c9a867",
     issueDate: "2022-10-23T00:00:00.000Z",
     lineItems: [
       {
         accountRef: {
-          id: "a9d59988-192c-4fd0-877c-53e7e7d4ee6e",
-          name: "Miss Robin Marks",
+          id: "c4242666-5816-4ddc-a8ef-51fcb4c593ec",
+          name: "Beverly Satterfield",
         },
-        description: "porro",
-        discountAmount: 2321.12,
-        discountPercentage: 5621.92,
+        description: "id",
+        discountAmount: 8409.92,
+        discountPercentage: 590.23,
         itemRef: {
-          id: "4e239670-3fec-431c-9082-4d189a36a6b2",
-          name: "Ernest King",
+          id: "ec7afedb-d80d-4f44-8a47-f9390c588809",
+          name: "Manuel Swift",
         },
-        quantity: 4576.32,
-        subTotal: 351.52,
-        taxAmount: 4724.55,
+        quantity: 9830.6,
+        subTotal: 6229.68,
+        taxAmount: 9261.19,
         taxRateRef: {
-          effectiveTaxRate: 6309.47,
-          id: "a60c8fe4-6e61-477d-b9db-3b70ffbb6970",
-          name: "Phil Kuhlman DVM",
+          effectiveTaxRate: 9559.62,
+          id: "3ffdd9f7-f079-4af4-9357-24cdb0f4d281",
+          name: "Irma Kub",
         },
-        totalAmount: 2046.97,
+        totalAmount: 4357.13,
         trackingCategoryRefs: [
           {
-            id: "097ef7c2-06e6-41b0-9308-714c20a3d986",
-            name: "Georgia Rolfson",
-          },
-          {
-            id: "5c3fe655-74db-4af9-8a7c-98f13af28db2",
-            name: "Timmy Cruickshank",
+            id: "844eded8-5a90-465e-a28b-dfc2032b6c87",
+            name: "Alejandro Considine",
           },
         ],
-        unitAmount: 2633.86,
-      },
-      {
-        accountRef: {
-          id: "f3ded356-d7e1-44b2-9cd9-8196d55af69a",
-          name: "Bernadette Green",
-        },
-        description: "natus",
-        discountAmount: 6847.46,
-        discountPercentage: 9064.68,
-        itemRef: {
-          id: "33681c23-c39a-47c0-a17c-b12c5ba825fe",
-          name: "Julia Sanford",
-        },
-        quantity: 7634.76,
-        subTotal: 7329.06,
-        taxAmount: 6677.35,
-        taxRateRef: {
-          effectiveTaxRate: 4047.58,
-          id: "fbfec932-af68-413d-a5bf-ecec2dd6916f",
-          name: "Marta Schimmel",
-        },
-        totalAmount: 8284.89,
-        trackingCategoryRefs: [
-          {
-            id: "70ec60e6-0758-494d-a1c1-4cd90227e37c",
-            name: "Mable Monahan",
-          },
-          {
-            id: "f1a5491a-be97-451b-906d-23e03e69815a",
-            name: "Stewart Moen",
-          },
-          {
-            id: "cde9e729-c9d4-4f2d-8a44-640ca60db73a",
-            name: "Josefina Mills",
-          },
-        ],
-        unitAmount: 2884.94,
-      },
-      {
-        accountRef: {
-          id: "67dc0d8d-a561-4220-a6ab-8f277485c197",
-          name: "Marguerite Wiegand",
-        },
-        description: "aut",
-        discountAmount: 8615.52,
-        discountPercentage: 6337.32,
-        itemRef: {
-          id: "7a089fc4-4db2-4745-b0e5-cc7c6d0cbcfd",
-          name: "Owen Feest",
-        },
-        quantity: 7072.58,
-        subTotal: 4228.03,
-        taxAmount: 9964.5,
-        taxRateRef: {
-          effectiveTaxRate: 4077.32,
-          id: "23bcecab-50ae-4e5e-8da8-b9af6ad05486",
-          name: "Lonnie Rempel I",
-        },
-        totalAmount: 7771.39,
-        trackingCategoryRefs: [
-          {
-            id: "e2d176dc-1c43-4d40-b61d-171157cbe5ee",
-            name: "Darla Koelpin Sr.",
-          },
-          {
-            id: "840772f3-2e3b-449d-be0f-23b7b6d9948d",
-            name: "Tricia Schumm",
-          },
-          {
-            id: "477680fc-7a17-4a82-a5e8-2fd28d1040a7",
-            name: "Perry Brekke",
-          },
-        ],
-        unitAmount: 1850.41,
+        unitAmount: 4766.14,
       },
     ],
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "distinctio",
+    note: "vitae",
     paymentAllocations: [
       {
         allocation: {
           allocatedOnDate: "2022-10-23T00:00:00.000Z",
-          currency: "EUR",
-          currencyRate: 7102.56,
-          totalAmount: 1033.28,
+          currency: "GBP",
+          currencyRate: 5398.86,
+          totalAmount: 2847.79,
         },
         payment: {
           accountRef: {
-            id: "835008f4-61ce-453e-9144-98a9ba460add",
-            name: "Lionel Torphy Jr.",
+            id: "f7ae12c6-891f-482c-a115-7172305377dc",
+            name: "Horace Leannon",
           },
           currency: "EUR",
-          currencyRate: 2396.46,
-          id: "7daa9182-a49d-4962-9d3c-affc198eea44",
-          note: "quis",
+          currencyRate: 6081.72,
+          id: "75e35668-6092-4e9c-bddc-5f111dea1026",
+          note: "pariatur",
           paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "dignissimos",
-          totalAmount: 6043.08,
-        },
-      },
-      {
-        allocation: {
-          allocatedOnDate: "2022-10-23T00:00:00.000Z",
-          currency: "EUR",
-          currencyRate: 8037.85,
-          totalAmount: 8241.62,
-        },
-        payment: {
-          accountRef: {
-            id: "440ea98b-ecce-4048-ade0-d56d73b00550",
-            name: "Tasha Leannon",
-          },
-          currency: "USD",
-          currencyRate: 1299.24,
-          id: "6ff77c65-675f-45b7-8e3e-4cfcc6a91ec5",
-          note: "qui",
-          paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "sed",
-          totalAmount: 2650.82,
+          reference: "numquam",
+          totalAmount: 1031.93,
         },
       },
     ],
-    reference: "at",
+    reference: "est",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    subTotal: 50.37,
+    subTotal: 8167.26,
     supplementalData: {
       content: {
-        "quae": {
-          "repudiandae": "hic",
-          "non": "minima",
+        "vitae": {
+          "omnis": "alias",
         },
       },
     },
-    taxAmount: 7743.39,
-    totalAmount: 8885.73,
+    taxAmount: 9574.89,
+    totalAmount: 8876,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 657173,
+  timeoutInMinutes: 708883,
 }).then((res: CreateDirectIncomeResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -271,7 +171,7 @@ sdk.directIncomes.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "dicta",
+  directIncomeId: "quia",
 }).then((res: DownloadDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -366,8 +266,8 @@ sdk.directIncomes.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "laborum",
-  timeoutInMinutes: 794929,
+  directIncomeId: "odio",
+  timeoutInMinutes: 558410,
 }).then((res: GetDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -465,7 +365,7 @@ sdk.directIncomes.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "minima",
+  query: "ipsa",
 }).then((res: ListDirectIncomesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -511,7 +411,7 @@ const sdk = new CodatAccounting({
 sdk.directIncomes.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "neque",
+  directIncomeId: "distinctio",
 }).then((res: ListDirectIncomeAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -560,12 +460,12 @@ const sdk = new CodatAccounting({
 
 sdk.directIncomes.uploadAttachment({
   requestBody: {
-    content: "debitis".encode(),
-    requestBody: "quidem",
+    content: "placeat".encode(),
+    requestBody: "quod",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "quidem",
+  directIncomeId: "eligendi",
 }).then((res: UploadDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response

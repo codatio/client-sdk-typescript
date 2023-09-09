@@ -7,9 +7,6 @@ import { DirectIncome } from "./directincome";
 import { Links } from "./links";
 import { Expose, Type } from "class-transformer";
 
-/**
- * Success
- */
 export class DirectIncomes extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "_links" })

@@ -49,7 +49,7 @@ export class ListBankAccountTransactionsResponse extends SpeakeasyBase {
      * Success
      */
     @SpeakeasyMetadata()
-    bankTransactionsResponse?: shared.BankTransactionsResponse;
+    bankTransactions?: shared.BankTransactions;
 
     @SpeakeasyMetadata()
     contentType: string;
