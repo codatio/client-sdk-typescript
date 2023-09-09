@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: b7bf802b6746f134e324836b43a62791
+  docChecksum: f10cb6c3b42af48edde29dfe420f6a68
   docVersion: 3.0.0
-  speakeasyVersion: 1.77.1
-  generationVersion: 2.91.4
+  speakeasyVersion: 1.82.3
+  generationVersion: 2.107.3
 generation:
   sdkClassName: CodatSyncPayables
   singleTagPerOp: false
@@ -11,15 +11,15 @@ generation:
 features:
   typescript:
     acceptHeaders: 2.81.1
-    core: 2.85.1
+    core: 2.87.1
     deprecations: 2.81.1
-    examples: 2.81.1
+    examples: 2.81.2
     globalSecurity: 2.81.1
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
-    retries: 2.81.1
+    retries: 2.82.0
 typescript:
-  version: 0.1.0
+  version: 0.2.0
   author: Codat
   description: Streamline your customers' accounts payable workflow.
   maxMethodParams: 0
