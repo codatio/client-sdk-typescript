@@ -56,4 +56,6 @@ export class ListPurchaseOrdersResponse extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
+
+    next: () => Promise<ListPurchaseOrdersResponse | null>;
 }

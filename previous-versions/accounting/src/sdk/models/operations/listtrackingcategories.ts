@@ -56,4 +56,6 @@ export class ListTrackingCategoriesResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     trackingCategories?: shared.TrackingCategories;
+
+    next: () => Promise<ListTrackingCategoriesResponse | null>;
 }

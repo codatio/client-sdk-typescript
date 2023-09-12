@@ -59,4 +59,6 @@ export class ListTransfersResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     transfers?: shared.Transfers;
+
+    next: () => Promise<ListTransfersResponse | null>;
 }

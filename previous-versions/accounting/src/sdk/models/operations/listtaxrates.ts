@@ -56,4 +56,6 @@ export class ListTaxRatesResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     taxRates?: shared.TaxRates;
+
+    next: () => Promise<ListTaxRatesResponse | null>;
 }

@@ -8,6 +8,7 @@ import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import jp from "jsonpath";
 
 /**
  * Transfers
@@ -499,6 +500,20 @@ export class Transfers {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListTransfersResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.list(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 
