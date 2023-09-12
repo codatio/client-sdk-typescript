@@ -11,6 +11,7 @@ export * from "./deletecompany";
 export * from "./deleteconnection";
 export * from "./deletejournalentry";
 export * from "./getaccount";
+export * from "./getaccountingprofile";
 export * from "./getcompany";
 export * from "./getconnection";
 export * from "./getcreateaccountsmodel";

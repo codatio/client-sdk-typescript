@@ -40,30 +40,30 @@ const sdk = new CodatSyncPayroll({
 sdk.journalEntries.create({
   journalEntry: {
     createdOn: "2022-10-23T00:00:00.000Z",
-    description: "placeat",
-    id: "8796ed15-1a05-4dfc-addf-7cc78ca1ba92",
+    description: "debitis",
+    id: "0f467cc8-796e-4d15-9a05-dfc2ddf7cc78",
     journalLines: [
       {
         accountRef: {
-          id: "8fc81674-2cb7-4392-8592-9396fea7596e",
-          name: "Roger Beier",
+          id: "ca1ba928-fc81-4674-acb7-39205929396f",
+          name: "Wilbur Kirlin",
         },
-        currency: "mollitia",
-        description: "laborum",
-        netAmount: 1709.09,
+        currency: "iure",
+        description: "saepe",
+        netAmount: 6976.31,
         tracking: {
           recordRefs: [
             {
               dataType: "journalEntry",
-              id: "52c59559-07af-4f1a-ba2f-a9467739251a",
+              id: "0faaa235-2c59-4559-87af-f1a3a2fa9467",
             },
           ],
         },
       },
     ],
     journalRef: {
-      id: "a52c3f5a-d019-4da1-bfe7-8f097b0074f1",
-      name: "Miss Valerie Kshlerin",
+      id: "739251aa-52c3-4f5a-9019-da1ffe78f097",
+      name: "Thomas Batz",
     },
     metadata: {
       isDeleted: false,
@@ -71,14 +71,14 @@ sdk.journalEntries.create({
     modifiedDate: "2022-10-23T00:00:00.000Z",
     postedOn: "2022-10-23T00:00:00.000Z",
     recordRef: {
-      dataType: "transfer",
-      id: "13b99d48-8e1e-491e-850a-d2abd4426980",
+      dataType: "invoice",
+      id: "471b5e6e-13b9-49d4-88e1-e91e450ad2ab",
     },
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "assumenda": {
-          "ipsam": "alias",
+        "labore": {
+          "modi": "qui",
         },
       },
     },
@@ -86,7 +86,7 @@ sdk.journalEntries.create({
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 677817,
+  timeoutInMinutes: 586513,
 }).then((res: CreateJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -155,7 +155,7 @@ const sdk = new CodatSyncPayroll({
 
 sdk.journalEntries.delete({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalEntryId: "excepturi",
+  journalEntryId: "quos",
 }).then((res: DeleteJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -202,7 +202,7 @@ const sdk = new CodatSyncPayroll({
 
 sdk.journalEntries.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalEntryId: "tempora",
+  journalEntryId: "perferendis",
 }).then((res: GetJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -299,7 +299,7 @@ sdk.journalEntries.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "facilis",
+  query: "magni",
 }).then((res: ListJournalEntriesResponse) => {
   if (res.statusCode == 200) {
     // handle response

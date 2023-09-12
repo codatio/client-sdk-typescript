@@ -56,4 +56,6 @@ export class ListPushOperationsResponse extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
+
+    next: () => Promise<ListPushOperationsResponse | null>;
 }

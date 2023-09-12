@@ -30,6 +30,8 @@ export * from "./journals";
 export * from "./journalstatus";
 export * from "./links";
 export * from "./metadata";
+export * from "./onecompanies1percent7bcompanyidpercent7d1data1infogetresponses200contentapplication1jsonschemapropertiesaddressesitemsdefinitionsaccountingaddresstype";
+export * from "./onecompanies1percent7bcompanyidpercent7d1data1infogetresponses200contentapplication1jsonschemapropertiesphonenumbersitemsdefinitionsphonenumbertype";
 export * from "./pulloperation";
 export * from "./pulloperations";
 export * from "./pushchangetype";

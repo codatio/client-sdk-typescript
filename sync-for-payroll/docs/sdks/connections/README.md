@@ -32,7 +32,7 @@ const sdk = new CodatSyncPayroll({
 
 sdk.connections.create({
   requestBody: {
-    platformKey: "tempora",
+    platformKey: "deserunt",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: CreateConnectionResponse) => {
@@ -198,7 +198,7 @@ const sdk = new CodatSyncPayroll({
 
 sdk.connections.unlink({
   requestBody: {
-    status: "molestiae",
+    status: "iure",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
