@@ -59,4 +59,6 @@ export class ListAccountsResponse extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
+
+    next: () => Promise<ListAccountsResponse | null>;
 }
