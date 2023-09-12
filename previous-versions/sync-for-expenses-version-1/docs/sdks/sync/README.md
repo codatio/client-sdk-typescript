@@ -6,9 +6,9 @@ Triggering a new sync of expenses to accounting software.
 
 ### Available Operations
 
-* [intiateSync](#intiatesync) - Initiate sync
+* [initiateSync](#initiatesync) - Initiate sync
 
-## intiateSync
+## initiateSync
 
 Initiate sync of pending transactions.
 
@@ -16,7 +16,7 @@ Initiate sync of pending transactions.
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses-version-1";
-import { IntiateSyncResponse } from "@codat/sync-for-expenses-version-1/dist/sdk/models/operations";
+import { InitiateSyncResponse } from "@codat/sync-for-expenses-version-1/dist/sdk/models/operations";
 
 const sdk = new CodatSyncExpenses({
   security: {
@@ -24,14 +24,14 @@ const sdk = new CodatSyncExpenses({
   },
 });
 
-sdk.sync.intiateSync({
+sdk.sync.initiateSync({
   postSync: {
     datasetIds: [
       "a674e0f4-67cc-4879-aed1-51a05dfc2ddf",
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: IntiateSyncResponse) => {
+}).then((res: InitiateSyncResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }
@@ -40,14 +40,14 @@ sdk.sync.intiateSync({
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [operations.IntiateSyncRequest](../../models/operations/intiatesyncrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `retries`                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                         | :heavy_minus_sign:                                                             | Configuration to override the default retry behavior of the client.            |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.InitiateSyncRequest](../../models/operations/initiatesyncrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `retries`                                                                        | [utils.RetryConfig](../../models/utils/retryconfig.md)                           | :heavy_minus_sign:                                                               | Configuration to override the default retry behavior of the client.              |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response
 
-**Promise<[operations.IntiateSyncResponse](../../models/operations/intiatesyncresponse.md)>**
+**Promise<[operations.InitiateSyncResponse](../../models/operations/initiatesyncresponse.md)>**
 

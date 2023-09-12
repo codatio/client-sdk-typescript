@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class IntiateSyncRequest extends SpeakeasyBase {
+export class InitiateSyncRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
     postSync?: shared.PostSync;
 
@@ -14,7 +14,7 @@ export class IntiateSyncRequest extends SpeakeasyBase {
     companyId: string;
 }
 
-export class IntiateSyncResponse extends SpeakeasyBase {
+export class InitiateSyncResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     contentType: string;
 

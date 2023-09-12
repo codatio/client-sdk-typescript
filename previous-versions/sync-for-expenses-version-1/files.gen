@@ -43,7 +43,7 @@ src/sdk/models/operations/createexpensedataset.ts
 src/sdk/models/operations/updateexpensedataset.ts
 src/sdk/models/operations/uploadattachment.ts
 src/sdk/models/operations/getmappingoptions.ts
-src/sdk/models/operations/intiatesync.ts
+src/sdk/models/operations/initiatesync.ts
 src/sdk/models/operations/getlastsuccessfulsync.ts
 src/sdk/models/operations/getlatestsync.ts
 src/sdk/models/operations/getsyncbyid.ts
@@ -142,8 +142,8 @@ docs/models/operations/uploadattachmentrequest.md
 docs/models/operations/uploadattachmentresponse.md
 docs/models/operations/getmappingoptionsrequest.md
 docs/models/operations/getmappingoptionsresponse.md
-docs/models/operations/intiatesyncrequest.md
-docs/models/operations/intiatesyncresponse.md
+docs/models/operations/initiatesyncrequest.md
+docs/models/operations/initiatesyncresponse.md
 docs/models/operations/getlastsuccessfulsyncrequest.md
 docs/models/operations/getlastsuccessfulsyncresponse.md
 docs/models/operations/getlatestsyncrequest.md

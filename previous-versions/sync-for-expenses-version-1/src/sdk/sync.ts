@@ -26,13 +26,13 @@ export class Sync {
      * @remarks
      * Initiate sync of pending transactions.
      */
-    async intiateSync(
-        req: operations.IntiateSyncRequest,
+    async initiateSync(
+        req: operations.InitiateSyncRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.IntiateSyncResponse> {
+    ): Promise<operations.InitiateSyncResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.IntiateSyncRequest(req);
+            req = new operations.InitiateSyncRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -101,7 +101,7 @@ export class Sync {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.IntiateSyncResponse = new operations.IntiateSyncResponse({
+        const res: operations.InitiateSyncResponse = new operations.InitiateSyncResponse({
             statusCode: httpRes.status,
             contentType: contentType,
             rawResponse: httpRes,

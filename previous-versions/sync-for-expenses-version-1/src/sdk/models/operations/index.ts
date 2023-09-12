@@ -16,7 +16,7 @@ export * from "./getlatestsync";
 export * from "./getmappingoptions";
 export * from "./getsyncbyid";
 export * from "./getsynctransaction";
-export * from "./intiatesync";
+export * from "./initiatesync";
 export * from "./listcompanies";
 export * from "./listconnections";
 export * from "./listsyncs";
