@@ -59,4 +59,6 @@ export class ListTaxComponentsResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     taxComponents?: shared.TaxComponents;
+
+    next: () => Promise<ListTaxComponentsResponse | null>;
 }

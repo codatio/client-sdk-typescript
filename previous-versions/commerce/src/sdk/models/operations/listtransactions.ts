@@ -59,4 +59,6 @@ export class ListTransactionsResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     transactions?: shared.Transactions;
+
+    next: () => Promise<ListTransactionsResponse | null>;
 }
