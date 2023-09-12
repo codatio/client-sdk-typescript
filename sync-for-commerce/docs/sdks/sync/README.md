@@ -6,12 +6,53 @@ Initiate and monitor the sync of company data into accounting software.
 
 ### Available Operations
 
+* [get](#get) - Get sync status
 * [getLastSuccessfulSync](#getlastsuccessfulsync) - Last successful sync
 * [getLatestSync](#getlatestsync) - Latest sync status
 * [getStatus](#getstatus) - Get sync status
 * [list](#list) - List sync statuses
 * [request](#request) - Initiate new sync
 * [requestForDateRange](#requestfordaterange) - Initiate sync for specific range
+
+## get
+
+Get the sync status for a specified sync
+
+### Example Usage
+
+```typescript
+import { CodatSyncCommerce } from "@codat/sync-for-commerce";
+import { GetSyncByIdResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
+
+const sdk = new CodatSyncCommerce({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.sync.get({
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
+}).then((res: GetSyncByIdResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [operations.GetSyncByIdRequest](../../models/operations/getsyncbyidrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `retries`                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                         | :heavy_minus_sign:                                                             | Configuration to override the default retry behavior of the client.            |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+
+
+### Response
+
+**Promise<[operations.GetSyncByIdResponse](../../models/operations/getsyncbyidresponse.md)>**
+
 
 ## getLastSuccessfulSync
 

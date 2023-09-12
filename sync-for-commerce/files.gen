@@ -34,6 +34,7 @@ src/sdk/models/operations/updateconnectionauthorization.ts
 src/sdk/models/operations/updateconnection.ts
 src/sdk/models/operations/getintegrationbranding.ts
 src/sdk/models/operations/listintegrations.ts
+src/sdk/models/operations/getsyncbyid.ts
 src/sdk/models/operations/getlastsuccessfulsync.ts
 src/sdk/models/operations/getlatestsync.ts
 src/sdk/models/operations/getsyncstatus.ts
@@ -128,6 +129,8 @@ docs/models/operations/getintegrationbrandingrequest.md
 docs/models/operations/getintegrationbrandingresponse.md
 docs/models/operations/listintegrationsrequest.md
 docs/models/operations/listintegrationsresponse.md
+docs/models/operations/getsyncbyidrequest.md
+docs/models/operations/getsyncbyidresponse.md
 docs/models/operations/getlastsuccessfulsyncrequest.md
 docs/models/operations/getlastsuccessfulsyncresponse.md
 docs/models/operations/getlatestsyncrequest.md
