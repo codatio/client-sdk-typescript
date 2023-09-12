@@ -47,4 +47,6 @@ export class ListIntegrationsResponse extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
+
+    next: () => Promise<ListIntegrationsResponse | null>;
 }
