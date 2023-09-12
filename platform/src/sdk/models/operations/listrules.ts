@@ -53,4 +53,6 @@ export class ListRulesResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     webhooks?: shared.Webhooks;
+
+    next: () => Promise<ListRulesResponse | null>;
 }
