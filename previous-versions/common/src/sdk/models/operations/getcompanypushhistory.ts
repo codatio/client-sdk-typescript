@@ -56,4 +56,6 @@ export class GetCompanyPushHistoryResponse extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
+
+    next: () => Promise<GetCompanyPushHistoryResponse | null>;
 }
