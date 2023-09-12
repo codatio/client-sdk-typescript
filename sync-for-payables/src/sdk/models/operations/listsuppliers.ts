@@ -56,4 +56,6 @@ export class ListSuppliersResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     suppliers?: shared.Suppliers;
+
+    next: () => Promise<ListSuppliersResponse | null>;
 }

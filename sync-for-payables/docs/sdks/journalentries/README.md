@@ -37,30 +37,30 @@ const sdk = new CodatSyncPayables({
 sdk.journalEntries.create({
   journalEntry: {
     createdOn: "2022-10-23T00:00:00.000Z",
-    description: "animi",
-    id: "88970e18-9dbb-430f-8b33-ea055b197cd4",
+    description: "nostrum",
+    id: "fc95fa88-970e-4189-9bb3-0fcb33ea055b",
     journalLines: [
       {
         accountRef: {
-          id: "4e2f52d8-2d35-413b-b6f4-8b656bcdb35f",
-          name: "Russell Toy",
+          id: "197cd44e-2f52-4d82-9351-3bb6f48b656b",
+          name: "Carroll Purdy",
         },
-        currency: "eos",
-        description: "reprehenderit",
-        netAmount: 3455.06,
+        currency: "voluptatibus",
+        description: "voluptatibus",
+        netAmount: 1623.58,
         tracking: {
           recordRefs: [
             {
-              dataType: "journalEntry",
-              id: "7a8cd9e7-319c-4177-9525-f77b114eeb52",
+              dataType: "transfer",
+              id: "4b27537a-8cd9-4e73-99c1-77d525f77b11",
             },
           ],
         },
       },
     ],
     journalRef: {
-      id: "ff785fc3-7814-4d4c-98e0-c2bb89eb75da",
-      name: "Elmer Emard",
+      id: "4eeb52ff-785f-4c37-814d-4c98e0c2bb89",
+      name: "Ira Kulas",
     },
     metadata: {
       isDeleted: false,
@@ -68,14 +68,14 @@ sdk.journalEntries.create({
     modifiedDate: "2022-10-23T00:00:00.000Z",
     postedOn: "2022-10-23T00:00:00.000Z",
     recordRef: {
-      dataType: "journalEntry",
-      id: "503d8bb3-1180-4f73-9ae9-e057eb809e28",
+      dataType: "invoice",
+      id: "36c60050-3d8b-4b31-980f-739ae9e057eb",
     },
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "voluptatem": {
-          "velit": "dolor",
+        "aperiam": {
+          "sint": "accusamus",
         },
       },
     },
@@ -83,7 +83,7 @@ sdk.journalEntries.create({
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 953676,
+  timeoutInMinutes: 520081,
 }).then((res: CreateJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response

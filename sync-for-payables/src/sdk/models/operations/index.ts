@@ -17,6 +17,7 @@ export * from "./deletecompany";
 export * from "./deleteconnection";
 export * from "./downloadbillattachment";
 export * from "./getaccount";
+export * from "./getaccountingprofile";
 export * from "./getbill";
 export * from "./getbillattachment";
 export * from "./getbillcreditnote";
