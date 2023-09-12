@@ -8,6 +8,7 @@ import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import jp from "jsonpath";
 
 /**
  * Data from a linked accounting platform representing money owed to the business for sold goods or services.
@@ -1561,7 +1562,7 @@ export class AccountsReceivable {
      * Get reconciled invoices
      *
      * @remarks
-     * The _Get reconciled invoices_ endpoint gets a list of invoices linked to the corresponding banking transaction
+     * Gets a list of invoices linked to the corresponding banking transaction
      */
     async getReconciledInvoices(
         req: operations.GetReconciledInvoicesRequest,
@@ -1668,6 +1669,26 @@ export class AccountsReceivable {
                 break;
         }
 
+        res.next = async (): Promise<operations.GetReconciledInvoicesResponse | null> => {
+            const page = req.page || 0;
+            const newPage = page + 1;
+
+            if (!JSON.parse(decodedRes)) {
+                return null;
+            }
+            const results = jp.value(JSON.parse(decodedRes), "$.reportItems");
+            if (!results.length) {
+                return null;
+            }
+
+            return await this.getReconciledInvoices(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 
@@ -1883,6 +1904,20 @@ export class AccountsReceivable {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListAccountingCreditNotesResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listCreditNotes(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 
@@ -2120,6 +2155,20 @@ export class AccountsReceivable {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListAccountingCustomersResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listCustomers(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 
@@ -2357,6 +2406,20 @@ export class AccountsReceivable {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListAccountingDirectIncomesResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listDirectIncomes(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 
@@ -2590,6 +2653,20 @@ export class AccountsReceivable {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListAccountingInvoicesResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listInvoices(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 
@@ -2705,6 +2782,20 @@ export class AccountsReceivable {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListAccountingPaymentsResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listPayments(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 }

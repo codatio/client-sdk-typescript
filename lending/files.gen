@@ -1,7 +1,7 @@
 src/sdk/accountingbankdata.ts
 src/sdk/accountspayable.ts
 src/sdk/accountsreceivable.ts
-src/sdk/banking.ts
+src/sdk/bankstatements.ts
 src/sdk/companies.ts
 src/sdk/companyinfo.ts
 src/sdk/connections.ts
@@ -88,7 +88,6 @@ src/sdk/models/operations/deletecompany.ts
 src/sdk/models/operations/getcompany.ts
 src/sdk/models/operations/listcompanies.ts
 src/sdk/models/operations/updatecompany.ts
-src/sdk/models/operations/getaccountingprofile.ts
 src/sdk/models/operations/getcommerceprofile.ts
 src/sdk/models/operations/createconnection.ts
 src/sdk/models/operations/deleteconnection.ts
@@ -154,6 +153,7 @@ src/sdk/models/operations/listaccountingdirectcosts.ts
 src/sdk/models/operations/listaccountingjournalentries.ts
 src/sdk/models/operations/listaccountingjournals.ts
 src/sdk/models/operations/listaccountingtransfers.ts
+src/sdk/models/operations/getaccountingprofile.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/errormessage.ts
 src/sdk/models/shared/accountingbankaccount.ts
@@ -264,7 +264,6 @@ src/sdk/models/shared/dataconnectionstatus.ts
 src/sdk/models/shared/dataconnectionerror.ts
 src/sdk/models/shared/companyrequestbody.ts
 src/sdk/models/shared/companies.ts
-src/sdk/models/shared/accountingcompanyinfo.ts
 src/sdk/models/shared/commercecompanyinfo.ts
 src/sdk/models/shared/weblinksitems.ts
 src/sdk/models/shared/commerceaddress.ts
@@ -389,15 +388,16 @@ src/sdk/models/shared/accountingdirectcosts.ts
 src/sdk/models/shared/accountingjournalentries.ts
 src/sdk/models/shared/accountingjournals.ts
 src/sdk/models/shared/accountingtransfers.ts
+src/sdk/models/shared/accountingcompanyinfo.ts
 src/sdk/models/shared/security.ts
 src/sdk/models/shared/index.ts
 src/sdk/models/errors/index.ts
-docs/sdks/codatlending/README.md
 docs/models/utils/retryconfig.md
+docs/sdks/codatlending/README.md
 docs/sdks/accountingbankdata/README.md
 docs/sdks/accountspayable/README.md
 docs/sdks/accountsreceivable/README.md
-docs/sdks/banking/README.md
+docs/sdks/bankstatements/README.md
 docs/sdks/companies/README.md
 docs/sdks/companyinfo/README.md
 docs/sdks/connections/README.md
@@ -520,8 +520,6 @@ docs/models/operations/listcompaniesrequest.md
 docs/models/operations/listcompaniesresponse.md
 docs/models/operations/updatecompanyrequest.md
 docs/models/operations/updatecompanyresponse.md
-docs/models/operations/getaccountingprofilerequest.md
-docs/models/operations/getaccountingprofileresponse.md
 docs/models/operations/getcommerceprofilerequest.md
 docs/models/operations/getcommerceprofileresponse.md
 docs/models/operations/createconnectionrequestbody.md
@@ -656,6 +654,8 @@ docs/models/operations/listaccountingjournalsrequest.md
 docs/models/operations/listaccountingjournalsresponse.md
 docs/models/operations/listaccountingtransfersrequest.md
 docs/models/operations/listaccountingtransfersresponse.md
+docs/models/operations/getaccountingprofilerequest.md
+docs/models/operations/getaccountingprofileresponse.md
 docs/models/shared/errormessage.md
 docs/models/shared/accountingbankaccount.md
 docs/models/shared/metadata.md
@@ -773,11 +773,6 @@ docs/models/shared/dataconnectionstatus.md
 docs/models/shared/dataconnectionerror.md
 docs/models/shared/companyrequestbody.md
 docs/models/shared/companies.md
-docs/models/shared/accountingcompanyinfoaccountingaddress.md
-docs/models/shared/accountingcompanyinfophone.md
-docs/models/shared/accountingcompanyinfoweblinktype.md
-docs/models/shared/accountingcompanyinfoweblink.md
-docs/models/shared/accountingcompanyinfo.md
 docs/models/shared/commercecompanyinfo.md
 docs/models/shared/itemstype.md
 docs/models/shared/weblinksitems.md
@@ -912,5 +907,10 @@ docs/models/shared/accountingdirectcosts.md
 docs/models/shared/accountingjournalentries.md
 docs/models/shared/accountingjournals.md
 docs/models/shared/accountingtransfers.md
+docs/models/shared/accountingcompanyinfoaccountingaddress.md
+docs/models/shared/accountingcompanyinfophone.md
+docs/models/shared/accountingcompanyinfoweblinktype.md
+docs/models/shared/accountingcompanyinfoweblink.md
+docs/models/shared/accountingcompanyinfo.md
 docs/models/shared/security.md
 .gitattributes

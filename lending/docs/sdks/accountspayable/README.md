@@ -46,7 +46,7 @@ const sdk = new CodatLending({
 
 sdk.accountsPayable.downloadBillAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  billId: "nulla",
+  billId: "unde",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: DownloadAccountingBillAttachmentResponse) => {
@@ -95,7 +95,7 @@ sdk.accountsPayable.downloadSupplierAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "corrupti",
+  supplierId: "nulla",
 }).then((res: DownloadAccountingSupplierAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -184,7 +184,7 @@ const sdk = new CodatLending({
 });
 
 sdk.accountsPayable.getBill({
-  billId: "illum",
+  billId: "corrupti",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountingBillResponse) => {
   if (res.statusCode == 200) {
@@ -230,7 +230,7 @@ const sdk = new CodatLending({
 
 sdk.accountsPayable.getBillAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  billId: "vel",
+  billId: "illum",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetAccountingBillAttachmentResponse) => {
@@ -278,7 +278,7 @@ const sdk = new CodatLending({
 });
 
 sdk.accountsPayable.getBillCreditNote({
-  billCreditNoteId: "error",
+  billCreditNoteId: "vel",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountingBillCreditNoteResponse) => {
   if (res.statusCode == 200) {
@@ -325,7 +325,7 @@ const sdk = new CodatLending({
 });
 
 sdk.accountsPayable.getBillPayment({
-  billPaymentId: "deserunt",
+  billPaymentId: "error",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountingBillPaymentResponse) => {
   if (res.statusCode == 200) {
@@ -373,7 +373,7 @@ const sdk = new CodatLending({
 
 sdk.accountsPayable.getSupplier({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  supplierId: "suscipit",
+  supplierId: "deserunt",
 }).then((res: GetAccountingSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -420,7 +420,7 @@ sdk.accountsPayable.getSupplierAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "iure",
+  supplierId: "suscipit",
 }).then((res: GetAccountingSupplierAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -503,7 +503,7 @@ const sdk = new CodatLending({
 });
 
 sdk.accountsPayable.listBillAttachments({
-  billId: "magnam",
+  billId: "iure",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: ListAccountingBillAttachmentsResponse) => {
@@ -553,7 +553,7 @@ sdk.accountsPayable.listBillCreditNotes({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "debitis",
+  query: "magnam",
 }).then((res: ListAccountingBillCreditNotesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -601,7 +601,7 @@ sdk.accountsPayable.listBillPayments({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "ipsa",
+  query: "debitis",
 }).then((res: ListAccountingBillPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -649,7 +649,7 @@ sdk.accountsPayable.listBills({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "delectus",
+  query: "ipsa",
 }).then((res: ListAccountingBillsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -695,7 +695,7 @@ const sdk = new CodatLending({
 sdk.accountsPayable.listSupplierAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "tempora",
+  supplierId: "delectus",
 }).then((res: ListAccountingSupplierAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -743,7 +743,7 @@ sdk.accountsPayable.listSuppliers({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "suscipit",
+  query: "tempora",
 }).then((res: ListAccountingSuppliersResponse) => {
   if (res.statusCode == 200) {
     // handle response

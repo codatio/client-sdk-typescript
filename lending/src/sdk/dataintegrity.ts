@@ -8,6 +8,7 @@ import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import jp from "jsonpath";
 
 /**
  * Match mutable accounting data with immutable banking data to increase confidence in financial data.
@@ -133,6 +134,20 @@ export class DataIntegrity {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListDataIntegrityDetailsResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.details(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 

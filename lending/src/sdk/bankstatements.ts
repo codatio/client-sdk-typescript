@@ -8,12 +8,13 @@ import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import jp from "jsonpath";
 
 /**
  * Retrieve banking data from linked bank accounts.
  */
 
-export class Banking {
+export class BankStatements {
     private sdkConfiguration: SDKConfiguration;
 
     constructor(sdkConfig: SDKConfiguration) {
@@ -449,6 +450,26 @@ export class Banking {
                 break;
         }
 
+        res.next = async (): Promise<operations.GetCategorizedBankStatementResponse | null> => {
+            const page = req.page || 0;
+            const newPage = page + 1;
+
+            if (!JSON.parse(decodedRes)) {
+                return null;
+            }
+            const results = jp.value(JSON.parse(decodedRes), "$.reportItems");
+            if (!results.length) {
+                return null;
+            }
+
+            return await this.getCategorizedBankStatement(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 
@@ -568,6 +589,20 @@ export class Banking {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListBankingAccountBalancesResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listBankAccountBalances(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 
@@ -687,6 +722,20 @@ export class Banking {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListBankingAccountsResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listBankAccounts(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 
@@ -806,6 +855,21 @@ export class Banking {
                 break;
         }
 
+        res.next =
+            async (): Promise<operations.ListBankingTransactionCategoriesResponse | null> => {
+                const nextCursor = jp.value(JSON.parse(decodedRes), "");
+                if (nextCursor === undefined) {
+                    return null;
+                }
+
+                return await this.listBankTransactionCategories(
+                    {
+                        ...req,
+                    },
+                    retries,
+                    config
+                );
+            };
         return res;
     }
 
@@ -925,6 +989,20 @@ export class Banking {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListBankingTransactionsResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listBankTransactions(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 }

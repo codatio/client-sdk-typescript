@@ -8,6 +8,7 @@ import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import jp from "jsonpath";
 
 /**
  * Control how data is retrieved from an integration.
@@ -350,6 +351,20 @@ export class ManageData {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListPullOperationsResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listPullOperations(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 

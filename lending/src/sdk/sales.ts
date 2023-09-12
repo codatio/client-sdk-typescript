@@ -8,6 +8,7 @@ import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import jp from "jsonpath";
 
 /**
  * Retrieve standardized sales data from a linked commerce platform.
@@ -1905,6 +1906,20 @@ export class Sales {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListCommerceCustomersResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listCustomers(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 
@@ -2024,6 +2039,20 @@ export class Sales {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListCommerceDisputesResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listDisputes(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 
@@ -2142,6 +2171,20 @@ export class Sales {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListCommerceLocationsResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listLocations(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 
@@ -2261,6 +2304,20 @@ export class Sales {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListCommerceOrdersResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listOrders(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 
@@ -2380,6 +2437,20 @@ export class Sales {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListCommercePaymentMethodsResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listPaymentMethods(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 
@@ -2499,6 +2570,20 @@ export class Sales {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListCommercePaymentsResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listPayments(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 
@@ -2618,6 +2703,20 @@ export class Sales {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListCommerceProductCategoriesResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listProductCategories(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 
@@ -2737,6 +2836,20 @@ export class Sales {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListCommerceProductsResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listProducts(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 
@@ -2856,6 +2969,20 @@ export class Sales {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListCommerceTransactionsResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listTransactions(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 }

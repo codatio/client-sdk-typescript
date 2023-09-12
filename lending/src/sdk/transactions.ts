@@ -8,6 +8,7 @@ import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import jp from "jsonpath";
 
 /**
  * Data from a linked accounting platform representing transactions.
@@ -1215,6 +1216,20 @@ export class Transactions {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListAccountingDirectCostsResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listDirectCosts(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 
@@ -1334,6 +1349,20 @@ export class Transactions {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListAccountingJournalEntriesResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listJournalEntries(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 
@@ -1449,6 +1478,20 @@ export class Transactions {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListAccountingJournalsResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listJournals(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 
@@ -1568,6 +1611,20 @@ export class Transactions {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListAccountingTransfersResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listTransfers(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 }

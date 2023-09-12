@@ -8,6 +8,7 @@ import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import jp from "jsonpath";
 
 /**
  * Data from a linked accounting platform representing money the business owes money to its suppliers.
@@ -1428,6 +1429,20 @@ export class AccountsPayable {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListAccountingBillCreditNotesResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listBillCreditNotes(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 
@@ -1547,6 +1562,20 @@ export class AccountsPayable {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListAccountingBillPaymentsResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listBillPayments(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 
@@ -1662,6 +1691,20 @@ export class AccountsPayable {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListAccountingBillsResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listBills(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 
@@ -1899,6 +1942,20 @@ export class AccountsPayable {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListAccountingSuppliersResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listSuppliers(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 }

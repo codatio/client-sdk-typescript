@@ -50,4 +50,6 @@ export class GetReconciledInvoicesResponse extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
+
+    next: () => Promise<GetReconciledInvoicesResponse | null>;
 }

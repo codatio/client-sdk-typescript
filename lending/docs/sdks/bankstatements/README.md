@@ -1,4 +1,4 @@
-# banking
+# bankStatements
 
 ## Overview
 
@@ -38,8 +38,8 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.banking.getBankAccount({
-  accountId: "molestiae",
+sdk.bankStatements.getBankAccount({
+  accountId: "maiores",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetBankingAccountResponse) => {
@@ -86,10 +86,10 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.banking.getBankTransaction({
+sdk.bankStatements.getBankTransaction({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  transactionId: "quod",
+  transactionId: "molestiae",
 }).then((res: GetBankingTransactionResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -134,7 +134,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.banking.getBankTransactionCategory({
+sdk.bankStatements.getBankTransactionCategory({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   transactionCategoryId: "quod",
@@ -179,11 +179,11 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.banking.getCategorizedBankStatement({
+sdk.bankStatements.getCategorizedBankStatement({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   page: 1,
   pageSize: 100,
-  query: "esse",
+  query: "quod",
 }).then((res: GetCategorizedBankStatementResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -226,13 +226,13 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.banking.listBankAccountBalances({
+sdk.bankStatements.listBankAccountBalances({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "totam",
+  query: "esse",
 }).then((res: ListBankingAccountBalancesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -275,13 +275,13 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.banking.listBankAccounts({
+sdk.bankStatements.listBankAccounts({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "porro",
+  query: "totam",
 }).then((res: ListBankingAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -324,13 +324,13 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.banking.listBankTransactionCategories({
+sdk.bankStatements.listBankTransactionCategories({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "dolorum",
+  query: "porro",
 }).then((res: ListBankingTransactionCategoriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -373,13 +373,13 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.banking.listBankTransactions({
+sdk.bankStatements.listBankTransactions({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "dicta",
+  query: "dolorum",
 }).then((res: ListBankingTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response

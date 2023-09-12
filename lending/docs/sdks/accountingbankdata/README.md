@@ -34,7 +34,7 @@ const sdk = new CodatLending({
 });
 
 sdk.accountingBankData.getAccount({
-  accountId: "provident",
+  accountId: "corrupti",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetAccountingBankAccountResponse) => {
@@ -85,7 +85,7 @@ sdk.accountingBankData.listAccounts({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "distinctio",
+  query: "provident",
 }).then((res: ListAccountingBankAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -131,13 +131,13 @@ const sdk = new CodatLending({
 });
 
 sdk.accountingBankData.listTransactions({
-  accountId: "quibusdam",
+  accountId: "distinctio",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "unde",
+  query: "quibusdam",
 }).then((res: ListAccountingBankAccountTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -38,7 +38,7 @@ const sdk = new CodatLending({
 });
 
 sdk.financialStatements.getAccount({
-  accountId: "qui",
+  accountId: "modi",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountingAccountResponse) => {
   if (res.statusCode == 200) {
@@ -165,7 +165,7 @@ const sdk = new CodatLending({
 
 sdk.financialStatements.getCategorizedBalanceSheet({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  numberOfPeriods: 456150,
+  numberOfPeriods: 736918,
   reportDate: "29-09-2020",
 }).then((res: GetCategorizedBalanceSheetStatementResponse) => {
   if (res.statusCode == 200) {
@@ -208,7 +208,7 @@ const sdk = new CodatLending({
 
 sdk.financialStatements.getCategorizedProfitAndLoss({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  numberOfPeriods: 216550,
+  numberOfPeriods: 456150,
   reportDate: "29-09-2020",
 }).then((res: GetCategorizedProfitAndLossStatementResponse) => {
   if (res.statusCode == 200) {
@@ -298,7 +298,7 @@ sdk.financialStatements.listAccounts({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "aspernatur",
+  query: "excepturi",
 }).then((res: ListAccountingAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response

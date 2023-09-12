@@ -62,4 +62,6 @@ export class ListDataIntegrityDetailsResponse extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
+
+    next: () => Promise<ListDataIntegrityDetailsResponse | null>;
 }

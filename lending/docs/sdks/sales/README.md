@@ -56,7 +56,7 @@ const sdk = new CodatLending({
 sdk.sales.getCustomer({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "accusantium",
+  customerId: "excepturi",
 }).then((res: GetCommerceCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -127,9 +127,9 @@ sdk.sales.getCustomerRetentionMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 438601,
-  periodLength: 634274,
-  periodUnit: PeriodUnit.Year,
+  numberOfPeriods: 38425,
+  periodLength: 438601,
+  periodUnit: PeriodUnit.Month,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceCustomerRetentionMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -178,7 +178,7 @@ const sdk = new CodatLending({
 sdk.sales.getDispute({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  disputeId: "sapiente",
+  disputeId: "doloribus",
 }).then((res: GetCommerceDisputeResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -243,9 +243,9 @@ sdk.sales.getLifetimeValueMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 102044,
-  periodLength: 652790,
-  periodUnit: PeriodUnit.Day,
+  numberOfPeriods: 958950,
+  periodLength: 102044,
+  periodUnit: PeriodUnit.Month,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceLifetimeValueMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -294,7 +294,7 @@ const sdk = new CodatLending({
 sdk.sales.getLocation({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  locationId: "culpa",
+  locationId: "dolorem",
 }).then((res: GetCommerceLocationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -342,7 +342,7 @@ const sdk = new CodatLending({
 sdk.sales.getOrder({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  orderId: "consequuntur",
+  orderId: "culpa",
 }).then((res: GetCommerceOrderResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -408,8 +408,8 @@ sdk.sales.getOrdersReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 995300,
-  periodLength: 653108,
+  numberOfPeriods: 161309,
+  periodLength: 995300,
   periodUnit: PeriodUnit.Month,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceOrdersReportResponse) => {
@@ -459,7 +459,7 @@ const sdk = new CodatLending({
 sdk.sales.getPayment({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  paymentId: "numquam",
+  paymentId: "occaecati",
 }).then((res: GetCommercePaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -507,7 +507,7 @@ const sdk = new CodatLending({
 sdk.sales.getPaymentMethod({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  paymentMethodId: "commodi",
+  paymentMethodId: "numquam",
 }).then((res: GetCommercePaymentMethodResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -555,7 +555,7 @@ const sdk = new CodatLending({
 sdk.sales.getProduct({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  productId: "quam",
+  productId: "commodi",
 }).then((res: GetCommerceProductResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -603,7 +603,7 @@ const sdk = new CodatLending({
 sdk.sales.getProductCategory({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  productId: "molestiae",
+  productId: "quam",
 }).then((res: GetCommerceProductCategoryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -670,9 +670,9 @@ sdk.sales.getRefundsReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 244425,
-  periodLength: 623510,
-  periodUnit: PeriodUnit.Day,
+  numberOfPeriods: 474697,
+  periodLength: 244425,
+  periodUnit: PeriodUnit.Month,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceRefundsMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -739,9 +739,9 @@ sdk.sales.getRevenueMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 338007,
-  periodLength: 110375,
-  periodUnit: PeriodUnit.Month,
+  numberOfPeriods: 158969,
+  periodLength: 338007,
+  periodUnit: PeriodUnit.Day,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceRevenueMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -790,7 +790,7 @@ const sdk = new CodatLending({
 sdk.sales.getTransaction({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  transactionId: "animi",
+  transactionId: "laborum",
 }).then((res: GetCommerceTransactionResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -839,7 +839,7 @@ sdk.sales.listCustomers({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "enim",
+  query: "animi",
 }).then((res: ListCommerceCustomersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -888,7 +888,7 @@ sdk.sales.listDisputes({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "odit",
+  query: "enim",
 }).then((res: ListCommerceDisputesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -982,7 +982,7 @@ sdk.sales.listOrders({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "quo",
+  query: "odit",
 }).then((res: ListCommerceOrdersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -1031,7 +1031,7 @@ sdk.sales.listPaymentMethods({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "sequi",
+  query: "quo",
 }).then((res: ListCommercePaymentMethodsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -1080,7 +1080,7 @@ sdk.sales.listPayments({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "tenetur",
+  query: "sequi",
 }).then((res: ListCommercePaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -1129,7 +1129,7 @@ sdk.sales.listProductCategories({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "ipsam",
+  query: "tenetur",
 }).then((res: ListCommerceProductCategoriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -1178,7 +1178,7 @@ sdk.sales.listProducts({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "id",
+  query: "ipsam",
 }).then((res: ListCommerceProductsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -1227,7 +1227,7 @@ sdk.sales.listTransactions({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "possimus",
+  query: "id",
 }).then((res: ListCommerceTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -50,4 +50,6 @@ export class GetCategorizedBankStatementResponse extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
+
+    next: () => Promise<GetCategorizedBankStatementResponse | null>;
 }

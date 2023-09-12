@@ -8,6 +8,7 @@ import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import jp from "jsonpath";
 
 /**
  * Access bank transactions from an accounting platform.
@@ -256,6 +257,20 @@ export class AccountingBankData {
                 break;
         }
 
+        res.next = async (): Promise<operations.ListAccountingBankAccountsResponse | null> => {
+            const nextCursor = jp.value(JSON.parse(decodedRes), "");
+            if (nextCursor === undefined) {
+                return null;
+            }
+
+            return await this.listAccounts(
+                {
+                    ...req,
+                },
+                retries,
+                config
+            );
+        };
         return res;
     }
 
@@ -377,6 +392,21 @@ export class AccountingBankData {
                 break;
         }
 
+        res.next =
+            async (): Promise<operations.ListAccountingBankAccountTransactionsResponse | null> => {
+                const nextCursor = jp.value(JSON.parse(decodedRes), "");
+                if (nextCursor === undefined) {
+                    return null;
+                }
+
+                return await this.listTransactions(
+                    {
+                        ...req,
+                    },
+                    retries,
+                    config
+                );
+            };
         return res;
     }
 }

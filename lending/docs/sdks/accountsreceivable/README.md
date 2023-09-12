@@ -55,7 +55,7 @@ sdk.accountsReceivable.downloadCustomerAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "molestiae",
+  customerId: "suscipit",
 }).then((res: DownloadAccountingCustomerAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -102,7 +102,7 @@ sdk.accountsReceivable.downloadDirectIncomeAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "minus",
+  directIncomeId: "molestiae",
 }).then((res: DownloadAccountingDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -149,7 +149,7 @@ sdk.accountsReceivable.downloadInvoiceAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "placeat",
+  invoiceId: "minus",
 }).then((res: DownloadAccountingInvoiceAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -189,7 +189,7 @@ const sdk = new CodatLending({
 
 sdk.accountsReceivable.downloadInvoicePdf({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  invoiceId: "voluptatum",
+  invoiceId: "placeat",
 }).then((res: DownloadAccountingInvoicePdfResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -279,7 +279,7 @@ const sdk = new CodatLending({
 
 sdk.accountsReceivable.getCreditNote({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  creditNoteId: "iusto",
+  creditNoteId: "voluptatum",
 }).then((res: GetAccountingCreditNoteResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -326,7 +326,7 @@ const sdk = new CodatLending({
 
 sdk.accountsReceivable.getCustomer({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  customerId: "excepturi",
+  customerId: "iusto",
 }).then((res: GetAccountingCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -373,7 +373,7 @@ sdk.accountsReceivable.getCustomerAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "nisi",
+  customerId: "excepturi",
 }).then((res: GetAccountingCustomerAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -421,7 +421,7 @@ const sdk = new CodatLending({
 sdk.accountsReceivable.getDirectIncome({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "recusandae",
+  directIncomeId: "nisi",
 }).then((res: GetAccountingDirectIncomeResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -468,8 +468,8 @@ sdk.accountsReceivable.getDirectIncomeAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "temporibus",
-  timeoutInMinutes: 71036,
+  directIncomeId: "recusandae",
+  timeoutInMinutes: 836079,
 }).then((res: GetAccountingDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -516,7 +516,7 @@ const sdk = new CodatLending({
 
 sdk.accountsReceivable.getInvoice({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  invoiceId: "quis",
+  invoiceId: "ab",
 }).then((res: GetAccountingInvoiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -563,7 +563,7 @@ sdk.accountsReceivable.getInvoiceAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "veritatis",
+  invoiceId: "quis",
 }).then((res: GetAccountingInvoiceAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -610,7 +610,7 @@ const sdk = new CodatLending({
 
 sdk.accountsReceivable.getPayment({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  paymentId: "deserunt",
+  paymentId: "veritatis",
 }).then((res: GetAccountingPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -634,7 +634,7 @@ sdk.accountsReceivable.getPayment({
 
 ## getReconciledInvoices
 
-The _Get reconciled invoices_ endpoint gets a list of invoices linked to the corresponding banking transaction
+Gets a list of invoices linked to the corresponding banking transaction
 
 ### Example Usage
 
@@ -652,7 +652,7 @@ sdk.accountsReceivable.getReconciledInvoices({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   page: 1,
   pageSize: 100,
-  query: "perferendis",
+  query: "deserunt",
 }).then((res: GetReconciledInvoicesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -739,7 +739,7 @@ sdk.accountsReceivable.listCreditNotes({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "ipsam",
+  query: "perferendis",
 }).then((res: ListAccountingCreditNotesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -785,7 +785,7 @@ const sdk = new CodatLending({
 sdk.accountsReceivable.listCustomerAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "repellendus",
+  customerId: "ipsam",
 }).then((res: ListAccountingCustomerAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -833,7 +833,7 @@ sdk.accountsReceivable.listCustomers({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "sapiente",
+  query: "repellendus",
 }).then((res: ListAccountingCustomersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -879,7 +879,7 @@ const sdk = new CodatLending({
 sdk.accountsReceivable.listDirectIncomeAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "quo",
+  directIncomeId: "sapiente",
 }).then((res: ListAccountingDirectIncomeAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -928,7 +928,7 @@ sdk.accountsReceivable.listDirectIncomes({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "odit",
+  query: "quo",
 }).then((res: ListAccountingDirectIncomesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -974,7 +974,7 @@ const sdk = new CodatLending({
 sdk.accountsReceivable.listInvoiceAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "at",
+  invoiceId: "odit",
 }).then((res: ListAccountingInvoiceAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -1070,7 +1070,7 @@ sdk.accountsReceivable.listPayments({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "maiores",
+  query: "at",
 }).then((res: ListAccountingPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
