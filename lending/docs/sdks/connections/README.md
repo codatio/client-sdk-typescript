@@ -32,7 +32,7 @@ const sdk = new CodatLending({
 
 sdk.connections.create({
   requestBody: {
-    platformKey: "nam",
+    platformKey: "illum",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: CreateConnectionResponse) => {
@@ -158,7 +158,7 @@ sdk.connections.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "officia",
+  query: "vel",
 }).then((res: ListConnectionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -189,6 +189,7 @@ sdk.connections.list({
 ```typescript
 import { CodatLending } from "@codat/lending";
 import { UnlinkConnectionResponse } from "@codat/lending/dist/sdk/models/operations";
+import { DataConnectionStatus } from "@codat/lending/dist/sdk/models/shared";
 
 const sdk = new CodatLending({
   security: {
@@ -198,7 +199,7 @@ const sdk = new CodatLending({
 
 sdk.connections.unlink({
   requestBody: {
-    status: "occaecati",
+    status: DataConnectionStatus.Unlinked,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Downloadable reports
+Download reports in Excel format.
 
 ### Available Operations
 
@@ -33,7 +33,7 @@ const sdk = new CodatLending({
 
 sdk.excelReports.download({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportTypes.EnhancedCashFlow,
+  reportType: ExcelReportTypes.EnhancedFinancials,
 }).then((res: DownloadExcelReportResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -90,7 +90,7 @@ const sdk = new CodatLending({
 
 sdk.excelReports.generate({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportTypes.EnhancedCashFlow,
+  reportType: ExcelReportTypes.EnhancedFinancials,
 }).then((res: GenerateExcelReportResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -135,7 +135,7 @@ const sdk = new CodatLending({
 
 sdk.excelReports.getStatus({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportTypes.EnhancedInvoices,
+  reportType: ExcelReportTypes.EnhancedCashFlow,
 }).then((res: GetExcelReportGenerationStatusResponse) => {
   if (res.statusCode == 200) {
     // handle response

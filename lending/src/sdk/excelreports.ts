@@ -10,7 +10,7 @@ import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 /**
- * Downloadable reports
+ * Download reports in Excel format.
  */
 export enum DownloadAcceptEnum {
     applicationJson = "application/json",

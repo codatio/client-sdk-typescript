@@ -35,7 +35,7 @@ sdk.dataIntegrity.details({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "fugit",
+  query: "deserunt",
 }).then((res: ListDataIntegrityDetailsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -129,7 +129,7 @@ const sdk = new CodatLending({
 sdk.dataIntegrity.summaries({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   dataType: DataIntegrityDataType.BankingAccounts,
-  query: "deleniti",
+  query: "suscipit",
 }).then((res: GetDataIntegritySummariesResponse) => {
   if (res.statusCode == 200) {
     // handle response
