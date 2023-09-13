@@ -7,9 +7,6 @@ import { AccountingPayment } from "./accountingpayment";
 import { Links } from "./links";
 import { Expose, Type } from "class-transformer";
 
-/**
- * Success
- */
 export class AccountingPayments extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "_links" })

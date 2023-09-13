@@ -7,9 +7,6 @@ import { LoanTransactionsReportInfo } from "./loantransactionsreportinfo";
 import { ReportItems } from "./reportitems";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class LoanTransactions extends SpeakeasyBase {
     /**
      * If there are no errors, an empty array is returned.

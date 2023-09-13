@@ -7,9 +7,6 @@ import { CommercePaymentMethod } from "./commercepaymentmethod";
 import { Links } from "./links";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class CommercePaymentMethods extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "_links" })
