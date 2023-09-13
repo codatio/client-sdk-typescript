@@ -6,47 +6,22 @@ Sync for Payroll: The API for Sync for Payroll.
 
 Sync for Payroll is an API and a set of supporting tools built to help integrate your customers' payroll data from their HR and payroll platforms into their accounting platforms and to support its reconciliation.
 
-[Read More...](https://docs.codat.io/payroll/overview)
+[Explore product](https://docs.codat.io/payroll/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
+
+---
+
+## Endpoints
+
+| Endpoints            | Description                                                                                                |
+|:---------------------|:-----------------------------------------------------------------------------------------------------------|
+| Companies            | Create and manage your SMB users' companies.                                                               |
+| Connections          | Create new and manage existing data connections for a company.                                             |
+| Accounts             | Get, create, and update Accounts.                                                           |
+| Journal entries      | Get, create, and update Journal entries.                                                           |
+| Journals             | Get, create, and update Journals.                                                           |
+| Tracking categories  | Get, create, and update Tracking Categories for additional categorization of payroll components.                                                           |
+| Company info         | View company profile from the source platform.                                                             |
+| Manage data          | Control how data is retrieved from an integration.                                                         |
 
 ### Available Operations
-
-* [getAccountingProfile](#getaccountingprofile) - Get company accounting profile
-
-## getAccountingProfile
-
-Gets the latest basic info for a company.
-
-### Example Usage
-
-```typescript
-import { CodatSyncPayroll } from "@codat/sync-for-payroll";
-import { GetAccountingProfileResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
-
-const sdk = new CodatSyncPayroll({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.codatSyncPayroll.getAccountingProfile({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetAccountingProfileResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-### Parameters
-
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.GetAccountingProfileRequest](../../models/operations/getaccountingprofilerequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `retries`                                                                                        | [utils.RetryConfig](../../models/utils/retryconfig.md)                                           | :heavy_minus_sign:                                                                               | Configuration to override the default retry behavior of the client.                              |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
-
-
-### Response
-
-**Promise<[operations.GetAccountingProfileResponse](../../models/operations/getaccountingprofileresponse.md)>**
 

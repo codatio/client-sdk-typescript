@@ -1,5 +1,6 @@
 src/sdk/accounts.ts
 src/sdk/companies.ts
+src/sdk/companyinfo.ts
 src/sdk/connections.ts
 src/sdk/journalentries.ts
 src/sdk/journals.ts
@@ -34,6 +35,7 @@ src/sdk/models/operations/deletecompany.ts
 src/sdk/models/operations/getcompany.ts
 src/sdk/models/operations/listcompanies.ts
 src/sdk/models/operations/updatecompany.ts
+src/sdk/models/operations/getaccountingprofile.ts
 src/sdk/models/operations/createconnection.ts
 src/sdk/models/operations/deleteconnection.ts
 src/sdk/models/operations/getconnection.ts
@@ -57,7 +59,6 @@ src/sdk/models/operations/refreshalldatatypes.ts
 src/sdk/models/operations/refreshdatatype.ts
 src/sdk/models/operations/gettrackingcategory.ts
 src/sdk/models/operations/listtrackingcategories.ts
-src/sdk/models/operations/getaccountingprofile.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/errormessage.ts
 src/sdk/models/shared/createaccountresponse.ts
@@ -86,6 +87,8 @@ src/sdk/models/shared/dataconnectionstatus.ts
 src/sdk/models/shared/dataconnectionerror.ts
 src/sdk/models/shared/companyrequestbody.ts
 src/sdk/models/shared/companies.ts
+src/sdk/models/shared/onecompanies1percent7bcompanyidpercent7d1data1infogetresponses200contentapplication1jsonschemapropertiesphonenumbersitemsdefinitionsphonenumbertype.ts
+src/sdk/models/shared/onecompanies1percent7bcompanyidpercent7d1data1infogetresponses200contentapplication1jsonschemapropertiesaddressesitemsdefinitionsaccountingaddresstype.ts
 src/sdk/models/shared/connections.ts
 src/sdk/models/shared/createjournalentryresponse.ts
 src/sdk/models/shared/journalentry.ts
@@ -108,15 +111,14 @@ src/sdk/models/shared/trackingcategorytree.ts
 src/sdk/models/shared/status.ts
 src/sdk/models/shared/trackingcategories.ts
 src/sdk/models/shared/trackingcategory.ts
-src/sdk/models/shared/onecompanies1percent7bcompanyidpercent7d1data1infogetresponses200contentapplication1jsonschemapropertiesphonenumbersitemsdefinitionsphonenumbertype.ts
-src/sdk/models/shared/onecompanies1percent7bcompanyidpercent7d1data1infogetresponses200contentapplication1jsonschemapropertiesaddressesitemsdefinitionsaccountingaddresstype.ts
 src/sdk/models/shared/security.ts
 src/sdk/models/shared/index.ts
 src/sdk/models/errors/index.ts
-docs/models/utils/retryconfig.md
 docs/sdks/codatsyncpayroll/README.md
+docs/models/utils/retryconfig.md
 docs/sdks/accounts/README.md
 docs/sdks/companies/README.md
+docs/sdks/companyinfo/README.md
 docs/sdks/connections/README.md
 docs/sdks/journalentries/README.md
 docs/sdks/journals/README.md
@@ -140,6 +142,13 @@ docs/models/operations/listcompaniesrequest.md
 docs/models/operations/listcompaniesresponse.md
 docs/models/operations/updatecompanyrequest.md
 docs/models/operations/updatecompanyresponse.md
+docs/models/operations/getaccountingprofilerequest.md
+docs/models/operations/getaccountingprofilecompanyinformationaccountingaddress.md
+docs/models/operations/getaccountingprofilecompanyinformationphone.md
+docs/models/operations/getaccountingprofilecompanyinformationweblinktype.md
+docs/models/operations/getaccountingprofilecompanyinformationweblink.md
+docs/models/operations/getaccountingprofilecompanyinformation.md
+docs/models/operations/getaccountingprofileresponse.md
 docs/models/operations/createconnectionrequestbody.md
 docs/models/operations/createconnectionrequest.md
 docs/models/operations/createconnectionresponse.md
@@ -149,7 +158,7 @@ docs/models/operations/getconnectionrequest.md
 docs/models/operations/getconnectionresponse.md
 docs/models/operations/listconnectionsrequest.md
 docs/models/operations/listconnectionsresponse.md
-docs/models/operations/unlinkconnectionrequestbody.md
+docs/models/operations/unlinkconnectionupdateconnection.md
 docs/models/operations/unlinkconnectionrequest.md
 docs/models/operations/unlinkconnectionresponse.md
 docs/models/operations/createjournalentryrequest.md
@@ -188,13 +197,6 @@ docs/models/operations/gettrackingcategoryrequest.md
 docs/models/operations/gettrackingcategoryresponse.md
 docs/models/operations/listtrackingcategoriesrequest.md
 docs/models/operations/listtrackingcategoriesresponse.md
-docs/models/operations/getaccountingprofilerequest.md
-docs/models/operations/getaccountingprofilecompanyinformationaccountingaddress.md
-docs/models/operations/getaccountingprofilecompanyinformationphone.md
-docs/models/operations/getaccountingprofilecompanyinformationweblinktype.md
-docs/models/operations/getaccountingprofilecompanyinformationweblink.md
-docs/models/operations/getaccountingprofilecompanyinformation.md
-docs/models/operations/getaccountingprofileresponse.md
 docs/models/shared/errormessage.md
 docs/models/shared/createaccountresponse.md
 docs/models/shared/validation.md
@@ -225,6 +227,8 @@ docs/models/shared/dataconnectionstatus.md
 docs/models/shared/dataconnectionerror.md
 docs/models/shared/companyrequestbody.md
 docs/models/shared/companies.md
+docs/models/shared/onecompanies1percent7bcompanyidpercent7d1data1infogetresponses200contentapplication1jsonschemapropertiesphonenumbersitemsdefinitionsphonenumbertype.md
+docs/models/shared/onecompanies1percent7bcompanyidpercent7d1data1infogetresponses200contentapplication1jsonschemapropertiesaddressesitemsdefinitionsaccountingaddresstype.md
 docs/models/shared/connections.md
 docs/models/shared/createjournalentryresponse.md
 docs/models/shared/journalentryrecordreference.md
@@ -251,7 +255,5 @@ docs/models/shared/trackingcategorytree.md
 docs/models/shared/status.md
 docs/models/shared/trackingcategories.md
 docs/models/shared/trackingcategory.md
-docs/models/shared/onecompanies1percent7bcompanyidpercent7d1data1infogetresponses200contentapplication1jsonschemapropertiesphonenumbersitemsdefinitionsphonenumbertype.md
-docs/models/shared/onecompanies1percent7bcompanyidpercent7d1data1infogetresponses200contentapplication1jsonschemapropertiesaddressesitemsdefinitionsaccountingaddresstype.md
 docs/models/shared/security.md
 .gitattributes

@@ -32,7 +32,7 @@ const sdk = new CodatSyncPayroll({
 
 sdk.connections.create({
   requestBody: {
-    platformKey: "deserunt",
+    platformKey: "tempora",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: CreateConnectionResponse) => {
@@ -189,6 +189,7 @@ sdk.connections.list({
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
 import { UnlinkConnectionResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
+import { DataConnectionStatus } from "@codat/sync-for-payroll/dist/sdk/models/shared";
 
 const sdk = new CodatSyncPayroll({
   security: {
@@ -198,7 +199,7 @@ const sdk = new CodatSyncPayroll({
 
 sdk.connections.unlink({
   requestBody: {
-    status: "iure",
+    status: DataConnectionStatus.Linked,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
