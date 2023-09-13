@@ -36,7 +36,7 @@ const sdk = new CodatBankFeeds({
 });
 
 sdk.transactions.create({
-  requestBody: {
+  createBankTransactions: {
     accountId: "corporis",
     transactions: [
       {

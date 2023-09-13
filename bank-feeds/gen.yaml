@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 7e36c51f6c1612639778c99518b46117
+  docChecksum: 67c14123b834b52bc9c9d720f4681053
   docVersion: 3.0.0
   speakeasyVersion: 1.82.5
   generationVersion: 2.108.3
@@ -19,7 +19,7 @@ features:
     pagination: 2.81.1
     retries: 2.82.0
 typescript:
-  version: 1.1.1
+  version: 1.1.2
   author: Codat
   description: Set up bank feeds from accounts in your application to supported accounting platforms.
   maxMethodParams: 0

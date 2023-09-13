@@ -1,4 +1,4 @@
-# CreateBankAccountTransaction
+# CreateBankTransaction
 
 
 ## Fields

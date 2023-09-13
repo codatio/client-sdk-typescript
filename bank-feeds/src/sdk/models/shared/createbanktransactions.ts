@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { CreateBankAccountTransaction } from "./createbankaccounttransaction";
+import { CreateBankTransaction } from "./createbanktransaction";
 import { Expose, Type } from "class-transformer";
 
 export class CreateBankTransactions extends SpeakeasyBase {
@@ -11,8 +11,8 @@ export class CreateBankTransactions extends SpeakeasyBase {
     @Expose({ name: "accountId" })
     accountId?: string;
 
-    @SpeakeasyMetadata({ elemType: CreateBankAccountTransaction })
+    @SpeakeasyMetadata({ elemType: CreateBankTransaction })
     @Expose({ name: "transactions" })
-    @Type(() => CreateBankAccountTransaction)
-    transactions?: CreateBankAccountTransaction[];
+    @Type(() => CreateBankTransaction)
+    transactions?: CreateBankTransaction[];
 }
