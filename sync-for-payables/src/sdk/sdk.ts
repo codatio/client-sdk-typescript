@@ -8,6 +8,7 @@ import { BillCreditNotes } from "./billcreditnotes";
 import { BillPayments } from "./billpayments";
 import { Bills } from "./bills";
 import { Companies } from "./companies";
+import { CompanyInfo } from "./companyinfo";
 import { Connections } from "./connections";
 import { JournalEntries } from "./journalentries";
 import { Journals } from "./journals";
@@ -38,7 +39,7 @@ export type SDKProps = {
     /**
      * The security details required to authenticate the SDK
      */
-    security?: shared.Security;
+    security?: shared.Security | (() => Promise<shared.Security>);
     /**
      * Allows overriding the default axios client used by the SDK
      */
@@ -53,18 +54,22 @@ export type SDKProps = {
      * Allows overriding the default server URL used by the SDK
      */
     serverURL?: string;
+    /**
+     * Allows overriding the default retry config used by the SDK
+     */
+    retryConfig?: utils.RetryConfig;
 };
 
 export class SDKConfiguration {
     defaultClient: AxiosInstance;
-    securityClient: AxiosInstance;
+    security?: shared.Security | (() => Promise<shared.Security>);
     serverURL: string;
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "3.0.0";
-    sdkVersion = "0.1.0";
-    genVersion = "2.91.4";
-
+    sdkVersion = "0.2.0";
+    genVersion = "2.108.3";
+    retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
     }
@@ -77,7 +82,29 @@ export class SDKConfiguration {
  *
  * Sync for Payables is an API and a set of supporting tools built to help integrate with your customers' accounting software, and keep their supplier information, invoices, and payments in sync.
  *
- * [Read More...](https://docs.codat.io/payables/overview)
+ * [Explore product](https://docs.codat.io/payables/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
+ *
+ * ---
+ *
+ * ## Endpoints
+ *
+ * | Endpoints            | Description                                                                                                |
+ * |:---------------------|:-----------------------------------------------------------------------------------------------------------|
+ * | Companies            | Create and manage your SMB users' companies.                                                               |
+ * | Connections          | Create new and manage existing data connections for a company.                                             |
+ * | Accounts             | Get, create, and update Accounts                                                           |
+ * | Bills                | Get, create, and update Bills                                                                          |
+ * | Bill credit notes    | Get, create, and update Bill credit notes                                                              |
+ * | Bill payments        | Get, create, and update Bill payments                                                                  |
+ * | Journals             | Get, create, and update Journals                                                                       |
+ * | Journal entries      | Get, create, and update Journal entries                                                                |
+ * | Payment methods      | Get, create, and update Payment methods                                                                |
+ * | Suppliers            | Get, create, and update Suppliers                                                                      |
+ * | Tax rates            | Get, create, and update Tax rates                                                                      |
+ * | Tracking categories  | Get, create, and update Tracking categories                                                            |
+ * | Push operations      | View historic push operations                                                         |
+ * | Company info         | View company profile from the source platform.                                                             |
+ * | Manage data          | Control how data is retrieved from an integration.                                                         |
  */
 export class CodatSyncPayables {
     /**
@@ -100,6 +127,10 @@ export class CodatSyncPayables {
      * Create and manage your Codat companies.
      */
     public companies: Companies;
+    /**
+     * View company information fetched from the source platform.
+     */
+    public companyInfo: CompanyInfo;
     /**
      * Manage your companies' data connections.
      */
@@ -148,20 +179,11 @@ export class CodatSyncPayables {
         }
 
         const defaultClient = props?.defaultClient ?? axios.create({ baseURL: serverURL });
-        let securityClient = defaultClient;
-
-        if (props?.security) {
-            let security: shared.Security = props.security;
-            if (!(props.security instanceof utils.SpeakeasyBase)) {
-                security = new shared.Security(props.security);
-            }
-            securityClient = utils.createSecurityClient(defaultClient, security);
-        }
-
         this.sdkConfiguration = new SDKConfiguration({
             defaultClient: defaultClient,
-            securityClient: securityClient,
+            security: props?.security,
             serverURL: serverURL,
+            retryConfig: props?.retryConfig,
         });
 
         this.accounts = new Accounts(this.sdkConfiguration);
@@ -169,6 +191,7 @@ export class CodatSyncPayables {
         this.billPayments = new BillPayments(this.sdkConfiguration);
         this.bills = new Bills(this.sdkConfiguration);
         this.companies = new Companies(this.sdkConfiguration);
+        this.companyInfo = new CompanyInfo(this.sdkConfiguration);
         this.connections = new Connections(this.sdkConfiguration);
         this.journalEntries = new JournalEntries(this.sdkConfiguration);
         this.journals = new Journals(this.sdkConfiguration);

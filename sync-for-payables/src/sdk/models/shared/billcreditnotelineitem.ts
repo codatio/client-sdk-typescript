@@ -44,7 +44,7 @@ export class BillCreditNoteLineItemTrackingCustomerRef extends SpeakeasyBase {
     id: string;
 }
 
-export class BillCreditNoteLineItemTrackingProjectRef extends SpeakeasyBase {
+export class BillCreditNoteLineItemTrackingProjectReference extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id: string;
@@ -78,8 +78,8 @@ export class BillCreditNoteLineItemTracking extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "projectRef" })
-    @Type(() => BillCreditNoteLineItemTrackingProjectRef)
-    projectRef?: BillCreditNoteLineItemTrackingProjectRef;
+    @Type(() => BillCreditNoteLineItemTrackingProjectReference)
+    projectRef?: BillCreditNoteLineItemTrackingProjectReference;
 }
 
 export class BillCreditNoteLineItem extends SpeakeasyBase {

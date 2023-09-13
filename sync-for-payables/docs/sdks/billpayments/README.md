@@ -7,6 +7,7 @@ Bill payments
 ### Available Operations
 
 * [create](#create) - Create bill payments
+* [delete](#delete) - Delete bill payment
 * [get](#get) - Get bill payment
 * [getCreateModel](#getcreatemodel) - Get create bill payment model
 * [list](#list) - List bill payments
@@ -40,35 +41,23 @@ const sdk = new CodatSyncPayables({
 sdk.billPayments.create({
   billPayment: {
     accountRef: {
-      id: "18544ec4-2def-4cce-8f19-77773e63562a",
-      name: "Ms. Verna Gislason",
+      id: "756082d6-8ea1-49f1-9170-51339d08086a",
+      name: "Mrs. Priscilla Fritsch",
     },
     currency: "GBP",
-    currencyRate: 3314.52,
+    currencyRate: 7710.89,
     date: "2022-10-23T00:00:00.000Z",
     id: "3d5a8e00-d108-4045-8823-7f342676cffa",
     lines: [
       {
         allocatedOnDate: "2022-10-23T00:00:00.000Z",
-        amount: 3071.73,
+        amount: 120.36,
         links: [
           {
-            amount: 9847.73,
-            currencyRate: 8518.09,
-            id: "af313a1f-5fd9-4425-9c0b-36f25ea944f3",
-            type: BillPaymentLineLinkType.Refund,
-          },
-          {
-            amount: 4483.86,
-            currencyRate: 3296.51,
-            id: "6c11f6c3-7a51-4262-8383-5bbc05a23a45",
-            type: BillPaymentLineLinkType.ManualJournal,
-          },
-          {
-            amount: 9322.5,
-            currencyRate: 9555.69,
-            id: "c5fde10a-0ce2-4169-a510-019c6dc5e347",
-            type: BillPaymentLineLinkType.Other,
+            amount: 4910.25,
+            currencyRate: 1154.84,
+            id: "f93f5f06-42da-4c7a-b515-cc413aa63aae",
+            type: BillPaymentLineLinkType.BillPayment,
           },
         ],
       },
@@ -78,38 +67,25 @@ sdk.billPayments.create({
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
     note: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
-    paymentMethodRef: "odio",
-    reference: "natus",
+    paymentMethodRef: "vel",
+    reference: "ducimus",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "doloribus": {
-          "quidem": "itaque",
-          "laboriosam": "unde",
-          "modi": "perspiciatis",
-        },
-        "hic": {
-          "aspernatur": "libero",
-          "nam": "incidunt",
-          "recusandae": "quod",
-        },
-        "id": {
-          "autem": "quo",
-          "nesciunt": "illum",
-          "nemo": "illum",
-          "facilis": "non",
+        "vel": {
+          "labore": "possimus",
         },
       },
     },
     supplierRef: {
-      id: "adebd5da-ea4c-4506-a8aa-94c02644cf5e",
-      supplierName: "unde",
+      id: "bb675fd5-e60b-4375-ad4f-6fbee41f3331",
+      supplierName: "dignissimos",
     },
     totalAmount: 1329.54,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 860311,
+  timeoutInMinutes: 950953,
 }).then((res: CreateBillPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -129,6 +105,68 @@ sdk.billPayments.create({
 ### Response
 
 **Promise<[operations.CreateBillPaymentResponse](../../models/operations/createbillpaymentresponse.md)>**
+
+
+## delete
+
+﻿The *Delete bill payment* endpoint allows you to delete a specified bill payment from an accounting platform.
+
+[Bill payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) are an allocation of money within any customer accounts payable account.
+
+### Process
+1. Pass the `{billPaymentId}` to the *Delete bill payment* endpoint and store the `pushOperationKey` returned.
+2. Check the status of the delete operation by checking the status of push operation either via
+    1. [Push operation webhook](https://docs.codat.io/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
+    2. [Push operation status endpoint](https://docs.codat.io/sync-for-payables-api#/operations/get-push-operation).
+
+   A `Success` status indicates that the bill payment object was deleted from the accounting platform.
+3. (Optional) Check that the bill payment was deleted from the accounting platform.
+
+### Effect on related objects
+Be aware that deleting a bill payment from an accounting platform might cause related objects to be modified.
+
+## Integration specifics
+Integrations that support soft delete do not permanently delete the object in the accounting platform.
+
+| Integration | Soft Delete | Details                                                                                             |  
+|-------------|-------------|-----------------------------------------------------------------------------------------------------|
+| Oracle NetSuite   | No          | See [here](/integrations/accounting/netsuite/accounting-netsuite-how-deleting-bill-payments-works) to learn more. |
+
+
+### Example Usage
+
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+import { DeleteBillPaymentResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
+
+const sdk = new CodatSyncPayables({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.billPayments.delete({
+  billPaymentId: "debitis",
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+}).then((res: DeleteBillPaymentResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.DeleteBillPaymentRequest](../../models/operations/deletebillpaymentrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `retries`                                                                                  | [utils.RetryConfig](../../models/utils/retryconfig.md)                                     | :heavy_minus_sign:                                                                         | Configuration to override the default retry behavior of the client.                        |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+
+
+### Response
+
+**Promise<[operations.DeleteBillPaymentResponse](../../models/operations/deletebillpaymentresponse.md)>**
 
 
 ## get
@@ -155,7 +193,7 @@ const sdk = new CodatSyncPayables({
 });
 
 sdk.billPayments.get({
-  billPaymentId: "error",
+  billPaymentId: "consectetur",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetBillPaymentsResponse) => {
   if (res.statusCode == 200) {
@@ -253,7 +291,7 @@ sdk.billPayments.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "mollitia",
+  query: "corporis",
 }).then((res: ListBillPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
