@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 7ad6614b675e41aa86fb1843dc2b8345
+  docChecksum: 471318e457c00d356c02538a9fe508a3
   docVersion: 3.0.0
   speakeasyVersion: 1.82.5
   generationVersion: 2.108.3
@@ -19,7 +19,7 @@ features:
     pagination: 2.81.1
     retries: 2.82.0
 typescript:
-  version: 0.2.1
+  version: 0.2.2
   author: Codat
   description: Manage the building blocks of Codat, including companies, connections, and more.
   maxMethodParams: 0

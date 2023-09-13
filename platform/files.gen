@@ -72,6 +72,7 @@ src/sdk/models/shared/companies.ts
 src/sdk/models/shared/links.ts
 src/sdk/models/shared/halref.ts
 src/sdk/models/shared/connections.ts
+src/sdk/models/shared/updateconnectionstatus.ts
 src/sdk/models/shared/integration.ts
 src/sdk/models/shared/datatypefeature.ts
 src/sdk/models/shared/supportedfeature.ts
@@ -113,7 +114,6 @@ src/sdk/models/shared/createrule.ts
 src/sdk/models/shared/webhooks.ts
 src/sdk/models/shared/security.ts
 src/sdk/models/shared/companydataconnectionstatuschangedwebhook.ts
-src/sdk/models/shared/connectionstatus.ts
 src/sdk/models/shared/datasynccompletedwebhook.ts
 src/sdk/models/shared/datasetdatachangedwebhook.ts
 src/sdk/models/shared/datasetstatuschangederrorwebhook.ts
@@ -159,7 +159,6 @@ docs/models/operations/getconnectionrequest.md
 docs/models/operations/getconnectionresponse.md
 docs/models/operations/listconnectionsrequest.md
 docs/models/operations/listconnectionsresponse.md
-docs/models/operations/unlinkconnectionrequestbody.md
 docs/models/operations/unlinkconnectionrequest.md
 docs/models/operations/unlinkconnectionresponse.md
 docs/models/operations/updateconnectionauthorizationrequest.md
@@ -217,6 +216,7 @@ docs/models/shared/companies.md
 docs/models/shared/links.md
 docs/models/shared/halref.md
 docs/models/shared/connections.md
+docs/models/shared/updateconnectionstatus.md
 docs/models/shared/integration.md
 docs/models/shared/datatypefeature.md
 docs/models/shared/supportedfeature.md
@@ -264,7 +264,6 @@ docs/models/shared/webhooks.md
 docs/models/shared/security.md
 docs/models/shared/companydataconnectionstatuschangedwebhookdata.md
 docs/models/shared/companydataconnectionstatuschangedwebhook.md
-docs/models/shared/connectionstatus.md
 docs/models/shared/datasynccompletedwebhookdata.md
 docs/models/shared/datasynccompletedwebhook.md
 docs/models/shared/datasetdatachangedwebhookdata.md
