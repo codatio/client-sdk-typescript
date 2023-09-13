@@ -7,9 +7,6 @@ import { Dispute } from "./dispute";
 import { Links } from "./links";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class Disputes extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "_links" })
