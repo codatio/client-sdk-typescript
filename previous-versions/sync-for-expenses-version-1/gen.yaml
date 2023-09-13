@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 921add8ce7d68b2fb49ad6c69bae7eba
+  docChecksum: 7db2157c0662cc2d134bd691df93dc27
   docVersion: prealpha
   speakeasyVersion: 1.82.5
   generationVersion: 2.108.3
@@ -19,7 +19,7 @@ features:
     pagination: 2.81.1
     retries: 2.82.0
 typescript:
-  version: 0.1.1
+  version: 0.1.2
   author: Codat
   description: Push expenses to accounting platforms.
   maxMethodParams: 0
