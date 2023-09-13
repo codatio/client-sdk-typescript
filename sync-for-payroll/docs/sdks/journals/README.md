@@ -41,21 +41,21 @@ sdk.journals.create({
   journal: {
     createdOn: "2022-10-23T00:00:00.000Z",
     hasChildren: false,
-    id: "711e5b7f-d2ed-4028-921c-ddc692601fb5",
-    journalCode: "voluptate",
+    id: "4f63c969-e9a3-4efa-b7df-b14cd66ae395",
+    journalCode: "accusamus",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    name: "Gary Streich",
-    parentId: "perferendis",
+    name: "Rene Reinger",
+    parentId: "deleniti",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     status: JournalStatus.Unknown,
-    type: "aut",
+    type: "deserunt",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 764912,
+  timeoutInMinutes: 394869,
 }).then((res: CreateJournalResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -102,7 +102,7 @@ const sdk = new CodatSyncPayroll({
 
 sdk.journals.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalId: "corporis",
+  journalId: "vel",
 }).then((res: GetJournalResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -199,7 +199,7 @@ sdk.journals.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "hic",
+  query: "natus",
 }).then((res: ListJournalsResponse) => {
   if (res.statusCode == 200) {
     // handle response

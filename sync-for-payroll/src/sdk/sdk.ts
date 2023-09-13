@@ -5,12 +5,12 @@
 import * as utils from "../internal/utils";
 import { Accounts } from "./accounts";
 import { Companies } from "./companies";
+import { CompanyInfo } from "./companyinfo";
 import { Connections } from "./connections";
 import { JournalEntries } from "./journalentries";
 import { Journals } from "./journals";
 import { ManageData } from "./managedata";
 import * as shared from "./models/shared";
-import { PushOperations } from "./pushoperations";
 import { TrackingCategories } from "./trackingcategories";
 import axios from "axios";
 import { AxiosInstance } from "axios";
@@ -32,7 +32,7 @@ export type SDKProps = {
     /**
      * The security details required to authenticate the SDK
      */
-    security?: shared.Security;
+    security?: shared.Security | (() => Promise<shared.Security>);
     /**
      * Allows overriding the default axios client used by the SDK
      */
@@ -47,18 +47,22 @@ export type SDKProps = {
      * Allows overriding the default server URL used by the SDK
      */
     serverURL?: string;
+    /**
+     * Allows overriding the default retry config used by the SDK
+     */
+    retryConfig?: utils.RetryConfig;
 };
 
 export class SDKConfiguration {
     defaultClient: AxiosInstance;
-    securityClient: AxiosInstance;
+    security?: shared.Security | (() => Promise<shared.Security>);
     serverURL: string;
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "3.0.0";
-    sdkVersion = "0.1.0";
-    genVersion = "2.91.4";
-
+    sdkVersion = "0.2.0";
+    genVersion = "2.108.3";
+    retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
     }
@@ -71,7 +75,22 @@ export class SDKConfiguration {
  *
  * Sync for Payroll is an API and a set of supporting tools built to help integrate your customers' payroll data from their HR and payroll platforms into their accounting platforms and to support its reconciliation.
  *
- * [Read More...](https://docs.codat.io/payroll/overview)
+ * [Explore product](https://docs.codat.io/payroll/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
+ *
+ * ---
+ *
+ * ## Endpoints
+ *
+ * | Endpoints            | Description                                                                                                |
+ * |:---------------------|:-----------------------------------------------------------------------------------------------------------|
+ * | Companies            | Create and manage your SMB users' companies.                                                               |
+ * | Connections          | Create new and manage existing data connections for a company.                                             |
+ * | Accounts             | Get, create, and update Accounts.                                                           |
+ * | Journal entries      | Get, create, and update Journal entries.                                                           |
+ * | Journals             | Get, create, and update Journals.                                                           |
+ * | Tracking categories  | Get, create, and update Tracking Categories for additional categorization of payroll components.                                                           |
+ * | Company info         | View company profile from the source platform.                                                             |
+ * | Manage data          | Control how data is retrieved from an integration.                                                         |
  */
 export class CodatSyncPayroll {
     /**
@@ -82,6 +101,10 @@ export class CodatSyncPayroll {
      * Create and manage your Codat companies.
      */
     public companies: Companies;
+    /**
+     * View company information fetched from the source platform.
+     */
+    public companyInfo: CompanyInfo;
     /**
      * Manage your companies' data connections.
      */
@@ -99,10 +122,6 @@ export class CodatSyncPayroll {
      */
     public manageData: ManageData;
     /**
-     * Access create, update and delete operations made to an SMB's data connection.
-     */
-    public pushOperations: PushOperations;
-    /**
      * Tracking categories
      */
     public trackingCategories: TrackingCategories;
@@ -118,29 +137,20 @@ export class CodatSyncPayroll {
         }
 
         const defaultClient = props?.defaultClient ?? axios.create({ baseURL: serverURL });
-        let securityClient = defaultClient;
-
-        if (props?.security) {
-            let security: shared.Security = props.security;
-            if (!(props.security instanceof utils.SpeakeasyBase)) {
-                security = new shared.Security(props.security);
-            }
-            securityClient = utils.createSecurityClient(defaultClient, security);
-        }
-
         this.sdkConfiguration = new SDKConfiguration({
             defaultClient: defaultClient,
-            securityClient: securityClient,
+            security: props?.security,
             serverURL: serverURL,
+            retryConfig: props?.retryConfig,
         });
 
         this.accounts = new Accounts(this.sdkConfiguration);
         this.companies = new Companies(this.sdkConfiguration);
+        this.companyInfo = new CompanyInfo(this.sdkConfiguration);
         this.connections = new Connections(this.sdkConfiguration);
         this.journalEntries = new JournalEntries(this.sdkConfiguration);
         this.journals = new Journals(this.sdkConfiguration);
         this.manageData = new ManageData(this.sdkConfiguration);
-        this.pushOperations = new PushOperations(this.sdkConfiguration);
         this.trackingCategories = new TrackingCategories(this.sdkConfiguration);
     }
 }
