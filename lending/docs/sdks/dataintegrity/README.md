@@ -12,7 +12,7 @@ Match mutable accounting data with immutable banking data to increase confidence
 
 ## details
 
-﻿The *List data integrity details* endpoint returns the match result record by record for a given data type, filtered based on a query string in the same way as summary results.
+The *List data integrity details* endpoint returns the match result record by record for a given data type, filtered based on a query string in the same way as summary results.
 
 The [details](https://docs.codat.io/lending-api#/schemas/DataIntegrityDetails) are paginated and support ordering, following the same conventions as our other data endpoints.
 
@@ -35,7 +35,7 @@ sdk.dataIntegrity.details({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "deleniti",
+  query: "excepturi",
 }).then((res: ListDataIntegrityDetailsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -59,7 +59,7 @@ sdk.dataIntegrity.details({
 
 ## status
 
-﻿The *Get data integrity status* endpoint returns the [status](https://docs.codat.io/lending-api#/schemas/DataIntegrityStatus) for the company’s match results between the data type provided in the URL and other data types that Data Integrity uses to support matching.
+The *Get data integrity status* endpoint returns the [status](https://docs.codat.io/lending-api#/schemas/DataIntegrityStatus) for the company’s match results between the data type provided in the URL and other data types that Data Integrity uses to support matching.
 This endpoint helps you understand whether match data is available and, if so, how to usefully query it.
 
 The response tells you:
@@ -107,7 +107,7 @@ sdk.dataIntegrity.status({
 
 ## summaries
 
-﻿The *Get data integrity summary* endpoint returns a [summary](https://docs.codat.io/lending-api#/schemas/DataIntegritySummary) of match results for a given data type filtered by a query string in the [Codat query language](https://docs.codat.io/using-the-api/querying). 
+The *Get data integrity summary* endpoint returns a [summary](https://docs.codat.io/lending-api#/schemas/DataIntegritySummary) of match results for a given data type filtered by a query string in the [Codat query language](https://docs.codat.io/using-the-api/querying). 
 
 For example, if you wanted to see summary match results only for transactions after 1 December 2020, you could include a query parameter of `query=date>2020-12-01`.
 
@@ -129,7 +129,7 @@ const sdk = new CodatLending({
 sdk.dataIntegrity.summaries({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   dataType: DataIntegrityDataType.BankingAccounts,
-  query: "hic",
+  query: "nisi",
 }).then((res: GetDataIntegritySummariesResponse) => {
   if (res.statusCode == 200) {
     // handle response

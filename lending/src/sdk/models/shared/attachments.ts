@@ -6,9 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountingAttachment } from "./accountingattachment";
 import { Expose, Type } from "class-transformer";
 
-/**
- * Success
- */
 export class Attachments extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: AccountingAttachment })
     @Expose({ name: "attachments" })

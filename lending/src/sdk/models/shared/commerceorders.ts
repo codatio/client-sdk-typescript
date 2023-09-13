@@ -7,9 +7,6 @@ import { CommerceOrder } from "./commerceorder";
 import { Links } from "./links";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class CommerceOrders extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "_links" })
