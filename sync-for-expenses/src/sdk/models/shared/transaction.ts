@@ -7,9 +7,6 @@ import { IntegrationType } from "./integrationtype";
 import { TransactionStatus } from "./transactionstatus";
 import { Expose } from "class-transformer";
 
-/**
- * Success
- */
 export class Transaction extends SpeakeasyBase {
     /**
      * Type of transaction that has been processed e.g. Expense or Bank Feed.
