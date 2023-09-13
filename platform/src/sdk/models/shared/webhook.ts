@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Type } from "class-transformer";
 
-export class RuleNotifiers extends SpeakeasyBase {
+export class WebhookNotifiers extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "emails" })
     emails?: string[];
@@ -18,7 +18,7 @@ export class RuleNotifiers extends SpeakeasyBase {
 /**
  * Create an event notification to a URL or list of email addresses based on the given type or condition.
  */
-export class Rule extends SpeakeasyBase {
+export class Webhook extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "companyId" })
     companyId?: string;
@@ -29,8 +29,8 @@ export class Rule extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "notifiers" })
-    @Type(() => RuleNotifiers)
-    notifiers: RuleNotifiers;
+    @Type(() => WebhookNotifiers)
+    notifiers: WebhookNotifiers;
 
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
