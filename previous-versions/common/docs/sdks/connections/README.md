@@ -190,6 +190,7 @@ sdk.connections.list({
 ```typescript
 import { CodatCommon } from "@codat/common";
 import { UnlinkConnectionResponse } from "@codat/common/dist/sdk/models/operations";
+import { DataConnectionStatus } from "@codat/common/dist/sdk/models/shared";
 
 const sdk = new CodatCommon({
   security: {
@@ -198,8 +199,8 @@ const sdk = new CodatCommon({
 });
 
 sdk.connections.unlink({
-  requestBody: {
-    status: "quibusdam",
+  updateConnectionStatus: {
+    status: DataConnectionStatus.Deauthorized,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
