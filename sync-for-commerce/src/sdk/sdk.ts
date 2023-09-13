@@ -4,6 +4,7 @@
 
 import * as utils from "../internal/utils";
 import { AdvancedControls } from "./advancedcontrols";
+import { Companies } from "./companies";
 import { Connections } from "./connections";
 import { Integrations } from "./integrations";
 import * as shared from "./models/shared";
@@ -57,7 +58,7 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "1.1";
-    sdkVersion = "1.2.1";
+    sdkVersion = "1.2.2";
     genVersion = "2.108.3";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
@@ -81,6 +82,10 @@ export class CodatSyncCommerce {
      * Advanced company management and sync preferences.
      */
     public advancedControls: AdvancedControls;
+    /**
+     * Create new and manage existing Sync for Commerce companies using the Sync flow UI.
+     */
+    public companies: Companies;
     public connections: Connections;
     /**
      * View useful information about codat's integrations.
@@ -114,6 +119,7 @@ export class CodatSyncCommerce {
         });
 
         this.advancedControls = new AdvancedControls(this.sdkConfiguration);
+        this.companies = new Companies(this.sdkConfiguration);
         this.connections = new Connections(this.sdkConfiguration);
         this.integrations = new Integrations(this.sdkConfiguration);
         this.sync = new Sync(this.sdkConfiguration);
