@@ -1,6 +1,6 @@
 {
   "name": "@codat/sync-for-payables",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": "Codat",
   "scripts": {
     "prepare": "tsc --build"

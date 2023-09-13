@@ -27,7 +27,7 @@ const sdk = new CodatSyncPayables({
 
 sdk.pushOperations.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "7d575f14-00e7-464a-9733-4ec1b781b36a",
+  pushOperationKey: "400e764a-d733-44ec-9b78-1b36a08088d1",
 }).then((res: GetPushOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -70,7 +70,7 @@ sdk.pushOperations.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "alias",
+  query: "quae",
 }).then((res: ListPushOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

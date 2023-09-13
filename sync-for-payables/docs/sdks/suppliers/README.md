@@ -42,40 +42,40 @@ sdk.suppliers.create({
   supplier: {
     addresses: [
       {
-        city: "Adityastad",
-        country: "Lithuania",
-        line1: "repellendus",
-        line2: "veritatis",
-        postalCode: "09968",
-        region: "officia",
+        city: "Fort Virgilfurt",
+        country: "Sweden",
+        line1: "officia",
+        line2: "sed",
+        postalCode: "09902",
+        region: "qui",
         type: AccountingAddressType.Unknown,
       },
     ],
-    contactName: "voluptatem",
-    defaultCurrency: "alias",
-    emailAddress: "eveniet",
-    id: "f0422eb2-164c-4f9a-b836-6c723ffda9e0",
+    contactName: "necessitatibus",
+    defaultCurrency: "harum",
+    emailAddress: "explicabo",
+    id: "164cf9ab-8366-4c72-bffd-a9e06bee4825",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "01224 658 999",
-    registrationNumber: "recusandae",
+    phone: "+44 25691 154789",
+    registrationNumber: "voluptatibus",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     status: SupplierStatus.Unknown,
     supplementalData: {
       content: {
-        "rem": {
-          "quia": "ullam",
+        "officiis": {
+          "architecto": "architecto",
         },
       },
     },
-    supplierName: "quisquam",
-    taxNumber: "dicta",
+    supplierName: "enim",
+    taxNumber: "optio",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 973017,
+  timeoutInMinutes: 525951,
 }).then((res: CreateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -122,7 +122,7 @@ const sdk = new CodatSyncPayables({
 
 sdk.suppliers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  supplierId: "eligendi",
+  supplierId: "perferendis",
 }).then((res: GetSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -219,7 +219,7 @@ sdk.suppliers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "quae",
+  query: "facilis",
 }).then((res: ListSuppliersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -271,42 +271,42 @@ sdk.suppliers.update({
   supplier: {
     addresses: [
       {
-        city: "Bountiful",
-        country: "Bhutan",
-        line1: "enim",
-        line2: "optio",
-        postalCode: "07996-1532",
-        region: "modi",
+        city: "Wauwatosa",
+        country: "Nauru",
+        line1: "dicta",
+        line2: "quos",
+        postalCode: "22982",
+        region: "consequuntur",
         type: AccountingAddressType.Delivery,
       },
     ],
-    contactName: "maxime",
-    defaultCurrency: "modi",
-    emailAddress: "consequuntur",
-    id: "defcce8f-1977-4773-a635-62a7b408f05e",
+    contactName: "vero",
+    defaultCurrency: "doloribus",
+    emailAddress: "impedit",
+    id: "ce8f1977-773e-4635-a2a7-b408f05e3d48",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
     phone: "01224 658 999",
-    registrationNumber: "aliquam",
+    registrationNumber: "est",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: SupplierStatus.Archived,
+    status: SupplierStatus.Unknown,
     supplementalData: {
       content: {
-        "fugiat": {
-          "est": "delectus",
+        "vitae": {
+          "nesciunt": "similique",
         },
       },
     },
-    supplierName: "velit",
-    taxNumber: "vitae",
+    supplierName: "illo",
+    taxNumber: "repellat",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  supplierId: "nesciunt",
-  timeoutInMinutes: 630832,
+  supplierId: "nemo",
+  timeoutInMinutes: 987890,
 }).then((res: UpdateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response

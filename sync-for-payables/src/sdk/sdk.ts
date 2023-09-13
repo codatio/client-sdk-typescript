@@ -8,12 +8,11 @@ import { BillCreditNotes } from "./billcreditnotes";
 import { BillPayments } from "./billpayments";
 import { Bills } from "./bills";
 import { Companies } from "./companies";
+import { CompanyInfo } from "./companyinfo";
 import { Connections } from "./connections";
 import { JournalEntries } from "./journalentries";
 import { Journals } from "./journals";
 import { ManageData } from "./managedata";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { PaymentMethods } from "./paymentmethods";
 import { PushOperations } from "./pushoperations";
@@ -21,7 +20,7 @@ import { Suppliers } from "./suppliers";
 import { TaxRates } from "./taxrates";
 import { TrackingCategories } from "./trackingcategories";
 import axios from "axios";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { AxiosInstance } from "axios";
 
 /**
  * Contains the list of servers available to the SDK
@@ -68,7 +67,7 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "3.0.0";
-    sdkVersion = "0.2.1";
+    sdkVersion = "0.2.2";
     genVersion = "2.108.3";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
@@ -83,7 +82,29 @@ export class SDKConfiguration {
  *
  * Sync for Payables is an API and a set of supporting tools built to help integrate with your customers' accounting software, and keep their supplier information, invoices, and payments in sync.
  *
- * [Read More...](https://docs.codat.io/payables/overview)
+ * [Explore product](https://docs.codat.io/payables/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
+ *
+ * ---
+ *
+ * ## Endpoints
+ *
+ * | Endpoints            | Description                                                                                                |
+ * |:---------------------|:-----------------------------------------------------------------------------------------------------------|
+ * | Companies            | Create and manage your SMB users' companies.                                                               |
+ * | Connections          | Create new and manage existing data connections for a company.                                             |
+ * | Accounts             | Get, create, and update Accounts                                                           |
+ * | Bills                | Get, create, and update Bills                                                                          |
+ * | Bill credit notes    | Get, create, and update Bill credit notes                                                              |
+ * | Bill payments        | Get, create, and update Bill payments                                                                  |
+ * | Journals             | Get, create, and update Journals                                                                       |
+ * | Journal entries      | Get, create, and update Journal entries                                                                |
+ * | Payment methods      | Get, create, and update Payment methods                                                                |
+ * | Suppliers            | Get, create, and update Suppliers                                                                      |
+ * | Tax rates            | Get, create, and update Tax rates                                                                      |
+ * | Tracking categories  | Get, create, and update Tracking categories                                                            |
+ * | Push operations      | View historic push operations                                                         |
+ * | Company info         | View company profile from the source platform.                                                             |
+ * | Manage data          | Control how data is retrieved from an integration.                                                         |
  */
 export class CodatSyncPayables {
     /**
@@ -106,6 +127,10 @@ export class CodatSyncPayables {
      * Create and manage your Codat companies.
      */
     public companies: Companies;
+    /**
+     * View company information fetched from the source platform.
+     */
+    public companyInfo: CompanyInfo;
     /**
      * Manage your companies' data connections.
      */
@@ -166,6 +191,7 @@ export class CodatSyncPayables {
         this.billPayments = new BillPayments(this.sdkConfiguration);
         this.bills = new Bills(this.sdkConfiguration);
         this.companies = new Companies(this.sdkConfiguration);
+        this.companyInfo = new CompanyInfo(this.sdkConfiguration);
         this.connections = new Connections(this.sdkConfiguration);
         this.journalEntries = new JournalEntries(this.sdkConfiguration);
         this.journals = new Journals(this.sdkConfiguration);
@@ -175,114 +201,5 @@ export class CodatSyncPayables {
         this.suppliers = new Suppliers(this.sdkConfiguration);
         this.taxRates = new TaxRates(this.sdkConfiguration);
         this.trackingCategories = new TrackingCategories(this.sdkConfiguration);
-    }
-
-    /**
-     * Get company accounting profile
-     *
-     * @remarks
-     * Gets the latest basic info for a company.
-     */
-    async getAccountingProfile(
-        req: operations.GetAccountingProfileRequest,
-        retries?: utils.RetryConfig,
-        config?: AxiosRequestConfig
-    ): Promise<operations.GetAccountingProfileResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetAccountingProfileRequest(req);
-        }
-
-        const baseURL: string = utils.templateUrl(
-            this.sdkConfiguration.serverURL,
-            this.sdkConfiguration.serverDefaults
-        );
-        const url: string = utils.generateURL(baseURL, "/companies/{companyId}/data/info", req);
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-        let globalSecurity = this.sdkConfiguration.security;
-        if (typeof globalSecurity === "function") {
-            globalSecurity = await globalSecurity();
-        }
-        if (!(globalSecurity instanceof utils.SpeakeasyBase)) {
-            globalSecurity = new shared.Security(globalSecurity);
-        }
-        const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers = { ...config?.headers, ...properties.headers };
-        headers["Accept"] = "application/json";
-
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
-
-        const globalRetryConfig = this.sdkConfiguration.retryConfig;
-        let retryConfig: any = retries;
-        if (!retryConfig) {
-            if (globalRetryConfig) {
-                retryConfig = globalRetryConfig;
-            } else {
-                retryConfig = new utils.RetryConfig(
-                    "backoff",
-                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                    true
-                );
-            }
-        }
-        const httpRes: AxiosResponse = await utils.Retry(() => {
-            return client.request({
-                validateStatus: () => true,
-                url: url,
-                method: "get",
-                headers: headers,
-                responseType: "arraybuffer",
-                ...config,
-            });
-        }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
-
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) {
-            throw new Error(`status code not found in response: ${httpRes}`);
-        }
-
-        const res: operations.GetAccountingProfileResponse =
-            new operations.GetAccountingProfileResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes,
-            });
-        const decodedRes = new TextDecoder().decode(httpRes?.data);
-        switch (true) {
-            case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.companyInformation = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        operations.GetAccountingProfileCompanyInformation
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-            case [401, 404, 409, 429].includes(httpRes?.status):
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.errorMessage = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.ErrorMessage
-                    );
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
-                    );
-                }
-                break;
-        }
-
-        return res;
     }
 }

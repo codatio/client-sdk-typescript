@@ -41,23 +41,23 @@ const sdk = new CodatSyncPayables({
 sdk.billPayments.create({
   billPayment: {
     accountRef: {
-      id: "4bdb04f1-5756-4082-968e-a19f1d170513",
-      name: "Ms. Cora Spencer IV",
+      id: "756082d6-8ea1-49f1-9170-51339d08086a",
+      name: "Mrs. Priscilla Fritsch",
     },
-    currency: "USD",
-    currencyRate: 6498.32,
+    currency: "GBP",
+    currencyRate: 7710.89,
     date: "2022-10-23T00:00:00.000Z",
     id: "3d5a8e00-d108-4045-8823-7f342676cffa",
     lines: [
       {
         allocatedOnDate: "2022-10-23T00:00:00.000Z",
-        amount: 2519.41,
+        amount: 120.36,
         links: [
           {
-            amount: 324.65,
-            currencyRate: 2211.61,
-            id: "94c26071-f93f-45f0-a42d-ac7af515cc41",
-            type: BillPaymentLineLinkType.Bill,
+            amount: 4910.25,
+            currencyRate: 1154.84,
+            id: "f93f5f06-42da-4c7a-b515-cc413aa63aae",
+            type: BillPaymentLineLinkType.BillPayment,
           },
         ],
       },
@@ -67,25 +67,25 @@ sdk.billPayments.create({
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
     note: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
-    paymentMethodRef: "id",
-    reference: "suscipit",
+    paymentMethodRef: "vel",
+    reference: "ducimus",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "culpa": {
-          "est": "recusandae",
+        "vel": {
+          "labore": "possimus",
         },
       },
     },
     supplierRef: {
-      id: "8d67864d-bb67-45fd-9e60-b375ed4f6fbe",
-      supplierName: "necessitatibus",
+      id: "bb675fd5-e60b-4375-ad4f-6fbee41f3331",
+      supplierName: "dignissimos",
     },
     totalAmount: 1329.54,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 296556,
+  timeoutInMinutes: 950953,
 }).then((res: CreateBillPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -146,7 +146,7 @@ const sdk = new CodatSyncPayables({
 });
 
 sdk.billPayments.delete({
-  billPaymentId: "sunt",
+  billPaymentId: "debitis",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: DeleteBillPaymentResponse) => {
   if (res.statusCode == 200) {
@@ -193,7 +193,7 @@ const sdk = new CodatSyncPayables({
 });
 
 sdk.billPayments.get({
-  billPaymentId: "asperiores",
+  billPaymentId: "consectetur",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetBillPaymentsResponse) => {
   if (res.statusCode == 200) {
@@ -291,7 +291,7 @@ sdk.billPayments.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "adipisci",
+  query: "corporis",
 }).then((res: ListBillPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
