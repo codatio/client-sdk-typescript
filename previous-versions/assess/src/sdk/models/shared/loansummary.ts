@@ -7,9 +7,6 @@ import { LoanSummaryReportInfo } from "./loansummaryreportinfo";
 import { LoanSummaryReportItem } from "./loansummaryreportitem";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class LoanSummary extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "reportInfo" })
