@@ -29,9 +29,6 @@ export enum DatasetStatus {
     PrerequisiteNotMet = "PrerequisiteNotMet",
 }
 
-/**
- * Success
- */
 export class Dataset extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "companyId" })

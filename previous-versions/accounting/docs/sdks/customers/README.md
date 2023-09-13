@@ -45,85 +45,63 @@ sdk.customers.create({
   customer: {
     addresses: [
       {
-        city: "Fort Sterlingworth",
-        country: "Lao People's Democratic Republic",
-        line1: "quasi",
-        line2: "odit",
-        postalCode: "46467-0222",
-        region: "soluta",
-        type: AccountingAddressType.Unknown,
-      },
-      {
-        city: "Bessietown",
-        country: "Ireland",
-        line1: "rem",
-        line2: "deleniti",
-        postalCode: "88789-5549",
-        region: "velit",
+        city: "West Elroy",
+        country: "Bolivia",
+        line1: "praesentium",
+        line2: "eveniet",
+        postalCode: "77607",
+        region: "quos",
         type: AccountingAddressType.Delivery,
       },
     ],
-    contactName: "pariatur",
+    contactName: "sint",
     contacts: [
       {
         address: {
-          city: "Schinnerhaven",
-          country: "Cyprus",
-          line1: "amet",
-          line2: "tenetur",
-          postalCode: "16293",
-          region: "voluptates",
+          city: "Emersonside",
+          country: "Armenia",
+          line1: "voluptates",
+          line2: "laudantium",
+          postalCode: "06859",
+          region: "deleniti",
           type: AccountingAddressType.Unknown,
         },
-        email: "Adrian.Nitzsche@yahoo.com",
+        email: "Barrett98@hotmail.com",
         modifiedDate: "2022-10-23T00:00:00.000Z",
-        name: "Alice Lind",
+        name: "William Koch",
         phone: [
           {
-            number: "(877) 492-8687",
-            type: PhoneNumberType.Landline,
-          },
-          {
-            number: "(877) 492-8687",
-            type: PhoneNumberType.Unknown,
-          },
-          {
-            number: "+44 25691 154789",
-            type: PhoneNumberType.Primary,
-          },
-          {
             number: "01224 658 999",
-            type: PhoneNumberType.Landline,
+            type: PhoneNumberType.Fax,
           },
         ],
-        status: CustomerStatus.Active,
+        status: CustomerStatus.Unknown,
       },
     ],
-    customerName: "doloremque",
-    defaultCurrency: "GBP",
-    emailAddress: "maxime",
-    id: "5c8e2d30-ead3-4104-ba44-707bf375b442",
+    customerName: "dolorum",
+    defaultCurrency: "USD",
+    emailAddress: "ad",
+    id: "f3cabd90-5a97-42e0-9672-8227b2d30947",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "1-610-987-1945",
-    registrationNumber: "eveniet",
+    phone: "946.496.5489 x3236",
+    registrationNumber: "voluptas",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     status: CustomerStatus.Active,
     supplementalData: {
       content: {
-        "laboriosam": {
-          "quisquam": "dignissimos",
-          "ab": "quo",
+        "recusandae": {
+          "corporis": "non",
         },
       },
     },
-    taxNumber: "optio",
+    taxNumber: "necessitatibus",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 528440,
+  timeoutInMinutes: 719469,
 }).then((res: CreateCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -170,7 +148,7 @@ sdk.customers.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "pariatur",
+  customerId: "maiores",
 }).then((res: DownloadCustomerAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -217,7 +195,7 @@ const sdk = new CodatAccounting({
 
 sdk.customers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  customerId: "sequi",
+  customerId: "laboriosam",
 }).then((res: GetCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -264,7 +242,7 @@ sdk.customers.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "quo",
+  customerId: "voluptatem",
 }).then((res: GetCustomerAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -361,7 +339,7 @@ sdk.customers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "facere",
+  query: "optio",
 }).then((res: ListCustomersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -407,7 +385,7 @@ const sdk = new CodatAccounting({
 sdk.customers.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "labore",
+  customerId: "sequi",
 }).then((res: ListCustomerAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -459,70 +437,65 @@ sdk.customers.update({
   customer: {
     addresses: [
       {
-        city: "New Rodger",
-        country: "Armenia",
+        city: "North Wavatown",
+        country: "Cameroon",
         line1: "amet",
-        line2: "ipsam",
-        postalCode: "65185-0599",
-        region: "odit",
-        type: AccountingAddressType.Billing,
+        line2: "rerum",
+        postalCode: "38123",
+        region: "dignissimos",
+        type: AccountingAddressType.Delivery,
       },
     ],
-    contactName: "ullam",
+    contactName: "itaque",
     contacts: [
       {
         address: {
-          city: "Corkerytown",
-          country: "Faroe Islands",
-          line1: "ducimus",
-          line2: "quod",
-          postalCode: "22690",
-          region: "quaerat",
+          city: "Lake Alexannefield",
+          country: "Seychelles",
+          line1: "quos",
+          line2: "possimus",
+          postalCode: "45906-1548",
+          region: "unde",
           type: AccountingAddressType.Unknown,
         },
-        email: "Lila56@hotmail.com",
+        email: "Clifford71@hotmail.com",
         modifiedDate: "2022-10-23T00:00:00.000Z",
-        name: "Harvey Skiles PhD",
+        name: "Ralph Hamill",
         phone: [
           {
             number: "01224 658 999",
-            type: PhoneNumberType.Primary,
-          },
-          {
-            number: "+44 25691 154789",
-            type: PhoneNumberType.Unknown,
+            type: PhoneNumberType.Fax,
           },
         ],
         status: CustomerStatus.Archived,
       },
     ],
-    customerName: "modi",
+    customerName: "accusamus",
     defaultCurrency: "GBP",
-    emailAddress: "autem",
-    id: "e6259233-f95c-49d2-b739-7c785b5db4f5",
+    emailAddress: "quas",
+    id: "8b1c4ee2-c8c6-4ce6-91fe-eb1c7cbdb6ee",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "252-987-8944",
-    registrationNumber: "aliquid",
+    phone: "424.676.1311 x442",
+    registrationNumber: "odio",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: CustomerStatus.Active,
+    status: CustomerStatus.Archived,
     supplementalData: {
       content: {
-        "accusantium": {
-          "pariatur": "deserunt",
-          "facilis": "in",
+        "cupiditate": {
+          "illo": "exercitationem",
         },
       },
     },
-    taxNumber: "ad",
+    taxNumber: "laborum",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "voluptatem",
+  customerId: "illum",
   forceUpdate: false,
-  timeoutInMinutes: 24042,
+  timeoutInMinutes: 147989,
 }).then((res: UpdateCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response

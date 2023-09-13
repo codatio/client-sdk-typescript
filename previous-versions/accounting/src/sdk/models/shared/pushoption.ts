@@ -9,9 +9,6 @@ import { PushOptionType } from "./pushoptiontype";
 import { PushValidationInfo } from "./pushvalidationinfo";
 import { Expose, Transform, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class PushOption extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "description" })

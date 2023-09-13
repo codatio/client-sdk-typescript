@@ -10,9 +10,6 @@ import { PushOperationStatus } from "./pushoperationstatus";
 import { Validation } from "./validation";
 import { Expose, Type } from "class-transformer";
 
-/**
- * Success
- */
 export class CreateBillPaymentResponse extends SpeakeasyBase {
     /**
      * Contains a single entry that communicates which record has changed and the manner in which it changed.

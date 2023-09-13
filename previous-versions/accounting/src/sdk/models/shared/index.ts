@@ -28,7 +28,6 @@ export * from "./bankaccount";
 export * from "./bankaccountref";
 export * from "./bankaccounts";
 export * from "./banktransactions";
-export * from "./banktransactionsresponse";
 export * from "./banktransactiontype";
 export * from "./bill";
 export * from "./billcreditnote";
