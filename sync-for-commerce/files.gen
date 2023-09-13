@@ -90,8 +90,8 @@ src/sdk/models/shared/supportedfeature.ts
 src/sdk/models/shared/featuretype.ts
 src/sdk/models/shared/featurestate.ts
 src/sdk/models/shared/companysyncstatus.ts
+src/sdk/models/shared/syncstatus.ts
 src/sdk/models/shared/syncsummary.ts
-src/sdk/models/shared/daterange.ts
 src/sdk/models/shared/synctolatestargs.ts
 src/sdk/models/shared/syncrange.ts
 src/sdk/models/shared/localization.ts
@@ -195,8 +195,9 @@ docs/models/shared/supportedfeature.md
 docs/models/shared/featuretype.md
 docs/models/shared/featurestate.md
 docs/models/shared/companysyncstatus.md
+docs/models/shared/syncstatus.md
+docs/models/shared/syncsummarysyncdaterangeutc.md
 docs/models/shared/syncsummary.md
-docs/models/shared/daterange.md
 docs/models/shared/synctolatestargs.md
 docs/models/shared/syncrangedaterange.md
 docs/models/shared/syncrange.md

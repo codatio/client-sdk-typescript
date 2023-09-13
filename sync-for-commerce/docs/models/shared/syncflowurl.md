@@ -1,7 +1,5 @@
 # SyncFlowUrl
 
-Success
-
 
 ## Fields
 

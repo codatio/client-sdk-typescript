@@ -7,9 +7,6 @@ import { BrandingButton } from "./brandingbutton";
 import { BrandingLogo } from "./brandinglogo";
 import { Expose, Type } from "class-transformer";
 
-/**
- * Success
- */
 export class Branding extends SpeakeasyBase {
     /**
      * Button branding references.
