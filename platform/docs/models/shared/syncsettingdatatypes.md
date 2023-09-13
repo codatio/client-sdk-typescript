@@ -1,4 +1,4 @@
-# SyncSettingDataType
+# SyncSettingDataTypes
 
 Available Data types
 
