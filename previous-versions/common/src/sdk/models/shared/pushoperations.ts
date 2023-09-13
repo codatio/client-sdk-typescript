@@ -4,13 +4,10 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Links } from "./links";
-import { Rule } from "./rule";
+import { PushOperation } from "./pushoperation";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
-export class Rules extends SpeakeasyBase {
+export class PushOperations extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "_links" })
     @Type(() => Links)
@@ -24,10 +21,10 @@ export class Rules extends SpeakeasyBase {
     @Expose({ name: "pageSize" })
     pageSize: number;
 
-    @SpeakeasyMetadata({ elemType: Rule })
+    @SpeakeasyMetadata({ elemType: PushOperation })
     @Expose({ name: "results" })
-    @Type(() => Rule)
-    results?: Rule[];
+    @Type(() => PushOperation)
+    results?: PushOperation[];
 
     @SpeakeasyMetadata()
     @Expose({ name: "totalResults" })

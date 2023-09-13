@@ -9,9 +9,6 @@ import { PushOperationStatus } from "./pushoperationstatus";
 import { Validation } from "./validation";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class PushOperation extends SpeakeasyBase {
     /**
      * Contains a single entry that communicates which record has changed and the manner in which it changed.
@@ -54,13 +51,6 @@ export class PushOperation extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "completedOnUtc" })
     completedOnUtc?: string;
-
-    /**
-     * Object submitted in push operation.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "data" })
-    data?: Record<string, any>;
 
     /**
      * Unique identifier for a company's data connection.

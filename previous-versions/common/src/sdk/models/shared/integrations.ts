@@ -7,9 +7,6 @@ import { Integration } from "./integration";
 import { Links } from "./links";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class Integrations extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "_links" })
