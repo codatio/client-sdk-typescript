@@ -7,6 +7,7 @@ Journal entries
 ### Available Operations
 
 * [create](#create) - Create journal entry
+* [delete](#delete) - Delete journal entry
 * [get](#get) - Get journal entry
 * [getCreateModel](#getcreatemodel) - Get create journal entry model
 * [list](#list) - List journal entries
@@ -39,38 +40,30 @@ const sdk = new CodatSyncPayroll({
 sdk.journalEntries.create({
   journalEntry: {
     createdOn: "2022-10-23T00:00:00.000Z",
-    description: "molestiae",
-    id: "cc78ca1b-a928-4fc8-9674-2cb739205929",
+    description: "placeat",
+    id: "8796ed15-1a05-4dfc-addf-7cc78ca1ba92",
     journalLines: [
       {
         accountRef: {
-          id: "96fea759-6eb1-40fa-aa23-52c5955907af",
-          name: "Juan O'Hara",
+          id: "8fc81674-2cb7-4392-8592-9396fea7596e",
+          name: "Roger Beier",
         },
-        currency: "consequuntur",
-        description: "repellat",
-        netAmount: 6531.08,
+        currency: "mollitia",
+        description: "laborum",
+        netAmount: 1709.09,
         tracking: {
           recordRefs: [
             {
-              dataType: "invoice",
-              id: "67739251-aa52-4c3f-9ad0-19da1ffe78f0",
-            },
-            {
-              dataType: "accountTransaction",
-              id: "7b0074f1-5471-4b5e-ae13-b99d488e1e91",
-            },
-            {
-              dataType: "transfer",
-              id: "450ad2ab-d442-4698-82d5-02a94bb4f63c",
+              dataType: "journalEntry",
+              id: "52c59559-07af-4f1a-ba2f-a9467739251a",
             },
           ],
         },
       },
     ],
     journalRef: {
-      id: "969e9a3e-fa77-4dfb-94cd-66ae395efb9b",
-      name: "Nelson Lesch",
+      id: "a52c3f5a-d019-4da1-bfe7-8f097b0074f1",
+      name: "Miss Valerie Kshlerin",
     },
     metadata: {
       isDeleted: false,
@@ -78,14 +71,14 @@ sdk.journalEntries.create({
     modifiedDate: "2022-10-23T00:00:00.000Z",
     postedOn: "2022-10-23T00:00:00.000Z",
     recordRef: {
-      dataType: "invoice",
-      id: "997074ba-4469-4b6e-a141-959890afa563",
+      dataType: "transfer",
+      id: "13b99d48-8e1e-491e-850a-d2abd4426980",
     },
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "nemo": {
-          "iure": "doloribus",
+        "assumenda": {
+          "ipsam": "alias",
         },
       },
     },
@@ -93,7 +86,7 @@ sdk.journalEntries.create({
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 260341,
+  timeoutInMinutes: 677817,
 }).then((res: CreateJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -113,6 +106,75 @@ sdk.journalEntries.create({
 ### Response
 
 **Promise<[operations.CreateJournalEntryResponse](../../models/operations/createjournalentryresponse.md)>**
+
+
+## delete
+
+﻿> **Use with caution**
+>
+>Because journal entries underpin every transaction in an accounting platform, deleting a journal entry can affect every transaction for a given company.
+> 
+> **Before you proceed, make sure you understand the implications of deleting journal entries from an accounting perspective.**
+
+The *Delete journal entry* endpoint allows you to delete a specified journal entry from an accounting platform.
+
+[Journal entries](https://docs.codat.io/sync-for-payroll-api#/schemas/JournalEntry) are made in a company's general ledger, or accounts, when transactions are approved.
+
+### Process
+1. Pass the `{journalEntryId}` to the *Delete journal entry* endpoint and store the `pushOperationKey` returned.
+2. Check the status of the delete by checking the status of push operation either via
+   1. [Push operation webhook](https://docs.codat.io/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
+   2. [Push operation status endpoint](https://docs.codat.io/sync-for-payroll-api#/operations/get-push-operation). 
+   
+   A `Success` status indicates that the journal entry object was deleted from the accounting platform.
+3. (Optional) Check that the journal entry was deleted from the accounting platform.
+
+### Effect on related objects
+
+Be aware that deleting a journal entry from an accounting platform might cause related objects to be modified. For example, if you delete the journal entry for a paid invoice in QuickBooks Online, the invoice is deleted but the payment against that invoice is not. The payment is converted to a payment on account.
+
+## Integration specifics
+Integrations that support soft delete do not permanently delete the object in the accounting platform.
+
+| Integration | Soft Deleted | 
+|-------------|--------------|
+| QuickBooks Online | Yes    |       
+
+
+### Example Usage
+
+```typescript
+import { CodatSyncPayroll } from "@codat/sync-for-payroll";
+import { DeleteJournalEntryResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
+
+const sdk = new CodatSyncPayroll({
+  security: {
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  },
+});
+
+sdk.journalEntries.delete({
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  journalEntryId: "excepturi",
+}).then((res: DeleteJournalEntryResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.DeleteJournalEntryRequest](../../models/operations/deletejournalentryrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `retries`                                                                                    | [utils.RetryConfig](../../models/utils/retryconfig.md)                                       | :heavy_minus_sign:                                                                           | Configuration to override the default retry behavior of the client.                          |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+
+
+### Response
+
+**Promise<[operations.DeleteJournalEntryResponse](../../models/operations/deletejournalentryresponse.md)>**
 
 
 ## get
@@ -140,7 +202,7 @@ const sdk = new CodatSyncPayroll({
 
 sdk.journalEntries.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalEntryId: "maxime",
+  journalEntryId: "tempora",
 }).then((res: GetJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -237,7 +299,7 @@ sdk.journalEntries.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "deleniti",
+  query: "facilis",
 }).then((res: ListJournalEntriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
