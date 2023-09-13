@@ -39,11 +39,11 @@ const sdk = new CodatSyncPayables({
 
 sdk.accounts.create({
   account: {
-    currency: "USD",
+    currency: "EUR",
     currentBalance: 0,
     description: "Invoices the business has issued but has not yet collected payment on.",
     fullyQualifiedCategory: "Asset.Current",
-    fullyQualifiedName: "Fixed Asset",
+    fullyQualifiedName: "Cash On Hand",
     id: "1b6266d1-1e44-46c5-8eb5-a8f98e03124e",
     isBankAccount: false,
     metadata: {
@@ -58,24 +58,15 @@ sdk.accounts.create({
     validDatatypeLinks: [
       {
         links: [
-          "nisi",
-          "recusandae",
-          "temporibus",
+          "suscipit",
         ],
-        property: "ab",
-      },
-      {
-        links: [
-          "veritatis",
-          "deserunt",
-        ],
-        property: "perferendis",
+        property: "iure",
       },
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 368241,
+  timeoutInMinutes: 297534,
 }).then((res: CreateAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -121,7 +112,7 @@ const sdk = new CodatSyncPayables({
 });
 
 sdk.accounts.get({
-  accountId: "repellendus",
+  accountId: "debitis",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountResponse) => {
   if (res.statusCode == 200) {
@@ -146,15 +137,15 @@ sdk.accounts.get({
 
 ## getCreateModel
 
-﻿  The *Get create account model* endpoint returns the expected data for the request payload when creating an [account](https://docs.codat.io/sync-for-payables-api#/schemas/Account) for a given company and integration.
-    
-    [Accounts](https://docs.codat.io/sync-for-payables-api#/schemas/Account) are the categories a business uses to record accounting transactions.
-    
-    **Integration-specific behaviour**
-    
-    See the *response examples* for integration-specific indicative models.
-    
-    Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
+﻿The *Get create account model* endpoint returns the expected data for the request payload when creating an [account](https://docs.codat.io/sync-for-payables-api#/schemas/Account) for a given company and integration.
+
+[Accounts](https://docs.codat.io/sync-for-payables-api#/schemas/Account) are the categories a business uses to record accounting transactions.
+
+**Integration-specific behaviour**
+
+See the *response examples* for integration-specific indicative models.
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
 
 
 ### Example Usage
@@ -218,7 +209,7 @@ sdk.accounts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "sapiente",
+  query: "ipsa",
 }).then((res: ListAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response

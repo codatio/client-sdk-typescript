@@ -7,9 +7,6 @@ import { Links } from "./links";
 import { PushOperation } from "./pushoperation";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class PushOperations extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "_links" })
