@@ -7,9 +7,6 @@ import { Links } from "./links";
 import { TrackingCategory } from "./trackingcategory";
 import { Expose, Type } from "class-transformer";
 
-/**
- * Success
- */
 export class TrackingCategories extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "_links" })

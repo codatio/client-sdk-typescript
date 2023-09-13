@@ -58,40 +58,15 @@ sdk.accounts.create({
     validDatatypeLinks: [
       {
         links: [
-          "error",
-          "deserunt",
+          "illum",
         ],
-        property: "suscipit",
-      },
-      {
-        links: [
-          "magnam",
-          "debitis",
-        ],
-        property: "ipsa",
-      },
-      {
-        links: [
-          "tempora",
-          "suscipit",
-          "molestiae",
-          "minus",
-        ],
-        property: "placeat",
-      },
-      {
-        links: [
-          "iusto",
-          "excepturi",
-          "nisi",
-        ],
-        property: "recusandae",
+        property: "vel",
       },
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 836079,
+  timeoutInMinutes: 623564,
 }).then((res: CreateAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -137,7 +112,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.accounts.get({
-  accountId: "ab",
+  accountId: "deserunt",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountResponse) => {
   if (res.statusCode == 200) {
@@ -234,7 +209,7 @@ sdk.accounts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "quis",
+  query: "suscipit",
 }).then((res: ListAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response

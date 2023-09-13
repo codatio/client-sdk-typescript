@@ -4,7 +4,8 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { BankTransactionType } from "./banktransactiontype";
-import { Expose } from "class-transformer";
+import { Links } from "./links";
+import { Expose, Type } from "class-transformer";
 
 /**
  * > **Accessing Bank Accounts through Banking API**
@@ -26,7 +27,7 @@ import { Expose } from "class-transformer";
  * * Current account balance.
  * * Transaction type, for example, credit, debit, or transfer.
  */
-export class BankTransactions extends SpeakeasyBase {
+export class BankTransactionsSourceModifiedDate extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "accountId" })
     accountId?: string;
@@ -92,4 +93,28 @@ export class BankTransactions extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "transactionType" })
     transactionType?: BankTransactionType;
+}
+
+export class BankTransactions extends SpeakeasyBase {
+    @SpeakeasyMetadata()
+    @Expose({ name: "_links" })
+    @Type(() => Links)
+    links: Links;
+
+    @SpeakeasyMetadata()
+    @Expose({ name: "pageNumber" })
+    pageNumber: number;
+
+    @SpeakeasyMetadata()
+    @Expose({ name: "pageSize" })
+    pageSize: number;
+
+    @SpeakeasyMetadata({ elemType: BankTransactionsSourceModifiedDate })
+    @Expose({ name: "results" })
+    @Type(() => BankTransactionsSourceModifiedDate)
+    results?: BankTransactionsSourceModifiedDate[];
+
+    @SpeakeasyMetadata()
+    @Expose({ name: "totalResults" })
+    totalResults: number;
 }

@@ -10,9 +10,6 @@ import { Transfer } from "./transfer";
 import { Validation } from "./validation";
 import { Expose, Type } from "class-transformer";
 
-/**
- * Success
- */
 export class CreateTransferResponse extends SpeakeasyBase {
     /**
      * Contains a single entry that communicates which record has changed and the manner in which it changed.

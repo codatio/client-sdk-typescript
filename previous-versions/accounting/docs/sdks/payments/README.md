@@ -40,111 +40,27 @@ const sdk = new CodatAccounting({
 sdk.payments.create({
   payment: {
     accountRef: {
-      id: "871a88ed-72a2-4d4a-b415-8ac2d0f0f58c",
-      name: "Pam Leannon",
+      id: "e71f6c48-252d-4777-9e7f-d074009ef8d2",
+      name: "Dr. Levi Volkman",
     },
-    currency: "GBP",
-    currencyRate: 4766.68,
+    currency: "USD",
+    currencyRate: 161.58,
     customerRef: {
-      companyName: "eaque",
-      id: "40d0d98e-9d82-4c5e-b06f-5576f5cdeb02",
+      companyName: "provident",
+      id: "7b5da08c-57fa-46c7-8a21-6e19bafeca61",
     },
     date: "2022-10-23T00:00:00.000Z",
-    id: "6d0bc43b-18ab-4378-b2fc-ff81ddf7e088",
+    id: "1498140b-64ff-48ae-970e-f03b5f37e4aa",
     lines: [
       {
         allocatedOnDate: "2022-10-23T00:00:00.000Z",
-        amount: 2892.95,
+        amount: 3819.74,
         links: [
           {
-            amount: 9630.72,
-            currencyRate: 3403.92,
-            id: "4c9216e8-9263-413b-b6fc-2c8d2701096b",
-            type: PaymentLinkType.Other,
-          },
-          {
-            amount: 4190.01,
-            currencyRate: 6641.93,
-            id: "d6e3e1d9-d3b6-4603-b4a1-1aa1d5d2247d",
-            type: PaymentLinkType.ManualJournal,
-          },
-          {
-            amount: 5974.19,
-            currencyRate: 7299.26,
-            id: "3d46170e-768a-496b-b398-788398eba1bb",
+            amount: 5576.51,
+            currencyRate: 3385.42,
+            id: "55966732-aa5d-4cb6-a82c-b70f8cfd5fb6",
             type: PaymentLinkType.Discount,
-          },
-          {
-            amount: 4939.36,
-            currencyRate: 676.61,
-            id: "43356f63-49a1-4642-89b2-11ce46b95165",
-            type: PaymentLinkType.Unlinked,
-          },
-        ],
-      },
-      {
-        allocatedOnDate: "2022-10-23T00:00:00.000Z",
-        amount: 1068.42,
-        links: [
-          {
-            amount: 5418.42,
-            currencyRate: 7604.45,
-            id: "a9142f05-2632-4b31-8ad6-92ffc8745005",
-            type: PaymentLinkType.Discount,
-          },
-          {
-            amount: 6124.56,
-            currencyRate: 8634.66,
-            id: "3d934e03-6f5c-4388-a64f-6985530a2e2a",
-            type: PaymentLinkType.Discount,
-          },
-        ],
-      },
-      {
-        allocatedOnDate: "2022-10-23T00:00:00.000Z",
-        amount: 4284.76,
-        links: [
-          {
-            amount: 6672.29,
-            currencyRate: 9471.82,
-            id: "863c28d0-40c6-49a3-9906-f6ebd5ad7ec7",
-            type: PaymentLinkType.Invoice,
-          },
-          {
-            amount: 5908.32,
-            currencyRate: 2922.91,
-            id: "f25f634b-3730-4714-a6be-8c3e09c64d34",
-            type: PaymentLinkType.Unlinked,
-          },
-          {
-            amount: 6784.76,
-            currencyRate: 8087.97,
-            id: "299a6e5e-7aef-4134-82e9-45f53743efde",
-            type: PaymentLinkType.Unknown,
-          },
-        ],
-      },
-      {
-        allocatedOnDate: "2022-10-23T00:00:00.000Z",
-        amount: 5754.71,
-        links: [
-          {
-            amount: 1577.51,
-            currencyRate: 1756.68,
-            id: "1f9b1f7d-9aff-4e69-a82a-ceefb04f8c51",
-            type: PaymentLinkType.Unlinked,
-          },
-          {
-            amount: 8001.68,
-            currencyRate: 6586.25,
-            id: "abea708e-d579-48d3-85d4-60599d5c3349",
-            type: PaymentLinkType.CreditNote,
-          },
-          {
-            amount: 4904.31,
-            currencyRate: 4326.34,
-            id: "d55209e9-a225-43b6-9765-886eeae5fd4b",
-            type: PaymentLinkType.Invoice,
           },
         ],
       },
@@ -153,28 +69,22 @@ sdk.payments.create({
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "voluptatibus",
-    paymentMethodRef: "totam",
-    reference: "mollitia",
+    note: "dicta",
+    paymentMethodRef: "quidem",
+    reference: "omnis",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "provident": {
-          "aliquid": "in",
-        },
-        "quos": {
-          "sunt": "dolor",
-          "quisquam": "commodi",
-          "laudantium": "laboriosam",
-          "repellendus": "quos",
+        "molestias": {
+          "a": "dignissimos",
         },
       },
     },
-    totalAmount: 2068.12,
+    totalAmount: 2883.48,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 608738,
+  timeoutInMinutes: 511054,
 }).then((res: CreatePaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -221,7 +131,7 @@ const sdk = new CodatAccounting({
 
 sdk.payments.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  paymentId: "earum",
+  paymentId: "dolore",
 }).then((res: GetPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -318,7 +228,7 @@ sdk.payments.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "eligendi",
+  query: "aliquid",
 }).then((res: ListPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
