@@ -6,9 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { DataIntegrityStatus } from "./dataintegritystatus";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class Status extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: DataIntegrityStatus })
     @Expose({ name: "metadata" })
