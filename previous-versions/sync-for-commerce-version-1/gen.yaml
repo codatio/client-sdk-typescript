@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: c658e9d5e4c453551bec0b57aa02c4bb
+  docChecksum: c809460a0a8a63351000fa13d380525b
   docVersion: "1.1"
   speakeasyVersion: 1.82.5
   generationVersion: 2.108.3
@@ -19,7 +19,7 @@ features:
     pagination: 2.81.1
     retries: 2.82.0
 typescript:
-  version: 0.1.1
+  version: 0.1.2
   author: Codat
   description: Push merchants' data from your ecommerce or point-of-sale (POS) platform into your merchants' accounting platform.
   maxMethodParams: 0

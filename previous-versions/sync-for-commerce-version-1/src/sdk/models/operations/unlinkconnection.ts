@@ -5,17 +5,10 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose } from "class-transformer";
-
-export class UnlinkConnectionRequestBody extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "status" })
-    status?: string;
-}
 
 export class UnlinkConnectionRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    requestBody?: UnlinkConnectionRequestBody;
+    updateConnection?: shared.UpdateConnection;
 
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
