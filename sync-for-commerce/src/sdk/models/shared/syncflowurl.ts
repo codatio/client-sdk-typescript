@@ -5,9 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-/**
- * Success
- */
 export class SyncFlowUrl extends SpeakeasyBase {
     /**
      * Sync flow URL.

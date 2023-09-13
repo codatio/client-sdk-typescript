@@ -21,7 +21,7 @@ export class Sync {
     }
 
     /**
-     * Get Sync status
+     * Get sync status
      *
      * @remarks
      * Get the sync status for a specified sync
@@ -41,7 +41,7 @@ export class Sync {
         );
         const url: string = utils.generateURL(
             baseURL,
-            "/companies/{companyId}/sync/expenses/syncs/{syncId}/status",
+            "/companies/{companyId}/sync/commerce/syncs/{syncId}/status",
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
@@ -60,13 +60,18 @@ export class Sync {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -167,13 +172,18 @@ export class Sync {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -275,13 +285,18 @@ export class Sync {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -376,19 +391,24 @@ export class Sync {
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers = { ...config?.headers, ...properties.headers };
-        headers["Accept"] = "*/*";
+        headers["Accept"] = "application/json";
 
         headers[
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -412,8 +432,43 @@ export class Sync {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.syncStatus = utils.objectToClass(JSON.parse(decodedRes), shared.SyncStatus);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 400:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.badRequest = JSON.parse(decodedRes);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case httpRes?.status == 404:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.notFound = JSON.parse(decodedRes);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
                 break;
         }
 
@@ -460,13 +515,18 @@ export class Sync {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -580,13 +640,18 @@ export class Sync {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
@@ -683,13 +748,18 @@ export class Sync {
             "user-agent"
         ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
 
+        const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
         if (!retryConfig) {
-            retryConfig = new utils.RetryConfig(
-                "backoff",
-                new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
-                true
-            );
+            if (globalRetryConfig) {
+                retryConfig = globalRetryConfig;
+            } else {
+                retryConfig = new utils.RetryConfig(
+                    "backoff",
+                    new utils.BackoffStrategy(500, 60000, 1.5, 3600000),
+                    true
+                );
+            }
         }
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
