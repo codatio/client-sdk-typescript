@@ -1,6 +1,4 @@
-# ListTransactions409ApplicationJSON
-
-The data type's dataset has not been requested or is still syncing.
+# ErrorMessage
 
 
 ## Fields

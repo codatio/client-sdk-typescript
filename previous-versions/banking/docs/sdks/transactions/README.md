@@ -8,7 +8,7 @@ An immutable source of up-to-date information on income and expenditure.
 
 * [get](#get) - Get bank transaction
 * [list](#list) - List transactions
-* [~~listBankTransactions~~](#listbanktransactions) - List banking transactions :warning: **Deprecated** - Use `list` instead.
+* [~~listBankTransactions~~](#listbanktransactions) - List banking transactions :warning: **Deprecated** Use `list` instead.
 
 ## get
 
@@ -26,7 +26,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatBanking } from "@codat/banking";
 import { GetTransactionResponse } from "@codat/banking/dist/sdk/models/operations";
-import { TransactionCode } from "@codat/banking/dist/sdk/models/shared";
 
 const sdk = new CodatBanking({
   security: {
@@ -73,7 +72,6 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatBanking } from "@codat/banking";
 import { ListTransactionsResponse } from "@codat/banking/dist/sdk/models/operations";
-import { TransactionCode } from "@codat/banking/dist/sdk/models/shared";
 
 const sdk = new CodatBanking({
   security: {
@@ -118,14 +116,13 @@ The *List transactions* endpoint returns a list of [transactions](https://docs.c
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
     
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible. Use `list` instead.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible. Use `list` instead.
 
 ### Example Usage
 
 ```typescript
 import { CodatBanking } from "@codat/banking";
 import { ListBankTransactionsResponse } from "@codat/banking/dist/sdk/models/operations";
-import { TransactionCode } from "@codat/banking/dist/sdk/models/shared";
 
 const sdk = new CodatBanking({
   security: {
