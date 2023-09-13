@@ -6,9 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { ApiKeyDetails } from "./apikeydetails";
 import { Expose, Type } from "class-transformer";
 
-/**
- * Success
- */
 export class ApiKeys extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: ApiKeyDetails })
     @Expose({ name: "results" })
