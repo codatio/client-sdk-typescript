@@ -39,28 +39,28 @@ const sdk = new CodatAccounting({
 
 sdk.bankAccounts.create({
   bankAccount: {
-    accountName: "nihil",
-    accountNumber: "praesentium",
+    accountName: "deleniti",
+    accountNumber: "hic",
     accountType: BankAccountBankAccountType.Debit,
-    availableBalance: 557.14,
-    balance: 6048.46,
+    availableBalance: 5218.48,
+    balance: 1059.07,
     currency: "USD",
-    iBan: "cum",
-    id: "0074f154-71b5-4e6e-93b9-9d488e1e91e4",
-    institution: "enim",
+    iBan: "molestiae",
+    id: "42cb7392-0592-4939-afea-7596eb10faaa",
+    institution: "dolores",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    nominalCode: "est",
-    overdraftLimit: 8423.42,
-    sortCode: "explicabo",
+    nominalCode: "corporis",
+    overdraftLimit: 1289.26,
+    sortCode: "nobis",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
   },
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 716327,
+  timeoutInMinutes: 607831,
 }).then((res: CreateBankAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -106,7 +106,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bankAccounts.get({
-  accountId: "quibusdam",
+  accountId: "nemo",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetBankAccountResponse) => {
@@ -206,7 +206,7 @@ sdk.bankAccounts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "labore",
+  query: "minima",
 }).then((res: ListBankAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -256,29 +256,29 @@ const sdk = new CodatAccounting({
 
 sdk.bankAccounts.update({
   bankAccount: {
-    accountName: "modi",
-    accountNumber: "qui",
+    accountName: "excepturi",
+    accountNumber: "accusantium",
     accountType: BankAccountBankAccountType.Credit,
-    availableBalance: 5865.13,
-    balance: 5528.22,
-    currency: "GBP",
-    iBan: "magni",
-    id: "d502a94b-b4f6-43c9-a9e9-a3efa77dfb14",
-    institution: "cumque",
+    availableBalance: 6342.74,
+    balance: 9883.74,
+    currency: "EUR",
+    iBan: "architecto",
+    id: "a3a2fa94-6773-4925-9aa5-2c3f5ad019da",
+    institution: "quasi",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    nominalCode: "ea",
-    overdraftLimit: 3965.06,
-    sortCode: "laborum",
+    nominalCode: "voluptatibus",
+    overdraftLimit: 8781.94,
+    sortCode: "nihil",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
   },
-  bankAccountId: "non",
+  bankAccountId: "voluptatibus",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  timeoutInMinutes: 581273,
+  timeoutInMinutes: 55714,
 }).then((res: UpdateBankAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response

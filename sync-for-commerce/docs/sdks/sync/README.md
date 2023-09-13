@@ -6,7 +6,7 @@ Initiate and monitor the sync of company data into accounting software.
 
 ### Available Operations
 
-* [get](#get) - Get Sync status
+* [get](#get) - Get sync status
 * [getLastSuccessfulSync](#getlastsuccessfulsync) - Last successful sync
 * [getLatestSync](#getlatestsync) - Latest sync status
 * [getStatus](#getstatus) - Get sync status

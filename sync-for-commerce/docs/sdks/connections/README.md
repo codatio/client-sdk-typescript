@@ -1,5 +1,9 @@
 # connections
 
+## Overview
+
+Create new and manage existing Sync for Commerce connections using the Sync flow UI.
+
 ### Available Operations
 
 * [create](#create) - Create connection

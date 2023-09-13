@@ -37,36 +37,22 @@ const sdk = new CodatAccounting({
 
 sdk.bankAccountTransactions.create({
   createBankTransactions: {
-    accountId: "veritatis",
+    accountId: "iure",
     transactions: [
       {
-        amount: 202.18,
-        balance: 3682.41,
+        amount: 2975.34,
+        balance: 8917.73,
         date: "2022-10-23T00:00:00.000Z",
-        description: "sapiente",
-        id: "c2ddf7cc-78ca-41ba-928f-c816742cb739",
-      },
-      {
-        amount: 1352.18,
-        balance: 187.89,
-        date: "2022-10-23T00:00:00.000Z",
-        description: "natus",
-        id: "29396fea-7596-4eb1-8faa-a2352c595590",
-      },
-      {
-        amount: 4386.01,
-        balance: 6342.74,
-        date: "2022-10-23T00:00:00.000Z",
-        description: "sapiente",
-        id: "1a3a2fa9-4677-4392-91aa-52c3f5ad019d",
+        description: "delectus",
+        id: "467cc879-6ed1-451a-85df-c2ddf7cc78ca",
       },
     ],
   },
-  accountId: "laborum",
+  accountId: "dicta",
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 96098,
+  timeoutInMinutes: 720633,
 }).then((res: CreateBankTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -114,7 +100,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bankAccountTransactions.getCreateModel({
-  accountId: "reiciendis",
+  accountId: "officia",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetCreateBankTransactionsModelResponse) => {
@@ -162,13 +148,13 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bankAccountTransactions.list({
-  accountId: "voluptatibus",
+  accountId: "occaecati",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "vero",
+  query: "fugit",
 }).then((res: ListBankAccountTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response

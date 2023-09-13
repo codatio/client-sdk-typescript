@@ -62,9 +62,6 @@ export class EnhancedReportReportItem extends SpeakeasyBase {
     date?: string;
 }
 
-/**
- * OK
- */
 export class EnhancedReport extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "reportInfo" })

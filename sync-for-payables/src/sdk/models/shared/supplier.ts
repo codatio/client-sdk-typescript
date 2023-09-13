@@ -9,7 +9,7 @@ import { SupplementalData } from "./supplementaldata";
 import { SupplierStatus } from "./supplierstatus";
 import { Expose, Type } from "class-transformer";
 
-export class SupplierAddresses extends SpeakeasyBase {
+export class SupplierAccountingAddress extends SpeakeasyBase {
     /**
      * City of the customer address.
      */
@@ -73,10 +73,10 @@ export class Supplier extends SpeakeasyBase {
     /**
      * An array of Addresses.
      */
-    @SpeakeasyMetadata({ elemType: SupplierAddresses })
+    @SpeakeasyMetadata({ elemType: SupplierAccountingAddress })
     @Expose({ name: "addresses" })
-    @Type(() => SupplierAddresses)
-    addresses?: SupplierAddresses[];
+    @Type(() => SupplierAccountingAddress)
+    addresses?: SupplierAccountingAddress[];
 
     /**
      * Name of the main contact for the supplier.
@@ -145,7 +145,7 @@ export class Supplier extends SpeakeasyBase {
      *
      * @remarks
      *
-     * It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/additional-data) about supplemental data.
+     * It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "supplementalData" })

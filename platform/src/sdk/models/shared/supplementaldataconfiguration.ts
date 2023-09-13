@@ -31,9 +31,6 @@ export class SupplementalDataConfigurationSupplementalDataSourceConfiguration ex
     pushData?: Record<string, string>;
 }
 
-/**
- * OK
- */
 export class SupplementalDataConfiguration extends SpeakeasyBase {
     @SpeakeasyMetadata({
         elemType: SupplementalDataConfigurationSupplementalDataSourceConfiguration,

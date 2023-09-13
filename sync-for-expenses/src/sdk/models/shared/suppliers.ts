@@ -7,9 +7,6 @@ import { Links } from "./links";
 import { Supplier } from "./supplier";
 import { Expose, Type } from "class-transformer";
 
-/**
- * Success
- */
 export class Suppliers extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "_links" })

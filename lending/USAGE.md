@@ -3,7 +3,7 @@
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GetAccountingBankAccountResponse } from "@codat/lending/dist/sdk/models/operations";
+import { ListAccountingBankAccountTransactionsResponse } from "@codat/lending/dist/sdk/models/operations";
 
 const sdk = new CodatLending({
   security: {
@@ -11,11 +11,15 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountingBankData.getAccount({
+sdk.accountingBankData.listTransactions({
   accountId: "corrupti",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetAccountingBankAccountResponse) => {
+  orderBy: "-modifiedDate",
+  page: 1,
+  pageSize: 100,
+  query: "provident",
+}).then((res: ListAccountingBankAccountTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
   }

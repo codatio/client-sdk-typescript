@@ -7,9 +7,6 @@ import { Links } from "./links";
 import { TaxRate } from "./taxrate";
 import { Expose, Type } from "class-transformer";
 
-/**
- * Success
- */
 export class TaxRates extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "_links" })

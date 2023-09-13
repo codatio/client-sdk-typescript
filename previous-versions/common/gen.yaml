@@ -18,7 +18,7 @@ features:
     nameOverrides: 2.81.1
     retries: 2.82.0
 typescript:
-  version: 0.2.0
+  version: 0.36.0
   author: Codat
   description: Manage the building blocks of Codat, including companies, connections, and more.
   maxMethodParams: 0

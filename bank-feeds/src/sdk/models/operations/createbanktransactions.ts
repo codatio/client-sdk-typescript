@@ -5,28 +5,10 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
-import { Expose, Type } from "class-transformer";
-
-export class CreateBankTransactionsCreateBankAccountTransactions extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "accountId" })
-    accountId?: string;
-
-    @SpeakeasyMetadata({
-        elemType:
-            shared.Onecompanies1Percent7BcompanyIdPercent7D1connections1Percent7BconnectionIdPercent7D1push1bankAccounts1Percent7BaccountIdPercent7D1bankTransactionsPostRequestBodyContentApplication1jsonSchemaDefinitionsCreateBankAccountTransaction,
-    })
-    @Expose({ name: "transactions" })
-    @Type(
-        () =>
-            shared.Onecompanies1Percent7BcompanyIdPercent7D1connections1Percent7BconnectionIdPercent7D1push1bankAccounts1Percent7BaccountIdPercent7D1bankTransactionsPostRequestBodyContentApplication1jsonSchemaDefinitionsCreateBankAccountTransaction
-    )
-    transactions?: shared.Onecompanies1Percent7BcompanyIdPercent7D1connections1Percent7BconnectionIdPercent7D1push1bankAccounts1Percent7BaccountIdPercent7D1bankTransactionsPostRequestBodyContentApplication1jsonSchemaDefinitionsCreateBankAccountTransaction[];
-}
 
 export class CreateBankTransactionsRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    requestBody?: CreateBankTransactionsCreateBankAccountTransactions;
+    createBankTransactions?: shared.CreateBankTransactions;
 
     /**
      * Unique identifier for an account

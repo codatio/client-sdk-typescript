@@ -34,7 +34,7 @@ const sdk = new CodatSyncPayables({
 
 sdk.trackingCategories.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  trackingCategoryId: "libero",
+  trackingCategoryId: "incidunt",
 }).then((res: GetTrackingCategoryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -82,7 +82,7 @@ sdk.trackingCategories.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "ab",
+  query: "explicabo",
 }).then((res: ListTrackingCategoriesResponse) => {
   if (res.statusCode == 200) {
     // handle response

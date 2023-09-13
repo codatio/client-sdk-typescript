@@ -16,15 +16,15 @@ export class CreateRuleResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
 
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    rule?: shared.Rule;
-
     @SpeakeasyMetadata()
     statusCode: number;
 
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
+
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    webhook?: shared.Webhook;
 }
