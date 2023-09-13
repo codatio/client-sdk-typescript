@@ -66,11 +66,10 @@ src/sdk/models/shared/validationitem.ts
 src/sdk/models/shared/pushoperationstatus.ts
 src/sdk/models/shared/datatype.ts
 src/sdk/models/shared/createbanktransactions.ts
-src/sdk/models/shared/createbankaccounttransaction.ts
+src/sdk/models/shared/createbanktransaction.ts
 src/sdk/models/shared/pushoperationchange.ts
 src/sdk/models/shared/pushchangetype.ts
 src/sdk/models/shared/pushoperationref.ts
-src/sdk/models/shared/onecompanies1percent7bcompanyidpercent7d1connections1percent7bconnectionidpercent7d1push1bankaccounts1percent7baccountidpercent7d1banktransactionspostrequestbodycontentapplication1jsonschemadefinitionscreatebankaccounttransaction.ts
 src/sdk/models/shared/pushoperation.ts
 src/sdk/models/shared/pushoperations.ts
 src/sdk/models/shared/security.ts
@@ -107,7 +106,7 @@ docs/models/operations/getconnectionrequest.md
 docs/models/operations/getconnectionresponse.md
 docs/models/operations/listconnectionsrequest.md
 docs/models/operations/listconnectionsresponse.md
-docs/models/operations/unlinkconnectionrequestbody.md
+docs/models/operations/unlinkconnectionupdateconnection.md
 docs/models/operations/unlinkconnectionrequest.md
 docs/models/operations/unlinkconnectionresponse.md
 docs/models/operations/createsourceaccountrequest.md
@@ -122,7 +121,6 @@ docs/models/operations/listsourceaccountsrequest.md
 docs/models/operations/listsourceaccountsresponse.md
 docs/models/operations/updatesourceaccountrequest.md
 docs/models/operations/updatesourceaccountresponse.md
-docs/models/operations/createbanktransactionscreatebankaccounttransactions.md
 docs/models/operations/createbanktransactionsrequest.md
 docs/models/operations/createbanktransactionsresponse.md
 docs/models/operations/getcreateoperationrequest.md
@@ -151,11 +149,10 @@ docs/models/shared/validationitem.md
 docs/models/shared/pushoperationstatus.md
 docs/models/shared/datatype.md
 docs/models/shared/createbanktransactions.md
-docs/models/shared/createbankaccounttransaction.md
+docs/models/shared/createbanktransaction.md
 docs/models/shared/pushoperationchange.md
 docs/models/shared/pushchangetype.md
 docs/models/shared/pushoperationref.md
-docs/models/shared/onecompanies1percent7bcompanyidpercent7d1connections1percent7bconnectionidpercent7d1push1bankaccounts1percent7baccountidpercent7d1banktransactionspostrequestbodycontentapplication1jsonschemadefinitionscreatebankaccounttransaction.md
 docs/models/shared/pushoperation.md
 docs/models/shared/pushoperations.md
 docs/models/shared/security.md
