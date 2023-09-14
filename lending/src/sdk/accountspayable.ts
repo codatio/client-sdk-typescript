@@ -22,20 +22,18 @@ export enum DownloadBillAttachmentAcceptEnum {
 }
 
 export class AccountsPayable {
-    public accountsPayableBillCreditNotes: AccountsPayableBillCreditNotes;
-    public accountsPayableBillPayments: AccountsPayableBillPayments;
-    public accountsPayableBills: AccountsPayableBills;
-    public accountsPayableSuppliers: AccountsPayableSuppliers;
+    public billCreditNotes: AccountsPayableBillCreditNotes;
+    public billPayments: AccountsPayableBillPayments;
+    public bills: AccountsPayableBills;
+    public suppliers: AccountsPayableSuppliers;
     private sdkConfiguration: SDKConfiguration;
 
     constructor(sdkConfig: SDKConfiguration) {
         this.sdkConfiguration = sdkConfig;
-        this.accountsPayableBillCreditNotes = new AccountsPayableBillCreditNotes(
-            this.sdkConfiguration
-        );
-        this.accountsPayableBillPayments = new AccountsPayableBillPayments(this.sdkConfiguration);
-        this.accountsPayableBills = new AccountsPayableBills(this.sdkConfiguration);
-        this.accountsPayableSuppliers = new AccountsPayableSuppliers(this.sdkConfiguration);
+        this.billCreditNotes = new AccountsPayableBillCreditNotes(this.sdkConfiguration);
+        this.billPayments = new AccountsPayableBillPayments(this.sdkConfiguration);
+        this.bills = new AccountsPayableBills(this.sdkConfiguration);
+        this.suppliers = new AccountsPayableSuppliers(this.sdkConfiguration);
     }
 
     /**

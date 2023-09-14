@@ -1,4 +1,4 @@
-# transactionsJournals
+# Transactions.Journals
 
 ### Available Operations
 
@@ -28,7 +28,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.transactionsJournals.get({
+sdk.transactions.journals.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   journalId: "praesentium",
 }).then((res: GetAccountingJournalResponse) => {
@@ -73,7 +73,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.transactionsJournals.list({
+sdk.transactions.journals.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,

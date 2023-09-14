@@ -10,21 +10,19 @@ import { TransactionsJournals } from "./transactionsjournals";
 import { TransactionsTransfers } from "./transactionstransfers";
 
 export class Transactions {
-    public transactionsAccountTransactions: TransactionsAccountTransactions;
-    public transactionsDirectCosts: TransactionsDirectCosts;
-    public transactionsJournalEntries: TransactionsJournalEntries;
-    public transactionsJournals: TransactionsJournals;
-    public transactionsTransfers: TransactionsTransfers;
+    public accountTransactions: TransactionsAccountTransactions;
+    public directCosts: TransactionsDirectCosts;
+    public journalEntries: TransactionsJournalEntries;
+    public journals: TransactionsJournals;
+    public transfers: TransactionsTransfers;
     private sdkConfiguration: SDKConfiguration;
 
     constructor(sdkConfig: SDKConfiguration) {
         this.sdkConfiguration = sdkConfig;
-        this.transactionsAccountTransactions = new TransactionsAccountTransactions(
-            this.sdkConfiguration
-        );
-        this.transactionsDirectCosts = new TransactionsDirectCosts(this.sdkConfiguration);
-        this.transactionsJournalEntries = new TransactionsJournalEntries(this.sdkConfiguration);
-        this.transactionsJournals = new TransactionsJournals(this.sdkConfiguration);
-        this.transactionsTransfers = new TransactionsTransfers(this.sdkConfiguration);
+        this.accountTransactions = new TransactionsAccountTransactions(this.sdkConfiguration);
+        this.directCosts = new TransactionsDirectCosts(this.sdkConfiguration);
+        this.journalEntries = new TransactionsJournalEntries(this.sdkConfiguration);
+        this.journals = new TransactionsJournals(this.sdkConfiguration);
+        this.transfers = new TransactionsTransfers(this.sdkConfiguration);
     }
 }

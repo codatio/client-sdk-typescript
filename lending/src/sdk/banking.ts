@@ -10,19 +10,19 @@ import { BankingTransactions } from "./bankingtransactions";
 import { SDKConfiguration } from "./sdk";
 
 export class Banking {
-    public bankingAccountBalances: BankingAccountBalances;
-    public bankingAccounts: BankingAccounts;
-    public bankingCategorizedStatement: BankingCategorizedStatement;
-    public bankingTransactionCategories: BankingTransactionCategories;
-    public bankingTransactions: BankingTransactions;
+    public accountBalances: BankingAccountBalances;
+    public accounts: BankingAccounts;
+    public categorizedStatement: BankingCategorizedStatement;
+    public transactionCategories: BankingTransactionCategories;
+    public transactions: BankingTransactions;
     private sdkConfiguration: SDKConfiguration;
 
     constructor(sdkConfig: SDKConfiguration) {
         this.sdkConfiguration = sdkConfig;
-        this.bankingAccountBalances = new BankingAccountBalances(this.sdkConfiguration);
-        this.bankingAccounts = new BankingAccounts(this.sdkConfiguration);
-        this.bankingCategorizedStatement = new BankingCategorizedStatement(this.sdkConfiguration);
-        this.bankingTransactionCategories = new BankingTransactionCategories(this.sdkConfiguration);
-        this.bankingTransactions = new BankingTransactions(this.sdkConfiguration);
+        this.accountBalances = new BankingAccountBalances(this.sdkConfiguration);
+        this.accounts = new BankingAccounts(this.sdkConfiguration);
+        this.categorizedStatement = new BankingCategorizedStatement(this.sdkConfiguration);
+        this.transactionCategories = new BankingTransactionCategories(this.sdkConfiguration);
+        this.transactions = new BankingTransactions(this.sdkConfiguration);
     }
 }
