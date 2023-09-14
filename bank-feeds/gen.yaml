@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: 7815cab00193c62a7c7b468e85607ca1
   docVersion: 3.0.0
-  speakeasyVersion: 1.82.5
-  generationVersion: 2.108.3
+  speakeasyVersion: 1.83.2
+  generationVersion: 2.109.3
 generation:
   sdkClassName: CodatBankFeeds
   singleTagPerOp: false
@@ -18,9 +18,8 @@ features:
     nameOverrides: 2.81.1
     retries: 2.82.0
 typescript:
-  version: 1.1.0
+  version: 1.2.0
   author: Codat
-  description: Set up bank feeds from accounts in your application to supported accounting
-    platforms.
+  description: Set up bank feeds from accounts in your application to supported accounting platforms.
   maxMethodParams: 0
   packageName: '@codat/bank-feeds'
