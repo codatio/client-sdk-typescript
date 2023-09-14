@@ -149,7 +149,7 @@ const sdk = new CodatSyncExpenses({
 sdk.sync.initiateSync({
   initiateSync: {
     datasetIds: [
-      "55907aff-1a3a-42fa-9467-739251aa52c3",
+      "fce6c556-146c-43e2-90fb-008c42e141aa",
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",

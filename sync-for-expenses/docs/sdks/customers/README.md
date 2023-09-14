@@ -29,6 +29,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 import { CreateCustomerResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
+import { AccountingAddressType, CustomerStatus, PhoneNumberType } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
 const sdk = new CodatSyncExpenses({
   security: {
@@ -38,11 +39,65 @@ const sdk = new CodatSyncExpenses({
 
 sdk.customers.create({
   customer: {
-    id: "142",
+    addresses: [
+      {
+        city: "West Christa",
+        country: "Iceland",
+        line1: "cupiditate",
+        line2: "quos",
+        postalCode: "18301",
+        region: "dolorum",
+        type: AccountingAddressType.Billing,
+      },
+    ],
+    contactName: "tempora",
+    contacts: [
+      {
+        address: {
+          city: "Riceboro",
+          country: "Vanuatu",
+          line1: "eum",
+          line2: "non",
+          postalCode: "53585-6289",
+          region: "dolorum",
+          type: AccountingAddressType.Billing,
+        },
+        email: "Rose.Wolff29@yahoo.com",
+        modifiedDate: "2022-10-23T00:00:00.000Z",
+        name: "Nathaniel Hyatt",
+        phone: [
+          {
+            number: "+44 25691 154789",
+            type: PhoneNumberType.Mobile,
+          },
+        ],
+        status: CustomerStatus.Unknown,
+      },
+    ],
+    customerName: "accusamus",
+    defaultCurrency: "EUR",
+    emailAddress: "quidem",
+    id: "9ba88f3a-6699-4707-8ba4-469b6e214195",
+    metadata: {
+      isDeleted: false,
+    },
+    modifiedDate: "2022-10-23T00:00:00.000Z",
+    phone: "606-963-4281 x3049",
+    registrationNumber: "debitis",
+    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+    status: CustomerStatus.Archived,
+    supplementalData: {
+      content: {
+        "deleniti": {
+          "facilis": "in",
+        },
+      },
+    },
+    taxNumber: "architecto",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 383441,
+  timeoutInMinutes: 99569,
 }).then((res: CreateCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -89,7 +144,7 @@ const sdk = new CodatSyncExpenses({
 
 sdk.customers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  customerId: "molestiae",
+  customerId: "repudiandae",
 }).then((res: GetCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -137,7 +192,7 @@ sdk.customers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "minus",
+  query: "ullam",
 }).then((res: ListCustomersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -177,6 +232,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 import { UpdateCustomerResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
+import { AccountingAddressType, CustomerStatus, PhoneNumberType } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
 const sdk = new CodatSyncExpenses({
   security: {
@@ -186,13 +242,67 @@ const sdk = new CodatSyncExpenses({
 
 sdk.customers.update({
   customer: {
-    id: "142",
+    addresses: [
+      {
+        city: "Kossworth",
+        country: "Sudan",
+        line1: "sed",
+        line2: "saepe",
+        postalCode: "01561-1788",
+        region: "maxime",
+        type: AccountingAddressType.Billing,
+      },
+    ],
+    contactName: "excepturi",
+    contacts: [
+      {
+        address: {
+          city: "South Alexanneton",
+          country: "Wallis and Futuna",
+          line1: "quidem",
+          line2: "ipsam",
+          postalCode: "47083",
+          region: "voluptatibus",
+          type: AccountingAddressType.Unknown,
+        },
+        email: "Darian.Anderson94@hotmail.com",
+        modifiedDate: "2022-10-23T00:00:00.000Z",
+        name: "Ernest Hayes",
+        phone: [
+          {
+            number: "+44 25691 154789",
+            type: PhoneNumberType.Landline,
+          },
+        ],
+        status: CustomerStatus.Unknown,
+      },
+    ],
+    customerName: "eos",
+    defaultCurrency: "GBP",
+    emailAddress: "dolores",
+    id: "c73d5fe9-b90c-4289-89b3-fe49a8d9cbf4",
+    metadata: {
+      isDeleted: false,
+    },
+    modifiedDate: "2022-10-23T00:00:00.000Z",
+    phone: "1-322-329-5744 x926",
+    registrationNumber: "numquam",
+    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+    status: CustomerStatus.Unknown,
+    supplementalData: {
+      content: {
+        "ipsa": {
+          "iure": "odio",
+        },
+      },
+    },
+    taxNumber: "quaerat",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "placeat",
+  customerId: "accusamus",
   forceUpdate: false,
-  timeoutInMinutes: 528895,
+  timeoutInMinutes: 696344,
 }).then((res: UpdateCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response

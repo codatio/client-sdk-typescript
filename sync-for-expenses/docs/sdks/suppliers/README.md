@@ -29,6 +29,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 import { CreateSupplierResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
+import { AccountingAddressType, SupplierStatus } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
 const sdk = new CodatSyncExpenses({
   security: {
@@ -38,11 +39,42 @@ const sdk = new CodatSyncExpenses({
 
 sdk.suppliers.create({
   supplier: {
-    id: "124",
+    addresses: [
+      {
+        city: "Kohlerberg",
+        country: "Faroe Islands",
+        line1: "qui",
+        line2: "cupiditate",
+        postalCode: "87165-2117",
+        region: "facilis",
+        type: AccountingAddressType.Billing,
+      },
+    ],
+    contactName: "quam",
+    defaultCurrency: "molestias",
+    emailAddress: "temporibus",
+    id: "2322715b-f0cb-4b1e-b1b8-b90f3443a110",
+    metadata: {
+      isDeleted: false,
+    },
+    modifiedDate: "2022-10-23T00:00:00.000Z",
+    phone: "01224 658 999",
+    registrationNumber: "consequatur",
+    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+    status: SupplierStatus.Archived,
+    supplementalData: {
+      content: {
+        "porro": {
+          "doloribus": "ut",
+        },
+      },
+    },
+    supplierName: "facilis",
+    taxNumber: "cupiditate",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 358152,
+  timeoutInMinutes: 181631,
 }).then((res: CreateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -137,7 +169,7 @@ sdk.suppliers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "nobis",
+  query: "laudantium",
 }).then((res: ListSuppliersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -177,6 +209,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 import { UpdateSupplierResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
+import { AccountingAddressType, SupplierStatus } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
 const sdk = new CodatSyncExpenses({
   security: {
@@ -186,13 +219,44 @@ const sdk = new CodatSyncExpenses({
 
 sdk.suppliers.update({
   supplier: {
-    id: "124",
+    addresses: [
+      {
+        city: "Krisworth",
+        country: "Senegal",
+        line1: "vero",
+        line2: "omnis",
+        postalCode: "29428",
+        region: "tenetur",
+        type: AccountingAddressType.Billing,
+      },
+    ],
+    contactName: "hic",
+    defaultCurrency: "distinctio",
+    emailAddress: "quod",
+    id: "7abd74dd-39c0-4f5d-acff-7c70a45626d4",
+    metadata: {
+      isDeleted: false,
+    },
+    modifiedDate: "2022-10-23T00:00:00.000Z",
+    phone: "(877) 492-8687",
+    registrationNumber: "laudantium",
+    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+    status: SupplierStatus.Unknown,
+    supplementalData: {
+      content: {
+        "maiores": {
+          "quasi": "ex",
+        },
+      },
+    },
+    supplierName: "nulla",
+    taxNumber: "excepturi",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  supplierId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
-  timeoutInMinutes: 607831,
+  supplierId: "EILBDVJVNUAGVKRQ",
+  timeoutInMinutes: 343605,
 }).then((res: UpdateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
