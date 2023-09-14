@@ -11,25 +11,21 @@ import { AccountsReceivableReports } from "./accountsreceivablereports";
 import { SDKConfiguration } from "./sdk";
 
 export class AccountsReceivable {
-    public accountsReceivableCreditNotes: AccountsReceivableCreditNotes;
-    public accountsReceivableCustomers: AccountsReceivableCustomers;
-    public accountsReceivableDirectIncomes: AccountsReceivableDirectIncomes;
-    public accountsReceivableInvoices: AccountsReceivableInvoices;
-    public accountsReceivablePayments: AccountsReceivablePayments;
-    public accountsReceivableReports: AccountsReceivableReports;
+    public creditNotes: AccountsReceivableCreditNotes;
+    public customers: AccountsReceivableCustomers;
+    public directIncomes: AccountsReceivableDirectIncomes;
+    public invoices: AccountsReceivableInvoices;
+    public payments: AccountsReceivablePayments;
+    public reports: AccountsReceivableReports;
     private sdkConfiguration: SDKConfiguration;
 
     constructor(sdkConfig: SDKConfiguration) {
         this.sdkConfiguration = sdkConfig;
-        this.accountsReceivableCreditNotes = new AccountsReceivableCreditNotes(
-            this.sdkConfiguration
-        );
-        this.accountsReceivableCustomers = new AccountsReceivableCustomers(this.sdkConfiguration);
-        this.accountsReceivableDirectIncomes = new AccountsReceivableDirectIncomes(
-            this.sdkConfiguration
-        );
-        this.accountsReceivableInvoices = new AccountsReceivableInvoices(this.sdkConfiguration);
-        this.accountsReceivablePayments = new AccountsReceivablePayments(this.sdkConfiguration);
-        this.accountsReceivableReports = new AccountsReceivableReports(this.sdkConfiguration);
+        this.creditNotes = new AccountsReceivableCreditNotes(this.sdkConfiguration);
+        this.customers = new AccountsReceivableCustomers(this.sdkConfiguration);
+        this.directIncomes = new AccountsReceivableDirectIncomes(this.sdkConfiguration);
+        this.invoices = new AccountsReceivableInvoices(this.sdkConfiguration);
+        this.payments = new AccountsReceivablePayments(this.sdkConfiguration);
+        this.reports = new AccountsReceivableReports(this.sdkConfiguration);
     }
 }

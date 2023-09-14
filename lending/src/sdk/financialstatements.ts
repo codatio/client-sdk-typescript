@@ -9,21 +9,17 @@ import { FinancialStatementsProfitAndLoss } from "./financialstatementsprofitand
 import { SDKConfiguration } from "./sdk";
 
 export class FinancialStatements {
-    public financialStatementsAccounts: FinancialStatementsAccounts;
-    public financialStatementsBalanceSheet: FinancialStatementsBalanceSheet;
-    public financialStatementsCashFlow: FinancialStatementsCashFlow;
-    public financialStatementsProfitAndLoss: FinancialStatementsProfitAndLoss;
+    public accounts: FinancialStatementsAccounts;
+    public balanceSheet: FinancialStatementsBalanceSheet;
+    public cashFlow: FinancialStatementsCashFlow;
+    public profitAndLoss: FinancialStatementsProfitAndLoss;
     private sdkConfiguration: SDKConfiguration;
 
     constructor(sdkConfig: SDKConfiguration) {
         this.sdkConfiguration = sdkConfig;
-        this.financialStatementsAccounts = new FinancialStatementsAccounts(this.sdkConfiguration);
-        this.financialStatementsBalanceSheet = new FinancialStatementsBalanceSheet(
-            this.sdkConfiguration
-        );
-        this.financialStatementsCashFlow = new FinancialStatementsCashFlow(this.sdkConfiguration);
-        this.financialStatementsProfitAndLoss = new FinancialStatementsProfitAndLoss(
-            this.sdkConfiguration
-        );
+        this.accounts = new FinancialStatementsAccounts(this.sdkConfiguration);
+        this.balanceSheet = new FinancialStatementsBalanceSheet(this.sdkConfiguration);
+        this.cashFlow = new FinancialStatementsCashFlow(this.sdkConfiguration);
+        this.profitAndLoss = new FinancialStatementsProfitAndLoss(this.sdkConfiguration);
     }
 }

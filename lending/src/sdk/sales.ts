@@ -16,31 +16,31 @@ import { SalesTransactions } from "./salestransactions";
 import { SDKConfiguration } from "./sdk";
 
 export class Sales {
-    public salesCustomers: SalesCustomers;
-    public salesDisputes: SalesDisputes;
-    public salesLocations: SalesLocations;
-    public salesMetrics: SalesMetrics;
-    public salesOrders: SalesOrders;
-    public salesPaymentMethods: SalesPaymentMethods;
-    public salesPayments: SalesPayments;
-    public salesProductCategories: SalesProductCategories;
-    public salesProducts: SalesProducts;
-    public salesReports: SalesReports;
-    public salesTransactions: SalesTransactions;
+    public customers: SalesCustomers;
+    public disputes: SalesDisputes;
+    public locations: SalesLocations;
+    public metrics: SalesMetrics;
+    public orders: SalesOrders;
+    public paymentMethods: SalesPaymentMethods;
+    public payments: SalesPayments;
+    public productCategories: SalesProductCategories;
+    public products: SalesProducts;
+    public reports: SalesReports;
+    public transactions: SalesTransactions;
     private sdkConfiguration: SDKConfiguration;
 
     constructor(sdkConfig: SDKConfiguration) {
         this.sdkConfiguration = sdkConfig;
-        this.salesCustomers = new SalesCustomers(this.sdkConfiguration);
-        this.salesDisputes = new SalesDisputes(this.sdkConfiguration);
-        this.salesLocations = new SalesLocations(this.sdkConfiguration);
-        this.salesMetrics = new SalesMetrics(this.sdkConfiguration);
-        this.salesOrders = new SalesOrders(this.sdkConfiguration);
-        this.salesPaymentMethods = new SalesPaymentMethods(this.sdkConfiguration);
-        this.salesPayments = new SalesPayments(this.sdkConfiguration);
-        this.salesProductCategories = new SalesProductCategories(this.sdkConfiguration);
-        this.salesProducts = new SalesProducts(this.sdkConfiguration);
-        this.salesReports = new SalesReports(this.sdkConfiguration);
-        this.salesTransactions = new SalesTransactions(this.sdkConfiguration);
+        this.customers = new SalesCustomers(this.sdkConfiguration);
+        this.disputes = new SalesDisputes(this.sdkConfiguration);
+        this.locations = new SalesLocations(this.sdkConfiguration);
+        this.metrics = new SalesMetrics(this.sdkConfiguration);
+        this.orders = new SalesOrders(this.sdkConfiguration);
+        this.paymentMethods = new SalesPaymentMethods(this.sdkConfiguration);
+        this.payments = new SalesPayments(this.sdkConfiguration);
+        this.productCategories = new SalesProductCategories(this.sdkConfiguration);
+        this.products = new SalesProducts(this.sdkConfiguration);
+        this.reports = new SalesReports(this.sdkConfiguration);
+        this.transactions = new SalesTransactions(this.sdkConfiguration);
     }
 }

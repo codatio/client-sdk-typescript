@@ -1,4 +1,4 @@
-# salesReports
+# Sales.Reports
 
 ### Available Operations
 
@@ -45,7 +45,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.salesReports.getOrders({
+sdk.sales.reports.getOrders({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
@@ -115,7 +115,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.salesReports.getRefunds({
+sdk.sales.reports.getRefunds({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,

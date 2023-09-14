@@ -1,4 +1,4 @@
-# salesProducts
+# Sales.Products
 
 ### Available Operations
 
@@ -28,7 +28,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.salesProducts.get({
+sdk.sales.products.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   productId: "animi",
@@ -74,7 +74,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.salesProducts.list({
+sdk.sales.products.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",

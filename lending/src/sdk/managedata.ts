@@ -12,14 +12,14 @@ import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 export class ManageData {
-    public manageDataPullOperations: ManageDataPullOperations;
-    public manageDataRefresh: ManageDataRefresh;
+    public pullOperations: ManageDataPullOperations;
+    public refresh: ManageDataRefresh;
     private sdkConfiguration: SDKConfiguration;
 
     constructor(sdkConfig: SDKConfiguration) {
         this.sdkConfiguration = sdkConfig;
-        this.manageDataPullOperations = new ManageDataPullOperations(this.sdkConfiguration);
-        this.manageDataRefresh = new ManageDataRefresh(this.sdkConfiguration);
+        this.pullOperations = new ManageDataPullOperations(this.sdkConfiguration);
+        this.refresh = new ManageDataRefresh(this.sdkConfiguration);
     }
 
     /**

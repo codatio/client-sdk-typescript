@@ -15,12 +15,12 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
  */
 
 export class AccountingBankData {
-    public accountingBankDataAccounts: AccountingBankDataAccounts;
+    public accounts: AccountingBankDataAccounts;
     private sdkConfiguration: SDKConfiguration;
 
     constructor(sdkConfig: SDKConfiguration) {
         this.sdkConfiguration = sdkConfig;
-        this.accountingBankDataAccounts = new AccountingBankDataAccounts(this.sdkConfiguration);
+        this.accounts = new AccountingBankDataAccounts(this.sdkConfiguration);
     }
 
     /**
