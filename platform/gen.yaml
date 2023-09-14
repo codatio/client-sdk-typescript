@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: 6f41b61f64ea1dcaee9df6bc1e3cb37c
   docVersion: 3.0.0
-  speakeasyVersion: 1.82.5
-  generationVersion: 2.108.3
+  speakeasyVersion: 1.83.2
+  generationVersion: 2.109.3
 generation:
   sdkClassName: CodatPlatform
   singleTagPerOp: false
@@ -18,9 +18,8 @@ features:
     nameOverrides: 2.81.1
     retries: 2.82.0
 typescript:
-  version: 0.2.0
+  version: 0.3.0
   author: Codat
-  description: Manage the building blocks of Codat, including companies, connections,
-    and more.
+  description: Manage the building blocks of Codat, including companies, connections, and more.
   maxMethodParams: 0
   packageName: '@codat/platform'
