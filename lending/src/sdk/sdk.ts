@@ -67,7 +67,7 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "3.0.0";
-    sdkVersion = "1.2.0";
+    sdkVersion = "2.1.0";
     genVersion = "2.109.3";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
@@ -112,10 +112,6 @@ export class CodatLending {
      */
     public accountingBankData: AccountingBankData;
     /**
-     * Data from a linked accounting platform representing money the business owes money to its suppliers.
-     */
-    public accountsPayable: AccountsPayable;
-    /**
      * Create and manage your Codat companies.
      */
     public companies: Companies;
@@ -143,6 +139,7 @@ export class CodatLending {
      * Debt and other liabilities.
      */
     public liabilities: Liabilities;
+    public accountsPayable: AccountsPayable;
     public accountsReceivable: AccountsReceivable;
     public banking: Banking;
     public financialStatements: FinancialStatements;
@@ -169,7 +166,6 @@ export class CodatLending {
         });
 
         this.accountingBankData = new AccountingBankData(this.sdkConfiguration);
-        this.accountsPayable = new AccountsPayable(this.sdkConfiguration);
         this.companies = new Companies(this.sdkConfiguration);
         this.companyInfo = new CompanyInfo(this.sdkConfiguration);
         this.connections = new Connections(this.sdkConfiguration);
@@ -177,6 +173,7 @@ export class CodatLending {
         this.excelReports = new ExcelReports(this.sdkConfiguration);
         this.fileUpload = new FileUpload(this.sdkConfiguration);
         this.liabilities = new Liabilities(this.sdkConfiguration);
+        this.accountsPayable = new AccountsPayable(this.sdkConfiguration);
         this.accountsReceivable = new AccountsReceivable(this.sdkConfiguration);
         this.banking = new Banking(this.sdkConfiguration);
         this.financialStatements = new FinancialStatements(this.sdkConfiguration);

@@ -76,7 +76,7 @@ const sdk = new CodatLending({
 
 sdk.liabilities.listLoanTransactions({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  sourceType: ListLoanTransactionsSourceType.Banking,
+  sourceType: ListLoanTransactionsSourceType.Commerce,
 }).then((res: ListLoanTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response

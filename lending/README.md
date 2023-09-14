@@ -61,35 +61,6 @@ sdk.accountingBankData.listTransactions({
 * [get](docs/sdks/accountingbankdataaccounts/README.md#get) - Get bank account
 * [list](docs/sdks/accountingbankdataaccounts/README.md#list) - List bank accounts
 
-### [accountsPayable](docs/sdks/accountspayable/README.md)
-
-* [downloadBillAttachment](docs/sdks/accountspayable/README.md#downloadbillattachment) - Download bill attachment
-* [getBillAttachment](docs/sdks/accountspayable/README.md#getbillattachment) - Get bill attachment
-
-### [accountsPayableBillCreditNotes](docs/sdks/accountspayablebillcreditnotes/README.md)
-
-* [get](docs/sdks/accountspayablebillcreditnotes/README.md#get) - Get bill credit note
-* [list](docs/sdks/accountspayablebillcreditnotes/README.md#list) - List bill credit notes
-
-### [accountsPayableBillPayments](docs/sdks/accountspayablebillpayments/README.md)
-
-* [get](docs/sdks/accountspayablebillpayments/README.md#get) - Get bill payment
-* [list](docs/sdks/accountspayablebillpayments/README.md#list) - List bill payments
-
-### [accountsPayableBills](docs/sdks/accountspayablebills/README.md)
-
-* [get](docs/sdks/accountspayablebills/README.md#get) - Get bill
-* [list](docs/sdks/accountspayablebills/README.md#list) - List bills
-* [listAttachments](docs/sdks/accountspayablebills/README.md#listattachments) - List bill attachments
-
-### [accountsPayableSuppliers](docs/sdks/accountspayablesuppliers/README.md)
-
-* [downloadAttachment](docs/sdks/accountspayablesuppliers/README.md#downloadattachment) - Download supplier attachment
-* [get](docs/sdks/accountspayablesuppliers/README.md#get) - Get supplier
-* [getAttachment](docs/sdks/accountspayablesuppliers/README.md#getattachment) - Get supplier attachment
-* [list](docs/sdks/accountspayablesuppliers/README.md#list) - List suppliers
-* [listAttachments](docs/sdks/accountspayablesuppliers/README.md#listattachments) - List supplier attachments
-
 ### [companies](docs/sdks/companies/README.md)
 
 * [create](docs/sdks/companies/README.md#create) - Create company
@@ -133,6 +104,33 @@ sdk.accountingBankData.listTransactions({
 
 * [getLoanSummary](docs/sdks/liabilities/README.md#getloansummary) - Get loan summaries
 * [listLoanTransactions](docs/sdks/liabilities/README.md#listloantransactions) - List loan transactions
+
+
+### [accountsPayableBillCreditNotes](docs/sdks/accountspayablebillcreditnotes/README.md)
+
+* [get](docs/sdks/accountspayablebillcreditnotes/README.md#get) - Get bill credit note
+* [list](docs/sdks/accountspayablebillcreditnotes/README.md#list) - List bill credit notes
+
+### [accountsPayableBillPayments](docs/sdks/accountspayablebillpayments/README.md)
+
+* [get](docs/sdks/accountspayablebillpayments/README.md#get) - Get bill payment
+* [list](docs/sdks/accountspayablebillpayments/README.md#list) - List bill payments
+
+### [accountsPayableBills](docs/sdks/accountspayablebills/README.md)
+
+* [downloadAttachment](docs/sdks/accountspayablebills/README.md#downloadattachment) - Download bill attachment
+* [get](docs/sdks/accountspayablebills/README.md#get) - Get bill
+* [getAttachment](docs/sdks/accountspayablebills/README.md#getattachment) - Get bill attachment
+* [list](docs/sdks/accountspayablebills/README.md#list) - List bills
+* [listAttachments](docs/sdks/accountspayablebills/README.md#listattachments) - List bill attachments
+
+### [accountsPayableSuppliers](docs/sdks/accountspayablesuppliers/README.md)
+
+* [downloadAttachment](docs/sdks/accountspayablesuppliers/README.md#downloadattachment) - Download supplier attachment
+* [get](docs/sdks/accountspayablesuppliers/README.md#get) - Get supplier
+* [getAttachment](docs/sdks/accountspayablesuppliers/README.md#getattachment) - Get supplier attachment
+* [list](docs/sdks/accountspayablesuppliers/README.md#list) - List suppliers
+* [listAttachments](docs/sdks/accountspayablesuppliers/README.md#listattachments) - List supplier attachments
 
 
 ### [accountsReceivableCreditNotes](docs/sdks/accountsreceivablecreditnotes/README.md)
