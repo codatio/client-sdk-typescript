@@ -97,6 +97,7 @@ Sets a companies expense sync configuration
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 import { SetCompanyConfigurationResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
+import { AccountingAddressType, CustomerStatus, PhoneNumberType, SupplierStatus } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
 const sdk = new CodatSyncExpenses({
   security: {
@@ -110,10 +111,95 @@ sdk.configuration.set({
       id: "32",
     },
     customer: {
-      id: "142",
+      addresses: [
+        {
+          city: "Fort Donnybury",
+          country: "Kyrgyz Republic",
+          line1: "minus",
+          line2: "placeat",
+          postalCode: "45398-0306",
+          region: "perferendis",
+          type: AccountingAddressType.Billing,
+        },
+      ],
+      contactName: "repellendus",
+      contacts: [
+        {
+          address: {
+            city: "San Antonio",
+            country: "Burundi",
+            line1: "at",
+            line2: "at",
+            postalCode: "47845-7617",
+            region: "officia",
+            type: AccountingAddressType.Billing,
+          },
+          email: "Kale_Welch10@gmail.com",
+          modifiedDate: "2022-10-23T00:00:00.000Z",
+          name: "Pauline Dibbert",
+          phone: [
+            {
+              number: "(877) 492-8687",
+              type: PhoneNumberType.Landline,
+            },
+          ],
+          status: CustomerStatus.Active,
+        },
+      ],
+      customerName: "aspernatur",
+      defaultCurrency: "GBP",
+      emailAddress: "ad",
+      id: "929396fe-a759-46eb-90fa-aa2352c59559",
+      metadata: {
+        isDeleted: false,
+      },
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      phone: "799.262.6196 x524",
+      registrationNumber: "quam",
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      status: CustomerStatus.Unknown,
+      supplementalData: {
+        content: {
+          "error": {
+            "quia": "quis",
+          },
+        },
+      },
+      taxNumber: "vitae",
     },
     supplier: {
-      id: "124",
+      addresses: [
+        {
+          city: "O'Konborough",
+          country: "Burkina Faso",
+          line1: "quo",
+          line2: "sequi",
+          postalCode: "36800-6860",
+          region: "reiciendis",
+          type: AccountingAddressType.Delivery,
+        },
+      ],
+      contactName: "vero",
+      defaultCurrency: "nihil",
+      emailAddress: "praesentium",
+      id: "f097b007-4f15-4471-b5e6-e13b99d488e1",
+      metadata: {
+        isDeleted: false,
+      },
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      phone: "(877) 492-8687",
+      registrationNumber: "veritatis",
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      status: SupplierStatus.Unknown,
+      supplementalData: {
+        content: {
+          "enim": {
+            "consequatur": "est",
+          },
+        },
+      },
+      supplierName: "quibusdam",
+      taxNumber: "explicabo",
     },
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
