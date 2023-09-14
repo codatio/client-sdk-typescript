@@ -19,3 +19,13 @@ Based on:
 - [typescript v0.2.0] sync-for-payables
 ### Releases
 - [NPM v0.2.0] https://www.npmjs.com/package/@codat/sync-for-payables/v/0.2.0 - sync-for-payables
+
+## 2023-09-14 14:07:36
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Payables.yaml
+- Speakeasy CLI 1.83.2 (2.109.3) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.3.0] sync-for-payables
+### Releases
+- [NPM v0.3.0] https://www.npmjs.com/package/@codat/sync-for-payables/v/0.3.0 - sync-for-payables
