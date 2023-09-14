@@ -3,13 +3,178 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Expose } from "class-transformer";
+import { AccountingAddressType } from "./accountingaddresstype";
+import { Metadata } from "./metadata";
+import { SupplierStatus } from "./supplierstatus";
+import { Expose, Type } from "class-transformer";
 
+export class SupplierAccountingAddress extends SpeakeasyBase {
+    /**
+     * City of the customer address.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "city" })
+    city?: string;
+
+    /**
+     * Country of the customer address.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "country" })
+    country?: string;
+
+    /**
+     * Line 1 of the customer address.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "line1" })
+    line1?: string;
+
+    /**
+     * Line 2 of the customer address.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "line2" })
+    line2?: string;
+
+    /**
+     * Postal code or zip code.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "postalCode" })
+    postalCode?: string;
+
+    /**
+     * Region of the customer address.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "region" })
+    region?: string;
+
+    /**
+     * The type of the address
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type: AccountingAddressType;
+}
+
+/**
+ * Supplemental data is additional data you can include in our standard data types.
+ *
+ * @remarks
+ *
+ * It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
+ */
+export class SupplierSupplementalData extends SpeakeasyBase {
+    @SpeakeasyMetadata()
+    @Expose({ name: "content" })
+    content?: Record<string, Record<string, any>>;
+}
+
+/**
+ * > View the coverage for suppliers in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers" target="_blank">Data coverage explorer</a>.
+ *
+ * @remarks
+ *
+ * ## Overview
+ *
+ * From the **Suppliers** endpoints, you can retrieve a list of [all the suppliers for a company](https://docs.codat.io/accounting-api#/operations/list-suppliers). Suppliers' data links to accounts payable [bills](https://docs.codat.io/accounting-api#/schemas/Bill).
+ */
 export class Supplier extends SpeakeasyBase {
     /**
-     * id of the supplier for all purchases to be associated to
+     * An array of Addresses.
+     */
+    @SpeakeasyMetadata({ elemType: SupplierAccountingAddress })
+    @Expose({ name: "addresses" })
+    @Type(() => SupplierAccountingAddress)
+    addresses?: SupplierAccountingAddress[];
+
+    /**
+     * Name of the main contact for the supplier.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "contactName" })
+    contactName?: string;
+
+    /**
+     * Default currency the supplier's transactional data is recorded in.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "defaultCurrency" })
+    defaultCurrency?: string;
+
+    /**
+     * Email address that the supplier may be contacted on.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "emailAddress" })
+    emailAddress?: string;
+
+    /**
+     * Identifier for the supplier, unique to the company in the accounting platform.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id?: string;
+
+    @SpeakeasyMetadata()
+    @Expose({ name: "metadata" })
+    @Type(() => Metadata)
+    metadata?: Metadata;
+
+    @SpeakeasyMetadata()
+    @Expose({ name: "modifiedDate" })
+    modifiedDate?: string;
+
+    /**
+     * Phone number that the supplier may be contacted on.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "phone" })
+    phone?: string;
+
+    /**
+     * Company number of the supplier. In the UK, this is typically the company registration number issued by Companies House.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "registrationNumber" })
+    registrationNumber?: string;
+
+    @SpeakeasyMetadata()
+    @Expose({ name: "sourceModifiedDate" })
+    sourceModifiedDate?: string;
+
+    /**
+     * Status of the supplier.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status: SupplierStatus;
+
+    /**
+     * Supplemental data is additional data you can include in our standard data types.
+     *
+     * @remarks
+     *
+     * It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "supplementalData" })
+    @Type(() => SupplierSupplementalData)
+    supplementalData?: SupplierSupplementalData;
+
+    /**
+     * Name of the supplier as recorded in the accounting system, typically the company name.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "supplierName" })
+    supplierName?: string;
+
+    /**
+     * Supplier's company tax number.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "taxNumber" })
+    taxNumber?: string;
 }

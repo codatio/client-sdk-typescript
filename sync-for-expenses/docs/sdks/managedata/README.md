@@ -112,7 +112,7 @@ sdk.manageData.listPullOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "quis",
+  query: "fugiat",
 }).then((res: ListPullOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -198,7 +198,7 @@ const sdk = new CodatSyncExpenses({
 
 sdk.manageData.refreshDataType({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "1a05dfc2-ddf7-4cc7-8ca1-ba928fc81674",
+  connectionId: "1ba77a89-ebf7-437a-a420-3ce5e6a95d8a",
   dataType: DataType.Invoices,
 }).then((res: RefreshDataTypeResponse) => {
   if (res.statusCode == 200) {
