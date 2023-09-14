@@ -29,7 +29,7 @@ const sdk = new CodatLending({
 });
 
 sdk.accountsPayableBillCreditNotes.get({
-  billCreditNoteId: "vel",
+  billCreditNoteId: "molestiae",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountingBillCreditNoteResponse) => {
   if (res.statusCode == 200) {
@@ -78,7 +78,7 @@ sdk.accountsPayableBillCreditNotes.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "error",
+  query: "minus",
 }).then((res: ListAccountingBillCreditNotesResponse) => {
   if (res.statusCode == 200) {
     // handle response

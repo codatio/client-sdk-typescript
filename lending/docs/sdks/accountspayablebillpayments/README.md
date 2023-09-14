@@ -29,7 +29,7 @@ const sdk = new CodatLending({
 });
 
 sdk.accountsPayableBillPayments.get({
-  billPaymentId: "deserunt",
+  billPaymentId: "placeat",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountingBillPaymentResponse) => {
   if (res.statusCode == 200) {
@@ -78,7 +78,7 @@ sdk.accountsPayableBillPayments.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "suscipit",
+  query: "voluptatum",
 }).then((res: ListAccountingBillPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
