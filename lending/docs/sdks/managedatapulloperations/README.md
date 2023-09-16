@@ -1,4 +1,4 @@
-# manageDataPullOperations
+# ManageData.PullOperations
 
 ### Available Operations
 
@@ -21,7 +21,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.manageDataPullOperations.get({
+sdk.manageData.pullOperations.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   datasetId: "eaed9f0f-e77b-4bc9-a58f-ab8b4b99ab18",
 }).then((res: GetPullOperationResponse) => {
@@ -61,7 +61,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.manageDataPullOperations.list({
+sdk.manageData.pullOperations.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,

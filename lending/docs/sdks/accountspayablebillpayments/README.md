@@ -1,4 +1,4 @@
-# accountsPayableBillPayments
+# AccountsPayable.BillPayments
 
 ### Available Operations
 
@@ -28,7 +28,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsPayableBillPayments.get({
+sdk.accountsPayable.billPayments.get({
   billPaymentId: "placeat",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountingBillPaymentResponse) => {
@@ -73,7 +73,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsPayableBillPayments.list({
+sdk.accountsPayable.billPayments.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,

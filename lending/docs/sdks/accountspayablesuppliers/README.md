@@ -1,4 +1,4 @@
-# accountsPayableSuppliers
+# AccountsPayable.Suppliers
 
 ### Available Operations
 
@@ -29,7 +29,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsPayableSuppliers.downloadAttachment({
+sdk.accountsPayable.suppliers.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -78,7 +78,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsPayableSuppliers.get({
+sdk.accountsPayable.suppliers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   supplierId: "quis",
 }).then((res: GetAccountingSupplierResponse) => {
@@ -123,7 +123,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsPayableSuppliers.getAttachment({
+sdk.accountsPayable.suppliers.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -170,7 +170,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsPayableSuppliers.list({
+sdk.accountsPayable.suppliers.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,
@@ -218,7 +218,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsPayableSuppliers.listAttachments({
+sdk.accountsPayable.suppliers.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   supplierId: "perferendis",

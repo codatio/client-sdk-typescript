@@ -1,4 +1,4 @@
-# salesProductCategories
+# Sales.ProductCategories
 
 ### Available Operations
 
@@ -28,7 +28,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.salesProductCategories.get({
+sdk.sales.productCategories.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   productId: "vitae",
@@ -74,7 +74,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.salesProductCategories.list({
+sdk.sales.productCategories.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",

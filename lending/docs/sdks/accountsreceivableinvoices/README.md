@@ -1,4 +1,4 @@
-# accountsReceivableInvoices
+# AccountsReceivable.Invoices
 
 ### Available Operations
 
@@ -31,7 +31,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsReceivableInvoices.downloadAttachment({
+sdk.accountsReceivable.invoices.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -73,7 +73,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsReceivableInvoices.downloadPdf({
+sdk.accountsReceivable.invoices.downloadPdf({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   invoiceId: "dolorum",
 }).then((res: DownloadAccountingInvoicePdfResponse) => {
@@ -119,7 +119,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsReceivableInvoices.get({
+sdk.accountsReceivable.invoices.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   invoiceId: "dicta",
 }).then((res: GetAccountingInvoiceResponse) => {
@@ -164,7 +164,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsReceivableInvoices.getAttachment({
+sdk.accountsReceivable.invoices.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -217,7 +217,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsReceivableInvoices.list({
+sdk.accountsReceivable.invoices.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,
@@ -265,7 +265,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsReceivableInvoices.listAttachments({
+sdk.accountsReceivable.invoices.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   invoiceId: "occaecati",
@@ -306,7 +306,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsReceivableInvoices.listReconciled({
+sdk.accountsReceivable.invoices.listReconciled({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   page: 1,
   pageSize: 100,
