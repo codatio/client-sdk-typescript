@@ -1,4 +1,4 @@
-# items
+# Items
 
 ## Overview
 

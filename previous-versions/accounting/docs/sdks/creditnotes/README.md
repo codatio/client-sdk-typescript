@@ -1,4 +1,4 @@
-# creditNotes
+# CreditNotes
 
 ## Overview
 

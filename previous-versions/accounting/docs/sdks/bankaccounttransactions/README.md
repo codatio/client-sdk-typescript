@@ -1,4 +1,4 @@
-# bankAccountTransactions
+# BankAccountTransactions
 
 ## Overview
 
