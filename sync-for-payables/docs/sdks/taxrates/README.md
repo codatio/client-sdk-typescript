@@ -1,4 +1,4 @@
-# taxRates
+# TaxRates
 
 ## Overview
 
