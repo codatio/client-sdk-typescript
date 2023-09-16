@@ -639,3 +639,13 @@ Based on:
 - [typescript v0.36.0] previous-versions/commerce
 ### Releases
 - [NPM v0.36.0] https://www.npmjs.com/package/@codat/commerce/v/0.36.0 - previous-versions/commerce
+
+## 2023-09-16 00:09:18
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Commerce.yaml
+- Speakeasy CLI 1.86.0 (2.115.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.36.1] previous-versions/commerce
+### Releases
+- [NPM v0.36.1] https://www.npmjs.com/package/@codat/commerce/v/0.36.1 - previous-versions/commerce
