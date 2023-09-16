@@ -1,4 +1,4 @@
-# expenses
+# Expenses
 
 ## Overview
 
