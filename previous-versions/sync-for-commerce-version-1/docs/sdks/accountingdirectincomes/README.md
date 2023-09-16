@@ -1,4 +1,4 @@
-# accountingDirectIncomes
+# AccountingDirectIncomes
 
 ## Overview
 

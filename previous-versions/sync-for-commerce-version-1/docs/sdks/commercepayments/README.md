@@ -1,4 +1,4 @@
-# commercePayments
+# CommercePayments
 
 ## Overview
 

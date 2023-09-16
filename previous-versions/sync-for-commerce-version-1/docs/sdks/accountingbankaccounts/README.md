@@ -1,4 +1,4 @@
-# accountingBankAccounts
+# AccountingBankAccounts
 
 ## Overview
 
