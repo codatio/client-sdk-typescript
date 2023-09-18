@@ -1,4 +1,4 @@
-# Onecompanies1Percent7BcompanyIdPercent7D1data1infoGetResponses200ContentApplication1jsonSchemaPropertiesAddressesItemsDefinitionsAccountingAddressType
+# AccountingAddressType
 
 The type of the address
 

@@ -3,12 +3,19 @@
  */
 
 export * from "./account";
+export * from "./accountingaddresstype";
 export * from "./accountref";
 export * from "./accounts";
 export * from "./accountstatus";
 export * from "./accounttype";
+export * from "./address";
+export * from "./clientratelimitreachedwebhook";
+export * from "./clientratelimitreachedwebhookdata";
+export * from "./clientratelimitresetwebhook";
+export * from "./clientratelimitresetwebhookdata";
 export * from "./companies";
 export * from "./company";
+export * from "./companyinfo";
 export * from "./companyrequestbody";
 export * from "./connection";
 export * from "./connections";
@@ -30,8 +37,8 @@ export * from "./journals";
 export * from "./journalstatus";
 export * from "./links";
 export * from "./metadata";
-export * from "./onecompanies1percent7bcompanyidpercent7d1data1infogetresponses200contentapplication1jsonschemapropertiesaddressesitemsdefinitionsaccountingaddresstype";
-export * from "./onecompanies1percent7bcompanyidpercent7d1data1infogetresponses200contentapplication1jsonschemapropertiesphonenumbersitemsdefinitionsphonenumbertype";
+export * from "./phonenumber";
+export * from "./phonenumbertype";
 export * from "./pulloperation";
 export * from "./pulloperations";
 export * from "./pushchangetype";
@@ -54,3 +61,4 @@ export * from "./trackingcategory";
 export * from "./trackingcategorytree";
 export * from "./validation";
 export * from "./validationitem";
+export * from "./weblink";
