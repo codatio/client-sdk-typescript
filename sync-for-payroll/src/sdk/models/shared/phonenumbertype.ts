@@ -5,7 +5,7 @@
 /**
  * The type of phone number
  */
-export enum Onecompanies1Percent7BcompanyIdPercent7D1data1infoGetResponses200ContentApplication1jsonSchemaPropertiesPhoneNumbersItemsDefinitionsPhoneNumberType {
+export enum PhoneNumberType {
     Primary = "Primary",
     Landline = "Landline",
     Mobile = "Mobile",
