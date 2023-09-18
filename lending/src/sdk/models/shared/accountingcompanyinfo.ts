@@ -3,104 +3,10 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { AccountingAddressType } from "./accountingaddresstype";
-import { PhoneNumberType } from "./phonenumbertype";
+import { AccountingAddress } from "./accountingaddress";
+import { PhoneNumber } from "./phonenumber";
+import { WebLink } from "./weblink";
 import { Expose, Type } from "class-transformer";
-
-export class AccountingCompanyInfoAccountingAddress extends SpeakeasyBase {
-    /**
-     * City of the customer address.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "city" })
-    city?: string;
-
-    /**
-     * Country of the customer address.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "country" })
-    country?: string;
-
-    /**
-     * Line 1 of the customer address.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "line1" })
-    line1?: string;
-
-    /**
-     * Line 2 of the customer address.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "line2" })
-    line2?: string;
-
-    /**
-     * Postal code or zip code.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "postalCode" })
-    postalCode?: string;
-
-    /**
-     * Region of the customer address.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "region" })
-    region?: string;
-
-    /**
-     * The type of the address
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "type" })
-    type: AccountingAddressType;
-}
-
-export class AccountingCompanyInfoPhone extends SpeakeasyBase {
-    /**
-     * A phone number.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "number" })
-    number: string;
-
-    /**
-     * The type of phone number
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "type" })
-    type: PhoneNumberType;
-}
-
-/**
- * The type of the weblink.
- */
-export enum AccountingCompanyInfoWeblinkType {
-    Website = "Website",
-    Social = "Social",
-    Unknown = "Unknown",
-}
-
-/**
- * Weblink associated with the company.
- */
-export class AccountingCompanyInfoWeblink extends SpeakeasyBase {
-    /**
-     * The type of the weblink.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "type" })
-    type?: AccountingCompanyInfoWeblinkType;
-
-    /**
-     * The full URL for the weblink.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "url" })
-    url?: string;
-}
 
 /**
  * > View the coverage for company info in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=cashFlowStatement" target="_blank">Data coverage explorer</a>.
@@ -124,10 +30,10 @@ export class AccountingCompanyInfo extends SpeakeasyBase {
     /**
      * An array of Addresses.
      */
-    @SpeakeasyMetadata({ elemType: AccountingCompanyInfoAccountingAddress })
+    @SpeakeasyMetadata({ elemType: AccountingAddress })
     @Expose({ name: "addresses" })
-    @Type(() => AccountingCompanyInfoAccountingAddress)
-    addresses?: AccountingCompanyInfoAccountingAddress[];
+    @Type(() => AccountingAddress)
+    addresses?: AccountingAddress[];
 
     /**
      * Currency set in the accounting platform of the linked company. Used by the currency rate.
@@ -234,10 +140,10 @@ export class AccountingCompanyInfo extends SpeakeasyBase {
     /**
      * An array of phone numbers.
      */
-    @SpeakeasyMetadata({ elemType: AccountingCompanyInfoPhone })
+    @SpeakeasyMetadata({ elemType: PhoneNumber })
     @Expose({ name: "phoneNumbers" })
-    @Type(() => AccountingCompanyInfoPhone)
-    phoneNumbers?: AccountingCompanyInfoPhone[];
+    @Type(() => PhoneNumber)
+    phoneNumbers?: PhoneNumber[];
 
     /**
      * Registration number given to the linked company by the companies authority in the country of origin. In the UK this is Companies House.
@@ -267,8 +173,8 @@ export class AccountingCompanyInfo extends SpeakeasyBase {
     /**
      * An array of weblinks.
      */
-    @SpeakeasyMetadata({ elemType: AccountingCompanyInfoWeblink })
+    @SpeakeasyMetadata({ elemType: WebLink })
     @Expose({ name: "webLinks" })
-    @Type(() => AccountingCompanyInfoWeblink)
-    webLinks?: AccountingCompanyInfoWeblink[];
+    @Type(() => WebLink)
+    webLinks?: WebLink[];
 }

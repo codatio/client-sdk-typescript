@@ -1,4 +1,4 @@
-# ItemsType
+# WebLinkType
 
 The type of the weblink.
 

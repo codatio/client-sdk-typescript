@@ -1,4 +1,4 @@
-# financialStatementsAccounts
+# FinancialStatements.Accounts
 
 ### Available Operations
 
@@ -28,7 +28,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.financialStatementsAccounts.get({
+sdk.financialStatements.accounts.get({
   accountId: "cum",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountingAccountResponse) => {
@@ -72,7 +72,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.financialStatementsAccounts.list({
+sdk.financialStatements.accounts.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,

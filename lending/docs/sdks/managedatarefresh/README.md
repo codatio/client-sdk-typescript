@@ -1,4 +1,4 @@
-# manageDataRefresh
+# ManageData.Refresh
 
 ### Available Operations
 
@@ -25,7 +25,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.manageDataRefresh.allDataTypes({
+sdk.manageData.refresh.allDataTypes({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: RefreshAllDataTypesResponse) => {
   if (res.statusCode == 200) {
@@ -67,7 +67,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.manageDataRefresh.dataType({
+sdk.manageData.refresh.dataType({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "29396fea-7596-4eb1-8faa-a2352c595590",
   dataType: DataType.Invoices,

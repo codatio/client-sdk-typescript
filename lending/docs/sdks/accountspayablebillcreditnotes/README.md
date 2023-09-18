@@ -1,4 +1,4 @@
-# accountsPayableBillCreditNotes
+# AccountsPayable.BillCreditNotes
 
 ### Available Operations
 
@@ -28,7 +28,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsPayableBillCreditNotes.get({
+sdk.accountsPayable.billCreditNotes.get({
   billCreditNoteId: "molestiae",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountingBillCreditNoteResponse) => {
@@ -73,7 +73,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsPayableBillCreditNotes.list({
+sdk.accountsPayable.billCreditNotes.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,

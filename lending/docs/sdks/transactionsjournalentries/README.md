@@ -1,4 +1,4 @@
-# transactionsJournalEntries
+# Transactions.JournalEntries
 
 ### Available Operations
 
@@ -28,7 +28,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.transactionsJournalEntries.get({
+sdk.transactions.journalEntries.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   journalEntryId: "vero",
 }).then((res: GetAccountingJournalEntryResponse) => {
@@ -73,7 +73,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.transactionsJournalEntries.list({
+sdk.transactions.journalEntries.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,

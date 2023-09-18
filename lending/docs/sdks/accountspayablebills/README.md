@@ -1,4 +1,4 @@
-# accountsPayableBills
+# AccountsPayable.Bills
 
 ### Available Operations
 
@@ -29,7 +29,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsPayableBills.downloadAttachment({
+sdk.accountsPayable.bills.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   billId: "iusto",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -78,7 +78,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsPayableBills.get({
+sdk.accountsPayable.bills.get({
   billId: "excepturi",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountingBillResponse) => {
@@ -123,7 +123,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsPayableBills.getAttachment({
+sdk.accountsPayable.bills.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   billId: "nisi",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -170,7 +170,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsPayableBills.list({
+sdk.accountsPayable.bills.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,
@@ -218,7 +218,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsPayableBills.listAttachments({
+sdk.accountsPayable.bills.listAttachments({
   billId: "temporibus",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",

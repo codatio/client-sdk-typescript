@@ -1,4 +1,4 @@
-# financialStatementsProfitAndLoss
+# FinancialStatements.ProfitAndLoss
 
 ### Available Operations
 
@@ -21,7 +21,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.financialStatementsProfitAndLoss.get({
+sdk.financialStatements.profitAndLoss.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   periodLength: 4,
   periodsToCompare: 20,
@@ -65,7 +65,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.financialStatementsProfitAndLoss.getCategorizedAccounts({
+sdk.financialStatements.profitAndLoss.getCategorizedAccounts({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   numberOfPeriods: 324141,
   reportDate: "29-09-2020",

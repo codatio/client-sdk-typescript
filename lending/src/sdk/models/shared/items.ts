@@ -3,21 +3,14 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { PhoneNumberType } from "./phonenumbertype";
 import { Expose } from "class-transformer";
 
 export class Items extends SpeakeasyBase {
-    /**
-     * A phone number.
-     */
     @SpeakeasyMetadata()
-    @Expose({ name: "number" })
-    number: string;
+    @Expose({ name: "amount" })
+    amount: number;
 
-    /**
-     * The type of phone number
-     */
     @SpeakeasyMetadata()
-    @Expose({ name: "type" })
-    type: PhoneNumberType;
+    @Expose({ name: "name" })
+    name: string;
 }

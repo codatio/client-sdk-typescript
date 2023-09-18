@@ -1,4 +1,4 @@
-# accountsReceivablePayments
+# AccountsReceivable.Payments
 
 ### Available Operations
 
@@ -28,7 +28,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsReceivablePayments.get({
+sdk.accountsReceivable.payments.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   paymentId: "deleniti",
 }).then((res: GetAccountingPaymentResponse) => {
@@ -73,7 +73,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsReceivablePayments.list({
+sdk.accountsReceivable.payments.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,
