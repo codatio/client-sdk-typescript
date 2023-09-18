@@ -3,23 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { DataSyncCompletedWebhookData } from "./datasynccompletedwebhookdata";
 import { Expose, Type } from "class-transformer";
-
-export class DataSyncCompletedWebhookData extends SpeakeasyBase {
-    /**
-     * Data type the sync completed for.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "dataType" })
-    dataType?: string;
-
-    /**
-     * Unique identifier for the dataset that completed its sync.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "datasetId" })
-    datasetId?: string;
-}
 
 /**
  * Webhook request body to notify the completion of a data sync.
@@ -83,6 +68,6 @@ export class DataSyncCompletedWebhook extends SpeakeasyBase {
      * The type of rule.
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "Type" })
-    type?: string;
+    @Expose({ name: "RuleType" })
+    ruleType?: string;
 }
