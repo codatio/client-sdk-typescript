@@ -52,12 +52,12 @@ sdk.accountMapping.create({
 ## Available Resources and Operations
 
 
-### [accountMapping](docs/sdks/accountmapping/README.md)
+### [AccountMapping](docs/sdks/accountmapping/README.md)
 
 * [create](docs/sdks/accountmapping/README.md#create) - Create bank feed account mapping
 * [get](docs/sdks/accountmapping/README.md#get) - List bank feed account mappings
 
-### [companies](docs/sdks/companies/README.md)
+### [Companies](docs/sdks/companies/README.md)
 
 * [create](docs/sdks/companies/README.md#create) - Create company
 * [delete](docs/sdks/companies/README.md#delete) - Delete a company
@@ -65,7 +65,7 @@ sdk.accountMapping.create({
 * [list](docs/sdks/companies/README.md#list) - List companies
 * [update](docs/sdks/companies/README.md#update) - Update company
 
-### [connections](docs/sdks/connections/README.md)
+### [Connections](docs/sdks/connections/README.md)
 
 * [create](docs/sdks/connections/README.md#create) - Create connection
 * [delete](docs/sdks/connections/README.md#delete) - Delete connection
@@ -73,7 +73,7 @@ sdk.accountMapping.create({
 * [list](docs/sdks/connections/README.md#list) - List connections
 * [unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 
-### [sourceAccounts](docs/sdks/sourceaccounts/README.md)
+### [SourceAccounts](docs/sdks/sourceaccounts/README.md)
 
 * [create](docs/sdks/sourceaccounts/README.md#create) - Create source account
 * [delete](docs/sdks/sourceaccounts/README.md#delete) - Delete source account
@@ -82,7 +82,7 @@ sdk.accountMapping.create({
 * [list](docs/sdks/sourceaccounts/README.md#list) - List source accounts
 * [update](docs/sdks/sourceaccounts/README.md#update) - Update source account
 
-### [transactions](docs/sdks/transactions/README.md)
+### [Transactions](docs/sdks/transactions/README.md)
 
 * [create](docs/sdks/transactions/README.md#create) - Create bank transactions
 * [getCreateOperation](docs/sdks/transactions/README.md#getcreateoperation) - Get create operation
