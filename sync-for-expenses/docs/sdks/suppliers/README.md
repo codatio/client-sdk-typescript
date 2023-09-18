@@ -1,4 +1,4 @@
-# suppliers
+# Suppliers
 
 ## Overview
 
@@ -41,40 +41,40 @@ sdk.suppliers.create({
   supplier: {
     addresses: [
       {
-        city: "Kohlerberg",
-        country: "Faroe Islands",
-        line1: "qui",
-        line2: "cupiditate",
-        postalCode: "87165-2117",
-        region: "facilis",
+        city: "Purdystead",
+        country: "Antarctica (the territory South of 60 deg S)",
+        line1: "porro",
+        line2: "consequuntur",
+        postalCode: "60562-9926",
+        region: "dolorum",
         type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "quam",
-    defaultCurrency: "molestias",
-    emailAddress: "temporibus",
-    id: "2322715b-f0cb-4b1e-b1b8-b90f3443a110",
+    contactName: "pariatur",
+    defaultCurrency: "provident",
+    emailAddress: "nobis",
+    id: "bf486333-23f9-4b77-b3a4-100674ebf692",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "01224 658 999",
-    registrationNumber: "consequatur",
+    phone: "+44 25691 154789",
+    registrationNumber: "fugiat",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     status: SupplierStatus.Archived,
     supplementalData: {
       content: {
-        "porro": {
-          "doloribus": "ut",
+        "dolorum": {
+          "iusto": "voluptate",
         },
       },
     },
-    supplierName: "facilis",
-    taxNumber: "cupiditate",
+    supplierName: "dolorum",
+    taxNumber: "deleniti",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 181631,
+  timeoutInMinutes: 607045,
 }).then((res: CreateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -121,7 +121,7 @@ const sdk = new CodatSyncExpenses({
 
 sdk.suppliers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  supplierId: "EILBDVJVNUAGVKRQ",
 }).then((res: GetSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -169,7 +169,7 @@ sdk.suppliers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "laudantium",
+  query: "distinctio",
 }).then((res: ListSuppliersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -221,42 +221,42 @@ sdk.suppliers.update({
   supplier: {
     addresses: [
       {
-        city: "Krisworth",
-        country: "Senegal",
-        line1: "vero",
-        line2: "omnis",
-        postalCode: "29428",
-        region: "tenetur",
+        city: "Lake Havasu City",
+        country: "Croatia",
+        line1: "voluptate",
+        line2: "id",
+        postalCode: "21027-8393",
+        region: "deserunt",
         type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "hic",
-    defaultCurrency: "distinctio",
-    emailAddress: "quod",
-    id: "7abd74dd-39c0-4f5d-acff-7c70a45626d4",
+    contactName: "minima",
+    defaultCurrency: "repellendus",
+    emailAddress: "totam",
+    id: "a0d446ce-2af7-4a73-8f3b-e453f870b326",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
     phone: "(877) 492-8687",
-    registrationNumber: "laudantium",
+    registrationNumber: "deserunt",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     status: SupplierStatus.Unknown,
     supplementalData: {
       content: {
-        "maiores": {
-          "quasi": "ex",
+        "incidunt": {
+          "qui": "cupiditate",
         },
       },
     },
-    supplierName: "nulla",
-    taxNumber: "excepturi",
+    supplierName: "maxime",
+    taxNumber: "pariatur",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  supplierId: "EILBDVJVNUAGVKRQ",
-  timeoutInMinutes: 343605,
+  supplierId: "7110701885",
+  timeoutInMinutes: 117531,
 }).then((res: UpdateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
