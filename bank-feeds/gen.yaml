@@ -20,6 +20,7 @@ features:
 typescript:
   version: 1.2.0
   author: Codat
-  description: Set up bank feeds from accounts in your application to supported accounting platforms.
+  description: Set up bank feeds from accounts in your application to supported accounting
+    platforms.
   maxMethodParams: 0
   packageName: '@codat/bank-feeds'
