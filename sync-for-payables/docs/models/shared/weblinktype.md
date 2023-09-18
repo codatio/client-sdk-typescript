@@ -1,4 +1,4 @@
-# GetAccountingProfileCompanyInformationWeblinkType
+# WebLinkType
 
 The type of the weblink.
 

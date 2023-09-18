@@ -1,4 +1,4 @@
-# billPayments
+# BillPayments
 
 ## Overview
 

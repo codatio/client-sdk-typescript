@@ -96,9 +96,9 @@ export class CompanyInfo {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.companyInformation = utils.objectToClass(
+                    res.companyInfo = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        operations.GetAccountingProfileCompanyInformation
+                        shared.CompanyInfo
                     );
                 } else {
                     throw new errors.SDKError(
