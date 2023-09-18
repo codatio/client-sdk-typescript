@@ -3,13 +3,13 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { SyncFailedWebhookData } from "./syncfailedwebhookdata";
+import { ClientRateLimitResetWebhookData } from "./clientratelimitresetwebhookdata";
 import { Expose, Type } from "class-transformer";
 
 /**
- * Webhook request body used to notify that a sync has failed.
+ * Webhook request body for a client that has had their rate limit reset.
  */
-export class SyncFailedWebhook extends SpeakeasyBase {
+export class ClientRateLimitResetWebhook extends SpeakeasyBase {
     /**
      * Unique identifier of the webhook event.
      */
@@ -31,17 +31,10 @@ export class SyncFailedWebhook extends SpeakeasyBase {
     @Expose({ name: "ClientName" })
     clientName?: string;
 
-    /**
-     * Unique identifier for your SMB in Codat.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "CompanyId" })
-    companyId?: string;
-
     @SpeakeasyMetadata()
     @Expose({ name: "Data" })
-    @Type(() => SyncFailedWebhookData)
-    data?: SyncFailedWebhookData;
+    @Type(() => ClientRateLimitResetWebhookData)
+    data?: ClientRateLimitResetWebhookData;
 
     /**
      * A human readable message about the webhook.

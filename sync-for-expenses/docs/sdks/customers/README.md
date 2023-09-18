@@ -1,4 +1,4 @@
-# customers
+# Customers
 
 ## Overview
 
@@ -41,63 +41,63 @@ sdk.customers.create({
   customer: {
     addresses: [
       {
-        city: "West Christa",
-        country: "Iceland",
-        line1: "cupiditate",
-        line2: "quos",
-        postalCode: "18301",
-        region: "dolorum",
+        city: "New Humberto",
+        country: "Trinidad and Tobago",
+        line1: "quidem",
+        line2: "architecto",
+        postalCode: "96661",
+        region: "dolorem",
         type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "tempora",
+    contactName: "explicabo",
     contacts: [
       {
         address: {
-          city: "Riceboro",
-          country: "Vanuatu",
-          line1: "eum",
-          line2: "non",
-          postalCode: "53585-6289",
-          region: "dolorum",
-          type: AccountingAddressType.Billing,
+          city: "Halvorsonstead",
+          country: "Guinea",
+          line1: "minima",
+          line2: "excepturi",
+          postalCode: "46991",
+          region: "mollitia",
+          type: AccountingAddressType.Unknown,
         },
-        email: "Rose.Wolff29@yahoo.com",
+        email: "Caroline_Ziemann@yahoo.com",
         modifiedDate: "2022-10-23T00:00:00.000Z",
-        name: "Nathaniel Hyatt",
+        name: "Claudia Krajcik",
         phone: [
           {
             number: "+44 25691 154789",
-            type: PhoneNumberType.Mobile,
+            type: PhoneNumberType.Landline,
           },
         ],
         status: CustomerStatus.Unknown,
       },
     ],
-    customerName: "accusamus",
-    defaultCurrency: "EUR",
-    emailAddress: "quidem",
-    id: "9ba88f3a-6699-4707-8ba4-469b6e214195",
+    customerName: "laborum",
+    defaultCurrency: "USD",
+    emailAddress: "enim",
+    id: "2c3f5ad0-19da-41ff-a78f-097b0074f154",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "606-963-4281 x3049",
-    registrationNumber: "debitis",
+    phone: "(738) 590-2655",
+    registrationNumber: "pariatur",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: CustomerStatus.Archived,
+    status: CustomerStatus.Active,
     supplementalData: {
       content: {
-        "deleniti": {
-          "facilis": "in",
+        "rem": {
+          "voluptates": "quasi",
         },
       },
     },
-    taxNumber: "architecto",
+    taxNumber: "repudiandae",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 99569,
+  timeoutInMinutes: 575947,
 }).then((res: CreateCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -144,7 +144,7 @@ const sdk = new CodatSyncExpenses({
 
 sdk.customers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  customerId: "repudiandae",
+  customerId: "veritatis",
 }).then((res: GetCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -192,7 +192,7 @@ sdk.customers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "ullam",
+  query: "itaque",
 }).then((res: ListCustomersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -244,65 +244,65 @@ sdk.customers.update({
   customer: {
     addresses: [
       {
-        city: "Kossworth",
-        country: "Sudan",
-        line1: "sed",
-        line2: "saepe",
-        postalCode: "01561-1788",
-        region: "maxime",
-        type: AccountingAddressType.Billing,
+        city: "West Adele",
+        country: "Norway",
+        line1: "quibusdam",
+        line2: "explicabo",
+        postalCode: "78221-3550",
+        region: "magni",
+        type: AccountingAddressType.Delivery,
       },
     ],
-    contactName: "excepturi",
+    contactName: "ipsam",
     contacts: [
       {
         address: {
-          city: "South Alexanneton",
-          country: "Wallis and Futuna",
-          line1: "quidem",
-          line2: "ipsam",
-          postalCode: "47083",
-          region: "voluptatibus",
-          type: AccountingAddressType.Unknown,
+          city: "East Marianostead",
+          country: "Estonia",
+          line1: "facilis",
+          line2: "tempore",
+          postalCode: "94275",
+          region: "aliquid",
+          type: AccountingAddressType.Billing,
         },
-        email: "Darian.Anderson94@hotmail.com",
+        email: "Kianna89@hotmail.com",
         modifiedDate: "2022-10-23T00:00:00.000Z",
-        name: "Ernest Hayes",
+        name: "Arnold Kirlin",
         phone: [
           {
-            number: "+44 25691 154789",
-            type: PhoneNumberType.Landline,
+            number: "01224 658 999",
+            type: PhoneNumberType.Primary,
           },
         ],
         status: CustomerStatus.Unknown,
       },
     ],
-    customerName: "eos",
-    defaultCurrency: "GBP",
-    emailAddress: "dolores",
-    id: "c73d5fe9-b90c-4289-89b3-fe49a8d9cbf4",
+    customerName: "cumque",
+    defaultCurrency: "EUR",
+    emailAddress: "ea",
+    id: "6ae395ef-b9ba-488f-ba66-997074ba4469",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "1-322-329-5744 x926",
-    registrationNumber: "numquam",
+    phone: "1-911-405-3555 x069",
+    registrationNumber: "mollitia",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: CustomerStatus.Unknown,
+    status: CustomerStatus.Active,
     supplementalData: {
       content: {
-        "ipsa": {
-          "iure": "odio",
+        "dolor": {
+          "necessitatibus": "odit",
         },
       },
     },
-    taxNumber: "quaerat",
+    taxNumber: "nemo",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "accusamus",
+  customerId: "quasi",
   forceUpdate: false,
-  timeoutInMinutes: 696344,
+  timeoutInMinutes: 435865,
 }).then((res: UpdateCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
