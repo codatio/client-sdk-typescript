@@ -97,7 +97,10 @@ src/sdk/models/shared/syncrange.ts
 src/sdk/models/shared/localization.ts
 src/sdk/models/shared/visibleaccounts.ts
 src/sdk/models/shared/security.ts
+src/sdk/models/shared/syncconnectiondeletedwebhook.ts
 src/sdk/models/shared/index.ts
+src/sdk/models/webhooks/syncconnectiondeleted.ts
+src/sdk/models/webhooks/index.ts
 src/sdk/models/errors/index.ts
 docs/sdks/codatsynccommerce/README.md
 docs/models/utils/retryconfig.md
@@ -204,4 +207,6 @@ docs/models/shared/syncrange.md
 docs/models/shared/localization.md
 docs/models/shared/visibleaccounts.md
 docs/models/shared/security.md
+docs/models/shared/syncconnectiondeletedwebhook.md
+docs/models/webhooks/syncconnectiondeletedresponse.md
 .gitattributes
