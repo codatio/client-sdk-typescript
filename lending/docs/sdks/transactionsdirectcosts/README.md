@@ -1,4 +1,4 @@
-# transactionsDirectCosts
+# Transactions.DirectCosts
 
 ### Available Operations
 
@@ -29,7 +29,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.transactionsDirectCosts.downloadAttachment({
+sdk.transactions.directCosts.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -78,7 +78,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.transactionsDirectCosts.get({
+sdk.transactions.directCosts.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   directCostId: "laborum",
@@ -124,7 +124,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.transactionsDirectCosts.getAttachment({
+sdk.transactions.directCosts.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -171,7 +171,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.transactionsDirectCosts.list({
+sdk.transactions.directCosts.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
@@ -220,7 +220,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.transactionsDirectCosts.listAttachments({
+sdk.transactions.directCosts.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   directCostId: "voluptatibus",

@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Addressesitems } from "./addressesitems";
+import { AccountingAddress } from "./accountingaddress";
 import { Contact } from "./contact";
 import { CustomerStatus } from "./customerstatus";
 import { Metadata } from "./metadata";
@@ -26,10 +26,10 @@ export class AccountingCustomer extends SpeakeasyBase {
     /**
      * An array of Addresses.
      */
-    @SpeakeasyMetadata({ elemType: Addressesitems })
+    @SpeakeasyMetadata({ elemType: AccountingAddress })
     @Expose({ name: "addresses" })
-    @Type(() => Addressesitems)
-    addresses?: Addressesitems[];
+    @Type(() => AccountingAddress)
+    addresses?: AccountingAddress[];
 
     /**
      * Name of the main contact for the identified customer.

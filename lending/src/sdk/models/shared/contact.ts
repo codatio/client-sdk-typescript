@@ -3,16 +3,16 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Addressesitems } from "./addressesitems";
+import { AccountingAddress } from "./accountingaddress";
 import { CustomerStatus } from "./customerstatus";
-import { Items } from "./items";
+import { PhoneNumber } from "./phonenumber";
 import { Expose, Type } from "class-transformer";
 
 export class Contact extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "address" })
-    @Type(() => Addressesitems)
-    address?: Addressesitems;
+    @Type(() => AccountingAddress)
+    address?: AccountingAddress;
 
     /**
      * Email of a contact for a customer.
@@ -58,10 +58,10 @@ export class Contact extends SpeakeasyBase {
     /**
      * An array of Phone numbers.
      */
-    @SpeakeasyMetadata({ elemType: Items })
+    @SpeakeasyMetadata({ elemType: PhoneNumber })
     @Expose({ name: "phone" })
-    @Type(() => Items)
-    phone?: Items[];
+    @Type(() => PhoneNumber)
+    phone?: PhoneNumber[];
 
     /**
      * Status of customer.

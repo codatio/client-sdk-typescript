@@ -1,4 +1,4 @@
-# sales
+# Sales
 
 ### Available Operations
 

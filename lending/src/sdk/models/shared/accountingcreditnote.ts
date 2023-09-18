@@ -7,9 +7,9 @@ import { AccountingCustomerRef } from "./accountingcustomerref";
 import { AccountingPaymentAllocation } from "./accountingpaymentallocation";
 import { CreditNoteLineItem } from "./creditnotelineitem";
 import { CreditNoteStatus } from "./creditnotestatus";
+import { Items } from "./items";
 import { Metadata } from "./metadata";
 import { SupplementalData } from "./supplementaldata";
-import { WithholdingTaxitems } from "./withholdingtaxitems";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -249,8 +249,8 @@ export class AccountingCreditNote extends SpeakeasyBase {
     @Expose({ name: "totalTaxAmount" })
     totalTaxAmount: number;
 
-    @SpeakeasyMetadata({ elemType: WithholdingTaxitems })
+    @SpeakeasyMetadata({ elemType: Items })
     @Expose({ name: "withholdingTax" })
-    @Type(() => WithholdingTaxitems)
-    withholdingTax?: WithholdingTaxitems[];
+    @Type(() => Items)
+    withholdingTax?: Items[];
 }

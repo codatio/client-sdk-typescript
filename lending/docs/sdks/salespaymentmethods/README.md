@@ -1,4 +1,4 @@
-# salesPaymentMethods
+# Sales.PaymentMethods
 
 ### Available Operations
 
@@ -28,7 +28,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.salesPaymentMethods.get({
+sdk.sales.paymentMethods.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   paymentMethodId: "velit",
@@ -74,7 +74,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.salesPaymentMethods.list({
+sdk.sales.paymentMethods.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",

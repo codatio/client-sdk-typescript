@@ -1,4 +1,4 @@
-# accountsReceivableCustomers
+# AccountsReceivable.Customers
 
 ### Available Operations
 
@@ -29,7 +29,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsReceivableCustomers.downloadAttachment({
+sdk.accountsReceivable.customers.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -78,7 +78,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsReceivableCustomers.get({
+sdk.accountsReceivable.customers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   customerId: "quo",
 }).then((res: GetAccountingCustomerResponse) => {
@@ -123,7 +123,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsReceivableCustomers.getAttachment({
+sdk.accountsReceivable.customers.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -170,7 +170,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsReceivableCustomers.list({
+sdk.accountsReceivable.customers.list({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   orderBy: "-modifiedDate",
   page: 1,
@@ -218,7 +218,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsReceivableCustomers.listAttachments({
+sdk.accountsReceivable.customers.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   customerId: "at",

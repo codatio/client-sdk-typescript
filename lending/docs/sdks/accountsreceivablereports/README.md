@@ -1,4 +1,4 @@
-# accountsReceivableReports
+# AccountsReceivable.Reports
 
 ### Available Operations
 
@@ -24,7 +24,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsReceivableReports.getAgedCreditors({
+sdk.accountsReceivable.reports.getAgedCreditors({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   numberOfPeriods: 12,
   periodLengthDays: 30,
@@ -67,7 +67,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsReceivableReports.getAgedDebtors({
+sdk.accountsReceivable.reports.getAgedDebtors({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   numberOfPeriods: 12,
   periodLengthDays: 30,
@@ -109,7 +109,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsReceivableReports.isAgedCreditorsAvailable({
+sdk.accountsReceivable.reports.isAgedCreditorsAvailable({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: IsAgedCreditorsReportAvailableResponse) => {
   if (res.statusCode == 200) {
@@ -148,7 +148,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.accountsReceivableReports.isAgedDebtorsAvailable({
+sdk.accountsReceivable.reports.isAgedDebtorsAvailable({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: IsAgedDebtorsReportAvailableResponse) => {
   if (res.statusCode == 200) {

@@ -1,4 +1,4 @@
-# financialStatementsCashFlow
+# FinancialStatements.CashFlow
 
 ### Available Operations
 
@@ -20,7 +20,7 @@ const sdk = new CodatLending({
   },
 });
 
-sdk.financialStatementsCashFlow.get({
+sdk.financialStatements.cashFlow.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   periodLength: 4,
   periodsToCompare: 20,
