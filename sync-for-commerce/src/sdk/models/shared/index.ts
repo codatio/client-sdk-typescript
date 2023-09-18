@@ -44,6 +44,7 @@ export * from "./sales";
 export * from "./security";
 export * from "./sourcetype";
 export * from "./supportedfeature";
+export * from "./syncconnectiondeletedwebhook";
 export * from "./syncflowurl";
 export * from "./syncrange";
 export * from "./syncstatus";
