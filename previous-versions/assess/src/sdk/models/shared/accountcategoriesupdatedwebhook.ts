@@ -3,16 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AccountCategoriesUpdatedWebhookData } from "./accountcategoriesupdatedwebhookdata";
 import { Expose, Type } from "class-transformer";
-
-export class AccountCategoriesUpdatedWebhookData extends SpeakeasyBase {
-    /**
-     * The date on which this account categories were last modified in Codat.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "modifiedDate" })
-    modifiedDate?: string;
-}
 
 /**
  * Webhook request body for account categories updated.
@@ -76,6 +68,6 @@ export class AccountCategoriesUpdatedWebhook extends SpeakeasyBase {
      * The type of rule.
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "Type" })
-    type?: string;
+    @Expose({ name: "RuleType" })
+    ruleType?: string;
 }

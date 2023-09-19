@@ -53,20 +53,20 @@ sdk.dataIntegrity.details({
 ## Available Resources and Operations
 
 
-### [dataIntegrity](docs/sdks/dataintegrity/README.md)
+### [DataIntegrity](docs/sdks/dataintegrity/README.md)
 
 * [details](docs/sdks/dataintegrity/README.md#details) - List data type data integrity
 * [status](docs/sdks/dataintegrity/README.md#status) - Get data integrity status
 * [summary](docs/sdks/dataintegrity/README.md#summary) - Get data integrity summary
 
-### [excelReports](docs/sdks/excelreports/README.md)
+### [ExcelReports](docs/sdks/excelreports/README.md)
 
 * [generateExcelReport](docs/sdks/excelreports/README.md#generateexcelreport) - Generate Excel report
 * [getAccountingMarketingMetrics](docs/sdks/excelreports/README.md#getaccountingmarketingmetrics) - Get marketing metrics report
 * [getExcelReport](docs/sdks/excelreports/README.md#getexcelreport) - Download Excel report
 * [getExcelReportGenerationStatus](docs/sdks/excelreports/README.md#getexcelreportgenerationstatus) - Get Excel report status
 
-### [reports](docs/sdks/reports/README.md)
+### [Reports](docs/sdks/reports/README.md)
 
 * [getAccountsForEnhancedBalanceSheet](docs/sdks/reports/README.md#getaccountsforenhancedbalancesheet) - Get enhanced balance sheet accounts
 * [getAccountsForEnhancedProfitAndLoss](docs/sdks/reports/README.md#getaccountsforenhancedprofitandloss) - Get enhanced profit and loss accounts

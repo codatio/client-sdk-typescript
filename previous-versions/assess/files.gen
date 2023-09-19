@@ -102,6 +102,7 @@ src/sdk/models/shared/itemref.ts
 src/sdk/models/shared/loantransactionsreportinfo.ts
 src/sdk/models/shared/security.ts
 src/sdk/models/shared/accountcategoriesupdatedwebhook.ts
+src/sdk/models/shared/accountcategoriesupdatedwebhookdata.ts
 src/sdk/models/shared/index.ts
 src/sdk/models/webhooks/accountcategoriesupdated.ts
 src/sdk/models/webhooks/index.ts
@@ -216,7 +217,7 @@ docs/models/shared/loanref.md
 docs/models/shared/itemref.md
 docs/models/shared/loantransactionsreportinfo.md
 docs/models/shared/security.md
-docs/models/shared/accountcategoriesupdatedwebhookdata.md
 docs/models/shared/accountcategoriesupdatedwebhook.md
+docs/models/shared/accountcategoriesupdatedwebhookdata.md
 docs/models/webhooks/accountcategoriesupdatedresponse.md
 .gitattributes
