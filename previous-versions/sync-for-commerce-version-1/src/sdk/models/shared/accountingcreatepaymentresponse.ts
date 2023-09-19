@@ -793,7 +793,7 @@ export class AccountingCreatePaymentResponse extends SpeakeasyBase {
     requestedOnUtc: string;
 
     /**
-     * The status of the push operation.
+     * The current status of the push operation.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })

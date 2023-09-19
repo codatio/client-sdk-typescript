@@ -1,4 +1,4 @@
-# accountingPayments
+# AccountingPayments
 
 ## Overview
 

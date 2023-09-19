@@ -1,4 +1,4 @@
-# accountingJournalEntries
+# AccountingJournalEntries
 
 ## Overview
 
