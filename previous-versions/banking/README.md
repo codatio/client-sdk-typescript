@@ -51,21 +51,21 @@ sdk.accountBalances.list({
 ## Available Resources and Operations
 
 
-### [accountBalances](docs/sdks/accountbalances/README.md)
+### [AccountBalances](docs/sdks/accountbalances/README.md)
 
 * [list](docs/sdks/accountbalances/README.md#list) - List account balances
 
-### [accounts](docs/sdks/accounts/README.md)
+### [Accounts](docs/sdks/accounts/README.md)
 
 * [get](docs/sdks/accounts/README.md#get) - Get account
 * [list](docs/sdks/accounts/README.md#list) - List accounts
 
-### [transactionCategories](docs/sdks/transactioncategories/README.md)
+### [TransactionCategories](docs/sdks/transactioncategories/README.md)
 
 * [get](docs/sdks/transactioncategories/README.md#get) - Get transaction category
 * [list](docs/sdks/transactioncategories/README.md#list) - List transaction categories
 
-### [transactions](docs/sdks/transactions/README.md)
+### [Transactions](docs/sdks/transactions/README.md)
 
 * [get](docs/sdks/transactions/README.md#get) - Get bank transaction
 * [list](docs/sdks/transactions/README.md#list) - List transactions

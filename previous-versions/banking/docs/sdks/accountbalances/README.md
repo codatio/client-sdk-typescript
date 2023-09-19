@@ -1,4 +1,4 @@
-# accountBalances
+# AccountBalances
 
 ## Overview
 
