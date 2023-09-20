@@ -325,7 +325,7 @@ export class SyncFlowPreferences {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/sync/commerce/config/ui/text";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
@@ -437,7 +437,7 @@ export class SyncFlowPreferences {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "visibleAccounts", "json");
