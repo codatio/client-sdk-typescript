@@ -45,7 +45,7 @@ export class Companies {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/companies";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
@@ -468,7 +468,7 @@ export class Companies {
         );
         const url: string = utils.generateURL(baseURL, "/companies/{companyId}", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
