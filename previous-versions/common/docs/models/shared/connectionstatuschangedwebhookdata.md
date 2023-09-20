@@ -1,4 +1,4 @@
-# CompanyDataConnectionStatusChangedWebhookData
+# ConnectionStatusChangedWebhookData
 
 
 ## Fields
