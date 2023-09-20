@@ -1,4 +1,4 @@
-# accounts
+# Accounts
 
 ## Overview
 

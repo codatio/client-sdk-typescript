@@ -1,4 +1,4 @@
-# invoices
+# Invoices
 
 ## Overview
 
