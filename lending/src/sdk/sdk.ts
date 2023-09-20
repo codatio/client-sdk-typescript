@@ -15,6 +15,7 @@ import { ExcelReports } from "./excelreports";
 import { FileUpload } from "./fileupload";
 import { FinancialStatements } from "./financialstatements";
 import { Liabilities } from "./liabilities";
+import { LoanWriteback } from "./loanwriteback";
 import { ManageData } from "./managedata";
 import * as shared from "./models/shared";
 import { Sales } from "./sales";
@@ -67,8 +68,8 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "3.0.0";
-    sdkVersion = "3.1.0";
-    genVersion = "2.116.0";
+    sdkVersion = "3.2.0";
+    genVersion = "2.122.1";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -143,6 +144,7 @@ export class CodatLending {
     public accountsReceivable: AccountsReceivable;
     public banking: Banking;
     public financialStatements: FinancialStatements;
+    public loanWriteback: LoanWriteback;
     public manageData: ManageData;
     public sales: Sales;
     public transactions: Transactions;
@@ -177,6 +179,7 @@ export class CodatLending {
         this.accountsReceivable = new AccountsReceivable(this.sdkConfiguration);
         this.banking = new Banking(this.sdkConfiguration);
         this.financialStatements = new FinancialStatements(this.sdkConfiguration);
+        this.loanWriteback = new LoanWriteback(this.sdkConfiguration);
         this.manageData = new ManageData(this.sdkConfiguration);
         this.sales = new Sales(this.sdkConfiguration);
         this.transactions = new Transactions(this.sdkConfiguration);

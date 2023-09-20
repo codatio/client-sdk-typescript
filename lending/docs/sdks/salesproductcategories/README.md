@@ -31,7 +31,7 @@ const sdk = new CodatLending({
 sdk.sales.productCategories.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  productId: "vitae",
+  productId: "saepe",
 }).then((res: GetCommerceProductCategoryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -80,7 +80,7 @@ sdk.sales.productCategories.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "laborum",
+  query: "necessitatibus",
 }).then((res: ListCommerceProductCategoriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
