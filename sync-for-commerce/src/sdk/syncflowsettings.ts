@@ -227,7 +227,7 @@ export class SyncFlowSettings {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/sync/commerce/config/ui/text";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
@@ -339,7 +339,7 @@ export class SyncFlowSettings {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "visibleAccounts", "json");
