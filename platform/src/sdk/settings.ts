@@ -51,7 +51,7 @@ export class Settings {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/apiKeys";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
@@ -584,7 +584,7 @@ export class Settings {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/profile";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
@@ -700,7 +700,7 @@ export class Settings {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/profile/syncSettings";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");

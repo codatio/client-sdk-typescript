@@ -39,3 +39,13 @@ Based on:
 - [typescript v1.1.0] platform
 ### Releases
 - [NPM v1.1.0] https://www.npmjs.com/package/@codat/platform/v/1.1.0 - platform
+
+## 2023-09-20 00:03:59
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Platform.yaml
+- Speakeasy CLI 1.88.0 (2.118.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v1.1.1] platform
+### Releases
+- [NPM v1.1.1] https://www.npmjs.com/package/@codat/platform/v/1.1.1 - platform
