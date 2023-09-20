@@ -220,6 +220,42 @@ sdk.accountingBankData.listTransactions({
 * [get](docs/sdks/financialstatementsprofitandloss/README.md#get) - Get profit and loss
 * [getCategorizedAccounts](docs/sdks/financialstatementsprofitandloss/README.md#getcategorizedaccounts) - Get categorized profit and loss statement
 
+
+### [LoanWriteback.Accounts](docs/sdks/loanwritebackaccounts/README.md)
+
+* [create](docs/sdks/loanwritebackaccounts/README.md#create) - Create account
+* [getCreateModel](docs/sdks/loanwritebackaccounts/README.md#getcreatemodel) - Get create account model
+
+### [LoanWriteback.BankAccounts](docs/sdks/loanwritebackbankaccounts/README.md)
+
+* [create](docs/sdks/loanwritebackbankaccounts/README.md#create) - Create bank account
+* [getCreateUpdateModel](docs/sdks/loanwritebackbankaccounts/README.md#getcreateupdatemodel) - Get create/update bank account model
+
+### [LoanWriteback.BankTransactions](docs/sdks/loanwritebackbanktransactions/README.md)
+
+* [create](docs/sdks/loanwritebackbanktransactions/README.md#create) - Create bank account transactions
+* [getCreateModel](docs/sdks/loanwritebackbanktransactions/README.md#getcreatemodel) - Get create bank account transactions model
+
+### [LoanWriteback.CreateOperations](docs/sdks/loanwritebackcreateoperations/README.md)
+
+* [get](docs/sdks/loanwritebackcreateoperations/README.md#get) - Get create operation
+* [list](docs/sdks/loanwritebackcreateoperations/README.md#list) - List create operations
+
+### [LoanWriteback.DirectCosts](docs/sdks/loanwritebackdirectcosts/README.md)
+
+* [create](docs/sdks/loanwritebackdirectcosts/README.md#create) - Create direct cost
+* [getCreateModel](docs/sdks/loanwritebackdirectcosts/README.md#getcreatemodel) - Get create direct cost model
+
+### [LoanWriteback.Suppliers](docs/sdks/loanwritebacksuppliers/README.md)
+
+* [create](docs/sdks/loanwritebacksuppliers/README.md#create) - Create supplier
+* [getCreateUpdateModel](docs/sdks/loanwritebacksuppliers/README.md#getcreateupdatemodel) - Get create/update supplier model
+
+### [LoanWriteback.Transfers](docs/sdks/loanwritebacktransfers/README.md)
+
+* [create](docs/sdks/loanwritebacktransfers/README.md#create) - Create transfer
+* [getCreateModel](docs/sdks/loanwritebacktransfers/README.md#getcreatemodel) - Get create transfer model
+
 ### [ManageData](docs/sdks/managedata/README.md)
 
 * [getStatus](docs/sdks/managedata/README.md#getstatus) - Get data status

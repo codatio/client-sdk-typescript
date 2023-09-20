@@ -31,7 +31,7 @@ const sdk = new CodatLending({
 sdk.transactions.transfers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  transferId: "ipsa",
+  transferId: "aspernatur",
 }).then((res: GetAccountingTransferResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -80,7 +80,7 @@ sdk.transactions.transfers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "omnis",
+  query: "voluptas",
 }).then((res: ListAccountingTransfersResponse) => {
   if (res.statusCode == 200) {
     // handle response
