@@ -1,4 +1,4 @@
-# syncFlowPreferences
+# SyncFlowPreferences
 
 ## Overview
 

@@ -1,4 +1,4 @@
-# commerceProducts
+# CommerceProducts
 
 ## Overview
 
