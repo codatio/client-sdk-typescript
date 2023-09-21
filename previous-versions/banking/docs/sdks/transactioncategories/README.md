@@ -1,4 +1,4 @@
-# transactionCategories
+# TransactionCategories
 
 ## Overview
 
