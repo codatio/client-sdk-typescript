@@ -20,7 +20,7 @@ export class UpdateProfileSyncSettingsRequestBody extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "overridesDefaults" })
-    overridesDefaults: boolean;
+    overridesDefaults?: boolean;
 
     @SpeakeasyMetadata({ elemType: shared.SyncSetting })
     @Expose({ name: "settings" })
