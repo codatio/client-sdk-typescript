@@ -4,9 +4,9 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { DataConnectionStatus } from "./dataconnectionstatus";
-import { Expose, Type } from "class-transformer";
+import { Expose } from "class-transformer";
 
-export class CompanyDataConnectionStatusChangedWebhookData extends SpeakeasyBase {
+export class ConnectionStatusChangedWebhookData extends SpeakeasyBase {
     /**
      * Unique identifier for a company's data connection.
      */
@@ -34,49 +34,4 @@ export class CompanyDataConnectionStatusChangedWebhookData extends SpeakeasyBase
     @SpeakeasyMetadata()
     @Expose({ name: "platformKey" })
     platformKey?: string;
-}
-
-/**
- * Webhook request body for a company's data connection status changed.
- */
-export class CompanyDataConnectionStatusChangedWebhook extends SpeakeasyBase {
-    /**
-     * Unique identifier of the webhook event.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "AlertId" })
-    alertId?: string;
-
-    /**
-     * Unique identifier for your SMB in Codat.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "CompanyId" })
-    companyId?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "Data" })
-    @Type(() => CompanyDataConnectionStatusChangedWebhookData)
-    data?: CompanyDataConnectionStatusChangedWebhookData;
-
-    /**
-     * A human readable message about the webhook.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "Message" })
-    message?: string;
-
-    /**
-     * Unique identifier for the rule.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "RuleId" })
-    ruleId?: string;
-
-    /**
-     * The type of rule.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "Type" })
-    type?: string;
 }

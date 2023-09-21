@@ -3,13 +3,13 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { NewCompanySynchronizedWebhookData } from "./newcompanysynchronizedwebhookdata";
+import { ClientRateLimitResetWebhookData } from "./clientratelimitresetwebhookdata";
 import { Expose, Type } from "class-transformer";
 
 /**
- * Webhook request body to notify that a new company has successfully synchronized at least one dataType for the first time.
+ * Webhook request body for a client that has had their rate limit reset.
  */
-export class NewCompanySynchronizedWebhook extends SpeakeasyBase {
+export class ClientRateLimitResetWebhook extends SpeakeasyBase {
     /**
      * Unique identifier of the webhook event.
      */
@@ -31,24 +31,10 @@ export class NewCompanySynchronizedWebhook extends SpeakeasyBase {
     @Expose({ name: "ClientName" })
     clientName?: string;
 
-    /**
-     * Unique identifier for your SMB in Codat.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "CompanyId" })
-    companyId?: string;
-
     @SpeakeasyMetadata()
     @Expose({ name: "Data" })
-    @Type(() => NewCompanySynchronizedWebhookData)
-    data?: NewCompanySynchronizedWebhookData;
-
-    /**
-     * Unique identifier for a company's data connection.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "DataConnectionId" })
-    dataConnectionId?: string;
+    @Type(() => ClientRateLimitResetWebhookData)
+    data?: ClientRateLimitResetWebhookData;
 
     /**
      * A human readable message about the webhook.

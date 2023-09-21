@@ -3,13 +3,13 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { NewCompanySynchronizedWebhookData } from "./newcompanysynchronizedwebhookdata";
+import { ConnectionStatusChangedWebhookData } from "./connectionstatuschangedwebhookdata";
 import { Expose, Type } from "class-transformer";
 
 /**
- * Webhook request body to notify that a new company has successfully synchronized at least one dataType for the first time.
+ * Webhook request body for a company's data connection status changed.
  */
-export class NewCompanySynchronizedWebhook extends SpeakeasyBase {
+export class ConnectionStatusChangedWebhook extends SpeakeasyBase {
     /**
      * Unique identifier of the webhook event.
      */
@@ -40,8 +40,8 @@ export class NewCompanySynchronizedWebhook extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "Data" })
-    @Type(() => NewCompanySynchronizedWebhookData)
-    data?: NewCompanySynchronizedWebhookData;
+    @Type(() => ConnectionStatusChangedWebhookData)
+    data?: ConnectionStatusChangedWebhookData;
 
     /**
      * Unique identifier for a company's data connection.
