@@ -3,7 +3,7 @@
  */
 
 /**
- * The status of the push operation.
+ * The current status of the push operation.
  */
 export enum PushOperationStatus {
     Pending = "Pending",
