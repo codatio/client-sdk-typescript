@@ -1,4 +1,4 @@
-# products
+# Products
 
 ## Overview
 
