@@ -7,7 +7,7 @@ import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 /**
  * Endpoints to manage uploaded files.
@@ -58,7 +58,7 @@ export class Files {
             globalSecurity = new shared.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers = { ...config?.headers, ...properties.headers };
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         if (acceptHeaderOverride !== undefined) {
             headers["Accept"] = acceptHeaderOverride.toString();
@@ -180,7 +180,7 @@ export class Files {
             globalSecurity = new shared.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers = { ...config?.headers, ...properties.headers };
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
         headers[
@@ -305,7 +305,7 @@ export class Files {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "multipart");
@@ -323,7 +323,11 @@ export class Files {
             globalSecurity = new shared.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers = { ...reqBodyHeaders, ...config?.headers, ...properties.headers };
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
         headers["Accept"] = "application/json";
 
         headers[
