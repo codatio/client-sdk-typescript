@@ -1,4 +1,4 @@
-# syncStatus
+# SyncStatus
 
 ## Overview
 

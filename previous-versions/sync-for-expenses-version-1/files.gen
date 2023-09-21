@@ -86,7 +86,9 @@ src/sdk/models/shared/integrationtype.ts
 src/sdk/models/shared/transactionmetadatalist.ts
 src/sdk/models/shared/security.ts
 src/sdk/models/shared/synccompletewebhook.ts
+src/sdk/models/shared/synccompletewebhookdata.ts
 src/sdk/models/shared/syncfailedwebhook.ts
+src/sdk/models/shared/syncfailedwebhookdata.ts
 src/sdk/models/shared/syncstartedwebhook.ts
 src/sdk/models/shared/index.ts
 src/sdk/models/webhooks/synccomplete.ts
@@ -196,10 +198,10 @@ docs/models/shared/transactionstatus.md
 docs/models/shared/integrationtype.md
 docs/models/shared/transactionmetadatalist.md
 docs/models/shared/security.md
-docs/models/shared/synccompletewebhookdata.md
 docs/models/shared/synccompletewebhook.md
-docs/models/shared/syncfailedwebhookdata.md
+docs/models/shared/synccompletewebhookdata.md
 docs/models/shared/syncfailedwebhook.md
+docs/models/shared/syncfailedwebhookdata.md
 docs/models/shared/syncstartedwebhookdata.md
 docs/models/shared/syncstartedwebhook.md
 docs/models/webhooks/synccompleteresponse.md
