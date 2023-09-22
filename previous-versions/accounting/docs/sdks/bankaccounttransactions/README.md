@@ -37,22 +37,22 @@ const sdk = new CodatAccounting({
 
 sdk.bankAccountTransactions.create({
   createBankTransactions: {
-    accountId: "iure",
+    accountId: "magnam",
     transactions: [
       {
-        amount: 2975.34,
-        balance: 8917.73,
+        amount: 8917.73,
+        balance: 567.13,
         date: "2022-10-23T00:00:00.000Z",
-        description: "delectus",
-        id: "467cc879-6ed1-451a-85df-c2ddf7cc78ca",
+        description: "tempora",
+        id: "67cc8796-ed15-41a0-9dfc-2ddf7cc78ca1",
       },
     ],
   },
-  accountId: "dicta",
+  accountId: "nam",
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 720633,
+  timeoutInMinutes: 639921,
 }).then((res: CreateBankTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -100,7 +100,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bankAccountTransactions.getCreateModel({
-  accountId: "officia",
+  accountId: "occaecati",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetCreateBankTransactionsModelResponse) => {
@@ -148,13 +148,13 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bankAccountTransactions.list({
-  accountId: "occaecati",
+  accountId: "fugit",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "fugit",
+  query: "deleniti",
 }).then((res: ListBankAccountTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -41,22 +41,22 @@ const sdk = new CodatAccounting({
 sdk.billPayments.create({
   billPayment: {
     accountRef: {
-      id: "6555ba3c-2874-44ed-93b8-8f3a8d8f5c0b",
-      name: "Faith Cole",
+      id: "a3c28744-ed53-4b88-b3a8-d8f5c0b2f2fb",
+      name: "Kristy Bernier",
     },
-    currency: "USD",
-    currencyRate: 7090.72,
+    currency: "EUR",
+    currencyRate: 1523.54,
     date: "2022-10-23T00:00:00.000Z",
     id: "3d5a8e00-d108-4045-8823-7f342676cffa",
     lines: [
       {
         allocatedOnDate: "2022-10-23T00:00:00.000Z",
-        amount: 2927.94,
+        amount: 6960.77,
         links: [
           {
-            amount: 6719.07,
-            currencyRate: 1523.54,
-            id: "76b26916-fe1f-408f-8294-e3698f447f60",
+            amount: 1312.89,
+            currencyRate: 3783.26,
+            id: "916fe1f0-8f42-494e-b698-f447f603e8b4",
             type: BillPaymentLineLinkType.Bill,
           },
         ],
@@ -67,25 +67,25 @@ sdk.billPayments.create({
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
     note: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
-    paymentMethodRef: "praesentium",
-    reference: "facilis",
+    paymentMethodRef: "debitis",
+    reference: "rem",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "incidunt": {
-          "ipsam": "debitis",
+        "nobis": {
+          "error": "veniam",
         },
       },
     },
     supplierRef: {
-      id: "80ca55ef-d20e-4457-a185-8b6a89fbe3a5",
-      supplierName: "officia",
+      id: "5efd20e4-57e1-4858-b6a8-9fbe3a5aa8e4",
+      supplierName: "atque",
     },
     totalAmount: 1329.54,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 676243,
+  timeoutInMinutes: 148268,
 }).then((res: CreateBillPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -149,7 +149,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.billPayments.delete({
-  billPaymentId: "corrupti",
+  billPaymentId: "ut",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: DeleteBillPaymentResponse) => {
@@ -197,7 +197,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.billPayments.get({
-  billPaymentId: "accusamus",
+  billPaymentId: "fugiat",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetBillPaymentsResponse) => {
   if (res.statusCode == 200) {
@@ -295,7 +295,7 @@ sdk.billPayments.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "tempora",
+  query: "voluptatem",
 }).then((res: ListBillPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
