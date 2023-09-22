@@ -67,7 +67,7 @@ const sdk = new CodatLending({
 
 sdk.financialStatements.balanceSheet.getCategorizedAccounts({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  numberOfPeriods: 568434,
+  numberOfPeriods: 18789,
   reportDate: "29-09-2020",
 }).then((res: GetCategorizedBalanceSheetStatementResponse) => {
   if (res.statusCode == 200) {

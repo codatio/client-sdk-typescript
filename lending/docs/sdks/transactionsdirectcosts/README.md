@@ -33,7 +33,7 @@ sdk.transactions.directCosts.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "harum",
+  directCostId: "laboriosam",
 }).then((res: DownloadAccountingDirectCostAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -81,7 +81,7 @@ const sdk = new CodatLending({
 sdk.transactions.directCosts.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "laboriosam",
+  directCostId: "ipsa",
 }).then((res: GetAccountingDirectCostResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -128,7 +128,7 @@ sdk.transactions.directCosts.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "ipsa",
+  directCostId: "voluptates",
 }).then((res: GetAccountingDirectCostAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -177,7 +177,7 @@ sdk.transactions.directCosts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "voluptates",
+  query: "libero",
 }).then((res: ListAccountingDirectCostsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -223,7 +223,7 @@ const sdk = new CodatLending({
 sdk.transactions.directCosts.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "libero",
+  directCostId: "vitae",
 }).then((res: ListAccountingDirectCostAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

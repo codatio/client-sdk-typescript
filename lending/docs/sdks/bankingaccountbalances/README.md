@@ -31,7 +31,7 @@ sdk.banking.accountBalances.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "optio",
+  query: "beatae",
 }).then((res: ListBankingAccountBalancesResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -30,7 +30,7 @@ const sdk = new CodatLending({
 
 sdk.transactions.journalEntries.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalEntryId: "vitae",
+  journalEntryId: "accusamus",
 }).then((res: GetAccountingJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -78,7 +78,7 @@ sdk.transactions.journalEntries.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "accusamus",
+  query: "similique",
 }).then((res: ListAccountingJournalEntriesResponse) => {
   if (res.statusCode == 200) {
     // handle response

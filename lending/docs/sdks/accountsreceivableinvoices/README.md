@@ -35,7 +35,7 @@ sdk.accountsReceivable.invoices.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "porro",
+  invoiceId: "dicta",
 }).then((res: DownloadAccountingInvoiceAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -75,7 +75,7 @@ const sdk = new CodatLending({
 
 sdk.accountsReceivable.invoices.downloadPdf({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  invoiceId: "dolorum",
+  invoiceId: "nam",
 }).then((res: DownloadAccountingInvoicePdfResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -121,7 +121,7 @@ const sdk = new CodatLending({
 
 sdk.accountsReceivable.invoices.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  invoiceId: "dicta",
+  invoiceId: "officia",
 }).then((res: GetAccountingInvoiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -168,7 +168,7 @@ sdk.accountsReceivable.invoices.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "nam",
+  invoiceId: "occaecati",
 }).then((res: GetAccountingInvoiceAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -222,7 +222,7 @@ sdk.accountsReceivable.invoices.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "officia",
+  query: "fugit",
 }).then((res: ListAccountingInvoicesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -268,7 +268,7 @@ const sdk = new CodatLending({
 sdk.accountsReceivable.invoices.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "occaecati",
+  invoiceId: "deleniti",
 }).then((res: ListAccountingInvoiceAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -310,7 +310,7 @@ sdk.accountsReceivable.invoices.listReconciled({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   page: 1,
   pageSize: 100,
-  query: "fugit",
+  query: "hic",
 }).then((res: ListReconciledInvoicesResponse) => {
   if (res.statusCode == 200) {
     // handle response

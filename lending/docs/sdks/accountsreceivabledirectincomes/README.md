@@ -33,7 +33,7 @@ sdk.accountsReceivable.directIncomes.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "maiores",
+  directIncomeId: "quod",
 }).then((res: DownloadAccountingDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -81,7 +81,7 @@ const sdk = new CodatLending({
 sdk.accountsReceivable.directIncomes.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "molestiae",
+  directIncomeId: "quod",
 }).then((res: GetAccountingDirectIncomeResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -128,8 +128,8 @@ sdk.accountsReceivable.directIncomes.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "quod",
-  timeoutInMinutes: 800911,
+  directIncomeId: "esse",
+  timeoutInMinutes: 520478,
 }).then((res: GetAccountingDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -178,7 +178,7 @@ sdk.accountsReceivable.directIncomes.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "esse",
+  query: "porro",
 }).then((res: ListAccountingDirectIncomesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -224,7 +224,7 @@ const sdk = new CodatLending({
 sdk.accountsReceivable.directIncomes.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "totam",
+  directIncomeId: "dolorum",
 }).then((res: ListAccountingDirectIncomeAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

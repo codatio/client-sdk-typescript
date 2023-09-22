@@ -66,7 +66,7 @@ sdk.manageData.pullOperations.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "consequuntur",
+  query: "repellendus",
 }).then((res: ListPullOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

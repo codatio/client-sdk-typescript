@@ -49,8 +49,8 @@ sdk.sales.reports.getOrders({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 992012,
-  periodLength: 241545,
+  numberOfPeriods: 241545,
+  periodLength: 249420,
   periodUnit: PeriodUnit.Day,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceOrdersReportResponse) => {
@@ -119,9 +119,9 @@ sdk.sales.reports.getRefunds({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 228263,
-  periodLength: 105906,
-  periodUnit: PeriodUnit.Week,
+  numberOfPeriods: 105906,
+  periodLength: 489509,
+  periodUnit: PeriodUnit.Year,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceRefundsReportResponse) => {
   if (res.statusCode == 200) {

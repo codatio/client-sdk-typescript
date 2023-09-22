@@ -31,7 +31,7 @@ const sdk = new CodatLending({
 sdk.banking.transactions.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  transactionId: "qui",
+  transactionId: "cum",
 }).then((res: GetBankingTransactionResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -80,7 +80,7 @@ sdk.banking.transactions.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "impedit",
+  query: "esse",
 }).then((res: ListBankingTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response

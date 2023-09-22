@@ -31,7 +31,7 @@ const sdk = new CodatLending({
 
 sdk.accountsPayable.bills.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  billId: "iusto",
+  billId: "nisi",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: DownloadAccountingBillAttachmentResponse) => {
@@ -79,7 +79,7 @@ const sdk = new CodatLending({
 });
 
 sdk.accountsPayable.bills.get({
-  billId: "excepturi",
+  billId: "recusandae",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountingBillResponse) => {
   if (res.statusCode == 200) {
@@ -125,7 +125,7 @@ const sdk = new CodatLending({
 
 sdk.accountsPayable.bills.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  billId: "nisi",
+  billId: "temporibus",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetAccountingBillAttachmentResponse) => {
@@ -175,7 +175,7 @@ sdk.accountsPayable.bills.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "recusandae",
+  query: "ab",
 }).then((res: ListAccountingBillsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -219,7 +219,7 @@ const sdk = new CodatLending({
 });
 
 sdk.accountsPayable.bills.listAttachments({
-  billId: "temporibus",
+  billId: "quis",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: ListAccountingBillAttachmentsResponse) => {

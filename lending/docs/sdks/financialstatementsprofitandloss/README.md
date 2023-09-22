@@ -67,7 +67,7 @@ const sdk = new CodatLending({
 
 sdk.financialStatements.profitAndLoss.getCategorizedAccounts({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  numberOfPeriods: 324141,
+  numberOfPeriods: 149675,
   reportDate: "29-09-2020",
 }).then((res: GetCategorizedProfitAndLossStatementResponse) => {
   if (res.statusCode == 200) {
