@@ -30,7 +30,7 @@ const sdk = new CodatAssess({
 
 sdk.excelReports.generateExcelReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportType.EnhancedCashFlow,
+  reportType: ExcelReportType.EnhancedInvoices,
 }).then((res: GenerateExcelReportResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -75,9 +75,9 @@ sdk.excelReports.getAccountingMarketingMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 602763,
-  periodLength: 857946,
-  periodUnit: PeriodUnit.Month,
+  numberOfPeriods: 857946,
+  periodLength: 544883,
+  periodUnit: PeriodUnit.Year,
   reportDate: "29-09-2020",
   showInputValues: false,
 }).then((res: GetAccountingMarketingMetricsResponse) => {
@@ -120,7 +120,7 @@ const sdk = new CodatAssess({
 
 sdk.excelReports.getExcelReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportType.EnhancedCashFlow,
+  reportType: ExcelReportType.EnhancedFinancials,
 }).then((res: GetExcelReportResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -161,7 +161,7 @@ const sdk = new CodatAssess({
 
 sdk.excelReports.getExcelReportGenerationStatus({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportType.EnhancedFinancials,
+  reportType: ExcelReportType.EnhancedInvoices,
 }).then((res: GetExcelReportGenerationStatusResponse) => {
   if (res.statusCode == 200) {
     // handle response
