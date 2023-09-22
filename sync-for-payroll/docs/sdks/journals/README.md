@@ -41,21 +41,21 @@ sdk.journals.create({
   journal: {
     createdOn: "2022-10-23T00:00:00.000Z",
     hasChildren: false,
-    id: "4f63c969-e9a3-4efa-b7df-b14cd66ae395",
-    journalCode: "accusamus",
+    id: "69e9a3ef-a77d-4fb1-8cd6-6ae395efb9ba",
+    journalCode: "blanditiis",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    name: "Rene Reinger",
-    parentId: "deleniti",
+    name: "Vincent Nolan",
+    parentId: "natus",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: JournalStatus.Unknown,
-    type: "deserunt",
+    status: JournalStatus.Active,
+    type: "perferendis",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 394869,
+  timeoutInMinutes: 470132,
 }).then((res: CreateJournalResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -102,7 +102,7 @@ const sdk = new CodatSyncPayroll({
 
 sdk.journals.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalId: "vel",
+  journalId: "magnam",
 }).then((res: GetJournalResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -199,7 +199,7 @@ sdk.journals.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "natus",
+  query: "distinctio",
 }).then((res: ListJournalsResponse) => {
   if (res.statusCode == 200) {
     // handle response

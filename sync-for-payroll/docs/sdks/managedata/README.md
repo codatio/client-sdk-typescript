@@ -111,7 +111,7 @@ const sdk = new CodatSyncPayroll({
 
 sdk.manageData.getPushOperation({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "97074ba4-469b-46e2-9419-59890afa563e",
+  pushOperationKey: "a4469b6e-2141-4959-890a-fa563e2516fe",
 }).then((res: GetPushOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -154,7 +154,7 @@ sdk.manageData.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "odit",
+  query: "eius",
 }).then((res: ListPushOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -197,7 +197,7 @@ sdk.manageData.listPullOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "nemo",
+  query: "maxime",
 }).then((res: ListPullOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -283,7 +283,7 @@ const sdk = new CodatSyncPayroll({
 
 sdk.manageData.refreshDataType({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "16fe4c8b-711e-45b7-bd2e-d028921cddc6",
+  connectionId: "8b711e5b-7fd2-4ed0-a892-1cddc692601f",
   dataType: DataType.Invoices,
 }).then((res: RefreshDataTypeResponse) => {
   if (res.statusCode == 200) {
