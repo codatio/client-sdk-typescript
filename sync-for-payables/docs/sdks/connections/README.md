@@ -32,7 +32,7 @@ const sdk = new CodatSyncPayables({
 
 sdk.connections.create({
   requestBody: {
-    platformKey: "eligendi",
+    platformKey: "totam",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: CreateConnectionResponse) => {
@@ -158,7 +158,7 @@ sdk.connections.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "sint",
+  query: "molestias",
 }).then((res: ListConnectionsResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -12,6 +12,7 @@ export * from "./createjournal";
 export * from "./createjournalentry";
 export * from "./createsupplier";
 export * from "./deletebill";
+export * from "./deletebillattachment";
 export * from "./deletebillpayment";
 export * from "./deletecompany";
 export * from "./deleteconnection";

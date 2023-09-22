@@ -42,40 +42,40 @@ sdk.suppliers.create({
   supplier: {
     addresses: [
       {
-        city: "Fort Virgilfurt",
-        country: "Sweden",
-        line1: "officia",
-        line2: "sed",
-        postalCode: "09902",
-        region: "qui",
-        type: AccountingAddressType.Unknown,
+        city: "North Tadshire",
+        country: "Anguilla",
+        line1: "incidunt",
+        line2: "qui",
+        postalCode: "86113",
+        region: "modi",
+        type: AccountingAddressType.Delivery,
       },
     ],
-    contactName: "necessitatibus",
-    defaultCurrency: "harum",
-    emailAddress: "explicabo",
-    id: "164cf9ab-8366-4c72-bffd-a9e06bee4825",
+    contactName: "voluptatibus",
+    defaultCurrency: "molestias",
+    emailAddress: "officia",
+    id: "b8366c72-3ffd-4a9e-86be-e4825c1fc0e1",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
     phone: "+44 25691 154789",
-    registrationNumber: "voluptatibus",
+    registrationNumber: "optio",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     status: SupplierStatus.Unknown,
     supplementalData: {
       content: {
-        "officiis": {
-          "architecto": "architecto",
+        "facilis": {
+          "reiciendis": "a",
         },
       },
     },
-    supplierName: "enim",
-    taxNumber: "optio",
+    supplierName: "iste",
+    taxNumber: "dicta",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 525951,
+  timeoutInMinutes: 552439,
 }).then((res: CreateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -122,7 +122,7 @@ const sdk = new CodatSyncPayables({
 
 sdk.suppliers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  supplierId: "perferendis",
+  supplierId: "ullam",
 }).then((res: GetSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -219,7 +219,7 @@ sdk.suppliers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "facilis",
+  query: "dolore",
 }).then((res: ListSuppliersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -271,42 +271,42 @@ sdk.suppliers.update({
   supplier: {
     addresses: [
       {
-        city: "Wauwatosa",
-        country: "Nauru",
-        line1: "dicta",
-        line2: "quos",
-        postalCode: "22982",
-        region: "consequuntur",
-        type: AccountingAddressType.Delivery,
+        city: "Fort Rafael",
+        country: "Eritrea",
+        line1: "consequuntur",
+        line2: "assumenda",
+        postalCode: "97785-9054",
+        region: "esse",
+        type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "vero",
-    defaultCurrency: "doloribus",
-    emailAddress: "impedit",
-    id: "ce8f1977-773e-4635-a2a7-b408f05e3d48",
+    contactName: "odio",
+    defaultCurrency: "nesciunt",
+    emailAddress: "debitis",
+    id: "63562a7b-408f-405e-bd48-fdaf313a1f5f",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "01224 658 999",
-    registrationNumber: "est",
+    phone: "(877) 492-8687",
+    registrationNumber: "incidunt",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: SupplierStatus.Unknown,
+    status: SupplierStatus.Active,
     supplementalData: {
       content: {
-        "vitae": {
-          "nesciunt": "similique",
+        "cupiditate": {
+          "optio": "alias",
         },
       },
     },
-    supplierName: "illo",
-    taxNumber: "repellat",
+    supplierName: "quidem",
+    taxNumber: "nesciunt",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  supplierId: "nemo",
-  timeoutInMinutes: 987890,
+  supplierId: "commodi",
+  timeoutInMinutes: 956124,
 }).then((res: UpdateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response

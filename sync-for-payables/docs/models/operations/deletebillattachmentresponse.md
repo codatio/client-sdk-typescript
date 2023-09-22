@@ -1,4 +1,4 @@
-# DeleteBillPaymentResponse
+# DeleteBillAttachmentResponse
 
 
 ## Fields
