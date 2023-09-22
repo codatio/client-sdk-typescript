@@ -27,7 +27,7 @@ const sdk = new CodatSyncExpenses({
 
 sdk.pushOperations.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "6b0d5f0d-30c5-4fbb-a587-053202c73d5f",
+  pushOperationKey: "d30c5fbb-2587-4053-a02c-73d5fe9b90c2",
 }).then((res: GetPushOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -70,7 +70,7 @@ sdk.pushOperations.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "recusandae",
+  query: "blanditiis",
 }).then((res: ListPushOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

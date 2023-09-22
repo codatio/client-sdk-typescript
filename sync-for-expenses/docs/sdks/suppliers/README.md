@@ -41,40 +41,40 @@ sdk.suppliers.create({
   supplier: {
     addresses: [
       {
-        city: "Purdystead",
-        country: "Antarctica (the territory South of 60 deg S)",
-        line1: "porro",
-        line2: "consequuntur",
-        postalCode: "60562-9926",
-        region: "dolorum",
+        city: "Beattystead",
+        country: "Peru",
+        line1: "adipisci",
+        line2: "asperiores",
+        postalCode: "26658-5779",
+        region: "quaerat",
         type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "pariatur",
-    defaultCurrency: "provident",
-    emailAddress: "nobis",
-    id: "bf486333-23f9-4b77-b3a4-100674ebf692",
+    contactName: "aliquid",
+    defaultCurrency: "dolorem",
+    emailAddress: "dolorem",
+    id: "323f9b77-f3a4-4100-a74e-bf69280d1ba7",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "+44 25691 154789",
-    registrationNumber: "fugiat",
+    phone: "01224 658 999",
+    registrationNumber: "deleniti",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     status: SupplierStatus.Archived,
     supplementalData: {
       content: {
-        "dolorum": {
-          "iusto": "voluptate",
+        "distinctio": {
+          "asperiores": "nihil",
         },
       },
     },
-    supplierName: "dolorum",
-    taxNumber: "deleniti",
+    supplierName: "ipsum",
+    taxNumber: "voluptate",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 607045,
+  timeoutInMinutes: 663078,
 }).then((res: CreateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -169,7 +169,7 @@ sdk.suppliers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "distinctio",
+  query: "eius",
 }).then((res: ListSuppliersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -221,42 +221,42 @@ sdk.suppliers.update({
   supplier: {
     addresses: [
       {
-        city: "Lake Havasu City",
-        country: "Croatia",
-        line1: "voluptate",
-        line2: "id",
-        postalCode: "21027-8393",
-        region: "deserunt",
-        type: AccountingAddressType.Billing,
+        city: "North Daphnefort",
+        country: "Thailand",
+        line1: "ad",
+        line2: "saepe",
+        postalCode: "65385",
+        region: "similique",
+        type: AccountingAddressType.Unknown,
       },
     ],
-    contactName: "minima",
-    defaultCurrency: "repellendus",
-    emailAddress: "totam",
-    id: "a0d446ce-2af7-4a73-8f3b-e453f870b326",
+    contactName: "at",
+    defaultCurrency: "quaerat",
+    emailAddress: "tempora",
+    id: "6ce2af7a-73cf-43be-853f-870b326b5a73",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "(877) 492-8687",
-    registrationNumber: "deserunt",
+    phone: "+44 25691 154789",
+    registrationNumber: "cupiditate",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: SupplierStatus.Unknown,
+    status: SupplierStatus.Archived,
     supplementalData: {
       content: {
-        "incidunt": {
-          "qui": "cupiditate",
+        "soluta": {
+          "dicta": "laborum",
         },
       },
     },
-    supplierName: "maxime",
-    taxNumber: "pariatur",
+    supplierName: "totam",
+    taxNumber: "incidunt",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  supplierId: "7110701885",
-  timeoutInMinutes: 117531,
+  supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  timeoutInMinutes: 174909,
 }).then((res: UpdateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
