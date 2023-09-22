@@ -51,16 +51,16 @@ const sdk = new CodatBankFeeds({
 
 sdk.sourceAccounts.create({
   sourceAccount: {
-    accountName: "deserunt",
-    accountNumber: "suscipit",
-    accountType: "iure",
-    balance: 2975.34,
-    currency: "EUR",
+    accountName: "magnam",
+    accountNumber: "debitis",
+    accountType: "ipsa",
+    balance: 9636.63,
+    currency: "GBP",
     feedStartDate: "2022-10-23T00:00:00.000Z",
-    id: "f467cc87-96ed-4151-a05d-fc2ddf7cc78c",
+    id: "7cc8796e-d151-4a05-9fc2-ddf7cc78ca1b",
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    sortCode: "dicta",
-    status: "nam",
+    sortCode: "occaecati",
+    status: "fugit",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -191,7 +191,7 @@ const sdk = new CodatBankFeeds({
 });
 
 sdk.sourceAccounts.generateCredentials({
-  requestBody: "occaecati".encode(),
+  requestBody: "hic".encode(),
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GenerateCredentialsResponse) => {
@@ -277,18 +277,18 @@ const sdk = new CodatBankFeeds({
 
 sdk.sourceAccounts.update({
   sourceAccount: {
-    accountName: "fugit",
-    accountNumber: "deleniti",
-    accountType: "hic",
-    balance: 7586.16,
+    accountName: "optio",
+    accountNumber: "totam",
+    accountType: "beatae",
+    balance: 4146.62,
     currency: "USD",
     feedStartDate: "2022-10-23T00:00:00.000Z",
-    id: "6742cb73-9205-4929-b96f-ea7596eb10fa",
+    id: "2cb73920-5929-4396-bea7-596eb10faaa2",
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    sortCode: "laborum",
-    status: "dolores",
+    sortCode: "corporis",
+    status: "explicabo",
   },
-  accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  accountId: "EILBDVJVNUAGVKRQ",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: UpdateSourceAccountResponse) => {
