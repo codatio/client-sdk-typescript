@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: 0383ff3c535264fd66b989a32bb1361b
   docVersion: 3.0.0
-  speakeasyVersion: 1.88.1
-  generationVersion: 2.122.1
+  speakeasyVersion: 1.89.0
+  generationVersion: 2.125.1
 generation:
   sdkClassName: CodatFiles
   singleTagPerOp: false
@@ -11,13 +11,13 @@ generation:
 features:
   typescript:
     acceptHeaders: 2.81.1
-    core: 2.87.4
+    core: 2.87.5
     examples: 2.81.2
     globalSecurity: 2.81.1
     globalServerURLs: 2.82.0
     retries: 2.82.0
 typescript:
-  version: 0.35.1
+  version: 0.35.2
   author: Codat
   description: Use Codat's Files API to upload your SMB customers' files.
   maxMethodParams: 0
