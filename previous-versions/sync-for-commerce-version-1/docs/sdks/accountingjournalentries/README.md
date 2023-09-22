@@ -36,30 +36,30 @@ const sdk = new CodatSyncCommerce({
 sdk.accountingJournalEntries.createAccountingJournalEntry({
   accountingJournalEntry: {
     createdOn: "2022-10-23T00:00:00.000Z",
-    description: "pariatur",
-    id: "e008e6f8-c5f3-450d-8cdb-5a3418143010",
+    description: "nam",
+    id: "5a341814-3010-4421-813d-5208ece7e253",
     journalLines: [
       {
         accountRef: {
-          id: "421813d5-208e-4ce7-a253-b668451c6c6e",
-          name: "Helen Heller III",
+          id: "b668451c-6c6e-4205-a16d-eab3fec9578a",
+          name: "Marjorie Hickle",
         },
-        currency: "at",
-        description: "vero",
-        netAmount: 6675.93,
+        currency: "aspernatur",
+        description: "ducimus",
+        netAmount: 2005.16,
         tracking: {
           recordRefs: [
             {
               dataType: "accountTransaction",
-              id: "3fec9578-a645-4842-b3a8-418d162309fb",
+              id: "8418d162-309f-4b09-a992-1aefb9f58c4d",
             },
           ],
         },
       },
     ],
     journalRef: {
-      id: "0929921a-efb9-4f58-84d8-6e68e4be0560",
-      name: "Sheila Wolff",
+      id: "86e68e4b-e056-4013-b59d-a757a59ecfef",
+      name: "Loretta Tremblay DDS",
     },
     metadata: {
       isDeleted: false,
@@ -67,14 +67,14 @@ sdk.accountingJournalEntries.createAccountingJournalEntry({
     modifiedDate: "2022-10-23T00:00:00.000Z",
     postedOn: "2022-10-23T00:00:00.000Z",
     recordRef: {
-      dataType: "invoice",
-      id: "57a59ecf-ef66-4ef1-8aa3-383c2beb4773",
+      dataType: "journalEntry",
+      id: "383c2beb-4773-473c-8d72-f64d1db1f2c4",
     },
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "neque": {
-          "quo": "deleniti",
+        "illo": {
+          "accusantium": "vel",
         },
       },
     },
@@ -82,7 +82,7 @@ sdk.accountingJournalEntries.createAccountingJournalEntry({
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 437814,
+  timeoutInMinutes: 107617,
 }).then((res: CreateAccountingJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response

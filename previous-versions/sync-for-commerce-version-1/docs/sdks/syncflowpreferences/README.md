@@ -65,9 +65,9 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.syncFlowPreferences.getSyncFlowUrl({
-  accountingKey: "optio",
-  commerceKey: "ex",
-  merchantIdentifier: "quaerat",
+  accountingKey: "veniam",
+  commerceKey: "animi",
+  merchantIdentifier: "dolores",
 }).then((res: GetSyncFlowUrlResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -106,8 +106,8 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.syncFlowPreferences.getVisibleAccounts({
-  clientId: "6ecb5734-09e3-4eb1-a5a2-b12eb07f116d",
-  platformKey: "b99545fc-95fa-4889-b0e1-89dbb30fcb33",
+  clientId: "b12eb07f-116d-4b99-945f-c95fa88970e1",
+  platformKey: "89dbb30f-cb33-4ea0-95b1-97cd44e2f52d",
 }).then((res: GetVisibleAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -146,9 +146,9 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.syncFlowPreferences.updateConfigTextSyncFlow({
-  "saepe": {
+  "laudantium": {
     required: false,
-    text: "deserunt",
+    text: "odit",
   },
 }).then((res: UpdateConfigTextSyncFlowResponse) => {
   if (res.statusCode == 200) {
@@ -190,10 +190,10 @@ const sdk = new CodatSyncCommerce({
 sdk.syncFlowPreferences.updateVisibleAccountsSyncFlow({
   visibleAccounts: {
     visibleAccounts: [
-      "doloremque",
+      "pariatur",
     ],
   },
-  platformKey: "55b197cd-44e2-4f52-982d-3513bb6f48b6",
+  platformKey: "3513bb6f-48b6-456b-8db3-5ff2e4b27537",
 }).then((res: UpdateVisibleAccountsSyncFlowResponse) => {
   if (res.statusCode == 200) {
     // handle response

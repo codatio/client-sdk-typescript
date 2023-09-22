@@ -76,7 +76,7 @@ const sdk = new CodatSyncCommerce({
 
 sdk.refreshData.byDataType({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "b34896c3-ca5a-4cfb-a2fd-570757792917",
+  connectionId: "57075779-2917-47de-ac64-6ecb573409e3",
   dataType: DataType.Invoices,
 }).then((res: RefreshDataTypeResponse) => {
   if (res.statusCode == 200) {
@@ -199,7 +199,7 @@ sdk.refreshData.listPullOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "voluptate",
+  query: "repudiandae",
 }).then((res: ListPullOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
