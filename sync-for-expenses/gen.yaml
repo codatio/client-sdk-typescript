@@ -1,8 +1,8 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 8e3eb567b6ac402c4d7033c88e90fc01
+  docChecksum: eecc0b4900b9cc0b8ef55dde0b418ab8
   docVersion: prealpha
-  speakeasyVersion: 1.89.0
+  speakeasyVersion: 1.90.0
   generationVersion: 2.125.1
 generation:
   sdkClassName: CodatSyncExpenses
@@ -18,7 +18,7 @@ features:
     nameOverrides: 2.81.1
     retries: 2.82.0
 typescript:
-  version: 2.1.2
+  version: 2.1.3
   author: Codat
   description: Push expenses to accounting platforms.
   maxMethodParams: 0
