@@ -1,8 +1,8 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 0add1e087e1653186370d8ee74641f07
+  docChecksum: 75e518d65360919e3e92cac3153265a3
   docVersion: 3.0.0
-  speakeasyVersion: 1.89.0
+  speakeasyVersion: 1.90.0
   generationVersion: 2.125.1
 generation:
   sdkClassName: CodatLending
@@ -20,7 +20,7 @@ features:
     nameOverrides: 2.81.1
     retries: 2.82.0
 typescript:
-  version: 3.2.1
+  version: 3.2.2
   author: Codat
   description: Make credit decisions backed by enhanced financials, metrics, reports, and data integrity features.
   maxMethodParams: 0
