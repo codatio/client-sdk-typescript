@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: d4fce06bcead09dbfdcd3874d046f3bc
+  docChecksum: 5908533eb162869f63b962013ee09333
   docVersion: 3.0.0
   speakeasyVersion: 1.90.0
   generationVersion: 2.125.1
@@ -19,7 +19,7 @@ features:
     nameOverrides: 2.81.1
     retries: 2.82.0
 typescript:
-  version: 1.2.0
+  version: 1.2.1
   author: Codat
   description: Streamline your customers' accounts payable workflow.
   maxMethodParams: 0
