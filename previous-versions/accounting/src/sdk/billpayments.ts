@@ -180,13 +180,14 @@ export class BillPayments {
      * ## Integration specifics
      * Integrations that support soft delete do not permanently delete the object in the accounting platform.
      *
-     * | Integration | Soft Delete | Details                                                                                             |
-     * |-------------|-------------|-----------------------------------------------------------------------------------------------------|
+     * | Integration | Soft Delete | Details                                                                                                      |
+     * |-------------|-------------|--------------------------------------------------------------------------------------------------------------|
+     * | QuickBooks Online | No          | -
      * | Oracle NetSuite   | No          | See [here](/integrations/accounting/netsuite/how-deleting-bill-payments-works) to learn more. |
      *
      * > **Supported Integrations**
      * >
-     * > This functionality is currently only supported for our QuickBooks Online abd Oracle NetSuite integrations. Check out our [public roadmap](https://portal.productboard.com/codat/7-public-product-roadmap/tabs/46-accounting-api) to see what we're building next, and to submit ideas for new features.
+     * > This functionality is currently only supported for our QuickBooks Online and Oracle NetSuite integrations.
      */
     async delete(
         req: operations.DeleteBillPaymentRequest,
