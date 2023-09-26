@@ -32,7 +32,7 @@ const sdk = new CodatSyncPayables({
 
 sdk.connections.create({
   requestBody: {
-    platformKey: "totam",
+    platformKey: "gbol",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: CreateConnectionResponse) => {
@@ -158,7 +158,7 @@ sdk.connections.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "molestias",
+  query: "totam",
 }).then((res: ListConnectionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -199,7 +199,7 @@ const sdk = new CodatSyncPayables({
 
 sdk.connections.unlink({
   requestBody: {
-    status: DataConnectionStatus.Linked,
+    status: DataConnectionStatus.Unlinked,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",

@@ -42,40 +42,40 @@ sdk.suppliers.create({
   supplier: {
     addresses: [
       {
-        city: "North Tadshire",
-        country: "Anguilla",
-        line1: "incidunt",
-        line2: "qui",
-        postalCode: "86113",
-        region: "modi",
+        city: "Mosciskiside",
+        country: "Armenia",
+        line1: "nisi",
+        line2: "rerum",
+        postalCode: "92513-7197",
+        region: "quae",
         type: AccountingAddressType.Delivery,
       },
     ],
-    contactName: "voluptatibus",
-    defaultCurrency: "molestias",
-    emailAddress: "officia",
-    id: "b8366c72-3ffd-4a9e-86be-e4825c1fc0e1",
+    contactName: "architecto",
+    defaultCurrency: "architecto",
+    emailAddress: "enim",
+    id: "c80bff91-8544-4ec4-adef-cce8f1977773",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "+44 25691 154789",
-    registrationNumber: "optio",
+    phone: "(877) 492-8687",
+    registrationNumber: "neque",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: SupplierStatus.Unknown,
+    status: SupplierStatus.Active,
     supplementalData: {
       content: {
-        "facilis": {
-          "reiciendis": "a",
+        "consequuntur": {
+          "officia": "reprehenderit",
         },
       },
     },
-    supplierName: "iste",
-    taxNumber: "dicta",
+    supplierName: "distinctio",
+    taxNumber: "eius",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 552439,
+  timeoutInMinutes: 56372,
 }).then((res: CreateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -122,7 +122,7 @@ const sdk = new CodatSyncPayables({
 
 sdk.suppliers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  supplierId: "ullam",
+  supplierId: "rem",
 }).then((res: GetSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -219,7 +219,7 @@ sdk.suppliers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "dolore",
+  query: "maiores",
 }).then((res: ListSuppliersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -271,42 +271,42 @@ sdk.suppliers.update({
   supplier: {
     addresses: [
       {
-        city: "Fort Rafael",
-        country: "Eritrea",
-        line1: "consequuntur",
-        line2: "assumenda",
-        postalCode: "97785-9054",
-        region: "esse",
-        type: AccountingAddressType.Billing,
+        city: "West Suzanneberg",
+        country: "Solomon Islands",
+        line1: "aliquam",
+        line2: "quos",
+        postalCode: "86921-2609",
+        region: "nemo",
+        type: AccountingAddressType.Delivery,
       },
     ],
-    contactName: "odio",
-    defaultCurrency: "nesciunt",
-    emailAddress: "debitis",
-    id: "63562a7b-408f-405e-bd48-fdaf313a1f5f",
+    contactName: "possimus",
+    defaultCurrency: "unde",
+    emailAddress: "incidunt",
+    id: "259c0b36-f25e-4a94-8f3b-756c11f6c37a",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "(877) 492-8687",
-    registrationNumber: "incidunt",
+    phone: "+44 25691 154789",
+    registrationNumber: "qui",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: SupplierStatus.Active,
+    status: SupplierStatus.Unknown,
     supplementalData: {
       content: {
-        "cupiditate": {
-          "optio": "alias",
+        "incidunt": {
+          "adipisci": "praesentium",
         },
       },
     },
-    supplierName: "quidem",
-    taxNumber: "nesciunt",
+    supplierName: "dolor",
+    taxNumber: "exercitationem",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  supplierId: "commodi",
-  timeoutInMinutes: 956124,
+  supplierId: "expedita",
+  timeoutInMinutes: 706411,
 }).then((res: UpdateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response

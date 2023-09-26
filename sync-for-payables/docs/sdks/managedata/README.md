@@ -69,7 +69,7 @@ const sdk = new CodatSyncPayables({
 
 sdk.manageData.getPullOperation({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  datasetId: "eaed9f0f-e77b-4bc9-a58f-ab8b4b99ab18",
+  datasetId: "4e472e80-2857-4a5b-8046-3a7d575f1400",
 }).then((res: GetPullOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -112,7 +112,7 @@ sdk.manageData.listPullOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "repudiandae",
+  query: "eveniet",
 }).then((res: ListPullOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -198,7 +198,7 @@ const sdk = new CodatSyncPayables({
 
 sdk.manageData.refreshDataType({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "472e8028-57a5-4b40-863a-7d575f1400e7",
+  connectionId: "764ad733-4ec1-4b78-9b36-a08088d100ef",
   dataType: DataType.Invoices,
 }).then((res: RefreshDataTypeResponse) => {
   if (res.statusCode == 200) {

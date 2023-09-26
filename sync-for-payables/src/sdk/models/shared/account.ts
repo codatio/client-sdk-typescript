@@ -91,7 +91,7 @@ export class AccountValidDataTypeLinks extends SpeakeasyBase {
  * At the same time, each integration may have its own requirements to the categories. For example, a Paypal account in Xero is of the `Asset.Bank` category and therefore requires additional properties to be provided.
  *
  * To determine the list of allowed categories for a specific integration, you can:
- * - Follow our [Create, update, delete data](https://docs.codat.io/using-the-api/push) guide and use the [Get create account model](https://docs.codat.io/accounting-api#/operations/get-create-chartOfAccounts-model).
+ * - Follow our [Create, update, delete data](https://docs.codat.io/using-the-api/push) guide and use the [Get create account model](https://docs.codat.io/sync-for-payables-api#/operations/get-create-chartOfAccounts-model).
  * - Refer to the integration's own documentation.
  *
  * > **Accounts with no category**
@@ -209,7 +209,7 @@ export class Account extends SpeakeasyBase {
     type?: AccountType;
 
     /**
-     * The validDatatypeLinks can be used to determine whether an account can be correctly mapped to another object; for example, accounts with a `type` of `income` might only support being used on an Invoice and Direct Income. For more information, see [Valid Data Type Links](/accounting-api#/schemas/ValidDataTypeLinks).
+     * The validDatatypeLinks can be used to determine whether an account can be correctly mapped to another object; for example, accounts with a `type` of `income` might only support being used on an Invoice and Direct Income. For more information, see [Valid Data Type Links](/sync-for-payables-api#/schemas/ValidDataTypeLinks).
      */
     @SpeakeasyMetadata({ elemType: AccountValidDataTypeLinks })
     @Expose({ name: "validDatatypeLinks" })

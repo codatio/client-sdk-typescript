@@ -37,30 +37,30 @@ const sdk = new CodatSyncPayables({
 sdk.journalEntries.create({
   journalEntry: {
     createdOn: "2022-10-23T00:00:00.000Z",
-    description: "saepe",
-    id: "189dbb30-fcb3-43ea-855b-197cd44e2f52",
+    description: "eaque",
+    id: "e189dbb3-0fcb-433e-a055-b197cd44e2f5",
     journalLines: [
       {
         accountRef: {
-          id: "d82d3513-bb6f-448b-a56b-cdb35ff2e4b2",
-          name: "Audrey Durgan",
+          id: "2d82d351-3bb6-4f48-b656-bcdb35ff2e4b",
+          name: "Bessie Hegmann",
         },
-        currency: "rem",
-        description: "eligendi",
-        netAmount: 8536.06,
+        currency: "est",
+        description: "rem",
+        netAmount: 7538.9,
         tracking: {
           recordRefs: [
             {
-              dataType: "accountTransaction",
-              id: "e7319c17-7d52-45f7-bb11-4eeb52ff785f",
+              dataType: "transfer",
+              id: "9e7319c1-77d5-425f-b7b1-14eeb52ff785",
             },
           ],
         },
       },
     ],
     journalRef: {
-      id: "c37814d4-c98e-40c2-bb89-eb75dad636c6",
-      name: "Mrs. Donna Hand",
+      id: "fc37814d-4c98-4e0c-abb8-9eb75dad636c",
+      name: "Maria Bartoletti I",
     },
     metadata: {
       isDeleted: false,
@@ -69,13 +69,13 @@ sdk.journalEntries.create({
     postedOn: "2022-10-23T00:00:00.000Z",
     recordRef: {
       dataType: "accountTransaction",
-      id: "31180f73-9ae9-4e05-beb8-09e2810331f3",
+      id: "b31180f7-39ae-49e0-97eb-809e2810331f",
     },
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "atque": {
-          "beatae": "at",
+        "occaecati": {
+          "atque": "beatae",
         },
       },
     },
@@ -83,7 +83,7 @@ sdk.journalEntries.create({
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 794988,
+  timeoutInMinutes: 287544,
 }).then((res: CreateJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
