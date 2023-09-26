@@ -28,9 +28,6 @@ src/sdk/models/shared/file.ts
 src/sdk/models/shared/security.ts
 src/sdk/models/shared/index.ts
 src/sdk/models/errors/index.ts
-docs/sdks/codatfiles/README.md
-docs/models/utils/retryconfig.md
-docs/sdks/files/README.md
 USAGE.md
 docs/models/operations/downloadfilesrequest.md
 docs/models/operations/downloadfileserrormessage.md
@@ -45,4 +42,7 @@ docs/models/operations/uploadfilesresponse.md
 docs/models/shared/schema.md
 docs/models/shared/file.md
 docs/models/shared/security.md
+docs/sdks/codatfiles/README.md
+docs/models/utils/retryconfig.md
+docs/sdks/files/README.md
 .gitattributes
