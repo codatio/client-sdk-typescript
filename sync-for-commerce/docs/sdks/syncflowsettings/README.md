@@ -64,8 +64,8 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.syncFlowSettings.getVisibleAccounts({
-  clientId: "e0f467cc-8796-4ed1-91a0-5dfc2ddf7cc7",
-  platformKey: "8ca1ba92-8fc8-4167-82cb-739205929396",
+  clientId: "74e0f467-cc87-496e-9151-a05dfc2ddf7c",
+  platformKey: "gbol",
 }).then((res: GetVisibleAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -104,9 +104,9 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.syncFlowSettings.updateConfigTextSyncFlow({
-  "hic": {
+  "quod": {
     required: false,
-    text: "saepe",
+    text: "esse",
   },
 }).then((res: UpdateConfigTextSyncFlowResponse) => {
   if (res.statusCode == 200) {
@@ -148,10 +148,10 @@ const sdk = new CodatSyncCommerce({
 sdk.syncFlowSettings.updateVisibleAccountsSyncFlow({
   visibleAccounts: {
     visibleAccounts: [
-      "fuga",
+      "totam",
     ],
   },
-  platformKey: "7596eb10-faaa-4235-ac59-55907aff1a3a",
+  platformKey: "gbol",
 }).then((res: UpdateVisibleAccountsSyncFlowResponse) => {
   if (res.statusCode == 200) {
     // handle response
