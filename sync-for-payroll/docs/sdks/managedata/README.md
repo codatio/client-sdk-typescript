@@ -71,7 +71,7 @@ const sdk = new CodatSyncPayroll({
 
 sdk.manageData.getPullOperation({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  datasetId: "eaed9f0f-e77b-4bc9-a58f-ab8b4b99ab18",
+  datasetId: "4469b6e2-1419-4598-90af-a563e2516fe4",
 }).then((res: GetPullOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -111,7 +111,7 @@ const sdk = new CodatSyncPayroll({
 
 sdk.manageData.getPushOperation({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "97074ba4-469b-46e2-9419-59890afa563e",
+  pushOperationKey: "c8b711e5-b7fd-42ed-8289-21cddc692601",
 }).then((res: GetPushOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -154,7 +154,7 @@ sdk.manageData.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "odit",
+  query: "maiores",
 }).then((res: ListPushOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -197,7 +197,7 @@ sdk.manageData.listPullOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "nemo",
+  query: "quidem",
 }).then((res: ListPullOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -283,7 +283,7 @@ const sdk = new CodatSyncPayroll({
 
 sdk.manageData.refreshDataType({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "16fe4c8b-711e-45b7-bd2e-d028921cddc6",
+  connectionId: "576b0d5f-0d30-4c5f-bb25-87053202c73d",
   dataType: DataType.Invoices,
 }).then((res: RefreshDataTypeResponse) => {
   if (res.statusCode == 200) {

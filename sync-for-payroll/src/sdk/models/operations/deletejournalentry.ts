@@ -7,14 +7,41 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class DeleteJournalEntryRequest extends SpeakeasyBase {
+    /**
+     * Allow a sync upon push completion.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=allowSyncOnPushComplete" })
+    allowSyncOnPushComplete?: boolean;
+
+    /**
+     * Unique identifier for a company.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 
+    /**
+     * Unique identifier for a connection.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+    connectionId: string;
+
+    /**
+     * Unique identifier for a journal entry.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=journalEntryId" })
     journalEntryId: string;
+
+    /**
+     * Time limit for the push operation to complete before it is timed out.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=timeoutInMinutes" })
+    timeoutInMinutes?: number;
 }
 
 export class DeleteJournalEntryResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -30,9 +57,15 @@ export class DeleteJournalEntryResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     pushOperation?: shared.PushOperation;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 }

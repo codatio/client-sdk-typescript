@@ -40,30 +40,30 @@ const sdk = new CodatSyncPayroll({
 sdk.journalEntries.create({
   journalEntry: {
     createdOn: "2022-10-23T00:00:00.000Z",
-    description: "placeat",
-    id: "8796ed15-1a05-4dfc-addf-7cc78ca1ba92",
+    description: "temporibus",
+    id: "151a05df-c2dd-4f7c-878c-a1ba928fc816",
     journalLines: [
       {
         accountRef: {
-          id: "8fc81674-2cb7-4392-8592-9396fea7596e",
-          name: "Roger Beier",
+          id: "742cb739-2059-4293-96fe-a7596eb10faa",
+          name: "Ernest Ebert",
         },
-        currency: "mollitia",
-        description: "laborum",
-        netAmount: 1709.09,
+        currency: "nobis",
+        description: "enim",
+        netAmount: 6078.31,
         tracking: {
           recordRefs: [
             {
-              dataType: "journalEntry",
-              id: "52c59559-07af-4f1a-ba2f-a9467739251a",
+              dataType: "invoice",
+              id: "5907aff1-a3a2-4fa9-8677-39251aa52c3f",
             },
           ],
         },
       },
     ],
     journalRef: {
-      id: "a52c3f5a-d019-4da1-bfe7-8f097b0074f1",
-      name: "Miss Valerie Kshlerin",
+      id: "5ad019da-1ffe-478f-897b-0074f15471b5",
+      name: "Mrs. Leslie VonRueden",
     },
     metadata: {
       isDeleted: false,
@@ -72,21 +72,22 @@ sdk.journalEntries.create({
     postedOn: "2022-10-23T00:00:00.000Z",
     recordRef: {
       dataType: "transfer",
-      id: "13b99d48-8e1e-491e-850a-d2abd4426980",
+      id: "488e1e91-e450-4ad2-abd4-4269802d502a",
     },
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "assumenda": {
-          "ipsam": "alias",
+        "tempora": {
+          "facilis": "tempore",
         },
       },
     },
     updatedOn: "2022-10-23T00:00:00.000Z",
   },
+  allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 677817,
+  timeoutInMinutes: 962189,
 }).then((res: CreateJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -154,8 +155,11 @@ const sdk = new CodatSyncPayroll({
 });
 
 sdk.journalEntries.delete({
+  allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalEntryId: "excepturi",
+  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  journalEntryId: "eum",
+  timeoutInMinutes: 248753,
 }).then((res: DeleteJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -202,7 +206,7 @@ const sdk = new CodatSyncPayroll({
 
 sdk.journalEntries.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalEntryId: "tempora",
+  journalEntryId: "eligendi",
 }).then((res: GetJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -299,7 +303,7 @@ sdk.journalEntries.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "facilis",
+  query: "sint",
 }).then((res: ListJournalEntriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
