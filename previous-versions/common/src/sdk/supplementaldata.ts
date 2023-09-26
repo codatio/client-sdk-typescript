@@ -7,7 +7,7 @@ import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 /**
  * View and configure supplemental data for supported data types.
@@ -50,7 +50,7 @@ export class SupplementalData {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
@@ -72,7 +72,11 @@ export class SupplementalData {
             globalSecurity = new shared.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers = { ...reqBodyHeaders, ...config?.headers, ...properties.headers };
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
         headers["Accept"] = "application/json";
 
         headers[
@@ -175,7 +179,7 @@ export class SupplementalData {
             globalSecurity = new shared.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers = { ...config?.headers, ...properties.headers };
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
         headers[

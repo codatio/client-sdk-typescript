@@ -1,4 +1,4 @@
-# integrations
+# Integrations
 
 ## Overview
 
@@ -108,7 +108,7 @@ sdk.integrations.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "corrupti",
+  query: "nulla",
 }).then((res: ListIntegrationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

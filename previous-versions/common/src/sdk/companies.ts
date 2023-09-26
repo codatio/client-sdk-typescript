@@ -7,7 +7,7 @@ import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 /**
  * Create and manage your Codat companies.
@@ -45,7 +45,7 @@ export class Companies {
         );
         const url: string = baseURL.replace(/\/$/, "") + "/companies";
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
@@ -63,7 +63,11 @@ export class Companies {
             globalSecurity = new shared.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers = { ...reqBodyHeaders, ...config?.headers, ...properties.headers };
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
         headers["Accept"] = "application/json";
 
         headers[
@@ -170,7 +174,7 @@ export class Companies {
             globalSecurity = new shared.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers = { ...config?.headers, ...properties.headers };
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
         headers[
@@ -265,7 +269,7 @@ export class Companies {
             globalSecurity = new shared.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers = { ...config?.headers, ...properties.headers };
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
         headers[
@@ -345,7 +349,7 @@ export class Companies {
      * List companies
      *
      * @remarks
-     * Returns a list of your companies. The company schema contains a list of [connections](https://docs.codat.io/codat-api#/schemas/Connection) related to the company.
+     * Returns a list of your companies. The company schema contains a list of [connections](https://docs.codat.io/platform-api#/schemas/Connection) related to the company.
      */
     async list(
         req: operations.ListCompaniesRequest,
@@ -370,7 +374,7 @@ export class Companies {
             globalSecurity = new shared.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers = { ...config?.headers, ...properties.headers };
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
@@ -468,7 +472,7 @@ export class Companies {
         );
         const url: string = utils.generateURL(baseURL, "/companies/{companyId}", req);
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
@@ -490,7 +494,11 @@ export class Companies {
             globalSecurity = new shared.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers = { ...reqBodyHeaders, ...config?.headers, ...properties.headers };
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
         headers["Accept"] = "application/json";
 
         headers[
