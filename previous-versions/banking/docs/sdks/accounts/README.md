@@ -1,4 +1,4 @@
-# accounts
+# Accounts
 
 ## Overview
 
@@ -33,7 +33,7 @@ const sdk = new CodatBanking({
 });
 
 sdk.accounts.get({
-  accountId: "7110701885",
+  accountId: "EILBDVJVNUAGVKRQ",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetAccountResponse) => {
@@ -84,7 +84,7 @@ sdk.accounts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "quibusdam",
+  query: "unde",
 }).then((res: ListAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response

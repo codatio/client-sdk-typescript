@@ -1,4 +1,4 @@
-# accountBalances
+# AccountBalances
 
 ## Overview
 
@@ -35,7 +35,7 @@ sdk.accountBalances.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "provident",
+  query: "distinctio",
 }).then((res: ListAccountBalancesResponse) => {
   if (res.statusCode == 200) {
     // handle response
