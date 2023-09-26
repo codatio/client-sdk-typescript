@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 /**
- * Report additional information, which is specific to Assess reports
+ * Report additional information, which is specific to Lending API reports.
  */
 export class ReportInfo extends SpeakeasyBase {
     /**
@@ -17,7 +17,7 @@ export class ReportInfo extends SpeakeasyBase {
     companyName?: string;
 
     /**
-     * Date the report was generated
+     * Date the report was generated.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "generatedDate" })
@@ -38,7 +38,7 @@ export class ReportInfo extends SpeakeasyBase {
     pageSize?: number;
 
     /**
-     * Name of the report
+     * Name of the report.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "reportName" })

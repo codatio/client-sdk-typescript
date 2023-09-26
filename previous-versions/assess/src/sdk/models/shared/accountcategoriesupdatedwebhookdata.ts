@@ -5,11 +5,11 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export class HalRef extends SpeakeasyBase {
+export class AccountCategoriesUpdatedWebhookData extends SpeakeasyBase {
     /**
-     * Uri hypertext reference.
+     * The date on which this account categories were last modified in Codat.
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "href" })
-    href?: string;
+    @Expose({ name: "modifiedDate" })
+    modifiedDate?: string;
 }
