@@ -1,4 +1,4 @@
-# expenses
+# Expenses
 
 ## Overview
 
@@ -7,7 +7,7 @@ Create expense datasets and upload receipts.
 ### Available Operations
 
 * [createExpenseDataset](#createexpensedataset) - Create expense-transactions
-* [updateExpenseDataset](#updateexpensedataset) - Update expense-transactions
+* [updateExpenseDataset](#updateexpensedataset) - Update expense transactions
 * [uploadAttachment](#uploadattachment) - Upload attachment
 
 ## createExpenseDataset
@@ -36,7 +36,7 @@ sdk.expenses.createExpenseDataset({
           id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
         },
         currency: "GBP",
-        currencyRate: 6027.63,
+        currencyRate: 8442.66,
         id: "4d7c6929-7770-412b-91bb-44d3bc71d111",
         issueDate: "2022-10-23T00:00:00.000Z",
         lines: [
@@ -108,7 +108,7 @@ sdk.expenses.updateExpenseDataset({
       id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
     },
     currency: "GBP",
-    currencyRate: 5448.83,
+    currencyRate: 8579.46,
     issueDate: "2022-06-28T00:00:00.000Z",
     lines: [
       {
@@ -129,7 +129,7 @@ sdk.expenses.updateExpenseDataset({
     ],
     merchantName: "Amazon UK",
     notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-    type: "illum",
+    type: "corrupti",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
@@ -172,8 +172,8 @@ const sdk = new CodatSyncExpenses({
 
 sdk.expenses.uploadAttachment({
   requestBody: {
-    content: "vel".encode(),
-    requestBody: "error",
+    content: "illum".encode(),
+    requestBody: "vel",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
