@@ -6,7 +6,7 @@ Trigger and monitor expense syncs to accounting software.
 
 ### Available Operations
 
-* [get](#get) - Get Sync status
+* [get](#get) - Get sync status
 * [getLastSuccessfulSync](#getlastsuccessfulsync) - Last successful sync
 * [getLatestSync](#getlatestsync) - Latest sync status
 * [initiateSync](#initiatesync) - Initiate sync
@@ -149,7 +149,7 @@ const sdk = new CodatSyncExpenses({
 sdk.sync.initiateSync({
   initiateSync: {
     datasetIds: [
-      "a8422bb6-79d2-4322-b15b-f0cbb1e31b8b",
+      "90f3443a-1108-4e0a-9cf4-b921879fce95",
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",

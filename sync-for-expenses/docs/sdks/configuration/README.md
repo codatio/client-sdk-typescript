@@ -110,10 +110,10 @@ sdk.configuration.set({
       id: "32",
     },
     customer: {
-      id: "0f467cc8-796e-4d15-9a05-dfc2ddf7cc78",
+      id: "8796ed15-1a05-4dfc-addf-7cc78ca1ba92",
     },
     supplier: {
-      id: "ca1ba928-fc81-4674-acb7-39205929396f",
+      id: "8fc81674-2cb7-4392-8592-9396fea7596e",
     },
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",

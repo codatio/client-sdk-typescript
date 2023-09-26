@@ -69,7 +69,7 @@ const sdk = new CodatSyncExpenses({
 
 sdk.manageData.getPullOperation({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  datasetId: "eaed9f0f-e77b-4bc9-a58f-ab8b4b99ab18",
+  datasetId: "fd2ed028-921c-4ddc-a926-01fb576b0d5f",
 }).then((res: GetPullOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -112,7 +112,7 @@ sdk.manageData.listPullOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "in",
+  query: "perferendis",
 }).then((res: ListPullOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -198,7 +198,7 @@ const sdk = new CodatSyncExpenses({
 
 sdk.manageData.refreshDataType({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "11e5b7fd-2ed0-4289-a1cd-dc692601fb57",
+  connectionId: "d30c5fbb-2587-4053-a02c-73d5fe9b90c2",
   dataType: DataType.Invoices,
 }).then((res: RefreshDataTypeResponse) => {
   if (res.statusCode == 200) {

@@ -60,7 +60,7 @@ export class UpdateSupplierResponse extends SpeakeasyBase {
      *
      * ## Overview
      *
-     * From the **Suppliers** endpoints, you can retrieve a list of [all the suppliers for a company](https://docs.codat.io/accounting-api#/operations/list-suppliers). Suppliers' data links to accounts payable [bills](https://docs.codat.io/accounting-api#/schemas/Bill).
+     * From the **Suppliers** endpoints, you can retrieve a list of [all the suppliers for a company](https://docs.codat.io/sync-for-expenses-api#/operations/list-suppliers). Suppliers' data links to accounts payable [bills](https://docs.codat.io/sync-for-expenses-api#/schemas/Bill).
      */
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
@@ -81,6 +81,9 @@ export class UpdateSupplierResponse extends SpeakeasyBase {
     @Expose({ name: "dataType" })
     dataType?: DataType;
 
+    /**
+     * A message about the error.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "errorMessage" })
     errorMessage?: string;
@@ -126,15 +129,23 @@ export class UpdateSupplierResponse extends SpeakeasyBase {
     @Expose({ name: "status" })
     status: PushOperationStatus;
 
+    /**
+     * Push status code.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "statusCode" })
     statusCode: number;
 
+    /**
+     * Number of minutes the push operation must complete within before it times out.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "timeoutInMinutes" })
     timeoutInMinutes?: number;
 
     /**
+     * Number of seconds the push operation must complete within before it times out.
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @SpeakeasyMetadata()

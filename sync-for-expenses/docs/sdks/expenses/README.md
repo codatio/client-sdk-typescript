@@ -39,7 +39,7 @@ sdk.expenses.create({
           id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
         },
         currency: "GBP",
-        currencyRate: 9840.43,
+        currencyRate: 1002.26,
         id: "4d7c6929-7770-412b-91bb-44d3bc71d111",
         issueDate: "2022-10-23T00:00:00.000Z",
         lines: [
@@ -114,7 +114,7 @@ sdk.expenses.update({
       id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
     },
     currency: "GBP",
-    currencyRate: 2603.41,
+    currencyRate: 9194.83,
     issueDate: "2022-06-28T00:00:00.000Z",
     lines: [
       {
@@ -135,7 +135,7 @@ sdk.expenses.update({
     ],
     merchantName: "Amazon UK",
     notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-    type: "maxime",
+    type: "ullam",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
@@ -178,8 +178,8 @@ const sdk = new CodatSyncExpenses({
 
 sdk.expenses.uploadAttachment({
   requestBody: {
-    content: "deleniti".encode(),
-    requestBody: "facilis",
+    content: "expedita".encode(),
+    requestBody: "nihil",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
