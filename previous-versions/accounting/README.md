@@ -22,8 +22,6 @@ yarn add @codat/accounting
 
 ## Example Usage
 <!-- Start SDK Example Usage -->
-
-
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { GetAccountTransactionResponse } from "@codat/accounting/dist/sdk/models/operations";
@@ -35,7 +33,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.accountTransactions.get({
-  accountTransactionId: "corrupti",
+  accountTransactionId: "provident",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetAccountTransactionResponse) => {
@@ -50,25 +48,25 @@ sdk.accountTransactions.get({
 ## Available Resources and Operations
 
 
-### [accountTransactions](docs/sdks/accounttransactions/README.md)
+### [AccountTransactions](docs/sdks/accounttransactions/README.md)
 
 * [get](docs/sdks/accounttransactions/README.md#get) - Get account transaction
 * [list](docs/sdks/accounttransactions/README.md#list) - List account transactions
 
-### [accounts](docs/sdks/accounts/README.md)
+### [Accounts](docs/sdks/accounts/README.md)
 
 * [create](docs/sdks/accounts/README.md#create) - Create account
 * [get](docs/sdks/accounts/README.md#get) - Get account
 * [getCreateModel](docs/sdks/accounts/README.md#getcreatemodel) - Get create account model
 * [list](docs/sdks/accounts/README.md#list) - List accounts
 
-### [bankAccountTransactions](docs/sdks/bankaccounttransactions/README.md)
+### [BankAccountTransactions](docs/sdks/bankaccounttransactions/README.md)
 
 * [create](docs/sdks/bankaccounttransactions/README.md#create) - Create bank account transactions
 * [getCreateModel](docs/sdks/bankaccounttransactions/README.md#getcreatemodel) - Get create bank account transactions model
 * [list](docs/sdks/bankaccounttransactions/README.md#list) - List bank account transactions
 
-### [bankAccounts](docs/sdks/bankaccounts/README.md)
+### [BankAccounts](docs/sdks/bankaccounts/README.md)
 
 * [create](docs/sdks/bankaccounts/README.md#create) - Create bank account
 * [get](docs/sdks/bankaccounts/README.md#get) - Get bank account
@@ -76,7 +74,7 @@ sdk.accountTransactions.get({
 * [list](docs/sdks/bankaccounts/README.md#list) - List bank accounts
 * [update](docs/sdks/bankaccounts/README.md#update) - Update bank account
 
-### [billCreditNotes](docs/sdks/billcreditnotes/README.md)
+### [BillCreditNotes](docs/sdks/billcreditnotes/README.md)
 
 * [create](docs/sdks/billcreditnotes/README.md#create) - Create bill credit note
 * [get](docs/sdks/billcreditnotes/README.md#get) - Get bill credit note
@@ -85,7 +83,7 @@ sdk.accountTransactions.get({
 * [update](docs/sdks/billcreditnotes/README.md#update) - Update bill credit note
 * [uploadAttachment](docs/sdks/billcreditnotes/README.md#uploadattachment) - Upload bill credit note attachment
 
-### [billPayments](docs/sdks/billpayments/README.md)
+### [BillPayments](docs/sdks/billpayments/README.md)
 
 * [create](docs/sdks/billpayments/README.md#create) - Create bill payments
 * [delete](docs/sdks/billpayments/README.md#delete) - Delete bill payment
@@ -93,7 +91,7 @@ sdk.accountTransactions.get({
 * [getCreateModel](docs/sdks/billpayments/README.md#getcreatemodel) - Get create bill payment model
 * [list](docs/sdks/billpayments/README.md#list) - List bill payments
 
-### [bills](docs/sdks/bills/README.md)
+### [Bills](docs/sdks/bills/README.md)
 
 * [create](docs/sdks/bills/README.md#create) - Create bill
 * [delete](docs/sdks/bills/README.md#delete) - Delete bill
@@ -106,20 +104,20 @@ sdk.accountTransactions.get({
 * [update](docs/sdks/bills/README.md#update) - Update bill
 * [uploadAttachment](docs/sdks/bills/README.md#uploadattachment) - Upload bill attachment
 
-### [companyInfo](docs/sdks/companyinfo/README.md)
+### [CompanyInfo](docs/sdks/companyinfo/README.md)
 
 * [get](docs/sdks/companyinfo/README.md#get) - Get company info
 * [refresh](docs/sdks/companyinfo/README.md#refresh) - Refresh company info
 
-### [creditNotes](docs/sdks/creditnotes/README.md)
+### [CreditNotes](docs/sdks/creditnotes/README.md)
 
 * [create](docs/sdks/creditnotes/README.md#create) - Create credit note
 * [get](docs/sdks/creditnotes/README.md#get) - Get credit note
 * [getCreateUpdateModel](docs/sdks/creditnotes/README.md#getcreateupdatemodel) - Get create/update credit note model
 * [list](docs/sdks/creditnotes/README.md#list) - List credit notes
-* [update](docs/sdks/creditnotes/README.md#update) - Update creditNote
+* [update](docs/sdks/creditnotes/README.md#update) - Update credit note
 
-### [customers](docs/sdks/customers/README.md)
+### [Customers](docs/sdks/customers/README.md)
 
 * [create](docs/sdks/customers/README.md#create) - Create customer
 * [downloadAttachment](docs/sdks/customers/README.md#downloadattachment) - Download customer attachment
@@ -130,7 +128,7 @@ sdk.accountTransactions.get({
 * [listAttachments](docs/sdks/customers/README.md#listattachments) - List customer attachments
 * [update](docs/sdks/customers/README.md#update) - Update customer
 
-### [directCosts](docs/sdks/directcosts/README.md)
+### [DirectCosts](docs/sdks/directcosts/README.md)
 
 * [create](docs/sdks/directcosts/README.md#create) - Create direct cost
 * [downloadAttachment](docs/sdks/directcosts/README.md#downloadattachment) - Download direct cost attachment
@@ -141,7 +139,7 @@ sdk.accountTransactions.get({
 * [listAttachments](docs/sdks/directcosts/README.md#listattachments) - List direct cost attachments
 * [uploadAttachment](docs/sdks/directcosts/README.md#uploadattachment) - Upload direct cost attachment
 
-### [directIncomes](docs/sdks/directincomes/README.md)
+### [DirectIncomes](docs/sdks/directincomes/README.md)
 
 * [create](docs/sdks/directincomes/README.md#create) - Create direct income
 * [downloadAttachment](docs/sdks/directincomes/README.md#downloadattachment) - Download direct income attachment
@@ -152,7 +150,7 @@ sdk.accountTransactions.get({
 * [listAttachments](docs/sdks/directincomes/README.md#listattachments) - List direct income attachments
 * [uploadAttachment](docs/sdks/directincomes/README.md#uploadattachment) - Create direct income attachment
 
-### [invoices](docs/sdks/invoices/README.md)
+### [Invoices](docs/sdks/invoices/README.md)
 
 * [create](docs/sdks/invoices/README.md#create) - Create invoice
 * [delete](docs/sdks/invoices/README.md#delete) - Delete invoice
@@ -166,14 +164,14 @@ sdk.accountTransactions.get({
 * [update](docs/sdks/invoices/README.md#update) - Update invoice
 * [uploadAttachment](docs/sdks/invoices/README.md#uploadattachment) - Push invoice attachment
 
-### [items](docs/sdks/items/README.md)
+### [Items](docs/sdks/items/README.md)
 
 * [create](docs/sdks/items/README.md#create) - Create item
 * [get](docs/sdks/items/README.md#get) - Get item
 * [getCreateModel](docs/sdks/items/README.md#getcreatemodel) - Get create item model
 * [list](docs/sdks/items/README.md#list) - List items
 
-### [journalEntries](docs/sdks/journalentries/README.md)
+### [JournalEntries](docs/sdks/journalentries/README.md)
 
 * [create](docs/sdks/journalentries/README.md#create) - Create journal entry
 * [delete](docs/sdks/journalentries/README.md#delete) - Delete journal entry
@@ -181,26 +179,26 @@ sdk.accountTransactions.get({
 * [getCreateModel](docs/sdks/journalentries/README.md#getcreatemodel) - Get create journal entry model
 * [list](docs/sdks/journalentries/README.md#list) - List journal entries
 
-### [journals](docs/sdks/journals/README.md)
+### [Journals](docs/sdks/journals/README.md)
 
 * [create](docs/sdks/journals/README.md#create) - Create journal
 * [get](docs/sdks/journals/README.md#get) - Get journal
 * [getCreateModel](docs/sdks/journals/README.md#getcreatemodel) - Get create journal model
 * [list](docs/sdks/journals/README.md#list) - List journals
 
-### [paymentMethods](docs/sdks/paymentmethods/README.md)
+### [PaymentMethods](docs/sdks/paymentmethods/README.md)
 
 * [get](docs/sdks/paymentmethods/README.md#get) - Get payment method
 * [list](docs/sdks/paymentmethods/README.md#list) - List payment methods
 
-### [payments](docs/sdks/payments/README.md)
+### [Payments](docs/sdks/payments/README.md)
 
 * [create](docs/sdks/payments/README.md#create) - Create payment
 * [get](docs/sdks/payments/README.md#get) - Get payment
 * [getCreateModel](docs/sdks/payments/README.md#getcreatemodel) - Get create payment model
 * [list](docs/sdks/payments/README.md#list) - List payments
 
-### [purchaseOrders](docs/sdks/purchaseorders/README.md)
+### [PurchaseOrders](docs/sdks/purchaseorders/README.md)
 
 * [create](docs/sdks/purchaseorders/README.md#create) - Create purchase order
 * [get](docs/sdks/purchaseorders/README.md#get) - Get purchase order
@@ -208,7 +206,7 @@ sdk.accountTransactions.get({
 * [list](docs/sdks/purchaseorders/README.md#list) - List purchase orders
 * [update](docs/sdks/purchaseorders/README.md#update) - Update purchase order
 
-### [reports](docs/sdks/reports/README.md)
+### [Reports](docs/sdks/reports/README.md)
 
 * [getAgedCreditorsReport](docs/sdks/reports/README.md#getagedcreditorsreport) - Aged creditors report
 * [getAgedDebtorsReport](docs/sdks/reports/README.md#getageddebtorsreport) - Aged debtors report
@@ -218,12 +216,12 @@ sdk.accountTransactions.get({
 * [isAgedCreditorsReportAvailable](docs/sdks/reports/README.md#isagedcreditorsreportavailable) - Aged creditors report available
 * [isAgedDebtorReportAvailable](docs/sdks/reports/README.md#isageddebtorreportavailable) - Aged debtors report available
 
-### [salesOrders](docs/sdks/salesorders/README.md)
+### [SalesOrders](docs/sdks/salesorders/README.md)
 
 * [get](docs/sdks/salesorders/README.md#get) - Get sales order
 * [list](docs/sdks/salesorders/README.md#list) - List sales orders
 
-### [suppliers](docs/sdks/suppliers/README.md)
+### [Suppliers](docs/sdks/suppliers/README.md)
 
 * [create](docs/sdks/suppliers/README.md#create) - Create supplier
 * [downloadAttachment](docs/sdks/suppliers/README.md#downloadattachment) - Download supplier attachment
@@ -234,17 +232,17 @@ sdk.accountTransactions.get({
 * [listAttachments](docs/sdks/suppliers/README.md#listattachments) - List supplier attachments
 * [update](docs/sdks/suppliers/README.md#update) - Update supplier
 
-### [taxRates](docs/sdks/taxrates/README.md)
+### [TaxRates](docs/sdks/taxrates/README.md)
 
 * [get](docs/sdks/taxrates/README.md#get) - Get tax rate
 * [list](docs/sdks/taxrates/README.md#list) - List all tax rates
 
-### [trackingCategories](docs/sdks/trackingcategories/README.md)
+### [TrackingCategories](docs/sdks/trackingcategories/README.md)
 
 * [get](docs/sdks/trackingcategories/README.md#get) - Get tracking categories
 * [list](docs/sdks/trackingcategories/README.md#list) - List tracking categories
 
-### [transfers](docs/sdks/transfers/README.md)
+### [Transfers](docs/sdks/transfers/README.md)
 
 * [create](docs/sdks/transfers/README.md#create) - Create transfer
 * [get](docs/sdks/transfers/README.md#get) - Get transfer
@@ -252,4 +250,30 @@ sdk.accountTransactions.get({
 * [list](docs/sdks/transfers/README.md#list) - List transfers
 * [uploadAttachment](docs/sdks/transfers/README.md#uploadattachment) - Push invoice attachment
 <!-- End SDK Available Operations -->
+
+
+
+<!-- Start Dev Containers -->
+
+
+
+<!-- End Dev Containers -->
+
+
+
+<!-- Start Pagination -->
+# Pagination
+
+Some of the endpoints in this SDK support pagination. To use pagination, you make your SDK calls as usual, but the
+returned response object will have a `next` method that can be called to pull down the next group of results. If the
+return value of `next` is `null`, then there are no more pages to be fetched.
+
+Here's an example of one such pagination call:
+
+
+<!-- End Pagination -->
+
+<!-- Placeholder for Future Speakeasy SDK Sections -->
+
+
 ### Library generated by [Speakeasy](https://docs.speakeasyapi.dev/docs/using-speakeasy/client-sdks)

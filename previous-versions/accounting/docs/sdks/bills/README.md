@@ -1,4 +1,4 @@
-# bills
+# Bills
 
 ## Overview
 
@@ -45,123 +45,123 @@ const sdk = new CodatAccounting({
 
 sdk.bills.create({
   bill: {
-    amountDue: 5436.78,
-    currency: "GBP",
-    currencyRate: 2826.99,
+    amountDue: 6350.57,
+    currency: "EUR",
+    currencyRate: 2996.43,
     dueDate: "2022-10-23T00:00:00.000Z",
-    id: "0ab40750-88e5-4186-a065-e904f3b1194b",
+    id: "75088e51-8620-465e-904f-3b1194b8abf6",
     issueDate: "2022-10-23T00:00:00.000Z",
     lineItems: [
       {
         accountRef: {
-          id: "abf603a7-9f9d-4fe0-ab7d-a8a50ce187f8",
-          name: "Ms. Alison Schoen",
+          id: "3a79f9df-e0ab-47da-8a50-ce187f86bc17",
+          name: "Angelina Jenkins",
         },
-        description: "assumenda",
-        discountAmount: 4103.01,
-        discountPercentage: 5391.18,
+        description: "officiis",
+        discountAmount: 8869.61,
+        discountPercentage: 8801.07,
         isDirectCost: false,
         itemRef: {
-          id: "9eee9526-f8d9-486e-881e-ad4f0e101256",
-          name: "Elsa Maggio",
+          id: "9526f8d9-86e8-481e-ad4f-0e1012563f94",
+          name: "Carlos McClure",
         },
-        quantity: 1604.67,
-        subTotal: 5801.07,
-        taxAmount: 8863.05,
+        quantity: 4463.94,
+        subTotal: 2380.43,
+        taxAmount: 9078.76,
         taxRateRef: {
-          effectiveTaxRate: 5979.37,
-          id: "73e922a5-7a15-4be3-a060-807e2b6e3ab8",
-          name: "Jim Hammes II",
+          effectiveTaxRate: 5808.87,
+          id: "22a57a15-be3e-4060-807e-2b6e3ab8845f",
+          name: "Renee Metz",
         },
-        totalAmount: 5973.03,
+        totalAmount: 3782.45,
         tracking: {
           categoryRefs: [
             {
-              id: "7a60ff2a-54a3-41e9-8764-a3e865e7956f",
-              name: "Miss Bruce Hermann",
+              id: "0ff2a54a-31e9-4476-8a3e-865e7956f925",
+              name: "Lynda Heathcote",
             },
           ],
           customerRef: {
-            companyName: "mollitia",
-            id: "9da660ff-57bf-4aad-8f9e-fc1b4512c103",
+            companyName: "possimus",
+            id: "a660ff57-bfaa-4d4f-9efc-1b4512c10326",
           },
-          isBilledTo: BilledToType.Unknown,
-          isRebilledTo: BilledToType.NotApplicable,
+          isBilledTo: BilledToType.NotApplicable,
+          isRebilledTo: BilledToType.Customer,
           projectRef: {
-            id: "48dc2f61-5199-4ebf-90e9-fe6c632ca3ae",
-            name: "Ms. William Boyle",
+            id: "dc2f6151-99eb-4fd0-a9fe-6c632ca3aed0",
+            name: "Catherine Kuphal",
           },
         },
         trackingCategoryRefs: [
           {
-            id: "96312fde-0477-4177-8ff6-1d017476360a",
-            name: "Audrey Stiedemann",
+            id: "6312fde0-4771-4778-bf61-d017476360a1",
+            name: "Janis Ratke",
           },
         ],
-        unitAmount: 6391.87,
+        unitAmount: 3813.97,
       },
     ],
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "aliquid",
+    note: "perferendis",
     paymentAllocations: [
       {
         allocation: {
           allocatedOnDate: "2022-10-23T00:00:00.000Z",
           currency: "USD",
-          currencyRate: 3747.53,
-          totalAmount: 6145.28,
+          currencyRate: 6145.28,
+          totalAmount: 6616.07,
         },
         payment: {
           accountRef: {
-            id: "a1adeaab-5851-4d6c-a45b-08b61891baa0",
-            name: "Stewart Brakus",
+            id: "1adeaab5-851d-46c6-85b0-8b61891baa0f",
+            name: "Juan Parker",
           },
-          currency: "EUR",
-          currencyRate: 291.9,
-          id: "08e6f8c5-f350-4d8c-9b5a-341814301042",
-          note: "ab",
+          currency: "GBP",
+          currencyRate: 12.07,
+          id: "8e6f8c5f-350d-48cd-b5a3-418143010421",
+          note: "laudantium",
           paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "quae",
-          totalAmount: 2226.58,
+          reference: "dolor",
+          totalAmount: 8562.77,
         },
       },
     ],
     purchaseOrderRefs: [
       {
-        id: "d5208ece-7e25-43b6-a845-1c6c6e205e16",
-        purchaseOrderNumber: "at",
+        id: "5208ece7-e253-4b66-8451-c6c6e205e16d",
+        purchaseOrderNumber: "vero",
       },
     ],
-    reference: "vero",
+    reference: "est",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: BillStatus.Void,
-    subTotal: 1927.18,
+    status: BillStatus.Open,
+    subTotal: 9873.49,
     supplementalData: {
       content: {
-        "doloribus": {
-          "repudiandae": "optio",
+        "repudiandae": {
+          "optio": "occaecati",
         },
       },
     },
     supplierRef: {
-      id: "9578a645-8427-43a8-818d-162309fb0929",
-      supplierName: "iste",
+      id: "578a6458-4273-4a84-98d1-62309fb09299",
+      supplierName: "magni",
     },
-    taxAmount: 1700.99,
-    totalAmount: 813.69,
+    taxAmount: 813.69,
+    totalAmount: 6863.62,
     withholdingTax: [
       {
-        amount: 6863.62,
-        name: "Jan Reichel",
+        amount: 8818.97,
+        name: "Preston Mohr",
       },
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 328379,
+  timeoutInMinutes: 507636,
 }).then((res: CreateBillResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -185,7 +185,7 @@ sdk.bills.create({
 
 ## delete
 
-﻿The *Delete bill* endpoint allows you to delete a specified bill from an accounting platform. 
+The *Delete bill* endpoint allows you to delete a specified bill from an accounting platform. 
 
 [Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are itemized records of goods received or services provided to the SMB.
 
@@ -212,7 +212,7 @@ Integrations that support soft delete do not permanently delete the object in th
 
 > **Supported Integrations**
 > 
-> This functionality is currently only supported for our QuickBooks Online abd Oracle NetSuite integrations. Check out our [public roadmap](https://portal.productboard.com/codat/7-public-product-roadmap/tabs/46-accounting-api) to see what we're building next, and to submit ideas for new features.
+> This functionality is currently supported for our QuickBooks Online, Xero and Oracle NetSuite integrations.
 
 ### Example Usage
 
@@ -227,7 +227,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bills.delete({
-  billId: "7110701885",
+  billId: "EILBDVJVNUAGVKRQ",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: DeleteBillResponse) => {
@@ -274,7 +274,7 @@ const sdk = new CodatAccounting({
 
 sdk.bills.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  billId: "EILBDVJVNUAGVKRQ",
+  billId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: DownloadBillAttachmentResponse) => {
@@ -322,7 +322,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bills.get({
-  billId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+  billId: "EILBDVJVNUAGVKRQ",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetBillResponse) => {
   if (res.statusCode == 200) {
@@ -368,7 +368,7 @@ const sdk = new CodatAccounting({
 
 sdk.bills.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  billId: "EILBDVJVNUAGVKRQ",
+  billId: "7110701885",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetBillAttachmentResponse) => {
@@ -467,7 +467,7 @@ sdk.bills.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "quos",
+  query: "commodi",
 }).then((res: ListBillsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -511,7 +511,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bills.listAttachments({
-  billId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+  billId: "EILBDVJVNUAGVKRQ",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: ListBillAttachmentsResponse) => {
@@ -563,117 +563,117 @@ const sdk = new CodatAccounting({
 
 sdk.bills.update({
   bill: {
-    amountDue: 9308.19,
+    amountDue: 4156.08,
     currency: "USD",
-    currencyRate: 5207.61,
+    currencyRate: 9366.18,
     dueDate: "2022-10-23T00:00:00.000Z",
-    id: "4be05601-3f59-4da7-97a5-9ecfef66ef1c",
+    id: "be056013-f59d-4a75-ba59-ecfef66ef1ca",
     issueDate: "2022-10-23T00:00:00.000Z",
     lineItems: [
       {
         accountRef: {
-          id: "a3383c2b-eb47-4737-bc8d-72f64d1db1f2",
-          name: "Mr. Jim Franecki",
+          id: "3383c2be-b477-4373-88d7-2f64d1db1f2c",
+          name: "Ms. Sheila Blanda",
         },
-        description: "ea",
-        discountAmount: 1076.17,
-        discountPercentage: 8777.51,
+        description: "beatae",
+        discountAmount: 8777.51,
+        discountPercentage: 5682.18,
         isDirectCost: false,
         itemRef: {
-          id: "96349e1c-f9e0-46e3-a437-000ae6b6bc9b",
-          name: "Tommie Klocko",
+          id: "6349e1cf-9e06-4e3a-8370-00ae6b6bc9b8",
+          name: "Karl Herman",
         },
-        quantity: 8975.43,
-        subTotal: 6540.82,
-        taxAmount: 7699.67,
+        quantity: 6540.82,
+        subTotal: 7699.67,
+        taxAmount: 3730.4,
         taxRateRef: {
-          effectiveTaxRate: 3730.4,
-          id: "5a9741d3-1135-4296-9bb8-a7202611435e",
-          name: "Tracy Mills",
+          effectiveTaxRate: 3574.25,
+          id: "a9741d31-1352-4965-bb8a-7202611435e1",
+          name: "Lindsay Stiedemann",
         },
-        totalAmount: 8028.94,
+        totalAmount: 1572.22,
         tracking: {
           categoryRefs: [
             {
-              id: "2259b1ab-da8c-4070-a108-4cb0672d1ad8",
-              name: "Daisy Tillman",
+              id: "259b1abd-a8c0-470e-9084-cb0672d1ad87",
+              name: "Sheldon Treutel",
             },
           ],
           customerRef: {
-            companyName: "sint",
-            id: "665b85ef-bd02-4bae-8be2-d782259e3ea4",
+            companyName: "ea",
+            id: "65b85efb-d02b-4ae0-be2d-782259e3ea4b",
           },
-          isBilledTo: BilledToType.Customer,
-          isRebilledTo: BilledToType.NotApplicable,
+          isBilledTo: BilledToType.NotApplicable,
+          isRebilledTo: BilledToType.Unknown,
           projectRef: {
-            id: "197f9244-3da7-4ce5-ab89-5c537c6454ef",
-            name: "Jason Rempel",
+            id: "97f92443-da7c-4e52-b895-c537c6454efb",
+            name: "Jeannette Dickens",
           },
         },
         trackingCategoryRefs: [
           {
-            id: "896c3ca5-acfb-4e2f-9570-7577929177de",
-            name: "Benny Jacobs",
+            id: "96c3ca5a-cfbe-42fd-9707-577929177dea",
+            name: "Marc Hahn",
           },
         ],
-        unitAmount: 8886.16,
+        unitAmount: 8108.39,
       },
     ],
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "quidem",
+    note: "exercitationem",
     paymentAllocations: [
       {
         allocation: {
           allocatedOnDate: "2022-10-23T00:00:00.000Z",
-          currency: "USD",
-          currencyRate: 2114.55,
-          totalAmount: 2646.19,
+          currency: "GBP",
+          currencyRate: 2646.19,
+          totalAmount: 593.83,
         },
         payment: {
           accountRef: {
-            id: "09e3eb1e-5a2b-412e-b07f-116db99545fc",
-            name: "Ronnie Welch",
+            id: "9e3eb1e5-a2b1-42eb-87f1-16db99545fc9",
+            name: "Mindy O'Kon",
           },
           currency: "USD",
-          currencyRate: 5646.67,
-          id: "70e189db-b30f-4cb3-bea0-55b197cd44e2",
-          note: "asperiores",
+          currencyRate: 4849.66,
+          id: "0e189dbb-30fc-4b33-aa05-5b197cd44e2f",
+          note: "veniam",
           paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "consequuntur",
-          totalAmount: 8138.8,
+          reference: "facere",
+          totalAmount: 5129.05,
         },
       },
     ],
     purchaseOrderRefs: [
       {
-        id: "82d3513b-b6f4-48b6-96bc-db35ff2e4b27",
-        purchaseOrderNumber: "nostrum",
+        id: "2d3513bb-6f48-4b65-abcd-b35ff2e4b275",
+        purchaseOrderNumber: "neque",
       },
     ],
-    reference: "neque",
+    reference: "iusto",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     status: BillStatus.Paid,
-    subTotal: 5221.76,
+    subTotal: 7538.9,
     supplementalData: {
       content: {
-        "eligendi": {
-          "fugiat": "unde",
+        "fugiat": {
+          "unde": "officiis",
         },
       },
     },
     supplierRef: {
-      id: "e7319c17-7d52-45f7-bb11-4eeb52ff785f",
-      supplierName: "quisquam",
+      id: "7319c177-d525-4f77-b114-eeb52ff785fc",
+      supplierName: "sequi",
     },
-    taxAmount: 1972.59,
-    totalAmount: 4671.19,
+    taxAmount: 4671.19,
+    totalAmount: 5349.08,
     withholdingTax: [
       {
-        amount: 5349.08,
-        name: "Jamie Simonis",
+        amount: 755.66,
+        name: "Nadine Gutmann",
       },
     ],
   },
@@ -681,7 +681,7 @@ sdk.bills.update({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  timeoutInMinutes: 514993,
+  timeoutInMinutes: 921719,
 }).then((res: UpdateBillResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -730,10 +730,10 @@ const sdk = new CodatAccounting({
 
 sdk.bills.uploadAttachment({
   requestBody: {
-    content: "repudiandae".encode(),
-    requestBody: "consequatur",
+    content: "consequatur".encode(),
+    requestBody: "maxime",
   },
-  billId: "EILBDVJVNUAGVKRQ",
+  billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: UploadBillAttachmentResponse) => {

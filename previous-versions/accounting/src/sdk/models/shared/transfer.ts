@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { DataType } from "./datatype";
 import { InvoiceTo } from "./invoiceto";
 import { Metadata } from "./metadata";
 import { SupplementalData } from "./supplementaldata";
@@ -14,10 +15,16 @@ import { Expose, Type } from "class-transformer";
  * The customer or supplier for the transfer, if available.
  */
 export class TransferContactRef extends SpeakeasyBase {
+    /**
+     * Available Data types
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "dataType" })
-    dataType?: string;
+    dataType?: DataType;
 
+    /**
+     * Unique identifier for a customer or supplier.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id: string;
@@ -81,6 +88,9 @@ export class Transfer extends SpeakeasyBase {
     @Expose({ name: "description" })
     description?: string;
 
+    /**
+     * Account details of the account sending or receiving the transfer.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "from" })
     @Type(() => TransferAccount)
@@ -118,6 +128,9 @@ export class Transfer extends SpeakeasyBase {
     @Type(() => SupplementalData)
     supplementalData?: SupplementalData;
 
+    /**
+     * Account details of the account sending or receiving the transfer.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "to" })
     @Type(() => TransferAccount)

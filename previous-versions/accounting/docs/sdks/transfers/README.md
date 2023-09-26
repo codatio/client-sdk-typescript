@@ -1,4 +1,4 @@
-# transfers
+# Transfers
 
 ## Overview
 
@@ -30,6 +30,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateTransferResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { DataType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -40,26 +41,26 @@ const sdk = new CodatAccounting({
 sdk.transfers.create({
   transfer: {
     contactRef: {
-      dataType: "libero",
-      id: "e071bc16-3e27-49a3-b084-da99257d04f4",
+      dataType: DataType.Invoices,
+      id: "be071bc1-63e2-479a-bb08-4da99257d04f",
     },
     date: "2022-10-23T00:00:00.000Z",
     depositedRecordRefs: [
       {
-        dataType: "accountTransaction",
-        id: "47a742d8-4496-4cbd-aecf-6b99bc63562e",
+        dataType: "journalEntry",
+        id: "847a742d-8449-46cb-9eec-f6b99bc63562",
       },
     ],
-    description: "tempore",
+    description: "eveniet",
     from: {
       accountRef: {
-        id: "fdf55c29-4c06-40b0-aa12-87764eef6d0c",
-        name: "Paulette Kassulke",
+        id: "bfdf55c2-94c0-460b-86a1-287764eef6d0",
+        name: "Sam Smitham",
       },
-      amount: 5662.13,
-      currency: "EUR",
+      amount: 8616.38,
+      currency: "USD",
     },
-    id: "73dd6345-7150-49a8-a870-d3c5a1f9c242",
+    id: "c73dd634-5715-409a-8e87-0d3c5a1f9c24",
     metadata: {
       isDeleted: false,
     },
@@ -67,23 +68,23 @@ sdk.transfers.create({
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "quidem": {
-          "iure": "aliquid",
+        "odio": {
+          "quidem": "iure",
         },
       },
     },
     to: {
       accountRef: {
-        id: "a1f30c73-df5b-4671-9890-f42a4bb438d8",
-        name: "Kelli Davis II",
+        id: "6a1f30c7-3df5-4b67-9989-0f42a4bb438d",
+        name: "Greg Renner",
       },
-      amount: 5955.95,
+      amount: 476.2,
       currency: "GBP",
     },
     trackingCategoryRefs: [
       {
-        id: "d745e3c2-059c-49c3-b567-e0e252765b1d",
-        name: "Kathryn Windler",
+        id: "91d745e3-c205-49c9-83f5-67e0e252765b",
+        name: "Kari Jacobson",
       },
     ],
   },
@@ -136,7 +137,7 @@ const sdk = new CodatAccounting({
 sdk.transfers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  transferId: "laborum",
+  transferId: "nobis",
 }).then((res: GetTransferResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -234,7 +235,7 @@ sdk.transfers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "optio",
+  query: "possimus",
 }).then((res: ListTransfersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -283,12 +284,12 @@ const sdk = new CodatAccounting({
 
 sdk.transfers.uploadAttachment({
   requestBody: {
-    content: "debitis".encode(),
-    requestBody: "architecto",
+    content: "laborum".encode(),
+    requestBody: "optio",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  transferId: "reiciendis",
+  transferId: "debitis",
 }).then((res: UploadTransferAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response

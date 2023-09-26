@@ -1,4 +1,4 @@
-# bankAccounts
+# BankAccounts
 
 ## Overview
 
@@ -39,28 +39,28 @@ const sdk = new CodatAccounting({
 
 sdk.bankAccounts.create({
   bankAccount: {
-    accountName: "deleniti",
-    accountNumber: "hic",
-    accountType: BankAccountBankAccountType.Debit,
-    availableBalance: 5218.48,
-    balance: 1059.07,
+    accountName: "hic",
+    accountNumber: "optio",
+    accountType: BankAccountBankAccountType.Credit,
+    availableBalance: 1059.07,
+    balance: 4146.62,
     currency: "USD",
-    iBan: "molestiae",
-    id: "42cb7392-0592-4939-afea-7596eb10faaa",
-    institution: "dolores",
+    iBan: "modi",
+    id: "2cb73920-5929-4396-bea7-596eb10faaa2",
+    institution: "dolorem",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    nominalCode: "corporis",
-    overdraftLimit: 1289.26,
-    sortCode: "nobis",
+    nominalCode: "explicabo",
+    overdraftLimit: 7506.86,
+    sortCode: "enim",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
   },
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 607831,
+  timeoutInMinutes: 363711,
 }).then((res: CreateBankAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -106,7 +106,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bankAccounts.get({
-  accountId: "nemo",
+  accountId: "minima",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetBankAccountResponse) => {
@@ -206,7 +206,7 @@ sdk.bankAccounts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "minima",
+  query: "excepturi",
 }).then((res: ListBankAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -256,29 +256,29 @@ const sdk = new CodatAccounting({
 
 sdk.bankAccounts.update({
   bankAccount: {
-    accountName: "excepturi",
-    accountNumber: "accusantium",
+    accountName: "accusantium",
+    accountNumber: "iure",
     accountType: BankAccountBankAccountType.Credit,
-    availableBalance: 6342.74,
-    balance: 9883.74,
-    currency: "EUR",
-    iBan: "architecto",
-    id: "a3a2fa94-6773-4925-9aa5-2c3f5ad019da",
-    institution: "quasi",
+    availableBalance: 9883.74,
+    balance: 9589.5,
+    currency: "GBP",
+    iBan: "mollitia",
+    id: "3a2fa946-7739-4251-aa52-c3f5ad019da1",
+    institution: "reiciendis",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    nominalCode: "voluptatibus",
-    overdraftLimit: 8781.94,
-    sortCode: "nihil",
+    nominalCode: "vero",
+    overdraftLimit: 4686.51,
+    sortCode: "praesentium",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
   },
-  bankAccountId: "voluptatibus",
+  bankAccountId: "ipsa",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  timeoutInMinutes: 55714,
+  timeoutInMinutes: 604846,
 }).then((res: UpdateBankAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response

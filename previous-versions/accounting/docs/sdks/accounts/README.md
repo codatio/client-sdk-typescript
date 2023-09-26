@@ -1,4 +1,4 @@
-# accounts
+# Accounts
 
 ## Overview
 
@@ -39,7 +39,7 @@ const sdk = new CodatAccounting({
 
 sdk.accounts.create({
   account: {
-    currency: "EUR",
+    currency: "USD",
     currentBalance: 0,
     description: "Invoices the business has issued but has not yet collected payment on.",
     fullyQualifiedCategory: "Asset.Current",
@@ -58,15 +58,15 @@ sdk.accounts.create({
     validDatatypeLinks: [
       {
         links: [
-          "illum",
+          "vel",
         ],
-        property: "vel",
+        property: "error",
       },
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 623564,
+  timeoutInMinutes: 645894,
 }).then((res: CreateAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -112,7 +112,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.accounts.get({
-  accountId: "deserunt",
+  accountId: "suscipit",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountResponse) => {
   if (res.statusCode == 200) {
@@ -209,7 +209,7 @@ sdk.accounts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "suscipit",
+  query: "iure",
 }).then((res: ListAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -78,6 +78,7 @@ export * from "./customer";
 export * from "./customers";
 export * from "./customerstatus";
 export * from "./dataset";
+export * from "./datasetstatus";
 export * from "./datatype";
 export * from "./directcost";
 export * from "./directcostlineitem";

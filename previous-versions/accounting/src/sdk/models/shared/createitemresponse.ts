@@ -82,6 +82,9 @@ export class CreateItemResponse extends SpeakeasyBase {
     @Expose({ name: "dataType" })
     dataType?: DataType;
 
+    /**
+     * A message about the error.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "errorMessage" })
     errorMessage?: string;
@@ -121,21 +124,29 @@ export class CreateItemResponse extends SpeakeasyBase {
     requestedOnUtc: string;
 
     /**
-     * The status of the push operation.
+     * The current status of the push operation.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
     status: PushOperationStatus;
 
+    /**
+     * Push status code.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "statusCode" })
     statusCode: number;
 
+    /**
+     * Number of minutes the push operation must complete within before it times out.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "timeoutInMinutes" })
     timeoutInMinutes?: number;
 
     /**
+     * Number of seconds the push operation must complete within before it times out.
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @SpeakeasyMetadata()

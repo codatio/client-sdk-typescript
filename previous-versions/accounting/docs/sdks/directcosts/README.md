@@ -1,4 +1,4 @@
-# directCosts
+# DirectCosts
 
 ## Overview
 
@@ -33,6 +33,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateDirectCostResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { DataType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -43,18 +44,18 @@ const sdk = new CodatAccounting({
 sdk.directCosts.create({
   directCost: {
     contactRef: {
-      dataType: "maxime",
-      id: "af5dd672-3dc0-4f5a-a2f3-a6b700878756",
+      dataType: DataType.Invoices,
+      id: "caf5dd67-23dc-40f5-ae2f-3a6b70087875",
     },
-    currency: "GBP",
-    currencyRate: 3086.58,
-    id: "3f5a6c98-b555-4540-80d4-0bcacc6cbd6b",
+    currency: "USD",
+    currencyRate: 685.96,
+    id: "43f5a6c9-8b55-4554-880d-40bcacc6cbd6",
     issueDate: "2022-10-23T00:00:00.000Z",
     lineItems: [
       {
         accountRef: {
-          id: "f3ec9093-04f9-426b-ad25-53819b474b0e",
-          name: "Steve Barrows",
+          id: "5f3ec909-304f-4926-bad2-553819b474b0",
+          name: "Dr. Woodrow Corkery",
         },
         description: "ea",
         discountAmount: 1799.06,

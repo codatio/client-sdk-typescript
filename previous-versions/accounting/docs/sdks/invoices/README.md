@@ -1,4 +1,4 @@
-# invoices
+# Invoices
 
 ## Overview
 
@@ -36,7 +36,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateInvoiceResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { BilledToType1, InvoiceStatus } from "@codat/accounting/dist/sdk/models/shared";
+import { BilledToType1, DataType, InvoiceStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -46,132 +46,132 @@ const sdk = new CodatAccounting({
 
 sdk.invoices.create({
   invoice: {
-    additionalTaxAmount: 263.21,
-    additionalTaxPercentage: 8197.57,
-    amountDue: 7188.79,
+    additionalTaxAmount: 7560.74,
+    additionalTaxPercentage: 263.21,
+    amountDue: 8197.57,
     currency: "EUR",
-    currencyRate: 8256.81,
+    currencyRate: 7148.35,
     customerRef: {
-      companyName: "illum",
-      id: "b484708f-b4e3-491e-abc1-58c4c4e54599",
+      companyName: "assumenda",
+      id: "db484708-fb4e-4391-a6bc-158c4c4e5459",
     },
-    discountPercentage: 9294.43,
+    discountPercentage: 5786.1,
     dueDate: "2022-10-23T00:00:00.000Z",
-    id: "342260e9-b200-4ce7-8a1b-d8fb7a0a116c",
-    invoiceNumber: "officiis",
+    id: "a342260e-9b20-40ce-b8a1-bd8fb7a0a116",
+    invoiceNumber: "eligendi",
     issueDate: "2022-10-23T00:00:00.000Z",
     lineItems: [
       {
         accountRef: {
-          id: "23d4097f-a30e-49af-b25b-29122030d83f",
-          name: "Rosie Waters",
+          id: "723d4097-fa30-4e9a-b725-b29122030d83",
+          name: "Dan Nolan",
         },
-        description: "dignissimos",
-        discountAmount: 5920.88,
-        discountPercentage: 5818.89,
+        description: "iusto",
+        discountAmount: 4938.65,
+        discountPercentage: 5920.88,
         isDirectIncome: false,
         itemRef: {
-          id: "d22e8c1f-8493-4825-bdc4-2c876c2c2dfb",
-          name: "Sheri Weissnat DDS",
+          id: "9d22e8c1-f849-4382-9fdc-42c876c2c2df",
+          name: "Jim Rosenbaum",
         },
-        quantity: 4608.03,
-        subTotal: 3920.8,
-        taxAmount: 1296.19,
+        quantity: 756.1,
+        subTotal: 7513.47,
+        taxAmount: 4608.03,
         taxRateRef: {
-          effectiveTaxRate: 1974.41,
-          id: "0f841fb1-bd23-4fdb-94db-6be5a685998e",
-          name: "Wanda Osinski",
+          effectiveTaxRate: 3920.8,
+          id: "230f841f-b1bd-423f-9b14-db6be5a68599",
+          name: "Alonzo Collins",
         },
-        totalAmount: 276.53,
+        totalAmount: 8752,
         tracking: {
           categoryRefs: [
             {
-              id: "da16fc2b-271a-4289-857e-854e90439d22",
-              name: "Monica Johnson",
+              id: "20da16fc-2b27-41a2-89c5-7e854e90439d",
+              name: "Kathryn Cronin",
             },
           ],
           customerRef: {
-            companyName: "cupiditate",
-            id: "46240708-4f7a-4b37-8ef0-2225194db554",
+            companyName: "ipsam",
+            id: "69462407-084f-47ab-b7ce-f02225194db5",
           },
           isBilledTo: BilledToType1.Unknown,
           isRebilledTo: BilledToType1.Unknown,
           projectRef: {
-            id: "adc669af-90a2-46c7-8dc9-81f068981d6b",
-            name: "Norman Ferry",
+            id: "10adc669-af90-4a26-87cd-c981f068981d",
+            name: "Kelli Reichert",
           },
           recordRef: {
-            dataType: "accountTransaction",
-            id: "a348c31b-f407-4ee4-bcf0-c42b78f15626",
+            dataType: "transfer",
+            id: "faa348c3-1bf4-407e-a4fc-f0c42b78f156",
           },
         },
         trackingCategoryRefs: [
           {
-            id: "398a0dc7-6632-44cc-b06c-8ca12d025292",
-            name: "Patricia Pouros",
+            id: "26398a0d-c766-4324-8cb0-6c8ca12d0252",
+            name: "Miss Victor Kuhlman",
           },
         ],
-        unitAmount: 3689.76,
+        unitAmount: 8196.9,
       },
     ],
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "fugit",
+    note: "odio",
     paidOnDate: "2022-10-23T00:00:00.000Z",
     paymentAllocations: [
       {
         allocation: {
           allocatedOnDate: "2022-10-23T00:00:00.000Z",
           currency: "EUR",
-          currencyRate: 5062.02,
-          totalAmount: 5749.9,
+          currencyRate: 8506.28,
+          totalAmount: 5062.02,
         },
         payment: {
           accountRef: {
-            id: "5b8bcf24-db95-4969-b352-f74533994d78",
-            name: "Elbert Fay",
+            id: "95b8bcf2-4db9-4596-9335-2f74533994d7",
+            name: "Gustavo Ullrich",
           },
-          currency: "EUR",
-          currencyRate: 6104.9,
-          id: "389f5abb-7f66-4255-8a28-382ac483afd2",
-          note: "consectetur",
+          currency: "USD",
+          currencyRate: 9004.38,
+          id: "9389f5ab-b7f6-4625-90a2-8382ac483afd",
+          note: "odit",
           paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "minima",
-          totalAmount: 7036.51,
+          reference: "inventore",
+          totalAmount: 3259.24,
         },
       },
     ],
     salesOrderRefs: [
       {
-        dataType: "facilis",
-        id: "a650164e-06f5-4bf6-ae59-1bc8bdef3612",
+        dataType: DataType.Invoices,
+        id: "bba65016-4e06-4f5b-b6ae-591bc8bdef36",
       },
     ],
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: InvoiceStatus.Submitted,
-    subTotal: 2033.96,
+    status: InvoiceStatus.Unknown,
+    subTotal: 7240.73,
     supplementalData: {
       content: {
-        "quod": {
-          "eos": "alias",
+        "ex": {
+          "neque": "quod",
         },
       },
     },
-    totalAmount: 3198.07,
-    totalDiscount: 9545.95,
-    totalTaxAmount: 8168.25,
+    totalAmount: 1761.04,
+    totalDiscount: 1.86,
+    totalTaxAmount: 3198.07,
     withholdingTax: [
       {
-        amount: 6625.15,
-        name: "Alex Bayer",
+        amount: 9545.95,
+        name: "Orlando Lindgren IV",
       },
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 264073,
+  timeoutInMinutes: 463895,
 }).then((res: CreateInvoiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -239,7 +239,7 @@ const sdk = new CodatAccounting({
 sdk.invoices.delete({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "fuga",
+  invoiceId: "modi",
 }).then((res: DeleteInvoiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -286,7 +286,7 @@ sdk.invoices.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "iure",
+  invoiceId: "fuga",
 }).then((res: DownloadInvoiceAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -326,7 +326,7 @@ const sdk = new CodatAccounting({
 
 sdk.invoices.downloadPdf({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  invoiceId: "deleniti",
+  invoiceId: "iure",
 }).then((res: DownloadInvoicePdfResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -372,7 +372,7 @@ const sdk = new CodatAccounting({
 
 sdk.invoices.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  invoiceId: "officia",
+  invoiceId: "deleniti",
 }).then((res: GetInvoiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -419,7 +419,7 @@ sdk.invoices.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "sint",
+  invoiceId: "officia",
 }).then((res: GetInvoiceAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -522,7 +522,7 @@ sdk.invoices.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "laborum",
+  query: "sint",
 }).then((res: ListInvoicesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -568,7 +568,7 @@ const sdk = new CodatAccounting({
 sdk.invoices.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "dolor",
+  invoiceId: "laborum",
 }).then((res: ListInvoiceAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -608,7 +608,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { UpdateInvoiceResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { BilledToType1, InvoiceStatus } from "@codat/accounting/dist/sdk/models/shared";
+import { BilledToType1, DataType, InvoiceStatus } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -618,25 +618,25 @@ const sdk = new CodatAccounting({
 
 sdk.invoices.update({
   invoice: {
-    additionalTaxAmount: 3227.73,
-    additionalTaxPercentage: 8477.4,
-    amountDue: 229.66,
-    currency: "USD",
-    currencyRate: 3771.94,
+    additionalTaxAmount: 2247.77,
+    additionalTaxPercentage: 3227.73,
+    amountDue: 8477.4,
+    currency: "GBP",
+    currencyRate: 5613.99,
     customerRef: {
-      companyName: "expedita",
-      id: "6f66fef0-20e9-4f44-bb42-57b992c8dbda",
+      companyName: "voluptas",
+      id: "b6f66fef-020e-49f4-83b4-257b992c8dbd",
     },
-    discountPercentage: 4146.44,
+    discountPercentage: 6674.18,
     dueDate: "2022-10-23T00:00:00.000Z",
-    id: "61efa219-8258-4fd0-a9eb-a47f7d3ef049",
-    invoiceNumber: "aliquid",
+    id: "a61efa21-9825-48fd-8a9e-ba47f7d3ef04",
+    invoiceNumber: "excepturi",
     issueDate: "2022-10-23T00:00:00.000Z",
     lineItems: [
       {
         accountRef: {
-          id: "0d6a1831-c87a-4df5-96fd-f1ad837ae80c",
-          name: "Blanca Brakus",
+          id: "40d6a183-1c87-4adf-996f-df1ad837ae80",
+          name: "Ms. Terry Runolfsson",
         },
         description: "occaecati",
         discountAmount: 3396.51,
@@ -717,35 +717,35 @@ sdk.invoices.update({
     ],
     salesOrderRefs: [
       {
-        dataType: "dignissimos",
-        id: "501357e4-4f51-4f8b-884c-3197e193a245",
+        dataType: DataType.Invoices,
+        id: "7501357e-44f5-41f8-b084-c3197e193a24",
       },
     ],
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: InvoiceStatus.Submitted,
-    subTotal: 4990.05,
+    status: InvoiceStatus.Draft,
+    subTotal: 3816.39,
     supplementalData: {
       content: {
-        "tenetur": {
-          "excepturi": "modi",
+        "ducimus": {
+          "tenetur": "excepturi",
         },
       },
     },
-    totalAmount: 5463.29,
-    totalDiscount: 4724.29,
-    totalTaxAmount: 2600.46,
+    totalAmount: 2641.25,
+    totalDiscount: 5463.29,
+    totalTaxAmount: 4724.29,
     withholdingTax: [
       {
-        amount: 8113.8,
-        name: "Mable Hills",
+        amount: 2600.46,
+        name: "Billy Schultz",
       },
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  invoiceId: "labore",
-  timeoutInMinutes: 596133,
+  invoiceId: "porro",
+  timeoutInMinutes: 287834,
 }).then((res: UpdateInvoiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -794,8 +794,8 @@ const sdk = new CodatAccounting({
 
 sdk.invoices.uploadAttachment({
   requestBody: {
-    content: "ducimus".encode(),
-    requestBody: "qui",
+    content: "perspiciatis".encode(),
+    requestBody: "ducimus",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",

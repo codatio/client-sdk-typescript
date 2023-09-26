@@ -121,10 +121,16 @@ export class BillSupplementalData extends SpeakeasyBase {
 }
 
 export class BillWithholdingTax extends SpeakeasyBase {
+    /**
+     * Amount of tax withheld.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "amount" })
     amount: number;
 
+    /**
+     * Name assigned to withheld tax.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "name" })
     name: string;
