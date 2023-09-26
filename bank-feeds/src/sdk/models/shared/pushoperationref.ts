@@ -14,6 +14,9 @@ export class PushOperationRef extends SpeakeasyBase {
     @Expose({ name: "dataType" })
     dataType?: DataType;
 
+    /**
+     * Unique identifier for a push operation.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id?: string;

@@ -8,6 +8,9 @@ import { PushOperationRef } from "./pushoperationref";
 import { Expose, Type } from "class-transformer";
 
 export class PushOperationChange extends SpeakeasyBase {
+    /**
+     * Unique identifier for the attachment created otherwise null.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "attachmentId" })
     attachmentId?: string;
@@ -17,6 +20,9 @@ export class PushOperationChange extends SpeakeasyBase {
     @Type(() => PushOperationRef)
     recordRef?: PushOperationRef;
 
+    /**
+     * Type of change being applied to record in third party platform.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
     type?: PushChangeType;

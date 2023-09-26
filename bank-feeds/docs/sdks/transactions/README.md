@@ -37,22 +37,22 @@ const sdk = new CodatBankFeeds({
 
 sdk.transactions.create({
   createBankTransactions: {
-    accountId: "corporis",
+    accountId: "nobis",
     transactions: [
       {
-        amount: 1289.26,
-        balance: 7506.86,
+        amount: 3154.28,
+        balance: 6078.31,
         date: "2022-10-23T00:00:00.000Z",
-        description: "omnis",
-        id: "55907aff-1a3a-42fa-9467-739251aa52c3",
+        description: "minima",
+        id: "907aff1a-3a2f-4a94-a773-9251aa52c3f5",
       },
     ],
   },
-  accountId: "EILBDVJVNUAGVKRQ",
+  accountId: "7110701885",
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 368725,
+  timeoutInMinutes: 820994,
 }).then((res: CreateBankTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -92,7 +92,7 @@ const sdk = new CodatBankFeeds({
 
 sdk.transactions.getCreateOperation({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "ad019da1-ffe7-48f0-97b0-074f15471b5e",
+  pushOperationKey: "019da1ff-e78f-4097-b007-4f15471b5e6e",
 }).then((res: GetCreateOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -135,7 +135,7 @@ sdk.transactions.listCreateOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "commodi",
+  query: "quae",
 }).then((res: ListCreateOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

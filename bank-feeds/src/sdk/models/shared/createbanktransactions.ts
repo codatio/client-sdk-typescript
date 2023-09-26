@@ -7,6 +7,9 @@ import { CreateBankTransaction } from "./createbanktransaction";
 import { Expose, Type } from "class-transformer";
 
 export class CreateBankTransactions extends SpeakeasyBase {
+    /**
+     * Unique identifier for a bank account.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "accountId" })
     accountId?: string;

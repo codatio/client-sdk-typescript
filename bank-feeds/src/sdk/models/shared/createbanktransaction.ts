@@ -6,10 +6,16 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class CreateBankTransaction extends SpeakeasyBase {
+    /**
+     * The amount transacted in the bank transaction.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "amount" })
     amount?: number;
 
+    /**
+     * The remaining balance in the account with ID `accountId`.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "balance" })
     balance?: number;
@@ -41,10 +47,16 @@ export class CreateBankTransaction extends SpeakeasyBase {
     @Expose({ name: "date" })
     date?: string;
 
+    /**
+     * Description of the bank transaction.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "description" })
     description?: string;
 
+    /**
+     * Identifier for the bank account transaction, unique for the company in the accounting platform.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id?: string;

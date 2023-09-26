@@ -51,16 +51,16 @@ const sdk = new CodatBankFeeds({
 
 sdk.sourceAccounts.create({
   sourceAccount: {
-    accountName: "deserunt",
-    accountNumber: "suscipit",
-    accountType: "iure",
-    balance: 2975.34,
+    accountName: "iure",
+    accountNumber: "magnam",
+    accountType: "debitis",
+    balance: 567.13,
     currency: "EUR",
     feedStartDate: "2022-10-23T00:00:00.000Z",
-    id: "f467cc87-96ed-4151-a05d-fc2ddf7cc78c",
+    id: "67cc8796-ed15-41a0-9dfc-2ddf7cc78ca1",
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    sortCode: "dicta",
-    status: "nam",
+    sortCode: "officia",
+    status: "occaecati",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -105,7 +105,7 @@ const sdk = new CodatBankFeeds({
 });
 
 sdk.sourceAccounts.delete({
-  accountId: "7110701885",
+  accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: DeleteSourceAccountResponse) => {
@@ -191,7 +191,7 @@ const sdk = new CodatBankFeeds({
 });
 
 sdk.sourceAccounts.generateCredentials({
-  requestBody: "occaecati".encode(),
+  requestBody: "deleniti".encode(),
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GenerateCredentialsResponse) => {
@@ -277,16 +277,16 @@ const sdk = new CodatBankFeeds({
 
 sdk.sourceAccounts.update({
   sourceAccount: {
-    accountName: "fugit",
-    accountNumber: "deleniti",
-    accountType: "hic",
-    balance: 7586.16,
+    accountName: "hic",
+    accountNumber: "optio",
+    accountType: "totam",
+    balance: 1059.07,
     currency: "USD",
     feedStartDate: "2022-10-23T00:00:00.000Z",
-    id: "6742cb73-9205-4929-b96f-ea7596eb10fa",
+    id: "42cb7392-0592-4939-afea-7596eb10faaa",
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    sortCode: "laborum",
-    status: "dolores",
+    sortCode: "dolorem",
+    status: "corporis",
   },
   accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
