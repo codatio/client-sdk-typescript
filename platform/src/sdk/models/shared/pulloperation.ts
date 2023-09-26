@@ -3,8 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { DataType } from "./datatype";
 import { Expose } from "class-transformer";
 
+/**
+ * The current status of the pull operation.
+ */
 export enum PullOperationStatus {
     Initial = "Initial",
     Queued = "Queued",
@@ -38,30 +42,51 @@ export enum PullOperationStatus {
  * *Formally called `dataset`*
  */
 export class PullOperation extends SpeakeasyBase {
+    /**
+     * Unique identifier of the company associated to this pull operation.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "companyId" })
     companyId: string;
 
+    /**
+     * Unique identifier of the connection associated to this pull operation.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "connectionId" })
     connectionId: string;
 
+    /**
+     * Available Data types
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "dataType" })
-    dataType: string;
+    dataType: DataType;
 
+    /**
+     * Unique identifier of the pull operation.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id: string;
 
+    /**
+     * `True` if the pull operation completed successfully.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isCompleted" })
     isCompleted: boolean;
 
+    /**
+     * `True` if the pull operation entered an error state.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isErrored" })
     isErrored: boolean;
 
+    /**
+     * An integer signifying the progress of the pull operation.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "progress" })
     progress: number;
@@ -93,6 +118,9 @@ export class PullOperation extends SpeakeasyBase {
     @Expose({ name: "requested" })
     requested: string;
 
+    /**
+     * The current status of the pull operation.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
     status: PullOperationStatus;

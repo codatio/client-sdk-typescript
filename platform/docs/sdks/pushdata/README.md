@@ -79,7 +79,7 @@ const sdk = new CodatPlatform({
 
 sdk.pushData.getOperation({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "d69a674e-0f46-47cc-8796-ed151a05dfc2",
+  pushOperationKey: "8d69a674-e0f4-467c-8879-6ed151a05dfc",
 }).then((res: GetPushOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -122,7 +122,7 @@ sdk.pushData.listOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "at",
+  query: "odit",
 }).then((res: GetCompanyPushHistoryResponse) => {
   if (res.statusCode == 200) {
     // handle response

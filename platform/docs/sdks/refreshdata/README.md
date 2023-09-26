@@ -76,7 +76,7 @@ const sdk = new CodatPlatform({
 
 sdk.refreshData.byDataType({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "df7cc78c-a1ba-4928-bc81-6742cb739205",
+  connectionId: "ddf7cc78-ca1b-4a92-8fc8-16742cb73920",
   dataType: DataType.Invoices,
 }).then((res: RefreshDataTypeResponse) => {
   if (res.statusCode == 200) {
@@ -156,7 +156,7 @@ const sdk = new CodatPlatform({
 
 sdk.refreshData.getPullOperation({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  datasetId: "eaed9f0f-e77b-4bc9-a58f-ab8b4b99ab18",
+  datasetId: "5929396f-ea75-496e-b10f-aaa2352c5955",
 }).then((res: GetPullOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -199,7 +199,7 @@ sdk.refreshData.listPullOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "natus",
+  query: "excepturi",
 }).then((res: ListPullOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
