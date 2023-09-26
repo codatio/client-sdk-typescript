@@ -12,7 +12,7 @@
 
 The *Download customer attachment* endpoint downloads a specific attachment for a given `customerId` and `attachmentId`.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/lending-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support downloading a customer attachment.
 
@@ -33,7 +33,7 @@ sdk.accountsReceivable.customers.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "sapiente",
+  customerId: "quo",
 }).then((res: DownloadAccountingCustomerAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -59,7 +59,7 @@ sdk.accountsReceivable.customers.downloadAttachment({
 
 The *Get customer* endpoint returns a single customer for a given customerId.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/lending-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support getting a specific customer.
 
@@ -80,7 +80,7 @@ const sdk = new CodatLending({
 
 sdk.accountsReceivable.customers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  customerId: "quo",
+  customerId: "odit",
 }).then((res: GetAccountingCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -106,7 +106,7 @@ sdk.accountsReceivable.customers.get({
 
 The *Get customer attachment* endpoint returns a specific attachment for a given `customerId` and `attachmentId`.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/lending-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support getting a customer attachment.
 
@@ -127,7 +127,7 @@ sdk.accountsReceivable.customers.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "odit",
+  customerId: "at",
 }).then((res: GetAccountingCustomerAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -151,9 +151,9 @@ sdk.accountsReceivable.customers.getAttachment({
 
 ## list
 
-The *List customers* endpoint returns a list of [customers](https://docs.codat.io/accounting-api#/schemas/Customer) for a given company's connection.
+The *List customers* endpoint returns a list of [customers](https://docs.codat.io/lending-api#/schemas/Customer) for a given company's connection.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/lending-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
@@ -201,7 +201,7 @@ sdk.accountsReceivable.customers.list({
 
 The *List customer attachments* endpoint returns a list of attachments avialable to download for given `customerId`.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/lending-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support listing customer attachments.
 
@@ -221,7 +221,7 @@ const sdk = new CodatLending({
 sdk.accountsReceivable.customers.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "at",
+  customerId: "maiores",
 }).then((res: ListAccountingCustomerAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

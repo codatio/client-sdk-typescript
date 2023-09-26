@@ -10,21 +10,27 @@ export class CreateTransferRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
     accountingTransfer?: shared.AccountingTransfer;
 
+    /**
+     * Allow a sync upon push completion.
+     */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=allowSyncOnPushComplete" })
     allowSyncOnPushComplete?: boolean;
 
+    /**
+     * Unique identifier for a company.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 
+    /**
+     * Unique identifier for a connection.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
     connectionId: string;
 
     /**
-     * When updating data in the destination platform Codat checks the `sourceModifiedDate` against the `lastupdated` date from the accounting platform, if they're different Codat will return an error suggesting you should initiate another pull of the data. If this is set to `true` then the update will override this check.
+     * Time limit for the push operation to complete before it is timed out.
      */
-    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=forceUpdate" })
-    forceUpdate?: boolean;
-
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=timeoutInMinutes" })
     timeoutInMinutes?: number;
 }
@@ -36,6 +42,9 @@ export class CreateTransferResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     accountingCreateTransferResponse?: shared.AccountingCreateTransferResponse;
 
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -45,9 +54,15 @@ export class CreateTransferResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 }

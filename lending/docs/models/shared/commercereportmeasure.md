@@ -3,9 +3,9 @@
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `displayName`      | *string*           | :heavy_minus_sign: | N/A                |
-| `index`            | *number*           | :heavy_minus_sign: | N/A                |
-| `type`             | *string*           | :heavy_minus_sign: | N/A                |
-| `units`            | *string*           | :heavy_minus_sign: | N/A                |
+| Field                                    | Type                                     | Required                                 | Description                              |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| `displayName`                            | *string*                                 | :heavy_minus_sign:                       | The measure's display name.              |
+| `index`                                  | *number*                                 | :heavy_minus_sign:                       | The measure's index.                     |
+| `type`                                   | *string*                                 | :heavy_minus_sign:                       | The measure's type.                      |
+| `units`                                  | *string*                                 | :heavy_minus_sign:                       | The measure's units e.g. percentage (%). |

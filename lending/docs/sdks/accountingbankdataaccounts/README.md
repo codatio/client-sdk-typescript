@@ -9,7 +9,7 @@
 
 The *Get bank account* endpoint returns a single account for a given accountId.
 
-[Bank accounts](https://docs.codat.io/accounting-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
+[Bank accounts](https://docs.codat.io/lending-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) for integrations that support getting a specific bank account.
 
@@ -29,7 +29,7 @@ const sdk = new CodatLending({
 });
 
 sdk.accountingBankData.accounts.get({
-  accountId: "unde",
+  accountId: "corrupti",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetAccountingBankAccountResponse) => {
@@ -55,9 +55,9 @@ sdk.accountingBankData.accounts.get({
 
 ## list
 
-The *List bank accounts* endpoint returns a list of [bank accounts](https://docs.codat.io/accounting-api#/schemas/BankAccount) for a given company's connection.
+The *List bank accounts* endpoint returns a list of [bank accounts](https://docs.codat.io/lending-api#/schemas/BankAccount) for a given company's connection.
 
-[Bank accounts](https://docs.codat.io/accounting-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
+[Bank accounts](https://docs.codat.io/lending-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
@@ -80,7 +80,7 @@ sdk.accountingBankData.accounts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "nulla",
+  query: "illum",
 }).then((res: ListAccountingBankAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response

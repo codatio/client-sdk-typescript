@@ -7,13 +7,13 @@
 
 ## create
 
-The *Create transfer* endpoint creates a new [transfer](https://docs.codat.io/accounting-api#/schemas/Transfer) for a given company's connection.
+The *Create transfer* endpoint creates a new [transfer](https://docs.codat.io/lending-api#/schemas/Transfer) for a given company's connection.
 
-[Transfers](https://docs.codat.io/accounting-api#/schemas/Transfer) record the movement of money between two bank accounts, or between a bank account and a nominal account.
+[Transfers](https://docs.codat.io/lending-api#/schemas/Transfer) record the movement of money between two bank accounts, or between a bank account and a nominal account.
 
 **Integration-specific behaviour**
 
-Required data may vary by integration. To see what data to post, first call [Get create transfer model](https://docs.codat.io/accounting-api#/operations/get-create-transfers-model).
+Required data may vary by integration. To see what data to post, first call [Get create transfer model](https://docs.codat.io/lending-api#/operations/get-create-transfers-model).
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=transfers) for integrations that support creating an account.
 
@@ -23,6 +23,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatLending } from "@codat/lending";
 import { CreateTransferResponse } from "@codat/lending/dist/sdk/models/operations";
+import { DataType } from "@codat/lending/dist/sdk/models/shared";
 
 const sdk = new CodatLending({
   security: {
@@ -33,26 +34,26 @@ const sdk = new CodatLending({
 sdk.loanWriteback.transfers.create({
   accountingTransfer: {
     contactRef: {
-      dataType: "laborum",
-      id: "c366c8dd-6b14-4429-8747-4778a7bd466d",
+      dataType: DataType.Invoices,
+      id: "ac366c8d-d6b1-4442-9074-74778a7bd466",
     },
     date: "2022-10-23T00:00:00.000Z",
     depositedRecordRefs: [
       {
-        dataType: "accountTransaction",
-        id: "c10ab3cd-ca42-4519-84e5-23c7e0bc7178",
+        dataType: "journalEntry",
+        id: "8c10ab3c-dca4-4251-904e-523c7e0bc717",
       },
     ],
-    description: "accusamus",
+    description: "totam",
     from: {
       accountRef: {
-        id: "4796f2a7-0c68-4828-aaa4-82562f222e98",
-        name: "Tamara Vandervort IV",
+        id: "e4796f2a-70c6-4882-82aa-482562f222e9",
+        name: "Carl Koch",
       },
-      amount: 8003.79,
-      currency: "EUR",
+      amount: 829.71,
+      currency: "USD",
     },
-    id: "e61e6b7b-95bc-40ab-bc20-c4f3789fd871",
+    id: "cbe61e6b-7b95-4bc0-ab3c-20c4f3789fd8",
     metadata: {
       isDeleted: false,
     },
@@ -60,31 +61,30 @@ sdk.loanWriteback.transfers.create({
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "sint": {
-          "pariatur": "possimus",
+        "a": {
+          "error": "sint",
         },
       },
     },
     to: {
       accountRef: {
-        id: "2efd121a-a6f1-4e67-8bdb-04f15756082d",
-        name: "Cassandra Ward V",
+        id: "dd2efd12-1aa6-4f1e-a74b-db04f1575608",
+        name: "Rosemarie Jacobs",
       },
-      amount: 9453.02,
+      amount: 6802.7,
       currency: "GBP",
     },
     trackingCategoryRefs: [
       {
-        id: "d1705133-9d08-4086-a184-0394c26071f9",
-        name: "Camille Hirthe III",
+        id: "9f1d1705-1339-4d08-886a-1840394c2607",
+        name: "Elisa Mosciski",
       },
     ],
   },
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  forceUpdate: false,
-  timeoutInMinutes: 310067,
+  timeoutInMinutes: 374323,
 }).then((res: CreateTransferResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -108,9 +108,9 @@ sdk.loanWriteback.transfers.create({
 
 ## getCreateModel
 
-The *Get create transfer model* endpoint returns the expected data for the request payload when creating a [transfer](https://docs.codat.io/accounting-api#/schemas/Transfer) for a given company and integration.
+The *Get create transfer model* endpoint returns the expected data for the request payload when creating a [transfer](https://docs.codat.io/lending-api#/schemas/Transfer) for a given company and integration.
 
-[Transfers](https://docs.codat.io/accounting-api#/schemas/Transfer) record the movement of money between two bank accounts, or between a bank account and a nominal account.
+[Transfers](https://docs.codat.io/lending-api#/schemas/Transfer) record the movement of money between two bank accounts, or between a bank account and a nominal account.
 
 **Integration-specific behaviour**
 

@@ -14,7 +14,7 @@
 
 The *Download invoice attachment* endpoint downloads a specific attachment for a given `invoiceId` and `attachmentId`.
 
-[Invoices](https://docs.codat.io/accounting-api#/schemas/Invoice) are itemized records of goods sold or services provided to a customer.
+[Invoices](https://docs.codat.io/lending-api#/schemas/Invoice) are itemized records of goods sold or services provided to a customer.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=invoices) for integrations that support downloading an invoice attachment.
 
@@ -35,7 +35,7 @@ sdk.accountsReceivable.invoices.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "porro",
+  invoiceId: "dolorum",
 }).then((res: DownloadAccountingInvoiceAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -75,7 +75,7 @@ const sdk = new CodatLending({
 
 sdk.accountsReceivable.invoices.downloadPdf({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  invoiceId: "dolorum",
+  invoiceId: "dicta",
 }).then((res: DownloadAccountingInvoicePdfResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -101,7 +101,7 @@ sdk.accountsReceivable.invoices.downloadPdf({
 
 The *Get invoice* endpoint returns a single invoice for a given invoiceId.
 
-[Invoices](https://docs.codat.io/accounting-api#/schemas/Invoice) are itemized records of goods sold or services provided to a customer.
+[Invoices](https://docs.codat.io/lending-api#/schemas/Invoice) are itemized records of goods sold or services provided to a customer.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=invoices) for integrations that support getting a specific invoice.
 
@@ -121,7 +121,7 @@ const sdk = new CodatLending({
 
 sdk.accountsReceivable.invoices.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  invoiceId: "dicta",
+  invoiceId: "nam",
 }).then((res: GetAccountingInvoiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -147,7 +147,7 @@ sdk.accountsReceivable.invoices.get({
 
 The *Get invoice attachment* endpoint returns a specific attachment for a given `invoiceId` and `attachmentId`.
 
-[Invoices](https://docs.codat.io/accounting-api#/schemas/Invoice) are itemized records of goods sold or services provided to a customer.
+[Invoices](https://docs.codat.io/lending-api#/schemas/Invoice) are itemized records of goods sold or services provided to a customer.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=invoices) for integrations that support getting an invoice attachment.
 
@@ -168,7 +168,7 @@ sdk.accountsReceivable.invoices.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "nam",
+  invoiceId: "officia",
 }).then((res: GetAccountingInvoiceAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -192,9 +192,9 @@ sdk.accountsReceivable.invoices.getAttachment({
 
 ## list
 
-The *List invoices* endpoint returns a list of [invoices](https://docs.codat.io/accounting-api#/schemas/Invoice) for a given company's connection.
+The *List invoices* endpoint returns a list of [invoices](https://docs.codat.io/lending-api#/schemas/Invoice) for a given company's connection.
 
-[Invoices](https://docs.codat.io/accounting-api#/schemas/Invoice) are itemized records of goods sold or services provided to a customer.
+[Invoices](https://docs.codat.io/lending-api#/schemas/Invoice) are itemized records of goods sold or services provided to a customer.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
@@ -222,7 +222,7 @@ sdk.accountsReceivable.invoices.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "officia",
+  query: "occaecati",
 }).then((res: ListAccountingInvoicesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -248,7 +248,7 @@ sdk.accountsReceivable.invoices.list({
 
 The *List invoice attachments* endpoint returns a list of attachments available to download for given `invoiceId`.
 
-[Invoices](https://docs.codat.io/accounting-api#/schemas/Invoice) are itemized records of goods sold or services provided to a customer.
+[Invoices](https://docs.codat.io/lending-api#/schemas/Invoice) are itemized records of goods sold or services provided to a customer.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=invoices) for integrations that support listing invoice attachments.
 
@@ -268,7 +268,7 @@ const sdk = new CodatLending({
 sdk.accountsReceivable.invoices.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "occaecati",
+  invoiceId: "fugit",
 }).then((res: ListAccountingInvoiceAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -310,7 +310,7 @@ sdk.accountsReceivable.invoices.listReconciled({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   page: 1,
   pageSize: 100,
-  query: "fugit",
+  query: "deleniti",
 }).then((res: ListReconciledInvoicesResponse) => {
   if (res.statusCode == 200) {
     // handle response

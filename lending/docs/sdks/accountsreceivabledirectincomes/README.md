@@ -12,7 +12,7 @@
 
 The *Download direct income attachment* endpoint downloads a specific attachment for a given `directIncomeId` and `attachmentId`.
 
-[Direct incomes](https://docs.codat.io/accounting-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
+[Direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes) for integrations that support downloading a direct income attachment.
 
@@ -33,7 +33,7 @@ sdk.accountsReceivable.directIncomes.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "maiores",
+  directIncomeId: "molestiae",
 }).then((res: DownloadAccountingDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -59,7 +59,7 @@ sdk.accountsReceivable.directIncomes.downloadAttachment({
 
 The *Get direct income* endpoint returns a single direct income for a given directIncomeId.
 
-[Direct incomes](https://docs.codat.io/accounting-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
+[Direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes) for integrations that support getting a specific direct income.
 
@@ -81,7 +81,7 @@ const sdk = new CodatLending({
 sdk.accountsReceivable.directIncomes.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "molestiae",
+  directIncomeId: "quod",
 }).then((res: GetAccountingDirectIncomeResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -107,7 +107,7 @@ sdk.accountsReceivable.directIncomes.get({
 
 The *Get direct income attachment* endpoint returns a specific attachment for a given `directIncomeId` and `attachmentId`.
 
-[Direct incomes](https://docs.codat.io/accounting-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
+[Direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes) for integrations that support getting a direct income attachment.
 
@@ -129,7 +129,7 @@ sdk.accountsReceivable.directIncomes.getAttachment({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   directIncomeId: "quod",
-  timeoutInMinutes: 800911,
+  timeoutInMinutes: 461479,
 }).then((res: GetAccountingDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -153,9 +153,9 @@ sdk.accountsReceivable.directIncomes.getAttachment({
 
 ## list
 
-The *List direct incomes* endpoint returns a list of [direct incomes](https://docs.codat.io/accounting-api#/schemas/DirectIncome) for a given company's connection.
+The *List direct incomes* endpoint returns a list of [direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) for a given company's connection.
 
-[Direct incomes](https://docs.codat.io/accounting-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
+[Direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
@@ -178,7 +178,7 @@ sdk.accountsReceivable.directIncomes.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "esse",
+  query: "totam",
 }).then((res: ListAccountingDirectIncomesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -204,7 +204,7 @@ sdk.accountsReceivable.directIncomes.list({
 
 The *List direct income attachments* endpoint returns a list of attachments available to download for given `directIncomeId`.
 
-[Direct incomes](https://docs.codat.io/accounting-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
+[Direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directIncomes) for integrations that support listing direct income attachments.
 
@@ -224,7 +224,7 @@ const sdk = new CodatLending({
 sdk.accountsReceivable.directIncomes.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "totam",
+  directIncomeId: "porro",
 }).then((res: ListAccountingDirectIncomeAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

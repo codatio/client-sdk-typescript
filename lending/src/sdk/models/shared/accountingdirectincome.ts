@@ -27,7 +27,7 @@ import { Expose, Type } from "class-transformer";
  * - Refunding an item in cash to a contact.
  * - Depositing money into a bank account.
  *
- * Direct incomes is a child data type of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction).
+ * Direct incomes is a child data type of [account transactions](https://docs.codat.io/lending-api#/schemas/AccountTransaction).
  *
  */
 export class AccountingDirectIncome extends SpeakeasyBase {
@@ -138,6 +138,9 @@ export class AccountingDirectIncome extends SpeakeasyBase {
     @Expose({ name: "modifiedDate" })
     modifiedDate?: string;
 
+    /**
+     * An optional note on the direct income that can be used to assign the direct income with a reference ID in your application.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "note" })
     note?: string;

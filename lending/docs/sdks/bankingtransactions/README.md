@@ -9,7 +9,7 @@
 
 The *Get transaction* endpoint returns a single transaction for a given transactionId.
 
-[Transactions](https://docs.codat.io/banking-api#/schemas/Transaction) provide an immutable source of up-to-date information on income and expenditure.
+[Transactions](https://docs.codat.io/lending-api#/schemas/Transaction) provide an immutable source of up-to-date information on income and expenditure.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/banking?view=tab-by-data-type&dataType=banking-transactions) for integrations that support getting a specific transaction.
 
@@ -31,7 +31,7 @@ const sdk = new CodatLending({
 sdk.banking.transactions.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  transactionId: "qui",
+  transactionId: "impedit",
 }).then((res: GetBankingTransactionResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -55,9 +55,9 @@ sdk.banking.transactions.get({
 
 ## list
 
-The *List transactions* endpoint returns a list of [transactions](https://docs.codat.io/banking-api#/schemas/Transaction) for a given company's connection.
+The *List transactions* endpoint returns a list of [transactions](https://docs.codat.io/lending-api#/schemas/Transaction) for a given company's connection.
 
-[Transactions](https://docs.codat.io/banking-api#/schemas/Transaction) provide an immutable source of up-to-date information on income and expenditure.
+[Transactions](https://docs.codat.io/lending-api#/schemas/Transaction) provide an immutable source of up-to-date information on income and expenditure.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
@@ -80,7 +80,7 @@ sdk.banking.transactions.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "impedit",
+  query: "cum",
 }).then((res: ListBankingTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response

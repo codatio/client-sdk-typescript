@@ -23,7 +23,7 @@ const sdk = new CodatLending({
 
 sdk.manageData.pullOperations.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  datasetId: "eaed9f0f-e77b-4bc9-a58f-ab8b4b99ab18",
+  datasetId: "f0642dac-7af5-415c-8413-aa63aae8d678",
 }).then((res: GetPullOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -66,7 +66,7 @@ sdk.manageData.pullOperations.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "consequuntur",
+  query: "vel",
 }).then((res: ListPullOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

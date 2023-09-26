@@ -9,7 +9,7 @@
 
 The *Get location* endpoint returns a single location for a given locationId.
 
-[Locations](https://docs.codat.io/commerce-api#/schemas/Location) hold information on the geographic location at which stocks of [products](https://docs.codat.io/commerce-api#/schemas/Product) may be held or where [orders](https://docs.codat.io/commerce-api#/schemas/Order) were placed.
+[Locations](https://docs.codat.io/lending-api#/schemas/Location) hold information on the geographic location at which stocks of [products](https://docs.codat.io/lending-api#/schemas/Product) may be held or where [orders](https://docs.codat.io/lending-api#/schemas/Order) were placed.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-locations) for integrations that support getting a specific location.
 
@@ -31,7 +31,7 @@ const sdk = new CodatLending({
 sdk.sales.locations.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  locationId: "assumenda",
+  locationId: "debitis",
 }).then((res: GetCommerceLocationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -55,9 +55,9 @@ sdk.sales.locations.get({
 
 ## list
 
-The *List locations* endpoint returns a list of [locations](https://docs.codat.io/commerce-api#/schemas/Location) for a given company's connection.
+The *List locations* endpoint returns a list of [locations](https://docs.codat.io/lending-api#/schemas/Location) for a given company's connection.
 
-[Locations](https://docs.codat.io/commerce-api#/schemas/Location) hold information on the geographic location at which stocks of [products](https://docs.codat.io/commerce-api#/schemas/Product) may be held or where [orders](https://docs.codat.io/commerce-api#/schemas/Order) were placed.
+[Locations](https://docs.codat.io/lending-api#/schemas/Location) hold information on the geographic location at which stocks of [products](https://docs.codat.io/lending-api#/schemas/Product) may be held or where [orders](https://docs.codat.io/lending-api#/schemas/Order) were placed.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     

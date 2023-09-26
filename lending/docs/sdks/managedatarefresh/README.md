@@ -69,7 +69,7 @@ const sdk = new CodatLending({
 
 sdk.manageData.refresh.dataType({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "dac7af51-5cc4-413a-a63a-ae8d67864dbb",
+  connectionId: "4dbb675f-d5e6-40b3-b5ed-4f6fbee41f33",
   dataType: DataType.Invoices,
 }).then((res: RefreshDataTypeResponse) => {
   if (res.statusCode == 200) {

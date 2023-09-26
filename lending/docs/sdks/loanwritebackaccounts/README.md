@@ -7,13 +7,13 @@
 
 ## create
 
-The *Create account* endpoint creates a new [account](https://docs.codat.io/accounting-api#/schemas/Account) for a given company's connection.
+The *Create account* endpoint creates a new [account](https://docs.codat.io/lending-api#/schemas/Account) for a given company's connection.
 
-[Accounts](https://docs.codat.io/accounting-api#/schemas/Account) are the categories a business uses to record accounting transactions.
+[Accounts](https://docs.codat.io/lending-api#/schemas/Account) are the categories a business uses to record accounting transactions.
 
 **Integration-specific behaviour**
 
-Required data may vary by integration. To see what data to post, first call [Get create account model](https://docs.codat.io/accounting-api#/operations/get-create-chartOfAccounts-model).
+Required data may vary by integration. To see what data to post, first call [Get create account model](https://docs.codat.io/lending-api#/operations/get-create-chartOfAccounts-model).
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
 
@@ -33,11 +33,11 @@ const sdk = new CodatLending({
 
 sdk.loanWriteback.accounts.create({
   accountingAccount: {
-    currency: "USD",
+    currency: "GBP",
     currentBalance: 0,
     description: "Invoices the business has issued but has not yet collected payment on.",
     fullyQualifiedCategory: "Asset.Current",
-    fullyQualifiedName: "Cash On Hand",
+    fullyQualifiedName: "Fixed Asset",
     id: "1b6266d1-1e44-46c5-8eb5-a8f98e03124e",
     isBankAccount: false,
     metadata: {
@@ -52,17 +52,16 @@ sdk.loanWriteback.accounts.create({
     validDatatypeLinks: [
       {
         links: [
-          "natus",
+          "laboriosam",
         ],
-        property: "laboriosam",
+        property: "hic",
       },
     ],
   },
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  forceUpdate: false,
-  timeoutInMinutes: 943749,
+  timeoutInMinutes: 902599,
 }).then((res: CreateAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -86,9 +85,9 @@ sdk.loanWriteback.accounts.create({
 
 ## getCreateModel
 
-The *Get create account model* endpoint returns the expected data for the request payload when creating an [account](https://docs.codat.io/accounting-api#/schemas/Account) for a given company and integration.
+The *Get create account model* endpoint returns the expected data for the request payload when creating an [account](https://docs.codat.io/lending-api#/schemas/Account) for a given company and integration.
 
-[Accounts](https://docs.codat.io/accounting-api#/schemas/Account) are the categories a business uses to record accounting transactions.
+[Accounts](https://docs.codat.io/lending-api#/schemas/Account) are the categories a business uses to record accounting transactions.
 
 **Integration-specific behaviour**
 

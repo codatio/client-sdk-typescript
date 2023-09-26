@@ -12,7 +12,7 @@
 
 The *Download bill attachment* endpoint downloads a specific attachment for a given `billId` and `attachmentId`.
 
-[Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
+[Bills](https://docs.codat.io/lending-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support downloading a bill attachment.
 
@@ -31,7 +31,7 @@ const sdk = new CodatLending({
 
 sdk.accountsPayable.bills.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  billId: "iusto",
+  billId: "excepturi",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: DownloadAccountingBillAttachmentResponse) => {
@@ -59,7 +59,7 @@ sdk.accountsPayable.bills.downloadAttachment({
 
 The *Get bill* endpoint returns a single bill for a given billId.
 
-[Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
+[Bills](https://docs.codat.io/lending-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support getting a specific bill.
 
@@ -79,7 +79,7 @@ const sdk = new CodatLending({
 });
 
 sdk.accountsPayable.bills.get({
-  billId: "excepturi",
+  billId: "nisi",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountingBillResponse) => {
   if (res.statusCode == 200) {
@@ -106,7 +106,7 @@ sdk.accountsPayable.bills.get({
 
 The *Get bill attachment* endpoint returns a specific attachment for a given `billId` and `attachmentId`.
 
-[Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
+[Bills](https://docs.codat.io/lending-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support getting a bill attachment.
 
@@ -125,7 +125,7 @@ const sdk = new CodatLending({
 
 sdk.accountsPayable.bills.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  billId: "nisi",
+  billId: "recusandae",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetAccountingBillAttachmentResponse) => {
@@ -151,9 +151,9 @@ sdk.accountsPayable.bills.getAttachment({
 
 ## list
 
-The *List bills* endpoint returns a list of [bills](https://docs.codat.io/accounting-api#/schemas/Bill) for a given company's connection.
+The *List bills* endpoint returns a list of [bills](https://docs.codat.io/lending-api#/schemas/Bill) for a given company's connection.
 
-[Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
+[Bills](https://docs.codat.io/lending-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
@@ -175,7 +175,7 @@ sdk.accountsPayable.bills.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "recusandae",
+  query: "temporibus",
 }).then((res: ListAccountingBillsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -201,7 +201,7 @@ sdk.accountsPayable.bills.list({
 
 The *List bill attachments* endpoint returns a list of attachments available to download for a given `billId`.
 
-[Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
+[Bills](https://docs.codat.io/lending-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support listing bill attachments.
 
@@ -219,7 +219,7 @@ const sdk = new CodatLending({
 });
 
 sdk.accountsPayable.bills.listAttachments({
-  billId: "temporibus",
+  billId: "ab",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: ListAccountingBillAttachmentsResponse) => {

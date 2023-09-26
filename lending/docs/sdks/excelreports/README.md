@@ -90,7 +90,7 @@ const sdk = new CodatLending({
 
 sdk.excelReports.generate({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportTypes.EnhancedFinancials,
+  reportType: ExcelReportTypes.EnhancedCashFlow,
 }).then((res: GenerateExcelReportResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -135,7 +135,7 @@ const sdk = new CodatLending({
 
 sdk.excelReports.getStatus({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportTypes.EnhancedCashFlow,
+  reportType: ExcelReportTypes.Audit,
 }).then((res: GetExcelReportGenerationStatusResponse) => {
   if (res.statusCode == 200) {
     // handle response
