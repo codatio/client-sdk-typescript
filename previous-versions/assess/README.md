@@ -51,20 +51,20 @@ sdk.dataIntegrity.details({
 ## Available Resources and Operations
 
 
-### [DataIntegrity](docs/sdks/dataintegrity/README.md)
+### [dataIntegrity](docs/sdks/dataintegrity/README.md)
 
 * [details](docs/sdks/dataintegrity/README.md#details) - List data type data integrity
 * [status](docs/sdks/dataintegrity/README.md#status) - Get data integrity status
 * [summary](docs/sdks/dataintegrity/README.md#summary) - Get data integrity summary
 
-### [ExcelReports](docs/sdks/excelreports/README.md)
+### [excelReports](docs/sdks/excelreports/README.md)
 
 * [generateExcelReport](docs/sdks/excelreports/README.md#generateexcelreport) - Generate Excel report
 * [getAccountingMarketingMetrics](docs/sdks/excelreports/README.md#getaccountingmarketingmetrics) - Get marketing metrics report
 * [getExcelReport](docs/sdks/excelreports/README.md#getexcelreport) - Download Excel report
 * [getExcelReportGenerationStatus](docs/sdks/excelreports/README.md#getexcelreportgenerationstatus) - Get Excel report status
 
-### [Reports](docs/sdks/reports/README.md)
+### [reports](docs/sdks/reports/README.md)
 
 * [getAccountsForEnhancedBalanceSheet](docs/sdks/reports/README.md#getaccountsforenhancedbalancesheet) - Get enhanced balance sheet accounts
 * [getAccountsForEnhancedProfitAndLoss](docs/sdks/reports/README.md#getaccountsforenhancedprofitandloss) - Get enhanced profit and loss accounts
@@ -85,8 +85,6 @@ sdk.dataIntegrity.details({
 
 <!-- Start Dev Containers -->
 
-
-
 <!-- End Dev Containers -->
 
 
@@ -99,8 +97,6 @@ returned response object will have a `next` method that can be called to pull do
 return value of `next` is `null`, then there are no more pages to be fetched.
 
 Here's an example of one such pagination call:
-
-
 <!-- End Pagination -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
