@@ -1,4 +1,5 @@
-# Banking.Accounts
+# BankingAccounts
+(*banking.accounts*)
 
 ### Available Operations
 

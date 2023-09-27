@@ -1,4 +1,5 @@
-# AccountsPayable.Suppliers
+# AccountsPayableSuppliers
+(*accountsPayable.suppliers*)
 
 ### Available Operations
 

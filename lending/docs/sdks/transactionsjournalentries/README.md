@@ -1,4 +1,5 @@
-# Transactions.JournalEntries
+# TransactionsJournalEntries
+(*transactions.journalEntries*)
 
 ### Available Operations
 

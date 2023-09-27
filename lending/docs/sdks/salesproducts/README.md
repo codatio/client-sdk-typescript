@@ -1,4 +1,5 @@
-# Sales.Products
+# SalesProducts
+(*sales.products*)
 
 ### Available Operations
 

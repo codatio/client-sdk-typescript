@@ -1,4 +1,5 @@
-# Sales.Metrics
+# SalesMetrics
+(*sales.metrics*)
 
 ### Available Operations
 

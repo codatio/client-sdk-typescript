@@ -1,4 +1,5 @@
-# Sales.Reports
+# SalesReports
+(*sales.reports*)
 
 ### Available Operations
 

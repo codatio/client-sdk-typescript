@@ -1,4 +1,5 @@
-# Sales.Customers
+# SalesCustomers
+(*sales.customers*)
 
 ### Available Operations
 

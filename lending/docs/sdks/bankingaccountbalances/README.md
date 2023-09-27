@@ -1,4 +1,5 @@
-# Banking.AccountBalances
+# BankingAccountBalances
+(*banking.accountBalances*)
 
 ### Available Operations
 

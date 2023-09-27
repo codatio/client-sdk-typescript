@@ -1,4 +1,5 @@
-# AccountsReceivable.CreditNotes
+# AccountsReceivableCreditNotes
+(*accountsReceivable.creditNotes*)
 
 ### Available Operations
 

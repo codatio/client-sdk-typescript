@@ -1,4 +1,5 @@
-# Sales.Transactions
+# SalesTransactions
+(*sales.transactions*)
 
 ### Available Operations
 

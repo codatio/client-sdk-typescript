@@ -1,4 +1,5 @@
-# Sales.Disputes
+# SalesDisputes
+(*sales.disputes*)
 
 ### Available Operations
 

@@ -1,4 +1,5 @@
-# FinancialStatements.CashFlow
+# FinancialStatementsCashFlow
+(*financialStatements.cashFlow*)
 
 ### Available Operations
 

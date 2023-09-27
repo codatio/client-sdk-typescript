@@ -1,4 +1,5 @@
-# Sales.Locations
+# SalesLocations
+(*sales.locations*)
 
 ### Available Operations
 

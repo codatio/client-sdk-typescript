@@ -1,4 +1,5 @@
-# LoanWriteback.BankTransactions
+# LoanWritebackBankTransactions
+(*loanWriteback.bankTransactions*)
 
 ### Available Operations
 

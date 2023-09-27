@@ -1,4 +1,5 @@
-# FinancialStatements.BalanceSheet
+# FinancialStatementsBalanceSheet
+(*financialStatements.balanceSheet*)
 
 ### Available Operations
 

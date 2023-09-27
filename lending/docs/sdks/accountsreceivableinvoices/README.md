@@ -1,4 +1,5 @@
-# AccountsReceivable.Invoices
+# AccountsReceivableInvoices
+(*accountsReceivable.invoices*)
 
 ### Available Operations
 
