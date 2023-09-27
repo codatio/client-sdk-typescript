@@ -681,3 +681,13 @@ Based on:
 - [typescript v0.38.0] previous-versions/common
 ### Releases
 - [NPM v0.38.0] https://www.npmjs.com/package/@codat/common/v/0.38.0 - previous-versions/common
+
+## 2023-09-27 00:03:47
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Platform.yaml
+- Speakeasy CLI 1.91.2 (2.131.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.38.1] previous-versions/common
+### Releases
+- [NPM v0.38.1] https://www.npmjs.com/package/@codat/common/v/0.38.1 - previous-versions/common

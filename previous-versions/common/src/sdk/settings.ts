@@ -154,7 +154,7 @@ export class Settings {
     }
 
     /**
-     * Delete api key
+     * Delete API key
      *
      * @remarks
      * Use the *Delete API keys* endpoint to delete an existing API key, providing its valid `id` as a parameter. Note that this operation is not reversible.
