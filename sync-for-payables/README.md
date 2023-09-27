@@ -73,14 +73,14 @@ sdk.accounts.create({
 ## Available Resources and Operations
 
 
-### [Accounts](docs/sdks/accounts/README.md)
+### [accounts](docs/sdks/accounts/README.md)
 
 * [create](docs/sdks/accounts/README.md#create) - Create account
 * [get](docs/sdks/accounts/README.md#get) - Get account
 * [getCreateModel](docs/sdks/accounts/README.md#getcreatemodel) - Get create account model
 * [list](docs/sdks/accounts/README.md#list) - List accounts
 
-### [BillCreditNotes](docs/sdks/billcreditnotes/README.md)
+### [billCreditNotes](docs/sdks/billcreditnotes/README.md)
 
 * [create](docs/sdks/billcreditnotes/README.md#create) - Create bill credit note
 * [get](docs/sdks/billcreditnotes/README.md#get) - Get bill credit note
@@ -88,7 +88,7 @@ sdk.accounts.create({
 * [list](docs/sdks/billcreditnotes/README.md#list) - List bill credit notes
 * [update](docs/sdks/billcreditnotes/README.md#update) - Update bill credit note
 
-### [BillPayments](docs/sdks/billpayments/README.md)
+### [billPayments](docs/sdks/billpayments/README.md)
 
 * [create](docs/sdks/billpayments/README.md#create) - Create bill payments
 * [delete](docs/sdks/billpayments/README.md#delete) - Delete bill payment
@@ -96,7 +96,7 @@ sdk.accounts.create({
 * [getCreateModel](docs/sdks/billpayments/README.md#getcreatemodel) - Get create bill payment model
 * [list](docs/sdks/billpayments/README.md#list) - List bill payments
 
-### [Bills](docs/sdks/bills/README.md)
+### [bills](docs/sdks/bills/README.md)
 
 * [create](docs/sdks/bills/README.md#create) - Create bill
 * [delete](docs/sdks/bills/README.md#delete) - Delete bill
@@ -110,7 +110,7 @@ sdk.accounts.create({
 * [update](docs/sdks/bills/README.md#update) - Update bill
 * [uploadAttachment](docs/sdks/bills/README.md#uploadattachment) - Upload bill attachment
 
-### [Companies](docs/sdks/companies/README.md)
+### [companies](docs/sdks/companies/README.md)
 
 * [create](docs/sdks/companies/README.md#create) - Create company
 * [delete](docs/sdks/companies/README.md#delete) - Delete a company
@@ -118,11 +118,11 @@ sdk.accounts.create({
 * [list](docs/sdks/companies/README.md#list) - List companies
 * [update](docs/sdks/companies/README.md#update) - Update company
 
-### [CompanyInfo](docs/sdks/companyinfo/README.md)
+### [companyInfo](docs/sdks/companyinfo/README.md)
 
 * [getAccountingProfile](docs/sdks/companyinfo/README.md#getaccountingprofile) - Get company accounting profile
 
-### [Connections](docs/sdks/connections/README.md)
+### [connections](docs/sdks/connections/README.md)
 
 * [create](docs/sdks/connections/README.md#create) - Create connection
 * [delete](docs/sdks/connections/README.md#delete) - Delete connection
@@ -130,19 +130,19 @@ sdk.accounts.create({
 * [list](docs/sdks/connections/README.md#list) - List connections
 * [unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 
-### [JournalEntries](docs/sdks/journalentries/README.md)
+### [journalEntries](docs/sdks/journalentries/README.md)
 
 * [create](docs/sdks/journalentries/README.md#create) - Create journal entry
 * [getCreateModel](docs/sdks/journalentries/README.md#getcreatemodel) - Get create journal entry model
 
-### [Journals](docs/sdks/journals/README.md)
+### [journals](docs/sdks/journals/README.md)
 
 * [create](docs/sdks/journals/README.md#create) - Create journal
 * [get](docs/sdks/journals/README.md#get) - Get journal
 * [getCreateModel](docs/sdks/journals/README.md#getcreatemodel) - Get create journal model
 * [list](docs/sdks/journals/README.md#list) - List journals
 
-### [ManageData](docs/sdks/managedata/README.md)
+### [manageData](docs/sdks/managedata/README.md)
 
 * [get](docs/sdks/managedata/README.md#get) - Get data status
 * [getPullOperation](docs/sdks/managedata/README.md#getpulloperation) - Get pull operation
@@ -150,17 +150,17 @@ sdk.accounts.create({
 * [refreshAllDataTypes](docs/sdks/managedata/README.md#refreshalldatatypes) - Refresh all data
 * [refreshDataType](docs/sdks/managedata/README.md#refreshdatatype) - Refresh data type
 
-### [PaymentMethods](docs/sdks/paymentmethods/README.md)
+### [paymentMethods](docs/sdks/paymentmethods/README.md)
 
 * [get](docs/sdks/paymentmethods/README.md#get) - Get payment method
 * [list](docs/sdks/paymentmethods/README.md#list) - List payment methods
 
-### [PushOperations](docs/sdks/pushoperations/README.md)
+### [pushOperations](docs/sdks/pushoperations/README.md)
 
 * [get](docs/sdks/pushoperations/README.md#get) - Get push operation
 * [list](docs/sdks/pushoperations/README.md#list) - List push operations
 
-### [Suppliers](docs/sdks/suppliers/README.md)
+### [suppliers](docs/sdks/suppliers/README.md)
 
 * [create](docs/sdks/suppliers/README.md#create) - Create supplier
 * [get](docs/sdks/suppliers/README.md#get) - Get supplier
@@ -168,12 +168,12 @@ sdk.accounts.create({
 * [list](docs/sdks/suppliers/README.md#list) - List suppliers
 * [update](docs/sdks/suppliers/README.md#update) - Update supplier
 
-### [TaxRates](docs/sdks/taxrates/README.md)
+### [taxRates](docs/sdks/taxrates/README.md)
 
 * [get](docs/sdks/taxrates/README.md#get) - Get tax rate
 * [list](docs/sdks/taxrates/README.md#list) - List all tax rates
 
-### [TrackingCategories](docs/sdks/trackingcategories/README.md)
+### [trackingCategories](docs/sdks/trackingcategories/README.md)
 
 * [get](docs/sdks/trackingcategories/README.md#get) - Get tracking categories
 * [list](docs/sdks/trackingcategories/README.md#list) - List tracking categories
