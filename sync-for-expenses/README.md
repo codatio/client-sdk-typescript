@@ -74,11 +74,11 @@ sdk.accounts.create({
 ## Available Resources and Operations
 
 
-### [Accounts](docs/sdks/accounts/README.md)
+### [accounts](docs/sdks/accounts/README.md)
 
 * [create](docs/sdks/accounts/README.md#create) - Create account
 
-### [Companies](docs/sdks/companies/README.md)
+### [companies](docs/sdks/companies/README.md)
 
 * [create](docs/sdks/companies/README.md#create) - Create company
 * [delete](docs/sdks/companies/README.md#delete) - Delete a company
@@ -86,13 +86,13 @@ sdk.accounts.create({
 * [list](docs/sdks/companies/README.md#list) - List companies
 * [update](docs/sdks/companies/README.md#update) - Update company
 
-### [Configuration](docs/sdks/configuration/README.md)
+### [configuration](docs/sdks/configuration/README.md)
 
 * [get](docs/sdks/configuration/README.md#get) - Get company configuration
 * [getMappingOptions](docs/sdks/configuration/README.md#getmappingoptions) - Mapping options
 * [set](docs/sdks/configuration/README.md#set) - Set company configuration
 
-### [Connections](docs/sdks/connections/README.md)
+### [connections](docs/sdks/connections/README.md)
 
 * [create](docs/sdks/connections/README.md#create) - Create connection
 * [createPartnerExpenseConnection](docs/sdks/connections/README.md#createpartnerexpenseconnection) - Create partner expense connection
@@ -101,20 +101,20 @@ sdk.accounts.create({
 * [list](docs/sdks/connections/README.md#list) - List connections
 * [unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 
-### [Customers](docs/sdks/customers/README.md)
+### [customers](docs/sdks/customers/README.md)
 
 * [create](docs/sdks/customers/README.md#create) - Create customer
 * [get](docs/sdks/customers/README.md#get) - Get customer
 * [list](docs/sdks/customers/README.md#list) - List customers
 * [update](docs/sdks/customers/README.md#update) - Update customer
 
-### [Expenses](docs/sdks/expenses/README.md)
+### [expenses](docs/sdks/expenses/README.md)
 
 * [create](docs/sdks/expenses/README.md#create) - Create expense transaction
 * [update](docs/sdks/expenses/README.md#update) - Update expense-transactions
 * [uploadAttachment](docs/sdks/expenses/README.md#uploadattachment) - Upload attachment
 
-### [ManageData](docs/sdks/managedata/README.md)
+### [manageData](docs/sdks/managedata/README.md)
 
 * [get](docs/sdks/managedata/README.md#get) - Get data status
 * [getPullOperation](docs/sdks/managedata/README.md#getpulloperation) - Get pull operation
@@ -122,19 +122,19 @@ sdk.accounts.create({
 * [refreshAllDataTypes](docs/sdks/managedata/README.md#refreshalldatatypes) - Refresh all data
 * [refreshDataType](docs/sdks/managedata/README.md#refreshdatatype) - Refresh data type
 
-### [PushOperations](docs/sdks/pushoperations/README.md)
+### [pushOperations](docs/sdks/pushoperations/README.md)
 
 * [get](docs/sdks/pushoperations/README.md#get) - Get push operation
 * [list](docs/sdks/pushoperations/README.md#list) - List push operations
 
-### [Suppliers](docs/sdks/suppliers/README.md)
+### [suppliers](docs/sdks/suppliers/README.md)
 
 * [create](docs/sdks/suppliers/README.md#create) - Create supplier
 * [get](docs/sdks/suppliers/README.md#get) - Get supplier
 * [list](docs/sdks/suppliers/README.md#list) - List suppliers
 * [update](docs/sdks/suppliers/README.md#update) - Update supplier
 
-### [Sync](docs/sdks/sync/README.md)
+### [sync](docs/sdks/sync/README.md)
 
 * [get](docs/sdks/sync/README.md#get) - Get sync status
 * [getLastSuccessfulSync](docs/sdks/sync/README.md#getlastsuccessfulsync) - Last successful sync
@@ -142,7 +142,7 @@ sdk.accounts.create({
 * [initiateSync](docs/sdks/sync/README.md#initiatesync) - Initiate sync
 * [list](docs/sdks/sync/README.md#list) - List sync statuses
 
-### [TransactionStatus](docs/sdks/transactionstatus/README.md)
+### [transactionStatus](docs/sdks/transactionstatus/README.md)
 
 * [get](docs/sdks/transactionstatus/README.md#get) - Get sync transaction
 * [list](docs/sdks/transactionstatus/README.md#list) - List sync transactions
@@ -151,8 +151,6 @@ sdk.accounts.create({
 
 
 <!-- Start Dev Containers -->
-
-
 
 <!-- End Dev Containers -->
 
@@ -166,8 +164,6 @@ returned response object will have a `next` method that can be called to pull do
 return value of `next` is `null`, then there are no more pages to be fetched.
 
 Here's an example of one such pagination call:
-
-
 <!-- End Pagination -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
