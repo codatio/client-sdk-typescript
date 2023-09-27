@@ -74,14 +74,14 @@ sdk.accounts.create({
 ## Available Resources and Operations
 
 
-### [Accounts](docs/sdks/accounts/README.md)
+### [accounts](docs/sdks/accounts/README.md)
 
 * [create](docs/sdks/accounts/README.md#create) - Create account
 * [get](docs/sdks/accounts/README.md#get) - Get account
 * [getCreateModel](docs/sdks/accounts/README.md#getcreatemodel) - Get create account model
 * [list](docs/sdks/accounts/README.md#list) - List accounts
 
-### [Companies](docs/sdks/companies/README.md)
+### [companies](docs/sdks/companies/README.md)
 
 * [create](docs/sdks/companies/README.md#create) - Create company
 * [delete](docs/sdks/companies/README.md#delete) - Delete a company
@@ -89,11 +89,11 @@ sdk.accounts.create({
 * [list](docs/sdks/companies/README.md#list) - List companies
 * [update](docs/sdks/companies/README.md#update) - Update company
 
-### [CompanyInfo](docs/sdks/companyinfo/README.md)
+### [companyInfo](docs/sdks/companyinfo/README.md)
 
 * [getAccountingProfile](docs/sdks/companyinfo/README.md#getaccountingprofile) - Get company accounting profile
 
-### [Connections](docs/sdks/connections/README.md)
+### [connections](docs/sdks/connections/README.md)
 
 * [create](docs/sdks/connections/README.md#create) - Create connection
 * [delete](docs/sdks/connections/README.md#delete) - Delete connection
@@ -101,7 +101,7 @@ sdk.accounts.create({
 * [list](docs/sdks/connections/README.md#list) - List connections
 * [unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 
-### [JournalEntries](docs/sdks/journalentries/README.md)
+### [journalEntries](docs/sdks/journalentries/README.md)
 
 * [create](docs/sdks/journalentries/README.md#create) - Create journal entry
 * [delete](docs/sdks/journalentries/README.md#delete) - Delete journal entry
@@ -109,14 +109,14 @@ sdk.accounts.create({
 * [getCreateModel](docs/sdks/journalentries/README.md#getcreatemodel) - Get create journal entry model
 * [list](docs/sdks/journalentries/README.md#list) - List journal entries
 
-### [Journals](docs/sdks/journals/README.md)
+### [journals](docs/sdks/journals/README.md)
 
 * [create](docs/sdks/journals/README.md#create) - Create journal
 * [get](docs/sdks/journals/README.md#get) - Get journal
 * [getCreateModel](docs/sdks/journals/README.md#getcreatemodel) - Get create journal model
 * [list](docs/sdks/journals/README.md#list) - List journals
 
-### [ManageData](docs/sdks/managedata/README.md)
+### [manageData](docs/sdks/managedata/README.md)
 
 * [getDataStatus](docs/sdks/managedata/README.md#getdatastatus) - Get data status
 * [getPullOperation](docs/sdks/managedata/README.md#getpulloperation) - Get pull operation
@@ -126,7 +126,7 @@ sdk.accounts.create({
 * [refreshAllDataTypes](docs/sdks/managedata/README.md#refreshalldatatypes) - Refresh all data
 * [refreshDataType](docs/sdks/managedata/README.md#refreshdatatype) - Refresh data type
 
-### [TrackingCategories](docs/sdks/trackingcategories/README.md)
+### [trackingCategories](docs/sdks/trackingcategories/README.md)
 
 * [get](docs/sdks/trackingcategories/README.md#get) - Get tracking categories
 * [list](docs/sdks/trackingcategories/README.md#list) - List tracking categories
@@ -135,8 +135,6 @@ sdk.accounts.create({
 
 
 <!-- Start Dev Containers -->
-
-
 
 <!-- End Dev Containers -->
 
@@ -150,8 +148,6 @@ returned response object will have a `next` method that can be called to pull do
 return value of `next` is `null`, then there are no more pages to be fetched.
 
 Here's an example of one such pagination call:
-
-
 <!-- End Pagination -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->

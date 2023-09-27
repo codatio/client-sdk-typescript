@@ -277,15 +277,15 @@ export class Accounts {
      * Get create account model
      *
      * @remarks
-     *   The *Get create account model* endpoint returns the expected data for the request payload when creating an [account](https://docs.codat.io/sync-for-payroll-api#/schemas/Account) for a given company and integration.
+     * The *Get create account model* endpoint returns the expected data for the request payload when creating an [account](https://docs.codat.io/sync-for-payroll-api#/schemas/Account) for a given company and integration.
      *
-     *     [Accounts](https://docs.codat.io/sync-for-payroll-api#/schemas/Account) are the categories a business uses to record accounting transactions.
+     * [Accounts](https://docs.codat.io/sync-for-payroll-api#/schemas/Account) are the categories a business uses to record accounting transactions.
      *
-     *     **Integration-specific behaviour**
+     * **Integration-specific behaviour**
      *
-     *     See the *response examples* for integration-specific indicative models.
+     * See the *response examples* for integration-specific indicative models.
      *
-     *     Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
      *
      */
     async getCreateModel(
