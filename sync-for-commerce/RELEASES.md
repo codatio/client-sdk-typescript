@@ -581,3 +581,13 @@ Based on:
 - [typescript v2.2.0] sync-for-commerce
 ### Releases
 - [NPM v2.2.0] https://www.npmjs.com/package/@codat/sync-for-commerce/v/2.2.0 - sync-for-commerce
+
+## 2023-09-27 00:07:28
+### Changes
+Based on:
+- OpenAPI Doc 1.1 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Commerce.yaml
+- Speakeasy CLI 1.91.2 (2.131.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v2.2.1] sync-for-commerce
+### Releases
+- [NPM v2.2.1] https://www.npmjs.com/package/@codat/sync-for-commerce/v/2.2.1 - sync-for-commerce
