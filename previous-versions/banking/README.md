@@ -49,21 +49,21 @@ sdk.accountBalances.list({
 ## Available Resources and Operations
 
 
-### [AccountBalances](docs/sdks/accountbalances/README.md)
+### [accountBalances](docs/sdks/accountbalances/README.md)
 
 * [list](docs/sdks/accountbalances/README.md#list) - List account balances
 
-### [Accounts](docs/sdks/accounts/README.md)
+### [accounts](docs/sdks/accounts/README.md)
 
 * [get](docs/sdks/accounts/README.md#get) - Get account
 * [list](docs/sdks/accounts/README.md#list) - List accounts
 
-### [TransactionCategories](docs/sdks/transactioncategories/README.md)
+### [transactionCategories](docs/sdks/transactioncategories/README.md)
 
 * [get](docs/sdks/transactioncategories/README.md#get) - Get transaction category
 * [list](docs/sdks/transactioncategories/README.md#list) - List transaction categories
 
-### [Transactions](docs/sdks/transactions/README.md)
+### [transactions](docs/sdks/transactions/README.md)
 
 * [get](docs/sdks/transactions/README.md#get) - Get bank transaction
 * [list](docs/sdks/transactions/README.md#list) - List transactions
@@ -73,8 +73,6 @@ sdk.accountBalances.list({
 
 
 <!-- Start Dev Containers -->
-
-
 
 <!-- End Dev Containers -->
 
@@ -88,8 +86,6 @@ returned response object will have a `next` method that can be called to pull do
 return value of `next` is `null`, then there are no more pages to be fetched.
 
 Here's an example of one such pagination call:
-
-
 <!-- End Pagination -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
