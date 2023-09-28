@@ -29,6 +29,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { CreateBankTransactionsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
+import { BankTransactionsBankTransactionType } from "@codat/bank-feeds/dist/sdk/models/shared";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -38,22 +39,26 @@ const sdk = new CodatBankFeeds({
 
 sdk.transactions.create({
   createBankTransactions: {
-    accountId: "nobis",
+    accountId: "EILBDVJVNUAGVKRQ",
     transactions: [
       {
-        amount: 3154.28,
-        balance: 6078.31,
-        date: "2022-10-23T00:00:00.000Z",
-        description: "minima",
-        id: "907aff1a-3a2f-4a94-a773-9251aa52c3f5",
+        amount: 999.99,
+        balance: -999.99,
+        clearedOnDate: "2022-10-23T00:00:00.000Z",
+        counterparty: "ACME INC",
+        description: "Debit for Payment Id sdp-1-57379a43-c4b8-49f5-bd7c-699189ee7a60",
+        id: "716422529",
+        reconciled: false,
+        reference: "reference for transaction",
+        transactionType: BankTransactionsBankTransactionType.Xfer,
       },
     ],
   },
-  accountId: "7110701885",
+  accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 820994,
+  timeoutInMinutes: 325047,
 }).then((res: CreateBankTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -93,7 +98,7 @@ const sdk = new CodatBankFeeds({
 
 sdk.transactions.getCreateOperation({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "019da1ff-e78f-4097-b007-4f15471b5e6e",
+  pushOperationKey: "907aff1a-3a2f-4a94-a773-9251aa52c3f5",
 }).then((res: GetCreateOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -136,7 +141,7 @@ sdk.transactions.listCreateOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "quae",
+  query: "id",
 }).then((res: ListCreateOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
