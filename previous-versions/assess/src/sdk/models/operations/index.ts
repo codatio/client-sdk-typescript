@@ -3,6 +3,8 @@
  */
 
 export * from "./generateexcelreport";
+export * from "./generateloansummary";
+export * from "./generateloantransactions";
 export * from "./getaccountingmarketingmetrics";
 export * from "./getaccountsforenhancedbalancesheet";
 export * from "./getaccountsforenhancedprofitandloss";

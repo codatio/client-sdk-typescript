@@ -28,6 +28,8 @@ src/sdk/models/operations/generateexcelreport.ts
 src/sdk/models/operations/getaccountingmarketingmetrics.ts
 src/sdk/models/operations/getexcelreport.ts
 src/sdk/models/operations/getexcelreportgenerationstatus.ts
+src/sdk/models/operations/generateloansummary.ts
+src/sdk/models/operations/generateloantransactions.ts
 src/sdk/models/operations/getaccountsforenhancedbalancesheet.ts
 src/sdk/models/operations/getaccountsforenhancedprofitandloss.ts
 src/sdk/models/operations/getcommercecustomerretentionmetrics.ts
@@ -123,6 +125,12 @@ docs/models/operations/getexcelreport200applicationoctetstream.md
 docs/models/operations/getexcelreportresponse.md
 docs/models/operations/getexcelreportgenerationstatusrequest.md
 docs/models/operations/getexcelreportgenerationstatusresponse.md
+docs/models/operations/generateloansummarysourcetype.md
+docs/models/operations/generateloansummaryrequest.md
+docs/models/operations/generateloansummaryresponse.md
+docs/models/operations/generateloantransactionssourcetype.md
+docs/models/operations/generateloantransactionsrequest.md
+docs/models/operations/generateloantransactionsresponse.md
 docs/models/operations/getaccountsforenhancedbalancesheetrequest.md
 docs/models/operations/getaccountsforenhancedbalancesheetresponse.md
 docs/models/operations/getaccountsforenhancedprofitandlossrequest.md
@@ -141,6 +149,7 @@ docs/models/operations/getenhancedcashflowtransactionsrequest.md
 docs/models/operations/getenhancedcashflowtransactionsresponse.md
 docs/models/operations/getenhancedinvoicesreportrequest.md
 docs/models/operations/getenhancedinvoicesreportresponse.md
+docs/models/operations/getloansummarysourcetype.md
 docs/models/operations/getloansummaryrequest.md
 docs/models/operations/getloansummaryresponse.md
 docs/models/operations/getrecurringrevenuemetricsrequest.md

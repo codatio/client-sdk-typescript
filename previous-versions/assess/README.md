@@ -66,6 +66,8 @@ sdk.dataIntegrity.details({
 
 ### [reports](docs/sdks/reports/README.md)
 
+* [generateLoanSummary](docs/sdks/reports/README.md#generateloansummary) - Generate loan summaries report
+* [generateLoanTransactions](docs/sdks/reports/README.md#generateloantransactions) - Generate loan transactions report
 * [getAccountsForEnhancedBalanceSheet](docs/sdks/reports/README.md#getaccountsforenhancedbalancesheet) - Get enhanced balance sheet accounts
 * [getAccountsForEnhancedProfitAndLoss](docs/sdks/reports/README.md#getaccountsforenhancedprofitandloss) - Get enhanced profit and loss accounts
 * [getCommerceCustomerRetentionMetrics](docs/sdks/reports/README.md#getcommercecustomerretentionmetrics) - Get customer retention metrics
@@ -75,9 +77,9 @@ sdk.dataIntegrity.details({
 * [getCommerceRevenueMetrics](docs/sdks/reports/README.md#getcommercerevenuemetrics) - Get commerce revenue metrics
 * [getEnhancedCashFlowTransactions](docs/sdks/reports/README.md#getenhancedcashflowtransactions) - Get enhanced cash flow report
 * [getEnhancedInvoicesReport](docs/sdks/reports/README.md#getenhancedinvoicesreport) - Get enhanced invoices report
-* [getLoanSummary](docs/sdks/reports/README.md#getloansummary) - Get enhanced loan summaries
+* [getLoanSummary](docs/sdks/reports/README.md#getloansummary) - Get loan summaries
 * [getRecurringRevenueMetrics](docs/sdks/reports/README.md#getrecurringrevenuemetrics) - Get key subscription revenue metrics
-* [listLoanTransactions](docs/sdks/reports/README.md#listloantransactions) - List enhanced loan transactions
+* [listLoanTransactions](docs/sdks/reports/README.md#listloantransactions) - List loan transactions
 * [requestRecurringRevenueMetrics](docs/sdks/reports/README.md#requestrecurringrevenuemetrics) - Generate key subscription revenue metrics
 <!-- End SDK Available Operations -->
 
