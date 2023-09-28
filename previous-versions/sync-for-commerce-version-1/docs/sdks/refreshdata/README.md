@@ -1,4 +1,5 @@
-# refreshData
+# RefreshData
+(*refreshData*)
 
 ## Overview
 
@@ -76,7 +77,7 @@ const sdk = new CodatSyncCommerce({
 
 sdk.refreshData.byDataType({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "b34896c3-ca5a-4cfb-a2fd-570757792917",
+  connectionId: "d5707577-9291-477d-aac6-46ecb573409e",
   dataType: DataType.Invoices,
 }).then((res: RefreshDataTypeResponse) => {
   if (res.statusCode == 200) {
@@ -156,7 +157,7 @@ const sdk = new CodatSyncCommerce({
 
 sdk.refreshData.getPullOperation({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  datasetId: "eaed9f0f-e77b-4bc9-a58f-ab8b4b99ab18",
+  datasetId: "3eb1e5a2-b12e-4b07-b116-db99545fc95f",
 }).then((res: GetPullOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -199,7 +200,7 @@ sdk.refreshData.listPullOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "voluptate",
+  query: "animi",
 }).then((res: ListPullOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

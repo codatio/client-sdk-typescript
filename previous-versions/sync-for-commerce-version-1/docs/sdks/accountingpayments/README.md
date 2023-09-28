@@ -1,4 +1,5 @@
-# accountingPayments
+# AccountingPayments
+(*accountingPayments*)
 
 ## Overview
 
@@ -37,27 +38,27 @@ const sdk = new CodatSyncCommerce({
 sdk.accountingPayments.createAccountingPayment({
   accountingPayment: {
     accountRef: {
-      id: "2f64d1db-1f2c-4431-8661-e96349e1cf9e",
-      name: "Alma Waters",
+      id: "e96349e1-cf9e-406e-ba43-7000ae6b6bc9",
+      name: "Alfredo Wilkinson",
     },
-    currency: "GBP",
-    currencyRate: 2244.67,
+    currency: "USD",
+    currencyRate: 8975.43,
     customerRef: {
-      companyName: "iusto",
-      id: "000ae6b6-bc9b-48f7-99ea-c55a9741d311",
+      companyName: "animi",
+      id: "c55a9741-d311-4352-965b-b8a720261143",
     },
     date: "2022-10-23T00:00:00.000Z",
-    id: "52965bb8-a720-4261-9435-e139dbc2259b",
+    id: "e139dbc2-259b-41ab-9a8c-070e1084cb06",
     lines: [
       {
         allocatedOnDate: "2022-10-23T00:00:00.000Z",
-        amount: 6633.18,
+        amount: 1729.51,
         links: [
           {
-            amount: 7278.88,
-            currencyRate: 8544.6,
-            id: "a8c070e1-084c-4b06-b2d1-ad879eeb9665",
-            type: PaymentLinkType.PaymentOnAccount,
+            amount: 8247.98,
+            currencyRate: 1072.1,
+            id: "ad879eeb-9665-4b85-afbd-02bae0be2d78",
+            type: PaymentLinkType.Unlinked,
           },
         ],
       },
@@ -67,21 +68,21 @@ sdk.accountingPayments.createAccountingPayment({
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
     note: "corporis",
-    paymentMethodRef: "officiis",
-    reference: "voluptatibus",
+    paymentMethodRef: "error",
+    reference: "earum",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "at": {
-          "alias": "quia",
+        "recusandae": {
+          "similique": "ut",
         },
       },
     },
-    totalAmount: 6941.58,
+    totalAmount: 6937.46,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 684126,
+  timeoutInMinutes: 339631,
 }).then((res: CreateAccountingPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response

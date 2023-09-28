@@ -1,4 +1,5 @@
-# accountingAccounts
+# AccountingAccounts
+(*accountingAccounts*)
 
 ## Overview
 
@@ -59,13 +60,13 @@ sdk.accountingAccounts.createAccountingAccount({
         links: [
           "suscipit",
         ],
-        property: "iure",
+        property: "molestiae",
       },
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 297534,
+  timeoutInMinutes: 791725,
 }).then((res: CreateAccountingAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -111,7 +112,7 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.accountingAccounts.getAccountingAccount({
-  accountId: "debitis",
+  accountId: "placeat",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountingAccountResponse) => {
   if (res.statusCode == 200) {
@@ -159,7 +160,7 @@ sdk.accountingAccounts.listAccountingAccounts({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "ipsa",
+  query: "voluptatum",
 }).then((res: ListAccountingAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response

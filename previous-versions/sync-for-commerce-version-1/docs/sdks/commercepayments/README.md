@@ -1,4 +1,5 @@
-# commercePayments
+# CommercePayments
+(*commercePayments*)
 
 ## Overview
 
@@ -37,7 +38,7 @@ const sdk = new CodatSyncCommerce({
 sdk.commercePayments.getCommercePayment({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  paymentId: "quibusdam",
+  paymentId: "fugit",
 }).then((res: GetCommercePaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -85,7 +86,7 @@ const sdk = new CodatSyncCommerce({
 sdk.commercePayments.getMethod({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  paymentMethodId: "odio",
+  paymentMethodId: "numquam",
 }).then((res: GetCommercePaymentMethodResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -134,7 +135,7 @@ sdk.commercePayments.listCommercePayments({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "praesentium",
+  query: "numquam",
 }).then((res: ListCommercePaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -183,7 +184,7 @@ sdk.commercePayments.listMethods({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "odit",
+  query: "nesciunt",
 }).then((res: ListCommercePaymentMethodsResponse) => {
   if (res.statusCode == 200) {
     // handle response

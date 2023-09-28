@@ -64,6 +64,7 @@ export * from "./customerstatus";
 export * from "./dataconnectionerror";
 export * from "./dataconnectionstatus";
 export * from "./dataset";
+export * from "./datasetstatus";
 export * from "./datastatus";
 export * from "./datatype";
 export * from "./datatypefeature";

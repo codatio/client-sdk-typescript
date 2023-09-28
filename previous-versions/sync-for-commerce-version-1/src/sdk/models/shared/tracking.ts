@@ -10,10 +10,16 @@ import { TrackingCategoryRefsitems } from "./trackingcategoryrefsitems";
 import { Expose, Type } from "class-transformer";
 
 export class TrackingProjectReference extends SpeakeasyBase {
+    /**
+     * Unique identifier to the project reference.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id: string;
 
+    /**
+     * The project's name.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "name" })
     name?: string;
@@ -33,10 +39,16 @@ export class Tracking extends SpeakeasyBase {
     @Type(() => AccountingCustomerRef)
     customerRef?: AccountingCustomerRef;
 
+    /**
+     * Defines if the bill or bill credit note is billed/rebilled to a project.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isBilledTo" })
     isBilledTo: BilledToType;
 
+    /**
+     * Defines if the bill or bill credit note is billed/rebilled to a project.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isRebilledTo" })
     isRebilledTo: BilledToType;

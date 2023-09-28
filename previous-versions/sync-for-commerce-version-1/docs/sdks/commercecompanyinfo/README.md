@@ -1,4 +1,5 @@
-# commerceCompanyInfo
+# CommerceCompanyInfo
+(*commerceCompanyInfo*)
 
 ## Overview
 
