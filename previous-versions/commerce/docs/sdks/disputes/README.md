@@ -1,4 +1,5 @@
-# disputes
+# Disputes
+(*disputes*)
 
 ## Overview
 

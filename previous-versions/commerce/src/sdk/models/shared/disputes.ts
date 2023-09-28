@@ -13,10 +13,16 @@ export class Disputes extends SpeakeasyBase {
     @Type(() => Links)
     links: Links;
 
+    /**
+     * Current page number.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "pageNumber" })
     pageNumber: number;
 
+    /**
+     * Number of items to return in results array.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "pageSize" })
     pageSize: number;
@@ -26,6 +32,9 @@ export class Disputes extends SpeakeasyBase {
     @Type(() => Dispute)
     results?: Dispute[];
 
+    /**
+     * Total number of items.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "totalResults" })
     totalResults: number;
