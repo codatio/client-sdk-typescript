@@ -1,4 +1,4 @@
-# ListLoanTransactionsSourceType
+# GenerateLoanTransactionsSourceType
 
 Data source type.
 

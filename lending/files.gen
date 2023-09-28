@@ -103,6 +103,8 @@ src/sdk/models/operations/getexcelreportgenerationstatus.ts
 src/sdk/models/operations/downloadfiles.ts
 src/sdk/models/operations/listfiles.ts
 src/sdk/models/operations/uploadfiles.ts
+src/sdk/models/operations/generateloansummary.ts
+src/sdk/models/operations/generateloantransactions.ts
 src/sdk/models/operations/getloansummary.ts
 src/sdk/models/operations/listloantransactions.ts
 src/sdk/models/operations/getaccountingbillcreditnote.ts
@@ -535,6 +537,13 @@ docs/models/operations/listfilesresponse.md
 docs/models/operations/uploadfilesrequestbody.md
 docs/models/operations/uploadfilesrequest.md
 docs/models/operations/uploadfilesresponse.md
+docs/models/operations/generateloansummarysourcetype.md
+docs/models/operations/generateloansummaryrequest.md
+docs/models/operations/generateloansummaryresponse.md
+docs/models/operations/generateloantransactionssourcetype.md
+docs/models/operations/generateloantransactionsrequest.md
+docs/models/operations/generateloantransactionsresponse.md
+docs/models/operations/getloansummarysourcetype.md
 docs/models/operations/getloansummaryrequest.md
 docs/models/operations/getloansummaryresponse.md
 docs/models/operations/listloantransactionssourcetype.md

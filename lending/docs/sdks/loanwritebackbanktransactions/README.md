@@ -33,22 +33,22 @@ const sdk = new CodatLending({
 
 sdk.loanWriteback.bankTransactions.create({
   accountingCreateBankTransactions: {
-    accountId: "laborum",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     transactions: [
       {
-        amount: 6563.3,
-        balance: 3172.02,
+        amount: 7783.46,
+        balance: 1965.82,
         date: "2022-10-23T00:00:00.000Z",
-        description: "quo",
-        id: "3f5ad019-da1f-4fe7-8f09-7b0074f15471",
+        description: "ipsam",
+        id: "ad019da1-ffe7-48f0-97b0-074f15471b5e",
       },
     ],
   },
-  accountId: "harum",
+  accountId: "commodi",
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 317983,
+  timeoutInMinutes: 918236,
 }).then((res: CreateBankTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -96,7 +96,7 @@ const sdk = new CodatLending({
 });
 
 sdk.loanWriteback.bankTransactions.getCreateModel({
-  accountId: "accusamus",
+  accountId: "quae",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetCreateBankTransactionsModelResponse) => {

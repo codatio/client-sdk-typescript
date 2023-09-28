@@ -31,7 +31,7 @@ const sdk = new CodatLending({
 
 sdk.accountsReceivable.payments.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  paymentId: "hic",
+  paymentId: "beatae",
 }).then((res: GetAccountingPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -79,7 +79,7 @@ sdk.accountsReceivable.payments.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "optio",
+  query: "commodi",
 }).then((res: ListAccountingPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

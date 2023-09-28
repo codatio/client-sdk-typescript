@@ -100,6 +100,8 @@ sdk.accountingBankData.listTransactions({
 
 ### [liabilities](docs/sdks/liabilities/README.md)
 
+* [generateLoanSummary](docs/sdks/liabilities/README.md#generateloansummary) - Generate loan summaries report
+* [generateLoanTransactions](docs/sdks/liabilities/README.md#generateloantransactions) - Generate loan transactions report
 * [getLoanSummary](docs/sdks/liabilities/README.md#getloansummary) - Get loan summaries
 * [listLoanTransactions](docs/sdks/liabilities/README.md#listloantransactions) - List loan transactions
 

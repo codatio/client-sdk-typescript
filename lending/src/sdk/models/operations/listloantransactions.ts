@@ -7,7 +7,7 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 /**
- * Data source type
+ * Data source type.
  */
 export enum ListLoanTransactionsSourceType {
     Banking = "banking",
@@ -23,7 +23,7 @@ export class ListLoanTransactionsRequest extends SpeakeasyBase {
     companyId: string;
 
     /**
-     * Data source type
+     * Data source type.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=sourceType" })
     sourceType: ListLoanTransactionsSourceType;

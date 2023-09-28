@@ -22,6 +22,8 @@ export * from "./downloadaccountingsupplierattachment";
 export * from "./downloadexcelreport";
 export * from "./downloadfiles";
 export * from "./generateexcelreport";
+export * from "./generateloansummary";
+export * from "./generateloantransactions";
 export * from "./getaccountingaccount";
 export * from "./getaccountingaccounttransaction";
 export * from "./getaccountingagedcreditorsreport";

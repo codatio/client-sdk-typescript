@@ -56,8 +56,8 @@ sdk.sales.metrics.getCustomerRetention({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 233420,
-  periodLength: 358107,
+  numberOfPeriods: 58356,
+  periodLength: 916727,
   periodUnit: PeriodUnit.Month,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceCustomerRetentionMetricsResponse) => {
@@ -124,9 +124,9 @@ sdk.sales.metrics.getLifetimeValue({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 385237,
-  periodLength: 58356,
-  periodUnit: PeriodUnit.Year,
+  numberOfPeriods: 113816,
+  periodLength: 881721,
+  periodUnit: PeriodUnit.Month,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceLifetimeValueMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -193,9 +193,9 @@ sdk.sales.metrics.getRevenue({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 730709,
-  periodLength: 113816,
-  periodUnit: PeriodUnit.Year,
+  numberOfPeriods: 272437,
+  periodLength: 132815,
+  periodUnit: PeriodUnit.Week,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceRevenueMetricsResponse) => {
   if (res.statusCode == 200) {

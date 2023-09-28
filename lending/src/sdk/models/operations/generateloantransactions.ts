@@ -9,13 +9,13 @@ import { AxiosResponse } from "axios";
 /**
  * Data source type.
  */
-export enum GetLoanSummarySourceType {
+export enum GenerateLoanTransactionsSourceType {
     Banking = "banking",
     Commerce = "commerce",
     Accounting = "accounting",
 }
 
-export class GetLoanSummaryRequest extends SpeakeasyBase {
+export class GenerateLoanTransactionsRequest extends SpeakeasyBase {
     /**
      * Unique identifier for a company.
      */
@@ -26,10 +26,10 @@ export class GetLoanSummaryRequest extends SpeakeasyBase {
      * Data source type.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=sourceType" })
-    sourceType: GetLoanSummarySourceType;
+    sourceType: GenerateLoanTransactionsSourceType;
 }
 
-export class GetLoanSummaryResponse extends SpeakeasyBase {
+export class GenerateLoanTransactionsResponse extends SpeakeasyBase {
     /**
      * HTTP response content type for this operation
      */
@@ -41,12 +41,6 @@ export class GetLoanSummaryResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    loanSummary?: shared.LoanSummary;
 
     /**
      * HTTP response status code for this operation

@@ -34,7 +34,7 @@ sdk.accountsReceivable.customers.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "quo",
+  customerId: "at",
 }).then((res: DownloadAccountingCustomerAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -81,7 +81,7 @@ const sdk = new CodatLending({
 
 sdk.accountsReceivable.customers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  customerId: "odit",
+  customerId: "maiores",
 }).then((res: GetAccountingCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -128,7 +128,7 @@ sdk.accountsReceivable.customers.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "at",
+  customerId: "molestiae",
 }).then((res: GetAccountingCustomerAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -176,7 +176,7 @@ sdk.accountsReceivable.customers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "at",
+  query: "quod",
 }).then((res: ListAccountingCustomersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -222,7 +222,7 @@ const sdk = new CodatLending({
 sdk.accountsReceivable.customers.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "maiores",
+  customerId: "quod",
 }).then((res: ListAccountingCustomerAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

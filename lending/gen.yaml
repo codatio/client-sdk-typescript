@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 2cbc1499eb0b9774dc10dfefb80ce01e
+  docChecksum: bd896cf7923fd5b8a11e36705a84d8ff
   docVersion: 3.0.0
   speakeasyVersion: 1.91.2
   generationVersion: 2.131.1
@@ -20,7 +20,7 @@ features:
     nameOverrides: 2.81.1
     retries: 2.82.0
 typescript:
-  version: 3.3.1
+  version: 3.3.2
   author: Codat
   description: Make credit decisions backed by enhanced financials, metrics, reports, and data integrity features.
   maxMethodParams: 0

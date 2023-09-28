@@ -24,7 +24,7 @@ const sdk = new CodatLending({
 
 sdk.loanWriteback.createOperations.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "6e13b99d-488e-41e9-9e45-0ad2abd44269",
+  pushOperationKey: "3b99d488-e1e9-41e4-90ad-2abd44269802",
 }).then((res: GetCreateOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -67,7 +67,7 @@ sdk.loanWriteback.createOperations.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "quos",
+  query: "assumenda",
 }).then((res: ListCreateOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

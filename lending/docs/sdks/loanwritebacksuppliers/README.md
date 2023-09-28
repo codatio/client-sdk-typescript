@@ -36,41 +36,41 @@ sdk.loanWriteback.suppliers.create({
   accountingSupplier: {
     addresses: [
       {
-        city: "Ankundingworth",
-        country: "Guadeloupe",
-        line1: "nulla",
-        line2: "fugit",
-        postalCode: "99474-0623",
-        region: "ea",
-        type: AccountingAddressType.Unknown,
+        city: "Germantown",
+        country: "Switzerland",
+        line1: "fugit",
+        line2: "porro",
+        postalCode: "94740-6234",
+        region: "aspernatur",
+        type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "vel",
-    defaultCurrency: "possimus",
-    emailAddress: "magnam",
-    id: "36813f16-d9f5-4fce-ac55-6146c3e250fb",
+    contactName: "possimus",
+    defaultCurrency: "magnam",
+    emailAddress: "ratione",
+    id: "6813f16d-9f5f-4ce6-8556-146c3e250fb0",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "+44 25691 154789",
-    registrationNumber: "deleniti",
+    phone: "(877) 492-8687",
+    registrationNumber: "impedit",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     status: SupplierStatus.Unknown,
     supplementalData: {
       content: {
-        "fugit": {
-          "accusamus": "inventore",
+        "accusamus": {
+          "inventore": "non",
         },
       },
     },
-    supplierName: "non",
-    taxNumber: "et",
+    supplierName: "et",
+    taxNumber: "dolorum",
   },
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 677412,
+  timeoutInMinutes: 672048,
 }).then((res: CreateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response

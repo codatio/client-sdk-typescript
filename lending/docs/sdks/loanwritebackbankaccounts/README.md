@@ -33,28 +33,28 @@ const sdk = new CodatLending({
 
 sdk.loanWriteback.bankAccounts.create({
   accountingBankAccount: {
-    accountName: "fuga",
-    accountNumber: "in",
-    accountType: AccountingBankAccountType.Credit,
-    availableBalance: 6130.64,
-    balance: 4370.32,
-    currency: "EUR",
-    iBan: "quidem",
-    id: "10faaa23-52c5-4955-907a-ff1a3a2fa946",
-    institution: "quam",
+    accountName: "iste",
+    accountNumber: "iure",
+    accountType: AccountingBankAccountType.Debit,
+    availableBalance: 6976.31,
+    balance: 992.8,
+    currency: "GBP",
+    iBan: "reiciendis",
+    id: "aaa2352c-5955-4907-aff1-a3a2fa946773",
+    institution: "error",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    nominalCode: "velit",
-    overdraftLimit: 6235.1,
-    sortCode: "quia",
+    nominalCode: "quis",
+    overdraftLimit: 1103.75,
+    sortCode: "laborum",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
   },
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 110375,
+  timeoutInMinutes: 317202,
 }).then((res: CreateBankAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response
