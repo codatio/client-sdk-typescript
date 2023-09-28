@@ -38,7 +38,7 @@ const sdk = new CodatAccounting({
 
 sdk.bankAccountTransactions.create({
   createBankTransactions: {
-    accountId: "magnam",
+    accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
     transactions: [
       {
         amount: 8917.73,
