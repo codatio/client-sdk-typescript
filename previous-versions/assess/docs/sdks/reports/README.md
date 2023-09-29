@@ -46,7 +46,7 @@ const sdk = new CodatAssess({
 
 sdk.reports.generateLoanSummary({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  sourceType: GenerateLoanSummarySourceType.Commerce,
+  sourceType: GenerateLoanSummarySourceType.Accounting,
 }).then((res: GenerateLoanSummaryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -91,7 +91,7 @@ const sdk = new CodatAssess({
 
 sdk.reports.generateLoanTransactions({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  sourceType: GenerateLoanTransactionsSourceType.Commerce,
+  sourceType: GenerateLoanTransactionsSourceType.Accounting,
 }).then((res: GenerateLoanTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -133,7 +133,7 @@ const sdk = new CodatAssess({
 
 sdk.reports.getAccountsForEnhancedBalanceSheet({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  numberOfPeriods: 437587,
+  numberOfPeriods: 320225,
   reportDate: "29-09-2020",
 }).then((res: GetAccountsForEnhancedBalanceSheetResponse) => {
   if (res.statusCode == 200) {
@@ -176,7 +176,7 @@ const sdk = new CodatAssess({
 
 sdk.reports.getAccountsForEnhancedProfitAndLoss({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  numberOfPeriods: 297534,
+  numberOfPeriods: 909701,
   reportDate: "29-09-2020",
 }).then((res: GetAccountsForEnhancedProfitAndLossResponse) => {
   if (res.statusCode == 200) {
@@ -220,9 +220,9 @@ sdk.reports.getCommerceCustomerRetentionMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 891773,
-  periodLength: 56713,
-  periodUnit: PeriodUnit.Year,
+  numberOfPeriods: 474636,
+  periodLength: 781048,
+  periodUnit: PeriodUnit.Day,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceCustomerRetentionMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -266,9 +266,9 @@ sdk.reports.getCommerceLifetimeValueMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 272656,
-  periodLength: 383441,
-  periodUnit: PeriodUnit.Week,
+  numberOfPeriods: 463554,
+  periodLength: 892968,
+  periodUnit: PeriodUnit.Day,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceLifetimeValueMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -312,9 +312,9 @@ sdk.reports.getCommerceOrdersMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 791725,
-  periodLength: 812169,
-  periodUnit: PeriodUnit.Month,
+  numberOfPeriods: 661381,
+  periodLength: 875123,
+  periodUnit: PeriodUnit.Year,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceOrdersMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -358,9 +358,9 @@ sdk.reports.getCommerceRefundsMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 479977,
-  periodLength: 568045,
-  periodUnit: PeriodUnit.Week,
+  numberOfPeriods: 806705,
+  periodLength: 498153,
+  periodUnit: PeriodUnit.Day,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceRefundsMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -404,9 +404,9 @@ sdk.reports.getCommerceRevenueMetrics({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   includeDisplayNames: false,
-  numberOfPeriods: 925597,
-  periodLength: 836079,
-  periodUnit: PeriodUnit.Day,
+  numberOfPeriods: 58448,
+  periodLength: 864392,
+  periodUnit: PeriodUnit.Week,
   reportDate: "29-09-2020",
 }).then((res: GetCommerceRevenueMetricsResponse) => {
   if (res.statusCode == 200) {
@@ -453,7 +453,7 @@ sdk.reports.getEnhancedCashFlowTransactions({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   page: 1,
   pageSize: 100,
-  query: "quis",
+  query: "joule",
 }).then((res: GetEnhancedCashFlowTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -495,7 +495,7 @@ sdk.reports.getEnhancedInvoicesReport({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   page: 1,
   pageSize: 100,
-  query: "veritatis",
+  query: "bandwidth Southwest silver",
 }).then((res: GetEnhancedInvoicesReportResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -540,7 +540,7 @@ const sdk = new CodatAssess({
 
 sdk.reports.getLoanSummary({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  sourceType: GetLoanSummarySourceType.Commerce,
+  sourceType: GetLoanSummarySourceType.Banking,
 }).then((res: GetLoanSummaryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -625,7 +625,7 @@ const sdk = new CodatAssess({
 
 sdk.reports.listLoanTransactions({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  sourceType: ListLoanTransactionsSourceType.Banking,
+  sourceType: ListLoanTransactionsSourceType.Commerce,
 }).then((res: ListLoanTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response

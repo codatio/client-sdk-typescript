@@ -38,7 +38,7 @@ sdk.dataIntegrity.details({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "provident",
+  query: "Savings",
 }).then((res: ListDataTypeDataIntegrityDetailsResponse) => {
   if (res.statusCode == 200) {
     // handle response
