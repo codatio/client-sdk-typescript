@@ -39,7 +39,7 @@ const sdk = new CodatSyncCommerce({
 
 sdk.accountingAccounts.createAccountingAccount({
   accountingAccount: {
-    currency: "EUR",
+    currency: "GBP",
     currentBalance: 0,
     description: "Invoices the business has issued but has not yet collected payment on.",
     fullyQualifiedCategory: "Asset.Current",
@@ -58,15 +58,15 @@ sdk.accountingAccounts.createAccountingAccount({
     validDatatypeLinks: [
       {
         links: [
-          "suscipit",
+          "Gasoline",
         ],
-        property: "molestiae",
+        property: "orchid",
       },
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 791725,
+  timeoutInMinutes: 977465,
 }).then((res: CreateAccountingAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -112,7 +112,7 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.accountingAccounts.getAccountingAccount({
-  accountId: "placeat",
+  accountId: "Officer steer whoa",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountingAccountResponse) => {
   if (res.statusCode == 200) {
@@ -160,7 +160,7 @@ sdk.accountingAccounts.listAccountingAccounts({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "voluptatum",
+  query: "Bicycle stroll Savings",
 }).then((res: ListAccountingAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response

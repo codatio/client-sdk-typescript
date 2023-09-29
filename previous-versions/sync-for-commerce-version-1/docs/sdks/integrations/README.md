@@ -69,7 +69,7 @@ sdk.integrations.listIntegrations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "cupiditate",
+  query: "Hybrid",
 }).then((res: ListIntegrationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

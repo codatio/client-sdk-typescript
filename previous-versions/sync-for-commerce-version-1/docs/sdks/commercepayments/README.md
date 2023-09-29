@@ -38,7 +38,7 @@ const sdk = new CodatSyncCommerce({
 sdk.commercePayments.getCommercePayment({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  paymentId: "fugit",
+  paymentId: "Chief Music",
 }).then((res: GetCommercePaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -86,7 +86,7 @@ const sdk = new CodatSyncCommerce({
 sdk.commercePayments.getMethod({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  paymentMethodId: "numquam",
+  paymentMethodId: "Markets",
 }).then((res: GetCommercePaymentMethodResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -135,7 +135,7 @@ sdk.commercePayments.listCommercePayments({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "numquam",
+  query: "Rustic Metal",
 }).then((res: ListCommercePaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -184,7 +184,7 @@ sdk.commercePayments.listMethods({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "nesciunt",
+  query: "limply",
 }).then((res: ListCommercePaymentMethodsResponse) => {
   if (res.statusCode == 200) {
     // handle response

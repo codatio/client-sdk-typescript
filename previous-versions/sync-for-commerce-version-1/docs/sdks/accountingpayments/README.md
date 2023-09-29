@@ -38,27 +38,27 @@ const sdk = new CodatSyncCommerce({
 sdk.accountingPayments.createAccountingPayment({
   accountingPayment: {
     accountRef: {
-      id: "e96349e1-cf9e-406e-ba43-7000ae6b6bc9",
-      name: "Alfredo Wilkinson",
+      id: "<ID>",
+      name: "female Romaguera property",
     },
-    currency: "USD",
-    currencyRate: 8975.43,
+    currency: "GBP",
+    currencyRate: 2253.13,
     customerRef: {
-      companyName: "animi",
-      id: "c55a9741-d311-4352-965b-b8a720261143",
+      companyName: "Rohan - Stoltenberg",
+      id: "<ID>",
     },
     date: "2022-10-23T00:00:00.000Z",
-    id: "e139dbc2-259b-41ab-9a8c-070e1084cb06",
+    id: "<ID>",
     lines: [
       {
         allocatedOnDate: "2022-10-23T00:00:00.000Z",
-        amount: 1729.51,
+        amount: 2946.18,
         links: [
           {
-            amount: 8247.98,
-            currencyRate: 1072.1,
-            id: "ad879eeb-9665-4b85-afbd-02bae0be2d78",
-            type: PaymentLinkType.Unlinked,
+            amount: 7256.22,
+            currencyRate: 9866.42,
+            id: "<ID>",
+            type: PaymentLinkType.Payment,
           },
         ],
       },
@@ -67,22 +67,22 @@ sdk.accountingPayments.createAccountingPayment({
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "corporis",
-    paymentMethodRef: "error",
-    reference: "earum",
+    note: "East HDD",
+    paymentMethodRef: "Diesel",
+    reference: "lumen",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "recusandae": {
-          "similique": "ut",
+        "ab": {
+          "eligendi": "nimble",
         },
       },
     },
-    totalAmount: 6937.46,
+    totalAmount: 4535.25,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 339631,
+  timeoutInMinutes: 324249,
 }).then((res: CreateAccountingPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response

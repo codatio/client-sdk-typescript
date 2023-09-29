@@ -70,7 +70,7 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.companyManagement.createConnection({
-  requestBody: "necessitatibus",
+  requestBody: "blue",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: CreateConnectionResponse) => {
   if (res.statusCode == 200) {
@@ -113,7 +113,7 @@ sdk.companyManagement.listCompanies({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "corporis",
+  query: "New",
 }).then((res: ListCompaniesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -156,7 +156,7 @@ sdk.companyManagement.listConnections({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "qui",
+  query: "Factors",
 }).then((res: ListConnectionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -197,7 +197,7 @@ const sdk = new CodatSyncCommerce({
 
 sdk.companyManagement.updateConnection({
   updateConnection: {
-    status: DataConnectionStatus.Unlinked,
+    status: DataConnectionStatus.Deauthorized,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",

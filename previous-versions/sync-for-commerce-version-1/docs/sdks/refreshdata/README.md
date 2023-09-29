@@ -77,7 +77,7 @@ const sdk = new CodatSyncCommerce({
 
 sdk.refreshData.byDataType({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "d5707577-9291-477d-aac6-46ecb573409e",
+  connectionId: "8803f6d1-c3aa-40d5-a409-b9d7f498be91",
   dataType: DataType.Invoices,
 }).then((res: RefreshDataTypeResponse) => {
   if (res.statusCode == 200) {
@@ -157,7 +157,7 @@ const sdk = new CodatSyncCommerce({
 
 sdk.refreshData.getPullOperation({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  datasetId: "3eb1e5a2-b12e-4b07-b116-db99545fc95f",
+  datasetId: "7911a54a-c808-4f4b-b87e-b195f52b4da5",
 }).then((res: GetPullOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -200,7 +200,7 @@ sdk.refreshData.listPullOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "animi",
+  query: "Dock Elegant Buckinghamshire",
 }).then((res: ListPullOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

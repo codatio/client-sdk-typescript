@@ -66,9 +66,9 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.syncFlowPreferences.getSyncFlowUrl({
-  accountingKey: "odio",
-  commerceKey: "eaque",
-  merchantIdentifier: "saepe",
+  accountingKey: "Manager",
+  commerceKey: "payment",
+  merchantIdentifier: "Rupiah tertiary Zealand",
 }).then((res: GetSyncFlowUrlResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -107,7 +107,7 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.syncFlowPreferences.getVisibleAccounts({
-  clientId: "189dbb30-fcb3-43ea-855b-197cd44e2f52",
+  clientId: "86fe9741-738d-4f2c-8e96-9c3f84156e91",
   platformKey: "gbol",
 }).then((res: GetVisibleAccountsResponse) => {
   if (res.statusCode == 200) {
@@ -147,9 +147,9 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.syncFlowPreferences.updateConfigTextSyncFlow({
-  "facere": {
+  "perferendis": {
     required: false,
-    text: "laudantium",
+    text: "Gasoline Cotton azure",
   },
 }).then((res: UpdateConfigTextSyncFlowResponse) => {
   if (res.statusCode == 200) {
@@ -191,7 +191,7 @@ const sdk = new CodatSyncCommerce({
 sdk.syncFlowPreferences.updateVisibleAccountsSyncFlow({
   visibleAccounts: {
     visibleAccounts: [
-      "odit",
+      "Coordinator",
     ],
   },
   platformKey: "gbol",

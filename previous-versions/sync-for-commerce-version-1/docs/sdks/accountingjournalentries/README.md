@@ -37,30 +37,30 @@ const sdk = new CodatSyncCommerce({
 sdk.accountingJournalEntries.createAccountingJournalEntry({
   accountingJournalEntry: {
     createdOn: "2022-10-23T00:00:00.000Z",
-    description: "nam",
-    id: "5a341814-3010-4421-813d-5208ece7e253",
+    description: "Upgradable 24/7 parallelism",
+    id: "<ID>",
     journalLines: [
       {
         accountRef: {
-          id: "b668451c-6c6e-4205-a16d-eab3fec9578a",
-          name: "Marjorie Hickle",
+          id: "<ID>",
+          name: "Northwest Minivan",
         },
-        currency: "aspernatur",
-        description: "ducimus",
-        netAmount: 2005.16,
+        currency: "Denar",
+        description: "Cross-platform motivating migration",
+        netAmount: 9996.19,
         tracking: {
           recordRefs: [
             {
-              dataType: "accountTransaction",
-              id: "8418d162-309f-4b09-a992-1aefb9f58c4d",
+              dataType: "invoice",
+              id: "<ID>",
             },
           ],
         },
       },
     ],
     journalRef: {
-      id: "86e68e4b-e056-4013-b59d-a757a59ecfef",
-      name: "Loretta Tremblay DDS",
+      id: "<ID>",
+      name: "facilitate",
     },
     metadata: {
       isDeleted: false,
@@ -68,14 +68,14 @@ sdk.accountingJournalEntries.createAccountingJournalEntry({
     modifiedDate: "2022-10-23T00:00:00.000Z",
     postedOn: "2022-10-23T00:00:00.000Z",
     recordRef: {
-      dataType: "journalEntry",
-      id: "383c2beb-4773-473c-8d72-f64d1db1f2c4",
+      dataType: "accountTransaction",
+      id: "<ID>",
     },
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "illo": {
-          "accusantium": "vel",
+        "eum": {
+          "labore": "Corporate",
         },
       },
     },
@@ -83,7 +83,7 @@ sdk.accountingJournalEntries.createAccountingJournalEntry({
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 107617,
+  timeoutInMinutes: 174830,
 }).then((res: CreateAccountingJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -33,7 +33,7 @@ const sdk = new CodatSyncCommerce({
 
 sdk.accountingAccounts.createAccountingAccount({
   accountingAccount: {
-    currency: "EUR",
+    currency: "GBP",
     currentBalance: 0,
     description: "Invoices the business has issued but has not yet collected payment on.",
     fullyQualifiedCategory: "Asset.Current",
@@ -52,15 +52,15 @@ sdk.accountingAccounts.createAccountingAccount({
     validDatatypeLinks: [
       {
         links: [
-          "suscipit",
+          "Gasoline",
         ],
-        property: "iure",
+        property: "orchid",
       },
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 297534,
+  timeoutInMinutes: 977465,
 }).then((res: CreateAccountingAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -211,8 +211,6 @@ sdk.accountingAccounts.createAccountingAccount({
 
 <!-- Start Dev Containers -->
 
-
-
 <!-- End Dev Containers -->
 
 
@@ -225,8 +223,6 @@ returned response object will have a `next` method that can be called to pull do
 return value of `next` is `null`, then there are no more pages to be fetched.
 
 Here's an example of one such pagination call:
-
-
 <!-- End Pagination -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
