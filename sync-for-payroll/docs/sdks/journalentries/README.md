@@ -41,30 +41,30 @@ const sdk = new CodatSyncPayroll({
 sdk.journalEntries.create({
   journalEntry: {
     createdOn: "2022-10-23T00:00:00.000Z",
-    description: "temporibus",
-    id: "151a05df-c2dd-4f7c-878c-a1ba928fc816",
+    description: "Multi-tiered motivating standardization",
+    id: "<ID>",
     journalLines: [
       {
         accountRef: {
-          id: "742cb739-2059-4293-96fe-a7596eb10faa",
-          name: "Ernest Ebert",
+          id: "<ID>",
+          name: "innovative blue",
         },
-        currency: "nobis",
-        description: "enim",
-        netAmount: 6078.31,
+        currency: "Zimbabwe Dollar",
+        description: "Secured exuding throughput",
+        netAmount: 8915.1,
         tracking: {
           recordRefs: [
             {
-              dataType: "invoice",
-              id: "5907aff1-a3a2-4fa9-8677-39251aa52c3f",
+              dataType: "journalEntry",
+              id: "<ID>",
             },
           ],
         },
       },
     ],
     journalRef: {
-      id: "5ad019da-1ffe-478f-897b-0074f15471b5",
-      name: "Mrs. Leslie VonRueden",
+      id: "<ID>",
+      name: "orange Northwest",
     },
     metadata: {
       isDeleted: false,
@@ -73,13 +73,13 @@ sdk.journalEntries.create({
     postedOn: "2022-10-23T00:00:00.000Z",
     recordRef: {
       dataType: "transfer",
-      id: "488e1e91-e450-4ad2-abd4-4269802d502a",
+      id: "<ID>",
     },
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "tempora": {
-          "facilis": "tempore",
+        "cupiditate": {
+          "assumenda": "volt",
         },
       },
     },
@@ -88,7 +88,7 @@ sdk.journalEntries.create({
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 962189,
+  timeoutInMinutes: 656256,
 }).then((res: CreateJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -159,8 +159,8 @@ sdk.journalEntries.delete({
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  journalEntryId: "eum",
-  timeoutInMinutes: 248753,
+  journalEntryId: "Van complexity",
+  timeoutInMinutes: 952479,
 }).then((res: DeleteJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -207,7 +207,7 @@ const sdk = new CodatSyncPayroll({
 
 sdk.journalEntries.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalEntryId: "eligendi",
+  journalEntryId: "Northeast Hatchback Kia",
 }).then((res: GetJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -304,7 +304,7 @@ sdk.journalEntries.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "sint",
+  query: "Northeast Metal Canada",
 }).then((res: ListJournalEntriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
