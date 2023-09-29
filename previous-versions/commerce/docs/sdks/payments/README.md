@@ -38,7 +38,7 @@ const sdk = new CodatCommerce({
 sdk.payments.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  paymentId: "illum",
+  paymentId: "Northeast Hatchback Kia",
 }).then((res: GetPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -86,7 +86,7 @@ const sdk = new CodatCommerce({
 sdk.payments.getMethod({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  paymentMethodId: "vel",
+  paymentMethodId: "Markets",
 }).then((res: GetPaymentMethodResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -135,7 +135,7 @@ sdk.payments.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "error",
+  query: "Northeast Metal Canada",
 }).then((res: ListPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -184,7 +184,7 @@ sdk.payments.listMethods({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "deserunt",
+  query: "limply",
 }).then((res: ListPaymentMethodsResponse) => {
   if (res.statusCode == 200) {
     // handle response
