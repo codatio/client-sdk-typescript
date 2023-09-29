@@ -159,7 +159,7 @@ sdk.connections.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "deserunt",
+  query: "Northeast Metal Canada",
 }).then((res: ListConnectionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -200,7 +200,7 @@ const sdk = new CodatBankFeeds({
 
 sdk.connections.unlink({
   requestBody: {
-    status: DataConnectionStatus.Linked,
+    status: DataConnectionStatus.PendingAuth,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",

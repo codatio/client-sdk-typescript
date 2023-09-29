@@ -52,16 +52,16 @@ const sdk = new CodatBankFeeds({
 
 sdk.sourceAccounts.create({
   sourceAccount: {
-    accountName: "iure",
-    accountNumber: "magnam",
-    accountType: "debitis",
-    balance: 567.13,
-    currency: "EUR",
+    accountName: "bluetooth Extended",
+    accountNumber: "blue",
+    accountType: "grey technology East",
+    balance: 1697.27,
+    currency: "GBP",
     feedStartDate: "2022-10-23T00:00:00.000Z",
-    id: "67cc8796-ed15-41a0-9dfc-2ddf7cc78ca1",
+    id: "<ID>",
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    sortCode: "officia",
-    status: "occaecati",
+    sortCode: "SUV quantify Polestar",
+    status: "physical Ameliorated",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -106,7 +106,7 @@ const sdk = new CodatBankFeeds({
 });
 
 sdk.sourceAccounts.delete({
-  accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  accountId: "7110701885",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: DeleteSourceAccountResponse) => {
@@ -192,7 +192,7 @@ const sdk = new CodatBankFeeds({
 });
 
 sdk.sourceAccounts.generateCredentials({
-  requestBody: "deleniti".encode(),
+  requestBody: "^upd|k\]Iy" as bytes <<<>>>,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GenerateCredentialsResponse) => {
@@ -278,18 +278,18 @@ const sdk = new CodatBankFeeds({
 
 sdk.sourceAccounts.update({
   sourceAccount: {
-    accountName: "hic",
-    accountNumber: "optio",
-    accountType: "totam",
-    balance: 1059.07,
+    accountName: "New Reactive dock",
+    accountNumber: "Analyst invoice",
+    accountType: "Islands",
+    balance: 4995.57,
     currency: "USD",
     feedStartDate: "2022-10-23T00:00:00.000Z",
-    id: "42cb7392-0592-4939-afea-7596eb10faaa",
+    id: "<ID>",
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    sortCode: "dolorem",
-    status: "corporis",
+    sortCode: "Plastic Carolina syndicate",
+    status: "implement JBOD",
   },
-  accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  accountId: "EILBDVJVNUAGVKRQ",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: UpdateSourceAccountResponse) => {

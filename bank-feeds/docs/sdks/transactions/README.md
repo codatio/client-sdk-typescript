@@ -39,7 +39,7 @@ const sdk = new CodatBankFeeds({
 
 sdk.transactions.create({
   createBankTransactions: {
-    accountId: "EILBDVJVNUAGVKRQ",
+    accountId: "7110701885",
     transactions: [
       {
         amount: 999.99,
@@ -50,15 +50,15 @@ sdk.transactions.create({
         id: "716422529",
         reconciled: false,
         reference: "reference for transaction",
-        transactionType: BankTransactionsBankTransactionType.Xfer,
+        transactionType: BankTransactionsBankTransactionType.Check,
       },
     ],
   },
-  accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+  accountId: "EILBDVJVNUAGVKRQ",
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 325047,
+  timeoutInMinutes: 417458,
 }).then((res: CreateBankTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -98,7 +98,7 @@ const sdk = new CodatBankFeeds({
 
 sdk.transactions.getCreateOperation({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "907aff1a-3a2f-4a94-a773-9251aa52c3f5",
+  pushOperationKey: "1fb73c31-a851-46c2-ab8a-5ce6e25b57b8",
 }).then((res: GetCreateOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -141,7 +141,7 @@ sdk.transactions.listCreateOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "id",
+  query: "Hassium",
 }).then((res: ListCreateOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
