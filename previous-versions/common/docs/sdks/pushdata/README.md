@@ -80,7 +80,7 @@ const sdk = new CodatCommon({
 
 sdk.pushData.getOperation({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "8d69a674-e0f4-467c-8879-6ed151a05dfc",
+  pushOperationKey: "59acd79e-29d3-4138-91d3-91d4641bf7ed",
 }).then((res: GetPushOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -123,7 +123,7 @@ sdk.pushData.listOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "odit",
+  query: "Synchronised",
 }).then((res: GetCompanyPushHistoryResponse) => {
   if (res.statusCode == 200) {
     // handle response

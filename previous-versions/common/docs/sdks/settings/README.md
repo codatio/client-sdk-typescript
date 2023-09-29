@@ -292,7 +292,7 @@ const sdk = new CodatCommon({
 });
 
 sdk.settings.updateSyncSettings({
-  clientId: "07aff1a3-a2fa-4946-b739-251aa52c3f5a",
+  clientId: "ce429104-79f0-4085-a720-e2d40fcc800f",
   overridesDefaults: false,
   settings: [
     {
@@ -302,7 +302,7 @@ sdk.settings.updateSyncSettings({
       monthsToSync: 24,
       syncFromUtc: "2022-10-23T00:00:00.000Z",
       syncFromWindow: 24,
-      syncOrder: 13571,
+      syncOrder: 334238,
       syncSchedule: 24,
     },
   ],
