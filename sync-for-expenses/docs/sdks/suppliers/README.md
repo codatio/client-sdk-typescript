@@ -42,41 +42,41 @@ sdk.suppliers.create({
   supplier: {
     addresses: [
       {
-        city: "Funkton",
-        country: "Azerbaijan",
-        line1: "ipsa",
-        line2: "iure",
-        postalCode: "38693",
-        region: "natus",
-        type: AccountingAddressType.Unknown,
+        city: "Jenafurt",
+        country: "Sweden",
+        line1: "innovative blue",
+        line2: "grey technology East",
+        postalCode: "30778",
+        region: "quantify Polestar mobile",
+        type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "atque",
-    defaultCurrency: "sit",
-    emailAddress: "fugiat",
-    id: "1ba77a89-ebf7-437a-a420-3ce5e6a95d8a",
+    contactName: "Durham after",
+    defaultCurrency: "Intelligent Fish",
+    emailAddress: "Ricardo.Hand41@gmail.com",
+    id: "<ID>",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "01224 658 999",
-    registrationNumber: "quaerat",
+    phone: "(877) 492-8687",
+    registrationNumber: "Profound",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     status: SupplierStatus.Active,
     supplementalData: {
       content: {
-        "quod": {
-          "officiis": "qui",
+        "pariatur": {
+          "accusantium": "Minivan",
         },
       },
     },
-    supplierName: "dolorum",
-    taxNumber: "a",
+    supplierName: "Senior Mouse West",
+    taxNumber: "Towels likewise",
   },
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 456130,
+  timeoutInMinutes: 452224,
 }).then((res: CreateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -171,7 +171,7 @@ sdk.suppliers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "iusto",
+  query: "Northeast Metal Canada",
 }).then((res: ListSuppliersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -223,43 +223,43 @@ sdk.suppliers.update({
   supplier: {
     addresses: [
       {
-        city: "Port Ulises",
-        country: "Czech Republic",
-        line1: "tempore",
-        line2: "accusamus",
-        postalCode: "32954",
-        region: "sit",
-        type: AccountingAddressType.Delivery,
+        city: "Ann Arbor",
+        country: "Montserrat",
+        line1: "Reactive",
+        line2: "Metal cheater Islands",
+        postalCode: "43372",
+        region: "Carolina syndicate",
+        type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "neque",
-    defaultCurrency: "sed",
-    emailAddress: "vel",
-    id: "b5a73429-cdb1-4a84-a2bb-679d2322715b",
+    contactName: "East",
+    defaultCurrency: "Bicycle guestbook",
+    emailAddress: "Alexys.Hayes81@yahoo.com",
+    id: "<ID>",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "+44 25691 154789",
-    registrationNumber: "cumque",
+    phone: "(877) 492-8687",
+    registrationNumber: "indexing",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: SupplierStatus.Archived,
+    status: SupplierStatus.Unknown,
     supplementalData: {
       content: {
-        "et": {
-          "saepe": "ipsum",
+        "consectetur": {
+          "ullam": "Jaguar",
         },
       },
     },
-    supplierName: "veritatis",
-    taxNumber: "nobis",
+    supplierName: "visionary Buckinghamshire frictionless",
+    taxNumber: "parse possimus",
   },
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
   supplierId: "7110701885",
-  timeoutInMinutes: 731694,
+  timeoutInMinutes: 427089,
 }).then((res: UpdateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response

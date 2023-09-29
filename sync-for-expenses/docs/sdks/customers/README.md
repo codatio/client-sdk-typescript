@@ -42,64 +42,64 @@ sdk.customers.create({
   customer: {
     addresses: [
       {
-        city: "Fort Manuelachester",
-        country: "Oman",
-        line1: "dolores",
-        line2: "dolorem",
-        postalCode: "17363",
-        region: "minima",
+        city: "Jenafurt",
+        country: "Sweden",
+        line1: "innovative blue",
+        line2: "grey technology East",
+        postalCode: "30778",
+        region: "quantify Polestar mobile",
         type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "accusantium",
+    contactName: "Durham after",
     contacts: [
       {
         address: {
-          city: "Lorenzaworth",
-          country: "Uzbekistan",
-          line1: "architecto",
-          line2: "mollitia",
-          postalCode: "61965",
-          region: "numquam",
-          type: AccountingAddressType.Billing,
+          city: "Darenberg",
+          country: "Cote d'Ivoire",
+          line1: "Buckinghamshire functionalities Grocery",
+          line2: "Metal",
+          postalCode: "61380",
+          region: "Interactions Senior Mouse",
+          type: AccountingAddressType.Unknown,
         },
-        email: "Jarred.Frami@yahoo.com",
+        email: "Judd27@hotmail.com",
         modifiedDate: "2022-10-23T00:00:00.000Z",
-        name: "Kayla O'Kon",
+        name: "transmit likewise",
         phone: [
           {
-            number: "01224 658 999",
-            type: PhoneNumberType.Primary,
+            number: "(877) 492-8687",
+            type: PhoneNumberType.Fax,
           },
         ],
-        status: CustomerStatus.Archived,
+        status: CustomerStatus.Active,
       },
     ],
-    customerName: "ipsam",
-    defaultCurrency: "USD",
-    emailAddress: "possimus",
-    id: "019da1ff-e78f-4097-b007-4f15471b5e6e",
+    customerName: "Rubber silver Indiana",
+    defaultCurrency: "EUR",
+    emailAddress: "Thea_Ritchie76@hotmail.com",
+    id: "<ID>",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "755.825.5909",
-    registrationNumber: "sint",
+    phone: "948.595.2034",
+    registrationNumber: "digital",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: CustomerStatus.Archived,
+    status: CustomerStatus.Unknown,
     supplementalData: {
       content: {
-        "incidunt": {
-          "enim": "consequatur",
+        "recusandae": {
+          "maiores": "Mongolia",
         },
       },
     },
-    taxNumber: "est",
+    taxNumber: "discrete",
   },
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 842342,
+  timeoutInMinutes: 522311,
 }).then((res: CreateCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -146,7 +146,7 @@ const sdk = new CodatSyncExpenses({
 
 sdk.customers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  customerId: "explicabo",
+  customerId: "Northeast Hatchback Kia",
 }).then((res: GetCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -194,7 +194,7 @@ sdk.customers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "deserunt",
+  query: "Northeast Metal Canada",
 }).then((res: ListCustomersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -246,66 +246,66 @@ sdk.customers.update({
   customer: {
     addresses: [
       {
-        city: "Spencerboro",
-        country: "Eritrea",
-        line1: "qui",
-        line2: "aliquid",
-        postalCode: "50183-0165",
-        region: "tempora",
-        type: AccountingAddressType.Delivery,
+        city: "Ann Arbor",
+        country: "Montserrat",
+        line1: "Reactive",
+        line2: "Metal cheater Islands",
+        postalCode: "43372",
+        region: "Carolina syndicate",
+        type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "tempore",
+    contactName: "East",
     contacts: [
       {
         address: {
-          city: "Fort Horacio",
-          country: "Ecuador",
-          line1: "eligendi",
-          line2: "sint",
-          postalCode: "58562",
-          region: "debitis",
+          city: "Olenfurt",
+          country: "Paraguay",
+          line1: "Home users Sharable",
+          line2: "Lev Wooden",
+          postalCode: "36848",
+          region: "brightly",
           type: AccountingAddressType.Delivery,
         },
-        email: "Isadore_Kirlin69@hotmail.com",
+        email: "Josie49@yahoo.com",
         modifiedDate: "2022-10-23T00:00:00.000Z",
-        name: "Blanca Schulist",
+        name: "possimus navigating Diesel",
         phone: [
           {
-            number: "01224 658 999",
-            type: PhoneNumberType.Unknown,
+            number: "+44 25691 154789",
+            type: PhoneNumberType.Primary,
           },
         ],
         status: CustomerStatus.Unknown,
       },
     ],
-    customerName: "occaecati",
-    defaultCurrency: "GBP",
-    emailAddress: "accusamus",
-    id: "fb9ba88f-3a66-4997-874b-a4469b6e2141",
+    customerName: "Reactive Global Northeast",
+    defaultCurrency: "USD",
+    emailAddress: "Abe.Bogan@hotmail.com",
+    id: "<ID>",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "(655) 269-6342 x813",
-    registrationNumber: "quasi",
+    phone: "(883) 732-4217 x6499",
+    registrationNumber: "redundant ew",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: CustomerStatus.Archived,
+    status: CustomerStatus.Active,
     supplementalData: {
       content: {
-        "debitis": {
-          "eius": "maxime",
+        "asperiores": {
+          "quibusdam": "Omnigender",
         },
       },
     },
-    taxNumber: "deleniti",
+    taxNumber: "Volkswagen Specialist Bacon",
   },
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "facilis",
+  customerId: "Copper port East",
   forceUpdate: false,
-  timeoutInMinutes: 447926,
+  timeoutInMinutes: 373959,
 }).then((res: UpdateCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response

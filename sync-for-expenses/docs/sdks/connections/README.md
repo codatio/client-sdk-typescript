@@ -199,7 +199,7 @@ sdk.connections.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "quidem",
+  query: "Northeast Metal Canada",
 }).then((res: ListConnectionsResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -28,7 +28,7 @@ const sdk = new CodatSyncExpenses({
 
 sdk.pushOperations.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "8909b3fe-49a8-4d9c-bf48-633323f9b77f",
+  pushOperationKey: "b18d8d81-fd7b-4764-a31e-475cb1f36591",
 }).then((res: GetPushOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -71,7 +71,7 @@ sdk.pushOperations.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "amet",
+  query: "Northeast Metal Canada",
 }).then((res: ListPushOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -37,7 +37,7 @@ const sdk = new CodatSyncExpenses({
 
 sdk.accounts.create({
   account: {
-    currency: "EUR",
+    currency: "USD",
     currentBalance: 0,
     description: "Invoices the business has issued but has not yet collected payment on.",
     fullyQualifiedCategory: "Asset.Current",
@@ -56,16 +56,16 @@ sdk.accounts.create({
     validDatatypeLinks: [
       {
         links: [
-          "suscipit",
+          "Money",
         ],
-        property: "molestiae",
+        property: "Cambridgeshire grey technology",
       },
     ],
   },
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 791725,
+  timeoutInMinutes: 86,
 }).then((res: CreateAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response
