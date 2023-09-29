@@ -156,7 +156,7 @@ sdk.companies.listCompanies({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "corrupti",
+  query: "New",
 }).then((res: ListCompaniesResponse) => {
   if (res.statusCode == 200) {
     // handle response
