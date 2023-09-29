@@ -34,7 +34,7 @@ sdk.accountsReceivable.directIncomes.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "esse",
+  directIncomeId: "Dakota Avon specifically",
 }).then((res: DownloadAccountingDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -82,7 +82,7 @@ const sdk = new CodatLending({
 sdk.accountsReceivable.directIncomes.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "totam",
+  directIncomeId: "Northeast Hatchback Kia",
 }).then((res: GetAccountingDirectIncomeResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -129,8 +129,8 @@ sdk.accountsReceivable.directIncomes.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "porro",
-  timeoutInMinutes: 678880,
+  directIncomeId: "array East along",
+  timeoutInMinutes: 329312,
 }).then((res: GetAccountingDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -179,7 +179,7 @@ sdk.accountsReceivable.directIncomes.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "dicta",
+  query: "Northeast Metal Canada",
 }).then((res: ListAccountingDirectIncomesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -225,7 +225,7 @@ const sdk = new CodatLending({
 sdk.accountsReceivable.directIncomes.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "nam",
+  directIncomeId: "intuitive Frozen ouch",
 }).then((res: ListAccountingDirectIncomeAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

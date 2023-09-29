@@ -36,25 +36,25 @@ sdk.loanWriteback.transfers.create({
   accountingTransfer: {
     contactRef: {
       dataType: DataType.Invoices,
-      id: "c366c8dd-6b14-4429-8747-4778a7bd466d",
+      id: "<ID>",
     },
     date: "2022-10-23T00:00:00.000Z",
     depositedRecordRefs: [
       {
-        dataType: "accountTransaction",
-        id: "c10ab3cd-ca42-4519-84e5-23c7e0bc7178",
+        dataType: "invoice",
+        id: "<ID>",
       },
     ],
-    description: "accusamus",
+    description: "Proactive systematic Graphical User Interface",
     from: {
       accountRef: {
-        id: "4796f2a7-0c68-4828-aaa4-82562f222e98",
-        name: "Tamara Vandervort IV",
+        id: "<ID>",
+        name: "South",
       },
-      amount: 8003.79,
+      amount: 9967.06,
       currency: "EUR",
     },
-    id: "e61e6b7b-95bc-40ab-bc20-c4f3789fd871",
+    id: "<ID>",
     metadata: {
       isDeleted: false,
     },
@@ -62,30 +62,30 @@ sdk.loanWriteback.transfers.create({
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "sint": {
-          "pariatur": "possimus",
+        "debitis": {
+          "alias": "deposit",
         },
       },
     },
     to: {
       accountRef: {
-        id: "2efd121a-a6f1-4e67-8bdb-04f15756082d",
-        name: "Cassandra Ward V",
+        id: "<ID>",
+        name: "Northwest",
       },
-      amount: 9453.02,
-      currency: "GBP",
+      amount: 7926.2,
+      currency: "EUR",
     },
     trackingCategoryRefs: [
       {
-        id: "d1705133-9d08-4086-a184-0394c26071f9",
-        name: "Camille Hirthe III",
+        id: "<ID>",
+        name: "quantify Polestar mobile",
       },
     ],
   },
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 310067,
+  timeoutInMinutes: 656256,
 }).then((res: CreateTransferResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -1,6 +1,6 @@
 {
   "name": "@codat/lending",
-  "version": "3.3.2",
+  "version": "3.4.0",
   "author": "Codat",
   "scripts": {
     "prepare": "tsc --build"

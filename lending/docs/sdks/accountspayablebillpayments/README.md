@@ -30,7 +30,7 @@ const sdk = new CodatLending({
 });
 
 sdk.accountsPayable.billPayments.get({
-  billPaymentId: "nisi",
+  billPaymentId: "Northeast Hatchback Kia",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountingBillPaymentResponse) => {
   if (res.statusCode == 200) {
@@ -79,7 +79,7 @@ sdk.accountsPayable.billPayments.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "recusandae",
+  query: "Northeast Metal Canada",
 }).then((res: ListAccountingBillPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

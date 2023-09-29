@@ -33,28 +33,28 @@ const sdk = new CodatLending({
 
 sdk.loanWriteback.bankAccounts.create({
   accountingBankAccount: {
-    accountName: "iste",
-    accountNumber: "iure",
+    accountName: "bluetooth Extended",
+    accountNumber: "blue",
     accountType: AccountingBankAccountType.Debit,
-    availableBalance: 6976.31,
-    balance: 992.8,
-    currency: "GBP",
-    iBan: "reiciendis",
-    id: "aaa2352c-5955-4907-aff1-a3a2fa946773",
-    institution: "error",
+    availableBalance: 7964.74,
+    balance: 3768.44,
+    currency: "EUR",
+    iBan: "ES4002078579630900307003",
+    id: "<ID>",
+    institution: "Grocery Borders Northwest",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    nominalCode: "quis",
-    overdraftLimit: 1103.75,
-    sortCode: "laborum",
+    nominalCode: "metrics",
+    overdraftLimit: 365.21,
+    sortCode: "Interactions Senior Mouse",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
   },
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 317202,
+  timeoutInMinutes: 908106,
 }).then((res: CreateBankAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response

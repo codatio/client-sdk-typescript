@@ -36,41 +36,41 @@ sdk.loanWriteback.suppliers.create({
   accountingSupplier: {
     addresses: [
       {
-        city: "Germantown",
-        country: "Switzerland",
-        line1: "fugit",
-        line2: "porro",
-        postalCode: "94740-6234",
-        region: "aspernatur",
+        city: "Jenafurt",
+        country: "Sweden",
+        line1: "innovative blue",
+        line2: "grey technology East",
+        postalCode: "30778",
+        region: "quantify Polestar mobile",
         type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "possimus",
-    defaultCurrency: "magnam",
-    emailAddress: "ratione",
-    id: "6813f16d-9f5f-4ce6-8556-146c3e250fb0",
+    contactName: "Durham after",
+    defaultCurrency: "Intelligent Fish",
+    emailAddress: "Ricardo.Hand41@gmail.com",
+    id: "<ID>",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
     phone: "(877) 492-8687",
-    registrationNumber: "impedit",
+    registrationNumber: "Profound",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: SupplierStatus.Unknown,
+    status: SupplierStatus.Active,
     supplementalData: {
       content: {
-        "accusamus": {
-          "inventore": "non",
+        "pariatur": {
+          "accusantium": "Minivan",
         },
       },
     },
-    supplierName: "et",
-    taxNumber: "dolorum",
+    supplierName: "Senior Mouse West",
+    taxNumber: "Towels likewise",
   },
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 672048,
+  timeoutInMinutes: 452224,
 }).then((res: CreateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response

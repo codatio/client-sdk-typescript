@@ -36,7 +36,7 @@ sdk.accountsReceivable.invoices.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "officia",
+  invoiceId: "Dakota Avon specifically",
 }).then((res: DownloadAccountingInvoiceAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -76,7 +76,7 @@ const sdk = new CodatLending({
 
 sdk.accountsReceivable.invoices.downloadPdf({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  invoiceId: "occaecati",
+  invoiceId: "Associate",
 }).then((res: DownloadAccountingInvoicePdfResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -122,7 +122,7 @@ const sdk = new CodatLending({
 
 sdk.accountsReceivable.invoices.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  invoiceId: "fugit",
+  invoiceId: "Northeast Hatchback Kia",
 }).then((res: GetAccountingInvoiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -169,7 +169,7 @@ sdk.accountsReceivable.invoices.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "deleniti",
+  invoiceId: "array East along",
 }).then((res: GetAccountingInvoiceAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -223,7 +223,7 @@ sdk.accountsReceivable.invoices.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "hic",
+  query: "Northeast Metal Canada",
 }).then((res: ListAccountingInvoicesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -269,7 +269,7 @@ const sdk = new CodatLending({
 sdk.accountsReceivable.invoices.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "optio",
+  invoiceId: "intuitive Frozen ouch",
 }).then((res: ListAccountingInvoiceAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -311,7 +311,7 @@ sdk.accountsReceivable.invoices.listReconciled({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   page: 1,
   pageSize: 100,
-  query: "totam",
+  query: "Marketing",
 }).then((res: ListReconciledInvoicesResponse) => {
   if (res.statusCode == 200) {
     // handle response

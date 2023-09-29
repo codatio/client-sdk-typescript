@@ -30,7 +30,7 @@ const sdk = new CodatLending({
 });
 
 sdk.accountsPayable.billCreditNotes.get({
-  billCreditNoteId: "iusto",
+  billCreditNoteId: "Northeast Hatchback Kia",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountingBillCreditNoteResponse) => {
   if (res.statusCode == 200) {
@@ -79,7 +79,7 @@ sdk.accountsPayable.billCreditNotes.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "excepturi",
+  query: "Northeast Metal Canada",
 }).then((res: ListAccountingBillCreditNotesResponse) => {
   if (res.statusCode == 200) {
     // handle response

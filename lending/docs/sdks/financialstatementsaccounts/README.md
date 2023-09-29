@@ -30,7 +30,7 @@ const sdk = new CodatLending({
 });
 
 sdk.financialStatements.accounts.get({
-  accountId: "aspernatur",
+  accountId: "Northeast Hatchback Kia",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountingAccountResponse) => {
   if (res.statusCode == 200) {
@@ -78,7 +78,7 @@ sdk.financialStatements.accounts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "perferendis",
+  query: "Northeast Metal Canada",
 }).then((res: ListAccountingAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response

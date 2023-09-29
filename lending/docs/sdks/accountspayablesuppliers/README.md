@@ -34,7 +34,7 @@ sdk.accountsPayable.suppliers.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "perferendis",
+  supplierId: "Dakota Avon specifically",
 }).then((res: DownloadAccountingSupplierAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -81,7 +81,7 @@ const sdk = new CodatLending({
 
 sdk.accountsPayable.suppliers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  supplierId: "ipsam",
+  supplierId: "Northeast Hatchback Kia",
 }).then((res: GetAccountingSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -128,7 +128,7 @@ sdk.accountsPayable.suppliers.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "repellendus",
+  supplierId: "array East along",
 }).then((res: GetAccountingSupplierAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -176,7 +176,7 @@ sdk.accountsPayable.suppliers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "sapiente",
+  query: "Northeast Metal Canada",
 }).then((res: ListAccountingSuppliersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -222,7 +222,7 @@ const sdk = new CodatLending({
 sdk.accountsPayable.suppliers.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "quo",
+  supplierId: "intuitive Frozen ouch",
 }).then((res: ListAccountingSupplierAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

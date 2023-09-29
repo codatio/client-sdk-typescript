@@ -24,7 +24,7 @@ const sdk = new CodatLending({
 
 sdk.manageData.pullOperations.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  datasetId: "2dac7af5-15cc-4413-aa63-aae8d67864db",
+  datasetId: "b18d8d81-fd7b-4764-a31e-475cb1f36591",
 }).then((res: GetPullOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -67,7 +67,7 @@ sdk.manageData.pullOperations.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "cum",
+  query: "Northeast Metal Canada",
 }).then((res: ListPullOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

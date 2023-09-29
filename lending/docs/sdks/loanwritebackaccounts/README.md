@@ -53,16 +53,16 @@ sdk.loanWriteback.accounts.create({
     validDatatypeLinks: [
       {
         links: [
-          "fuga",
+          "Money",
         ],
-        property: "in",
+        property: "Cambridgeshire grey technology",
       },
     ],
   },
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 359508,
+  timeoutInMinutes: 86,
 }).then((res: CreateAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response

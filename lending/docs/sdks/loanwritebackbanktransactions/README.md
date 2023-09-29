@@ -33,22 +33,22 @@ const sdk = new CodatLending({
 
 sdk.loanWriteback.bankTransactions.create({
   accountingCreateBankTransactions: {
-    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    accountId: "7110701885",
     transactions: [
       {
-        amount: 7783.46,
-        balance: 1965.82,
+        amount: 4893.82,
+        balance: 6384.24,
         date: "2022-10-23T00:00:00.000Z",
-        description: "ipsam",
-        id: "ad019da1-ffe7-48f0-97b0-074f15471b5e",
+        description: "Inverse discrete benchmark",
+        id: "<ID>",
       },
     ],
   },
-  accountId: "commodi",
+  accountId: "Cambridgeshire grey technology",
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 918236,
+  timeoutInMinutes: 86,
 }).then((res: CreateBankTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -96,7 +96,7 @@ const sdk = new CodatLending({
 });
 
 sdk.loanWriteback.bankTransactions.getCreateModel({
-  accountId: "quae",
+  accountId: "Northwest",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetCreateBankTransactionsModelResponse) => {

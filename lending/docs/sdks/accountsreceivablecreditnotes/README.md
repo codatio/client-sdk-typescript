@@ -31,7 +31,7 @@ const sdk = new CodatLending({
 
 sdk.accountsReceivable.creditNotes.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  creditNoteId: "odit",
+  creditNoteId: "Northeast Hatchback Kia",
 }).then((res: GetAccountingCreditNoteResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -79,7 +79,7 @@ sdk.accountsReceivable.creditNotes.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "at",
+  query: "Northeast Metal Canada",
 }).then((res: ListAccountingCreditNotesResponse) => {
   if (res.statusCode == 200) {
     // handle response

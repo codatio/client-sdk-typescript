@@ -36,7 +36,7 @@ sdk.dataIntegrity.details({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "suscipit",
+  query: "Savings",
 }).then((res: ListDataIntegrityDetailsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -130,7 +130,7 @@ const sdk = new CodatLending({
 sdk.dataIntegrity.summaries({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   dataType: DataIntegrityDataType.BankingAccounts,
-  query: "iure",
+  query: "Organized West",
 }).then((res: GetDataIntegritySummariesResponse) => {
   if (res.statusCode == 200) {
     // handle response

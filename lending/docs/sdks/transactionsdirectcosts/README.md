@@ -34,7 +34,7 @@ sdk.transactions.directCosts.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "nesciunt",
+  directCostId: "Dakota Avon specifically",
 }).then((res: DownloadAccountingDirectCostAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -82,7 +82,7 @@ const sdk = new CodatLending({
 sdk.transactions.directCosts.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "culpa",
+  directCostId: "Northeast Hatchback Kia",
 }).then((res: GetAccountingDirectCostResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -129,7 +129,7 @@ sdk.transactions.directCosts.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "corrupti",
+  directCostId: "array East along",
 }).then((res: GetAccountingDirectCostAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -178,7 +178,7 @@ sdk.transactions.directCosts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "pariatur",
+  query: "Northeast Metal Canada",
 }).then((res: ListAccountingDirectCostsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -224,7 +224,7 @@ const sdk = new CodatLending({
 sdk.transactions.directCosts.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "totam",
+  directCostId: "intuitive Frozen ouch",
 }).then((res: ListAccountingDirectCostAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

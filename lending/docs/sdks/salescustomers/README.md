@@ -32,7 +32,7 @@ const sdk = new CodatLending({
 sdk.sales.customers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "debitis",
+  customerId: "Northeast Hatchback Kia",
 }).then((res: GetCommerceCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -81,7 +81,7 @@ sdk.sales.customers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "consectetur",
+  query: "Northeast Metal Canada",
 }).then((res: ListCommerceCustomersResponse) => {
   if (res.statusCode == 200) {
     // handle response
