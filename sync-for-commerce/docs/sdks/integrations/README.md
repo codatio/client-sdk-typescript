@@ -69,7 +69,7 @@ sdk.integrations.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "vel",
+  query: "Northeast Metal Canada",
 }).then((res: ListIntegrationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -74,9 +74,9 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.connections.getSyncFlowUrl({
-  accountingKey: "provident",
-  commerceKey: "distinctio",
-  merchantIdentifier: "quibusdam",
+  accountingKey: "Manager",
+  commerceKey: "payment",
+  merchantIdentifier: "Rupiah tertiary Zealand",
 }).then((res: GetSyncFlowUrlResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -119,7 +119,7 @@ sdk.connections.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "unde",
+  query: "Northeast Metal Canada",
 }).then((res: ListConnectionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -159,7 +159,7 @@ const sdk = new CodatSyncCommerce({
 
 sdk.connections.updateAuthorization({
   requestBody: {
-    "nulla": "corrupti",
+    "libero": "teal",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",

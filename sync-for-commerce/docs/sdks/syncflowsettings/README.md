@@ -65,7 +65,7 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.syncFlowSettings.getVisibleAccounts({
-  clientId: "74e0f467-cc87-496e-9151-a05dfc2ddf7c",
+  clientId: "86fe9741-738d-4f2c-8e96-9c3f84156e91",
   platformKey: "gbol",
 }).then((res: GetVisibleAccountsResponse) => {
   if (res.statusCode == 200) {
@@ -105,9 +105,9 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.syncFlowSettings.updateConfigTextSyncFlow({
-  "quod": {
+  "perferendis": {
     required: false,
-    text: "esse",
+    text: "Gasoline Cotton azure",
   },
 }).then((res: UpdateConfigTextSyncFlowResponse) => {
   if (res.statusCode == 200) {
@@ -149,7 +149,7 @@ const sdk = new CodatSyncCommerce({
 sdk.syncFlowSettings.updateVisibleAccountsSyncFlow({
   visibleAccounts: {
     visibleAccounts: [
-      "totam",
+      "Coordinator",
     ],
   },
   platformKey: "gbol",
