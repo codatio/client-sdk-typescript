@@ -43,40 +43,40 @@ sdk.suppliers.create({
   supplier: {
     addresses: [
       {
-        city: "Mosciskiside",
-        country: "Armenia",
-        line1: "nisi",
-        line2: "rerum",
-        postalCode: "92513-7197",
-        region: "quae",
-        type: AccountingAddressType.Delivery,
+        city: "Jenafurt",
+        country: "Sweden",
+        line1: "innovative blue",
+        line2: "grey technology East",
+        postalCode: "30778",
+        region: "quantify Polestar mobile",
+        type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "architecto",
-    defaultCurrency: "architecto",
-    emailAddress: "enim",
-    id: "c80bff91-8544-4ec4-adef-cce8f1977773",
+    contactName: "Durham after",
+    defaultCurrency: "Intelligent Fish",
+    emailAddress: "Ricardo.Hand41@gmail.com",
+    id: "<ID>",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
     phone: "(877) 492-8687",
-    registrationNumber: "neque",
+    registrationNumber: "Profound",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     status: SupplierStatus.Active,
     supplementalData: {
       content: {
-        "consequuntur": {
-          "officia": "reprehenderit",
+        "pariatur": {
+          "accusantium": "Minivan",
         },
       },
     },
-    supplierName: "distinctio",
-    taxNumber: "eius",
+    supplierName: "Senior Mouse West",
+    taxNumber: "Towels likewise",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 56372,
+  timeoutInMinutes: 452224,
 }).then((res: CreateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -123,7 +123,7 @@ const sdk = new CodatSyncPayables({
 
 sdk.suppliers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  supplierId: "rem",
+  supplierId: "Northeast Hatchback Kia",
 }).then((res: GetSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -220,7 +220,7 @@ sdk.suppliers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "maiores",
+  query: "Northeast Metal Canada",
 }).then((res: ListSuppliersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -272,42 +272,42 @@ sdk.suppliers.update({
   supplier: {
     addresses: [
       {
-        city: "West Suzanneberg",
-        country: "Solomon Islands",
-        line1: "aliquam",
-        line2: "quos",
-        postalCode: "86921-2609",
-        region: "nemo",
-        type: AccountingAddressType.Delivery,
+        city: "Ann Arbor",
+        country: "Montserrat",
+        line1: "Reactive",
+        line2: "Metal cheater Islands",
+        postalCode: "43372",
+        region: "Carolina syndicate",
+        type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "possimus",
-    defaultCurrency: "unde",
-    emailAddress: "incidunt",
-    id: "259c0b36-f25e-4a94-8f3b-756c11f6c37a",
+    contactName: "East",
+    defaultCurrency: "Bicycle guestbook",
+    emailAddress: "Alexys.Hayes81@yahoo.com",
+    id: "<ID>",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "+44 25691 154789",
-    registrationNumber: "qui",
+    phone: "(877) 492-8687",
+    registrationNumber: "indexing",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     status: SupplierStatus.Unknown,
     supplementalData: {
       content: {
-        "incidunt": {
-          "adipisci": "praesentium",
+        "consectetur": {
+          "ullam": "Jaguar",
         },
       },
     },
-    supplierName: "dolor",
-    taxNumber: "exercitationem",
+    supplierName: "visionary Buckinghamshire frictionless",
+    taxNumber: "parse possimus",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  supplierId: "expedita",
-  timeoutInMinutes: 706411,
+  supplierId: "Turkish Avon",
+  timeoutInMinutes: 151827,
 }).then((res: UpdateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response

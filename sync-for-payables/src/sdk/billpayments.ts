@@ -80,9 +80,7 @@ export class BillPayments {
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
@@ -168,8 +166,8 @@ export class BillPayments {
      * ### Process
      * 1. Pass the `{billPaymentId}` to the *Delete bill payment* endpoint and store the `pushOperationKey` returned.
      * 2. Check the status of the delete operation by checking the status of push operation either via
-     *     1. [Push operation webhook](https://docs.codat.io/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
-     *     2. [Push operation status endpoint](https://docs.codat.io/sync-for-payables-api#/operations/get-push-operation).
+     *    1. [Push operation webhook](https://docs.codat.io/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
+     *    2. [Push operation status endpoint](https://docs.codat.io/sync-for-payables-api#/operations/get-push-operation).
      *
      *    A `Success` status indicates that the bill payment object was deleted from the accounting platform.
      * 3. (Optional) Check that the bill payment was deleted from the accounting platform.
@@ -180,9 +178,15 @@ export class BillPayments {
      * ## Integration specifics
      * Integrations that support soft delete do not permanently delete the object in the accounting platform.
      *
-     * | Integration | Soft Delete | Details                                                                                             |
-     * |-------------|-------------|-----------------------------------------------------------------------------------------------------|
-     * | Oracle NetSuite   | No          | See [here](/integrations/accounting/netsuite/accounting-netsuite-how-deleting-bill-payments-works) to learn more. |
+     * | Integration | Soft Delete | Details                                                                                              |
+     * |-------------|-------------|------------------------------------------------------------------------------------------------------|
+     * | Oracle NetSuite   | No          | See [here](/integrations/accounting/netsuite/how-deleting-bill-payments-works) to learn more.  |
+     * | QuickBooks Online | No          | -                                                                                              |
+     * | Xero | Yes          | -                                                                                                          |
+     *
+     * > **Supported integrations**
+     * >
+     * > This functionality is currently supported for our QuickBooks Online, Xero and Oracle NetSuite integrations.
      *
      */
     async delete(
@@ -215,9 +219,7 @@ export class BillPayments {
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
@@ -334,9 +336,7 @@ export class BillPayments {
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
@@ -455,9 +455,7 @@ export class BillPayments {
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;
@@ -571,9 +569,7 @@ export class BillPayments {
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
         let retryConfig: any = retries;

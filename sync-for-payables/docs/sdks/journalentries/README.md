@@ -38,30 +38,30 @@ const sdk = new CodatSyncPayables({
 sdk.journalEntries.create({
   journalEntry: {
     createdOn: "2022-10-23T00:00:00.000Z",
-    description: "eaque",
-    id: "e189dbb3-0fcb-433e-a055-b197cd44e2f5",
+    description: "Multi-tiered motivating standardization",
+    id: "<ID>",
     journalLines: [
       {
         accountRef: {
-          id: "2d82d351-3bb6-4f48-b656-bcdb35ff2e4b",
-          name: "Bessie Hegmann",
+          id: "<ID>",
+          name: "innovative blue",
         },
-        currency: "est",
-        description: "rem",
-        netAmount: 7538.9,
+        currency: "Zimbabwe Dollar",
+        description: "Secured exuding throughput",
+        netAmount: 8915.1,
         tracking: {
           recordRefs: [
             {
-              dataType: "transfer",
-              id: "9e7319c1-77d5-425f-b7b1-14eeb52ff785",
+              dataType: "journalEntry",
+              id: "<ID>",
             },
           ],
         },
       },
     ],
     journalRef: {
-      id: "fc37814d-4c98-4e0c-abb8-9eb75dad636c",
-      name: "Maria Bartoletti I",
+      id: "<ID>",
+      name: "orange Northwest",
     },
     metadata: {
       isDeleted: false,
@@ -69,14 +69,14 @@ sdk.journalEntries.create({
     modifiedDate: "2022-10-23T00:00:00.000Z",
     postedOn: "2022-10-23T00:00:00.000Z",
     recordRef: {
-      dataType: "accountTransaction",
-      id: "b31180f7-39ae-49e0-97eb-809e2810331f",
+      dataType: "transfer",
+      id: "<ID>",
     },
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "occaecati": {
-          "atque": "beatae",
+        "cupiditate": {
+          "assumenda": "volt",
         },
       },
     },
@@ -84,7 +84,7 @@ sdk.journalEntries.create({
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 287544,
+  timeoutInMinutes: 656256,
 }).then((res: CreateJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response

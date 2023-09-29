@@ -42,23 +42,23 @@ const sdk = new CodatSyncPayables({
 sdk.billPayments.create({
   billPayment: {
     accountRef: {
-      id: "82d68ea1-9f1d-4170-9133-9d08086a1840",
-      name: "Toni Fritsch",
+      id: "<ID>",
+      name: "bluetooth Extended",
     },
-    currency: "USD",
-    currencyRate: 120.36,
+    currency: "GBP",
+    currencyRate: 7865.46,
     date: "2022-10-23T00:00:00.000Z",
     id: "3d5a8e00-d108-4045-8823-7f342676cffa",
     lines: [
       {
         allocatedOnDate: "2022-10-23T00:00:00.000Z",
-        amount: 9816.4,
+        amount: 7964.74,
         links: [
           {
-            amount: 6184.8,
-            currencyRate: 2446.51,
-            id: "f5f0642d-ac7a-4f51-9cc4-13aa63aae8d6",
-            type: BillPaymentLineLinkType.CreditNote,
+            amount: 3768.44,
+            currencyRate: 9510.62,
+            id: "<ID>",
+            type: BillPaymentLineLinkType.ManualJournal,
           },
         ],
       },
@@ -68,25 +68,25 @@ sdk.billPayments.create({
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
     note: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
-    paymentMethodRef: "vel",
-    reference: "labore",
+    paymentMethodRef: "deposit",
+    reference: "Northwest",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "facilis": {
-          "cum": "commodi",
+        "fugiat": {
+          "facere": "quantify",
         },
       },
     },
     supplierRef: {
-      id: "75fd5e60-b375-4ed4-b6fb-ee41f33317fe",
-      supplierName: "consectetur",
+      id: "<ID>",
+      supplierName: "volt physical Ameliorated",
     },
     totalAmount: 1329.54,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 358107,
+  timeoutInMinutes: 259629,
 }).then((res: CreateBillPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -117,8 +117,8 @@ sdk.billPayments.create({
 ### Process
 1. Pass the `{billPaymentId}` to the *Delete bill payment* endpoint and store the `pushOperationKey` returned.
 2. Check the status of the delete operation by checking the status of push operation either via
-    1. [Push operation webhook](https://docs.codat.io/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
-    2. [Push operation status endpoint](https://docs.codat.io/sync-for-payables-api#/operations/get-push-operation).
+   1. [Push operation webhook](https://docs.codat.io/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
+   2. [Push operation status endpoint](https://docs.codat.io/sync-for-payables-api#/operations/get-push-operation).
 
    A `Success` status indicates that the bill payment object was deleted from the accounting platform.
 3. (Optional) Check that the bill payment was deleted from the accounting platform.
@@ -129,9 +129,15 @@ Be aware that deleting a bill payment from an accounting platform might cause re
 ## Integration specifics
 Integrations that support soft delete do not permanently delete the object in the accounting platform.
 
-| Integration | Soft Delete | Details                                                                                             |  
-|-------------|-------------|-----------------------------------------------------------------------------------------------------|
-| Oracle NetSuite   | No          | See [here](/integrations/accounting/netsuite/accounting-netsuite-how-deleting-bill-payments-works) to learn more. |
+| Integration | Soft Delete | Details                                                                                              |  
+|-------------|-------------|------------------------------------------------------------------------------------------------------|                                                        
+| Oracle NetSuite   | No          | See [here](/integrations/accounting/netsuite/how-deleting-bill-payments-works) to learn more.  |
+| QuickBooks Online | No          | -                                                                                              |
+| Xero | Yes          | -                                                                                                          |
+
+> **Supported integrations**
+>
+> This functionality is currently supported for our QuickBooks Online, Xero and Oracle NetSuite integrations.
 
 
 ### Example Usage
@@ -147,7 +153,7 @@ const sdk = new CodatSyncPayables({
 });
 
 sdk.billPayments.delete({
-  billPaymentId: "harum",
+  billPaymentId: "Van complexity",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: DeleteBillPaymentResponse) => {
   if (res.statusCode == 200) {
@@ -194,7 +200,7 @@ const sdk = new CodatSyncPayables({
 });
 
 sdk.billPayments.get({
-  billPaymentId: "laboriosam",
+  billPaymentId: "Northeast Hatchback Kia",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetBillPaymentsResponse) => {
   if (res.statusCode == 200) {
@@ -292,7 +298,7 @@ sdk.billPayments.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "ipsa",
+  query: "Northeast Metal Canada",
 }).then((res: ListBillPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

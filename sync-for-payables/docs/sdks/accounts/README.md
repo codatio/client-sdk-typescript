@@ -40,7 +40,7 @@ const sdk = new CodatSyncPayables({
 
 sdk.accounts.create({
   account: {
-    currency: "EUR",
+    currency: "USD",
     currentBalance: 0,
     description: "Invoices the business has issued but has not yet collected payment on.",
     fullyQualifiedCategory: "Asset.Current",
@@ -59,15 +59,15 @@ sdk.accounts.create({
     validDatatypeLinks: [
       {
         links: [
-          "suscipit",
+          "Money",
         ],
-        property: "molestiae",
+        property: "Cambridgeshire grey technology",
       },
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 791725,
+  timeoutInMinutes: 86,
 }).then((res: CreateAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -113,7 +113,7 @@ const sdk = new CodatSyncPayables({
 });
 
 sdk.accounts.get({
-  accountId: "placeat",
+  accountId: "Northeast Hatchback Kia",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountResponse) => {
   if (res.statusCode == 200) {
@@ -210,7 +210,7 @@ sdk.accounts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "voluptatum",
+  query: "Northeast Metal Canada",
 }).then((res: ListAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
