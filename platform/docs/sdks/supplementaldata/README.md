@@ -34,13 +34,13 @@ const sdk = new CodatPlatform({
 sdk.supplementalData.configure({
   supplementalDataConfiguration: {
     supplementalDataConfig: {
-      "quasi": {
-        dataSource: "error",
+      "voluptatem": {
+        dataSource: "Alabama",
         pullData: {
-          "temporibus": "laborum",
+          "dicta": "transmitter",
         },
         pushData: {
-          "quasi": "reiciendis",
+          "nisi": "primary",
         },
       },
     },

@@ -35,7 +35,7 @@ sdk.webhooks.create({
     ],
     webhook: "https://webhook.client.com",
   },
-  type: "voluptatibus",
+  type: "bluetooth Extended",
 }).then((res: CreateRuleResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -116,7 +116,7 @@ sdk.webhooks.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "vero",
+  query: "Northeast Metal Canada",
 }).then((res: ListRulesResponse) => {
   if (res.statusCode == 200) {
     // handle response
