@@ -43,25 +43,25 @@ sdk.transfers.create({
   transfer: {
     contactRef: {
       dataType: DataType.Invoices,
-      id: "be071bc1-63e2-479a-bb08-4da99257d04f",
+      id: "<ID>",
     },
     date: "2022-10-23T00:00:00.000Z",
     depositedRecordRefs: [
       {
-        dataType: "journalEntry",
-        id: "847a742d-8449-46cb-9eec-f6b99bc63562",
+        dataType: "invoice",
+        id: "<ID>",
       },
     ],
-    description: "eveniet",
+    description: "Proactive systematic Graphical User Interface",
     from: {
       accountRef: {
-        id: "bfdf55c2-94c0-460b-86a1-287764eef6d0",
-        name: "Sam Smitham",
+        id: "<ID>",
+        name: "South",
       },
-      amount: 8616.38,
-      currency: "USD",
+      amount: 9967.06,
+      currency: "EUR",
     },
-    id: "c73dd634-5715-409a-8e87-0d3c5a1f9c24",
+    id: "<ID>",
     metadata: {
       isDeleted: false,
     },
@@ -69,23 +69,23 @@ sdk.transfers.create({
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "odio": {
-          "quidem": "iure",
+        "debitis": {
+          "alias": "deposit",
         },
       },
     },
     to: {
       accountRef: {
-        id: "6a1f30c7-3df5-4b67-9989-0f42a4bb438d",
-        name: "Greg Renner",
+        id: "<ID>",
+        name: "Northwest",
       },
-      amount: 476.2,
-      currency: "GBP",
+      amount: 7926.2,
+      currency: "EUR",
     },
     trackingCategoryRefs: [
       {
-        id: "91d745e3-c205-49c9-83f5-67e0e252765b",
-        name: "Kari Jacobson",
+        id: "<ID>",
+        name: "quantify Polestar mobile",
       },
     ],
   },
@@ -138,7 +138,7 @@ const sdk = new CodatAccounting({
 sdk.transfers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  transferId: "nobis",
+  transferId: "Northeast Hatchback Kia",
 }).then((res: GetTransferResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -236,7 +236,7 @@ sdk.transfers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "possimus",
+  query: "Northeast Metal Canada",
 }).then((res: ListTransfersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -285,12 +285,12 @@ const sdk = new CodatAccounting({
 
 sdk.transfers.uploadAttachment({
   requestBody: {
-    content: "laborum".encode(),
-    requestBody: "optio",
+    content: "v/ghW&IC$x" as bytes <<<>>>,
+    requestBody: "Elegant Producer Electric",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  transferId: "debitis",
+  transferId: "Iowa Bentley",
 }).then((res: UploadTransferAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response

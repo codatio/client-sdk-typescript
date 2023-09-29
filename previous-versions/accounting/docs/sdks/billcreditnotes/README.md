@@ -44,58 +44,58 @@ sdk.billCreditNotes.create({
   billCreditNote: {
     allocatedOnDate: "2022-10-23T00:00:00.000Z",
     billCreditNoteNumber: "91fe2a83-e161-4c21-929d-c5c10c4b07e5",
-    currency: "EUR",
-    currencyRate: 199.87,
+    currency: "USD",
+    currencyRate: 6384.24,
     discountPercentage: 0,
     id: "1509398f-98e2-436d-8a5d-c042e0c74ffc",
     issueDate: "2022-10-23T00:00:00.000Z",
     lineItems: [
       {
         accountRef: {
-          id: "74f15471-b5e6-4e13-b99d-488e1e91e450",
-          name: "Taylor Cole",
+          id: "<ID>",
+          name: "innovative blue",
         },
-        description: "quibusdam",
-        discountAmount: 2894.06,
-        discountPercentage: 2647.3,
+        description: "Vision-oriented responsive function",
+        discountAmount: 9510.62,
+        discountPercentage: 8915.1,
         itemRef: {
-          id: "269802d5-02a9-44bb-8f63-c969e9a3efa7",
-          name: "Angel Wolff II",
+          id: "<ID>",
+          name: "deposit",
         },
-        quantity: 7670.24,
-        subTotal: 8137.98,
-        taxAmount: 4118.2,
+        quantity: 3015.1,
+        subTotal: 899.64,
+        taxAmount: 7150.4,
         taxRateRef: {
-          effectiveTaxRate: 3965.06,
-          id: "ae395efb-9ba8-48f3-a669-97074ba4469b",
-          name: "Mrs. Meghan Collins V",
+          effectiveTaxRate: 7926.2,
+          id: "<ID>",
+          name: "Gasoline Screen mobile",
         },
-        totalAmount: 3540.47,
+        totalAmount: 6562.56,
         tracking: {
           categoryRefs: [
             {
-              id: "9890afa5-63e2-4516-be4c-8b711e5b7fd2",
-              name: "Al Bashirian",
+              id: "<ID>",
+              name: "Durham after",
             },
           ],
           customerRef: {
-            companyName: "natus",
-            id: "21cddc69-2601-4fb5-b6b0-d5f0d30c5fbb",
+            companyName: "Fay - Durgan",
+            id: "<ID>",
           },
           isBilledTo: BilledToType.Unknown,
-          isRebilledTo: BilledToType.NotApplicable,
+          isRebilledTo: BilledToType.Customer,
           projectRef: {
-            id: "87053202-c73d-45fe-9b90-c28909b3fe49",
-            name: "Casey Stracke",
+            id: "<ID>",
+            name: "Fiat",
           },
         },
         trackingCategoryRefs: [
           {
-            id: "bf486333-23f9-4b77-b3a4-100674ebf692",
-            name: "Miss Paul Steuber",
+            id: "<ID>",
+            name: "Grocery Borders Northwest",
           },
         ],
-        unitAmount: 4785.96,
+        unitAmount: 6519.85,
       },
     ],
     metadata: {
@@ -107,22 +107,22 @@ sdk.billCreditNotes.create({
       {
         allocation: {
           allocatedOnDate: "2022-10-23T00:00:00.000Z",
-          currency: "USD",
-          currencyRate: 6070.45,
-          totalAmount: 8966.72,
+          currency: "EUR",
+          currencyRate: 365.21,
+          totalAmount: 8424.64,
         },
         payment: {
           accountRef: {
-            id: "bf737ae4-203c-4e5e-aa95-d8a0d446ce2a",
-            name: "Cory Pfeffer",
+            id: "<ID>",
+            name: "though East",
           },
-          currency: "EUR",
-          currencyRate: 9473.71,
-          id: "3be453f8-70b3-426b-9a73-429cdb1a8422",
-          note: "distinctio",
+          currency: "GBP",
+          currencyRate: 155.52,
+          id: "<ID>",
+          note: "array Edinburg Investor",
           paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "aliquid",
-          totalAmount: 4631.5,
+          reference: "likewise payment 1080p",
+          totalAmount: 2597.72,
         },
       },
     ],
@@ -132,28 +132,28 @@ sdk.billCreditNotes.create({
     subTotal: 805.78,
     supplementalData: {
       content: {
-        "temporibus": {
-          "qui": "neque",
+        "porro": {
+          "asperiores": "Indiana",
         },
       },
     },
     supplierRef: {
-      id: "22715bf0-cbb1-4e31-b8b9-0f3443a1108e",
-      supplierName: "consequatur",
+      id: "<ID>",
+      supplierName: "Toyota Neptunium round",
     },
     totalAmount: 805.78,
     totalDiscount: 0,
     totalTaxAmount: 0,
     withholdingTax: [
       {
-        amount: 6699.17,
-        name: "Sherman Wyman",
+        amount: 1406.49,
+        name: "meanwhile",
       },
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 586410,
+  timeoutInMinutes: 863813,
 }).then((res: CreateBillCreditNoteResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -199,7 +199,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.billCreditNotes.get({
-  billCreditNoteId: "qui",
+  billCreditNoteId: "Northeast Hatchback Kia",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetBillCreditNoteResponse) => {
   if (res.statusCode == 200) {
@@ -297,7 +297,7 @@ sdk.billCreditNotes.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "quae",
+  query: "Northeast Metal Canada",
 }).then((res: ListBillCreditNotesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -349,58 +349,58 @@ sdk.billCreditNotes.update({
   billCreditNote: {
     allocatedOnDate: "2022-10-23T00:00:00.000Z",
     billCreditNoteNumber: "91fe2a83-e161-4c21-929d-c5c10c4b07e5",
-    currency: "USD",
-    currencyRate: 5804.47,
+    currency: "GBP",
+    currencyRate: 5971.29,
     discountPercentage: 0,
     id: "1509398f-98e2-436d-8a5d-c042e0c74ffc",
     issueDate: "2022-10-23T00:00:00.000Z",
     lineItems: [
       {
         accountRef: {
-          id: "ce953f73-ef7f-4bc7-abd7-4dd39c0f5d2c",
-          name: "Domingo Kris",
+          id: "<ID>",
+          name: "male Metal",
         },
-        description: "alias",
-        discountAmount: 6394.73,
-        discountPercentage: 2694.79,
+        description: "Visionary bi-directional analyzer",
+        discountAmount: 2782.81,
+        discountPercentage: 8965.01,
         itemRef: {
-          id: "5626d436-813f-416d-9f5f-ce6c556146c3",
-          name: "Dr. Bruce Hane",
+          id: "<ID>",
+          name: "withdrawal extend",
         },
-        quantity: 139.48,
-        subTotal: 114.27,
-        taxAmount: 5334.66,
+        quantity: 2494.4,
+        subTotal: 3668.07,
+        taxAmount: 1395.79,
         taxRateRef: {
-          effectiveTaxRate: 7705.81,
-          id: "42e141aa-c366-4c8d-96b1-442907474778",
-          name: "Mitchell Predovic",
+          effectiveTaxRate: 6447.13,
+          id: "<ID>",
+          name: "syndicate East Baht",
         },
-        totalAmount: 4334.39,
+        totalAmount: 6298.17,
         tracking: {
           categoryRefs: [
             {
-              id: "6d28c10a-b3cd-4ca4-a519-04e523c7e0bc",
-              name: "Debra Kovacek",
+              id: "<ID>",
+              name: "guestbook driver users",
             },
           ],
           customerRef: {
-            companyName: "aliquam",
-            id: "796f2a70-c688-4282-aa48-2562f222e981",
+            companyName: "Schroeder - Nienow",
+            id: "<ID>",
           },
           isBilledTo: BilledToType.NotApplicable,
-          isRebilledTo: BilledToType.Project,
+          isRebilledTo: BilledToType.Unknown,
           projectRef: {
-            id: "e17cbe61-e6b7-4b95-bc0a-b3c20c4f3789",
-            name: "Ismael Lynch DVM",
+            id: "<ID>",
+            name: "Wooden Internal",
           },
         },
         trackingCategoryRefs: [
           {
-            id: "99dd2efd-121a-4a6f-9e67-4bdb04f15756",
-            name: "Nora Denesik",
+            id: "<ID>",
+            name: "Dodge brightly",
           },
         ],
-        unitAmount: 5362.75,
+        unitAmount: 7115.64,
       },
     ],
     metadata: {
@@ -413,21 +413,21 @@ sdk.billCreditNotes.update({
         allocation: {
           allocatedOnDate: "2022-10-23T00:00:00.000Z",
           currency: "GBP",
-          currencyRate: 6091.78,
-          totalAmount: 9453.02,
+          currencyRate: 3297.12,
+          totalAmount: 4939.56,
         },
         payment: {
           accountRef: {
-            id: "1d170513-39d0-4808-aa18-40394c26071f",
-            name: "Lee Wiza",
+            id: "<ID>",
+            name: "modulo Kia",
           },
-          currency: "GBP",
-          currencyRate: 4090.54,
-          id: "42dac7af-515c-4c41-baa6-3aae8d67864d",
-          note: "facilis",
+          currency: "USD",
+          currencyRate: 8000.94,
+          id: "<ID>",
+          note: "Avon",
           paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "commodi",
-          totalAmount: 4471.44,
+          reference: "Reactive Global Northeast",
+          totalAmount: 6090.5,
         },
       },
     ],
@@ -437,30 +437,30 @@ sdk.billCreditNotes.update({
     subTotal: 805.78,
     supplementalData: {
       content: {
-        "reiciendis": {
-          "assumenda": "nemo",
+        "alias": {
+          "veritatis": "ADP",
         },
       },
     },
     supplierRef: {
-      id: "e60b375e-d4f6-4fbe-a41f-33317fe35b60",
-      supplierName: "voluptates",
+      id: "<ID>",
+      supplierName: "quisquam",
     },
     totalAmount: 805.78,
     totalDiscount: 0,
     totalTaxAmount: 0,
     withholdingTax: [
       {
-        amount: 7307.09,
-        name: "Sophia Murray",
+        amount: 8523.4,
+        name: "pascal Plastic",
       },
     ],
   },
-  billCreditNoteId: "voluptas",
+  billCreditNoteId: "magenta",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  timeoutInMinutes: 374244,
+  timeoutInMinutes: 639383,
 }).then((res: UpdateBillCreditNoteResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -513,10 +513,10 @@ const sdk = new CodatAccounting({
 
 sdk.billCreditNotes.uploadAttachment({
   requestBody: {
-    content: "voluptas".encode(),
-    requestBody: "minima",
+    content: "v/ghW&IC$x" as bytes <<<>>>,
+    requestBody: "Elegant Producer Electric",
   },
-  billCreditNoteId: "nobis",
+  billCreditNoteId: "Iowa Bentley",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: UploadBillCreditNoteAttachmentResponse) => {

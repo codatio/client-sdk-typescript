@@ -47,132 +47,132 @@ const sdk = new CodatAccounting({
 
 sdk.invoices.create({
   invoice: {
-    additionalTaxAmount: 7560.74,
-    additionalTaxPercentage: 263.21,
-    amountDue: 8197.57,
+    additionalTaxAmount: 4865.89,
+    additionalTaxPercentage: 4893.82,
+    amountDue: 6384.24,
     currency: "EUR",
-    currencyRate: 7148.35,
+    currencyRate: 4174.58,
     customerRef: {
-      companyName: "assumenda",
-      id: "db484708-fb4e-4391-a6bc-158c4c4e5459",
+      companyName: "Collier Group",
+      id: "<ID>",
     },
-    discountPercentage: 5786.1,
+    discountPercentage: 690.25,
     dueDate: "2022-10-23T00:00:00.000Z",
-    id: "a342260e-9b20-40ce-b8a1-bd8fb7a0a116",
-    invoiceNumber: "eligendi",
+    id: "<ID>",
+    invoiceNumber: "abnormally deposit evolve",
     issueDate: "2022-10-23T00:00:00.000Z",
     lineItems: [
       {
         accountRef: {
-          id: "723d4097-fa30-4e9a-b725-b29122030d83",
-          name: "Dan Nolan",
+          id: "<ID>",
+          name: "SUV quantify Polestar",
         },
-        description: "iusto",
-        discountAmount: 4938.65,
-        discountPercentage: 5920.88,
+        description: "Networked web-enabled monitoring",
+        discountAmount: 3570.21,
+        discountPercentage: 285.48,
         isDirectIncome: false,
         itemRef: {
-          id: "9d22e8c1-f849-4382-9fdc-42c876c2c2df",
-          name: "Jim Rosenbaum",
+          id: "<ID>",
+          name: "after",
         },
-        quantity: 756.1,
-        subTotal: 7513.47,
-        taxAmount: 4608.03,
+        quantity: 5190.28,
+        subTotal: 2303.13,
+        taxAmount: 2075.65,
         taxRateRef: {
-          effectiveTaxRate: 3920.8,
-          id: "230f841f-b1bd-423f-9b14-db6be5a68599",
-          name: "Alonzo Collins",
+          effectiveTaxRate: 2113.37,
+          id: "<ID>",
+          name: "Buckinghamshire functionalities Grocery",
         },
-        totalAmount: 8752,
+        totalAmount: 738.99,
         tracking: {
           categoryRefs: [
             {
-              id: "20da16fc-2b27-41a2-89c5-7e854e90439d",
-              name: "Kathryn Cronin",
+              id: "<ID>",
+              name: "Northwest Direct",
             },
           ],
           customerRef: {
-            companyName: "ipsam",
-            id: "69462407-084f-47ab-b7ce-f02225194db5",
+            companyName: "Stracke - Bashirian",
+            id: "<ID>",
           },
-          isBilledTo: BilledToType1.Unknown,
-          isRebilledTo: BilledToType1.Unknown,
+          isBilledTo: BilledToType1.Project,
+          isRebilledTo: BilledToType1.NotApplicable,
           projectRef: {
-            id: "10adc669-af90-4a26-87cd-c981f068981d",
-            name: "Kelli Reichert",
+            id: "<ID>",
+            name: "Senior Mouse West",
           },
           recordRef: {
-            dataType: "transfer",
-            id: "faa348c3-1bf4-407e-a4fc-f0c42b78f156",
+            dataType: "accountTransaction",
+            id: "<ID>",
           },
         },
         trackingCategoryRefs: [
           {
-            id: "26398a0d-c766-4324-8cb0-6c8ca12d0252",
-            name: "Miss Victor Kuhlman",
+            id: "<ID>",
+            name: "Edinburg Investor",
           },
         ],
-        unitAmount: 8196.9,
+        unitAmount: 5504.83,
       },
     ],
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "odio",
+    note: "Dollar 1080p Rubber",
     paidOnDate: "2022-10-23T00:00:00.000Z",
     paymentAllocations: [
       {
         allocation: {
           allocatedOnDate: "2022-10-23T00:00:00.000Z",
-          currency: "EUR",
-          currencyRate: 8506.28,
-          totalAmount: 5062.02,
+          currency: "GBP",
+          currencyRate: 2734.46,
+          totalAmount: 7034.41,
         },
         payment: {
           accountRef: {
-            id: "95b8bcf2-4db9-4596-9335-2f74533994d7",
-            name: "Gustavo Ullrich",
+            id: "<ID>",
+            name: "mmm lavender City",
           },
-          currency: "USD",
-          currencyRate: 9004.38,
-          id: "9389f5ab-b7f6-4625-90a2-8382ac483afd",
-          note: "odit",
+          currency: "EUR",
+          currencyRate: 4492.21,
+          id: "<ID>",
+          note: "Dollar Electronic digital",
           paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "inventore",
-          totalAmount: 3259.24,
+          reference: "um",
+          totalAmount: 454.16,
         },
       },
     ],
     salesOrderRefs: [
       {
         dataType: DataType.Invoices,
-        id: "bba65016-4e06-4f5b-b6ae-591bc8bdef36",
+        id: "<ID>",
       },
     ],
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     status: InvoiceStatus.Unknown,
-    subTotal: 7240.73,
+    subTotal: 3633.28,
     supplementalData: {
       content: {
-        "ex": {
-          "neque": "quod",
+        "labore": {
+          "rem": "Country",
         },
       },
     },
-    totalAmount: 1761.04,
-    totalDiscount: 1.86,
-    totalTaxAmount: 3198.07,
+    totalAmount: 5193.59,
+    totalDiscount: 1932.39,
+    totalTaxAmount: 3259.9,
     withholdingTax: [
       {
-        amount: 9545.95,
-        name: "Orlando Lindgren IV",
+        amount: 8183.2,
+        name: "mole female",
       },
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 463895,
+  timeoutInMinutes: 564156,
 }).then((res: CreateInvoiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -240,7 +240,7 @@ const sdk = new CodatAccounting({
 sdk.invoices.delete({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "modi",
+  invoiceId: "Van complexity",
 }).then((res: DeleteInvoiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -287,7 +287,7 @@ sdk.invoices.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "fuga",
+  invoiceId: "Dakota Avon specifically",
 }).then((res: DownloadInvoiceAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -327,7 +327,7 @@ const sdk = new CodatAccounting({
 
 sdk.invoices.downloadPdf({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  invoiceId: "iure",
+  invoiceId: "Associate",
 }).then((res: DownloadInvoicePdfResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -373,7 +373,7 @@ const sdk = new CodatAccounting({
 
 sdk.invoices.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  invoiceId: "deleniti",
+  invoiceId: "Northeast Hatchback Kia",
 }).then((res: GetInvoiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -420,7 +420,7 @@ sdk.invoices.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "officia",
+  invoiceId: "array East along",
 }).then((res: GetInvoiceAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -523,7 +523,7 @@ sdk.invoices.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "sint",
+  query: "Northeast Metal Canada",
 }).then((res: ListInvoicesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -569,7 +569,7 @@ const sdk = new CodatAccounting({
 sdk.invoices.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "laborum",
+  invoiceId: "intuitive Frozen ouch",
 }).then((res: ListInvoiceAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -619,134 +619,134 @@ const sdk = new CodatAccounting({
 
 sdk.invoices.update({
   invoice: {
-    additionalTaxAmount: 2247.77,
-    additionalTaxPercentage: 3227.73,
-    amountDue: 8477.4,
+    additionalTaxAmount: 8574.78,
+    additionalTaxPercentage: 245.55,
+    amountDue: 5971.29,
     currency: "GBP",
-    currencyRate: 5613.99,
+    currencyRate: 3446.2,
     customerRef: {
-      companyName: "voluptas",
-      id: "b6f66fef-020e-49f4-83b4-257b992c8dbd",
+      companyName: "Zboncak, Glover and Murazik",
+      id: "<ID>",
     },
-    discountPercentage: 6674.18,
+    discountPercentage: 6841.99,
     dueDate: "2022-10-23T00:00:00.000Z",
-    id: "a61efa21-9825-48fd-8a9e-ba47f7d3ef04",
-    invoiceNumber: "excepturi",
+    id: "<ID>",
+    invoiceNumber: "cheater Islands",
     issueDate: "2022-10-23T00:00:00.000Z",
     lineItems: [
       {
         accountRef: {
-          id: "40d6a183-1c87-4adf-996f-df1ad837ae80",
-          name: "Ms. Terry Runolfsson",
+          id: "<ID>",
+          name: "dynamic white",
         },
-        description: "occaecati",
-        discountAmount: 3396.51,
-        discountPercentage: 7343.61,
+        description: "Horizontal bifurcated moderator",
+        discountAmount: 7892.75,
+        discountPercentage: 9936.8,
         isDirectIncome: false,
         itemRef: {
-          id: "a998678f-a3f6-4969-91af-388ce0361444",
-          name: "Sylvester Kling",
+          id: "<ID>",
+          name: "East Baht Quality",
         },
-        quantity: 4397.45,
-        subTotal: 6541.99,
-        taxAmount: 105.85,
+        quantity: 9574.81,
+        subTotal: 4042.65,
+        taxAmount: 5275.11,
         taxRateRef: {
-          effectiveTaxRate: 9164.86,
-          id: "f2f53602-8efe-4ef9-b415-2ed7e253f4c1",
-          name: "Constance Stark",
+          effectiveTaxRate: 339.8,
+          id: "<ID>",
+          name: "pascal Gasoline",
         },
-        totalAmount: 6687.83,
+        totalAmount: 4391.52,
         tracking: {
           categoryRefs: [
             {
-              id: "7170f445-accf-4667-aaf9-bbad185fe431",
-              name: "Rick Predovic",
+              id: "<ID>",
+              name: "indexing",
             },
           ],
           customerRef: {
-            companyName: "cumque",
-            id: "838fbb8c-20cb-467f-84b4-25e99e6234c9",
+            companyName: "Fritsch Inc",
+            id: "<ID>",
           },
-          isBilledTo: BilledToType1.Project,
+          isBilledTo: BilledToType1.NotApplicable,
           isRebilledTo: BilledToType1.NotApplicable,
           projectRef: {
-            id: "b79dfeb7-7a5c-438d-8baf-91e506ef890a",
-            name: "Anita Reilly",
+            id: "<ID>",
+            name: "Jaguar Dodge",
           },
           recordRef: {
-            dataType: "invoice",
-            id: "f16f56d3-85a3-4c4a-8631-b99e26ced8f9",
+            dataType: "transfer",
+            id: "<ID>",
           },
         },
         trackingCategoryRefs: [
           {
-            id: "fdb9410f-63bb-4f81-b837-b01afdd78862",
-            name: "Katherine Kuvalis",
+            id: "<ID>",
+            name: "female",
           },
         ],
-        unitAmount: 7164.1,
+        unitAmount: 5198.81,
       },
     ],
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "labore",
+    note: "haptic",
     paidOnDate: "2022-10-23T00:00:00.000Z",
     paymentAllocations: [
       {
         allocation: {
           allocatedOnDate: "2022-10-23T00:00:00.000Z",
-          currency: "GBP",
-          currencyRate: 9580.6,
-          totalAmount: 3371.49,
+          currency: "EUR",
+          currencyRate: 5143.61,
+          totalAmount: 4270.89,
         },
         payment: {
           accountRef: {
-            id: "033f19db-f125-4ce4-952e-ab9cd7e5224a",
-            name: "Jan Abbott Sr.",
+            id: "<ID>",
+            name: "Movies Greens Global",
           },
           currency: "GBP",
-          currencyRate: 7370.61,
-          id: "7847ec59-e1f6-47f3-84cc-e4b6d7696ff3",
-          note: "eligendi",
+          currencyRate: 2451.56,
+          id: "<ID>",
+          note: "absolve West",
           paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "nihil",
-          totalAmount: 2628.91,
+          reference: "quisquam",
+          totalAmount: 8523.4,
         },
       },
     ],
     salesOrderRefs: [
       {
         dataType: DataType.Invoices,
-        id: "7501357e-44f5-41f8-b084-c3197e193a24",
+        id: "<ID>",
       },
     ],
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: InvoiceStatus.Draft,
-    subTotal: 3816.39,
+    status: InvoiceStatus.Paid,
+    subTotal: 3486.27,
     supplementalData: {
       content: {
-        "ducimus": {
-          "tenetur": "excepturi",
+        "velit": {
+          "ex": "Metal",
         },
       },
     },
-    totalAmount: 2641.25,
-    totalDiscount: 5463.29,
-    totalTaxAmount: 4724.29,
+    totalAmount: 9961.68,
+    totalDiscount: 9725.7,
+    totalTaxAmount: 4330.9,
     withholdingTax: [
       {
-        amount: 2600.46,
-        name: "Billy Schultz",
+        amount: 4924.98,
+        name: "ew global",
       },
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  invoiceId: "porro",
-  timeoutInMinutes: 287834,
+  invoiceId: "Minivan Human Volkswagen",
+  timeoutInMinutes: 695280,
 }).then((res: UpdateInvoiceResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -795,12 +795,12 @@ const sdk = new CodatAccounting({
 
 sdk.invoices.uploadAttachment({
   requestBody: {
-    content: "perspiciatis".encode(),
-    requestBody: "ducimus",
+    content: "v/ghW&IC$x" as bytes <<<>>>,
+    requestBody: "Elegant Producer Electric",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "qui",
+  invoiceId: "Iowa Bentley",
 }).then((res: UploadInvoiceAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response

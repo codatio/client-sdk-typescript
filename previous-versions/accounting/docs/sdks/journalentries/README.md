@@ -41,30 +41,30 @@ const sdk = new CodatAccounting({
 sdk.journalEntries.create({
   journalEntry: {
     createdOn: "2022-10-23T00:00:00.000Z",
-    description: "earum",
-    id: "af75b0b5-32a4-4da3-bcba-af4452c4842c",
+    description: "Multi-tiered motivating standardization",
+    id: "<ID>",
     journalLines: [
       {
         accountRef: {
-          id: "9b2ad32d-afe8-41a8-8f44-44573fecd473",
-          name: "Robin Weimann",
+          id: "<ID>",
+          name: "innovative blue",
         },
-        currency: "placeat",
-        description: "quos",
-        netAmount: 1523.02,
+        currency: "Zimbabwe Dollar",
+        description: "Secured exuding throughput",
+        netAmount: 8915.1,
         tracking: {
           recordRefs: [
             {
               dataType: "journalEntry",
-              id: "9379aa69-cd5f-4bcf-b9da-18a7822bf958",
+              id: "<ID>",
             },
           ],
         },
       },
     ],
     journalRef: {
-      id: "94e6861a-db55-4f9e-9d75-1c9fe8f7502b",
-      name: "Orville Schinner",
+      id: "<ID>",
+      name: "orange Northwest",
     },
     metadata: {
       isDeleted: false,
@@ -72,14 +72,14 @@ sdk.journalEntries.create({
     modifiedDate: "2022-10-23T00:00:00.000Z",
     postedOn: "2022-10-23T00:00:00.000Z",
     recordRef: {
-      dataType: "accountTransaction",
-      id: "41f17644-5637-49f3-bb27-e21f862657b3",
+      dataType: "transfer",
+      id: "<ID>",
     },
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "delectus": {
-          "maxime": "vel",
+        "cupiditate": {
+          "assumenda": "volt",
         },
       },
     },
@@ -87,7 +87,7 @@ sdk.journalEntries.create({
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 586163,
+  timeoutInMinutes: 656256,
 }).then((res: CreateJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -160,7 +160,7 @@ const sdk = new CodatAccounting({
 sdk.journalEntries.delete({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  journalEntryId: "hic",
+  journalEntryId: "Van complexity",
 }).then((res: DeleteJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -207,7 +207,7 @@ const sdk = new CodatAccounting({
 
 sdk.journalEntries.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalEntryId: "quis",
+  journalEntryId: "Northeast Hatchback Kia",
 }).then((res: GetJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -304,7 +304,7 @@ sdk.journalEntries.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "deleniti",
+  query: "Northeast Metal Canada",
 }).then((res: ListJournalEntriesResponse) => {
   if (res.statusCode == 200) {
     // handle response

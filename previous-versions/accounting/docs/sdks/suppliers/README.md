@@ -46,40 +46,40 @@ sdk.suppliers.create({
   supplier: {
     addresses: [
       {
-        city: "Arvada",
-        country: "Serbia",
-        line1: "explicabo",
-        line2: "accusantium",
-        postalCode: "09117",
-        region: "illum",
-        type: AccountingAddressType.Unknown,
+        city: "Jenafurt",
+        country: "Sweden",
+        line1: "innovative blue",
+        line2: "grey technology East",
+        postalCode: "30778",
+        region: "quantify Polestar mobile",
+        type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "exercitationem",
-    defaultCurrency: "quod",
-    emailAddress: "quod",
-    id: "0584a184-d76d-4971-bc82-0c65b037bb8e",
+    contactName: "Durham after",
+    defaultCurrency: "Intelligent Fish",
+    emailAddress: "Ricardo.Hand41@gmail.com",
+    id: "<ID>",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "01224 658 999",
-    registrationNumber: "impedit",
+    phone: "(877) 492-8687",
+    registrationNumber: "Profound",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     status: SupplierStatus.Active,
     supplementalData: {
       content: {
-        "ullam": {
-          "veritatis": "quas",
+        "pariatur": {
+          "accusantium": "Minivan",
         },
       },
     },
-    supplierName: "molestiae",
-    taxNumber: "officiis",
+    supplierName: "Senior Mouse West",
+    taxNumber: "Towels likewise",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 287293,
+  timeoutInMinutes: 452224,
 }).then((res: CreateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -126,7 +126,7 @@ sdk.suppliers.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "nulla",
+  supplierId: "Dakota Avon specifically",
 }).then((res: DownloadSupplierAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -173,7 +173,7 @@ const sdk = new CodatAccounting({
 
 sdk.suppliers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  supplierId: "accusamus",
+  supplierId: "Northeast Hatchback Kia",
 }).then((res: GetSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -220,7 +220,7 @@ sdk.suppliers.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "consequatur",
+  supplierId: "array East along",
 }).then((res: GetSupplierAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -317,7 +317,7 @@ sdk.suppliers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "ut",
+  query: "Northeast Metal Canada",
 }).then((res: ListSuppliersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -363,7 +363,7 @@ const sdk = new CodatAccounting({
 sdk.suppliers.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  supplierId: "laborum",
+  supplierId: "intuitive Frozen ouch",
 }).then((res: ListSupplierAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -415,42 +415,42 @@ sdk.suppliers.update({
   supplier: {
     addresses: [
       {
-        city: "Cathedral City",
-        country: "Malta",
-        line1: "maxime",
-        line2: "ad",
-        postalCode: "88624-6607",
-        region: "voluptatibus",
-        type: AccountingAddressType.Delivery,
+        city: "Ann Arbor",
+        country: "Montserrat",
+        line1: "Reactive",
+        line2: "Metal cheater Islands",
+        postalCode: "43372",
+        region: "Carolina syndicate",
+        type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "ea",
-    defaultCurrency: "facere",
-    emailAddress: "corrupti",
-    id: "28da0131-9112-4964-a645-c1d81f29042f",
+    contactName: "East",
+    defaultCurrency: "Bicycle guestbook",
+    emailAddress: "Alexys.Hayes81@yahoo.com",
+    id: "<ID>",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
     phone: "(877) 492-8687",
-    registrationNumber: "iste",
+    registrationNumber: "indexing",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: SupplierStatus.Active,
+    status: SupplierStatus.Unknown,
     supplementalData: {
       content: {
-        "culpa": {
-          "reiciendis": "a",
+        "consectetur": {
+          "ullam": "Jaguar",
         },
       },
     },
-    supplierName: "consequatur",
-    taxNumber: "voluptates",
+    supplierName: "visionary Buckinghamshire frictionless",
+    taxNumber: "parse possimus",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  supplierId: "dolorum",
-  timeoutInMinutes: 148004,
+  supplierId: "Turkish Avon",
+  timeoutInMinutes: 151827,
 }).then((res: UpdateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response

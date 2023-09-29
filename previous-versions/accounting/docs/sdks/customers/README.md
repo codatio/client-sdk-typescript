@@ -46,63 +46,63 @@ sdk.customers.create({
   customer: {
     addresses: [
       {
-        city: "West Elroy",
-        country: "Bolivia",
-        line1: "praesentium",
-        line2: "eveniet",
-        postalCode: "77607",
-        region: "quos",
-        type: AccountingAddressType.Delivery,
+        city: "Jenafurt",
+        country: "Sweden",
+        line1: "innovative blue",
+        line2: "grey technology East",
+        postalCode: "30778",
+        region: "quantify Polestar mobile",
+        type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "sint",
+    contactName: "Durham after",
     contacts: [
       {
         address: {
-          city: "Emersonside",
-          country: "Armenia",
-          line1: "voluptates",
-          line2: "laudantium",
-          postalCode: "06859",
-          region: "deleniti",
+          city: "Darenberg",
+          country: "Cote d'Ivoire",
+          line1: "Buckinghamshire functionalities Grocery",
+          line2: "Metal",
+          postalCode: "61380",
+          region: "Interactions Senior Mouse",
           type: AccountingAddressType.Unknown,
         },
-        email: "Barrett98@hotmail.com",
+        email: "Judd27@hotmail.com",
         modifiedDate: "2022-10-23T00:00:00.000Z",
-        name: "William Koch",
+        name: "transmit likewise",
         phone: [
           {
-            number: "01224 658 999",
+            number: "(877) 492-8687",
             type: PhoneNumberType.Fax,
           },
         ],
-        status: CustomerStatus.Unknown,
+        status: CustomerStatus.Active,
       },
     ],
-    customerName: "dolorum",
-    defaultCurrency: "USD",
-    emailAddress: "ad",
-    id: "f3cabd90-5a97-42e0-9672-8227b2d30947",
+    customerName: "Rubber silver Indiana",
+    defaultCurrency: "EUR",
+    emailAddress: "Thea_Ritchie76@hotmail.com",
+    id: "<ID>",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "946.496.5489 x3236",
-    registrationNumber: "voluptas",
+    phone: "948.595.2034",
+    registrationNumber: "digital",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: CustomerStatus.Active,
+    status: CustomerStatus.Unknown,
     supplementalData: {
       content: {
         "recusandae": {
-          "corporis": "non",
+          "maiores": "Mongolia",
         },
       },
     },
-    taxNumber: "necessitatibus",
+    taxNumber: "discrete",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 719469,
+  timeoutInMinutes: 522311,
 }).then((res: CreateCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -149,7 +149,7 @@ sdk.customers.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "maiores",
+  customerId: "Dakota Avon specifically",
 }).then((res: DownloadCustomerAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -196,7 +196,7 @@ const sdk = new CodatAccounting({
 
 sdk.customers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  customerId: "laboriosam",
+  customerId: "Northeast Hatchback Kia",
 }).then((res: GetCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -243,7 +243,7 @@ sdk.customers.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "voluptatem",
+  customerId: "array East along",
 }).then((res: GetCustomerAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -340,7 +340,7 @@ sdk.customers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "optio",
+  query: "Northeast Metal Canada",
 }).then((res: ListCustomersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -386,7 +386,7 @@ const sdk = new CodatAccounting({
 sdk.customers.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "sequi",
+  customerId: "intuitive Frozen ouch",
 }).then((res: ListCustomerAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -438,65 +438,65 @@ sdk.customers.update({
   customer: {
     addresses: [
       {
-        city: "North Wavatown",
-        country: "Cameroon",
-        line1: "amet",
-        line2: "rerum",
-        postalCode: "38123",
-        region: "dignissimos",
-        type: AccountingAddressType.Delivery,
+        city: "Ann Arbor",
+        country: "Montserrat",
+        line1: "Reactive",
+        line2: "Metal cheater Islands",
+        postalCode: "43372",
+        region: "Carolina syndicate",
+        type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "itaque",
+    contactName: "East",
     contacts: [
       {
         address: {
-          city: "Lake Alexannefield",
-          country: "Seychelles",
-          line1: "quos",
-          line2: "possimus",
-          postalCode: "45906-1548",
-          region: "unde",
-          type: AccountingAddressType.Unknown,
+          city: "Olenfurt",
+          country: "Paraguay",
+          line1: "Home users Sharable",
+          line2: "Lev Wooden",
+          postalCode: "36848",
+          region: "brightly",
+          type: AccountingAddressType.Delivery,
         },
-        email: "Clifford71@hotmail.com",
+        email: "Josie49@yahoo.com",
         modifiedDate: "2022-10-23T00:00:00.000Z",
-        name: "Ralph Hamill",
+        name: "possimus navigating Diesel",
         phone: [
           {
-            number: "01224 658 999",
-            type: PhoneNumberType.Fax,
+            number: "+44 25691 154789",
+            type: PhoneNumberType.Primary,
           },
         ],
-        status: CustomerStatus.Archived,
+        status: CustomerStatus.Unknown,
       },
     ],
-    customerName: "accusamus",
-    defaultCurrency: "GBP",
-    emailAddress: "quas",
-    id: "8b1c4ee2-c8c6-4ce6-91fe-eb1c7cbdb6ee",
+    customerName: "Reactive Global Northeast",
+    defaultCurrency: "USD",
+    emailAddress: "Abe.Bogan@hotmail.com",
+    id: "<ID>",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "424.676.1311 x442",
-    registrationNumber: "odio",
+    phone: "(883) 732-4217 x6499",
+    registrationNumber: "redundant ew",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: CustomerStatus.Archived,
+    status: CustomerStatus.Active,
     supplementalData: {
       content: {
-        "cupiditate": {
-          "illo": "exercitationem",
+        "asperiores": {
+          "quibusdam": "Omnigender",
         },
       },
     },
-    taxNumber: "laborum",
+    taxNumber: "Volkswagen Specialist Bacon",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "illum",
+  customerId: "Copper port East",
   forceUpdate: false,
-  timeoutInMinutes: 147989,
+  timeoutInMinutes: 373959,
 }).then((res: UpdateCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response

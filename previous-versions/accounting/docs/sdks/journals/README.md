@@ -42,21 +42,21 @@ sdk.journals.create({
   journal: {
     createdOn: "2022-10-23T00:00:00.000Z",
     hasChildren: false,
-    id: "ce525c67-641a-4831-ae50-47b4c21ccb42",
-    journalCode: "amet",
+    id: "<ID>",
+    journalCode: "Configuration Money",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    name: "Kim Swift",
-    parentId: "et",
+    name: "shred",
+    parentId: "technology East",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: JournalStatus.Archived,
-    type: "est",
+    status: JournalStatus.Unknown,
+    type: "male",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 716024,
+  timeoutInMinutes: 855952,
 }).then((res: CreateJournalResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -103,7 +103,7 @@ const sdk = new CodatAccounting({
 
 sdk.journals.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalId: "fugiat",
+  journalId: "Northeast Hatchback Kia",
 }).then((res: GetJournalResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -200,7 +200,7 @@ sdk.journals.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "nulla",
+  query: "Northeast Metal Canada",
 }).then((res: ListJournalsResponse) => {
   if (res.statusCode == 200) {
     // handle response

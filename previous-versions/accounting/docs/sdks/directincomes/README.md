@@ -46,87 +46,87 @@ sdk.directIncomes.create({
   directIncome: {
     contactRef: {
       dataType: DataType.Invoices,
-      id: "9ad030c4-ecc1-41a0-8364-29068b8502a5",
+      id: "<ID>",
     },
     currency: "USD",
-    currencyRate: 8843.25,
-    id: "7f73bc84-5e32-40a3-99f4-badf947c9a86",
+    currencyRate: 4893.82,
+    id: "<ID>",
     issueDate: "2022-10-23T00:00:00.000Z",
     lineItems: [
       {
         accountRef: {
-          id: "bc424266-6581-46dd-8a8e-f51fcb4c593e",
-          name: "Ryan Considine",
+          id: "<ID>",
+          name: "Money blue shred",
         },
-        description: "mollitia",
-        discountAmount: 6615.78,
-        discountPercentage: 8409.92,
+        description: "Implemented web-enabled success",
+        discountAmount: 0.86,
+        discountPercentage: 4552.22,
         itemRef: {
-          id: "0ec7afed-bd80-4df4-88a4-7f9390c58880",
-          name: "Willard Erdman",
+          id: "<ID>",
+          name: "evolve",
         },
-        quantity: 7047.32,
-        subTotal: 9830.6,
-        taxAmount: 6229.68,
+        quantity: 7150.4,
+        subTotal: 7926.2,
+        taxAmount: 8559.52,
         taxRateRef: {
-          effectiveTaxRate: 9261.19,
-          id: "f3ffdd9f-7f07-49af-8d35-724cdb0f4d28",
-          name: "Alice Langosh",
+          effectiveTaxRate: 8165.88,
+          id: "<ID>",
+          name: "Screen mobile",
         },
-        totalAmount: 3136.95,
+        totalAmount: 6562.56,
         trackingCategoryRefs: [
           {
-            id: "6844eded-85a9-4065-a628-bdfc2032b6c8",
-            name: "Guadalupe Monahan",
+            id: "<ID>",
+            name: "Durham after",
           },
         ],
-        unitAmount: 6962.91,
+        unitAmount: 5190.28,
       },
     ],
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "debitis",
+    note: "Fish",
     paymentAllocations: [
       {
         allocation: {
           allocatedOnDate: "2022-10-23T00:00:00.000Z",
-          currency: "GBP",
-          currencyRate: 3214.22,
-          totalAmount: 5398.86,
+          currency: "EUR",
+          currencyRate: 3229.97,
+          totalAmount: 8946.95,
         },
         payment: {
           accountRef: {
-            id: "4f7ae12c-6891-4f82-8e11-57172305377d",
-            name: "Tommie Pfannerstill",
+            id: "<ID>",
+            name: "Account",
           },
-          currency: "EUR",
-          currencyRate: 9865.94,
-          id: "975e3566-8609-42e9-83dd-c5f111dea102",
-          note: "aliquid",
+          currency: "GBP",
+          currencyRate: 3577.62,
+          id: "<ID>",
+          note: "Kentucky animated",
           paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "enim",
-          totalAmount: 2542.88,
+          reference: "though East",
+          totalAmount: 1687.57,
         },
       },
     ],
-    reference: "architecto",
+    reference: "or",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    subTotal: 3098.52,
+    subTotal: 276.19,
     supplementalData: {
       content: {
-        "facere": {
-          "vitae": "omnis",
+        "tempora": {
+          "id": "Global",
         },
       },
     },
-    taxAmount: 38.6,
-    totalAmount: 9574.89,
+    taxAmount: 7870.96,
+    totalAmount: 9065.37,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 887600,
+  timeoutInMinutes: 425694,
 }).then((res: CreateDirectIncomeResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -173,7 +173,7 @@ sdk.directIncomes.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "expedita",
+  directIncomeId: "Dakota Avon specifically",
 }).then((res: DownloadDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -221,7 +221,7 @@ const sdk = new CodatAccounting({
 sdk.directIncomes.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "quia",
+  directIncomeId: "Northeast Hatchback Kia",
 }).then((res: GetDirectIncomeResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -268,8 +268,8 @@ sdk.directIncomes.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "vitae",
-  timeoutInMinutes: 487839,
+  directIncomeId: "array East along",
+  timeoutInMinutes: 329312,
 }).then((res: GetDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -367,7 +367,7 @@ sdk.directIncomes.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "quas",
+  query: "Northeast Metal Canada",
 }).then((res: ListDirectIncomesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -413,7 +413,7 @@ const sdk = new CodatAccounting({
 sdk.directIncomes.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "ipsa",
+  directIncomeId: "intuitive Frozen ouch",
 }).then((res: ListDirectIncomeAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -462,12 +462,12 @@ const sdk = new CodatAccounting({
 
 sdk.directIncomes.uploadAttachment({
   requestBody: {
-    content: "distinctio".encode(),
-    requestBody: "placeat",
+    content: "v/ghW&IC$x" as bytes <<<>>>,
+    requestBody: "Elegant Producer Electric",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "quod",
+  directIncomeId: "Iowa Bentley",
 }).then((res: UploadDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
