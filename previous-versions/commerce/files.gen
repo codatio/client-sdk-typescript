@@ -72,9 +72,6 @@ src/sdk/models/shared/servicecharge.ts
 src/sdk/models/shared/servicechargetype.ts
 src/sdk/models/shared/taxcomponentallocation.ts
 src/sdk/models/shared/taxcomponentref.ts
-src/sdk/models/shared/paymentref.ts
-src/sdk/models/shared/paymenttype.ts
-src/sdk/models/shared/paymentstatus.ts
 src/sdk/models/shared/orderlineitem.ts
 src/sdk/models/shared/productvariantref.ts
 src/sdk/models/shared/productref.ts
@@ -83,6 +80,7 @@ src/sdk/models/shared/locationref.ts
 src/sdk/models/shared/commercecustomerref.ts
 src/sdk/models/shared/orders.ts
 src/sdk/models/shared/payment.ts
+src/sdk/models/shared/paymentstatus.ts
 src/sdk/models/shared/paymentmethod.ts
 src/sdk/models/shared/paymentmethodstatus.ts
 src/sdk/models/shared/payments.ts
@@ -174,9 +172,6 @@ docs/models/shared/servicecharge.md
 docs/models/shared/servicechargetype.md
 docs/models/shared/taxcomponentallocation.md
 docs/models/shared/taxcomponentref.md
-docs/models/shared/paymentref.md
-docs/models/shared/paymenttype.md
-docs/models/shared/paymentstatus.md
 docs/models/shared/orderlineitem.md
 docs/models/shared/productvariantref.md
 docs/models/shared/productref.md
@@ -185,6 +180,7 @@ docs/models/shared/locationref.md
 docs/models/shared/commercecustomerref.md
 docs/models/shared/orders.md
 docs/models/shared/payment.md
+docs/models/shared/paymentstatus.md
 docs/models/shared/paymentmethod.md
 docs/models/shared/paymentmethodstatus.md
 docs/models/shared/payments.md
