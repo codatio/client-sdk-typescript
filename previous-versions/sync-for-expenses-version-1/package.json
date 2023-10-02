@@ -1,6 +1,6 @@
 {
   "name": "@codat/sync-for-expenses-version-1",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "author": "Codat",
   "scripts": {
     "prepare": "tsc --build"
