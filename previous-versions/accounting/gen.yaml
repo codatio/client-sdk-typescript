@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: b51d801d70747513daf4984bd7a26454
   docVersion: 3.0.0
-  speakeasyVersion: 1.92.2
-  generationVersion: 2.142.2
+  speakeasyVersion: 1.92.3
+  generationVersion: 2.143.2
 generation:
   sdkClassName: CodatAccounting
   singleTagPerOp: false
@@ -11,7 +11,7 @@ generation:
 features:
   typescript:
     acceptHeaders: 2.81.1
-    core: 2.90.0
+    core: 2.90.1
     deprecations: 2.81.1
     examples: 2.81.2
     globalSecurity: 2.81.1
@@ -19,7 +19,7 @@ features:
     nameOverrides: 2.81.1
     retries: 2.82.0
 typescript:
-  version: 0.40.0
+  version: 0.40.1
   author: Codat
   description: Access standardized accounting data from our accounting integrations.
   maxMethodParams: 0
