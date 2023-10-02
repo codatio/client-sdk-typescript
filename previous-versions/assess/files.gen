@@ -86,6 +86,11 @@ src/sdk/models/shared/reportinfo.ts
 src/sdk/models/shared/datasource.ts
 src/sdk/models/shared/accounts.ts
 src/sdk/models/shared/enhancedinvoicesreport.ts
+src/sdk/models/shared/enhancedinvoicereportitem.ts
+src/sdk/models/shared/invoicestatus.ts
+src/sdk/models/shared/payment.ts
+src/sdk/models/shared/bankingtransactionref.ts
+src/sdk/models/shared/lendingcustomerref.ts
 src/sdk/models/shared/loansummary.ts
 src/sdk/models/shared/loansummaryreportitem.ts
 src/sdk/models/shared/loansummaryrecordref.ts
@@ -198,6 +203,11 @@ docs/models/shared/reportinfo.md
 docs/models/shared/datasource.md
 docs/models/shared/accounts.md
 docs/models/shared/enhancedinvoicesreport.md
+docs/models/shared/enhancedinvoicereportitem.md
+docs/models/shared/invoicestatus.md
+docs/models/shared/payment.md
+docs/models/shared/bankingtransactionref.md
+docs/models/shared/lendingcustomerref.md
 docs/models/shared/loansummary.md
 docs/models/shared/loansummaryreportitem.md
 docs/models/shared/loansummaryrecordref.md
