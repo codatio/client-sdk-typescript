@@ -77,6 +77,7 @@ sdk.accounts.create({
 ### [accounts](docs/sdks/accounts/README.md)
 
 * [create](docs/sdks/accounts/README.md#create) - Create account
+* [getCreateModel](docs/sdks/accounts/README.md#getcreatemodel) - Get create account model
 
 ### [companies](docs/sdks/companies/README.md)
 
