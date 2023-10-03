@@ -1,4 +1,4 @@
-# ContactRefContactType
+# ContactRefType
 
 The type of contact.
 

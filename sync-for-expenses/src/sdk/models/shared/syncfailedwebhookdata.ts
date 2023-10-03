@@ -67,6 +67,9 @@ export class SyncFailedWebhookData extends SpeakeasyBase {
     @Expose({ name: "SyncDateRangeStartUtc" })
     syncDateRangeStartUtc?: string;
 
+    /**
+     * Unique identifier for the failed sync.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "syncId" })
     syncId?: string;

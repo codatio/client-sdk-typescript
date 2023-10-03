@@ -62,7 +62,7 @@ export class CreateCustomerResponse extends SpeakeasyBase {
      *
      * A customer is a person or organisation that buys goods or services. From the Customers endpoints, you can retrieve a [list of all the customers of a company](https://api.codat.io/swagger/index.html#/Customers/get_companies__companyId__data_customers).
      *
-     * Customers' data links to accounts receivable [invoices](https://docs.codat.io/accounting-api#/schemas/Invoice).
+     * Customers' data links to accounts receivable [invoices](https://docs.codat.io/sync-for-expenses-api#/schemas/Invoice).
      *
      */
     @SpeakeasyMetadata()
@@ -84,6 +84,9 @@ export class CreateCustomerResponse extends SpeakeasyBase {
     @Expose({ name: "dataType" })
     dataType?: DataType;
 
+    /**
+     * A message about the error.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "errorMessage" })
     errorMessage?: string;
@@ -129,15 +132,23 @@ export class CreateCustomerResponse extends SpeakeasyBase {
     @Expose({ name: "status" })
     status: PushOperationStatus;
 
+    /**
+     * Push status code.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "statusCode" })
     statusCode: number;
 
+    /**
+     * Number of minutes the push operation must complete within before it times out.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "timeoutInMinutes" })
     timeoutInMinutes?: number;
 
     /**
+     * Number of seconds the push operation must complete within before it times out.
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @SpeakeasyMetadata()
