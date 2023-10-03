@@ -1,6 +1,6 @@
 {
   "name": "@codat/platform",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "author": "Codat",
   "scripts": {
     "prepare": "tsc --build"
