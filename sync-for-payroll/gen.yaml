@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: f18a53ff2704aab972d395c5f8246500
   docVersion: 3.0.0
-  speakeasyVersion: 1.92.3
-  generationVersion: 2.143.2
+  speakeasyVersion: 1.93.1
+  generationVersion: 2.144.7
 generation:
   sdkClassName: CodatSyncPayroll
   singleTagPerOp: false
@@ -16,9 +16,9 @@ features:
     globalSecurity: 2.81.1
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
-    retries: 2.82.0
+    retries: 2.82.1
 typescript:
-  version: 1.4.0
+  version: 1.4.1
   author: Codat
   description: Push payroll to accounting platforms.
   maxMethodParams: 0
