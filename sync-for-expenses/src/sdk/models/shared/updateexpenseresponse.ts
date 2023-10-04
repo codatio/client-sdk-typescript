@@ -6,6 +6,9 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class UpdateExpenseResponse extends SpeakeasyBase {
+    /**
+     * Unique identifier for the update expense sync.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "syncId" })
     syncId?: string;
