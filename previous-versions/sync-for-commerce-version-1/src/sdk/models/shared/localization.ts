@@ -6,6 +6,9 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class Localization extends SpeakeasyBase {
+    /**
+     * `True` if required.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "required" })
     required?: boolean;

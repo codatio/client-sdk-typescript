@@ -1,4 +1,5 @@
-# integrations
+# Integrations
+(*integrations*)
 
 ## Overview
 
@@ -7,7 +8,7 @@ View useful information about codat's integrations.
 ### Available Operations
 
 * [getIntegrationBranding](#getintegrationbranding) - Get branding for an integration
-* [listIntegrations](#listintegrations) - List information on Codat's supported integrations
+* [listIntegrations](#listintegrations) - List integrations
 
 ## getIntegrationBranding
 
@@ -26,7 +27,7 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.integrations.getIntegrationBranding({
-  platformKey: "quis",
+  platformKey: "gbol",
 }).then((res: GetIntegrationBrandingResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -68,7 +69,7 @@ sdk.integrations.listIntegrations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "beatae",
+  query: "Hybrid",
 }).then((res: ListIntegrationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

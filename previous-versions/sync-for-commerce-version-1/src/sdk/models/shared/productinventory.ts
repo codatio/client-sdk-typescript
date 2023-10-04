@@ -15,6 +15,9 @@ export class ProductInventory extends SpeakeasyBase {
     @Type(() => ProductInventoryLocation)
     locations?: ProductInventoryLocation[];
 
+    /**
+     * The total quantity of stock remaining across locations.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "totalQuantity" })
     totalQuantity?: number;

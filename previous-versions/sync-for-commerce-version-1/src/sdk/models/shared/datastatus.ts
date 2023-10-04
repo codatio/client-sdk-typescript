@@ -3,19 +3,26 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { DataType } from "./datatype";
 import { Expose } from "class-transformer";
 
 /**
  * Describes the state of data in the Codat cache for a company and data type
  */
 export class DataStatus extends SpeakeasyBase {
+    /**
+     * The current status of the dataset in Codat's cache.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "currentStatus" })
     currentStatus: string;
 
+    /**
+     * Available Data types
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "dataType" })
-    dataType: string;
+    dataType: DataType;
 
     /**
      * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
@@ -44,10 +51,16 @@ export class DataStatus extends SpeakeasyBase {
     @Expose({ name: "lastSuccessfulSync" })
     lastSuccessfulSync: string;
 
+    /**
+     * Unique identifier for the most recent successful sync of data type.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "latestSuccessfulSyncId" })
     latestSuccessfulSyncId?: string;
 
+    /**
+     * Unique identifier for most recent sync of data type.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "latestSyncId" })
     latestSyncId?: string;

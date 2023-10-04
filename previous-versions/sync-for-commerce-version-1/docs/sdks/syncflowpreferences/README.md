@@ -1,4 +1,5 @@
-# syncFlowPreferences
+# SyncFlowPreferences
+(*syncFlowPreferences*)
 
 ## Overview
 
@@ -6,11 +7,11 @@ Configure preferences for any given Sync for Commerce company using sync flow.
 
 ### Available Operations
 
-* [getConfigTextSyncFlow](#getconfigtextsyncflow) - Retrieve preferences for text fields on Sync Flow
+* [getConfigTextSyncFlow](#getconfigtextsyncflow) - Retrieve preferences for text fields on sync flow
 * [getSyncFlowUrl](#getsyncflowurl) - Retrieve sync flow url
 * [getVisibleAccounts](#getvisibleaccounts) - List visible accounts
 * [updateConfigTextSyncFlow](#updateconfigtextsyncflow) - Update preferences for text fields on sync flow
-* [updateVisibleAccountsSyncFlow](#updatevisibleaccountssyncflow) - Update the visible accounts on Sync Flow
+* [updateVisibleAccountsSyncFlow](#updatevisibleaccountssyncflow) - Update the visible accounts on sync flow
 
 ## getConfigTextSyncFlow
 
@@ -65,9 +66,9 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.syncFlowPreferences.getSyncFlowUrl({
-  accountingKey: "optio",
-  commerceKey: "ex",
-  merchantIdentifier: "quaerat",
+  accountingKey: "Manager",
+  commerceKey: "payment",
+  merchantIdentifier: "Rupiah tertiary Zealand",
 }).then((res: GetSyncFlowUrlResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -106,8 +107,8 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.syncFlowPreferences.getVisibleAccounts({
-  clientId: "6ecb5734-09e3-4eb1-a5a2-b12eb07f116d",
-  platformKey: "b99545fc-95fa-4889-b0e1-89dbb30fcb33",
+  clientId: "86fe9741-738d-4f2c-8e96-9c3f84156e91",
+  platformKey: "gbol",
 }).then((res: GetVisibleAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -146,9 +147,9 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.syncFlowPreferences.updateConfigTextSyncFlow({
-  "saepe": {
+  "perferendis": {
     required: false,
-    text: "deserunt",
+    text: "Gasoline Cotton azure",
   },
 }).then((res: UpdateConfigTextSyncFlowResponse) => {
   if (res.statusCode == 200) {
@@ -190,10 +191,10 @@ const sdk = new CodatSyncCommerce({
 sdk.syncFlowPreferences.updateVisibleAccountsSyncFlow({
   visibleAccounts: {
     visibleAccounts: [
-      "doloremque",
+      "Coordinator",
     ],
   },
-  platformKey: "55b197cd-44e2-4f52-982d-3513bb6f48b6",
+  platformKey: "gbol",
 }).then((res: UpdateVisibleAccountsSyncFlowResponse) => {
   if (res.statusCode == 200) {
     // handle response

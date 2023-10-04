@@ -1,4 +1,5 @@
-# accountingDirectIncomes
+# AccountingDirectIncomes
+(*accountingDirectIncomes*)
 
 ## Overview
 
@@ -26,6 +27,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
 import { CreateAccountingDirectIncomeResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
+import { DataType } from "@codat/sync-for-commerce-version-1/dist/sdk/models/shared";
 
 const sdk = new CodatSyncCommerce({
   security: {
@@ -36,88 +38,88 @@ const sdk = new CodatSyncCommerce({
 sdk.accountingDirectIncomes.createAccountingDirectIncome({
   accountingDirectIncome: {
     contactRef: {
-      dataType: "tempora",
-      id: "5626d436-813f-416d-9f5f-ce6c556146c3",
+      dataType: DataType.Invoices,
+      id: "<ID>",
     },
-    currency: "EUR",
-    currencyRate: 1324.87,
-    id: "50fb008c-42e1-441a-ac36-6c8dd6b14429",
+    currency: "GBP",
+    currencyRate: 6548.38,
+    id: "<ID>",
     issueDate: "2022-10-23T00:00:00.000Z",
     lineItems: [
       {
         accountRef: {
-          id: "7474778a-7bd4-466d-a8c1-0ab3cdca4251",
-          name: "William Goodwin",
+          id: "<ID>",
+          name: "Meitnerium watt Assistant",
         },
-        description: "aspernatur",
-        discountAmount: 1970.54,
-        discountPercentage: 7791.92,
+        description: "Organized directional moratorium",
+        discountAmount: 6259.31,
+        discountPercentage: 3251.14,
         itemRef: {
-          id: "7e0bc717-8e47-496f-aa70-c688282aa482",
-          name: "Sue Corkery",
+          id: "<ID>",
+          name: "Supervisor virtual sadly",
         },
-        quantity: 1871.31,
-        subTotal: 1294.12,
-        taxAmount: 9039.84,
+        quantity: 7605.88,
+        subTotal: 2695.32,
+        taxAmount: 3396.83,
         taxRateRef: {
-          effectiveTaxRate: 5789.22,
-          id: "817ee17c-be61-4e6b-bb95-bc0ab3c20c4f",
-          name: "Joy Labadie",
+          effectiveTaxRate: 2606.73,
+          id: "<ID>",
+          name: "Pensacola Som Northwest",
         },
-        totalAmount: 8577.23,
+        totalAmount: 6880.22,
         trackingCategoryRefs: [
           {
-            id: "871f99dd-2efd-4121-aa6f-1e674bdb04f1",
-            name: "Delores Hermiston IV",
+            id: "<ID>",
+            name: "Pickup",
           },
         ],
-        unitAmount: 1852.32,
+        unitAmount: 8819.46,
       },
     ],
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "ex",
+    note: "magni",
     paymentAllocations: [
       {
         allocation: {
           allocatedOnDate: "2022-10-23T00:00:00.000Z",
-          currency: "EUR",
-          currencyRate: 6802.7,
-          totalAmount: 996.15,
+          currency: "USD",
+          currencyRate: 2449.75,
+          totalAmount: 6540.35,
         },
         payment: {
           accountRef: {
-            id: "9f1d1705-1339-4d08-886a-1840394c2607",
-            name: "Elisa Mosciski",
+            id: "<ID>",
+            name: "Officer mobile Infrastructure",
           },
-          currency: "USD",
-          currencyRate: 9903.45,
-          id: "0642dac7-af51-45cc-813a-a63aae8d6786",
-          note: "labore",
+          currency: "EUR",
+          currencyRate: 4022.79,
+          id: "<ID>",
+          note: "Tools Dynamic Industrial",
           paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "facilis",
-          totalAmount: 7382.27,
+          reference: "parallelism",
+          totalAmount: 9002.17,
         },
       },
     ],
-    reference: "commodi",
+    reference: "Man Cotton virtual",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    subTotal: 3605.45,
+    subTotal: 4300.87,
     supplementalData: {
       content: {
-        "reiciendis": {
-          "assumenda": "nemo",
+        "eos": {
+          "facere": "TLS",
         },
       },
     },
-    taxAmount: 9249.67,
-    totalAmount: 3975.33,
+    taxAmount: 356.06,
+    totalAmount: 9132.9,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 46007,
+  timeoutInMinutes: 156594,
 }).then((res: CreateAccountingDirectIncomeResponse) => {
   if (res.statusCode == 200) {
     // handle response

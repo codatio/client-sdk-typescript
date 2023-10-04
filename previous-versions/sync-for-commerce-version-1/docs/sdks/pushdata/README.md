@@ -1,4 +1,5 @@
-# pushData
+# PushData
+(*pushData*)
 
 ## Overview
 
@@ -27,7 +28,7 @@ const sdk = new CodatSyncCommerce({
 
 sdk.pushData.getOperation({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "97f92443-da7c-4e52-b895-c537c6454efb",
+  pushOperationKey: "59acd79e-29d3-4138-91d3-91d4641bf7ed",
 }).then((res: GetPushOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -70,7 +71,7 @@ sdk.pushData.listOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "aperiam",
+  query: "Synchronised",
 }).then((res: GetCompanyPushHistoryResponse) => {
   if (res.statusCode == 200) {
     // handle response

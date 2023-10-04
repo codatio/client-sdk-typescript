@@ -1,4 +1,5 @@
-# accountingCreditNotes
+# AccountingCreditNotes
+(*accountingCreditNotes*)
 
 ## Overview
 
@@ -36,125 +37,125 @@ const sdk = new CodatSyncCommerce({
 
 sdk.accountingCreditNotes.createAccountingCreditNote({
   accountingCreditNote: {
-    additionalTaxAmount: 3834.41,
-    additionalTaxPercentage: 4776.65,
+    additionalTaxAmount: 6733.79,
+    additionalTaxPercentage: 612.72,
     allocatedOnDate: "2022-10-23T00:00:00.000Z",
-    creditNoteNumber: "placeat",
+    creditNoteNumber: "lavender Planner",
     currency: "USD",
-    currencyRate: 4799.77,
+    currencyRate: 2314.32,
     customerRef: {
-      companyName: "excepturi",
-      id: "6ed151a0-5dfc-42dd-b7cc-78ca1ba928fc",
+      companyName: "Swaniawski - Okuneva",
+      id: "<ID>",
     },
-    discountPercentage: 5218.48,
-    id: "16742cb7-3920-4592-9396-fea7596eb10f",
+    discountPercentage: 1210.61,
+    id: "<ID>",
     issueDate: "2022-10-23T00:00:00.000Z",
     lineItems: [
       {
         accountRef: {
-          id: "aa2352c5-9559-407a-bf1a-3a2fa9467739",
-          name: "Beatrice Brown",
+          id: "<ID>",
+          name: "candela Metal policy",
         },
-        description: "enim",
-        discountAmount: 1381.83,
-        discountPercentage: 7783.46,
+        description: "Universal 4th generation model",
+        discountAmount: 6593.55,
+        discountPercentage: 3629.12,
         isDirectIncome: false,
         itemRef: {
-          id: "3f5ad019-da1f-4fe7-8f09-7b0074f15471",
-          name: "Bill Thompson",
+          id: "<ID>",
+          name: "Titusville Car",
         },
-        quantity: 641.47,
-        subTotal: 2168.22,
-        taxAmount: 6924.72,
+        quantity: 9339.43,
+        subTotal: 9776.2,
+        taxAmount: 4570.33,
         taxRateRef: {
-          effectiveTaxRate: 5651.89,
-          id: "9d488e1e-91e4-450a-92ab-d44269802d50",
-          name: "Sonya Marks",
+          effectiveTaxRate: 2840.32,
+          id: "<ID>",
+          name: "Nissan Shirt",
         },
-        totalAmount: 7351.94,
+        totalAmount: 3862.17,
         tracking: {
           categoryRefs: [
             {
-              id: "4f63c969-e9a3-4efa-b7df-b14cd66ae395",
-              name: "Toby Pouros",
+              id: "<ID>",
+              name: "system",
             },
           ],
           customerRef: {
-            companyName: "id",
-            id: "88f3a669-9707-44ba-8469-b6e214195989",
+            companyName: "Labadie and Sons",
+            id: "<ID>",
           },
           isBilledTo: BilledToType.Unknown,
           isRebilledTo: BilledToType.NotApplicable,
           projectRef: {
-            id: "fa563e25-16fe-44c8-b711-e5b7fd2ed028",
-            name: "Victor Casper",
+            id: "<ID>",
+            name: "Mann second siemens",
           },
           recordRef: {
             dataType: "transfer",
-            id: "c692601f-b576-4b0d-9f0d-30c5fbb25870",
+            id: "<ID>",
           },
         },
         trackingCategoryRefs: [
           {
-            id: "53202c73-d5fe-49b9-8c28-909b3fe49a8d",
-            name: "Loren Renner",
+            id: "<ID>",
+            name: "scalable",
           },
         ],
-        unitAmount: 5542.42,
+        unitAmount: 9063.02,
       },
     ],
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "dolorem",
+    note: "Conroy fuzzy Mobility",
     paymentAllocations: [
       {
         allocation: {
           allocatedOnDate: "2022-10-23T00:00:00.000Z",
-          currency: "GBP",
-          currencyRate: 1861.93,
-          totalAmount: 2187.49,
+          currency: "EUR",
+          currencyRate: 5905.56,
+          totalAmount: 8276.36,
         },
         payment: {
           accountRef: {
-            id: "f9b77f3a-4100-4674-abf6-9280d1ba77a8",
-            name: "Terence Rau",
+            id: "<ID>",
+            name: "synthesizing becquerel Operations",
           },
           currency: "GBP",
-          currencyRate: 4560.15,
-          id: "ae4203ce-5e6a-495d-8a0d-446ce2af7a73",
-          note: "quisquam",
+          currencyRate: 8697.42,
+          id: "<ID>",
+          note: "Convertible",
           paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "amet",
-          totalAmount: 7308.56,
+          reference: "Grenada networks Fantastic",
+          totalAmount: 5575.36,
         },
       },
     ],
-    remainingCredit: 8802.98,
+    remainingCredit: 4029.48,
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     status: CreditNoteStatus.Draft,
-    subTotal: 2133.12,
+    subTotal: 8342.79,
     supplementalData: {
       content: {
-        "sapiente": {
-          "totam": "nihil",
+        "quos": {
+          "nihil": "Concrete",
         },
       },
     },
-    totalAmount: 256.62,
-    totalDiscount: 7115.84,
-    totalTaxAmount: 2074.7,
+    totalAmount: 1868.28,
+    totalDiscount: 4123.14,
+    totalTaxAmount: 8369.46,
     withholdingTax: [
       {
-        amount: 1536.94,
-        name: "Kelli Hintz",
+        amount: 879.63,
+        name: "male Bedfordshire architectures",
       },
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 214880,
+  timeoutInMinutes: 814888,
 }).then((res: CreateAccountingCreditNoteResponse) => {
   if (res.statusCode == 200) {
     // handle response

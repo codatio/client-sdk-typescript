@@ -1,4 +1,5 @@
-# accountingCustomers
+# AccountingCustomers
+(*accountingCustomers*)
 
 ## Overview
 
@@ -38,63 +39,63 @@ sdk.accountingCustomers.createAccountingCustomer({
   accountingCustomer: {
     addresses: [
       {
-        city: "East Kylie",
-        country: "Slovakia (Slovak Republic)",
-        line1: "pariatur",
-        line2: "soluta",
-        postalCode: "65211",
-        region: "distinctio",
-        type: AccountingAddressType.Delivery,
+        city: "Binghamton",
+        country: "Saint Pierre and Miquelon",
+        line1: "Southeast",
+        line2: "Adventure",
+        postalCode: "03600",
+        region: "gray Bespoke Bahamian",
+        type: AccountingAddressType.Unknown,
       },
     ],
-    contactName: "aliquid",
+    contactName: "Southeast GB Product",
     contacts: [
       {
         address: {
-          city: "Kennedyhaven",
-          country: "Christmas Island",
-          line1: "neque",
-          line2: "fugit",
-          postalCode: "41379",
-          region: "voluptatem",
+          city: "South Jackyshire",
+          country: "Comoros",
+          line1: "Coordinator",
+          line2: "Lead",
+          postalCode: "69139-7324",
+          region: "considering",
           type: AccountingAddressType.Delivery,
         },
-        email: "Nella.Bosco8@hotmail.com",
+        email: "Lonzo_Von@gmail.com",
         modifiedDate: "2022-10-23T00:00:00.000Z",
-        name: "Dr. Randolph McDermott",
+        name: "North Guarani",
         phone: [
           {
-            number: "+44 25691 154789",
+            number: "01224 658 999",
             type: PhoneNumberType.Landline,
           },
         ],
         status: CustomerStatus.Unknown,
       },
     ],
-    customerName: "dolorum",
-    defaultCurrency: "GBP",
-    emailAddress: "quae",
-    id: "08e0adcf-4b92-4187-9fce-953f73ef7fbc",
+    customerName: "Wilmington Soft",
+    defaultCurrency: "USD",
+    emailAddress: "Ronny.Terry91@yahoo.com",
+    id: "<ID>",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "1-784-488-1670 x9381",
-    registrationNumber: "porro",
+    phone: "(577) 959-8272",
+    registrationNumber: "Plastic",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     status: CustomerStatus.Archived,
     supplementalData: {
       content: {
-        "iusto": {
-          "eligendi": "ducimus",
+        "distinctio": {
+          "molestiae": "programming",
         },
       },
     },
-    taxNumber: "alias",
+    taxNumber: "Rubber Androgyne Bronze",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 639473,
+  timeoutInMinutes: 359161,
 }).then((res: CreateAccountingCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
