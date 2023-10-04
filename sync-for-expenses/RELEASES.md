@@ -679,3 +679,13 @@ Based on:
 - [typescript v2.1.0] sync-for-expenses
 ### Releases
 - [NPM v2.1.0] https://www.npmjs.com/package/@codat/sync-for-expenses/v/2.1.0 - sync-for-expenses
+
+## 2023-10-04 14:06:28
+### Changes
+Based on:
+- OpenAPI Doc prealpha https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Expenses.yaml
+- Speakeasy CLI 1.93.3 (2.146.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v3.1.0] sync-for-expenses
+### Releases
+- [NPM v3.1.0] https://www.npmjs.com/package/@codat/sync-for-expenses/v/3.1.0 - sync-for-expenses

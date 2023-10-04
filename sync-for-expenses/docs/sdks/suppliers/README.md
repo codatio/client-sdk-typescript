@@ -1,4 +1,5 @@
 # Suppliers
+(*suppliers*)
 
 ## Overview
 
@@ -13,13 +14,13 @@ Suppliers
 
 ## create
 
-The *Create supplier* endpoint creates a new [supplier](https://docs.codat.io/accounting-api#/schemas/Supplier) for a given company's connection.
+The *Create supplier* endpoint creates a new [supplier](https://docs.codat.io/sync-for-expenses-api#/schemas/Supplier) for a given company's connection.
 
-[Suppliers](https://docs.codat.io/accounting-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
+[Suppliers](https://docs.codat.io/sync-for-expenses-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
 
 **Integration-specific behaviour**
 
-Required data may vary by integration. To see what data to post, first call [Get create/update supplier model](https://docs.codat.io/accounting-api#/operations/get-create-update-suppliers-model).
+Required data may vary by integration. To see what data to post, first call [Get create/update supplier model](https://docs.codat.io/sync-for-expenses-api#/operations/get-create-update-suppliers-model).
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support creating an account.
 
@@ -41,40 +42,41 @@ sdk.suppliers.create({
   supplier: {
     addresses: [
       {
-        city: "Purdystead",
-        country: "Antarctica (the territory South of 60 deg S)",
-        line1: "porro",
-        line2: "consequuntur",
-        postalCode: "60562-9926",
-        region: "dolorum",
+        city: "Jenafurt",
+        country: "Sweden",
+        line1: "innovative blue",
+        line2: "grey technology East",
+        postalCode: "30778",
+        region: "quantify Polestar mobile",
         type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "pariatur",
-    defaultCurrency: "provident",
-    emailAddress: "nobis",
-    id: "bf486333-23f9-4b77-b3a4-100674ebf692",
+    contactName: "Durham after",
+    defaultCurrency: "Intelligent Fish",
+    emailAddress: "Ricardo.Hand41@gmail.com",
+    id: "<ID>",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "+44 25691 154789",
-    registrationNumber: "fugiat",
+    phone: "(877) 492-8687",
+    registrationNumber: "Profound",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: SupplierStatus.Archived,
+    status: SupplierStatus.Active,
     supplementalData: {
       content: {
-        "dolorum": {
-          "iusto": "voluptate",
+        "pariatur": {
+          "accusantium": "Minivan",
         },
       },
     },
-    supplierName: "dolorum",
-    taxNumber: "deleniti",
+    supplierName: "Senior Mouse West",
+    taxNumber: "Towels likewise",
   },
+  allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 607045,
+  timeoutInMinutes: 452224,
 }).then((res: CreateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -100,7 +102,7 @@ sdk.suppliers.create({
 
 The *Get supplier* endpoint returns a single supplier for a given supplierId.
 
-[Suppliers](https://docs.codat.io/accounting-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
+[Suppliers](https://docs.codat.io/sync-for-expenses-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support getting a specific supplier.
 
@@ -121,7 +123,7 @@ const sdk = new CodatSyncExpenses({
 
 sdk.suppliers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  supplierId: "EILBDVJVNUAGVKRQ",
+  supplierId: "7110701885",
 }).then((res: GetSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -145,9 +147,9 @@ sdk.suppliers.get({
 
 ## list
 
-The *List suppliers* endpoint returns a list of [suppliers](https://docs.codat.io/accounting-api#/schemas/Supplier) for a given company's connection.
+The *List suppliers* endpoint returns a list of [suppliers](https://docs.codat.io/sync-for-expenses-api#/schemas/Supplier) for a given company's connection.
 
-[Suppliers](https://docs.codat.io/accounting-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
+[Suppliers](https://docs.codat.io/sync-for-expenses-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-expenses-api#/operations/refresh-company-data).
     
@@ -169,7 +171,7 @@ sdk.suppliers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "distinctio",
+  query: "Northeast Metal Canada",
 }).then((res: ListSuppliersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -193,13 +195,13 @@ sdk.suppliers.list({
 
 ## update
 
-The *Update supplier* endpoint updates an existing [supplier](https://docs.codat.io/accounting-api#/schemas/Supplier) for a given company's connection.
+The *Update supplier* endpoint updates an existing [supplier](https://docs.codat.io/sync-for-expenses-api#/schemas/Supplier) for a given company's connection.
 
-[Suppliers](https://docs.codat.io/accounting-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
+[Suppliers](https://docs.codat.io/sync-for-expenses-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
 
 **Integration-specific behaviour**
 
-Required data may vary by integration. To see what data to post, first call [Get create/update supplier model](https://docs.codat.io/accounting-api#/operations/get-create-update-suppliers-model).
+Required data may vary by integration. To see what data to post, first call [Get create/update supplier model](https://docs.codat.io/sync-for-expenses-api#/operations/get-create-update-suppliers-model).
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support creating an account.
 
@@ -221,42 +223,43 @@ sdk.suppliers.update({
   supplier: {
     addresses: [
       {
-        city: "Lake Havasu City",
-        country: "Croatia",
-        line1: "voluptate",
-        line2: "id",
-        postalCode: "21027-8393",
-        region: "deserunt",
+        city: "Ann Arbor",
+        country: "Montserrat",
+        line1: "Reactive",
+        line2: "Metal cheater Islands",
+        postalCode: "43372",
+        region: "Carolina syndicate",
         type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "minima",
-    defaultCurrency: "repellendus",
-    emailAddress: "totam",
-    id: "a0d446ce-2af7-4a73-8f3b-e453f870b326",
+    contactName: "East",
+    defaultCurrency: "Bicycle guestbook",
+    emailAddress: "Alexys.Hayes81@yahoo.com",
+    id: "<ID>",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
     phone: "(877) 492-8687",
-    registrationNumber: "deserunt",
+    registrationNumber: "indexing",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     status: SupplierStatus.Unknown,
     supplementalData: {
       content: {
-        "incidunt": {
-          "qui": "cupiditate",
+        "consectetur": {
+          "ullam": "Jaguar",
         },
       },
     },
-    supplierName: "maxime",
-    taxNumber: "pariatur",
+    supplierName: "visionary Buckinghamshire frictionless",
+    taxNumber: "parse possimus",
   },
+  allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
   supplierId: "7110701885",
-  timeoutInMinutes: 117531,
+  timeoutInMinutes: 427089,
 }).then((res: UpdateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response

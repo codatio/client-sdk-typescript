@@ -1,4 +1,5 @@
 # Customers
+(*customers*)
 
 ## Overview
 
@@ -13,13 +14,13 @@ Customers
 
 ## create
 
-The *Create customer* endpoint creates a new [customer](https://docs.codat.io/accounting-api#/schemas/Customer) for a given company's connection.
+The *Create customer* endpoint creates a new [customer](https://docs.codat.io/sync-for-expenses-api#/schemas/Customer) for a given company's connection.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/sync-for-expenses-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 **Integration-specific behaviour**
 
-Required data may vary by integration. To see what data to post, first call [Get create/update customer model](https://docs.codat.io/accounting-api#/operations/get-create-update-customers-model).
+Required data may vary by integration. To see what data to post, first call [Get create/update customer model](https://docs.codat.io/sync-for-expenses-api#/operations/get-create-update-customers-model).
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support creating an account.
 
@@ -41,63 +42,64 @@ sdk.customers.create({
   customer: {
     addresses: [
       {
-        city: "New Humberto",
-        country: "Trinidad and Tobago",
-        line1: "quidem",
-        line2: "architecto",
-        postalCode: "96661",
-        region: "dolorem",
+        city: "Jenafurt",
+        country: "Sweden",
+        line1: "innovative blue",
+        line2: "grey technology East",
+        postalCode: "30778",
+        region: "quantify Polestar mobile",
         type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "explicabo",
+    contactName: "Durham after",
     contacts: [
       {
         address: {
-          city: "Halvorsonstead",
-          country: "Guinea",
-          line1: "minima",
-          line2: "excepturi",
-          postalCode: "46991",
-          region: "mollitia",
+          city: "Darenberg",
+          country: "Cote d'Ivoire",
+          line1: "Buckinghamshire functionalities Grocery",
+          line2: "Metal",
+          postalCode: "61380",
+          region: "Interactions Senior Mouse",
           type: AccountingAddressType.Unknown,
         },
-        email: "Caroline_Ziemann@yahoo.com",
+        email: "Judd27@hotmail.com",
         modifiedDate: "2022-10-23T00:00:00.000Z",
-        name: "Claudia Krajcik",
+        name: "transmit likewise",
         phone: [
           {
-            number: "+44 25691 154789",
-            type: PhoneNumberType.Landline,
+            number: "(877) 492-8687",
+            type: PhoneNumberType.Fax,
           },
         ],
-        status: CustomerStatus.Unknown,
+        status: CustomerStatus.Active,
       },
     ],
-    customerName: "laborum",
-    defaultCurrency: "USD",
-    emailAddress: "enim",
-    id: "2c3f5ad0-19da-41ff-a78f-097b0074f154",
+    customerName: "Rubber silver Indiana",
+    defaultCurrency: "EUR",
+    emailAddress: "Thea_Ritchie76@hotmail.com",
+    id: "<ID>",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "(738) 590-2655",
-    registrationNumber: "pariatur",
+    phone: "948.595.2034",
+    registrationNumber: "digital",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: CustomerStatus.Active,
+    status: CustomerStatus.Unknown,
     supplementalData: {
       content: {
-        "rem": {
-          "voluptates": "quasi",
+        "recusandae": {
+          "maiores": "Mongolia",
         },
       },
     },
-    taxNumber: "repudiandae",
+    taxNumber: "discrete",
   },
+  allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 575947,
+  timeoutInMinutes: 522311,
 }).then((res: CreateCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -123,7 +125,7 @@ sdk.customers.create({
 
 The *Get customer* endpoint returns a single customer for a given customerId.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/sync-for-expenses-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support getting a specific customer.
 
@@ -144,7 +146,7 @@ const sdk = new CodatSyncExpenses({
 
 sdk.customers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  customerId: "veritatis",
+  customerId: "Northeast Hatchback Kia",
 }).then((res: GetCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -168,9 +170,9 @@ sdk.customers.get({
 
 ## list
 
-The *List customers* endpoint returns a list of [customers](https://docs.codat.io/accounting-api#/schemas/Customer) for a given company's connection.
+The *List customers* endpoint returns a list of [customers](https://docs.codat.io/sync-for-expenses-api#/schemas/Customer) for a given company's connection.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/sync-for-expenses-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-expenses-api#/operations/refresh-company-data).
     
@@ -192,7 +194,7 @@ sdk.customers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "itaque",
+  query: "Northeast Metal Canada",
 }).then((res: ListCustomersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -216,13 +218,13 @@ sdk.customers.list({
 
 ## update
 
-The *Update customer* endpoint updates an existing [customer](https://docs.codat.io/accounting-api#/schemas/Customer) for a given company's connection.
+The *Update customer* endpoint updates an existing [customer](https://docs.codat.io/sync-for-expenses-api#/schemas/Customer) for a given company's connection.
 
-[Customers](https://docs.codat.io/accounting-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
+[Customers](https://docs.codat.io/sync-for-expenses-api#/schemas/Customer) are people or organizations that buy goods or services from the SMB.
 
 **Integration-specific behaviour**
 
-Required data may vary by integration. To see what data to post, first call [Get create/update customer model](https://docs.codat.io/accounting-api#/operations/get-create-update-customers-model).
+Required data may vary by integration. To see what data to post, first call [Get create/update customer model](https://docs.codat.io/sync-for-expenses-api#/operations/get-create-update-customers-model).
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers) for integrations that support creating an account.
 
@@ -244,65 +246,66 @@ sdk.customers.update({
   customer: {
     addresses: [
       {
-        city: "West Adele",
-        country: "Norway",
-        line1: "quibusdam",
-        line2: "explicabo",
-        postalCode: "78221-3550",
-        region: "magni",
-        type: AccountingAddressType.Delivery,
+        city: "Ann Arbor",
+        country: "Montserrat",
+        line1: "Reactive",
+        line2: "Metal cheater Islands",
+        postalCode: "43372",
+        region: "Carolina syndicate",
+        type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "ipsam",
+    contactName: "East",
     contacts: [
       {
         address: {
-          city: "East Marianostead",
-          country: "Estonia",
-          line1: "facilis",
-          line2: "tempore",
-          postalCode: "94275",
-          region: "aliquid",
-          type: AccountingAddressType.Billing,
+          city: "Olenfurt",
+          country: "Paraguay",
+          line1: "Home users Sharable",
+          line2: "Lev Wooden",
+          postalCode: "36848",
+          region: "brightly",
+          type: AccountingAddressType.Delivery,
         },
-        email: "Kianna89@hotmail.com",
+        email: "Josie49@yahoo.com",
         modifiedDate: "2022-10-23T00:00:00.000Z",
-        name: "Arnold Kirlin",
+        name: "possimus navigating Diesel",
         phone: [
           {
-            number: "01224 658 999",
+            number: "+44 25691 154789",
             type: PhoneNumberType.Primary,
           },
         ],
         status: CustomerStatus.Unknown,
       },
     ],
-    customerName: "cumque",
-    defaultCurrency: "EUR",
-    emailAddress: "ea",
-    id: "6ae395ef-b9ba-488f-ba66-997074ba4469",
+    customerName: "Reactive Global Northeast",
+    defaultCurrency: "USD",
+    emailAddress: "Abe.Bogan@hotmail.com",
+    id: "<ID>",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "1-911-405-3555 x069",
-    registrationNumber: "mollitia",
+    phone: "(883) 732-4217 x6499",
+    registrationNumber: "redundant ew",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     status: CustomerStatus.Active,
     supplementalData: {
       content: {
-        "dolor": {
-          "necessitatibus": "odit",
+        "asperiores": {
+          "quibusdam": "Omnigender",
         },
       },
     },
-    taxNumber: "nemo",
+    taxNumber: "Volkswagen Specialist Bacon",
   },
+  allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "quasi",
+  customerId: "Copper port East",
   forceUpdate: false,
-  timeoutInMinutes: 435865,
+  timeoutInMinutes: 373959,
 }).then((res: UpdateCustomerResponse) => {
   if (res.statusCode == 200) {
     // handle response

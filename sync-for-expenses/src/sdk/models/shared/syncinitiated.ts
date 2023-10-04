@@ -6,6 +6,9 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class SyncInitiated extends SpeakeasyBase {
+    /**
+     * Unique identifier for the sync initiated.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "syncId" })
     syncId?: string;
