@@ -12,18 +12,30 @@ export class CommerceReportComponent extends SpeakeasyBase {
     @Type(() => CommerceReportComponent)
     components?: CommerceReportComponent[];
 
+    /**
+     * The component's dimension.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "dimension" })
     dimension?: number;
 
+    /**
+     * The component's display name.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "dimensionDisplayName" })
     dimensionDisplayName?: string;
 
+    /**
+     * The component's item number.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "item" })
     item?: number;
 
+    /**
+     * The component's item display name.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "itemDisplayName" })
     itemDisplayName?: string;

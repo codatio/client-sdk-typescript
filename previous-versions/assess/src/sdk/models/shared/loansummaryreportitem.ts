@@ -21,6 +21,13 @@ export class LoanSummaryReportItem extends SpeakeasyBase {
     @Expose({ name: "description" })
     description?: string;
 
+    /**
+     * The name of lender providing the loan.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "lenderName" })
+    lenderName?: string;
+
     @SpeakeasyMetadata()
     @Expose({ name: "recordRef" })
     @Type(() => LoanSummaryRecordRef)
