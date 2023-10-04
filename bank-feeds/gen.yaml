@@ -1,24 +1,24 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 3eb0f99edd359c8e932479051a25a5f4
+  docChecksum: 6687a100dc54aedcafa56318d88ea89a
   docVersion: 3.0.0
-  speakeasyVersion: 1.87.0
-  generationVersion: 2.116.0
+  speakeasyVersion: 1.93.2
+  generationVersion: 2.144.7
 generation:
   sdkClassName: CodatBankFeeds
   singleTagPerOp: false
   telemetryEnabled: true
 features:
   typescript:
-    core: 2.87.2
+    core: 2.90.1
     deprecations: 2.81.1
     examples: 2.81.2
     globalSecurity: 2.81.1
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
-    retries: 2.82.0
+    retries: 2.82.1
 typescript:
-  version: 2.1.0
+  version: 2.2.0
   author: Codat
   description: Set up bank feeds from accounts in your application to supported accounting platforms.
   maxMethodParams: 0
