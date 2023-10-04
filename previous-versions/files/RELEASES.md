@@ -587,3 +587,13 @@ Based on:
 - [typescript v0.35.0] previous-versions/files
 ### Releases
 - [NPM v0.35.0] https://www.npmjs.com/package/@codat/files/v/0.35.0 - previous-versions/files
+
+## 2023-10-04 00:21:29
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Files.yaml
+- Speakeasy CLI 1.93.2 (2.144.7) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.36.0] previous-versions/files
+### Releases
+- [NPM v0.36.0] https://www.npmjs.com/package/@codat/files/v/0.36.0 - previous-versions/files
