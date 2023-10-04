@@ -1,4 +1,5 @@
 # SyncFlowSettings
+(*syncFlowSettings*)
 
 ## Overview
 
@@ -64,8 +65,8 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.syncFlowSettings.getVisibleAccounts({
-  clientId: "e0f467cc-8796-4ed1-91a0-5dfc2ddf7cc7",
-  platformKey: "8ca1ba92-8fc8-4167-82cb-739205929396",
+  clientId: "86fe9741-738d-4f2c-8e96-9c3f84156e91",
+  platformKey: "gbol",
 }).then((res: GetVisibleAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -104,9 +105,9 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.syncFlowSettings.updateConfigTextSyncFlow({
-  "hic": {
+  "perferendis": {
     required: false,
-    text: "saepe",
+    text: "Gasoline Cotton azure",
   },
 }).then((res: UpdateConfigTextSyncFlowResponse) => {
   if (res.statusCode == 200) {
@@ -148,10 +149,10 @@ const sdk = new CodatSyncCommerce({
 sdk.syncFlowSettings.updateVisibleAccountsSyncFlow({
   visibleAccounts: {
     visibleAccounts: [
-      "fuga",
+      "Coordinator",
     ],
   },
-  platformKey: "7596eb10-faaa-4235-ac59-55907aff1a3a",
+  platformKey: "gbol",
 }).then((res: UpdateVisibleAccountsSyncFlowResponse) => {
   if (res.statusCode == 200) {
     // handle response
