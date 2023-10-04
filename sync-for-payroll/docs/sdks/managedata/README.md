@@ -1,4 +1,5 @@
 # ManageData
+(*manageData*)
 
 ## Overview
 
@@ -71,7 +72,7 @@ const sdk = new CodatSyncPayroll({
 
 sdk.manageData.getPullOperation({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  datasetId: "eaed9f0f-e77b-4bc9-a58f-ab8b4b99ab18",
+  datasetId: "7911a54a-c808-4f4b-b87e-b195f52b4da5",
 }).then((res: GetPullOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -111,7 +112,7 @@ const sdk = new CodatSyncPayroll({
 
 sdk.manageData.getPushOperation({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "97074ba4-469b-46e2-9419-59890afa563e",
+  pushOperationKey: "2a6486f4-00c4-40bd-900d-b29c15ad0581",
 }).then((res: GetPushOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -154,7 +155,7 @@ sdk.manageData.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "odit",
+  query: "Northeast Metal Canada",
 }).then((res: ListPushOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -197,7 +198,7 @@ sdk.manageData.listPullOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "nemo",
+  query: "Dock Elegant Buckinghamshire",
 }).then((res: ListPullOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -283,7 +284,7 @@ const sdk = new CodatSyncPayroll({
 
 sdk.manageData.refreshDataType({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "16fe4c8b-711e-45b7-bd2e-d028921cddc6",
+  connectionId: "d6258093-be98-4f60-90e1-ca6bcd49fb9a",
   dataType: DataType.Invoices,
 }).then((res: RefreshDataTypeResponse) => {
   if (res.statusCode == 200) {
