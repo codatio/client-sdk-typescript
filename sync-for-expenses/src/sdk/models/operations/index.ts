@@ -14,6 +14,7 @@ export * from "./deleteconnection";
 export * from "./getcompany";
 export * from "./getcompanyconfiguration";
 export * from "./getconnection";
+export * from "./getcreatechartofaccountsmodel";
 export * from "./getcustomer";
 export * from "./getdatastatus";
 export * from "./getlastsuccessfulsync";

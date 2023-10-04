@@ -8,22 +8,22 @@ import { Expose } from "class-transformer";
 /**
  * The type of contact.
  */
-export enum ContactRefContactType {
+export enum ContactRefType {
     Supplier = "Supplier",
 }
 
 export class ContactRef extends SpeakeasyBase {
-    /**
-     * The type of contact.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "contactType" })
-    contactType?: ContactRefContactType;
-
     /**
      * Identifier of supplier or customer.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id?: string;
+
+    /**
+     * The type of contact.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type?: ContactRefType;
 }

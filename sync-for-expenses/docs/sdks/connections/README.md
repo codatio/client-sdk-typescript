@@ -1,4 +1,5 @@
 # Connections
+(*connections*)
 
 ## Overview
 
@@ -7,7 +8,7 @@ Create and manage partner expense connection.
 ### Available Operations
 
 * [create](#create) - Create connection
-* [createPartnerExpenseConnection](#createpartnerexpenseconnection) - Create Partner Expense connection
+* [createPartnerExpenseConnection](#createpartnerexpenseconnection) - Create partner expense connection
 * [delete](#delete) - Delete connection
 * [get](#get) - Get connection
 * [list](#list) - List connections
@@ -33,7 +34,7 @@ const sdk = new CodatSyncExpenses({
 
 sdk.connections.create({
   requestBody: {
-    platformKey: "saepe",
+    platformKey: "gbol",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: CreateConnectionResponse) => {
@@ -59,7 +60,7 @@ sdk.connections.create({
 
 ## createPartnerExpenseConnection
 
-Creates a Partner Expense data connection
+Creates a partner expense data connection
 
 ### Example Usage
 
@@ -198,7 +199,7 @@ sdk.connections.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "fuga",
+  query: "Northeast Metal Canada",
 }).then((res: ListConnectionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -239,7 +240,7 @@ const sdk = new CodatSyncExpenses({
 
 sdk.connections.unlink({
   requestBody: {
-    status: DataConnectionStatus.Linked,
+    status: DataConnectionStatus.PendingAuth,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
