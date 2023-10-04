@@ -45,10 +45,16 @@ export class BillCreditNoteLineItemTrackingCustomerRef extends SpeakeasyBase {
 }
 
 export class BillCreditNoteLineItemTrackingProjectReference extends SpeakeasyBase {
+    /**
+     * Unique identifier to the project reference.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id: string;
 
+    /**
+     * The project's name.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "name" })
     name?: string;
@@ -68,10 +74,16 @@ export class BillCreditNoteLineItemTracking extends SpeakeasyBase {
     @Type(() => BillCreditNoteLineItemTrackingCustomerRef)
     customerRef?: BillCreditNoteLineItemTrackingCustomerRef;
 
+    /**
+     * Defines if the invoice or credit note is billed/rebilled to a project or customer.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isBilledTo" })
     isBilledTo: BilledToType;
 
+    /**
+     * Defines if the invoice or credit note is billed/rebilled to a project or customer.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isRebilledTo" })
     isRebilledTo: BilledToType;

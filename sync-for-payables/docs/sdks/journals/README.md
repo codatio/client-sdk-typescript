@@ -1,4 +1,5 @@
 # Journals
+(*journals*)
 
 ## Overview
 
@@ -41,21 +42,21 @@ sdk.journals.create({
   journal: {
     createdOn: "2022-10-23T00:00:00.000Z",
     hasChildren: false,
-    id: "00b607f3-c93c-473b-9da3-f2ceda7e23f2",
-    journalCode: "explicabo",
+    id: "<ID>",
+    journalCode: "Configuration Money",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    name: "Dr. Elaine Bernhard",
-    parentId: "delectus",
+    name: "shred",
+    parentId: "technology East",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: JournalStatus.Archived,
-    type: "in",
+    status: JournalStatus.Unknown,
+    type: "male",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 349993,
+  timeoutInMinutes: 855952,
 }).then((res: CreateJournalResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -102,7 +103,7 @@ const sdk = new CodatSyncPayables({
 
 sdk.journals.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalId: "labore",
+  journalId: "Northeast Hatchback Kia",
 }).then((res: GetJournalResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -199,7 +200,7 @@ sdk.journals.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "numquam",
+  query: "Northeast Metal Canada",
 }).then((res: ListJournalsResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -1,4 +1,5 @@
 # JournalEntries
+(*journalEntries*)
 
 ## Overview
 
@@ -37,30 +38,30 @@ const sdk = new CodatSyncPayables({
 sdk.journalEntries.create({
   journalEntry: {
     createdOn: "2022-10-23T00:00:00.000Z",
-    description: "saepe",
-    id: "189dbb30-fcb3-43ea-855b-197cd44e2f52",
+    description: "Multi-tiered motivating standardization",
+    id: "<ID>",
     journalLines: [
       {
         accountRef: {
-          id: "d82d3513-bb6f-448b-a56b-cdb35ff2e4b2",
-          name: "Audrey Durgan",
+          id: "<ID>",
+          name: "innovative blue",
         },
-        currency: "rem",
-        description: "eligendi",
-        netAmount: 8536.06,
+        currency: "Zimbabwe Dollar",
+        description: "Secured exuding throughput",
+        netAmount: 8915.1,
         tracking: {
           recordRefs: [
             {
-              dataType: "accountTransaction",
-              id: "e7319c17-7d52-45f7-bb11-4eeb52ff785f",
+              dataType: "journalEntry",
+              id: "<ID>",
             },
           ],
         },
       },
     ],
     journalRef: {
-      id: "c37814d4-c98e-40c2-bb89-eb75dad636c6",
-      name: "Mrs. Donna Hand",
+      id: "<ID>",
+      name: "orange Northwest",
     },
     metadata: {
       isDeleted: false,
@@ -68,14 +69,14 @@ sdk.journalEntries.create({
     modifiedDate: "2022-10-23T00:00:00.000Z",
     postedOn: "2022-10-23T00:00:00.000Z",
     recordRef: {
-      dataType: "accountTransaction",
-      id: "31180f73-9ae9-4e05-beb8-09e2810331f3",
+      dataType: "transfer",
+      id: "<ID>",
     },
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "atque": {
-          "beatae": "at",
+        "cupiditate": {
+          "assumenda": "volt",
         },
       },
     },
@@ -83,7 +84,7 @@ sdk.journalEntries.create({
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 794988,
+  timeoutInMinutes: 656256,
 }).then((res: CreateJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response

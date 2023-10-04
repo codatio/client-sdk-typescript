@@ -1,4 +1,5 @@
 # TaxRates
+(*taxRates*)
 
 ## Overview
 
@@ -34,7 +35,7 @@ const sdk = new CodatSyncPayables({
 
 sdk.taxRates.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  taxRateId: "consequuntur",
+  taxRateId: "Northeast Hatchback Kia",
 }).then((res: GetTaxRateResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -82,7 +83,7 @@ sdk.taxRates.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "veniam",
+  query: "Northeast Metal Canada",
 }).then((res: ListTaxRatesResponse) => {
   if (res.statusCode == 200) {
     // handle response

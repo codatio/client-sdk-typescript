@@ -1,4 +1,5 @@
 # CompanyInfo
+(*companyInfo*)
 
 ## Overview
 

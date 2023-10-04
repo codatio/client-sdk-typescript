@@ -140,14 +140,14 @@ import { Expose } from "class-transformer";
  */
 export class TrackingCategory extends SpeakeasyBase {
     /**
-     * Boolean value indicating whether this category has SubCategories
+     * Boolean value indicating whether this category has SubCategories.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "hasChildren" })
     hasChildren?: boolean;
 
     /**
-     * The identifier for the item, unique per tracking category
+     * The identifier for the item, unique per tracking category.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
@@ -158,14 +158,14 @@ export class TrackingCategory extends SpeakeasyBase {
     modifiedDate?: string;
 
     /**
-     * The name of the tracking category
+     * The name of the tracking category.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "name" })
     name?: string;
 
     /**
-     * The identifier for this item's immediate parent
+     * The identifier for this item's immediate parent.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "parentId" })

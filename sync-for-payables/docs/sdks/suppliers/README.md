@@ -1,4 +1,5 @@
 # Suppliers
+(*suppliers*)
 
 ## Overview
 
@@ -42,40 +43,40 @@ sdk.suppliers.create({
   supplier: {
     addresses: [
       {
-        city: "North Tadshire",
-        country: "Anguilla",
-        line1: "incidunt",
-        line2: "qui",
-        postalCode: "86113",
-        region: "modi",
-        type: AccountingAddressType.Delivery,
+        city: "Jenafurt",
+        country: "Sweden",
+        line1: "innovative blue",
+        line2: "grey technology East",
+        postalCode: "30778",
+        region: "quantify Polestar mobile",
+        type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "voluptatibus",
-    defaultCurrency: "molestias",
-    emailAddress: "officia",
-    id: "b8366c72-3ffd-4a9e-86be-e4825c1fc0e1",
+    contactName: "Durham after",
+    defaultCurrency: "Intelligent Fish",
+    emailAddress: "Ricardo.Hand41@gmail.com",
+    id: "<ID>",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "+44 25691 154789",
-    registrationNumber: "optio",
+    phone: "(877) 492-8687",
+    registrationNumber: "Profound",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: SupplierStatus.Unknown,
+    status: SupplierStatus.Active,
     supplementalData: {
       content: {
-        "facilis": {
-          "reiciendis": "a",
+        "pariatur": {
+          "accusantium": "Minivan",
         },
       },
     },
-    supplierName: "iste",
-    taxNumber: "dicta",
+    supplierName: "Senior Mouse West",
+    taxNumber: "Towels likewise",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 552439,
+  timeoutInMinutes: 452224,
 }).then((res: CreateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -122,7 +123,7 @@ const sdk = new CodatSyncPayables({
 
 sdk.suppliers.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  supplierId: "ullam",
+  supplierId: "Northeast Hatchback Kia",
 }).then((res: GetSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -219,7 +220,7 @@ sdk.suppliers.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "dolore",
+  query: "Northeast Metal Canada",
 }).then((res: ListSuppliersResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -271,42 +272,42 @@ sdk.suppliers.update({
   supplier: {
     addresses: [
       {
-        city: "Fort Rafael",
-        country: "Eritrea",
-        line1: "consequuntur",
-        line2: "assumenda",
-        postalCode: "97785-9054",
-        region: "esse",
+        city: "Ann Arbor",
+        country: "Montserrat",
+        line1: "Reactive",
+        line2: "Metal cheater Islands",
+        postalCode: "43372",
+        region: "Carolina syndicate",
         type: AccountingAddressType.Billing,
       },
     ],
-    contactName: "odio",
-    defaultCurrency: "nesciunt",
-    emailAddress: "debitis",
-    id: "63562a7b-408f-405e-bd48-fdaf313a1f5f",
+    contactName: "East",
+    defaultCurrency: "Bicycle guestbook",
+    emailAddress: "Alexys.Hayes81@yahoo.com",
+    id: "<ID>",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
     phone: "(877) 492-8687",
-    registrationNumber: "incidunt",
+    registrationNumber: "indexing",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: SupplierStatus.Active,
+    status: SupplierStatus.Unknown,
     supplementalData: {
       content: {
-        "cupiditate": {
-          "optio": "alias",
+        "consectetur": {
+          "ullam": "Jaguar",
         },
       },
     },
-    supplierName: "quidem",
-    taxNumber: "nesciunt",
+    supplierName: "visionary Buckinghamshire frictionless",
+    taxNumber: "parse possimus",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  supplierId: "commodi",
-  timeoutInMinutes: 956124,
+  supplierId: "Turkish Avon",
+  timeoutInMinutes: 151827,
 }).then((res: UpdateSupplierResponse) => {
   if (res.statusCode == 200) {
     // handle response
