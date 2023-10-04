@@ -1,6 +1,6 @@
 # CreateApiKey
 
-Details of the API key.
+Details about the newly created API key.
 
 
 ## Fields

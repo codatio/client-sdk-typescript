@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 /**
- * Details of the API key.
+ * Details about the newly created API key.
  */
 export class CreateApiKey extends SpeakeasyBase {
     /**

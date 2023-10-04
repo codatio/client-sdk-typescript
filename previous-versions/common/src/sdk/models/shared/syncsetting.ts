@@ -3,55 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { DataType } from "./datatype";
 import { Expose } from "class-transformer";
-
-/**
- * Available Data types
- */
-export enum SyncSettingDataTypes {
-    AccountTransactions = "accountTransactions",
-    BalanceSheet = "balanceSheet",
-    BankAccounts = "bankAccounts",
-    BankTransactions = "bankTransactions",
-    BillCreditNotes = "billCreditNotes",
-    BillPayments = "billPayments",
-    Bills = "bills",
-    CashFlowStatement = "cashFlowStatement",
-    ChartOfAccounts = "chartOfAccounts",
-    Company = "company",
-    CreditNotes = "creditNotes",
-    Customers = "customers",
-    DirectCosts = "directCosts",
-    DirectIncomes = "directIncomes",
-    Invoices = "invoices",
-    Items = "items",
-    JournalEntries = "journalEntries",
-    Journals = "journals",
-    PaymentMethods = "paymentMethods",
-    Payments = "payments",
-    ProfitAndLoss = "profitAndLoss",
-    PurchaseOrders = "purchaseOrders",
-    SalesOrders = "salesOrders",
-    Suppliers = "suppliers",
-    TaxRates = "taxRates",
-    TrackingCategories = "trackingCategories",
-    Transfers = "transfers",
-    BankingAccountBalances = "banking-accountBalances",
-    BankingAccounts = "banking-accounts",
-    BankingTransactionCategories = "banking-transactionCategories",
-    BankingTransactions = "banking-transactions",
-    CommerceCompanyInfo = "commerce-companyInfo",
-    CommerceCustomers = "commerce-customers",
-    CommerceDisputes = "commerce-disputes",
-    CommerceLocations = "commerce-locations",
-    CommerceOrders = "commerce-orders",
-    CommercePaymentMethods = "commerce-paymentMethods",
-    CommercePayments = "commerce-payments",
-    CommerceProductCategories = "commerce-productCategories",
-    CommerceProducts = "commerce-products",
-    CommerceTaxComponents = "commerce-taxComponents",
-    CommerceTransactions = "commerce-transactions",
-}
 
 /**
  * Describes how often, and how much history, should be fetched for the given data type when a pull operation is queued.
@@ -62,7 +15,7 @@ export class SyncSetting extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "dataType" })
-    dataType: SyncSettingDataTypes;
+    dataType: DataType;
 
     /**
      * Whether this data type should be queued after a company has authorized a connection.
@@ -71,6 +24,9 @@ export class SyncSetting extends SpeakeasyBase {
     @Expose({ name: "fetchOnFirstLink" })
     fetchOnFirstLink: boolean;
 
+    /**
+     * `True` if the [sync setting](https://docs.codat.io/knowledge-base/advanced-sync-settings) is locked.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isLocked" })
     isLocked?: boolean;
@@ -110,12 +66,15 @@ export class SyncSetting extends SpeakeasyBase {
     syncFromUtc?: string;
 
     /**
-     * Number of months of data to be fetched. Set this *or* `syncFromUTC`
+     * Number of months of data to be fetched. Set this *or* `syncFromUTC`.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "syncFromWindow" })
     syncFromWindow?: number;
 
+    /**
+     * The sync in which data types are queued for a sync.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "syncOrder" })
     syncOrder: number;

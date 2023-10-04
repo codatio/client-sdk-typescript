@@ -6,14 +6,23 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class ValidationItem extends SpeakeasyBase {
+    /**
+     * Unique identifier for a validation item.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "itemId" })
     itemId?: string;
 
+    /**
+     * A message outlining validation item's issue.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
 
+    /**
+     * Name of validator.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "validatorName" })
     validatorName?: string;

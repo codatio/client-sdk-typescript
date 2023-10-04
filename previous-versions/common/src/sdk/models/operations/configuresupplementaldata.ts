@@ -41,16 +41,22 @@ export class ConfigureSupplementalDataRequest extends SpeakeasyBase {
     supplementalDataConfiguration?: shared.SupplementalDataConfiguration;
 
     /**
-     * Data types that support supplemental data
+     * Supported supplemental data data type.
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=dataType" })
     dataType: ConfigureSupplementalDataDataType;
 
+    /**
+     * A unique 4-letter key to represent a platform in each integration. View [accounting](https://docs.codat.io/integrations/accounting/overview#platform-keys), [banking](https://docs.codat.io/integrations/banking/overview#platform-keys), and [commerce](https://docs.codat.io/integrations/commerce/overview#platform-keys) platform keys.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=platformKey" })
     platformKey: string;
 }
 
 export class ConfigureSupplementalDataResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -60,9 +66,15 @@ export class ConfigureSupplementalDataResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 }

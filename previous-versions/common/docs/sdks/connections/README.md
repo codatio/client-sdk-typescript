@@ -1,4 +1,5 @@
-# connections
+# Connections
+(*connections*)
 
 ## Overview
 
@@ -17,7 +18,7 @@ Manage your companies' data connections.
 
 ﻿Creates a connection for the company by providing a valid `platformKey`. 
 
-Use the [List Integrations](https://docs.codat.io/codat-api#/operations/list-integrations) endpoint to access valid platform keys. 
+Use the [List Integrations](https://docs.codat.io/platform-api#/operations/list-integrations) endpoint to access valid platform keys. 
 
 ### Example Usage
 
@@ -33,7 +34,7 @@ const sdk = new CodatCommon({
 
 sdk.connections.create({
   requestBody: {
-    platformKey: "provident",
+    platformKey: "gbol",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: CreateConnectionResponse) => {
@@ -159,7 +160,7 @@ sdk.connections.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "distinctio",
+  query: "Northeast Metal Canada",
 }).then((res: ListConnectionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -200,7 +201,7 @@ const sdk = new CodatCommon({
 
 sdk.connections.unlink({
   updateConnectionStatus: {
-    status: DataConnectionStatus.Deauthorized,
+    status: DataConnectionStatus.PendingAuth,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -243,7 +244,7 @@ const sdk = new CodatCommon({
 
 sdk.connections.updateAuthorization({
   requestBody: {
-    "unde": "nulla",
+    "libero": "teal",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
