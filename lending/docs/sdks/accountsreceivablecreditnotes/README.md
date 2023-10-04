@@ -1,4 +1,5 @@
-# AccountsReceivable.CreditNotes
+# AccountsReceivableCreditNotes
+(*accountsReceivable.creditNotes*)
 
 ### Available Operations
 
@@ -9,7 +10,7 @@
 
 The *Get credit note* endpoint returns a single credit note for a given creditNoteId.
 
-[Credit notes](https://docs.codat.io/accounting-api#/schemas/CreditNote) are issued to a customer to indicate debt, typically with reference to a previously issued invoice and/or purchase.
+[Credit notes](https://docs.codat.io/lending-api#/schemas/CreditNote) are issued to a customer to indicate debt, typically with reference to a previously issued invoice and/or purchase.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=creditNotes) for integrations that support getting a specific credit note.
 
@@ -30,7 +31,7 @@ const sdk = new CodatLending({
 
 sdk.accountsReceivable.creditNotes.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  creditNoteId: "ipsam",
+  creditNoteId: "Northeast Hatchback Kia",
 }).then((res: GetAccountingCreditNoteResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -54,9 +55,9 @@ sdk.accountsReceivable.creditNotes.get({
 
 ## list
 
-The *List credit notes* endpoint returns a list of [credit notes](https://docs.codat.io/accounting-api#/schemas/CreditNote) for a given company's connection.
+The *List credit notes* endpoint returns a list of [credit notes](https://docs.codat.io/lending-api#/schemas/CreditNote) for a given company's connection.
 
-[Credit notes](https://docs.codat.io/accounting-api#/schemas/CreditNote) are issued to a customer to indicate debt, typically with reference to a previously issued invoice and/or purchase.
+[Credit notes](https://docs.codat.io/lending-api#/schemas/CreditNote) are issued to a customer to indicate debt, typically with reference to a previously issued invoice and/or purchase.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
@@ -78,7 +79,7 @@ sdk.accountsReceivable.creditNotes.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "repellendus",
+  query: "Northeast Metal Canada",
 }).then((res: ListAccountingCreditNotesResponse) => {
   if (res.statusCode == 200) {
     // handle response

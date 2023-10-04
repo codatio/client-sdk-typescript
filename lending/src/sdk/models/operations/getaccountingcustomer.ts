@@ -7,9 +7,15 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetAccountingCustomerRequest extends SpeakeasyBase {
+    /**
+     * Unique identifier for a company.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 
+    /**
+     * Unique identifier for a customer.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=customerId" })
     customerId: string;
 }
@@ -21,6 +27,9 @@ export class GetAccountingCustomerResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     accountingCustomer?: shared.AccountingCustomer;
 
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -30,9 +39,15 @@ export class GetAccountingCustomerResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 }

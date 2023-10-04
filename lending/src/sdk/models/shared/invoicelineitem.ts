@@ -40,6 +40,9 @@ export class InvoiceLineItem extends SpeakeasyBase {
     @Expose({ name: "discountPercentage" })
     discountPercentage?: number;
 
+    /**
+     * The invoice is a direct income if `True`.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isDirectIncome" })
     isDirectIncome?: boolean;

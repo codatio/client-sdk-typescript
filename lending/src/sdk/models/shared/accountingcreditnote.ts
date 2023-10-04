@@ -21,7 +21,7 @@ import { Expose, Type } from "class-transformer";
  *
  * Think of a credit note as a voucher issued to a customer. It is a reduction that can be applied against one or multiple invoices. A credit note can either reduce the amount owed or cancel out an invoice entirely.
  *
- * In the Codat system a credit note is issued to a [customer's](https://docs.codat.io/accounting-api#/schemas/Customer) accounts receivable.
+ * In the Codat system a credit note is issued to a [customer's](https://docs.codat.io/lending-api#/schemas/Customer) accounts receivable.
  *
  * It contains details of:
  * * The amount of credit remaining and its status.
@@ -29,10 +29,16 @@ import { Expose, Type } from "class-transformer";
  * * Which customers the credit notes have been issued to.
  */
 export class AccountingCreditNote extends SpeakeasyBase {
+    /**
+     * Additional tax amount applied to credit note.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "additionalTaxAmount" })
     additionalTaxAmount?: number;
 
+    /**
+     * Percentage rate of any additional tax applied to the credit note.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "additionalTaxPercentage" })
     additionalTaxPercentage?: number;
@@ -205,6 +211,9 @@ export class AccountingCreditNote extends SpeakeasyBase {
     @Expose({ name: "sourceModifiedDate" })
     sourceModifiedDate?: string;
 
+    /**
+     * Current state of the credit note.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
     status: CreditNoteStatus;

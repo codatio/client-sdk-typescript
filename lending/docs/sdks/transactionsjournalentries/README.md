@@ -1,4 +1,5 @@
-# Transactions.JournalEntries
+# TransactionsJournalEntries
+(*transactions.journalEntries*)
 
 ### Available Operations
 
@@ -9,7 +10,7 @@
 
 The *Get journal entry* endpoint returns a single journal entry for a given journalEntryId.
 
-[Journal entries](https://docs.codat.io/accounting-api#/schemas/JournalEntry) are  made in a company's general ledger, or accounts, when transactions are approved.
+[Journal entries](https://docs.codat.io/lending-api#/schemas/JournalEntry) are  made in a company's general ledger, or accounts, when transactions are approved.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=journalEntries) for integrations that support getting a specific journal entry.
 
@@ -30,7 +31,7 @@ const sdk = new CodatLending({
 
 sdk.transactions.journalEntries.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalEntryId: "vitae",
+  journalEntryId: "Northeast Hatchback Kia",
 }).then((res: GetAccountingJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -54,9 +55,9 @@ sdk.transactions.journalEntries.get({
 
 ## list
 
-The *List journal entries* endpoint returns a list of [journal entries](https://docs.codat.io/accounting-api#/schemas/JournalEntry) for a given company's connection.
+The *List journal entries* endpoint returns a list of [journal entries](https://docs.codat.io/lending-api#/schemas/JournalEntry) for a given company's connection.
 
-[Journal entries](https://docs.codat.io/accounting-api#/schemas/JournalEntry) are  made in a company's general ledger, or accounts, when transactions are approved.
+[Journal entries](https://docs.codat.io/lending-api#/schemas/JournalEntry) are  made in a company's general ledger, or accounts, when transactions are approved.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
@@ -78,7 +79,7 @@ sdk.transactions.journalEntries.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "accusamus",
+  query: "Northeast Metal Canada",
 }).then((res: ListAccountingJournalEntriesResponse) => {
   if (res.statusCode == 200) {
     // handle response

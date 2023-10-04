@@ -1,4 +1,5 @@
-# Banking.CategorizedStatement
+# BankingCategorizedStatement
+(*banking.categorizedStatement*)
 
 ### Available Operations
 
@@ -28,7 +29,7 @@ sdk.banking.categorizedStatement.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   page: 1,
   pageSize: 100,
-  query: "commodi",
+  query: "Northeast Hatchback Kia",
 }).then((res: GetCategorizedBankStatementResponse) => {
   if (res.statusCode == 200) {
     // handle response

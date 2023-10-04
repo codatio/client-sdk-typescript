@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { DataType } from "./datatype";
 import { Metadata } from "./metadata";
 import { RecordRef } from "./recordref";
 import { SupplementalData } from "./supplementaldata";
@@ -14,10 +15,16 @@ import { Expose, Type } from "class-transformer";
  * The customer or supplier for the transfer, if available.
  */
 export class AccountingTransferContactRef extends SpeakeasyBase {
+    /**
+     * Available Data types
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "dataType" })
-    dataType?: string;
+    dataType?: DataType;
 
+    /**
+     * Unique identifier for a customer or supplier.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id: string;
@@ -28,7 +35,7 @@ export class AccountingTransferContactRef extends SpeakeasyBase {
  *
  * @remarks
  *
- * A transfer records the movement of money between two bank accounts, or between a bank account and a nominal account. It is a child data type of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction).
+ * A transfer records the movement of money between two bank accounts, or between a bank account and a nominal account. It is a child data type of [account transactions](https://docs.codat.io/lending-api#/schemas/AccountTransaction).
  */
 export class AccountingTransfer extends SpeakeasyBase {
     /**
@@ -81,6 +88,9 @@ export class AccountingTransfer extends SpeakeasyBase {
     @Expose({ name: "description" })
     description?: string;
 
+    /**
+     * Account details of the account sending or receiving the transfer.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "from" })
     @Type(() => TransferAccount)
@@ -118,6 +128,9 @@ export class AccountingTransfer extends SpeakeasyBase {
     @Type(() => SupplementalData)
     supplementalData?: SupplementalData;
 
+    /**
+     * Account details of the account sending or receiving the transfer.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "to" })
     @Type(() => TransferAccount)

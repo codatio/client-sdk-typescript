@@ -1,4 +1,5 @@
-# ManageData.PullOperations
+# ManageDataPullOperations
+(*manageData.pullOperations*)
 
 ### Available Operations
 
@@ -23,7 +24,7 @@ const sdk = new CodatLending({
 
 sdk.manageData.pullOperations.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  datasetId: "eaed9f0f-e77b-4bc9-a58f-ab8b4b99ab18",
+  datasetId: "b18d8d81-fd7b-4764-a31e-475cb1f36591",
 }).then((res: GetPullOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -66,7 +67,7 @@ sdk.manageData.pullOperations.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "consequuntur",
+  query: "Northeast Metal Canada",
 }).then((res: ListPullOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

@@ -1,4 +1,5 @@
-# Banking.TransactionCategories
+# BankingTransactionCategories
+(*banking.transactionCategories*)
 
 ### Available Operations
 
@@ -9,7 +10,7 @@
 
 The *Get transaction category* endpoint returns a single transaction category for a given transactionCategoryId.
 
-[Transaction categories](https://docs.codat.io/banking-api#/schemas/TransactionCategory) are associated with a transaction to provide greater contextual meaning to transaction activity.
+[Transaction categories](https://docs.codat.io/lending-api#/schemas/TransactionCategory) are associated with a transaction to provide greater contextual meaning to transaction activity.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/banking?view=tab-by-data-type&dataType=banking-transactionCategories) for integrations that support getting a specific transaction category.
 
@@ -31,7 +32,7 @@ const sdk = new CodatLending({
 sdk.banking.transactionCategories.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  transactionCategoryId: "molestiae",
+  transactionCategoryId: "Northeast Hatchback Kia",
 }).then((res: GetBankingTransactionCategoryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -55,9 +56,9 @@ sdk.banking.transactionCategories.get({
 
 ## list
 
-The *List transaction categories* endpoint returns a list of [transaction categories](https://docs.codat.io/banking-api#/schemas/TransactionCategory) for a given company's connection.
+The *List transaction categories* endpoint returns a list of [transaction categories](https://docs.codat.io/lending-api#/schemas/TransactionCategory) for a given company's connection.
 
-[Transaction categories](https://docs.codat.io/banking-api#/schemas/TransactionCategory) are associated with a transaction to provide greater contextual meaning to transaction activity.
+[Transaction categories](https://docs.codat.io/lending-api#/schemas/TransactionCategory) are associated with a transaction to provide greater contextual meaning to transaction activity.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
@@ -80,7 +81,7 @@ sdk.banking.transactionCategories.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "modi",
+  query: "Northeast Metal Canada",
 }).then((res: ListBankingTransactionCategoriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
