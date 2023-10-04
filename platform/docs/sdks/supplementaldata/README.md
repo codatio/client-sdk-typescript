@@ -1,4 +1,5 @@
 # SupplementalData
+(*supplementalData*)
 
 ## Overview
 
@@ -33,19 +34,19 @@ const sdk = new CodatPlatform({
 sdk.supplementalData.configure({
   supplementalDataConfiguration: {
     supplementalDataConfig: {
-      "dolor": {
-        dataSource: "natus",
+      "voluptatem": {
+        dataSource: "Alabama",
         pullData: {
-          "laboriosam": "hic",
+          "dicta": "transmitter",
         },
         pushData: {
-          "saepe": "fuga",
+          "nisi": "primary",
         },
       },
     },
   },
   dataType: ConfigureSupplementalDataDataType.Invoices,
-  platformKey: "in",
+  platformKey: "gbol",
 }).then((res: ConfigureSupplementalDataResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -90,7 +91,7 @@ const sdk = new CodatPlatform({
 
 sdk.supplementalData.getConfiguration({
   dataType: GetSupplementalDataConfigurationDataType.Invoices,
-  platformKey: "corporis",
+  platformKey: "gbol",
 }).then((res: GetSupplementalDataConfigurationResponse) => {
   if (res.statusCode == 200) {
     // handle response
