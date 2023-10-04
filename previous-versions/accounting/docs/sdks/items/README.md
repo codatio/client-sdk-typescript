@@ -1,4 +1,5 @@
-# items
+# Items
+(*items*)
 
 ## Overview
 
@@ -41,46 +42,46 @@ sdk.items.create({
   item: {
     billItem: {
       accountRef: {
-        id: "33e66bd8-fe5d-400b-979e-f20387320590",
-        name: "Mr. Forrest Ryan",
+        id: "<ID>",
+        name: "bluetooth Extended",
       },
-      description: "ea",
+      description: "Customer-focused regional approach",
       taxRateRef: {
-        effectiveTaxRate: 2622.31,
-        id: "00313b3e-5044-4f65-be72-dc4077d0cc3f",
-        name: "Carol Lowe",
+        effectiveTaxRate: 9967.06,
+        id: "<ID>",
+        name: "abnormally deposit evolve",
       },
-      unitPrice: 7738.54,
+      unitPrice: 7150.4,
     },
-    code: "dicta",
-    id: "5ceb4d6e-1eae-40f7-9aed-f2acab58b991",
+    code: "SUV quantify Polestar",
+    id: "<ID>",
     invoiceItem: {
       accountRef: {
-        id: "c926ddb5-8946-41e7-821c-be6d9502f0ea",
-        name: "Sean Auer",
+        id: "<ID>",
+        name: "physical Ameliorated",
       },
-      description: "sint",
+      description: "Exclusive transitional access",
       taxRateRef: {
-        effectiveTaxRate: 9787.97,
-        id: "7ac2f72f-8850-4090-8911-608207888ec6",
-        name: "Teresa Lueilwitz",
+        effectiveTaxRate: 5190.28,
+        id: "<ID>",
+        name: "Bike",
       },
-      unitPrice: 9454.09,
+      unitPrice: 7141.15,
     },
     isBillItem: false,
     isInvoiceItem: false,
-    itemStatus: ItemStatus.Archived,
+    itemStatus: ItemStatus.Unknown,
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    name: "Marion Mills",
+    name: "easily",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     type: ItemType.Unknown,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 881095,
+  timeoutInMinutes: 585365,
 }).then((res: CreateItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -127,7 +128,7 @@ const sdk = new CodatAccounting({
 
 sdk.items.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  itemId: "quod",
+  itemId: "Northeast Hatchback Kia",
 }).then((res: GetItemResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -224,7 +225,7 @@ sdk.items.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "sunt",
+  query: "Northeast Metal Canada",
 }).then((res: ListItemsResponse) => {
   if (res.statusCode == 200) {
     // handle response

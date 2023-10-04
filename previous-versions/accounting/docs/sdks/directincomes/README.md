@@ -1,4 +1,5 @@
-# directIncomes
+# DirectIncomes
+(*directIncomes*)
 
 ## Overview
 
@@ -33,6 +34,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateDirectIncomeResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { DataType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -43,88 +45,88 @@ const sdk = new CodatAccounting({
 sdk.directIncomes.create({
   directIncome: {
     contactRef: {
-      dataType: "unde",
-      id: "ad030c4e-cc11-4a08-b642-9068b8502a55",
+      dataType: DataType.Invoices,
+      id: "<ID>",
     },
-    currency: "EUR",
-    currencyRate: 4813.07,
-    id: "f73bc845-e320-4a31-9f4b-adf947c9a867",
+    currency: "USD",
+    currencyRate: 4893.82,
+    id: "<ID>",
     issueDate: "2022-10-23T00:00:00.000Z",
     lineItems: [
       {
         accountRef: {
-          id: "c4242666-5816-4ddc-a8ef-51fcb4c593ec",
-          name: "Beverly Satterfield",
+          id: "<ID>",
+          name: "Money blue shred",
         },
-        description: "id",
-        discountAmount: 8409.92,
-        discountPercentage: 590.23,
+        description: "Implemented web-enabled success",
+        discountAmount: 0.86,
+        discountPercentage: 4552.22,
         itemRef: {
-          id: "ec7afedb-d80d-4f44-8a47-f9390c588809",
-          name: "Manuel Swift",
+          id: "<ID>",
+          name: "evolve",
         },
-        quantity: 9830.6,
-        subTotal: 6229.68,
-        taxAmount: 9261.19,
+        quantity: 7150.4,
+        subTotal: 7926.2,
+        taxAmount: 8559.52,
         taxRateRef: {
-          effectiveTaxRate: 9559.62,
-          id: "3ffdd9f7-f079-4af4-9357-24cdb0f4d281",
-          name: "Irma Kub",
+          effectiveTaxRate: 8165.88,
+          id: "<ID>",
+          name: "Screen mobile",
         },
-        totalAmount: 4357.13,
+        totalAmount: 6562.56,
         trackingCategoryRefs: [
           {
-            id: "844eded8-5a90-465e-a28b-dfc2032b6c87",
-            name: "Alejandro Considine",
+            id: "<ID>",
+            name: "Durham after",
           },
         ],
-        unitAmount: 4766.14,
+        unitAmount: 5190.28,
       },
     ],
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "vitae",
+    note: "Fish",
     paymentAllocations: [
       {
         allocation: {
           allocatedOnDate: "2022-10-23T00:00:00.000Z",
-          currency: "GBP",
-          currencyRate: 5398.86,
-          totalAmount: 2847.79,
+          currency: "EUR",
+          currencyRate: 3229.97,
+          totalAmount: 8946.95,
         },
         payment: {
           accountRef: {
-            id: "f7ae12c6-891f-482c-a115-7172305377dc",
-            name: "Horace Leannon",
+            id: "<ID>",
+            name: "Account",
           },
-          currency: "EUR",
-          currencyRate: 6081.72,
-          id: "75e35668-6092-4e9c-bddc-5f111dea1026",
-          note: "pariatur",
+          currency: "GBP",
+          currencyRate: 3577.62,
+          id: "<ID>",
+          note: "Kentucky animated",
           paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "numquam",
-          totalAmount: 1031.93,
+          reference: "though East",
+          totalAmount: 1687.57,
         },
       },
     ],
-    reference: "est",
+    reference: "or",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    subTotal: 8167.26,
+    subTotal: 276.19,
     supplementalData: {
       content: {
-        "vitae": {
-          "omnis": "alias",
+        "tempora": {
+          "id": "Global",
         },
       },
     },
-    taxAmount: 9574.89,
-    totalAmount: 8876,
+    taxAmount: 7870.96,
+    totalAmount: 9065.37,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 708883,
+  timeoutInMinutes: 425694,
 }).then((res: CreateDirectIncomeResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -171,7 +173,7 @@ sdk.directIncomes.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "quia",
+  directIncomeId: "Dakota Avon specifically",
 }).then((res: DownloadDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -219,7 +221,7 @@ const sdk = new CodatAccounting({
 sdk.directIncomes.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "vitae",
+  directIncomeId: "Northeast Hatchback Kia",
 }).then((res: GetDirectIncomeResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -266,8 +268,8 @@ sdk.directIncomes.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "odio",
-  timeoutInMinutes: 558410,
+  directIncomeId: "array East along",
+  timeoutInMinutes: 329312,
 }).then((res: GetDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -365,7 +367,7 @@ sdk.directIncomes.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "ipsa",
+  query: "Northeast Metal Canada",
 }).then((res: ListDirectIncomesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -411,7 +413,7 @@ const sdk = new CodatAccounting({
 sdk.directIncomes.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "distinctio",
+  directIncomeId: "intuitive Frozen ouch",
 }).then((res: ListDirectIncomeAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -460,12 +462,12 @@ const sdk = new CodatAccounting({
 
 sdk.directIncomes.uploadAttachment({
   requestBody: {
-    content: "placeat".encode(),
-    requestBody: "quod",
+    content: "v/ghW&IC$x" as bytes <<<>>>,
+    requestBody: "Elegant Producer Electric",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "eligendi",
+  directIncomeId: "Iowa Bentley",
 }).then((res: UploadDirectIncomeAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response

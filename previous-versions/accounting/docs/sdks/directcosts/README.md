@@ -1,4 +1,5 @@
-# directCosts
+# DirectCosts
+(*directCosts*)
 
 ## Overview
 
@@ -33,6 +34,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 import { CreateDirectCostResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { DataType } from "@codat/accounting/dist/sdk/models/shared";
 
 const sdk = new CodatAccounting({
   security: {
@@ -43,100 +45,100 @@ const sdk = new CodatAccounting({
 sdk.directCosts.create({
   directCost: {
     contactRef: {
-      dataType: "maxime",
-      id: "af5dd672-3dc0-4f5a-a2f3-a6b700878756",
+      dataType: DataType.Invoices,
+      id: "<ID>",
     },
-    currency: "GBP",
-    currencyRate: 3086.58,
-    id: "3f5a6c98-b555-4540-80d4-0bcacc6cbd6b",
+    currency: "USD",
+    currencyRate: 4893.82,
+    id: "<ID>",
     issueDate: "2022-10-23T00:00:00.000Z",
     lineItems: [
       {
         accountRef: {
-          id: "f3ec9093-04f9-426b-ad25-53819b474b0e",
-          name: "Steve Barrows",
+          id: "<ID>",
+          name: "Money blue shred",
         },
-        description: "ea",
-        discountAmount: 1799.06,
-        discountPercentage: 3052.67,
+        description: "Implemented web-enabled success",
+        discountAmount: 0.86,
+        discountPercentage: 4552.22,
         itemRef: {
-          id: "8fff639a-910a-4bdc-ab62-676696e1ec00",
-          name: "Kathryn Bruen",
+          id: "<ID>",
+          name: "evolve",
         },
-        quantity: 2274.31,
-        subTotal: 3466.08,
-        taxAmount: 8470.18,
+        quantity: 7150.4,
+        subTotal: 7926.2,
+        taxAmount: 8559.52,
         taxRateRef: {
-          effectiveTaxRate: 5065.32,
-          id: "9acb3ecf-da8d-40c5-89ef-03004978a61f",
-          name: "Peter Schmitt",
+          effectiveTaxRate: 8165.88,
+          id: "<ID>",
+          name: "Screen mobile",
         },
-        totalAmount: 349.89,
+        totalAmount: 6562.56,
         tracking: {
           invoiceTo: {
             dataType: "invoice",
-            id: "88f77c1f-fc71-4dca-963f-2a3c80a97ff3",
+            id: "<ID>",
           },
           recordRefs: [
             {
               dataType: "journalEntry",
-              id: "4cddf857-a9e6-4187-ac6a-b21d29dfc94d",
+              id: "<ID>",
             },
           ],
         },
         trackingCategoryRefs: [
           {
-            id: "6fecd799-3900-466a-ad2d-000355338cec",
-            name: "Lena Kerluke",
+            id: "<ID>",
+            name: "after",
           },
         ],
-        unitAmount: 1440.58,
+        unitAmount: 5190.28,
       },
     ],
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "necessitatibus",
+    note: "Fish",
     paymentAllocations: [
       {
         allocation: {
           allocatedOnDate: "2022-10-23T00:00:00.000Z",
-          currency: "GBP",
-          currencyRate: 3690.99,
-          totalAmount: 1631.81,
+          currency: "EUR",
+          currencyRate: 3229.97,
+          totalAmount: 8946.95,
         },
         payment: {
           accountRef: {
-            id: "cb311916-7b8e-43c8-9b03-408d6d364ffd",
-            name: "Jill Hermann III",
+            id: "<ID>",
+            name: "Account",
           },
-          currency: "EUR",
-          currencyRate: 1168.67,
-          id: "263d48e9-35c2-4c9e-81f3-0be3e43202d7",
-          note: "magni",
+          currency: "GBP",
+          currencyRate: 3577.62,
+          id: "<ID>",
+          note: "Kentucky animated",
           paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "aliquid",
-          totalAmount: 3216.97,
+          reference: "though East",
+          totalAmount: 1687.57,
         },
       },
     ],
-    reference: "voluptate",
+    reference: "or",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    subTotal: 3249.99,
+    subTotal: 276.19,
     supplementalData: {
       content: {
-        "sit": {
-          "vel": "laboriosam",
+        "tempora": {
+          "id": "Global",
         },
       },
     },
-    taxAmount: 3112.47,
-    totalAmount: 941.22,
+    taxAmount: 7870.96,
+    totalAmount: 9065.37,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 525223,
+  timeoutInMinutes: 425694,
 }).then((res: CreateDirectCostResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -183,7 +185,7 @@ sdk.directCosts.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "dignissimos",
+  directCostId: "Dakota Avon specifically",
 }).then((res: DownloadDirectCostAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -231,7 +233,7 @@ const sdk = new CodatAccounting({
 sdk.directCosts.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "doloremque",
+  directCostId: "Northeast Hatchback Kia",
 }).then((res: GetDirectCostResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -278,7 +280,7 @@ sdk.directCosts.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "assumenda",
+  directCostId: "array East along",
 }).then((res: GetDirectCostAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -376,7 +378,7 @@ sdk.directCosts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "provident",
+  query: "Northeast Metal Canada",
 }).then((res: ListDirectCostsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -422,7 +424,7 @@ const sdk = new CodatAccounting({
 sdk.directCosts.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "facere",
+  directCostId: "intuitive Frozen ouch",
 }).then((res: ListDirectCostAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -471,12 +473,12 @@ const sdk = new CodatAccounting({
 
 sdk.directCosts.uploadAttachment({
   requestBody: {
-    content: "sed".encode(),
-    requestBody: "inventore",
+    content: "v/ghW&IC$x" as bytes <<<>>>,
+    requestBody: "Elegant Producer Electric",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "voluptatibus",
+  directCostId: "Iowa Bentley",
 }).then((res: UploadDirectCostAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response

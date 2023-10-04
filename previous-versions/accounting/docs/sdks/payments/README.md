@@ -1,4 +1,5 @@
-# payments
+# Payments
+(*payments*)
 
 ## Overview
 
@@ -40,27 +41,27 @@ const sdk = new CodatAccounting({
 sdk.payments.create({
   payment: {
     accountRef: {
-      id: "e71f6c48-252d-4777-9e7f-d074009ef8d2",
-      name: "Dr. Levi Volkman",
+      id: "<ID>",
+      name: "bluetooth Extended",
     },
-    currency: "USD",
-    currencyRate: 161.58,
+    currency: "GBP",
+    currencyRate: 7865.46,
     customerRef: {
-      companyName: "provident",
-      id: "7b5da08c-57fa-46c7-8a21-6e19bafeca61",
+      companyName: "Zieme Group",
+      id: "<ID>",
     },
     date: "2022-10-23T00:00:00.000Z",
-    id: "1498140b-64ff-48ae-970e-f03b5f37e4aa",
+    id: "<ID>",
     lines: [
       {
         allocatedOnDate: "2022-10-23T00:00:00.000Z",
-        amount: 3819.74,
+        amount: 8915.1,
         links: [
           {
-            amount: 5576.51,
-            currencyRate: 3385.42,
-            id: "55966732-aa5d-4cb6-a82c-b70f8cfd5fb6",
-            type: PaymentLinkType.Discount,
+            amount: 0.86,
+            currencyRate: 4552.22,
+            id: "<ID>",
+            type: PaymentLinkType.Unlinked,
           },
         ],
       },
@@ -69,22 +70,22 @@ sdk.payments.create({
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "dicta",
-    paymentMethodRef: "quidem",
-    reference: "omnis",
+    note: "male",
+    paymentMethodRef: "SUV",
+    reference: "Screen mobile",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "molestias": {
-          "a": "dignissimos",
+        "ullam": {
+          "voluptatem": "Fresh",
         },
       },
     },
-    totalAmount: 2883.48,
+    totalAmount: 177.59,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 511054,
+  timeoutInMinutes: 519028,
 }).then((res: CreatePaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -131,7 +132,7 @@ const sdk = new CodatAccounting({
 
 sdk.payments.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  paymentId: "dolore",
+  paymentId: "Northeast Hatchback Kia",
 }).then((res: GetPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -228,7 +229,7 @@ sdk.payments.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "aliquid",
+  query: "Northeast Metal Canada",
 }).then((res: ListPaymentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

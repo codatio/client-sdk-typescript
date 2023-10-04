@@ -28,14 +28,23 @@ import { Expose, Type } from "class-transformer";
  * * Transaction type, for example, credit, debit, or transfer.
  */
 export class BankTransactionsSourceModifiedDate extends SpeakeasyBase {
+    /**
+     * Unique identifier to the `accountId` the bank transactions originates from.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "accountId" })
     accountId?: string;
 
+    /**
+     * The amount transacted in the bank transaction.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "amount" })
     amount?: number;
 
+    /**
+     * The remaining balance in the account with ID `accountId`.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "balance" })
     balance?: number;
@@ -67,10 +76,16 @@ export class BankTransactionsSourceModifiedDate extends SpeakeasyBase {
     @Expose({ name: "clearedOnDate" })
     clearedOnDate?: string;
 
+    /**
+     * Description of the bank transaction.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "description" })
     description?: string;
 
+    /**
+     * Identifier for the bank transaction, unique to the company in the accounting platform.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id?: string;
@@ -79,6 +94,9 @@ export class BankTransactionsSourceModifiedDate extends SpeakeasyBase {
     @Expose({ name: "modifiedDate" })
     modifiedDate?: string;
 
+    /**
+     * `True` if the bank transaction has been [reconciled](https://www.xero.com/uk/guides/what-is-bank-reconciliation/) in the accounting platform.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "reconciled" })
     reconciled?: boolean;
@@ -88,7 +106,7 @@ export class BankTransactionsSourceModifiedDate extends SpeakeasyBase {
     sourceModifiedDate?: string;
 
     /**
-     * Type of transaction for the bank statement line
+     * Type of transaction for the bank statement line.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "transactionType" })
@@ -101,10 +119,16 @@ export class BankTransactions extends SpeakeasyBase {
     @Type(() => Links)
     links: Links;
 
+    /**
+     * Current page number.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "pageNumber" })
     pageNumber: number;
 
+    /**
+     * Number of items to return in results array.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "pageSize" })
     pageSize: number;
@@ -114,6 +138,9 @@ export class BankTransactions extends SpeakeasyBase {
     @Type(() => BankTransactionsSourceModifiedDate)
     results?: BankTransactionsSourceModifiedDate[];
 
+    /**
+     * Total number of items.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "totalResults" })
     totalResults: number;

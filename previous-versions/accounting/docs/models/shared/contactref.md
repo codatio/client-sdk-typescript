@@ -5,7 +5,7 @@ The customer or supplier for the transfer, if available.
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `dataType`         | *string*           | :heavy_minus_sign: | N/A                |
-| `id`               | *string*           | :heavy_check_mark: | N/A                |
+| Field                                         | Type                                          | Required                                      | Description                                   | Example                                       |
+| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
+| `dataType`                                    | [DataType](../../models/shared/datatype.md)   | :heavy_minus_sign:                            | Available Data types                          | invoices                                      |
+| `id`                                          | *string*                                      | :heavy_check_mark:                            | Unique identifier for a customer or supplier. |                                               |

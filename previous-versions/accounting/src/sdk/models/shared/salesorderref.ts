@@ -3,13 +3,20 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { DataType } from "./datatype";
 import { Expose } from "class-transformer";
 
 export class SalesOrderRef extends SpeakeasyBase {
+    /**
+     * Available Data types
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "dataType" })
-    dataType?: string;
+    dataType?: DataType;
 
+    /**
+     * Unique identifier to a record in `dataType`.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id?: string;

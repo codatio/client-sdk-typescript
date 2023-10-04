@@ -1,4 +1,5 @@
-# bills
+# Bills
+(*bills*)
 
 ## Overview
 
@@ -45,123 +46,123 @@ const sdk = new CodatAccounting({
 
 sdk.bills.create({
   bill: {
-    amountDue: 5436.78,
-    currency: "GBP",
-    currencyRate: 2826.99,
+    amountDue: 4865.89,
+    currency: "USD",
+    currencyRate: 6384.24,
     dueDate: "2022-10-23T00:00:00.000Z",
-    id: "0ab40750-88e5-4186-a065-e904f3b1194b",
+    id: "<ID>",
     issueDate: "2022-10-23T00:00:00.000Z",
     lineItems: [
       {
         accountRef: {
-          id: "abf603a7-9f9d-4fe0-ab7d-a8a50ce187f8",
-          name: "Ms. Alison Schoen",
+          id: "<ID>",
+          name: "South",
         },
-        description: "assumenda",
-        discountAmount: 4103.01,
-        discountPercentage: 5391.18,
+        description: "Vision-oriented responsive function",
+        discountAmount: 9510.62,
+        discountPercentage: 8915.1,
         isDirectCost: false,
         itemRef: {
-          id: "9eee9526-f8d9-486e-881e-ad4f0e101256",
-          name: "Elsa Maggio",
+          id: "<ID>",
+          name: "deposit",
         },
-        quantity: 1604.67,
-        subTotal: 5801.07,
-        taxAmount: 8863.05,
+        quantity: 3015.1,
+        subTotal: 899.64,
+        taxAmount: 7150.4,
         taxRateRef: {
-          effectiveTaxRate: 5979.37,
-          id: "73e922a5-7a15-4be3-a060-807e2b6e3ab8",
-          name: "Jim Hammes II",
+          effectiveTaxRate: 7926.2,
+          id: "<ID>",
+          name: "Gasoline Screen mobile",
         },
-        totalAmount: 5973.03,
+        totalAmount: 6562.56,
         tracking: {
           categoryRefs: [
             {
-              id: "7a60ff2a-54a3-41e9-8764-a3e865e7956f",
-              name: "Miss Bruce Hermann",
+              id: "<ID>",
+              name: "Durham after",
             },
           ],
           customerRef: {
-            companyName: "mollitia",
-            id: "9da660ff-57bf-4aad-8f9e-fc1b4512c103",
+            companyName: "Fay - Durgan",
+            id: "<ID>",
           },
           isBilledTo: BilledToType.Unknown,
-          isRebilledTo: BilledToType.NotApplicable,
+          isRebilledTo: BilledToType.Customer,
           projectRef: {
-            id: "48dc2f61-5199-4ebf-90e9-fe6c632ca3ae",
-            name: "Ms. William Boyle",
+            id: "<ID>",
+            name: "Fiat",
           },
         },
         trackingCategoryRefs: [
           {
-            id: "96312fde-0477-4177-8ff6-1d017476360a",
-            name: "Audrey Stiedemann",
+            id: "<ID>",
+            name: "Grocery Borders Northwest",
           },
         ],
-        unitAmount: 6391.87,
+        unitAmount: 6519.85,
       },
     ],
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "aliquid",
+    note: "animated Minivan",
     paymentAllocations: [
       {
         allocation: {
           allocatedOnDate: "2022-10-23T00:00:00.000Z",
           currency: "USD",
-          currencyRate: 3747.53,
-          totalAmount: 6145.28,
+          currencyRate: 808.14,
+          totalAmount: 2006.64,
         },
         payment: {
           accountRef: {
-            id: "a1adeaab-5851-4d6c-a45b-08b61891baa0",
-            name: "Stewart Brakus",
+            id: "<ID>",
+            name: "West",
           },
-          currency: "EUR",
-          currencyRate: 291.9,
-          id: "08e6f8c5-f350-4d8c-9b5a-341814301042",
-          note: "ab",
+          currency: "USD",
+          currencyRate: 3379.66,
+          id: "<ID>",
+          note: "Towels",
           paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "quae",
-          totalAmount: 2226.58,
+          reference: "payment 1080p",
+          totalAmount: 2597.72,
         },
       },
     ],
     purchaseOrderRefs: [
       {
-        id: "d5208ece-7e25-43b6-a845-1c6c6e205e16",
-        purchaseOrderNumber: "at",
+        id: "<ID>",
+        purchaseOrderNumber: "silver Indiana",
       },
     ],
-    reference: "vero",
+    reference: "Toyota Neptunium round",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: BillStatus.Void,
-    subTotal: 1927.18,
+    status: BillStatus.Open,
+    subTotal: 9057.54,
     supplementalData: {
       content: {
-        "doloribus": {
-          "repudiandae": "optio",
+        "in": {
+          "pariatur": "Dollar",
         },
       },
     },
     supplierRef: {
-      id: "9578a645-8427-43a8-818d-162309fb0929",
-      supplierName: "iste",
+      id: "<ID>",
+      supplierName: "South",
     },
-    taxAmount: 1700.99,
-    totalAmount: 813.69,
+    taxAmount: 4914.27,
+    totalAmount: 2663.33,
     withholdingTax: [
       {
-        amount: 6863.62,
-        name: "Jan Reichel",
+        amount: 4904.2,
+        name: "markets",
       },
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 328379,
+  timeoutInMinutes: 924484,
 }).then((res: CreateBillResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -185,7 +186,7 @@ sdk.bills.create({
 
 ## delete
 
-﻿The *Delete bill* endpoint allows you to delete a specified bill from an accounting platform. 
+The *Delete bill* endpoint allows you to delete a specified bill from an accounting platform. 
 
 [Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are itemized records of goods received or services provided to the SMB.
 
@@ -212,7 +213,7 @@ Integrations that support soft delete do not permanently delete the object in th
 
 > **Supported Integrations**
 > 
-> This functionality is currently only supported for our QuickBooks Online abd Oracle NetSuite integrations. Check out our [public roadmap](https://portal.productboard.com/codat/7-public-product-roadmap/tabs/46-accounting-api) to see what we're building next, and to submit ideas for new features.
+> This functionality is currently supported for our QuickBooks Online, Xero and Oracle NetSuite integrations.
 
 ### Example Usage
 
@@ -322,7 +323,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bills.get({
-  billId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+  billId: "7110701885",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetBillResponse) => {
   if (res.statusCode == 200) {
@@ -467,7 +468,7 @@ sdk.bills.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "quos",
+  query: "Northeast Metal Canada",
 }).then((res: ListBillsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -511,7 +512,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bills.listAttachments({
-  billId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+  billId: "EILBDVJVNUAGVKRQ",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: ListBillAttachmentsResponse) => {
@@ -563,125 +564,125 @@ const sdk = new CodatAccounting({
 
 sdk.bills.update({
   bill: {
-    amountDue: 9308.19,
-    currency: "USD",
-    currencyRate: 5207.61,
+    amountDue: 8574.78,
+    currency: "GBP",
+    currencyRate: 5971.29,
     dueDate: "2022-10-23T00:00:00.000Z",
-    id: "4be05601-3f59-4da7-97a5-9ecfef66ef1c",
+    id: "<ID>",
     issueDate: "2022-10-23T00:00:00.000Z",
     lineItems: [
       {
         accountRef: {
-          id: "a3383c2b-eb47-4737-bc8d-72f64d1db1f2",
-          name: "Mr. Jim Franecki",
+          id: "<ID>",
+          name: "dock Quality redundant",
         },
-        description: "ea",
-        discountAmount: 1076.17,
-        discountPercentage: 8777.51,
+        description: "Visionary bi-directional analyzer",
+        discountAmount: 2782.81,
+        discountPercentage: 8965.01,
         isDirectCost: false,
         itemRef: {
-          id: "96349e1c-f9e0-46e3-a437-000ae6b6bc9b",
-          name: "Tommie Klocko",
+          id: "<ID>",
+          name: "withdrawal extend",
         },
-        quantity: 8975.43,
-        subTotal: 6540.82,
-        taxAmount: 7699.67,
+        quantity: 2494.4,
+        subTotal: 3668.07,
+        taxAmount: 1395.79,
         taxRateRef: {
-          effectiveTaxRate: 3730.4,
-          id: "5a9741d3-1135-4296-9bb8-a7202611435e",
-          name: "Tracy Mills",
+          effectiveTaxRate: 6447.13,
+          id: "<ID>",
+          name: "syndicate East Baht",
         },
-        totalAmount: 8028.94,
+        totalAmount: 6298.17,
         tracking: {
           categoryRefs: [
             {
-              id: "2259b1ab-da8c-4070-a108-4cb0672d1ad8",
-              name: "Daisy Tillman",
+              id: "<ID>",
+              name: "guestbook driver users",
             },
           ],
           customerRef: {
-            companyName: "sint",
-            id: "665b85ef-bd02-4bae-8be2-d782259e3ea4",
+            companyName: "Schroeder - Nienow",
+            id: "<ID>",
           },
-          isBilledTo: BilledToType.Customer,
-          isRebilledTo: BilledToType.NotApplicable,
+          isBilledTo: BilledToType.NotApplicable,
+          isRebilledTo: BilledToType.Unknown,
           projectRef: {
-            id: "197f9244-3da7-4ce5-ab89-5c537c6454ef",
-            name: "Jason Rempel",
+            id: "<ID>",
+            name: "Wooden Internal",
           },
         },
         trackingCategoryRefs: [
           {
-            id: "896c3ca5-acfb-4e2f-9570-7577929177de",
-            name: "Benny Jacobs",
+            id: "<ID>",
+            name: "Dodge brightly",
           },
         ],
-        unitAmount: 8886.16,
+        unitAmount: 7115.64,
       },
     ],
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "quidem",
+    note: "frictionless haptic",
     paymentAllocations: [
       {
         allocation: {
           allocatedOnDate: "2022-10-23T00:00:00.000Z",
           currency: "USD",
-          currencyRate: 2114.55,
-          totalAmount: 2646.19,
+          currencyRate: 8238.97,
+          totalAmount: 5143.61,
         },
         payment: {
           accountRef: {
-            id: "09e3eb1e-5a2b-412e-b07f-116db99545fc",
-            name: "Ronnie Welch",
+            id: "<ID>",
+            name: "Diesel Avon",
           },
-          currency: "USD",
-          currencyRate: 5646.67,
-          id: "70e189db-b30f-4cb3-bea0-55b197cd44e2",
-          note: "asperiores",
+          currency: "GBP",
+          currencyRate: 8941.07,
+          id: "<ID>",
+          note: "male hack",
           paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "consequuntur",
-          totalAmount: 8138.8,
+          reference: "absolve West",
+          totalAmount: 182.83,
         },
       },
     ],
     purchaseOrderRefs: [
       {
-        id: "82d3513b-b6f4-48b6-96bc-db35ff2e4b27",
-        purchaseOrderNumber: "nostrum",
+        id: "<ID>",
+        purchaseOrderNumber: "quisquam",
       },
     ],
-    reference: "neque",
+    reference: "deliverables Ergonomic Money",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     status: BillStatus.Paid,
-    subTotal: 5221.76,
+    subTotal: 4173.15,
     supplementalData: {
       content: {
-        "eligendi": {
-          "fugiat": "unde",
+        "repellat": {
+          "voluptatibus": "Latvian",
         },
       },
     },
     supplierRef: {
-      id: "e7319c17-7d52-45f7-bb11-4eeb52ff785f",
-      supplierName: "quisquam",
+      id: "<ID>",
+      supplierName: "Chips Omnigender tremendously",
     },
-    taxAmount: 1972.59,
-    totalAmount: 4671.19,
+    taxAmount: 9620.25,
+    totalAmount: 6952.8,
     withholdingTax: [
       {
-        amount: 5349.08,
-        name: "Jamie Simonis",
+        amount: 3189.59,
+        name: "Benz",
       },
     ],
   },
-  billId: "7110701885",
+  billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  timeoutInMinutes: 514993,
+  timeoutInMinutes: 523103,
 }).then((res: UpdateBillResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -730,10 +731,10 @@ const sdk = new CodatAccounting({
 
 sdk.bills.uploadAttachment({
   requestBody: {
-    content: "repudiandae".encode(),
-    requestBody: "consequatur",
+    content: "v/ghW&IC$x" as bytes <<<>>>,
+    requestBody: "Elegant Producer Electric",
   },
-  billId: "EILBDVJVNUAGVKRQ",
+  billId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: UploadBillAttachmentResponse) => {

@@ -1,4 +1,5 @@
-# bankAccountTransactions
+# BankAccountTransactions
+(*bankAccountTransactions*)
 
 ## Overview
 
@@ -37,22 +38,22 @@ const sdk = new CodatAccounting({
 
 sdk.bankAccountTransactions.create({
   createBankTransactions: {
-    accountId: "iure",
+    accountId: "7110701885",
     transactions: [
       {
-        amount: 2975.34,
-        balance: 8917.73,
+        amount: 4893.82,
+        balance: 6384.24,
         date: "2022-10-23T00:00:00.000Z",
-        description: "delectus",
-        id: "467cc879-6ed1-451a-85df-c2ddf7cc78ca",
+        description: "Inverse discrete benchmark",
+        id: "<ID>",
       },
     ],
   },
-  accountId: "dicta",
+  accountId: "Cambridgeshire grey technology",
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 720633,
+  timeoutInMinutes: 86,
 }).then((res: CreateBankTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -100,7 +101,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bankAccountTransactions.getCreateModel({
-  accountId: "officia",
+  accountId: "Northwest",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetCreateBankTransactionsModelResponse) => {
@@ -148,13 +149,13 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bankAccountTransactions.list({
-  accountId: "occaecati",
+  accountId: "Northeast Metal Canada",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "fugit",
+  query: "Data Response West",
 }).then((res: ListBankAccountTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
