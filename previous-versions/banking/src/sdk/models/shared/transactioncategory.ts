@@ -46,6 +46,9 @@ export class TransactionCategory extends SpeakeasyBase {
     @Expose({ name: "sourceModifiedDate" })
     sourceModifiedDate?: string;
 
+    /**
+     * The status of the transaction category.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
     status?: TransactionCategoryStatus;

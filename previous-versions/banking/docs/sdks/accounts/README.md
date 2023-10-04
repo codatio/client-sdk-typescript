@@ -1,4 +1,5 @@
-# accounts
+# Accounts
+(*accounts*)
 
 ## Overview
 
@@ -84,7 +85,7 @@ sdk.accounts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "quibusdam",
+  query: "Northeast Metal Canada",
 }).then((res: ListAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
