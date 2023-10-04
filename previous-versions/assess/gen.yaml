@@ -1,7 +1,7 @@
 configVersion: 1.0.0
 management:
   docChecksum: f53309849cf86ec1929878a76006bffa
-  docVersion: "1.0"
+  docVersion: '1.0'
   speakeasyVersion: 1.83.2
   generationVersion: 2.109.3
 generation:
@@ -20,6 +20,7 @@ features:
 typescript:
   version: 0.34.0
   author: Codat
-  description: Make credit decisions backed by enhanced financials, metrics, reports, and data integrity features.
+  description: Make credit decisions backed by enhanced financials, metrics, reports,
+    and data integrity features.
   maxMethodParams: 0
   packageName: '@codat/assess'
