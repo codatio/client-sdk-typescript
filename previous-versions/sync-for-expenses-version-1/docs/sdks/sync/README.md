@@ -1,4 +1,5 @@
-# sync
+# Sync
+(*sync*)
 
 ## Overview
 
@@ -27,7 +28,7 @@ const sdk = new CodatSyncExpenses({
 sdk.sync.initiateSync({
   postSync: {
     datasetIds: [
-      "a674e0f4-67cc-4879-aed1-51a05dfc2ddf",
+      "acce2362-83d6-4e3e-a27f-f4a08e7217d5",
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",

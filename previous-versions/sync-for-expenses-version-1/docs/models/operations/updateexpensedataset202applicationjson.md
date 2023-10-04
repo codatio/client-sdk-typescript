@@ -5,6 +5,6 @@ Accepted
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `syncId`           | *string*           | :heavy_minus_sign: | N/A                |
+| Field                                   | Type                                    | Required                                | Description                             |
+| --------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------- |
+| `syncId`                                | *string*                                | :heavy_minus_sign:                      | Unique identifier for the updated sync. |

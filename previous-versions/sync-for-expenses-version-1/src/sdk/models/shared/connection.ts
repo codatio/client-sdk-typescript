@@ -121,10 +121,16 @@ export class Connection extends SpeakeasyBase {
     @Expose({ name: "lastSync" })
     lastSync?: string;
 
+    /**
+     * The link URL your customers can use to authorize access to their business application.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "linkUrl" })
     linkUrl: string;
 
+    /**
+     * Name of integration connected to company.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "platformName" })
     platformName: string;

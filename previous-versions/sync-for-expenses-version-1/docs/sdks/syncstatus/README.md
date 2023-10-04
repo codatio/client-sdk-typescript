@@ -1,4 +1,5 @@
-# syncStatus
+# SyncStatus
+(*syncStatus*)
 
 ## Overview
 
@@ -8,7 +9,7 @@ Check the status of ongoing or previous expense syncs.
 
 * [getLastSuccessfulSync](#getlastsuccessfulsync) - Last successful sync
 * [getLatestSync](#getlatestsync) - Latest sync status
-* [getSyncById](#getsyncbyid) - Get Sync status
+* [getSyncById](#getsyncbyid) - Get sync status
 * [listSyncs](#listsyncs) - List sync statuses
 
 ## getLastSuccessfulSync
