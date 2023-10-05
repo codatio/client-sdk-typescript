@@ -1,4 +1,5 @@
-# creditNotes
+# CreditNotes
+(*creditNotes*)
 
 ## Overview
 
@@ -10,7 +11,7 @@ Credit notes
 * [get](#get) - Get credit note
 * [getCreateUpdateModel](#getcreateupdatemodel) - Get create/update credit note model
 * [list](#list) - List credit notes
-* [update](#update) - Update creditNote
+* [update](#update) - Update credit note
 
 ## create
 
@@ -40,125 +41,125 @@ const sdk = new CodatAccounting({
 
 sdk.creditNotes.create({
   creditNote: {
-    additionalTaxAmount: 1363.57,
-    additionalTaxPercentage: 7239.42,
+    additionalTaxAmount: 4865.89,
+    additionalTaxPercentage: 4893.82,
     allocatedOnDate: "2022-10-23T00:00:00.000Z",
-    creditNoteNumber: "quas",
+    creditNoteNumber: "Money blue shred",
     currency: "USD",
-    currencyRate: 9222.99,
+    currencyRate: 9510.62,
     customerRef: {
-      companyName: "rerum",
-      id: "75dad636-c600-4503-98bb-31180f739ae9",
+      companyName: "Abbott, Klocko and Dach",
+      id: "<ID>",
     },
-    discountPercentage: 9202.72,
-    id: "057eb809-e281-4033-9f39-81d4c700b607",
+    discountPercentage: 3015.1,
+    id: "<ID>",
     issueDate: "2022-10-23T00:00:00.000Z",
     lineItems: [
       {
         accountRef: {
-          id: "3c93c73b-9da3-4f2c-ada7-e23f2257411f",
-          name: "Toby Friesen",
+          id: "<ID>",
+          name: "fuchsia Gasoline Screen",
         },
-        description: "exercitationem",
-        discountAmount: 2883,
-        discountPercentage: 2543.82,
+        description: "Networked web-enabled monitoring",
+        discountAmount: 3570.21,
+        discountPercentage: 285.48,
         isDirectIncome: false,
         itemRef: {
-          id: "e472e802-857a-45b4-8463-a7d575f1400e",
-          name: "Gertrude Gerhold",
+          id: "<ID>",
+          name: "after",
         },
-        quantity: 4523.99,
-        subTotal: 2327.72,
-        taxAmount: 2006.37,
+        quantity: 5190.28,
+        subTotal: 2303.13,
+        taxAmount: 2075.65,
         taxRateRef: {
-          effectiveTaxRate: 3106.29,
-          id: "ec1b781b-36a0-4808-8d10-0efada200ef0",
-          name: "Phyllis Denesik",
+          effectiveTaxRate: 2113.37,
+          id: "<ID>",
+          name: "Buckinghamshire functionalities Grocery",
         },
-        totalAmount: 1267.27,
+        totalAmount: 738.99,
         tracking: {
           categoryRefs: [
             {
-              id: "164cf9ab-8366-4c72-bffd-a9e06bee4825",
-              name: "Willie Wiza PhD",
+              id: "<ID>",
+              name: "Northwest Direct",
             },
           ],
           customerRef: {
-            companyName: "architecto",
-            id: "15c80bff-9185-444e-842d-efcce8f19777",
+            companyName: "Stracke - Bashirian",
+            id: "<ID>",
           },
-          isBilledTo: BilledToType1.NotApplicable,
-          isRebilledTo: BilledToType1.Unknown,
+          isBilledTo: BilledToType1.Project,
+          isRebilledTo: BilledToType1.NotApplicable,
           projectRef: {
-            id: "e63562a7-b408-4f05-a3d4-8fdaf313a1f5",
-            name: "Woodrow Mitchell III",
+            id: "<ID>",
+            name: "Senior Mouse West",
           },
           recordRef: {
             dataType: "accountTransaction",
-            id: "c0b36f25-ea94-44f3-b756-c11f6c37a512",
+            id: "<ID>",
           },
         },
         trackingCategoryRefs: [
           {
-            id: "6243835b-bc05-4a23-a45c-efc5fde10a0c",
-            name: "Randy Carter",
+            id: "<ID>",
+            name: "Edinburg Investor",
           },
         ],
-        unitAmount: 8927.08,
+        unitAmount: 5504.83,
       },
     ],
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "architecto",
+    note: "Dollar 1080p Rubber",
     paymentAllocations: [
       {
         allocation: {
           allocatedOnDate: "2022-10-23T00:00:00.000Z",
-          currency: "GBP",
-          currencyRate: 828.76,
-          totalAmount: 5905.85,
+          currency: "EUR",
+          currencyRate: 1373.24,
+          totalAmount: 2734.46,
         },
         payment: {
           accountRef: {
-            id: "c6dc5e34-7627-499b-bbbe-6949fb2bb4ec",
-            name: "Bert Kassulke",
+            id: "<ID>",
+            name: "Toyota Neptunium round",
           },
-          currency: "EUR",
-          currencyRate: 3674.75,
-          id: "db3adebd-5dae-4a4c-906a-8aa94c02644c",
-          note: "hic",
+          currency: "GBP",
+          currencyRate: 2199.74,
+          id: "<ID>",
+          note: "invoice Dollar Electronic",
           paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "officiis",
-          totalAmount: 6036.5,
+          reference: "markets",
+          totalAmount: 9244.84,
         },
       },
     ],
-    remainingCredit: 8603.11,
+    remainingCredit: 9824.5,
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     status: CreditNoteStatus.Paid,
-    subTotal: 2986.13,
+    subTotal: 1296.63,
     supplementalData: {
       content: {
-        "nostrum": {
-          "esse": "corrupti",
+        "nemo": {
+          "labore": "pixel",
         },
       },
     },
-    totalAmount: 6847.99,
-    totalDiscount: 8152.25,
-    totalTaxAmount: 7736.59,
+    totalAmount: 3583.09,
+    totalDiscount: 5193.59,
+    totalTaxAmount: 1932.39,
     withholdingTax: [
       {
-        amount: 986.1,
-        name: "Mr. Forrest Howe",
+        amount: 3259.9,
+        name: "Credit female facere",
       },
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 901008,
+  timeoutInMinutes: 445608,
 }).then((res: CreateCreditNoteResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -205,7 +206,7 @@ const sdk = new CodatAccounting({
 
 sdk.creditNotes.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  creditNoteId: "maxime",
+  creditNoteId: "Northeast Hatchback Kia",
 }).then((res: GetCreditNoteResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -302,7 +303,7 @@ sdk.creditNotes.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "consequatur",
+  query: "Northeast Metal Canada",
 }).then((res: ListCreditNotesResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -352,127 +353,127 @@ const sdk = new CodatAccounting({
 
 sdk.creditNotes.update({
   creditNote: {
-    additionalTaxAmount: 510.07,
-    additionalTaxPercentage: 1023.9,
+    additionalTaxAmount: 8574.78,
+    additionalTaxPercentage: 245.55,
     allocatedOnDate: "2022-10-23T00:00:00.000Z",
-    creditNoteNumber: "porro",
-    currency: "USD",
-    currencyRate: 608.92,
+    creditNoteNumber: "Reactive",
+    currency: "EUR",
+    currencyRate: 2703.24,
     customerRef: {
-      companyName: "magni",
-      id: "e2ec09ff-8f0f-4816-bf34-77c13e902c14",
+      companyName: "Paucek - Kuhn",
+      id: "<ID>",
     },
-    discountPercentage: 1165.58,
-    id: "25b0960a-6681-451a-872a-f923c5949f83",
+    discountPercentage: 4430.76,
+    id: "<ID>",
     issueDate: "2022-10-23T00:00:00.000Z",
     lineItems: [
       {
         accountRef: {
-          id: "350cf876-ffb9-401c-aecb-b4e243cf789f",
-          name: "Lynn Wuckert",
+          id: "<ID>",
+          name: "Islands",
         },
-        description: "deserunt",
-        discountAmount: 3590.97,
-        discountPercentage: 2465.77,
+        description: "Networked heuristic framework",
+        discountAmount: 3115.07,
+        discountPercentage: 7884.4,
         isDirectIncome: false,
         itemRef: {
-          id: "e5ae6e0a-c184-4c2b-9c24-7c88373a40e1",
-          name: "Micheal Cassin",
+          id: "<ID>",
+          name: "bifurcated",
         },
-        quantity: 1397.45,
-        subTotal: 9368.45,
-        taxAmount: 3305.96,
+        quantity: 6447.13,
+        subTotal: 7892.75,
+        taxAmount: 9936.8,
         taxRateRef: {
-          effectiveTaxRate: 3731.06,
-          id: "055756f5-d56d-40bd-8af2-dfe13db4f62c",
-          name: "Lorenzo Flatley",
+          effectiveTaxRate: 8898.38,
+          id: "<ID>",
+          name: "implement JBOD",
         },
-        totalAmount: 6211.4,
+        totalAmount: 7712.03,
         tracking: {
           categoryRefs: [
             {
-              id: "41aebc0b-80a6-4924-93b2-ecfcc8f89501",
-              name: "Melba Heaney",
+              id: "<ID>",
+              name: "Representative Home",
             },
           ],
           customerRef: {
-            companyName: "neque",
-            id: "d6fa1804-e54c-482f-968a-363c8873e484",
+            companyName: "Roob - Hermiston",
+            id: "<ID>",
           },
-          isBilledTo: BilledToType1.Unknown,
+          isBilledTo: BilledToType1.Project,
           isRebilledTo: BilledToType1.NotApplicable,
           projectRef: {
-            id: "0b1f6b8c-a275-4a60-a04c-495cc699171b",
-            name: "Miss Joyce Runolfsson",
+            id: "<ID>",
+            name: "Northeast Wooden",
           },
           recordRef: {
-            dataType: "accountTransaction",
-            id: "1cf4b888-ebdf-4c4c-8ca9-9bc7fc0b2dce",
+            dataType: "invoice",
+            id: "<ID>",
           },
         },
         trackingCategoryRefs: [
           {
-            id: "10873e42-b006-4d67-8878-ba8581a58208",
-            name: "Lloyd Grant",
+            id: "<ID>",
+            name: "Internal invoice",
           },
         ],
-        unitAmount: 9657.35,
+        unitAmount: 2803.6,
       },
     ],
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "natus",
+    note: "female",
     paymentAllocations: [
       {
         allocation: {
           allocatedOnDate: "2022-10-23T00:00:00.000Z",
-          currency: "USD",
-          currencyRate: 3125.11,
-          totalAmount: 9853.79,
+          currency: "GBP",
+          currencyRate: 3297.12,
+          totalAmount: 4939.56,
         },
         payment: {
           accountRef: {
-            id: "2eac5565-d307-4cfe-a812-06e2813fa4a4",
-            name: "Leticia Gerlach PhD",
+            id: "<ID>",
+            name: "modulo Kia",
           },
-          currency: "GBP",
-          currencyRate: 9998.54,
-          id: "2132af03-102d-4514-b4cc-6f18bf9621a6",
-          note: "animi",
+          currency: "USD",
+          currencyRate: 8000.94,
+          id: "<ID>",
+          note: "Avon",
           paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "tenetur",
-          totalAmount: 4934.07,
+          reference: "Reactive Global Northeast",
+          totalAmount: 6090.5,
         },
       },
     ],
-    remainingCredit: 4578.35,
+    remainingCredit: 9920.1,
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: CreditNoteStatus.Paid,
-    subTotal: 4610.5,
+    status: CreditNoteStatus.Unknown,
+    subTotal: 4798.89,
     supplementalData: {
       content: {
-        "eveniet": {
-          "earum": "velit",
+        "perferendis": {
+          "architecto": "quisquam",
         },
       },
     },
-    totalAmount: 8847.65,
-    totalDiscount: 2633.46,
-    totalTaxAmount: 7019.78,
+    totalAmount: 8523.4,
+    totalDiscount: 3379.02,
+    totalTaxAmount: 7416.05,
     withholdingTax: [
       {
-        amount: 9301.11,
-        name: "Brittany Cole",
+        amount: 3486.27,
+        name: "Money",
       },
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  creditNoteId: "quis",
+  creditNoteId: "Group wank Latvian",
   forceUpdate: false,
-  timeoutInMinutes: 704402,
+  timeoutInMinutes: 934395,
 }).then((res: UpdateCreditNoteResponse) => {
   if (res.statusCode == 200) {
     // handle response

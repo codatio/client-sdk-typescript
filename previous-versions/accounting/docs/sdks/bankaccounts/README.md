@@ -1,4 +1,5 @@
-# bankAccounts
+# BankAccounts
+(*bankAccounts*)
 
 ## Overview
 
@@ -39,28 +40,28 @@ const sdk = new CodatAccounting({
 
 sdk.bankAccounts.create({
   bankAccount: {
-    accountName: "deleniti",
-    accountNumber: "hic",
+    accountName: "bluetooth Extended",
+    accountNumber: "blue",
     accountType: BankAccountBankAccountType.Debit,
-    availableBalance: 5218.48,
-    balance: 1059.07,
-    currency: "USD",
-    iBan: "molestiae",
-    id: "42cb7392-0592-4939-afea-7596eb10faaa",
-    institution: "dolores",
+    availableBalance: 7964.74,
+    balance: 3768.44,
+    currency: "EUR",
+    iBan: "ES4002078579630900307003",
+    id: "<ID>",
+    institution: "Grocery Borders Northwest",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    nominalCode: "corporis",
-    overdraftLimit: 1289.26,
-    sortCode: "nobis",
+    nominalCode: "metrics",
+    overdraftLimit: 365.21,
+    sortCode: "Interactions Senior Mouse",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
   },
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 607831,
+  timeoutInMinutes: 908106,
 }).then((res: CreateBankAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -106,7 +107,7 @@ const sdk = new CodatAccounting({
 });
 
 sdk.bankAccounts.get({
-  accountId: "nemo",
+  accountId: "Northeast Hatchback Kia",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetBankAccountResponse) => {
@@ -206,7 +207,7 @@ sdk.bankAccounts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "minima",
+  query: "Northeast Metal Canada",
 }).then((res: ListBankAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -256,29 +257,29 @@ const sdk = new CodatAccounting({
 
 sdk.bankAccounts.update({
   bankAccount: {
-    accountName: "excepturi",
-    accountNumber: "accusantium",
-    accountType: BankAccountBankAccountType.Credit,
-    availableBalance: 6342.74,
-    balance: 9883.74,
+    accountName: "New Reactive dock",
+    accountNumber: "Analyst invoice",
+    accountType: BankAccountBankAccountType.Unknown,
+    availableBalance: 540.62,
+    balance: 2782.81,
     currency: "EUR",
-    iBan: "architecto",
-    id: "a3a2fa94-6773-4925-9aa5-2c3f5ad019da",
-    institution: "quasi",
+    iBan: "XK423723008830469503",
+    id: "<ID>",
+    institution: "Sharable Division Northeast",
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    nominalCode: "voluptatibus",
-    overdraftLimit: 8781.94,
-    sortCode: "nihil",
+    nominalCode: "Wooden",
+    overdraftLimit: 3529.19,
+    sortCode: "Internal invoice",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
   },
-  bankAccountId: "voluptatibus",
+  bankAccountId: "Checking 0202",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  timeoutInMinutes: 55714,
+  timeoutInMinutes: 77428,
 }).then((res: UpdateBankAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response

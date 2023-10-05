@@ -3,8 +3,9 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Metadata } from "./metadata";
 import { Status } from "./status";
-import { Expose } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 /**
  * Details of a category used for tracking transactions.
@@ -140,32 +141,37 @@ import { Expose } from "class-transformer";
  */
 export class TrackingCategory extends SpeakeasyBase {
     /**
-     * Boolean value indicating whether this category has SubCategories
+     * Boolean value indicating whether this category has SubCategories.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "hasChildren" })
     hasChildren?: boolean;
 
     /**
-     * The identifier for the item, unique per tracking category
+     * The identifier for the item, unique per tracking category.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id?: string;
 
     @SpeakeasyMetadata()
+    @Expose({ name: "metadata" })
+    @Type(() => Metadata)
+    metadata?: Metadata;
+
+    @SpeakeasyMetadata()
     @Expose({ name: "modifiedDate" })
     modifiedDate?: string;
 
     /**
-     * The name of the tracking category
+     * The name of the tracking category.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "name" })
     name?: string;
 
     /**
-     * The identifier for this item's immediate parent
+     * The identifier for this item's immediate parent.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "parentId" })

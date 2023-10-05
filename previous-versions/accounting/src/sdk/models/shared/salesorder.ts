@@ -260,9 +260,6 @@ export class SalesOrder extends SpeakeasyBase {
     totalAmount?: number;
 
     /**
-     *
-     *
-     * @remarks
      * Total value of any discounts applied to the sales order.
      */
     @SpeakeasyMetadata()

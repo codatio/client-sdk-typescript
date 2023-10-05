@@ -27,10 +27,16 @@ export class CreditNoteLineItemTracking extends SpeakeasyBase {
     @Type(() => AccountingCustomerRef)
     customerRef?: AccountingCustomerRef;
 
+    /**
+     * Defines if the bill or bill credit note is billed/rebilled to a project.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isBilledTo" })
     isBilledTo: BilledToType1;
 
+    /**
+     * Defines if the bill or bill credit note is billed/rebilled to a project.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isRebilledTo" })
     isRebilledTo: BilledToType1;
@@ -83,6 +89,9 @@ export class CreditNoteLineItem extends SpeakeasyBase {
     @Expose({ name: "discountPercentage" })
     discountPercentage?: number;
 
+    /**
+     * The credit note is a direct income if `True`.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isDirectIncome" })
     isDirectIncome?: boolean;
