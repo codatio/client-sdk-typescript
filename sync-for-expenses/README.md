@@ -1,19 +1,27 @@
 # Sync for Expenses
 
 <!-- Start Codat Library Description -->
-<!-- End Codat Library Description  -->
 Embedded accounting integrations for corporate card providers.
+<!-- End Codat Library Description  -->
 
 <!-- Start SDK Installation -->
-replace me
+## SDK Installation
+
+### NPM
+
+```bash
+npm add @codat/sync-for-expenses
+```
+
+### Yarn
+
+```bash
+yarn add @codat/sync-for-expenses
+```
 <!-- End SDK Installation -->
 
 ## Example Usage
 <!-- Start SDK Example Usage -->
-replace me
-<!-- End SDK Example Usage -->
-
-<!-- Start SDK Available Operations -->
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 import { CreateAccountResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
