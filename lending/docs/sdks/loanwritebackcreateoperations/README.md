@@ -1,4 +1,5 @@
-# LoanWriteback.CreateOperations
+# LoanWritebackCreateOperations
+(*loanWriteback.createOperations*)
 
 ### Available Operations
 
@@ -23,7 +24,7 @@ const sdk = new CodatLending({
 
 sdk.loanWriteback.createOperations.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "e6e13b99-d488-4e1e-91e4-50ad2abd4426",
+  pushOperationKey: "b18d8d81-fd7b-4764-a31e-475cb1f36591",
 }).then((res: GetCreateOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -66,7 +67,7 @@ sdk.loanWriteback.createOperations.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "cupiditate",
+  query: "Northeast Metal Canada",
 }).then((res: ListCreateOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

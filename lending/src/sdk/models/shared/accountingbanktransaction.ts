@@ -13,7 +13,7 @@ import { Expose } from "class-transformer";
  * >
  * > This datatype was originally used for accessing bank account data both in accounting integrations and open banking aggregators.
  * >
- * > To view bank account data through the Banking API, please refer to the new datatype [here](https://docs.codat.io/banking-api#/operations/list-all-banking-transactions)
+ * > To view bank account data through the Banking API, please refer to the new datatype [here](https://docs.codat.io/lending-api#/operations/list-all-banking-transactions)
  *
  * > View the coverage for bank transactions in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankTransactions" target="_blank">Data coverage explorer</a>.
  *
@@ -27,14 +27,23 @@ import { Expose } from "class-transformer";
  * * Transaction type, for example, credit, debit, or transfer.
  */
 export class AccountingBankTransaction extends SpeakeasyBase {
+    /**
+     * Unique identifier to the `accountId` the bank transactions originates from.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "accountId" })
     accountId?: string;
 
+    /**
+     * The amount transacted in the bank transaction.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "amount" })
     amount?: number;
 
+    /**
+     * The remaining balance in the account with ID `accountId`.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "balance" })
     balance?: number;
@@ -66,10 +75,16 @@ export class AccountingBankTransaction extends SpeakeasyBase {
     @Expose({ name: "clearedOnDate" })
     clearedOnDate?: string;
 
+    /**
+     * Description of the bank transaction.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "description" })
     description?: string;
 
+    /**
+     * Identifier for the bank transaction, unique to the company in the accounting platform.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id?: string;
@@ -78,6 +93,9 @@ export class AccountingBankTransaction extends SpeakeasyBase {
     @Expose({ name: "modifiedDate" })
     modifiedDate?: string;
 
+    /**
+     * `True` if the bank transaction has been [reconciled](https://www.xero.com/uk/guides/what-is-bank-reconciliation/) in the accounting platform.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "reconciled" })
     reconciled?: boolean;
@@ -87,7 +105,7 @@ export class AccountingBankTransaction extends SpeakeasyBase {
     sourceModifiedDate?: string;
 
     /**
-     * Type of transaction for the bank statement line
+     * Type of transaction for the bank statement line.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "transactionType" })

@@ -40,6 +40,9 @@ export class CreditNoteLineItem extends SpeakeasyBase {
     @Expose({ name: "discountPercentage" })
     discountPercentage?: number;
 
+    /**
+     * The credit note is a direct income if `True`.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isDirectIncome" })
     isDirectIncome?: boolean;

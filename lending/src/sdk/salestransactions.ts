@@ -22,7 +22,7 @@ export class SalesTransactions {
      * @remarks
      * The *Get transaction* endpoint returns a single transaction for a given transactionId.
      *
-     * [Transactions](https://docs.codat.io/commerce-api#/schemas/Transaction) detail all financial affairs recorded in the commerce or point of sale system.
+     * [Transactions](https://docs.codat.io/lending-api#/schemas/Transaction) detail all financial affairs recorded in the commerce or point of sale system.
      *
      * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-transactions) for integrations that support getting a specific transaction.
      *
@@ -59,12 +59,10 @@ export class SalesTransactions {
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
-        let retryConfig: any = retries;
+        let retryConfig: utils.RetryConfig | undefined = retries;
         if (!retryConfig) {
             if (globalRetryConfig) {
                 retryConfig = globalRetryConfig;
@@ -140,9 +138,9 @@ export class SalesTransactions {
      * List transactions
      *
      * @remarks
-     * The *List transactions* endpoint returns a list of [transactions](https://docs.codat.io/commerce-api#/schemas/Transaction) for a given company's connection.
+     * The *List transactions* endpoint returns a list of [transactions](https://docs.codat.io/lending-api#/schemas/Transaction) for a given company's connection.
      *
-     * [Transactions](https://docs.codat.io/commerce-api#/schemas/Transaction) detail all financial affairs recorded in the commerce or point of sale system.
+     * [Transactions](https://docs.codat.io/lending-api#/schemas/Transaction) detail all financial affairs recorded in the commerce or point of sale system.
      *
      * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
      *
@@ -178,12 +176,10 @@ export class SalesTransactions {
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
-        let retryConfig: any = retries;
+        let retryConfig: utils.RetryConfig | undefined = retries;
         if (!retryConfig) {
             if (globalRetryConfig) {
                 retryConfig = globalRetryConfig;

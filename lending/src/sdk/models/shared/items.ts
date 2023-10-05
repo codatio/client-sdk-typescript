@@ -6,10 +6,16 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class Items extends SpeakeasyBase {
+    /**
+     * Amount of tax withheld.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "amount" })
     amount: number;
 
+    /**
+     * Name assigned to withheld tax.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "name" })
     name: string;

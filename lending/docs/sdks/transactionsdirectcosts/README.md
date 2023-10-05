@@ -1,4 +1,5 @@
-# Transactions.DirectCosts
+# TransactionsDirectCosts
+(*transactions.directCosts*)
 
 ### Available Operations
 
@@ -12,7 +13,7 @@
 
 The *Download direct cost attachment* endpoint downloads a specific attachment for a given `directCostId` and `attachmentId`.
 
-[Direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support downloading a direct cost attachment.
 
@@ -33,7 +34,7 @@ sdk.transactions.directCosts.downloadAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "harum",
+  directCostId: "Dakota Avon specifically",
 }).then((res: DownloadAccountingDirectCostAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -59,7 +60,7 @@ sdk.transactions.directCosts.downloadAttachment({
 
 The *Get direct cost* endpoint returns a single direct cost for a given directCostId.
 
-[Direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support getting a specific direct cost.
 
@@ -81,7 +82,7 @@ const sdk = new CodatLending({
 sdk.transactions.directCosts.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "laboriosam",
+  directCostId: "Northeast Hatchback Kia",
 }).then((res: GetAccountingDirectCostResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -107,7 +108,7 @@ sdk.transactions.directCosts.get({
 
 The *Get direct cost attachment* endpoint returns a specific attachment for a given `directCostId` and `attachmentId`.
 
-[Direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support getting a direct cost attachment.
 
@@ -128,7 +129,7 @@ sdk.transactions.directCosts.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "ipsa",
+  directCostId: "array East along",
 }).then((res: GetAccountingDirectCostAttachmentResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -152,9 +153,9 @@ sdk.transactions.directCosts.getAttachment({
 
 ## list
 
-The *List direct costs* endpoint returns a list of [direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost) for a given company's connection.
+The *List direct costs* endpoint returns a list of [direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) for a given company's connection.
 
-[Direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
@@ -177,7 +178,7 @@ sdk.transactions.directCosts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "voluptates",
+  query: "Northeast Metal Canada",
 }).then((res: ListAccountingDirectCostsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -203,7 +204,7 @@ sdk.transactions.directCosts.list({
 
 The *List direct cost attachments* endpoint returns a list of attachments available to download for given `directCostId`.
 
-[Direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support listing direct cost attachments.
 
@@ -223,7 +224,7 @@ const sdk = new CodatLending({
 sdk.transactions.directCosts.listAttachments({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "libero",
+  directCostId: "intuitive Frozen ouch",
 }).then((res: ListAccountingDirectCostAttachmentsResponse) => {
   if (res.statusCode == 200) {
     // handle response

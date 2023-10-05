@@ -7,6 +7,9 @@ import { BankingTransactionRef } from "./bankingtransactionref";
 import { Expose, Type } from "class-transformer";
 
 export class Payment extends SpeakeasyBase {
+    /**
+     * Payment amount.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "amount" })
     amount?: number;
@@ -92,12 +95,15 @@ export class Payment extends SpeakeasyBase {
     date?: string;
 
     /**
-     * ID of the invoice, which may be a GUID but it may be something else depending on the accounting platform
+     * ID of the invoice, which may be a GUID but it may be something else depending on the accounting platform.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id?: string;
 
+    /**
+     * The type of payment.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "paymentType" })
     paymentType?: string;

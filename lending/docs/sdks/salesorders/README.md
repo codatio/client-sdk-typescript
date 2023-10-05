@@ -1,4 +1,5 @@
-# Sales.Orders
+# SalesOrders
+(*sales.orders*)
 
 ### Available Operations
 
@@ -9,7 +10,7 @@
 
 The *Get order* endpoint returns a single order for a given orderId.
 
-[Orders](https://docs.codat.io/commerce-api#/schemas/Order) contain the transaction details for all products sold by the company.
+[Orders](https://docs.codat.io/lending-api#/schemas/Order) contain the transaction details for all products sold by the company.
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-orders) for integrations that support getting a specific order.
 
@@ -31,7 +32,7 @@ const sdk = new CodatLending({
 sdk.sales.orders.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  orderId: "facere",
+  orderId: "Northeast Hatchback Kia",
 }).then((res: GetCommerceOrderResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -55,9 +56,9 @@ sdk.sales.orders.get({
 
 ## list
 
-The *List orders* endpoint returns a list of [orders](https://docs.codat.io/commerce-api#/schemas/Order) for a given company's connection.
+The *List orders* endpoint returns a list of [orders](https://docs.codat.io/lending-api#/schemas/Order) for a given company's connection.
 
-[Orders](https://docs.codat.io/commerce-api#/schemas/Order) contain the transaction details for all products sold by the company.
+[Orders](https://docs.codat.io/lending-api#/schemas/Order) contain the transaction details for all products sold by the company.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
@@ -80,7 +81,7 @@ sdk.sales.orders.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "numquam",
+  query: "Northeast Metal Canada",
 }).then((res: ListCommerceOrdersResponse) => {
   if (res.statusCode == 200) {
     // handle response

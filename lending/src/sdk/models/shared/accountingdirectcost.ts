@@ -27,7 +27,7 @@ import { Expose, Type } from "class-transformer";
  *   * Withdrawing money from a bank account
  *   * Writing a cheque
  *
- * Direct costs is a child data type of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction).
+ * Direct costs is a child data type of [account transactions](https://docs.codat.io/lending-api#/schemas/AccountTransaction).
  */
 export class AccountingDirectCost extends SpeakeasyBase {
     /**

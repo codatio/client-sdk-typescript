@@ -22,7 +22,7 @@ export class SalesProducts {
      * @remarks
      * The *Get product* endpoint returns a single product for a given productId.
      *
-     * [Products](https://docs.codat.io/commerce-api#/schemas/Product) are items in the company's inventory that are available for sale.
+     * [Products](https://docs.codat.io/lending-api#/schemas/Product) are items in the company's inventory that are available for sale.
      *
      * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-products) for integrations that support getting a specific product.
      *
@@ -59,12 +59,10 @@ export class SalesProducts {
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
-        let retryConfig: any = retries;
+        let retryConfig: utils.RetryConfig | undefined = retries;
         if (!retryConfig) {
             if (globalRetryConfig) {
                 retryConfig = globalRetryConfig;
@@ -140,9 +138,9 @@ export class SalesProducts {
      * List products
      *
      * @remarks
-     * The *List products* endpoint returns a list of [products](https://docs.codat.io/commerce-api#/schemas/Product) for a given company's connection.
+     * The *List products* endpoint returns a list of [products](https://docs.codat.io/lending-api#/schemas/Product) for a given company's connection.
      *
-     * [Products](https://docs.codat.io/commerce-api#/schemas/Product) are items in the company's inventory that are available for sale.
+     * [Products](https://docs.codat.io/lending-api#/schemas/Product) are items in the company's inventory that are available for sale.
      *
      * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
      *
@@ -178,12 +176,10 @@ export class SalesProducts {
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
-        let retryConfig: any = retries;
+        let retryConfig: utils.RetryConfig | undefined = retries;
         if (!retryConfig) {
             if (globalRetryConfig) {
                 retryConfig = globalRetryConfig;

@@ -20,13 +20,13 @@ export class LoanWritebackAccounts {
      * Create account
      *
      * @remarks
-     * The *Create account* endpoint creates a new [account](https://docs.codat.io/accounting-api#/schemas/Account) for a given company's connection.
+     * The *Create account* endpoint creates a new [account](https://docs.codat.io/lending-api#/schemas/Account) for a given company's connection.
      *
-     * [Accounts](https://docs.codat.io/accounting-api#/schemas/Account) are the categories a business uses to record accounting transactions.
+     * [Accounts](https://docs.codat.io/lending-api#/schemas/Account) are the categories a business uses to record accounting transactions.
      *
      * **Integration-specific behaviour**
      *
-     * Required data may vary by integration. To see what data to post, first call [Get create account model](https://docs.codat.io/accounting-api#/operations/get-create-chartOfAccounts-model).
+     * Required data may vary by integration. To see what data to post, first call [Get create account model](https://docs.codat.io/lending-api#/operations/get-create-chartOfAccounts-model).
      *
      * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
      *
@@ -80,12 +80,10 @@ export class LoanWritebackAccounts {
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
-        let retryConfig: any = retries;
+        let retryConfig: utils.RetryConfig | undefined = retries;
         if (!retryConfig) {
             if (globalRetryConfig) {
                 retryConfig = globalRetryConfig;
@@ -161,9 +159,9 @@ export class LoanWritebackAccounts {
      * Get create account model
      *
      * @remarks
-     * The *Get create account model* endpoint returns the expected data for the request payload when creating an [account](https://docs.codat.io/accounting-api#/schemas/Account) for a given company and integration.
+     * The *Get create account model* endpoint returns the expected data for the request payload when creating an [account](https://docs.codat.io/lending-api#/schemas/Account) for a given company and integration.
      *
-     * [Accounts](https://docs.codat.io/accounting-api#/schemas/Account) are the categories a business uses to record accounting transactions.
+     * [Accounts](https://docs.codat.io/lending-api#/schemas/Account) are the categories a business uses to record accounting transactions.
      *
      * **Integration-specific behaviour**
      *
@@ -202,12 +200,10 @@ export class LoanWritebackAccounts {
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
-        let retryConfig: any = retries;
+        let retryConfig: utils.RetryConfig | undefined = retries;
         if (!retryConfig) {
             if (globalRetryConfig) {
                 retryConfig = globalRetryConfig;

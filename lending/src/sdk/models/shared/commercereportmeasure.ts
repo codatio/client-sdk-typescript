@@ -6,18 +6,30 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class CommerceReportMeasure extends SpeakeasyBase {
+    /**
+     * The measure's display name.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "displayName" })
     displayName?: string;
 
+    /**
+     * The measure's index.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "index" })
     index?: number;
 
+    /**
+     * The measure's type.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
     type?: string;
 
+    /**
+     * The measure's units e.g. percentage (%).
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "units" })
     units?: string;

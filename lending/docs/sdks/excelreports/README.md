@@ -1,4 +1,5 @@
 # ExcelReports
+(*excelReports*)
 
 ## Overview
 
@@ -90,7 +91,7 @@ const sdk = new CodatLending({
 
 sdk.excelReports.generate({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportTypes.EnhancedFinancials,
+  reportType: ExcelReportTypes.EnhancedInvoices,
 }).then((res: GenerateExcelReportResponse) => {
   if (res.statusCode == 200) {
     // handle response
