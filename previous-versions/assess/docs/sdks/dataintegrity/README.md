@@ -1,4 +1,5 @@
-# dataIntegrity
+# DataIntegrity
+(*dataIntegrity*)
 
 ## Overview
 
@@ -33,7 +34,7 @@ sdk.dataIntegrity.details({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "provident",
+  query: "Savings",
 }).then((res: ListDataTypeDataIntegrityDetailsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -116,7 +117,7 @@ const sdk = new CodatAssess({
 sdk.dataIntegrity.summary({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   dataType: DataIntegrityDataType.BankingAccounts,
-  query: "distinctio",
+  query: "Milwaukee",
 }).then((res: GetDataIntegritySummariesResponse) => {
   if (res.statusCode == 200) {
     // handle response

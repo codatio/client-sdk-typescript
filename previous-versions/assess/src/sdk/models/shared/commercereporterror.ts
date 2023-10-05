@@ -6,14 +6,23 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class CommerceReportError extends SpeakeasyBase {
+    /**
+     * Additional details on the error.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "details" })
     details?: Record<string, string[]>;
 
+    /**
+     * Message returned by error.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     message?: string;
 
+    /**
+     * The type of error.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
     type?: string;

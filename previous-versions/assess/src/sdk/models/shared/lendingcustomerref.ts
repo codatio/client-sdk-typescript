@@ -7,14 +7,14 @@ import { Expose } from "class-transformer";
 
 export class LendingCustomerRef extends SpeakeasyBase {
     /**
-     * `customerName` from the Customer data type
+     * `customerName` from the Customer data type.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "customerName" })
     customerName?: string;
 
     /**
-     * `id` from the Customers data type
+     * `id` from the Customers data type.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })

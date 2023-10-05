@@ -12,7 +12,7 @@ import { Expose, Type } from "class-transformer";
  */
 export class EnhancedInvoicesReport extends SpeakeasyBase {
     /**
-     * Report additional information, which is specific to Assess reports
+     * Report additional information, which is specific to Lending API reports.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "reportInfo" })
