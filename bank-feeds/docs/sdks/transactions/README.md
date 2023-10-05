@@ -1,4 +1,5 @@
 # Transactions
+(*transactions*)
 
 ## Overview
 
@@ -28,6 +29,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { CreateBankTransactionsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
+import { BankTransactionsBankTransactionType } from "@codat/bank-feeds/dist/sdk/models/shared";
 
 const sdk = new CodatBankFeeds({
   security: {
@@ -37,14 +39,18 @@ const sdk = new CodatBankFeeds({
 
 sdk.transactions.create({
   createBankTransactions: {
-    accountId: "corporis",
+    accountId: "7110701885",
     transactions: [
       {
-        amount: 1289.26,
-        balance: 7506.86,
-        date: "2022-10-23T00:00:00.000Z",
-        description: "omnis",
-        id: "55907aff-1a3a-42fa-9467-739251aa52c3",
+        amount: 999.99,
+        balance: -999.99,
+        clearedOnDate: "2022-10-23T00:00:00.000Z",
+        counterparty: "ACME INC",
+        description: "Debit for Payment Id sdp-1-57379a43-c4b8-49f5-bd7c-699189ee7a60",
+        id: "716422529",
+        reconciled: false,
+        reference: "reference for transaction",
+        transactionType: BankTransactionsBankTransactionType.Check,
       },
     ],
   },
@@ -52,7 +58,7 @@ sdk.transactions.create({
   allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 368725,
+  timeoutInMinutes: 417458,
 }).then((res: CreateBankTransactionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -92,7 +98,7 @@ const sdk = new CodatBankFeeds({
 
 sdk.transactions.getCreateOperation({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "ad019da1-ffe7-48f0-97b0-074f15471b5e",
+  pushOperationKey: "1fb73c31-a851-46c2-ab8a-5ce6e25b57b8",
 }).then((res: GetCreateOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -135,7 +141,7 @@ sdk.transactions.listCreateOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "commodi",
+  query: "Hassium",
 }).then((res: ListCreateOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

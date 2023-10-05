@@ -80,6 +80,9 @@ export class BankFeedMapping extends SpeakeasyBase {
     @Expose({ name: "sourceCurrency" })
     sourceCurrency?: string;
 
+    /**
+     * The status.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
     status?: string;

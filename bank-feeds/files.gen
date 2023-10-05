@@ -66,7 +66,7 @@ src/sdk/models/shared/validationitem.ts
 src/sdk/models/shared/pushoperationstatus.ts
 src/sdk/models/shared/datatype.ts
 src/sdk/models/shared/createbanktransactions.ts
-src/sdk/models/shared/createbanktransaction.ts
+src/sdk/models/shared/banktransactions.ts
 src/sdk/models/shared/pushoperationchange.ts
 src/sdk/models/shared/pushchangetype.ts
 src/sdk/models/shared/pushoperationref.ts
@@ -82,13 +82,6 @@ src/sdk/models/webhooks/clientratelimitreached.ts
 src/sdk/models/webhooks/clientratelimitreset.ts
 src/sdk/models/webhooks/index.ts
 src/sdk/models/errors/index.ts
-docs/sdks/codatbankfeeds/README.md
-docs/models/utils/retryconfig.md
-docs/sdks/accountmapping/README.md
-docs/sdks/companies/README.md
-docs/sdks/connections/README.md
-docs/sdks/sourceaccounts/README.md
-docs/sdks/transactions/README.md
 USAGE.md
 docs/models/operations/createbankaccountmappingbankfeedaccountmapping.md
 docs/models/operations/createbankaccountmappingrequest.md
@@ -156,7 +149,8 @@ docs/models/shared/validationitem.md
 docs/models/shared/pushoperationstatus.md
 docs/models/shared/datatype.md
 docs/models/shared/createbanktransactions.md
-docs/models/shared/createbanktransaction.md
+docs/models/shared/banktransactionsbanktransactiontype.md
+docs/models/shared/banktransactions.md
 docs/models/shared/pushoperationchange.md
 docs/models/shared/pushchangetype.md
 docs/models/shared/pushoperationref.md
@@ -169,4 +163,11 @@ docs/models/shared/clientratelimitresetwebhook.md
 docs/models/shared/clientratelimitresetwebhookdata.md
 docs/models/webhooks/clientratelimitreachedresponse.md
 docs/models/webhooks/clientratelimitresetresponse.md
+docs/sdks/codatbankfeeds/README.md
+docs/models/utils/retryconfig.md
+docs/sdks/accountmapping/README.md
+docs/sdks/companies/README.md
+docs/sdks/connections/README.md
+docs/sdks/sourceaccounts/README.md
+docs/sdks/transactions/README.md
 .gitattributes

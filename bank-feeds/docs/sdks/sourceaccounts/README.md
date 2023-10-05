@@ -1,4 +1,5 @@
 # SourceAccounts
+(*sourceAccounts*)
 
 ## Overview
 
@@ -51,16 +52,16 @@ const sdk = new CodatBankFeeds({
 
 sdk.sourceAccounts.create({
   sourceAccount: {
-    accountName: "deserunt",
-    accountNumber: "suscipit",
-    accountType: "iure",
-    balance: 2975.34,
-    currency: "EUR",
+    accountName: "bluetooth Extended",
+    accountNumber: "blue",
+    accountType: "grey technology East",
+    balance: 1697.27,
+    currency: "GBP",
     feedStartDate: "2022-10-23T00:00:00.000Z",
-    id: "f467cc87-96ed-4151-a05d-fc2ddf7cc78c",
+    id: "<ID>",
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    sortCode: "dicta",
-    status: "nam",
+    sortCode: "SUV quantify Polestar",
+    status: "physical Ameliorated",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -191,7 +192,7 @@ const sdk = new CodatBankFeeds({
 });
 
 sdk.sourceAccounts.generateCredentials({
-  requestBody: "occaecati".encode(),
+  requestBody: "^upd|k\]Iy" as bytes <<<>>>,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GenerateCredentialsResponse) => {
@@ -277,18 +278,18 @@ const sdk = new CodatBankFeeds({
 
 sdk.sourceAccounts.update({
   sourceAccount: {
-    accountName: "fugit",
-    accountNumber: "deleniti",
-    accountType: "hic",
-    balance: 7586.16,
+    accountName: "New Reactive dock",
+    accountNumber: "Analyst invoice",
+    accountType: "Islands",
+    balance: 4995.57,
     currency: "USD",
     feedStartDate: "2022-10-23T00:00:00.000Z",
-    id: "6742cb73-9205-4929-b96f-ea7596eb10fa",
+    id: "<ID>",
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    sortCode: "laborum",
-    status: "dolores",
+    sortCode: "Plastic Carolina syndicate",
+    status: "implement JBOD",
   },
-  accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  accountId: "EILBDVJVNUAGVKRQ",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: UpdateSourceAccountResponse) => {
