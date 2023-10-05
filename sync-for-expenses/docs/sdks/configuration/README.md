@@ -1,4 +1,5 @@
 # Configuration
+(*configuration*)
 
 ## Overview
 
@@ -110,10 +111,10 @@ sdk.configuration.set({
       id: "32",
     },
     customer: {
-      id: "0f467cc8-796e-4d15-9a05-dfc2ddf7cc78",
+      id: "<ID>",
     },
     supplier: {
-      id: "ca1ba928-fc81-4674-acb7-39205929396f",
+      id: "<ID>",
     },
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",

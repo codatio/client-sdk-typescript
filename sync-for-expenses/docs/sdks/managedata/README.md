@@ -1,4 +1,5 @@
 # ManageData
+(*manageData*)
 
 ## Overview
 
@@ -69,7 +70,7 @@ const sdk = new CodatSyncExpenses({
 
 sdk.manageData.getPullOperation({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  datasetId: "eaed9f0f-e77b-4bc9-a58f-ab8b4b99ab18",
+  datasetId: "7911a54a-c808-4f4b-b87e-b195f52b4da5",
 }).then((res: GetPullOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -112,7 +113,7 @@ sdk.manageData.listPullOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "in",
+  query: "Dock Elegant Buckinghamshire",
 }).then((res: ListPullOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -198,7 +199,7 @@ const sdk = new CodatSyncExpenses({
 
 sdk.manageData.refreshDataType({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "11e5b7fd-2ed0-4289-a1cd-dc692601fb57",
+  connectionId: "d6258093-be98-4f60-90e1-ca6bcd49fb9a",
   dataType: DataType.Invoices,
 }).then((res: RefreshDataTypeResponse) => {
   if (res.statusCode == 200) {
