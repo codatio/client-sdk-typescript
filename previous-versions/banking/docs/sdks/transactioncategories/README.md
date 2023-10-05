@@ -1,4 +1,5 @@
-# transactionCategories
+# TransactionCategories
+(*transactionCategories*)
 
 ## Overview
 
@@ -35,7 +36,7 @@ const sdk = new CodatBanking({
 sdk.transactionCategories.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  transactionCategoryId: "unde",
+  transactionCategoryId: "Northeast Hatchback Kia",
 }).then((res: GetTransactionCategoryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -84,7 +85,7 @@ sdk.transactionCategories.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "nulla",
+  query: "Northeast Metal Canada",
 }).then((res: ListTransactionCategoriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
