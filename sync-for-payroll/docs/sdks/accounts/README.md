@@ -1,4 +1,5 @@
 # Accounts
+(*accounts*)
 
 ## Overview
 
@@ -39,7 +40,7 @@ const sdk = new CodatSyncPayroll({
 
 sdk.accounts.create({
   account: {
-    currency: "EUR",
+    currency: "USD",
     currentBalance: 0,
     description: "Invoices the business has issued but has not yet collected payment on.",
     fullyQualifiedCategory: "Asset.Current",
@@ -58,15 +59,16 @@ sdk.accounts.create({
     validDatatypeLinks: [
       {
         links: [
-          "suscipit",
+          "Money",
         ],
-        property: "iure",
+        property: "Cambridgeshire grey technology",
       },
     ],
   },
+  allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 297534,
+  timeoutInMinutes: 86,
 }).then((res: CreateAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -112,7 +114,7 @@ const sdk = new CodatSyncPayroll({
 });
 
 sdk.accounts.get({
-  accountId: "EILBDVJVNUAGVKRQ",
+  accountId: "7110701885",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetAccountResponse) => {
   if (res.statusCode == 200) {
@@ -137,15 +139,15 @@ sdk.accounts.get({
 
 ## getCreateModel
 
-﻿  The *Get create account model* endpoint returns the expected data for the request payload when creating an [account](https://docs.codat.io/sync-for-payroll-api#/schemas/Account) for a given company and integration.
+The *Get create account model* endpoint returns the expected data for the request payload when creating an [account](https://docs.codat.io/sync-for-payroll-api#/schemas/Account) for a given company and integration.
     
-    [Accounts](https://docs.codat.io/sync-for-payroll-api#/schemas/Account) are the categories a business uses to record accounting transactions.
+[Accounts](https://docs.codat.io/sync-for-payroll-api#/schemas/Account) are the categories a business uses to record accounting transactions.
     
-    **Integration-specific behaviour**
+**Integration-specific behaviour**
     
-    See the *response examples* for integration-specific indicative models.
+See the *response examples* for integration-specific indicative models.
     
-    Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
 
 
 ### Example Usage
@@ -209,7 +211,7 @@ sdk.accounts.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "ipsa",
+  query: "Northeast Metal Canada",
 }).then((res: ListAccountsResponse) => {
   if (res.statusCode == 200) {
     // handle response

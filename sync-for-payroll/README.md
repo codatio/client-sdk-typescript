@@ -20,8 +20,6 @@ yarn add @codat/sync-for-payroll
 
 ## Example Usage
 <!-- Start SDK Example Usage -->
-
-
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
 import { CreateAccountResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
@@ -39,7 +37,7 @@ sdk.accounts.create({
     currentBalance: 0,
     description: "Invoices the business has issued but has not yet collected payment on.",
     fullyQualifiedCategory: "Asset.Current",
-    fullyQualifiedName: "Fixed Asset",
+    fullyQualifiedName: "Cash On Hand",
     id: "1b6266d1-1e44-46c5-8eb5-a8f98e03124e",
     isBankAccount: false,
     metadata: {
@@ -54,15 +52,16 @@ sdk.accounts.create({
     validDatatypeLinks: [
       {
         links: [
-          "unde",
+          "Money",
         ],
-        property: "nulla",
+        property: "Cambridgeshire grey technology",
       },
     ],
   },
+  allowSyncOnPushComplete: false,
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 544883,
+  timeoutInMinutes: 86,
 }).then((res: CreateAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -75,14 +74,14 @@ sdk.accounts.create({
 ## Available Resources and Operations
 
 
-### [Accounts](docs/sdks/accounts/README.md)
+### [accounts](docs/sdks/accounts/README.md)
 
 * [create](docs/sdks/accounts/README.md#create) - Create account
 * [get](docs/sdks/accounts/README.md#get) - Get account
 * [getCreateModel](docs/sdks/accounts/README.md#getcreatemodel) - Get create account model
 * [list](docs/sdks/accounts/README.md#list) - List accounts
 
-### [Companies](docs/sdks/companies/README.md)
+### [companies](docs/sdks/companies/README.md)
 
 * [create](docs/sdks/companies/README.md#create) - Create company
 * [delete](docs/sdks/companies/README.md#delete) - Delete a company
@@ -90,11 +89,11 @@ sdk.accounts.create({
 * [list](docs/sdks/companies/README.md#list) - List companies
 * [update](docs/sdks/companies/README.md#update) - Update company
 
-### [CompanyInfo](docs/sdks/companyinfo/README.md)
+### [companyInfo](docs/sdks/companyinfo/README.md)
 
 * [getAccountingProfile](docs/sdks/companyinfo/README.md#getaccountingprofile) - Get company accounting profile
 
-### [Connections](docs/sdks/connections/README.md)
+### [connections](docs/sdks/connections/README.md)
 
 * [create](docs/sdks/connections/README.md#create) - Create connection
 * [delete](docs/sdks/connections/README.md#delete) - Delete connection
@@ -102,7 +101,7 @@ sdk.accounts.create({
 * [list](docs/sdks/connections/README.md#list) - List connections
 * [unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 
-### [JournalEntries](docs/sdks/journalentries/README.md)
+### [journalEntries](docs/sdks/journalentries/README.md)
 
 * [create](docs/sdks/journalentries/README.md#create) - Create journal entry
 * [delete](docs/sdks/journalentries/README.md#delete) - Delete journal entry
@@ -110,14 +109,14 @@ sdk.accounts.create({
 * [getCreateModel](docs/sdks/journalentries/README.md#getcreatemodel) - Get create journal entry model
 * [list](docs/sdks/journalentries/README.md#list) - List journal entries
 
-### [Journals](docs/sdks/journals/README.md)
+### [journals](docs/sdks/journals/README.md)
 
 * [create](docs/sdks/journals/README.md#create) - Create journal
 * [get](docs/sdks/journals/README.md#get) - Get journal
 * [getCreateModel](docs/sdks/journals/README.md#getcreatemodel) - Get create journal model
 * [list](docs/sdks/journals/README.md#list) - List journals
 
-### [ManageData](docs/sdks/managedata/README.md)
+### [manageData](docs/sdks/managedata/README.md)
 
 * [getDataStatus](docs/sdks/managedata/README.md#getdatastatus) - Get data status
 * [getPullOperation](docs/sdks/managedata/README.md#getpulloperation) - Get pull operation
@@ -127,9 +126,35 @@ sdk.accounts.create({
 * [refreshAllDataTypes](docs/sdks/managedata/README.md#refreshalldatatypes) - Refresh all data
 * [refreshDataType](docs/sdks/managedata/README.md#refreshdatatype) - Refresh data type
 
-### [TrackingCategories](docs/sdks/trackingcategories/README.md)
+### [trackingCategories](docs/sdks/trackingcategories/README.md)
 
 * [get](docs/sdks/trackingcategories/README.md#get) - Get tracking categories
 * [list](docs/sdks/trackingcategories/README.md#list) - List tracking categories
 <!-- End SDK Available Operations -->
+
+
+
+<!-- Start Dev Containers -->
+
+
+
+<!-- End Dev Containers -->
+
+
+
+<!-- Start Pagination -->
+# Pagination
+
+Some of the endpoints in this SDK support pagination. To use pagination, you make your SDK calls as usual, but the
+returned response object will have a `next` method that can be called to pull down the next group of results. If the
+return value of `next` is `null`, then there are no more pages to be fetched.
+
+Here's an example of one such pagination call:
+
+
+<!-- End Pagination -->
+
+<!-- Placeholder for Future Speakeasy SDK Sections -->
+
+
 ### Library generated by [Speakeasy](https://docs.speakeasyapi.dev/docs/using-speakeasy/client-sdks)
