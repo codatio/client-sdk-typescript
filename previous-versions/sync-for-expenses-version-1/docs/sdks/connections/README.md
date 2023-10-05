@@ -1,4 +1,5 @@
-# connections
+# Connections
+(*connections*)
 
 ## Overview
 
@@ -7,7 +8,7 @@ Create and manage partner expense connection.
 ### Available Operations
 
 * [createConnection](#createconnection) - Create connection
-* [createPartnerExpenseConnection](#createpartnerexpenseconnection) - Create Partner Expense connection
+* [createPartnerExpenseConnection](#createpartnerexpenseconnection) - Create partner expense connection
 * [deleteConnection](#deleteconnection) - Delete connection
 * [getConnection](#getconnection) - Get connection
 * [listConnections](#listconnections) - List connections
@@ -33,7 +34,7 @@ const sdk = new CodatSyncExpenses({
 
 sdk.connections.createConnection({
   requestBody: {
-    platformKey: "provident",
+    platformKey: "gbol",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: CreateConnectionResponse) => {
@@ -59,7 +60,7 @@ sdk.connections.createConnection({
 
 ## createPartnerExpenseConnection
 
-Creates a Partner Expense data connection
+Creates a partner expense data connection
 
 ### Example Usage
 
@@ -198,7 +199,7 @@ sdk.connections.listConnections({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "distinctio",
+  query: "Factors",
 }).then((res: ListConnectionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -239,7 +240,7 @@ const sdk = new CodatSyncExpenses({
 
 sdk.connections.unlink({
   requestBody: {
-    status: DataConnectionStatus.Deauthorized,
+    status: DataConnectionStatus.PendingAuth,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
