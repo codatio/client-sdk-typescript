@@ -1,4 +1,5 @@
-# refreshData
+# RefreshData
+(*refreshData*)
 
 ## Overview
 
@@ -76,7 +77,7 @@ const sdk = new CodatCommon({
 
 sdk.refreshData.byDataType({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "df7cc78c-a1ba-4928-bc81-6742cb739205",
+  connectionId: "8803f6d1-c3aa-40d5-a409-b9d7f498be91",
   dataType: DataType.Invoices,
 }).then((res: RefreshDataTypeResponse) => {
   if (res.statusCode == 200) {
@@ -156,7 +157,7 @@ const sdk = new CodatCommon({
 
 sdk.refreshData.getPullOperation({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  datasetId: "eaed9f0f-e77b-4bc9-a58f-ab8b4b99ab18",
+  datasetId: "7911a54a-c808-4f4b-b87e-b195f52b4da5",
 }).then((res: GetPullOperationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -199,7 +200,7 @@ sdk.refreshData.listPullOperations({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "natus",
+  query: "Dock Elegant Buckinghamshire",
 }).then((res: ListPullOperationsResponse) => {
   if (res.statusCode == 200) {
     // handle response

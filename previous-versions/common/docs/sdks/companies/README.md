@@ -1,4 +1,5 @@
-# companies
+# Companies
+(*companies*)
 
 ## Overview
 
@@ -137,7 +138,7 @@ sdk.companies.get({
 
 ## list
 
-﻿Returns a list of your companies. The company schema contains a list of [connections](https://docs.codat.io/codat-api#/schemas/Connection) related to the company.
+﻿Returns a list of your companies. The company schema contains a list of [connections](https://docs.codat.io/platform-api#/schemas/Connection) related to the company.
 
 ### Example Usage
 
@@ -155,7 +156,7 @@ sdk.companies.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "corrupti",
+  query: "Northeast Metal Canada",
 }).then((res: ListCompaniesResponse) => {
   if (res.statusCode == 200) {
     // handle response

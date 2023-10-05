@@ -7,7 +7,7 @@ import { Connection } from "./connection";
 import { Expose, Type } from "class-transformer";
 
 /**
- * In Codat, a company represents a business sharing access to their data. Each company can have multiple [connections](https://docs.codat.io/codat-api#/schemas/Connection) to different data sources such as one connection to [Xero](https://docs.codat.io/integrations/accounting/xero/accounting-xero) for accounting data, two connections to [Plaid](https://docs.codat.io/integrations/banking/plaid/banking-plaid) for two bank accounts and a connection to [Zettle](https://docs.codat.io/integrations/commerce/zettle/commerce-zettle) for POS data.
+ * In Codat, a company represents a business sharing access to their data. Each company can have multiple [connections](https://docs.codat.io/platform-api#/schemas/Connection) to different data sources such as one connection to [Xero](https://docs.codat.io/integrations/accounting/xero/accounting-xero) for accounting data, two connections to [Plaid](https://docs.codat.io/integrations/banking/plaid/banking-plaid) for two bank accounts and a connection to [Zettle](https://docs.codat.io/integrations/commerce/zettle/commerce-zettle) for POS data.
  *
  * @remarks
  *
@@ -43,6 +43,9 @@ export class Company extends SpeakeasyBase {
     @Expose({ name: "created" })
     created?: string;
 
+    /**
+     * Name of user that created the company in Codat.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "createdByUserName" })
     createdByUserName?: string;
@@ -101,6 +104,8 @@ export class Company extends SpeakeasyBase {
     name: string;
 
     /**
+     * `platformKeys` name used when creating the company.
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @SpeakeasyMetadata()
