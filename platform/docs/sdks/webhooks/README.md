@@ -1,4 +1,5 @@
 # Webhooks
+(*webhooks*)
 
 ## Overview
 
@@ -27,14 +28,14 @@ const sdk = new CodatPlatform({
 });
 
 sdk.webhooks.create({
-  companyId: "39b73b17-cc2e-429e-915d-71654e9dcd1e",
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   notifiers: {
     emails: [
       "info@client.com",
     ],
     webhook: "https://webhook.client.com",
   },
-  type: "iste",
+  type: "bluetooth Extended",
 }).then((res: CreateRuleResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -115,7 +116,7 @@ sdk.webhooks.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "iure",
+  query: "Northeast Metal Canada",
 }).then((res: ListRulesResponse) => {
   if (res.statusCode == 200) {
     // handle response

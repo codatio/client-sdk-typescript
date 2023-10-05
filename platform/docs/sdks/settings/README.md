@@ -1,4 +1,5 @@
 # Settings
+(*settings*)
 
 ## Overview
 
@@ -7,7 +8,7 @@ Manage your Codat instance.
 ### Available Operations
 
 * [createApiKey](#createapikey) - Create API key
-* [deleteApiKey](#deleteapikey) - Delete api key
+* [deleteApiKey](#deleteapikey) - Delete API key
 * [~~getProfile~~](#getprofile) - Get profile :warning: **Deprecated**
 * [getSyncSettings](#getsyncsettings) - Get sync settings
 * [listApiKeys](#listapikeys) - List API keys
@@ -18,7 +19,7 @@ Manage your Codat instance.
 
 Use the *Create API keys* endpoint to generate a new API key for your client.
 
-[API keys](https://docs.codat.io/codat-api#/schemas/apiKeys) are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.
+[API keys](https://docs.codat.io/platform-api#/schemas/apiKeys) are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.
 
 You can [read more](https://docs.codat.io/using-the-api/authentication) about authentication at Codat and managing API keys via the Portal UI or API.
 
@@ -67,7 +68,7 @@ sdk.settings.createApiKey({
 
 Use the *Delete API keys* endpoint to delete an existing API key, providing its valid `id` as a parameter. Note that this operation is not reversible.
 
-[API keys](https://docs.codat.io/accounting-api#/schemas/apiKeys) are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.
+[API keys](https://docs.codat.io/platform-api#/schemas/apiKeys) are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.
 
 You can [read more](https://docs.codat.io/using-the-api/authentication) about authentication at Codat and managing API keys via the Portal UI or API.
 
@@ -151,7 +152,7 @@ sdk.settings.getProfile().then((res: GetProfileResponse) => {
 
 ## getSyncSettings
 
-Retrieve the sync settings for your client. This includes how often data types should be queued to be updated, and how much history should be fetched.
+Retrieve the [sync settings](https://docs.codat.io/knowledge-base/advanced-sync-settings) for your client. This includes how often data types should be queued to be updated, and how much history should be fetched.
 
 ### Example Usage
 
@@ -189,7 +190,7 @@ sdk.settings.getSyncSettings().then((res: GetProfileSyncSettingsResponse) => {
 
 Use the *List API keys* endpoint to return a list of all API keys that currently exist for your client. This includes keys created via the Portal UI or the *Create API keys* endpoint.
 
-[API keys](https://docs.codat.io/accounting-api#/schemas/apiKeys) are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.
+[API keys](https://docs.codat.io/platform-api#/schemas/apiKeys) are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.
 
 You can [read more](https://docs.codat.io/using-the-api/authentication) about authentication at Codat and managing API keys via the Portal UI or API.
 
@@ -282,7 +283,7 @@ Update sync settings for all data types.
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 import { UpdateProfileSyncSettingsResponse } from "@codat/platform/dist/sdk/models/operations";
-import { SyncSettingDataTypes } from "@codat/platform/dist/sdk/models/shared";
+import { DataType } from "@codat/platform/dist/sdk/models/shared";
 
 const sdk = new CodatPlatform({
   security: {
@@ -291,17 +292,17 @@ const sdk = new CodatPlatform({
 });
 
 sdk.settings.updateSyncSettings({
-  clientId: "367f7975-267b-439b-90c6-a6040ee680f3",
+  clientId: "ce429104-79f0-4085-a720-e2d40fcc800f",
   overridesDefaults: false,
   settings: [
     {
-      dataType: SyncSettingDataTypes.Invoices,
+      dataType: DataType.Invoices,
       fetchOnFirstLink: false,
       isLocked: false,
       monthsToSync: 24,
       syncFromUtc: "2022-10-23T00:00:00.000Z",
       syncFromWindow: 24,
-      syncOrder: 612096,
+      syncOrder: 334238,
       syncSchedule: 24,
     },
   ],
