@@ -102,13 +102,6 @@ src/sdk/models/shared/index.ts
 src/sdk/models/webhooks/syncconnectiondeleted.ts
 src/sdk/models/webhooks/index.ts
 src/sdk/models/errors/index.ts
-docs/sdks/codatsynccommerce/README.md
-docs/models/utils/retryconfig.md
-docs/sdks/advancedcontrols/README.md
-docs/sdks/connections/README.md
-docs/sdks/integrations/README.md
-docs/sdks/sync/README.md
-docs/sdks/syncflowsettings/README.md
 USAGE.md
 docs/models/operations/createcompanyresponse.md
 docs/models/operations/getconfigurationrequest.md
@@ -209,4 +202,11 @@ docs/models/shared/visibleaccounts.md
 docs/models/shared/security.md
 docs/models/shared/syncconnectiondeletedwebhook.md
 docs/models/webhooks/syncconnectiondeletedresponse.md
+docs/sdks/codatsynccommerce/README.md
+docs/models/utils/retryconfig.md
+docs/sdks/advancedcontrols/README.md
+docs/sdks/connections/README.md
+docs/sdks/integrations/README.md
+docs/sdks/sync/README.md
+docs/sdks/syncflowsettings/README.md
 .gitattributes

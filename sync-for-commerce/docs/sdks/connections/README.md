@@ -1,4 +1,5 @@
 # Connections
+(*connections*)
 
 ## Overview
 
@@ -16,7 +17,7 @@ Create new and manage existing Sync for Commerce connections using the Sync flow
 
 ﻿Creates a connection for the company by providing a valid `platformKey`. 
 
-Use the [List Integrations](https://docs.codat.io/sync-for-commerce-api#/operations/list-integrations) endpoint to access valid platform keys. 
+Use the [List Integrations](https://docs.codat.io/sync-for-sync-for-commerce-api#/operations/list-integrations) endpoint to access valid platform keys. 
 
 ### Example Usage
 
@@ -32,7 +33,7 @@ const sdk = new CodatSyncCommerce({
 
 sdk.connections.create({
   requestBody: {
-    platformKey: "provident",
+    platformKey: "gbol",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: CreateConnectionResponse) => {
@@ -73,9 +74,9 @@ const sdk = new CodatSyncCommerce({
 });
 
 sdk.connections.getSyncFlowUrl({
-  accountingKey: "distinctio",
-  commerceKey: "quibusdam",
-  merchantIdentifier: "unde",
+  accountingKey: "Manager",
+  commerceKey: "payment",
+  merchantIdentifier: "Rupiah tertiary Zealand",
 }).then((res: GetSyncFlowUrlResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -118,7 +119,7 @@ sdk.connections.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "nulla",
+  query: "Northeast Metal Canada",
 }).then((res: ListConnectionsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -158,7 +159,7 @@ const sdk = new CodatSyncCommerce({
 
 sdk.connections.updateAuthorization({
   requestBody: {
-    "corrupti": "illum",
+    "libero": "teal",
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -202,7 +203,7 @@ const sdk = new CodatSyncCommerce({
 
 sdk.connections.updateConnection({
   updateConnection: {
-    status: DataConnectionStatus.Linked,
+    status: DataConnectionStatus.Deauthorized,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
