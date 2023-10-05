@@ -1,4 +1,5 @@
-# sync
+# Sync
+(*sync*)
 
 ## Overview
 

@@ -1,4 +1,5 @@
-# accountingPayments
+# AccountingPayments
+(*accountingPayments*)
 
 ## Overview
 
@@ -37,27 +38,27 @@ const sdk = new CodatSyncCommerce({
 sdk.accountingPayments.createAccountingPayment({
   accountingPayment: {
     accountRef: {
-      id: "2f64d1db-1f2c-4431-8661-e96349e1cf9e",
-      name: "Alma Waters",
+      id: "<ID>",
+      name: "female Romaguera property",
     },
     currency: "GBP",
-    currencyRate: 2244.67,
+    currencyRate: 2253.13,
     customerRef: {
-      companyName: "iusto",
-      id: "000ae6b6-bc9b-48f7-99ea-c55a9741d311",
+      companyName: "Rohan - Stoltenberg",
+      id: "<ID>",
     },
     date: "2022-10-23T00:00:00.000Z",
-    id: "52965bb8-a720-4261-9435-e139dbc2259b",
+    id: "<ID>",
     lines: [
       {
         allocatedOnDate: "2022-10-23T00:00:00.000Z",
-        amount: 6633.18,
+        amount: 2946.18,
         links: [
           {
-            amount: 7278.88,
-            currencyRate: 8544.6,
-            id: "a8c070e1-084c-4b06-b2d1-ad879eeb9665",
-            type: PaymentLinkType.PaymentOnAccount,
+            amount: 7256.22,
+            currencyRate: 9866.42,
+            id: "<ID>",
+            type: PaymentLinkType.Payment,
           },
         ],
       },
@@ -66,22 +67,22 @@ sdk.accountingPayments.createAccountingPayment({
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "corporis",
-    paymentMethodRef: "officiis",
-    reference: "voluptatibus",
+    note: "East HDD",
+    paymentMethodRef: "Diesel",
+    reference: "lumen",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "at": {
-          "alias": "quia",
+        "ab": {
+          "eligendi": "nimble",
         },
       },
     },
-    totalAmount: 6941.58,
+    totalAmount: 4535.25,
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 684126,
+  timeoutInMinutes: 324249,
 }).then((res: CreateAccountingPaymentResponse) => {
   if (res.statusCode == 200) {
     // handle response

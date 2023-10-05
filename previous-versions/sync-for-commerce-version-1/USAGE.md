@@ -14,11 +14,11 @@ const sdk = new CodatSyncCommerce({
 
 sdk.accountingAccounts.createAccountingAccount({
   accountingAccount: {
-    currency: "USD",
+    currency: "GBP",
     currentBalance: 0,
     description: "Invoices the business has issued but has not yet collected payment on.",
     fullyQualifiedCategory: "Asset.Current",
-    fullyQualifiedName: "Fixed Asset",
+    fullyQualifiedName: "Cash On Hand",
     id: "1b6266d1-1e44-46c5-8eb5-a8f98e03124e",
     isBankAccount: false,
     metadata: {
@@ -33,15 +33,15 @@ sdk.accountingAccounts.createAccountingAccount({
     validDatatypeLinks: [
       {
         links: [
-          "unde",
+          "Gasoline",
         ],
-        property: "nulla",
+        property: "orchid",
       },
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 544883,
+  timeoutInMinutes: 977465,
 }).then((res: CreateAccountingAccountResponse) => {
   if (res.statusCode == 200) {
     // handle response

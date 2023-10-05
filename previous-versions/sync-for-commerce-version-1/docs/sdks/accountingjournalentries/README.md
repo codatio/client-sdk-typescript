@@ -1,4 +1,5 @@
-# accountingJournalEntries
+# AccountingJournalEntries
+(*accountingJournalEntries*)
 
 ## Overview
 
@@ -36,30 +37,30 @@ const sdk = new CodatSyncCommerce({
 sdk.accountingJournalEntries.createAccountingJournalEntry({
   accountingJournalEntry: {
     createdOn: "2022-10-23T00:00:00.000Z",
-    description: "pariatur",
-    id: "e008e6f8-c5f3-450d-8cdb-5a3418143010",
+    description: "Upgradable 24/7 parallelism",
+    id: "<ID>",
     journalLines: [
       {
         accountRef: {
-          id: "421813d5-208e-4ce7-a253-b668451c6c6e",
-          name: "Helen Heller III",
+          id: "<ID>",
+          name: "Northwest Minivan",
         },
-        currency: "at",
-        description: "vero",
-        netAmount: 6675.93,
+        currency: "Denar",
+        description: "Cross-platform motivating migration",
+        netAmount: 9996.19,
         tracking: {
           recordRefs: [
             {
-              dataType: "accountTransaction",
-              id: "3fec9578-a645-4842-b3a8-418d162309fb",
+              dataType: "invoice",
+              id: "<ID>",
             },
           ],
         },
       },
     ],
     journalRef: {
-      id: "0929921a-efb9-4f58-84d8-6e68e4be0560",
-      name: "Sheila Wolff",
+      id: "<ID>",
+      name: "facilitate",
     },
     metadata: {
       isDeleted: false,
@@ -67,14 +68,14 @@ sdk.accountingJournalEntries.createAccountingJournalEntry({
     modifiedDate: "2022-10-23T00:00:00.000Z",
     postedOn: "2022-10-23T00:00:00.000Z",
     recordRef: {
-      dataType: "invoice",
-      id: "57a59ecf-ef66-4ef1-8aa3-383c2beb4773",
+      dataType: "accountTransaction",
+      id: "<ID>",
     },
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
     supplementalData: {
       content: {
-        "neque": {
-          "quo": "deleniti",
+        "eum": {
+          "labore": "Corporate",
         },
       },
     },
@@ -82,7 +83,7 @@ sdk.accountingJournalEntries.createAccountingJournalEntry({
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 437814,
+  timeoutInMinutes: 174830,
 }).then((res: CreateAccountingJournalEntryResponse) => {
   if (res.statusCode == 200) {
     // handle response
