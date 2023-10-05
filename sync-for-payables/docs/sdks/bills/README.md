@@ -1,4 +1,5 @@
 # Bills
+(*bills*)
 
 ## Overview
 
@@ -46,123 +47,123 @@ const sdk = new CodatSyncPayables({
 
 sdk.bills.create({
   bill: {
-    amountDue: 9167.27,
-    currency: "EUR",
-    currencyRate: 1138.16,
+    amountDue: 4865.89,
+    currency: "USD",
+    currencyRate: 6384.24,
     dueDate: "2022-10-23T00:00:00.000Z",
-    id: "a426555b-a3c2-4874-8ed5-3b88f3a8d8f5",
+    id: "<ID>",
     issueDate: "2022-10-23T00:00:00.000Z",
     lineItems: [
       {
         accountRef: {
-          id: "0b2f2fb7-b194-4a27-ab26-916fe1f08f42",
-          name: "Herbert Treutel",
+          id: "<ID>",
+          name: "South",
         },
-        description: "occaecati",
-        discountAmount: 5520.78,
-        discountPercentage: 9757.52,
+        description: "Vision-oriented responsive function",
+        discountAmount: 9510.62,
+        discountPercentage: 8915.1,
         isDirectCost: false,
         itemRef: {
-          id: "447f603e-8b44-45e8-8ca5-5efd20e457e1",
-          name: "Jorge Langosh",
+          id: "<ID>",
+          name: "deposit",
         },
-        quantity: 6805.15,
-        subTotal: 5300.89,
-        taxAmount: 6223.85,
+        quantity: 3015.1,
+        subTotal: 899.64,
+        taxAmount: 7150.4,
         taxRateRef: {
-          effectiveTaxRate: 9447.08,
-          id: "be3a5aa8-e482-44d0-ab40-75088e518620",
-          name: "Bernice Ullrich II",
+          effectiveTaxRate: 7926.2,
+          id: "<ID>",
+          name: "Gasoline Screen mobile",
         },
-        totalAmount: 9688.65,
+        totalAmount: 6562.56,
         tracking: {
           categoryRefs: [
             {
-              id: "3b1194b8-abf6-403a-b9f9-dfe0ab7da8a5",
-              name: "Ms. Alexandra VonRueden",
+              id: "<ID>",
+              name: "Durham after",
             },
           ],
           customerRef: {
-            companyName: "asperiores",
-            id: "86bc173d-689e-4ee9-926f-8d986e881ead",
+            companyName: "Fay - Durgan",
+            id: "<ID>",
           },
-          isBilledTo: BilledToType.NotApplicable,
-          isRebilledTo: BilledToType.Project,
+          isBilledTo: BilledToType.Unknown,
+          isRebilledTo: BilledToType.Customer,
           projectRef: {
-            id: "0e101256-3f94-4e29-a973-e922a57a15be",
-            name: "Meghan Batz IV",
+            id: "<ID>",
+            name: "Fiat",
           },
         },
         trackingCategoryRefs: [
           {
-            id: "07e2b6e3-ab88-445f-8597-a60ff2a54a31",
-            name: "Arturo Hagenes",
+            id: "<ID>",
+            name: "Grocery Borders Northwest",
           },
         ],
-        unitAmount: 2840,
+        unitAmount: 6519.85,
       },
     ],
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "adipisci",
+    note: "animated Minivan",
     paymentAllocations: [
       {
         allocation: {
           allocatedOnDate: "2022-10-23T00:00:00.000Z",
           currency: "USD",
-          currencyRate: 4326.06,
-          totalAmount: 3679.27,
+          currencyRate: 808.14,
+          totalAmount: 2006.64,
         },
         payment: {
           accountRef: {
-            id: "e7956f92-51a5-4a9d-a660-ff57bfaad4f9",
-            name: "Miss Timmy Runolfsdottir",
+            id: "<ID>",
+            name: "West",
           },
           currency: "USD",
-          currencyRate: 820.57,
-          id: "2c103264-8dc2-4f61-9199-ebfd0e9fe6c6",
-          note: "dolorem",
+          currencyRate: 3379.66,
+          id: "<ID>",
+          note: "Towels",
           paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "cumque",
-          totalAmount: 6849.35,
+          reference: "payment 1080p",
+          totalAmount: 2597.72,
         },
       },
     ],
     purchaseOrderRefs: [
       {
-        id: "3aed0117-9963-412f-9e04-771778ff61d0",
-        purchaseOrderNumber: "dicta",
+        id: "<ID>",
+        purchaseOrderNumber: "silver Indiana",
       },
     ],
-    reference: "odio",
+    reference: "Toyota Neptunium round",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: BillStatus.PartiallyPaid,
-    subTotal: 4037.93,
+    status: BillStatus.Open,
+    subTotal: 9057.54,
     supplementalData: {
       content: {
-        "consectetur": {
-          "aliquid": "ipsa",
+        "in": {
+          "pariatur": "Dollar",
         },
       },
     },
     supplierRef: {
-      id: "a15db6a6-6065-49a1-adea-ab5851d6c645",
-      supplierName: "expedita",
+      id: "<ID>",
+      supplierName: "South",
     },
-    taxAmount: 299.5,
-    totalAmount: 5615.77,
+    taxAmount: 4914.27,
+    totalAmount: 2663.33,
     withholdingTax: [
       {
-        amount: 7372.54,
-        name: "Doris Lemke MD",
+        amount: 4904.2,
+        name: "markets",
       },
     ],
   },
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 665678,
+  timeoutInMinutes: 924484,
 }).then((res: CreateBillResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -186,9 +187,9 @@ sdk.bills.create({
 
 ## delete
 
-﻿The *Delete bill* endpoint allows you to delete a specified bill from an accounting platform. 
+The *Delete bill* endpoint allows you to delete a specified bill from an accounting platform. 
 
-[Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are itemized records of goods received or services provided to the SMB.
+[Bills](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) are itemized records of goods received or services provided to the SMB.
 
 ### Process 
 1. Pass the `{billId}` to the *Delete bill* endpoint and store the `pushOperationKey` returned.
@@ -213,7 +214,7 @@ Integrations that support soft delete do not permanently delete the object in th
 
 > **Supported Integrations**
 > 
-> This functionality is currently only supported for our QuickBooks Online abd Oracle NetSuite integrations. Check out our [public roadmap](https://portal.productboard.com/codat/7-public-product-roadmap/tabs/46-accounting-api) to see what we're building next, and to submit ideas for new features.
+> This functionality is currently supported for our QuickBooks Online, Xero and Oracle NetSuite integrations.
 
 ### Example Usage
 
@@ -256,7 +257,7 @@ sdk.bills.delete({
 
 The *Delete bill attachment* endpoint allows you to delete a specified bill attachment from an accounting platform.  
 
-[Bills](https://docs.codat.io/accounting-api#/schemas/Bill) are invoices
+[Bills](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) are invoices
 that represent the SMB's financial obligations to their supplier for a
 purchase of goods or services. 
 
@@ -290,7 +291,7 @@ const sdk = new CodatSyncPayables({
 
 sdk.bills.deleteAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  billId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: DeleteBillAttachmentResponse) => {
@@ -385,7 +386,7 @@ const sdk = new CodatSyncPayables({
 });
 
 sdk.bills.get({
-  billId: "EILBDVJVNUAGVKRQ",
+  billId: "7110701885",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 }).then((res: GetBillResponse) => {
   if (res.statusCode == 200) {
@@ -431,7 +432,7 @@ const sdk = new CodatSyncPayables({
 
 sdk.bills.getAttachment({
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  billId: "EILBDVJVNUAGVKRQ",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: GetBillAttachmentResponse) => {
@@ -530,7 +531,7 @@ sdk.bills.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "fuga",
+  query: "Northeast Metal Canada",
 }).then((res: ListBillsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -626,125 +627,125 @@ const sdk = new CodatSyncPayables({
 
 sdk.bills.update({
   bill: {
-    amountDue: 8913.15,
+    amountDue: 8574.78,
     currency: "GBP",
-    currencyRate: 12.07,
+    currencyRate: 5971.29,
     dueDate: "2022-10-23T00:00:00.000Z",
-    id: "e6f8c5f3-50d8-4cdb-9a34-181430104218",
+    id: "<ID>",
     issueDate: "2022-10-23T00:00:00.000Z",
     lineItems: [
       {
         accountRef: {
-          id: "3d5208ec-e7e2-453b-a684-51c6c6e205e1",
-          name: "Teri Thiel",
+          id: "<ID>",
+          name: "dock Quality redundant",
         },
-        description: "sequi",
-        discountAmount: 9873.49,
-        discountPercentage: 9180.92,
+        description: "Visionary bi-directional analyzer",
+        discountAmount: 2782.81,
+        discountPercentage: 8965.01,
         isDirectCost: false,
         itemRef: {
-          id: "c9578a64-5842-473a-8418-d162309fb092",
-          name: "Miss Joey Dach",
+          id: "<ID>",
+          name: "withdrawal extend",
         },
-        quantity: 9768.02,
-        subTotal: 7196.2,
-        taxAmount: 6085.93,
+        quantity: 2494.4,
+        subTotal: 3668.07,
+        taxAmount: 1395.79,
         taxRateRef: {
-          effectiveTaxRate: 9663.9,
-          id: "58c4d86e-68e4-4be0-9601-3f59da757a59",
-          name: "Garrett Welch",
+          effectiveTaxRate: 6447.13,
+          id: "<ID>",
+          name: "syndicate East Baht",
         },
-        totalAmount: 4043.06,
+        totalAmount: 6298.17,
         tracking: {
           categoryRefs: [
             {
-              id: "6ef1caa3-383c-42be-b477-373c8d72f64d",
-              name: "Dr. Muriel Reinger",
+              id: "<ID>",
+              name: "guestbook driver users",
             },
           ],
           customerRef: {
-            companyName: "porro",
-            id: "4310661e-9634-49e1-8f9e-06e3a437000a",
+            companyName: "Schroeder - Nienow",
+            id: "<ID>",
           },
-          isBilledTo: BilledToType.Project,
-          isRebilledTo: BilledToType.NotApplicable,
+          isBilledTo: BilledToType.NotApplicable,
+          isRebilledTo: BilledToType.Unknown,
           projectRef: {
-            id: "b6bc9b8f-759e-4ac5-9a97-41d311352965",
-            name: "Wm Legros",
+            id: "<ID>",
+            name: "Wooden Internal",
           },
         },
         trackingCategoryRefs: [
           {
-            id: "20261143-5e13-49db-8225-9b1abda8c070",
-            name: "Walter Beatty",
+            id: "<ID>",
+            name: "Dodge brightly",
           },
         ],
-        unitAmount: 7551.06,
+        unitAmount: 7115.64,
       },
     ],
     metadata: {
       isDeleted: false,
     },
     modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "voluptatem",
+    note: "frictionless haptic",
     paymentAllocations: [
       {
         allocation: {
           allocatedOnDate: "2022-10-23T00:00:00.000Z",
           currency: "USD",
-          currencyRate: 1729.51,
-          totalAmount: 8247.98,
+          currencyRate: 8238.97,
+          totalAmount: 5143.61,
         },
         payment: {
           accountRef: {
-            id: "1ad879ee-b966-45b8-9efb-d02bae0be2d7",
-            name: "Fred Champlin",
+            id: "<ID>",
+            name: "Diesel Avon",
           },
-          currency: "EUR",
-          currencyRate: 2393.37,
-          id: "ea4b5197-f924-443d-a7ce-52b895c537c6",
-          note: "modi",
+          currency: "GBP",
+          currencyRate: 8941.07,
+          id: "<ID>",
+          note: "male hack",
           paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "magnam",
-          totalAmount: 9149.71,
+          reference: "absolve West",
+          totalAmount: 182.83,
         },
       },
     ],
     purchaseOrderRefs: [
       {
-        id: "fb0b3489-6c3c-4a5a-8fbe-2fd570757792",
-        purchaseOrderNumber: "error",
+        id: "<ID>",
+        purchaseOrderNumber: "quisquam",
       },
     ],
-    reference: "veritatis",
+    reference: "deliverables Ergonomic Money",
     sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: BillStatus.PartiallyPaid,
-    subTotal: 8667.89,
+    status: BillStatus.Paid,
+    subTotal: 4173.15,
     supplementalData: {
       content: {
-        "itaque": {
-          "similique": "optio",
+        "repellat": {
+          "voluptatibus": "Latvian",
         },
       },
     },
     supplierRef: {
-      id: "646ecb57-3409-4e3e-b1e5-a2b12eb07f11",
-      supplierName: "laboriosam",
+      id: "<ID>",
+      supplierName: "Chips Omnigender tremendously",
     },
-    taxAmount: 8634.71,
-    totalAmount: 7294.48,
+    taxAmount: 9620.25,
+    totalAmount: 6952.8,
     withholdingTax: [
       {
-        amount: 5665.06,
-        name: "Maurice Haag",
+        amount: 3189.59,
+        name: "Benz",
       },
     ],
   },
-  billId: "EILBDVJVNUAGVKRQ",
+  billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   forceUpdate: false,
-  timeoutInMinutes: 574032,
+  timeoutInMinutes: 523103,
 }).then((res: UpdateBillResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -793,10 +794,10 @@ const sdk = new CodatSyncPayables({
 
 sdk.bills.uploadAttachment({
   requestBody: {
-    content: "enim".encode(),
-    requestBody: "hic",
+    content: "v/ghW&IC$x" as bytes <<<>>>,
+    requestBody: "Elegant Producer Electric",
   },
-  billId: "7110701885",
+  billId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
 }).then((res: UploadBillAttachmentResponse) => {

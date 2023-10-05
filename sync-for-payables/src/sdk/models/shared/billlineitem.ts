@@ -37,10 +37,16 @@ export class BillLineItem extends SpeakeasyBase {
     @Expose({ name: "discountAmount" })
     discountAmount?: number;
 
+    /**
+     * Percentage rate of any discount applied to the bill.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "discountPercentage" })
     discountPercentage?: number;
 
+    /**
+     * The bill is a direct cost if `True`.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isDirectCost" })
     isDirectCost?: boolean;

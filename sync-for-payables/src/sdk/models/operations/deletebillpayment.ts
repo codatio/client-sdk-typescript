@@ -7,14 +7,23 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class DeleteBillPaymentRequest extends SpeakeasyBase {
+    /**
+     * Unique identifier for a bill payment.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=billPaymentId" })
     billPaymentId: string;
 
+    /**
+     * Unique identifier for a company.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 }
 
 export class DeleteBillPaymentResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -30,9 +39,15 @@ export class DeleteBillPaymentResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     pushOperation?: shared.PushOperation;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 }
