@@ -1,4 +1,4 @@
-<div align="center">
+﻿<div align="center">
     <picture>
         <source srcset="https://user-images.githubusercontent.com/6267663/221800355-0995e4ad-a386-4943-a4c2-e620341a5155.svg" media="(prefers-color-scheme: dark)">
         <img src="https://user-images.githubusercontent.com/6267663/221800359-b7f7776c-a44f-4384-8dd0-d9f7d5caef7d.svg">
@@ -48,7 +48,7 @@ To get your authorization header from the [Codat Portal](https://app.codat.io):
 | **[Sync for Payroll](https://github.com/codatio/client-sdk-typescript/tree/main/sync-for-payroll)** | Push payroll to accounting platforms. | [@codat/sync-for-payroll](https://www.npmjs.com/package/@codat/sync-for-payroll) |
 | **[Sync for Payables](https://github.com/codatio/client-sdk-typescript/tree/main/sync-for-payables)** | Streamline your customers' accounts payable workflow. | [@codat/sync-for-payables](https://www.npmjs.com/package/@codat/sync-for-payables) |
 
-### Previous products and versions
+### Alternative products and versions
 
 | Library | Description | npm |
 | :- | :- | :- |
