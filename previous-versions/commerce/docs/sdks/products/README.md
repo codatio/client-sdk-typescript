@@ -1,4 +1,5 @@
-# products
+# Products
+(*products*)
 
 ## Overview
 
@@ -37,7 +38,7 @@ const sdk = new CodatCommerce({
 sdk.products.get({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  productId: "suscipit",
+  productId: "Northeast Hatchback Kia",
 }).then((res: GetProductResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -85,7 +86,7 @@ const sdk = new CodatCommerce({
 sdk.products.getCategory({
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  productId: "iure",
+  productId: "personalise contingency",
 }).then((res: GetProductCategoryResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -134,7 +135,7 @@ sdk.products.list({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "magnam",
+  query: "Northeast Metal Canada",
 }).then((res: ListProductsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -183,7 +184,7 @@ sdk.products.listCategories({
   orderBy: "-modifiedDate",
   page: 1,
   pageSize: 100,
-  query: "debitis",
+  query: "deposit nor protocol",
 }).then((res: ListProductCategoriesResponse) => {
   if (res.statusCode == 200) {
     // handle response
