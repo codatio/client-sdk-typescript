@@ -43,6 +43,9 @@ export class Company extends SpeakeasyBase {
     @Expose({ name: "created" })
     created?: string;
 
+    /**
+     * Name of user that created the company in Codat.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "createdByUserName" })
     createdByUserName?: string;
@@ -101,6 +104,8 @@ export class Company extends SpeakeasyBase {
     name: string;
 
     /**
+     * `platformKeys` name used when creating the company.
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @SpeakeasyMetadata()

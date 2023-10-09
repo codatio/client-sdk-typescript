@@ -1,4 +1,5 @@
 # Accounts
+(*accounts*)
 
 ## Overview
 
@@ -28,50 +29,46 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
-import { CreateAccountResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
 import { AccountStatus, AccountType } from "@codat/sync-for-payroll/dist/sdk/models/shared";
 
-const sdk = new CodatSyncPayroll({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.accounts.create({
-  account: {
-    currency: "EUR",
-    currentBalance: 0,
-    description: "Invoices the business has issued but has not yet collected payment on.",
-    fullyQualifiedCategory: "Asset.Current",
-    fullyQualifiedName: "Cash On Hand",
-    id: "1b6266d1-1e44-46c5-8eb5-a8f98e03124e",
-    isBankAccount: false,
-    metadata: {
-      isDeleted: false,
+(async() => {
+  const sdk = new CodatSyncPayroll({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    name: "Accounts Receivable",
-    nominalCode: "610",
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: AccountStatus.Active,
-    type: AccountType.Asset,
-    validDatatypeLinks: [
-      {
-        links: [
-          "suscipit",
-        ],
-        property: "iure",
-      },
-    ],
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 297534,
-}).then((res: CreateAccountResponse) => {
+  });
+
+  const res = await sdk.accounts.create({
+    account: {
+      currency: "USD",
+      currentBalance: 0,
+      description: "Invoices the business has issued but has not yet collected payment on.",
+      fullyQualifiedCategory: "Asset.Current",
+      fullyQualifiedName: "Cash On Hand",
+      id: "1b6266d1-1e44-46c5-8eb5-a8f98e03124e",
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      name: "Accounts Receivable",
+      nominalCode: "610",
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      status: AccountStatus.Active,
+      type: AccountType.Asset,
+      validDatatypeLinks: [
+        {
+          links: [
+            "Money",
+          ],
+        },
+      ],
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -103,22 +100,23 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
-import { GetAccountResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayroll({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayroll({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.accounts.get({
-  accountId: "EILBDVJVNUAGVKRQ",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetAccountResponse) => {
+  const res = await sdk.accounts.get({
+    accountId: "7110701885",
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -137,37 +135,38 @@ sdk.accounts.get({
 
 ## getCreateModel
 
-﻿  The *Get create account model* endpoint returns the expected data for the request payload when creating an [account](https://docs.codat.io/sync-for-payroll-api#/schemas/Account) for a given company and integration.
+The *Get create account model* endpoint returns the expected data for the request payload when creating an [account](https://docs.codat.io/sync-for-payroll-api#/schemas/Account) for a given company and integration.
     
-    [Accounts](https://docs.codat.io/sync-for-payroll-api#/schemas/Account) are the categories a business uses to record accounting transactions.
+[Accounts](https://docs.codat.io/sync-for-payroll-api#/schemas/Account) are the categories a business uses to record accounting transactions.
     
-    **Integration-specific behaviour**
+**Integration-specific behaviour**
     
-    See the *response examples* for integration-specific indicative models.
+See the *response examples* for integration-specific indicative models.
     
-    Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
 
 
 ### Example Usage
 
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
-import { GetCreateAccountsModelResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayroll({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayroll({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.accounts.getCreateModel({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateAccountsModelResponse) => {
+  const res = await sdk.accounts.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -196,25 +195,25 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
-import { ListAccountsResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayroll({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayroll({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.accounts.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "ipsa",
-}).then((res: ListAccountsResponse) => {
+  const res = await sdk.accounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

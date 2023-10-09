@@ -1,4 +1,5 @@
 # JournalEntries
+(*journalEntries*)
 
 ## Overview
 
@@ -29,69 +30,57 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
-import { CreateJournalEntryResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayroll({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayroll({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.journalEntries.create({
-  journalEntry: {
-    createdOn: "2022-10-23T00:00:00.000Z",
-    description: "placeat",
-    id: "8796ed15-1a05-4dfc-addf-7cc78ca1ba92",
-    journalLines: [
-      {
-        accountRef: {
-          id: "8fc81674-2cb7-4392-8592-9396fea7596e",
-          name: "Roger Beier",
+  const res = await sdk.journalEntries.create({
+    journalEntry: {
+      createdOn: "2022-10-23T00:00:00.000Z",
+      journalLines: [
+        {
+          accountRef: {},
+          netAmount: 4893.82,
+          tracking: {
+            recordRefs: [
+              {
+                dataType: "accountTransaction",
+              },
+            ],
+          },
         },
-        currency: "mollitia",
-        description: "laborum",
-        netAmount: 1709.09,
-        tracking: {
-          recordRefs: [
-            {
-              dataType: "journalEntry",
-              id: "52c59559-07af-4f1a-ba2f-a9467739251a",
-            },
-          ],
+      ],
+      journalRef: {
+        "Extended": "South",
+      },
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      postedOn: "2022-10-23T00:00:00.000Z",
+      recordRef: {
+        dataType: "invoice",
+      },
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      supplementalData: {
+        content: {
+          "abnormally": {
+            "deposit": "evolve",
+          },
         },
       },
-    ],
-    journalRef: {
-      id: "a52c3f5a-d019-4da1-bfe7-8f097b0074f1",
-      name: "Miss Valerie Kshlerin",
+      updatedOn: "2022-10-23T00:00:00.000Z",
     },
-    metadata: {
-      isDeleted: false,
-    },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    postedOn: "2022-10-23T00:00:00.000Z",
-    recordRef: {
-      dataType: "transfer",
-      id: "13b99d48-8e1e-491e-850a-d2abd4426980",
-    },
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    supplementalData: {
-      content: {
-        "assumenda": {
-          "ipsam": "alias",
-        },
-      },
-    },
-    updatedOn: "2022-10-23T00:00:00.000Z",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 677817,
-}).then((res: CreateJournalEntryResponse) => {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -145,22 +134,24 @@ Integrations that support soft delete do not permanently delete the object in th
 
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
-import { DeleteJournalEntryResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayroll({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayroll({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.journalEntries.delete({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalEntryId: "excepturi",
-}).then((res: DeleteJournalEntryResponse) => {
+  const res = await sdk.journalEntries.delete({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    journalEntryId: "Van complexity",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -192,22 +183,23 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
-import { GetJournalEntryResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayroll({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayroll({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.journalEntries.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalEntryId: "tempora",
-}).then((res: GetJournalEntryResponse) => {
+  const res = await sdk.journalEntries.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    journalEntryId: "Northeast Hatchback Kia",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -241,22 +233,23 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
-import { GetCreateJournalEntryModelResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayroll({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayroll({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.journalEntries.getCreateModel({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateJournalEntryModelResponse) => {
+  const res = await sdk.journalEntries.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -286,25 +279,25 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
-import { ListJournalEntriesResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayroll({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayroll({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.journalEntries.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "facilis",
-}).then((res: ListJournalEntriesResponse) => {
+  const res = await sdk.journalEntries.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
