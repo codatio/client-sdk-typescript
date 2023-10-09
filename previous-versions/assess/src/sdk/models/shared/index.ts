@@ -3,6 +3,7 @@
  */
 
 export * from "./accountcategoriesupdatedwebhook";
+export * from "./accountcategoriesupdatedwebhookdata";
 export * from "./accountcategorylevel";
 export * from "./accountref";
 export * from "./accounts";
