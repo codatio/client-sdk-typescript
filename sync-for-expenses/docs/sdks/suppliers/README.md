@@ -29,59 +29,43 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { CreateSupplierResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 import { AccountingAddressType, SupplierStatus } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.suppliers.create({
-  supplier: {
-    addresses: [
-      {
-        city: "Jenafurt",
-        country: "Sweden",
-        line1: "innovative blue",
-        line2: "grey technology East",
-        postalCode: "30778",
-        region: "quantify Polestar mobile",
-        type: AccountingAddressType.Billing,
-      },
-    ],
-    contactName: "Durham after",
-    defaultCurrency: "Intelligent Fish",
-    emailAddress: "Ricardo.Hand41@gmail.com",
-    id: "<ID>",
-    metadata: {
-      isDeleted: false,
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "(877) 492-8687",
-    registrationNumber: "Profound",
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: SupplierStatus.Active,
-    supplementalData: {
-      content: {
-        "pariatur": {
-          "accusantium": "Minivan",
+  });
+
+  const res = await sdk.suppliers.create({
+    supplier: {
+      addresses: [
+        {
+          type: AccountingAddressType.Billing,
+        },
+      ],
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      phone: "(877) 492-8687",
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      status: SupplierStatus.Active,
+      supplementalData: {
+        content: {
+          "innovative": {
+            "blue": "shred",
+          },
         },
       },
     },
-    supplierName: "Senior Mouse West",
-    taxNumber: "Towels likewise",
-  },
-  allowSyncOnPushComplete: false,
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 452224,
-}).then((res: CreateSupplierResponse) => {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -113,22 +97,23 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { GetSupplierResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.suppliers.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  supplierId: "7110701885",
-}).then((res: GetSupplierResponse) => {
+  const res = await sdk.suppliers.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    supplierId: "7110701885",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -158,25 +143,25 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { ListSuppliersResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.suppliers.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "Northeast Metal Canada",
-}).then((res: ListSuppliersResponse) => {
+  const res = await sdk.suppliers.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -210,61 +195,44 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { UpdateSupplierResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 import { AccountingAddressType, SupplierStatus } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.suppliers.update({
-  supplier: {
-    addresses: [
-      {
-        city: "Ann Arbor",
-        country: "Montserrat",
-        line1: "Reactive",
-        line2: "Metal cheater Islands",
-        postalCode: "43372",
-        region: "Carolina syndicate",
-        type: AccountingAddressType.Billing,
-      },
-    ],
-    contactName: "East",
-    defaultCurrency: "Bicycle guestbook",
-    emailAddress: "Alexys.Hayes81@yahoo.com",
-    id: "<ID>",
-    metadata: {
-      isDeleted: false,
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "(877) 492-8687",
-    registrationNumber: "indexing",
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: SupplierStatus.Unknown,
-    supplementalData: {
-      content: {
-        "consectetur": {
-          "ullam": "Jaguar",
+  });
+
+  const res = await sdk.suppliers.update({
+    supplier: {
+      addresses: [
+        {
+          type: AccountingAddressType.Delivery,
+        },
+      ],
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      phone: "(877) 492-8687",
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      status: SupplierStatus.Active,
+      supplementalData: {
+        content: {
+          "male": {
+            "Metal": "cheater",
+          },
         },
       },
     },
-    supplierName: "visionary Buckinghamshire frictionless",
-    taxNumber: "parse possimus",
-  },
-  allowSyncOnPushComplete: false,
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  forceUpdate: false,
-  supplierId: "7110701885",
-  timeoutInMinutes: 427089,
-}).then((res: UpdateSupplierResponse) => {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

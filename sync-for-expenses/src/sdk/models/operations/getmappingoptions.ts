@@ -31,7 +31,7 @@ export class GetMappingOptionsResponse extends SpeakeasyBase {
      * Success
      */
     @SpeakeasyMetadata()
-    mappingOptions?: shared.MappingOptions;
+    mappingOptions?: Record<string, any>;
 
     /**
      * HTTP response status code for this operation

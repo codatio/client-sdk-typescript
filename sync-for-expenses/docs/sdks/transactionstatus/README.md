@@ -18,23 +18,24 @@ Gets the status of a transaction for a sync
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { GetSyncTransactionResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.transactionStatus.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
-  transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
-}).then((res: GetSyncTransactionResponse) => {
+  const res = await sdk.transactionStatus.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
+    transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -59,24 +60,25 @@ Gets the transactions and status for a sync
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { ListSyncTransactionsResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.transactionStatus.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  page: 1,
-  pageSize: 100,
-  syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
-}).then((res: ListSyncTransactionsResponse) => {
+  const res = await sdk.transactionStatus.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    page: 1,
+    pageSize: 100,
+    syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -97,10 +97,7 @@ export class Sync {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.companySyncStatus = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.CompanySyncStatus
-                    );
+                    res.companySyncStatus = utils.objectToClass(JSON.parse(decodedRes));
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -208,10 +205,7 @@ export class Sync {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.companySyncStatus = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.CompanySyncStatus
-                    );
+                    res.companySyncStatus = utils.objectToClass(JSON.parse(decodedRes));
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -318,10 +312,7 @@ export class Sync {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.companySyncStatus = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.CompanySyncStatus
-                    );
+                    res.companySyncStatus = utils.objectToClass(JSON.parse(decodedRes));
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -379,7 +370,7 @@ export class Sync {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "initiateSync", "json");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "json");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -443,10 +434,7 @@ export class Sync {
         switch (true) {
             case httpRes?.status == 202:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.syncInitiated = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.SyncInitiated
-                    );
+                    res.syncInitiated = utils.objectToClass(JSON.parse(decodedRes));
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -553,13 +541,7 @@ export class Sync {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.companySyncStatuses = [];
-                    const resFieldDepth: number = utils.getResFieldDepth(res);
-                    res.companySyncStatuses = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.CompanySyncStatus,
-                        resFieldDepth
-                    );
+                    res.companySyncStatuses = utils.objectToClass(JSON.parse(decodedRes));
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,

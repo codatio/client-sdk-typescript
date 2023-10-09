@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class InitiateSyncRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    initiateSync?: shared.InitiateSync;
+    requestBody?: Record<string, any>;
 
     /**
      * Unique identifier for a company.
@@ -46,5 +46,5 @@ export class InitiateSyncResponse extends SpeakeasyBase {
      * Returns the newly created SyncId
      */
     @SpeakeasyMetadata()
-    syncInitiated?: shared.SyncInitiated;
+    syncInitiated?: Record<string, any>;
 }

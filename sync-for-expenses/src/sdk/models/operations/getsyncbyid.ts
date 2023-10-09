@@ -25,7 +25,7 @@ export class GetSyncByIdResponse extends SpeakeasyBase {
      * Success
      */
     @SpeakeasyMetadata()
-    companySyncStatus?: shared.CompanySyncStatus;
+    companySyncStatus?: Record<string, any>;
 
     /**
      * HTTP response content type for this operation

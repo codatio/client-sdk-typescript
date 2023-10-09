@@ -18,8 +18,8 @@ export class ListSyncsResponse extends SpeakeasyBase {
     /**
      * Success
      */
-    @SpeakeasyMetadata({ elemType: shared.CompanySyncStatus })
-    companySyncStatuses?: shared.CompanySyncStatus[];
+    @SpeakeasyMetadata()
+    companySyncStatuses?: Record<string, any>[];
 
     /**
      * HTTP response content type for this operation

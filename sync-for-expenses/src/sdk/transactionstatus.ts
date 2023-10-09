@@ -98,10 +98,7 @@ export class TransactionStatus {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.transaction = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.Transaction
-                    );
+                    res.transaction = utils.objectToClass(JSON.parse(decodedRes));
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -210,10 +207,7 @@ export class TransactionStatus {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.transactions = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.Transactions
-                    );
+                    res.transactions = utils.objectToClass(JSON.parse(decodedRes));
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,

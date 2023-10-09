@@ -55,5 +55,5 @@ export class GetSyncTransactionResponse extends SpeakeasyBase {
      * Success
      */
     @SpeakeasyMetadata()
-    transaction?: shared.Transaction;
+    transaction?: Record<string, any>;
 }

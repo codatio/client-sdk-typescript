@@ -208,10 +208,7 @@ export class Configuration {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.mappingOptions = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.MappingOptions
-                    );
+                    res.mappingOptions = utils.objectToClass(JSON.parse(decodedRes));
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
