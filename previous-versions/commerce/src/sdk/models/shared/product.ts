@@ -16,7 +16,7 @@ import { Expose, Type } from "class-transformer";
  */
 export class Product extends SpeakeasyBase {
     /**
-     * Retail category that the product is assigned to
+     * Retail category that the product is assigned to e.g. `Hardware`.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "categorization" })
@@ -40,7 +40,7 @@ export class Product extends SpeakeasyBase {
      * Whether the product represents a gift card or voucher that
      *
      * @remarks
-     * can be redeemed in the commerce or POS platform
+     * can be redeemed in the commerce or POS platform.
      *
      */
     @SpeakeasyMetadata()
