@@ -4,19 +4,23 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { PushChangeType } from "./pushchangetype";
-import { PushOperationRef } from "./pushoperationref";
-import { Expose, Type } from "class-transformer";
+import { Expose } from "class-transformer";
 
 export class PushOperationChange extends SpeakeasyBase {
+    /**
+     * Unique identifier for the attachment created otherwise null.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "attachmentId" })
     attachmentId?: string;
 
     @SpeakeasyMetadata()
     @Expose({ name: "recordRef" })
-    @Type(() => PushOperationRef)
-    recordRef?: PushOperationRef;
+    recordRef?: Record<string, any>;
 
+    /**
+     * Type of change being applied to record in third party platform.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
     type?: PushChangeType;

@@ -8,19 +8,28 @@ import { AxiosResponse } from "axios";
 
 export class DeleteSourceAccountRequest extends SpeakeasyBase {
     /**
-     * Unique identifier for an account
+     * Unique identifier for an account.
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=accountId" })
     accountId: string;
 
+    /**
+     * Unique identifier for a company.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 
+    /**
+     * Unique identifier for a connection.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
     connectionId: string;
 }
 
 export class DeleteSourceAccountResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -30,9 +39,15 @@ export class DeleteSourceAccountResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 }
