@@ -1,4 +1,5 @@
-# connections
+# Connections
+(*connections*)
 
 ## Overview
 
@@ -7,7 +8,7 @@ Create and manage partner expense connection.
 ### Available Operations
 
 * [createConnection](#createconnection) - Create connection
-* [createPartnerExpenseConnection](#createpartnerexpenseconnection) - Create Partner Expense connection
+* [createPartnerExpenseConnection](#createpartnerexpenseconnection) - Create partner expense connection
 * [deleteConnection](#deleteconnection) - Delete connection
 * [getConnection](#getconnection) - Get connection
 * [listConnections](#listconnections) - List connections
@@ -23,24 +24,25 @@ Use the [List Integrations](https://docs.codat.io/sync-for-expenses-v1-api#/oper
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses-version-1";
-import { CreateConnectionResponse } from "@codat/sync-for-expenses-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.connections.createConnection({
-  requestBody: {
-    platformKey: "provident",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: CreateConnectionResponse) => {
+  const res = await sdk.connections.createConnection({
+    requestBody: {
+      platformKey: "gbol",
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -59,27 +61,28 @@ sdk.connections.createConnection({
 
 ## createPartnerExpenseConnection
 
-Creates a Partner Expense data connection
+Creates a partner expense data connection
 
 ### Example Usage
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses-version-1";
-import { CreatePartnerExpenseConnectionResponse } from "@codat/sync-for-expenses-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.connections.createPartnerExpenseConnection({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: CreatePartnerExpenseConnectionResponse) => {
+  const res = await sdk.connections.createPartnerExpenseConnection({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -105,22 +108,23 @@ This operation is not reversible. The end user would need to reauthorize a new d
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses-version-1";
-import { DeleteConnectionResponse } from "@codat/sync-for-expenses-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.connections.deleteConnection({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: DeleteConnectionResponse) => {
+  const res = await sdk.connections.deleteConnection({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -145,22 +149,23 @@ sdk.connections.deleteConnection({
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses-version-1";
-import { GetConnectionResponse } from "@codat/sync-for-expenses-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.connections.getConnection({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetConnectionResponse) => {
+  const res = await sdk.connections.getConnection({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -185,25 +190,25 @@ sdk.connections.getConnection({
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses-version-1";
-import { ListConnectionsResponse } from "@codat/sync-for-expenses-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.connections.listConnections({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "distinctio",
-}).then((res: ListConnectionsResponse) => {
+  const res = await sdk.connections.listConnections({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -228,26 +233,26 @@ sdk.connections.listConnections({
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses-version-1";
-import { UnlinkConnectionResponse } from "@codat/sync-for-expenses-version-1/dist/sdk/models/operations";
-import { DataConnectionStatus } from "@codat/sync-for-expenses-version-1/dist/sdk/models/shared";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.connections.unlink({
-  requestBody: {
-    status: DataConnectionStatus.Deauthorized,
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: UnlinkConnectionResponse) => {
+  const res = await sdk.connections.unlink({
+    requestBody: {
+      "Cheese": "Hybrid",
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

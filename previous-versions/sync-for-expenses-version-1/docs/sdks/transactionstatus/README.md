@@ -1,4 +1,5 @@
-# transactionStatus
+# TransactionStatus
+(*transactionStatus*)
 
 ## Overview
 
@@ -6,8 +7,8 @@ Retrieve the status of transactions within a sync.
 
 ### Available Operations
 
-* [getSyncTransaction](#getsynctransaction) - Get Sync Transaction
-* [listSyncTransactions](#listsynctransactions) - Get Sync transactions
+* [getSyncTransaction](#getsynctransaction) - Get sync transaction
+* [listSyncTransactions](#listsynctransactions) - Get sync transactions
 
 ## getSyncTransaction
 
@@ -17,23 +18,24 @@ Gets the status of a transaction for a sync
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses-version-1";
-import { GetSyncTransactionResponse } from "@codat/sync-for-expenses-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.transactionStatus.getSyncTransaction({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
-  transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
-}).then((res: GetSyncTransactionResponse) => {
+  const res = await sdk.transactionStatus.getSyncTransaction({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
+    transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -58,24 +60,25 @@ Get's the transactions and status for a sync
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses-version-1";
-import { ListSyncTransactionsResponse } from "@codat/sync-for-expenses-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.transactionStatus.listSyncTransactions({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  page: 1,
-  pageSize: 100,
-  syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
-}).then((res: ListSyncTransactionsResponse) => {
+  const res = await sdk.transactionStatus.listSyncTransactions({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    page: 1,
+    pageSize: 100,
+    syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

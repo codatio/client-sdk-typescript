@@ -7,6 +7,9 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetSyncTransactionRequest extends SpeakeasyBase {
+    /**
+     * Unique identifier for a company.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 
@@ -24,6 +27,9 @@ export class GetSyncTransactionRequest extends SpeakeasyBase {
 }
 
 export class GetSyncTransactionResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -33,15 +39,21 @@ export class GetSyncTransactionResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 
     /**
      * Success
      */
-    @SpeakeasyMetadata({ elemType: shared.TransactionMetadata })
-    transactionMetadata?: shared.TransactionMetadata[];
+    @SpeakeasyMetadata()
+    transactionMetadata?: Record<string, any>[];
 }

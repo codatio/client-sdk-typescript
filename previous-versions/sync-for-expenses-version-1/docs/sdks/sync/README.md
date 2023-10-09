@@ -1,4 +1,5 @@
-# sync
+# Sync
+(*sync*)
 
 ## Overview
 
@@ -16,26 +17,25 @@ Initiate sync of pending transactions.
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses-version-1";
-import { InitiateSyncResponse } from "@codat/sync-for-expenses-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.sync.initiateSync({
-  postSync: {
-    datasetIds: [
-      "a674e0f4-67cc-4879-aed1-51a05dfc2ddf",
-    ],
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: InitiateSyncResponse) => {
+  const res = await sdk.sync.initiateSync({
+    requestBody: {
+      "Assistant": "Hybrid",
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

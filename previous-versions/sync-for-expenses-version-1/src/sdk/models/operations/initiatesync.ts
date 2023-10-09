@@ -8,13 +8,19 @@ import { AxiosResponse } from "axios";
 
 export class InitiateSyncRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    postSync?: shared.PostSync;
+    requestBody?: Record<string, any>;
 
+    /**
+     * Unique identifier for a company.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 }
 
 export class InitiateSyncResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -24,9 +30,15 @@ export class InitiateSyncResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 
@@ -34,5 +46,5 @@ export class InitiateSyncResponse extends SpeakeasyBase {
      * Returns the newly created SyncId
      */
     @SpeakeasyMetadata()
-    syncInitiated?: shared.SyncInitiated;
+    syncInitiated?: Record<string, any>;
 }
