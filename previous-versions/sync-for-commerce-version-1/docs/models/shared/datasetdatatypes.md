@@ -1,4 +1,4 @@
-# DataTypeFeatureDataTypes
+# DatasetDataTypes
 
 Available Data types
 

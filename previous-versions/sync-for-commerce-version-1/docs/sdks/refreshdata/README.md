@@ -1,4 +1,5 @@
-# refreshData
+# RefreshData
+(*refreshData*)
 
 ## Overview
 
@@ -24,21 +25,22 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { RefreshCompanyDataResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.refreshData.all({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: RefreshCompanyDataResponse) => {
+  const res = await sdk.refreshData.all({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -65,24 +67,24 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { RefreshDataTypeResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 import { DataType } from "@codat/sync-for-commerce-version-1/dist/sdk/models/shared";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.refreshData.byDataType({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "b34896c3-ca5a-4cfb-a2fd-570757792917",
-  dataType: DataType.Invoices,
-}).then((res: RefreshDataTypeResponse) => {
+  const res = await sdk.refreshData.byDataType({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    dataType: DataType.Invoices,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -107,21 +109,22 @@ Get the state of each data type for a company
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { GetCompanyDataStatusResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.refreshData.getCompanyDataStatus({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetCompanyDataStatusResponse) => {
+  const res = await sdk.refreshData.getCompanyDataStatus({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -146,22 +149,23 @@ Retrieve information about a single dataset or pull operation.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { GetPullOperationResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.refreshData.getPullOperation({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  datasetId: "eaed9f0f-e77b-4bc9-a58f-ab8b4b99ab18",
-}).then((res: GetPullOperationResponse) => {
+  const res = await sdk.refreshData.getPullOperation({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    datasetId: "7911a54a-c808-4f4b-b87e-b195f52b4da5",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -186,25 +190,25 @@ Gets the pull operation history (datasets) for a given company.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { ListPullOperationsResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.refreshData.listPullOperations({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "voluptate",
-}).then((res: ListPullOperationsResponse) => {
+  const res = await sdk.refreshData.listPullOperations({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

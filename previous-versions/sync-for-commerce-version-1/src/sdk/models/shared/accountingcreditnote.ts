@@ -29,10 +29,16 @@ import { Expose, Type } from "class-transformer";
  * * Which customers the credit notes have been issued to.
  */
 export class AccountingCreditNote extends SpeakeasyBase {
+    /**
+     * Additional tax amount applied to credit note.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "additionalTaxAmount" })
     additionalTaxAmount?: number;
 
+    /**
+     * Percentage rate of any additional tax applied to the credit note.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "additionalTaxPercentage" })
     additionalTaxPercentage?: number;
@@ -205,6 +211,9 @@ export class AccountingCreditNote extends SpeakeasyBase {
     @Expose({ name: "sourceModifiedDate" })
     sourceModifiedDate?: string;
 
+    /**
+     * Current state of the credit note.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
     status: CreditNoteStatus;

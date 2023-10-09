@@ -22,54 +22,48 @@ yarn add @codat/sync-for-commerce-version-1
 
 ## Example Usage
 <!-- Start SDK Example Usage -->
-
-
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { CreateAccountingAccountResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 import { AccountStatus, AccountType } from "@codat/sync-for-commerce-version-1/dist/sdk/models/shared";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.accountingAccounts.createAccountingAccount({
-  accountingAccount: {
-    currency: "USD",
-    currentBalance: 0,
-    description: "Invoices the business has issued but has not yet collected payment on.",
-    fullyQualifiedCategory: "Asset.Current",
-    fullyQualifiedName: "Fixed Asset",
-    id: "1b6266d1-1e44-46c5-8eb5-a8f98e03124e",
-    isBankAccount: false,
-    metadata: {
-      isDeleted: false,
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    name: "Accounts Receivable",
-    nominalCode: "610",
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: AccountStatus.Active,
-    type: AccountType.Asset,
-    validDatatypeLinks: [
-      {
-        links: [
-          "unde",
-        ],
-        property: "nulla",
-      },
-    ],
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 544883,
-}).then((res: CreateAccountingAccountResponse) => {
+  });
+
+  const res = await sdk.accountingAccounts.createAccountingAccount({
+    accountingAccount: {
+      currency: "GBP",
+      currentBalance: 0,
+      description: "Invoices the business has issued but has not yet collected payment on.",
+      fullyQualifiedCategory: "Asset.Current",
+      fullyQualifiedName: "Cash On Hand",
+      id: "1b6266d1-1e44-46c5-8eb5-a8f98e03124e",
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      name: "Accounts Receivable",
+      nominalCode: "610",
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      status: AccountStatus.Active,
+      type: AccountType.Asset,
+      validDatatypeLinks: [
+        {
+          links: [
+            "Gasoline",
+          ],
+        },
+      ],
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 <!-- End SDK Example Usage -->
 
@@ -161,7 +155,7 @@ sdk.accountingAccounts.createAccountingAccount({
 
 ### [companyManagement](docs/sdks/companymanagement/README.md)
 
-* [createCompany](docs/sdks/companymanagement/README.md#createcompany) - Create Sync for Commerce company
+* [createCompany](docs/sdks/companymanagement/README.md#createcompany) - Create sync for commerce company
 * [createConnection](docs/sdks/companymanagement/README.md#createconnection) - Create connection
 * [listCompanies](docs/sdks/companymanagement/README.md#listcompanies) - List companies
 * [listConnections](docs/sdks/companymanagement/README.md#listconnections) - List data connections
@@ -169,8 +163,8 @@ sdk.accountingAccounts.createAccountingAccount({
 
 ### [configuration](docs/sdks/configuration/README.md)
 
-* [getConfiguration](docs/sdks/configuration/README.md#getconfiguration) - Retrieve config preferences set for a company.
-* [setConfiguration](docs/sdks/configuration/README.md#setconfiguration) - Create or update configuration.
+* [getConfiguration](docs/sdks/configuration/README.md#getconfiguration) - Retrieve config preferences set for a company
+* [setConfiguration](docs/sdks/configuration/README.md#setconfiguration) - Create or update configuration
 
 ### [connections](docs/sdks/connections/README.md)
 
@@ -181,7 +175,7 @@ sdk.accountingAccounts.createAccountingAccount({
 ### [integrations](docs/sdks/integrations/README.md)
 
 * [getIntegrationBranding](docs/sdks/integrations/README.md#getintegrationbranding) - Get branding for an integration
-* [listIntegrations](docs/sdks/integrations/README.md#listintegrations) - List information on Codat's supported integrations
+* [listIntegrations](docs/sdks/integrations/README.md#listintegrations) - List integrations
 
 ### [pushData](docs/sdks/pushdata/README.md)
 
@@ -204,10 +198,36 @@ sdk.accountingAccounts.createAccountingAccount({
 
 ### [syncFlowPreferences](docs/sdks/syncflowpreferences/README.md)
 
-* [getConfigTextSyncFlow](docs/sdks/syncflowpreferences/README.md#getconfigtextsyncflow) - Retrieve preferences for text fields on Sync Flow
+* [getConfigTextSyncFlow](docs/sdks/syncflowpreferences/README.md#getconfigtextsyncflow) - Retrieve preferences for text fields on sync flow
 * [getSyncFlowUrl](docs/sdks/syncflowpreferences/README.md#getsyncflowurl) - Retrieve sync flow url
 * [getVisibleAccounts](docs/sdks/syncflowpreferences/README.md#getvisibleaccounts) - List visible accounts
 * [updateConfigTextSyncFlow](docs/sdks/syncflowpreferences/README.md#updateconfigtextsyncflow) - Update preferences for text fields on sync flow
-* [updateVisibleAccountsSyncFlow](docs/sdks/syncflowpreferences/README.md#updatevisibleaccountssyncflow) - Update the visible accounts on Sync Flow
+* [updateVisibleAccountsSyncFlow](docs/sdks/syncflowpreferences/README.md#updatevisibleaccountssyncflow) - Update the visible accounts on sync flow
 <!-- End SDK Available Operations -->
+
+
+
+<!-- Start Dev Containers -->
+
+
+
+<!-- End Dev Containers -->
+
+
+
+<!-- Start Pagination -->
+# Pagination
+
+Some of the endpoints in this SDK support pagination. To use pagination, you make your SDK calls as usual, but the
+returned response object will have a `next` method that can be called to pull down the next group of results. If the
+return value of `next` is `null`, then there are no more pages to be fetched.
+
+Here's an example of one such pagination call:
+
+
+<!-- End Pagination -->
+
+<!-- Placeholder for Future Speakeasy SDK Sections -->
+
+
 ### Library generated by [Speakeasy](https://docs.speakeasyapi.dev/docs/using-speakeasy/client-sdks)
