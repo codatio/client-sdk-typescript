@@ -1,4 +1,5 @@
 # Integrations
+(*integrations*)
 
 ## Overview
 
@@ -17,21 +18,22 @@ Retrieve Integration branding assets.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { GetIntegrationBrandingResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.integrations.getBranding({
-  platformKey: "error",
-}).then((res: GetIntegrationBrandingResponse) => {
+  const res = await sdk.integrations.getBranding({
+    platformKey: "gbol",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -56,24 +58,24 @@ Retrieve a list of available integrations support by data type and state of rele
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { ListIntegrationsResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.integrations.list({
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "deserunt",
-}).then((res: ListIntegrationsResponse) => {
+  const res = await sdk.integrations.list({
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

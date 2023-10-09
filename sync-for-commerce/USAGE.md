@@ -3,21 +3,22 @@
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { CreateCompanyResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.advancedControls.createCompany({
-  description: "Requested early access to the new financing scheme.",
-  name: "Bank of Dave",
-}).then((res: CreateCompanyResponse) => {
+  const res = await sdk.advancedControls.createCompany({
+    description: "Requested early access to the new financing scheme.",
+    name: "Bank of Dave",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 <!-- End SDK Example Usage -->
