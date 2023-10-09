@@ -1,4 +1,5 @@
-# Banking.CategorizedStatement
+# BankingCategorizedStatement
+(*banking.categorizedStatement*)
 
 ### Available Operations
 
@@ -16,24 +17,24 @@ The _Get categorized bank statement_ endpoint provides a fully categorized list 
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GetCategorizedBankStatementResponse } from "@codat/lending/dist/sdk/models/operations";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.banking.categorizedStatement.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  page: 1,
-  pageSize: 100,
-  query: "commodi",
-}).then((res: GetCategorizedBankStatementResponse) => {
+  const res = await sdk.banking.categorizedStatement.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

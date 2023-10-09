@@ -4,14 +4,13 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { JournalLine } from "./journalline";
-import { JournalRef } from "./journalref";
 import { Metadata } from "./metadata";
 import { RecordRef } from "./recordref";
 import { SupplementalData } from "./supplementaldata";
 import { Expose, Type } from "class-transformer";
 
 /**
- * > **Language tip:** For the top-level record of a company's financial transactions, refer to the [Journals](https://docs.codat.io/accounting-api#/schemas/Journal) data type
+ * > **Language tip:** For the top-level record of a company's financial transactions, refer to the [Journals](https://docs.codat.io/lending-api#/schemas/Journal) data type
  *
  * @remarks
  *
@@ -19,7 +18,7 @@ import { Expose, Type } from "class-transformer";
  *
  * ## Overview
  *
- * A journal entry report shows the entries made in a company's general ledger, or [accounts](https://docs.codat.io/accounting-api#/schemas/Account), when transactions are approved. The journal line items for each journal entry should balance.
+ * A journal entry report shows the entries made in a company's general ledger, or [accounts](https://docs.codat.io/lending-api#/schemas/Account), when transactions are approved. The journal line items for each journal entry should balance.
  *
  * A journal entry line item is a single transaction line on the journal entry. For example:
  *
@@ -91,8 +90,7 @@ export class AccountingJournalEntry extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "journalRef" })
-    @Type(() => JournalRef)
-    journalRef?: JournalRef;
+    journalRef?: Record<string, any>;
 
     @SpeakeasyMetadata()
     @Expose({ name: "metadata" })

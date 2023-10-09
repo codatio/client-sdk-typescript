@@ -3,8 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { AccountBalanceAmounts } from "./accountbalanceamounts";
-import { Expose, Type } from "class-transformer";
+import { Expose } from "class-transformer";
 
 /**
  * The Banking Account Balances data type provides a list of balances for a bank account including end-of-day batch balance or running balances per transaction.
@@ -15,7 +14,7 @@ import { Expose, Type } from "class-transformer";
  *
  * > **How often should I pull Account Balances?**
  * >
- * > Because these balances are closing balances, we recommend you pull Account Balance no more frequently than daily. If you require a live intraday balance, this can be found for each account on the [Account](https://docs.codat.io/banking-api#/schemas/Account) data type.
+ * > Because these balances are closing balances, we recommend you pull Account Balance no more frequently than daily. If you require a live intraday balance, this can be found for each account on the [Account](https://docs.codat.io/lending-api#/schemas/Account) data type.
  * >
  * > Whilst you can choose to sync hourly, this may incur usage charges from Plaid or TrueLayer.
  */
@@ -32,8 +31,7 @@ export class BankingAccountBalance extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "balance" })
-    @Type(() => AccountBalanceAmounts)
-    balance: AccountBalanceAmounts;
+    balance: Record<string, any>;
 
     /**
      * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:

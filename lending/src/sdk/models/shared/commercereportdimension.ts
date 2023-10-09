@@ -6,16 +6,25 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Type } from "class-transformer";
 
 export class CommerceReportDimensionItems extends SpeakeasyBase {
+    /**
+     * The dimension's items index.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "index" })
     index?: number;
 }
 
 export class CommerceReportDimension extends SpeakeasyBase {
+    /**
+     * The dimension's display name.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "displayName" })
     displayName?: string;
 
+    /**
+     * The dimension's index.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "index" })
     index?: number;
@@ -25,6 +34,9 @@ export class CommerceReportDimension extends SpeakeasyBase {
     @Type(() => CommerceReportDimensionItems)
     items?: CommerceReportDimensionItems[];
 
+    /**
+     * The dimension's type.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
     type?: string;

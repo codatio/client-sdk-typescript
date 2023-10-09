@@ -3,9 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { ProfitAndLossReport } from "./profitandlossreport";
 import { ReportBasis } from "./reportbasis";
-import { Expose, Type } from "class-transformer";
+import { Expose } from "class-transformer";
 
 /**
  * > **Language tip:** Profit and loss statement is also referred to as **income statement** under US GAAP (Generally Accepted Accounting Principles).
@@ -105,8 +104,7 @@ export class AccountingProfitAndLossReport extends SpeakeasyBase {
     /**
      * An array of profit and loss reports.
      */
-    @SpeakeasyMetadata({ elemType: ProfitAndLossReport })
+    @SpeakeasyMetadata()
     @Expose({ name: "reports" })
-    @Type(() => ProfitAndLossReport)
-    reports: ProfitAndLossReport[];
+    reports: Record<string, any>[];
 }

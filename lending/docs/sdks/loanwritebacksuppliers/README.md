@@ -1,4 +1,5 @@
-# LoanWriteback.Suppliers
+# LoanWritebackSuppliers
+(*loanWriteback.suppliers*)
 
 ### Available Operations
 
@@ -7,13 +8,13 @@
 
 ## create
 
-The *Create supplier* endpoint creates a new [supplier](https://docs.codat.io/accounting-api#/schemas/Supplier) for a given company's connection.
+The *Create supplier* endpoint creates a new [supplier](https://docs.codat.io/lending-api#/schemas/Supplier) for a given company's connection.
 
-[Suppliers](https://docs.codat.io/accounting-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
+[Suppliers](https://docs.codat.io/lending-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
 
 **Integration-specific behaviour**
 
-Required data may vary by integration. To see what data to post, first call [Get create/update supplier model](https://docs.codat.io/accounting-api#/operations/get-create-update-suppliers-model).
+Required data may vary by integration. To see what data to post, first call [Get create/update supplier model](https://docs.codat.io/lending-api#/operations/get-create-update-suppliers-model).
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=suppliers) for integrations that support creating an account.
 
@@ -22,60 +23,43 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { CreateSupplierResponse } from "@codat/lending/dist/sdk/models/operations";
 import { AccountingAddressType, SupplierStatus } from "@codat/lending/dist/sdk/models/shared";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.loanWriteback.suppliers.create({
-  accountingSupplier: {
-    addresses: [
-      {
-        city: "Ankundingworth",
-        country: "Guadeloupe",
-        line1: "nulla",
-        line2: "fugit",
-        postalCode: "99474-0623",
-        region: "ea",
-        type: AccountingAddressType.Unknown,
-      },
-    ],
-    contactName: "vel",
-    defaultCurrency: "possimus",
-    emailAddress: "magnam",
-    id: "36813f16-d9f5-4fce-ac55-6146c3e250fb",
-    metadata: {
-      isDeleted: false,
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "+44 25691 154789",
-    registrationNumber: "deleniti",
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: SupplierStatus.Unknown,
-    supplementalData: {
-      content: {
-        "fugit": {
-          "accusamus": "inventore",
+  });
+
+  const res = await sdk.loanWriteback.suppliers.create({
+    accountingSupplier: {
+      addresses: [
+        {
+          type: AccountingAddressType.Billing,
+        },
+      ],
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      phone: "(877) 492-8687",
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      status: SupplierStatus.Active,
+      supplementalData: {
+        content: {
+          "innovative": {
+            "blue": "shred",
+          },
         },
       },
     },
-    supplierName: "non",
-    taxNumber: "et",
-  },
-  allowSyncOnPushComplete: false,
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  forceUpdate: false,
-  timeoutInMinutes: 677412,
-}).then((res: CreateSupplierResponse) => {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -94,9 +78,9 @@ sdk.loanWriteback.suppliers.create({
 
 ## getCreateUpdateModel
 
-The *Get create/update supplier model* endpoint returns the expected data for the request payload when creating and updating a [supplier](https://docs.codat.io/accounting-api#/schemas/Supplier) for a given company and integration.
+The *Get create/update supplier model* endpoint returns the expected data for the request payload when creating and updating a [supplier](https://docs.codat.io/lending-api#/schemas/Supplier) for a given company and integration.
 
-[Suppliers](https://docs.codat.io/accounting-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
+[Suppliers](https://docs.codat.io/lending-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
 
 **Integration-specific behaviour**
 
@@ -109,22 +93,23 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GetCreateUpdateSuppliersModelResponse } from "@codat/lending/dist/sdk/models/operations";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.loanWriteback.suppliers.getCreateUpdateModel({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateUpdateSuppliersModelResponse) => {
+  const res = await sdk.loanWriteback.suppliers.getCreateUpdateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -14,6 +14,9 @@ export class TransactionSourceRef extends SpeakeasyBase {
     @Expose({ name: "id" })
     id: string;
 
+    /**
+     * The type of source the transaction arose.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
     type: TransactionSourceType;

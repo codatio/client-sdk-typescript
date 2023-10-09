@@ -1,4 +1,5 @@
-# FinancialStatements.ProfitAndLoss
+# FinancialStatementsProfitAndLoss
+(*financialStatements.profitAndLoss*)
 
 ### Available Operations
 
@@ -13,24 +14,25 @@ Gets the latest profit and loss for a company.
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GetAccountingProfitAndLossResponse } from "@codat/lending/dist/sdk/models/operations";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.financialStatements.profitAndLoss.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  periodLength: 4,
-  periodsToCompare: 20,
-  startMonth: "2022-10-23T00:00:00.000Z",
-}).then((res: GetAccountingProfitAndLossResponse) => {
+  const res = await sdk.financialStatements.profitAndLoss.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00.000Z",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -57,23 +59,23 @@ Codat suggests a category for each account automatically, but you can [change it
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GetCategorizedProfitAndLossStatementResponse } from "@codat/lending/dist/sdk/models/operations";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.financialStatements.profitAndLoss.getCategorizedAccounts({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  numberOfPeriods: 324141,
-  reportDate: "29-09-2020",
-}).then((res: GetCategorizedProfitAndLossStatementResponse) => {
+  const res = await sdk.financialStatements.profitAndLoss.getCategorizedAccounts({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    reportDate: "29-09-2020",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
