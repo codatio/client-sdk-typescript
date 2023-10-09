@@ -1,4 +1,5 @@
 # BillPayments
+(*billPayments*)
 
 ## Overview
 
@@ -29,68 +30,57 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { CreateBillPaymentResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
 import { BillPaymentLineLinkType } from "@codat/sync-for-payables/dist/sdk/models/shared";
 
-const sdk = new CodatSyncPayables({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayables({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.billPayments.create({
-  billPayment: {
-    accountRef: {
-      id: "82d68ea1-9f1d-4170-9133-9d08086a1840",
-      name: "Toni Fritsch",
-    },
-    currency: "USD",
-    currencyRate: 120.36,
-    date: "2022-10-23T00:00:00.000Z",
-    id: "3d5a8e00-d108-4045-8823-7f342676cffa",
-    lines: [
-      {
-        allocatedOnDate: "2022-10-23T00:00:00.000Z",
-        amount: 9816.4,
-        links: [
-          {
-            amount: 6184.8,
-            currencyRate: 2446.51,
-            id: "f5f0642d-ac7a-4f51-9cc4-13aa63aae8d6",
-            type: BillPaymentLineLinkType.CreditNote,
+  const res = await sdk.billPayments.create({
+    billPayment: {
+      accountRef: {},
+      currency: "USD",
+      date: "2022-10-23T00:00:00.000Z",
+      id: "3d5a8e00-d108-4045-8823-7f342676cffa",
+      lines: [
+        {
+          allocatedOnDate: "2022-10-23T00:00:00.000Z",
+          amount: 8592.13,
+          links: [
+            {
+              type: BillPaymentLineLinkType.CreditNote,
+            },
+          ],
+        },
+      ],
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      note: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
+      paymentMethodRef: "South",
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      supplementalData: {
+        content: {
+          "grey": {
+            "technology": "East",
           },
-        ],
-      },
-    ],
-    metadata: {
-      isDeleted: false,
-    },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
-    paymentMethodRef: "vel",
-    reference: "labore",
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    supplementalData: {
-      content: {
-        "facilis": {
-          "cum": "commodi",
         },
       },
+      supplierRef: {
+        id: "<ID>",
+      },
+      totalAmount: 1329.54,
     },
-    supplierRef: {
-      id: "75fd5e60-b375-4ed4-b6fb-ee41f33317fe",
-      supplierName: "consectetur",
-    },
-    totalAmount: 1329.54,
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 358107,
-}).then((res: CreateBillPaymentResponse) => {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -116,8 +106,8 @@ sdk.billPayments.create({
 ### Process
 1. Pass the `{billPaymentId}` to the *Delete bill payment* endpoint and store the `pushOperationKey` returned.
 2. Check the status of the delete operation by checking the status of push operation either via
-    1. [Push operation webhook](https://docs.codat.io/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
-    2. [Push operation status endpoint](https://docs.codat.io/sync-for-payables-api#/operations/get-push-operation).
+   1. [Push operation webhook](https://docs.codat.io/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
+   2. [Push operation status endpoint](https://docs.codat.io/sync-for-payables-api#/operations/get-push-operation).
 
    A `Success` status indicates that the bill payment object was deleted from the accounting platform.
 3. (Optional) Check that the bill payment was deleted from the accounting platform.
@@ -128,31 +118,38 @@ Be aware that deleting a bill payment from an accounting platform might cause re
 ## Integration specifics
 Integrations that support soft delete do not permanently delete the object in the accounting platform.
 
-| Integration | Soft Delete | Details                                                                                             |  
-|-------------|-------------|-----------------------------------------------------------------------------------------------------|
-| Oracle NetSuite   | No          | See [here](/integrations/accounting/netsuite/accounting-netsuite-how-deleting-bill-payments-works) to learn more. |
+| Integration | Soft Delete | Details                                                                                              |  
+|-------------|-------------|------------------------------------------------------------------------------------------------------|                                                        
+| Oracle NetSuite   | No          | See [here](/integrations/accounting/netsuite/how-deleting-bill-payments-works) to learn more.  |
+| QuickBooks Online | No          | -                                                                                              |
+| Xero | Yes          | -                                                                                                          |
+
+> **Supported integrations**
+>
+> This functionality is currently supported for our QuickBooks Online, Xero and Oracle NetSuite integrations.
 
 
 ### Example Usage
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { DeleteBillPaymentResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayables({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayables({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.billPayments.delete({
-  billPaymentId: "harum",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: DeleteBillPaymentResponse) => {
+  const res = await sdk.billPayments.delete({
+    billPaymentId: "Van complexity",
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -184,22 +181,23 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { GetBillPaymentsResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayables({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayables({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.billPayments.get({
-  billPaymentId: "laboriosam",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetBillPaymentsResponse) => {
+  const res = await sdk.billPayments.get({
+    billPaymentId: "Northeast Hatchback Kia",
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -233,22 +231,23 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { GetCreateBillPaymentModelResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayables({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayables({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.billPayments.getCreateModel({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateBillPaymentModelResponse) => {
+  const res = await sdk.billPayments.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -278,25 +277,25 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { ListBillPaymentsResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayables({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayables({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.billPayments.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "ipsa",
-}).then((res: ListBillPaymentsResponse) => {
+  const res = await sdk.billPayments.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

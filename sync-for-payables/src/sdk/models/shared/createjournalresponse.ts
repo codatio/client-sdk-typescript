@@ -54,7 +54,7 @@ export class CreateJournalResponse extends SpeakeasyBase {
     completedOnUtc?: string;
 
     /**
-     * > **Language tip:** For line items, or individual transactions, of a company's financial documents, refer to the [Journal entries](https://docs.codat.io/accounting-api#/schemas/JournalEntry) data type
+     * > **Language tip:** For line items, or individual transactions, of a company's financial documents, refer to the [Journal entries](https://docs.codat.io/sync-for-payables-api#/schemas/JournalEntry) data type
      *
      * @remarks
      *
@@ -62,7 +62,7 @@ export class CreateJournalResponse extends SpeakeasyBase {
      *
      * ## Overview
      *
-     * In accounting software, journals are used to record all the financial transactions of a company. Each transaction in a journal is represented by a separate [journal entry](https://docs.codat.io/accounting-api#/schemas/JournalEntry). These entries are used to create the general ledger, which is then used to create the financial statements of a business.
+     * In accounting software, journals are used to record all the financial transactions of a company. Each transaction in a journal is represented by a separate [journal entry](https://docs.codat.io/sync-for-payables-api#/schemas/JournalEntry). These entries are used to create the general ledger, which is then used to create the financial statements of a business.
      *
      * When a company records all their transactions in a single journal, it can become large and difficult to maintain and track. This is why large companies often use multiple journals (also known as subjournals) to categorize and manage journal entries.
      *
@@ -99,6 +99,9 @@ export class CreateJournalResponse extends SpeakeasyBase {
     @Expose({ name: "dataType" })
     dataType?: DataType;
 
+    /**
+     * A message about the error.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "errorMessage" })
     errorMessage?: string;
@@ -144,15 +147,23 @@ export class CreateJournalResponse extends SpeakeasyBase {
     @Expose({ name: "status" })
     status: PushOperationStatus;
 
+    /**
+     * Push status code.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "statusCode" })
     statusCode: number;
 
+    /**
+     * Number of minutes the push operation must complete within before it times out.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "timeoutInMinutes" })
     timeoutInMinutes?: number;
 
     /**
+     * Number of seconds the push operation must complete within before it times out.
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @SpeakeasyMetadata()

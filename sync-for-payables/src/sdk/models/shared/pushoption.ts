@@ -6,14 +6,19 @@ import { objectToClass, SpeakeasyBase, SpeakeasyMetadata } from "../../../intern
 import { PushOptionChoice } from "./pushoptionchoice";
 import { PushOptionProperty } from "./pushoptionproperty";
 import { PushOptionType } from "./pushoptiontype";
-import { PushValidationInfo } from "./pushvalidationinfo";
 import { Expose, Transform, Type } from "class-transformer";
 
 export class PushOption extends SpeakeasyBase {
+    /**
+     * A description of the property.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "description" })
     description?: string;
 
+    /**
+     * The property's display name.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "displayName" })
     displayName: string;
@@ -37,16 +42,21 @@ export class PushOption extends SpeakeasyBase {
     )
     properties?: Record<string, PushOptionProperty>;
 
+    /**
+     * The property is required if `True`.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "required" })
     required: boolean;
 
+    /**
+     * The option type.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
     type: PushOptionType;
 
     @SpeakeasyMetadata()
     @Expose({ name: "validation" })
-    @Type(() => PushValidationInfo)
-    validation?: PushValidationInfo;
+    validation?: Record<string, any>;
 }

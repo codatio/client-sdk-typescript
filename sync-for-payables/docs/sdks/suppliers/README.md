@@ -1,4 +1,5 @@
 # Suppliers
+(*suppliers*)
 
 ## Overview
 
@@ -29,58 +30,43 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { CreateSupplierResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
 import { AccountingAddressType, SupplierStatus } from "@codat/sync-for-payables/dist/sdk/models/shared";
 
-const sdk = new CodatSyncPayables({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.suppliers.create({
-  supplier: {
-    addresses: [
-      {
-        city: "North Tadshire",
-        country: "Anguilla",
-        line1: "incidunt",
-        line2: "qui",
-        postalCode: "86113",
-        region: "modi",
-        type: AccountingAddressType.Delivery,
-      },
-    ],
-    contactName: "voluptatibus",
-    defaultCurrency: "molestias",
-    emailAddress: "officia",
-    id: "b8366c72-3ffd-4a9e-86be-e4825c1fc0e1",
-    metadata: {
-      isDeleted: false,
+(async() => {
+  const sdk = new CodatSyncPayables({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "+44 25691 154789",
-    registrationNumber: "optio",
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: SupplierStatus.Unknown,
-    supplementalData: {
-      content: {
-        "facilis": {
-          "reiciendis": "a",
+  });
+
+  const res = await sdk.suppliers.create({
+    supplier: {
+      addresses: [
+        {
+          type: AccountingAddressType.Billing,
+        },
+      ],
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      phone: "(877) 492-8687",
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      status: SupplierStatus.Active,
+      supplementalData: {
+        content: {
+          "innovative": {
+            "blue": "shred",
+          },
         },
       },
     },
-    supplierName: "iste",
-    taxNumber: "dicta",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 552439,
-}).then((res: CreateSupplierResponse) => {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -112,22 +98,23 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { GetSupplierResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayables({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayables({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.suppliers.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  supplierId: "ullam",
-}).then((res: GetSupplierResponse) => {
+  const res = await sdk.suppliers.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    supplierId: "Northeast Hatchback Kia",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -161,22 +148,23 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { GetCreateUpdateSupplierModelResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayables({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayables({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.suppliers.getCreateUpdateModel({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateUpdateSupplierModelResponse) => {
+  const res = await sdk.suppliers.getCreateUpdateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -206,25 +194,25 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { ListSuppliersResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayables({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayables({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.suppliers.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "dolore",
-}).then((res: ListSuppliersResponse) => {
+  const res = await sdk.suppliers.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -258,60 +246,44 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { UpdateSupplierResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
 import { AccountingAddressType, SupplierStatus } from "@codat/sync-for-payables/dist/sdk/models/shared";
 
-const sdk = new CodatSyncPayables({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.suppliers.update({
-  supplier: {
-    addresses: [
-      {
-        city: "Fort Rafael",
-        country: "Eritrea",
-        line1: "consequuntur",
-        line2: "assumenda",
-        postalCode: "97785-9054",
-        region: "esse",
-        type: AccountingAddressType.Billing,
-      },
-    ],
-    contactName: "odio",
-    defaultCurrency: "nesciunt",
-    emailAddress: "debitis",
-    id: "63562a7b-408f-405e-bd48-fdaf313a1f5f",
-    metadata: {
-      isDeleted: false,
+(async() => {
+  const sdk = new CodatSyncPayables({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "(877) 492-8687",
-    registrationNumber: "incidunt",
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: SupplierStatus.Active,
-    supplementalData: {
-      content: {
-        "cupiditate": {
-          "optio": "alias",
+  });
+
+  const res = await sdk.suppliers.update({
+    supplier: {
+      addresses: [
+        {
+          type: AccountingAddressType.Delivery,
+        },
+      ],
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      phone: "(877) 492-8687",
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      status: SupplierStatus.Active,
+      supplementalData: {
+        content: {
+          "male": {
+            "Metal": "cheater",
+          },
         },
       },
     },
-    supplierName: "quidem",
-    taxNumber: "nesciunt",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  forceUpdate: false,
-  supplierId: "commodi",
-  timeoutInMinutes: 956124,
-}).then((res: UpdateSupplierResponse) => {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    supplierId: "Cotton",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

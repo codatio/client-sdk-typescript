@@ -97,7 +97,6 @@ src/sdk/models/operations/index.ts
 src/sdk/models/shared/errormessage.ts
 src/sdk/models/shared/createaccountresponse.ts
 src/sdk/models/shared/validation.ts
-src/sdk/models/shared/validationitem.ts
 src/sdk/models/shared/pushoperationstatus.ts
 src/sdk/models/shared/datatype.ts
 src/sdk/models/shared/account.ts
@@ -106,10 +105,7 @@ src/sdk/models/shared/accountstatus.ts
 src/sdk/models/shared/metadata.ts
 src/sdk/models/shared/pushoperationchange.ts
 src/sdk/models/shared/pushchangetype.ts
-src/sdk/models/shared/pushoperationref.ts
 src/sdk/models/shared/pushoption.ts
-src/sdk/models/shared/pushvalidationinfo.ts
-src/sdk/models/shared/pushfieldvalidation.ts
 src/sdk/models/shared/pushoptiontype.ts
 src/sdk/models/shared/pushoptionproperty.ts
 src/sdk/models/shared/pushoptionchoice.ts
@@ -163,7 +159,6 @@ src/sdk/models/shared/accountingaddresstype.ts
 src/sdk/models/shared/connections.ts
 src/sdk/models/shared/createjournalentryresponse.ts
 src/sdk/models/shared/journalentry.ts
-src/sdk/models/shared/journalref.ts
 src/sdk/models/shared/journalline.ts
 src/sdk/models/shared/recordref.ts
 src/sdk/models/shared/createjournalresponse.ts
@@ -186,7 +181,6 @@ src/sdk/models/shared/updatesupplierresponse.ts
 src/sdk/models/shared/taxrate.ts
 src/sdk/models/shared/validdatatypelinksitems.ts
 src/sdk/models/shared/taxratestatus.ts
-src/sdk/models/shared/taxratecomponent.ts
 src/sdk/models/shared/taxrates.ts
 src/sdk/models/shared/trackingcategorytree.ts
 src/sdk/models/shared/status.ts
@@ -274,7 +268,6 @@ docs/models/operations/getconnectionrequest.md
 docs/models/operations/getconnectionresponse.md
 docs/models/operations/listconnectionsrequest.md
 docs/models/operations/listconnectionsresponse.md
-docs/models/operations/unlinkconnectionupdateconnection.md
 docs/models/operations/unlinkconnectionrequest.md
 docs/models/operations/unlinkconnectionresponse.md
 docs/models/operations/createjournalentryrequest.md
@@ -328,7 +321,6 @@ docs/models/operations/listtrackingcategoriesresponse.md
 docs/models/shared/errormessage.md
 docs/models/shared/createaccountresponse.md
 docs/models/shared/validation.md
-docs/models/shared/validationitem.md
 docs/models/shared/pushoperationstatus.md
 docs/models/shared/datatype.md
 docs/models/shared/accountvaliddatatypelinks.md
@@ -338,10 +330,7 @@ docs/models/shared/accountstatus.md
 docs/models/shared/metadata.md
 docs/models/shared/pushoperationchange.md
 docs/models/shared/pushchangetype.md
-docs/models/shared/pushoperationref.md
 docs/models/shared/pushoption.md
-docs/models/shared/pushvalidationinfo.md
-docs/models/shared/pushfieldvalidation.md
 docs/models/shared/pushoptiontype.md
 docs/models/shared/pushoptionproperty.md
 docs/models/shared/pushoptionchoice.md
@@ -378,11 +367,12 @@ docs/models/shared/billpayments.md
 docs/models/shared/createbillresponse.md
 docs/models/shared/billpaymentallocationallocation.md
 docs/models/shared/billpaymentallocation.md
-docs/models/shared/billpurchaseorderreference.md
 docs/models/shared/billsupplementaldata.md
 docs/models/shared/billwithholdingtax.md
 docs/models/shared/bill.md
 docs/models/shared/billstatus.md
+docs/models/shared/billlineitemrecordlinereferencedatatype.md
+docs/models/shared/billlineitemrecordlinereference.md
 docs/models/shared/billlineitem.md
 docs/models/shared/trackingcustomerref.md
 docs/models/shared/trackingprojectreference.md
@@ -410,7 +400,6 @@ docs/models/shared/connections.md
 docs/models/shared/createjournalentryresponse.md
 docs/models/shared/journalentryrecordreference.md
 docs/models/shared/journalentry.md
-docs/models/shared/journalref.md
 docs/models/shared/journallinetracking.md
 docs/models/shared/journalline.md
 docs/models/shared/recordref.md
@@ -418,6 +407,7 @@ docs/models/shared/createjournalresponse.md
 docs/models/shared/journal.md
 docs/models/shared/journalstatus.md
 docs/models/shared/journals.md
+docs/models/shared/datastatusdatatypes.md
 docs/models/shared/datastatus.md
 docs/models/shared/pulloperationstatus.md
 docs/models/shared/pulloperation.md
@@ -435,7 +425,6 @@ docs/models/shared/updatesupplierresponse.md
 docs/models/shared/taxrate.md
 docs/models/shared/validdatatypelinksitems.md
 docs/models/shared/taxratestatus.md
-docs/models/shared/taxratecomponent.md
 docs/models/shared/taxrates.md
 docs/models/shared/trackingcategorytree.md
 docs/models/shared/status.md
