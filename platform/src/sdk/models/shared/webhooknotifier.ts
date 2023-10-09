@@ -3,18 +3,17 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { DataType } from "./datatype";
 import { Expose } from "class-transformer";
 
-export class PushOperationRef extends SpeakeasyBase {
+export class WebhookNotifier extends SpeakeasyBase {
+    @SpeakeasyMetadata()
+    @Expose({ name: "emails" })
+    emails?: string[];
+
     /**
-     * Available Data types
+     * The URI the webhook service will POST events.
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "dataType" })
-    dataType?: DataType;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "id" })
-    id?: string;
+    @Expose({ name: "webhook" })
+    webhook?: string;
 }

@@ -7,6 +7,9 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetIntegrationsBrandingRequest extends SpeakeasyBase {
+    /**
+     * A unique 4-letter key to represent a platform in each integration. View [accounting](https://docs.codat.io/integrations/accounting/overview#platform-keys), [banking](https://docs.codat.io/integrations/banking/overview#platform-keys), and [commerce](https://docs.codat.io/integrations/commerce/overview#platform-keys) platform keys.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=platformKey" })
     platformKey: string;
 }
@@ -18,6 +21,9 @@ export class GetIntegrationsBrandingResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     branding?: shared.Branding;
 
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -27,9 +33,15 @@ export class GetIntegrationsBrandingResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 }

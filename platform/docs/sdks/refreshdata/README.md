@@ -1,4 +1,5 @@
 # RefreshData
+(*refreshData*)
 
 ## Overview
 
@@ -24,21 +25,22 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 
 ```typescript
 import { CodatPlatform } from "@codat/platform";
-import { RefreshCompanyDataResponse } from "@codat/platform/dist/sdk/models/operations";
 
-const sdk = new CodatPlatform({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatPlatform({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.refreshData.all({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: RefreshCompanyDataResponse) => {
+  const res = await sdk.refreshData.all({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -65,24 +67,24 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 
 ```typescript
 import { CodatPlatform } from "@codat/platform";
-import { RefreshDataTypeResponse } from "@codat/platform/dist/sdk/models/operations";
 import { DataType } from "@codat/platform/dist/sdk/models/shared";
 
-const sdk = new CodatPlatform({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatPlatform({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.refreshData.byDataType({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "df7cc78c-a1ba-4928-bc81-6742cb739205",
-  dataType: DataType.Invoices,
-}).then((res: RefreshDataTypeResponse) => {
+  const res = await sdk.refreshData.byDataType({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    dataType: DataType.Invoices,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -107,21 +109,22 @@ Get the state of each data type for a company
 
 ```typescript
 import { CodatPlatform } from "@codat/platform";
-import { GetCompanyDataStatusResponse } from "@codat/platform/dist/sdk/models/operations";
 
-const sdk = new CodatPlatform({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatPlatform({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.refreshData.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetCompanyDataStatusResponse) => {
+  const res = await sdk.refreshData.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -146,22 +149,23 @@ Retrieve information about a single dataset or pull operation.
 
 ```typescript
 import { CodatPlatform } from "@codat/platform";
-import { GetPullOperationResponse } from "@codat/platform/dist/sdk/models/operations";
 
-const sdk = new CodatPlatform({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatPlatform({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.refreshData.getPullOperation({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  datasetId: "eaed9f0f-e77b-4bc9-a58f-ab8b4b99ab18",
-}).then((res: GetPullOperationResponse) => {
+  const res = await sdk.refreshData.getPullOperation({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    datasetId: "7911a54a-c808-4f4b-b87e-b195f52b4da5",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -186,25 +190,25 @@ Gets the pull operation history (datasets) for a given company.
 
 ```typescript
 import { CodatPlatform } from "@codat/platform";
-import { ListPullOperationsResponse } from "@codat/platform/dist/sdk/models/operations";
 
-const sdk = new CodatPlatform({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatPlatform({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.refreshData.listPullOperations({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "natus",
-}).then((res: ListPullOperationsResponse) => {
+  const res = await sdk.refreshData.listPullOperations({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

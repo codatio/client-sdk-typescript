@@ -11,6 +11,9 @@ import { Expose, Type } from "class-transformer";
  * An integration that Codat supports
  */
 export class Integration extends SpeakeasyBase {
+    /**
+     * The name of the data provider.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "dataProvidedBy" })
     dataProvidedBy?: string;
@@ -21,7 +24,7 @@ export class Integration extends SpeakeasyBase {
     datatypeFeatures?: DataTypeFeature[];
 
     /**
-     * Whether this integration is enabled for your customers to use
+     * Whether this integration is enabled for your customers to use.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "enabled" })
@@ -34,25 +37,37 @@ export class Integration extends SpeakeasyBase {
     @Expose({ name: "integrationId" })
     integrationId?: string;
 
+    /**
+     * `True` if the integration is currently in beta release.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isBeta" })
     isBeta?: boolean;
 
+    /**
+     * `True` if the integration is to an application installed and run locally on an SMBs computer.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isOfflineConnector" })
     isOfflineConnector?: boolean;
 
     /**
-     * A unique 4-letter key to represent a platform in each integration. View [accounting](https://docs.codat.io/integrations/accounting/accounting-platform-keys), [banking](https://docs.codat.io/integrations/banking/banking-platform-keys), and [commerce](https://docs.codat.io/integrations/commerce/commerce-platform-keys) platform keys.
+     * A unique 4-letter key to represent a platform in each integration. View [accounting](https://docs.codat.io/integrations/accounting/overview#platform-keys), [banking](https://docs.codat.io/integrations/banking/overview#platform-keys), and [commerce](https://docs.codat.io/integrations/commerce/overview#platform-keys) platform keys.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "key" })
     key: string;
 
+    /**
+     * Static url for integration's logo.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "logoUrl" })
     logoUrl: string;
 
+    /**
+     * Name of integration.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "name" })
     name: string;
