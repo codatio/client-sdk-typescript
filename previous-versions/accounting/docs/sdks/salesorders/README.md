@@ -1,4 +1,5 @@
-# salesOrders
+# SalesOrders
+(*salesOrders*)
 
 ## Overview
 
@@ -24,22 +25,23 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetSalesOrderResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.salesOrders.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  salesOrderId: "perspiciatis",
-}).then((res: GetSalesOrderResponse) => {
+  const res = await sdk.salesOrders.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    salesOrderId: "Northeast Hatchback Kia",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -69,25 +71,25 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListSalesOrdersResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.salesOrders.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "omnis",
-}).then((res: ListSalesOrdersResponse) => {
+  const res = await sdk.salesOrders.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

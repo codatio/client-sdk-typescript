@@ -6,7 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountRef } from "./accountref";
 import { ItemRef } from "./itemref";
 import { TaxRateRef } from "./taxrateref";
-import { Tracking } from "./tracking";
 import { TrackingCategoryRef } from "./trackingcategoryref";
 import { Expose, Type } from "class-transformer";
 
@@ -98,8 +97,7 @@ export class DirectCostLineItem extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "tracking" })
-    @Type(() => Tracking)
-    tracking?: Tracking;
+    tracking?: Record<string, any>;
 
     /**
      * Collection of categories against which this direct cost is tracked.

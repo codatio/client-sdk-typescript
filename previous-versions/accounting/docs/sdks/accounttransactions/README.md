@@ -1,4 +1,5 @@
-# accountTransactions
+# AccountTransactions
+(*accountTransactions*)
 
 ## Overview
 
@@ -24,23 +25,24 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetAccountTransactionResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.accountTransactions.get({
-  accountTransactionId: "provident",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetAccountTransactionResponse) => {
+  const res = await sdk.accountTransactions.get({
+    accountTransactionId: "Northeast Hatchback Kia",
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -70,26 +72,26 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListAccountTransactionsResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.accountTransactions.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "distinctio",
-}).then((res: ListAccountTransactionsResponse) => {
+  const res = await sdk.accountTransactions.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

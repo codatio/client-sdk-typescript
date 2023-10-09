@@ -13,7 +13,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * Categories, and a project and customer, against which the item is tracked.
  */
-export class Propertiestracking1 extends SpeakeasyBase {
+export class Tracking1 extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: TrackingCategoryRef })
     @Expose({ name: "categoryRefs" })
     @Type(() => TrackingCategoryRef)
@@ -24,10 +24,16 @@ export class Propertiestracking1 extends SpeakeasyBase {
     @Type(() => AccountingCustomerRef)
     customerRef?: AccountingCustomerRef;
 
+    /**
+     * Defines if the bill or bill credit note is billed/rebilled to a project.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isBilledTo" })
     isBilledTo: BilledToType1;
 
+    /**
+     * Defines if the bill or bill credit note is billed/rebilled to a project.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isRebilledTo" })
     isRebilledTo: BilledToType1;

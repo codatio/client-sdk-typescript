@@ -1,4 +1,5 @@
-# invoices
+# Invoices
+(*invoices*)
 
 ## Overview
 
@@ -35,148 +36,105 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { CreateInvoiceResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { BilledToType1, InvoiceStatus } from "@codat/accounting/dist/sdk/models/shared";
+import { BilledToType1, DataType, InvoiceStatus } from "@codat/accounting/dist/sdk/models/shared";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.invoices.create({
-  invoice: {
-    additionalTaxAmount: 263.21,
-    additionalTaxPercentage: 8197.57,
-    amountDue: 7188.79,
-    currency: "EUR",
-    currencyRate: 8256.81,
-    customerRef: {
-      companyName: "illum",
-      id: "b484708f-b4e3-491e-abc1-58c4c4e54599",
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
-    discountPercentage: 9294.43,
-    dueDate: "2022-10-23T00:00:00.000Z",
-    id: "342260e9-b200-4ce7-8a1b-d8fb7a0a116c",
-    invoiceNumber: "officiis",
-    issueDate: "2022-10-23T00:00:00.000Z",
-    lineItems: [
-      {
-        accountRef: {
-          id: "23d4097f-a30e-49af-b25b-29122030d83f",
-          name: "Rosie Waters",
-        },
-        description: "dignissimos",
-        discountAmount: 5920.88,
-        discountPercentage: 5818.89,
-        isDirectIncome: false,
-        itemRef: {
-          id: "d22e8c1f-8493-4825-bdc4-2c876c2c2dfb",
-          name: "Sheri Weissnat DDS",
-        },
-        quantity: 4608.03,
-        subTotal: 3920.8,
-        taxAmount: 1296.19,
-        taxRateRef: {
-          effectiveTaxRate: 1974.41,
-          id: "0f841fb1-bd23-4fdb-94db-6be5a685998e",
-          name: "Wanda Osinski",
-        },
-        totalAmount: 276.53,
-        tracking: {
-          categoryRefs: [
+  });
+
+  const res = await sdk.invoices.create({
+    invoice: {
+      amountDue: 4865.89,
+      currency: "USD",
+      customerRef: {
+        id: "<ID>",
+      },
+      dueDate: "2022-10-23T00:00:00.000Z",
+      issueDate: "2022-10-23T00:00:00.000Z",
+      lineItems: [
+        {
+          accountRef: {},
+          itemRef: {
+            id: "<ID>",
+          },
+          quantity: 4174.58,
+          taxRateRef: {},
+          tracking: {
+            categoryRefs: [
+              {
+                id: "<ID>",
+              },
+            ],
+            customerRef: {
+              id: "<ID>",
+            },
+            isBilledTo: BilledToType1.Unknown,
+            isRebilledTo: BilledToType1.Unknown,
+            projectRef: {
+              id: "<ID>",
+            },
+            recordRef: {
+              dataType: "transfer",
+            },
+          },
+          trackingCategoryRefs: [
             {
-              id: "da16fc2b-271a-4289-857e-854e90439d22",
-              name: "Monica Johnson",
+              id: "<ID>",
             },
           ],
-          customerRef: {
-            companyName: "cupiditate",
-            id: "46240708-4f7a-4b37-8ef0-2225194db554",
+          unitAmount: 690.25,
+        },
+      ],
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      paidOnDate: "2022-10-23T00:00:00.000Z",
+      paymentAllocations: [
+        {
+          allocation: {
+            allocatedOnDate: "2022-10-23T00:00:00.000Z",
+            currency: "EUR",
           },
-          isBilledTo: BilledToType1.Unknown,
-          isRebilledTo: BilledToType1.Unknown,
-          projectRef: {
-            id: "adc669af-90a2-46c7-8dc9-81f068981d6b",
-            name: "Norman Ferry",
-          },
-          recordRef: {
-            dataType: "accountTransaction",
-            id: "a348c31b-f407-4ee4-bcf0-c42b78f15626",
+          payment: {
+            accountRef: {},
+            currency: "EUR",
+            paidOnDate: "2022-10-23T00:00:00.000Z",
           },
         },
-        trackingCategoryRefs: [
-          {
-            id: "398a0dc7-6632-44cc-b06c-8ca12d025292",
-            name: "Patricia Pouros",
+      ],
+      salesOrderRefs: [
+        {
+          dataType: DataType.Invoices,
+        },
+      ],
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      status: InvoiceStatus.Draft,
+      supplementalData: {
+        content: {
+          "evolve": {
+            "male": "SUV",
           },
-        ],
-        unitAmount: 3689.76,
+        },
       },
-    ],
-    metadata: {
-      isDeleted: false,
+      totalAmount: 5519.29,
+      totalTaxAmount: 5862.2,
+      withholdingTax: [
+        {
+          amount: 8275.63,
+          name: "mobile National Durham",
+        },
+      ],
     },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "fugit",
-    paidOnDate: "2022-10-23T00:00:00.000Z",
-    paymentAllocations: [
-      {
-        allocation: {
-          allocatedOnDate: "2022-10-23T00:00:00.000Z",
-          currency: "EUR",
-          currencyRate: 5062.02,
-          totalAmount: 5749.9,
-        },
-        payment: {
-          accountRef: {
-            id: "5b8bcf24-db95-4969-b352-f74533994d78",
-            name: "Elbert Fay",
-          },
-          currency: "EUR",
-          currencyRate: 6104.9,
-          id: "389f5abb-7f66-4255-8a28-382ac483afd2",
-          note: "consectetur",
-          paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "minima",
-          totalAmount: 7036.51,
-        },
-      },
-    ],
-    salesOrderRefs: [
-      {
-        dataType: "facilis",
-        id: "a650164e-06f5-4bf6-ae59-1bc8bdef3612",
-      },
-    ],
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: InvoiceStatus.Submitted,
-    subTotal: 2033.96,
-    supplementalData: {
-      content: {
-        "quod": {
-          "eos": "alias",
-        },
-      },
-    },
-    totalAmount: 3198.07,
-    totalDiscount: 9545.95,
-    totalTaxAmount: 8168.25,
-    withholdingTax: [
-      {
-        amount: 6625.15,
-        name: "Alex Bayer",
-      },
-    ],
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 264073,
-}).then((res: CreateInvoiceResponse) => {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -228,23 +186,24 @@ Integrations that support soft delete do not permanently delete the object in th
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { DeleteInvoiceResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.invoices.delete({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "fuga",
-}).then((res: DeleteInvoiceResponse) => {
+  const res = await sdk.invoices.delete({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    invoiceId: "Van complexity",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -274,24 +233,25 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { DownloadInvoiceAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.invoices.downloadAttachment({
-  attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "iure",
-}).then((res: DownloadInvoiceAttachmentResponse) => {
+  const res = await sdk.invoices.downloadAttachment({
+    attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    invoiceId: "Dakota Avon specifically",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -316,22 +276,23 @@ sdk.invoices.downloadAttachment({
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { DownloadInvoicePdfResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.invoices.downloadPdf({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  invoiceId: "deleniti",
-}).then((res: DownloadInvoicePdfResponse) => {
+  const res = await sdk.invoices.downloadPdf({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "Associate",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -362,22 +323,23 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetInvoiceResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.invoices.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  invoiceId: "officia",
-}).then((res: GetInvoiceResponse) => {
+  const res = await sdk.invoices.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "Northeast Hatchback Kia",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -407,24 +369,25 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetInvoiceAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.invoices.getAttachment({
-  attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "sint",
-}).then((res: GetInvoiceAttachmentResponse) => {
+  const res = await sdk.invoices.getAttachment({
+    attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    invoiceId: "array East along",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -458,22 +421,23 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCreateUpdateInvoicesModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.invoices.getCreateUpdateModel({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateUpdateInvoicesModelResponse) => {
+  const res = await sdk.invoices.getCreateUpdateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -509,25 +473,25 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListInvoicesResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.invoices.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "laborum",
-}).then((res: ListInvoicesResponse) => {
+  const res = await sdk.invoices.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -557,23 +521,24 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListInvoiceAttachmentsResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.invoices.listAttachments({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "dolor",
-}).then((res: ListInvoiceAttachmentsResponse) => {
+  const res = await sdk.invoices.listAttachments({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    invoiceId: "intuitive Frozen ouch",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -607,150 +572,106 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { UpdateInvoiceResponse } from "@codat/accounting/dist/sdk/models/operations";
-import { BilledToType1, InvoiceStatus } from "@codat/accounting/dist/sdk/models/shared";
+import { BilledToType1, DataType, InvoiceStatus } from "@codat/accounting/dist/sdk/models/shared";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.invoices.update({
-  invoice: {
-    additionalTaxAmount: 3227.73,
-    additionalTaxPercentage: 8477.4,
-    amountDue: 229.66,
-    currency: "USD",
-    currencyRate: 3771.94,
-    customerRef: {
-      companyName: "expedita",
-      id: "6f66fef0-20e9-4f44-bb42-57b992c8dbda",
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
-    discountPercentage: 4146.44,
-    dueDate: "2022-10-23T00:00:00.000Z",
-    id: "61efa219-8258-4fd0-a9eb-a47f7d3ef049",
-    invoiceNumber: "aliquid",
-    issueDate: "2022-10-23T00:00:00.000Z",
-    lineItems: [
-      {
-        accountRef: {
-          id: "0d6a1831-c87a-4df5-96fd-f1ad837ae80c",
-          name: "Blanca Brakus",
-        },
-        description: "occaecati",
-        discountAmount: 3396.51,
-        discountPercentage: 7343.61,
-        isDirectIncome: false,
-        itemRef: {
-          id: "a998678f-a3f6-4969-91af-388ce0361444",
-          name: "Sylvester Kling",
-        },
-        quantity: 4397.45,
-        subTotal: 6541.99,
-        taxAmount: 105.85,
-        taxRateRef: {
-          effectiveTaxRate: 9164.86,
-          id: "f2f53602-8efe-4ef9-b415-2ed7e253f4c1",
-          name: "Constance Stark",
-        },
-        totalAmount: 6687.83,
-        tracking: {
-          categoryRefs: [
+  });
+
+  const res = await sdk.invoices.update({
+    invoice: {
+      amountDue: 8574.78,
+      currency: "GBP",
+      customerRef: {
+        id: "<ID>",
+      },
+      dueDate: "2022-10-23T00:00:00.000Z",
+      issueDate: "2022-10-23T00:00:00.000Z",
+      lineItems: [
+        {
+          accountRef: {},
+          itemRef: {
+            id: "<ID>",
+          },
+          quantity: 3446.2,
+          taxRateRef: {},
+          tracking: {
+            categoryRefs: [
+              {
+                id: "<ID>",
+              },
+            ],
+            customerRef: {
+              id: "<ID>",
+            },
+            isBilledTo: BilledToType1.Project,
+            isRebilledTo: BilledToType1.Project,
+            projectRef: {
+              id: "<ID>",
+            },
+            recordRef: {
+              dataType: "invoice",
+            },
+          },
+          trackingCategoryRefs: [
             {
-              id: "7170f445-accf-4667-aaf9-bbad185fe431",
-              name: "Rick Predovic",
+              id: "<ID>",
             },
           ],
-          customerRef: {
-            companyName: "cumque",
-            id: "838fbb8c-20cb-467f-84b4-25e99e6234c9",
+          unitAmount: 6276.9,
+        },
+      ],
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      paidOnDate: "2022-10-23T00:00:00.000Z",
+      paymentAllocations: [
+        {
+          allocation: {
+            allocatedOnDate: "2022-10-23T00:00:00.000Z",
+            currency: "EUR",
           },
-          isBilledTo: BilledToType1.Project,
-          isRebilledTo: BilledToType1.NotApplicable,
-          projectRef: {
-            id: "b79dfeb7-7a5c-438d-8baf-91e506ef890a",
-            name: "Anita Reilly",
-          },
-          recordRef: {
-            dataType: "invoice",
-            id: "f16f56d3-85a3-4c4a-8631-b99e26ced8f9",
+          payment: {
+            accountRef: {},
+            currency: "GBP",
+            paidOnDate: "2022-10-23T00:00:00.000Z",
           },
         },
-        trackingCategoryRefs: [
-          {
-            id: "fdb9410f-63bb-4f81-b837-b01afdd78862",
-            name: "Katherine Kuvalis",
+      ],
+      salesOrderRefs: [
+        {
+          dataType: DataType.Invoices,
+        },
+      ],
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      status: InvoiceStatus.Void,
+      supplementalData: {
+        content: {
+          "online": {
+            "dynamic": "white",
           },
-        ],
-        unitAmount: 7164.1,
+        },
       },
-    ],
-    metadata: {
-      isDeleted: false,
+      totalAmount: 3668.07,
+      totalTaxAmount: 1395.79,
+      withholdingTax: [
+        {
+          amount: 6447.13,
+          name: "syndicate East Baht",
+        },
+      ],
     },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "labore",
-    paidOnDate: "2022-10-23T00:00:00.000Z",
-    paymentAllocations: [
-      {
-        allocation: {
-          allocatedOnDate: "2022-10-23T00:00:00.000Z",
-          currency: "GBP",
-          currencyRate: 9580.6,
-          totalAmount: 3371.49,
-        },
-        payment: {
-          accountRef: {
-            id: "033f19db-f125-4ce4-952e-ab9cd7e5224a",
-            name: "Jan Abbott Sr.",
-          },
-          currency: "GBP",
-          currencyRate: 7370.61,
-          id: "7847ec59-e1f6-47f3-84cc-e4b6d7696ff3",
-          note: "eligendi",
-          paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "nihil",
-          totalAmount: 2628.91,
-        },
-      },
-    ],
-    salesOrderRefs: [
-      {
-        dataType: "dignissimos",
-        id: "501357e4-4f51-4f8b-884c-3197e193a245",
-      },
-    ],
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: InvoiceStatus.Submitted,
-    subTotal: 4990.05,
-    supplementalData: {
-      content: {
-        "tenetur": {
-          "excepturi": "modi",
-        },
-      },
-    },
-    totalAmount: 5463.29,
-    totalDiscount: 4724.29,
-    totalTaxAmount: 2600.46,
-    withholdingTax: [
-      {
-        amount: 8113.8,
-        name: "Mable Hills",
-      },
-    ],
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  forceUpdate: false,
-  invoiceId: "labore",
-  timeoutInMinutes: 596133,
-}).then((res: UpdateInvoiceResponse) => {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    invoiceId: "Representative Home",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -784,27 +705,28 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { UploadInvoiceAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.invoices.uploadAttachment({
-  requestBody: {
-    content: "ducimus".encode(),
-    requestBody: "qui",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "qui",
-}).then((res: UploadInvoiceAttachmentResponse) => {
+  const res = await sdk.invoices.uploadAttachment({
+    requestBody: {
+      content: "v/ghW&IC$x" as bytes <<<>>>,
+      requestBody: "Elegant Producer Electric",
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    invoiceId: "Iowa Bentley",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -11,10 +11,16 @@ import { Expose } from "class-transformer";
  * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 export class TrackingCategoryRef extends SpeakeasyBase {
+    /**
+     * Unique identifier to the tracking category.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id: string;
 
+    /**
+     * Name of tracking category.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "name" })
     name?: string;

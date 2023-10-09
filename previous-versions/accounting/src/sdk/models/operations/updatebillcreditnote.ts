@@ -10,12 +10,21 @@ export class UpdateBillCreditNoteRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
     billCreditNote?: shared.BillCreditNote;
 
+    /**
+     * Unique identifier for a bill credit note.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=billCreditNoteId" })
     billCreditNoteId: string;
 
+    /**
+     * Unique identifier for a company.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 
+    /**
+     * Unique identifier for a connection.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
     connectionId: string;
 
@@ -25,11 +34,17 @@ export class UpdateBillCreditNoteRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=forceUpdate" })
     forceUpdate?: boolean;
 
+    /**
+     * Time limit for the push operation to complete before it is timed out.
+     */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=timeoutInMinutes" })
     timeoutInMinutes?: number;
 }
 
 export class UpdateBillCreditNoteResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -39,9 +54,15 @@ export class UpdateBillCreditNoteResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 

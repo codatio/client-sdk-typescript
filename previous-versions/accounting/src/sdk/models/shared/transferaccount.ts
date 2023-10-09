@@ -6,6 +6,9 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountRef } from "./accountref";
 import { Expose, Type } from "class-transformer";
 
+/**
+ * Account details of the account sending or receiving the transfer.
+ */
 export class TransferAccount extends SpeakeasyBase {
     /**
      * Data types that reference an account, for example bill and invoice line items, use an accountRef that includes the ID and name of the linked account.

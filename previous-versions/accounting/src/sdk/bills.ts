@@ -7,7 +7,7 @@ import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 /**
  * Bills
@@ -58,7 +58,7 @@ export class Bills {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "bill", "json");
@@ -76,16 +76,18 @@ export class Bills {
             globalSecurity = new shared.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers = { ...reqBodyHeaders, ...config?.headers, ...properties.headers };
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
-        let retryConfig: any = retries;
+        let retryConfig: utils.RetryConfig | undefined = retries;
         if (!retryConfig) {
             if (globalRetryConfig) {
                 retryConfig = globalRetryConfig;
@@ -188,7 +190,7 @@ export class Bills {
      *
      * > **Supported Integrations**
      * >
-     * > This functionality is currently only supported for our QuickBooks Online abd Oracle NetSuite integrations. Check out our [public roadmap](https://portal.productboard.com/codat/7-public-product-roadmap/tabs/46-accounting-api) to see what we're building next, and to submit ideas for new features.
+     * > This functionality is currently supported for our QuickBooks Online, Xero and Oracle NetSuite integrations.
      */
     async delete(
         req: operations.DeleteBillRequest,
@@ -217,15 +219,13 @@ export class Bills {
             globalSecurity = new shared.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers = { ...config?.headers, ...properties.headers };
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
-        let retryConfig: any = retries;
+        let retryConfig: utils.RetryConfig | undefined = retries;
         if (!retryConfig) {
             if (globalRetryConfig) {
                 retryConfig = globalRetryConfig;
@@ -335,19 +335,17 @@ export class Bills {
             globalSecurity = new shared.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers = { ...config?.headers, ...properties.headers };
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         if (acceptHeaderOverride !== undefined) {
             headers["Accept"] = acceptHeaderOverride.toString();
         } else {
             headers["Accept"] = "application/json;q=1, application/octet-stream;q=0";
         }
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
-        let retryConfig: any = retries;
+        let retryConfig: utils.RetryConfig | undefined = retries;
         if (!retryConfig) {
             if (globalRetryConfig) {
                 retryConfig = globalRetryConfig;
@@ -456,15 +454,13 @@ export class Bills {
             globalSecurity = new shared.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers = { ...config?.headers, ...properties.headers };
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
-        let retryConfig: any = retries;
+        let retryConfig: utils.RetryConfig | undefined = retries;
         if (!retryConfig) {
             if (globalRetryConfig) {
                 retryConfig = globalRetryConfig;
@@ -570,15 +566,13 @@ export class Bills {
             globalSecurity = new shared.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers = { ...config?.headers, ...properties.headers };
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
-        let retryConfig: any = retries;
+        let retryConfig: utils.RetryConfig | undefined = retries;
         if (!retryConfig) {
             if (globalRetryConfig) {
                 retryConfig = globalRetryConfig;
@@ -688,15 +682,13 @@ export class Bills {
             globalSecurity = new shared.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers = { ...config?.headers, ...properties.headers };
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
-        let retryConfig: any = retries;
+        let retryConfig: utils.RetryConfig | undefined = retries;
         if (!retryConfig) {
             if (globalRetryConfig) {
                 retryConfig = globalRetryConfig;
@@ -799,16 +791,14 @@ export class Bills {
             globalSecurity = new shared.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers = { ...config?.headers, ...properties.headers };
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
-        let retryConfig: any = retries;
+        let retryConfig: utils.RetryConfig | undefined = retries;
         if (!retryConfig) {
             if (globalRetryConfig) {
                 retryConfig = globalRetryConfig;
@@ -914,15 +904,13 @@ export class Bills {
             globalSecurity = new shared.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers = { ...config?.headers, ...properties.headers };
+        const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
-        let retryConfig: any = retries;
+        let retryConfig: utils.RetryConfig | undefined = retries;
         if (!retryConfig) {
             if (globalRetryConfig) {
                 retryConfig = globalRetryConfig;
@@ -1028,7 +1016,7 @@ export class Bills {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "bill", "json");
@@ -1046,16 +1034,18 @@ export class Bills {
             globalSecurity = new shared.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers = { ...reqBodyHeaders, ...config?.headers, ...properties.headers };
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
-        let retryConfig: any = retries;
+        let retryConfig: utils.RetryConfig | undefined = retries;
         if (!retryConfig) {
             if (globalRetryConfig) {
                 retryConfig = globalRetryConfig;
@@ -1161,7 +1151,7 @@ export class Bills {
             req
         );
 
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "multipart");
@@ -1179,15 +1169,17 @@ export class Bills {
             globalSecurity = new shared.Security(globalSecurity);
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
-        const headers = { ...reqBodyHeaders, ...config?.headers, ...properties.headers };
+        const headers: RawAxiosRequestHeaders = {
+            ...reqBodyHeaders,
+            ...config?.headers,
+            ...properties.headers,
+        };
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
-        let retryConfig: any = retries;
+        let retryConfig: utils.RetryConfig | undefined = retries;
         if (!retryConfig) {
             if (globalRetryConfig) {
                 retryConfig = globalRetryConfig;

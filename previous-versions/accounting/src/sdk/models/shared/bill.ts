@@ -7,7 +7,6 @@ import { BillLineItem } from "./billlineitem";
 import { BillStatus } from "./billstatus";
 import { Metadata } from "./metadata";
 import { PaymentAllocationPayment } from "./paymentallocationpayment";
-import { PurchaseOrderRef } from "./purchaseorderref";
 import { SupplierRef } from "./supplierref";
 import { Expose, Type } from "class-transformer";
 
@@ -121,10 +120,16 @@ export class BillSupplementalData extends SpeakeasyBase {
 }
 
 export class BillWithholdingTax extends SpeakeasyBase {
+    /**
+     * Amount of tax withheld.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "amount" })
     amount: number;
 
+    /**
+     * Name assigned to withheld tax.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "name" })
     name: string;
@@ -256,10 +261,9 @@ export class Bill extends SpeakeasyBase {
     @Type(() => BillPaymentAllocation)
     paymentAllocations?: BillPaymentAllocation[];
 
-    @SpeakeasyMetadata({ elemType: PurchaseOrderRef })
+    @SpeakeasyMetadata()
     @Expose({ name: "purchaseOrderRefs" })
-    @Type(() => PurchaseOrderRef)
-    purchaseOrderRefs?: PurchaseOrderRef[];
+    purchaseOrderRefs?: Record<string, any>[];
 
     /**
      * User-friendly reference for the bill.

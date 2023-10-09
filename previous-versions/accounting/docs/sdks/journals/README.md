@@ -1,4 +1,5 @@
-# journals
+# Journals
+(*journals*)
 
 ## Overview
 
@@ -28,39 +29,30 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { CreateJournalResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { JournalStatus } from "@codat/accounting/dist/sdk/models/shared";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.journals.create({
-  journal: {
-    createdOn: "2022-10-23T00:00:00.000Z",
-    hasChildren: false,
-    id: "ce525c67-641a-4831-ae50-47b4c21ccb42",
-    journalCode: "amet",
-    metadata: {
-      isDeleted: false,
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    name: "Kim Swift",
-    parentId: "et",
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: JournalStatus.Archived,
-    type: "est",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 716024,
-}).then((res: CreateJournalResponse) => {
+  });
+
+  const res = await sdk.journals.create({
+    journal: {
+      createdOn: "2022-10-23T00:00:00.000Z",
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -92,22 +84,23 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetJournalResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.journals.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalId: "fugiat",
-}).then((res: GetJournalResponse) => {
+  const res = await sdk.journals.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    journalId: "Northeast Hatchback Kia",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -141,22 +134,23 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCreateJournalsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.journals.getCreateModel({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateJournalsModelResponse) => {
+  const res = await sdk.journals.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -186,25 +180,25 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListJournalsResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.journals.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "nulla",
-}).then((res: ListJournalsResponse) => {
+  const res = await sdk.journals.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

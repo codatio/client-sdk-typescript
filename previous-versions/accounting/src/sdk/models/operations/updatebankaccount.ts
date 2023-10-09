@@ -11,14 +11,20 @@ export class UpdateBankAccountRequest extends SpeakeasyBase {
     bankAccount?: shared.BankAccount;
 
     /**
-     * Unique identifier for a bank account
+     * Unique identifier for a bank account.
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=bankAccountId" })
     bankAccountId: string;
 
+    /**
+     * Unique identifier for a company.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 
+    /**
+     * Unique identifier for a connection.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
     connectionId: string;
 
@@ -28,11 +34,17 @@ export class UpdateBankAccountRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=forceUpdate" })
     forceUpdate?: boolean;
 
+    /**
+     * Time limit for the push operation to complete before it is timed out.
+     */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=timeoutInMinutes" })
     timeoutInMinutes?: number;
 }
 
 export class UpdateBankAccountResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -42,9 +54,15 @@ export class UpdateBankAccountResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 

@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountRef } from "./accountref";
-import { Propertiestracking2 } from "./propertiestracking2";
+import { Tracking2 } from "./tracking2";
 import { Expose, Type } from "class-transformer";
 
 export class JournalLine extends SpeakeasyBase {
@@ -39,6 +39,6 @@ export class JournalLine extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "tracking" })
-    @Type(() => Propertiestracking2)
-    tracking?: Propertiestracking2;
+    @Type(() => Tracking2)
+    tracking?: Tracking2;
 }

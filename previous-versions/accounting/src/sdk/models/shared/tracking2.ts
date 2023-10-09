@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { InvoiceTo } from "./invoiceto";
 import { Expose, Type } from "class-transformer";
 
-export class Propertiestracking2 extends SpeakeasyBase {
+export class Tracking2 extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: InvoiceTo })
     @Expose({ name: "recordRefs" })
     @Type(() => InvoiceTo)

@@ -3,8 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { PaymentLineLink } from "./paymentlinelink";
-import { Expose, Type } from "class-transformer";
+import { Expose } from "class-transformer";
 
 export class PaymentLine extends SpeakeasyBase {
     /**
@@ -41,8 +40,7 @@ export class PaymentLine extends SpeakeasyBase {
     @Expose({ name: "amount" })
     amount: number;
 
-    @SpeakeasyMetadata({ elemType: PaymentLineLink })
+    @SpeakeasyMetadata()
     @Expose({ name: "links" })
-    @Type(() => PaymentLineLink)
-    links?: PaymentLineLink[];
+    links?: Record<string, any>[];
 }

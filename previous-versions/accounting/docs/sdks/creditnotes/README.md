@@ -1,4 +1,5 @@
-# creditNotes
+# CreditNotes
+(*creditNotes*)
 
 ## Overview
 
@@ -10,7 +11,7 @@ Credit notes
 * [get](#get) - Get credit note
 * [getCreateUpdateModel](#getcreateupdatemodel) - Get create/update credit note model
 * [list](#list) - List credit notes
-* [update](#update) - Update creditNote
+* [update](#update) - Update credit note
 
 ## create
 
@@ -29,141 +30,102 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { CreateCreditNoteResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { BilledToType1, CreditNoteStatus } from "@codat/accounting/dist/sdk/models/shared";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.creditNotes.create({
-  creditNote: {
-    additionalTaxAmount: 1363.57,
-    additionalTaxPercentage: 7239.42,
-    allocatedOnDate: "2022-10-23T00:00:00.000Z",
-    creditNoteNumber: "quas",
-    currency: "USD",
-    currencyRate: 9222.99,
-    customerRef: {
-      companyName: "rerum",
-      id: "75dad636-c600-4503-98bb-31180f739ae9",
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
-    discountPercentage: 9202.72,
-    id: "057eb809-e281-4033-9f39-81d4c700b607",
-    issueDate: "2022-10-23T00:00:00.000Z",
-    lineItems: [
-      {
-        accountRef: {
-          id: "3c93c73b-9da3-4f2c-ada7-e23f2257411f",
-          name: "Toby Friesen",
-        },
-        description: "exercitationem",
-        discountAmount: 2883,
-        discountPercentage: 2543.82,
-        isDirectIncome: false,
-        itemRef: {
-          id: "e472e802-857a-45b4-8463-a7d575f1400e",
-          name: "Gertrude Gerhold",
-        },
-        quantity: 4523.99,
-        subTotal: 2327.72,
-        taxAmount: 2006.37,
-        taxRateRef: {
-          effectiveTaxRate: 3106.29,
-          id: "ec1b781b-36a0-4808-8d10-0efada200ef0",
-          name: "Phyllis Denesik",
-        },
-        totalAmount: 1267.27,
-        tracking: {
-          categoryRefs: [
+  });
+
+  const res = await sdk.creditNotes.create({
+    creditNote: {
+      allocatedOnDate: "2022-10-23T00:00:00.000Z",
+      currency: "USD",
+      customerRef: {
+        id: "<ID>",
+      },
+      discountPercentage: 6384.24,
+      issueDate: "2022-10-23T00:00:00.000Z",
+      lineItems: [
+        {
+          accountRef: {},
+          itemRef: {
+            id: "<ID>",
+          },
+          quantity: 4174.58,
+          taxRateRef: {},
+          tracking: {
+            categoryRefs: [
+              {
+                id: "<ID>",
+              },
+            ],
+            customerRef: {
+              id: "<ID>",
+            },
+            isBilledTo: BilledToType1.Unknown,
+            isRebilledTo: BilledToType1.Unknown,
+            projectRef: {
+              id: "<ID>",
+            },
+            recordRef: {
+              dataType: "transfer",
+            },
+          },
+          trackingCategoryRefs: [
             {
-              id: "164cf9ab-8366-4c72-bffd-a9e06bee4825",
-              name: "Willie Wiza PhD",
+              id: "<ID>",
             },
           ],
-          customerRef: {
-            companyName: "architecto",
-            id: "15c80bff-9185-444e-842d-efcce8f19777",
+          unitAmount: 690.25,
+        },
+      ],
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      paymentAllocations: [
+        {
+          allocation: {
+            allocatedOnDate: "2022-10-23T00:00:00.000Z",
+            currency: "USD",
           },
-          isBilledTo: BilledToType1.NotApplicable,
-          isRebilledTo: BilledToType1.Unknown,
-          projectRef: {
-            id: "e63562a7-b408-4f05-a3d4-8fdaf313a1f5",
-            name: "Woodrow Mitchell III",
-          },
-          recordRef: {
-            dataType: "accountTransaction",
-            id: "c0b36f25-ea94-44f3-b756-c11f6c37a512",
+          payment: {
+            accountRef: {},
+            currency: "EUR",
+            paidOnDate: "2022-10-23T00:00:00.000Z",
           },
         },
-        trackingCategoryRefs: [
-          {
-            id: "6243835b-bc05-4a23-a45c-efc5fde10a0c",
-            name: "Randy Carter",
+      ],
+      remainingCredit: 0.86,
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      status: CreditNoteStatus.Draft,
+      subTotal: 3015.1,
+      supplementalData: {
+        content: {
+          "Northwest": {
+            "fuchsia": "Gasoline",
           },
-        ],
-        unitAmount: 8927.08,
+        },
       },
-    ],
-    metadata: {
-      isDeleted: false,
+      totalAmount: 5862.2,
+      totalDiscount: 8275.63,
+      totalTaxAmount: 7524.38,
+      withholdingTax: [
+        {
+          amount: 4915.7,
+          name: "National Durham after",
+        },
+      ],
     },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "architecto",
-    paymentAllocations: [
-      {
-        allocation: {
-          allocatedOnDate: "2022-10-23T00:00:00.000Z",
-          currency: "GBP",
-          currencyRate: 828.76,
-          totalAmount: 5905.85,
-        },
-        payment: {
-          accountRef: {
-            id: "c6dc5e34-7627-499b-bbbe-6949fb2bb4ec",
-            name: "Bert Kassulke",
-          },
-          currency: "EUR",
-          currencyRate: 3674.75,
-          id: "db3adebd-5dae-4a4c-906a-8aa94c02644c",
-          note: "hic",
-          paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "officiis",
-          totalAmount: 6036.5,
-        },
-      },
-    ],
-    remainingCredit: 8603.11,
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: CreditNoteStatus.Paid,
-    subTotal: 2986.13,
-    supplementalData: {
-      content: {
-        "nostrum": {
-          "esse": "corrupti",
-        },
-      },
-    },
-    totalAmount: 6847.99,
-    totalDiscount: 8152.25,
-    totalTaxAmount: 7736.59,
-    withholdingTax: [
-      {
-        amount: 986.1,
-        name: "Mr. Forrest Howe",
-      },
-    ],
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 901008,
-}).then((res: CreateCreditNoteResponse) => {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -195,22 +157,23 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCreditNoteResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.creditNotes.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  creditNoteId: "maxime",
-}).then((res: GetCreditNoteResponse) => {
+  const res = await sdk.creditNotes.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    creditNoteId: "Northeast Hatchback Kia",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -244,22 +207,23 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCreateUpdateCreditNotesModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.creditNotes.getCreateUpdateModel({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateUpdateCreditNotesModelResponse) => {
+  const res = await sdk.creditNotes.getCreateUpdateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -289,25 +253,25 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListCreditNotesResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.creditNotes.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "consequatur",
-}).then((res: ListCreditNotesResponse) => {
+  const res = await sdk.creditNotes.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -341,143 +305,103 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { UpdateCreditNoteResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { BilledToType1, CreditNoteStatus } from "@codat/accounting/dist/sdk/models/shared";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.creditNotes.update({
-  creditNote: {
-    additionalTaxAmount: 510.07,
-    additionalTaxPercentage: 1023.9,
-    allocatedOnDate: "2022-10-23T00:00:00.000Z",
-    creditNoteNumber: "porro",
-    currency: "USD",
-    currencyRate: 608.92,
-    customerRef: {
-      companyName: "magni",
-      id: "e2ec09ff-8f0f-4816-bf34-77c13e902c14",
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
-    discountPercentage: 1165.58,
-    id: "25b0960a-6681-451a-872a-f923c5949f83",
-    issueDate: "2022-10-23T00:00:00.000Z",
-    lineItems: [
-      {
-        accountRef: {
-          id: "350cf876-ffb9-401c-aecb-b4e243cf789f",
-          name: "Lynn Wuckert",
-        },
-        description: "deserunt",
-        discountAmount: 3590.97,
-        discountPercentage: 2465.77,
-        isDirectIncome: false,
-        itemRef: {
-          id: "e5ae6e0a-c184-4c2b-9c24-7c88373a40e1",
-          name: "Micheal Cassin",
-        },
-        quantity: 1397.45,
-        subTotal: 9368.45,
-        taxAmount: 3305.96,
-        taxRateRef: {
-          effectiveTaxRate: 3731.06,
-          id: "055756f5-d56d-40bd-8af2-dfe13db4f62c",
-          name: "Lorenzo Flatley",
-        },
-        totalAmount: 6211.4,
-        tracking: {
-          categoryRefs: [
+  });
+
+  const res = await sdk.creditNotes.update({
+    creditNote: {
+      allocatedOnDate: "2022-10-23T00:00:00.000Z",
+      currency: "GBP",
+      customerRef: {
+        id: "<ID>",
+      },
+      discountPercentage: 5971.29,
+      issueDate: "2022-10-23T00:00:00.000Z",
+      lineItems: [
+        {
+          accountRef: {},
+          itemRef: {
+            id: "<ID>",
+          },
+          quantity: 3446.2,
+          taxRateRef: {},
+          tracking: {
+            categoryRefs: [
+              {
+                id: "<ID>",
+              },
+            ],
+            customerRef: {
+              id: "<ID>",
+            },
+            isBilledTo: BilledToType1.Project,
+            isRebilledTo: BilledToType1.Project,
+            projectRef: {
+              id: "<ID>",
+            },
+            recordRef: {
+              dataType: "invoice",
+            },
+          },
+          trackingCategoryRefs: [
             {
-              id: "41aebc0b-80a6-4924-93b2-ecfcc8f89501",
-              name: "Melba Heaney",
+              id: "<ID>",
             },
           ],
-          customerRef: {
-            companyName: "neque",
-            id: "d6fa1804-e54c-482f-968a-363c8873e484",
+          unitAmount: 6276.9,
+        },
+      ],
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      paymentAllocations: [
+        {
+          allocation: {
+            allocatedOnDate: "2022-10-23T00:00:00.000Z",
+            currency: "USD",
           },
-          isBilledTo: BilledToType1.Unknown,
-          isRebilledTo: BilledToType1.NotApplicable,
-          projectRef: {
-            id: "0b1f6b8c-a275-4a60-a04c-495cc699171b",
-            name: "Miss Joyce Runolfsson",
-          },
-          recordRef: {
-            dataType: "accountTransaction",
-            id: "1cf4b888-ebdf-4c4c-8ca9-9bc7fc0b2dce",
+          payment: {
+            accountRef: {},
+            currency: "EUR",
+            paidOnDate: "2022-10-23T00:00:00.000Z",
           },
         },
-        trackingCategoryRefs: [
-          {
-            id: "10873e42-b006-4d67-8878-ba8581a58208",
-            name: "Lloyd Grant",
+      ],
+      remainingCredit: 540.62,
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      status: CreditNoteStatus.PartiallyPaid,
+      subTotal: 4995.57,
+      supplementalData: {
+        content: {
+          "withdrawal": {
+            "extend": "Plastic",
           },
-        ],
-        unitAmount: 9657.35,
+        },
       },
-    ],
-    metadata: {
-      isDeleted: false,
+      totalAmount: 1395.79,
+      totalDiscount: 6447.13,
+      totalTaxAmount: 7892.75,
+      withholdingTax: [
+        {
+          amount: 9936.8,
+          name: "East Baht Quality",
+        },
+      ],
     },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "natus",
-    paymentAllocations: [
-      {
-        allocation: {
-          allocatedOnDate: "2022-10-23T00:00:00.000Z",
-          currency: "USD",
-          currencyRate: 3125.11,
-          totalAmount: 9853.79,
-        },
-        payment: {
-          accountRef: {
-            id: "2eac5565-d307-4cfe-a812-06e2813fa4a4",
-            name: "Leticia Gerlach PhD",
-          },
-          currency: "GBP",
-          currencyRate: 9998.54,
-          id: "2132af03-102d-4514-b4cc-6f18bf9621a6",
-          note: "animi",
-          paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "tenetur",
-          totalAmount: 4934.07,
-        },
-      },
-    ],
-    remainingCredit: 4578.35,
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: CreditNoteStatus.Paid,
-    subTotal: 4610.5,
-    supplementalData: {
-      content: {
-        "eveniet": {
-          "earum": "velit",
-        },
-      },
-    },
-    totalAmount: 8847.65,
-    totalDiscount: 2633.46,
-    totalTaxAmount: 7019.78,
-    withholdingTax: [
-      {
-        amount: 9301.11,
-        name: "Brittany Cole",
-      },
-    ],
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  creditNoteId: "quis",
-  forceUpdate: false,
-  timeoutInMinutes: 704402,
-}).then((res: UpdateCreditNoteResponse) => {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    creditNoteId: "Home users Sharable",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

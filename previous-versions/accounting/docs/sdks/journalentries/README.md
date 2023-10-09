@@ -1,4 +1,5 @@
-# journalEntries
+# JournalEntries
+(*journalEntries*)
 
 ## Overview
 
@@ -29,69 +30,57 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { CreateJournalEntryResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.journalEntries.create({
-  journalEntry: {
-    createdOn: "2022-10-23T00:00:00.000Z",
-    description: "earum",
-    id: "af75b0b5-32a4-4da3-bcba-af4452c4842c",
-    journalLines: [
-      {
-        accountRef: {
-          id: "9b2ad32d-afe8-41a8-8f44-44573fecd473",
-          name: "Robin Weimann",
+  const res = await sdk.journalEntries.create({
+    journalEntry: {
+      createdOn: "2022-10-23T00:00:00.000Z",
+      journalLines: [
+        {
+          accountRef: {},
+          netAmount: 4893.82,
+          tracking: {
+            recordRefs: [
+              {
+                dataType: "accountTransaction",
+              },
+            ],
+          },
         },
-        currency: "placeat",
-        description: "quos",
-        netAmount: 1523.02,
-        tracking: {
-          recordRefs: [
-            {
-              dataType: "journalEntry",
-              id: "9379aa69-cd5f-4bcf-b9da-18a7822bf958",
-            },
-          ],
+      ],
+      journalRef: {
+        "Extended": "South",
+      },
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      postedOn: "2022-10-23T00:00:00.000Z",
+      recordRef: {
+        dataType: "invoice",
+      },
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      supplementalData: {
+        content: {
+          "abnormally": {
+            "deposit": "evolve",
+          },
         },
       },
-    ],
-    journalRef: {
-      id: "94e6861a-db55-4f9e-9d75-1c9fe8f7502b",
-      name: "Orville Schinner",
+      updatedOn: "2022-10-23T00:00:00.000Z",
     },
-    metadata: {
-      isDeleted: false,
-    },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    postedOn: "2022-10-23T00:00:00.000Z",
-    recordRef: {
-      dataType: "accountTransaction",
-      id: "41f17644-5637-49f3-bb27-e21f862657b3",
-    },
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    supplementalData: {
-      content: {
-        "delectus": {
-          "maxime": "vel",
-        },
-      },
-    },
-    updatedOn: "2022-10-23T00:00:00.000Z",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 586163,
-}).then((res: CreateJournalEntryResponse) => {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -148,23 +137,24 @@ Integrations that support soft delete do not permanently delete the object in th
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { DeleteJournalEntryResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.journalEntries.delete({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  journalEntryId: "hic",
-}).then((res: DeleteJournalEntryResponse) => {
+  const res = await sdk.journalEntries.delete({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    journalEntryId: "Van complexity",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -196,22 +186,23 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetJournalEntryResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.journalEntries.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalEntryId: "quis",
-}).then((res: GetJournalEntryResponse) => {
+  const res = await sdk.journalEntries.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    journalEntryId: "Northeast Hatchback Kia",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -245,22 +236,23 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCreateJournalEntriesModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.journalEntries.getCreateModel({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateJournalEntriesModelResponse) => {
+  const res = await sdk.journalEntries.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -290,25 +282,25 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListJournalEntriesResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.journalEntries.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "deleniti",
-}).then((res: ListJournalEntriesResponse) => {
+  const res = await sdk.journalEntries.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -1,4 +1,5 @@
-# bankAccounts
+# BankAccounts
+(*bankAccounts*)
 
 ## Overview
 
@@ -28,44 +29,30 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { CreateBankAccountResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { BankAccountBankAccountType } from "@codat/accounting/dist/sdk/models/shared";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.bankAccounts.create({
-  bankAccount: {
-    accountName: "deleniti",
-    accountNumber: "hic",
-    accountType: BankAccountBankAccountType.Debit,
-    availableBalance: 5218.48,
-    balance: 1059.07,
-    currency: "USD",
-    iBan: "molestiae",
-    id: "42cb7392-0592-4939-afea-7596eb10faaa",
-    institution: "dolores",
-    metadata: {
-      isDeleted: false,
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    nominalCode: "corporis",
-    overdraftLimit: 1289.26,
-    sortCode: "nobis",
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-  },
-  allowSyncOnPushComplete: false,
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 607831,
-}).then((res: CreateBankAccountResponse) => {
+  });
+
+  const res = await sdk.bankAccounts.create({
+    bankAccount: {
+      currency: "USD",
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -97,23 +84,24 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetBankAccountResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.bankAccounts.get({
-  accountId: "nemo",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetBankAccountResponse) => {
+  const res = await sdk.bankAccounts.get({
+    accountId: "Northeast Hatchback Kia",
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -147,22 +135,23 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCreateUpdateBankAccountsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.bankAccounts.getCreateUpdateModel({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateUpdateBankAccountsModelResponse) => {
+  const res = await sdk.bankAccounts.getCreateUpdateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -192,26 +181,26 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListBankAccountsResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.bankAccounts.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "minima",
-}).then((res: ListBankAccountsResponse) => {
+  const res = await sdk.bankAccounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -245,45 +234,31 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { UpdateBankAccountResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { BankAccountBankAccountType } from "@codat/accounting/dist/sdk/models/shared";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.bankAccounts.update({
-  bankAccount: {
-    accountName: "excepturi",
-    accountNumber: "accusantium",
-    accountType: BankAccountBankAccountType.Credit,
-    availableBalance: 6342.74,
-    balance: 9883.74,
-    currency: "EUR",
-    iBan: "architecto",
-    id: "a3a2fa94-6773-4925-9aa5-2c3f5ad019da",
-    institution: "quasi",
-    metadata: {
-      isDeleted: false,
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    nominalCode: "voluptatibus",
-    overdraftLimit: 8781.94,
-    sortCode: "nihil",
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-  },
-  bankAccountId: "voluptatibus",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  forceUpdate: false,
-  timeoutInMinutes: 55714,
-}).then((res: UpdateBankAccountResponse) => {
+  });
+
+  const res = await sdk.bankAccounts.update({
+    bankAccount: {
+      currency: "EUR",
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+    },
+    bankAccountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

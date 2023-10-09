@@ -1,4 +1,5 @@
-# directIncomes
+# DirectIncomes
+(*directIncomes*)
 
 ## Overview
 
@@ -32,104 +33,74 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { CreateDirectIncomeResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { DataType } from "@codat/accounting/dist/sdk/models/shared";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.directIncomes.create({
-  directIncome: {
-    contactRef: {
-      dataType: "unde",
-      id: "ad030c4e-cc11-4a08-b642-9068b8502a55",
-    },
-    currency: "EUR",
-    currencyRate: 4813.07,
-    id: "f73bc845-e320-4a31-9f4b-adf947c9a867",
-    issueDate: "2022-10-23T00:00:00.000Z",
-    lineItems: [
-      {
-        accountRef: {
-          id: "c4242666-5816-4ddc-a8ef-51fcb4c593ec",
-          name: "Beverly Satterfield",
-        },
-        description: "id",
-        discountAmount: 8409.92,
-        discountPercentage: 590.23,
-        itemRef: {
-          id: "ec7afedb-d80d-4f44-8a47-f9390c588809",
-          name: "Manuel Swift",
-        },
-        quantity: 9830.6,
-        subTotal: 6229.68,
-        taxAmount: 9261.19,
-        taxRateRef: {
-          effectiveTaxRate: 9559.62,
-          id: "3ffdd9f7-f079-4af4-9357-24cdb0f4d281",
-          name: "Irma Kub",
-        },
-        totalAmount: 4357.13,
-        trackingCategoryRefs: [
-          {
-            id: "844eded8-5a90-465e-a28b-dfc2032b6c87",
-            name: "Alejandro Considine",
+  const res = await sdk.directIncomes.create({
+    directIncome: {
+      contactRef: {
+        dataType: DataType.Invoices,
+        id: "<ID>",
+      },
+      currency: "USD",
+      issueDate: "2022-10-23T00:00:00.000Z",
+      lineItems: [
+        {
+          accountRef: {},
+          itemRef: {
+            id: "<ID>",
           },
-        ],
-        unitAmount: 4766.14,
-      },
-    ],
-    metadata: {
-      isDeleted: false,
-    },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "vitae",
-    paymentAllocations: [
-      {
-        allocation: {
-          allocatedOnDate: "2022-10-23T00:00:00.000Z",
-          currency: "GBP",
-          currencyRate: 5398.86,
-          totalAmount: 2847.79,
+          quantity: 6384.24,
+          taxRateRef: {},
+          trackingCategoryRefs: [
+            {
+              id: "<ID>",
+            },
+          ],
+          unitAmount: 8592.13,
         },
-        payment: {
-          accountRef: {
-            id: "f7ae12c6-891f-482c-a115-7172305377dc",
-            name: "Horace Leannon",
+      ],
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      paymentAllocations: [
+        {
+          allocation: {
+            allocatedOnDate: "2022-10-23T00:00:00.000Z",
+            currency: "GBP",
           },
-          currency: "EUR",
-          currencyRate: 6081.72,
-          id: "75e35668-6092-4e9c-bddc-5f111dea1026",
-          note: "pariatur",
-          paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "numquam",
-          totalAmount: 1031.93,
+          payment: {
+            accountRef: {},
+            currency: "EUR",
+            paidOnDate: "2022-10-23T00:00:00.000Z",
+          },
+        },
+      ],
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      subTotal: 7964.74,
+      supplementalData: {
+        content: {
+          "abnormally": {
+            "deposit": "evolve",
+          },
         },
       },
-    ],
-    reference: "est",
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    subTotal: 8167.26,
-    supplementalData: {
-      content: {
-        "vitae": {
-          "omnis": "alias",
-        },
-      },
+      taxAmount: 7150.4,
+      totalAmount: 7926.2,
     },
-    taxAmount: 9574.89,
-    totalAmount: 8876,
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 708883,
-}).then((res: CreateDirectIncomeResponse) => {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -159,24 +130,25 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { DownloadDirectIncomeAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.directIncomes.downloadAttachment({
-  attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "quia",
-}).then((res: DownloadDirectIncomeAttachmentResponse) => {
+  const res = await sdk.directIncomes.downloadAttachment({
+    attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    directIncomeId: "Dakota Avon specifically",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -208,23 +180,24 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetDirectIncomeResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.directIncomes.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "vitae",
-}).then((res: GetDirectIncomeResponse) => {
+  const res = await sdk.directIncomes.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    directIncomeId: "Northeast Hatchback Kia",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -254,25 +227,25 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetDirectIncomeAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.directIncomes.getAttachment({
-  attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "odio",
-  timeoutInMinutes: 558410,
-}).then((res: GetDirectIncomeAttachmentResponse) => {
+  const res = await sdk.directIncomes.getAttachment({
+    attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    directIncomeId: "array East along",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -306,22 +279,23 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCreateDirectIncomesModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.directIncomes.getCreateModel({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateDirectIncomesModelResponse) => {
+  const res = await sdk.directIncomes.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -351,26 +325,26 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListDirectIncomesResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.directIncomes.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "ipsa",
-}).then((res: ListDirectIncomesResponse) => {
+  const res = await sdk.directIncomes.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -400,23 +374,24 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListDirectIncomeAttachmentsResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.directIncomes.listAttachments({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "distinctio",
-}).then((res: ListDirectIncomeAttachmentsResponse) => {
+  const res = await sdk.directIncomes.listAttachments({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    directIncomeId: "intuitive Frozen ouch",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -450,27 +425,28 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { UploadDirectIncomeAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.directIncomes.uploadAttachment({
-  requestBody: {
-    content: "placeat".encode(),
-    requestBody: "quod",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "eligendi",
-}).then((res: UploadDirectIncomeAttachmentResponse) => {
+  const res = await sdk.directIncomes.uploadAttachment({
+    requestBody: {
+      content: "v/ghW&IC$x" as bytes <<<>>>,
+      requestBody: "Elegant Producer Electric",
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    directIncomeId: "Iowa Bentley",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

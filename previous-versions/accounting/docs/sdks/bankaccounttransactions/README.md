@@ -1,4 +1,5 @@
-# bankAccountTransactions
+# BankAccountTransactions
+(*bankAccountTransactions*)
 
 ## Overview
 
@@ -27,37 +28,32 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { CreateBankTransactionsResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.bankAccountTransactions.create({
-  createBankTransactions: {
-    accountId: "iure",
-    transactions: [
-      {
-        amount: 2975.34,
-        balance: 8917.73,
-        date: "2022-10-23T00:00:00.000Z",
-        description: "delectus",
-        id: "467cc879-6ed1-451a-85df-c2ddf7cc78ca",
-      },
-    ],
-  },
-  accountId: "dicta",
-  allowSyncOnPushComplete: false,
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 720633,
-}).then((res: CreateBankTransactionsResponse) => {
+  const res = await sdk.bankAccountTransactions.create({
+    createBankTransactions: {
+      accountId: "7110701885",
+      transactions: [
+        {
+          date: "2022-10-23T00:00:00.000Z",
+        },
+      ],
+    },
+    accountId: "Extended South",
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -91,23 +87,24 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCreateBankTransactionsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.bankAccountTransactions.getCreateModel({
-  accountId: "officia",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateBankTransactionsModelResponse) => {
+  const res = await sdk.bankAccountTransactions.getCreateModel({
+    accountId: "Northwest",
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -139,27 +136,27 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListBankAccountTransactionsResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.bankAccountTransactions.list({
-  accountId: "occaecati",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "fugit",
-}).then((res: ListBankAccountTransactionsResponse) => {
+  const res = await sdk.bankAccountTransactions.list({
+    accountId: "Northeast Metal Canada",
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

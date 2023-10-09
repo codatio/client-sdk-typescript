@@ -5,8 +5,8 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountRef } from "./accountref";
 import { ItemRef } from "./itemref";
-import { Propertiestracking1 } from "./propertiestracking1";
 import { TaxRateRef } from "./taxrateref";
+import { Tracking1 } from "./tracking1";
 import { TrackingCategoryRef } from "./trackingcategoryref";
 import { Expose, Type } from "class-transformer";
 
@@ -40,6 +40,9 @@ export class InvoiceLineItem extends SpeakeasyBase {
     @Expose({ name: "discountPercentage" })
     discountPercentage?: number;
 
+    /**
+     * The invoice is a direct income if `True`.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isDirectIncome" })
     isDirectIncome?: boolean;
@@ -101,8 +104,8 @@ export class InvoiceLineItem extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "tracking" })
-    @Type(() => Propertiestracking1)
-    tracking?: Propertiestracking1;
+    @Type(() => Tracking1)
+    tracking?: Tracking1;
 
     /**
      * Reference to the tracking categories to which the line item is linked.
