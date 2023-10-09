@@ -132,4 +132,3 @@ sdk.accounts.create({
 ### [TrackingCategories](docs/sdks/trackingcategories/README.md)
 
 * [get](docs/sdks/trackingcategories/README.md#get) - Get tracking categories
-* [list](docs/sdks/trackingcategories/README.md#list) - List tracking categories

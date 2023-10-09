@@ -98,4 +98,3 @@ sdk.companyInfo.get({
 ### [transactions](docs/sdks/transactions/README.md)
 
 * [get](docs/sdks/transactions/README.md#get) - Get transaction
-* [list](docs/sdks/transactions/README.md#list) - List transactions

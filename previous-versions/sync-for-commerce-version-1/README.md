@@ -208,4 +208,3 @@ sdk.accountingAccounts.createAccountingAccount({
 * [getSyncFlowUrl](docs/sdks/syncflowpreferences/README.md#getsyncflowurl) - Retrieve sync flow url
 * [getVisibleAccounts](docs/sdks/syncflowpreferences/README.md#getvisibleaccounts) - List visible accounts
 * [updateConfigTextSyncFlow](docs/sdks/syncflowpreferences/README.md#updateconfigtextsyncflow) - Update preferences for text fields on sync flow
-* [updateVisibleAccountsSyncFlow](docs/sdks/syncflowpreferences/README.md#updatevisibleaccountssyncflow) - Update the visible accounts on Sync Flow
