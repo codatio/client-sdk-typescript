@@ -5,7 +5,7 @@ A human-readable object describing validation decisions Codat has made when push
 
 ## Fields
 
-| Field                                                     | Type                                                      | Required                                                  | Description                                               |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| `errors`                                                  | [ValidationItem](../../models/shared/validationitem.md)[] | :heavy_minus_sign:                                        | N/A                                                       |
-| `warnings`                                                | [ValidationItem](../../models/shared/validationitem.md)[] | :heavy_minus_sign:                                        | N/A                                                       |
+| Field                   | Type                    | Required                | Description             |
+| ----------------------- | ----------------------- | ----------------------- | ----------------------- |
+| `errors`                | Record<string, *any*>[] | :heavy_minus_sign:      | N/A                     |
+| `warnings`              | Record<string, *any*>[] | :heavy_minus_sign:      | N/A                     |

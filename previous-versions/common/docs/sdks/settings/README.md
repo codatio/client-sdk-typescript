@@ -1,4 +1,5 @@
-# settings
+# Settings
+(*settings*)
 
 ## Overview
 
@@ -7,7 +8,7 @@ Manage your Codat instance.
 ### Available Operations
 
 * [createApiKey](#createapikey) - Create API key
-* [deleteApiKey](#deleteapikey) - Delete api key
+* [deleteApiKey](#deleteapikey) - Delete API key
 * [~~getProfile~~](#getprofile) - Get profile :warning: **Deprecated**
 * [getSyncSettings](#getsyncsettings) - Get sync settings
 * [listApiKeys](#listapikeys) - List API keys
@@ -18,7 +19,7 @@ Manage your Codat instance.
 
 Use the *Create API keys* endpoint to generate a new API key for your client.
 
-[API keys](https://docs.codat.io/codat-api#/schemas/apiKeys) are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.
+[API keys](https://docs.codat.io/platform-api#/schemas/apiKeys) are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.
 
 You can [read more](https://docs.codat.io/using-the-api/authentication) about authentication at Codat and managing API keys via the Portal UI or API.
 
@@ -32,21 +33,22 @@ You can [read more](https://docs.codat.io/using-the-api/authentication) about au
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { CreateApiKeyResponse } from "@codat/common/dist/sdk/models/operations";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.settings.createApiKey({
-  name: "azure-invoice-finance-processor",
-}).then((res: CreateApiKeyResponse) => {
+  const res = await sdk.settings.createApiKey({
+    name: "azure-invoice-finance-processor",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -67,7 +69,7 @@ sdk.settings.createApiKey({
 
 Use the *Delete API keys* endpoint to delete an existing API key, providing its valid `id` as a parameter. Note that this operation is not reversible.
 
-[API keys](https://docs.codat.io/accounting-api#/schemas/apiKeys) are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.
+[API keys](https://docs.codat.io/platform-api#/schemas/apiKeys) are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.
 
 You can [read more](https://docs.codat.io/using-the-api/authentication) about authentication at Codat and managing API keys via the Portal UI or API.
 
@@ -80,21 +82,22 @@ You can [read more](https://docs.codat.io/using-the-api/authentication) about au
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { DeleteApiKeyResponse } from "@codat/common/dist/sdk/models/operations";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.settings.deleteApiKey({
-  apiKeyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: DeleteApiKeyResponse) => {
+  const res = await sdk.settings.deleteApiKey({
+    apiKeyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -121,19 +124,20 @@ Fetch your Codat profile.
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { GetProfileResponse } from "@codat/common/dist/sdk/models/operations";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.settings.getProfile().then((res: GetProfileResponse) => {
+  const res = await sdk.settings.getProfile();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -151,25 +155,26 @@ sdk.settings.getProfile().then((res: GetProfileResponse) => {
 
 ## getSyncSettings
 
-Retrieve the sync settings for your client. This includes how often data types should be queued to be updated, and how much history should be fetched.
+Retrieve the [sync settings](https://docs.codat.io/knowledge-base/advanced-sync-settings) for your client. This includes how often data types should be queued to be updated, and how much history should be fetched.
 
 ### Example Usage
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { GetProfileSyncSettingsResponse } from "@codat/common/dist/sdk/models/operations";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.settings.getSyncSettings().then((res: GetProfileSyncSettingsResponse) => {
+  const res = await sdk.settings.getSyncSettings();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -189,7 +194,7 @@ sdk.settings.getSyncSettings().then((res: GetProfileSyncSettingsResponse) => {
 
 Use the *List API keys* endpoint to return a list of all API keys that currently exist for your client. This includes keys created via the Portal UI or the *Create API keys* endpoint.
 
-[API keys](https://docs.codat.io/accounting-api#/schemas/apiKeys) are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.
+[API keys](https://docs.codat.io/platform-api#/schemas/apiKeys) are tokens used to control access to the API. Include this token in the `Authorization` header parameter when making API calls, following the word "Basic" and a space with your API key.
 
 You can [read more](https://docs.codat.io/using-the-api/authentication) about authentication at Codat and managing API keys via the Portal UI or API.
 
@@ -197,19 +202,20 @@ You can [read more](https://docs.codat.io/using-the-api/authentication) about au
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { ListApiKeysResponse } from "@codat/common/dist/sdk/models/operations";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.settings.listApiKeys().then((res: ListApiKeysResponse) => {
+  const res = await sdk.settings.listApiKeys();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -233,30 +239,53 @@ Update your Codat profile
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { UpdateProfileResponse } from "@codat/common/dist/sdk/models/operations";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.settings.updateProfile({
-  alertAuthHeader: "Bearer tXEiHiRK7XCtI8TNHbpGs1LI1pumdb4Cl1QIo7B2",
-  apiKey: "sartANTjHAkLdbyDfaynoTQb7pkmj6hXHmnQKMrB",
-  confirmCompanyName: false,
-  iconUrl: "https://client-images.codat.io/icon/042399f5-d104-4f38-9ce8-cac3524f4e88_3f5623af-d992-4c22-bc08-e58c520a8526.ico",
-  logoUrl: "https://client-images.codat.io/logo/042399f5-d104-4f38-9ce8-cac3524f4e88_5806cb1f-7342-4c0e-a0a8-99bfbc47b0ff.png",
-  name: "Bob's Burgers",
-  redirectUrl: "https://bobs-burgers.{countrySuffix}/{companyId}",
-  whiteListUrls: [
-    "https://bobs-burgers.com",
-  ],
-}).then((res: UpdateProfileResponse) => {
+  const res = await sdk.settings.updateProfile({
+    alertAuthHeader: "Bearer tXEiHiRK7XCtI8TNHbpGs1LI1pumdb4Cl1QIo7B2",
+    apiKey: "sartANTjHAkLdbyDfaynoTQb7pkmj6hXHmnQKMrB",
+    iconUrl: "https://client-images.codat.io/icon/042399f5-d104-4f38-9ce8-cac3524f4e88_3f5623af-d992-4c22-bc08-e58c520a8526.ico",
+    logoUrl: "https://client-images.codat.io/logo/042399f5-d104-4f38-9ce8-cac3524f4e88_5806cb1f-7342-4c0e-a0a8-99bfbc47b0ff.png",
+    name: "Bob's Burgers",
+    redirectUrl: "https://bobs-burgers.{countrySuffix}/{companyId}",
+    whiteListUrls: [
+      "h",
+      "t",
+      "t",
+      "p",
+      "s",
+      ":",
+      "/",
+      "/",
+      "b",
+      "o",
+      "b",
+      "s",
+      "-",
+      "b",
+      "u",
+      "r",
+      "g",
+      "e",
+      "r",
+      "s",
+      ".",
+      "c",
+      "o",
+      "m",
+    ],
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -281,35 +310,34 @@ Update sync settings for all data types.
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { UpdateProfileSyncSettingsResponse } from "@codat/common/dist/sdk/models/operations";
-import { SyncSettingDataTypes } from "@codat/common/dist/sdk/models/shared";
+import { DataType } from "@codat/common/dist/sdk/models/shared";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
-
-sdk.settings.updateSyncSettings({
-  clientId: "367f7975-267b-439b-90c6-a6040ee680f3",
-  overridesDefaults: false,
-  settings: [
-    {
-      dataType: SyncSettingDataTypes.Invoices,
-      fetchOnFirstLink: false,
-      isLocked: false,
-      monthsToSync: 24,
-      syncFromUtc: "2022-10-23T00:00:00.000Z",
-      syncFromWindow: 24,
-      syncOrder: 612096,
-      syncSchedule: 24,
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
     },
-  ],
-}).then((res: UpdateProfileSyncSettingsResponse) => {
+  });
+
+  const res = await sdk.settings.updateSyncSettings({
+    clientId: "ce429104-79f0-4085-a720-e2d40fcc800f",
+    settings: [
+      {
+        dataType: DataType.Invoices,
+        fetchOnFirstLink: false,
+        monthsToSync: 24,
+        syncFromUtc: "2022-10-23T00:00:00.000Z",
+        syncFromWindow: 24,
+        syncOrder: 334238,
+        syncSchedule: 24,
+      },
+    ],
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

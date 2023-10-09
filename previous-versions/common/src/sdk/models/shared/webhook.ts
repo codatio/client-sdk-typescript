@@ -3,35 +3,35 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { WebhookNotifier } from "./webhooknotifier";
 import { Expose, Type } from "class-transformer";
-
-export class WebhookNotifiers extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "emails" })
-    emails?: string[];
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "webhook" })
-    webhook?: string;
-}
 
 /**
  * Create an event notification to a URL or list of email addresses based on the given type or condition.
  */
 export class Webhook extends SpeakeasyBase {
+    /**
+     * Unique identifier for your SMB in Codat.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "companyId" })
     companyId?: string;
 
+    /**
+     * Unique identifier for the configured notification.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id?: string;
 
     @SpeakeasyMetadata()
     @Expose({ name: "notifiers" })
-    @Type(() => WebhookNotifiers)
-    notifiers: WebhookNotifiers;
+    @Type(() => WebhookNotifier)
+    notifiers: WebhookNotifier;
 
+    /**
+     * The type of webhook.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
     type: string;

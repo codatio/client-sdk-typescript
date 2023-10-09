@@ -5,16 +5,15 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export class ValidationItem extends SpeakeasyBase {
+export class WebhookNotifier extends SpeakeasyBase {
     @SpeakeasyMetadata()
-    @Expose({ name: "itemId" })
-    itemId?: string;
+    @Expose({ name: "emails" })
+    emails?: string[];
 
+    /**
+     * The URI the webhook service will POST events.
+     */
     @SpeakeasyMetadata()
-    @Expose({ name: "message" })
-    message?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "validatorName" })
-    validatorName?: string;
+    @Expose({ name: "webhook" })
+    webhook?: string;
 }

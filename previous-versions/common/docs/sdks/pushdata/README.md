@@ -1,4 +1,5 @@
-# pushData
+# PushData
+(*pushData*)
 
 ## Overview
 
@@ -27,24 +28,25 @@ Codat tries not to limit users to pushing to a very limited number of standard c
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { GetCreateUpdateModelOptionsByDataTypeResponse } from "@codat/common/dist/sdk/models/operations";
 import { DataType } from "@codat/common/dist/sdk/models/shared";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.pushData.getModelOptions({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  dataType: DataType.Invoices,
-}).then((res: GetCreateUpdateModelOptionsByDataTypeResponse) => {
+  const res = await sdk.pushData.getModelOptions({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    dataType: DataType.Invoices,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -69,22 +71,23 @@ Retrieve push operation.
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { GetPushOperationResponse } from "@codat/common/dist/sdk/models/operations";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.pushData.getOperation({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "d69a674e-0f46-47cc-8796-ed151a05dfc2",
-}).then((res: GetPushOperationResponse) => {
+  const res = await sdk.pushData.getOperation({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    pushOperationKey: "59acd79e-29d3-4138-91d3-91d4641bf7ed",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -109,25 +112,25 @@ List push operation records.
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { GetCompanyPushHistoryResponse } from "@codat/common/dist/sdk/models/operations";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.pushData.listOperations({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "at",
-}).then((res: GetCompanyPushHistoryResponse) => {
+  const res = await sdk.pushData.listOperations({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

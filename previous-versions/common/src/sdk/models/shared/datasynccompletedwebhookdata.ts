@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { DataType } from "./datatype";
 import { Expose } from "class-transformer";
 
-export class PushOperationRef extends SpeakeasyBase {
+export class DataSyncCompletedWebhookData extends SpeakeasyBase {
     /**
      * Available Data types
      */
@@ -14,7 +14,10 @@ export class PushOperationRef extends SpeakeasyBase {
     @Expose({ name: "dataType" })
     dataType?: DataType;
 
+    /**
+     * Unique identifier for the dataset that completed its sync.
+     */
     @SpeakeasyMetadata()
-    @Expose({ name: "id" })
-    id?: string;
+    @Expose({ name: "datasetId" })
+    datasetId?: string;
 }

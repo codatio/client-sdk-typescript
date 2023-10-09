@@ -3,15 +3,16 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { DataType } from "./datatype";
 import { Expose, Type } from "class-transformer";
 
-export class DatasetDataChangedWebhookData extends SpeakeasyBase {
+export class DatasetDataChangedWebhookDatasetDataChangedWebhookData extends SpeakeasyBase {
     /**
-     * Data type the sync completed for.
+     * Available Data types
      */
     @SpeakeasyMetadata()
     @Expose({ name: "dataType" })
-    dataType?: string;
+    dataType?: DataType;
 
     /**
      * Unique identifier for the dataset that completed its sync.
@@ -33,6 +34,20 @@ export class DatasetDataChangedWebhook extends SpeakeasyBase {
     alertId?: string;
 
     /**
+     * Unique identifier for your client in Codat.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "ClientId" })
+    clientId?: string;
+
+    /**
+     * Name of your client in Codat.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "ClientName" })
+    clientName?: string;
+
+    /**
      * Unique identifier for your SMB in Codat.
      */
     @SpeakeasyMetadata()
@@ -41,8 +56,15 @@ export class DatasetDataChangedWebhook extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "Data" })
-    @Type(() => DatasetDataChangedWebhookData)
-    data?: DatasetDataChangedWebhookData;
+    @Type(() => DatasetDataChangedWebhookDatasetDataChangedWebhookData)
+    data?: DatasetDataChangedWebhookDatasetDataChangedWebhookData;
+
+    /**
+     * Unique identifier for a company's data connection.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "DataConnectionId" })
+    dataConnectionId?: string;
 
     /**
      * A human readable message about the webhook.
@@ -62,6 +84,6 @@ export class DatasetDataChangedWebhook extends SpeakeasyBase {
      * The type of rule.
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "Type" })
-    type?: string;
+    @Expose({ name: "RuleType" })
+    ruleType?: string;
 }
