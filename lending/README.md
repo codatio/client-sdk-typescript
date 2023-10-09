@@ -357,4 +357,3 @@ sdk.accountingBankData.listTransactions({
 
 * [get](docs/sdks/transactionstransfers/README.md#get) - Get transfer
 * [list](docs/sdks/transactionstransfers/README.md#list) - List transfers
-<!-- End SDK Available Operations -->

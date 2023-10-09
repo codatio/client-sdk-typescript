@@ -83,4 +83,3 @@ sdk.dataIntegrity.details({
 * [getRecurringRevenueMetrics](docs/sdks/reports/README.md#getrecurringrevenuemetrics) - Get key subscription revenue metrics
 * [listLoanTransactions](docs/sdks/reports/README.md#listloantransactions) - List enhanced loan transactions
 * [requestRecurringRevenueMetrics](docs/sdks/reports/README.md#requestrecurringrevenuemetrics) - Generate key subscription revenue metrics
-<!-- End SDK Available Operations -->

@@ -96,4 +96,3 @@ sdk.companies.createCompany({
 
 * [getSyncTransaction](docs/sdks/transactionstatus/README.md#getsynctransaction) - Get Sync Transaction
 * [listSyncTransactions](docs/sdks/transactionstatus/README.md#listsynctransactions) - Get Sync transactions
-<!-- End SDK Available Operations -->

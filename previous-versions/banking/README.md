@@ -72,4 +72,3 @@ sdk.accountBalances.list({
 * [get](docs/sdks/transactions/README.md#get) - Get bank transaction
 * [list](docs/sdks/transactions/README.md#list) - List transactions
 * [~~listBankTransactions~~](docs/sdks/transactions/README.md#listbanktransactions) - List banking transactions :warning: **Deprecated** Use `list` instead.
-<!-- End SDK Available Operations -->
