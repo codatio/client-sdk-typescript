@@ -322,7 +322,10 @@ export class Reports {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.balanceSheet = utils.objectToClass(JSON.parse(decodedRes));
+                    res.balanceSheet = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.BalanceSheet1
+                    );
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -544,7 +547,7 @@ export class Reports {
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.profitAndLossReport = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.ProfitAndLossReport
+                        shared.ProfitAndLossReport1
                     );
                 } else {
                     throw new errors.SDKError(

@@ -5,8 +5,8 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountRef } from "./accountref";
 import { ItemRef } from "./itemref";
+import { Propertiestracking } from "./propertiestracking";
 import { TaxRateRef } from "./taxrateref";
-import { Tracking } from "./tracking";
 import { TrackingCategoryRef } from "./trackingcategoryref";
 import { Expose, Type } from "class-transformer";
 
@@ -156,8 +156,8 @@ export class BillLineItem extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "tracking" })
-    @Type(() => Tracking)
-    tracking?: Tracking;
+    @Type(() => Propertiestracking)
+    tracking?: Propertiestracking;
 
     /**
      * Collection of categories against which this item is tracked.

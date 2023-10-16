@@ -4,6 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Metadata } from "./metadata";
+import { TaxRateComponent } from "./taxratecomponent";
 import { TaxRateStatus } from "./taxratestatus";
 import { ValidDataTypeLinks } from "./validdatatypelinks";
 import { Expose, Type } from "class-transformer";
@@ -40,9 +41,10 @@ export class TaxRate extends SpeakeasyBase {
     @Expose({ name: "code" })
     code?: string;
 
-    @SpeakeasyMetadata()
+    @SpeakeasyMetadata({ elemType: TaxRateComponent })
     @Expose({ name: "components" })
-    components?: Record<string, any>[];
+    @Type(() => TaxRateComponent)
+    components?: TaxRateComponent[];
 
     /**
      * See Effective tax rates description.

@@ -5,6 +5,7 @@
 import { objectToClass, SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { PushOptionChoice } from "./pushoptionchoice";
 import { PushOptionType } from "./pushoptiontype";
+import { PushValidationInfo } from "./pushvalidationinfo";
 import { Expose, Transform, Type } from "class-transformer";
 
 export class PushOptionProperty extends SpeakeasyBase {
@@ -57,5 +58,6 @@ export class PushOptionProperty extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "validation" })
-    validation?: Record<string, any>;
+    @Type(() => PushValidationInfo)
+    validation?: PushValidationInfo;
 }

@@ -3,42 +3,47 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { AccountingCustomerRef } from "./accountingcustomerref";
-import { BilledToType } from "./billedtotype";
-import { ProjectRef } from "./projectref";
-import { TrackingCategoryRef } from "./trackingcategoryref";
+import { InvoiceTo } from "./invoiceto";
 import { Expose, Type } from "class-transformer";
 
 /**
- * Categories, and a project and customer, against which the item is tracked.
+ * Links the current record to the underlying record or data type that created it.
+ *
+ * @remarks
+ *
+ * For example, if a journal entry is generated based on an invoice, this property allows you to connect the journal entry to the underlying invoice in our data model.
  */
+export class TrackingRecordReference extends SpeakeasyBase {
+    /**
+     * Allowed name of the 'dataType'.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "dataType" })
+    dataType?: string;
+
+    /**
+     * 'id' of the underlying record or data type.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
+}
+
 export class Tracking extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: TrackingCategoryRef })
-    @Expose({ name: "categoryRefs" })
-    @Type(() => TrackingCategoryRef)
-    categoryRefs: TrackingCategoryRef[];
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "customerRef" })
-    @Type(() => AccountingCustomerRef)
-    customerRef?: AccountingCustomerRef;
-
     /**
-     * Defines if the invoice or credit note is billed/rebilled to a project or customer.
+     * Links the current record to the underlying record or data type that created it.
+     *
+     * @remarks
+     *
+     * For example, if a journal entry is generated based on an invoice, this property allows you to connect the journal entry to the underlying invoice in our data model.
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "isBilledTo" })
-    isBilledTo: BilledToType;
+    @Expose({ name: "invoiceTo" })
+    @Type(() => TrackingRecordReference)
+    invoiceTo?: TrackingRecordReference;
 
-    /**
-     * Defines if the invoice or credit note is billed/rebilled to a project or customer.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "isRebilledTo" })
-    isRebilledTo: BilledToType;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "projectRef" })
-    @Type(() => ProjectRef)
-    projectRef?: ProjectRef;
+    @SpeakeasyMetadata({ elemType: InvoiceTo })
+    @Expose({ name: "recordRefs" })
+    @Type(() => InvoiceTo)
+    recordRefs: InvoiceTo[];
 }

@@ -49,7 +49,7 @@ export class GetProfitAndLossResponse extends SpeakeasyBase {
      * Success
      */
     @SpeakeasyMetadata()
-    profitAndLossReport?: shared.ProfitAndLossReport;
+    profitAndLossReport?: shared.ProfitAndLossReport1;
 
     /**
      * HTTP response status code for this operation

@@ -59,12 +59,14 @@ import { BillPaymentLineLinkType } from "@codat/accounting/dist/sdk/models/share
       metadata: {},
       modifiedDate: "2022-10-23T00:00:00.000Z",
       note: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
-      paymentMethodRef: "South",
+      paymentMethodRef: {
+        id: "<ID>",
+      },
       sourceModifiedDate: "2022-10-23T00:00:00.000Z",
       supplementalData: {
         content: {
-          "grey": {
-            "technology": "East",
+          "blue": {
+            "shred": "abnormally",
           },
         },
       },

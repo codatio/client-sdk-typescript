@@ -13,7 +13,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * Categories, and a project and customer, against which the item is tracked.
  */
-export class Tracking1 extends SpeakeasyBase {
+export class Propertiestracking1 extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: TrackingCategoryRef })
     @Expose({ name: "categoryRefs" })
     @Type(() => TrackingCategoryRef)

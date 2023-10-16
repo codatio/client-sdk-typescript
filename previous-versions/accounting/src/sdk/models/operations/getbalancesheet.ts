@@ -37,7 +37,7 @@ export class GetBalanceSheetResponse extends SpeakeasyBase {
      * Success
      */
     @SpeakeasyMetadata()
-    balanceSheet?: Record<string, any>;
+    balanceSheet?: shared.BalanceSheet1;
 
     /**
      * HTTP response content type for this operation

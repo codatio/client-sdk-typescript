@@ -55,7 +55,7 @@ import { CodatAccounting } from "@codat/accounting";
         },
       ],
       journalRef: {
-        "Extended": "South",
+        id: "<ID>",
       },
       metadata: {},
       modifiedDate: "2022-10-23T00:00:00.000Z",
@@ -66,8 +66,8 @@ import { CodatAccounting } from "@codat/accounting";
       sourceModifiedDate: "2022-10-23T00:00:00.000Z",
       supplementalData: {
         content: {
-          "abnormally": {
-            "deposit": "evolve",
+          "blue": {
+            "shred": "abnormally",
           },
         },
       },

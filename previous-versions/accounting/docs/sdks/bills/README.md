@@ -97,29 +97,27 @@ import { BilledToType, BillLineItemRecordLineReferenceDataType, BillStatus } fro
         },
       ],
       purchaseOrderRefs: [
-        {
-          "technology": "East",
-        },
+        {},
       ],
       sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-      status: BillStatus.Open,
-      subTotal: 899.64,
+      status: BillStatus.Draft,
+      subTotal: 0.86,
       supplementalData: {
         content: {
-          "male": {
-            "SUV": "quantify",
+          "deposit": {
+            "evolve": "male",
           },
         },
       },
       supplierRef: {
         id: "<ID>",
       },
-      taxAmount: 8275.63,
-      totalAmount: 7524.38,
+      taxAmount: 8559.52,
+      totalAmount: 8165.88,
       withholdingTax: [
         {
-          amount: 4915.7,
-          name: "National Durham after",
+          amount: 5519.29,
+          name: "Polestar mobile",
         },
       ],
     },
@@ -584,33 +582,31 @@ import { BilledToType, BillLineItemRecordLineReferenceDataType, BillStatus } fro
         },
       ],
       purchaseOrderRefs: [
-        {
-          "cheater": "Islands",
-        },
+        {},
       ],
       sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-      status: BillStatus.PartiallyPaid,
-      subTotal: 3691.82,
+      status: BillStatus.Unknown,
+      subTotal: 540.62,
       supplementalData: {
         content: {
-          "extend": {
-            "Plastic": "Carolina",
+          "Cotton": {
+            "extend": "Plastic",
           },
         },
       },
       supplierRef: {
         id: "<ID>",
       },
-      taxAmount: 9936.8,
-      totalAmount: 8898.38,
+      taxAmount: 1395.79,
+      totalAmount: 6447.13,
       withholdingTax: [
         {
-          amount: 3451.87,
-          name: "East",
+          amount: 7892.75,
+          name: "immediately implement JBOD",
         },
       ],
     },
-    billId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+    billId: "EILBDVJVNUAGVKRQ",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });

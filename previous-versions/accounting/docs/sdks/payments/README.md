@@ -29,6 +29,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
+import { PaymentLinkType } from "@codat/accounting/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new CodatAccounting({
@@ -51,19 +52,21 @@ import { CodatAccounting } from "@codat/accounting";
           amount: 8592.13,
           links: [
             {
-              "Money": "blue",
+              type: PaymentLinkType.Other,
             },
           ],
         },
       ],
       metadata: {},
       modifiedDate: "2022-10-23T00:00:00.000Z",
-      paymentMethodRef: "grey",
+      paymentMethodRef: {
+        id: "<ID>",
+      },
       sourceModifiedDate: "2022-10-23T00:00:00.000Z",
       supplementalData: {
         content: {
-          "abnormally": {
-            "deposit": "evolve",
+          "blue": {
+            "shred": "abnormally",
           },
         },
       },
