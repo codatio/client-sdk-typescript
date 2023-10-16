@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetConfigurationRequest extends SpeakeasyBase {
@@ -18,7 +19,7 @@ export class GetConfigurationResponse extends SpeakeasyBase {
      * Success
      */
     @SpeakeasyMetadata()
-    configuration?: Record<string, any>;
+    configuration?: shared.Configuration;
 
     /**
      * HTTP response content type for this operation

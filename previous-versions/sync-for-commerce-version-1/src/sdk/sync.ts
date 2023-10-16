@@ -194,7 +194,10 @@ export class Sync {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.syncSummary = utils.objectToClass(JSON.parse(decodedRes));
+                    res.syncSummary = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.SyncSummary
+                    );
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -302,7 +305,10 @@ export class Sync {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.syncSummary = utils.objectToClass(JSON.parse(decodedRes));
+                    res.syncSummary = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.SyncSummary
+                    );
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,

@@ -9,6 +9,25 @@ import { SupplementalData } from "./supplementaldata";
 import { Expose, Type } from "class-transformer";
 
 /**
+ * Links journal entries to the relevant journal in accounting integrations that use multi-book accounting (multiple journals).
+ */
+export class AccountingJournalEntryJournalReference extends SpeakeasyBase {
+    /**
+     * GUID of the underlying journal.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
+
+    /**
+     * Name of journal
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
+}
+
+/**
  * Links the current record to the underlying record or data type that created it.
  *
  * @remarks
@@ -112,7 +131,8 @@ export class AccountingJournalEntry extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "journalRef" })
-    journalRef?: Record<string, any>;
+    @Type(() => AccountingJournalEntryJournalReference)
+    journalRef?: AccountingJournalEntryJournalReference;
 
     @SpeakeasyMetadata()
     @Expose({ name: "metadata" })

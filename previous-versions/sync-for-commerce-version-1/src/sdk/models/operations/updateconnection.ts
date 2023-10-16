@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class UpdateConnectionRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    requestBody?: Record<string, any>;
+    updateConnection?: shared.UpdateConnection;
 
     /**
      * Unique identifier for a company.

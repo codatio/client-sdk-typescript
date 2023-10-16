@@ -51,19 +51,19 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
         },
       ],
       journalRef: {
-        "Tungsten": "Northwest",
+        id: "<ID>",
       },
       metadata: {},
       modifiedDate: "2022-10-23T00:00:00.000Z",
       postedOn: "2022-10-23T00:00:00.000Z",
       recordRef: {
-        dataType: "accountTransaction",
+        dataType: "journalEntry",
       },
       sourceModifiedDate: "2022-10-23T00:00:00.000Z",
       supplementalData: {
         content: {
-          "Investor": {
-            "jell": "Fiona",
+          "Minivan": {
+            "bypassing": "Investor",
           },
         },
       },

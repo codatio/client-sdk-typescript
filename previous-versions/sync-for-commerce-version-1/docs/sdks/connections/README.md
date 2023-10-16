@@ -102,6 +102,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
+import { DataConnectionStatus } from "@codat/sync-for-commerce-version-1/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new CodatSyncCommerce({
@@ -111,9 +112,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
   });
 
   const res = await sdk.connections.unlink({
-    requestBody: {
-      "Cheese": "Hybrid",
-    },
+    updateConnection: {},
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });

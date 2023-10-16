@@ -26,6 +26,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
+import { PaymentLinkType } from "@codat/sync-for-commerce-version-1/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new CodatSyncCommerce({
@@ -48,19 +49,21 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
           amount: 9211.94,
           links: [
             {
-              "Romaguera": "property",
+              type: PaymentLinkType.Unlinked,
             },
           ],
         },
       ],
       metadata: {},
       modifiedDate: "2022-10-23T00:00:00.000Z",
-      paymentMethodRef: "Fantastic",
+      paymentMethodRef: {
+        id: "<ID>",
+      },
       sourceModifiedDate: "2022-10-23T00:00:00.000Z",
       supplementalData: {
         content: {
-          "lined": {
-            "Elegant": "Tennessine",
+          "Diesel": {
+            "property": "Reduced",
           },
         },
       },

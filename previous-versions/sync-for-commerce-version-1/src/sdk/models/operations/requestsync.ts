@@ -40,5 +40,5 @@ export class RequestSyncResponse extends SpeakeasyBase {
      * Success
      */
     @SpeakeasyMetadata()
-    syncSummary?: Record<string, any>;
+    syncSummary?: shared.SyncSummary;
 }
