@@ -25,26 +25,27 @@ yarn add @codat/lending
 ```typescript
 import { CodatLending } from "@codat/lending";
 
-(async() => {
-  const sdk = new CodatLending({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-    },
-  });
+(async () => {
+    const sdk = new CodatLending({
+        security: {
+            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+        },
+    });
 
-  const res = await sdk.accountingBankData.listTransactions({
-    accountId: "Anchorage Product",
-    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    orderBy: "-modifiedDate",
-    page: 1,
-    pageSize: 100,
-  });
+    const res = await sdk.accountingBankData.listTransactions({
+        accountId: "Anchorage Product",
+        companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+        connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+        orderBy: "-modifiedDate",
+        page: 1,
+        pageSize: 100,
+    });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+    if (res.statusCode == 200) {
+        // handle response
+    }
 })();
+
 ```
 <!-- End SDK Example Usage -->
 
@@ -248,6 +249,11 @@ import { CodatLending } from "@codat/lending";
 * [create](docs/sdks/loanwritebackdirectcosts/README.md#create) - Create direct cost
 * [getCreateModel](docs/sdks/loanwritebackdirectcosts/README.md#getcreatemodel) - Get create direct cost model
 
+### [loanWriteback.payments](docs/sdks/loanwritebackpayments/README.md)
+
+* [create](docs/sdks/loanwritebackpayments/README.md#create) - Create payment
+* [getCreateModel](docs/sdks/loanwritebackpayments/README.md#getcreatemodel) - Get create payment model
+
 ### [loanWriteback.suppliers](docs/sdks/loanwritebacksuppliers/README.md)
 
 * [create](docs/sdks/loanwritebacksuppliers/README.md#create) - Create supplier
@@ -362,8 +368,6 @@ import { CodatLending } from "@codat/lending";
 
 
 <!-- Start Dev Containers -->
-
-
 
 <!-- End Dev Containers -->
 

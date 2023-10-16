@@ -3,17 +3,20 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Expose } from "class-transformer";
+import { ValidationItem } from "./validationitem";
+import { Expose, Type } from "class-transformer";
 
 /**
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
  */
 export class Validation extends SpeakeasyBase {
-    @SpeakeasyMetadata()
+    @SpeakeasyMetadata({ elemType: ValidationItem })
     @Expose({ name: "errors" })
-    errors?: Record<string, any>[];
+    @Type(() => ValidationItem)
+    errors?: ValidationItem[];
 
-    @SpeakeasyMetadata()
+    @SpeakeasyMetadata({ elemType: ValidationItem })
     @Expose({ name: "warnings" })
-    warnings?: Record<string, any>[];
+    @Type(() => ValidationItem)
+    warnings?: ValidationItem[];
 }

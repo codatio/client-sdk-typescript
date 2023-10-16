@@ -37,7 +37,7 @@ export class GetAccountingBalanceSheetResponse extends SpeakeasyBase {
      * Success
      */
     @SpeakeasyMetadata()
-    accountingBalanceSheet?: Record<string, any>;
+    accountingBalanceSheet?: shared.AccountingBalanceSheet;
 
     /**
      * HTTP response content type for this operation

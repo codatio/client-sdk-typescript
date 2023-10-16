@@ -3,7 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Expose } from "class-transformer";
+import { AccountBalanceAmounts } from "./accountbalanceamounts";
+import { Expose, Type } from "class-transformer";
 
 /**
  * The Banking Account Balances data type provides a list of balances for a bank account including end-of-day batch balance or running balances per transaction.
@@ -31,7 +32,8 @@ export class BankingAccountBalance extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "balance" })
-    balance: Record<string, any>;
+    @Type(() => AccountBalanceAmounts)
+    balance: AccountBalanceAmounts;
 
     /**
      * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:

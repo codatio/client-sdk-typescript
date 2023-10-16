@@ -210,7 +210,13 @@ export class FileUpload {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.files = utils.objectToClass(JSON.parse(decodedRes));
+                    res.files = [];
+                    const resFieldDepth: number = utils.getResFieldDepth(res);
+                    res.files = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.File,
+                        resFieldDepth
+                    );
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,

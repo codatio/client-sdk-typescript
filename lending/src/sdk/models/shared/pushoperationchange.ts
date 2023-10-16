@@ -4,7 +4,8 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { PushChangeType } from "./pushchangetype";
-import { Expose } from "class-transformer";
+import { PushOperationRef } from "./pushoperationref";
+import { Expose, Type } from "class-transformer";
 
 export class PushOperationChange extends SpeakeasyBase {
     /**
@@ -16,7 +17,8 @@ export class PushOperationChange extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "recordRef" })
-    recordRef?: Record<string, any>;
+    @Type(() => PushOperationRef)
+    recordRef?: PushOperationRef;
 
     /**
      * Type of change being applied to record in third party platform.

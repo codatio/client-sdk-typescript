@@ -3,8 +3,11 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AccountBalanceAmounts } from "./accountbalanceamounts";
+import { AccountIdentifiers } from "./accountidentifiers";
 import { AccountingBankAccountType } from "./accountingbankaccounttype";
-import { Expose } from "class-transformer";
+import { AccountInstitution } from "./accountinstitution";
+import { Expose, Type } from "class-transformer";
 
 /**
  * This data type provides a list of all the SMB's bank accounts, with rich data like balances, account numbers, and institutions holding the accounts.
@@ -21,7 +24,8 @@ export class BankingAccount extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "balance" })
-    balance: Record<string, any>;
+    @Type(() => AccountBalanceAmounts)
+    balance: AccountBalanceAmounts;
 
     /**
      * The currency code for the account.
@@ -49,7 +53,8 @@ export class BankingAccount extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "identifiers" })
-    identifiers: Record<string, any>;
+    @Type(() => AccountIdentifiers)
+    identifiers: AccountIdentifiers;
 
     /**
      * The friendly name of the account, chosen by the holder. This may not have been set by the account holder and therefore is not always available.
@@ -63,7 +68,8 @@ export class BankingAccount extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "institution" })
-    institution: Record<string, any>;
+    @Type(() => AccountInstitution)
+    institution: AccountInstitution;
 
     @SpeakeasyMetadata()
     @Expose({ name: "modifiedDate" })

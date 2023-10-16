@@ -49,14 +49,21 @@ import { DataType } from "@codat/lending/dist/sdk/models/shared";
           quantity: 6384.24,
           taxRateRef: {},
           tracking: {
-            "Extended": "South",
+            invoiceTo: {
+              dataType: "transfer",
+            },
+            recordRefs: [
+              {
+                dataType: "invoice",
+              },
+            ],
           },
           trackingCategoryRefs: [
             {
               id: "<ID>",
             },
           ],
-          unitAmount: 9967.06,
+          unitAmount: 2884.08,
         },
       ],
       metadata: {},
@@ -65,7 +72,7 @@ import { DataType } from "@codat/lending/dist/sdk/models/shared";
         {
           allocation: {
             allocatedOnDate: "2022-10-23T00:00:00.000Z",
-            currency: "EUR",
+            currency: "GBP",
           },
           payment: {
             accountRef: {},
@@ -75,16 +82,16 @@ import { DataType } from "@codat/lending/dist/sdk/models/shared";
         },
       ],
       sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-      subTotal: 1697.27,
+      subTotal: 9510.62,
       supplementalData: {
         content: {
-          "evolve": {
-            "male": "SUV",
+          "abnormally": {
+            "deposit": "evolve",
           },
         },
       },
-      taxAmount: 5519.29,
-      totalAmount: 5862.2,
+      taxAmount: 7150.4,
+      totalAmount: 7926.2,
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",

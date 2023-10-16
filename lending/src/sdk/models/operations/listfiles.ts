@@ -30,8 +30,8 @@ export class ListFilesResponse extends SpeakeasyBase {
     /**
      * Success
      */
-    @SpeakeasyMetadata()
-    files?: Record<string, any>[];
+    @SpeakeasyMetadata({ elemType: shared.File })
+    files?: shared.File[];
 
     /**
      * HTTP response status code for this operation

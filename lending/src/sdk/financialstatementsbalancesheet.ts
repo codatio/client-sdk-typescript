@@ -95,7 +95,10 @@ export class FinancialStatementsBalanceSheet {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.accountingBalanceSheet = utils.objectToClass(JSON.parse(decodedRes));
+                    res.accountingBalanceSheet = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.AccountingBalanceSheet
+                    );
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
