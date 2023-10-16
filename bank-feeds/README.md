@@ -87,4 +87,3 @@ sdk.accountMapping.create({
 ### [Transactions](docs/sdks/transactions/README.md)
 
 * [create](docs/sdks/transactions/README.md#create) - Create bank transactions
-* [getCreateOperation](docs/sdks/transactions/README.md#getcreateoperation) - Get create operation

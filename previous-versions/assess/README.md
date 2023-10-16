@@ -81,4 +81,3 @@ sdk.dataIntegrity.details({
 * [getEnhancedInvoicesReport](docs/sdks/reports/README.md#getenhancedinvoicesreport) - Get enhanced invoices report
 * [getLoanSummary](docs/sdks/reports/README.md#getloansummary) - Get enhanced loan summaries
 * [getRecurringRevenueMetrics](docs/sdks/reports/README.md#getrecurringrevenuemetrics) - Get key subscription revenue metrics
-* [listLoanTransactions](docs/sdks/reports/README.md#listloantransactions) - List enhanced loan transactions

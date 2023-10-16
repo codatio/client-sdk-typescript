@@ -104,4 +104,3 @@ sdk.companies.create({
 ### [webhooks](docs/sdks/webhooks/README.md)
 
 * [create](docs/sdks/webhooks/README.md#create) - Create webhook
-* [get](docs/sdks/webhooks/README.md#get) - Get webhook

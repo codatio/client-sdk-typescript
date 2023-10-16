@@ -130,5 +130,3 @@ sdk.accounts.create({
 * [refreshDataType](docs/sdks/managedata/README.md#refreshdatatype) - Refresh data type
 
 ### [TrackingCategories](docs/sdks/trackingcategories/README.md)
-
-* [get](docs/sdks/trackingcategories/README.md#get) - Get tracking categories

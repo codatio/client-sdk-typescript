@@ -96,5 +96,3 @@ sdk.companyInfo.get({
 * [list](docs/sdks/taxcomponents/README.md#list) - List tax components
 
 ### [transactions](docs/sdks/transactions/README.md)
-
-* [get](docs/sdks/transactions/README.md#get) - Get transaction

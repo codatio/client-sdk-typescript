@@ -52,4 +52,3 @@ sdk.files.downloadFiles({
 ### [files](docs/sdks/files/README.md)
 
 * [downloadFiles](docs/sdks/files/README.md#downloadfiles) - Download all files for a company
-* [listFiles](docs/sdks/files/README.md#listfiles) - List all files uploaded by a company
