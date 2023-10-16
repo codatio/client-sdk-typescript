@@ -80,4 +80,3 @@ sdk.dataIntegrity.details({
 * [getEnhancedCashFlowTransactions](docs/sdks/reports/README.md#getenhancedcashflowtransactions) - Get enhanced cash flow report
 * [getEnhancedInvoicesReport](docs/sdks/reports/README.md#getenhancedinvoicesreport) - Get enhanced invoices report
 * [getLoanSummary](docs/sdks/reports/README.md#getloansummary) - Get enhanced loan summaries
-* [getRecurringRevenueMetrics](docs/sdks/reports/README.md#getrecurringrevenuemetrics) - Get key subscription revenue metrics

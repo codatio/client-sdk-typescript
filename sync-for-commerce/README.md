@@ -82,4 +82,3 @@ sdk.advancedControls.createCompany({
 ### [SyncFlowSettings](docs/sdks/syncflowsettings/README.md)
 
 * [getConfigTextSyncFlow](docs/sdks/syncflowsettings/README.md#getconfigtextsyncflow) - Get preferences for text fields
-* [getVisibleAccounts](docs/sdks/syncflowsettings/README.md#getvisibleaccounts) - List visible accounts

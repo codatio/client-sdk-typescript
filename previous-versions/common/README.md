@@ -102,5 +102,3 @@ sdk.companies.create({
 * [getConfiguration](docs/sdks/supplementaldata/README.md#getconfiguration) - Get configuration
 
 ### [webhooks](docs/sdks/webhooks/README.md)
-
-* [create](docs/sdks/webhooks/README.md#create) - Create webhook

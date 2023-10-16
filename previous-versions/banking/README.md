@@ -68,5 +68,3 @@ sdk.accountBalances.list({
 * [list](docs/sdks/transactioncategories/README.md#list) - List transaction categories
 
 ### [transactions](docs/sdks/transactions/README.md)
-
-* [get](docs/sdks/transactions/README.md#get) - Get bank transaction

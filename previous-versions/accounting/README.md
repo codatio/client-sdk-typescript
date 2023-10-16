@@ -251,4 +251,3 @@ sdk.accountTransactions.get({
 
 * [create](docs/sdks/transfers/README.md#create) - Create transfer
 * [get](docs/sdks/transfers/README.md#get) - Get transfer
-* [getCreateModel](docs/sdks/transfers/README.md#getcreatemodel) - Get create transfer model

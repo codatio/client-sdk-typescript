@@ -85,5 +85,3 @@ sdk.accountMapping.create({
 * [update](docs/sdks/sourceaccounts/README.md#update) - Update source account
 
 ### [Transactions](docs/sdks/transactions/README.md)
-
-* [create](docs/sdks/transactions/README.md#create) - Create bank transactions
