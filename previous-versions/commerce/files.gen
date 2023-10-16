@@ -83,8 +83,8 @@ src/sdk/models/shared/locationref.ts
 src/sdk/models/shared/commercecustomerref.ts
 src/sdk/models/shared/orders.ts
 src/sdk/models/shared/payment.ts
+src/sdk/models/shared/paymentmethodref.ts
 src/sdk/models/shared/paymentmethod.ts
-src/sdk/models/shared/paymentmethodstatus.ts
 src/sdk/models/shared/payments.ts
 src/sdk/models/shared/paymentmethods.ts
 src/sdk/models/shared/product.ts
@@ -185,8 +185,9 @@ docs/models/shared/locationref.md
 docs/models/shared/commercecustomerref.md
 docs/models/shared/orders.md
 docs/models/shared/payment.md
-docs/models/shared/paymentmethod.md
+docs/models/shared/paymentmethodref.md
 docs/models/shared/paymentmethodstatus.md
+docs/models/shared/paymentmethod.md
 docs/models/shared/payments.md
 docs/models/shared/paymentmethods.md
 docs/models/shared/product.md

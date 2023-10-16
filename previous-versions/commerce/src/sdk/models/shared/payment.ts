@@ -3,8 +3,9 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { PaymentMethodRef } from "./paymentmethodref";
 import { PaymentStatus } from "./paymentstatus";
-import { Expose } from "class-transformer";
+import { Expose, Type } from "class-transformer";
 
 /**
  * Payments contain details of all payments made by customers to a company, including: amounts, currency used, payment method, payment provider, and payment status.
@@ -105,9 +106,13 @@ export class Payment extends SpeakeasyBase {
     @Expose({ name: "modifiedDate" })
     modifiedDate?: string;
 
+    /**
+     * The payment method the record is linked to in the accounting or commerce platform.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "paymentMethodRef" })
-    paymentMethodRef?: any;
+    @Type(() => PaymentMethodRef)
+    paymentMethodRef?: PaymentMethodRef;
 
     /**
      * Service provider of the payment, if applicable.
