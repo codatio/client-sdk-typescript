@@ -192,6 +192,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
+import { DataConnectionStatus } from "@codat/sync-for-payables/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new CodatSyncPayables({
@@ -201,9 +202,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
   });
 
   const res = await sdk.connections.unlink({
-    requestBody: {
-      "Cheese": "Hybrid",
-    },
+    requestBody: {},
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });

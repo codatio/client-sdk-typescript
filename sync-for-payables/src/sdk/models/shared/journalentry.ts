@@ -4,6 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { JournalLine } from "./journalline";
+import { JournalRef } from "./journalref";
 import { Metadata } from "./metadata";
 import { SupplementalData } from "./supplementaldata";
 import { Expose, Type } from "class-transformer";
@@ -112,7 +113,8 @@ export class JournalEntry extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "journalRef" })
-    journalRef?: Record<string, any>;
+    @Type(() => JournalRef)
+    journalRef?: JournalRef;
 
     @SpeakeasyMetadata()
     @Expose({ name: "metadata" })

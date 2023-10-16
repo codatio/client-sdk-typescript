@@ -52,7 +52,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
         },
       ],
       journalRef: {
-        "Extended": "South",
+        id: "<ID>",
       },
       metadata: {},
       modifiedDate: "2022-10-23T00:00:00.000Z",
@@ -63,8 +63,8 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
       sourceModifiedDate: "2022-10-23T00:00:00.000Z",
       supplementalData: {
         content: {
-          "abnormally": {
-            "deposit": "evolve",
+          "blue": {
+            "shred": "abnormally",
           },
         },
       },

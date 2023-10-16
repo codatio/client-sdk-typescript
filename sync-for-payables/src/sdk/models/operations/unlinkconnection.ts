@@ -5,10 +5,20 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
+import { Expose } from "class-transformer";
+
+export class UnlinkConnectionUpdateConnection extends SpeakeasyBase {
+    /**
+     * The current authorization status of the data connection.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status?: shared.DataConnectionStatus;
+}
 
 export class UnlinkConnectionRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    requestBody?: Record<string, any>;
+    requestBody?: UnlinkConnectionUpdateConnection;
 
     /**
      * Unique identifier for a company.
