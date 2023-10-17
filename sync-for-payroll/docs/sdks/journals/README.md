@@ -1,4 +1,5 @@
 # Journals
+(*journals*)
 
 ## Overview
 
@@ -28,39 +29,30 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
-import { CreateJournalResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
 import { JournalStatus } from "@codat/sync-for-payroll/dist/sdk/models/shared";
 
-const sdk = new CodatSyncPayroll({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.journals.create({
-  journal: {
-    createdOn: "2022-10-23T00:00:00.000Z",
-    hasChildren: false,
-    id: "4f63c969-e9a3-4efa-b7df-b14cd66ae395",
-    journalCode: "accusamus",
-    metadata: {
-      isDeleted: false,
+(async() => {
+  const sdk = new CodatSyncPayroll({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    name: "Rene Reinger",
-    parentId: "deleniti",
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: JournalStatus.Unknown,
-    type: "deserunt",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 394869,
-}).then((res: CreateJournalResponse) => {
+  });
+
+  const res = await sdk.journals.create({
+    journal: {
+      createdOn: "2022-10-23T00:00:00.000Z",
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -92,22 +84,23 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
-import { GetJournalResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayroll({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayroll({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.journals.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalId: "vel",
-}).then((res: GetJournalResponse) => {
+  const res = await sdk.journals.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    journalId: "Northeast Hatchback Kia",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -141,22 +134,23 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
-import { GetCreateJournalModelResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayroll({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayroll({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.journals.getCreateModel({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateJournalModelResponse) => {
+  const res = await sdk.journals.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -186,25 +180,25 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
-import { ListJournalsResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayroll({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayroll({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.journals.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "natus",
-}).then((res: ListJournalsResponse) => {
+  const res = await sdk.journals.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
