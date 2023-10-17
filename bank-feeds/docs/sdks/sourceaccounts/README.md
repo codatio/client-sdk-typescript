@@ -1,4 +1,5 @@
 # SourceAccounts
+(*sourceAccounts*)
 
 ## Overview
 
@@ -41,34 +42,29 @@ The method of mapping the source account to the target account varies depending 
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { CreateSourceAccountResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 
-const sdk = new CodatBankFeeds({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatBankFeeds({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.sourceAccounts.create({
-  sourceAccount: {
-    accountName: "deserunt",
-    accountNumber: "suscipit",
-    accountType: "iure",
-    balance: 2975.34,
-    currency: "EUR",
-    feedStartDate: "2022-10-23T00:00:00.000Z",
-    id: "f467cc87-96ed-4151-a05d-fc2ddf7cc78c",
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    sortCode: "dicta",
-    status: "nam",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: CreateSourceAccountResponse) => {
+  const res = await sdk.sourceAccounts.create({
+    sourceAccount: {
+      currency: "USD",
+      feedStartDate: "2022-10-23T00:00:00.000Z",
+      id: "<ID>",
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -96,23 +92,24 @@ Removing a source account will also remove any mapping between the source bank f
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { DeleteSourceAccountResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 
-const sdk = new CodatBankFeeds({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatBankFeeds({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.sourceAccounts.delete({
-  accountId: "7110701885",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: DeleteSourceAccountResponse) => {
+  const res = await sdk.sourceAccounts.delete({
+    accountId: "7110701885",
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -139,22 +136,23 @@ In cases where multiple credential sets have been generated, a single API call t
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { DeleteBankFeedCredentialsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 
-const sdk = new CodatBankFeeds({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatBankFeeds({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.sourceAccounts.deleteCredentials({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: DeleteBankFeedCredentialsResponse) => {
+  const res = await sdk.sourceAccounts.deleteCredentials({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -182,23 +180,24 @@ The old credentials will still be valid until the revoke credentials endpoint is
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { GenerateCredentialsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 
-const sdk = new CodatBankFeeds({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatBankFeeds({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.sourceAccounts.generateCredentials({
-  requestBody: "occaecati".encode(),
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GenerateCredentialsResponse) => {
+  const res = await sdk.sourceAccounts.generateCredentials({
+    requestBody: "^upd|k\]Iy" as bytes <<<>>>,
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -226,22 +225,23 @@ sdk.sourceAccounts.generateCredentials({
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { ListSourceAccountsResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 
-const sdk = new CodatBankFeeds({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatBankFeeds({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.sourceAccounts.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: ListSourceAccountsResponse) => {
+  const res = await sdk.sourceAccounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -267,35 +267,30 @@ sdk.sourceAccounts.list({
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { UpdateSourceAccountResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 
-const sdk = new CodatBankFeeds({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatBankFeeds({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.sourceAccounts.update({
-  sourceAccount: {
-    accountName: "fugit",
-    accountNumber: "deleniti",
-    accountType: "hic",
-    balance: 7586.16,
-    currency: "USD",
-    feedStartDate: "2022-10-23T00:00:00.000Z",
-    id: "6742cb73-9205-4929-b96f-ea7596eb10fa",
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    sortCode: "laborum",
-    status: "dolores",
-  },
-  accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: UpdateSourceAccountResponse) => {
+  const res = await sdk.sourceAccounts.update({
+    sourceAccount: {
+      currency: "EUR",
+      feedStartDate: "2022-10-23T00:00:00.000Z",
+      id: "<ID>",
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+    },
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -1,4 +1,5 @@
 # Companies
+(*companies*)
 
 ## Overview
 
@@ -24,22 +25,23 @@ If forbidden characters (see `name` pattern) are present in the request, a compa
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { CreateCompanyResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 
-const sdk = new CodatBankFeeds({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatBankFeeds({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.companies.create({
-  description: "Requested early access to the new financing scheme.",
-  name: "Bank of Dave",
-}).then((res: CreateCompanyResponse) => {
+  const res = await sdk.companies.create({
+    description: "Requested early access to the new financing scheme.",
+    name: "Bank of Dave",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -65,21 +67,22 @@ Permanently deletes a company, its connections and any cached data. This operati
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { DeleteCompanyResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 
-const sdk = new CodatBankFeeds({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatBankFeeds({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.companies.delete({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: DeleteCompanyResponse) => {
+  const res = await sdk.companies.delete({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -104,21 +107,22 @@ sdk.companies.delete({
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { GetCompanyResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 
-const sdk = new CodatBankFeeds({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatBankFeeds({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.companies.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetCompanyResponse) => {
+  const res = await sdk.companies.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -143,24 +147,24 @@ sdk.companies.get({
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { ListCompaniesResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 
-const sdk = new CodatBankFeeds({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatBankFeeds({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.companies.list({
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "corrupti",
-}).then((res: ListCompaniesResponse) => {
+  const res = await sdk.companies.list({
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -185,25 +189,26 @@ sdk.companies.list({
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { UpdateCompanyResponse } from "@codat/bank-feeds/dist/sdk/models/operations";
 
-const sdk = new CodatBankFeeds({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatBankFeeds({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.companies.update({
-  companyRequestBody: {
-    description: "Requested early access to the new financing scheme.",
-    name: "Bank of Dave",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: UpdateCompanyResponse) => {
+  const res = await sdk.companies.update({
+    companyRequestBody: {
+      description: "Requested early access to the new financing scheme.",
+      name: "Bank of Dave",
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

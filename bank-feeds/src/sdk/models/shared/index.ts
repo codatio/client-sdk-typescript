@@ -5,6 +5,7 @@
 export * from "./bankaccountcredentials";
 export * from "./bankfeedaccountmappingresponse";
 export * from "./bankfeedmapping";
+export * from "./banktransactions";
 export * from "./clientratelimitreachedwebhook";
 export * from "./clientratelimitreachedwebhookdata";
 export * from "./clientratelimitresetwebhook";
@@ -14,7 +15,6 @@ export * from "./company";
 export * from "./companyrequestbody";
 export * from "./connection";
 export * from "./connections";
-export * from "./createbanktransaction";
 export * from "./createbanktransactions";
 export * from "./createbanktransactionsresponse";
 export * from "./dataconnectionerror";
