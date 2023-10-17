@@ -1,4 +1,5 @@
 # Connections
+(*connections*)
 
 ## Overview
 
@@ -22,24 +23,25 @@ Use the [List Integrations](https://docs.codat.io/sync-for-payables-api#/operati
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { CreateConnectionResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayables({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayables({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.connections.create({
-  requestBody: {
-    platformKey: "totam",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: CreateConnectionResponse) => {
+  const res = await sdk.connections.create({
+    requestBody: {
+      platformKey: "gbol",
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -65,22 +67,23 @@ This operation is not reversible. The end user would need to reauthorize a new d
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { DeleteConnectionResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayables({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayables({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.connections.delete({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: DeleteConnectionResponse) => {
+  const res = await sdk.connections.delete({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -105,22 +108,23 @@ sdk.connections.delete({
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { GetConnectionResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayables({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayables({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.connections.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetConnectionResponse) => {
+  const res = await sdk.connections.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -145,25 +149,25 @@ sdk.connections.get({
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { ListConnectionsResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayables({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayables({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.connections.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "molestias",
-}).then((res: ListConnectionsResponse) => {
+  const res = await sdk.connections.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -188,26 +192,25 @@ sdk.connections.list({
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { UnlinkConnectionResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
 import { DataConnectionStatus } from "@codat/sync-for-payables/dist/sdk/models/shared";
 
-const sdk = new CodatSyncPayables({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayables({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.connections.unlink({
-  requestBody: {
-    status: DataConnectionStatus.Linked,
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: UnlinkConnectionResponse) => {
+  const res = await sdk.connections.unlink({
+    requestBody: {},
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

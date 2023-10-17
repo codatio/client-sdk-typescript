@@ -1,4 +1,5 @@
 # CompanyInfo
+(*companyInfo*)
 
 ## Overview
 
@@ -16,21 +17,22 @@ Gets the latest basic info for a company.
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { GetAccountingProfileResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayables({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayables({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.companyInfo.getAccountingProfile({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetAccountingProfileResponse) => {
+  const res = await sdk.companyInfo.getAccountingProfile({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

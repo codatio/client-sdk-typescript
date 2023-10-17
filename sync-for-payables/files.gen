@@ -102,6 +102,7 @@ src/sdk/models/shared/pushoperationstatus.ts
 src/sdk/models/shared/datatype.ts
 src/sdk/models/shared/account.ts
 src/sdk/models/shared/accounttype.ts
+src/sdk/models/shared/supplementaldata.ts
 src/sdk/models/shared/accountstatus.ts
 src/sdk/models/shared/metadata.ts
 src/sdk/models/shared/pushoperationchange.ts
@@ -120,7 +121,6 @@ src/sdk/models/shared/createbillcreditnoteresponse.ts
 src/sdk/models/shared/billcreditnote.ts
 src/sdk/models/shared/withholdingtaxitems.ts
 src/sdk/models/shared/supplierref.ts
-src/sdk/models/shared/supplementaldata.ts
 src/sdk/models/shared/billcreditnotestatus.ts
 src/sdk/models/shared/items.ts
 src/sdk/models/shared/paymentallocationpayment.ts
@@ -133,6 +133,7 @@ src/sdk/models/shared/billcreditnotes.ts
 src/sdk/models/shared/updatebillcreditnoteresponse.ts
 src/sdk/models/shared/createbillpaymentresponse.ts
 src/sdk/models/shared/billpayment.ts
+src/sdk/models/shared/paymentmethodref.ts
 src/sdk/models/shared/billpaymentline.ts
 src/sdk/models/shared/billpaymentlinelink.ts
 src/sdk/models/shared/billpaymentlinelinktype.ts
@@ -175,7 +176,6 @@ src/sdk/models/shared/pulloperation.ts
 src/sdk/models/shared/pulloperations.ts
 src/sdk/models/shared/paymentmethod.ts
 src/sdk/models/shared/paymentmethodtype.ts
-src/sdk/models/shared/paymentmethodstatus.ts
 src/sdk/models/shared/paymentmethods.ts
 src/sdk/models/shared/pushoperations.ts
 src/sdk/models/shared/createsupplierresponse.ts
@@ -334,6 +334,7 @@ docs/models/shared/datatype.md
 docs/models/shared/accountvaliddatatypelinks.md
 docs/models/shared/account.md
 docs/models/shared/accounttype.md
+docs/models/shared/supplementaldata.md
 docs/models/shared/accountstatus.md
 docs/models/shared/metadata.md
 docs/models/shared/pushoperationchange.md
@@ -352,7 +353,6 @@ docs/models/shared/createbillcreditnoteresponse.md
 docs/models/shared/billcreditnote.md
 docs/models/shared/withholdingtaxitems.md
 docs/models/shared/supplierref.md
-docs/models/shared/supplementaldata.md
 docs/models/shared/billcreditnotestatus.md
 docs/models/shared/itemsallocation.md
 docs/models/shared/items.md
@@ -370,6 +370,7 @@ docs/models/shared/billcreditnotes.md
 docs/models/shared/updatebillcreditnoteresponse.md
 docs/models/shared/createbillpaymentresponse.md
 docs/models/shared/billpayment.md
+docs/models/shared/paymentmethodref.md
 docs/models/shared/billpaymentline.md
 docs/models/shared/billpaymentlinelink.md
 docs/models/shared/billpaymentlinelinktype.md
@@ -379,10 +380,11 @@ docs/models/shared/createbillresponse.md
 docs/models/shared/billpaymentallocationallocation.md
 docs/models/shared/billpaymentallocation.md
 docs/models/shared/billpurchaseorderreference.md
-docs/models/shared/billsupplementaldata.md
 docs/models/shared/billwithholdingtax.md
 docs/models/shared/bill.md
 docs/models/shared/billstatus.md
+docs/models/shared/billlineitemrecordlinereferencedatatype.md
+docs/models/shared/billlineitemrecordlinereference.md
 docs/models/shared/billlineitem.md
 docs/models/shared/trackingcustomerref.md
 docs/models/shared/trackingprojectreference.md
@@ -418,13 +420,14 @@ docs/models/shared/createjournalresponse.md
 docs/models/shared/journal.md
 docs/models/shared/journalstatus.md
 docs/models/shared/journals.md
+docs/models/shared/datastatusdatatypes.md
 docs/models/shared/datastatus.md
 docs/models/shared/pulloperationstatus.md
 docs/models/shared/pulloperation.md
 docs/models/shared/pulloperations.md
+docs/models/shared/paymentmethodstatus.md
 docs/models/shared/paymentmethod.md
 docs/models/shared/paymentmethodtype.md
-docs/models/shared/paymentmethodstatus.md
 docs/models/shared/paymentmethods.md
 docs/models/shared/pushoperations.md
 docs/models/shared/createsupplierresponse.md

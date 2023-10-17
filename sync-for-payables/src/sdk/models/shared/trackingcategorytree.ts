@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Metadata } from "./metadata";
 import { Status } from "./status";
 import { Expose, Type } from "class-transformer";
 
@@ -23,6 +24,11 @@ export class TrackingCategoryTree extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id?: string;
+
+    @SpeakeasyMetadata()
+    @Expose({ name: "metadata" })
+    @Type(() => Metadata)
+    metadata?: Metadata;
 
     @SpeakeasyMetadata()
     @Expose({ name: "modifiedDate" })

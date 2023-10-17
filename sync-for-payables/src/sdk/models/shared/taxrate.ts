@@ -4,6 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Metadata } from "./metadata";
+import { SupplementalData } from "./supplementaldata";
 import { TaxRateComponent } from "./taxratecomponent";
 import { TaxRateStatus } from "./taxratestatus";
 import { ValidDatatypeLinksitems } from "./validdatatypelinksitems";
@@ -91,6 +92,18 @@ export class TaxRate extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
     status?: TaxRateStatus;
+
+    /**
+     * Supplemental data is additional data you can include in our standard data types.
+     *
+     * @remarks
+     *
+     * It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "supplementalData" })
+    @Type(() => SupplementalData)
+    supplementalData?: SupplementalData;
 
     /**
      * Total (not compounded) sum of the components of a tax rate.

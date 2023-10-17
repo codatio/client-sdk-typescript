@@ -4,9 +4,17 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Metadata } from "./metadata";
-import { PaymentMethodStatus } from "./paymentmethodstatus";
 import { PaymentMethodType } from "./paymentmethodtype";
 import { Expose, Type } from "class-transformer";
+
+/**
+ * Status of the Payment Method.
+ */
+export enum PaymentMethodStatus {
+    Unknown = "Unknown",
+    Active = "Active",
+    Archived = "Archived",
+}
 
 /**
  * > View the coverage for payment methods in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=paymentMethods" target="_blank">Data coverage explorer</a>.
@@ -15,7 +23,7 @@ import { Expose, Type } from "class-transformer";
  *
  * ## Overview
  *
- * A Payment Method represents the payment method(s) used to pay a Bill. Payment Methods are referenced on [Bill Payments](https://docs.codat.io/accounting-api#/schemas/BillPayment) and [Payments](https://docs.codat.io/accounting-api#/schemas/Payment).
+ * A Payment Method represents the payment method(s) used to pay a Bill. Payment Methods are referenced on [Bill Payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) and [Payments](https://docs.codat.io/sync-for-payables-api#/schemas/Payment).
  */
 export class PaymentMethod extends SpeakeasyBase {
     /**

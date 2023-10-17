@@ -1,4 +1,5 @@
 # ManageData
+(*manageData*)
 
 ## Overview
 
@@ -20,21 +21,22 @@ Get the state of each data type for a company
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { GetDataStatusResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayables({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayables({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.manageData.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetDataStatusResponse) => {
+  const res = await sdk.manageData.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -59,22 +61,23 @@ Retrieve information about a single dataset or pull operation.
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { GetPullOperationResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayables({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayables({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.manageData.getPullOperation({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  datasetId: "eaed9f0f-e77b-4bc9-a58f-ab8b4b99ab18",
-}).then((res: GetPullOperationResponse) => {
+  const res = await sdk.manageData.getPullOperation({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    datasetId: "7911a54a-c808-4f4b-b87e-b195f52b4da5",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -99,25 +102,25 @@ Gets the pull operation history (datasets) for a given company.
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { ListPullOperationsResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayables({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayables({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.manageData.listPullOperations({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "repudiandae",
-}).then((res: ListPullOperationsResponse) => {
+  const res = await sdk.manageData.listPullOperations({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -146,21 +149,22 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { RefreshAllDataTypesResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayables({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayables({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.manageData.refreshAllDataTypes({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: RefreshAllDataTypesResponse) => {
+  const res = await sdk.manageData.refreshAllDataTypes({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -187,24 +191,24 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { RefreshDataTypeResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
 import { DataType } from "@codat/sync-for-payables/dist/sdk/models/shared";
 
-const sdk = new CodatSyncPayables({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayables({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.manageData.refreshDataType({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "472e8028-57a5-4b40-863a-7d575f1400e7",
-  dataType: DataType.Invoices,
-}).then((res: RefreshDataTypeResponse) => {
+  const res = await sdk.manageData.refreshDataType({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    dataType: DataType.Invoices,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

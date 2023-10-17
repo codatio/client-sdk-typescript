@@ -6,6 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountRef } from "./accountref";
 import { BillPaymentLine } from "./billpaymentline";
 import { Metadata } from "./metadata";
+import { PaymentMethodRef } from "./paymentmethodref";
 import { SupplementalData } from "./supplementaldata";
 import { SupplierRef } from "./supplierref";
 import { Expose, Type } from "class-transformer";
@@ -17,13 +18,13 @@ import { Expose, Type } from "class-transformer";
  * >
  * > We distinguish between transactions where the company received money vs. paid money. If the transaction represents a company spending money (accounts payable) we call this a Bill payment.
  * >
- * > See [payments](https://docs.codat.io/accounting-api#/schemas/Payment) for the accounts receivable equivalent of Bill payments, which covers [invoices](https://docs.codat.io/accounting-api#/schemas/Invoice) and [credit notes](https://docs.codat.io/accounting-api#/schemas/CreditNote).
+ * > See [payments](https://docs.codat.io/sync-for-payables-api#/schemas/Payment) for the accounts receivable equivalent of Bill payments, which covers [invoices](https://docs.codat.io/sync-for-payables-api#/schemas/Invoice) and [credit notes](https://docs.codat.io/sync-for-payables-api#/schemas/CreditNote).
  *
  * > View the coverage for bill payments in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billPayments" target="_blank">Data coverage explorer</a>.
  *
  * ## Overview
  *
- * Bill payments include all accounts payable transaction data ([bills](https://docs.codat.io/accounting-api#/schemas/Bill) and [credit notes against bills](https://docs.codat.io/accounting-api#/schemas/BillCreditNote)).
+ * Bill payments include all accounts payable transaction data ([bills](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) and [credit notes against bills](https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote)).
  *
  * A bill payment in Codat usually represents an allocation of money within any customer accounts payable account. This includes, but is not strictly limited to:
  *
@@ -40,9 +41,9 @@ import { Expose, Type } from "class-transformer";
  * - Who the payment has been paid to, the _supplier_.
  * - The types of bill payments, the _line items_.
  *
- * Some accounting platforms give a separate name to purchases where the payment is made immediately, such as something bought with a credit card or online payment. One example of this would be QuickBooks Online's _expenses_. You can find these types of transactions in our [Direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost) data model.
+ * Some accounting platforms give a separate name to purchases where the payment is made immediately, such as something bought with a credit card or online payment. One example of this would be QuickBooks Online's _expenses_. You can find these types of transactions in our [Direct costs](https://docs.codat.io/sync-for-payables-api#/schemas/DirectCost) data model.
  *
- * Bill payments is a child data type of [account transactions](https://docs.codat.io/accounting-api#/schemas/AccountTransaction).
+ * Bill payments is a child data type of [account transactions](https://docs.codat.io/sync-for-payables-api#/schemas/AccountTransaction).
  *
  * ---
  *
@@ -248,7 +249,8 @@ export class BillPayment extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "paymentMethodRef" })
-    paymentMethodRef?: any;
+    @Type(() => PaymentMethodRef)
+    paymentMethodRef?: PaymentMethodRef;
 
     /**
      * Additional information associated with the payment.

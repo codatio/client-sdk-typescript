@@ -10,6 +10,39 @@ import { Tracking } from "./tracking";
 import { TrackingCategoryRef } from "./trackingcategoryref";
 import { Expose, Type } from "class-transformer";
 
+/**
+ * Allowed name of the 'dataType'.
+ */
+export enum BillLineItemRecordLineReferenceDataType {
+    PurchaseOrders = "purchaseOrders",
+}
+
+/**
+ * Reference to the purchase order line this line was generated from.
+ */
+export class BillLineItemRecordLineReference extends SpeakeasyBase {
+    /**
+     * Allowed name of the 'dataType'.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "dataType" })
+    dataType?: BillLineItemRecordLineReferenceDataType;
+
+    /**
+     * 'id' of the underlying record.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
+
+    /**
+     * Line number of the underlying record.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "lineNumber" })
+    lineNumber?: string;
+}
+
 export class BillLineItem extends SpeakeasyBase {
     /**
      * Data types that reference an account, for example bill and invoice line items, use an accountRef that includes the ID and name of the linked account.
@@ -37,10 +70,16 @@ export class BillLineItem extends SpeakeasyBase {
     @Expose({ name: "discountAmount" })
     discountAmount?: number;
 
+    /**
+     * Percentage rate of any discount applied to the bill.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "discountPercentage" })
     discountPercentage?: number;
 
+    /**
+     * The bill is a direct cost if `True`.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isDirectCost" })
     isDirectCost?: boolean;
@@ -52,6 +91,21 @@ export class BillLineItem extends SpeakeasyBase {
     @Expose({ name: "itemRef" })
     @Type(() => ItemRef)
     itemRef?: ItemRef;
+
+    /**
+     * The bill line's number.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "lineNumber" })
+    lineNumber?: string;
+
+    /**
+     * Reference to the purchase order line this line was generated from.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "purchaseOrderLineRef" })
+    @Type(() => BillLineItemRecordLineReference)
+    purchaseOrderLineRef?: BillLineItemRecordLineReference;
 
     /**
      * Number of units of goods or services received.
