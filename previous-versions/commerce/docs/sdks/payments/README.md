@@ -1,4 +1,5 @@
-# payments
+# Payments
+(*payments*)
 
 ## Overview
 
@@ -26,23 +27,24 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
-import { GetPaymentResponse } from "@codat/commerce/dist/sdk/models/operations";
 
-const sdk = new CodatCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.payments.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  paymentId: "illum",
-}).then((res: GetPaymentResponse) => {
+  const res = await sdk.payments.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    paymentId: "Northeast Hatchback Kia",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -74,23 +76,24 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
-import { GetPaymentMethodResponse } from "@codat/commerce/dist/sdk/models/operations";
 
-const sdk = new CodatCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.payments.getMethod({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  paymentMethodId: "vel",
-}).then((res: GetPaymentMethodResponse) => {
+  const res = await sdk.payments.getMethod({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    paymentMethodId: "Markets",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -120,26 +123,26 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
-import { ListPaymentsResponse } from "@codat/commerce/dist/sdk/models/operations";
 
-const sdk = new CodatCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.payments.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "error",
-}).then((res: ListPaymentsResponse) => {
+  const res = await sdk.payments.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -169,26 +172,26 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
-import { ListPaymentMethodsResponse } from "@codat/commerce/dist/sdk/models/operations";
 
-const sdk = new CodatCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.payments.listMethods({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "deserunt",
-}).then((res: ListPaymentMethodsResponse) => {
+  const res = await sdk.payments.listMethods({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

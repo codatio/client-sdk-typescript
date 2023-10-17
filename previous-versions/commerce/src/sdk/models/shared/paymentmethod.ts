@@ -3,8 +3,16 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { PaymentMethodStatus } from "./paymentmethodstatus";
 import { Expose } from "class-transformer";
+
+/**
+ * Status of the Payment Method.
+ */
+export enum PaymentMethodStatus {
+    Unknown = "Unknown",
+    Active = "Active",
+    Archived = "Archived",
+}
 
 /**
  * A Payment Method represents the payment method(s) used to make payments.
@@ -37,7 +45,7 @@ export class PaymentMethod extends SpeakeasyBase {
     sourceModifiedDate?: string;
 
     /**
-     * Status of the Payment Method
+     * Status of the Payment Method.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })

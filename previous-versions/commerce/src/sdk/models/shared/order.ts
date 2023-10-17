@@ -8,20 +8,8 @@ import { LocationRef } from "./locationref";
 import { OrderLineItem } from "./orderlineitem";
 import { PaymentRef } from "./paymentref";
 import { ServiceCharge } from "./servicecharge";
+import { SupplementalData } from "./supplementaldata";
 import { Expose, Type } from "class-transformer";
-
-/**
- * Supplemental data is additional data you can include in our standard data types.
- *
- * @remarks
- *
- * It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
- */
-export class OrderSupplementalData extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "content" })
-    content?: Record<string, Record<string, any>>;
-}
 
 /**
  * Orders contain the transaction details for all products sold by the company, and include details of any payments, service charges, or refunds related to each order. You can use data from the Orders endpoints to calculate key metrics, such as gross sales values and monthly recurring revenue (MRR).
@@ -165,8 +153,8 @@ export class Order extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "supplementalData" })
-    @Type(() => OrderSupplementalData)
-    supplementalData?: OrderSupplementalData;
+    @Type(() => SupplementalData)
+    supplementalData?: SupplementalData;
 
     /**
      * Total amount of the order, including tax, net of any discounts and refunds.
