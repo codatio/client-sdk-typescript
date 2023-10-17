@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { DataType } from "./datatype";
 import { DirectIncomeLineItem } from "./directincomelineitem";
 import { Metadata } from "./metadata";
 import { PaymentAllocationsitems } from "./paymentallocationsitems";
@@ -13,10 +14,16 @@ import { Expose, Type } from "class-transformer";
  * A customer or supplier associated with the direct income.
  */
 export class AccountingDirectIncomeContactRef extends SpeakeasyBase {
+    /**
+     * Available Data types
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "dataType" })
-    dataType?: string;
+    dataType?: DataType;
 
+    /**
+     * Unique identifier for a customer or supplier.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id: string;
@@ -150,6 +157,9 @@ export class AccountingDirectIncome extends SpeakeasyBase {
     @Expose({ name: "modifiedDate" })
     modifiedDate?: string;
 
+    /**
+     * An optional note on the direct income that can be used to assign the direct income with a reference ID in your application.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "note" })
     note?: string;

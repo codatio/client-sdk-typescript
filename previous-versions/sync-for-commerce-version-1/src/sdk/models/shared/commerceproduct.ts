@@ -4,6 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { ProductVariant } from "./productvariant";
+import { SupplementalData } from "./supplementaldata";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -16,7 +17,7 @@ import { Expose, Type } from "class-transformer";
  */
 export class CommerceProduct extends SpeakeasyBase {
     /**
-     * Retail category that the product is assigned to
+     * Retail category that the product is assigned to e.g. `Hardware`.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "categorization" })
@@ -40,7 +41,7 @@ export class CommerceProduct extends SpeakeasyBase {
      * Whether the product represents a gift card or voucher that
      *
      * @remarks
-     * can be redeemed in the commerce or POS platform
+     * can be redeemed in the commerce or POS platform.
      *
      */
     @SpeakeasyMetadata()
@@ -53,6 +54,18 @@ export class CommerceProduct extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "name" })
     name?: string;
+
+    /**
+     * Supplemental data is additional data you can include in our standard data types.
+     *
+     * @remarks
+     *
+     * It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "supplementalData" })
+    @Type(() => SupplementalData)
+    supplementalData?: SupplementalData;
 
     @SpeakeasyMetadata({ elemType: ProductVariant })
     @Expose({ name: "variants" })

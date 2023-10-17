@@ -108,6 +108,9 @@ export class ProductVariant extends SpeakeasyBase {
     @Expose({ name: "sourceModifiedDate" })
     sourceModifiedDate?: string;
 
+    /**
+     * The status of the product variant.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
     status?: ProductVariantStatus;

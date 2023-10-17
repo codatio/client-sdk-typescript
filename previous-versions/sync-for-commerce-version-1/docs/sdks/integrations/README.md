@@ -1,4 +1,5 @@
-# integrations
+# Integrations
+(*integrations*)
 
 ## Overview
 
@@ -7,7 +8,7 @@ View useful information about codat's integrations.
 ### Available Operations
 
 * [getIntegrationBranding](#getintegrationbranding) - Get branding for an integration
-* [listIntegrations](#listintegrations) - List information on Codat's supported integrations
+* [listIntegrations](#listintegrations) - List integrations
 
 ## getIntegrationBranding
 
@@ -17,21 +18,22 @@ Retrieve Integration branding assets.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { GetIntegrationBrandingResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.integrations.getIntegrationBranding({
-  platformKey: "quis",
-}).then((res: GetIntegrationBrandingResponse) => {
+  const res = await sdk.integrations.getIntegrationBranding({
+    platformKey: "gbol",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -56,24 +58,24 @@ Retrieve a list of available integrations support by datatype and state of relea
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { ListIntegrationsResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.integrations.listIntegrations({
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "beatae",
-}).then((res: ListIntegrationsResponse) => {
+  const res = await sdk.integrations.listIntegrations({
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
