@@ -1,4 +1,5 @@
-# files
+# Files
+(*files*)
 
 ## Overview
 
@@ -18,22 +19,23 @@ The *Download files* endpoint downloads all files that have  been uploaded by to
 
 ```typescript
 import { CodatFiles } from "@codat/files";
-import { DownloadFilesResponse } from "@codat/files/dist/sdk/models/operations";
 
-const sdk = new CodatFiles({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatFiles({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.files.downloadFiles({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  date: "2022-10-23T00:00:00.000Z",
-}).then((res: DownloadFilesResponse) => {
+  const res = await sdk.files.downloadFiles({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    date: "2022-10-23T00:00:00.000Z",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -58,21 +60,22 @@ sdk.files.downloadFiles({
 
 ```typescript
 import { CodatFiles } from "@codat/files";
-import { ListFilesResponse } from "@codat/files/dist/sdk/models/operations";
 
-const sdk = new CodatFiles({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatFiles({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.files.listFiles({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: ListFilesResponse) => {
+  const res = await sdk.files.listFiles({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -103,26 +106,27 @@ Uploaded files must meet the following requirements:
 
 ```typescript
 import { CodatFiles } from "@codat/files";
-import { UploadFilesResponse } from "@codat/files/dist/sdk/models/operations";
 
-const sdk = new CodatFiles({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatFiles({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.files.uploadFiles({
-  requestBody: {
-    content: "distinctio".encode(),
-    requestBody: "quibusdam",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: UploadFilesResponse) => {
+  const res = await sdk.files.uploadFiles({
+    requestBody: {
+      content: ";*>'Oq[l/G" as bytes <<<>>>,
+      requestBody: "syndicate Central defect",
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
