@@ -6,10 +6,16 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class ProjectRef extends SpeakeasyBase {
+    /**
+     * Unique identifier to the project reference.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id: string;
 
+    /**
+     * The project's name.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "name" })
     name?: string;

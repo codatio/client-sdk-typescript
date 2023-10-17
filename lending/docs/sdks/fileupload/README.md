@@ -1,4 +1,5 @@
 # FileUpload
+(*fileUpload*)
 
 ## Overview
 
@@ -18,22 +19,23 @@ The *Download files* endpoint downloads all files that have  been uploaded by to
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { DownloadFilesResponse } from "@codat/lending/dist/sdk/models/operations";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.fileUpload.download({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  date: "2022-10-23T00:00:00.000Z",
-}).then((res: DownloadFilesResponse) => {
+  const res = await sdk.fileUpload.download({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    date: "2022-10-23T00:00:00.000Z",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -58,21 +60,22 @@ sdk.fileUpload.download({
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { ListFilesResponse } from "@codat/lending/dist/sdk/models/operations";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.fileUpload.listUploaded({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: ListFilesResponse) => {
+  const res = await sdk.fileUpload.listUploaded({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -103,26 +106,27 @@ Uploaded files must meet the following requirements:
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { UploadFilesResponse } from "@codat/lending/dist/sdk/models/operations";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.fileUpload.upload({
-  requestBody: {
-    content: "delectus".encode(),
-    requestBody: "tempora",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: UploadFilesResponse) => {
+  const res = await sdk.fileUpload.upload({
+    requestBody: {
+      content: "F?SRSKG@^n" as bytes <<<>>>,
+      requestBody: "ullam",
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

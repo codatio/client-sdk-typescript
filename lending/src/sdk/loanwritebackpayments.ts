@@ -9,7 +9,7 @@ import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
-export class LoanWritebackBankAccounts {
+export class LoanWritebackPayments {
     private sdkConfiguration: SDKConfiguration;
 
     constructor(sdkConfig: SDKConfiguration) {
@@ -17,26 +17,27 @@ export class LoanWritebackBankAccounts {
     }
 
     /**
-     * Create bank account
+     * Create payment
      *
      * @remarks
-     * The *Create bank account* endpoint creates a new [bank account](https://docs.codat.io/accounting-api#/schemas/BankAccount) for a given company's connection.
+     * The *Create payment* endpoint creates a new [payment](https://docs.codat.io/lending-api#/schemas/Payment) for a given company's connection.
      *
-     * [Bank accounts](https://docs.codat.io/accounting-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
+     * [Payments](https://docs.codat.io/lending-api#/schemas/Payment) represent an allocation of money within any customer accounts receivable account.
      *
      * **Integration-specific behaviour**
      *
-     * Required data may vary by integration. To see what data to post, first call [Get create/update bank account model](https://docs.codat.io/accounting-api#/operations/get-create-update-bankAccounts-model).
+     * Required data may vary by integration. To see what data to post, first call [Get create payment model](https://docs.codat.io/lending-api#/operations/get-create-payments-model).
      *
-     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) for integrations that support creating an account.
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=payments) for integrations that support creating an account.
+     *
      */
     async create(
-        req: operations.CreateBankAccountRequest,
+        req: operations.CreatePaymentRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.CreateBankAccountResponse> {
+    ): Promise<operations.CreatePaymentResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateBankAccountRequest(req);
+            req = new operations.CreatePaymentRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -45,7 +46,7 @@ export class LoanWritebackBankAccounts {
         );
         const url: string = utils.generateURL(
             baseURL,
-            "/companies/{companyId}/connections/{connectionId}/push/bankAccounts",
+            "/companies/{companyId}/connections/{connectionId}/push/payments",
             req
         );
 
@@ -54,7 +55,7 @@ export class LoanWritebackBankAccounts {
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
                 req,
-                "accountingBankAccount",
+                "accountingPayment",
                 "json"
             );
         } catch (e: unknown) {
@@ -79,12 +80,10 @@ export class LoanWritebackBankAccounts {
         const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
-        let retryConfig: any = retries;
+        let retryConfig: utils.RetryConfig | undefined = retries;
         if (!retryConfig) {
             if (globalRetryConfig) {
                 retryConfig = globalRetryConfig;
@@ -114,7 +113,7 @@ export class LoanWritebackBankAccounts {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.CreateBankAccountResponse = new operations.CreateBankAccountResponse({
+        const res: operations.CreatePaymentResponse = new operations.CreatePaymentResponse({
             statusCode: httpRes.status,
             contentType: contentType,
             rawResponse: httpRes,
@@ -123,9 +122,9 @@ export class LoanWritebackBankAccounts {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.accountingCreateBankAccountResponse = utils.objectToClass(
+                    res.accountingCreatePaymentResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.AccountingCreateBankAccountResponse
+                        shared.AccountingCreatePaymentResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -157,27 +156,27 @@ export class LoanWritebackBankAccounts {
     }
 
     /**
-     * Get create/update bank account model
+     * Get create payment model
      *
      * @remarks
-     * The *Get create/update bank account model* endpoint returns the expected data for the request payload when creating and updating a [bank account](https://docs.codat.io/accounting-api#/schemas/BankAccount) for a given company and integration.
+     * The *Get create payment model* endpoint returns the expected data for the request payload when creating a [payment](https://docs.codat.io/lending-api#/schemas/Payment) for a given company and integration.
      *
-     * [Bank accounts](https://docs.codat.io/accounting-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
+     * [Payments](https://docs.codat.io/lending-api#/schemas/Payment) represent an allocation of money within any customer accounts receivable account.
      *
      * **Integration-specific behaviour**
      *
      * See the *response examples* for integration-specific indicative models.
      *
-     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) for integrations that support creating and updating a bank account.
+     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=payments) for integrations that support creating a payment.
      *
      */
-    async getCreateUpdateModel(
-        req: operations.GetCreateUpdateBankAccountsModelRequest,
+    async getCreateModel(
+        req: operations.GetCreatePaymentsModelRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.GetCreateUpdateBankAccountsModelResponse> {
+    ): Promise<operations.GetCreatePaymentsModelResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetCreateUpdateBankAccountsModelRequest(req);
+            req = new operations.GetCreatePaymentsModelRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -186,7 +185,7 @@ export class LoanWritebackBankAccounts {
         );
         const url: string = utils.generateURL(
             baseURL,
-            "/companies/{companyId}/connections/{connectionId}/options/bankAccounts",
+            "/companies/{companyId}/connections/{connectionId}/options/payments",
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
@@ -201,12 +200,10 @@ export class LoanWritebackBankAccounts {
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
         headers["Accept"] = "application/json";
 
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+        headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const globalRetryConfig = this.sdkConfiguration.retryConfig;
-        let retryConfig: any = retries;
+        let retryConfig: utils.RetryConfig | undefined = retries;
         if (!retryConfig) {
             if (globalRetryConfig) {
                 retryConfig = globalRetryConfig;
@@ -235,8 +232,8 @@ export class LoanWritebackBankAccounts {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.GetCreateUpdateBankAccountsModelResponse =
-            new operations.GetCreateUpdateBankAccountsModelResponse({
+        const res: operations.GetCreatePaymentsModelResponse =
+            new operations.GetCreatePaymentsModelResponse({
                 statusCode: httpRes.status,
                 contentType: contentType,
                 rawResponse: httpRes,

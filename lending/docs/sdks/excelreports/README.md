@@ -1,4 +1,5 @@
 # ExcelReports
+(*excelReports*)
 
 ## Overview
 
@@ -22,23 +23,24 @@ You can [learn more](https://docs.codat.io/lending/excel/overview) about valid E
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { DownloadExcelReportResponse } from "@codat/lending/dist/sdk/models/operations";
 import { ExcelReportTypes } from "@codat/lending/dist/sdk/models/shared";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.excelReports.download({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportTypes.EnhancedFinancials,
-}).then((res: DownloadExcelReportResponse) => {
+  const res = await sdk.excelReports.download({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    reportType: ExcelReportTypes.EnhancedFinancials,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -79,23 +81,24 @@ In response, the endpoint returns the [status](https://docs.codat.io/lending-api
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GenerateExcelReportResponse } from "@codat/lending/dist/sdk/models/operations";
 import { ExcelReportTypes } from "@codat/lending/dist/sdk/models/shared";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.excelReports.generate({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportTypes.EnhancedFinancials,
-}).then((res: GenerateExcelReportResponse) => {
+  const res = await sdk.excelReports.generate({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    reportType: ExcelReportTypes.EnhancedInvoices,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -124,23 +127,24 @@ When the report generation completes successfully, the `inProgress` property wil
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GetExcelReportGenerationStatusResponse } from "@codat/lending/dist/sdk/models/operations";
 import { ExcelReportTypes } from "@codat/lending/dist/sdk/models/shared";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.excelReports.getStatus({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportTypes.EnhancedCashFlow,
-}).then((res: GetExcelReportGenerationStatusResponse) => {
+  const res = await sdk.excelReports.getStatus({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    reportType: ExcelReportTypes.EnhancedCashFlow,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

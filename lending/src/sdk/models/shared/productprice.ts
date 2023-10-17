@@ -21,6 +21,9 @@ export class ProductPrice extends SpeakeasyBase {
     @Expose({ name: "currency" })
     currency?: string;
 
+    /**
+     * The product variant's unit price.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "unitPrice" })
     unitPrice?: number;

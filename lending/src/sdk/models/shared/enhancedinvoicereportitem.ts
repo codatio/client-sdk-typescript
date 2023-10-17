@@ -9,6 +9,9 @@ import { Payment } from "./payment";
 import { Expose, Type } from "class-transformer";
 
 export class EnhancedInvoiceReportItem extends SpeakeasyBase {
+    /**
+     * Invoice's total amount due.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "amountDue" })
     amountDue?: number;
@@ -61,12 +64,15 @@ export class EnhancedInvoiceReportItem extends SpeakeasyBase {
     dueDate?: string;
 
     /**
-     * ID of the invoice, which may be a GUID but it may be something else depending on the accounting platdform
+     * ID of the invoice, which may be a GUID but it may be something else depending on the accounting platform.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id?: string;
 
+    /**
+     * Invoice number.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "invoiceNumber" })
     invoiceNumber?: string;
@@ -153,6 +159,9 @@ export class EnhancedInvoiceReportItem extends SpeakeasyBase {
     @Expose({ name: "status" })
     status?: InvoiceStatus;
 
+    /**
+     * Invoice's total amount.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "totalAmount" })
     totalAmount?: number;

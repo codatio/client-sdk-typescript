@@ -1,4 +1,5 @@
-# LoanWriteback.DirectCosts
+# LoanWritebackDirectCosts
+(*loanWriteback.directCosts*)
 
 ### Available Operations
 
@@ -7,13 +8,13 @@
 
 ## create
 
-The *Create direct cost* endpoint creates a new [direct cost](https://docs.codat.io/accounting-api#/schemas/DirectCost) for a given company's connection.
+The *Create direct cost* endpoint creates a new [direct cost](https://docs.codat.io/lending-api#/schemas/DirectCost) for a given company's connection.
 
-[Direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost) are the expenses associated with a business' operations. For example, purchases of raw materials that are paid off at the point of the purchase and service fees are considered direct costs.
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are the expenses associated with a business' operations. For example, purchases of raw materials that are paid off at the point of the purchase and service fees are considered direct costs.
 
 **Integration-specific behaviour**
 
-Required data may vary by integration. To see what data to post, first call [Get create direct cost model](https://docs.codat.io/accounting-api#/operations/get-create-directCosts-model).
+Required data may vary by integration. To see what data to post, first call [Get create direct cost model](https://docs.codat.io/lending-api#/operations/get-create-directCosts-model).
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support creating an account.
 
@@ -22,118 +23,84 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { CreateDirectCostResponse } from "@codat/lending/dist/sdk/models/operations";
+import { DataType } from "@codat/lending/dist/sdk/models/shared";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.loanWriteback.directCosts.create({
-  accountingDirectCost: {
-    contactRef: {
-      dataType: "quos",
-      id: "02d502a9-4bb4-4f63-8969-e9a3efa77dfb",
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
-    currency: "GBP",
-    currencyRate: 2974.37,
-    id: "cd66ae39-5efb-49ba-88f3-a66997074ba4",
-    issueDate: "2022-10-23T00:00:00.000Z",
-    lineItems: [
-      {
-        accountRef: {
-          id: "69b6e214-1959-4890-afa5-63e2516fe4c8",
-          name: "Dr. Arnold Bradtke",
-        },
-        description: "expedita",
-        discountAmount: 4692.49,
-        discountPercentage: 9988.48,
-        itemRef: {
-          id: "d2ed0289-21cd-4dc6-9260-1fb576b0d5f0",
-          name: "Vincent Anderson",
-        },
-        quantity: 9441.24,
-        subTotal: 7299.91,
-        taxAmount: 7499.99,
-        taxRateRef: {
-          effectiveTaxRate: 1716.29,
-          id: "58705320-2c73-4d5f-a9b9-0c28909b3fe4",
-          name: "Omar Leuschke",
-        },
-        totalAmount: 7508.44,
-        tracking: {
-          invoiceTo: {
-            dataType: "accountTransaction",
-            id: "f4863332-3f9b-477f-ba41-00674ebf6928",
+  });
+
+  const res = await sdk.loanWriteback.directCosts.create({
+    accountingDirectCost: {
+      contactRef: {
+        dataType: DataType.Invoices,
+        id: "<ID>",
+      },
+      currency: "USD",
+      issueDate: "2022-10-23T00:00:00.000Z",
+      lineItems: [
+        {
+          accountRef: {},
+          itemRef: {
+            id: "<ID>",
           },
-          recordRefs: [
+          quantity: 6384.24,
+          taxRateRef: {},
+          tracking: {
+            invoiceTo: {
+              dataType: "transfer",
+            },
+            recordRefs: [
+              {
+                dataType: "invoice",
+              },
+            ],
+          },
+          trackingCategoryRefs: [
             {
-              dataType: "journalEntry",
-              id: "d1ba77a8-9ebf-4737-ae42-03ce5e6a95d8",
+              id: "<ID>",
             },
           ],
+          unitAmount: 2884.08,
         },
-        trackingCategoryRefs: [
-          {
-            id: "a0d446ce-2af7-4a73-8f3b-e453f870b326",
-            name: "Glen Oberbrunner",
+      ],
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      paymentAllocations: [
+        {
+          allocation: {
+            allocatedOnDate: "2022-10-23T00:00:00.000Z",
+            currency: "GBP",
           },
-        ],
-        unitAmount: 2776.28,
-      },
-    ],
-    metadata: {
-      isDeleted: false,
-    },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "cupiditate",
-    paymentAllocations: [
-      {
-        allocation: {
-          allocatedOnDate: "2022-10-23T00:00:00.000Z",
-          currency: "EUR",
-          currencyRate: 7470.8,
-          totalAmount: 1175.31,
-        },
-        payment: {
-          accountRef: {
-            id: "a8422bb6-79d2-4322-b15b-f0cbb1e31b8b",
-            name: "Kevin Willms",
+          payment: {
+            accountRef: {},
+            currency: "EUR",
+            paidOnDate: "2022-10-23T00:00:00.000Z",
           },
-          currency: "GBP",
-          currencyRate: 2408.29,
-          id: "a1108e0a-dcf4-4b92-9879-fce953f73ef7",
-          note: "hic",
-          paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "quod",
-          totalAmount: 4861.6,
+        },
+      ],
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      subTotal: 9510.62,
+      supplementalData: {
+        content: {
+          "abnormally": {
+            "deposit": "evolve",
+          },
         },
       },
-    ],
-    reference: "similique",
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    subTotal: 8742.88,
-    supplementalData: {
-      content: {
-        "ducimus": {
-          "dolore": "quibusdam",
-        },
-      },
+      taxAmount: 7150.4,
+      totalAmount: 7926.2,
     },
-    taxAmount: 8489.44,
-    totalAmount: 1943.42,
-  },
-  allowSyncOnPushComplete: false,
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  forceUpdate: false,
-  timeoutInMinutes: 617877,
-}).then((res: CreateDirectCostResponse) => {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -152,9 +119,9 @@ sdk.loanWriteback.directCosts.create({
 
 ## getCreateModel
 
-The *Get create direct cost model* endpoint returns the expected data for the request payload when creating a [direct cost](https://docs.codat.io/accounting-api#/schemas/DirectCost) for a given company and integration.
+The *Get create direct cost model* endpoint returns the expected data for the request payload when creating a [direct cost](https://docs.codat.io/lending-api#/schemas/DirectCost) for a given company and integration.
 
-[Direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
 
 **Integration-specific behaviour**
 
@@ -167,22 +134,23 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GetCreateDirectCostsModelResponse } from "@codat/lending/dist/sdk/models/operations";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.loanWriteback.directCosts.getCreateModel({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateDirectCostsModelResponse) => {
+  const res = await sdk.loanWriteback.directCosts.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
