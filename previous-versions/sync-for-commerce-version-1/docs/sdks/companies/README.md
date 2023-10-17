@@ -1,4 +1,5 @@
-# companies
+# Companies
+(*companies*)
 
 ## Overview
 
@@ -19,21 +20,22 @@ Permanently deletes a company, its connections and any cached data. This operati
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { DeleteCompanyResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.companies.deleteCompany({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: DeleteCompanyResponse) => {
+  const res = await sdk.companies.deleteCompany({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -58,21 +60,22 @@ sdk.companies.deleteCompany({
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { GetCompanyResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.companies.getCompany({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetCompanyResponse) => {
+  const res = await sdk.companies.getCompany({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -97,25 +100,26 @@ sdk.companies.getCompany({
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { UpdateCompanyResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.companies.updateCompany({
-  createCompany: {
-    description: "Requested early access to the new financing scheme.",
-    name: "Bank of Dave",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: UpdateCompanyResponse) => {
+  const res = await sdk.companies.updateCompany({
+    createCompany: {
+      description: "Requested early access to the new financing scheme.",
+      name: "Bank of Dave",
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

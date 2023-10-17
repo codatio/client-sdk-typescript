@@ -1,4 +1,5 @@
-# syncFlowPreferences
+# SyncFlowPreferences
+(*syncFlowPreferences*)
 
 ## Overview
 
@@ -6,11 +7,11 @@ Configure preferences for any given Sync for Commerce company using sync flow.
 
 ### Available Operations
 
-* [getConfigTextSyncFlow](#getconfigtextsyncflow) - Retrieve preferences for text fields on Sync Flow
+* [getConfigTextSyncFlow](#getconfigtextsyncflow) - Retrieve preferences for text fields on sync flow
 * [getSyncFlowUrl](#getsyncflowurl) - Retrieve sync flow url
 * [getVisibleAccounts](#getvisibleaccounts) - List visible accounts
 * [updateConfigTextSyncFlow](#updateconfigtextsyncflow) - Update preferences for text fields on sync flow
-* [updateVisibleAccountsSyncFlow](#updatevisibleaccountssyncflow) - Update the visible accounts on Sync Flow
+* [updateVisibleAccountsSyncFlow](#updatevisibleaccountssyncflow) - Update the visible accounts on sync flow
 
 ## getConfigTextSyncFlow
 
@@ -20,19 +21,20 @@ To enable retrieval of preferences set for the text fields on Sync Flow.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { GetConfigTextSyncFlowResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.syncFlowPreferences.getConfigTextSyncFlow().then((res: GetConfigTextSyncFlowResponse) => {
+  const res = await sdk.syncFlowPreferences.getConfigTextSyncFlow();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -56,23 +58,23 @@ Get a URL for Sync Flow including a one time passcode.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { GetSyncFlowUrlResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.syncFlowPreferences.getSyncFlowUrl({
-  accountingKey: "optio",
-  commerceKey: "ex",
-  merchantIdentifier: "quaerat",
-}).then((res: GetSyncFlowUrlResponse) => {
+  const res = await sdk.syncFlowPreferences.getSyncFlowUrl({
+    accountingKey: "Manager",
+    commerceKey: "payment",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -97,22 +99,23 @@ Enable retrieval for accounts which are visible on sync flow.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { GetVisibleAccountsResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.syncFlowPreferences.getVisibleAccounts({
-  clientId: "6ecb5734-09e3-4eb1-a5a2-b12eb07f116d",
-  platformKey: "b99545fc-95fa-4889-b0e1-89dbb30fcb33",
-}).then((res: GetVisibleAccountsResponse) => {
+  const res = await sdk.syncFlowPreferences.getVisibleAccounts({
+    clientId: "86fe9741-738d-4f2c-8e96-9c3f84156e91",
+    platformKey: "gbol",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -137,24 +140,22 @@ To enable update of preferences set for the text fields on sync flow.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { UpdateConfigTextSyncFlowResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.syncFlowPreferences.updateConfigTextSyncFlow({
-  "saepe": {
-    required: false,
-    text: "deserunt",
-  },
-}).then((res: UpdateConfigTextSyncFlowResponse) => {
+  const res = await sdk.syncFlowPreferences.updateConfigTextSyncFlow({
+    "West": {},
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -179,26 +180,27 @@ To enable update of accounts visible preferences set on Sync Flow.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { UpdateVisibleAccountsSyncFlowResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.syncFlowPreferences.updateVisibleAccountsSyncFlow({
-  visibleAccounts: {
-    visibleAccounts: [
-      "doloremque",
-    ],
-  },
-  platformKey: "55b197cd-44e2-4f52-982d-3513bb6f48b6",
-}).then((res: UpdateVisibleAccountsSyncFlowResponse) => {
+  const res = await sdk.syncFlowPreferences.updateVisibleAccountsSyncFlow({
+    visibleAccounts: {
+      visibleAccounts: [
+        "Coordinator",
+      ],
+    },
+    platformKey: "gbol",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

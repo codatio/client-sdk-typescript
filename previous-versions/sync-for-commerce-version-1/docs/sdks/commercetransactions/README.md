@@ -1,4 +1,5 @@
-# commerceTransactions
+# CommerceTransactions
+(*commerceTransactions*)
 
 ## Overview
 
@@ -24,23 +25,24 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { GetCommerceTransactionResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.commerceTransactions.getCommerceTransaction({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  transactionId: "error",
-}).then((res: GetCommerceTransactionResponse) => {
+  const res = await sdk.commerceTransactions.getCommerceTransaction({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    transactionId: "West Infrastructure",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -70,26 +72,26 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { ListCommerceTransactionsResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.commerceTransactions.listCommerceTransactions({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "earum",
-}).then((res: ListCommerceTransactionsResponse) => {
+  const res = await sdk.commerceTransactions.listCommerceTransactions({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

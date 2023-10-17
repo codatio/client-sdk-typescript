@@ -1,4 +1,5 @@
-# accountingInvoices
+# AccountingInvoices
+(*accountingInvoices*)
 
 ## Overview
 
@@ -25,148 +26,105 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { CreateAccountingInvoiceResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
-import { BilledToType, InvoiceStatus } from "@codat/sync-for-commerce-version-1/dist/sdk/models/shared";
+import { BilledToType, DataType, InvoiceStatus } from "@codat/sync-for-commerce-version-1/dist/sdk/models/shared";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.accountingInvoices.createAccountingInvoice({
-  accountingInvoice: {
-    additionalTaxAmount: 7386.83,
-    additionalTaxPercentage: 2326.27,
-    amountDue: 4490.83,
-    currency: "USD",
-    currencyRate: 9372.85,
-    customerRef: {
-      companyName: "facere",
-      id: "4f6fbee4-1f33-4317-be35-b60eb1ea4265",
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
-    discountPercentage: 3742.96,
-    dueDate: "2022-10-23T00:00:00.000Z",
-    id: "ba3c2874-4ed5-43b8-8f3a-8d8f5c0b2f2f",
-    invoiceNumber: "facilis",
-    issueDate: "2022-10-23T00:00:00.000Z",
-    lineItems: [
-      {
-        accountRef: {
-          id: "b194a276-b269-416f-a1f0-8f4294e3698f",
-          name: "Rhonda Klocko",
-        },
-        description: "sit",
-        discountAmount: 2484.13,
-        discountPercentage: 8880.44,
-        isDirectIncome: false,
-        itemRef: {
-          id: "8b445e80-ca55-4efd-a0e4-57e1858b6a89",
-          name: "Rudolph Trantow",
-        },
-        quantity: 3416.98,
-        subTotal: 6390.28,
-        taxAmount: 6762.43,
-        taxRateRef: {
-          effectiveTaxRate: 5483.61,
-          id: "e4824d0a-b407-4508-8e51-862065e904f3",
-          name: "Gerald Bradtke",
-        },
-        totalAmount: 6952.7,
-        tracking: {
-          categoryRefs: [
+  });
+
+  const res = await sdk.accountingInvoices.createAccountingInvoice({
+    accountingInvoice: {
+      amountDue: 9907.57,
+      currency: "EUR",
+      customerRef: {
+        id: "<ID>",
+      },
+      dueDate: "2022-10-23T00:00:00.000Z",
+      issueDate: "2022-10-23T00:00:00.000Z",
+      lineItems: [
+        {
+          accountRef: {},
+          itemRef: {
+            id: "<ID>",
+          },
+          quantity: 1021.57,
+          taxRateRef: {},
+          tracking: {
+            categoryRefs: [
+              {
+                id: "<ID>",
+              },
+            ],
+            customerRef: {
+              id: "<ID>",
+            },
+            isBilledTo: BilledToType.Unknown,
+            isRebilledTo: BilledToType.Project,
+            projectRef: {
+              id: "<ID>",
+            },
+            recordRef: {
+              dataType: "journalEntry",
+            },
+          },
+          trackingCategoryRefs: [
             {
-              id: "8abf603a-79f9-4dfe-8ab7-da8a50ce187f",
-              name: "Sam Powlowski IV",
+              id: "<ID>",
             },
           ],
-          customerRef: {
-            companyName: "amet",
-            id: "d689eee9-526f-48d9-86e8-81ead4f0e101",
+          unitAmount: 7432.38,
+        },
+      ],
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      paidOnDate: "2022-10-23T00:00:00.000Z",
+      paymentAllocations: [
+        {
+          allocation: {
+            allocatedOnDate: "2022-10-23T00:00:00.000Z",
+            currency: "USD",
           },
-          isBilledTo: BilledToType.Unknown,
-          isRebilledTo: BilledToType.Unknown,
-          projectRef: {
-            id: "63f94e29-e973-4e92-aa57-a15be3e06080",
-            name: "Tricia Denesik",
-          },
-          recordRef: {
-            dataType: "transfer",
-            id: "3ab8845f-0597-4a60-bf2a-54a31e94764a",
+          payment: {
+            accountRef: {},
+            currency: "EUR",
+            paidOnDate: "2022-10-23T00:00:00.000Z",
           },
         },
-        trackingCategoryRefs: [
-          {
-            id: "3e865e79-56f9-4251-a5a9-da660ff57bfa",
-            name: "Irving Gleichner",
+      ],
+      salesOrderRefs: [
+        {
+          dataType: DataType.Invoices,
+        },
+      ],
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      status: InvoiceStatus.PartiallyPaid,
+      supplementalData: {
+        content: {
+          "Beier": {
+            "boo": "Regional",
           },
-        ],
-        unitAmount: 8897.94,
+        },
       },
-    ],
-    metadata: {
-      isDeleted: false,
+      totalAmount: 1895.83,
+      totalTaxAmount: 7283.9,
+      withholdingTax: [
+        {
+          amount: 1357.13,
+          name: "Gasoline Interactions Cisgender",
+        },
+      ],
     },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "cumque",
-    paidOnDate: "2022-10-23T00:00:00.000Z",
-    paymentAllocations: [
-      {
-        allocation: {
-          allocatedOnDate: "2022-10-23T00:00:00.000Z",
-          currency: "GBP",
-          currencyRate: 3354.98,
-          totalAmount: 820.57,
-        },
-        payment: {
-          accountRef: {
-            id: "2c103264-8dc2-4f61-9199-ebfd0e9fe6c6",
-            name: "Denise Runolfsdottir",
-          },
-          currency: "USD",
-          currencyRate: 8987.6,
-          id: "d0117996-312f-4de0-8771-778ff61d0174",
-          note: "esse",
-          paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "consectetur",
-          totalAmount: 3998.12,
-        },
-      },
-    ],
-    salesOrderRefs: [
-      {
-        dataType: "ipsa",
-        id: "a15db6a6-6065-49a1-adea-ab5851d6c645",
-      },
-    ],
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: InvoiceStatus.Unknown,
-    subTotal: 5615.77,
-    supplementalData: {
-      content: {
-        "cum": {
-          "aliquid": "beatae",
-        },
-      },
-    },
-    totalAmount: 5308.6,
-    totalDiscount: 6063.08,
-    totalTaxAmount: 852.33,
-    withholdingTax: [
-      {
-        amount: 7032.18,
-        name: "Trevor Bartell",
-      },
-    ],
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 103298,
-}).then((res: CreateAccountingInvoiceResponse) => {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

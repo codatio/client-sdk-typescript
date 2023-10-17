@@ -1,4 +1,5 @@
-# accountingCustomers
+# AccountingCustomers
+(*accountingCustomers*)
 
 ## Overview
 
@@ -25,81 +26,58 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { CreateAccountingCustomerResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 import { AccountingAddressType, CustomerStatus, PhoneNumberType } from "@codat/sync-for-commerce-version-1/dist/sdk/models/shared";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.accountingCustomers.createAccountingCustomer({
-  accountingCustomer: {
-    addresses: [
-      {
-        city: "East Kylie",
-        country: "Slovakia (Slovak Republic)",
-        line1: "pariatur",
-        line2: "soluta",
-        postalCode: "65211",
-        region: "distinctio",
-        type: AccountingAddressType.Delivery,
-      },
-    ],
-    contactName: "aliquid",
-    contacts: [
-      {
-        address: {
-          city: "Kennedyhaven",
-          country: "Christmas Island",
-          line1: "neque",
-          line2: "fugit",
-          postalCode: "41379",
-          region: "voluptatem",
+  const res = await sdk.accountingCustomers.createAccountingCustomer({
+    accountingCustomer: {
+      addresses: [
+        {
           type: AccountingAddressType.Delivery,
         },
-        email: "Nella.Bosco8@hotmail.com",
-        modifiedDate: "2022-10-23T00:00:00.000Z",
-        name: "Dr. Randolph McDermott",
-        phone: [
-          {
-            number: "+44 25691 154789",
-            type: PhoneNumberType.Landline,
+      ],
+      contacts: [
+        {
+          address: {
+            type: AccountingAddressType.Unknown,
           },
-        ],
-        status: CustomerStatus.Unknown,
-      },
-    ],
-    customerName: "dolorum",
-    defaultCurrency: "GBP",
-    emailAddress: "quae",
-    id: "08e0adcf-4b92-4187-9fce-953f73ef7fbc",
-    metadata: {
-      isDeleted: false,
-    },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "1-784-488-1670 x9381",
-    registrationNumber: "porro",
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: CustomerStatus.Archived,
-    supplementalData: {
-      content: {
-        "iusto": {
-          "eligendi": "ducimus",
+          modifiedDate: "2022-10-23T00:00:00.000Z",
+          phone: [
+            {
+              number: "+44 25691 154789",
+              type: PhoneNumberType.Primary,
+            },
+          ],
+          status: CustomerStatus.Active,
+        },
+      ],
+      defaultCurrency: "GBP",
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      status: CustomerStatus.Unknown,
+      supplementalData: {
+        content: {
+          "California": {
+            "systems": "North",
+          },
         },
       },
     },
-    taxNumber: "alias",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 639473,
-}).then((res: CreateAccountingCustomerResponse) => {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

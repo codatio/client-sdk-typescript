@@ -1,4 +1,5 @@
-# companyManagement
+# CompanyManagement
+(*companyManagement*)
 
 ## Overview
 
@@ -6,7 +7,7 @@ Create new and manage existing Sync for Commerce companies.
 
 ### Available Operations
 
-* [createCompany](#createcompany) - Create Sync for Commerce company
+* [createCompany](#createcompany) - Create sync for commerce company
 * [createConnection](#createconnection) - Create connection
 * [listCompanies](#listcompanies) - List companies
 * [listConnections](#listconnections) - List data connections
@@ -20,22 +21,23 @@ Creates a Codat company with a commerce partner data connection.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { CreateCompanyResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.companyManagement.createCompany({
-  description: "Requested early access to the new financing scheme.",
-  name: "Bank of Dave",
-}).then((res: CreateCompanyResponse) => {
+  const res = await sdk.companyManagement.createCompany({
+    description: "Requested early access to the new financing scheme.",
+    name: "Bank of Dave",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -60,22 +62,22 @@ Create a data connection for company.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { CreateConnectionResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.companyManagement.createConnection({
-  requestBody: "adipisci",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: CreateConnectionResponse) => {
+  const res = await sdk.companyManagement.createConnection({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -100,24 +102,24 @@ Retrieve a list of all companies the client has created.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { ListCompaniesResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.companyManagement.listCompanies({
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "recusandae",
-}).then((res: ListCompaniesResponse) => {
+  const res = await sdk.companyManagement.listCompanies({
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -142,25 +144,25 @@ Retrieve previously created data connections.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { ListConnectionsResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.companyManagement.listConnections({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "similique",
-}).then((res: ListConnectionsResponse) => {
+  const res = await sdk.companyManagement.listConnections({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -185,26 +187,25 @@ Update a data connection
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { UpdateConnectionResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 import { DataConnectionStatus } from "@codat/sync-for-commerce-version-1/dist/sdk/models/shared";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.companyManagement.updateConnection({
-  updateConnection: {
-    status: DataConnectionStatus.Linked,
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: UpdateConnectionResponse) => {
+  const res = await sdk.companyManagement.updateConnection({
+    updateConnection: {},
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

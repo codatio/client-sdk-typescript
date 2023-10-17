@@ -1,4 +1,5 @@
-# pushData
+# PushData
+(*pushData*)
 
 ## Overview
 
@@ -17,22 +18,23 @@ Retrieve push operation.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { GetPushOperationResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.pushData.getOperation({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "97f92443-da7c-4e52-b895-c537c6454efb",
-}).then((res: GetPushOperationResponse) => {
+  const res = await sdk.pushData.getOperation({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    pushOperationKey: "59acd79e-29d3-4138-91d3-91d4641bf7ed",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -57,25 +59,25 @@ List push operation records.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { GetCompanyPushHistoryResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.pushData.listOperations({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "aperiam",
-}).then((res: GetCompanyPushHistoryResponse) => {
+  const res = await sdk.pushData.listOperations({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

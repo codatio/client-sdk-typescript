@@ -1,4 +1,5 @@
-# sync
+# Sync
+(*sync*)
 
 ## Overview
 
@@ -18,21 +19,22 @@ Check the sync history and sync status for a company.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { GetSyncStatusResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.sync.getSyncStatus({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetSyncStatusResponse) => {
+  const res = await sdk.sync.getSyncStatus({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -58,24 +60,25 @@ If there was no previously successful sync, the start date in the config is used
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { RequestSyncResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.sync.requestSync({
-  syncToLatestArgs: {
-    syncTo: "2022-10-23T00:00:00.000Z",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: RequestSyncResponse) => {
+  const res = await sdk.sync.requestSync({
+    syncToLatestArgs: {
+      syncTo: "2022-10-23T00:00:00.000Z",
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -100,27 +103,28 @@ Run a Commerce sync from the specified start date to the specified finish date i
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
-import { RequestSyncForDateRangeResponse } from "@codat/sync-for-commerce-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.sync.requestSyncForDateRange({
-  syncRange: {
-    dateRange: {
-      finish: "2022-10-23T00:00:00.000Z",
-      start: "2022-10-23T00:00:00.000Z",
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: RequestSyncForDateRangeResponse) => {
+  });
+
+  const res = await sdk.sync.requestSyncForDateRange({
+    syncRange: {
+      dateRange: {
+        finish: "2022-10-23T00:00:00.000Z",
+        start: "2022-10-23T00:00:00.000Z",
+      },
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
