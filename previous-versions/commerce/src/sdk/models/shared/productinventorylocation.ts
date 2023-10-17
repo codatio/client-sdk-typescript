@@ -15,6 +15,9 @@ export class ProductInventoryLocation extends SpeakeasyBase {
     @Type(() => LocationRef)
     locationRef?: LocationRef;
 
+    /**
+     * The quantity of stock remaining at location.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "quantity" })
     quantity?: number;

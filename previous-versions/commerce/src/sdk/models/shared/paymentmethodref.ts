@@ -3,21 +3,23 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { TransactionSourceType } from "./transactionsourcetype";
 import { Expose } from "class-transformer";
 
-export class TransactionSourceRef extends SpeakeasyBase {
+/**
+ * The payment method the record is linked to in the accounting or commerce platform.
+ */
+export class PaymentMethodRef extends SpeakeasyBase {
     /**
-     * The unique identitifer of the record being referenced
+     * The unique identifier of the location being referenced.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id: string;
 
     /**
-     * The type of source the transaction arose.
+     * Name of the location being referenced.
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "type" })
-    type: TransactionSourceType;
+    @Expose({ name: "name" })
+    name?: string;
 }
