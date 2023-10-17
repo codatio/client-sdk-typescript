@@ -1,4 +1,5 @@
-# integrations
+# Integrations
+(*integrations*)
 
 ## Overview
 
@@ -18,21 +19,22 @@ Get single integration, by platformKey
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { GetIntegrationResponse } from "@codat/common/dist/sdk/models/operations";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.integrations.get({
-  platformKey: "gbol",
-}).then((res: GetIntegrationResponse) => {
+  const res = await sdk.integrations.get({
+    platformKey: "gbol",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -57,21 +59,22 @@ Get branding for platform.
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { GetIntegrationsBrandingResponse } from "@codat/common/dist/sdk/models/operations";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.integrations.getBranding({
-  platformKey: "gbol",
-}).then((res: GetIntegrationsBrandingResponse) => {
+  const res = await sdk.integrations.getBranding({
+    platformKey: "gbol",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -96,24 +99,24 @@ List your available integrations
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { ListIntegrationsResponse } from "@codat/common/dist/sdk/models/operations";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.integrations.list({
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "corrupti",
-}).then((res: ListIntegrationsResponse) => {
+  const res = await sdk.integrations.list({
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

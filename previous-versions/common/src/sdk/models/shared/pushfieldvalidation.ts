@@ -6,14 +6,23 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class PushFieldValidation extends SpeakeasyBase {
+    /**
+     * Details on the validation issue.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "details" })
     details: string;
 
+    /**
+     * Field name that resulted in the validation issue.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "field" })
     field?: string;
 
+    /**
+     * Unique reference identifier for the validation issue.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "ref" })
     ref?: string;

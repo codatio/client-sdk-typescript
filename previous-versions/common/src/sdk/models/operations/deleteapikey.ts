@@ -15,6 +15,9 @@ export class DeleteApiKeyRequest extends SpeakeasyBase {
 }
 
 export class DeleteApiKeyResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -24,9 +27,15 @@ export class DeleteApiKeyResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 }

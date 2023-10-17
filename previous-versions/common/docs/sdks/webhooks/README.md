@@ -1,4 +1,5 @@
-# webhooks
+# Webhooks
+(*webhooks*)
 
 ## Overview
 
@@ -18,28 +19,43 @@ Create a new webhook configuration
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { CreateRuleResponse } from "@codat/common/dist/sdk/models/operations";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.webhooks.create({
-  companyId: "39b73b17-cc2e-429e-915d-71654e9dcd1e",
-  notifiers: {
-    emails: [
-      "info@client.com",
-    ],
-    webhook: "https://webhook.client.com",
-  },
-  type: "iste",
-}).then((res: CreateRuleResponse) => {
+  const res = await sdk.webhooks.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    notifiers: {
+      emails: [
+        "i",
+        "n",
+        "f",
+        "o",
+        "@",
+        "c",
+        "l",
+        "i",
+        "e",
+        "n",
+        "t",
+        ".",
+        "c",
+        "o",
+        "m",
+      ],
+      webhook: "https://webhook.client.com",
+    },
+    type: "bluetooth Extended",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -64,21 +80,22 @@ Get a single webhook
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { GetWebhookResponse } from "@codat/common/dist/sdk/models/operations";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.webhooks.get({
-  ruleId: "7318949f-c008-4936-a8ff-10d7ab563fa6",
-}).then((res: GetWebhookResponse) => {
+  const res = await sdk.webhooks.get({
+    ruleId: "7318949f-c008-4936-a8ff-10d7ab563fa6",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -103,24 +120,24 @@ List webhooks that you are subscribed to.
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { ListRulesResponse } from "@codat/common/dist/sdk/models/operations";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.webhooks.list({
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "iure",
-}).then((res: ListRulesResponse) => {
+  const res = await sdk.webhooks.list({
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
