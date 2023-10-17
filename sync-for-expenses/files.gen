@@ -79,6 +79,7 @@ src/sdk/models/shared/pushoperationstatus.ts
 src/sdk/models/shared/datatype.ts
 src/sdk/models/shared/account.ts
 src/sdk/models/shared/accounttype.ts
+src/sdk/models/shared/supplementaldata.ts
 src/sdk/models/shared/accountstatus.ts
 src/sdk/models/shared/pushoperationchange.ts
 src/sdk/models/shared/pushchangetype.ts
@@ -108,7 +109,6 @@ src/sdk/models/shared/accountmappinginfo.ts
 src/sdk/models/shared/connections.ts
 src/sdk/models/shared/createcustomerresponse.ts
 src/sdk/models/shared/customer.ts
-src/sdk/models/shared/supplementaldata.ts
 src/sdk/models/shared/customerstatus.ts
 src/sdk/models/shared/metadata.ts
 src/sdk/models/shared/contact.ts
@@ -256,6 +256,7 @@ docs/models/shared/accountmetadata.md
 docs/models/shared/accountvaliddatatypelinks.md
 docs/models/shared/account.md
 docs/models/shared/accounttype.md
+docs/models/shared/supplementaldata.md
 docs/models/shared/accountstatus.md
 docs/models/shared/pushoperationchange.md
 docs/models/shared/pushchangetype.md
@@ -289,7 +290,6 @@ docs/models/shared/accountmappinginfo.md
 docs/models/shared/connections.md
 docs/models/shared/createcustomerresponse.md
 docs/models/shared/customer.md
-docs/models/shared/supplementaldata.md
 docs/models/shared/customerstatus.md
 docs/models/shared/metadata.md
 docs/models/shared/contactphone.md
@@ -321,7 +321,6 @@ docs/models/shared/pushoperation.md
 docs/models/shared/pushoperations.md
 docs/models/shared/createsupplierresponse.md
 docs/models/shared/supplieraccountingaddress.md
-docs/models/shared/suppliersupplementaldata.md
 docs/models/shared/supplier.md
 docs/models/shared/supplierstatus.md
 docs/models/shared/suppliers.md

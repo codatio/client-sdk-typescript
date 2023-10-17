@@ -19,59 +19,59 @@ Create an expense transaction
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { CreateExpenseTransactionResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 import { ContactRefType, ExpenseTransactionType } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.expenses.create({
-  createExpenseRequest: {
-    items: [
-      {
-        bankAccountRef: {
-          id: "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
-        },
-        contactRef: {
-          id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-          type: ContactRefType.Supplier,
-        },
-        currency: "GBP",
-        currencyRate: 4865.89,
-        id: "4d7c6929-7770-412b-91bb-44d3bc71d111",
-        issueDate: "2022-10-23T00:00:00.000Z",
-        lines: [
-          {
-            accountRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            netAmount: 110.42,
-            taxAmount: 14.43,
-            taxRateRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            trackingRefs: [
-              {
+  const res = await sdk.expenses.create({
+    createExpenseRequest: {
+      items: [
+        {
+          bankAccountRef: {
+            id: "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
+          },
+          contactRef: {
+            id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+            type: ContactRefType.Supplier,
+          },
+          currency: "GBP",
+          id: "4d7c6929-7770-412b-91bb-44d3bc71d111",
+          issueDate: "2022-10-23T00:00:00.000Z",
+          lines: [
+            {
+              accountRef: {
                 id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
               },
-            ],
-          },
-        ],
-        merchantName: "Amazon UK",
-        notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-        type: ExpenseTransactionType.Payment,
-      },
-    ],
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: CreateExpenseTransactionResponse) => {
+              netAmount: 110.42,
+              taxAmount: 14.43,
+              taxRateRef: {
+                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+              },
+              trackingRefs: [
+                {
+                  id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+                },
+              ],
+            },
+          ],
+          merchantName: "Amazon UK",
+          notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
+          type: ExpenseTransactionType.Payment,
+        },
+      ],
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -96,55 +96,55 @@ Update an expense transaction
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { UpdateExpenseTransactionResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 import { ContactRefType } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.expenses.update({
-  updateExpenseRequest: {
-    bankAccountRef: {
-      id: "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
-    },
-    contactRef: {
-      id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-      type: ContactRefType.Supplier,
-    },
-    currency: "GBP",
-    currencyRate: 8574.78,
-    issueDate: "2022-06-28T00:00:00.000Z",
-    lines: [
-      {
-        accountRef: {
-          id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-        },
-        netAmount: 110.42,
-        taxAmount: 14.43,
-        taxRateRef: {
-          id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-        },
-        trackingRefs: [
-          {
+  const res = await sdk.expenses.update({
+    updateExpenseRequest: {
+      bankAccountRef: {
+        id: "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
+      },
+      contactRef: {
+        id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+        type: ContactRefType.Supplier,
+      },
+      currency: "GBP",
+      issueDate: "2022-06-28T00:00:00.000Z",
+      lines: [
+        {
+          accountRef: {
             id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
           },
-        ],
-      },
-    ],
-    merchantName: "Amazon UK",
-    notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-    type: "New",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
-}).then((res: UpdateExpenseTransactionResponse) => {
+          netAmount: 110.42,
+          taxAmount: 14.43,
+          taxRateRef: {
+            id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+          },
+          trackingRefs: [
+            {
+              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+            },
+          ],
+        },
+      ],
+      merchantName: "Amazon UK",
+      notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
+      type: "Van",
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -169,27 +169,28 @@ Creates an attachment in the accounting software against the given transactionId
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { UploadExpenseAttachmentResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.expenses.uploadAttachment({
-  requestBody: {
-    content: "v/ghW&IC$x" as bytes <<<>>>,
-    requestBody: "Elegant Producer Electric",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
-  transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
-}).then((res: UploadExpenseAttachmentResponse) => {
+  const res = await sdk.expenses.uploadAttachment({
+    requestBody: {
+      content: "v/ghW&IC$x" as bytes <<<>>>,
+      requestBody: "Elegant Producer Electric",
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
+    transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -5,6 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountingAddressType } from "./accountingaddresstype";
 import { Metadata } from "./metadata";
+import { SupplementalData } from "./supplementaldata";
 import { SupplierStatus } from "./supplierstatus";
 import { Expose, Type } from "class-transformer";
 
@@ -57,19 +58,6 @@ export class SupplierAccountingAddress extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
     type: AccountingAddressType;
-}
-
-/**
- * Supplemental data is additional data you can include in our standard data types.
- *
- * @remarks
- *
- * It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
- */
-export class SupplierSupplementalData extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "content" })
-    content?: Record<string, Record<string, any>>;
 }
 
 /**
@@ -161,8 +149,8 @@ export class Supplier extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "supplementalData" })
-    @Type(() => SupplierSupplementalData)
-    supplementalData?: SupplierSupplementalData;
+    @Type(() => SupplementalData)
+    supplementalData?: SupplementalData;
 
     /**
      * Name of the supplier as recorded in the accounting system, typically the company name.

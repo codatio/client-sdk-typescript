@@ -5,6 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountStatus } from "./accountstatus";
 import { AccountType } from "./accounttype";
+import { SupplementalData } from "./supplementaldata";
 import { Expose, Type } from "class-transformer";
 
 export class AccountMetadata extends SpeakeasyBase {
@@ -208,6 +209,18 @@ export class Account extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
     status?: AccountStatus;
+
+    /**
+     * Supplemental data is additional data you can include in our standard data types.
+     *
+     * @remarks
+     *
+     * It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "supplementalData" })
+    @Type(() => SupplementalData)
+    supplementalData?: SupplementalData;
 
     /**
      * Type of account
