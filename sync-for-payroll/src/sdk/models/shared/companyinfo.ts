@@ -5,6 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Address } from "./address";
 import { PhoneNumber } from "./phonenumber";
+import { SupplementalData } from "./supplementaldata";
 import { WebLink } from "./weblink";
 import { Expose, Type } from "class-transformer";
 
@@ -162,6 +163,18 @@ export class CompanyInfo extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "sourceUrls" })
     sourceUrls?: Record<string, string>;
+
+    /**
+     * Supplemental data is additional data you can include in our standard data types.
+     *
+     * @remarks
+     *
+     * It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "supplementalData" })
+    @Type(() => SupplementalData)
+    supplementalData?: SupplementalData;
 
     /**
      * Company tax number.

@@ -6,6 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { JournalLine } from "./journalline";
 import { JournalRef } from "./journalref";
 import { Metadata } from "./metadata";
+import { SupplementalData } from "./supplementaldata";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -32,20 +33,7 @@ export class JournalEntryRecordReference extends SpeakeasyBase {
 }
 
 /**
- * Supplemental data is additional data you can include in our standard data types.
- *
- * @remarks
- *
- * It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
- */
-export class JournalEntrySupplementalData extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "content" })
-    content?: Record<string, Record<string, any>>;
-}
-
-/**
- * > **Language tip:** For the top-level record of a company's financial transactions, refer to the [Journals](https://docs.codat.io/accounting-api#/schemas/Journal) data type
+ * > **Language tip:** For the top-level record of a company's financial transactions, refer to the [Journals](https://docs.codat.io/sync-for-payroll-api#/schemas/Journal) data type
  *
  * @remarks
  *
@@ -53,7 +41,7 @@ export class JournalEntrySupplementalData extends SpeakeasyBase {
  *
  * ## Overview
  *
- * A journal entry report shows the entries made in a company's general ledger, or [accounts](https://docs.codat.io/accounting-api#/schemas/Account), when transactions are approved. The journal line items for each journal entry should balance.
+ * A journal entry report shows the entries made in a company's general ledger, or [accounts](https://docs.codat.io/sync-for-payroll-api#/schemas/Account), when transactions are approved. The journal line items for each journal entry should balance.
  *
  * A journal entry line item is a single transaction line on the journal entry. For example:
  *
@@ -189,8 +177,8 @@ export class JournalEntry extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "supplementalData" })
-    @Type(() => JournalEntrySupplementalData)
-    supplementalData?: JournalEntrySupplementalData;
+    @Type(() => SupplementalData)
+    supplementalData?: SupplementalData;
 
     /**
      * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:

@@ -56,6 +56,7 @@ export * from "./pushvalidationinfo";
 export * from "./recordref";
 export * from "./security";
 export * from "./status";
+export * from "./supplementaldata";
 export * from "./trackingcategories";
 export * from "./trackingcategory";
 export * from "./trackingcategorytree";

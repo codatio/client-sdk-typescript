@@ -1,4 +1,5 @@
 # ManageData
+(*manageData*)
 
 ## Overview
 
@@ -22,21 +23,22 @@ Get the state of each data type for a company
 
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
-import { GetDataStatusResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayroll({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayroll({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.manageData.getDataStatus({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetDataStatusResponse) => {
+  const res = await sdk.manageData.getDataStatus({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -61,22 +63,23 @@ Retrieve information about a single dataset or pull operation.
 
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
-import { GetPullOperationResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayroll({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayroll({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.manageData.getPullOperation({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  datasetId: "eaed9f0f-e77b-4bc9-a58f-ab8b4b99ab18",
-}).then((res: GetPullOperationResponse) => {
+  const res = await sdk.manageData.getPullOperation({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    datasetId: "7911a54a-c808-4f4b-b87e-b195f52b4da5",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -101,22 +104,23 @@ Retrieve push operation.
 
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
-import { GetPushOperationResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayroll({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayroll({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.manageData.getPushOperation({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "97074ba4-469b-46e2-9419-59890afa563e",
-}).then((res: GetPushOperationResponse) => {
+  const res = await sdk.manageData.getPushOperation({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    pushOperationKey: "2a6486f4-00c4-40bd-900d-b29c15ad0581",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -141,25 +145,25 @@ List push operation records.
 
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
-import { ListPushOperationsResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayroll({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayroll({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.manageData.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "odit",
-}).then((res: ListPushOperationsResponse) => {
+  const res = await sdk.manageData.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -184,25 +188,25 @@ Gets the pull operation history (datasets) for a given company.
 
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
-import { ListPullOperationsResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayroll({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayroll({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.manageData.listPullOperations({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "nemo",
-}).then((res: ListPullOperationsResponse) => {
+  const res = await sdk.manageData.listPullOperations({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -231,21 +235,22 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
-import { RefreshAllDataTypesResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayroll({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayroll({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.manageData.refreshAllDataTypes({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: RefreshAllDataTypesResponse) => {
+  const res = await sdk.manageData.refreshAllDataTypes({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -272,24 +277,24 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
-import { RefreshDataTypeResponse } from "@codat/sync-for-payroll/dist/sdk/models/operations";
 import { DataType } from "@codat/sync-for-payroll/dist/sdk/models/shared";
 
-const sdk = new CodatSyncPayroll({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayroll({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.manageData.refreshDataType({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "16fe4c8b-711e-45b7-bd2e-d028921cddc6",
-  dataType: DataType.Invoices,
-}).then((res: RefreshDataTypeResponse) => {
+  const res = await sdk.manageData.refreshDataType({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    dataType: DataType.Invoices,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

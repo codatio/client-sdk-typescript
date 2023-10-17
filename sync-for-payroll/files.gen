@@ -68,6 +68,7 @@ src/sdk/models/shared/pushoperationstatus.ts
 src/sdk/models/shared/datatype.ts
 src/sdk/models/shared/account.ts
 src/sdk/models/shared/accounttype.ts
+src/sdk/models/shared/supplementaldata.ts
 src/sdk/models/shared/accountstatus.ts
 src/sdk/models/shared/pushoperationchange.ts
 src/sdk/models/shared/pushchangetype.ts
@@ -125,16 +126,6 @@ src/sdk/models/webhooks/clientratelimitreached.ts
 src/sdk/models/webhooks/clientratelimitreset.ts
 src/sdk/models/webhooks/index.ts
 src/sdk/models/errors/index.ts
-docs/sdks/codatsyncpayroll/README.md
-docs/models/utils/retryconfig.md
-docs/sdks/accounts/README.md
-docs/sdks/companies/README.md
-docs/sdks/companyinfo/README.md
-docs/sdks/connections/README.md
-docs/sdks/journalentries/README.md
-docs/sdks/journals/README.md
-docs/sdks/managedata/README.md
-docs/sdks/trackingcategories/README.md
 USAGE.md
 docs/models/operations/createaccountrequest.md
 docs/models/operations/createaccountresponse.md
@@ -213,6 +204,7 @@ docs/models/shared/accountmetadata.md
 docs/models/shared/accountvaliddatatypelinks.md
 docs/models/shared/account.md
 docs/models/shared/accounttype.md
+docs/models/shared/supplementaldata.md
 docs/models/shared/accountstatus.md
 docs/models/shared/pushoperationchange.md
 docs/models/shared/pushchangetype.md
@@ -243,7 +235,6 @@ docs/models/shared/accountingaddresstype.md
 docs/models/shared/connections.md
 docs/models/shared/createjournalentryresponse.md
 docs/models/shared/journalentryrecordreference.md
-docs/models/shared/journalentrysupplementaldata.md
 docs/models/shared/journalentry.md
 docs/models/shared/metadata.md
 docs/models/shared/journalref.md
@@ -257,6 +248,7 @@ docs/models/shared/createjournalresponse.md
 docs/models/shared/journal.md
 docs/models/shared/journalstatus.md
 docs/models/shared/journals.md
+docs/models/shared/datastatusdatatypes.md
 docs/models/shared/datastatus.md
 docs/models/shared/pulloperationstatus.md
 docs/models/shared/pulloperation.md
@@ -273,4 +265,14 @@ docs/models/shared/clientratelimitresetwebhook.md
 docs/models/shared/clientratelimitresetwebhookdata.md
 docs/models/webhooks/clientratelimitreachedresponse.md
 docs/models/webhooks/clientratelimitresetresponse.md
+docs/sdks/codatsyncpayroll/README.md
+docs/models/utils/retryconfig.md
+docs/sdks/accounts/README.md
+docs/sdks/companies/README.md
+docs/sdks/companyinfo/README.md
+docs/sdks/connections/README.md
+docs/sdks/journalentries/README.md
+docs/sdks/journals/README.md
+docs/sdks/managedata/README.md
+docs/sdks/trackingcategories/README.md
 .gitattributes
