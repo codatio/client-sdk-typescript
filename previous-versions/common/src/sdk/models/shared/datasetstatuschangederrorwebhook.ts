@@ -3,30 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { DatasetStatusChangedErrorWebhookData } from "./datasetstatuschangederrorwebhookdata";
 import { Expose, Type } from "class-transformer";
-
-export class DatasetStatusChangedErrorWebhookData extends SpeakeasyBase {
-    /**
-     * Data type the sync completed for.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "dataType" })
-    dataType?: string;
-
-    /**
-     * Unique identifier for the dataset that completed its sync.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "datasetId" })
-    datasetId?: string;
-
-    /**
-     * The current status of the dataset's sync.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "datasetStatus" })
-    datasetStatus?: string;
-}
 
 /**
  * Webhook request body to notify that a data synchronization has completed.
@@ -40,6 +18,20 @@ export class DatasetStatusChangedErrorWebhook extends SpeakeasyBase {
     alertId?: string;
 
     /**
+     * Unique identifier for your client in Codat.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "ClientId" })
+    clientId?: string;
+
+    /**
+     * Name of your client in Codat.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "ClientName" })
+    clientName?: string;
+
+    /**
      * Unique identifier for your SMB in Codat.
      */
     @SpeakeasyMetadata()
@@ -50,6 +42,13 @@ export class DatasetStatusChangedErrorWebhook extends SpeakeasyBase {
     @Expose({ name: "Data" })
     @Type(() => DatasetStatusChangedErrorWebhookData)
     data?: DatasetStatusChangedErrorWebhookData;
+
+    /**
+     * Unique identifier for a company's data connection.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "DataConnectionId" })
+    dataConnectionId?: string;
 
     /**
      * A human readable message about the webhook.
@@ -69,6 +68,6 @@ export class DatasetStatusChangedErrorWebhook extends SpeakeasyBase {
      * The type of rule.
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "Type" })
-    type?: string;
+    @Expose({ name: "RuleType" })
+    ruleType?: string;
 }

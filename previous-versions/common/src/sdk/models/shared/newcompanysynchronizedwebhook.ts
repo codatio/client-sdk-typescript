@@ -3,7 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Expose } from "class-transformer";
+import { NewCompanySynchronizedWebhookData } from "./newcompanysynchronizedwebhookdata";
+import { Expose, Type } from "class-transformer";
 
 /**
  * Webhook request body to notify that a new company has successfully synchronized at least one dataType for the first time.
@@ -17,11 +18,37 @@ export class NewCompanySynchronizedWebhook extends SpeakeasyBase {
     alertId?: string;
 
     /**
+     * Unique identifier for your client in Codat.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "ClientId" })
+    clientId?: string;
+
+    /**
+     * Name of your client in Codat.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "ClientName" })
+    clientName?: string;
+
+    /**
      * Unique identifier for your SMB in Codat.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "CompanyId" })
     companyId?: string;
+
+    @SpeakeasyMetadata()
+    @Expose({ name: "Data" })
+    @Type(() => NewCompanySynchronizedWebhookData)
+    data?: NewCompanySynchronizedWebhookData;
+
+    /**
+     * Unique identifier for a company's data connection.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "DataConnectionId" })
+    dataConnectionId?: string;
 
     /**
      * A human readable message about the webhook.
@@ -41,6 +68,6 @@ export class NewCompanySynchronizedWebhook extends SpeakeasyBase {
      * The type of rule.
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "Type" })
-    type?: string;
+    @Expose({ name: "RuleType" })
+    ruleType?: string;
 }

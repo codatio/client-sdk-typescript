@@ -1,4 +1,5 @@
-# companies
+# Companies
+(*companies*)
 
 ## Overview
 
@@ -24,22 +25,23 @@ If forbidden characters (see `name` pattern) are present in the request, a compa
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { CreateCompanyResponse } from "@codat/common/dist/sdk/models/operations";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.companies.create({
-  description: "Requested early access to the new financing scheme.",
-  name: "Bank of Dave",
-}).then((res: CreateCompanyResponse) => {
+  const res = await sdk.companies.create({
+    description: "Requested early access to the new financing scheme.",
+    name: "Bank of Dave",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -65,21 +67,22 @@ Permanently deletes a company, its connections and any cached data. This operati
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { DeleteCompanyResponse } from "@codat/common/dist/sdk/models/operations";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.companies.delete({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: DeleteCompanyResponse) => {
+  const res = await sdk.companies.delete({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -104,21 +107,22 @@ sdk.companies.delete({
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { GetCompanyResponse } from "@codat/common/dist/sdk/models/operations";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.companies.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetCompanyResponse) => {
+  const res = await sdk.companies.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -137,30 +141,30 @@ sdk.companies.get({
 
 ## list
 
-﻿Returns a list of your companies. The company schema contains a list of [connections](https://docs.codat.io/codat-api#/schemas/Connection) related to the company.
+﻿Returns a list of your companies. The company schema contains a list of [connections](https://docs.codat.io/platform-api#/schemas/Connection) related to the company.
 
 ### Example Usage
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { ListCompaniesResponse } from "@codat/common/dist/sdk/models/operations";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.companies.list({
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "corrupti",
-}).then((res: ListCompaniesResponse) => {
+  const res = await sdk.companies.list({
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -185,25 +189,26 @@ sdk.companies.list({
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { UpdateCompanyResponse } from "@codat/common/dist/sdk/models/operations";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.companies.update({
-  companyRequestBody: {
-    description: "Requested early access to the new financing scheme.",
-    name: "Bank of Dave",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: UpdateCompanyResponse) => {
+  const res = await sdk.companies.update({
+    companyRequestBody: {
+      description: "Requested early access to the new financing scheme.",
+      name: "Bank of Dave",
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

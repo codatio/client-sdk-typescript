@@ -3,30 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { PushOperationStatusChangedWebhookData } from "./pushoperationstatuschangedwebhookdata";
 import { Expose, Type } from "class-transformer";
-
-export class PushOperationStatusChangedWebhookData extends SpeakeasyBase {
-    /**
-     * Data type used in the push operation.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "dataType" })
-    dataType?: string;
-
-    /**
-     * Unique identifier for the push operation.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "pushOperationKey" })
-    pushOperationKey?: string;
-
-    /**
-     * The current status of the push operation.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "status" })
-    status?: string;
-}
 
 /**
  * Webhook request body for a push operation status change.
@@ -40,6 +18,20 @@ export class PushOperationStatusChangedWebhook extends SpeakeasyBase {
     alertId?: string;
 
     /**
+     * Unique identifier for your client in Codat.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "ClientId" })
+    clientId?: string;
+
+    /**
+     * Name of your client in Codat.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "ClientName" })
+    clientName?: string;
+
+    /**
      * Unique identifier for your SMB in Codat.
      */
     @SpeakeasyMetadata()
@@ -50,6 +42,13 @@ export class PushOperationStatusChangedWebhook extends SpeakeasyBase {
     @Expose({ name: "Data" })
     @Type(() => PushOperationStatusChangedWebhookData)
     data?: PushOperationStatusChangedWebhookData;
+
+    /**
+     * Unique identifier for a company's data connection.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "DataConnectionId" })
+    dataConnectionId?: string;
 
     /**
      * A human readable message about the webhook.
@@ -69,6 +68,6 @@ export class PushOperationStatusChangedWebhook extends SpeakeasyBase {
      * The type of rule.
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "Type" })
-    type?: string;
+    @Expose({ name: "RuleType" })
+    ruleType?: string;
 }

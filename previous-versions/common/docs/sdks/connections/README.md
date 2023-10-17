@@ -1,4 +1,5 @@
-# connections
+# Connections
+(*connections*)
 
 ## Overview
 
@@ -17,30 +18,31 @@ Manage your companies' data connections.
 
 ﻿Creates a connection for the company by providing a valid `platformKey`. 
 
-Use the [List Integrations](https://docs.codat.io/codat-api#/operations/list-integrations) endpoint to access valid platform keys. 
+Use the [List Integrations](https://docs.codat.io/platform-api#/operations/list-integrations) endpoint to access valid platform keys. 
 
 ### Example Usage
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { CreateConnectionResponse } from "@codat/common/dist/sdk/models/operations";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.connections.create({
-  requestBody: {
-    platformKey: "provident",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: CreateConnectionResponse) => {
+  const res = await sdk.connections.create({
+    requestBody: {
+      platformKey: "gbol",
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -66,22 +68,23 @@ This operation is not reversible. The end user would need to reauthorize a new d
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { DeleteConnectionResponse } from "@codat/common/dist/sdk/models/operations";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.connections.delete({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: DeleteConnectionResponse) => {
+  const res = await sdk.connections.delete({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -106,22 +109,23 @@ sdk.connections.delete({
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { GetConnectionResponse } from "@codat/common/dist/sdk/models/operations";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.connections.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetConnectionResponse) => {
+  const res = await sdk.connections.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -146,25 +150,25 @@ sdk.connections.get({
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { ListConnectionsResponse } from "@codat/common/dist/sdk/models/operations";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.connections.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "distinctio",
-}).then((res: ListConnectionsResponse) => {
+  const res = await sdk.connections.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -189,26 +193,25 @@ sdk.connections.list({
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { UnlinkConnectionResponse } from "@codat/common/dist/sdk/models/operations";
 import { DataConnectionStatus } from "@codat/common/dist/sdk/models/shared";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.connections.unlink({
-  updateConnectionStatus: {
-    status: DataConnectionStatus.Deauthorized,
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: UnlinkConnectionResponse) => {
+  const res = await sdk.connections.unlink({
+    updateConnectionStatus: {},
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -233,25 +236,26 @@ Update data connection's authorization.
 
 ```typescript
 import { CodatCommon } from "@codat/common";
-import { UpdateConnectionAuthorizationResponse } from "@codat/common/dist/sdk/models/operations";
 
-const sdk = new CodatCommon({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatCommon({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.connections.updateAuthorization({
-  requestBody: {
-    "unde": "nulla",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: UpdateConnectionAuthorizationResponse) => {
+  const res = await sdk.connections.updateAuthorization({
+    requestBody: {
+      "Neptunium": "Books",
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
