@@ -1,4 +1,5 @@
-# configuration
+# Configuration
+(*configuration*)
 
 ## Overview
 
@@ -17,21 +18,22 @@ Gets a companies expense sync configuration
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses-version-1";
-import { GetCompanyConfigurationResponse } from "@codat/sync-for-expenses-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.configuration.getCompanyConfiguration({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetCompanyConfigurationResponse) => {
+  const res = await sdk.configuration.getCompanyConfiguration({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -56,32 +58,33 @@ Sets a companies expense sync configuration
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses-version-1";
-import { SaveCompanyConfigurationResponse } from "@codat/sync-for-expenses-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.configuration.saveCompanyConfiguration({
-  companyConfiguration: {
-    bankAccount: {
-      id: "32",
+  const res = await sdk.configuration.saveCompanyConfiguration({
+    companyConfiguration: {
+      bankAccount: {
+        id: "32",
+      },
+      customer: {
+        id: "142",
+      },
+      supplier: {
+        id: "124",
+      },
     },
-    customer: {
-      id: "142",
-    },
-    supplier: {
-      id: "124",
-    },
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: SaveCompanyConfigurationResponse) => {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

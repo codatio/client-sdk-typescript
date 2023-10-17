@@ -1,4 +1,5 @@
-# expenses
+# Expenses
+(*expenses*)
 
 ## Overview
 
@@ -7,7 +8,7 @@ Create expense datasets and upload receipts.
 ### Available Operations
 
 * [createExpenseDataset](#createexpensedataset) - Create expense-transactions
-* [updateExpenseDataset](#updateexpensedataset) - Update expense-transactions
+* [updateExpenseDataset](#updateexpensedataset) - Update expense transactions
 * [uploadAttachment](#uploadattachment) - Upload attachment
 
 ## createExpenseDataset
@@ -18,56 +19,56 @@ Create an expense transaction
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses-version-1";
-import { CreateExpenseDatasetResponse } from "@codat/sync-for-expenses-version-1/dist/sdk/models/operations";
 import { ContactRefContactType, ExpenseTransactionType } from "@codat/sync-for-expenses-version-1/dist/sdk/models/shared";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.expenses.createExpenseDataset({
-  createExpenseRequest: {
-    items: [
-      {
-        contactRef: {
-          contactType: ContactRefContactType.Supplier,
-          id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-        },
-        currency: "GBP",
-        currencyRate: 6027.63,
-        id: "4d7c6929-7770-412b-91bb-44d3bc71d111",
-        issueDate: "2022-10-23T00:00:00.000Z",
-        lines: [
-          {
-            accountRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            netAmount: 110.42,
-            taxAmount: 14.43,
-            taxRateRef: {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            },
-            trackingRefs: [
-              {
+  const res = await sdk.expenses.createExpenseDataset({
+    createExpenseRequest: {
+      items: [
+        {
+          contactRef: {
+            contactType: ContactRefContactType.Supplier,
+            id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+          },
+          currency: "GBP",
+          id: "4d7c6929-7770-412b-91bb-44d3bc71d111",
+          issueDate: "2022-10-23T00:00:00.000Z",
+          lines: [
+            {
+              accountRef: {
                 id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
               },
-            ],
-          },
-        ],
-        merchantName: "Amazon UK",
-        notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-        type: ExpenseTransactionType.Payment,
-      },
-    ],
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: CreateExpenseDatasetResponse) => {
+              netAmount: 110.42,
+              taxAmount: 14.43,
+              taxRateRef: {
+                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+              },
+              trackingRefs: [
+                {
+                  id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+                },
+              ],
+            },
+          ],
+          merchantName: "Amazon UK",
+          notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
+          type: ExpenseTransactionType.Payment,
+        },
+      ],
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -92,52 +93,52 @@ Update an expense transaction
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses-version-1";
-import { UpdateExpenseDatasetResponse } from "@codat/sync-for-expenses-version-1/dist/sdk/models/operations";
 import { ContactRefContactType } from "@codat/sync-for-expenses-version-1/dist/sdk/models/shared";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.expenses.updateExpenseDataset({
-  updateExpenseRequest: {
-    contactRef: {
-      contactType: ContactRefContactType.Supplier,
-      id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
-    currency: "GBP",
-    currencyRate: 5448.83,
-    issueDate: "2022-06-28T00:00:00.000Z",
-    lines: [
-      {
-        accountRef: {
-          id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-        },
-        netAmount: 110.42,
-        taxAmount: 14.43,
-        taxRateRef: {
-          id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-        },
-        trackingRefs: [
-          {
+  });
+
+  const res = await sdk.expenses.updateExpenseDataset({
+    updateExpenseRequest: {
+      contactRef: {
+        contactType: ContactRefContactType.Supplier,
+        id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+      },
+      currency: "GBP",
+      issueDate: "2022-06-28T00:00:00.000Z",
+      lines: [
+        {
+          accountRef: {
             id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
           },
-        ],
-      },
-    ],
-    merchantName: "Amazon UK",
-    notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-    type: "illum",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
-}).then((res: UpdateExpenseDatasetResponse) => {
+          netAmount: 110.42,
+          taxAmount: 14.43,
+          taxRateRef: {
+            id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+          },
+          trackingRefs: [
+            {
+              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+            },
+          ],
+        },
+      ],
+      merchantName: "Amazon UK",
+      notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
+      type: "Technetium",
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -162,27 +163,28 @@ Creates an attachment in the accounting software against the given transactionId
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses-version-1";
-import { UploadAttachmentResponse } from "@codat/sync-for-expenses-version-1/dist/sdk/models/operations";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.expenses.uploadAttachment({
-  requestBody: {
-    content: "vel".encode(),
-    requestBody: "error",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
-  transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
-}).then((res: UploadAttachmentResponse) => {
+  const res = await sdk.expenses.uploadAttachment({
+    requestBody: {
+      content: "v/ghW&IC$x" as bytes <<<>>>,
+      requestBody: "Elegant Producer Electric",
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
+    transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
