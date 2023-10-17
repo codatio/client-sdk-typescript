@@ -19,21 +19,22 @@ Gets a companies expense sync configuration
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { GetCompanyConfigurationResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.configuration.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetCompanyConfigurationResponse) => {
+  const res = await sdk.configuration.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -58,21 +59,22 @@ Gets the expense mapping options for a companies accounting software
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { GetMappingOptionsResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.configuration.getMappingOptions({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetMappingOptionsResponse) => {
+  const res = await sdk.configuration.getMappingOptions({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -97,32 +99,29 @@ Sets a companies expense sync configuration
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { SetCompanyConfigurationResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.configuration.set({
-  companyConfiguration: {
-    bankAccount: {
-      id: "32",
+  const res = await sdk.configuration.set({
+    companyConfiguration: {
+      bankAccount: {
+        id: "32",
+      },
+      customer: {},
+      supplier: {},
     },
-    customer: {
-      id: "<ID>",
-    },
-    supplier: {
-      id: "<ID>",
-    },
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: SetCompanyConfigurationResponse) => {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

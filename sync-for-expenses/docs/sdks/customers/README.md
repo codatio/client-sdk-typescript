@@ -29,82 +29,58 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { CreateCustomerResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 import { AccountingAddressType, CustomerStatus, PhoneNumberType } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.customers.create({
-  customer: {
-    addresses: [
-      {
-        city: "Jenafurt",
-        country: "Sweden",
-        line1: "innovative blue",
-        line2: "grey technology East",
-        postalCode: "30778",
-        region: "quantify Polestar mobile",
-        type: AccountingAddressType.Billing,
-      },
-    ],
-    contactName: "Durham after",
-    contacts: [
-      {
-        address: {
-          city: "Darenberg",
-          country: "Cote d'Ivoire",
-          line1: "Buckinghamshire functionalities Grocery",
-          line2: "Metal",
-          postalCode: "61380",
-          region: "Interactions Senior Mouse",
-          type: AccountingAddressType.Unknown,
+  const res = await sdk.customers.create({
+    customer: {
+      addresses: [
+        {
+          type: AccountingAddressType.Billing,
         },
-        email: "Judd27@hotmail.com",
-        modifiedDate: "2022-10-23T00:00:00.000Z",
-        name: "transmit likewise",
-        phone: [
-          {
-            number: "(877) 492-8687",
-            type: PhoneNumberType.Fax,
+      ],
+      contacts: [
+        {
+          address: {
+            type: AccountingAddressType.Billing,
           },
-        ],
-        status: CustomerStatus.Active,
-      },
-    ],
-    customerName: "Rubber silver Indiana",
-    defaultCurrency: "EUR",
-    emailAddress: "Thea_Ritchie76@hotmail.com",
-    id: "<ID>",
-    metadata: {
-      isDeleted: false,
-    },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "948.595.2034",
-    registrationNumber: "digital",
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: CustomerStatus.Unknown,
-    supplementalData: {
-      content: {
-        "recusandae": {
-          "maiores": "Mongolia",
+          modifiedDate: "2022-10-23T00:00:00.000Z",
+          phone: [
+            {
+              number: "01224 658 999",
+              type: PhoneNumberType.Mobile,
+            },
+          ],
+          status: CustomerStatus.Unknown,
+        },
+      ],
+      defaultCurrency: "GBP",
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      status: CustomerStatus.Archived,
+      supplementalData: {
+        content: {
+          "grey": {
+            "technology": "East",
+          },
         },
       },
     },
-    taxNumber: "discrete",
-  },
-  allowSyncOnPushComplete: false,
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 522311,
-}).then((res: CreateCustomerResponse) => {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -136,22 +112,23 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { GetCustomerResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.customers.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  customerId: "Northeast Hatchback Kia",
-}).then((res: GetCustomerResponse) => {
+  const res = await sdk.customers.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    customerId: "Northeast Hatchback Kia",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -181,25 +158,25 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { ListCustomersResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.customers.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "Northeast Metal Canada",
-}).then((res: ListCustomersResponse) => {
+  const res = await sdk.customers.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -233,84 +210,59 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { UpdateCustomerResponse } from "@codat/sync-for-expenses/dist/sdk/models/operations";
 import { AccountingAddressType, CustomerStatus, PhoneNumberType } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
-const sdk = new CodatSyncExpenses({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncExpenses({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.customers.update({
-  customer: {
-    addresses: [
-      {
-        city: "Ann Arbor",
-        country: "Montserrat",
-        line1: "Reactive",
-        line2: "Metal cheater Islands",
-        postalCode: "43372",
-        region: "Carolina syndicate",
-        type: AccountingAddressType.Billing,
-      },
-    ],
-    contactName: "East",
-    contacts: [
-      {
-        address: {
-          city: "Olenfurt",
-          country: "Paraguay",
-          line1: "Home users Sharable",
-          line2: "Lev Wooden",
-          postalCode: "36848",
-          region: "brightly",
+  const res = await sdk.customers.update({
+    customer: {
+      addresses: [
+        {
           type: AccountingAddressType.Delivery,
         },
-        email: "Josie49@yahoo.com",
-        modifiedDate: "2022-10-23T00:00:00.000Z",
-        name: "possimus navigating Diesel",
-        phone: [
-          {
-            number: "+44 25691 154789",
-            type: PhoneNumberType.Primary,
+      ],
+      contacts: [
+        {
+          address: {
+            type: AccountingAddressType.Unknown,
           },
-        ],
-        status: CustomerStatus.Unknown,
-      },
-    ],
-    customerName: "Reactive Global Northeast",
-    defaultCurrency: "USD",
-    emailAddress: "Abe.Bogan@hotmail.com",
-    id: "<ID>",
-    metadata: {
-      isDeleted: false,
-    },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "(883) 732-4217 x6499",
-    registrationNumber: "redundant ew",
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: CustomerStatus.Active,
-    supplementalData: {
-      content: {
-        "asperiores": {
-          "quibusdam": "Omnigender",
+          modifiedDate: "2022-10-23T00:00:00.000Z",
+          phone: [
+            {
+              number: "+44 25691 154789",
+              type: PhoneNumberType.Landline,
+            },
+          ],
+          status: CustomerStatus.Archived,
+        },
+      ],
+      defaultCurrency: "EUR",
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      status: CustomerStatus.Archived,
+      supplementalData: {
+        content: {
+          "redundant": {
+            "cheater": "Islands",
+          },
         },
       },
     },
-    taxNumber: "Volkswagen Specialist Bacon",
-  },
-  allowSyncOnPushComplete: false,
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "Copper port East",
-  forceUpdate: false,
-  timeoutInMinutes: 373959,
-}).then((res: UpdateCustomerResponse) => {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    customerId: "withdrawal extend",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
