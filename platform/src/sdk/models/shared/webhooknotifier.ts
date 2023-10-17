@@ -5,11 +5,15 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export class HalRef extends SpeakeasyBase {
+export class WebhookNotifier extends SpeakeasyBase {
+    @SpeakeasyMetadata()
+    @Expose({ name: "emails" })
+    emails?: string[];
+
     /**
-     * Uri hypertext reference.
+     * The URI the webhook service will POST events.
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "href" })
-    href?: string;
+    @Expose({ name: "webhook" })
+    webhook?: string;
 }

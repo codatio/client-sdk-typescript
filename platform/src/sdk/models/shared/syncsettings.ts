@@ -7,10 +7,16 @@ import { SyncSetting } from "./syncsetting";
 import { Expose, Type } from "class-transformer";
 
 export class SyncSettings extends SpeakeasyBase {
+    /**
+     * Unique identifier for your client in Codat.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "clientId" })
     clientId?: string;
 
+    /**
+     * Set to `True` if you want to override the default [sync settings](https://docs.codat.io/knowledge-base/advanced-sync-settings).
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "overridesDefaults" })
     overridesDefaults?: boolean;
