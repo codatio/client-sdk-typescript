@@ -1,4 +1,5 @@
-# companyInfo
+# CompanyInfo
+(*companyInfo*)
 
 ## Overview
 
@@ -17,21 +18,22 @@ Gets the latest basic info for a company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCompanyInfoResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.companyInfo.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetCompanyInfoResponse) => {
+  const res = await sdk.companyInfo.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -56,21 +58,22 @@ Initiates the process of synchronising basic info for a company
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { RefreshCompanyInfoResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.companyInfo.refresh({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: RefreshCompanyInfoResponse) => {
+  const res = await sdk.companyInfo.refresh({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

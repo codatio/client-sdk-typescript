@@ -8,6 +8,7 @@ import { BillStatus } from "./billstatus";
 import { Metadata } from "./metadata";
 import { PaymentAllocationPayment } from "./paymentallocationpayment";
 import { PurchaseOrderRef } from "./purchaseorderref";
+import { SupplementalData } from "./supplementaldata";
 import { SupplierRef } from "./supplierref";
 import { Expose, Type } from "class-transformer";
 
@@ -107,24 +108,17 @@ export class BillPaymentAllocation extends SpeakeasyBase {
     payment: PaymentAllocationPayment;
 }
 
-/**
- * Supplemental data is additional data you can include in our standard data types.
- *
- * @remarks
- *
- * It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
- */
-export class BillSupplementalData extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "content" })
-    content?: Record<string, Record<string, any>>;
-}
-
 export class BillWithholdingTax extends SpeakeasyBase {
+    /**
+     * Amount of tax withheld.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "amount" })
     amount: number;
 
+    /**
+     * Name assigned to withheld tax.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "name" })
     name: string;
@@ -295,8 +289,8 @@ export class Bill extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "supplementalData" })
-    @Type(() => BillSupplementalData)
-    supplementalData?: BillSupplementalData;
+    @Type(() => SupplementalData)
+    supplementalData?: SupplementalData;
 
     /**
      * Reference to the supplier the record relates to.

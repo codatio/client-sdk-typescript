@@ -3,33 +3,14 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { DatasetStatus } from "./datasetstatus";
+import { DataType } from "./datatype";
 import { Expose } from "class-transformer";
 
-export enum DatasetStatus {
-    Initial = "Initial",
-    Queued = "Queued",
-    Fetching = "Fetching",
-    MapQueued = "MapQueued",
-    Mapping = "Mapping",
-    Complete = "Complete",
-    FetchError = "FetchError",
-    MapError = "MapError",
-    InternalError = "InternalError",
-    ProcessingQueued = "ProcessingQueued",
-    Processing = "Processing",
-    ProcessingError = "ProcessingError",
-    ValidationQueued = "ValidationQueued",
-    Validating = "Validating",
-    ValidationError = "ValidationError",
-    AuthError = "AuthError",
-    Cancelled = "Cancelled",
-    NotSupported = "NotSupported",
-    RateLimitError = "RateLimitError",
-    PermissionsError = "PermissionsError",
-    PrerequisiteNotMet = "PrerequisiteNotMet",
-}
-
 export class Dataset extends SpeakeasyBase {
+    /**
+     * Unique identifier for your SMB in Codat.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "companyId" })
     companyId: string;
@@ -61,34 +42,58 @@ export class Dataset extends SpeakeasyBase {
     @Expose({ name: "completed" })
     completed?: string;
 
+    /**
+     * Unique identifier for a company's data connection.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "connectionId" })
     connectionId: string;
 
+    /**
+     * Available Data types
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "dataType" })
-    dataType?: string;
+    dataType?: DataType;
 
+    /**
+     * URI to the dataset's logs.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "datasetLogsUrl" })
     datasetLogsUrl?: string;
 
+    /**
+     * A brief message about the error.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "errorMessage" })
     errorMessage?: string;
 
+    /**
+     * Identifier for the dataset.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id: string;
 
+    /**
+     * `True` if the dataset completed successfully.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isCompleted" })
     isCompleted: boolean;
 
+    /**
+     * `True` if the dataset entered an error state.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isErrored" })
     isErrored: boolean;
 
+    /**
+     * An integer signifying the progress of the dataset.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "progress" })
     progress: number;
@@ -120,10 +125,16 @@ export class Dataset extends SpeakeasyBase {
     @Expose({ name: "requested" })
     requested: string;
 
+    /**
+     * The current status of the dataset.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
     status: DatasetStatus;
 
+    /**
+     * URI to the dataset's validation information.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "validationInformationUrl" })
     validationInformationUrl?: string;

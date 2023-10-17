@@ -45,6 +45,13 @@ export class PurchaseOrderLineItem extends SpeakeasyBase {
     itemRef?: ItemRef;
 
     /**
+     * The purchase order line's number.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "lineNumber" })
+    lineNumber?: string;
+
+    /**
      * Number of units that have been ordered.
      */
     @SpeakeasyMetadata()
