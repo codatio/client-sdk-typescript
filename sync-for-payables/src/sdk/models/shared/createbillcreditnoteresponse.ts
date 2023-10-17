@@ -58,7 +58,7 @@ export class CreateBillCreditNoteResponse extends SpeakeasyBase {
      *
      * @remarks
      * >
-     * > In Codat, bill credit notes represent accounts payable only. For accounts receivable, see [Credit notes](https://docs.codat.io/accounting-api#/schemas/CreditNote).
+     * > In Codat, bill credit notes represent accounts payable only. For accounts receivable, see [Credit notes](https://docs.codat.io/sync-for-payables-api#/schemas/CreditNote).
      *
      * View the coverage for bill credit notes in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billCreditNotes" target="_blank">Data coverage explorer</a>.
      *
@@ -66,11 +66,11 @@ export class CreateBillCreditNoteResponse extends SpeakeasyBase {
      *
      * A bill credit note is issued by a supplier for the purpose of recording credit. For example, if a supplier was unable to fulfil an order that was placed by a business, or delivered damaged goods, they would issue a bill credit note. A bill credit note reduces the amount a business owes to the supplier. It can be refunded to the business or used to pay off future bills.
      *
-     * In the Codat API, a bill credit note is an accounts payable record issued by a [supplier](https://docs.codat.io/accounting-api#/schemas/Supplier).
+     * In the Codat API, a bill credit note is an accounts payable record issued by a [supplier](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier).
      *
      * A bill credit note includes details of:
      * * The original and remaining credit.
-     * * Any allocations of the credit against other records, such as [bills](https://docs.codat.io/accounting-api#/schemas/Bill).
+     * * Any allocations of the credit against other records, such as [bills](https://docs.codat.io/sync-for-payables-api#/schemas/Bill).
      * * The supplier that issued the bill credit note.
      */
     @SpeakeasyMetadata()
@@ -92,6 +92,9 @@ export class CreateBillCreditNoteResponse extends SpeakeasyBase {
     @Expose({ name: "dataType" })
     dataType?: DataType;
 
+    /**
+     * A message about the error.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "errorMessage" })
     errorMessage?: string;
@@ -137,15 +140,23 @@ export class CreateBillCreditNoteResponse extends SpeakeasyBase {
     @Expose({ name: "status" })
     status: PushOperationStatus;
 
+    /**
+     * Push status code.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "statusCode" })
     statusCode: number;
 
+    /**
+     * Number of minutes the push operation must complete within before it times out.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "timeoutInMinutes" })
     timeoutInMinutes?: number;
 
     /**
+     * Number of seconds the push operation must complete within before it times out.
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @SpeakeasyMetadata()

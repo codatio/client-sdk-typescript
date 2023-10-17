@@ -1,4 +1,5 @@
 # PushOperations
+(*pushOperations*)
 
 ## Overview
 
@@ -17,22 +18,23 @@ Retrieve push operation.
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { GetPushOperationResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayables({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayables({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.pushOperations.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "ad7334ec-1b78-41b3-aa08-088d100efada",
-}).then((res: GetPushOperationResponse) => {
+  const res = await sdk.pushOperations.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    pushOperationKey: "b18d8d81-fd7b-4764-a31e-475cb1f36591",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -57,25 +59,25 @@ List push operation records.
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { ListPushOperationsResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayables({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayables({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.pushOperations.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "sed",
-}).then((res: ListPushOperationsResponse) => {
+  const res = await sdk.pushOperations.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -24,10 +24,16 @@ export class TrackingCustomerRef extends SpeakeasyBase {
 }
 
 export class TrackingProjectReference extends SpeakeasyBase {
+    /**
+     * Unique identifier to the project reference.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id: string;
 
+    /**
+     * The project's name.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "name" })
     name?: string;
@@ -47,10 +53,16 @@ export class Tracking extends SpeakeasyBase {
     @Type(() => TrackingCustomerRef)
     customerRef?: TrackingCustomerRef;
 
+    /**
+     * Defines if the invoice or credit note is billed/rebilled to a project or customer.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isBilledTo" })
     isBilledTo: BilledToType;
 
+    /**
+     * Defines if the invoice or credit note is billed/rebilled to a project or customer.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isRebilledTo" })
     isRebilledTo: BilledToType;

@@ -33,7 +33,7 @@ export class JournalEntryRecordReference extends SpeakeasyBase {
 }
 
 /**
- * > **Language tip:** For the top-level record of a company's financial transactions, refer to the [Journals](https://docs.codat.io/accounting-api#/schemas/Journal) data type
+ * > **Language tip:** For the top-level record of a company's financial transactions, refer to the [Journals](https://docs.codat.io/sync-for-payables-api#/schemas/Journal) data type
  *
  * @remarks
  *
@@ -41,7 +41,7 @@ export class JournalEntryRecordReference extends SpeakeasyBase {
  *
  * ## Overview
  *
- * A journal entry report shows the entries made in a company's general ledger, or [accounts](https://docs.codat.io/accounting-api#/schemas/Account), when transactions are approved. The journal line items for each journal entry should balance.
+ * A journal entry report shows the entries made in a company's general ledger, or [accounts](https://docs.codat.io/sync-for-payables-api#/schemas/Account), when transactions are approved. The journal line items for each journal entry should balance.
  *
  * A journal entry line item is a single transaction line on the journal entry. For example:
  *

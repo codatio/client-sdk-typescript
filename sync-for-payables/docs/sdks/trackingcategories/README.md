@@ -1,4 +1,5 @@
 # TrackingCategories
+(*trackingCategories*)
 
 ## Overview
 
@@ -24,22 +25,23 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { GetTrackingCategoryResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayables({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayables({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.trackingCategories.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  trackingCategoryId: "debitis",
-}).then((res: GetTrackingCategoryResponse) => {
+  const res = await sdk.trackingCategories.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    trackingCategoryId: "Northeast Hatchback Kia",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -69,25 +71,25 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { ListTrackingCategoriesResponse } from "@codat/sync-for-payables/dist/sdk/models/operations";
 
-const sdk = new CodatSyncPayables({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncPayables({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.trackingCategories.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "officia",
-}).then((res: ListTrackingCategoriesResponse) => {
+  const res = await sdk.trackingCategories.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

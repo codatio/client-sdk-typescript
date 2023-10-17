@@ -11,14 +11,20 @@ export class UpdateBillRequest extends SpeakeasyBase {
     bill?: shared.Bill;
 
     /**
-     * Unique identifier for a bill
+     * Unique identifier for a bill.
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=billId" })
     billId: string;
 
+    /**
+     * Unique identifier for a company.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 
+    /**
+     * Unique identifier for a connection.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
     connectionId: string;
 
@@ -28,11 +34,17 @@ export class UpdateBillRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=forceUpdate" })
     forceUpdate?: boolean;
 
+    /**
+     * Time limit for the push operation to complete before it is timed out.
+     */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=timeoutInMinutes" })
     timeoutInMinutes?: number;
 }
 
 export class UpdateBillResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -42,9 +54,15 @@ export class UpdateBillResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 

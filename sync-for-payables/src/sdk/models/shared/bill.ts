@@ -7,6 +7,7 @@ import { BillLineItem } from "./billlineitem";
 import { BillStatus } from "./billstatus";
 import { Metadata } from "./metadata";
 import { PaymentAllocationPayment } from "./paymentallocationpayment";
+import { SupplementalData } from "./supplementaldata";
 import { SupplierRef } from "./supplierref";
 import { Expose, Type } from "class-transformer";
 
@@ -122,24 +123,17 @@ export class BillPurchaseOrderReference extends SpeakeasyBase {
     purchaseOrderNumber?: string;
 }
 
-/**
- * Supplemental data is additional data you can include in our standard data types.
- *
- * @remarks
- *
- * It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
- */
-export class BillSupplementalData extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "content" })
-    content?: Record<string, Record<string, any>>;
-}
-
 export class BillWithholdingTax extends SpeakeasyBase {
+    /**
+     * Amount of tax withheld.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "amount" })
     amount: number;
 
+    /**
+     * Name assigned to withheld tax.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "name" })
     name: string;
@@ -152,7 +146,7 @@ export class BillWithholdingTax extends SpeakeasyBase {
  * >
  * > We distinguish between invoices where the company *owes money* vs. *is owed money*. If the company has received an invoice, and owes money to someone else (accounts payable) we call this a Bill.
  * >
- * > See [Invoices](https://docs.codat.io/accounting-api#/schemas/Invoice) for the accounts receivable equivalent of bills.
+ * > See [Invoices](https://docs.codat.io/sync-for-payables-api#/schemas/Invoice) for the accounts receivable equivalent of bills.
  *
  * View the coverage for bills in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills" target="_blank">Data coverage explorer</a>.
  *
@@ -166,7 +160,7 @@ export class BillWithholdingTax extends SpeakeasyBase {
  *
  * Some accounting platforms give a separate name to purchases where the payment is made immediately, such as something bought with a credit card or online payment. One example of this would be QuickBooks Online's *expenses*.
  *
- * You can find these types of transactions in our [Direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost) data model.
+ * You can find these types of transactions in our [Direct costs](https://docs.codat.io/sync-for-payables-api#/schemas/DirectCost) data model.
  */
 export class Bill extends SpeakeasyBase {
     /**
@@ -310,8 +304,8 @@ export class Bill extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "supplementalData" })
-    @Type(() => BillSupplementalData)
-    supplementalData?: BillSupplementalData;
+    @Type(() => SupplementalData)
+    supplementalData?: SupplementalData;
 
     /**
      * Reference to the supplier the record relates to.
