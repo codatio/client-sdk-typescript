@@ -1,4 +1,5 @@
-# dataIntegrity
+# DataIntegrity
+(*dataIntegrity*)
 
 ## Overview
 
@@ -18,27 +19,27 @@ Gets record-by-record match results for a given company and datatype, optionally
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { ListDataTypeDataIntegrityDetailsResponse } from "@codat/assess/dist/sdk/models/operations";
 import { DataIntegrityDataType } from "@codat/assess/dist/sdk/models/shared";
 
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAssess({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.dataIntegrity.details({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  dataType: DataIntegrityDataType.BankingAccounts,
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "provident",
-}).then((res: ListDataTypeDataIntegrityDetailsResponse) => {
+  const res = await sdk.dataIntegrity.details({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    dataType: DataIntegrityDataType.BankingAccounts,
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -63,23 +64,24 @@ Gets match status for a given company and datatype.
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GetDataIntegrityStatusResponse } from "@codat/assess/dist/sdk/models/operations";
 import { DataIntegrityDataType } from "@codat/assess/dist/sdk/models/shared";
 
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAssess({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.dataIntegrity.status({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  dataType: DataIntegrityDataType.BankingAccounts,
-}).then((res: GetDataIntegrityStatusResponse) => {
+  const res = await sdk.dataIntegrity.status({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    dataType: DataIntegrityDataType.BankingAccounts,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -104,24 +106,24 @@ Gets match summary for a given company and datatype, optionally restricted by a 
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GetDataIntegritySummariesResponse } from "@codat/assess/dist/sdk/models/operations";
 import { DataIntegrityDataType } from "@codat/assess/dist/sdk/models/shared";
 
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAssess({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.dataIntegrity.summary({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  dataType: DataIntegrityDataType.BankingAccounts,
-  query: "distinctio",
-}).then((res: GetDataIntegritySummariesResponse) => {
+  const res = await sdk.dataIntegrity.summary({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    dataType: DataIntegrityDataType.BankingAccounts,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

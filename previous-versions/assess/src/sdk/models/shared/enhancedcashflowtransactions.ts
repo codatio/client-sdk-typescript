@@ -24,7 +24,7 @@ export class EnhancedCashFlowTransactions extends SpeakeasyBase {
     dataSources?: DataSource[];
 
     /**
-     * Report additional information, which is specific to Assess reports
+     * Report additional information, which is specific to Lending API reports.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "reportInfo" })

@@ -1,4 +1,5 @@
-# reports
+# Reports
+(*reports*)
 
 ## Overview
 
@@ -6,6 +7,8 @@ Enriched reports and analyses of financial data
 
 ### Available Operations
 
+* [generateLoanSummary](#generateloansummary) - Generate loan summaries report
+* [generateLoanTransactions](#generateloantransactions) - Generate loan transactions report
 * [getAccountsForEnhancedBalanceSheet](#getaccountsforenhancedbalancesheet) - Get enhanced balance sheet accounts
 * [getAccountsForEnhancedProfitAndLoss](#getaccountsforenhancedprofitandloss) - Get enhanced profit and loss accounts
 * [getCommerceCustomerRetentionMetrics](#getcommercecustomerretentionmetrics) - Get customer retention metrics
@@ -15,10 +18,104 @@ Enriched reports and analyses of financial data
 * [getCommerceRevenueMetrics](#getcommercerevenuemetrics) - Get commerce revenue metrics
 * [getEnhancedCashFlowTransactions](#getenhancedcashflowtransactions) - Get enhanced cash flow report
 * [getEnhancedInvoicesReport](#getenhancedinvoicesreport) - Get enhanced invoices report
-* [getLoanSummary](#getloansummary) - Get enhanced loan summaries
+* [getLoanSummary](#getloansummary) - Get loan summaries
 * [getRecurringRevenueMetrics](#getrecurringrevenuemetrics) - Get key subscription revenue metrics
-* [listLoanTransactions](#listloantransactions) - List enhanced loan transactions
+* [listLoanTransactions](#listloantransactions) - List loan transactions
 * [requestRecurringRevenueMetrics](#requestrecurringrevenuemetrics) - Generate key subscription revenue metrics
+
+## generateLoanSummary
+
+The _Generate loan summaries_ endpoint requests the generation of the Loan Summaries report.
+
+Learn more about Codat's liabilities feature [here](https://docs.codat.io/lending/features/liabilities-overview).
+
+Make sure you have [synced a company](https://docs.codat.io/codat-api#/operations/refresh-company-data) recently before calling the endpoint.
+
+
+### Example Usage
+
+```typescript
+import { CodatAssess } from "@codat/assess";
+import { GenerateLoanSummarySourceType } from "@codat/assess/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new CodatAssess({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
+
+  const res = await sdk.reports.generateLoanSummary({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    sourceType: GenerateLoanSummarySourceType.Accounting,
+  });
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```
+
+### Parameters
+
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.GenerateLoanSummaryRequest](../../models/operations/generateloansummaryrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `retries`                                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                                         | :heavy_minus_sign:                                                                             | Configuration to override the default retry behavior of the client.                            |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+
+
+### Response
+
+**Promise<[operations.GenerateLoanSummaryResponse](../../models/operations/generateloansummaryresponse.md)>**
+
+
+## generateLoanTransactions
+
+The _Generate loan transactions_ endpoint requests the generation of the Loan Transactions report.
+
+Learn more about Codat's liabilities feature [here](https://docs.codat.io/lending/features/liabilities-overview).
+
+Make sure you have [synced a company](https://docs.codat.io/codat-api#/operations/refresh-company-data) recently before calling the endpoint.
+
+
+### Example Usage
+
+```typescript
+import { CodatAssess } from "@codat/assess";
+import { GenerateLoanTransactionsSourceType } from "@codat/assess/dist/sdk/models/operations";
+
+(async() => {
+  const sdk = new CodatAssess({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
+
+  const res = await sdk.reports.generateLoanTransactions({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    sourceType: GenerateLoanTransactionsSourceType.Accounting,
+  });
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```
+
+### Parameters
+
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                | [operations.GenerateLoanTransactionsRequest](../../models/operations/generateloantransactionsrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| `retries`                                                                                                | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                   | :heavy_minus_sign:                                                                                       | Configuration to override the default retry behavior of the client.                                      |
+| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
+
+
+### Response
+
+**Promise<[operations.GenerateLoanTransactionsResponse](../../models/operations/generateloantransactionsresponse.md)>**
+
 
 ## getAccountsForEnhancedBalanceSheet
 
@@ -30,23 +127,23 @@ Codat suggests a category for each account automatically, but you can [change it
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GetAccountsForEnhancedBalanceSheetResponse } from "@codat/assess/dist/sdk/models/operations";
 
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAssess({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.reports.getAccountsForEnhancedBalanceSheet({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  numberOfPeriods: 623564,
-  reportDate: "29-09-2020",
-}).then((res: GetAccountsForEnhancedBalanceSheetResponse) => {
+  const res = await sdk.reports.getAccountsForEnhancedBalanceSheet({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    reportDate: "29-09-2020",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -73,23 +170,23 @@ Codat suggests a category for each account automatically, but you can [change it
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GetAccountsForEnhancedProfitAndLossResponse } from "@codat/assess/dist/sdk/models/operations";
 
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAssess({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.reports.getAccountsForEnhancedProfitAndLoss({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  numberOfPeriods: 645894,
-  reportDate: "29-09-2020",
-}).then((res: GetAccountsForEnhancedProfitAndLossResponse) => {
+  const res = await sdk.reports.getAccountsForEnhancedProfitAndLoss({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    reportDate: "29-09-2020",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -114,28 +211,28 @@ Gets the customer retention metrics for a specific company connection, over one 
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GetCommerceCustomerRetentionMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
 import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
 
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAssess({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.reports.getCommerceCustomerRetentionMetrics({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  includeDisplayNames: false,
-  numberOfPeriods: 384382,
-  periodLength: 437587,
-  periodUnit: PeriodUnit.Week,
-  reportDate: "29-09-2020",
-}).then((res: GetCommerceCustomerRetentionMetricsResponse) => {
+  const res = await sdk.reports.getCommerceCustomerRetentionMetrics({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    numberOfPeriods: 474636,
+    periodLength: 781048,
+    periodUnit: PeriodUnit.Day,
+    reportDate: "29-09-2020",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -160,28 +257,28 @@ Gets the lifetime value metric for a specific company connection, over one or mo
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GetCommerceLifetimeValueMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
 import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
 
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAssess({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.reports.getCommerceLifetimeValueMetrics({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  includeDisplayNames: false,
-  numberOfPeriods: 891773,
-  periodLength: 56713,
-  periodUnit: PeriodUnit.Year,
-  reportDate: "29-09-2020",
-}).then((res: GetCommerceLifetimeValueMetricsResponse) => {
+  const res = await sdk.reports.getCommerceLifetimeValueMetrics({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    numberOfPeriods: 463554,
+    periodLength: 892968,
+    periodUnit: PeriodUnit.Day,
+    reportDate: "29-09-2020",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -206,28 +303,28 @@ Gets the order information for a specific company connection, over one or more p
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GetCommerceOrdersMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
 import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
 
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAssess({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.reports.getCommerceOrdersMetrics({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  includeDisplayNames: false,
-  numberOfPeriods: 272656,
-  periodLength: 383441,
-  periodUnit: PeriodUnit.Week,
-  reportDate: "29-09-2020",
-}).then((res: GetCommerceOrdersMetricsResponse) => {
+  const res = await sdk.reports.getCommerceOrdersMetrics({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    numberOfPeriods: 661381,
+    periodLength: 875123,
+    periodUnit: PeriodUnit.Year,
+    reportDate: "29-09-2020",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -252,28 +349,28 @@ Gets the refunds information for a specific company connection, over one or more
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GetCommerceRefundsMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
 import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
 
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAssess({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.reports.getCommerceRefundsMetrics({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  includeDisplayNames: false,
-  numberOfPeriods: 791725,
-  periodLength: 812169,
-  periodUnit: PeriodUnit.Month,
-  reportDate: "29-09-2020",
-}).then((res: GetCommerceRefundsMetricsResponse) => {
+  const res = await sdk.reports.getCommerceRefundsMetrics({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    numberOfPeriods: 806705,
+    periodLength: 498153,
+    periodUnit: PeriodUnit.Day,
+    reportDate: "29-09-2020",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -298,28 +395,28 @@ Get the revenue and revenue growth for a specific company connection, over one o
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GetCommerceRevenueMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
 import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
 
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAssess({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.reports.getCommerceRevenueMetrics({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  includeDisplayNames: false,
-  numberOfPeriods: 479977,
-  periodLength: 568045,
-  periodUnit: PeriodUnit.Week,
-  reportDate: "29-09-2020",
-}).then((res: GetCommerceRevenueMetricsResponse) => {
+  const res = await sdk.reports.getCommerceRevenueMetrics({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    numberOfPeriods: 58448,
+    periodLength: 864392,
+    periodUnit: PeriodUnit.Week,
+    reportDate: "29-09-2020",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -348,24 +445,24 @@ The Enhanced Cash Flow Transactions endpoint provides a fully categorized list o
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GetEnhancedCashFlowTransactionsResponse } from "@codat/assess/dist/sdk/models/operations";
 
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAssess({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.reports.getEnhancedCashFlowTransactions({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  page: 1,
-  pageSize: 100,
-  query: "recusandae",
-}).then((res: GetEnhancedCashFlowTransactionsResponse) => {
+  const res = await sdk.reports.getEnhancedCashFlowTransactions({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -390,24 +487,24 @@ Gets a list of invoices linked to the corresponding banking transaction
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GetEnhancedInvoicesReportResponse } from "@codat/assess/dist/sdk/models/operations";
 
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAssess({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.reports.getEnhancedInvoicesReport({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  page: 1,
-  pageSize: 100,
-  query: "temporibus",
-}).then((res: GetEnhancedInvoicesReportResponse) => {
+  const res = await sdk.reports.getEnhancedInvoicesReport({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -426,27 +523,35 @@ sdk.reports.getEnhancedInvoicesReport({
 
 ## getLoanSummary
 
-Get enhanced loan summaries
+The *Get loan summaries* endpoint returns a summary by integration type of all loans identified from a company's accounting, banking, and commerce integrations.
+
+The endpoint returns a list of a company's [loan summaries](https://docs.codat.io/codat-api#/schemas/LoanSummary) for each valid data connection.
+
+Make sure you have [synced a company](https://docs.codat.io/codat-api#/operations/refresh-company-data) recently before calling the endpoint.
+
 
 ### Example Usage
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GetLoanSummaryResponse } from "@codat/assess/dist/sdk/models/operations";
+import { GetLoanSummarySourceType } from "@codat/assess/dist/sdk/models/operations";
 
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAssess({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.reports.getLoanSummary({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetLoanSummaryResponse) => {
+  const res = await sdk.reports.getLoanSummary({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    sourceType: GetLoanSummarySourceType.Banking,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -471,22 +576,23 @@ Gets key metrics for subscription revenue.
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GetRecurringRevenueMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
 
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAssess({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.reports.getRecurringRevenueMetrics({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetRecurringRevenueMetricsResponse) => {
+  const res = await sdk.reports.getRecurringRevenueMetrics({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -505,28 +611,35 @@ sdk.reports.getRecurringRevenueMetrics({
 
 ## listLoanTransactions
 
-List enhanced loan transactions
+The *List loan transactions* endpoint returns all [loan transactions](https://docs.codat.io/codat-api#/schemas/LoanTransactions) identified from a company's accounting, banking, and commerce integrations.
+
+This detail gives analysts a better idea of the loan obligations a company may have.
+
+Make sure you have [synced a company](https://docs.codat.io/codat-api#/operations/refresh-company-data) recently before calling the endpoint.
+
 
 ### Example Usage
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { ListLoanTransactionsResponse, ListLoanTransactionsSourceType } from "@codat/assess/dist/sdk/models/operations";
+import { ListLoanTransactionsSourceType } from "@codat/assess/dist/sdk/models/operations";
 
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAssess({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.reports.listLoanTransactions({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  sourceType: ListLoanTransactionsSourceType.Banking,
-}).then((res: ListLoanTransactionsResponse) => {
+  const res = await sdk.reports.listLoanTransactions({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    sourceType: ListLoanTransactionsSourceType.Commerce,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -551,22 +664,23 @@ Requests production of key subscription revenue metrics.
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { RequestRecurringRevenueMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
 
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAssess({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.reports.requestRecurringRevenueMetrics({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: RequestRecurringRevenueMetricsResponse) => {
+  const res = await sdk.reports.requestRecurringRevenueMetrics({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

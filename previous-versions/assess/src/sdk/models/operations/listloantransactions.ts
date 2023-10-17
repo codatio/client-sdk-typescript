@@ -16,6 +16,9 @@ export enum ListLoanTransactionsSourceType {
 }
 
 export class ListLoanTransactionsRequest extends SpeakeasyBase {
+    /**
+     * Unique identifier for a company.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 
@@ -27,6 +30,9 @@ export class ListLoanTransactionsRequest extends SpeakeasyBase {
 }
 
 export class ListLoanTransactionsResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -42,9 +48,15 @@ export class ListLoanTransactionsResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     loanTransactions?: shared.LoanTransactions;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 }
