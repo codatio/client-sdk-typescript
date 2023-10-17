@@ -1,4 +1,5 @@
-# excelReports
+# ExcelReports
+(*excelReports*)
 
 ## Overview
 
@@ -19,23 +20,24 @@ Generate an Excel report which can subsequently be downloaded.
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GenerateExcelReportResponse } from "@codat/assess/dist/sdk/models/operations";
 import { ExcelReportType } from "@codat/assess/dist/sdk/models/shared";
 
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAssess({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.excelReports.generateExcelReport({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportType.EnhancedCashFlow,
-}).then((res: GenerateExcelReportResponse) => {
+  const res = await sdk.excelReports.generateExcelReport({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    reportType: ExcelReportType.EnhancedCashFlow,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -62,29 +64,28 @@ Request an Excel report for download.
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GetAccountingMarketingMetricsResponse } from "@codat/assess/dist/sdk/models/operations";
 import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
 
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAssess({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.excelReports.getAccountingMarketingMetrics({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  includeDisplayNames: false,
-  numberOfPeriods: 602763,
-  periodLength: 857946,
-  periodUnit: PeriodUnit.Month,
-  reportDate: "29-09-2020",
-  showInputValues: false,
-}).then((res: GetAccountingMarketingMetricsResponse) => {
+  const res = await sdk.excelReports.getAccountingMarketingMetrics({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    numberOfPeriods: 644039,
+    periodLength: 244044,
+    periodUnit: PeriodUnit.Week,
+    reportDate: "29-09-2020",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -109,23 +110,24 @@ Download the previously generated Excel report to a local drive.
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GetExcelReportResponse } from "@codat/assess/dist/sdk/models/operations";
 import { ExcelReportType } from "@codat/assess/dist/sdk/models/shared";
 
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAssess({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.excelReports.getExcelReport({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportType.EnhancedCashFlow,
-}).then((res: GetExcelReportResponse) => {
+  const res = await sdk.excelReports.getExcelReport({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    reportType: ExcelReportType.EnhancedCashFlow,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -150,23 +152,24 @@ Returns the status of the latest report requested.
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GetExcelReportGenerationStatusResponse } from "@codat/assess/dist/sdk/models/operations";
 import { ExcelReportType } from "@codat/assess/dist/sdk/models/shared";
 
-const sdk = new CodatAssess({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAssess({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.excelReports.getExcelReportGenerationStatus({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  reportType: ExcelReportType.EnhancedFinancials,
-}).then((res: GetExcelReportGenerationStatusResponse) => {
+  const res = await sdk.excelReports.getExcelReportGenerationStatus({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    reportType: ExcelReportType.EnhancedInvoices,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
