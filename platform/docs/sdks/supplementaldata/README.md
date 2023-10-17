@@ -1,4 +1,5 @@
 # SupplementalData
+(*supplementalData*)
 
 ## Overview
 
@@ -22,35 +23,36 @@ See the *examples* for integration-specific frequently requested properties.
 
 ```typescript
 import { CodatPlatform } from "@codat/platform";
-import { ConfigureSupplementalDataDataType, ConfigureSupplementalDataResponse } from "@codat/platform/dist/sdk/models/operations";
+import { ConfigureSupplementalDataDataType } from "@codat/platform/dist/sdk/models/operations";
 
-const sdk = new CodatPlatform({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatPlatform({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.supplementalData.configure({
-  supplementalDataConfiguration: {
-    supplementalDataConfig: {
-      "dolor": {
-        dataSource: "natus",
-        pullData: {
-          "laboriosam": "hic",
-        },
-        pushData: {
-          "saepe": "fuga",
+  const res = await sdk.supplementalData.configure({
+    supplementalDataConfiguration: {
+      supplementalDataConfig: {
+        "Cutler": {
+          pullData: {
+            "North": "transmitter",
+          },
+          pushData: {
+            "infrastructure": "Northeast",
+          },
         },
       },
     },
-  },
-  dataType: ConfigureSupplementalDataDataType.Invoices,
-  platformKey: "in",
-}).then((res: ConfigureSupplementalDataResponse) => {
+    dataType: ConfigureSupplementalDataDataType.Invoices,
+    platformKey: "gbol",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -77,25 +79,24 @@ The *Get configuration* endpoint returns supplemental data configuration previou
 
 ```typescript
 import { CodatPlatform } from "@codat/platform";
-import {
-  GetSupplementalDataConfigurationDataType,
-  GetSupplementalDataConfigurationResponse,
-} from "@codat/platform/dist/sdk/models/operations";
+import { GetSupplementalDataConfigurationDataType } from "@codat/platform/dist/sdk/models/operations";
 
-const sdk = new CodatPlatform({
-  security: {
-    authHeader: "",
-  },
-});
+(async() => {
+  const sdk = new CodatPlatform({
+    security: {
+      authHeader: "",
+    },
+  });
 
-sdk.supplementalData.getConfiguration({
-  dataType: GetSupplementalDataConfigurationDataType.Invoices,
-  platformKey: "corporis",
-}).then((res: GetSupplementalDataConfigurationResponse) => {
+  const res = await sdk.supplementalData.getConfiguration({
+    dataType: GetSupplementalDataConfigurationDataType.Invoices,
+    platformKey: "gbol",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

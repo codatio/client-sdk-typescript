@@ -70,4 +70,5 @@ export * from "./updateconnectionstatus";
 export * from "./validation";
 export * from "./validationitem";
 export * from "./webhook";
+export * from "./webhooknotifier";
 export * from "./webhooks";

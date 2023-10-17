@@ -14,13 +14,19 @@ import { Expose, Type } from "class-transformer";
  * `syncFromWindow`, `syncFromUTC` & `monthsToSync` only need to be included if you wish to set a value for them.
  */
 export class UpdateProfileSyncSettingsRequestBody extends SpeakeasyBase {
+    /**
+     * Unique identifier for your client in Codat.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "clientId" })
     clientId: string;
 
+    /**
+     * Set to `True` if you want to override default [sync settings](https://docs.codat.io/knowledge-base/advanced-sync-settings).
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "overridesDefaults" })
-    overridesDefaults: boolean;
+    overridesDefaults?: boolean;
 
     @SpeakeasyMetadata({ elemType: shared.SyncSetting })
     @Expose({ name: "settings" })
@@ -29,6 +35,9 @@ export class UpdateProfileSyncSettingsRequestBody extends SpeakeasyBase {
 }
 
 export class UpdateProfileSyncSettingsResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -38,9 +47,15 @@ export class UpdateProfileSyncSettingsResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 }
