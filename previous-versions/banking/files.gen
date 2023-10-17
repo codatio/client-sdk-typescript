@@ -53,12 +53,6 @@ src/sdk/models/shared/transactions.ts
 src/sdk/models/shared/security.ts
 src/sdk/models/shared/index.ts
 src/sdk/models/errors/index.ts
-docs/sdks/codatbanking/README.md
-docs/models/utils/retryconfig.md
-docs/sdks/accountbalances/README.md
-docs/sdks/accounts/README.md
-docs/sdks/transactioncategories/README.md
-docs/sdks/transactions/README.md
 USAGE.md
 docs/models/operations/listaccountbalancesrequest.md
 docs/models/operations/listaccountbalancesresponse.md
@@ -96,4 +90,10 @@ docs/models/shared/transactioncategoryref.md
 docs/models/shared/transactioncode.md
 docs/models/shared/transactions.md
 docs/models/shared/security.md
+docs/sdks/codatbanking/README.md
+docs/models/utils/retryconfig.md
+docs/sdks/accountbalances/README.md
+docs/sdks/accounts/README.md
+docs/sdks/transactioncategories/README.md
+docs/sdks/transactions/README.md
 .gitattributes
