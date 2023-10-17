@@ -1,4 +1,5 @@
 # AdvancedControls
+(*advancedControls*)
 
 ## Overview
 
@@ -19,22 +20,23 @@ Creates a Codat company..
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { CreateCompanyResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.advancedControls.createCompany({
-  description: "Requested early access to the new financing scheme.",
-  name: "Bank of Dave",
-}).then((res: CreateCompanyResponse) => {
+  const res = await sdk.advancedControls.createCompany({
+    description: "Requested early access to the new financing scheme.",
+    name: "Bank of Dave",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -59,21 +61,22 @@ Returns a company's commerce sync configuration'.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { GetConfigurationResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.advancedControls.getConfiguration({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetConfigurationResponse) => {
+  const res = await sdk.advancedControls.getConfiguration({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -98,24 +101,24 @@ Returns a list of companies.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { ListCompaniesResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.advancedControls.listCompanies({
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "corrupti",
-}).then((res: ListCompaniesResponse) => {
+  const res = await sdk.advancedControls.listCompanies({
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -140,21 +143,22 @@ Sets a company's commerce sync configuration.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { SetConfigurationResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.advancedControls.setConfiguration({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: SetConfigurationResponse) => {
+  const res = await sdk.advancedControls.setConfiguration({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

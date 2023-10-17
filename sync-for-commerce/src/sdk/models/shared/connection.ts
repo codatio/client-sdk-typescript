@@ -19,7 +19,7 @@ export enum ConnectionSourceType {
 }
 
 /**
- * A connection represents a [company's](https://docs.codat.io/sync-for-commerce-api#/schemas/Company) connection to a data source and allows you to synchronize data (pull and/or push) with that source.
+ * A connection represents a [company's](https://docs.codat.io/sync-for-sync-for-commerce-api#/schemas/Company) connection to a data source and allows you to synchronize data (pull and/or push) with that source.
  *
  * @remarks
  *
@@ -121,10 +121,16 @@ export class Connection extends SpeakeasyBase {
     @Expose({ name: "lastSync" })
     lastSync?: string;
 
+    /**
+     * The link URL your customers can use to authorize access to their business application.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "linkUrl" })
     linkUrl: string;
 
+    /**
+     * Name of integration connected to company.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "platformName" })
     platformName: string;

@@ -1,4 +1,5 @@
 # Sync
+(*sync*)
 
 ## Overview
 
@@ -22,22 +23,23 @@ Get the sync status for a specified sync
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { GetSyncByIdResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.sync.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
-}).then((res: GetSyncByIdResponse) => {
+  const res = await sdk.sync.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -62,21 +64,22 @@ Gets the status of the last successful sync
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { GetLastSuccessfulSyncResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.sync.getLastSuccessfulSync({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetLastSuccessfulSyncResponse) => {
+  const res = await sdk.sync.getLastSuccessfulSync({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -101,21 +104,22 @@ Gets the latest sync status
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { GetLatestSyncResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.sync.getLatestSync({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetLatestSyncResponse) => {
+  const res = await sdk.sync.getLatestSync({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -140,21 +144,22 @@ Gets a list of sync statuses.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { GetSyncStatusResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.sync.getStatus({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetSyncStatusResponse) => {
+  const res = await sdk.sync.getStatus({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -179,21 +184,22 @@ Gets a list of sync statuses
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { ListSyncsResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.sync.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: ListSyncsResponse) => {
+  const res = await sdk.sync.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -218,24 +224,25 @@ Run a Commerce sync from the last successful sync up to the date provided (optio
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { RequestSyncResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.sync.request({
-  syncToLatestArgs: {
-    syncTo: "2022-10-23T00:00:00.000Z",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: RequestSyncResponse) => {
+  const res = await sdk.sync.request({
+    syncToLatestArgs: {
+      syncTo: "2022-10-23T00:00:00.000Z",
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -260,27 +267,28 @@ Initiate a sync for the specified start date to the specified finish date in the
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { RequestSyncForDateRangeResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.sync.requestForDateRange({
-  syncRange: {
-    dateRange: {
-      finish: "2022-10-23T00:00:00.000Z",
-      start: "2022-10-23T00:00:00.000Z",
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: RequestSyncForDateRangeResponse) => {
+  });
+
+  const res = await sdk.sync.requestForDateRange({
+    syncRange: {
+      dateRange: {
+        finish: "2022-10-23T00:00:00.000Z",
+        start: "2022-10-23T00:00:00.000Z",
+      },
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

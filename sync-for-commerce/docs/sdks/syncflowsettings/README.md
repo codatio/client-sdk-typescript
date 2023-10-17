@@ -1,4 +1,5 @@
 # SyncFlowSettings
+(*syncFlowSettings*)
 
 ## Overview
 
@@ -19,19 +20,20 @@ Return preferences set for the text fields on sync flow.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { GetConfigTextSyncFlowResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.syncFlowSettings.getConfigTextSyncFlow().then((res: GetConfigTextSyncFlowResponse) => {
+  const res = await sdk.syncFlowSettings.getConfigTextSyncFlow();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -55,22 +57,23 @@ Return accounts which are visible on sync flow.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { GetVisibleAccountsResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.syncFlowSettings.getVisibleAccounts({
-  clientId: "e0f467cc-8796-4ed1-91a0-5dfc2ddf7cc7",
-  platformKey: "8ca1ba92-8fc8-4167-82cb-739205929396",
-}).then((res: GetVisibleAccountsResponse) => {
+  const res = await sdk.syncFlowSettings.getVisibleAccounts({
+    clientId: "86fe9741-738d-4f2c-8e96-9c3f84156e91",
+    platformKey: "gbol",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -95,24 +98,22 @@ Set preferences for the text fields on sync flow.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { UpdateConfigTextSyncFlowResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.syncFlowSettings.updateConfigTextSyncFlow({
-  "hic": {
-    required: false,
-    text: "saepe",
-  },
-}).then((res: UpdateConfigTextSyncFlowResponse) => {
+  const res = await sdk.syncFlowSettings.updateConfigTextSyncFlow({
+    "West": {},
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -137,26 +138,27 @@ Update which accounts are visible on sync flow.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { UpdateVisibleAccountsSyncFlowResponse } from "@codat/sync-for-commerce/dist/sdk/models/operations";
 
-const sdk = new CodatSyncCommerce({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatSyncCommerce({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.syncFlowSettings.updateVisibleAccountsSyncFlow({
-  visibleAccounts: {
-    visibleAccounts: [
-      "fuga",
-    ],
-  },
-  platformKey: "7596eb10-faaa-4235-ac59-55907aff1a3a",
-}).then((res: UpdateVisibleAccountsSyncFlowResponse) => {
+  const res = await sdk.syncFlowSettings.updateVisibleAccountsSyncFlow({
+    visibleAccounts: {
+      visibleAccounts: [
+        "Coordinator",
+      ],
+    },
+    platformKey: "gbol",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
