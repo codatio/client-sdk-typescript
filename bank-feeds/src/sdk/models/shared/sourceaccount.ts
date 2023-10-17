@@ -10,28 +10,28 @@ import { Expose } from "class-transformer";
  */
 export class SourceAccount extends SpeakeasyBase {
     /**
-     * The bank account name
+     * The bank account name.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "accountName" })
     accountName?: string;
 
     /**
-     * The account number
+     * The account number.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "accountNumber" })
     accountNumber?: string;
 
     /**
-     * The type of bank account e.g. Credit
+     * The type of bank account e.g. Credit.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "accountType" })
     accountType?: string;
 
     /**
-     * The latest balance for the bank account
+     * The latest balance for the bank account.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "balance" })
@@ -80,7 +80,7 @@ export class SourceAccount extends SpeakeasyBase {
     feedStartDate?: string;
 
     /**
-     * Unique ID for the bank account
+     * Unique ID for the bank account.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
@@ -114,12 +114,15 @@ export class SourceAccount extends SpeakeasyBase {
     modifiedDate?: string;
 
     /**
-     * The sort code
+     * The sort code.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "sortCode" })
     sortCode?: string;
 
+    /**
+     * Status of the source account.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
     status?: string;
