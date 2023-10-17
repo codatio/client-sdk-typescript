@@ -6,6 +6,9 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class DataConnectionError extends SpeakeasyBase {
+    /**
+     * A brief message about the error.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "errorMessage" })
     errorMessage?: string;
@@ -37,10 +40,16 @@ export class DataConnectionError extends SpeakeasyBase {
     @Expose({ name: "erroredOnUtc" })
     erroredOnUtc?: string;
 
+    /**
+     * The HTTP status code returned by the error.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "statusCode" })
     statusCode?: string;
 
+    /**
+     * A non-numeric status code/text.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "statusText" })
     statusText?: string;

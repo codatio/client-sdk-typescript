@@ -8,6 +8,9 @@ import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
 export class CreateConnectionRequestBody extends SpeakeasyBase {
+    /**
+     * A unique 4-letter key to represent a platform in each integration. View [accounting](https://docs.codat.io/integrations/accounting/overview#platform-keys), [banking](https://docs.codat.io/integrations/banking/overview#platform-keys), and [commerce](https://docs.codat.io/integrations/commerce/overview#platform-keys) platform keys.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "platformKey" })
     platformKey?: string;
@@ -17,6 +20,9 @@ export class CreateConnectionRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
     requestBody?: CreateConnectionRequestBody;
 
+    /**
+     * Unique identifier for a company.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 }
@@ -28,6 +34,9 @@ export class CreateConnectionResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     connection?: shared.Connection;
 
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -37,9 +46,15 @@ export class CreateConnectionResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 }
