@@ -76,7 +76,7 @@ export class AccountingCreateAccountResponse extends SpeakeasyBase {
      * At the same time, each integration may have its own requirements to the categories. For example, a Paypal account in Xero is of the `Asset.Bank` category and therefore requires additional properties to be provided.
      *
      * To determine the list of allowed categories for a specific integration, you can:
-     * - Follow our [Create, update, delete data](https://docs.codat.io/using-the-api/push) guide and use the [Get create account model](https://docs.codat.io/accounting-api#/operations/get-create-chartOfAccounts-model).
+     * - Follow our [Create, update, delete data](https://docs.codat.io/using-the-api/push) guide and use the [Get create account model](https://docs.codat.io/lending-api#/operations/get-create-chartOfAccounts-model).
      * - Refer to the integration's own documentation.
      *
      * > **Accounts with no category**
@@ -104,6 +104,9 @@ export class AccountingCreateAccountResponse extends SpeakeasyBase {
     @Expose({ name: "dataType" })
     dataType?: DataType;
 
+    /**
+     * A message about the error.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "errorMessage" })
     errorMessage?: string;
@@ -149,15 +152,23 @@ export class AccountingCreateAccountResponse extends SpeakeasyBase {
     @Expose({ name: "status" })
     status: PushOperationStatus;
 
+    /**
+     * Push status code.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "statusCode" })
     statusCode: number;
 
+    /**
+     * Number of minutes the push operation must complete within before it times out.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "timeoutInMinutes" })
     timeoutInMinutes?: number;
 
     /**
+     * Number of seconds the push operation must complete within before it times out.
+     *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @SpeakeasyMetadata()

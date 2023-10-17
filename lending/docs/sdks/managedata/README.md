@@ -1,4 +1,5 @@
 # ManageData
+(*manageData*)
 
 ### Available Operations
 
@@ -12,21 +13,22 @@ Get the state of each data type for a company
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GetDataStatusResponse } from "@codat/lending/dist/sdk/models/operations";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.manageData.getStatus({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetDataStatusResponse) => {
+  const res = await sdk.manageData.getStatus({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

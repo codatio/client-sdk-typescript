@@ -5,6 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountingBankAccountType } from "./accountingbankaccounttype";
 import { Metadata } from "./metadata";
+import { SupplementalData } from "./supplementaldata";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -14,7 +15,7 @@ import { Expose, Type } from "class-transformer";
  * >
  * > This datatype was originally used for accessing bank account data both in accounting integrations and open banking aggregators.
  * >
- * > To view bank account data through the Banking API, please refer to the new datatype [here](https://docs.codat.io/banking-api#/schemas/Account)
+ * > To view bank account data through the Banking API, please refer to the new datatype [here](https://docs.codat.io/lending-api#/schemas/Account)
  *
  * > View the coverage for bank accounts in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts" target="_blank">Data coverage explorer</a>.
  *
@@ -153,4 +154,16 @@ export class AccountingBankAccount extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "sourceModifiedDate" })
     sourceModifiedDate?: string;
+
+    /**
+     * Supplemental data is additional data you can include in our standard data types.
+     *
+     * @remarks
+     *
+     * It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "supplementalData" })
+    @Type(() => SupplementalData)
+    supplementalData?: SupplementalData;
 }

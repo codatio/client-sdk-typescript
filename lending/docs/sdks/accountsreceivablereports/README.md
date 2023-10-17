@@ -1,4 +1,5 @@
-# AccountsReceivable.Reports
+# AccountsReceivableReports
+(*accountsReceivable.reports*)
 
 ### Available Operations
 
@@ -15,25 +16,26 @@ Returns aged creditors report for company that shows the total balance owed by a
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GetAccountingAgedCreditorsReportResponse } from "@codat/lending/dist/sdk/models/operations";
 import { RFCDate } from "@codat/lending/dist/sdk/types";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.accountsReceivable.reports.getAgedCreditors({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  numberOfPeriods: 12,
-  periodLengthDays: 30,
-  reportDate: new RFCDate("2022-12-31"),
-}).then((res: GetAccountingAgedCreditorsReportResponse) => {
+  const res = await sdk.accountsReceivable.reports.getAgedCreditors({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    numberOfPeriods: 12,
+    periodLengthDays: 30,
+    reportDate: new RFCDate("2022-12-31"),
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -58,25 +60,26 @@ Returns aged debtors report for company that shows the total outstanding balance
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GetAccountingAgedDebtorsReportResponse } from "@codat/lending/dist/sdk/models/operations";
 import { RFCDate } from "@codat/lending/dist/sdk/types";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.accountsReceivable.reports.getAgedDebtors({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  numberOfPeriods: 12,
-  periodLengthDays: 30,
-  reportDate: new RFCDate("2022-12-31"),
-}).then((res: GetAccountingAgedDebtorsReportResponse) => {
+  const res = await sdk.accountsReceivable.reports.getAgedDebtors({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    numberOfPeriods: 12,
+    periodLengthDays: 30,
+    reportDate: new RFCDate("2022-12-31"),
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -101,21 +104,22 @@ Indicates whether the aged creditor report is available for the company.
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { IsAgedCreditorsReportAvailableResponse } from "@codat/lending/dist/sdk/models/operations";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.accountsReceivable.reports.isAgedCreditorsAvailable({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: IsAgedCreditorsReportAvailableResponse) => {
+  const res = await sdk.accountsReceivable.reports.isAgedCreditorsAvailable({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -140,21 +144,22 @@ Indicates whether the aged debtors report is available for the company.
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { IsAgedDebtorsReportAvailableResponse } from "@codat/lending/dist/sdk/models/operations";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.accountsReceivable.reports.isAgedDebtorsAvailable({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: IsAgedDebtorsReportAvailableResponse) => {
+  const res = await sdk.accountsReceivable.reports.isAgedDebtorsAvailable({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -10,7 +10,7 @@ import { Expose } from "class-transformer";
  */
 export class ProductVariantRef extends SpeakeasyBase {
     /**
-     * The unique identitifer of the product variant being referenced.
+     * The unique identifier of the product variant being referenced.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })

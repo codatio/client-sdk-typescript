@@ -1,4 +1,5 @@
-# FinancialStatements.CashFlow
+# FinancialStatementsCashFlow
+(*financialStatements.cashFlow*)
 
 ### Available Operations
 
@@ -12,24 +13,25 @@ Gets the latest cash flow statement for a company.
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GetAccountingCashFlowStatementResponse } from "@codat/lending/dist/sdk/models/operations";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.financialStatements.cashFlow.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  periodLength: 4,
-  periodsToCompare: 20,
-  startMonth: "2022-10-23T00:00:00.000Z",
-}).then((res: GetAccountingCashFlowStatementResponse) => {
+  const res = await sdk.financialStatements.cashFlow.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00.000Z",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

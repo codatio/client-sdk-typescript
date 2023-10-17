@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 0add1e087e1653186370d8ee74641f07
+  docChecksum: 49794ddbb09eb6f879edbfdbcf289538
   docVersion: 3.0.0
-  speakeasyVersion: 1.88.1
-  generationVersion: 2.122.1
+  speakeasyVersion: 1.100.2
+  generationVersion: 2.159.2
 generation:
   sdkClassName: CodatLending
   singleTagPerOp: false
@@ -11,18 +11,18 @@ generation:
 features:
   typescript:
     acceptHeaders: 2.81.1
-    core: 2.87.4
+    core: 2.90.4
     deprecations: 2.81.1
     examples: 2.81.2
-    globalSecurity: 2.81.1
+    globalSecurity: 2.82.0
     globalServerURLs: 2.82.0
-    groups: 2.81.1
+    groups: 2.81.2
     nameOverrides: 2.81.1
-    retries: 2.82.0
+    retries: 2.82.1
 typescript:
-  version: 3.2.0
+  version: 3.3.0
   author: Codat
-  description: Make credit decisions backed by enhanced financials, metrics, reports,
-    and data integrity features.
+  description: Make credit decisions backed by enhanced financials, metrics, reports, and data integrity features.
+  flattenGlobalSecurity: false
   maxMethodParams: 0
   packageName: '@codat/lending'

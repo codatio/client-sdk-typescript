@@ -8,7 +8,7 @@ import { Metadata } from "./metadata";
 import { Expose, Type } from "class-transformer";
 
 /**
- * > **Language tip:** For line items, or individual transactions, of a company's financial documents, refer to the [Journal entries](https://docs.codat.io/accounting-api#/schemas/JournalEntry) data type
+ * > **Language tip:** For line items, or individual transactions, of a company's financial documents, refer to the [Journal entries](https://docs.codat.io/lending-api#/schemas/JournalEntry) data type
  *
  * @remarks
  *
@@ -16,7 +16,7 @@ import { Expose, Type } from "class-transformer";
  *
  * ## Overview
  *
- * In accounting software, journals are used to record all the financial transactions of a company. Each transaction in a journal is represented by a separate [journal entry](https://docs.codat.io/accounting-api#/schemas/JournalEntry). These entries are used to create the general ledger, which is then used to create the financial statements of a business.
+ * In accounting software, journals are used to record all the financial transactions of a company. Each transaction in a journal is represented by a separate [journal entry](https://docs.codat.io/lending-api#/schemas/JournalEntry). These entries are used to create the general ledger, which is then used to create the financial statements of a business.
  *
  * When a company records all their transactions in a single journal, it can become large and difficult to maintain and track. This is why large companies often use multiple journals (also known as subjournals) to categorize and manage journal entries.
  *

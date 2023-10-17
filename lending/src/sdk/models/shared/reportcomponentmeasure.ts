@@ -6,14 +6,23 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class ReportComponentMeasure extends SpeakeasyBase {
+    /**
+     * The measure's index.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "index" })
     index?: number;
 
+    /**
+     * The measure's display name.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "measureDisplayName" })
     measureDisplayName?: string;
 
+    /**
+     * The measure's value.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "value" })
     value?: number;

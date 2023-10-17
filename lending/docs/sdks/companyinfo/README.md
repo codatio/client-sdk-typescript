@@ -1,4 +1,5 @@
 # CompanyInfo
+(*companyInfo*)
 
 ## Overview
 
@@ -17,21 +18,22 @@ Gets the latest basic info for a company.
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GetAccountingProfileResponse } from "@codat/lending/dist/sdk/models/operations";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.companyInfo.getAccountingProfile({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: GetAccountingProfileResponse) => {
+  const res = await sdk.companyInfo.getAccountingProfile({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -58,22 +60,23 @@ This may include information like addresses, tax registration details and social
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GetCommerceProfileResponse } from "@codat/lending/dist/sdk/models/operations";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.companyInfo.getCommerceProfile({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCommerceProfileResponse) => {
+  const res = await sdk.companyInfo.getCommerceProfile({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

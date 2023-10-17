@@ -1,4 +1,5 @@
-# ManageData.PullOperations
+# ManageDataPullOperations
+(*manageData.pullOperations*)
 
 ### Available Operations
 
@@ -13,22 +14,23 @@ Retrieve information about a single dataset or pull operation.
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GetPullOperationResponse } from "@codat/lending/dist/sdk/models/operations";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.manageData.pullOperations.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  datasetId: "eaed9f0f-e77b-4bc9-a58f-ab8b4b99ab18",
-}).then((res: GetPullOperationResponse) => {
+  const res = await sdk.manageData.pullOperations.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    datasetId: "b18d8d81-fd7b-4764-a31e-475cb1f36591",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -53,25 +55,25 @@ Gets the pull operation history (datasets) for a given company.
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { ListPullOperationsResponse } from "@codat/lending/dist/sdk/models/operations";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.manageData.pullOperations.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "consequuntur",
-}).then((res: ListPullOperationsResponse) => {
+  const res = await sdk.manageData.pullOperations.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

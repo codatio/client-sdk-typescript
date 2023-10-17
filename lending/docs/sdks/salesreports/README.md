@@ -1,4 +1,5 @@
-# Sales.Reports
+# SalesReports
+(*sales.reports*)
 
 ### Available Operations
 
@@ -36,28 +37,28 @@ The report data then combines multiple reporting dimensions and measures and out
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GetCommerceOrdersReportResponse } from "@codat/lending/dist/sdk/models/operations";
 import { PeriodUnit } from "@codat/lending/dist/sdk/models/shared";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.sales.reports.getOrders({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  includeDisplayNames: false,
-  numberOfPeriods: 992012,
-  periodLength: 241545,
-  periodUnit: PeriodUnit.Day,
-  reportDate: "29-09-2020",
-}).then((res: GetCommerceOrdersReportResponse) => {
+  const res = await sdk.sales.reports.getOrders({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    numberOfPeriods: 491586,
+    periodLength: 776309,
+    periodUnit: PeriodUnit.Week,
+    reportDate: "29-09-2020",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -106,28 +107,28 @@ The report data then combines multiple reporting dimensions and measures and out
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GetCommerceRefundsReportResponse } from "@codat/lending/dist/sdk/models/operations";
 import { PeriodUnit } from "@codat/lending/dist/sdk/models/shared";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.sales.reports.getRefunds({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  includeDisplayNames: false,
-  numberOfPeriods: 228263,
-  periodLength: 105906,
-  periodUnit: PeriodUnit.Week,
-  reportDate: "29-09-2020",
-}).then((res: GetCommerceRefundsReportResponse) => {
+  const res = await sdk.sales.reports.getRefunds({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    numberOfPeriods: 277786,
+    periodLength: 876670,
+    periodUnit: PeriodUnit.Year,
+    reportDate: "29-09-2020",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

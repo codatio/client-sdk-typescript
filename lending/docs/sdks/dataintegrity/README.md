@@ -1,4 +1,5 @@
 # DataIntegrity
+(*dataIntegrity*)
 
 ## Overview
 
@@ -20,27 +21,27 @@ The [details](https://docs.codat.io/lending-api#/schemas/DataIntegrityDetails) a
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { ListDataIntegrityDetailsResponse } from "@codat/lending/dist/sdk/models/operations";
 import { DataIntegrityDataType } from "@codat/lending/dist/sdk/models/shared";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.dataIntegrity.details({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  dataType: DataIntegrityDataType.BankingAccounts,
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "deserunt",
-}).then((res: ListDataIntegrityDetailsResponse) => {
+  const res = await sdk.dataIntegrity.details({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    dataType: DataIntegrityDataType.BankingAccounts,
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -72,23 +73,24 @@ The response tells you:
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GetDataIntegrityStatusResponse } from "@codat/lending/dist/sdk/models/operations";
 import { DataIntegrityDataType } from "@codat/lending/dist/sdk/models/shared";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.dataIntegrity.status({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  dataType: DataIntegrityDataType.BankingAccounts,
-}).then((res: GetDataIntegrityStatusResponse) => {
+  const res = await sdk.dataIntegrity.status({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    dataType: DataIntegrityDataType.BankingAccounts,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -117,24 +119,24 @@ The endpoint response includes only the summary results, not transactions. To vi
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GetDataIntegritySummariesResponse } from "@codat/lending/dist/sdk/models/operations";
 import { DataIntegrityDataType } from "@codat/lending/dist/sdk/models/shared";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.dataIntegrity.summaries({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  dataType: DataIntegrityDataType.BankingAccounts,
-  query: "suscipit",
-}).then((res: GetDataIntegritySummariesResponse) => {
+  const res = await sdk.dataIntegrity.summaries({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    dataType: DataIntegrityDataType.BankingAccounts,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

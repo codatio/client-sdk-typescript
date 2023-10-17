@@ -1,4 +1,5 @@
-# LoanWriteback.Transfers
+# LoanWritebackTransfers
+(*loanWriteback.transfers*)
 
 ### Available Operations
 
@@ -7,13 +8,13 @@
 
 ## create
 
-The *Create transfer* endpoint creates a new [transfer](https://docs.codat.io/accounting-api#/schemas/Transfer) for a given company's connection.
+The *Create transfer* endpoint creates a new [transfer](https://docs.codat.io/lending-api#/schemas/Transfer) for a given company's connection.
 
-[Transfers](https://docs.codat.io/accounting-api#/schemas/Transfer) record the movement of money between two bank accounts, or between a bank account and a nominal account.
+[Transfers](https://docs.codat.io/lending-api#/schemas/Transfer) record the movement of money between two bank accounts, or between a bank account and a nominal account.
 
 **Integration-specific behaviour**
 
-Required data may vary by integration. To see what data to post, first call [Get create transfer model](https://docs.codat.io/accounting-api#/operations/get-create-transfers-model).
+Required data may vary by integration. To see what data to post, first call [Get create transfer model](https://docs.codat.io/lending-api#/operations/get-create-transfers-model).
 
 Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=transfers) for integrations that support creating an account.
 
@@ -22,74 +23,59 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { CreateTransferResponse } from "@codat/lending/dist/sdk/models/operations";
+import { DataType } from "@codat/lending/dist/sdk/models/shared";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.loanWriteback.transfers.create({
-  accountingTransfer: {
-    contactRef: {
-      dataType: "laborum",
-      id: "c366c8dd-6b14-4429-8747-4778a7bd466d",
-    },
-    date: "2022-10-23T00:00:00.000Z",
-    depositedRecordRefs: [
-      {
-        dataType: "accountTransaction",
-        id: "c10ab3cd-ca42-4519-84e5-23c7e0bc7178",
+  const res = await sdk.loanWriteback.transfers.create({
+    accountingTransfer: {
+      contactRef: {
+        dataType: DataType.Invoices,
+        id: "<ID>",
       },
-    ],
-    description: "accusamus",
-    from: {
-      accountRef: {
-        id: "4796f2a7-0c68-4828-aaa4-82562f222e98",
-        name: "Tamara Vandervort IV",
+      date: "2022-10-23T00:00:00.000Z",
+      depositedRecordRefs: [
+        {
+          dataType: "invoice",
+        },
+      ],
+      from: {
+        accountRef: {},
+        currency: "USD",
       },
-      amount: 8003.79,
-      currency: "EUR",
-    },
-    id: "e61e6b7b-95bc-40ab-bc20-c4f3789fd871",
-    metadata: {
-      isDeleted: false,
-    },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    supplementalData: {
-      content: {
-        "sint": {
-          "pariatur": "possimus",
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      supplementalData: {
+        content: {
+          "innovative": {
+            "blue": "shred",
+          },
         },
       },
-    },
-    to: {
-      accountRef: {
-        id: "2efd121a-a6f1-4e67-8bdb-04f15756082d",
-        name: "Cassandra Ward V",
+      to: {
+        accountRef: {},
+        currency: "USD",
       },
-      amount: 9453.02,
-      currency: "GBP",
+      trackingCategoryRefs: [
+        {
+          id: "<ID>",
+        },
+      ],
     },
-    trackingCategoryRefs: [
-      {
-        id: "d1705133-9d08-4086-a184-0394c26071f9",
-        name: "Camille Hirthe III",
-      },
-    ],
-  },
-  allowSyncOnPushComplete: false,
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  forceUpdate: false,
-  timeoutInMinutes: 310067,
-}).then((res: CreateTransferResponse) => {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -108,9 +94,9 @@ sdk.loanWriteback.transfers.create({
 
 ## getCreateModel
 
-The *Get create transfer model* endpoint returns the expected data for the request payload when creating a [transfer](https://docs.codat.io/accounting-api#/schemas/Transfer) for a given company and integration.
+The *Get create transfer model* endpoint returns the expected data for the request payload when creating a [transfer](https://docs.codat.io/lending-api#/schemas/Transfer) for a given company and integration.
 
-[Transfers](https://docs.codat.io/accounting-api#/schemas/Transfer) record the movement of money between two bank accounts, or between a bank account and a nominal account.
+[Transfers](https://docs.codat.io/lending-api#/schemas/Transfer) record the movement of money between two bank accounts, or between a bank account and a nominal account.
 
 **Integration-specific behaviour**
 
@@ -123,22 +109,23 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GetCreateTransfersModelResponse } from "@codat/lending/dist/sdk/models/operations";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.loanWriteback.transfers.getCreateModel({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateTransfersModelResponse) => {
+  const res = await sdk.loanWriteback.transfers.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

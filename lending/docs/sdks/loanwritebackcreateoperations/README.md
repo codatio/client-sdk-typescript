@@ -1,4 +1,5 @@
-# LoanWriteback.CreateOperations
+# LoanWritebackCreateOperations
+(*loanWriteback.createOperations*)
 
 ### Available Operations
 
@@ -13,22 +14,23 @@ Retrieve create operation.
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GetCreateOperationResponse } from "@codat/lending/dist/sdk/models/operations";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.loanWriteback.createOperations.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "e6e13b99-d488-4e1e-91e4-50ad2abd4426",
-}).then((res: GetCreateOperationResponse) => {
+  const res = await sdk.loanWriteback.createOperations.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    pushOperationKey: "b18d8d81-fd7b-4764-a31e-475cb1f36591",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -53,25 +55,25 @@ List create operations.
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { ListCreateOperationsResponse } from "@codat/lending/dist/sdk/models/operations";
 
-const sdk = new CodatLending({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatLending({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.loanWriteback.createOperations.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "cupiditate",
-}).then((res: ListCreateOperationsResponse) => {
+  const res = await sdk.loanWriteback.createOperations.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
