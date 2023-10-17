@@ -6,14 +6,23 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class File extends SpeakeasyBase {
+    /**
+     * An optional display name for the file.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "displayName" })
     displayName?: string;
 
+    /**
+     * The file's name.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "fileName" })
     fileName?: string;
 
+    /**
+     * The source of the file uploaded.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "sourceType" })
     sourceType?: string;

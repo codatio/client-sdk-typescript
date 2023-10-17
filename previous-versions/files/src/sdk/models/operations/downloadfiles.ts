@@ -8,6 +8,9 @@ import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
 export class DownloadFilesRequest extends SpeakeasyBase {
+    /**
+     * Unique identifier for a company.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 
@@ -25,32 +28,53 @@ export class DownloadFilesRequest extends SpeakeasyBase {
  * This might be because your company or data connection id is wrong, or was already deleted.
  */
 export class DownloadFilesErrorMessage extends SpeakeasyBase {
+    /**
+     * `True` if the error occurred transiently and can be retried.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "canBeRetried" })
     canBeRetried?: string;
 
+    /**
+     * Unique identifier used to propagate to all downstream services and determine the source of the error.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "correlationId" })
     correlationId?: string;
 
+    /**
+     * Machine readable error code used to automate processes based on the code returned.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "detailedErrorCode" })
     detailedErrorCode?: number;
 
+    /**
+     * A brief description of the error.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
     error?: string;
 
+    /**
+     * Codat's service the returned the error.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "service" })
     service?: string;
 
+    /**
+     * The HTTP status code returned by the error.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "statusCode" })
     statusCode?: number;
 }
 
 export class DownloadFilesResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -69,9 +93,15 @@ export class DownloadFilesResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     errorMessage?: DownloadFilesErrorMessage;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 
