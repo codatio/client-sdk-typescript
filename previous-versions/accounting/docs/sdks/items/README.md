@@ -1,4 +1,5 @@
-# items
+# Items
+(*items*)
 
 ## Overview
 
@@ -28,64 +29,48 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { CreateItemResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { ItemStatus, ItemType } from "@codat/accounting/dist/sdk/models/shared";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.items.create({
-  item: {
-    billItem: {
-      accountRef: {
-        id: "33e66bd8-fe5d-400b-979e-f20387320590",
-        name: "Mr. Forrest Ryan",
+  const res = await sdk.items.create({
+    item: {
+      billItem: {
+        accountRef: {},
+        taxRateRef: {},
       },
-      description: "ea",
-      taxRateRef: {
-        effectiveTaxRate: 2622.31,
-        id: "00313b3e-5044-4f65-be72-dc4077d0cc3f",
-        name: "Carol Lowe",
+      invoiceItem: {
+        accountRef: {},
+        taxRateRef: {},
       },
-      unitPrice: 7738.54,
+      isBillItem: false,
+      isInvoiceItem: false,
+      itemStatus: ItemStatus.Active,
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      supplementalData: {
+        content: {
+          "Extended": {
+            "South": "shred",
+          },
+        },
+      },
+      type: ItemType.Inventory,
     },
-    code: "dicta",
-    id: "5ceb4d6e-1eae-40f7-9aed-f2acab58b991",
-    invoiceItem: {
-      accountRef: {
-        id: "c926ddb5-8946-41e7-821c-be6d9502f0ea",
-        name: "Sean Auer",
-      },
-      description: "sint",
-      taxRateRef: {
-        effectiveTaxRate: 9787.97,
-        id: "7ac2f72f-8850-4090-8911-608207888ec6",
-        name: "Teresa Lueilwitz",
-      },
-      unitPrice: 9454.09,
-    },
-    isBillItem: false,
-    isInvoiceItem: false,
-    itemStatus: ItemStatus.Archived,
-    metadata: {
-      isDeleted: false,
-    },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    name: "Marion Mills",
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    type: ItemType.Unknown,
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 881095,
-}).then((res: CreateItemResponse) => {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -117,22 +102,23 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetItemResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.items.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  itemId: "quod",
-}).then((res: GetItemResponse) => {
+  const res = await sdk.items.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    itemId: "Northeast Hatchback Kia",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -166,22 +152,23 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCreateItemsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.items.getCreateModel({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateItemsModelResponse) => {
+  const res = await sdk.items.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -211,25 +198,25 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListItemsResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.items.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "sunt",
-}).then((res: ListItemsResponse) => {
+  const res = await sdk.items.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -138,6 +138,9 @@ export class DirectIncome extends SpeakeasyBase {
     @Expose({ name: "modifiedDate" })
     modifiedDate?: string;
 
+    /**
+     * An optional note on the direct income that can be used to assign the direct income with a reference ID in your application.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "note" })
     note?: string;

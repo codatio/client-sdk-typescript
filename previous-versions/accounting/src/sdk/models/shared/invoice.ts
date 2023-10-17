@@ -47,10 +47,16 @@ import { Expose, Type } from "class-transformer";
  * > In Sage 50 and ClearBooks, you may prefer to use the **invoiceNumber** to identify an invoice rather than the invoice **id**. Each time a draft invoice is submitted or printed, the draft **id** becomes void and a submitted invoice with a new **id** exists in its place. In both platforms, the **invoiceNumber** should remain the same.
  */
 export class Invoice extends SpeakeasyBase {
+    /**
+     * Additional tax amount applied to invoice.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "additionalTaxAmount" })
     additionalTaxAmount?: number;
 
+    /**
+     * Percentage rate of any additional tax applied to the invoice.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "additionalTaxPercentage" })
     additionalTaxPercentage?: number;

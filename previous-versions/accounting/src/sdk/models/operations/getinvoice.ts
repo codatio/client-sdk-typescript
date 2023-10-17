@@ -7,17 +7,23 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetInvoiceRequest extends SpeakeasyBase {
+    /**
+     * Unique identifier for a company.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 
     /**
-     * Unique identifier for an invoice
+     * Unique identifier for an invoice.
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=invoiceId" })
     invoiceId: string;
 }
 
 export class GetInvoiceResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -33,9 +39,15 @@ export class GetInvoiceResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     invoice?: shared.Invoice;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 }

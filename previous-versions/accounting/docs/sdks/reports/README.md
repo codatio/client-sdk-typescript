@@ -1,4 +1,5 @@
-# reports
+# Reports
+(*reports*)
 
 ## Overview
 
@@ -22,25 +23,26 @@ Returns aged creditors report for company that shows the total balance owed by a
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetAgedCreditorsReportResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { RFCDate } from "@codat/accounting/dist/sdk/types";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.reports.getAgedCreditorsReport({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  numberOfPeriods: 12,
-  periodLengthDays: 30,
-  reportDate: new RFCDate("2022-12-31"),
-}).then((res: GetAgedCreditorsReportResponse) => {
+  const res = await sdk.reports.getAgedCreditorsReport({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    numberOfPeriods: 12,
+    periodLengthDays: 30,
+    reportDate: new RFCDate("2022-12-31"),
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -65,25 +67,26 @@ Returns aged debtors report for company that shows the total outstanding balance
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetAgedDebtorsReportResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { RFCDate } from "@codat/accounting/dist/sdk/types";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.reports.getAgedDebtorsReport({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  numberOfPeriods: 12,
-  periodLengthDays: 30,
-  reportDate: new RFCDate("2022-12-31"),
-}).then((res: GetAgedDebtorsReportResponse) => {
+  const res = await sdk.reports.getAgedDebtorsReport({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    numberOfPeriods: 12,
+    periodLengthDays: 30,
+    reportDate: new RFCDate("2022-12-31"),
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -108,24 +111,25 @@ Gets the latest balance sheet for a company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetBalanceSheetResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.reports.getBalanceSheet({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  periodLength: 4,
-  periodsToCompare: 20,
-  startMonth: "2022-10-23T00:00:00.000Z",
-}).then((res: GetBalanceSheetResponse) => {
+  const res = await sdk.reports.getBalanceSheet({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00.000Z",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -150,24 +154,25 @@ Gets the latest cash flow statement for a company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCashFlowStatementResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.reports.getCashFlowStatement({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  periodLength: 4,
-  periodsToCompare: 20,
-  startMonth: "2022-10-23T00:00:00.000Z",
-}).then((res: GetCashFlowStatementResponse) => {
+  const res = await sdk.reports.getCashFlowStatement({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00.000Z",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -192,24 +197,25 @@ Gets the latest profit and loss for a company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetProfitAndLossResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.reports.getProfitAndLoss({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  periodLength: 4,
-  periodsToCompare: 20,
-  startMonth: "2022-10-23T00:00:00.000Z",
-}).then((res: GetProfitAndLossResponse) => {
+  const res = await sdk.reports.getProfitAndLoss({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00.000Z",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -234,21 +240,22 @@ Indicates whether the aged creditor report is available for the company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { IsAgedCreditorsReportAvailableResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.reports.isAgedCreditorsReportAvailable({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: IsAgedCreditorsReportAvailableResponse) => {
+  const res = await sdk.reports.isAgedCreditorsReportAvailable({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -273,21 +280,22 @@ Indicates whether the aged debtor report is available for the company.
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { IsAgedDebtorReportAvailableResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.reports.isAgedDebtorReportAvailable({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-}).then((res: IsAgedDebtorReportAvailableResponse) => {
+  const res = await sdk.reports.isAgedDebtorReportAvailable({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

@@ -24,10 +24,16 @@ export class Propertiestracking1 extends SpeakeasyBase {
     @Type(() => AccountingCustomerRef)
     customerRef?: AccountingCustomerRef;
 
+    /**
+     * Defines if the bill or bill credit note is billed/rebilled to a project.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isBilledTo" })
     isBilledTo: BilledToType1;
 
+    /**
+     * Defines if the bill or bill credit note is billed/rebilled to a project.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isRebilledTo" })
     isRebilledTo: BilledToType1;

@@ -26,10 +26,16 @@ export class BillCreditNoteLineItemTracking extends SpeakeasyBase {
     @Type(() => AccountingCustomerRef)
     customerRef?: AccountingCustomerRef;
 
+    /**
+     * Defines if the invoice or credit note is billed/rebilled to a project or customer.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isBilledTo" })
     isBilledTo: BilledToType;
 
+    /**
+     * Defines if the invoice or credit note is billed/rebilled to a project or customer.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "isRebilledTo" })
     isRebilledTo: BilledToType;

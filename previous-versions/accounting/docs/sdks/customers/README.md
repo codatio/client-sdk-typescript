@@ -1,4 +1,5 @@
-# customers
+# Customers
+(*customers*)
 
 ## Overview
 
@@ -32,81 +33,58 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { CreateCustomerResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AccountingAddressType, CustomerStatus, PhoneNumberType } from "@codat/accounting/dist/sdk/models/shared";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.customers.create({
-  customer: {
-    addresses: [
-      {
-        city: "West Elroy",
-        country: "Bolivia",
-        line1: "praesentium",
-        line2: "eveniet",
-        postalCode: "77607",
-        region: "quos",
-        type: AccountingAddressType.Delivery,
-      },
-    ],
-    contactName: "sint",
-    contacts: [
-      {
-        address: {
-          city: "Emersonside",
-          country: "Armenia",
-          line1: "voluptates",
-          line2: "laudantium",
-          postalCode: "06859",
-          region: "deleniti",
-          type: AccountingAddressType.Unknown,
+  const res = await sdk.customers.create({
+    customer: {
+      addresses: [
+        {
+          type: AccountingAddressType.Billing,
         },
-        email: "Barrett98@hotmail.com",
-        modifiedDate: "2022-10-23T00:00:00.000Z",
-        name: "William Koch",
-        phone: [
-          {
-            number: "01224 658 999",
-            type: PhoneNumberType.Fax,
+      ],
+      contacts: [
+        {
+          address: {
+            type: AccountingAddressType.Billing,
           },
-        ],
-        status: CustomerStatus.Unknown,
-      },
-    ],
-    customerName: "dolorum",
-    defaultCurrency: "USD",
-    emailAddress: "ad",
-    id: "f3cabd90-5a97-42e0-9672-8227b2d30947",
-    metadata: {
-      isDeleted: false,
-    },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "946.496.5489 x3236",
-    registrationNumber: "voluptas",
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: CustomerStatus.Active,
-    supplementalData: {
-      content: {
-        "recusandae": {
-          "corporis": "non",
+          modifiedDate: "2022-10-23T00:00:00.000Z",
+          phone: [
+            {
+              number: "01224 658 999",
+              type: PhoneNumberType.Mobile,
+            },
+          ],
+          status: CustomerStatus.Unknown,
+        },
+      ],
+      defaultCurrency: "GBP",
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      status: CustomerStatus.Archived,
+      supplementalData: {
+        content: {
+          "grey": {
+            "technology": "East",
+          },
         },
       },
     },
-    taxNumber: "necessitatibus",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 719469,
-}).then((res: CreateCustomerResponse) => {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -136,24 +114,25 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { DownloadCustomerAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.customers.downloadAttachment({
-  attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "maiores",
-}).then((res: DownloadCustomerAttachmentResponse) => {
+  const res = await sdk.customers.downloadAttachment({
+    attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    customerId: "Dakota Avon specifically",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -185,22 +164,23 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCustomerResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.customers.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  customerId: "laboriosam",
-}).then((res: GetCustomerResponse) => {
+  const res = await sdk.customers.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    customerId: "Northeast Hatchback Kia",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -230,24 +210,25 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCustomerAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.customers.getAttachment({
-  attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "voluptatem",
-}).then((res: GetCustomerAttachmentResponse) => {
+  const res = await sdk.customers.getAttachment({
+    attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    customerId: "array East along",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -281,22 +262,23 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCreateUpdateCustomersModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.customers.getCreateUpdateModel({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateUpdateCustomersModelResponse) => {
+  const res = await sdk.customers.getCreateUpdateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -326,25 +308,25 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListCustomersResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.customers.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "optio",
-}).then((res: ListCustomersResponse) => {
+  const res = await sdk.customers.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -374,23 +356,24 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListCustomerAttachmentsResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.customers.listAttachments({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "sequi",
-}).then((res: ListCustomerAttachmentsResponse) => {
+  const res = await sdk.customers.listAttachments({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    customerId: "intuitive Frozen ouch",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -424,83 +407,59 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { UpdateCustomerResponse } from "@codat/accounting/dist/sdk/models/operations";
 import { AccountingAddressType, CustomerStatus, PhoneNumberType } from "@codat/accounting/dist/sdk/models/shared";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.customers.update({
-  customer: {
-    addresses: [
-      {
-        city: "North Wavatown",
-        country: "Cameroon",
-        line1: "amet",
-        line2: "rerum",
-        postalCode: "38123",
-        region: "dignissimos",
-        type: AccountingAddressType.Delivery,
-      },
-    ],
-    contactName: "itaque",
-    contacts: [
-      {
-        address: {
-          city: "Lake Alexannefield",
-          country: "Seychelles",
-          line1: "quos",
-          line2: "possimus",
-          postalCode: "45906-1548",
-          region: "unde",
-          type: AccountingAddressType.Unknown,
+  const res = await sdk.customers.update({
+    customer: {
+      addresses: [
+        {
+          type: AccountingAddressType.Delivery,
         },
-        email: "Clifford71@hotmail.com",
-        modifiedDate: "2022-10-23T00:00:00.000Z",
-        name: "Ralph Hamill",
-        phone: [
-          {
-            number: "01224 658 999",
-            type: PhoneNumberType.Fax,
+      ],
+      contacts: [
+        {
+          address: {
+            type: AccountingAddressType.Unknown,
           },
-        ],
-        status: CustomerStatus.Archived,
-      },
-    ],
-    customerName: "accusamus",
-    defaultCurrency: "GBP",
-    emailAddress: "quas",
-    id: "8b1c4ee2-c8c6-4ce6-91fe-eb1c7cbdb6ee",
-    metadata: {
-      isDeleted: false,
-    },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    phone: "424.676.1311 x442",
-    registrationNumber: "odio",
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    status: CustomerStatus.Archived,
-    supplementalData: {
-      content: {
-        "cupiditate": {
-          "illo": "exercitationem",
+          modifiedDate: "2022-10-23T00:00:00.000Z",
+          phone: [
+            {
+              number: "+44 25691 154789",
+              type: PhoneNumberType.Landline,
+            },
+          ],
+          status: CustomerStatus.Archived,
+        },
+      ],
+      defaultCurrency: "EUR",
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      status: CustomerStatus.Archived,
+      supplementalData: {
+        content: {
+          "redundant": {
+            "cheater": "Islands",
+          },
         },
       },
     },
-    taxNumber: "laborum",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  customerId: "illum",
-  forceUpdate: false,
-  timeoutInMinutes: 147989,
-}).then((res: UpdateCustomerResponse) => {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    customerId: "withdrawal extend",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

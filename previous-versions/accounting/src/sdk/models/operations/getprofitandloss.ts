@@ -7,6 +7,9 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetProfitAndLossRequest extends SpeakeasyBase {
+    /**
+     * Unique identifier for a company.
+     */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
 
@@ -22,11 +25,17 @@ export class GetProfitAndLossRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=periodsToCompare" })
     periodsToCompare: number;
 
+    /**
+     * The month the report starts from.
+     */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=startMonth" })
     startMonth?: string;
 }
 
 export class GetProfitAndLossResponse extends SpeakeasyBase {
+    /**
+     * HTTP response content type for this operation
+     */
     @SpeakeasyMetadata()
     contentType: string;
 
@@ -42,9 +51,15 @@ export class GetProfitAndLossResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     profitAndLossReport?: shared.ProfitAndLossReport1;
 
+    /**
+     * HTTP response status code for this operation
+     */
     @SpeakeasyMetadata()
     statusCode: number;
 
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
 }

@@ -7,6 +7,7 @@ import { AccountingCustomerRef } from "./accountingcustomerref";
 import { AccountRef } from "./accountref";
 import { Metadata } from "./metadata";
 import { PaymentLine } from "./paymentline";
+import { PaymentMethodRef } from "./paymentmethodref";
 import { SupplementalData } from "./supplementaldata";
 import { Expose, Type } from "class-transformer";
 
@@ -812,9 +813,13 @@ export class Payment extends SpeakeasyBase {
     @Expose({ name: "note" })
     note?: string;
 
+    /**
+     * The payment method the record is linked to in the accounting or commerce platform.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "paymentMethodRef" })
-    paymentMethodRef?: any;
+    @Type(() => PaymentMethodRef)
+    paymentMethodRef?: PaymentMethodRef;
 
     /**
      * Friendly reference for the payment.

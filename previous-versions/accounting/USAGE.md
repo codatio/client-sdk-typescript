@@ -3,22 +3,24 @@
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetAccountTransactionResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async () => {
+    const sdk = new CodatAccounting({
+        security: {
+            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+        },
+    });
 
-sdk.accountTransactions.get({
-  accountTransactionId: "corrupti",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetAccountTransactionResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
+    const res = await sdk.accountTransactions.get({
+        accountTransactionId: "Northeast Hatchback Kia",
+        companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+        connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
 ```
 <!-- End SDK Example Usage -->

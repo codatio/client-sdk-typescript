@@ -1,4 +1,5 @@
-# directCosts
+# DirectCosts
+(*directCosts*)
 
 ## Overview
 
@@ -32,116 +33,84 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { CreateDirectCostResponse } from "@codat/accounting/dist/sdk/models/operations";
+import { DataType } from "@codat/accounting/dist/sdk/models/shared";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
-
-sdk.directCosts.create({
-  directCost: {
-    contactRef: {
-      dataType: "maxime",
-      id: "af5dd672-3dc0-4f5a-a2f3-a6b700878756",
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
-    currency: "GBP",
-    currencyRate: 3086.58,
-    id: "3f5a6c98-b555-4540-80d4-0bcacc6cbd6b",
-    issueDate: "2022-10-23T00:00:00.000Z",
-    lineItems: [
-      {
-        accountRef: {
-          id: "f3ec9093-04f9-426b-ad25-53819b474b0e",
-          name: "Steve Barrows",
-        },
-        description: "ea",
-        discountAmount: 1799.06,
-        discountPercentage: 3052.67,
-        itemRef: {
-          id: "8fff639a-910a-4bdc-ab62-676696e1ec00",
-          name: "Kathryn Bruen",
-        },
-        quantity: 2274.31,
-        subTotal: 3466.08,
-        taxAmount: 8470.18,
-        taxRateRef: {
-          effectiveTaxRate: 5065.32,
-          id: "9acb3ecf-da8d-40c5-89ef-03004978a61f",
-          name: "Peter Schmitt",
-        },
-        totalAmount: 349.89,
-        tracking: {
-          invoiceTo: {
-            dataType: "invoice",
-            id: "88f77c1f-fc71-4dca-963f-2a3c80a97ff3",
+  });
+
+  const res = await sdk.directCosts.create({
+    directCost: {
+      contactRef: {
+        dataType: DataType.Invoices,
+        id: "<ID>",
+      },
+      currency: "USD",
+      issueDate: "2022-10-23T00:00:00.000Z",
+      lineItems: [
+        {
+          accountRef: {},
+          itemRef: {
+            id: "<ID>",
           },
-          recordRefs: [
+          quantity: 6384.24,
+          taxRateRef: {},
+          tracking: {
+            invoiceTo: {
+              dataType: "transfer",
+            },
+            recordRefs: [
+              {
+                dataType: "invoice",
+              },
+            ],
+          },
+          trackingCategoryRefs: [
             {
-              dataType: "journalEntry",
-              id: "4cddf857-a9e6-4187-ac6a-b21d29dfc94d",
+              id: "<ID>",
             },
           ],
+          unitAmount: 2884.08,
         },
-        trackingCategoryRefs: [
-          {
-            id: "6fecd799-3900-466a-ad2d-000355338cec",
-            name: "Lena Kerluke",
+      ],
+      metadata: {},
+      modifiedDate: "2022-10-23T00:00:00.000Z",
+      paymentAllocations: [
+        {
+          allocation: {
+            allocatedOnDate: "2022-10-23T00:00:00.000Z",
+            currency: "GBP",
           },
-        ],
-        unitAmount: 1440.58,
-      },
-    ],
-    metadata: {
-      isDeleted: false,
-    },
-    modifiedDate: "2022-10-23T00:00:00.000Z",
-    note: "necessitatibus",
-    paymentAllocations: [
-      {
-        allocation: {
-          allocatedOnDate: "2022-10-23T00:00:00.000Z",
-          currency: "GBP",
-          currencyRate: 3690.99,
-          totalAmount: 1631.81,
-        },
-        payment: {
-          accountRef: {
-            id: "cb311916-7b8e-43c8-9b03-408d6d364ffd",
-            name: "Jill Hermann III",
+          payment: {
+            accountRef: {},
+            currency: "EUR",
+            paidOnDate: "2022-10-23T00:00:00.000Z",
           },
-          currency: "EUR",
-          currencyRate: 1168.67,
-          id: "263d48e9-35c2-4c9e-81f3-0be3e43202d7",
-          note: "magni",
-          paidOnDate: "2022-10-23T00:00:00.000Z",
-          reference: "aliquid",
-          totalAmount: 3216.97,
+        },
+      ],
+      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      subTotal: 9510.62,
+      supplementalData: {
+        content: {
+          "abnormally": {
+            "deposit": "evolve",
+          },
         },
       },
-    ],
-    reference: "voluptate",
-    sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-    subTotal: 3249.99,
-    supplementalData: {
-      content: {
-        "sit": {
-          "vel": "laboriosam",
-        },
-      },
+      taxAmount: 7150.4,
+      totalAmount: 7926.2,
     },
-    taxAmount: 3112.47,
-    totalAmount: 941.22,
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  timeoutInMinutes: 525223,
-}).then((res: CreateDirectCostResponse) => {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -171,24 +140,25 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { DownloadDirectCostAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.directCosts.downloadAttachment({
-  attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "dignissimos",
-}).then((res: DownloadDirectCostAttachmentResponse) => {
+  const res = await sdk.directCosts.downloadAttachment({
+    attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    directCostId: "Dakota Avon specifically",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -220,23 +190,24 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetDirectCostResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.directCosts.get({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "doloremque",
-}).then((res: GetDirectCostResponse) => {
+  const res = await sdk.directCosts.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    directCostId: "Northeast Hatchback Kia",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -266,24 +237,25 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetDirectCostAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.directCosts.getAttachment({
-  attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "assumenda",
-}).then((res: GetDirectCostAttachmentResponse) => {
+  const res = await sdk.directCosts.getAttachment({
+    attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    directCostId: "array East along",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -317,22 +289,23 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { GetCreateDirectCostsModelResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.directCosts.getCreateModel({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-}).then((res: GetCreateDirectCostsModelResponse) => {
+  const res = await sdk.directCosts.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -362,26 +335,26 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListDirectCostsResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.directCosts.list({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  orderBy: "-modifiedDate",
-  page: 1,
-  pageSize: 100,
-  query: "provident",
-}).then((res: ListDirectCostsResponse) => {
+  const res = await sdk.directCosts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    orderBy: "-modifiedDate",
+    page: 1,
+    pageSize: 100,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -411,23 +384,24 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { ListDirectCostAttachmentsResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.directCosts.listAttachments({
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "facere",
-}).then((res: ListDirectCostAttachmentsResponse) => {
+  const res = await sdk.directCosts.listAttachments({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    directCostId: "intuitive Frozen ouch",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -461,27 +435,28 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { UploadDirectCostAttachmentResponse } from "@codat/accounting/dist/sdk/models/operations";
 
-const sdk = new CodatAccounting({
-  security: {
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-  },
-});
+(async() => {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
 
-sdk.directCosts.uploadAttachment({
-  requestBody: {
-    content: "sed".encode(),
-    requestBody: "inventore",
-  },
-  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directCostId: "voluptatibus",
-}).then((res: UploadDirectCostAttachmentResponse) => {
+  const res = await sdk.directCosts.uploadAttachment({
+    requestBody: {
+      content: "v/ghW&IC$x" as bytes <<<>>>,
+      requestBody: "Elegant Producer Electric",
+    },
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    directCostId: "Iowa Bentley",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
