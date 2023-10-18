@@ -21,6 +21,5 @@ typescript:
   version: 0.30.0
   author: Codat
   description: Access standardized banking data from our banking integrations.
-  flattenGlobalSecurity: false
   maxMethodParams: 0
   packageName: '@codat/banking'

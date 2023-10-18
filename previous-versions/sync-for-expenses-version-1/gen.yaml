@@ -21,6 +21,5 @@ typescript:
   version: 0.3.0
   author: Codat
   description: Push expenses to accounting platforms.
-  flattenGlobalSecurity: false
   maxMethodParams: 0
   packageName: '@codat/sync-for-expenses-version-1'

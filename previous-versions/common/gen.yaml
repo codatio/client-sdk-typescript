@@ -20,7 +20,7 @@ features:
 typescript:
   version: 0.38.0
   author: Codat
-  description: Manage the building blocks of Codat, including companies, connections, and more.
-  flattenGlobalSecurity: false
+  description: Manage the building blocks of Codat, including companies, connections,
+    and more.
   maxMethodParams: 0
   packageName: '@codat/common'
