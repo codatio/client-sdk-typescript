@@ -65,4 +65,3 @@ import { CodatFiles } from "@codat/files";
 <!-- End Dev Containers -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
-

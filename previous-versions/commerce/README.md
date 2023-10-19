@@ -110,4 +110,3 @@ import { CodatCommerce } from "@codat/commerce";
 <!-- End Dev Containers -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
-
