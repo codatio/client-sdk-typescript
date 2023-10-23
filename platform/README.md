@@ -90,7 +90,7 @@ import { CodatPlatform } from "@codat/platform";
 
 * [createApiKey](docs/sdks/settings/README.md#createapikey) - Create API key
 * [deleteApiKey](docs/sdks/settings/README.md#deleteapikey) - Delete API key
-* [~~getProfile~~](docs/sdks/settings/README.md#getprofile) - Get profile :warning: **Deprecated**
+* [getProfile](docs/sdks/settings/README.md#getprofile) - Get profile
 * [getSyncSettings](docs/sdks/settings/README.md#getsyncsettings) - Get sync settings
 * [listApiKeys](docs/sdks/settings/README.md#listapikeys) - List API keys
 * [updateProfile](docs/sdks/settings/README.md#updateprofile) - Update profile
@@ -111,8 +111,6 @@ import { CodatPlatform } from "@codat/platform";
 
 
 <!-- Start Dev Containers -->
-
-
 
 <!-- End Dev Containers -->
 

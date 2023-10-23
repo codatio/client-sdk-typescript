@@ -35,12 +35,12 @@ import { ConfigureSupplementalDataDataType } from "@codat/platform/dist/sdk/mode
   const res = await sdk.supplementalData.configure({
     supplementalDataConfiguration: {
       supplementalDataConfig: {
-        "Cutler": {
+        "key": {
           pullData: {
-            "North": "transmitter",
+            "key": "string",
           },
           pushData: {
-            "infrastructure": "Northeast",
+            "key": "string",
           },
         },
       },
