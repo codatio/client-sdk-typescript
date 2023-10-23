@@ -63,8 +63,8 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
       sourceModifiedDate: "2022-10-23T00:00:00.000Z",
       supplementalData: {
         content: {
-          "blue": {
-            "shred": "abnormally",
+          "key": {
+            "key": "string",
           },
         },
       },

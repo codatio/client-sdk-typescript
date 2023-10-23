@@ -65,8 +65,8 @@ import { BillPaymentLineLinkType } from "@codat/sync-for-payables/dist/sdk/model
       sourceModifiedDate: "2022-10-23T00:00:00.000Z",
       supplementalData: {
         content: {
-          "blue": {
-            "shred": "abnormally",
+          "key": {
+            "key": "string",
           },
         },
       },
@@ -144,7 +144,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
   });
 
   const res = await sdk.billPayments.delete({
-    billPaymentId: "Van complexity",
+    billPaymentId: "string",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
@@ -192,7 +192,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
   });
 
   const res = await sdk.billPayments.get({
-    billPaymentId: "Northeast Hatchback Kia",
+    billPaymentId: "string",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 

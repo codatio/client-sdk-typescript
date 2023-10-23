@@ -100,8 +100,8 @@ import { BillCreditNoteStatus, BilledToType } from "@codat/sync-for-payables/dis
       subTotal: 805.78,
       supplementalData: {
         content: {
-          "abnormally": {
-            "deposit": "evolve",
+          "key": {
+            "key": "string",
           },
         },
       },
@@ -113,8 +113,8 @@ import { BillCreditNoteStatus, BilledToType } from "@codat/sync-for-payables/dis
       totalTaxAmount: 0,
       withholdingTax: [
         {
-          amount: 7150.4,
-          name: "SUV quantify Polestar",
+          amount: 8915.1,
+          name: "string",
         },
       ],
     },
@@ -166,7 +166,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
   });
 
   const res = await sdk.billCreditNotes.get({
-    billCreditNoteId: "Northeast Hatchback Kia",
+    billCreditNoteId: "string",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
@@ -375,8 +375,8 @@ import { BillCreditNoteStatus, BilledToType } from "@codat/sync-for-payables/dis
       subTotal: 805.78,
       supplementalData: {
         content: {
-          "Arizona": {
-            "Cotton": "extend",
+          "key": {
+            "key": "string",
           },
         },
       },
@@ -388,12 +388,12 @@ import { BillCreditNoteStatus, BilledToType } from "@codat/sync-for-payables/dis
       totalTaxAmount: 0,
       withholdingTax: [
         {
-          amount: 2494.4,
-          name: "Carolina syndicate",
+          amount: 1341.51,
+          name: "string",
         },
       ],
     },
-    billCreditNoteId: "implement JBOD",
+    billCreditNoteId: "string",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
