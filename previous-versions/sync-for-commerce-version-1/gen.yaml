@@ -1,26 +1,30 @@
 configVersion: 1.0.0
 management:
-  docChecksum: b3f9e202c35aee45c28b3926977431b8
+  docChecksum: 014da64b08eaacd3b4cd073c840bb741
   docVersion: "1.1"
-  speakeasyVersion: 1.100.2
-  generationVersion: 2.159.2
+  speakeasyVersion: 1.104.0
+  generationVersion: 2.169.0
 generation:
+  repoURL: https://github.com/codatio/client-sdk-typescript.git
   sdkClassName: CodatSyncCommerce
   singleTagPerOp: false
   telemetryEnabled: true
 features:
   typescript:
-    core: 2.90.4
+    core: 2.93.0
     deprecations: 2.81.1
-    examples: 2.81.2
+    examples: 2.81.3
     globalSecurity: 2.82.0
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
     retries: 2.82.1
 typescript:
-  version: 0.3.0
+  version: 0.4.0
   author: Codat
   description: Push merchants' data from your ecommerce or point-of-sale (POS) platform into your merchants' accounting platform.
   flattenGlobalSecurity: false
+  installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/previous-versions/sync-for-commerce-version-1
   maxMethodParams: 0
   packageName: '@codat/sync-for-commerce-version-1'
+  published: true
+  repoSubDirectory: previous-versions/sync-for-commerce-version-1

@@ -31,15 +31,15 @@ import {
             status: AccountStatus.Active,
             supplementalData: {
                 content: {
-                    Gasoline: {
-                        Wall: "Oriental",
+                    key: {
+                        key: "string",
                     },
                 },
             },
             type: AccountType.Asset,
             validDatatypeLinks: [
                 {
-                    links: ["Intranet"],
+                    links: ["string"],
                 },
             ],
         },

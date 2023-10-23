@@ -64,8 +64,8 @@ import { AccountingAddressType, CustomerStatus, PhoneNumberType } from "@codat/s
       status: CustomerStatus.Unknown,
       supplementalData: {
         content: {
-          "California": {
-            "systems": "North",
+          "key": {
+            "key": "string",
           },
         },
       },

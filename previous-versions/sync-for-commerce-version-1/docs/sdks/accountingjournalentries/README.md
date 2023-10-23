@@ -62,8 +62,8 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
       sourceModifiedDate: "2022-10-23T00:00:00.000Z",
       supplementalData: {
         content: {
-          "Minivan": {
-            "bypassing": "Investor",
+          "key": {
+            "key": "string",
           },
         },
       },

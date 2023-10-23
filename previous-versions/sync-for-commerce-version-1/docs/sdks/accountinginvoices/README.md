@@ -103,17 +103,17 @@ import { BilledToType, DataType, InvoiceStatus } from "@codat/sync-for-commerce-
       status: InvoiceStatus.PartiallyPaid,
       supplementalData: {
         content: {
-          "Beier": {
-            "boo": "Regional",
+          "key": {
+            "key": "string",
           },
         },
       },
-      totalAmount: 1895.83,
-      totalTaxAmount: 7283.9,
+      totalAmount: 1416.23,
+      totalTaxAmount: 9069.87,
       withholdingTax: [
         {
-          amount: 1357.13,
-          name: "Gasoline Interactions Cisgender",
+          amount: 598.23,
+          name: "string",
         },
       ],
     },

@@ -53,8 +53,8 @@ import { AccountStatus, AccountType } from "@codat/sync-for-commerce-version-1/d
       status: AccountStatus.Active,
       supplementalData: {
         content: {
-          "Gasoline": {
-            "Wall": "Oriental",
+          "key": {
+            "key": "string",
           },
         },
       },
@@ -62,7 +62,7 @@ import { AccountStatus, AccountType } from "@codat/sync-for-commerce-version-1/d
       validDatatypeLinks: [
         {
           links: [
-            "Intranet",
+            "string",
           ],
         },
       ],
@@ -115,7 +115,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
   });
 
   const res = await sdk.accountingAccounts.getAccountingAccount({
-    accountId: "Officer steer whoa",
+    accountId: "string",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 

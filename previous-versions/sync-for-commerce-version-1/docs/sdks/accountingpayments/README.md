@@ -62,8 +62,8 @@ import { PaymentLinkType } from "@codat/sync-for-commerce-version-1/dist/sdk/mod
       sourceModifiedDate: "2022-10-23T00:00:00.000Z",
       supplementalData: {
         content: {
-          "Diesel": {
-            "property": "Reduced",
+          "key": {
+            "key": "string",
           },
         },
       },

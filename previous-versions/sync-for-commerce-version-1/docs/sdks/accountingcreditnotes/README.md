@@ -99,18 +99,18 @@ import { BilledToType, CreditNoteStatus } from "@codat/sync-for-commerce-version
       subTotal: 1915.04,
       supplementalData: {
         content: {
-          "Metal": {
-            "policy": "although",
+          "key": {
+            "key": "string",
           },
         },
       },
-      totalAmount: 6437.49,
-      totalDiscount: 6593.55,
-      totalTaxAmount: 3629.12,
+      totalAmount: 5893.9,
+      totalDiscount: 579.23,
+      totalTaxAmount: 3881.42,
       withholdingTax: [
         {
-          amount: 5655.86,
-          name: "however",
+          amount: 7369.44,
+          name: "string",
         },
       ],
     },
