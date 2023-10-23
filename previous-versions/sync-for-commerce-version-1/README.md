@@ -221,5 +221,3 @@ import {
 
 
 <!-- End Dev Containers -->
-
-<!-- Placeholder for Future Speakeasy SDK Sections -->

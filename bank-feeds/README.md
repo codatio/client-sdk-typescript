@@ -96,5 +96,3 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
 
 
 <!-- End Dev Containers -->
-
-<!-- Placeholder for Future Speakeasy SDK Sections -->

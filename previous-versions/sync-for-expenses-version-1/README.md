@@ -105,5 +105,3 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses-version-1";
 
 
 <!-- End Dev Containers -->
-
-<!-- Placeholder for Future Speakeasy SDK Sections -->

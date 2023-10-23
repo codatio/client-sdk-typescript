@@ -80,5 +80,3 @@ import { CodatBanking } from "@codat/banking";
 
 
 <!-- End Dev Containers -->
-
-<!-- Placeholder for Future Speakeasy SDK Sections -->
