@@ -52,8 +52,8 @@ import { AccountStatus, AccountType } from "@codat/sync-for-expenses/dist/sdk/mo
       status: AccountStatus.Active,
       supplementalData: {
         content: {
-          "Money": {
-            "blue": "shred",
+          "key": {
+            "key": "string",
           },
         },
       },
@@ -61,7 +61,7 @@ import { AccountStatus, AccountType } from "@codat/sync-for-expenses/dist/sdk/mo
       validDatatypeLinks: [
         {
           links: [
-            "abnormally",
+            "string",
           ],
         },
       ],

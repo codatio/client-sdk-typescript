@@ -52,8 +52,8 @@ import { AccountingAddressType, SupplierStatus } from "@codat/sync-for-expenses/
       status: SupplierStatus.Active,
       supplementalData: {
         content: {
-          "innovative": {
-            "blue": "shred",
+          "key": {
+            "key": "string",
           },
         },
       },
@@ -218,15 +218,15 @@ import { AccountingAddressType, SupplierStatus } from "@codat/sync-for-expenses/
       status: SupplierStatus.Active,
       supplementalData: {
         content: {
-          "male": {
-            "Metal": "cheater",
+          "key": {
+            "key": "string",
           },
         },
       },
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    supplierId: "7110701885",
   });
 
   if (res.statusCode == 200) {
