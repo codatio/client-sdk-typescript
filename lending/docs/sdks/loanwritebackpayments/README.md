@@ -59,8 +59,8 @@ import { PaymentLinkType } from "@codat/lending/dist/sdk/models/shared";
       sourceModifiedDate: "2022-10-23T00:00:00.000Z",
       supplementalData: {
         content: {
-          "blue": {
-            "shred": "abnormally",
+          "key": {
+            "key": "string",
           },
         },
       },

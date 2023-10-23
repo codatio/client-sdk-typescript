@@ -46,8 +46,8 @@ import { AccountingAddressType, SupplierStatus } from "@codat/lending/dist/sdk/m
       status: SupplierStatus.Active,
       supplementalData: {
         content: {
-          "innovative": {
-            "blue": "shred",
+          "key": {
+            "key": "string",
           },
         },
       },

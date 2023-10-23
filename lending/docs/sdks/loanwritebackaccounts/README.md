@@ -48,8 +48,8 @@ import { AccountStatus, AccountType } from "@codat/lending/dist/sdk/models/share
       status: AccountStatus.Active,
       supplementalData: {
         content: {
-          "Money": {
-            "blue": "shred",
+          "key": {
+            "key": "string",
           },
         },
       },
@@ -57,7 +57,7 @@ import { AccountStatus, AccountType } from "@codat/lending/dist/sdk/models/share
       validDatatypeLinks: [
         {
           links: [
-            "abnormally",
+            "string",
           ],
         },
       ],

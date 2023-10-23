@@ -31,7 +31,7 @@ import { CodatLending } from "@codat/lending";
 
   const res = await sdk.transactions.journals.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    journalId: "Northeast Hatchback Kia",
+    journalId: "string",
   });
 
   if (res.statusCode == 200) {

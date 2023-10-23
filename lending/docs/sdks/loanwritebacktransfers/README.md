@@ -53,14 +53,14 @@ import { DataType } from "@codat/lending/dist/sdk/models/shared";
       sourceModifiedDate: "2022-10-23T00:00:00.000Z",
       supplementalData: {
         content: {
-          "innovative": {
-            "blue": "shred",
+          "key": {
+            "key": "string",
           },
         },
       },
       to: {
         accountRef: {},
-        currency: "USD",
+        currency: "GBP",
       },
       trackingCategoryRefs: [
         {

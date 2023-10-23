@@ -30,7 +30,7 @@ import { CodatLending } from "@codat/lending";
   });
 
   const res = await sdk.accountsPayable.billCreditNotes.get({
-    billCreditNoteId: "Northeast Hatchback Kia",
+    billCreditNoteId: "string",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 

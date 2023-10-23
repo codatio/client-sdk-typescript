@@ -31,7 +31,7 @@ import { CodatLending } from "@codat/lending";
 
   const res = await sdk.accountsReceivable.creditNotes.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    creditNoteId: "Northeast Hatchback Kia",
+    creditNoteId: "string",
   });
 
   if (res.statusCode == 200) {
