@@ -9,7 +9,7 @@ Manage your Codat instance.
 
 * [createApiKey](#createapikey) - Create API key
 * [deleteApiKey](#deleteapikey) - Delete API key
-* [~~getProfile~~](#getprofile) - Get profile :warning: **Deprecated**
+* [getProfile](#getprofile) - Get profile
 * [getSyncSettings](#getsyncsettings) - Get sync settings
 * [listApiKeys](#listapikeys) - List API keys
 * [updateProfile](#updateprofile) - Update profile
@@ -114,11 +114,9 @@ import { CodatCommon } from "@codat/common";
 **Promise<[operations.DeleteApiKeyResponse](../../models/operations/deleteapikeyresponse.md)>**
 
 
-## ~~getProfile~~
+## getProfile
 
 Fetch your Codat profile.
-
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

@@ -49,7 +49,7 @@ import { CodatCommon } from "@codat/common";
       ],
       webhook: "https://webhook.client.com",
     },
-    type: "bluetooth Extended",
+    type: "string",
   });
 
   if (res.statusCode == 200) {
