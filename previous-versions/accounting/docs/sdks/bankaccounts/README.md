@@ -46,8 +46,8 @@ import { BankAccountBankAccountType } from "@codat/accounting/dist/sdk/models/sh
       sourceModifiedDate: "2022-10-23T00:00:00.000Z",
       supplementalData: {
         content: {
-          "Extended": {
-            "South": "shred",
+          "key": {
+            "key": "string",
           },
         },
       },
@@ -100,7 +100,7 @@ import { CodatAccounting } from "@codat/accounting";
   });
 
   const res = await sdk.bankAccounts.get({
-    accountId: "Northeast Hatchback Kia",
+    accountId: "string",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
@@ -258,13 +258,13 @@ import { BankAccountBankAccountType } from "@codat/accounting/dist/sdk/models/sh
       sourceModifiedDate: "2022-10-23T00:00:00.000Z",
       supplementalData: {
         content: {
-          "East": {
-            "male": "Metal",
+          "key": {
+            "key": "string",
           },
         },
       },
     },
-    bankAccountId: "Checking 0202",
+    bankAccountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });

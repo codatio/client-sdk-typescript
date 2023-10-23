@@ -36,7 +36,7 @@ import { CodatAccounting } from "@codat/accounting";
     });
 
     const res = await sdk.accountTransactions.get({
-        accountTransactionId: "Northeast Hatchback Kia",
+        accountTransactionId: "string",
         companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
         connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     });
@@ -206,9 +206,13 @@ import { CodatAccounting } from "@codat/accounting";
 ### [purchaseOrders](docs/sdks/purchaseorders/README.md)
 
 * [create](docs/sdks/purchaseorders/README.md#create) - Create purchase order
+* [downloadAttachment](docs/sdks/purchaseorders/README.md#downloadattachment) - Download purchase order attachment
+* [downloadPurchaseOrderPdf](docs/sdks/purchaseorders/README.md#downloadpurchaseorderpdf) - Download purchase order as PDF
 * [get](docs/sdks/purchaseorders/README.md#get) - Get purchase order
+* [getAttachment](docs/sdks/purchaseorders/README.md#getattachment) - Get purchase order attachment
 * [getCreateUpdateModel](docs/sdks/purchaseorders/README.md#getcreateupdatemodel) - Get create/update purchase order model
 * [list](docs/sdks/purchaseorders/README.md#list) - List purchase orders
+* [listAttachments](docs/sdks/purchaseorders/README.md#listattachments) - List purchase order attachments
 * [update](docs/sdks/purchaseorders/README.md#update) - Update purchase order
 
 ### [reports](docs/sdks/reports/README.md)
@@ -259,8 +263,6 @@ import { CodatAccounting } from "@codat/accounting";
 
 
 <!-- Start Dev Containers -->
-
-
 
 <!-- End Dev Containers -->
 

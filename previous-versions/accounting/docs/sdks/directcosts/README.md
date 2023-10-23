@@ -95,13 +95,13 @@ import { DataType } from "@codat/accounting/dist/sdk/models/shared";
       subTotal: 9510.62,
       supplementalData: {
         content: {
-          "abnormally": {
-            "deposit": "evolve",
+          "key": {
+            "key": "string",
           },
         },
       },
-      taxAmount: 7150.4,
-      totalAmount: 7926.2,
+      taxAmount: 8915.1,
+      totalAmount: 0.86,
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -152,7 +152,7 @@ import { CodatAccounting } from "@codat/accounting";
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directCostId: "Dakota Avon specifically",
+    directCostId: "string",
   });
 
   if (res.statusCode == 200) {
@@ -201,7 +201,7 @@ import { CodatAccounting } from "@codat/accounting";
   const res = await sdk.directCosts.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directCostId: "Northeast Hatchback Kia",
+    directCostId: "string",
   });
 
   if (res.statusCode == 200) {
@@ -249,7 +249,7 @@ import { CodatAccounting } from "@codat/accounting";
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directCostId: "array East along",
+    directCostId: "string",
   });
 
   if (res.statusCode == 200) {
@@ -395,7 +395,7 @@ import { CodatAccounting } from "@codat/accounting";
   const res = await sdk.directCosts.listAttachments({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directCostId: "intuitive Frozen ouch",
+    directCostId: "string",
   });
 
   if (res.statusCode == 200) {
@@ -446,11 +446,11 @@ import { CodatAccounting } from "@codat/accounting";
   const res = await sdk.directCosts.uploadAttachment({
     requestBody: {
       content: "v/ghW&IC$x" as bytes <<<>>>,
-      requestBody: "Elegant Producer Electric",
+      requestBody: "string",
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directCostId: "Iowa Bentley",
+    directCostId: "string",
   });
 
   if (res.statusCode == 200) {

@@ -35,7 +35,7 @@ import { CodatAccounting } from "@codat/accounting";
 
   const res = await sdk.paymentMethods.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    paymentMethodId: "Northeast Hatchback Kia",
+    paymentMethodId: "string",
   });
 
   if (res.statusCode == 200) {

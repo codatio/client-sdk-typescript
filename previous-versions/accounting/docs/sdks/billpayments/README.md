@@ -65,8 +65,8 @@ import { BillPaymentLineLinkType } from "@codat/accounting/dist/sdk/models/share
       sourceModifiedDate: "2022-10-23T00:00:00.000Z",
       supplementalData: {
         content: {
-          "blue": {
-            "shred": "abnormally",
+          "key": {
+            "key": "string",
           },
         },
       },
@@ -142,7 +142,7 @@ import { CodatAccounting } from "@codat/accounting";
   });
 
   const res = await sdk.billPayments.delete({
-    billPaymentId: "Van complexity",
+    billPaymentId: "string",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
@@ -191,7 +191,7 @@ import { CodatAccounting } from "@codat/accounting";
   });
 
   const res = await sdk.billPayments.get({
-    billPaymentId: "Northeast Hatchback Kia",
+    billPaymentId: "string",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 

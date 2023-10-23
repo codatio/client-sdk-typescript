@@ -65,8 +65,8 @@ import { PaymentLinkType } from "@codat/accounting/dist/sdk/models/shared";
       sourceModifiedDate: "2022-10-23T00:00:00.000Z",
       supplementalData: {
         content: {
-          "blue": {
-            "shred": "abnormally",
+          "key": {
+            "key": "string",
           },
         },
       },
@@ -120,7 +120,7 @@ import { CodatAccounting } from "@codat/accounting";
 
   const res = await sdk.payments.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    paymentId: "Northeast Hatchback Kia",
+    paymentId: "string",
   });
 
   if (res.statusCode == 200) {

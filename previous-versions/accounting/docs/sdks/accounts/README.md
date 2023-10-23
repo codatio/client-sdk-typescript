@@ -54,8 +54,8 @@ import { AccountStatus, AccountType } from "@codat/accounting/dist/sdk/models/sh
       status: AccountStatus.Active,
       supplementalData: {
         content: {
-          "Money": {
-            "blue": "shred",
+          "key": {
+            "key": "string",
           },
         },
       },
@@ -63,7 +63,7 @@ import { AccountStatus, AccountType } from "@codat/accounting/dist/sdk/models/sh
       validDatatypeLinks: [
         {
           links: [
-            "abnormally",
+            "string",
           ],
         },
       ],
@@ -116,7 +116,7 @@ import { CodatAccounting } from "@codat/accounting";
   });
 
   const res = await sdk.accounts.get({
-    accountId: "Northeast Hatchback Kia",
+    accountId: "string",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 

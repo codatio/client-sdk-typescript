@@ -103,18 +103,18 @@ import { BilledToType1, CreditNoteStatus } from "@codat/accounting/dist/sdk/mode
       subTotal: 3015.1,
       supplementalData: {
         content: {
-          "Northwest": {
-            "fuchsia": "Gasoline",
+          "key": {
+            "key": "string",
           },
         },
       },
-      totalAmount: 5862.2,
-      totalDiscount: 8275.63,
-      totalTaxAmount: 7524.38,
+      totalAmount: 899.64,
+      totalDiscount: 7150.4,
+      totalTaxAmount: 7926.2,
       withholdingTax: [
         {
-          amount: 4915.7,
-          name: "National Durham after",
+          amount: 8559.52,
+          name: "string",
         },
       ],
     },
@@ -167,7 +167,7 @@ import { CodatAccounting } from "@codat/accounting";
 
   const res = await sdk.creditNotes.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    creditNoteId: "Northeast Hatchback Kia",
+    creditNoteId: "string",
   });
 
   if (res.statusCode == 200) {
@@ -378,24 +378,24 @@ import { BilledToType1, CreditNoteStatus } from "@codat/accounting/dist/sdk/mode
       subTotal: 4995.57,
       supplementalData: {
         content: {
-          "withdrawal": {
-            "extend": "Plastic",
+          "key": {
+            "key": "string",
           },
         },
       },
-      totalAmount: 1395.79,
-      totalDiscount: 6447.13,
-      totalTaxAmount: 7892.75,
+      totalAmount: 4468.63,
+      totalDiscount: 3691.82,
+      totalTaxAmount: 3115.07,
       withholdingTax: [
         {
-          amount: 9936.8,
-          name: "East Baht Quality",
+          amount: 7884.4,
+          name: "string",
         },
       ],
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    creditNoteId: "Home users Sharable",
+    creditNoteId: "string",
   });
 
   if (res.statusCode == 200) {
