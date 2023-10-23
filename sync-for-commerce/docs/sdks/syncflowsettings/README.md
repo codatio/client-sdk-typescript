@@ -107,7 +107,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
   });
 
   const res = await sdk.syncFlowSettings.updateConfigTextSyncFlow({
-    "West": {},
+    "key": {},
   });
 
   if (res.statusCode == 200) {
@@ -149,7 +149,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
   const res = await sdk.syncFlowSettings.updateVisibleAccountsSyncFlow({
     visibleAccounts: {
       visibleAccounts: [
-        "Coordinator",
+        "string",
       ],
     },
     platformKey: "gbol",
