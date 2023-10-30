@@ -12,7 +12,7 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
     });
 
     const res = await sdk.accountMapping.create({
-        requestBody: {
+        zero: {
             feedStartDate: "2022-10-23T00:00:00.000Z",
         },
         companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",

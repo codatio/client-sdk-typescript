@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 09215c9d3b6adb746413eaa6e32959b0
+  docChecksum: c708af58ebe5f997de760a4ac042bd53
   docVersion: 3.0.0
-  speakeasyVersion: 1.104.0
-  generationVersion: 2.169.0
+  speakeasyVersion: 1.109.0
+  generationVersion: 2.173.0
 generation:
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   sdkClassName: CodatBankFeeds
@@ -11,7 +11,7 @@ generation:
   telemetryEnabled: true
 features:
   typescript:
-    core: 2.93.0
+    core: 2.94.0
     deprecations: 2.81.1
     examples: 2.81.3
     globalSecurity: 2.82.0
@@ -19,7 +19,7 @@ features:
     nameOverrides: 2.81.1
     retries: 2.82.1
 typescript:
-  version: 2.3.0
+  version: 2.4.0
   author: Codat
   description: Set up bank feeds from accounts in your application to supported accounting platforms.
   flattenGlobalSecurity: false

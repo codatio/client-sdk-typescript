@@ -677,3 +677,13 @@ Based on:
 - [typescript v2.3.0] bank-feeds
 ### Releases
 - [NPM v2.3.0] https://www.npmjs.com/package/@codat/bank-feeds/v/2.3.0 - bank-feeds
+
+## 2023-10-30 01:28:07
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Bank-Feeds.yaml
+- Speakeasy CLI 1.109.0 (2.173.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v2.4.0] bank-feeds
+### Releases
+- [NPM v2.4.0] https://www.npmjs.com/package/@codat/bank-feeds/v/2.4.0 - bank-feeds
