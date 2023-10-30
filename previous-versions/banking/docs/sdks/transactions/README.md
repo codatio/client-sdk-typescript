@@ -40,6 +40,7 @@ import { CodatBanking } from "@codat/banking";
     transactionId: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -88,6 +89,7 @@ import { CodatBanking } from "@codat/banking";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -138,6 +140,7 @@ import { CodatBanking } from "@codat/banking";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

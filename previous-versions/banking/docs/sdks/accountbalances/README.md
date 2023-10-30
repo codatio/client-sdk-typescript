@@ -38,6 +38,7 @@ import { CodatBanking } from "@codat/banking";
     pageSize: 100,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
