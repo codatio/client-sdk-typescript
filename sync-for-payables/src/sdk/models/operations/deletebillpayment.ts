@@ -18,6 +18,12 @@ export class DeleteBillPaymentRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
+
+    /**
+     * Unique identifier for a connection.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+    connectionId: string;
 }
 
 export class DeleteBillPaymentResponse extends SpeakeasyBase {

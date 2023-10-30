@@ -38,6 +38,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
     taxRateId: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -85,6 +86,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

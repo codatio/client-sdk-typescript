@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: ec9a07817c986b64eec8362553fc7600
+  docChecksum: ef8af4ad770bb56bc0078a4f17a0e2a5
   docVersion: 3.0.0
-  speakeasyVersion: 1.104.0
-  generationVersion: 2.169.0
+  speakeasyVersion: 1.109.0
+  generationVersion: 2.173.0
 generation:
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   sdkClassName: CodatSyncPayables
@@ -12,7 +12,7 @@ generation:
 features:
   typescript:
     acceptHeaders: 2.81.1
-    core: 2.93.0
+    core: 2.94.0
     deprecations: 2.81.1
     examples: 2.81.3
     globalSecurity: 2.82.0
@@ -20,7 +20,7 @@ features:
     nameOverrides: 2.81.1
     retries: 2.82.1
 typescript:
-  version: 1.4.0
+  version: 1.5.0
   author: Codat
   description: Streamline your customers' accounts payable workflow.
   flattenGlobalSecurity: false
