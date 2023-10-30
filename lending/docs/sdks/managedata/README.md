@@ -25,6 +25,7 @@ import { CodatLending } from "@codat/lending";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }

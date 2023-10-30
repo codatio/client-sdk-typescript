@@ -34,6 +34,7 @@ import { CodatLending } from "@codat/lending";
     paymentId: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -81,6 +82,7 @@ import { CodatLending } from "@codat/lending";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

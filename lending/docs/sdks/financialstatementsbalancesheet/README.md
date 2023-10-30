@@ -29,6 +29,7 @@ import { CodatLending } from "@codat/lending";
     startMonth: "2022-10-23T00:00:00.000Z",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -71,6 +72,7 @@ import { CodatLending } from "@codat/lending";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     reportDate: "29-09-2020",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

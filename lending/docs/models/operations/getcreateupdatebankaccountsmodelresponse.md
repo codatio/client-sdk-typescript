@@ -1,4 +1,4 @@
-# GetCreatePaymentsModelResponse
+# GetCreateUpdateBankAccountsModelResponse
 
 
 ## Fields

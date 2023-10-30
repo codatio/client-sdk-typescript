@@ -135,7 +135,7 @@ export class LoanWritebackPayments {
                     );
                 }
                 break;
-            case [400, 401, 404, 429].includes(httpRes?.status):
+            case [400, 401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -171,12 +171,12 @@ export class LoanWritebackPayments {
      *
      */
     async getCreateModel(
-        req: operations.GetCreatePaymentsModelRequest,
+        req: operations.GetCreatePaymentModelRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.GetCreatePaymentsModelResponse> {
+    ): Promise<operations.GetCreatePaymentModelResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.GetCreatePaymentsModelRequest(req);
+            req = new operations.GetCreatePaymentModelRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -232,8 +232,8 @@ export class LoanWritebackPayments {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.GetCreatePaymentsModelResponse =
-            new operations.GetCreatePaymentsModelResponse({
+        const res: operations.GetCreatePaymentModelResponse =
+            new operations.GetCreatePaymentModelResponse({
                 statusCode: httpRes.status,
                 contentType: contentType,
                 rawResponse: httpRes,
@@ -252,7 +252,7 @@ export class LoanWritebackPayments {
                     );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),

@@ -55,6 +55,7 @@ import { PeriodUnit } from "@codat/lending/dist/sdk/models/shared";
     reportDate: "29-09-2020",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -124,6 +125,7 @@ import { PeriodUnit } from "@codat/lending/dist/sdk/models/shared";
     periodUnit: PeriodUnit.Year,
     reportDate: "29-09-2020",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

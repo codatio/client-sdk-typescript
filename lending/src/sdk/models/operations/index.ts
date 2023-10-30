@@ -3,6 +3,7 @@
  */
 
 export * from "./createaccount";
+export * from "./createbankaccount";
 export * from "./createbanktransactions";
 export * from "./createcompany";
 export * from "./createconnection";
@@ -79,8 +80,9 @@ export * from "./getcreatebanktransactionsmodel";
 export * from "./getcreatechartofaccountsmodel";
 export * from "./getcreatedirectcostsmodel";
 export * from "./getcreateoperation";
-export * from "./getcreatepaymentsmodel";
+export * from "./getcreatepaymentmodel";
 export * from "./getcreatetransfersmodel";
+export * from "./getcreateupdatebankaccountsmodel";
 export * from "./getcreateupdatesuppliersmodel";
 export * from "./getdataintegritystatus";
 export * from "./getdataintegritysummaries";

@@ -37,6 +37,7 @@ import { ExcelReportTypes } from "@codat/lending/dist/sdk/models/shared";
     reportType: ExcelReportTypes.EnhancedFinancials,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -95,6 +96,7 @@ import { ExcelReportTypes } from "@codat/lending/dist/sdk/models/shared";
     reportType: ExcelReportTypes.EnhancedInvoices,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -140,6 +142,7 @@ import { ExcelReportTypes } from "@codat/lending/dist/sdk/models/shared";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     reportType: ExcelReportTypes.EnhancedCashFlow,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

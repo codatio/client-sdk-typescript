@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
-export class GetCreatePaymentsModelRequest extends SpeakeasyBase {
+export class GetCreateUpdateBankAccountsModelRequest extends SpeakeasyBase {
     /**
      * Unique identifier for a company.
      */
@@ -20,7 +20,7 @@ export class GetCreatePaymentsModelRequest extends SpeakeasyBase {
     connectionId: string;
 }
 
-export class GetCreatePaymentsModelResponse extends SpeakeasyBase {
+export class GetCreateUpdateBankAccountsModelResponse extends SpeakeasyBase {
     /**
      * HTTP response content type for this operation
      */

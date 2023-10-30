@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 16f8bd19314fa53f4f3584f48ff81f1d
+  docChecksum: 25ca2e77ea18753889926e09af83944b
   docVersion: 3.0.0
-  speakeasyVersion: 1.104.0
-  generationVersion: 2.169.0
+  speakeasyVersion: 1.109.0
+  generationVersion: 2.173.0
 generation:
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   sdkClassName: CodatLending
@@ -12,7 +12,7 @@ generation:
 features:
   typescript:
     acceptHeaders: 2.81.1
-    core: 2.93.0
+    core: 2.94.0
     deprecations: 2.81.1
     examples: 2.81.3
     globalSecurity: 2.82.0
@@ -21,7 +21,7 @@ features:
     nameOverrides: 2.81.1
     retries: 2.82.1
 typescript:
-  version: 3.4.0
+  version: 3.5.0
   author: Codat
   description: Make credit decisions backed by enhanced financials, metrics, reports, and data integrity features.
   flattenGlobalSecurity: false

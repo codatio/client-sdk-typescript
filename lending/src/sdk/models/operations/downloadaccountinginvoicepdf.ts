@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class DownloadAccountingInvoicePdfRequest extends SpeakeasyBase {
@@ -31,6 +32,12 @@ export class DownloadAccountingInvoicePdfResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     data?: Uint8Array;
+
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
 
     /**
      * HTTP response status code for this operation

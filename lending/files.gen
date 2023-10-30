@@ -31,6 +31,7 @@ src/sdk/financialstatementscashflow.ts
 src/sdk/financialstatementsprofitandloss.ts
 src/sdk/financialstatements.ts
 src/sdk/loanwritebackaccounts.ts
+src/sdk/loanwritebackbankaccounts.ts
 src/sdk/loanwritebackbanktransactions.ts
 src/sdk/loanwritebackcreateoperations.ts
 src/sdk/loanwritebackdirectcosts.ts
@@ -163,6 +164,8 @@ src/sdk/models/operations/getaccountingprofitandloss.ts
 src/sdk/models/operations/getcategorizedprofitandlossstatement.ts
 src/sdk/models/operations/createaccount.ts
 src/sdk/models/operations/getcreatechartofaccountsmodel.ts
+src/sdk/models/operations/createbankaccount.ts
+src/sdk/models/operations/getcreateupdatebankaccountsmodel.ts
 src/sdk/models/operations/createbanktransactions.ts
 src/sdk/models/operations/getcreatebanktransactionsmodel.ts
 src/sdk/models/operations/getcreateoperation.ts
@@ -170,7 +173,7 @@ src/sdk/models/operations/listcreateoperations.ts
 src/sdk/models/operations/createdirectcost.ts
 src/sdk/models/operations/getcreatedirectcostsmodel.ts
 src/sdk/models/operations/createpayment.ts
-src/sdk/models/operations/getcreatepaymentsmodel.ts
+src/sdk/models/operations/getcreatepaymentmodel.ts
 src/sdk/models/operations/createsupplier.ts
 src/sdk/models/operations/getcreateupdatesuppliersmodel.ts
 src/sdk/models/operations/createtransfer.ts
@@ -394,6 +397,7 @@ src/sdk/models/shared/pushfieldvalidation.ts
 src/sdk/models/shared/pushoptiontype.ts
 src/sdk/models/shared/pushoptionproperty.ts
 src/sdk/models/shared/pushoptionchoice.ts
+src/sdk/models/shared/accountingcreatebankaccountresponse.ts
 src/sdk/models/shared/accountingcreatebanktransactionsresponse.ts
 src/sdk/models/shared/accountingcreatebanktransactions.ts
 src/sdk/models/shared/createbankaccounttransaction.ts
@@ -662,6 +666,10 @@ docs/models/operations/createaccountrequest.md
 docs/models/operations/createaccountresponse.md
 docs/models/operations/getcreatechartofaccountsmodelrequest.md
 docs/models/operations/getcreatechartofaccountsmodelresponse.md
+docs/models/operations/createbankaccountrequest.md
+docs/models/operations/createbankaccountresponse.md
+docs/models/operations/getcreateupdatebankaccountsmodelrequest.md
+docs/models/operations/getcreateupdatebankaccountsmodelresponse.md
 docs/models/operations/createbanktransactionsrequest.md
 docs/models/operations/createbanktransactionsresponse.md
 docs/models/operations/getcreatebanktransactionsmodelrequest.md
@@ -676,8 +684,8 @@ docs/models/operations/getcreatedirectcostsmodelrequest.md
 docs/models/operations/getcreatedirectcostsmodelresponse.md
 docs/models/operations/createpaymentrequest.md
 docs/models/operations/createpaymentresponse.md
-docs/models/operations/getcreatepaymentsmodelrequest.md
-docs/models/operations/getcreatepaymentsmodelresponse.md
+docs/models/operations/getcreatepaymentmodelrequest.md
+docs/models/operations/getcreatepaymentmodelresponse.md
 docs/models/operations/createsupplierrequest.md
 docs/models/operations/createsupplierresponse.md
 docs/models/operations/getcreateupdatesuppliersmodelrequest.md
@@ -959,6 +967,7 @@ docs/models/shared/pushfieldvalidation.md
 docs/models/shared/pushoptiontype.md
 docs/models/shared/pushoptionproperty.md
 docs/models/shared/pushoptionchoice.md
+docs/models/shared/accountingcreatebankaccountresponse.md
 docs/models/shared/accountingcreatebanktransactionsresponse.md
 docs/models/shared/accountingcreatebanktransactions.md
 docs/models/shared/createbankaccounttransaction.md
@@ -1091,6 +1100,7 @@ docs/sdks/financialstatementscashflow/README.md
 docs/sdks/financialstatementsprofitandloss/README.md
 docs/sdks/loanwriteback/README.md
 docs/sdks/loanwritebackaccounts/README.md
+docs/sdks/loanwritebackbankaccounts/README.md
 docs/sdks/loanwritebackbanktransactions/README.md
 docs/sdks/loanwritebackcreateoperations/README.md
 docs/sdks/loanwritebackdirectcosts/README.md

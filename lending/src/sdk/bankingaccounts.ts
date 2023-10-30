@@ -113,6 +113,21 @@ export class BankingAccounts {
                     );
                 }
                 break;
+            case [401, 402, 403, 404, 409, 429, 500, 503].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.errorMessage = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
         }
 
         return res;
@@ -215,7 +230,7 @@ export class BankingAccounts {
                     );
                 }
                 break;
-            case [400, 401, 404, 409].includes(httpRes?.status):
+            case [400, 401, 402, 403, 404, 409, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),

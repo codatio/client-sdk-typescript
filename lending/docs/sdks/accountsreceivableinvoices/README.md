@@ -39,6 +39,7 @@ import { CodatLending } from "@codat/lending";
     invoiceId: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -79,6 +80,7 @@ import { CodatLending } from "@codat/lending";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     invoiceId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -127,6 +129,7 @@ import { CodatLending } from "@codat/lending";
     invoiceId: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -174,6 +177,7 @@ import { CodatLending } from "@codat/lending";
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     invoiceId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -229,6 +233,7 @@ import { CodatLending } from "@codat/lending";
     pageSize: 100,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -276,6 +281,7 @@ import { CodatLending } from "@codat/lending";
     invoiceId: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -317,6 +323,7 @@ import { CodatLending } from "@codat/lending";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

@@ -3,6 +3,7 @@
  */
 
 import { LoanWritebackAccounts } from "./loanwritebackaccounts";
+import { LoanWritebackBankAccounts } from "./loanwritebackbankaccounts";
 import { LoanWritebackBankTransactions } from "./loanwritebackbanktransactions";
 import { LoanWritebackCreateOperations } from "./loanwritebackcreateoperations";
 import { LoanWritebackDirectCosts } from "./loanwritebackdirectcosts";
@@ -13,6 +14,7 @@ import { SDKConfiguration } from "./sdk";
 
 export class LoanWriteback {
     public accounts: LoanWritebackAccounts;
+    public bankAccounts: LoanWritebackBankAccounts;
     public bankTransactions: LoanWritebackBankTransactions;
     public createOperations: LoanWritebackCreateOperations;
     public directCosts: LoanWritebackDirectCosts;
@@ -24,6 +26,7 @@ export class LoanWriteback {
     constructor(sdkConfig: SDKConfiguration) {
         this.sdkConfiguration = sdkConfig;
         this.accounts = new LoanWritebackAccounts(this.sdkConfiguration);
+        this.bankAccounts = new LoanWritebackBankAccounts(this.sdkConfiguration);
         this.bankTransactions = new LoanWritebackBankTransactions(this.sdkConfiguration);
         this.createOperations = new LoanWritebackCreateOperations(this.sdkConfiguration);
         this.directCosts = new LoanWritebackDirectCosts(this.sdkConfiguration);
