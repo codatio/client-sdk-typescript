@@ -35,6 +35,7 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -76,6 +77,7 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
     datasetId: "7911a54a-c808-4f4b-b87e-b195f52b4da5",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -116,6 +118,7 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     pushOperationKey: "2a6486f4-00c4-40bd-900d-b29c15ad0581",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -160,6 +163,7 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
     pageSize: 100,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -182,15 +186,7 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
 
 ## listPullOperations
 
-﻿The *List pull operations* endpoint returns a list of [pull operations](https://docs.codat.io/sync-for-payroll-api#/schemas/PullOperation) made by your client.
-
-A [pull operation](https://docs.codat.io/sync-for-payroll-api#/schemas/PullOperation) is a request to retrieve a specific data type from an integration.
-
-### Tips and traps
-
-- The *List pull operations* endpoint does not support querying the `isCompleted` property. You can filter failed pull operations by querying `status!=Complete&&status!=NotSupported` instead.
-
-
+Gets the pull operation history (datasets) for a given company.
 
 ### Example Usage
 
@@ -210,6 +206,7 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -255,6 +252,7 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -298,6 +296,7 @@ import { DataType } from "@codat/sync-for-payroll/dist/sdk/models/shared";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     dataType: DataType.Invoices,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

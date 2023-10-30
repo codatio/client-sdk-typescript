@@ -38,6 +38,7 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
     trackingCategoryId: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -85,6 +86,7 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

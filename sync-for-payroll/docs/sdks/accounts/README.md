@@ -72,6 +72,7 @@ import { AccountStatus, AccountType } from "@codat/sync-for-payroll/dist/sdk/mod
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -119,6 +120,7 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
     accountId: "7110701885",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -170,6 +172,7 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -216,6 +219,7 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

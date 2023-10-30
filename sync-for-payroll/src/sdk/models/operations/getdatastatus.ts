@@ -25,7 +25,7 @@ export class GetDataStatusResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata({ elemType: shared.DataStatus })
-    dataStatusResponse?: Record<string, shared.DataStatus>;
+    dataStatuses?: Record<string, shared.DataStatus>;
 
     /**
      * Your API request was not properly authorized.
