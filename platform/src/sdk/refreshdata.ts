@@ -98,7 +98,7 @@ export class RefreshData {
         switch (true) {
             case httpRes?.status == 204:
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -211,7 +211,7 @@ export class RefreshData {
                     );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -321,7 +321,7 @@ export class RefreshData {
                     );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -431,7 +431,7 @@ export class RefreshData {
                     );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -455,15 +455,7 @@ export class RefreshData {
      * List pull operations
      *
      * @remarks
-     * The *List pull operations* endpoint returns a list of [pull operations](https://docs.codat.io/platform-api#/schemas/PullOperation) made by your client.
-     *
-     * A [pull operation](https://docs.codat.io/platform-api#/schemas/PullOperation) is a request to retrieve a specific data type from an integration.
-     *
-     * ### Tips and traps
-     *
-     * - The *List pull operations* endpoint does not support querying the `isCompleted` property. You can filter failed pull operations by querying `status!=Complete&&status!=NotSupported` instead.
-     *
-     *
+     * Gets the pull operation history (datasets) for a given company.
      */
     async listPullOperations(
         req: operations.ListPullOperationsRequest,
@@ -547,7 +539,7 @@ export class RefreshData {
                     );
                 }
                 break;
-            case [400, 401, 404, 429].includes(httpRes?.status):
+            case [400, 401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),

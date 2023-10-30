@@ -49,6 +49,7 @@ import { ConfigureSupplementalDataDataType } from "@codat/platform/dist/sdk/mode
     platformKey: "gbol",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -92,6 +93,7 @@ import { GetSupplementalDataConfigurationDataType } from "@codat/platform/dist/s
     dataType: GetSupplementalDataConfigurationDataType.Invoices,
     platformKey: "gbol",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

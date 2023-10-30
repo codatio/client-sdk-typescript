@@ -45,6 +45,7 @@ import { CodatPlatform } from "@codat/platform";
     name: "azure-invoice-finance-processor",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -94,6 +95,7 @@ import { CodatPlatform } from "@codat/platform";
     apiKeyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -132,6 +134,7 @@ import { CodatPlatform } from "@codat/platform";
 
   const res = await sdk.settings.getProfile();
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -168,6 +171,7 @@ import { CodatPlatform } from "@codat/platform";
   });
 
   const res = await sdk.settings.getSyncSettings();
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -209,6 +213,7 @@ import { CodatPlatform } from "@codat/platform";
   });
 
   const res = await sdk.settings.listApiKeys();
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -280,6 +285,7 @@ import { CodatPlatform } from "@codat/platform";
     ],
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -331,6 +337,7 @@ import { DataType } from "@codat/platform/dist/sdk/models/shared";
       },
     ],
   });
+
 
   if (res.statusCode == 200) {
     // handle response
