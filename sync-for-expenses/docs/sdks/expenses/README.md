@@ -68,6 +68,7 @@ import { ContactRefType, ExpenseTransactionType } from "@codat/sync-for-expenses
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -141,6 +142,7 @@ import { ContactRefType } from "@codat/sync-for-expenses/dist/sdk/models/shared"
     transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -186,6 +188,7 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
     syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
     transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

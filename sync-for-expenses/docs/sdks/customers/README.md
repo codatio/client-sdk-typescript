@@ -77,6 +77,7 @@ import { AccountingAddressType, CustomerStatus, PhoneNumberType } from "@codat/s
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -125,6 +126,7 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
     customerId: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -172,6 +174,7 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -258,6 +261,7 @@ import { AccountingAddressType, CustomerStatus, PhoneNumberType } from "@codat/s
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     customerId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

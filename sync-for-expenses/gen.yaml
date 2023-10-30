@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: f329e9082b01ac6ebd40efe104161ea3
+  docChecksum: 1143b92ba435c088e3832adc50f10c53
   docVersion: prealpha
-  speakeasyVersion: 1.104.0
-  generationVersion: 2.169.0
+  speakeasyVersion: 1.109.0
+  generationVersion: 2.173.0
 generation:
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   sdkClassName: CodatSyncExpenses
@@ -11,7 +11,7 @@ generation:
   telemetryEnabled: true
 features:
   typescript:
-    core: 2.93.0
+    core: 2.94.0
     deprecations: 2.81.1
     examples: 2.81.3
     globalSecurity: 2.82.0
@@ -19,7 +19,7 @@ features:
     nameOverrides: 2.81.1
     retries: 2.82.1
 typescript:
-  version: 3.3.0
+  version: 3.4.0
   author: Codat
   description: Push expenses to accounting platforms.
   flattenGlobalSecurity: false

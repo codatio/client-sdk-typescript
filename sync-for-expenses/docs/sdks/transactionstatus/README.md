@@ -32,6 +32,7 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
     transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -74,6 +75,7 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
     pageSize: 100,
     syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

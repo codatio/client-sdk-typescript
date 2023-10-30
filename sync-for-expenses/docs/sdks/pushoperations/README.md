@@ -31,6 +31,7 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
     pushOperationKey: "b18d8d81-fd7b-4764-a31e-475cb1f36591",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -73,6 +74,7 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
