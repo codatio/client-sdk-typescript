@@ -12,7 +12,7 @@ import { TaxRateRef } from "./taxrateref";
 import { TrackingCategoryRefsitems } from "./trackingcategoryrefsitems";
 import { Expose, Type } from "class-transformer";
 
-export class CreditNoteLineItemTrackingProjectReference extends SpeakeasyBase {
+export class CreditNoteLineItemTrackingAccountingProjectReference extends SpeakeasyBase {
     /**
      * Unique identifier to the project reference.
      */
@@ -58,8 +58,8 @@ export class CreditNoteLineItemTracking extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "projectRef" })
-    @Type(() => CreditNoteLineItemTrackingProjectReference)
-    projectRef?: CreditNoteLineItemTrackingProjectReference;
+    @Type(() => CreditNoteLineItemTrackingAccountingProjectReference)
+    projectRef?: CreditNoteLineItemTrackingAccountingProjectReference;
 
     /**
      * Links the current record to the underlying record or data type that created it.

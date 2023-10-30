@@ -37,6 +37,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -81,6 +82,7 @@ import { DataType } from "@codat/sync-for-commerce-version-1/dist/sdk/models/sha
     dataType: DataType.Invoices,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -120,6 +122,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
   const res = await sdk.refreshData.getCompanyDataStatus({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -162,6 +165,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
     datasetId: "7911a54a-c808-4f4b-b87e-b195f52b4da5",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -184,15 +188,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
 
 ## listPullOperations
 
-﻿The *List pull operations* endpoint returns a list of [pull operations](https://docs.codat.io/sync-for-commerce-v1-api#/schemas/PullOperation) made by your client.
-
-A [pull operation](https://docs.codat.io/sync-for-commerce-v1-api#/schemas/PullOperation) is a request to retrieve a specific data type from an integration.
-
-### Tips and traps
-
-- The *List pull operations* endpoint does not support querying the `isCompleted` property. You can filter failed pull operations by querying `status!=Complete&&status!=NotSupported` instead.
-
-
+Gets the pull operation history (datasets) for a given company.
 
 ### Example Usage
 
@@ -212,6 +208,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

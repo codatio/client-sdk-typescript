@@ -31,6 +31,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
     pushOperationKey: "59acd79e-29d3-4138-91d3-91d4641bf7ed",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -73,6 +74,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

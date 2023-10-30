@@ -32,6 +32,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -71,6 +72,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
   const res = await sdk.companies.getCompany({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -115,6 +117,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

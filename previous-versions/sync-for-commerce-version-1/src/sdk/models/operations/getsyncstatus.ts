@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class GetSyncStatusRequest extends SpeakeasyBase {
@@ -21,6 +22,12 @@ export class GetSyncStatusResponse extends SpeakeasyBase {
     contentType: string;
 
     /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
+
+    /**
      * HTTP response status code for this operation
      */
     @SpeakeasyMetadata()
@@ -31,4 +38,10 @@ export class GetSyncStatusResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
+
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata()
+    syncSummary?: shared.SyncSummary;
 }

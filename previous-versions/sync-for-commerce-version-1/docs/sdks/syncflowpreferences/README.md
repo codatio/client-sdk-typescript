@@ -31,6 +31,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
 
   const res = await sdk.syncFlowPreferences.getConfigTextSyncFlow();
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -70,6 +71,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
     accountingKey: "string",
     commerceKey: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -112,6 +114,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
     platformKey: "gbol",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -151,6 +154,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
   const res = await sdk.syncFlowPreferences.updateConfigTextSyncFlow({
     "key": {},
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -196,6 +200,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
     },
     platformKey: "gbol",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
