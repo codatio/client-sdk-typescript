@@ -41,6 +41,7 @@ import { CodatCommerce } from "@codat/commerce";
     paymentId: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -89,6 +90,7 @@ import { CodatCommerce } from "@codat/commerce";
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     paymentMethodId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -139,6 +141,7 @@ import { CodatCommerce } from "@codat/commerce";
     pageSize: 100,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -187,6 +190,7 @@ import { CodatCommerce } from "@codat/commerce";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

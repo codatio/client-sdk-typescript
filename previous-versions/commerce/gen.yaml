@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: aa0c0cf34a23cda1c1a14d8cd2d6e128
+  docChecksum: 3e5960645aef0e4cdbb3c6b9bc15c08b
   docVersion: 3.0.0
-  speakeasyVersion: 1.104.0
-  generationVersion: 2.169.0
+  speakeasyVersion: 1.109.0
+  generationVersion: 2.173.0
 generation:
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   sdkClassName: CodatCommerce
@@ -11,14 +11,14 @@ generation:
   telemetryEnabled: true
 features:
   typescript:
-    core: 2.93.0
+    core: 2.94.0
     examples: 2.81.3
     globalSecurity: 2.82.0
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
     retries: 2.82.1
 typescript:
-  version: 0.38.0
+  version: 0.39.0
   author: Codat
   description: Access standardized commerce data from our commerce integrations.
   flattenGlobalSecurity: false

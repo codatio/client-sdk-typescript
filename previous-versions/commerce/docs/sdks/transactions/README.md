@@ -39,6 +39,7 @@ import { CodatCommerce } from "@codat/commerce";
     transactionId: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -87,6 +88,7 @@ import { CodatCommerce } from "@codat/commerce";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

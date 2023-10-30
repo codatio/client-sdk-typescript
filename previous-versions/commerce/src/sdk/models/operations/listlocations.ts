@@ -28,7 +28,7 @@ export class ListLocationsResponse extends SpeakeasyBase {
     contentType: string;
 
     /**
-     * Your `query` parameter was not correctly formed
+     * Your API request was not properly authorized.
      */
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
