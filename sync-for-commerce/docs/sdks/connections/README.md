@@ -38,6 +38,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -78,6 +79,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
     accountingKey: "string",
     commerceKey: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -121,6 +123,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -166,6 +169,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -208,6 +212,7 @@ import { DataConnectionStatus } from "@codat/sync-for-commerce/dist/sdk/models/s
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

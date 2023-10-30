@@ -16,22 +16,16 @@ export class GetSyncStatusRequest extends SpeakeasyBase {
 
 export class GetSyncStatusResponse extends SpeakeasyBase {
     /**
-     * Bad Request
-     */
-    @SpeakeasyMetadata()
-    badRequest?: any;
-
-    /**
      * HTTP response content type for this operation
      */
     @SpeakeasyMetadata()
     contentType: string;
 
     /**
-     * Not Found
+     * Your API request was not properly authorized.
      */
     @SpeakeasyMetadata()
-    notFound?: any;
+    errorMessage?: shared.ErrorMessage;
 
     /**
      * HTTP response status code for this operation

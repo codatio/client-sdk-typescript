@@ -30,6 +30,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
     platformKey: "gbol",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -71,6 +72,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

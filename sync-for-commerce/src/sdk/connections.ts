@@ -120,7 +120,7 @@ export class Connections {
                     );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -231,6 +231,21 @@ export class Connections {
                     );
                 }
                 break;
+            case [400, 401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.errorMessage = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
         }
 
         return res;
@@ -323,7 +338,7 @@ export class Connections {
                     );
                 }
                 break;
-            case [400, 401, 404, 429].includes(httpRes?.status):
+            case [400, 401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -446,6 +461,21 @@ export class Connections {
                     );
                 }
                 break;
+            case [401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.errorMessage = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
         }
 
         return res;
@@ -544,6 +574,21 @@ export class Connections {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.connection = utils.objectToClass(JSON.parse(decodedRes), shared.Connection);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case [401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.errorMessage = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ErrorMessage
+                    );
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,

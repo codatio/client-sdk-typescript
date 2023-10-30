@@ -110,7 +110,7 @@ export class Sync {
                     );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -221,7 +221,7 @@ export class Sync {
                     );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -331,7 +331,7 @@ export class Sync {
                     );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -438,21 +438,12 @@ export class Sync {
                     );
                 }
                 break;
-            case httpRes?.status == 400:
+            case [401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.badRequest = JSON.parse(decodedRes);
-                } else {
-                    throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
-                        httpRes.status,
-                        decodedRes,
-                        httpRes
+                    res.errorMessage = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ErrorMessage
                     );
-                }
-                break;
-            case httpRes?.status == 404:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.notFound = JSON.parse(decodedRes);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -560,7 +551,7 @@ export class Sync {
                     );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -685,6 +676,21 @@ export class Sync {
                     );
                 }
                 break;
+            case [400, 401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.errorMessage = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
         }
 
         return res;
@@ -786,6 +792,21 @@ export class Sync {
                     res.syncSummary = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.SyncSummary
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case [400, 401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.errorMessage = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ErrorMessage
                     );
                 } else {
                     throw new errors.SDKError(
