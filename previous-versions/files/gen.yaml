@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 51ee4fbc6a66709c22663c007999f4b3
+  docChecksum: 540f3032e88f867b222d889d0252c688
   docVersion: 3.0.0
-  speakeasyVersion: 1.104.0
-  generationVersion: 2.169.0
+  speakeasyVersion: 1.109.0
+  generationVersion: 2.173.0
 generation:
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   sdkClassName: CodatFiles
@@ -12,13 +12,13 @@ generation:
 features:
   typescript:
     acceptHeaders: 2.81.1
-    core: 2.93.0
+    core: 2.94.0
     examples: 2.81.3
     globalSecurity: 2.82.0
     globalServerURLs: 2.82.0
     retries: 2.82.1
 typescript:
-  version: 0.37.0
+  version: 0.38.0
   author: Codat
   description: Use Codat's Files API to upload your SMB customers' files.
   flattenGlobalSecurity: false

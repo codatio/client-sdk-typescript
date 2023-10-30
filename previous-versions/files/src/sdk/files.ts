@@ -117,7 +117,7 @@ export class Files {
                     );
                 }
                 break;
-            case [400, 401, 429].includes(httpRes?.status):
+            case [400, 401, 402, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
                 } else {
@@ -129,7 +129,7 @@ export class Files {
                     );
                 }
                 break;
-            case httpRes?.status == 404:
+            case httpRes?.status == 403:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -238,7 +238,7 @@ export class Files {
                     );
                 }
                 break;
-            case [401, 429].includes(httpRes?.status):
+            case [401, 402, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
                 } else {
@@ -250,7 +250,7 @@ export class Files {
                     );
                 }
                 break;
-            case httpRes?.status == 404:
+            case httpRes?.status == 403:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -368,7 +368,7 @@ export class Files {
         switch (true) {
             case httpRes?.status == 200:
                 break;
-            case [400, 401, 429].includes(httpRes?.status):
+            case [400, 401, 402, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.schema = utils.objectToClass(JSON.parse(decodedRes), shared.Schema);
                 } else {
@@ -380,7 +380,7 @@ export class Files {
                     );
                 }
                 break;
-            case httpRes?.status == 404:
+            case httpRes?.status == 403:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),

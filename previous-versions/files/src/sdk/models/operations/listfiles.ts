@@ -16,10 +16,7 @@ export class ListFilesRequest extends SpeakeasyBase {
 }
 
 /**
- * One or more of the resources you referenced could not be found.
- *
- * @remarks
- * This might be because your company or data connection id is wrong, or was already deleted.
+ * You are using an outdated API key or a key not associated with that resource.
  */
 export class ListFilesErrorMessage extends SpeakeasyBase {
     /**
@@ -73,10 +70,7 @@ export class ListFilesResponse extends SpeakeasyBase {
     contentType: string;
 
     /**
-     * One or more of the resources you referenced could not be found.
-     *
-     * @remarks
-     * This might be because your company or data connection id is wrong, or was already deleted.
+     * You are using an outdated API key or a key not associated with that resource.
      */
     @SpeakeasyMetadata()
     errorMessage?: ListFilesErrorMessage;
