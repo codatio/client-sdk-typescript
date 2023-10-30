@@ -40,7 +40,7 @@ export class ListSyncTransactionsResponse extends SpeakeasyBase {
     contentType: string;
 
     /**
-     * Your API request was not properly authorized.
+     * Your `query` parameter was not correctly formed
      */
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;

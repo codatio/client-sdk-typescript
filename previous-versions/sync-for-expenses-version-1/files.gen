@@ -77,7 +77,6 @@ src/sdk/models/shared/mappingoptions.ts
 src/sdk/models/shared/trackingcategorymappinginfo.ts
 src/sdk/models/shared/taxratemappinginfo.ts
 src/sdk/models/shared/accountmappinginfo.ts
-src/sdk/models/shared/syncinitiated.ts
 src/sdk/models/shared/postsync.ts
 src/sdk/models/shared/companysyncstatus.ts
 src/sdk/models/shared/transactionmetadata.ts
@@ -180,7 +179,6 @@ docs/models/shared/taxratemappinginfo.md
 docs/models/shared/accountmappinginfoaccounttype.md
 docs/models/shared/accountmappinginfovalidtransactiontypes.md
 docs/models/shared/accountmappinginfo.md
-docs/models/shared/syncinitiated.md
 docs/models/shared/postsync.md
 docs/models/shared/companysyncstatus.md
 docs/models/shared/transactionmetadata.md

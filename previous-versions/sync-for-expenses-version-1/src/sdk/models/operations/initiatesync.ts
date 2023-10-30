@@ -25,7 +25,7 @@ export class InitiateSyncResponse extends SpeakeasyBase {
     contentType: string;
 
     /**
-     * If model is incorrect
+     * The request made is not valid.
      */
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
@@ -41,10 +41,4 @@ export class InitiateSyncResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse?: AxiosResponse;
-
-    /**
-     * Returns the newly created SyncId
-     */
-    @SpeakeasyMetadata()
-    syncInitiated?: shared.SyncInitiated;
 }
