@@ -43,6 +43,7 @@ import { DataType } from "@codat/common/dist/sdk/models/shared";
     dataType: DataType.Invoices,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -83,6 +84,7 @@ import { CodatCommon } from "@codat/common";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     pushOperationKey: "59acd79e-29d3-4138-91d3-91d4641bf7ed",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -126,6 +128,7 @@ import { CodatCommon } from "@codat/common";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

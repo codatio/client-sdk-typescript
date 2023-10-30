@@ -52,6 +52,7 @@ import { CodatCommon } from "@codat/common";
     type: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -91,6 +92,7 @@ import { CodatCommon } from "@codat/common";
   const res = await sdk.webhooks.get({
     ruleId: "7318949f-c008-4936-a8ff-10d7ab563fa6",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -133,6 +135,7 @@ import { CodatCommon } from "@codat/common";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

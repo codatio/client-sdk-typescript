@@ -38,6 +38,7 @@ import { CodatCommon } from "@codat/common";
     name: "Bank of Dave",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -79,6 +80,7 @@ import { CodatCommon } from "@codat/common";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -118,6 +120,7 @@ import { CodatCommon } from "@codat/common";
   const res = await sdk.companies.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -160,6 +163,7 @@ import { CodatCommon } from "@codat/common";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -204,6 +208,7 @@ import { CodatCommon } from "@codat/common";
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
