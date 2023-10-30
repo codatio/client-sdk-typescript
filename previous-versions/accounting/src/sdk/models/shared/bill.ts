@@ -12,7 +12,7 @@ import { SupplementalData } from "./supplementaldata";
 import { SupplierRef } from "./supplierref";
 import { Expose, Type } from "class-transformer";
 
-export class BillPaymentAllocationAllocation extends SpeakeasyBase {
+export class BillAccountingPaymentAllocationAllocation extends SpeakeasyBase {
     /**
      * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
      *
@@ -96,11 +96,11 @@ export class BillPaymentAllocationAllocation extends SpeakeasyBase {
     totalAmount?: number;
 }
 
-export class BillPaymentAllocation extends SpeakeasyBase {
+export class BillAccountingPaymentAllocation extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "allocation" })
-    @Type(() => BillPaymentAllocationAllocation)
-    allocation: BillPaymentAllocationAllocation;
+    @Type(() => BillAccountingPaymentAllocationAllocation)
+    allocation: BillAccountingPaymentAllocationAllocation;
 
     @SpeakeasyMetadata()
     @Expose({ name: "payment" })
@@ -245,10 +245,10 @@ export class Bill extends SpeakeasyBase {
     /**
      * An array of payment allocations.
      */
-    @SpeakeasyMetadata({ elemType: BillPaymentAllocation })
+    @SpeakeasyMetadata({ elemType: BillAccountingPaymentAllocation })
     @Expose({ name: "paymentAllocations" })
-    @Type(() => BillPaymentAllocation)
-    paymentAllocations?: BillPaymentAllocation[];
+    @Type(() => BillAccountingPaymentAllocation)
+    paymentAllocations?: BillAccountingPaymentAllocation[];
 
     @SpeakeasyMetadata({ elemType: PurchaseOrderRef })
     @Expose({ name: "purchaseOrderRefs" })

@@ -39,6 +39,7 @@ import { RFCDate } from "@codat/accounting/dist/sdk/types";
     reportDate: new RFCDate("2022-12-31"),
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -83,6 +84,7 @@ import { RFCDate } from "@codat/accounting/dist/sdk/types";
     reportDate: new RFCDate("2022-12-31"),
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -125,6 +127,7 @@ import { CodatAccounting } from "@codat/accounting";
     periodsToCompare: 20,
     startMonth: "2022-10-23T00:00:00.000Z",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -169,6 +172,7 @@ import { CodatAccounting } from "@codat/accounting";
     startMonth: "2022-10-23T00:00:00.000Z",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -212,6 +216,7 @@ import { CodatAccounting } from "@codat/accounting";
     startMonth: "2022-10-23T00:00:00.000Z",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -252,6 +257,7 @@ import { CodatAccounting } from "@codat/accounting";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -291,6 +297,7 @@ import { CodatAccounting } from "@codat/accounting";
   const res = await sdk.reports.isAgedDebtorReportAvailable({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

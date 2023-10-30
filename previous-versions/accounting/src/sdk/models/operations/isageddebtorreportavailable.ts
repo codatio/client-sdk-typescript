@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class IsAgedDebtorReportAvailableRequest extends SpeakeasyBase {
@@ -19,6 +20,12 @@ export class IsAgedDebtorReportAvailableResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     contentType: string;
+
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
 
     /**
      * HTTP response status code for this operation

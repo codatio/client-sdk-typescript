@@ -97,6 +97,7 @@ import { DataType } from "@codat/accounting/dist/sdk/models/shared";
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -144,6 +145,7 @@ import { CodatAccounting } from "@codat/accounting";
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     directIncomeId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -194,6 +196,7 @@ import { CodatAccounting } from "@codat/accounting";
     directIncomeId: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -241,6 +244,7 @@ import { CodatAccounting } from "@codat/accounting";
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     directIncomeId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -292,6 +296,7 @@ import { CodatAccounting } from "@codat/accounting";
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -341,6 +346,7 @@ import { CodatAccounting } from "@codat/accounting";
     pageSize: 100,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -387,6 +393,7 @@ import { CodatAccounting } from "@codat/accounting";
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     directIncomeId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -442,6 +449,7 @@ import { CodatAccounting } from "@codat/accounting";
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     directIncomeId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

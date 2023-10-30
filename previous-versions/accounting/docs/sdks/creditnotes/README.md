@@ -122,6 +122,7 @@ import { BilledToType1, CreditNoteStatus } from "@codat/accounting/dist/sdk/mode
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -169,6 +170,7 @@ import { CodatAccounting } from "@codat/accounting";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     creditNoteId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -220,6 +222,7 @@ import { CodatAccounting } from "@codat/accounting";
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -267,6 +270,7 @@ import { CodatAccounting } from "@codat/accounting";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -397,6 +401,7 @@ import { BilledToType1, CreditNoteStatus } from "@codat/accounting/dist/sdk/mode
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     creditNoteId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

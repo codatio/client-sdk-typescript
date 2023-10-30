@@ -38,6 +38,7 @@ import { CodatAccounting } from "@codat/accounting";
     paymentMethodId: "string",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -85,6 +86,7 @@ import { CodatAccounting } from "@codat/accounting";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
