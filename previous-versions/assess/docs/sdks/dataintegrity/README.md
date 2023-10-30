@@ -36,6 +36,7 @@ import { DataIntegrityDataType } from "@codat/assess/dist/sdk/models/shared";
     pageSize: 100,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -78,6 +79,7 @@ import { DataIntegrityDataType } from "@codat/assess/dist/sdk/models/shared";
     dataType: DataIntegrityDataType.BankingAccounts,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -119,6 +121,7 @@ import { DataIntegrityDataType } from "@codat/assess/dist/sdk/models/shared";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     dataType: DataIntegrityDataType.BankingAccounts,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

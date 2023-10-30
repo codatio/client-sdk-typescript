@@ -64,7 +64,7 @@ export class GetAccountingMarketingMetricsResponse extends SpeakeasyBase {
     contentType: string;
 
     /**
-     * Your API request was not properly authorized.
+     * The request made is not valid.
      */
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;

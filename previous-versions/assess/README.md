@@ -92,6 +92,118 @@ import { DataIntegrityDataType } from "@codat/assess/dist/sdk/models/shared";
 
 <!-- End Dev Containers -->
 
+
+
+<!-- Start Error Handling -->
+# Error Handling
+
+Handling errors in your SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
+
+
+<!-- End Error Handling -->
+
+
+
+<!-- Start Server Selection -->
+# Server Selection
+
+## Select Server by Index
+
+You can override the default server globally by passing a server index to the `serverIdx: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https://api.codat.io` | None |
+
+For example:
+
+
+```typescript
+import { CodatAssess } from "@codat/assess";
+import { DataIntegrityDataType } from "@codat/assess/dist/sdk/models/shared";
+
+(async () => {
+    const sdk = new CodatAssess({
+        security: {
+            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+        },
+        serverIdx: 0,
+    });
+
+    const res = await sdk.dataIntegrity.details({
+        companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+        dataType: DataIntegrityDataType.BankingAccounts,
+        orderBy: "-modifiedDate",
+        page: 1,
+        pageSize: 100,
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+
+
+## Override Server URL Per-Client
+
+The default server can also be overridden globally by passing a URL to the `serverURL: str` optional parameter when initializing the SDK client instance. For example:
+
+
+```typescript
+import { CodatAssess } from "@codat/assess";
+import { DataIntegrityDataType } from "@codat/assess/dist/sdk/models/shared";
+
+(async () => {
+    const sdk = new CodatAssess({
+        security: {
+            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+        },
+        serverURL: "https://api.codat.io",
+    });
+
+    const res = await sdk.dataIntegrity.details({
+        companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+        dataType: DataIntegrityDataType.BankingAccounts,
+        orderBy: "-modifiedDate",
+        page: 1,
+        pageSize: 100,
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+<!-- End Server Selection -->
+
+
+
+<!-- Start Custom HTTP Client -->
+# Custom HTTP Client
+
+The Typescript SDK makes API calls using the (axios)[https://axios-http.com/docs/intro] HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `AxiosInstance` object.
+
+
+For example, you could specify a header for every request that your sdk makes as follows:
+
+```typescript
+from @codat/assess import CodatAssess;
+import axios;
+
+const httpClient = axios.create({
+    headers: {'x-custom-header': 'someValue'}
+})
+
+
+const sdk = new CodatAssess({defaultClient: httpClient});
+```
+
+
+<!-- End Custom HTTP Client -->
+
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
 

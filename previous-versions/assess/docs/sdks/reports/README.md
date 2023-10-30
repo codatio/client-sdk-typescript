@@ -50,6 +50,7 @@ import { GenerateLoanSummarySourceType } from "@codat/assess/dist/sdk/models/ope
     sourceType: GenerateLoanSummarySourceType.Accounting,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -97,6 +98,7 @@ import { GenerateLoanTransactionsSourceType } from "@codat/assess/dist/sdk/model
     sourceType: GenerateLoanTransactionsSourceType.Accounting,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -140,6 +142,7 @@ import { CodatAssess } from "@codat/assess";
     reportDate: "29-09-2020",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -182,6 +185,7 @@ import { CodatAssess } from "@codat/assess";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     reportDate: "29-09-2020",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -229,6 +233,7 @@ import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
     reportDate: "29-09-2020",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -274,6 +279,7 @@ import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
     periodUnit: PeriodUnit.Day,
     reportDate: "29-09-2020",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -321,6 +327,7 @@ import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
     reportDate: "29-09-2020",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -366,6 +373,7 @@ import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
     periodUnit: PeriodUnit.Day,
     reportDate: "29-09-2020",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -413,6 +421,7 @@ import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
     reportDate: "29-09-2020",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -459,6 +468,7 @@ import { CodatAssess } from "@codat/assess";
     pageSize: 100,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -500,6 +510,7 @@ import { CodatAssess } from "@codat/assess";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -548,6 +559,7 @@ import { GetLoanSummarySourceType } from "@codat/assess/dist/sdk/models/operatio
     sourceType: GetLoanSummarySourceType.Banking,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -588,6 +600,7 @@ import { CodatAssess } from "@codat/assess";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -636,6 +649,7 @@ import { ListLoanTransactionsSourceType } from "@codat/assess/dist/sdk/models/op
     sourceType: ListLoanTransactionsSourceType.Commerce,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -676,6 +690,7 @@ import { CodatAssess } from "@codat/assess";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
