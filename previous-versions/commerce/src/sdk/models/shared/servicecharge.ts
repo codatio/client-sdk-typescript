@@ -45,7 +45,7 @@ export class ServiceCharge extends SpeakeasyBase {
     taxes?: TaxComponentAllocation[];
 
     /**
-     * Total service charge, including taxes.
+     * Total amount of the service charge, including tax.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "totalAmount" })

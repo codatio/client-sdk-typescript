@@ -22,16 +22,6 @@ export class Products {
 
     /**
      * Get product
-     *
-     * @remarks
-     * The *Get product* endpoint returns a single product for a given productId.
-     *
-     * [Products](https://docs.codat.io/commerce-api#/schemas/Product) are items in the company's inventory that are available for sale.
-     *
-     * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/commerce?view=tab-by-data-type&dataType=commerce-products) for integrations that support getting a specific product.
-     *
-     * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/codat-api#/operations/refresh-company-data).
-     *
      */
     async get(
         req: operations.GetProductRequest,
@@ -114,7 +104,7 @@ export class Products {
                     );
                 }
                 break;
-            case [401, 404, 409, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 409, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -232,7 +222,7 @@ export class Products {
                     );
                 }
                 break;
-            case [401, 404, 409, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 409, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -345,7 +335,7 @@ export class Products {
                     );
                 }
                 break;
-            case [400, 401, 404, 409, 429].includes(httpRes?.status):
+            case [400, 401, 402, 403, 404, 409, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -462,7 +452,7 @@ export class Products {
                     );
                 }
                 break;
-            case [400, 401, 404, 409, 429].includes(httpRes?.status):
+            case [400, 401, 402, 403, 404, 409, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),

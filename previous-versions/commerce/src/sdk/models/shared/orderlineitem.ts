@@ -42,7 +42,7 @@ export class OrderLineItem extends SpeakeasyBase {
      * Number of units of the product sold.
      *
      * @remarks
-     * For refunds, quantity is a negative value.
+     * For refunds, quantity is negative.
      *
      */
     @SpeakeasyMetadata()
@@ -50,7 +50,7 @@ export class OrderLineItem extends SpeakeasyBase {
     quantity?: number;
 
     /**
-     * Percentage rate (from 0 to 100) of any sale tax applied to the unit amount.
+     * Percentage rate (from 0 to 100) of any sales tax applied to the unit price.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "taxPercentage" })
@@ -65,21 +65,21 @@ export class OrderLineItem extends SpeakeasyBase {
     taxes?: TaxComponentAllocation[];
 
     /**
-     * Total price of the line item, including discounts, tax and minus any refunds.
+     * Total amount of the line item, including discounts and tax.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "totalAmount" })
     totalAmount?: number;
 
     /**
-     * Total amount of tax applied to the line item.
+     * Total amount of tax applied to the line item, factoring in any discounts.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "totalTaxAmount" })
     totalTaxAmount?: number;
 
     /**
-     * Price per unit of goods or service.
+     * Price per unit of goods or services, excluding discounts and tax.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "unitPrice" })
