@@ -34,6 +34,7 @@ import { ExcelReportType } from "@codat/assess/dist/sdk/models/shared";
     reportType: ExcelReportType.EnhancedCashFlow,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -82,6 +83,7 @@ import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
     reportDate: "29-09-2020",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -124,6 +126,7 @@ import { ExcelReportType } from "@codat/assess/dist/sdk/models/shared";
     reportType: ExcelReportType.EnhancedCashFlow,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -165,6 +168,7 @@ import { ExcelReportType } from "@codat/assess/dist/sdk/models/shared";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     reportType: ExcelReportType.EnhancedInvoices,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

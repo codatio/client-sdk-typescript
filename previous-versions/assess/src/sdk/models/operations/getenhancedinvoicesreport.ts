@@ -46,7 +46,7 @@ export class GetEnhancedInvoicesReportResponse extends SpeakeasyBase {
     enhancedInvoicesReport?: shared.EnhancedInvoicesReport;
 
     /**
-     * Your API request was not properly authorized.
+     * Your `query` parameter was not correctly formed
      */
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;

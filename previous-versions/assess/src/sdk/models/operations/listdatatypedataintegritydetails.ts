@@ -58,7 +58,7 @@ export class ListDataTypeDataIntegrityDetailsResponse extends SpeakeasyBase {
     details?: shared.Details;
 
     /**
-     * Your API request was not properly authorized.
+     * Your `query` parameter was not correctly formed
      */
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;

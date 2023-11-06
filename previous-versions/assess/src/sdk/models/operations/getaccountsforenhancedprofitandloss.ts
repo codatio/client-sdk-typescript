@@ -40,7 +40,7 @@ export class GetAccountsForEnhancedProfitAndLossResponse extends SpeakeasyBase {
     enhancedReport?: shared.EnhancedReport;
 
     /**
-     * Your API request was not properly authorized.
+     * The request made is not valid.
      */
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
