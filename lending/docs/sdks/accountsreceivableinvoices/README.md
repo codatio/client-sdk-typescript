@@ -36,8 +36,9 @@ import { CodatLending } from "@codat/lending";
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    invoiceId: "Dakota Avon specifically",
+    invoiceId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -77,8 +78,9 @@ import { CodatLending } from "@codat/lending";
 
   const res = await sdk.accountsReceivable.invoices.downloadPdf({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    invoiceId: "Associate",
+    invoiceId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -124,8 +126,9 @@ import { CodatLending } from "@codat/lending";
 
   const res = await sdk.accountsReceivable.invoices.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    invoiceId: "Northeast Hatchback Kia",
+    invoiceId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -172,8 +175,9 @@ import { CodatLending } from "@codat/lending";
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    invoiceId: "array East along",
+    invoiceId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -229,6 +233,7 @@ import { CodatLending } from "@codat/lending";
     pageSize: 100,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -273,8 +278,9 @@ import { CodatLending } from "@codat/lending";
   const res = await sdk.accountsReceivable.invoices.listAttachments({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    invoiceId: "intuitive Frozen ouch",
+    invoiceId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -317,6 +323,7 @@ import { CodatLending } from "@codat/lending";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

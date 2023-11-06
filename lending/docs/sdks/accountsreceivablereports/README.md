@@ -32,6 +32,7 @@ import { RFCDate } from "@codat/lending/dist/sdk/types";
     reportDate: new RFCDate("2022-12-31"),
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -76,6 +77,7 @@ import { RFCDate } from "@codat/lending/dist/sdk/types";
     reportDate: new RFCDate("2022-12-31"),
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -116,6 +118,7 @@ import { CodatLending } from "@codat/lending";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -155,6 +158,7 @@ import { CodatLending } from "@codat/lending";
   const res = await sdk.accountsReceivable.reports.isAgedDebtorsAvailable({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

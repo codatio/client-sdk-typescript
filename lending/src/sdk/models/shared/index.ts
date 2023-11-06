@@ -33,6 +33,7 @@ export * from "./accountingbills";
 export * from "./accountingcashflowstatement";
 export * from "./accountingcompanyinfo";
 export * from "./accountingcreateaccountresponse";
+export * from "./accountingcreatebankaccountresponse";
 export * from "./accountingcreatebanktransactions";
 export * from "./accountingcreatebanktransactionsresponse";
 export * from "./accountingcreatedirectcostresponse";

@@ -39,6 +39,7 @@ import { GenerateLoanSummarySourceType } from "@codat/lending/dist/sdk/models/op
     sourceType: GenerateLoanSummarySourceType.Accounting,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -85,6 +86,7 @@ import { GenerateLoanTransactionsSourceType } from "@codat/lending/dist/sdk/mode
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     sourceType: GenerateLoanTransactionsSourceType.Accounting,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -133,6 +135,7 @@ import { GetLoanSummarySourceType } from "@codat/lending/dist/sdk/models/operati
     sourceType: GetLoanSummarySourceType.Banking,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -179,6 +182,7 @@ import { ListLoanTransactionsSourceType } from "@codat/lending/dist/sdk/models/o
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     sourceType: ListLoanTransactionsSourceType.Commerce,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

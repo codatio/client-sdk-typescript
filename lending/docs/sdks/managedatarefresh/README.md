@@ -30,6 +30,7 @@ import { CodatLending } from "@codat/lending";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -73,6 +74,7 @@ import { DataType } from "@codat/lending/dist/sdk/models/shared";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     dataType: DataType.Invoices,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

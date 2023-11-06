@@ -34,8 +34,9 @@ import { CodatLending } from "@codat/lending";
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directCostId: "Dakota Avon specifically",
+    directCostId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -83,8 +84,9 @@ import { CodatLending } from "@codat/lending";
   const res = await sdk.transactions.directCosts.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directCostId: "Northeast Hatchback Kia",
+    directCostId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -131,8 +133,9 @@ import { CodatLending } from "@codat/lending";
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directCostId: "array East along",
+    directCostId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -183,6 +186,7 @@ import { CodatLending } from "@codat/lending";
     pageSize: 100,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -227,8 +231,9 @@ import { CodatLending } from "@codat/lending";
   const res = await sdk.transactions.directCosts.listAttachments({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directCostId: "intuitive Frozen ouch",
+    directCostId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

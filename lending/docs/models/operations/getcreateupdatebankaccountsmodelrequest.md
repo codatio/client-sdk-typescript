@@ -1,4 +1,4 @@
-# GetCreatePaymentsModelRequest
+# GetCreateUpdateBankAccountsModelRequest
 
 
 ## Fields

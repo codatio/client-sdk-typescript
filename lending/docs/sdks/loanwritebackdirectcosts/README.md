@@ -85,17 +85,18 @@ import { DataType } from "@codat/lending/dist/sdk/models/shared";
       subTotal: 9510.62,
       supplementalData: {
         content: {
-          "abnormally": {
-            "deposit": "evolve",
+          "key": {
+            "key": "string",
           },
         },
       },
-      taxAmount: 7150.4,
-      totalAmount: 7926.2,
+      taxAmount: 8915.1,
+      totalAmount: 0.86,
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -146,6 +147,7 @@ import { CodatLending } from "@codat/lending";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

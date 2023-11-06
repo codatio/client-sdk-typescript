@@ -40,7 +40,7 @@ export class GetCategorizedBalanceSheetStatementResponse extends SpeakeasyBase {
     enhancedFinancialReport?: shared.EnhancedFinancialReport;
 
     /**
-     * Your API request was not properly authorized.
+     * The request made is not valid.
      */
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;

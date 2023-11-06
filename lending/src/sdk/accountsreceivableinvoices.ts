@@ -14,6 +14,11 @@ export enum DownloadAttachmentAcceptEnum {
     applicationOctetStream = "application/octet-stream",
 }
 
+export enum DownloadPdfAcceptEnum {
+    applicationJson = "application/json",
+    applicationOctetStream = "application/octet-stream",
+}
+
 export class AccountsReceivableInvoices {
     private sdkConfiguration: SDKConfiguration;
 
@@ -119,7 +124,7 @@ export class AccountsReceivableInvoices {
                     );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -148,7 +153,8 @@ export class AccountsReceivableInvoices {
     async downloadPdf(
         req: operations.DownloadAccountingInvoicePdfRequest,
         retries?: utils.RetryConfig,
-        config?: AxiosRequestConfig
+        config?: AxiosRequestConfig,
+        acceptHeaderOverride?: DownloadPdfAcceptEnum
     ): Promise<operations.DownloadAccountingInvoicePdfResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
             req = new operations.DownloadAccountingInvoicePdfRequest(req);
@@ -173,7 +179,11 @@ export class AccountsReceivableInvoices {
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
-        headers["Accept"] = "application/octet-stream";
+        if (acceptHeaderOverride !== undefined) {
+            headers["Accept"] = acceptHeaderOverride.toString();
+        } else {
+            headers["Accept"] = "application/json;q=1, application/octet-stream;q=0";
+        }
 
         headers["user-agent"] = this.sdkConfiguration.userAgent;
 
@@ -213,6 +223,7 @@ export class AccountsReceivableInvoices {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/octet-stream`)) {
@@ -221,7 +232,22 @@ export class AccountsReceivableInvoices {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
                         httpRes.status,
-                        httpRes?.data,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case [401, 402, 403, 404, 409, 429, 500, 503].includes(httpRes?.status):
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.errorMessage = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
                         httpRes
                     );
                 }
@@ -328,7 +354,7 @@ export class AccountsReceivableInvoices {
                     );
                 }
                 break;
-            case [401, 404, 409, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 409, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -444,7 +470,7 @@ export class AccountsReceivableInvoices {
                     );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -563,7 +589,7 @@ export class AccountsReceivableInvoices {
                     );
                 }
                 break;
-            case [400, 401, 404, 409].includes(httpRes?.status):
+            case [400, 401, 402, 403, 404, 409, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -679,7 +705,7 @@ export class AccountsReceivableInvoices {
                     );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 409, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -791,7 +817,7 @@ export class AccountsReceivableInvoices {
                     );
                 }
                 break;
-            case [401, 404].includes(httpRes?.status):
+            case [400, 401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),

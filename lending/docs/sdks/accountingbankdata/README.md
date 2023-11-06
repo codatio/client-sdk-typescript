@@ -33,13 +33,14 @@ import { CodatLending } from "@codat/lending";
   });
 
   const res = await sdk.accountingBankData.listTransactions({
-    accountId: "Anchorage Product",
+    accountId: "string",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     orderBy: "-modifiedDate",
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
