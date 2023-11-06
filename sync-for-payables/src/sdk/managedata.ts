@@ -93,9 +93,9 @@ export class ManageData {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.dataStatusResponse = {};
+                    res.dataStatuses = {};
                     const resFieldDepth: number = utils.getResFieldDepth(res);
-                    res.dataStatusResponse = utils.objectToClass(
+                    res.dataStatuses = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.DataStatus,
                         resFieldDepth
@@ -109,7 +109,7 @@ export class ManageData {
                     );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -219,7 +219,7 @@ export class ManageData {
                     );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -327,7 +327,7 @@ export class ManageData {
                     );
                 }
                 break;
-            case [400, 401, 404, 429].includes(httpRes?.status):
+            case [400, 401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -425,7 +425,7 @@ export class ManageData {
         switch (true) {
             case httpRes?.status == 204:
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -538,7 +538,7 @@ export class ManageData {
                     );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),

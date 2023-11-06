@@ -49,6 +49,7 @@ import { JournalStatus } from "@codat/sync-for-payables/dist/sdk/models/shared";
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -94,8 +95,9 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
 
   const res = await sdk.journals.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    journalId: "Northeast Hatchback Kia",
+    journalId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -147,6 +149,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -194,6 +197,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

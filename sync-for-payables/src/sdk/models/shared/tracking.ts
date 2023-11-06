@@ -23,7 +23,7 @@ export class TrackingCustomerRef extends SpeakeasyBase {
     id: string;
 }
 
-export class TrackingProjectReference extends SpeakeasyBase {
+export class TrackingAccountingProjectReference extends SpeakeasyBase {
     /**
      * Unique identifier to the project reference.
      */
@@ -69,6 +69,6 @@ export class Tracking extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "projectRef" })
-    @Type(() => TrackingProjectReference)
-    projectRef?: TrackingProjectReference;
+    @Type(() => TrackingAccountingProjectReference)
+    projectRef?: TrackingAccountingProjectReference;
 }

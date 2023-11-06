@@ -105,26 +105,27 @@ import { BilledToType, BillLineItemRecordLineReferenceDataType, BillStatus } fro
       subTotal: 0.86,
       supplementalData: {
         content: {
-          "deposit": {
-            "evolve": "male",
+          "key": {
+            "key": "string",
           },
         },
       },
       supplierRef: {
         id: "<ID>",
       },
-      taxAmount: 8559.52,
-      totalAmount: 8165.88,
+      taxAmount: 4552.22,
+      totalAmount: 1697.27,
       withholdingTax: [
         {
-          amount: 5519.29,
-          name: "Polestar mobile",
+          amount: 3015.1,
+          name: "string",
         },
       ],
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -154,7 +155,7 @@ The *Delete bill* endpoint allows you to delete a specified bill from an account
 
 ### Process 
 1. Pass the `{billId}` to the *Delete bill* endpoint and store the `pushOperationKey` returned.
-2. Check the status of the delete operation by checking the status of push operation either via
+2. Check the status of the delete operation by checking the status of the push operation either via
     1. [Push operation webhook](https://docs.codat.io/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
     2. [Push operation status endpoint](https://docs.codat.io/sync-for-payables-api#/operations/get-push-operation).
 
@@ -171,11 +172,12 @@ Integrations that support soft delete do not permanently delete the object in th
 | Integration | Soft Delete | Details                                                                                                      |  
 |-------------|-------------|--------------------------------------------------------------------------------------------------------------|
 | QuickBooks Online | No          | -                                                                                                            |
-| Oracle NetSuite   | No          | When deleting a bill that's already linked to a bill payment, you must delete the linked bill payment first. |
+| Oracle NetSuite   | No          | When deleting a bill that's already linked to a bill payment, you must delete the linked bill payment first. |                                                                                                      |
+| Sage Intacct   | No          | When deleting a bill that's already linked to a bill payment, you must delete the linked bill payment first. |
 
 > **Supported Integrations**
 > 
-> This functionality is currently supported for our QuickBooks Online, Xero and Oracle NetSuite integrations.
+> This functionality is currently supported for our QuickBooks Online, Xero, Oracle NetSuite and Sage Intacct integrations.
 
 ### Example Usage
 
@@ -194,6 +196,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -258,6 +261,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -305,6 +309,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -354,6 +359,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -401,6 +407,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -452,6 +459,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -500,6 +508,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
     pageSize: 100,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -546,6 +555,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -653,27 +663,28 @@ import { BilledToType, BillLineItemRecordLineReferenceDataType, BillStatus } fro
       subTotal: 540.62,
       supplementalData: {
         content: {
-          "Cotton": {
-            "extend": "Plastic",
+          "key": {
+            "key": "string",
           },
         },
       },
       supplierRef: {
         id: "<ID>",
       },
-      taxAmount: 1395.79,
-      totalAmount: 6447.13,
+      taxAmount: 2782.81,
+      totalAmount: 8965.01,
       withholdingTax: [
         {
-          amount: 7892.75,
-          name: "immediately implement JBOD",
+          amount: 4995.57,
+          name: "string",
         },
       ],
     },
-    billId: "EILBDVJVNUAGVKRQ",
+    billId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -723,12 +734,13 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
   const res = await sdk.bills.uploadAttachment({
     requestBody: {
       content: "v/ghW&IC$x" as bytes <<<>>>,
-      requestBody: "Elegant Producer Electric",
+      requestBody: "string",
     },
-    billId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+    billId: "7110701885",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

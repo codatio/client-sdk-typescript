@@ -53,8 +53,8 @@ import { AccountingAddressType, SupplierStatus } from "@codat/sync-for-payables/
       status: SupplierStatus.Active,
       supplementalData: {
         content: {
-          "innovative": {
-            "blue": "shred",
+          "key": {
+            "key": "string",
           },
         },
       },
@@ -62,6 +62,7 @@ import { AccountingAddressType, SupplierStatus } from "@codat/sync-for-payables/
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -108,8 +109,9 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
 
   const res = await sdk.suppliers.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    supplierId: "Northeast Hatchback Kia",
+    supplierId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -161,6 +163,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -208,6 +211,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -269,16 +273,17 @@ import { AccountingAddressType, SupplierStatus } from "@codat/sync-for-payables/
       status: SupplierStatus.Active,
       supplementalData: {
         content: {
-          "male": {
-            "Metal": "cheater",
+          "key": {
+            "key": "string",
           },
         },
       },
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    supplierId: "Cotton",
+    supplierId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
