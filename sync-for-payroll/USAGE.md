@@ -28,15 +28,15 @@ import { AccountStatus, AccountType } from "@codat/sync-for-payroll/dist/sdk/mod
             status: AccountStatus.Active,
             supplementalData: {
                 content: {
-                    Money: {
-                        blue: "shred",
+                    key: {
+                        key: "string",
                     },
                 },
             },
             type: AccountType.Asset,
             validDatatypeLinks: [
                 {
-                    links: ["abnormally"],
+                    links: ["string"],
                 },
             ],
         },

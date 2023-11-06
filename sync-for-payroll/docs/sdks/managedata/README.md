@@ -35,6 +35,7 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -76,6 +77,7 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
     datasetId: "7911a54a-c808-4f4b-b87e-b195f52b4da5",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -116,6 +118,7 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     pushOperationKey: "2a6486f4-00c4-40bd-900d-b29c15ad0581",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -160,6 +163,7 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
     pageSize: 100,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -202,6 +206,7 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -247,6 +252,7 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -290,6 +296,7 @@ import { DataType } from "@codat/sync-for-payroll/dist/sdk/models/shared";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     dataType: DataType.Invoices,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

@@ -10,7 +10,7 @@ import { WebLink } from "./weblink";
 import { Expose, Type } from "class-transformer";
 
 /**
- * > View the coverage for company info in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=cashFlowStatement" target="_blank">Data coverage explorer</a>.
+ * > View the coverage for company profile in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=cashFlowStatement" target="_blank">Data coverage explorer</a>.
  *
  * @remarks
  *
@@ -18,7 +18,7 @@ import { Expose, Type } from "class-transformer";
  *
  * > **Company information or companies?**
  * >
- * > Company information is standard information that is held in the accounting platform about a company. `Companies` is an endpoint that lists businesses in the Codat system that have linked and shared their data sources.
+ * > Company profile is standard information that is held in the accounting platform about a company. `Companies` is an endpoint that lists businesses in the Codat system that have linked and shared their data sources.
  */
 export class CompanyInfo extends SpeakeasyBase {
     /**
