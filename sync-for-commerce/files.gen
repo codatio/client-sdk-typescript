@@ -46,6 +46,7 @@ src/sdk/models/operations/getvisibleaccounts.ts
 src/sdk/models/operations/updateconfigtextsyncflow.ts
 src/sdk/models/operations/updatevisibleaccountssyncflow.ts
 src/sdk/models/operations/index.ts
+src/sdk/models/shared/errormessage.ts
 src/sdk/models/shared/company.ts
 src/sdk/models/shared/connection.ts
 src/sdk/models/shared/dataconnectionstatus.ts
@@ -73,7 +74,6 @@ src/sdk/models/shared/feessupplier.ts
 src/sdk/models/shared/companies.ts
 src/sdk/models/shared/links.ts
 src/sdk/models/shared/halref.ts
-src/sdk/models/shared/errormessage.ts
 src/sdk/models/shared/syncflowurl.ts
 src/sdk/models/shared/connections.ts
 src/sdk/models/shared/updateconnection.ts
@@ -145,6 +145,7 @@ docs/models/operations/getvisibleaccountsresponse.md
 docs/models/operations/updateconfigtextsyncflowresponse.md
 docs/models/operations/updatevisibleaccountssyncflowrequest.md
 docs/models/operations/updatevisibleaccountssyncflowresponse.md
+docs/models/shared/errormessage.md
 docs/models/shared/company.md
 docs/models/shared/connectionsourcetype.md
 docs/models/shared/connection.md
@@ -173,7 +174,6 @@ docs/models/shared/feessupplier.md
 docs/models/shared/companies.md
 docs/models/shared/links.md
 docs/models/shared/halref.md
-docs/models/shared/errormessage.md
 docs/models/shared/syncflowurl.md
 docs/models/shared/connections.md
 docs/models/shared/updateconnection.md

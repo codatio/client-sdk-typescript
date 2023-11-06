@@ -14,7 +14,7 @@ Advanced company management and sync preferences.
 
 ## createCompany
 
-Creates a Codat company..
+Creates a Codat company
 
 ### Example Usage
 
@@ -32,6 +32,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
     description: "Requested early access to the new financing scheme.",
     name: "Bank of Dave",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -72,6 +73,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
   const res = await sdk.advancedControls.getConfiguration({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -115,6 +117,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
     pageSize: 100,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -154,6 +157,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
   const res = await sdk.advancedControls.setConfiguration({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

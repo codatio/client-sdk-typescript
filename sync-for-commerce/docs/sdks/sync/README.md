@@ -36,6 +36,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
     syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -75,6 +76,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
   const res = await sdk.sync.getLastSuccessfulSync({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -116,6 +118,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -156,6 +159,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -195,6 +199,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
   const res = await sdk.sync.list({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -238,6 +243,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -284,6 +290,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

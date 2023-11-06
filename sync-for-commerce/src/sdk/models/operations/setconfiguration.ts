@@ -28,6 +28,12 @@ export class SetConfigurationResponse extends SpeakeasyBase {
     contentType: string;
 
     /**
+     * The request made is not valid.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
+
+    /**
      * HTTP response status code for this operation
      */
     @SpeakeasyMetadata()
