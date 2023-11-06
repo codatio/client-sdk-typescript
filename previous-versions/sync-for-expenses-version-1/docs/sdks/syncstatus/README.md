@@ -32,6 +32,7 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses-version-1";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -71,6 +72,7 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses-version-1";
   const res = await sdk.syncStatus.getLatestSync({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -113,6 +115,7 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses-version-1";
     syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -152,6 +155,7 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses-version-1";
   const res = await sdk.syncStatus.listSyncs({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
