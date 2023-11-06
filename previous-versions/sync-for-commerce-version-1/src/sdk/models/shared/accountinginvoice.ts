@@ -12,7 +12,7 @@ import { PaymentAllocationPayment } from "./paymentallocationpayment";
 import { SupplementalData } from "./supplementaldata";
 import { Expose, Type } from "class-transformer";
 
-export class AccountingInvoicePaymentAllocationAllocation extends SpeakeasyBase {
+export class AccountingInvoiceAccountingPaymentAllocationAllocation extends SpeakeasyBase {
     /**
      * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
      *
@@ -96,11 +96,11 @@ export class AccountingInvoicePaymentAllocationAllocation extends SpeakeasyBase 
     totalAmount?: number;
 }
 
-export class AccountingInvoicePaymentAllocation extends SpeakeasyBase {
+export class AccountingInvoiceAccountingPaymentAllocation extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "allocation" })
-    @Type(() => AccountingInvoicePaymentAllocationAllocation)
-    allocation: AccountingInvoicePaymentAllocationAllocation;
+    @Type(() => AccountingInvoiceAccountingPaymentAllocationAllocation)
+    allocation: AccountingInvoiceAccountingPaymentAllocationAllocation;
 
     @SpeakeasyMetadata()
     @Expose({ name: "payment" })
@@ -377,10 +377,10 @@ export class AccountingInvoice extends SpeakeasyBase {
     /**
      * An array of payment allocations.
      */
-    @SpeakeasyMetadata({ elemType: AccountingInvoicePaymentAllocation })
+    @SpeakeasyMetadata({ elemType: AccountingInvoiceAccountingPaymentAllocation })
     @Expose({ name: "paymentAllocations" })
-    @Type(() => AccountingInvoicePaymentAllocation)
-    paymentAllocations?: AccountingInvoicePaymentAllocation[];
+    @Type(() => AccountingInvoiceAccountingPaymentAllocation)
+    paymentAllocations?: AccountingInvoiceAccountingPaymentAllocation[];
 
     /**
      * List of references to related Sales orders.

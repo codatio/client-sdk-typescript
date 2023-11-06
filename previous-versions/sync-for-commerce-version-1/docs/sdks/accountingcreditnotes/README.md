@@ -99,24 +99,25 @@ import { BilledToType, CreditNoteStatus } from "@codat/sync-for-commerce-version
       subTotal: 1915.04,
       supplementalData: {
         content: {
-          "Metal": {
-            "policy": "although",
+          "key": {
+            "key": "string",
           },
         },
       },
-      totalAmount: 6437.49,
-      totalDiscount: 6593.55,
-      totalTaxAmount: 3629.12,
+      totalAmount: 5893.9,
+      totalDiscount: 579.23,
+      totalTaxAmount: 3881.42,
       withholdingTax: [
         {
-          amount: 5655.86,
-          name: "however",
+          amount: 7369.44,
+          name: "string",
         },
       ],
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

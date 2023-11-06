@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { CommerceAddressType } from "./commerceaddresstype";
 import { Expose, Type } from "class-transformer";
 
-export class CommerceCustomerAddress extends SpeakeasyBase {
+export class CommerceCustomerCommerceAddress extends SpeakeasyBase {
     /**
      * The third line of the address, or city
      */
@@ -68,10 +68,10 @@ export class CommerceCustomer extends SpeakeasyBase {
     /**
      * Addresses of the customer
      */
-    @SpeakeasyMetadata({ elemType: CommerceCustomerAddress })
+    @SpeakeasyMetadata({ elemType: CommerceCustomerCommerceAddress })
     @Expose({ name: "addresses" })
-    @Type(() => CommerceCustomerAddress)
-    addresses?: CommerceCustomerAddress[];
+    @Type(() => CommerceCustomerCommerceAddress)
+    addresses?: CommerceCustomerCommerceAddress[];
 
     /**
      * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:

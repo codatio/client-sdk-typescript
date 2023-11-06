@@ -14,6 +14,12 @@ export class UpdateConfigTextSyncFlowResponse extends SpeakeasyBase {
     contentType: string;
 
     /**
+     * The request made is not valid.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
+
+    /**
      * Success
      */
     @SpeakeasyMetadata({ elemType: shared.Localization })

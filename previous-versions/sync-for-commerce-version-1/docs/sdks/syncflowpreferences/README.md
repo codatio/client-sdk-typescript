@@ -31,6 +31,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
 
   const res = await sdk.syncFlowPreferences.getConfigTextSyncFlow();
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -67,9 +68,10 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
   });
 
   const res = await sdk.syncFlowPreferences.getSyncFlowUrl({
-    accountingKey: "Manager",
-    commerceKey: "payment",
+    accountingKey: "string",
+    commerceKey: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -112,6 +114,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
     platformKey: "gbol",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -149,8 +152,9 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
   });
 
   const res = await sdk.syncFlowPreferences.updateConfigTextSyncFlow({
-    "West": {},
+    "key": {},
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -191,11 +195,12 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
   const res = await sdk.syncFlowPreferences.updateVisibleAccountsSyncFlow({
     visibleAccounts: {
       visibleAccounts: [
-        "Coordinator",
+        "string",
       ],
     },
     platformKey: "gbol",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

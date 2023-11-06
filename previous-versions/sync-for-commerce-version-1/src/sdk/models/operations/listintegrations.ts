@@ -40,6 +40,12 @@ export class ListIntegrationsResponse extends SpeakeasyBase {
     contentType: string;
 
     /**
+     * Your `query` parameter was not correctly formed
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
+
+    /**
      * Success
      */
     @SpeakeasyMetadata()

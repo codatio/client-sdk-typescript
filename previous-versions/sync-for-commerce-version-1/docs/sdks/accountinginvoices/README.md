@@ -103,23 +103,24 @@ import { BilledToType, DataType, InvoiceStatus } from "@codat/sync-for-commerce-
       status: InvoiceStatus.PartiallyPaid,
       supplementalData: {
         content: {
-          "Beier": {
-            "boo": "Regional",
+          "key": {
+            "key": "string",
           },
         },
       },
-      totalAmount: 1895.83,
-      totalTaxAmount: 7283.9,
+      totalAmount: 1416.23,
+      totalTaxAmount: 9069.87,
       withholdingTax: [
         {
-          amount: 1357.13,
-          name: "Gasoline Interactions Cisgender",
+          amount: 598.23,
+          name: "string",
         },
       ],
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

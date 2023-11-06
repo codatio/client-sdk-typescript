@@ -37,6 +37,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -81,6 +82,7 @@ import { DataType } from "@codat/sync-for-commerce-version-1/dist/sdk/models/sha
     dataType: DataType.Invoices,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -120,6 +122,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
   const res = await sdk.refreshData.getCompanyDataStatus({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -161,6 +164,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     datasetId: "7911a54a-c808-4f4b-b87e-b195f52b4da5",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -204,6 +208,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
