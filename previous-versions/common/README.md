@@ -90,7 +90,7 @@ import { CodatCommon } from "@codat/common";
 
 * [createApiKey](docs/sdks/settings/README.md#createapikey) - Create API key
 * [deleteApiKey](docs/sdks/settings/README.md#deleteapikey) - Delete API key
-* [~~getProfile~~](docs/sdks/settings/README.md#getprofile) - Get profile :warning: **Deprecated**
+* [getProfile](docs/sdks/settings/README.md#getprofile) - Get profile
 * [getSyncSettings](docs/sdks/settings/README.md#getsyncsettings) - Get sync settings
 * [listApiKeys](docs/sdks/settings/README.md#listapikeys) - List API keys
 * [updateProfile](docs/sdks/settings/README.md#updateprofile) - Update profile
@@ -112,9 +112,111 @@ import { CodatCommon } from "@codat/common";
 
 <!-- Start Dev Containers -->
 
-
-
 <!-- End Dev Containers -->
+
+
+
+<!-- Start Error Handling -->
+# Error Handling
+
+Handling errors in your SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
+
+
+<!-- End Error Handling -->
+
+
+
+<!-- Start Server Selection -->
+# Server Selection
+
+## Select Server by Index
+
+You can override the default server globally by passing a server index to the `serverIdx: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https://api.codat.io` | None |
+
+For example:
+
+
+```typescript
+import { CodatCommon } from "@codat/common";
+
+(async () => {
+    const sdk = new CodatCommon({
+        security: {
+            authHeader: "",
+        },
+        serverIdx: 0,
+    });
+
+    const res = await sdk.companies.create({
+        description: "Requested early access to the new financing scheme.",
+        name: "Bank of Dave",
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+
+
+## Override Server URL Per-Client
+
+The default server can also be overridden globally by passing a URL to the `serverURL: str` optional parameter when initializing the SDK client instance. For example:
+
+
+```typescript
+import { CodatCommon } from "@codat/common";
+
+(async () => {
+    const sdk = new CodatCommon({
+        security: {
+            authHeader: "",
+        },
+        serverURL: "https://api.codat.io",
+    });
+
+    const res = await sdk.companies.create({
+        description: "Requested early access to the new financing scheme.",
+        name: "Bank of Dave",
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+<!-- End Server Selection -->
+
+
+
+<!-- Start Custom HTTP Client -->
+# Custom HTTP Client
+
+The Typescript SDK makes API calls using the (axios)[https://axios-http.com/docs/intro] HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `AxiosInstance` object.
+
+
+For example, you could specify a header for every request that your sdk makes as follows:
+
+```typescript
+from @codat/common import CodatCommon;
+import axios;
+
+const httpClient = axios.create({
+    headers: {'x-custom-header': 'someValue'}
+})
+
+
+const sdk = new CodatCommon({defaultClient: httpClient});
+```
+
+
+<!-- End Custom HTTP Client -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

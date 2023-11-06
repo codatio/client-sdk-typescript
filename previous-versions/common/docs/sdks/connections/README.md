@@ -39,6 +39,7 @@ import { CodatCommon } from "@codat/common";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -81,6 +82,7 @@ import { CodatCommon } from "@codat/common";
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -121,6 +123,7 @@ import { CodatCommon } from "@codat/common";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -165,6 +168,7 @@ import { CodatCommon } from "@codat/common";
     pageSize: 100,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -208,6 +212,7 @@ import { DataConnectionStatus } from "@codat/common/dist/sdk/models/shared";
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -246,11 +251,12 @@ import { CodatCommon } from "@codat/common";
 
   const res = await sdk.connections.updateAuthorization({
     requestBody: {
-      "Neptunium": "Books",
+      "key": "string",
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

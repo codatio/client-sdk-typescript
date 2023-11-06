@@ -31,6 +31,7 @@ import { CodatCommon } from "@codat/common";
     platformKey: "gbol",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -70,6 +71,7 @@ import { CodatCommon } from "@codat/common";
   const res = await sdk.integrations.getBranding({
     platformKey: "gbol",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -112,6 +114,7 @@ import { CodatCommon } from "@codat/common";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
