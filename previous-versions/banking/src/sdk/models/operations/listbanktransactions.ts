@@ -46,6 +46,12 @@ export class ListBankTransactionsResponse extends SpeakeasyBase {
     contentType: string;
 
     /**
+     * Your `query` parameter was not correctly formed
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
+
+    /**
      * HTTP response status code for this operation
      */
     @SpeakeasyMetadata()
