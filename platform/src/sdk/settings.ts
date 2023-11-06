@@ -131,7 +131,7 @@ export class Settings {
                     );
                 }
                 break;
-            case [400, 401, 409, 429].includes(httpRes?.status):
+            case [400, 401, 402, 403, 409, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -231,9 +231,7 @@ export class Settings {
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
-            case httpRes?.status == 204:
-                break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [204, 401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -258,8 +256,6 @@ export class Settings {
      *
      * @remarks
      * Fetch your Codat profile.
-     *
-     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async getProfile(
         retries?: utils.RetryConfig,
@@ -333,7 +329,7 @@ export class Settings {
                     );
                 }
                 break;
-            case [401, 429].includes(httpRes?.status):
+            case [401, 402, 403, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -435,7 +431,7 @@ export class Settings {
                     );
                 }
                 break;
-            case [401, 429].includes(httpRes?.status):
+            case [401, 402, 403, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -537,7 +533,7 @@ export class Settings {
                     );
                 }
                 break;
-            case [401, 429].includes(httpRes?.status):
+            case [401, 402, 403, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -655,7 +651,7 @@ export class Settings {
                     );
                 }
                 break;
-            case [401, 429].includes(httpRes?.status):
+            case [401, 402, 403, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -764,7 +760,7 @@ export class Settings {
         switch (true) {
             case httpRes?.status == 204:
                 break;
-            case [401, 429].includes(httpRes?.status):
+            case [401, 402, 403, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),

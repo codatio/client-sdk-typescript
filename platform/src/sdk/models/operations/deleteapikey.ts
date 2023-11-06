@@ -22,7 +22,7 @@ export class DeleteApiKeyResponse extends SpeakeasyBase {
     contentType: string;
 
     /**
-     * Your API request was not properly authorized.
+     * Too many requests were made in a given amount of time. Wait a short period and then try again.
      */
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;

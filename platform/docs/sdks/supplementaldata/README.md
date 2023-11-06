@@ -35,12 +35,12 @@ import { ConfigureSupplementalDataDataType } from "@codat/platform/dist/sdk/mode
   const res = await sdk.supplementalData.configure({
     supplementalDataConfiguration: {
       supplementalDataConfig: {
-        "Cutler": {
+        "key": {
           pullData: {
-            "North": "transmitter",
+            "key": "string",
           },
           pushData: {
-            "infrastructure": "Northeast",
+            "key": "string",
           },
         },
       },
@@ -48,6 +48,7 @@ import { ConfigureSupplementalDataDataType } from "@codat/platform/dist/sdk/mode
     dataType: ConfigureSupplementalDataDataType.Invoices,
     platformKey: "gbol",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -92,6 +93,7 @@ import { GetSupplementalDataConfigurationDataType } from "@codat/platform/dist/s
     dataType: GetSupplementalDataConfigurationDataType.Invoices,
     platformKey: "gbol",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
