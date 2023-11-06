@@ -22,10 +22,7 @@ export class DownloadFilesRequest extends SpeakeasyBase {
 }
 
 /**
- * One or more of the resources you referenced could not be found.
- *
- * @remarks
- * This might be because your company or data connection id is wrong, or was already deleted.
+ * You are using an outdated API key or a key not associated with that resource.
  */
 export class DownloadFilesErrorMessage extends SpeakeasyBase {
     /**
@@ -85,10 +82,7 @@ export class DownloadFilesResponse extends SpeakeasyBase {
     data?: Uint8Array;
 
     /**
-     * One or more of the resources you referenced could not be found.
-     *
-     * @remarks
-     * This might be because your company or data connection id is wrong, or was already deleted.
+     * You are using an outdated API key or a key not associated with that resource.
      */
     @SpeakeasyMetadata()
     errorMessage?: DownloadFilesErrorMessage;
