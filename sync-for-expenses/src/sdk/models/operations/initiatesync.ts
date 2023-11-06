@@ -25,7 +25,7 @@ export class InitiateSyncResponse extends SpeakeasyBase {
     contentType: string;
 
     /**
-     * If model is incorrect
+     * The request made is not valid.
      */
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;

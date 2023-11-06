@@ -3,12 +3,63 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AccountingAddressType } from "./accountingaddresstype";
 import { Contact } from "./contact";
 import { CustomerStatus } from "./customerstatus";
-import { Items } from "./items";
 import { Metadata } from "./metadata";
 import { SupplementalData } from "./supplementaldata";
 import { Expose, Type } from "class-transformer";
+
+export class CustomerAccountingAddress extends SpeakeasyBase {
+    /**
+     * City of the customer address.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "city" })
+    city?: string;
+
+    /**
+     * Country of the customer address.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "country" })
+    country?: string;
+
+    /**
+     * Line 1 of the customer address.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "line1" })
+    line1?: string;
+
+    /**
+     * Line 2 of the customer address.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "line2" })
+    line2?: string;
+
+    /**
+     * Postal code or zip code.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "postalCode" })
+    postalCode?: string;
+
+    /**
+     * Region of the customer address.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "region" })
+    region?: string;
+
+    /**
+     * The type of the address
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "type" })
+    type: AccountingAddressType;
+}
 
 /**
  * > View the coverage for customers in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=customers" target="_blank">Data coverage explorer</a>.
@@ -26,10 +77,10 @@ export class Customer extends SpeakeasyBase {
     /**
      * An array of Addresses.
      */
-    @SpeakeasyMetadata({ elemType: Items })
+    @SpeakeasyMetadata({ elemType: CustomerAccountingAddress })
     @Expose({ name: "addresses" })
-    @Type(() => Items)
-    addresses?: Items[];
+    @Type(() => CustomerAccountingAddress)
+    addresses?: CustomerAccountingAddress[];
 
     /**
      * Name of the main contact for the identified customer.

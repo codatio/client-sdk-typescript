@@ -33,6 +33,7 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -73,6 +74,7 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     datasetId: "7911a54a-c808-4f4b-b87e-b195f52b4da5",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -116,6 +118,7 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -161,6 +164,7 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -204,6 +208,7 @@ import { DataType } from "@codat/sync-for-expenses/dist/sdk/models/shared";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     dataType: DataType.Invoices,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
