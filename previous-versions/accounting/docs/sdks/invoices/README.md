@@ -113,23 +113,24 @@ import { BilledToType1, DataType, InvoiceStatus } from "@codat/accounting/dist/s
       status: InvoiceStatus.Draft,
       supplementalData: {
         content: {
-          "evolve": {
-            "male": "SUV",
+          "key": {
+            "key": "string",
           },
         },
       },
-      totalAmount: 5519.29,
-      totalTaxAmount: 5862.2,
+      totalAmount: 3015.1,
+      totalTaxAmount: 899.64,
       withholdingTax: [
         {
-          amount: 8275.63,
-          name: "mobile National Durham",
+          amount: 7150.4,
+          name: "string",
         },
       ],
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -197,8 +198,9 @@ import { CodatAccounting } from "@codat/accounting";
   const res = await sdk.invoices.delete({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    invoiceId: "Van complexity",
+    invoiceId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -245,8 +247,9 @@ import { CodatAccounting } from "@codat/accounting";
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    invoiceId: "Dakota Avon specifically",
+    invoiceId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -286,8 +289,9 @@ import { CodatAccounting } from "@codat/accounting";
 
   const res = await sdk.invoices.downloadPdf({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    invoiceId: "Associate",
+    invoiceId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -333,8 +337,9 @@ import { CodatAccounting } from "@codat/accounting";
 
   const res = await sdk.invoices.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    invoiceId: "Northeast Hatchback Kia",
+    invoiceId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -381,8 +386,9 @@ import { CodatAccounting } from "@codat/accounting";
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    invoiceId: "array East along",
+    invoiceId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -433,6 +439,7 @@ import { CodatAccounting } from "@codat/accounting";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -488,6 +495,7 @@ import { CodatAccounting } from "@codat/accounting";
     pageSize: 100,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -532,8 +540,9 @@ import { CodatAccounting } from "@codat/accounting";
   const res = await sdk.invoices.listAttachments({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    invoiceId: "intuitive Frozen ouch",
+    invoiceId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -649,24 +658,25 @@ import { BilledToType1, DataType, InvoiceStatus } from "@codat/accounting/dist/s
       status: InvoiceStatus.Void,
       supplementalData: {
         content: {
-          "online": {
-            "dynamic": "white",
+          "key": {
+            "key": "string",
           },
         },
       },
-      totalAmount: 3668.07,
-      totalTaxAmount: 1395.79,
+      totalAmount: 4995.57,
+      totalTaxAmount: 4468.63,
       withholdingTax: [
         {
-          amount: 6447.13,
-          name: "syndicate East Baht",
+          amount: 3691.82,
+          name: "string",
         },
       ],
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    invoiceId: "Representative Home",
+    invoiceId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -716,12 +726,13 @@ import { CodatAccounting } from "@codat/accounting";
   const res = await sdk.invoices.uploadAttachment({
     requestBody: {
       content: "v/ghW&IC$x" as bytes <<<>>>,
-      requestBody: "Elegant Producer Electric",
+      requestBody: "string",
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    invoiceId: "Iowa Bentley",
+    invoiceId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

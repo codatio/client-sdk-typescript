@@ -56,16 +56,17 @@ import { ItemStatus, ItemType } from "@codat/accounting/dist/sdk/models/shared";
       sourceModifiedDate: "2022-10-23T00:00:00.000Z",
       supplementalData: {
         content: {
-          "Extended": {
-            "South": "shred",
+          "key": {
+            "key": "string",
           },
         },
       },
-      type: ItemType.Inventory,
+      type: ItemType.Service,
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -112,8 +113,9 @@ import { CodatAccounting } from "@codat/accounting";
 
   const res = await sdk.items.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    itemId: "Northeast Hatchback Kia",
+    itemId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -165,6 +167,7 @@ import { CodatAccounting } from "@codat/accounting";
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -212,6 +215,7 @@ import { CodatAccounting } from "@codat/accounting";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

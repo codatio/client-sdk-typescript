@@ -35,8 +35,9 @@ import { CodatAccounting } from "@codat/accounting";
 
   const res = await sdk.salesOrders.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    salesOrderId: "Northeast Hatchback Kia",
+    salesOrderId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -85,6 +86,7 @@ import { CodatAccounting } from "@codat/accounting";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response

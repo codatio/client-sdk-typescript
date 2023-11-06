@@ -139,7 +139,7 @@ export class Bills {
                     );
                 }
                 break;
-            case [400, 401, 404, 429].includes(httpRes?.status):
+            case [400, 401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -169,7 +169,7 @@ export class Bills {
      *
      * ### Process
      * 1. Pass the `{billId}` to the *Delete bill* endpoint and store the `pushOperationKey` returned.
-     * 2. Check the status of the delete operation by checking the status of push operation either via
+     * 2. Check the status of the delete operation by checking the status of the push operation either via
      *     1. [Push operation webhook](https://docs.codat.io/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
      *     2. [Push operation status endpoint](https://docs.codat.io/codat-api#/operations/get-push-operation).
      *
@@ -186,11 +186,12 @@ export class Bills {
      * | Integration | Soft Delete | Details                                                                                                      |
      * |-------------|-------------|--------------------------------------------------------------------------------------------------------------|
      * | QuickBooks Online | No          | -                                                                                                            |
-     * | Oracle NetSuite   | No          | When deleting a bill that's already linked to a bill payment, you must delete the linked bill payment first. |
+     * | Oracle NetSuite   | No          | When deleting a bill that's already linked to a bill payment, you must delete the linked bill payment first. |                                                                                                      |
+     * | Sage Intacct   | No          | When deleting a bill that's already linked to a bill payment, you must delete the linked bill payment first. |
      *
      * > **Supported Integrations**
      * >
-     * > This functionality is currently supported for our QuickBooks Online, Xero and Oracle NetSuite integrations.
+     * > This functionality is currently supported for our QuickBooks Online, Xero, Oracle NetSuite and Sage Intacct integrations.
      */
     async delete(
         req: operations.DeleteBillRequest,
@@ -276,7 +277,7 @@ export class Bills {
                     );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -394,7 +395,7 @@ export class Bills {
                     );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -508,7 +509,7 @@ export class Bills {
                     );
                 }
                 break;
-            case [401, 404, 409, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 409, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -620,7 +621,7 @@ export class Bills {
                     );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -737,7 +738,7 @@ export class Bills {
                     );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -846,7 +847,7 @@ export class Bills {
                     );
                 }
                 break;
-            case [400, 401, 404, 409].includes(httpRes?.status):
+            case [400, 401, 402, 403, 404, 409, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -962,7 +963,7 @@ export class Bills {
                     );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [401, 402, 403, 404, 409, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -1097,7 +1098,7 @@ export class Bills {
                     );
                 }
                 break;
-            case [400, 401, 404, 429].includes(httpRes?.status):
+            case [400, 401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
@@ -1219,7 +1220,7 @@ export class Bills {
         switch (true) {
             case httpRes?.status == 200:
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
+            case [400, 401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),

@@ -55,7 +55,7 @@ export class CreateBankTransactionsResponse extends SpeakeasyBase {
     createBankTransactionsResponse?: shared.CreateBankTransactionsResponse;
 
     /**
-     * Your API request was not properly authorized.
+     * The request made is not valid.
      */
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;

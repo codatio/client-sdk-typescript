@@ -56,8 +56,8 @@ import { AccountingAddressType, SupplierStatus } from "@codat/accounting/dist/sd
       status: SupplierStatus.Active,
       supplementalData: {
         content: {
-          "innovative": {
-            "blue": "shred",
+          "key": {
+            "key": "string",
           },
         },
       },
@@ -65,6 +65,7 @@ import { AccountingAddressType, SupplierStatus } from "@codat/accounting/dist/sd
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -111,8 +112,9 @@ import { CodatAccounting } from "@codat/accounting";
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    supplierId: "Dakota Avon specifically",
+    supplierId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -159,8 +161,9 @@ import { CodatAccounting } from "@codat/accounting";
 
   const res = await sdk.suppliers.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    supplierId: "Northeast Hatchback Kia",
+    supplierId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -207,8 +210,9 @@ import { CodatAccounting } from "@codat/accounting";
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    supplierId: "array East along",
+    supplierId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -260,6 +264,7 @@ import { CodatAccounting } from "@codat/accounting";
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -308,6 +313,7 @@ import { CodatAccounting } from "@codat/accounting";
     pageSize: 100,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -352,8 +358,9 @@ import { CodatAccounting } from "@codat/accounting";
   const res = await sdk.suppliers.listAttachments({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    supplierId: "intuitive Frozen ouch",
+    supplierId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -415,16 +422,17 @@ import { AccountingAddressType, SupplierStatus } from "@codat/accounting/dist/sd
       status: SupplierStatus.Active,
       supplementalData: {
         content: {
-          "male": {
-            "Metal": "cheater",
+          "key": {
+            "key": "string",
           },
         },
       },
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    supplierId: "Cotton",
+    supplierId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

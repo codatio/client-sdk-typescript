@@ -60,14 +60,14 @@ import { DataType } from "@codat/accounting/dist/sdk/models/shared";
       sourceModifiedDate: "2022-10-23T00:00:00.000Z",
       supplementalData: {
         content: {
-          "innovative": {
-            "blue": "shred",
+          "key": {
+            "key": "string",
           },
         },
       },
       to: {
         accountRef: {},
-        currency: "USD",
+        currency: "GBP",
       },
       trackingCategoryRefs: [
         {
@@ -78,6 +78,7 @@ import { DataType } from "@codat/accounting/dist/sdk/models/shared";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -125,8 +126,9 @@ import { CodatAccounting } from "@codat/accounting";
   const res = await sdk.transfers.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    transferId: "Northeast Hatchback Kia",
+    transferId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -178,6 +180,7 @@ import { CodatAccounting } from "@codat/accounting";
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -227,6 +230,7 @@ import { CodatAccounting } from "@codat/accounting";
     pageSize: 100,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -275,12 +279,13 @@ import { CodatAccounting } from "@codat/accounting";
   const res = await sdk.transfers.uploadAttachment({
     requestBody: {
       content: "v/ghW&IC$x" as bytes <<<>>>,
-      requestBody: "Elegant Producer Electric",
+      requestBody: "string",
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    transferId: "Iowa Bentley",
+    transferId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

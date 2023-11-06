@@ -85,17 +85,18 @@ import { DataType } from "@codat/accounting/dist/sdk/models/shared";
       subTotal: 7964.74,
       supplementalData: {
         content: {
-          "abnormally": {
-            "deposit": "evolve",
+          "key": {
+            "key": "string",
           },
         },
       },
-      taxAmount: 7150.4,
-      totalAmount: 7926.2,
+      taxAmount: 3768.44,
+      totalAmount: 9510.62,
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -142,8 +143,9 @@ import { CodatAccounting } from "@codat/accounting";
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directIncomeId: "Dakota Avon specifically",
+    directIncomeId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -191,8 +193,9 @@ import { CodatAccounting } from "@codat/accounting";
   const res = await sdk.directIncomes.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directIncomeId: "Northeast Hatchback Kia",
+    directIncomeId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -239,8 +242,9 @@ import { CodatAccounting } from "@codat/accounting";
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directIncomeId: "array East along",
+    directIncomeId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -292,6 +296,7 @@ import { CodatAccounting } from "@codat/accounting";
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -341,6 +346,7 @@ import { CodatAccounting } from "@codat/accounting";
     pageSize: 100,
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -385,8 +391,9 @@ import { CodatAccounting } from "@codat/accounting";
   const res = await sdk.directIncomes.listAttachments({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directIncomeId: "intuitive Frozen ouch",
+    directIncomeId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -436,12 +443,13 @@ import { CodatAccounting } from "@codat/accounting";
   const res = await sdk.directIncomes.uploadAttachment({
     requestBody: {
       content: "v/ghW&IC$x" as bytes <<<>>>,
-      requestBody: "Elegant Producer Electric",
+      requestBody: "string",
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directIncomeId: "Iowa Bentley",
+    directIncomeId: "string",
   });
+
 
   if (res.statusCode == 200) {
     // handle response

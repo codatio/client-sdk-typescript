@@ -101,8 +101,8 @@ import { BillCreditNoteStatus, BilledToType } from "@codat/accounting/dist/sdk/m
       subTotal: 805.78,
       supplementalData: {
         content: {
-          "abnormally": {
-            "deposit": "evolve",
+          "key": {
+            "key": "string",
           },
         },
       },
@@ -114,14 +114,15 @@ import { BillCreditNoteStatus, BilledToType } from "@codat/accounting/dist/sdk/m
       totalTaxAmount: 0,
       withholdingTax: [
         {
-          amount: 7150.4,
-          name: "SUV quantify Polestar",
+          amount: 8915.1,
+          name: "string",
         },
       ],
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -167,9 +168,10 @@ import { CodatAccounting } from "@codat/accounting";
   });
 
   const res = await sdk.billCreditNotes.get({
-    billCreditNoteId: "Northeast Hatchback Kia",
+    billCreditNoteId: "string",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -221,6 +223,7 @@ import { CodatAccounting } from "@codat/accounting";
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -268,6 +271,7 @@ import { CodatAccounting } from "@codat/accounting";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -376,8 +380,8 @@ import { BillCreditNoteStatus, BilledToType } from "@codat/accounting/dist/sdk/m
       subTotal: 805.78,
       supplementalData: {
         content: {
-          "Arizona": {
-            "Cotton": "extend",
+          "key": {
+            "key": "string",
           },
         },
       },
@@ -389,15 +393,16 @@ import { BillCreditNoteStatus, BilledToType } from "@codat/accounting/dist/sdk/m
       totalTaxAmount: 0,
       withholdingTax: [
         {
-          amount: 2494.4,
-          name: "Carolina syndicate",
+          amount: 1341.51,
+          name: "string",
         },
       ],
     },
-    billCreditNoteId: "implement JBOD",
+    billCreditNoteId: "string",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -451,12 +456,13 @@ import { CodatAccounting } from "@codat/accounting";
   const res = await sdk.billCreditNotes.uploadAttachment({
     requestBody: {
       content: "v/ghW&IC$x" as bytes <<<>>>,
-      requestBody: "Elegant Producer Electric",
+      requestBody: "string",
     },
-    billCreditNoteId: "Iowa Bentley",
+    billCreditNoteId: "string",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
