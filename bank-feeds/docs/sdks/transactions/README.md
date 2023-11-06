@@ -58,6 +58,7 @@ import { BankTransactionsBankTransactionType } from "@codat/bank-feeds/dist/sdk/
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
+
   if (res.statusCode == 200) {
     // handle response
   }
@@ -98,6 +99,7 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     pushOperationKey: "1fb73c31-a851-46c2-ab8a-5ce6e25b57b8",
   });
+
 
   if (res.statusCode == 200) {
     // handle response
@@ -141,6 +143,7 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
     page: 1,
     pageSize: 100,
   });
+
 
   if (res.statusCode == 200) {
     // handle response
