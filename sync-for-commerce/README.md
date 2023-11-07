@@ -88,5 +88,3 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 <!-- End SDK Available Operations -->
 
 
-
-<!-- Start Dev Containers -->

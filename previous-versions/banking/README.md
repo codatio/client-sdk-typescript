@@ -74,5 +74,3 @@ import { CodatBanking } from "@codat/banking";
 <!-- End SDK Available Operations -->
 
 
-
-<!-- Start Dev Containers -->

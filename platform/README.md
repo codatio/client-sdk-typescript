@@ -109,5 +109,3 @@ import { CodatPlatform } from "@codat/platform";
 <!-- End SDK Available Operations -->
 
 
-
-<!-- Start Dev Containers -->

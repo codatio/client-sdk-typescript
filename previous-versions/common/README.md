@@ -109,5 +109,3 @@ import { CodatCommon } from "@codat/common";
 <!-- End SDK Available Operations -->
 
 
-
-<!-- Start Dev Containers -->

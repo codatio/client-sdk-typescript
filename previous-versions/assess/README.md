@@ -87,5 +87,3 @@ import { DataIntegrityDataType } from "@codat/assess/dist/sdk/models/shared";
 <!-- End SDK Available Operations -->
 
 
-
-<!-- Start Dev Containers -->
