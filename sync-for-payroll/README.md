@@ -135,4 +135,3 @@ import { AccountStatus, AccountType } from "@codat/sync-for-payroll/dist/sdk/mod
 * [list](docs/sdks/trackingcategories/README.md#list) - List tracking categories
 <!-- End SDK Available Operations -->
 
-

@@ -56,4 +56,3 @@ import { CodatFiles } from "@codat/files";
 * [uploadFiles](docs/sdks/files/README.md#uploadfiles) - Upload files for a company
 <!-- End SDK Available Operations -->
 
-

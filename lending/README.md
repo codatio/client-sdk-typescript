@@ -360,4 +360,3 @@ import { CodatLending } from "@codat/lending";
 * [list](docs/sdks/transactionstransfers/README.md#list) - List transfers
 <!-- End SDK Available Operations -->
 
-

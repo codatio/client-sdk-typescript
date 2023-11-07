@@ -86,4 +86,3 @@ import { DataIntegrityDataType } from "@codat/assess/dist/sdk/models/shared";
 * [requestRecurringRevenueMetrics](docs/sdks/reports/README.md#requestrecurringrevenuemetrics) - Generate key subscription revenue metrics
 <!-- End SDK Available Operations -->
 
-

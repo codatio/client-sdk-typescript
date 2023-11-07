@@ -98,4 +98,3 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses-version-1";
 * [listSyncTransactions](docs/sdks/transactionstatus/README.md#listsynctransactions) - Get sync transactions
 <!-- End SDK Available Operations -->
 
-

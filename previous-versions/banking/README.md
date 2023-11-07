@@ -73,4 +73,3 @@ import { CodatBanking } from "@codat/banking";
 * [~~listBankTransactions~~](docs/sdks/transactions/README.md#listbanktransactions) - List banking transactions :warning: **Deprecated** Use `list` instead.
 <!-- End SDK Available Operations -->
 
-

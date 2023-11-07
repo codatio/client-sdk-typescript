@@ -89,4 +89,3 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
 * [listCreateOperations](docs/sdks/transactions/README.md#listcreateoperations) - List create operations
 <!-- End SDK Available Operations -->
 
-

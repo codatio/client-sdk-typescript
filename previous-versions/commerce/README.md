@@ -101,4 +101,3 @@ import { CodatCommerce } from "@codat/commerce";
 * [list](docs/sdks/transactions/README.md#list) - List transactions
 <!-- End SDK Available Operations -->
 
-
