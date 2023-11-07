@@ -55,4 +55,3 @@ import { CodatFiles } from "@codat/files";
 * [listFiles](docs/sdks/files/README.md#listfiles) - List all files uploaded by a company
 * [uploadFiles](docs/sdks/files/README.md#uploadfiles) - Upload files for a company
 <!-- End SDK Available Operations -->
-

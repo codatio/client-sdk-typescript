@@ -107,4 +107,3 @@ import { CodatPlatform } from "@codat/platform";
 * [get](docs/sdks/webhooks/README.md#get) - Get webhook
 * [list](docs/sdks/webhooks/README.md#list) - List webhooks
 <!-- End SDK Available Operations -->
-

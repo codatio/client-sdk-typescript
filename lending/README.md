@@ -359,4 +359,3 @@ import { CodatLending } from "@codat/lending";
 * [get](docs/sdks/transactionstransfers/README.md#get) - Get transfer
 * [list](docs/sdks/transactionstransfers/README.md#list) - List transfers
 <!-- End SDK Available Operations -->
-

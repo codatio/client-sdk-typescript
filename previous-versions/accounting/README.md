@@ -255,4 +255,3 @@ import { CodatAccounting } from "@codat/accounting";
 * [list](docs/sdks/transfers/README.md#list) - List transfers
 * [uploadAttachment](docs/sdks/transfers/README.md#uploadattachment) - Push invoice attachment
 <!-- End SDK Available Operations -->
-

@@ -85,4 +85,3 @@ import { DataIntegrityDataType } from "@codat/assess/dist/sdk/models/shared";
 * [listLoanTransactions](docs/sdks/reports/README.md#listloantransactions) - List loan transactions
 * [requestRecurringRevenueMetrics](docs/sdks/reports/README.md#requestrecurringrevenuemetrics) - Generate key subscription revenue metrics
 <!-- End SDK Available Operations -->
-
