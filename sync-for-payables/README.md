@@ -193,5 +193,3 @@ import { AccountStatus, AccountType } from "@codat/sync-for-payables/dist/sdk/mo
 
 <!-- Start Pagination -->
 # Pagination
-
-Some of the endpoints in this SDK support pagination. To use pagination, you make your SDK calls as usual, but the
