@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class GetSyncTransactionRequest extends SpeakeasyBase {
@@ -55,5 +55,5 @@ export class GetSyncTransactionResponse extends SpeakeasyBase {
      * Success
      */
     @SpeakeasyMetadata({ elemType: shared.TransactionMetadata })
-    transactionMetadata?: shared.TransactionMetadata[];
+    classes?: shared.TransactionMetadata[];
 }

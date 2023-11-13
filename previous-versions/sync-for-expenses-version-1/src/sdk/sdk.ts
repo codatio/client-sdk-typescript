@@ -3,12 +3,12 @@
  */
 
 import * as utils from "../internal/utils";
+import * as shared from "../sdk/models/shared";
 import { Companies } from "./companies";
 import { Configuration } from "./configuration";
 import { Connections } from "./connections";
 import { Expenses } from "./expenses";
 import { MappingOptions } from "./mappingoptions";
-import * as shared from "./models/shared";
 import { Sync } from "./sync";
 import { SyncStatus } from "./syncstatus";
 import { TransactionStatus } from "./transactionstatus";
@@ -56,10 +56,10 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "prealpha";
-    sdkVersion = "0.4.0";
-    genVersion = "2.173.0";
+    sdkVersion = "0.5.0";
+    genVersion = "2.188.1";
     userAgent =
-        "speakeasy-sdk/typescript 0.4.0 2.173.0 prealpha @codat/sync-for-expenses-version-1";
+        "speakeasy-sdk/typescript 0.5.0 2.188.1 prealpha @codat/sync-for-expenses-version-1";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -87,13 +87,13 @@ export class CodatSyncExpenses {
      */
     public companies: Companies;
     /**
-     * Companies sync configuration.
-     */
-    public configuration: Configuration;
-    /**
      * Create and manage partner expense connection.
      */
     public connections: Connections;
+    /**
+     * Companies sync configuration.
+     */
+    public configuration: Configuration;
     /**
      * Create expense datasets and upload receipts.
      */
@@ -125,7 +125,7 @@ export class CodatSyncExpenses {
             serverURL = ServerList[serverIdx];
         }
 
-        const defaultClient = props?.defaultClient ?? axios.create({ baseURL: serverURL });
+        const defaultClient = props?.defaultClient ?? axios.create();
         this.sdkConfiguration = new SDKConfiguration({
             defaultClient: defaultClient,
             security: props?.security,
@@ -134,8 +134,8 @@ export class CodatSyncExpenses {
         });
 
         this.companies = new Companies(this.sdkConfiguration);
-        this.configuration = new Configuration(this.sdkConfiguration);
         this.connections = new Connections(this.sdkConfiguration);
+        this.configuration = new Configuration(this.sdkConfiguration);
         this.expenses = new Expenses(this.sdkConfiguration);
         this.mappingOptions = new MappingOptions(this.sdkConfiguration);
         this.sync = new Sync(this.sdkConfiguration);

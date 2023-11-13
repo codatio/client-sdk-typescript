@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
@@ -27,7 +27,7 @@ export class UpdateExpenseDatasetRequest extends SpeakeasyBase {
 /**
  * Accepted
  */
-export class UpdateExpenseDataset202ApplicationJSON extends SpeakeasyBase {
+export class UpdateExpenseDatasetResponseBody extends SpeakeasyBase {
     /**
      * Unique identifier for the updated sync.
      */
@@ -65,5 +65,5 @@ export class UpdateExpenseDatasetResponse extends SpeakeasyBase {
      * Accepted
      */
     @SpeakeasyMetadata()
-    updateExpenseDataset202ApplicationJSONObject?: UpdateExpenseDataset202ApplicationJSON;
+    object?: UpdateExpenseDatasetResponseBody;
 }
