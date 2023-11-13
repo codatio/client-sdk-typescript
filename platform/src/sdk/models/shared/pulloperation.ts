@@ -9,7 +9,7 @@ import { Expose } from "class-transformer";
 /**
  * The current status of the pull operation.
  */
-export enum PullOperationStatus {
+export enum Status {
     Initial = "Initial",
     Queued = "Queued",
     Fetching = "Fetching",
@@ -157,7 +157,7 @@ export class PullOperation extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status: PullOperationStatus;
+    status: Status;
 
     /**
      * Additional information about the dataset status.

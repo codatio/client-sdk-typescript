@@ -1,6 +1,4 @@
 <!-- Start SDK Example Usage -->
-
-
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -11,9 +9,8 @@ import { CodatPlatform } from "@codat/platform";
         },
     });
 
-    const res = await sdk.companies.create({
-        description: "Requested early access to the new financing scheme.",
-        name: "Bank of Dave",
+    const res = await sdk.settings.createApiKey({
+        name: "azure-invoice-finance-processor",
     });
 
     if (res.statusCode == 200) {

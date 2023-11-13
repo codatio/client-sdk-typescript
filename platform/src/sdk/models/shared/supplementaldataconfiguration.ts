@@ -8,7 +8,7 @@ import { Expose, Transform } from "class-transformer";
 /**
  * The client's defined name for the object.
  */
-export class SupplementalDataConfigurationSupplementalDataSourceConfiguration extends SpeakeasyBase {
+export class SupplementalDataSourceConfiguration extends SpeakeasyBase {
     /**
      * The underlying endpoint of the source system which the configuration is targeting.
      */
@@ -32,28 +32,17 @@ export class SupplementalDataConfigurationSupplementalDataSourceConfiguration ex
 }
 
 export class SupplementalDataConfiguration extends SpeakeasyBase {
-    @SpeakeasyMetadata({
-        elemType: SupplementalDataConfigurationSupplementalDataSourceConfiguration,
-    })
+    @SpeakeasyMetadata({ elemType: SupplementalDataSourceConfiguration })
     @Expose({ name: "supplementalDataConfig" })
     @Transform(
         ({ value }) => {
-            const obj: Record<
-                string,
-                SupplementalDataConfigurationSupplementalDataSourceConfiguration
-            > = {};
+            const obj: Record<string, SupplementalDataSourceConfiguration> = {};
             for (const key in value) {
-                obj[key] = objectToClass(
-                    value[key],
-                    SupplementalDataConfigurationSupplementalDataSourceConfiguration
-                );
+                obj[key] = objectToClass(value[key], SupplementalDataSourceConfiguration);
             }
             return obj;
         },
         { toClassOnly: true }
     )
-    supplementalDataConfig?: Record<
-        string,
-        SupplementalDataConfigurationSupplementalDataSourceConfiguration
-    >;
+    supplementalDataConfig?: Record<string, SupplementalDataSourceConfiguration>;
 }

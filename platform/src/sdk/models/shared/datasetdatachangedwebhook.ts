@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { DataType } from "./datatype";
 import { Expose, Type } from "class-transformer";
 
-export class DatasetDataChangedWebhookDatasetDataChangedWebhookData extends SpeakeasyBase {
+export class DatasetDataChangedWebhookData extends SpeakeasyBase {
     /**
      * Available Data types
      */
@@ -56,8 +56,8 @@ export class DatasetDataChangedWebhook extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "Data" })
-    @Type(() => DatasetDataChangedWebhookDatasetDataChangedWebhookData)
-    data?: DatasetDataChangedWebhookDatasetDataChangedWebhookData;
+    @Type(() => DatasetDataChangedWebhookData)
+    data?: DatasetDataChangedWebhookData;
 
     /**
      * Unique identifier for a company's data connection.
