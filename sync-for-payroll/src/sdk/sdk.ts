@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as shared from "../sdk/models/shared";
 import { Accounts } from "./accounts";
 import { Companies } from "./companies";
 import { CompanyInfo } from "./companyinfo";
@@ -10,7 +11,6 @@ import { Connections } from "./connections";
 import { JournalEntries } from "./journalentries";
 import { Journals } from "./journals";
 import { ManageData } from "./managedata";
-import * as shared from "./models/shared";
 import { TrackingCategories } from "./trackingcategories";
 import axios from "axios";
 import { AxiosInstance } from "axios";
@@ -61,9 +61,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "3.0.0";
-    sdkVersion = "1.3.0";
-    genVersion = "2.173.0";
-    userAgent = "speakeasy-sdk/typescript 1.3.0 2.173.0 3.0.0 @codat/sync-for-payroll";
+    sdkVersion = "2.0.0";
+    genVersion = "2.188.1";
+    userAgent = "speakeasy-sdk/typescript 2.0.0 2.188.1 3.0.0 @codat/sync-for-payroll";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -96,21 +96,17 @@ export class SDKConfiguration {
  */
 export class CodatSyncPayroll {
     /**
-     * Accounts
-     */
-    public accounts: Accounts;
-    /**
      * Create and manage your Codat companies.
      */
     public companies: Companies;
     /**
-     * View company information fetched from the source platform.
-     */
-    public companyInfo: CompanyInfo;
-    /**
      * Manage your companies' data connections.
      */
     public connections: Connections;
+    /**
+     * Accounts
+     */
+    public accounts: Accounts;
     /**
      * Journal entries
      */
@@ -123,6 +119,10 @@ export class CodatSyncPayroll {
      * Asynchronously retrieve data from an integration to refresh data in Codat.
      */
     public manageData: ManageData;
+    /**
+     * View company information fetched from the source platform.
+     */
+    public companyInfo: CompanyInfo;
     /**
      * Tracking categories
      */
@@ -138,7 +138,7 @@ export class CodatSyncPayroll {
             serverURL = ServerList[serverIdx];
         }
 
-        const defaultClient = props?.defaultClient ?? axios.create({ baseURL: serverURL });
+        const defaultClient = props?.defaultClient ?? axios.create();
         this.sdkConfiguration = new SDKConfiguration({
             defaultClient: defaultClient,
             security: props?.security,
@@ -146,13 +146,13 @@ export class CodatSyncPayroll {
             retryConfig: props?.retryConfig,
         });
 
-        this.accounts = new Accounts(this.sdkConfiguration);
         this.companies = new Companies(this.sdkConfiguration);
-        this.companyInfo = new CompanyInfo(this.sdkConfiguration);
         this.connections = new Connections(this.sdkConfiguration);
+        this.accounts = new Accounts(this.sdkConfiguration);
         this.journalEntries = new JournalEntries(this.sdkConfiguration);
         this.journals = new Journals(this.sdkConfiguration);
         this.manageData = new ManageData(this.sdkConfiguration);
+        this.companyInfo = new CompanyInfo(this.sdkConfiguration);
         this.trackingCategories = new TrackingCategories(this.sdkConfiguration);
     }
 }

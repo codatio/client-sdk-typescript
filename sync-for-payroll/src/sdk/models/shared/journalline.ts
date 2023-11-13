@@ -10,7 +10,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * List of record refs associated with the tracking information for the line (eg to a Tracking Category, or customer etc.)
  */
-export class JournalLineTracking extends SpeakeasyBase {
+export class Tracking extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: RecordRef })
     @Expose({ name: "recordRefs" })
     @Type(() => RecordRef)
@@ -52,6 +52,6 @@ export class JournalLine extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "tracking" })
-    @Type(() => JournalLineTracking)
-    tracking?: JournalLineTracking;
+    @Type(() => Tracking)
+    tracking?: Tracking;
 }

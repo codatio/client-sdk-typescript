@@ -16,7 +16,7 @@ import { Expose, Type } from "class-transformer";
  *
  * For example, if a journal entry is generated based on an invoice, this property allows you to connect the journal entry to the underlying invoice in our data model.
  */
-export class JournalEntryRecordReference extends SpeakeasyBase {
+export class RecordReference extends SpeakeasyBase {
     /**
      * Allowed name of the 'dataType'.
      */
@@ -161,8 +161,8 @@ export class JournalEntry extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "recordRef" })
-    @Type(() => JournalEntryRecordReference)
-    recordRef?: JournalEntryRecordReference;
+    @Type(() => RecordReference)
+    recordRef?: RecordReference;
 
     @SpeakeasyMetadata()
     @Expose({ name: "sourceModifiedDate" })
