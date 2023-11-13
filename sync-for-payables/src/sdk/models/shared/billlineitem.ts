@@ -13,20 +13,20 @@ import { Expose, Type } from "class-transformer";
 /**
  * Allowed name of the 'dataType'.
  */
-export enum BillLineItemRecordLineReferenceDataType {
+export enum BillLineItemDataType {
     PurchaseOrders = "purchaseOrders",
 }
 
 /**
  * Reference to the purchase order line this line was generated from.
  */
-export class BillLineItemRecordLineReference extends SpeakeasyBase {
+export class RecordLineReference extends SpeakeasyBase {
     /**
      * Allowed name of the 'dataType'.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "dataType" })
-    dataType?: BillLineItemRecordLineReferenceDataType;
+    dataType?: BillLineItemDataType;
 
     /**
      * 'id' of the underlying record.
@@ -104,8 +104,8 @@ export class BillLineItem extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "purchaseOrderLineRef" })
-    @Type(() => BillLineItemRecordLineReference)
-    purchaseOrderLineRef?: BillLineItemRecordLineReference;
+    @Type(() => RecordLineReference)
+    purchaseOrderLineRef?: RecordLineReference;
 
     /**
      * Number of units of goods or services received.

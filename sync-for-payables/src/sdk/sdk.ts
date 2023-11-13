@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as shared from "../sdk/models/shared";
 import { Accounts } from "./accounts";
 import { BillCreditNotes } from "./billcreditnotes";
 import { BillPayments } from "./billpayments";
@@ -13,7 +14,6 @@ import { Connections } from "./connections";
 import { JournalEntries } from "./journalentries";
 import { Journals } from "./journals";
 import { ManageData } from "./managedata";
-import * as shared from "./models/shared";
 import { PaymentMethods } from "./paymentmethods";
 import { PushOperations } from "./pushoperations";
 import { Suppliers } from "./suppliers";
@@ -68,9 +68,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "3.0.0";
-    sdkVersion = "1.4.0";
-    genVersion = "2.173.0";
-    userAgent = "speakeasy-sdk/typescript 1.4.0 2.173.0 3.0.0 @codat/sync-for-payables";
+    sdkVersion = "2.0.0";
+    genVersion = "2.188.1";
+    userAgent = "speakeasy-sdk/typescript 2.0.0 2.188.1 3.0.0 @codat/sync-for-payables";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -110,9 +110,17 @@ export class SDKConfiguration {
  */
 export class CodatSyncPayables {
     /**
-     * Accounts
+     * Create and manage your Codat companies.
      */
-    public accounts: Accounts;
+    public companies: Companies;
+    /**
+     * Manage your companies' data connections.
+     */
+    public connections: Connections;
+    /**
+     * Bills
+     */
+    public bills: Bills;
     /**
      * Bill credit notes
      */
@@ -122,21 +130,9 @@ export class CodatSyncPayables {
      */
     public billPayments: BillPayments;
     /**
-     * Bills
+     * Accounts
      */
-    public bills: Bills;
-    /**
-     * Create and manage your Codat companies.
-     */
-    public companies: Companies;
-    /**
-     * View company information fetched from the source platform.
-     */
-    public companyInfo: CompanyInfo;
-    /**
-     * Manage your companies' data connections.
-     */
-    public connections: Connections;
+    public accounts: Accounts;
     /**
      * Journal entries
      */
@@ -146,21 +142,21 @@ export class CodatSyncPayables {
      */
     public journals: Journals;
     /**
+     * Suppliers
+     */
+    public suppliers: Suppliers;
+    /**
      * Asynchronously retrieve data from an integration to refresh data in Codat.
      */
     public manageData: ManageData;
     /**
+     * View company information fetched from the source platform.
+     */
+    public companyInfo: CompanyInfo;
+    /**
      * Payment methods
      */
     public paymentMethods: PaymentMethods;
-    /**
-     * Access create, update and delete operations made to an SMB's data connection.
-     */
-    public pushOperations: PushOperations;
-    /**
-     * Suppliers
-     */
-    public suppliers: Suppliers;
     /**
      * Tax rates
      */
@@ -169,6 +165,10 @@ export class CodatSyncPayables {
      * Tracking categories
      */
     public trackingCategories: TrackingCategories;
+    /**
+     * Access create, update and delete operations made to an SMB's data connection.
+     */
+    public pushOperations: PushOperations;
 
     private sdkConfiguration: SDKConfiguration;
 
@@ -180,7 +180,7 @@ export class CodatSyncPayables {
             serverURL = ServerList[serverIdx];
         }
 
-        const defaultClient = props?.defaultClient ?? axios.create({ baseURL: serverURL });
+        const defaultClient = props?.defaultClient ?? axios.create();
         this.sdkConfiguration = new SDKConfiguration({
             defaultClient: defaultClient,
             security: props?.security,
@@ -188,20 +188,20 @@ export class CodatSyncPayables {
             retryConfig: props?.retryConfig,
         });
 
-        this.accounts = new Accounts(this.sdkConfiguration);
+        this.companies = new Companies(this.sdkConfiguration);
+        this.connections = new Connections(this.sdkConfiguration);
+        this.bills = new Bills(this.sdkConfiguration);
         this.billCreditNotes = new BillCreditNotes(this.sdkConfiguration);
         this.billPayments = new BillPayments(this.sdkConfiguration);
-        this.bills = new Bills(this.sdkConfiguration);
-        this.companies = new Companies(this.sdkConfiguration);
-        this.companyInfo = new CompanyInfo(this.sdkConfiguration);
-        this.connections = new Connections(this.sdkConfiguration);
+        this.accounts = new Accounts(this.sdkConfiguration);
         this.journalEntries = new JournalEntries(this.sdkConfiguration);
         this.journals = new Journals(this.sdkConfiguration);
-        this.manageData = new ManageData(this.sdkConfiguration);
-        this.paymentMethods = new PaymentMethods(this.sdkConfiguration);
-        this.pushOperations = new PushOperations(this.sdkConfiguration);
         this.suppliers = new Suppliers(this.sdkConfiguration);
+        this.manageData = new ManageData(this.sdkConfiguration);
+        this.companyInfo = new CompanyInfo(this.sdkConfiguration);
+        this.paymentMethods = new PaymentMethods(this.sdkConfiguration);
         this.taxRates = new TaxRates(this.sdkConfiguration);
         this.trackingCategories = new TrackingCategories(this.sdkConfiguration);
+        this.pushOperations = new PushOperations(this.sdkConfiguration);
     }
 }

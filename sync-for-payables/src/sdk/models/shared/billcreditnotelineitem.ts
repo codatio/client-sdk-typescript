@@ -12,7 +12,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * Reference to the item the line is linked to.
  */
-export class BillCreditNoteLineItemItemReference extends SpeakeasyBase {
+export class ItemReference extends SpeakeasyBase {
     /**
      * Unique identifier for the item in the accounting platform.
      */
@@ -28,7 +28,7 @@ export class BillCreditNoteLineItemItemReference extends SpeakeasyBase {
     name?: string;
 }
 
-export class BillCreditNoteLineItemTrackingCustomerRef extends SpeakeasyBase {
+export class BillCreditNoteLineItemCustomerRef extends SpeakeasyBase {
     /**
      * `customerName` from the Customer data type
      */
@@ -44,7 +44,7 @@ export class BillCreditNoteLineItemTrackingCustomerRef extends SpeakeasyBase {
     id: string;
 }
 
-export class BillCreditNoteLineItemTrackingAccountingProjectReference extends SpeakeasyBase {
+export class BillCreditNoteLineItemAccountingProjectReference extends SpeakeasyBase {
     /**
      * Unique identifier to the project reference.
      */
@@ -71,8 +71,8 @@ export class BillCreditNoteLineItemTracking extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "customerRef" })
-    @Type(() => BillCreditNoteLineItemTrackingCustomerRef)
-    customerRef?: BillCreditNoteLineItemTrackingCustomerRef;
+    @Type(() => BillCreditNoteLineItemCustomerRef)
+    customerRef?: BillCreditNoteLineItemCustomerRef;
 
     /**
      * Defines if the invoice or credit note is billed/rebilled to a project or customer.
@@ -90,8 +90,8 @@ export class BillCreditNoteLineItemTracking extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "projectRef" })
-    @Type(() => BillCreditNoteLineItemTrackingAccountingProjectReference)
-    projectRef?: BillCreditNoteLineItemTrackingAccountingProjectReference;
+    @Type(() => BillCreditNoteLineItemAccountingProjectReference)
+    projectRef?: BillCreditNoteLineItemAccountingProjectReference;
 }
 
 export class BillCreditNoteLineItem extends SpeakeasyBase {
@@ -129,8 +129,8 @@ export class BillCreditNoteLineItem extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "itemRef" })
-    @Type(() => BillCreditNoteLineItemItemReference)
-    itemRef?: BillCreditNoteLineItemItemReference;
+    @Type(() => ItemReference)
+    itemRef?: ItemReference;
 
     /**
      * Number of units of the goods or service for which credit has been received.
