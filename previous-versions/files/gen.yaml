@@ -2,27 +2,40 @@ configVersion: 1.0.0
 management:
   docChecksum: 540f3032e88f867b222d889d0252c688
   docVersion: 3.0.0
-  speakeasyVersion: 1.112.1
-  generationVersion: 2.173.0
+  speakeasyVersion: 1.119.0
+  generationVersion: 2.188.1
 generation:
   comments: {}
   sdkClassName: CodatFiles
   repoURL: https://github.com/codatio/client-sdk-typescript.git
+  usageSnippets:
+    optionalPropertyRendering: withExample
 features:
   typescript:
     acceptHeaders: 2.81.1
-    core: 2.94.0
+    core: 3.1.3
     examples: 2.81.3
     globalSecurity: 2.82.0
     globalServerURLs: 2.82.0
     retries: 2.82.1
 typescript:
-  version: 0.37.0
+  version: 0.38.0
   author: Codat
+  clientServerStatusCodesAsErrors: false
   description: Use Codat's Files API to upload your SMB customers' files.
   flattenGlobalSecurity: false
+  imports:
+    option: openapi
+    paths:
+      callbacks: sdk/models/callbacks
+      errors: sdk/models/errors
+      operations: sdk/models/operations
+      shared: sdk/models/shared
+      webhooks: sdk/models/webhooks
+  inputModelSuffix: input
   installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/previous-versions/files
   maxMethodParams: 0
+  outputModelSuffix: output
   packageName: '@codat/files'
   published: true
   repoSubDirectory: previous-versions/files

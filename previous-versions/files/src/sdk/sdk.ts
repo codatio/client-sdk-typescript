@@ -3,8 +3,8 @@
  */
 
 import * as utils from "../internal/utils";
+import * as shared from "../sdk/models/shared";
 import { Files } from "./files";
-import * as shared from "./models/shared";
 import axios from "axios";
 import { AxiosInstance } from "axios";
 
@@ -54,9 +54,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "3.0.0";
-    sdkVersion = "0.37.0";
-    genVersion = "2.173.0";
-    userAgent = "speakeasy-sdk/typescript 0.37.0 2.173.0 3.0.0 @codat/files";
+    sdkVersion = "0.38.0";
+    genVersion = "2.188.1";
+    userAgent = "speakeasy-sdk/typescript 0.38.0 2.188.1 3.0.0 @codat/files";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -90,7 +90,7 @@ export class CodatFiles {
             serverURL = ServerList[serverIdx];
         }
 
-        const defaultClient = props?.defaultClient ?? axios.create({ baseURL: serverURL });
+        const defaultClient = props?.defaultClient ?? axios.create();
         this.sdkConfiguration = new SDKConfiguration({
             defaultClient: defaultClient,
             security: props?.security,
