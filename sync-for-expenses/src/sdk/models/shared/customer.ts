@@ -10,7 +10,7 @@ import { Metadata } from "./metadata";
 import { SupplementalData } from "./supplementaldata";
 import { Expose, Type } from "class-transformer";
 
-export class CustomerAccountingAddress extends SpeakeasyBase {
+export class AccountingAddress extends SpeakeasyBase {
     /**
      * City of the customer address.
      */
@@ -77,10 +77,10 @@ export class Customer extends SpeakeasyBase {
     /**
      * An array of Addresses.
      */
-    @SpeakeasyMetadata({ elemType: CustomerAccountingAddress })
+    @SpeakeasyMetadata({ elemType: AccountingAddress })
     @Expose({ name: "addresses" })
-    @Type(() => CustomerAccountingAddress)
-    addresses?: CustomerAccountingAddress[];
+    @Type(() => AccountingAddress)
+    addresses?: AccountingAddress[];
 
     /**
      * Name of the main contact for the identified customer.

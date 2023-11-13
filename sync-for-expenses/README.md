@@ -22,9 +22,10 @@ yarn add @codat/sync-for-expenses
 
 ## Example Usage
 <!-- Start SDK Example Usage -->
+### Example
+
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { AccountStatus, AccountType } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
 (async () => {
     const sdk = new CodatSyncExpenses({
@@ -33,36 +34,9 @@ import { AccountStatus, AccountType } from "@codat/sync-for-expenses/dist/sdk/mo
         },
     });
 
-    const res = await sdk.accounts.create({
-        account: {
-            currency: "USD",
-            currentBalance: 0,
-            description: "Invoices the business has issued but has not yet collected payment on.",
-            fullyQualifiedCategory: "Asset.Current",
-            fullyQualifiedName: "Cash On Hand",
-            id: "1b6266d1-1e44-46c5-8eb5-a8f98e03124e",
-            metadata: {},
-            modifiedDate: "2022-10-23T00:00:00.000Z",
-            name: "Accounts Receivable",
-            nominalCode: "610",
-            sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-            status: AccountStatus.Active,
-            supplementalData: {
-                content: {
-                    key: {
-                        key: "string",
-                    },
-                },
-            },
-            type: AccountType.Asset,
-            validDatatypeLinks: [
-                {
-                    links: ["string"],
-                },
-            ],
-        },
-        companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-        connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    const res = await sdk.companies.create({
+        description: "Requested early access to the new financing scheme.",
+        name: "Bank of Dave",
     });
 
     if (res.statusCode == 200) {
@@ -77,11 +51,6 @@ import { AccountStatus, AccountType } from "@codat/sync-for-expenses/dist/sdk/mo
 ## Available Resources and Operations
 
 
-### [accounts](docs/sdks/accounts/README.md)
-
-* [create](docs/sdks/accounts/README.md#create) - Create account
-* [getCreateModel](docs/sdks/accounts/README.md#getcreatemodel) - Get create account model
-
 ### [companies](docs/sdks/companies/README.md)
 
 * [create](docs/sdks/companies/README.md#create) - Create company
@@ -89,12 +58,6 @@ import { AccountStatus, AccountType } from "@codat/sync-for-expenses/dist/sdk/mo
 * [get](docs/sdks/companies/README.md#get) - Get company
 * [list](docs/sdks/companies/README.md#list) - List companies
 * [update](docs/sdks/companies/README.md#update) - Update company
-
-### [configuration](docs/sdks/configuration/README.md)
-
-* [get](docs/sdks/configuration/README.md#get) - Get company configuration
-* [getMappingOptions](docs/sdks/configuration/README.md#getmappingoptions) - Mapping options
-* [set](docs/sdks/configuration/README.md#set) - Set company configuration
 
 ### [connections](docs/sdks/connections/README.md)
 
@@ -105,6 +68,11 @@ import { AccountStatus, AccountType } from "@codat/sync-for-expenses/dist/sdk/mo
 * [list](docs/sdks/connections/README.md#list) - List connections
 * [unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 
+### [accounts](docs/sdks/accounts/README.md)
+
+* [create](docs/sdks/accounts/README.md#create) - Create account
+* [getCreateModel](docs/sdks/accounts/README.md#getcreatemodel) - Get create account model
+
 ### [customers](docs/sdks/customers/README.md)
 
 * [create](docs/sdks/customers/README.md#create) - Create customer
@@ -112,11 +80,12 @@ import { AccountStatus, AccountType } from "@codat/sync-for-expenses/dist/sdk/mo
 * [list](docs/sdks/customers/README.md#list) - List customers
 * [update](docs/sdks/customers/README.md#update) - Update customer
 
-### [expenses](docs/sdks/expenses/README.md)
+### [suppliers](docs/sdks/suppliers/README.md)
 
-* [create](docs/sdks/expenses/README.md#create) - Create expense transaction
-* [update](docs/sdks/expenses/README.md#update) - Update expense-transactions
-* [uploadAttachment](docs/sdks/expenses/README.md#uploadattachment) - Upload attachment
+* [create](docs/sdks/suppliers/README.md#create) - Create supplier
+* [get](docs/sdks/suppliers/README.md#get) - Get supplier
+* [list](docs/sdks/suppliers/README.md#list) - List suppliers
+* [update](docs/sdks/suppliers/README.md#update) - Update supplier
 
 ### [manageData](docs/sdks/managedata/README.md)
 
@@ -131,12 +100,17 @@ import { AccountStatus, AccountType } from "@codat/sync-for-expenses/dist/sdk/mo
 * [get](docs/sdks/pushoperations/README.md#get) - Get push operation
 * [list](docs/sdks/pushoperations/README.md#list) - List push operations
 
-### [suppliers](docs/sdks/suppliers/README.md)
+### [configuration](docs/sdks/configuration/README.md)
 
-* [create](docs/sdks/suppliers/README.md#create) - Create supplier
-* [get](docs/sdks/suppliers/README.md#get) - Get supplier
-* [list](docs/sdks/suppliers/README.md#list) - List suppliers
-* [update](docs/sdks/suppliers/README.md#update) - Update supplier
+* [get](docs/sdks/configuration/README.md#get) - Get company configuration
+* [getMappingOptions](docs/sdks/configuration/README.md#getmappingoptions) - Mapping options
+* [set](docs/sdks/configuration/README.md#set) - Set company configuration
+
+### [expenses](docs/sdks/expenses/README.md)
+
+* [create](docs/sdks/expenses/README.md#create) - Create expense transaction
+* [update](docs/sdks/expenses/README.md#update) - Update expense-transactions
+* [uploadAttachment](docs/sdks/expenses/README.md#uploadattachment) - Upload attachment
 
 ### [sync](docs/sdks/sync/README.md)
 
@@ -175,19 +149,48 @@ Here's an example of one such pagination call:
 
 
 <!-- Start Error Handling -->
-# Error Handling
+## Error Handling
 
-Handling errors in your SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
+Handling errors in this SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
+Example
+
+```typescript
+import { CodatSyncExpenses } from "@codat/sync-for-expenses";
+
+(async () => {
+    const sdk = new CodatSyncExpenses({
+        security: {
+            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+        },
+    });
+
+    let res;
+    try {
+        res = await sdk.companies.create({
+            description: "Requested early access to the new financing scheme.",
+            name: "Bank of Dave",
+        });
+    } catch (e) {}
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
 <!-- End Error Handling -->
 
 
 
 <!-- Start Server Selection -->
-# Server Selection
+## Server Selection
 
-## Select Server by Index
+### Select Server by Index
 
 You can override the default server globally by passing a server index to the `serverIdx: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
 
@@ -195,51 +198,22 @@ You can override the default server globally by passing a server index to the `s
 | - | ------ | --------- |
 | 0 | `https://api.codat.io` | None |
 
-For example:
-
+#### Example
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { AccountStatus, AccountType } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
 (async () => {
     const sdk = new CodatSyncExpenses({
+        serverIdx: 0,
         security: {
             authHeader: "Basic BASE_64_ENCODED(API_KEY)",
         },
-        serverIdx: 0,
     });
 
-    const res = await sdk.accounts.create({
-        account: {
-            currency: "USD",
-            currentBalance: 0,
-            description: "Invoices the business has issued but has not yet collected payment on.",
-            fullyQualifiedCategory: "Asset.Current",
-            fullyQualifiedName: "Cash On Hand",
-            id: "1b6266d1-1e44-46c5-8eb5-a8f98e03124e",
-            metadata: {},
-            modifiedDate: "2022-10-23T00:00:00.000Z",
-            name: "Accounts Receivable",
-            nominalCode: "610",
-            sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-            status: AccountStatus.Active,
-            supplementalData: {
-                content: {
-                    key: {
-                        key: "string",
-                    },
-                },
-            },
-            type: AccountType.Asset,
-            validDatatypeLinks: [
-                {
-                    links: ["string"],
-                },
-            ],
-        },
-        companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-        connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    const res = await sdk.companies.create({
+        description: "Requested early access to the new financing scheme.",
+        name: "Bank of Dave",
     });
 
     if (res.statusCode == 200) {
@@ -250,53 +224,23 @@ import { AccountStatus, AccountType } from "@codat/sync-for-expenses/dist/sdk/mo
 ```
 
 
-## Override Server URL Per-Client
+### Override Server URL Per-Client
 
 The default server can also be overridden globally by passing a URL to the `serverURL: str` optional parameter when initializing the SDK client instance. For example:
-
-
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { AccountStatus, AccountType } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
 (async () => {
     const sdk = new CodatSyncExpenses({
+        serverURL: "https://api.codat.io",
         security: {
             authHeader: "Basic BASE_64_ENCODED(API_KEY)",
         },
-        serverURL: "https://api.codat.io",
     });
 
-    const res = await sdk.accounts.create({
-        account: {
-            currency: "USD",
-            currentBalance: 0,
-            description: "Invoices the business has issued but has not yet collected payment on.",
-            fullyQualifiedCategory: "Asset.Current",
-            fullyQualifiedName: "Cash On Hand",
-            id: "1b6266d1-1e44-46c5-8eb5-a8f98e03124e",
-            metadata: {},
-            modifiedDate: "2022-10-23T00:00:00.000Z",
-            name: "Accounts Receivable",
-            nominalCode: "610",
-            sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-            status: AccountStatus.Active,
-            supplementalData: {
-                content: {
-                    key: {
-                        key: "string",
-                    },
-                },
-            },
-            type: AccountType.Asset,
-            validDatatypeLinks: [
-                {
-                    links: ["string"],
-                },
-            ],
-        },
-        companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-        connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    const res = await sdk.companies.create({
+        description: "Requested early access to the new financing scheme.",
+        name: "Bank of Dave",
     });
 
     if (res.statusCode == 200) {
@@ -310,10 +254,9 @@ import { AccountStatus, AccountType } from "@codat/sync-for-expenses/dist/sdk/mo
 
 
 <!-- Start Custom HTTP Client -->
-# Custom HTTP Client
+## Custom HTTP Client
 
 The Typescript SDK makes API calls using the (axios)[https://axios-http.com/docs/intro] HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `AxiosInstance` object.
-
 
 For example, you could specify a header for every request that your sdk makes as follows:
 
@@ -325,12 +268,123 @@ const httpClient = axios.create({
     headers: {'x-custom-header': 'someValue'}
 })
 
-
 const sdk = new CodatSyncExpenses({defaultClient: httpClient});
 ```
-
-
 <!-- End Custom HTTP Client -->
+
+
+
+<!-- Start Retries -->
+## Retries
+
+Some of the endpoints in this SDK support retries.  If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API.  However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
+
+To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
+```typescript
+import { CodatSyncExpenses } from "@codat/sync-for-expenses";
+
+(async () => {
+    const sdk = new CodatSyncExpenses({
+        security: {
+            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+        },
+    });
+
+    const res = await sdk.companies.create(
+        {
+            description: "Requested early access to the new financing scheme.",
+            name: "Bank of Dave",
+        },
+        {
+            strategy: "backoff",
+            backoff: {
+                initialInterval: 1,
+                maxInterval: 50,
+                exponent: 1.1,
+                maxElapsedTime: 100,
+            },
+            retryConnectionErrors: false,
+        }
+    );
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+
+If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
+```typescript
+import { CodatSyncExpenses } from "@codat/sync-for-expenses";
+
+(async () => {
+    const sdk = new CodatSyncExpenses({
+        retry_config: {
+            strategy: "backoff",
+            backoff: {
+                initialInterval: 1,
+                maxInterval: 50,
+                exponent: 1.1,
+                maxElapsedTime: 100,
+            },
+            retryConnectionErrors: false,
+        },
+        security: {
+            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+        },
+    });
+
+    const res = await sdk.companies.create({
+        description: "Requested early access to the new financing scheme.",
+        name: "Bank of Dave",
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+<!-- End Retries -->
+
+
+
+<!-- Start Authentication -->
+
+## Authentication
+
+### Per-Client Security Schemes
+
+This SDK supports the following security scheme globally:
+
+| Name         | Type         | Scheme       |
+| ------------ | ------------ | ------------ |
+| `authHeader` | apiKey       | API key      |
+
+You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
+```typescript
+import { CodatSyncExpenses } from "@codat/sync-for-expenses";
+
+(async () => {
+    const sdk = new CodatSyncExpenses({
+        security: {
+            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+        },
+    });
+
+    const res = await sdk.companies.create({
+        description: "Requested early access to the new financing scheme.",
+        name: "Bank of Dave",
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+<!-- End Authentication -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

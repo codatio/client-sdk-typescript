@@ -7,7 +7,7 @@ import { ContactRef } from "./contactref";
 import { ExpenseTransactionLine } from "./expensetransactionline";
 import { Expose, Type } from "class-transformer";
 
-export class ExpenseTransactionBankAccountReference extends SpeakeasyBase {
+export class BankAccountReference extends SpeakeasyBase {
     /**
      * Identifier of the bank account.
      */
@@ -33,8 +33,8 @@ export enum ExpenseTransactionType {
 export class ExpenseTransaction extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "bankAccountRef" })
-    @Type(() => ExpenseTransactionBankAccountReference)
-    bankAccountRef?: ExpenseTransactionBankAccountReference;
+    @Type(() => BankAccountReference)
+    bankAccountRef?: BankAccountReference;
 
     @SpeakeasyMetadata()
     @Expose({ name: "contactRef" })

@@ -10,7 +10,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * The type of platform of the connection.
  */
-export enum ConnectionSourceType {
+export enum SourceType {
     Accounting = "Accounting",
     Banking = "Banking",
     Commerce = "Commerce",
@@ -147,7 +147,7 @@ export class Connection extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "sourceType" })
-    sourceType: ConnectionSourceType;
+    sourceType: SourceType;
 
     /**
      * The current authorization status of the data connection.
