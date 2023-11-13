@@ -11,7 +11,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * The status of the account transaction.
  */
-export enum AccountingAccountTransactionStatus {
+export enum Status {
     Unknown = "Unknown",
     Unreconciled = "Unreconciled",
     Reconciled = "Reconciled",
@@ -163,7 +163,7 @@ export class AccountingAccountTransaction extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: AccountingAccountTransactionStatus;
+    status?: Status;
 
     /**
      * Total amount of the account transactions, inclusive of tax.

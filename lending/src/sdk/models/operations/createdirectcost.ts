@@ -3,13 +3,10 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class CreateDirectCostRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    accountingDirectCost?: shared.AccountingDirectCost;
-
     /**
      * Allow a sync upon push completion.
      */
@@ -27,6 +24,9 @@ export class CreateDirectCostRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
     connectionId: string;
+
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    directCostPrototype?: shared.DirectCostPrototype;
 
     /**
      * Time limit for the push operation to complete before it is timed out.

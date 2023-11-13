@@ -25,7 +25,7 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GenerateLoanSummarySourceType } from "@codat/lending/dist/sdk/models/operations";
+import { SourceType } from "@codat/lending/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new CodatLending({
@@ -36,9 +36,8 @@ import { GenerateLoanSummarySourceType } from "@codat/lending/dist/sdk/models/op
 
   const res = await sdk.liabilities.generateLoanSummary({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    sourceType: GenerateLoanSummarySourceType.Accounting,
+    sourceType: SourceType.Accounting,
   });
-
 
   if (res.statusCode == 200) {
     // handle response
@@ -48,17 +47,21 @@ import { GenerateLoanSummarySourceType } from "@codat/lending/dist/sdk/models/op
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.GenerateLoanSummaryRequest](../../models/operations/generateloansummaryrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `retries`                                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                                         | :heavy_minus_sign:                                                                             | Configuration to override the default retry behavior of the client.                            |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.GenerateLoanSummaryRequest](../../sdk/models/operations/generateloansummaryrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `retries`                                                                                          | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                           | :heavy_minus_sign:                                                                                 | Configuration to override the default retry behavior of the client.                                |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
 
 
 ### Response
 
-**Promise<[operations.GenerateLoanSummaryResponse](../../models/operations/generateloansummaryresponse.md)>**
+**Promise<[operations.GenerateLoanSummaryResponse](../../sdk/models/operations/generateloansummaryresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## generateLoanTransactions
 
@@ -73,7 +76,7 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GenerateLoanTransactionsSourceType } from "@codat/lending/dist/sdk/models/operations";
+import { QueryParamSourceType } from "@codat/lending/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new CodatLending({
@@ -84,9 +87,8 @@ import { GenerateLoanTransactionsSourceType } from "@codat/lending/dist/sdk/mode
 
   const res = await sdk.liabilities.generateLoanTransactions({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    sourceType: GenerateLoanTransactionsSourceType.Accounting,
+    sourceType: QueryParamSourceType.Accounting,
   });
-
 
   if (res.statusCode == 200) {
     // handle response
@@ -96,17 +98,21 @@ import { GenerateLoanTransactionsSourceType } from "@codat/lending/dist/sdk/mode
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                | [operations.GenerateLoanTransactionsRequest](../../models/operations/generateloantransactionsrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
-| `retries`                                                                                                | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                   | :heavy_minus_sign:                                                                                       | Configuration to override the default retry behavior of the client.                                      |
-| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
+| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                    | [operations.GenerateLoanTransactionsRequest](../../sdk/models/operations/generateloantransactionsrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
+| `retries`                                                                                                    | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                     | :heavy_minus_sign:                                                                                           | Configuration to override the default retry behavior of the client.                                          |
+| `config`                                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                 | :heavy_minus_sign:                                                                                           | Available config options for making requests.                                                                |
 
 
 ### Response
 
-**Promise<[operations.GenerateLoanTransactionsResponse](../../models/operations/generateloantransactionsresponse.md)>**
+**Promise<[operations.GenerateLoanTransactionsResponse](../../sdk/models/operations/generateloantransactionsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getLoanSummary
 
@@ -121,7 +127,7 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { GetLoanSummarySourceType } from "@codat/lending/dist/sdk/models/operations";
+import { GetLoanSummaryQueryParamSourceType } from "@codat/lending/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new CodatLending({
@@ -132,9 +138,8 @@ import { GetLoanSummarySourceType } from "@codat/lending/dist/sdk/models/operati
 
   const res = await sdk.liabilities.getLoanSummary({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    sourceType: GetLoanSummarySourceType.Banking,
+    sourceType: GetLoanSummaryQueryParamSourceType.Banking,
   });
-
 
   if (res.statusCode == 200) {
     // handle response
@@ -144,17 +149,21 @@ import { GetLoanSummarySourceType } from "@codat/lending/dist/sdk/models/operati
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.GetLoanSummaryRequest](../../models/operations/getloansummaryrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `retries`                                                                            | [utils.RetryConfig](../../models/utils/retryconfig.md)                               | :heavy_minus_sign:                                                                   | Configuration to override the default retry behavior of the client.                  |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.GetLoanSummaryRequest](../../sdk/models/operations/getloansummaryrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `retries`                                                                                | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                 | :heavy_minus_sign:                                                                       | Configuration to override the default retry behavior of the client.                      |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
 
-**Promise<[operations.GetLoanSummaryResponse](../../models/operations/getloansummaryresponse.md)>**
+**Promise<[operations.GetLoanSummaryResponse](../../sdk/models/operations/getloansummaryresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listLoanTransactions
 
@@ -169,7 +178,7 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { ListLoanTransactionsSourceType } from "@codat/lending/dist/sdk/models/operations";
+import { ListLoanTransactionsQueryParamSourceType } from "@codat/lending/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new CodatLending({
@@ -180,9 +189,8 @@ import { ListLoanTransactionsSourceType } from "@codat/lending/dist/sdk/models/o
 
   const res = await sdk.liabilities.listLoanTransactions({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    sourceType: ListLoanTransactionsSourceType.Commerce,
+    sourceType: ListLoanTransactionsQueryParamSourceType.Commerce,
   });
-
 
   if (res.statusCode == 200) {
     // handle response
@@ -192,14 +200,18 @@ import { ListLoanTransactionsSourceType } from "@codat/lending/dist/sdk/models/o
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.ListLoanTransactionsRequest](../../models/operations/listloantransactionsrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `retries`                                                                                        | [utils.RetryConfig](../../models/utils/retryconfig.md)                                           | :heavy_minus_sign:                                                                               | Configuration to override the default retry behavior of the client.                              |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `request`                                                                                            | [operations.ListLoanTransactionsRequest](../../sdk/models/operations/listloantransactionsrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
+| `retries`                                                                                            | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                             | :heavy_minus_sign:                                                                                   | Configuration to override the default retry behavior of the client.                                  |
+| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
 
 
 ### Response
 
-**Promise<[operations.ListLoanTransactionsResponse](../../models/operations/listloantransactionsresponse.md)>**
+**Promise<[operations.ListLoanTransactionsResponse](../../sdk/models/operations/listloantransactionsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

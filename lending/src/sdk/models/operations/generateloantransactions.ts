@@ -3,13 +3,13 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 /**
  * Data source type.
  */
-export enum GenerateLoanTransactionsSourceType {
+export enum QueryParamSourceType {
     Banking = "banking",
     Commerce = "commerce",
     Accounting = "accounting",
@@ -26,7 +26,7 @@ export class GenerateLoanTransactionsRequest extends SpeakeasyBase {
      * Data source type.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=sourceType" })
-    sourceType: GenerateLoanTransactionsSourceType;
+    sourceType: QueryParamSourceType;
 }
 
 export class GenerateLoanTransactionsResponse extends SpeakeasyBase {

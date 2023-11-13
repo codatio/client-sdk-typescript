@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountRef } from "./accountref";
 import { AccountsPayableTracking } from "./accountspayabletracking";
-import { ItemRef } from "./itemref";
+import { PropertieItemRef } from "./propertieitemref";
 import { TaxRateRef } from "./taxrateref";
 import { TrackingCategoryRef } from "./trackingcategoryref";
 import { Expose, Type } from "class-transformer";
@@ -13,20 +13,20 @@ import { Expose, Type } from "class-transformer";
 /**
  * Allowed name of the 'dataType'.
  */
-export enum BillLineItemRecordLineReferenceDataType {
+export enum BillLineItemDataType {
     PurchaseOrders = "purchaseOrders",
 }
 
 /**
  * Reference to the purchase order line this line was generated from.
  */
-export class BillLineItemRecordLineReference extends SpeakeasyBase {
+export class RecordLineReference extends SpeakeasyBase {
     /**
      * Allowed name of the 'dataType'.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "dataType" })
-    dataType?: BillLineItemRecordLineReferenceDataType;
+    dataType?: BillLineItemDataType;
 
     /**
      * 'id' of the underlying record.
@@ -89,8 +89,8 @@ export class BillLineItem extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "itemRef" })
-    @Type(() => ItemRef)
-    itemRef?: ItemRef;
+    @Type(() => PropertieItemRef)
+    itemRef?: PropertieItemRef;
 
     /**
      * The bill line's number.
@@ -104,8 +104,8 @@ export class BillLineItem extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "purchaseOrderLineRef" })
-    @Type(() => BillLineItemRecordLineReference)
-    purchaseOrderLineRef?: BillLineItemRecordLineReference;
+    @Type(() => RecordLineReference)
+    purchaseOrderLineRef?: RecordLineReference;
 
     /**
      * Number of units of goods or services received.

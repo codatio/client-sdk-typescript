@@ -32,7 +32,7 @@ import { Expose, Type } from "class-transformer";
  */
 export class AccountingDirectIncome extends SpeakeasyBase {
     /**
-     * The customer or supplier for the transfer, if available.
+     * A customer or supplier associated with the direct cost.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "contactRef" })
