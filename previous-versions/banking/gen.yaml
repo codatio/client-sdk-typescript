@@ -2,15 +2,17 @@ configVersion: 1.0.0
 management:
   docChecksum: aa203fbf9ad5cffbde9599f604629a16
   docVersion: 3.0.0
-  speakeasyVersion: 1.112.1
-  generationVersion: 2.173.0
+  speakeasyVersion: 1.119.0
+  generationVersion: 2.188.1
 generation:
   comments: {}
   sdkClassName: CodatBanking
   repoURL: https://github.com/codatio/client-sdk-typescript.git
+  usageSnippets:
+    optionalPropertyRendering: withExample
 features:
   typescript:
-    core: 2.94.0
+    core: 3.1.3
     deprecations: 2.81.1
     examples: 2.81.3
     globalSecurity: 2.82.0
@@ -18,12 +20,23 @@ features:
     nameOverrides: 2.81.1
     retries: 2.82.1
 typescript:
-  version: 0.31.0
+  version: 0.32.0
   author: Codat
+  clientServerStatusCodesAsErrors: false
   description: Access standardized banking data from our banking integrations.
   flattenGlobalSecurity: false
+  imports:
+    option: openapi
+    paths:
+      callbacks: sdk/models/callbacks
+      errors: sdk/models/errors
+      operations: sdk/models/operations
+      shared: sdk/models/shared
+      webhooks: sdk/models/webhooks
+  inputModelSuffix: input
   installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/previous-versions/banking
   maxMethodParams: 0
+  outputModelSuffix: output
   packageName: '@codat/banking'
   published: true
   repoSubDirectory: previous-versions/banking
