@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Connection } from "./connection";
 import { Expose, Type } from "class-transformer";
 
-export class SyncSummarySyncDateRangeUtc extends SpeakeasyBase {
+export class SyncDateRangeUtc extends SpeakeasyBase {
     /**
      * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
      *
@@ -101,8 +101,8 @@ export class SyncSummary extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "syncDateRangeUtc" })
-    @Type(() => SyncSummarySyncDateRangeUtc)
-    syncDateRangeUtc?: SyncSummarySyncDateRangeUtc;
+    @Type(() => SyncDateRangeUtc)
+    syncDateRangeUtc?: SyncDateRangeUtc;
 
     /**
      * Exception message for the sync operation.

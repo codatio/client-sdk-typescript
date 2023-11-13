@@ -30,7 +30,6 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 
   const res = await sdk.syncFlowSettings.getConfigTextSyncFlow();
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -41,14 +40,18 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `retries`                                                           | [utils.RetryConfig](../../models/utils/retryconfig.md)              | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| `retries`                                                           | [utils.RetryConfig](../../internal/utils/retryconfig.md)            | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 | `config`                                                            | [AxiosRequestConfig](https://axios-http.com/docs/req_config)        | :heavy_minus_sign:                                                  | Available config options for making requests.                       |
 
 
 ### Response
 
-**Promise<[operations.GetConfigTextSyncFlowResponse](../../models/operations/getconfigtextsyncflowresponse.md)>**
+**Promise<[operations.GetConfigTextSyncFlowResponse](../../sdk/models/operations/getconfigtextsyncflowresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getVisibleAccounts
 
@@ -71,7 +74,6 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
     platformKey: "gbol",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -80,17 +82,21 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.GetVisibleAccountsRequest](../../models/operations/getvisibleaccountsrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `retries`                                                                                    | [utils.RetryConfig](../../models/utils/retryconfig.md)                                       | :heavy_minus_sign:                                                                           | Configuration to override the default retry behavior of the client.                          |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.GetVisibleAccountsRequest](../../sdk/models/operations/getvisibleaccountsrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `retries`                                                                                        | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                         | :heavy_minus_sign:                                                                               | Configuration to override the default retry behavior of the client.                              |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response
 
-**Promise<[operations.GetVisibleAccountsResponse](../../models/operations/getvisibleaccountsresponse.md)>**
+**Promise<[operations.GetVisibleAccountsResponse](../../sdk/models/operations/getvisibleaccountsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## updateConfigTextSyncFlow
 
@@ -112,7 +118,6 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
     "key": {},
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -123,15 +128,19 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `request`                                                           | [Record<string, shared.Localization>](../../models//.md)            | :heavy_check_mark:                                                  | The request object to use for the request.                          |
-| `retries`                                                           | [utils.RetryConfig](../../models/utils/retryconfig.md)              | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| `request`                                                           | [Record<string, shared.Localization>](../../models/.md)             | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `retries`                                                           | [utils.RetryConfig](../../internal/utils/retryconfig.md)            | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 | `config`                                                            | [AxiosRequestConfig](https://axios-http.com/docs/req_config)        | :heavy_minus_sign:                                                  | Available config options for making requests.                       |
 
 
 ### Response
 
-**Promise<[operations.UpdateConfigTextSyncFlowResponse](../../models/operations/updateconfigtextsyncflowresponse.md)>**
+**Promise<[operations.UpdateConfigTextSyncFlowResponse](../../sdk/models/operations/updateconfigtextsyncflowresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## updateVisibleAccountsSyncFlow
 
@@ -158,7 +167,6 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
     platformKey: "gbol",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -167,14 +175,18 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 
 ### Parameters
 
-| Parameter                                                                                                          | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
-| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                          | [operations.UpdateVisibleAccountsSyncFlowRequest](../../models/operations/updatevisibleaccountssyncflowrequest.md) | :heavy_check_mark:                                                                                                 | The request object to use for the request.                                                                         |
-| `retries`                                                                                                          | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                             | :heavy_minus_sign:                                                                                                 | Configuration to override the default retry behavior of the client.                                                |
-| `config`                                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                       | :heavy_minus_sign:                                                                                                 | Available config options for making requests.                                                                      |
+| Parameter                                                                                                              | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                              | [operations.UpdateVisibleAccountsSyncFlowRequest](../../sdk/models/operations/updatevisibleaccountssyncflowrequest.md) | :heavy_check_mark:                                                                                                     | The request object to use for the request.                                                                             |
+| `retries`                                                                                                              | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                               | :heavy_minus_sign:                                                                                                     | Configuration to override the default retry behavior of the client.                                                    |
+| `config`                                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                           | :heavy_minus_sign:                                                                                                     | Available config options for making requests.                                                                          |
 
 
 ### Response
 
-**Promise<[operations.UpdateVisibleAccountsSyncFlowResponse](../../models/operations/updatevisibleaccountssyncflowresponse.md)>**
+**Promise<[operations.UpdateVisibleAccountsSyncFlowResponse](../../sdk/models/operations/updatevisibleaccountssyncflowresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
