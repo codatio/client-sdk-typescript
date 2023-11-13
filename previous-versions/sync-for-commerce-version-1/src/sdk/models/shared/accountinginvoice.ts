@@ -12,7 +12,7 @@ import { PaymentAllocationPayment } from "./paymentallocationpayment";
 import { SupplementalData } from "./supplementaldata";
 import { Expose, Type } from "class-transformer";
 
-export class AccountingInvoiceAccountingPaymentAllocationAllocation extends SpeakeasyBase {
+export class AccountingInvoiceAllocation extends SpeakeasyBase {
     /**
      * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
      *
@@ -96,11 +96,11 @@ export class AccountingInvoiceAccountingPaymentAllocationAllocation extends Spea
     totalAmount?: number;
 }
 
-export class AccountingInvoiceAccountingPaymentAllocation extends SpeakeasyBase {
+export class AccountingPaymentAllocation extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "allocation" })
-    @Type(() => AccountingInvoiceAccountingPaymentAllocationAllocation)
-    allocation: AccountingInvoiceAccountingPaymentAllocationAllocation;
+    @Type(() => AccountingInvoiceAllocation)
+    allocation: AccountingInvoiceAllocation;
 
     @SpeakeasyMetadata()
     @Expose({ name: "payment" })
@@ -108,7 +108,7 @@ export class AccountingInvoiceAccountingPaymentAllocation extends SpeakeasyBase 
     payment: PaymentAllocationPayment;
 }
 
-export class AccountingInvoiceSalesOrderReference extends SpeakeasyBase {
+export class SalesOrderReference extends SpeakeasyBase {
     /**
      * Available Data types
      */
@@ -124,7 +124,7 @@ export class AccountingInvoiceSalesOrderReference extends SpeakeasyBase {
     id?: string;
 }
 
-export class AccountingInvoiceWithholdingTax extends SpeakeasyBase {
+export class WithholdingTax extends SpeakeasyBase {
     /**
      * Amount of tax withheld.
      */
@@ -377,18 +377,18 @@ export class AccountingInvoice extends SpeakeasyBase {
     /**
      * An array of payment allocations.
      */
-    @SpeakeasyMetadata({ elemType: AccountingInvoiceAccountingPaymentAllocation })
+    @SpeakeasyMetadata({ elemType: AccountingPaymentAllocation })
     @Expose({ name: "paymentAllocations" })
-    @Type(() => AccountingInvoiceAccountingPaymentAllocation)
-    paymentAllocations?: AccountingInvoiceAccountingPaymentAllocation[];
+    @Type(() => AccountingPaymentAllocation)
+    paymentAllocations?: AccountingPaymentAllocation[];
 
     /**
      * List of references to related Sales orders.
      */
-    @SpeakeasyMetadata({ elemType: AccountingInvoiceSalesOrderReference })
+    @SpeakeasyMetadata({ elemType: SalesOrderReference })
     @Expose({ name: "salesOrderRefs" })
-    @Type(() => AccountingInvoiceSalesOrderReference)
-    salesOrderRefs?: AccountingInvoiceSalesOrderReference[];
+    @Type(() => SalesOrderReference)
+    salesOrderRefs?: SalesOrderReference[];
 
     @SpeakeasyMetadata()
     @Expose({ name: "sourceModifiedDate" })
@@ -449,8 +449,8 @@ export class AccountingInvoice extends SpeakeasyBase {
     @Expose({ name: "totalTaxAmount" })
     totalTaxAmount: number;
 
-    @SpeakeasyMetadata({ elemType: AccountingInvoiceWithholdingTax })
+    @SpeakeasyMetadata({ elemType: WithholdingTax })
     @Expose({ name: "withholdingTax" })
-    @Type(() => AccountingInvoiceWithholdingTax)
-    withholdingTax?: AccountingInvoiceWithholdingTax[];
+    @Type(() => WithholdingTax)
+    withholdingTax?: WithholdingTax[];
 }

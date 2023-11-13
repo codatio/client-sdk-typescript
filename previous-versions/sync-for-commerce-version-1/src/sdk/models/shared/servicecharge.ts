@@ -9,7 +9,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * Taxes rates reference object depending on the rates being available on source commerce package.
  */
-export class ServiceChargeTaxComponentAllocationTaxComponentRef extends SpeakeasyBase {
+export class ServiceChargeTaxComponentRef extends SpeakeasyBase {
     /**
      * The unique identitifer of the tax component being referenced.
      */
@@ -25,7 +25,7 @@ export class ServiceChargeTaxComponentAllocationTaxComponentRef extends Speakeas
     name: string;
 }
 
-export class ServiceChargeTaxComponentAllocation extends SpeakeasyBase {
+export class TaxComponentAllocation extends SpeakeasyBase {
     /**
      * Tax amount on order line sale as available from source commerce platform.
      */
@@ -38,8 +38,8 @@ export class ServiceChargeTaxComponentAllocation extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "taxComponentRef" })
-    @Type(() => ServiceChargeTaxComponentAllocationTaxComponentRef)
-    taxComponentRef?: ServiceChargeTaxComponentAllocationTaxComponentRef;
+    @Type(() => ServiceChargeTaxComponentRef)
+    taxComponentRef?: ServiceChargeTaxComponentRef;
 }
 
 export class ServiceCharge extends SpeakeasyBase {
@@ -74,10 +74,10 @@ export class ServiceCharge extends SpeakeasyBase {
     /**
      * Taxes breakdown as applied to service charges.
      */
-    @SpeakeasyMetadata({ elemType: ServiceChargeTaxComponentAllocation })
+    @SpeakeasyMetadata({ elemType: TaxComponentAllocation })
     @Expose({ name: "taxes" })
-    @Type(() => ServiceChargeTaxComponentAllocation)
-    taxes?: ServiceChargeTaxComponentAllocation[];
+    @Type(() => TaxComponentAllocation)
+    taxes?: TaxComponentAllocation[];
 
     /**
      * Total amount of the service charge, including tax.

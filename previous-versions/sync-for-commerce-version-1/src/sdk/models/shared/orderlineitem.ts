@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { OrderDiscountAllocation } from "./orderdiscountallocation";
 import { ProductRef } from "./productref";
 import { ProductVariantRef } from "./productvariantref";
-import { Taxesitems } from "./taxesitems";
+import { TaxeItems } from "./taxeitems";
 import { Expose, Type } from "class-transformer";
 
 export class OrderLineItem extends SpeakeasyBase {
@@ -59,10 +59,10 @@ export class OrderLineItem extends SpeakeasyBase {
     /**
      * Taxes breakdown as applied to order lines.
      */
-    @SpeakeasyMetadata({ elemType: Taxesitems })
+    @SpeakeasyMetadata({ elemType: TaxeItems })
     @Expose({ name: "taxes" })
-    @Type(() => Taxesitems)
-    taxes?: Taxesitems[];
+    @Type(() => TaxeItems)
+    taxes?: TaxeItems[];
 
     /**
      * Total amount of the line item, including discounts and tax.

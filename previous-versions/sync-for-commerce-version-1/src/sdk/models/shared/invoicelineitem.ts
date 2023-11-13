@@ -7,7 +7,7 @@ import { AccountRef } from "./accountref";
 import { ItemRef } from "./itemref";
 import { TaxRateRef } from "./taxrateref";
 import { Tracking } from "./tracking";
-import { TrackingCategoryRefsitems } from "./trackingcategoryrefsitems";
+import { TrackingCategoryRefItems } from "./trackingcategoryrefitems";
 import { Expose, Type } from "class-transformer";
 
 export class InvoiceLineItem extends SpeakeasyBase {
@@ -104,10 +104,10 @@ export class InvoiceLineItem extends SpeakeasyBase {
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
-    @SpeakeasyMetadata({ elemType: TrackingCategoryRefsitems })
+    @SpeakeasyMetadata({ elemType: TrackingCategoryRefItems })
     @Expose({ name: "trackingCategoryRefs" })
-    @Type(() => TrackingCategoryRefsitems)
-    trackingCategoryRefs?: TrackingCategoryRefsitems[];
+    @Type(() => TrackingCategoryRefItems)
+    trackingCategoryRefs?: TrackingCategoryRefItems[];
 
     /**
      * Price of each unit of goods or services.

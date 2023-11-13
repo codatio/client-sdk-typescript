@@ -9,7 +9,7 @@ import { Expose } from "class-transformer";
 /**
  * Available Data types
  */
-export enum DatasetDataTypes {
+export enum DataTypes {
     AccountTransactions = "accountTransactions",
     BalanceSheet = "balanceSheet",
     BankAccounts = "bankAccounts",
@@ -101,7 +101,7 @@ export class Dataset extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "dataType" })
-    dataType?: DatasetDataTypes;
+    dataType?: DataTypes;
 
     /**
      * URI to the dataset's logs.

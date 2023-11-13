@@ -5,8 +5,8 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountBalance } from "./accountbalance";
 import { Items } from "./items";
-import { PhoneNumbersitems } from "./phonenumbersitems";
-import { WebLinksitems } from "./weblinksitems";
+import { PhoneNumberItems } from "./phonenumberitems";
+import { WebLinkItems } from "./weblinkitems";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -105,10 +105,10 @@ export class CommerceCompanyInfo extends SpeakeasyBase {
     /**
      * Phone numbers associated with the company
      */
-    @SpeakeasyMetadata({ elemType: PhoneNumbersitems })
+    @SpeakeasyMetadata({ elemType: PhoneNumberItems })
     @Expose({ name: "phoneNumbers" })
-    @Type(() => PhoneNumbersitems)
-    phoneNumbers?: PhoneNumbersitems[];
+    @Type(() => PhoneNumberItems)
+    phoneNumbers?: PhoneNumberItems[];
 
     /**
      * The registration number of the company
@@ -131,8 +131,8 @@ export class CommerceCompanyInfo extends SpeakeasyBase {
     /**
      * Weblinks associated with the company
      */
-    @SpeakeasyMetadata({ elemType: WebLinksitems })
+    @SpeakeasyMetadata({ elemType: WebLinkItems })
     @Expose({ name: "webLinks" })
-    @Type(() => WebLinksitems)
-    webLinks?: WebLinksitems[];
+    @Type(() => WebLinkItems)
+    webLinks?: WebLinkItems[];
 }
