@@ -1,9 +1,7 @@
 <!-- Start SDK Example Usage -->
-
-
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { DataIntegrityDataType } from "@codat/assess/dist/sdk/models/shared";
+import { SourceType } from "@codat/assess/dist/sdk/models/operations";
 
 (async () => {
     const sdk = new CodatAssess({
@@ -12,12 +10,9 @@ import { DataIntegrityDataType } from "@codat/assess/dist/sdk/models/shared";
         },
     });
 
-    const res = await sdk.dataIntegrity.details({
+    const res = await sdk.reports.generateLoanSummary({
         companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-        dataType: DataIntegrityDataType.BankingAccounts,
-        orderBy: "-modifiedDate",
-        page: 1,
-        pageSize: 100,
+        sourceType: SourceType.Accounting,
     });
 
     if (res.statusCode == 200) {

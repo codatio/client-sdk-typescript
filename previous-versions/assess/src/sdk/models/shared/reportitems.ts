@@ -10,7 +10,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * The type of loan transaction.
  */
-export enum ReportItemsLoanTransactionType {
+export enum LoanTransactionType {
     Investment = "Investment",
     Repayment = "Repayment",
     Interest = "Interest",
@@ -74,5 +74,5 @@ export class ReportItems extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "loanTransactionType" })
-    loanTransactionType?: ReportItemsLoanTransactionType;
+    loanTransactionType?: LoanTransactionType;
 }

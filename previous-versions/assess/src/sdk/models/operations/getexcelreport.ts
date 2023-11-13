@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class GetExcelReportRequest extends SpeakeasyBase {
@@ -23,7 +23,7 @@ export class GetExcelReportRequest extends SpeakeasyBase {
 /**
  * OK
  */
-export class GetExcelReport200ApplicationOctetStream extends SpeakeasyBase {}
+export class GetExcelReportResponseBody extends SpeakeasyBase {}
 
 export class GetExcelReportResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
