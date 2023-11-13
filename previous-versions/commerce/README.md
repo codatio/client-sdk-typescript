@@ -25,6 +25,8 @@ yarn add @codat/commerce
 
 ## Example Usage
 <!-- Start SDK Example Usage -->
+### Example
+
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
 
@@ -35,9 +37,10 @@ import { CodatCommerce } from "@codat/commerce";
         },
     });
 
-    const res = await sdk.companyInfo.get({
+    const res = await sdk.customers.get({
         companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
         connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+        customerId: "string",
     });
 
     if (res.statusCode == 200) {
@@ -52,10 +55,6 @@ import { CodatCommerce } from "@codat/commerce";
 ## Available Resources and Operations
 
 
-### [companyInfo](docs/sdks/companyinfo/README.md)
-
-* [get](docs/sdks/companyinfo/README.md#get) - Get company info
-
 ### [customers](docs/sdks/customers/README.md)
 
 * [get](docs/sdks/customers/README.md#get) - Get customer
@@ -65,6 +64,10 @@ import { CodatCommerce } from "@codat/commerce";
 
 * [get](docs/sdks/disputes/README.md#get) - Get dispute
 * [list](docs/sdks/disputes/README.md#list) - List disputes
+
+### [companyInfo](docs/sdks/companyinfo/README.md)
+
+* [get](docs/sdks/companyinfo/README.md#get) - Get company info
 
 ### [locations](docs/sdks/locations/README.md)
 
@@ -110,28 +113,15 @@ import { CodatCommerce } from "@codat/commerce";
 
 
 <!-- Start Error Handling -->
-# Error Handling
+## Error Handling
 
-Handling errors in your SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
+Handling errors in this SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
-<!-- End Error Handling -->
-
-
-
-<!-- Start Server Selection -->
-# Server Selection
-
-## Select Server by Index
-
-You can override the default server globally by passing a server index to the `serverIdx: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
-
-| # | Server | Variables |
-| - | ------ | --------- |
-| 0 | `https://api.codat.io` | None |
-
-For example:
-
+Example
 
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
@@ -141,12 +131,55 @@ import { CodatCommerce } from "@codat/commerce";
         security: {
             authHeader: "Basic BASE_64_ENCODED(API_KEY)",
         },
-        serverIdx: 0,
     });
 
-    const res = await sdk.companyInfo.get({
+    let res;
+    try {
+        res = await sdk.customers.get({
+            companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+            connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+            customerId: "string",
+        });
+    } catch (e) {}
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+<!-- End Error Handling -->
+
+
+
+<!-- Start Server Selection -->
+## Server Selection
+
+### Select Server by Index
+
+You can override the default server globally by passing a server index to the `serverIdx: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https://api.codat.io` | None |
+
+#### Example
+
+```typescript
+import { CodatCommerce } from "@codat/commerce";
+
+(async () => {
+    const sdk = new CodatCommerce({
+        serverIdx: 0,
+        security: {
+            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+        },
+    });
+
+    const res = await sdk.customers.get({
         companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
         connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+        customerId: "string",
     });
 
     if (res.statusCode == 200) {
@@ -157,25 +190,24 @@ import { CodatCommerce } from "@codat/commerce";
 ```
 
 
-## Override Server URL Per-Client
+### Override Server URL Per-Client
 
 The default server can also be overridden globally by passing a URL to the `serverURL: str` optional parameter when initializing the SDK client instance. For example:
-
-
 ```typescript
 import { CodatCommerce } from "@codat/commerce";
 
 (async () => {
     const sdk = new CodatCommerce({
+        serverURL: "https://api.codat.io",
         security: {
             authHeader: "Basic BASE_64_ENCODED(API_KEY)",
         },
-        serverURL: "https://api.codat.io",
     });
 
-    const res = await sdk.companyInfo.get({
+    const res = await sdk.customers.get({
         companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
         connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+        customerId: "string",
     });
 
     if (res.statusCode == 200) {
@@ -189,10 +221,9 @@ import { CodatCommerce } from "@codat/commerce";
 
 
 <!-- Start Custom HTTP Client -->
-# Custom HTTP Client
+## Custom HTTP Client
 
 The Typescript SDK makes API calls using the (axios)[https://axios-http.com/docs/intro] HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `AxiosInstance` object.
-
 
 For example, you could specify a header for every request that your sdk makes as follows:
 
@@ -204,12 +235,126 @@ const httpClient = axios.create({
     headers: {'x-custom-header': 'someValue'}
 })
 
-
 const sdk = new CodatCommerce({defaultClient: httpClient});
 ```
-
-
 <!-- End Custom HTTP Client -->
+
+
+
+<!-- Start Retries -->
+## Retries
+
+Some of the endpoints in this SDK support retries.  If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API.  However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
+
+To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
+```typescript
+import { CodatCommerce } from "@codat/commerce";
+
+(async () => {
+    const sdk = new CodatCommerce({
+        security: {
+            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+        },
+    });
+
+    const res = await sdk.customers.get(
+        {
+            companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+            connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+            customerId: "string",
+        },
+        {
+            strategy: "backoff",
+            backoff: {
+                initialInterval: 1,
+                maxInterval: 50,
+                exponent: 1.1,
+                maxElapsedTime: 100,
+            },
+            retryConnectionErrors: false,
+        }
+    );
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+
+If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
+```typescript
+import { CodatCommerce } from "@codat/commerce";
+
+(async () => {
+    const sdk = new CodatCommerce({
+        retry_config: {
+            strategy: "backoff",
+            backoff: {
+                initialInterval: 1,
+                maxInterval: 50,
+                exponent: 1.1,
+                maxElapsedTime: 100,
+            },
+            retryConnectionErrors: false,
+        },
+        security: {
+            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+        },
+    });
+
+    const res = await sdk.customers.get({
+        companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+        connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+        customerId: "string",
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+<!-- End Retries -->
+
+
+
+<!-- Start Authentication -->
+
+## Authentication
+
+### Per-Client Security Schemes
+
+This SDK supports the following security scheme globally:
+
+| Name         | Type         | Scheme       |
+| ------------ | ------------ | ------------ |
+| `authHeader` | apiKey       | API key      |
+
+You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
+```typescript
+import { CodatCommerce } from "@codat/commerce";
+
+(async () => {
+    const sdk = new CodatCommerce({
+        security: {
+            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+        },
+    });
+
+    const res = await sdk.customers.get({
+        companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+        connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+        customerId: "string",
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
+<!-- End Authentication -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

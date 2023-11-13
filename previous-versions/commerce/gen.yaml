@@ -2,27 +2,40 @@ configVersion: 1.0.0
 management:
   docChecksum: 3e5960645aef0e4cdbb3c6b9bc15c08b
   docVersion: 3.0.0
-  speakeasyVersion: 1.112.1
-  generationVersion: 2.173.0
+  speakeasyVersion: 1.119.0
+  generationVersion: 2.188.1
 generation:
   comments: {}
   sdkClassName: CodatCommerce
   repoURL: https://github.com/codatio/client-sdk-typescript.git
+  usageSnippets:
+    optionalPropertyRendering: withExample
 features:
   typescript:
-    core: 2.94.0
+    core: 3.1.3
     examples: 2.81.3
     globalSecurity: 2.82.0
     globalServerURLs: 2.82.0
     nameOverrides: 2.81.1
     retries: 2.82.1
 typescript:
-  version: 0.38.0
+  version: 0.39.0
   author: Codat
+  clientServerStatusCodesAsErrors: false
   description: Access standardized commerce data from our commerce integrations.
   flattenGlobalSecurity: false
+  imports:
+    option: openapi
+    paths:
+      callbacks: sdk/models/callbacks
+      errors: sdk/models/errors
+      operations: sdk/models/operations
+      shared: sdk/models/shared
+      webhooks: sdk/models/webhooks
+  inputModelSuffix: input
   installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/previous-versions/commerce
   maxMethodParams: 0
+  outputModelSuffix: output
   packageName: '@codat/commerce'
   published: true
   repoSubDirectory: previous-versions/commerce

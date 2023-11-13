@@ -11,7 +11,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * The type of the weblink.
  */
-export enum CompanyInfoWeblinkType {
+export enum TypeT {
     Website = "Website",
     Social = "Social",
     Unknown = "Unknown",
@@ -20,13 +20,13 @@ export enum CompanyInfoWeblinkType {
 /**
  * Weblink associated with the company.
  */
-export class CompanyInfoWeblink extends SpeakeasyBase {
+export class Weblink extends SpeakeasyBase {
     /**
      * The type of the weblink.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type?: CompanyInfoWeblinkType;
+    type?: TypeT;
 
     /**
      * The full URL for the weblink.
@@ -158,8 +158,8 @@ export class CompanyInfo extends SpeakeasyBase {
     /**
      * Weblinks associated with the company
      */
-    @SpeakeasyMetadata({ elemType: CompanyInfoWeblink })
+    @SpeakeasyMetadata({ elemType: Weblink })
     @Expose({ name: "webLinks" })
-    @Type(() => CompanyInfoWeblink)
-    webLinks?: CompanyInfoWeblink[];
+    @Type(() => Weblink)
+    webLinks?: Weblink[];
 }
