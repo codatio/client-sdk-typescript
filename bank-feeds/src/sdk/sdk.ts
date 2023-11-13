@@ -3,10 +3,10 @@
  */
 
 import * as utils from "../internal/utils";
+import * as shared from "../sdk/models/shared";
 import { AccountMapping } from "./accountmapping";
 import { Companies } from "./companies";
 import { Connections } from "./connections";
-import * as shared from "./models/shared";
 import { SourceAccounts } from "./sourceaccounts";
 import { Transactions } from "./transactions";
 import axios from "axios";
@@ -58,9 +58,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "3.0.0";
-    sdkVersion = "2.3.0";
-    genVersion = "2.173.0";
-    userAgent = "speakeasy-sdk/typescript 2.3.0 2.173.0 3.0.0 @codat/bank-feeds";
+    sdkVersion = "3.0.0";
+    genVersion = "2.188.1";
+    userAgent = "speakeasy-sdk/typescript 3.0.0 2.188.1 3.0.0 @codat/bank-feeds";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -90,10 +90,6 @@ export class SDKConfiguration {
  */
 export class CodatBankFeeds {
     /**
-     * Bank feed bank account mapping.
-     */
-    public accountMapping: AccountMapping;
-    /**
      * Create and manage your Codat companies.
      */
     public companies: Companies;
@@ -101,6 +97,10 @@ export class CodatBankFeeds {
      * Manage your companies' data connections.
      */
     public connections: Connections;
+    /**
+     * Bank feed bank account mapping.
+     */
+    public accountMapping: AccountMapping;
     /**
      * Source accounts act as a bridge to bank accounts in accounting software.
      */
@@ -120,7 +120,7 @@ export class CodatBankFeeds {
             serverURL = ServerList[serverIdx];
         }
 
-        const defaultClient = props?.defaultClient ?? axios.create({ baseURL: serverURL });
+        const defaultClient = props?.defaultClient ?? axios.create();
         this.sdkConfiguration = new SDKConfiguration({
             defaultClient: defaultClient,
             security: props?.security,
@@ -128,9 +128,9 @@ export class CodatBankFeeds {
             retryConfig: props?.retryConfig,
         });
 
-        this.accountMapping = new AccountMapping(this.sdkConfiguration);
         this.companies = new Companies(this.sdkConfiguration);
         this.connections = new Connections(this.sdkConfiguration);
+        this.accountMapping = new AccountMapping(this.sdkConfiguration);
         this.sourceAccounts = new SourceAccounts(this.sdkConfiguration);
         this.transactions = new Transactions(this.sdkConfiguration);
     }
