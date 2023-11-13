@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AgedOutstandingAmount } from "./agedoutstandingamount";
 import { Expose, Type } from "class-transformer";
 
-export class AgedCurrencyOutstandingitems extends SpeakeasyBase {
+export class AgedCurrencyOutstandingItems extends SpeakeasyBase {
     /**
      * Array of outstanding amounts by period.
      */

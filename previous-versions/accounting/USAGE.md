@@ -1,6 +1,4 @@
 <!-- Start SDK Example Usage -->
-
-
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
 

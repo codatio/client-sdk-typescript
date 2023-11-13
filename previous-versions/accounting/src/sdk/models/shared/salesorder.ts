@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountingCustomerRef } from "./accountingcustomerref";
-import { Addressesitems } from "./addressesitems";
+import { Items } from "./items";
 import { Metadata } from "./metadata";
 import { SalesOrderInvoiceStatus } from "./salesorderinvoicestatus";
 import { SalesOrderLineItem } from "./salesorderlineitem";
@@ -14,7 +14,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * Details of the named contact at the delivery address.
  */
-export class SalesOrderShipToContact extends SpeakeasyBase {
+export class SalesOrderContact extends SpeakeasyBase {
     /**
      * Email address of the contact at the delivery address.
      */
@@ -43,16 +43,16 @@ export class SalesOrderShipToContact extends SpeakeasyBase {
 export class SalesOrderShipTo extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "address" })
-    @Type(() => Addressesitems)
-    address?: Addressesitems;
+    @Type(() => Items)
+    address?: Items;
 
     /**
      * Details of the named contact at the delivery address.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "contact" })
-    @Type(() => SalesOrderShipToContact)
-    contact?: SalesOrderShipToContact;
+    @Type(() => SalesOrderContact)
+    contact?: SalesOrderContact;
 }
 
 /**

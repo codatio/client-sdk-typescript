@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class ListItemsRequest extends SpeakeasyBase {
@@ -55,7 +55,7 @@ export class ListItemsResponse extends SpeakeasyBase {
      * Success
      */
     @SpeakeasyMetadata()
-    items?: shared.Items1;
+    items?: shared.SchemaItems;
 
     /**
      * HTTP response status code for this operation

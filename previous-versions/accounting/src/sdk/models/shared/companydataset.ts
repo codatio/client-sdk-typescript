@@ -8,7 +8,7 @@ import { PhoneNumberType } from "./phonenumbertype";
 import { SupplementalData } from "./supplementaldata";
 import { Expose, Type } from "class-transformer";
 
-export class CompanyDatasetAccountingAddress extends SpeakeasyBase {
+export class AccountingAddress extends SpeakeasyBase {
     /**
      * City of the customer address.
      */
@@ -59,7 +59,7 @@ export class CompanyDatasetAccountingAddress extends SpeakeasyBase {
     type: AccountingAddressType;
 }
 
-export class CompanyDatasetPhone extends SpeakeasyBase {
+export class Phone extends SpeakeasyBase {
     /**
      * A phone number.
      */
@@ -78,7 +78,7 @@ export class CompanyDatasetPhone extends SpeakeasyBase {
 /**
  * The type of the weblink.
  */
-export enum CompanyDatasetWeblinkType {
+export enum TypeT {
     Website = "Website",
     Social = "Social",
     Unknown = "Unknown",
@@ -87,13 +87,13 @@ export enum CompanyDatasetWeblinkType {
 /**
  * Weblink associated with the company.
  */
-export class CompanyDatasetWeblink extends SpeakeasyBase {
+export class Weblink extends SpeakeasyBase {
     /**
      * The type of the weblink.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type?: CompanyDatasetWeblinkType;
+    type?: TypeT;
 
     /**
      * The full URL for the weblink.
@@ -125,10 +125,10 @@ export class CompanyDataset extends SpeakeasyBase {
     /**
      * An array of Addresses.
      */
-    @SpeakeasyMetadata({ elemType: CompanyDatasetAccountingAddress })
+    @SpeakeasyMetadata({ elemType: AccountingAddress })
     @Expose({ name: "addresses" })
-    @Type(() => CompanyDatasetAccountingAddress)
-    addresses?: CompanyDatasetAccountingAddress[];
+    @Type(() => AccountingAddress)
+    addresses?: AccountingAddress[];
 
     /**
      * Currency set in the accounting platform of the linked company. Used by the currency rate.
@@ -235,10 +235,10 @@ export class CompanyDataset extends SpeakeasyBase {
     /**
      * An array of phone numbers.
      */
-    @SpeakeasyMetadata({ elemType: CompanyDatasetPhone })
+    @SpeakeasyMetadata({ elemType: Phone })
     @Expose({ name: "phoneNumbers" })
-    @Type(() => CompanyDatasetPhone)
-    phoneNumbers?: CompanyDatasetPhone[];
+    @Type(() => Phone)
+    phoneNumbers?: Phone[];
 
     /**
      * Registration number given to the linked company by the companies authority in the country of origin. In the UK this is Companies House.
@@ -280,8 +280,8 @@ export class CompanyDataset extends SpeakeasyBase {
     /**
      * An array of weblinks.
      */
-    @SpeakeasyMetadata({ elemType: CompanyDatasetWeblink })
+    @SpeakeasyMetadata({ elemType: Weblink })
     @Expose({ name: "webLinks" })
-    @Type(() => CompanyDatasetWeblink)
-    webLinks?: CompanyDatasetWeblink[];
+    @Type(() => Weblink)
+    webLinks?: Weblink[];
 }

@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AgedOutstandingAmount } from "./agedoutstandingamount";
 import { Expose, Type } from "class-transformer";
 
-export class AgedCreditorAccountingAgedCurrencyOutstanding extends SpeakeasyBase {
+export class AccountingAgedCurrencyOutstanding extends SpeakeasyBase {
     /**
      * Array of outstanding amounts by period.
      */
@@ -35,10 +35,10 @@ export class AgedCreditor extends SpeakeasyBase {
     /**
      * Array of aged creditors by currency.
      */
-    @SpeakeasyMetadata({ elemType: AgedCreditorAccountingAgedCurrencyOutstanding })
+    @SpeakeasyMetadata({ elemType: AccountingAgedCurrencyOutstanding })
     @Expose({ name: "agedCurrencyOutstanding" })
-    @Type(() => AgedCreditorAccountingAgedCurrencyOutstanding)
-    agedCurrencyOutstanding?: AgedCreditorAccountingAgedCurrencyOutstanding[];
+    @Type(() => AccountingAgedCurrencyOutstanding)
+    agedCurrencyOutstanding?: AccountingAgedCurrencyOutstanding[];
 
     /**
      * Supplier ID of the aged creditor.

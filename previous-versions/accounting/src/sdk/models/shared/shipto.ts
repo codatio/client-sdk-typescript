@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Addressesitems } from "./addressesitems";
+import { Items } from "./items";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -38,8 +38,8 @@ export class ShipToContact extends SpeakeasyBase {
 export class ShipTo extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "address" })
-    @Type(() => Addressesitems)
-    address?: Addressesitems;
+    @Type(() => Items)
+    address?: Items;
 
     /**
      * Details of the named contact at the delivery address.

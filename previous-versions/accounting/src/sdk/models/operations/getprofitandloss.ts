@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class GetProfitAndLossRequest extends SpeakeasyBase {
@@ -49,7 +49,7 @@ export class GetProfitAndLossResponse extends SpeakeasyBase {
      * Success
      */
     @SpeakeasyMetadata()
-    profitAndLossReport?: shared.ProfitAndLossReport1;
+    profitAndLossReport?: shared.ProfitAndLossReportInput;
 
     /**
      * HTTP response status code for this operation
