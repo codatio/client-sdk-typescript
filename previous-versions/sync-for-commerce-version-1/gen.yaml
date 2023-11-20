@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: f3f07533c8afae8dda163ff986e9efe8
   docVersion: "1.1"
-  speakeasyVersion: 1.119.0
-  generationVersion: 2.188.1
+  speakeasyVersion: 1.121.1
+  generationVersion: 2.194.1
 generation:
   comments: {}
   sdkClassName: CodatSyncCommerce
@@ -12,15 +12,15 @@ generation:
     optionalPropertyRendering: withExample
 features:
   typescript:
-    core: 3.1.3
+    core: 3.1.4
     deprecations: 2.81.1
     examples: 2.81.3
     globalSecurity: 2.82.0
-    globalServerURLs: 2.82.0
+    globalServerURLs: 2.82.1
     nameOverrides: 2.81.1
     retries: 2.82.1
 typescript:
-  version: 0.5.0
+  version: 0.5.1
   author: Codat
   clientServerStatusCodesAsErrors: false
   description: Push merchants' data from your ecommerce or point-of-sale (POS) platform into your merchants' accounting platform.

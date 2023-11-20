@@ -374,7 +374,6 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
 
 
 <!-- Start Authentication -->
-
 ## Authentication
 
 ### Per-Client Security Schemes
