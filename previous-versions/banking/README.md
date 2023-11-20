@@ -301,7 +301,6 @@ import { CodatBanking } from "@codat/banking";
 
 
 <!-- Start Authentication -->
-
 ## Authentication
 
 ### Per-Client Security Schemes
