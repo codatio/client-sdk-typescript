@@ -301,7 +301,6 @@ import { SourceType } from "@codat/assess/dist/sdk/models/operations";
 
 
 <!-- Start Authentication -->
-
 ## Authentication
 
 ### Per-Client Security Schemes
