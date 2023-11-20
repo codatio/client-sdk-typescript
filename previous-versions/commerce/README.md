@@ -320,7 +320,6 @@ import { CodatCommerce } from "@codat/commerce";
 
 
 <!-- Start Authentication -->
-
 ## Authentication
 
 ### Per-Client Security Schemes
