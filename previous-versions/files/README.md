@@ -269,7 +269,6 @@ import { CodatFiles } from "@codat/files";
 
 
 <!-- Start Authentication -->
-
 ## Authentication
 
 ### Per-Client Security Schemes
