@@ -478,7 +478,6 @@ import { CodatAccounting } from "@codat/accounting";
 
 
 <!-- Start Authentication -->
-
 ## Authentication
 
 ### Per-Client Security Schemes
