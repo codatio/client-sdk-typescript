@@ -382,7 +382,6 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
 
 
 <!-- Start Authentication -->
-
 ## Authentication
 
 ### Per-Client Security Schemes
