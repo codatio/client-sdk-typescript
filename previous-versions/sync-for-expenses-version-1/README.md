@@ -311,7 +311,6 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses-version-1";
 
 
 <!-- Start Authentication -->
-
 ## Authentication
 
 ### Per-Client Security Schemes
