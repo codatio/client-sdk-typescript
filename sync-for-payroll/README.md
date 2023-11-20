@@ -320,7 +320,6 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
 
 
 <!-- Start Authentication -->
-
 ## Authentication
 
 ### Per-Client Security Schemes
