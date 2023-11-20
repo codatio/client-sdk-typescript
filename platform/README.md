@@ -315,7 +315,6 @@ import { CodatPlatform } from "@codat/platform";
 
 
 <!-- Start Authentication -->
-
 ## Authentication
 
 ### Per-Client Security Schemes
