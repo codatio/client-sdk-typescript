@@ -86,4 +86,3 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
 
 * [create](docs/sdks/transactions/README.md#create) - Create bank transactions
 * [getCreateOperation](docs/sdks/transactions/README.md#getcreateoperation) - Get create operation
-* [listCreateOperations](docs/sdks/transactions/README.md#listcreateoperations) - List create operations
