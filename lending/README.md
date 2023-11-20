@@ -574,7 +574,6 @@ import { CodatLending } from "@codat/lending";
 
 
 <!-- Start Authentication -->
-
 ## Authentication
 
 ### Per-Client Security Schemes
