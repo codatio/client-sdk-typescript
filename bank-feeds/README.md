@@ -299,7 +299,6 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
 
 
 <!-- Start Authentication -->
-
 ## Authentication
 
 ### Per-Client Security Schemes
