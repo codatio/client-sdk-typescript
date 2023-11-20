@@ -315,7 +315,6 @@ import { CodatCommon } from "@codat/common";
 
 
 <!-- Start Authentication -->
-
 ## Authentication
 
 ### Per-Client Security Schemes
