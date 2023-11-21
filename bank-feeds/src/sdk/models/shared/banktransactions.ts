@@ -8,7 +8,7 @@ import { Expose } from "class-transformer";
 /**
  * Type of transaction for the bank statement line.
  */
-export enum BankTransactionsBankTransactionType {
+export enum BankTransactionType {
     Unknown = "Unknown",
     Credit = "Credit",
     Debit = "Debit",
@@ -111,5 +111,5 @@ export class BankTransactions extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "transactionType" })
-    transactionType?: BankTransactionsBankTransactionType;
+    transactionType?: BankTransactionType;
 }

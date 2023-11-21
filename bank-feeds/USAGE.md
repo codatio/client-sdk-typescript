@@ -1,6 +1,4 @@
 <!-- Start SDK Example Usage -->
-
-
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
@@ -11,12 +9,9 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
         },
     });
 
-    const res = await sdk.accountMapping.create({
-        requestBody: {
-            feedStartDate: "2022-10-23T00:00:00.000Z",
-        },
-        companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-        connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    const res = await sdk.companies.create({
+        description: "Requested early access to the new financing scheme.",
+        name: "Bank of Dave",
     });
 
     if (res.statusCode == 200) {
