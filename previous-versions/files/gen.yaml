@@ -20,6 +20,5 @@ typescript:
   version: 0.36.0
   author: Codat
   description: Use Codat's Files API to upload your SMB customers' files.
-  flattenGlobalSecurity: false
   maxMethodParams: 0
   packageName: '@codat/files'

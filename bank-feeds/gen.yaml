@@ -5,11 +5,8 @@ management:
   speakeasyVersion: 1.121.3
   generationVersion: 2.195.2
 generation:
-  comments: {}
   sdkClassName: CodatBankFeeds
-  repoURL: https://github.com/codatio/client-sdk-typescript.git
-  usageSnippets:
-    optionalPropertyRendering: withExample
+  singleTagPerOp: false
   telemetryEnabled: true
 features:
   typescript:
@@ -23,21 +20,7 @@ features:
 typescript:
   version: 3.0.0
   author: Codat
-  clientServerStatusCodesAsErrors: false
-  description: Set up bank feeds from accounts in your application to supported accounting platforms.
-  flattenGlobalSecurity: false
-  imports:
-    option: openapi
-    paths:
-      callbacks: sdk/models/callbacks
-      errors: sdk/models/errors
-      operations: sdk/models/operations
-      shared: sdk/models/shared
-      webhooks: sdk/models/webhooks
-  inputModelSuffix: input
-  installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/bank-feeds
+  description: Set up bank feeds from accounts in your application to supported accounting
+    platforms.
   maxMethodParams: 0
-  outputModelSuffix: output
   packageName: '@codat/bank-feeds'
-  published: true
-  repoSubDirectory: bank-feeds
