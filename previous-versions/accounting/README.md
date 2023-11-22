@@ -265,4 +265,3 @@ import { CodatAccounting } from "@codat/accounting";
 <!-- End Dev Containers -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
-

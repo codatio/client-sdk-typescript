@@ -144,4 +144,3 @@ import { AccountStatus, AccountType } from "@codat/sync-for-payroll/dist/sdk/mod
 <!-- End Dev Containers -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
-

@@ -117,4 +117,3 @@ import { CodatCommon } from "@codat/common";
 <!-- End Dev Containers -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
-
