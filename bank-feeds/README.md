@@ -335,5 +335,3 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
 
 ```
 <!-- End Authentication -->
-
-<!-- Placeholder for Future Speakeasy SDK Sections -->

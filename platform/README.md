@@ -115,5 +115,3 @@ import { CodatPlatform } from "@codat/platform";
 
 
 <!-- End Dev Containers -->
-
-<!-- Placeholder for Future Speakeasy SDK Sections -->

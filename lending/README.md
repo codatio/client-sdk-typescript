@@ -367,5 +367,3 @@ import { CodatLending } from "@codat/lending";
 
 
 <!-- End Dev Containers -->
-
-<!-- Placeholder for Future Speakeasy SDK Sections -->
