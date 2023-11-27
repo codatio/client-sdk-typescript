@@ -13,20 +13,20 @@ import { Expose, Type } from "class-transformer";
 /**
  * Allowed name of the 'dataType'.
  */
-export enum BillLineItemRecordLineReferenceDataType {
+export enum BillLineItemDataType {
     PurchaseOrders = "purchaseOrders",
 }
 
 /**
  * Reference to the purchase order line this line was generated from.
  */
-export class BillLineItemRecordLineReference extends SpeakeasyBase {
+export class RecordLineReference extends SpeakeasyBase {
     /**
      * Allowed name of the 'dataType'.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "dataType" })
-    dataType?: BillLineItemRecordLineReferenceDataType;
+    dataType?: BillLineItemDataType;
 
     /**
      * 'id' of the underlying record.
@@ -99,13 +99,10 @@ export class BillLineItem extends SpeakeasyBase {
     @Expose({ name: "lineNumber" })
     lineNumber?: string;
 
-    /**
-     * Reference to the purchase order line this line was generated from.
-     */
     @SpeakeasyMetadata()
     @Expose({ name: "purchaseOrderLineRef" })
-    @Type(() => BillLineItemRecordLineReference)
-    purchaseOrderLineRef?: BillLineItemRecordLineReference;
+    @Type(() => RecordLineReference)
+    purchaseOrderLineRef?: RecordLineReference;
 
     /**
      * Number of units of goods or services received.
@@ -176,4 +173,11 @@ export class BillLineItem extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "unitAmount" })
     unitAmount: number;
+
+    /**
+     * The measurement which defines a unit for this item (e.g. 'kilogram', 'litre').
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "unitOfMeasurement" })
+    unitOfMeasurement?: string;
 }
