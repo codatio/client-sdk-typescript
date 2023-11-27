@@ -99,18 +99,18 @@ import { BilledToType, CreditNoteStatus } from "@codat/sync-for-commerce-version
       subTotal: 1915.04,
       supplementalData: {
         content: {
-          "Metal": {
-            "policy": "although",
+          "key": {
+            "key": "string",
           },
         },
       },
-      totalAmount: 6437.49,
-      totalDiscount: 6593.55,
-      totalTaxAmount: 3629.12,
+      totalAmount: 5893.9,
+      totalDiscount: 579.23,
+      totalTaxAmount: 3881.42,
       withholdingTax: [
         {
-          amount: 5655.86,
-          name: "however",
+          amount: 7369.44,
+          name: "string",
         },
       ],
     },
@@ -126,14 +126,18 @@ import { BilledToType, CreditNoteStatus } from "@codat/sync-for-commerce-version
 
 ### Parameters
 
-| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                    | [operations.CreateAccountingCreditNoteRequest](../../models/operations/createaccountingcreditnoterequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
-| `retries`                                                                                                    | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                       | :heavy_minus_sign:                                                                                           | Configuration to override the default retry behavior of the client.                                          |
-| `config`                                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                 | :heavy_minus_sign:                                                                                           | Available config options for making requests.                                                                |
+| Parameter                                                                                                        | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                        | [operations.CreateAccountingCreditNoteRequest](../../sdk/models/operations/createaccountingcreditnoterequest.md) | :heavy_check_mark:                                                                                               | The request object to use for the request.                                                                       |
+| `retries`                                                                                                        | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                         | :heavy_minus_sign:                                                                                               | Configuration to override the default retry behavior of the client.                                              |
+| `config`                                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                     | :heavy_minus_sign:                                                                                               | Available config options for making requests.                                                                    |
 
 
 ### Response
 
-**Promise<[operations.CreateAccountingCreditNoteResponse](../../models/operations/createaccountingcreditnoteresponse.md)>**
+**Promise<[operations.CreateAccountingCreditNoteResponse](../../sdk/models/operations/createaccountingcreditnoteresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

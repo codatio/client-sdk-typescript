@@ -157,28 +157,28 @@ export class CommerceOrder extends SpeakeasyBase {
     supplementalData?: SupplementalData;
 
     /**
-     * Total amount of the order, including tax, net of any discounts and refunds.
+     * Total amount of the order, including discounts, refunds, and tax, but excluding gratuities.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "totalAmount" })
     totalAmount?: number;
 
     /**
-     * Total amount of discount applied to the order.
+     * Total amount of any discounts applied to the order, excluding tax. This is typically positive (for discounts which decrease the amount of the order), but can also be negative (for discounts which increase the amount of the order).
      */
     @SpeakeasyMetadata()
     @Expose({ name: "totalDiscount" })
     totalDiscount?: number;
 
     /**
-     * Extra amount added to a bill.
+     * Extra amount added to the order.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "totalGratuity" })
     totalGratuity?: number;
 
     /**
-     * Total amount refunded issued by a merchant on an order (always a negative value).
+     * Total amount of any refunds issued on the order, including discounts and tax, but excluding gratuities. This is always negative.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "totalRefund" })

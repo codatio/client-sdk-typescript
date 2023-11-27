@@ -8,7 +8,7 @@ import { PhoneNumberType } from "./phonenumbertype";
 import { SupplementalData } from "./supplementaldata";
 import { Expose, Type } from "class-transformer";
 
-export class AccountingCompanyDatasetAccountingAddress extends SpeakeasyBase {
+export class AccountingAddress extends SpeakeasyBase {
     /**
      * City of the customer address.
      */
@@ -59,7 +59,7 @@ export class AccountingCompanyDatasetAccountingAddress extends SpeakeasyBase {
     type: AccountingAddressType;
 }
 
-export class AccountingCompanyDatasetPhone extends SpeakeasyBase {
+export class Phone extends SpeakeasyBase {
     /**
      * A phone number.
      */
@@ -78,7 +78,7 @@ export class AccountingCompanyDatasetPhone extends SpeakeasyBase {
 /**
  * The type of the weblink.
  */
-export enum AccountingCompanyDatasetWeblinkType {
+export enum AccountingCompanyDatasetType {
     Website = "Website",
     Social = "Social",
     Unknown = "Unknown",
@@ -87,13 +87,13 @@ export enum AccountingCompanyDatasetWeblinkType {
 /**
  * Weblink associated with the company.
  */
-export class AccountingCompanyDatasetWeblink extends SpeakeasyBase {
+export class Weblink extends SpeakeasyBase {
     /**
      * The type of the weblink.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
-    type?: AccountingCompanyDatasetWeblinkType;
+    type?: AccountingCompanyDatasetType;
 
     /**
      * The full URL for the weblink.
@@ -104,7 +104,7 @@ export class AccountingCompanyDatasetWeblink extends SpeakeasyBase {
 }
 
 /**
- * > View the coverage for company info in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=cashFlowStatement" target="_blank">Data coverage explorer</a>.
+ * > View the coverage for company profile in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=cashFlowStatement" target="_blank">Data coverage explorer</a>.
  *
  * @remarks
  *
@@ -112,7 +112,7 @@ export class AccountingCompanyDatasetWeblink extends SpeakeasyBase {
  *
  * > **Company information or companies?**
  * >
- * > Company information is standard information that is held in the accounting platform about a company. `Companies` is an endpoint that lists businesses in the Codat system that have linked and shared their data sources.
+ * > Company profile is standard information that is held in the accounting platform about a company. `Companies` is an endpoint that lists businesses in the Codat system that have linked and shared their data sources.
  */
 export class AccountingCompanyDataset extends SpeakeasyBase {
     /**
@@ -125,10 +125,10 @@ export class AccountingCompanyDataset extends SpeakeasyBase {
     /**
      * An array of Addresses.
      */
-    @SpeakeasyMetadata({ elemType: AccountingCompanyDatasetAccountingAddress })
+    @SpeakeasyMetadata({ elemType: AccountingAddress })
     @Expose({ name: "addresses" })
-    @Type(() => AccountingCompanyDatasetAccountingAddress)
-    addresses?: AccountingCompanyDatasetAccountingAddress[];
+    @Type(() => AccountingAddress)
+    addresses?: AccountingAddress[];
 
     /**
      * Currency set in the accounting platform of the linked company. Used by the currency rate.
@@ -235,10 +235,10 @@ export class AccountingCompanyDataset extends SpeakeasyBase {
     /**
      * An array of phone numbers.
      */
-    @SpeakeasyMetadata({ elemType: AccountingCompanyDatasetPhone })
+    @SpeakeasyMetadata({ elemType: Phone })
     @Expose({ name: "phoneNumbers" })
-    @Type(() => AccountingCompanyDatasetPhone)
-    phoneNumbers?: AccountingCompanyDatasetPhone[];
+    @Type(() => Phone)
+    phoneNumbers?: Phone[];
 
     /**
      * Registration number given to the linked company by the companies authority in the country of origin. In the UK this is Companies House.
@@ -280,8 +280,8 @@ export class AccountingCompanyDataset extends SpeakeasyBase {
     /**
      * An array of weblinks.
      */
-    @SpeakeasyMetadata({ elemType: AccountingCompanyDatasetWeblink })
+    @SpeakeasyMetadata({ elemType: Weblink })
     @Expose({ name: "webLinks" })
-    @Type(() => AccountingCompanyDatasetWeblink)
-    webLinks?: AccountingCompanyDatasetWeblink[];
+    @Type(() => Weblink)
+    webLinks?: Weblink[];
 }

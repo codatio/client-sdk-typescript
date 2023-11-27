@@ -9,7 +9,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * Reference to the product, service type, or inventory item to which the direct cost is linked.
  */
-export class DirectIncomeLineItemItemReference extends SpeakeasyBase {
+export class ItemReference extends SpeakeasyBase {
     /**
      * Unique identifier for the item in the accounting platform.
      */
@@ -28,7 +28,7 @@ export class DirectIncomeLineItemItemReference extends SpeakeasyBase {
 /**
  * Reference to the tax rate to which the line item is linked.
  */
-export class DirectIncomeLineItemTaxRateReference extends SpeakeasyBase {
+export class TaxRateReference extends SpeakeasyBase {
     /**
      * Applicable tax rate.
      */
@@ -56,7 +56,7 @@ export class DirectIncomeLineItemTaxRateReference extends SpeakeasyBase {
  *
  * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
-export class DirectIncomeLineItemTrackingCategoryRefs extends SpeakeasyBase {
+export class TrackingCategoryRefs extends SpeakeasyBase {
     /**
      * Unique identifier to the tracking category.
      */
@@ -107,8 +107,8 @@ export class DirectIncomeLineItem extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "itemRef" })
-    @Type(() => DirectIncomeLineItemItemReference)
-    itemRef?: DirectIncomeLineItemItemReference;
+    @Type(() => ItemReference)
+    itemRef?: ItemReference;
 
     /**
      * The number of units of goods or services received.
@@ -143,8 +143,8 @@ export class DirectIncomeLineItem extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "taxRateRef" })
-    @Type(() => DirectIncomeLineItemTaxRateReference)
-    taxRateRef?: DirectIncomeLineItemTaxRateReference;
+    @Type(() => TaxRateReference)
+    taxRateRef?: TaxRateReference;
 
     /**
      * The total amount of the line, including tax.
@@ -156,10 +156,10 @@ export class DirectIncomeLineItem extends SpeakeasyBase {
     /**
      * An array of categories against which this direct cost is tracked.
      */
-    @SpeakeasyMetadata({ elemType: DirectIncomeLineItemTrackingCategoryRefs })
+    @SpeakeasyMetadata({ elemType: TrackingCategoryRefs })
     @Expose({ name: "trackingCategoryRefs" })
-    @Type(() => DirectIncomeLineItemTrackingCategoryRefs)
-    trackingCategoryRefs?: DirectIncomeLineItemTrackingCategoryRefs[];
+    @Type(() => TrackingCategoryRefs)
+    trackingCategoryRefs?: TrackingCategoryRefs[];
 
     /**
      * The price of each unit of goods or services.
