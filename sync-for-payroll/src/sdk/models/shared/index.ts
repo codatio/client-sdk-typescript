@@ -4,6 +4,7 @@
 
 export * from "./account";
 export * from "./accountingaddresstype";
+export * from "./accountprototype";
 export * from "./accountref";
 export * from "./accounts";
 export * from "./accountstatus";
@@ -32,6 +33,7 @@ export * from "./journal";
 export * from "./journalentries";
 export * from "./journalentry";
 export * from "./journalline";
+export * from "./journalprototype";
 export * from "./journalref";
 export * from "./journals";
 export * from "./journalstatus";
@@ -54,6 +56,7 @@ export * from "./pushoptionproperty";
 export * from "./pushoptiontype";
 export * from "./pushvalidationinfo";
 export * from "./recordref";
+export * from "./schemadatatype";
 export * from "./security";
 export * from "./status";
 export * from "./supplementaldata";
