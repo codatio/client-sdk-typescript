@@ -33,7 +33,6 @@ export * from "./synccompletewebhook";
 export * from "./synccompletewebhookdata";
 export * from "./syncfailedwebhook";
 export * from "./syncfailedwebhookdata";
-export * from "./syncinitiated";
 export * from "./syncstartedwebhook";
 export * from "./taxratemappinginfo";
 export * from "./trackingcategorymappinginfo";

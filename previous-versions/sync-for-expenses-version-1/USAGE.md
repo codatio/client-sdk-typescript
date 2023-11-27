@@ -1,6 +1,4 @@
 <!-- Start SDK Example Usage -->
-
-
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses-version-1";
 
