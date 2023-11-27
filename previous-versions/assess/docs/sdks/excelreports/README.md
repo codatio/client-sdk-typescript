@@ -42,17 +42,21 @@ import { ExcelReportType } from "@codat/assess/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.GenerateExcelReportRequest](../../models/operations/generateexcelreportrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `retries`                                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                                         | :heavy_minus_sign:                                                                             | Configuration to override the default retry behavior of the client.                            |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.GenerateExcelReportRequest](../../sdk/models/operations/generateexcelreportrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `retries`                                                                                          | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                           | :heavy_minus_sign:                                                                                 | Configuration to override the default retry behavior of the client.                                |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
 
 
 ### Response
 
-**Promise<[operations.GenerateExcelReportResponse](../../models/operations/generateexcelreportresponse.md)>**
+**Promise<[operations.GenerateExcelReportResponse](../../sdk/models/operations/generateexcelreportresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getAccountingMarketingMetrics
 
@@ -90,17 +94,21 @@ import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                                                          | Type                                                                                                               | Required                                                                                                           | Description                                                                                                        |
-| ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                          | [operations.GetAccountingMarketingMetricsRequest](../../models/operations/getaccountingmarketingmetricsrequest.md) | :heavy_check_mark:                                                                                                 | The request object to use for the request.                                                                         |
-| `retries`                                                                                                          | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                             | :heavy_minus_sign:                                                                                                 | Configuration to override the default retry behavior of the client.                                                |
-| `config`                                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                       | :heavy_minus_sign:                                                                                                 | Available config options for making requests.                                                                      |
+| Parameter                                                                                                              | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                              | [operations.GetAccountingMarketingMetricsRequest](../../sdk/models/operations/getaccountingmarketingmetricsrequest.md) | :heavy_check_mark:                                                                                                     | The request object to use for the request.                                                                             |
+| `retries`                                                                                                              | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                               | :heavy_minus_sign:                                                                                                     | Configuration to override the default retry behavior of the client.                                                    |
+| `config`                                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                           | :heavy_minus_sign:                                                                                                     | Available config options for making requests.                                                                          |
 
 
 ### Response
 
-**Promise<[operations.GetAccountingMarketingMetricsResponse](../../models/operations/getaccountingmarketingmetricsresponse.md)>**
+**Promise<[operations.GetAccountingMarketingMetricsResponse](../../sdk/models/operations/getaccountingmarketingmetricsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getExcelReport
 
@@ -132,17 +140,21 @@ import { ExcelReportType } from "@codat/assess/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.GetExcelReportRequest](../../models/operations/getexcelreportrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `retries`                                                                            | [utils.RetryConfig](../../models/utils/retryconfig.md)                               | :heavy_minus_sign:                                                                   | Configuration to override the default retry behavior of the client.                  |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.GetExcelReportRequest](../../sdk/models/operations/getexcelreportrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `retries`                                                                                | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                 | :heavy_minus_sign:                                                                       | Configuration to override the default retry behavior of the client.                      |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
 
-**Promise<[operations.GetExcelReportResponse](../../models/operations/getexcelreportresponse.md)>**
+**Promise<[operations.GetExcelReportResponse](../../sdk/models/operations/getexcelreportresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getExcelReportGenerationStatus
 
@@ -174,14 +186,18 @@ import { ExcelReportType } from "@codat/assess/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                                                            | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
-| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                            | [operations.GetExcelReportGenerationStatusRequest](../../models/operations/getexcelreportgenerationstatusrequest.md) | :heavy_check_mark:                                                                                                   | The request object to use for the request.                                                                           |
-| `retries`                                                                                                            | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                               | :heavy_minus_sign:                                                                                                   | Configuration to override the default retry behavior of the client.                                                  |
-| `config`                                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                         | :heavy_minus_sign:                                                                                                   | Available config options for making requests.                                                                        |
+| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                | [operations.GetExcelReportGenerationStatusRequest](../../sdk/models/operations/getexcelreportgenerationstatusrequest.md) | :heavy_check_mark:                                                                                                       | The request object to use for the request.                                                                               |
+| `retries`                                                                                                                | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                                 | :heavy_minus_sign:                                                                                                       | Configuration to override the default retry behavior of the client.                                                      |
+| `config`                                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                             | :heavy_minus_sign:                                                                                                       | Available config options for making requests.                                                                            |
 
 
 ### Response
 
-**Promise<[operations.GetExcelReportGenerationStatusResponse](../../models/operations/getexcelreportgenerationstatusresponse.md)>**
+**Promise<[operations.GetExcelReportGenerationStatusResponse](../../sdk/models/operations/getexcelreportgenerationstatusresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

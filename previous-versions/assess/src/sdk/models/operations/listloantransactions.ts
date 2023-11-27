@@ -3,13 +3,13 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 /**
  * Data source type
  */
-export enum ListLoanTransactionsSourceType {
+export enum ListLoanTransactionsQueryParamSourceType {
     Banking = "banking",
     Commerce = "commerce",
     Accounting = "accounting",
@@ -26,7 +26,7 @@ export class ListLoanTransactionsRequest extends SpeakeasyBase {
      * Data source type
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=sourceType" })
-    sourceType: ListLoanTransactionsSourceType;
+    sourceType: ListLoanTransactionsQueryParamSourceType;
 }
 
 export class ListLoanTransactionsResponse extends SpeakeasyBase {
@@ -37,7 +37,7 @@ export class ListLoanTransactionsResponse extends SpeakeasyBase {
     contentType: string;
 
     /**
-     * Your API request was not properly authorized.
+     * The request made is not valid.
      */
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
@@ -58,5 +58,5 @@ export class ListLoanTransactionsResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 }

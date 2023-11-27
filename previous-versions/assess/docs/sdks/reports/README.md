@@ -36,7 +36,7 @@ Make sure you have [synced a company](https://docs.codat.io/codat-api#/operation
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GenerateLoanSummarySourceType } from "@codat/assess/dist/sdk/models/operations";
+import { SourceType } from "@codat/assess/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new CodatAssess({
@@ -47,7 +47,7 @@ import { GenerateLoanSummarySourceType } from "@codat/assess/dist/sdk/models/ope
 
   const res = await sdk.reports.generateLoanSummary({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    sourceType: GenerateLoanSummarySourceType.Accounting,
+    sourceType: SourceType.Accounting,
   });
 
   if (res.statusCode == 200) {
@@ -58,17 +58,21 @@ import { GenerateLoanSummarySourceType } from "@codat/assess/dist/sdk/models/ope
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.GenerateLoanSummaryRequest](../../models/operations/generateloansummaryrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `retries`                                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                                         | :heavy_minus_sign:                                                                             | Configuration to override the default retry behavior of the client.                            |
-| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.GenerateLoanSummaryRequest](../../sdk/models/operations/generateloansummaryrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `retries`                                                                                          | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                           | :heavy_minus_sign:                                                                                 | Configuration to override the default retry behavior of the client.                                |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
 
 
 ### Response
 
-**Promise<[operations.GenerateLoanSummaryResponse](../../models/operations/generateloansummaryresponse.md)>**
+**Promise<[operations.GenerateLoanSummaryResponse](../../sdk/models/operations/generateloansummaryresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## generateLoanTransactions
 
@@ -83,7 +87,7 @@ Make sure you have [synced a company](https://docs.codat.io/codat-api#/operation
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GenerateLoanTransactionsSourceType } from "@codat/assess/dist/sdk/models/operations";
+import { QueryParamSourceType } from "@codat/assess/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new CodatAssess({
@@ -94,7 +98,7 @@ import { GenerateLoanTransactionsSourceType } from "@codat/assess/dist/sdk/model
 
   const res = await sdk.reports.generateLoanTransactions({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    sourceType: GenerateLoanTransactionsSourceType.Accounting,
+    sourceType: QueryParamSourceType.Accounting,
   });
 
   if (res.statusCode == 200) {
@@ -105,17 +109,21 @@ import { GenerateLoanTransactionsSourceType } from "@codat/assess/dist/sdk/model
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                | [operations.GenerateLoanTransactionsRequest](../../models/operations/generateloantransactionsrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
-| `retries`                                                                                                | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                   | :heavy_minus_sign:                                                                                       | Configuration to override the default retry behavior of the client.                                      |
-| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
+| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                    | [operations.GenerateLoanTransactionsRequest](../../sdk/models/operations/generateloantransactionsrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
+| `retries`                                                                                                    | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                     | :heavy_minus_sign:                                                                                           | Configuration to override the default retry behavior of the client.                                          |
+| `config`                                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                 | :heavy_minus_sign:                                                                                           | Available config options for making requests.                                                                |
 
 
 ### Response
 
-**Promise<[operations.GenerateLoanTransactionsResponse](../../models/operations/generateloantransactionsresponse.md)>**
+**Promise<[operations.GenerateLoanTransactionsResponse](../../sdk/models/operations/generateloantransactionsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getAccountsForEnhancedBalanceSheet
 
@@ -148,17 +156,21 @@ import { CodatAssess } from "@codat/assess";
 
 ### Parameters
 
-| Parameter                                                                                                                    | Type                                                                                                                         | Required                                                                                                                     | Description                                                                                                                  |
-| ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                    | [operations.GetAccountsForEnhancedBalanceSheetRequest](../../models/operations/getaccountsforenhancedbalancesheetrequest.md) | :heavy_check_mark:                                                                                                           | The request object to use for the request.                                                                                   |
-| `retries`                                                                                                                    | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                                       | :heavy_minus_sign:                                                                                                           | Configuration to override the default retry behavior of the client.                                                          |
-| `config`                                                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                 | :heavy_minus_sign:                                                                                                           | Available config options for making requests.                                                                                |
+| Parameter                                                                                                                        | Type                                                                                                                             | Required                                                                                                                         | Description                                                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                        | [operations.GetAccountsForEnhancedBalanceSheetRequest](../../sdk/models/operations/getaccountsforenhancedbalancesheetrequest.md) | :heavy_check_mark:                                                                                                               | The request object to use for the request.                                                                                       |
+| `retries`                                                                                                                        | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                                         | :heavy_minus_sign:                                                                                                               | Configuration to override the default retry behavior of the client.                                                              |
+| `config`                                                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                     | :heavy_minus_sign:                                                                                                               | Available config options for making requests.                                                                                    |
 
 
 ### Response
 
-**Promise<[operations.GetAccountsForEnhancedBalanceSheetResponse](../../models/operations/getaccountsforenhancedbalancesheetresponse.md)>**
+**Promise<[operations.GetAccountsForEnhancedBalanceSheetResponse](../../sdk/models/operations/getaccountsforenhancedbalancesheetresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getAccountsForEnhancedProfitAndLoss
 
@@ -191,17 +203,21 @@ import { CodatAssess } from "@codat/assess";
 
 ### Parameters
 
-| Parameter                                                                                                                      | Type                                                                                                                           | Required                                                                                                                       | Description                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                      | [operations.GetAccountsForEnhancedProfitAndLossRequest](../../models/operations/getaccountsforenhancedprofitandlossrequest.md) | :heavy_check_mark:                                                                                                             | The request object to use for the request.                                                                                     |
-| `retries`                                                                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                                         | :heavy_minus_sign:                                                                                                             | Configuration to override the default retry behavior of the client.                                                            |
-| `config`                                                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                   | :heavy_minus_sign:                                                                                                             | Available config options for making requests.                                                                                  |
+| Parameter                                                                                                                          | Type                                                                                                                               | Required                                                                                                                           | Description                                                                                                                        |
+| ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                          | [operations.GetAccountsForEnhancedProfitAndLossRequest](../../sdk/models/operations/getaccountsforenhancedprofitandlossrequest.md) | :heavy_check_mark:                                                                                                                 | The request object to use for the request.                                                                                         |
+| `retries`                                                                                                                          | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                                           | :heavy_minus_sign:                                                                                                                 | Configuration to override the default retry behavior of the client.                                                                |
+| `config`                                                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                       | :heavy_minus_sign:                                                                                                                 | Available config options for making requests.                                                                                      |
 
 
 ### Response
 
-**Promise<[operations.GetAccountsForEnhancedProfitAndLossResponse](../../models/operations/getaccountsforenhancedprofitandlossresponse.md)>**
+**Promise<[operations.GetAccountsForEnhancedProfitAndLossResponse](../../sdk/models/operations/getaccountsforenhancedprofitandlossresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getCommerceCustomerRetentionMetrics
 
@@ -237,17 +253,21 @@ import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                                                                      | Type                                                                                                                           | Required                                                                                                                       | Description                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                      | [operations.GetCommerceCustomerRetentionMetricsRequest](../../models/operations/getcommercecustomerretentionmetricsrequest.md) | :heavy_check_mark:                                                                                                             | The request object to use for the request.                                                                                     |
-| `retries`                                                                                                                      | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                                         | :heavy_minus_sign:                                                                                                             | Configuration to override the default retry behavior of the client.                                                            |
-| `config`                                                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                   | :heavy_minus_sign:                                                                                                             | Available config options for making requests.                                                                                  |
+| Parameter                                                                                                                          | Type                                                                                                                               | Required                                                                                                                           | Description                                                                                                                        |
+| ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                          | [operations.GetCommerceCustomerRetentionMetricsRequest](../../sdk/models/operations/getcommercecustomerretentionmetricsrequest.md) | :heavy_check_mark:                                                                                                                 | The request object to use for the request.                                                                                         |
+| `retries`                                                                                                                          | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                                           | :heavy_minus_sign:                                                                                                                 | Configuration to override the default retry behavior of the client.                                                                |
+| `config`                                                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                       | :heavy_minus_sign:                                                                                                                 | Available config options for making requests.                                                                                      |
 
 
 ### Response
 
-**Promise<[operations.GetCommerceCustomerRetentionMetricsResponse](../../models/operations/getcommercecustomerretentionmetricsresponse.md)>**
+**Promise<[operations.GetCommerceCustomerRetentionMetricsResponse](../../sdk/models/operations/getcommercecustomerretentionmetricsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getCommerceLifetimeValueMetrics
 
@@ -283,17 +303,21 @@ import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                                                              | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
-| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                              | [operations.GetCommerceLifetimeValueMetricsRequest](../../models/operations/getcommercelifetimevaluemetricsrequest.md) | :heavy_check_mark:                                                                                                     | The request object to use for the request.                                                                             |
-| `retries`                                                                                                              | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                                 | :heavy_minus_sign:                                                                                                     | Configuration to override the default retry behavior of the client.                                                    |
-| `config`                                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                           | :heavy_minus_sign:                                                                                                     | Available config options for making requests.                                                                          |
+| Parameter                                                                                                                  | Type                                                                                                                       | Required                                                                                                                   | Description                                                                                                                |
+| -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                  | [operations.GetCommerceLifetimeValueMetricsRequest](../../sdk/models/operations/getcommercelifetimevaluemetricsrequest.md) | :heavy_check_mark:                                                                                                         | The request object to use for the request.                                                                                 |
+| `retries`                                                                                                                  | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                                   | :heavy_minus_sign:                                                                                                         | Configuration to override the default retry behavior of the client.                                                        |
+| `config`                                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                               | :heavy_minus_sign:                                                                                                         | Available config options for making requests.                                                                              |
 
 
 ### Response
 
-**Promise<[operations.GetCommerceLifetimeValueMetricsResponse](../../models/operations/getcommercelifetimevaluemetricsresponse.md)>**
+**Promise<[operations.GetCommerceLifetimeValueMetricsResponse](../../sdk/models/operations/getcommercelifetimevaluemetricsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getCommerceOrdersMetrics
 
@@ -329,17 +353,21 @@ import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                | [operations.GetCommerceOrdersMetricsRequest](../../models/operations/getcommerceordersmetricsrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
-| `retries`                                                                                                | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                   | :heavy_minus_sign:                                                                                       | Configuration to override the default retry behavior of the client.                                      |
-| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
+| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                    | [operations.GetCommerceOrdersMetricsRequest](../../sdk/models/operations/getcommerceordersmetricsrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
+| `retries`                                                                                                    | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                     | :heavy_minus_sign:                                                                                           | Configuration to override the default retry behavior of the client.                                          |
+| `config`                                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                 | :heavy_minus_sign:                                                                                           | Available config options for making requests.                                                                |
 
 
 ### Response
 
-**Promise<[operations.GetCommerceOrdersMetricsResponse](../../models/operations/getcommerceordersmetricsresponse.md)>**
+**Promise<[operations.GetCommerceOrdersMetricsResponse](../../sdk/models/operations/getcommerceordersmetricsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getCommerceRefundsMetrics
 
@@ -375,17 +403,21 @@ import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                  | [operations.GetCommerceRefundsMetricsRequest](../../models/operations/getcommercerefundsmetricsrequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
-| `retries`                                                                                                  | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                     | :heavy_minus_sign:                                                                                         | Configuration to override the default retry behavior of the client.                                        |
-| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
+| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                      | [operations.GetCommerceRefundsMetricsRequest](../../sdk/models/operations/getcommercerefundsmetricsrequest.md) | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
+| `retries`                                                                                                      | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                       | :heavy_minus_sign:                                                                                             | Configuration to override the default retry behavior of the client.                                            |
+| `config`                                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                   | :heavy_minus_sign:                                                                                             | Available config options for making requests.                                                                  |
 
 
 ### Response
 
-**Promise<[operations.GetCommerceRefundsMetricsResponse](../../models/operations/getcommercerefundsmetricsresponse.md)>**
+**Promise<[operations.GetCommerceRefundsMetricsResponse](../../sdk/models/operations/getcommercerefundsmetricsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getCommerceRevenueMetrics
 
@@ -421,17 +453,21 @@ import { PeriodUnit } from "@codat/assess/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                  | [operations.GetCommerceRevenueMetricsRequest](../../models/operations/getcommercerevenuemetricsrequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
-| `retries`                                                                                                  | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                     | :heavy_minus_sign:                                                                                         | Configuration to override the default retry behavior of the client.                                        |
-| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
+| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                      | [operations.GetCommerceRevenueMetricsRequest](../../sdk/models/operations/getcommercerevenuemetricsrequest.md) | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
+| `retries`                                                                                                      | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                       | :heavy_minus_sign:                                                                                             | Configuration to override the default retry behavior of the client.                                            |
+| `config`                                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                   | :heavy_minus_sign:                                                                                             | Available config options for making requests.                                                                  |
 
 
 ### Response
 
-**Promise<[operations.GetCommerceRevenueMetricsResponse](../../models/operations/getcommercerevenuemetricsresponse.md)>**
+**Promise<[operations.GetCommerceRevenueMetricsResponse](../../sdk/models/operations/getcommercerevenuemetricsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getEnhancedCashFlowTransactions
 
@@ -467,17 +503,21 @@ import { CodatAssess } from "@codat/assess";
 
 ### Parameters
 
-| Parameter                                                                                                              | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
-| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                              | [operations.GetEnhancedCashFlowTransactionsRequest](../../models/operations/getenhancedcashflowtransactionsrequest.md) | :heavy_check_mark:                                                                                                     | The request object to use for the request.                                                                             |
-| `retries`                                                                                                              | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                                 | :heavy_minus_sign:                                                                                                     | Configuration to override the default retry behavior of the client.                                                    |
-| `config`                                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                           | :heavy_minus_sign:                                                                                                     | Available config options for making requests.                                                                          |
+| Parameter                                                                                                                  | Type                                                                                                                       | Required                                                                                                                   | Description                                                                                                                |
+| -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                  | [operations.GetEnhancedCashFlowTransactionsRequest](../../sdk/models/operations/getenhancedcashflowtransactionsrequest.md) | :heavy_check_mark:                                                                                                         | The request object to use for the request.                                                                                 |
+| `retries`                                                                                                                  | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                                   | :heavy_minus_sign:                                                                                                         | Configuration to override the default retry behavior of the client.                                                        |
+| `config`                                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                               | :heavy_minus_sign:                                                                                                         | Available config options for making requests.                                                                              |
 
 
 ### Response
 
-**Promise<[operations.GetEnhancedCashFlowTransactionsResponse](../../models/operations/getenhancedcashflowtransactionsresponse.md)>**
+**Promise<[operations.GetEnhancedCashFlowTransactionsResponse](../../sdk/models/operations/getenhancedcashflowtransactionsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getEnhancedInvoicesReport
 
@@ -509,17 +549,21 @@ import { CodatAssess } from "@codat/assess";
 
 ### Parameters
 
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                  | [operations.GetEnhancedInvoicesReportRequest](../../models/operations/getenhancedinvoicesreportrequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
-| `retries`                                                                                                  | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                     | :heavy_minus_sign:                                                                                         | Configuration to override the default retry behavior of the client.                                        |
-| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
+| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                      | [operations.GetEnhancedInvoicesReportRequest](../../sdk/models/operations/getenhancedinvoicesreportrequest.md) | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
+| `retries`                                                                                                      | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                       | :heavy_minus_sign:                                                                                             | Configuration to override the default retry behavior of the client.                                            |
+| `config`                                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                   | :heavy_minus_sign:                                                                                             | Available config options for making requests.                                                                  |
 
 
 ### Response
 
-**Promise<[operations.GetEnhancedInvoicesReportResponse](../../models/operations/getenhancedinvoicesreportresponse.md)>**
+**Promise<[operations.GetEnhancedInvoicesReportResponse](../../sdk/models/operations/getenhancedinvoicesreportresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getLoanSummary
 
@@ -534,7 +578,7 @@ Make sure you have [synced a company](https://docs.codat.io/codat-api#/operation
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { GetLoanSummarySourceType } from "@codat/assess/dist/sdk/models/operations";
+import { GetLoanSummaryQueryParamSourceType } from "@codat/assess/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new CodatAssess({
@@ -545,7 +589,7 @@ import { GetLoanSummarySourceType } from "@codat/assess/dist/sdk/models/operatio
 
   const res = await sdk.reports.getLoanSummary({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    sourceType: GetLoanSummarySourceType.Banking,
+    sourceType: GetLoanSummaryQueryParamSourceType.Banking,
   });
 
   if (res.statusCode == 200) {
@@ -556,17 +600,21 @@ import { GetLoanSummarySourceType } from "@codat/assess/dist/sdk/models/operatio
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.GetLoanSummaryRequest](../../models/operations/getloansummaryrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `retries`                                                                            | [utils.RetryConfig](../../models/utils/retryconfig.md)                               | :heavy_minus_sign:                                                                   | Configuration to override the default retry behavior of the client.                  |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [operations.GetLoanSummaryRequest](../../sdk/models/operations/getloansummaryrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `retries`                                                                                | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                 | :heavy_minus_sign:                                                                       | Configuration to override the default retry behavior of the client.                      |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
 
-**Promise<[operations.GetLoanSummaryResponse](../../models/operations/getloansummaryresponse.md)>**
+**Promise<[operations.GetLoanSummaryResponse](../../sdk/models/operations/getloansummaryresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getRecurringRevenueMetrics
 
@@ -597,17 +645,21 @@ import { CodatAssess } from "@codat/assess";
 
 ### Parameters
 
-| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                    | [operations.GetRecurringRevenueMetricsRequest](../../models/operations/getrecurringrevenuemetricsrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
-| `retries`                                                                                                    | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                       | :heavy_minus_sign:                                                                                           | Configuration to override the default retry behavior of the client.                                          |
-| `config`                                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                 | :heavy_minus_sign:                                                                                           | Available config options for making requests.                                                                |
+| Parameter                                                                                                        | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                        | [operations.GetRecurringRevenueMetricsRequest](../../sdk/models/operations/getrecurringrevenuemetricsrequest.md) | :heavy_check_mark:                                                                                               | The request object to use for the request.                                                                       |
+| `retries`                                                                                                        | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                         | :heavy_minus_sign:                                                                                               | Configuration to override the default retry behavior of the client.                                              |
+| `config`                                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                     | :heavy_minus_sign:                                                                                               | Available config options for making requests.                                                                    |
 
 
 ### Response
 
-**Promise<[operations.GetRecurringRevenueMetricsResponse](../../models/operations/getrecurringrevenuemetricsresponse.md)>**
+**Promise<[operations.GetRecurringRevenueMetricsResponse](../../sdk/models/operations/getrecurringrevenuemetricsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listLoanTransactions
 
@@ -622,7 +674,7 @@ Make sure you have [synced a company](https://docs.codat.io/codat-api#/operation
 
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { ListLoanTransactionsSourceType } from "@codat/assess/dist/sdk/models/operations";
+import { ListLoanTransactionsQueryParamSourceType } from "@codat/assess/dist/sdk/models/operations";
 
 (async() => {
   const sdk = new CodatAssess({
@@ -633,7 +685,7 @@ import { ListLoanTransactionsSourceType } from "@codat/assess/dist/sdk/models/op
 
   const res = await sdk.reports.listLoanTransactions({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    sourceType: ListLoanTransactionsSourceType.Commerce,
+    sourceType: ListLoanTransactionsQueryParamSourceType.Commerce,
   });
 
   if (res.statusCode == 200) {
@@ -644,17 +696,21 @@ import { ListLoanTransactionsSourceType } from "@codat/assess/dist/sdk/models/op
 
 ### Parameters
 
-| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
-| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| `request`                                                                                        | [operations.ListLoanTransactionsRequest](../../models/operations/listloantransactionsrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
-| `retries`                                                                                        | [utils.RetryConfig](../../models/utils/retryconfig.md)                                           | :heavy_minus_sign:                                                                               | Configuration to override the default retry behavior of the client.                              |
-| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
+| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `request`                                                                                            | [operations.ListLoanTransactionsRequest](../../sdk/models/operations/listloantransactionsrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
+| `retries`                                                                                            | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                             | :heavy_minus_sign:                                                                                   | Configuration to override the default retry behavior of the client.                                  |
+| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
 
 
 ### Response
 
-**Promise<[operations.ListLoanTransactionsResponse](../../models/operations/listloantransactionsresponse.md)>**
+**Promise<[operations.ListLoanTransactionsResponse](../../sdk/models/operations/listloantransactionsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## requestRecurringRevenueMetrics
 
@@ -685,14 +741,18 @@ import { CodatAssess } from "@codat/assess";
 
 ### Parameters
 
-| Parameter                                                                                                            | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
-| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                            | [operations.RequestRecurringRevenueMetricsRequest](../../models/operations/requestrecurringrevenuemetricsrequest.md) | :heavy_check_mark:                                                                                                   | The request object to use for the request.                                                                           |
-| `retries`                                                                                                            | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                               | :heavy_minus_sign:                                                                                                   | Configuration to override the default retry behavior of the client.                                                  |
-| `config`                                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                         | :heavy_minus_sign:                                                                                                   | Available config options for making requests.                                                                        |
+| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                | [operations.RequestRecurringRevenueMetricsRequest](../../sdk/models/operations/requestrecurringrevenuemetricsrequest.md) | :heavy_check_mark:                                                                                                       | The request object to use for the request.                                                                               |
+| `retries`                                                                                                                | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                                 | :heavy_minus_sign:                                                                                                       | Configuration to override the default retry behavior of the client.                                                      |
+| `config`                                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                             | :heavy_minus_sign:                                                                                                       | Available config options for making requests.                                                                            |
 
 
 ### Response
 
-**Promise<[operations.RequestRecurringRevenueMetricsResponse](../../models/operations/requestrecurringrevenuemetricsresponse.md)>**
+**Promise<[operations.RequestRecurringRevenueMetricsResponse](../../sdk/models/operations/requestrecurringrevenuemetricsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
