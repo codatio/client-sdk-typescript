@@ -11,7 +11,7 @@ import { SupplementalData } from "./supplementaldata";
 import { SupplierRef } from "./supplierref";
 import { Expose, Type } from "class-transformer";
 
-export class AccountingBillPurchaseOrderReference extends SpeakeasyBase {
+export class PurchaseOrderReference extends SpeakeasyBase {
     /**
      * Identifier for the purchase order, unique for the company in the accounting platform.
      */
@@ -27,7 +27,7 @@ export class AccountingBillPurchaseOrderReference extends SpeakeasyBase {
     purchaseOrderNumber?: string;
 }
 
-export class AccountingBillWithholdingTax extends SpeakeasyBase {
+export class WithholdingTax extends SpeakeasyBase {
     /**
      * Amount of tax withheld.
      */
@@ -169,10 +169,10 @@ export class AccountingBill extends SpeakeasyBase {
     @Type(() => AccountingPaymentAllocation)
     paymentAllocations?: AccountingPaymentAllocation[];
 
-    @SpeakeasyMetadata({ elemType: AccountingBillPurchaseOrderReference })
+    @SpeakeasyMetadata({ elemType: PurchaseOrderReference })
     @Expose({ name: "purchaseOrderRefs" })
-    @Type(() => AccountingBillPurchaseOrderReference)
-    purchaseOrderRefs?: AccountingBillPurchaseOrderReference[];
+    @Type(() => PurchaseOrderReference)
+    purchaseOrderRefs?: PurchaseOrderReference[];
 
     /**
      * User-friendly reference for the bill.
@@ -233,8 +233,8 @@ export class AccountingBill extends SpeakeasyBase {
     @Expose({ name: "totalAmount" })
     totalAmount: number;
 
-    @SpeakeasyMetadata({ elemType: AccountingBillWithholdingTax })
+    @SpeakeasyMetadata({ elemType: WithholdingTax })
     @Expose({ name: "withholdingTax" })
-    @Type(() => AccountingBillWithholdingTax)
-    withholdingTax?: AccountingBillWithholdingTax[];
+    @Type(() => WithholdingTax)
+    withholdingTax?: WithholdingTax[];
 }

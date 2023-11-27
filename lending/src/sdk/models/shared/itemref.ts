@@ -5,21 +5,25 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-/**
- * Reference to the item the line is linked to.
- */
 export class ItemRef extends SpeakeasyBase {
     /**
-     * Unique identifier for the item in the accounting platform.
+     * The data connection id being referenced.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "dataConnectionId" })
+    dataConnectionId?: string;
+
+    /**
+     * The id of the object, e.g. the Journal entry.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
-    id: string;
+    id?: string;
 
     /**
-     * Name of the item in the accounting platform.
+     * The data type the loan transaction entry was extracted from.
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "name" })
-    name?: string;
+    @Expose({ name: "type" })
+    type?: string;
 }

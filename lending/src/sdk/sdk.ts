@@ -3,10 +3,11 @@
  */
 
 import * as utils from "../internal/utils";
-import { AccountingBankData } from "./accountingbankdata";
+import * as shared from "../sdk/models/shared";
 import { AccountsPayable } from "./accountspayable";
 import { AccountsReceivable } from "./accountsreceivable";
 import { Banking } from "./banking";
+import { CodatLendingAccountingBankData } from "./codatlendingaccountingbankdata";
 import { Companies } from "./companies";
 import { CompanyInfo } from "./companyinfo";
 import { Connections } from "./connections";
@@ -17,7 +18,6 @@ import { FinancialStatements } from "./financialstatements";
 import { Liabilities } from "./liabilities";
 import { LoanWriteback } from "./loanwriteback";
 import { ManageData } from "./managedata";
-import * as shared from "./models/shared";
 import { Sales } from "./sales";
 import { Transactions } from "./transactions";
 import axios from "axios";
@@ -69,9 +69,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "3.0.0";
-    sdkVersion = "3.3.0";
-    genVersion = "2.159.2";
-    userAgent = "speakeasy-sdk/typescript 3.3.0 2.159.2 3.0.0 @codat/lending";
+    sdkVersion = "4.0.0";
+    genVersion = "2.195.2";
+    userAgent = "speakeasy-sdk/typescript 4.0.0 2.195.2 3.0.0 @codat/lending";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -111,21 +111,37 @@ export class SDKConfiguration {
  */
 export class CodatLending {
     /**
-     * Access bank transactions from an accounting platform.
-     */
-    public accountingBankData: AccountingBankData;
-    /**
      * Create and manage your Codat companies.
      */
     public companies: Companies;
     /**
-     * View company information fetched from the source platform.
-     */
-    public companyInfo: CompanyInfo;
-    /**
      * Manage your companies' data connections.
      */
     public connections: Connections;
+    public transactions: Transactions;
+    /**
+     * Access bank transactions from an accounting platform.
+     */
+    public accountingBankData: CodatLendingAccountingBankData;
+    public banking: Banking;
+    public accountsPayable: AccountsPayable;
+    public sales: Sales;
+    /**
+     * View company information fetched from the source platform.
+     */
+    public companyInfo: CompanyInfo;
+    public accountsReceivable: AccountsReceivable;
+    /**
+     * Endpoints to manage uploaded files.
+     */
+    public fileUpload: FileUpload;
+    public loanWriteback: LoanWriteback;
+    public financialStatements: FinancialStatements;
+    public manageData: ManageData;
+    /**
+     * Debt and other liabilities.
+     */
+    public liabilities: Liabilities;
     /**
      * Match mutable accounting data with immutable banking data to increase confidence in financial data.
      */
@@ -134,22 +150,6 @@ export class CodatLending {
      * Download reports in Excel format.
      */
     public excelReports: ExcelReports;
-    /**
-     * Endpoints to manage uploaded files.
-     */
-    public fileUpload: FileUpload;
-    /**
-     * Debt and other liabilities.
-     */
-    public liabilities: Liabilities;
-    public accountsPayable: AccountsPayable;
-    public accountsReceivable: AccountsReceivable;
-    public banking: Banking;
-    public financialStatements: FinancialStatements;
-    public loanWriteback: LoanWriteback;
-    public manageData: ManageData;
-    public sales: Sales;
-    public transactions: Transactions;
 
     private sdkConfiguration: SDKConfiguration;
 
@@ -161,7 +161,7 @@ export class CodatLending {
             serverURL = ServerList[serverIdx];
         }
 
-        const defaultClient = props?.defaultClient ?? axios.create({ baseURL: serverURL });
+        const defaultClient = props?.defaultClient ?? axios.create();
         this.sdkConfiguration = new SDKConfiguration({
             defaultClient: defaultClient,
             security: props?.security,
@@ -169,21 +169,21 @@ export class CodatLending {
             retryConfig: props?.retryConfig,
         });
 
-        this.accountingBankData = new AccountingBankData(this.sdkConfiguration);
         this.companies = new Companies(this.sdkConfiguration);
-        this.companyInfo = new CompanyInfo(this.sdkConfiguration);
         this.connections = new Connections(this.sdkConfiguration);
+        this.transactions = new Transactions(this.sdkConfiguration);
+        this.accountingBankData = new CodatLendingAccountingBankData(this.sdkConfiguration);
+        this.banking = new Banking(this.sdkConfiguration);
+        this.accountsPayable = new AccountsPayable(this.sdkConfiguration);
+        this.sales = new Sales(this.sdkConfiguration);
+        this.companyInfo = new CompanyInfo(this.sdkConfiguration);
+        this.accountsReceivable = new AccountsReceivable(this.sdkConfiguration);
+        this.fileUpload = new FileUpload(this.sdkConfiguration);
+        this.loanWriteback = new LoanWriteback(this.sdkConfiguration);
+        this.financialStatements = new FinancialStatements(this.sdkConfiguration);
+        this.manageData = new ManageData(this.sdkConfiguration);
+        this.liabilities = new Liabilities(this.sdkConfiguration);
         this.dataIntegrity = new DataIntegrity(this.sdkConfiguration);
         this.excelReports = new ExcelReports(this.sdkConfiguration);
-        this.fileUpload = new FileUpload(this.sdkConfiguration);
-        this.liabilities = new Liabilities(this.sdkConfiguration);
-        this.accountsPayable = new AccountsPayable(this.sdkConfiguration);
-        this.accountsReceivable = new AccountsReceivable(this.sdkConfiguration);
-        this.banking = new Banking(this.sdkConfiguration);
-        this.financialStatements = new FinancialStatements(this.sdkConfiguration);
-        this.loanWriteback = new LoanWriteback(this.sdkConfiguration);
-        this.manageData = new ManageData(this.sdkConfiguration);
-        this.sales = new Sales(this.sdkConfiguration);
-        this.transactions = new Transactions(this.sdkConfiguration);
     }
 }

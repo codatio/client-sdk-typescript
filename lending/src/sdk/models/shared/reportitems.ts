@@ -3,14 +3,14 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { DefinitionsitemRef } from "./definitionsitemref";
+import { ItemRef } from "./itemref";
 import { LoanRef } from "./loanref";
 import { Expose, Type } from "class-transformer";
 
 /**
  * The type of loan transaction.
  */
-export enum ReportItemsLoanTransactionType {
+export enum LoanTransactionType {
     Investment = "Investment",
     Repayment = "Repayment",
     Interest = "Interest",
@@ -54,8 +54,8 @@ export class ReportItems extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "itemRef" })
-    @Type(() => DefinitionsitemRef)
-    itemRef?: DefinitionsitemRef;
+    @Type(() => ItemRef)
+    itemRef?: ItemRef;
 
     /**
      * The name of lender providing the loan.
@@ -74,5 +74,5 @@ export class ReportItems extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "loanTransactionType" })
-    loanTransactionType?: ReportItemsLoanTransactionType;
+    loanTransactionType?: LoanTransactionType;
 }

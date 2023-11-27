@@ -3,23 +3,23 @@
  */
 
 import * as utils from "../internal/utils";
-import { ManageDataPullOperations } from "./managedatapulloperations";
-import { ManageDataRefresh } from "./managedatarefresh";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
+import { PullOperations } from "./pulloperations";
+import { Refresh } from "./refresh";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 export class ManageData {
-    public pullOperations: ManageDataPullOperations;
-    public refresh: ManageDataRefresh;
+    public refresh: Refresh;
+    public pullOperations: PullOperations;
     private sdkConfiguration: SDKConfiguration;
 
     constructor(sdkConfig: SDKConfiguration) {
         this.sdkConfiguration = sdkConfig;
-        this.pullOperations = new ManageDataPullOperations(this.sdkConfiguration);
-        this.refresh = new ManageDataRefresh(this.sdkConfiguration);
+        this.refresh = new Refresh(this.sdkConfiguration);
+        this.pullOperations = new PullOperations(this.sdkConfiguration);
     }
 
     /**
@@ -41,7 +41,11 @@ export class ManageData {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/companies/{companyId}/dataStatus", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/companies/{companyId}/dataStatus",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -72,7 +76,7 @@ export class ManageData {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "get",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -80,7 +84,7 @@ export class ManageData {
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -88,38 +92,38 @@ export class ManageData {
 
         const res: operations.GetDataStatusResponse = new operations.GetDataStatusResponse({
             statusCode: httpRes.status,
-            contentType: contentType,
+            contentType: responseContentType,
             rawResponse: httpRes,
         });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.dataStatusResponse = {};
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.dataStatuses = {};
                     const resFieldDepth: number = utils.getResFieldDepth(res);
-                    res.dataStatusResponse = utils.objectToClass(
+                    res.dataStatuses = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.DataStatus,
                         resFieldDepth
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
                     );
                 }
                 break;
-            case [401, 404, 429].includes(httpRes?.status):
-                if (utils.matchContentType(contentType, `application/json`)) {
+            case [401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.ErrorMessage
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes

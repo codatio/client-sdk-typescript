@@ -105,7 +105,7 @@ export class PullOperation extends SpeakeasyBase {
     id: string;
 
     /**
-     * `True` if the pull operation completed successfully.
+     * `True` if the pull operation is completed successfully. The `isCompleted` property is not queryable. To filter failed pull operations, query by `status!=Complete&&status!=NotSupported` instead.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "isCompleted" })
@@ -158,4 +158,11 @@ export class PullOperation extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
     status: PullOperationStatus;
+
+    /**
+     * Additional information about the dataset status.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "statusDescription" })
+    statusDescription?: string;
 }

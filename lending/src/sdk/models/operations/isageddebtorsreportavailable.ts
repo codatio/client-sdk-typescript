@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class IsAgedDebtorsReportAvailableRequest extends SpeakeasyBase {
@@ -21,6 +22,12 @@ export class IsAgedDebtorsReportAvailableResponse extends SpeakeasyBase {
     contentType: string;
 
     /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
+
+    /**
      * HTTP response status code for this operation
      */
     @SpeakeasyMetadata()
@@ -30,11 +37,11 @@ export class IsAgedDebtorsReportAvailableResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 
     /**
      * OK
      */
     @SpeakeasyMetadata()
-    isAgedDebtorsReportAvailable200ApplicationJSONBoolean?: boolean;
+    boolean?: boolean;
 }
