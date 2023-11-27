@@ -3,11 +3,11 @@
  */
 
 import * as utils from "../internal/utils";
+import * as shared from "../sdk/models/shared";
 import { CompanyInfo } from "./companyinfo";
 import { Customers } from "./customers";
 import { Disputes } from "./disputes";
 import { Locations } from "./locations";
-import * as shared from "./models/shared";
 import { Orders } from "./orders";
 import { Payments } from "./payments";
 import { Products } from "./products";
@@ -62,9 +62,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "3.0.0";
-    sdkVersion = "0.37.0";
-    genVersion = "2.159.2";
-    userAgent = "speakeasy-sdk/typescript 0.37.0 2.159.2 3.0.0 @codat/commerce";
+    sdkVersion = "0.38.0";
+    genVersion = "2.195.2";
+    userAgent = "speakeasy-sdk/typescript 0.38.0 2.195.2 3.0.0 @codat/commerce";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -87,15 +87,15 @@ export class CodatCommerce {
     /**
      * Retrieve standardized data from linked commerce platforms.
      */
-    public companyInfo: CompanyInfo;
-    /**
-     * Retrieve standardized data from linked commerce platforms.
-     */
     public customers: Customers;
     /**
      * Retrieve standardized data from linked commerce platforms.
      */
     public disputes: Disputes;
+    /**
+     * Retrieve standardized data from linked commerce platforms.
+     */
+    public companyInfo: CompanyInfo;
     /**
      * Retrieve standardized data from linked commerce platforms.
      */
@@ -131,7 +131,7 @@ export class CodatCommerce {
             serverURL = ServerList[serverIdx];
         }
 
-        const defaultClient = props?.defaultClient ?? axios.create({ baseURL: serverURL });
+        const defaultClient = props?.defaultClient ?? axios.create();
         this.sdkConfiguration = new SDKConfiguration({
             defaultClient: defaultClient,
             security: props?.security,
@@ -139,9 +139,9 @@ export class CodatCommerce {
             retryConfig: props?.retryConfig,
         });
 
-        this.companyInfo = new CompanyInfo(this.sdkConfiguration);
         this.customers = new Customers(this.sdkConfiguration);
         this.disputes = new Disputes(this.sdkConfiguration);
+        this.companyInfo = new CompanyInfo(this.sdkConfiguration);
         this.locations = new Locations(this.sdkConfiguration);
         this.orders = new Orders(this.sdkConfiguration);
         this.payments = new Payments(this.sdkConfiguration);
