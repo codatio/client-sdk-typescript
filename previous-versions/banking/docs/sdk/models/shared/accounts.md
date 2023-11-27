@@ -1,12 +1,12 @@
-# AccountBalances
+# Accounts
 
 
 ## Fields
 
 | Field                                                     | Type                                                      | Required                                                  | Description                                               |
 | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| `links`                                                   | [Links](../../models/shared/links.md)                     | :heavy_check_mark:                                        | N/A                                                       |
+| `links`                                                   | [shared.Links](../../../sdk/models/shared/links.md)       | :heavy_check_mark:                                        | N/A                                                       |
 | `pageNumber`                                              | *number*                                                  | :heavy_check_mark:                                        | Current page number.                                      |
 | `pageSize`                                                | *number*                                                  | :heavy_check_mark:                                        | Number of items to return in results array.               |
-| `results`                                                 | [AccountBalance](../../models/shared/accountbalance.md)[] | :heavy_minus_sign:                                        | N/A                                                       |
+| `results`                                                 | [shared.Account](../../../sdk/models/shared/account.md)[] | :heavy_minus_sign:                                        | N/A                                                       |
 | `totalResults`                                            | *number*                                                  | :heavy_check_mark:                                        | Total number of items.                                    |
