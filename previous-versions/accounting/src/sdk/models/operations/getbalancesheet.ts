@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class GetBalanceSheetRequest extends SpeakeasyBase {
@@ -37,7 +37,7 @@ export class GetBalanceSheetResponse extends SpeakeasyBase {
      * Success
      */
     @SpeakeasyMetadata()
-    balanceSheet?: shared.BalanceSheet1;
+    balanceSheet?: shared.BalanceSheetInput;
 
     /**
      * HTTP response content type for this operation
@@ -61,5 +61,5 @@ export class GetBalanceSheetResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 }

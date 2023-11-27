@@ -5,43 +5,11 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountRef } from "./accountref";
 import { ItemRef } from "./itemref";
-import { Propertiestracking } from "./propertiestracking";
+import { PropertieTracking } from "./propertietracking";
 import { TaxRateRef } from "./taxrateref";
 import { TrackingCategoryRef } from "./trackingcategoryref";
+import { Zero } from "./zero";
 import { Expose, Type } from "class-transformer";
-
-/**
- * Allowed name of the 'dataType'.
- */
-export enum BillLineItemRecordLineReferenceDataType {
-    PurchaseOrders = "purchaseOrders",
-}
-
-/**
- * Reference to the purchase order line this line was generated from.
- */
-export class BillLineItemRecordLineReference extends SpeakeasyBase {
-    /**
-     * Allowed name of the 'dataType'.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "dataType" })
-    dataType?: BillLineItemRecordLineReferenceDataType;
-
-    /**
-     * 'id' of the underlying record.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "id" })
-    id?: string;
-
-    /**
-     * Line number of the underlying record.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "lineNumber" })
-    lineNumber?: string;
-}
 
 export class BillLineItem extends SpeakeasyBase {
     /**
@@ -96,13 +64,10 @@ export class BillLineItem extends SpeakeasyBase {
     @Expose({ name: "lineNumber" })
     lineNumber?: string;
 
-    /**
-     * Reference to the purchase order line this line was generated from.
-     */
     @SpeakeasyMetadata()
     @Expose({ name: "purchaseOrderLineRef" })
-    @Type(() => BillLineItemRecordLineReference)
-    purchaseOrderLineRef?: BillLineItemRecordLineReference;
+    @Type(() => Zero)
+    purchaseOrderLineRef?: Zero;
 
     /**
      * Number of units of goods or services received.
@@ -156,8 +121,8 @@ export class BillLineItem extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "tracking" })
-    @Type(() => Propertiestracking)
-    tracking?: Propertiestracking;
+    @Type(() => PropertieTracking)
+    tracking?: PropertieTracking;
 
     /**
      * Collection of categories against which this item is tracked.
@@ -173,4 +138,11 @@ export class BillLineItem extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "unitAmount" })
     unitAmount: number;
+
+    /**
+     * The measurement which defines a unit for this item (e.g. 'kilogram', 'litre').
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "unitOfMeasurement" })
+    unitOfMeasurement?: string;
 }
