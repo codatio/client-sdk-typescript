@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class GetCreateUpdateModelOptionsByDataTypeRequest extends SpeakeasyBase {
@@ -23,7 +23,7 @@ export class GetCreateUpdateModelOptionsByDataTypeRequest extends SpeakeasyBase 
      * The key of a Codat data type
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=dataType" })
-    dataType: shared.DataType;
+    dataType: shared.SchemaDataType;
 }
 
 export class GetCreateUpdateModelOptionsByDataTypeResponse extends SpeakeasyBase {
@@ -55,5 +55,5 @@ export class GetCreateUpdateModelOptionsByDataTypeResponse extends SpeakeasyBase
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 }

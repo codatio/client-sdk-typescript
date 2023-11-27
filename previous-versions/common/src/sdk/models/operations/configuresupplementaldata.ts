@@ -3,13 +3,13 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 /**
  * Data types that support supplemental data
  */
-export enum ConfigureSupplementalDataDataType {
+export enum DataType {
     ChartOfAccounts = "chartOfAccounts",
     Bills = "bills",
     Company = "company",
@@ -44,7 +44,7 @@ export class ConfigureSupplementalDataRequest extends SpeakeasyBase {
      * Supported supplemental data data type.
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=dataType" })
-    dataType: ConfigureSupplementalDataDataType;
+    dataType: DataType;
 
     /**
      * A unique 4-letter key to represent a platform in each integration. View [accounting](https://docs.codat.io/integrations/accounting/overview#platform-keys), [banking](https://docs.codat.io/integrations/banking/overview#platform-keys), and [commerce](https://docs.codat.io/integrations/commerce/overview#platform-keys) platform keys.
@@ -76,5 +76,5 @@ export class ConfigureSupplementalDataResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 }
