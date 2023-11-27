@@ -1,6 +1,4 @@
 <!-- Start SDK Example Usage -->
-
-
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 
@@ -11,10 +9,7 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce";
         },
     });
 
-    const res = await sdk.advancedControls.createCompany({
-        description: "Requested early access to the new financing scheme.",
-        name: "Bank of Dave",
-    });
+    const res = await sdk.syncFlowSettings.getConfigTextSyncFlow();
 
     if (res.statusCode == 200) {
         // handle response

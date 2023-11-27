@@ -3,10 +3,10 @@
  */
 
 import * as utils from "../internal/utils";
+import * as shared from "../sdk/models/shared";
 import { AdvancedControls } from "./advancedcontrols";
 import { Connections } from "./connections";
 import { Integrations } from "./integrations";
-import * as shared from "./models/shared";
 import { Sync } from "./sync";
 import { SyncFlowSettings } from "./syncflowsettings";
 import axios from "axios";
@@ -58,9 +58,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "1.1";
-    sdkVersion = "2.2.0";
-    genVersion = "2.159.2";
-    userAgent = "speakeasy-sdk/typescript 2.2.0 2.159.2 1.1 @codat/sync-for-commerce";
+    sdkVersion = "3.0.0";
+    genVersion = "2.195.2";
+    userAgent = "speakeasy-sdk/typescript 3.0.0 2.195.2 1.1 @codat/sync-for-commerce";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -80,6 +80,10 @@ export class SDKConfiguration {
  */
 export class CodatSyncCommerce {
     /**
+     * Configure preferences for any given Sync for Commerce company using sync flow.
+     */
+    public syncFlowSettings: SyncFlowSettings;
+    /**
      * Advanced company management and sync preferences.
      */
     public advancedControls: AdvancedControls;
@@ -88,17 +92,13 @@ export class CodatSyncCommerce {
      */
     public connections: Connections;
     /**
-     * View useful information about codat's integrations.
-     */
-    public integrations: Integrations;
-    /**
      * Initiate and monitor the sync of company data into accounting software.
      */
     public sync: Sync;
     /**
-     * Configure preferences for any given Sync for Commerce company using sync flow.
+     * View useful information about codat's integrations.
      */
-    public syncFlowSettings: SyncFlowSettings;
+    public integrations: Integrations;
 
     private sdkConfiguration: SDKConfiguration;
 
@@ -110,7 +110,7 @@ export class CodatSyncCommerce {
             serverURL = ServerList[serverIdx];
         }
 
-        const defaultClient = props?.defaultClient ?? axios.create({ baseURL: serverURL });
+        const defaultClient = props?.defaultClient ?? axios.create();
         this.sdkConfiguration = new SDKConfiguration({
             defaultClient: defaultClient,
             security: props?.security,
@@ -118,10 +118,10 @@ export class CodatSyncCommerce {
             retryConfig: props?.retryConfig,
         });
 
+        this.syncFlowSettings = new SyncFlowSettings(this.sdkConfiguration);
         this.advancedControls = new AdvancedControls(this.sdkConfiguration);
         this.connections = new Connections(this.sdkConfiguration);
-        this.integrations = new Integrations(this.sdkConfiguration);
         this.sync = new Sync(this.sdkConfiguration);
-        this.syncFlowSettings = new SyncFlowSettings(this.sdkConfiguration);
+        this.integrations = new Integrations(this.sdkConfiguration);
     }
 }
