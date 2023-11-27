@@ -3,10 +3,10 @@
  */
 
 import * as utils from "../internal/utils";
+import * as shared from "../sdk/models/shared";
 import { Companies } from "./companies";
 import { Connections } from "./connections";
 import { Integrations } from "./integrations";
-import * as shared from "./models/shared";
 import { PushData } from "./pushdata";
 import { RefreshData } from "./refreshdata";
 import { Settings } from "./settings";
@@ -61,9 +61,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "3.0.0";
-    sdkVersion = "1.2.0";
-    genVersion = "2.159.2";
-    userAgent = "speakeasy-sdk/typescript 1.2.0 2.159.2 3.0.0 @codat/platform";
+    sdkVersion = "2.0.0";
+    genVersion = "2.195.2";
+    userAgent = "speakeasy-sdk/typescript 2.0.0 2.195.2 3.0.0 @codat/platform";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -84,6 +84,10 @@ export class SDKConfiguration {
  */
 export class CodatPlatform {
     /**
+     * Manage your Codat instance.
+     */
+    public settings: Settings;
+    /**
      * Create and manage your Codat companies.
      */
     public companies: Companies;
@@ -91,10 +95,6 @@ export class CodatPlatform {
      * Manage your companies' data connections.
      */
     public connections: Connections;
-    /**
-     * View and manage your available integrations in Codat.
-     */
-    public integrations: Integrations;
     /**
      * View push options and get push statuses.
      */
@@ -104,9 +104,9 @@ export class CodatPlatform {
      */
     public refreshData: RefreshData;
     /**
-     * Manage your Codat instance.
+     * View and manage your available integrations in Codat.
      */
-    public settings: Settings;
+    public integrations: Integrations;
     /**
      * View and configure supplemental data for supported data types.
      */
@@ -126,7 +126,7 @@ export class CodatPlatform {
             serverURL = ServerList[serverIdx];
         }
 
-        const defaultClient = props?.defaultClient ?? axios.create({ baseURL: serverURL });
+        const defaultClient = props?.defaultClient ?? axios.create();
         this.sdkConfiguration = new SDKConfiguration({
             defaultClient: defaultClient,
             security: props?.security,
@@ -134,12 +134,12 @@ export class CodatPlatform {
             retryConfig: props?.retryConfig,
         });
 
+        this.settings = new Settings(this.sdkConfiguration);
         this.companies = new Companies(this.sdkConfiguration);
         this.connections = new Connections(this.sdkConfiguration);
-        this.integrations = new Integrations(this.sdkConfiguration);
         this.pushData = new PushData(this.sdkConfiguration);
         this.refreshData = new RefreshData(this.sdkConfiguration);
-        this.settings = new Settings(this.sdkConfiguration);
+        this.integrations = new Integrations(this.sdkConfiguration);
         this.supplementalData = new SupplementalData(this.sdkConfiguration);
         this.webhooks = new Webhooks(this.sdkConfiguration);
     }

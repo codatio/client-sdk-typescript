@@ -60,6 +60,7 @@ export * from "./pushoptionchoice";
 export * from "./pushoptionproperty";
 export * from "./pushoptiontype";
 export * from "./pushvalidationinfo";
+export * from "./schemadatatype";
 export * from "./security";
 export * from "./sourcetype";
 export * from "./supplementaldataconfiguration";
