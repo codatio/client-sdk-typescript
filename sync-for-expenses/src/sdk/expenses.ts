@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -24,7 +24,21 @@ export class Expenses {
      * Create expense transaction
      *
      * @remarks
-     * Create an expense transaction
+     * The *Create expense* endpoint creates an [expense transaction](https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction) in the accounting platform for a given company's connection.
+     *
+     * [Expense transactions](https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction) represent transactions made with a company debit or credit card.
+     *
+     *
+     * **Integration-specific behaviour**
+     *
+     * Some accounting platforms support the option of pushing transactions to a draft state. This can be done by setting the postAsDraft property on the transaction to true. For platforms without this feature, the postAsDraft property should be ignored or set to false.
+     *
+     * | Integration | Draft State | Details                                                                                                      |
+     * |-------------|-------------|--------------------------------------------------------------------------------------------------------------|
+     * | Dynamics 365 Business Central | Yes   | Setting postAsDraft to true will push the transactions to a drafted state rather than posting directly to the ledger. For transactions in a draft state, they can then be approved and posted within the accounting platform. |
+     * | Quickbooks Online | No | -  |
+     * | Xero | No | - |
+     * | NetSuite | No | - |
      */
     async create(
         req: operations.CreateExpenseTransactionRequest,
@@ -39,7 +53,7 @@ export class Expenses {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/companies/{companyId}/sync/expenses/data/expense-transactions",
             req
@@ -92,7 +106,7 @@ export class Expenses {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "post",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -101,7 +115,7 @@ export class Expenses {
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -110,35 +124,35 @@ export class Expenses {
         const res: operations.CreateExpenseTransactionResponse =
             new operations.CreateExpenseTransactionResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.createExpenseResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.CreateExpenseResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
                     );
                 }
                 break;
-            case [400, 401, 404, 429].includes(httpRes?.status):
-                if (utils.matchContentType(contentType, `application/json`)) {
+            case [400, 401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.ErrorMessage
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -154,7 +168,14 @@ export class Expenses {
      * Update expense-transactions
      *
      * @remarks
-     * Update an expense transaction
+     * The *Update expense* endpoint updates an existing [expense transaction](https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction) in the accounting platform for a given company's connection.
+     *
+     * [Expense transactions](https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction) represent transactions made with a company debit or credit card.
+     *
+     *
+     * **Integration-specific behaviour**
+     *
+     * At the moment you can update expenses only for Xero ([Payment](https://docs.codat.io/expenses/sync-process/expense-transactions#transaction-types) transaction type only).
      */
     async update(
         req: operations.UpdateExpenseTransactionRequest,
@@ -169,7 +190,7 @@ export class Expenses {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/companies/{companyId}/sync/expenses/expense-transactions/{transactionId}",
             req
@@ -222,7 +243,7 @@ export class Expenses {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "put",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -231,7 +252,7 @@ export class Expenses {
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -240,35 +261,35 @@ export class Expenses {
         const res: operations.UpdateExpenseTransactionResponse =
             new operations.UpdateExpenseTransactionResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 202:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.updateExpenseResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.UpdateExpenseResponse
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
                     );
                 }
                 break;
-            case [400, 401, 404, 422, 429].includes(httpRes?.status):
-                if (utils.matchContentType(contentType, `application/json`)) {
+            case [400, 401, 402, 403, 404, 422, 429, 500, 503].includes(httpRes?.status):
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.ErrorMessage
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -284,7 +305,19 @@ export class Expenses {
      * Upload attachment
      *
      * @remarks
-     * Creates an attachment in the accounting software against the given transactionId
+     * The *Upload attachment* endpoint uploads an attachment in the accounting software against the given transactionId.
+     *
+     * [Expense transactions](https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction) represent transactions made with a company debit or credit card.
+     *
+     * **Integration-specific behaviour**
+     *
+     * Each accounting software supports different file formats and sizes.
+     *
+     * | Integration | File Size | File Extension                                                                                                      |
+     * |-------------|-------------|--------------------------------------------------------------------------------------------------------------|
+     * | Xero | 4MB  | 7Z, BMP, CSV, DOC, DOCX, EML, GIF, JPEG, JPG, KEYNOTE, MSG, NUMBERS, ODF, ODS, ODT, PAGES, PDF, PNG, PPT, PPTX, RAR, RTF, TIF, TIFF, TXT, XLS, XLSX, ZIP |
+     * | QuickBooks Online | 100MB | AI, CSV, DOC, DOCX, EPS, GIF, JPEG, JPG, ODS, PAGES, PDF, PNG, RTF, TIF, TXT, XLS, XLSX, XML  |
+     * | NetSuite | 100MB | BMP, CSV, XLS, XLSX, JSON, PDF, PJPG, PJPEG, PNG, TXT, SVG, TIF, TIFF, DOC, DOCX, ZIP |
      */
     async uploadAttachment(
         req: operations.UploadExpenseAttachmentRequest,
@@ -299,7 +332,7 @@ export class Expenses {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/companies/{companyId}/sync/expenses/syncs/{syncId}/transactions/{transactionId}/attachments",
             req
@@ -348,7 +381,7 @@ export class Expenses {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "post",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -357,7 +390,7 @@ export class Expenses {
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -366,32 +399,32 @@ export class Expenses {
         const res: operations.UploadExpenseAttachmentResponse =
             new operations.UploadExpenseAttachmentResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.attachment = utils.objectToClass(JSON.parse(decodedRes), shared.Attachment);
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
                     );
                 }
                 break;
-            case [400, 401, 404, 429].includes(httpRes?.status):
-                if (utils.matchContentType(contentType, `application/json`)) {
+            case [400, 401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.ErrorMessage
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes

@@ -13,13 +13,27 @@ Create expense datasets and upload receipts.
 
 ## create
 
-Create an expense transaction
+The *Create expense* endpoint creates an [expense transaction](https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction) in the accounting platform for a given company's connection. 
+
+[Expense transactions](https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction) represent transactions made with a company debit or credit card. 
+
+
+**Integration-specific behaviour**
+
+Some accounting platforms support the option of pushing transactions to a draft state. This can be done by setting the postAsDraft property on the transaction to true. For platforms without this feature, the postAsDraft property should be ignored or set to false.
+
+| Integration | Draft State | Details                                                                                                      |  
+|-------------|-------------|--------------------------------------------------------------------------------------------------------------|
+| Dynamics 365 Business Central | Yes   | Setting postAsDraft to true will push the transactions to a drafted state rather than posting directly to the ledger. For transactions in a draft state, they can then be approved and posted within the accounting platform. |
+| Quickbooks Online | No | -  |
+| Xero | No | - |
+| NetSuite | No | - |
 
 ### Example Usage
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { ContactRefType, ExpenseTransactionType } from "@codat/sync-for-expenses/dist/sdk/models/shared";
+import { ExpenseTransactionType, TypeT } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new CodatSyncExpenses({
@@ -37,7 +51,7 @@ import { ContactRefType, ExpenseTransactionType } from "@codat/sync-for-expenses
           },
           contactRef: {
             id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-            type: ContactRefType.Supplier,
+            type: TypeT.Supplier,
           },
           currency: "GBP",
           id: "4d7c6929-7770-412b-91bb-44d3bc71d111",
@@ -76,27 +90,38 @@ import { ContactRefType, ExpenseTransactionType } from "@codat/sync-for-expenses
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                | [operations.CreateExpenseTransactionRequest](../../models/operations/createexpensetransactionrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
-| `retries`                                                                                                | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                   | :heavy_minus_sign:                                                                                       | Configuration to override the default retry behavior of the client.                                      |
-| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
+| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                    | [operations.CreateExpenseTransactionRequest](../../sdk/models/operations/createexpensetransactionrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
+| `retries`                                                                                                    | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                     | :heavy_minus_sign:                                                                                           | Configuration to override the default retry behavior of the client.                                          |
+| `config`                                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                 | :heavy_minus_sign:                                                                                           | Available config options for making requests.                                                                |
 
 
 ### Response
 
-**Promise<[operations.CreateExpenseTransactionResponse](../../models/operations/createexpensetransactionresponse.md)>**
+**Promise<[operations.CreateExpenseTransactionResponse](../../sdk/models/operations/createexpensetransactionresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## update
 
-Update an expense transaction
+The *Update expense* endpoint updates an existing [expense transaction](https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction) in the accounting platform for a given company's connection. 
+
+[Expense transactions](https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction) represent transactions made with a company debit or credit card. 
+
+
+**Integration-specific behaviour**
+
+At the moment you can update expenses only for Xero ([Payment](https://docs.codat.io/expenses/sync-process/expense-transactions#transaction-types) transaction type only).
 
 ### Example Usage
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { ContactRefType } from "@codat/sync-for-expenses/dist/sdk/models/shared";
+import { TypeT } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new CodatSyncExpenses({
@@ -112,7 +137,7 @@ import { ContactRefType } from "@codat/sync-for-expenses/dist/sdk/models/shared"
       },
       contactRef: {
         id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-        type: ContactRefType.Supplier,
+        type: TypeT.Supplier,
       },
       currency: "GBP",
       issueDate: "2022-06-28T00:00:00.000Z",
@@ -135,7 +160,7 @@ import { ContactRefType } from "@codat/sync-for-expenses/dist/sdk/models/shared"
       ],
       merchantName: "Amazon UK",
       notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-      type: "Van",
+      type: "string",
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
@@ -149,21 +174,37 @@ import { ContactRefType } from "@codat/sync-for-expenses/dist/sdk/models/shared"
 
 ### Parameters
 
-| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
-| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                | [operations.UpdateExpenseTransactionRequest](../../models/operations/updateexpensetransactionrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
-| `retries`                                                                                                | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                   | :heavy_minus_sign:                                                                                       | Configuration to override the default retry behavior of the client.                                      |
-| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
+| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                    | [operations.UpdateExpenseTransactionRequest](../../sdk/models/operations/updateexpensetransactionrequest.md) | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
+| `retries`                                                                                                    | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                     | :heavy_minus_sign:                                                                                           | Configuration to override the default retry behavior of the client.                                          |
+| `config`                                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                 | :heavy_minus_sign:                                                                                           | Available config options for making requests.                                                                |
 
 
 ### Response
 
-**Promise<[operations.UpdateExpenseTransactionResponse](../../models/operations/updateexpensetransactionresponse.md)>**
+**Promise<[operations.UpdateExpenseTransactionResponse](../../sdk/models/operations/updateexpensetransactionresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## uploadAttachment
 
-Creates an attachment in the accounting software against the given transactionId
+The *Upload attachment* endpoint uploads an attachment in the accounting software against the given transactionId. 
+
+[Expense transactions](https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction) represent transactions made with a company debit or credit card. 
+
+**Integration-specific behaviour**
+
+Each accounting software supports different file formats and sizes.
+
+| Integration | File Size | File Extension                                                                                                      |  
+|-------------|-------------|--------------------------------------------------------------------------------------------------------------|
+| Xero | 4MB  | 7Z, BMP, CSV, DOC, DOCX, EML, GIF, JPEG, JPG, KEYNOTE, MSG, NUMBERS, ODF, ODS, ODT, PAGES, PDF, PNG, PPT, PPTX, RAR, RTF, TIF, TIFF, TXT, XLS, XLSX, ZIP |
+| QuickBooks Online | 100MB | AI, CSV, DOC, DOCX, EPS, GIF, JPEG, JPG, ODS, PAGES, PDF, PNG, RTF, TIF, TXT, XLS, XLSX, XML  |
+| NetSuite | 100MB | BMP, CSV, XLS, XLSX, JSON, PDF, PJPG, PJPEG, PNG, TXT, SVG, TIF, TIFF, DOC, DOCX, ZIP |
 
 ### Example Usage
 
@@ -179,8 +220,8 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
   const res = await sdk.expenses.uploadAttachment({
     requestBody: {
-      content: "v/ghW&IC$x" as bytes <<<>>>,
-      requestBody: "Elegant Producer Electric",
+      content: new TextEncoder().encode("0xE3ABc1980E"),
+      fileName: "elegant_producer_electric.jpeg",
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
@@ -195,14 +236,18 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                              | [operations.UploadExpenseAttachmentRequest](../../models/operations/uploadexpenseattachmentrequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `retries`                                                                                              | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                 | :heavy_minus_sign:                                                                                     | Configuration to override the default retry behavior of the client.                                    |
-| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
+| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                  | [operations.UploadExpenseAttachmentRequest](../../sdk/models/operations/uploadexpenseattachmentrequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
+| `retries`                                                                                                  | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                   | :heavy_minus_sign:                                                                                         | Configuration to override the default retry behavior of the client.                                        |
+| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
 
 
 ### Response
 
-**Promise<[operations.UploadExpenseAttachmentResponse](../../models/operations/uploadexpenseattachmentresponse.md)>**
+**Promise<[operations.UploadExpenseAttachmentResponse](../../sdk/models/operations/uploadexpenseattachmentresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

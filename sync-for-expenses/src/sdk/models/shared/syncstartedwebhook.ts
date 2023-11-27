@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Type } from "class-transformer";
 
-export class SyncStartedWebhookData extends SpeakeasyBase {
+export class Data extends SpeakeasyBase {
     /**
      * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
      *
@@ -109,8 +109,8 @@ export class SyncStartedWebhook extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "Data" })
-    @Type(() => SyncStartedWebhookData)
-    data?: SyncStartedWebhookData;
+    @Type(() => Data)
+    data?: Data;
 
     /**
      * A human readable message about the webhook.

@@ -5,6 +5,7 @@
 export * from "./account";
 export * from "./accountingaddresstype";
 export * from "./accountmappinginfo";
+export * from "./accountprototype";
 export * from "./accountstatus";
 export * from "./accounttype";
 export * from "./attachment";
@@ -61,6 +62,7 @@ export * from "./pushoptionproperty";
 export * from "./pushoptiontype";
 export * from "./pushvalidationinfo";
 export * from "./recordref";
+export * from "./schemadatatype";
 export * from "./security";
 export * from "./supplementaldata";
 export * from "./supplier";
