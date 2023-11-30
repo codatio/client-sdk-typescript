@@ -334,4 +334,3 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
 })();
 
 ```
-<!-- End Authentication -->
