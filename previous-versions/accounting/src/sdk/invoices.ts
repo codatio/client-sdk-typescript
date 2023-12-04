@@ -490,7 +490,7 @@ export class Invoices {
             });
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/octet-stream`)) {
+                if (utils.matchContentType(contentType, `application/pdf`)) {
                     res.data = httpRes?.data;
                 } else {
                     throw new errors.SDKError(
