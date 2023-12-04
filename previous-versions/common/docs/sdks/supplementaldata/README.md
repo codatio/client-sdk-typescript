@@ -25,7 +25,7 @@ See the *examples* for integration-specific frequently requested properties.
 import { CodatCommon } from "@codat/common";
 import { DataType } from "@codat/common/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -52,7 +52,9 @@ import { DataType } from "@codat/common/dist/sdk/models/operations";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -85,7 +87,7 @@ The *Get configuration* endpoint returns supplemental data configuration previou
 import { CodatCommon } from "@codat/common";
 import { PathParamDataType } from "@codat/common/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -100,7 +102,9 @@ import { PathParamDataType } from "@codat/common/dist/sdk/models/operations";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

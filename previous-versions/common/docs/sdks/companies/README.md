@@ -26,7 +26,7 @@ If forbidden characters (see `name` pattern) are present in the request, a compa
 ```typescript
 import { CodatCommon } from "@codat/common";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -41,7 +41,9 @@ import { CodatCommon } from "@codat/common";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -72,7 +74,7 @@ Permanently deletes a company, its connections and any cached data. This operati
 ```typescript
 import { CodatCommon } from "@codat/common";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -86,7 +88,9 @@ import { CodatCommon } from "@codat/common";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -116,7 +120,7 @@ import { CodatCommon } from "@codat/common";
 ```typescript
 import { CodatCommon } from "@codat/common";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -130,7 +134,9 @@ import { CodatCommon } from "@codat/common";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -160,7 +166,7 @@ import { CodatCommon } from "@codat/common";
 ```typescript
 import { CodatCommon } from "@codat/common";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -176,7 +182,9 @@ import { CodatCommon } from "@codat/common";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -206,7 +214,7 @@ import { CodatCommon } from "@codat/common";
 ```typescript
 import { CodatCommon } from "@codat/common";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -224,7 +232,9 @@ import { CodatCommon } from "@codat/common";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

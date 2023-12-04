@@ -20,7 +20,7 @@ Create a new webhook configuration
 ```typescript
 import { CodatCommon } from "@codat/common";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -55,7 +55,9 @@ import { CodatCommon } from "@codat/common";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -85,7 +87,7 @@ Get a single webhook
 ```typescript
 import { CodatCommon } from "@codat/common";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -99,7 +101,9 @@ import { CodatCommon } from "@codat/common";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -129,7 +133,7 @@ List webhooks that you are subscribed to.
 ```typescript
 import { CodatCommon } from "@codat/common";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -145,7 +149,9 @@ import { CodatCommon } from "@codat/common";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

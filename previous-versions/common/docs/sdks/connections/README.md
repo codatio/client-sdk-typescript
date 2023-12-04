@@ -25,7 +25,7 @@ Use the [List Integrations](https://docs.codat.io/platform-api#/operations/list-
 ```typescript
 import { CodatCommon } from "@codat/common";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -42,7 +42,9 @@ import { CodatCommon } from "@codat/common";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -73,7 +75,7 @@ This operation is not reversible. The end user would need to reauthorize a new d
 ```typescript
 import { CodatCommon } from "@codat/common";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -88,7 +90,9 @@ import { CodatCommon } from "@codat/common";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -118,7 +122,7 @@ import { CodatCommon } from "@codat/common";
 ```typescript
 import { CodatCommon } from "@codat/common";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -133,7 +137,9 @@ import { CodatCommon } from "@codat/common";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -163,7 +169,7 @@ import { CodatCommon } from "@codat/common";
 ```typescript
 import { CodatCommon } from "@codat/common";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -180,7 +186,9 @@ import { CodatCommon } from "@codat/common";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -211,7 +219,7 @@ import { CodatCommon } from "@codat/common";
 import { CodatCommon } from "@codat/common";
 import { DataConnectionStatus } from "@codat/common/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -227,7 +235,9 @@ import { DataConnectionStatus } from "@codat/common/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -257,7 +267,7 @@ Update data connection's authorization.
 ```typescript
 import { CodatCommon } from "@codat/common";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -275,7 +285,9 @@ import { CodatCommon } from "@codat/common";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

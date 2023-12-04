@@ -1,8 +1,8 @@
-<!-- Start SDK Example Usage -->
+<!-- Start SDK Example Usage [usage] -->
 ```typescript
 import { CodatCommon } from "@codat/common";
 
-(async () => {
+async function run() {
     const sdk = new CodatCommon({
         security: {
             authHeader: "",
@@ -16,7 +16,9 @@ import { CodatCommon } from "@codat/common";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->

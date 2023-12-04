@@ -34,7 +34,7 @@ You can [read more](https://docs.codat.io/using-the-api/authentication) about au
 ```typescript
 import { CodatCommon } from "@codat/common";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -48,7 +48,9 @@ import { CodatCommon } from "@codat/common";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -87,7 +89,7 @@ You can [read more](https://docs.codat.io/using-the-api/authentication) about au
 ```typescript
 import { CodatCommon } from "@codat/common";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -101,7 +103,9 @@ import { CodatCommon } from "@codat/common";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -131,7 +135,7 @@ Fetch your Codat profile.
 ```typescript
 import { CodatCommon } from "@codat/common";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -143,7 +147,9 @@ import { CodatCommon } from "@codat/common";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -172,7 +178,7 @@ Retrieve the [sync settings](https://docs.codat.io/knowledge-base/advanced-sync-
 ```typescript
 import { CodatCommon } from "@codat/common";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -184,7 +190,9 @@ import { CodatCommon } from "@codat/common";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -217,7 +225,7 @@ You can [read more](https://docs.codat.io/using-the-api/authentication) about au
 ```typescript
 import { CodatCommon } from "@codat/common";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -229,7 +237,9 @@ import { CodatCommon } from "@codat/common";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -258,7 +268,7 @@ Update your Codat profile
 ```typescript
 import { CodatCommon } from "@codat/common";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -303,7 +313,9 @@ import { CodatCommon } from "@codat/common";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -334,7 +346,7 @@ Update sync settings for all data types.
 import { CodatCommon } from "@codat/common";
 import { DataType } from "@codat/common/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -359,7 +371,9 @@ import { DataType } from "@codat/common/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

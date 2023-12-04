@@ -20,7 +20,7 @@ Get single integration, by platformKey
 ```typescript
 import { CodatCommon } from "@codat/common";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -34,7 +34,9 @@ import { CodatCommon } from "@codat/common";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -64,7 +66,7 @@ Get branding for platform.
 ```typescript
 import { CodatCommon } from "@codat/common";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -78,7 +80,9 @@ import { CodatCommon } from "@codat/common";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -108,7 +112,7 @@ List your available integrations
 ```typescript
 import { CodatCommon } from "@codat/common";
 
-(async() => {
+async function run() {
   const sdk = new CodatCommon({
     security: {
       authHeader: "",
@@ -124,7 +128,9 @@ import { CodatCommon } from "@codat/common";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
