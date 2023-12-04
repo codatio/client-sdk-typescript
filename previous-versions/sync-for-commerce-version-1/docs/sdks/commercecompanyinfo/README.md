@@ -20,7 +20,7 @@ This may include information like addresses, tax registration details and social
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncCommerce({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -35,7 +35,9 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

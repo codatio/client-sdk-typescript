@@ -26,7 +26,7 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncCommerce({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -40,7 +40,9 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -73,7 +75,7 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
 import { SchemaDataType } from "@codat/sync-for-commerce-version-1/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncCommerce({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -88,7 +90,9 @@ import { SchemaDataType } from "@codat/sync-for-commerce-version-1/dist/sdk/mode
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -118,7 +122,7 @@ Get the state of each data type for a company
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncCommerce({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -132,7 +136,9 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -162,7 +168,7 @@ Retrieve information about a single dataset or pull operation.
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncCommerce({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -177,7 +183,9 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -207,7 +215,7 @@ Gets the pull operation history (datasets) for a given company.
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncCommerce({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -224,7 +232,9 @@ import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

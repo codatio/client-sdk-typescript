@@ -258,7 +258,6 @@ src/sdk/models/shared/security.ts
 src/sdk/models/errors/index.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/index.ts
-USAGE.md
 docs/sdk/models/operations/getconfigtextsyncflowresponse.md
 docs/sdk/models/operations/getsyncflowurlrequest.md
 docs/sdk/models/operations/getsyncflowurlresponse.md
@@ -586,4 +585,5 @@ docs/sdks/sync/README.md
 docs/sdks/configuration/README.md
 docs/sdks/integrations/README.md
 docs/sdks/companymanagement/README.md
+USAGE.md
 .gitattributes
