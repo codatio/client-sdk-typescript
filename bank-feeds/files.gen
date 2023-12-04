@@ -83,7 +83,6 @@ src/sdk/models/errors/index.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/index.ts
 src/sdk/models/webhooks/index.ts
-USAGE.md
 docs/sdk/models/operations/createcompanyresponse.md
 docs/sdk/models/operations/deletecompanyrequest.md
 docs/sdk/models/operations/deletecompanyresponse.md
@@ -171,4 +170,5 @@ docs/sdks/connections/README.md
 docs/sdks/accountmapping/README.md
 docs/sdks/sourceaccounts/README.md
 docs/sdks/transactions/README.md
+USAGE.md
 .gitattributes

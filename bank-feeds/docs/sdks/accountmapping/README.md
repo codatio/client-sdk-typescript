@@ -25,7 +25,7 @@ This endpoint is only needed if building an account management UI.
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
-(async() => {
+async function run() {
   const sdk = new CodatBankFeeds({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -43,7 +43,9 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -77,7 +79,7 @@ This endpoint is only needed if building an account management UI.
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
-(async() => {
+async function run() {
   const sdk = new CodatBankFeeds({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -92,7 +94,9 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
