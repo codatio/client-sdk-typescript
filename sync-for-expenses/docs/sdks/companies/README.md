@@ -26,7 +26,7 @@ If forbidden characters (see `name` pattern) are present in the request, a compa
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncExpenses({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -41,7 +41,9 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -72,7 +74,7 @@ Permanently deletes a company, its connections and any cached data. This operati
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncExpenses({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -86,7 +88,9 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -116,7 +120,7 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncExpenses({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -130,7 +134,9 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -160,7 +166,7 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncExpenses({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -176,7 +182,9 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -206,7 +214,7 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncExpenses({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -224,7 +232,9 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

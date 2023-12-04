@@ -35,7 +35,7 @@ Some accounting platforms support the option of pushing transactions to a draft 
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 import { ExpenseTransactionType, TypeT } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncExpenses({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -85,7 +85,9 @@ import { ExpenseTransactionType, TypeT } from "@codat/sync-for-expenses/dist/sdk
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -123,7 +125,7 @@ At the moment you can update expenses only for Xero ([Payment](https://docs.coda
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 import { TypeT } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncExpenses({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -169,7 +171,9 @@ import { TypeT } from "@codat/sync-for-expenses/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -211,7 +215,7 @@ Each accounting software supports different file formats and sizes.
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncExpenses({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -231,7 +235,9 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

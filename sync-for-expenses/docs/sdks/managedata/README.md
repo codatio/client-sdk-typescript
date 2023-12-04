@@ -22,7 +22,7 @@ Get the state of each data type for a company
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncExpenses({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -36,7 +36,9 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -66,7 +68,7 @@ Retrieve information about a single dataset or pull operation.
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncExpenses({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -81,7 +83,9 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -111,7 +115,7 @@ Gets the pull operation history (datasets) for a given company.
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncExpenses({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -128,7 +132,9 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -162,7 +168,7 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncExpenses({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -176,7 +182,9 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -209,7 +217,7 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 import { SchemaDataType } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncExpenses({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -224,7 +232,9 @@ import { SchemaDataType } from "@codat/sync-for-expenses/dist/sdk/models/shared"
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

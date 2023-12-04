@@ -20,7 +20,7 @@ Gets a companies expense sync configuration
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncExpenses({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -34,7 +34,9 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -64,7 +66,7 @@ Gets the expense mapping options for a companies accounting software
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncExpenses({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -78,7 +80,9 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -108,7 +112,7 @@ Sets a companies expense sync configuration
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncExpenses({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -129,7 +133,9 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

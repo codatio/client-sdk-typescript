@@ -31,7 +31,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 import { AccountingAddressType, CustomerStatus, PhoneNumberType } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncExpenses({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -80,7 +80,9 @@ import { AccountingAddressType, CustomerStatus, PhoneNumberType } from "@codat/s
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -117,7 +119,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncExpenses({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -132,7 +134,9 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -167,7 +171,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncExpenses({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -184,7 +188,9 @@ import { CodatSyncExpenses } from "@codat/sync-for-expenses";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -224,7 +230,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 import { AccountingAddressType, CustomerStatus, PhoneNumberType } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncExpenses({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -274,7 +280,9 @@ import { AccountingAddressType, CustomerStatus, PhoneNumberType } from "@codat/s
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
