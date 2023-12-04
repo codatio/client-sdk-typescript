@@ -19,7 +19,7 @@ Retrieve push operation.
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncPayables({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -34,7 +34,9 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -64,7 +66,7 @@ List push operation records.
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncPayables({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -81,7 +83,9 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

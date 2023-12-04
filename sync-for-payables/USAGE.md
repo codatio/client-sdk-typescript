@@ -1,8 +1,8 @@
-<!-- Start SDK Example Usage -->
+<!-- Start SDK Example Usage [usage] -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
-(async () => {
+async function run() {
     const sdk = new CodatSyncPayables({
         security: {
             authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -17,7 +17,9 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->

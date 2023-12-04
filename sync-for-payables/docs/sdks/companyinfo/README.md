@@ -18,7 +18,7 @@ Gets the latest basic info for a company.
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncPayables({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -32,7 +32,9 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

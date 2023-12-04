@@ -26,7 +26,7 @@ If forbidden characters (see `name` pattern) are present in the request, a compa
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncPayables({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -41,7 +41,9 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -72,7 +74,7 @@ Permanently deletes a company, its connections and any cached data. This operati
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncPayables({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -86,7 +88,9 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -116,7 +120,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncPayables({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -130,7 +134,9 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -160,7 +166,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncPayables({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -176,7 +182,9 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -206,7 +214,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncPayables({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -224,7 +232,9 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

@@ -4,7 +4,7 @@
 Streamline your customers' accounts payable workflow.
 <!-- End Codat Library Description -->
 
-<!-- Start SDK Installation -->
+<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 ### NPM
@@ -18,16 +18,18 @@ npm add @codat/sync-for-payables
 ```bash
 yarn add @codat/sync-for-payables
 ```
-<!-- End SDK Installation -->
+<!-- End SDK Installation [installation] -->
 
 ## Example Usage
-<!-- Start SDK Example Usage -->
+<!-- Start SDK Example Usage [usage] -->
+## SDK Example Usage
+
 ### Example
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
-(async () => {
+async function run() {
     const sdk = new CodatSyncPayables({
         security: {
             authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -42,14 +44,15 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
 
-<!-- Start SDK Available Operations -->
+<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
-
 
 ### [companies](docs/sdks/companies/README.md)
 
@@ -155,31 +158,15 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
 
 * [get](docs/sdks/pushoperations/README.md#get) - Get push operation
 * [list](docs/sdks/pushoperations/README.md#list) - List push operations
-<!-- End SDK Available Operations -->
+<!-- End Available Resources and Operations [operations] -->
 
 
 
-<!-- Start Dev Containers -->
-
-<!-- End Dev Containers -->
 
 
 
-<!-- Start Pagination -->
-# Pagination
 
-Some of the endpoints in this SDK support pagination. To use pagination, you make your SDK calls as usual, but the
-returned response object will have a `next` method that can be called to pull down the next group of results. If the
-return value of `next` is `null`, then there are no more pages to be fetched.
-
-Here's an example of one such pagination call:
-
-
-<!-- End Pagination -->
-
-
-
-<!-- Start Retries -->
+<!-- Start Retries [retries] -->
 ## Retries
 
 Some of the endpoints in this SDK support retries.  If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API.  However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
@@ -188,7 +175,7 @@ To change the default retry strategy for a single API call, simply provide a ret
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
-(async () => {
+async function run() {
     const sdk = new CodatSyncPayables({
         security: {
             authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -215,7 +202,9 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
 
@@ -223,7 +212,7 @@ If you'd like to override the default retry strategy for all operations that sup
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
-(async () => {
+async function run() {
     const sdk = new CodatSyncPayables({
         retry_config: {
             strategy: "backoff",
@@ -248,14 +237,16 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End Retries -->
+<!-- End Retries [retries] -->
 
 
 
-<!-- Start Error Handling -->
+<!-- Start Error Handling [errors] -->
 ## Error Handling
 
 Handling errors in this SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
@@ -269,7 +260,7 @@ Example
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
-(async () => {
+async function run() {
     const sdk = new CodatSyncPayables({
         security: {
             authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -282,19 +273,26 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
             description: "Requested early access to the new financing scheme.",
             name: "Bank of Dave",
         });
-    } catch (e) {}
+    } catch (err) {
+        if (err instanceof errors.SDKError) {
+            console.error(err); // handle exception
+            throw err;
+        }
+    }
 
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End Error Handling -->
+<!-- End Error Handling [errors] -->
 
 
 
-<!-- Start Server Selection -->
+<!-- Start Server Selection [server] -->
 ## Server Selection
 
 ### Select Server by Index
@@ -310,7 +308,7 @@ You can override the default server globally by passing a server index to the `s
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
-(async () => {
+async function run() {
     const sdk = new CodatSyncPayables({
         serverIdx: 0,
         security: {
@@ -326,7 +324,9 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
 
@@ -337,7 +337,7 @@ The default server can also be overridden globally by passing a URL to the `serv
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
-(async () => {
+async function run() {
     const sdk = new CodatSyncPayables({
         serverURL: "https://api.codat.io",
         security: {
@@ -353,23 +353,25 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End Server Selection -->
+<!-- End Server Selection [server] -->
 
 
 
-<!-- Start Custom HTTP Client -->
+<!-- Start Custom HTTP Client [http-client] -->
 ## Custom HTTP Client
 
-The Typescript SDK makes API calls using the (axios)[https://axios-http.com/docs/intro] HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `AxiosInstance` object.
+The Typescript SDK makes API calls using the [axios](https://axios-http.com/docs/intro) HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `AxiosInstance` object.
 
 For example, you could specify a header for every request that your sdk makes as follows:
 
 ```typescript
-from @codat/sync-for-payables import CodatSyncPayables;
-import axios;
+import { @codat/sync-for-payables } from "CodatSyncPayables";
+import axios from "axios";
 
 const httpClient = axios.create({
     headers: {'x-custom-header': 'someValue'}
@@ -377,12 +379,11 @@ const httpClient = axios.create({
 
 const sdk = new CodatSyncPayables({defaultClient: httpClient});
 ```
-<!-- End Custom HTTP Client -->
+<!-- End Custom HTTP Client [http-client] -->
 
 
 
-<!-- Start Authentication -->
-
+<!-- Start Authentication [security] -->
 ## Authentication
 
 ### Per-Client Security Schemes
@@ -397,7 +398,7 @@ You can set the security parameters through the `security` optional parameter wh
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
-(async () => {
+async function run() {
     const sdk = new CodatSyncPayables({
         security: {
             authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -412,10 +413,12 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End Authentication -->
+<!-- End Authentication [security] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

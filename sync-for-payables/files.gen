@@ -205,7 +205,6 @@ src/sdk/models/errors/index.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/index.ts
 src/sdk/models/webhooks/index.ts
-USAGE.md
 docs/sdk/models/operations/createcompanyresponse.md
 docs/sdk/models/operations/deletecompanyrequest.md
 docs/sdk/models/operations/deletecompanyresponse.md
@@ -475,4 +474,5 @@ docs/sdks/paymentmethods/README.md
 docs/sdks/taxrates/README.md
 docs/sdks/trackingcategories/README.md
 docs/sdks/pushoperations/README.md
+USAGE.md
 .gitattributes

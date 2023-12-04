@@ -24,7 +24,7 @@ Use the [List Integrations](https://docs.codat.io/sync-for-payables-api#/operati
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncPayables({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -41,7 +41,9 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -72,7 +74,7 @@ This operation is not reversible. The end user would need to reauthorize a new d
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncPayables({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -87,7 +89,9 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -117,7 +121,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncPayables({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -132,7 +136,9 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -162,7 +168,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncPayables({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -179,7 +185,9 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -210,7 +218,7 @@ import { CodatSyncPayables } from "@codat/sync-for-payables";
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 import { DataConnectionStatus } from "@codat/sync-for-payables/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncPayables({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -226,7 +234,9 @@ import { DataConnectionStatus } from "@codat/sync-for-payables/dist/sdk/models/s
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
