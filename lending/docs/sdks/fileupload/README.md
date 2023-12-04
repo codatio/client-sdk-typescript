@@ -20,7 +20,7 @@ The *Download files* endpoint downloads all files that have  been uploaded by to
 ```typescript
 import { CodatLending } from "@codat/lending";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -35,7 +35,9 @@ import { CodatLending } from "@codat/lending";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -65,7 +67,7 @@ import { CodatLending } from "@codat/lending";
 ```typescript
 import { CodatLending } from "@codat/lending";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -79,7 +81,9 @@ import { CodatLending } from "@codat/lending";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -115,7 +119,7 @@ Uploaded files must meet the following requirements:
 ```typescript
 import { CodatLending } from "@codat/lending";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -134,7 +138,9 @@ import { CodatLending } from "@codat/lending";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

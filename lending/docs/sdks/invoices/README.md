@@ -25,7 +25,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatLending } from "@codat/lending";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -42,7 +42,9 @@ import { CodatLending } from "@codat/lending";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -72,7 +74,7 @@ import { CodatLending } from "@codat/lending";
 ```typescript
 import { CodatLending } from "@codat/lending";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -87,7 +89,9 @@ import { CodatLending } from "@codat/lending";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -123,7 +127,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatLending } from "@codat/lending";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -138,7 +142,9 @@ import { CodatLending } from "@codat/lending";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -173,7 +179,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatLending } from "@codat/lending";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -190,7 +196,9 @@ import { CodatLending } from "@codat/lending";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -231,7 +239,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatLending } from "@codat/lending";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -248,7 +256,9 @@ import { CodatLending } from "@codat/lending";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -283,7 +293,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatLending } from "@codat/lending";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -299,7 +309,9 @@ import { CodatLending } from "@codat/lending";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -329,7 +341,7 @@ Gets a list of invoices linked to the corresponding banking transaction
 ```typescript
 import { CodatLending } from "@codat/lending";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -345,7 +357,9 @@ import { CodatLending } from "@codat/lending";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

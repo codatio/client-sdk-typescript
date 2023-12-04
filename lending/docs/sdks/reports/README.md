@@ -18,7 +18,7 @@ Returns aged creditors report for company that shows the total balance owed by a
 import { CodatLending } from "@codat/lending";
 import { RFCDate } from "@codat/lending/dist/sdk/types";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -35,7 +35,9 @@ import { RFCDate } from "@codat/lending/dist/sdk/types";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -66,7 +68,7 @@ Returns aged debtors report for company that shows the total outstanding balance
 import { CodatLending } from "@codat/lending";
 import { RFCDate } from "@codat/lending/dist/sdk/types";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -83,7 +85,9 @@ import { RFCDate } from "@codat/lending/dist/sdk/types";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -113,7 +117,7 @@ Indicates whether the aged creditor report is available for the company.
 ```typescript
 import { CodatLending } from "@codat/lending";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -127,7 +131,9 @@ import { CodatLending } from "@codat/lending";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -157,7 +163,7 @@ Indicates whether the aged debtors report is available for the company.
 ```typescript
 import { CodatLending } from "@codat/lending";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -171,7 +177,9 @@ import { CodatLending } from "@codat/lending";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

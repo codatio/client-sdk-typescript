@@ -24,7 +24,7 @@ Use the [List Integrations](https://docs.codat.io/lending-api#/operations/list-i
 ```typescript
 import { CodatLending } from "@codat/lending";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -41,7 +41,9 @@ import { CodatLending } from "@codat/lending";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -72,7 +74,7 @@ This operation is not reversible. The end user would need to reauthorize a new d
 ```typescript
 import { CodatLending } from "@codat/lending";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -87,7 +89,9 @@ import { CodatLending } from "@codat/lending";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -117,7 +121,7 @@ import { CodatLending } from "@codat/lending";
 ```typescript
 import { CodatLending } from "@codat/lending";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -132,7 +136,9 @@ import { CodatLending } from "@codat/lending";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -162,7 +168,7 @@ import { CodatLending } from "@codat/lending";
 ```typescript
 import { CodatLending } from "@codat/lending";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -179,7 +185,9 @@ import { CodatLending } from "@codat/lending";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -210,7 +218,7 @@ import { CodatLending } from "@codat/lending";
 import { CodatLending } from "@codat/lending";
 import { DataConnectionStatus } from "@codat/lending/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -226,7 +234,9 @@ import { DataConnectionStatus } from "@codat/lending/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

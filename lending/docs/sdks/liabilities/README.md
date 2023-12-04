@@ -27,7 +27,7 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 import { CodatLending } from "@codat/lending";
 import { SourceType } from "@codat/lending/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -42,7 +42,9 @@ import { SourceType } from "@codat/lending/dist/sdk/models/operations";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -78,7 +80,7 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 import { CodatLending } from "@codat/lending";
 import { QueryParamSourceType } from "@codat/lending/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -93,7 +95,9 @@ import { QueryParamSourceType } from "@codat/lending/dist/sdk/models/operations"
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -129,7 +133,7 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 import { CodatLending } from "@codat/lending";
 import { GetLoanSummaryQueryParamSourceType } from "@codat/lending/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -144,7 +148,9 @@ import { GetLoanSummaryQueryParamSourceType } from "@codat/lending/dist/sdk/mode
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -180,7 +186,7 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 import { CodatLending } from "@codat/lending";
 import { ListLoanTransactionsQueryParamSourceType } from "@codat/lending/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -195,7 +201,9 @@ import { ListLoanTransactionsQueryParamSourceType } from "@codat/lending/dist/sd
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

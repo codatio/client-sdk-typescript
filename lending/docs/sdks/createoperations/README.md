@@ -15,7 +15,7 @@ Retrieve create operation.
 ```typescript
 import { CodatLending } from "@codat/lending";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -30,7 +30,9 @@ import { CodatLending } from "@codat/lending";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -60,7 +62,7 @@ List create operations.
 ```typescript
 import { CodatLending } from "@codat/lending";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -77,7 +79,9 @@ import { CodatLending } from "@codat/lending";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

@@ -23,7 +23,7 @@ The [details](https://docs.codat.io/lending-api#/schemas/DataIntegrityDetails) a
 import { CodatLending } from "@codat/lending";
 import { DataIntegrityDataType } from "@codat/lending/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -41,7 +41,9 @@ import { DataIntegrityDataType } from "@codat/lending/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -79,7 +81,7 @@ The response tells you:
 import { CodatLending } from "@codat/lending";
 import { DataIntegrityDataType } from "@codat/lending/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -94,7 +96,9 @@ import { DataIntegrityDataType } from "@codat/lending/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -129,7 +133,7 @@ The endpoint response includes only the summary results, not transactions. To vi
 import { CodatLending } from "@codat/lending";
 import { DataIntegrityDataType } from "@codat/lending/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -144,7 +148,9 @@ import { DataIntegrityDataType } from "@codat/lending/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

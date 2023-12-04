@@ -25,7 +25,7 @@ You can [learn more](https://docs.codat.io/lending/excel/overview) about valid E
 import { CodatLending } from "@codat/lending";
 import { ExcelReportTypes } from "@codat/lending/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -40,7 +40,9 @@ import { ExcelReportTypes } from "@codat/lending/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -87,7 +89,7 @@ In response, the endpoint returns the [status](https://docs.codat.io/lending-api
 import { CodatLending } from "@codat/lending";
 import { ExcelReportTypes } from "@codat/lending/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -102,7 +104,9 @@ import { ExcelReportTypes } from "@codat/lending/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -137,7 +141,7 @@ When the report generation completes successfully, the `inProgress` property wil
 import { CodatLending } from "@codat/lending";
 import { ExcelReportTypes } from "@codat/lending/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -152,7 +156,9 @@ import { ExcelReportTypes } from "@codat/lending/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

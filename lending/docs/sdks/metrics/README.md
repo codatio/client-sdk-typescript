@@ -45,7 +45,7 @@ The report data then combines multiple reporting dimensions and measures and out
 import { CodatLending } from "@codat/lending";
 import { PeriodUnit } from "@codat/lending/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -64,7 +64,9 @@ import { PeriodUnit } from "@codat/lending/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -117,7 +119,7 @@ The report data then combines multiple reporting dimensions and measures and out
 import { CodatLending } from "@codat/lending";
 import { PeriodUnit } from "@codat/lending/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -136,7 +138,9 @@ import { PeriodUnit } from "@codat/lending/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -190,7 +194,7 @@ The report data then combines multiple reporting dimensions and measures and out
 import { CodatLending } from "@codat/lending";
 import { PeriodUnit } from "@codat/lending/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -209,7 +213,9 @@ import { PeriodUnit } from "@codat/lending/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

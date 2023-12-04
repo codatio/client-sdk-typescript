@@ -25,7 +25,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 import { CodatLending } from "@codat/lending";
 import { AccountingAddressType, SupplierStatus } from "@codat/lending/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -59,7 +59,9 @@ import { AccountingAddressType, SupplierStatus } from "@codat/lending/dist/sdk/m
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -98,7 +100,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatLending } from "@codat/lending";
 
-(async() => {
+async function run() {
   const sdk = new CodatLending({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -113,7 +115,9 @@ import { CodatLending } from "@codat/lending";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
