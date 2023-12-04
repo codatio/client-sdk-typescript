@@ -59,3 +59,13 @@ Based on:
 - [typescript v2.0.0] sync-for-payroll
 ### Releases
 - [NPM v2.0.0] https://www.npmjs.com/package/@codat/sync-for-payroll/v/2.0.0 - sync-for-payroll
+
+## 2023-12-04 01:26:07
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Payroll.yaml
+- Speakeasy CLI 1.125.0 (2.209.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v2.0.1] sync-for-payroll
+### Releases
+- [NPM v2.0.1] https://www.npmjs.com/package/@codat/sync-for-payroll/v/2.0.1 - sync-for-payroll

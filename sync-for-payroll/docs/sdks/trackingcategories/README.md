@@ -26,7 +26,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncPayroll({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -41,7 +41,9 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -76,7 +78,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncPayroll({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -93,7 +95,9 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

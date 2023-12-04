@@ -31,7 +31,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
 import { AccountStatus, AccountType } from "@codat/sync-for-payroll/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncPayroll({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -71,7 +71,9 @@ import { AccountStatus, AccountType } from "@codat/sync-for-payroll/dist/sdk/mod
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -108,7 +110,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncPayroll({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -123,7 +125,9 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -162,7 +166,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncPayroll({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -177,7 +181,9 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -211,7 +217,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncPayroll({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -228,7 +234,9 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
