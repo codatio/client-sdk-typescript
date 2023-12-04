@@ -6,6 +6,7 @@ import * as utils from "../internal/utils";
 import * as shared from "../sdk/models/shared";
 import { Companies } from "./companies";
 import { Connections } from "./connections";
+import { CustomDataType } from "./customdatatype";
 import { Integrations } from "./integrations";
 import { PushData } from "./pushdata";
 import { RefreshData } from "./refreshdata";
@@ -61,9 +62,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "3.0.0";
-    sdkVersion = "2.0.0";
-    genVersion = "2.195.2";
-    userAgent = "speakeasy-sdk/typescript 2.0.0 2.195.2 3.0.0 @codat/platform";
+    sdkVersion = "2.0.1";
+    genVersion = "2.209.0";
+    userAgent = "speakeasy-sdk/typescript 2.0.1 2.209.0 3.0.0 @codat/platform";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -95,6 +96,10 @@ export class CodatPlatform {
      * Manage your companies' data connections.
      */
     public connections: Connections;
+    /**
+     * View and configure custom data types for supported integrations.
+     */
+    public customDataType: CustomDataType;
     /**
      * View push options and get push statuses.
      */
@@ -137,6 +142,7 @@ export class CodatPlatform {
         this.settings = new Settings(this.sdkConfiguration);
         this.companies = new Companies(this.sdkConfiguration);
         this.connections = new Connections(this.sdkConfiguration);
+        this.customDataType = new CustomDataType(this.sdkConfiguration);
         this.pushData = new PushData(this.sdkConfiguration);
         this.refreshData = new RefreshData(this.sdkConfiguration);
         this.integrations = new Integrations(this.sdkConfiguration);

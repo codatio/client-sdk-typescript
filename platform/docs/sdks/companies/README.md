@@ -26,7 +26,7 @@ If forbidden characters (see `name` pattern) are present in the request, a compa
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async() => {
+async function run() {
   const sdk = new CodatPlatform({
     security: {
       authHeader: "",
@@ -41,7 +41,9 @@ import { CodatPlatform } from "@codat/platform";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -72,7 +74,7 @@ Permanently deletes a company, its connections and any cached data. This operati
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async() => {
+async function run() {
   const sdk = new CodatPlatform({
     security: {
       authHeader: "",
@@ -86,7 +88,9 @@ import { CodatPlatform } from "@codat/platform";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -116,7 +120,7 @@ import { CodatPlatform } from "@codat/platform";
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async() => {
+async function run() {
   const sdk = new CodatPlatform({
     security: {
       authHeader: "",
@@ -130,7 +134,9 @@ import { CodatPlatform } from "@codat/platform";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -160,7 +166,7 @@ import { CodatPlatform } from "@codat/platform";
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async() => {
+async function run() {
   const sdk = new CodatPlatform({
     security: {
       authHeader: "",
@@ -176,7 +182,9 @@ import { CodatPlatform } from "@codat/platform";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -206,7 +214,7 @@ import { CodatPlatform } from "@codat/platform";
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async() => {
+async function run() {
   const sdk = new CodatPlatform({
     security: {
       authHeader: "",
@@ -224,7 +232,9 @@ import { CodatPlatform } from "@codat/platform";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

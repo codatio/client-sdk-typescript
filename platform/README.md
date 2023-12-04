@@ -4,7 +4,7 @@
 Manage the building blocks of Codat, including companies, connections, and more.
 <!-- End Codat Library Description -->
 
-<!-- Start SDK Installation -->
+<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 ### NPM
@@ -18,16 +18,18 @@ npm add @codat/platform
 ```bash
 yarn add @codat/platform
 ```
-<!-- End SDK Installation -->
+<!-- End SDK Installation [installation] -->
 
 ## Example Usage
-<!-- Start SDK Example Usage -->
+<!-- Start SDK Example Usage [usage] -->
+## SDK Example Usage
+
 ### Example
 
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async () => {
+async function run() {
     const sdk = new CodatPlatform({
         security: {
             authHeader: "",
@@ -41,14 +43,15 @@ import { CodatPlatform } from "@codat/platform";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
 
-<!-- Start SDK Available Operations -->
+<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
-
 
 ### [settings](docs/sdks/settings/README.md)
 
@@ -76,6 +79,13 @@ import { CodatPlatform } from "@codat/platform";
 * [list](docs/sdks/connections/README.md#list) - List connections
 * [unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 * [updateAuthorization](docs/sdks/connections/README.md#updateauthorization) - Update authorization
+
+### [customDataType](docs/sdks/customdatatype/README.md)
+
+* [configure](docs/sdks/customdatatype/README.md#configure) - Configure custom data type
+* [getConfiguration](docs/sdks/customdatatype/README.md#getconfiguration) - Get custom data configuration
+* [list](docs/sdks/customdatatype/README.md#list) - List custom data type records
+* [refresh](docs/sdks/customdatatype/README.md#refresh) - Refresh custom data type
 
 ### [pushData](docs/sdks/pushdata/README.md)
 
@@ -107,19 +117,13 @@ import { CodatPlatform } from "@codat/platform";
 * [create](docs/sdks/webhooks/README.md#create) - Create webhook
 * [get](docs/sdks/webhooks/README.md#get) - Get webhook
 * [list](docs/sdks/webhooks/README.md#list) - List webhooks
-<!-- End SDK Available Operations -->
+<!-- End Available Resources and Operations [operations] -->
 
 
 
-<!-- Start Dev Containers -->
 
 
-
-<!-- End Dev Containers -->
-
-
-
-<!-- Start Retries -->
+<!-- Start Retries [retries] -->
 ## Retries
 
 Some of the endpoints in this SDK support retries.  If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API.  However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
@@ -128,7 +132,7 @@ To change the default retry strategy for a single API call, simply provide a ret
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async () => {
+async function run() {
     const sdk = new CodatPlatform({
         security: {
             authHeader: "",
@@ -154,7 +158,9 @@ import { CodatPlatform } from "@codat/platform";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
 
@@ -162,7 +168,7 @@ If you'd like to override the default retry strategy for all operations that sup
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async () => {
+async function run() {
     const sdk = new CodatPlatform({
         retry_config: {
             strategy: "backoff",
@@ -186,14 +192,16 @@ import { CodatPlatform } from "@codat/platform";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End Retries -->
+<!-- End Retries [retries] -->
 
 
 
-<!-- Start Error Handling -->
+<!-- Start Error Handling [errors] -->
 ## Error Handling
 
 Handling errors in this SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
@@ -207,7 +215,7 @@ Example
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async () => {
+async function run() {
     const sdk = new CodatPlatform({
         security: {
             authHeader: "",
@@ -219,19 +227,26 @@ import { CodatPlatform } from "@codat/platform";
         res = await sdk.settings.createApiKey({
             name: "azure-invoice-finance-processor",
         });
-    } catch (e) {}
+    } catch (err) {
+        if (err instanceof errors.SDKError) {
+            console.error(err); // handle exception
+            throw err;
+        }
+    }
 
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End Error Handling -->
+<!-- End Error Handling [errors] -->
 
 
 
-<!-- Start Server Selection -->
+<!-- Start Server Selection [server] -->
 ## Server Selection
 
 ### Select Server by Index
@@ -247,7 +262,7 @@ You can override the default server globally by passing a server index to the `s
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async () => {
+async function run() {
     const sdk = new CodatPlatform({
         serverIdx: 0,
         security: {
@@ -262,7 +277,9 @@ import { CodatPlatform } from "@codat/platform";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
 
@@ -273,7 +290,7 @@ The default server can also be overridden globally by passing a URL to the `serv
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async () => {
+async function run() {
     const sdk = new CodatPlatform({
         serverURL: "https://api.codat.io",
         security: {
@@ -288,23 +305,25 @@ import { CodatPlatform } from "@codat/platform";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End Server Selection -->
+<!-- End Server Selection [server] -->
 
 
 
-<!-- Start Custom HTTP Client -->
+<!-- Start Custom HTTP Client [http-client] -->
 ## Custom HTTP Client
 
-The Typescript SDK makes API calls using the (axios)[https://axios-http.com/docs/intro] HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `AxiosInstance` object.
+The Typescript SDK makes API calls using the [axios](https://axios-http.com/docs/intro) HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `AxiosInstance` object.
 
 For example, you could specify a header for every request that your sdk makes as follows:
 
 ```typescript
-from @codat/platform import CodatPlatform;
-import axios;
+import { @codat/platform } from "CodatPlatform";
+import axios from "axios";
 
 const httpClient = axios.create({
     headers: {'x-custom-header': 'someValue'}
@@ -312,12 +331,11 @@ const httpClient = axios.create({
 
 const sdk = new CodatPlatform({defaultClient: httpClient});
 ```
-<!-- End Custom HTTP Client -->
+<!-- End Custom HTTP Client [http-client] -->
 
 
 
-<!-- Start Authentication -->
-
+<!-- Start Authentication [security] -->
 ## Authentication
 
 ### Per-Client Security Schemes
@@ -332,7 +350,7 @@ You can set the security parameters through the `security` optional parameter wh
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async () => {
+async function run() {
     const sdk = new CodatPlatform({
         security: {
             authHeader: "",
@@ -346,10 +364,12 @@ import { CodatPlatform } from "@codat/platform";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End Authentication -->
+<!-- End Authentication [security] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

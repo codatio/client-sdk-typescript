@@ -46,7 +46,7 @@ export class SupplementalData {
         );
         const operationUrl: string = utils.generateURL(
             baseURL,
-            "/integrations/{platformKey}/datatypes/{dataType}/supplementalDataConfig",
+            "/integrations/{platformKey}/dataTypes/{dataType}/supplementalDataConfig",
             req
         );
 
@@ -165,7 +165,7 @@ export class SupplementalData {
         );
         const operationUrl: string = utils.generateURL(
             baseURL,
-            "/integrations/{platformKey}/datatypes/{dataType}/supplementalDataConfig",
+            "/integrations/{platformKey}/dataTypes/{dataType}/supplementalDataConfig",
             req
         );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;

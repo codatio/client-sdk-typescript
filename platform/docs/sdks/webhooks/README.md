@@ -20,7 +20,7 @@ Create a new webhook configuration
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async() => {
+async function run() {
   const sdk = new CodatPlatform({
     security: {
       authHeader: "",
@@ -55,7 +55,9 @@ import { CodatPlatform } from "@codat/platform";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -85,7 +87,7 @@ Get a single webhook
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async() => {
+async function run() {
   const sdk = new CodatPlatform({
     security: {
       authHeader: "",
@@ -99,7 +101,9 @@ import { CodatPlatform } from "@codat/platform";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -129,7 +133,7 @@ List webhooks that you are subscribed to.
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async() => {
+async function run() {
   const sdk = new CodatPlatform({
     security: {
       authHeader: "",
@@ -145,7 +149,9 @@ import { CodatPlatform } from "@codat/platform";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

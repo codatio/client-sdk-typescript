@@ -1,6 +1,7 @@
 src/sdk/settings.ts
 src/sdk/companies.ts
 src/sdk/connections.ts
+src/sdk/customdatatype.ts
 src/sdk/pushdata.ts
 src/sdk/refreshdata.ts
 src/sdk/integrations.ts
@@ -44,6 +45,10 @@ src/sdk/models/operations/getconnection.ts
 src/sdk/models/operations/listconnections.ts
 src/sdk/models/operations/unlinkconnection.ts
 src/sdk/models/operations/updateconnectionauthorization.ts
+src/sdk/models/operations/configurecustomdatatype.ts
+src/sdk/models/operations/getcustomdatatypeconfiguration.ts
+src/sdk/models/operations/listcustomdatatyperecords.ts
+src/sdk/models/operations/refreshcustomdatatype.ts
 src/sdk/models/operations/getcreateupdatemodeloptionsbydatatype.ts
 src/sdk/models/operations/getpushoperation.ts
 src/sdk/models/operations/getcompanypushhistory.ts
@@ -79,6 +84,10 @@ src/sdk/models/shared/links.ts
 src/sdk/models/shared/halref.ts
 src/sdk/models/shared/connections.ts
 src/sdk/models/shared/updateconnectionstatus.ts
+src/sdk/models/shared/customdatatypeconfiguration.ts
+src/sdk/models/shared/customdatatyperecords.ts
+src/sdk/models/shared/customdatatyperecord.ts
+src/sdk/models/shared/pulloperation.ts
 src/sdk/models/shared/pushoption.ts
 src/sdk/models/shared/pushvalidationinfo.ts
 src/sdk/models/shared/pushfieldvalidation.ts
@@ -94,7 +103,6 @@ src/sdk/models/shared/pushoperationchange.ts
 src/sdk/models/shared/pushchangetype.ts
 src/sdk/models/shared/pushoperationref.ts
 src/sdk/models/shared/pushoperations.ts
-src/sdk/models/shared/pulloperation.ts
 src/sdk/models/shared/datastatus.ts
 src/sdk/models/shared/pulloperations.ts
 src/sdk/models/shared/integration.ts
@@ -144,7 +152,6 @@ src/sdk/models/errors/index.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/index.ts
 src/sdk/models/webhooks/index.ts
-USAGE.md
 docs/sdk/models/operations/createapikeyresponse.md
 docs/sdk/models/operations/deleteapikeyrequest.md
 docs/sdk/models/operations/deleteapikeyresponse.md
@@ -176,6 +183,14 @@ docs/sdk/models/operations/unlinkconnectionrequest.md
 docs/sdk/models/operations/unlinkconnectionresponse.md
 docs/sdk/models/operations/updateconnectionauthorizationrequest.md
 docs/sdk/models/operations/updateconnectionauthorizationresponse.md
+docs/sdk/models/operations/configurecustomdatatyperequest.md
+docs/sdk/models/operations/configurecustomdatatyperesponse.md
+docs/sdk/models/operations/getcustomdatatypeconfigurationrequest.md
+docs/sdk/models/operations/getcustomdatatypeconfigurationresponse.md
+docs/sdk/models/operations/listcustomdatatyperecordsrequest.md
+docs/sdk/models/operations/listcustomdatatyperecordsresponse.md
+docs/sdk/models/operations/refreshcustomdatatyperequest.md
+docs/sdk/models/operations/refreshcustomdatatyperesponse.md
 docs/sdk/models/operations/getcreateupdatemodeloptionsbydatatyperequest.md
 docs/sdk/models/operations/getcreateupdatemodeloptionsbydatatyperesponse.md
 docs/sdk/models/operations/getpushoperationrequest.md
@@ -228,6 +243,13 @@ docs/sdk/models/shared/links.md
 docs/sdk/models/shared/halref.md
 docs/sdk/models/shared/connections.md
 docs/sdk/models/shared/updateconnectionstatus.md
+docs/sdk/models/shared/customdatatypeconfiguration.md
+docs/sdk/models/shared/customdatatyperecords.md
+docs/sdk/models/shared/content.md
+docs/sdk/models/shared/modifieddate.md
+docs/sdk/models/shared/customdatatyperecord.md
+docs/sdk/models/shared/status.md
+docs/sdk/models/shared/pulloperation.md
 docs/sdk/models/shared/pushoption.md
 docs/sdk/models/shared/pushvalidationinfo.md
 docs/sdk/models/shared/pushfieldvalidation.md
@@ -243,8 +265,6 @@ docs/sdk/models/shared/pushoperationchange.md
 docs/sdk/models/shared/pushchangetype.md
 docs/sdk/models/shared/pushoperationref.md
 docs/sdk/models/shared/pushoperations.md
-docs/sdk/models/shared/status.md
-docs/sdk/models/shared/pulloperation.md
 docs/sdk/models/shared/datatypes.md
 docs/sdk/models/shared/datastatus.md
 docs/sdk/models/shared/pulloperations.md
@@ -298,9 +318,11 @@ docs/internal/utils/retryconfig.md
 docs/sdks/settings/README.md
 docs/sdks/companies/README.md
 docs/sdks/connections/README.md
+docs/sdks/customdatatype/README.md
 docs/sdks/pushdata/README.md
 docs/sdks/refreshdata/README.md
 docs/sdks/integrations/README.md
 docs/sdks/supplementaldata/README.md
 docs/sdks/webhooks/README.md
+USAGE.md
 .gitattributes

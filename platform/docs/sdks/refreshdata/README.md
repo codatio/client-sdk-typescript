@@ -26,7 +26,7 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async() => {
+async function run() {
   const sdk = new CodatPlatform({
     security: {
       authHeader: "",
@@ -40,7 +40,9 @@ import { CodatPlatform } from "@codat/platform";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -73,7 +75,7 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 import { CodatPlatform } from "@codat/platform";
 import { SchemaDataType } from "@codat/platform/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatPlatform({
     security: {
       authHeader: "",
@@ -88,7 +90,9 @@ import { SchemaDataType } from "@codat/platform/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -118,7 +122,7 @@ Get the state of each data type for a company
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async() => {
+async function run() {
   const sdk = new CodatPlatform({
     security: {
       authHeader: "",
@@ -132,7 +136,9 @@ import { CodatPlatform } from "@codat/platform";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -162,7 +168,7 @@ Retrieve information about a single dataset or pull operation.
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async() => {
+async function run() {
   const sdk = new CodatPlatform({
     security: {
       authHeader: "",
@@ -177,7 +183,9 @@ import { CodatPlatform } from "@codat/platform";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -207,7 +215,7 @@ Gets the pull operation history (datasets) for a given company.
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async() => {
+async function run() {
   const sdk = new CodatPlatform({
     security: {
       authHeader: "",
@@ -224,7 +232,9 @@ import { CodatPlatform } from "@codat/platform";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

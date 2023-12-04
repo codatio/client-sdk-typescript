@@ -30,7 +30,7 @@ Codat tries not to limit users to pushing to a very limited number of standard c
 import { CodatPlatform } from "@codat/platform";
 import { SchemaDataType } from "@codat/platform/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatPlatform({
     security: {
       authHeader: "",
@@ -46,7 +46,9 @@ import { SchemaDataType } from "@codat/platform/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -76,7 +78,7 @@ Retrieve push operation.
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async() => {
+async function run() {
   const sdk = new CodatPlatform({
     security: {
       authHeader: "",
@@ -91,7 +93,9 @@ import { CodatPlatform } from "@codat/platform";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -121,7 +125,7 @@ List push operation records.
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async() => {
+async function run() {
   const sdk = new CodatPlatform({
     security: {
       authHeader: "",
@@ -138,7 +142,9 @@ import { CodatPlatform } from "@codat/platform";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

@@ -1,8 +1,8 @@
-<!-- Start SDK Example Usage -->
+<!-- Start SDK Example Usage [usage] -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async () => {
+async function run() {
     const sdk = new CodatPlatform({
         security: {
             authHeader: "",
@@ -16,7 +16,9 @@ import { CodatPlatform } from "@codat/platform";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->

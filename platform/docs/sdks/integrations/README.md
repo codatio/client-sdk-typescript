@@ -20,7 +20,7 @@ Get single integration, by platformKey
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async() => {
+async function run() {
   const sdk = new CodatPlatform({
     security: {
       authHeader: "",
@@ -34,7 +34,9 @@ import { CodatPlatform } from "@codat/platform";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -64,7 +66,7 @@ Get branding for platform.
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async() => {
+async function run() {
   const sdk = new CodatPlatform({
     security: {
       authHeader: "",
@@ -78,7 +80,9 @@ import { CodatPlatform } from "@codat/platform";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -108,7 +112,7 @@ List your available integrations
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async() => {
+async function run() {
   const sdk = new CodatPlatform({
     security: {
       authHeader: "",
@@ -124,7 +128,9 @@ import { CodatPlatform } from "@codat/platform";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
