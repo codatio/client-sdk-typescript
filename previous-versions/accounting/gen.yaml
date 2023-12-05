@@ -5,11 +5,8 @@ management:
   speakeasyVersion: 1.125.1
   generationVersion: 2.210.3
 generation:
-  comments: {}
   sdkClassName: CodatAccounting
-  repoURL: https://github.com/codatio/client-sdk-typescript.git
-  usageSnippets:
-    optionalPropertyRendering: withExample
+  singleTagPerOp: false
   telemetryEnabled: true
 features:
   typescript:
@@ -25,21 +22,6 @@ features:
 typescript:
   version: 0.39.0
   author: Codat
-  clientServerStatusCodesAsErrors: false
   description: Access standardized accounting data from our accounting integrations.
-  flattenGlobalSecurity: false
-  imports:
-    option: openapi
-    paths:
-      callbacks: sdk/models/callbacks
-      errors: sdk/models/errors
-      operations: sdk/models/operations
-      shared: sdk/models/shared
-      webhooks: sdk/models/webhooks
-  inputModelSuffix: input
-  installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/previous-versions/accounting
   maxMethodParams: 0
-  outputModelSuffix: output
   packageName: '@codat/accounting'
-  published: true
-  repoSubDirectory: previous-versions/accounting

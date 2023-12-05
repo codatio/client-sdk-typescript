@@ -61,6 +61,3 @@ To get your authorization header from the [Codat Portal](https://app.codat.io):
 | **[Sync for Expenses version 1](https://github.com/codatio/client-sdk-typescript/tree/main/previous-versions/sync-for-expenses-version-1)** | Push expenses to accounting platforms. | [@codat/sync-for-expenses-version-1](https://www.npmjs.com/package/@codat/sync-for-expenses-version-1) |
 | **[Files](https://github.com/codatio/client-sdk-typescript/tree/main/previous-versions/files)** | Use Codat's Files API to upload your SMB customers' files. | [@codat/files](https://www.npmjs.com/package/@codat/files) |
 <!-- End Codat Client Libraries -->
-
-<!-- Start Codat Support Notes -->
-<!-- End Codat Support Notes -->
