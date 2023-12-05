@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as shared from "../sdk/models/shared";
 import { Accounts } from "./accounts";
 import { Companies } from "./companies";
 import { Configuration } from "./configuration";
@@ -10,7 +11,6 @@ import { Connections } from "./connections";
 import { Customers } from "./customers";
 import { Expenses } from "./expenses";
 import { ManageData } from "./managedata";
-import * as shared from "./models/shared";
 import { PushOperations } from "./pushoperations";
 import { Suppliers } from "./suppliers";
 import { Sync } from "./sync";
@@ -59,9 +59,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "prealpha";
-    sdkVersion = "3.2.0";
-    genVersion = "2.159.2";
-    userAgent = "speakeasy-sdk/typescript 3.2.0 2.159.2 prealpha @codat/sync-for-expenses";
+    sdkVersion = "4.0.0";
+    genVersion = "2.210.3";
+    userAgent = "speakeasy-sdk/typescript 4.0.0 2.210.3 prealpha @codat/sync-for-expenses";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -81,33 +81,29 @@ export class SDKConfiguration {
  *
  * [See our OpenAPI spec](https://github.com/codatio/oas)
  *
- * Not seeing the endpoints you're expecting? We've [reorganized our products](https://docs.codat.io/updates/230901-new-products), and you may be using a [different version of Sync for Commerce](https://docs.codat.io/sync-for-expenses-v1-api#/).
+ * Not seeing the endpoints you're expecting? We've [reorganized our products](https://docs.codat.io/updates/230901-new-products), and you may be using a [different version of Sync for Expenses](https://docs.codat.io/sync-for-expenses-v1-api#/).
  */
 export class CodatSyncExpenses {
-    /**
-     * Accounts
-     */
-    public accounts: Accounts;
     /**
      * Create and manage your Codat companies.
      */
     public companies: Companies;
     /**
-     * Manage mapping options and sync configuration.
-     */
-    public configuration: Configuration;
-    /**
      * Create and manage partner expense connection.
      */
     public connections: Connections;
+    /**
+     * Accounts
+     */
+    public accounts: Accounts;
     /**
      * Customers
      */
     public customers: Customers;
     /**
-     * Create expense datasets and upload receipts.
+     * Suppliers
      */
-    public expenses: Expenses;
+    public suppliers: Suppliers;
     /**
      * Asynchronously retrieve data from an integration to refresh data in Codat.
      */
@@ -117,9 +113,13 @@ export class CodatSyncExpenses {
      */
     public pushOperations: PushOperations;
     /**
-     * Suppliers
+     * Manage mapping options and sync configuration.
      */
-    public suppliers: Suppliers;
+    public configuration: Configuration;
+    /**
+     * Create expense datasets and upload receipts.
+     */
+    public expenses: Expenses;
     /**
      * Trigger and monitor expense syncs to accounting software.
      */
@@ -139,7 +139,7 @@ export class CodatSyncExpenses {
             serverURL = ServerList[serverIdx];
         }
 
-        const defaultClient = props?.defaultClient ?? axios.create({ baseURL: serverURL });
+        const defaultClient = props?.defaultClient ?? axios.create();
         this.sdkConfiguration = new SDKConfiguration({
             defaultClient: defaultClient,
             security: props?.security,
@@ -147,15 +147,15 @@ export class CodatSyncExpenses {
             retryConfig: props?.retryConfig,
         });
 
-        this.accounts = new Accounts(this.sdkConfiguration);
         this.companies = new Companies(this.sdkConfiguration);
-        this.configuration = new Configuration(this.sdkConfiguration);
         this.connections = new Connections(this.sdkConfiguration);
+        this.accounts = new Accounts(this.sdkConfiguration);
         this.customers = new Customers(this.sdkConfiguration);
-        this.expenses = new Expenses(this.sdkConfiguration);
+        this.suppliers = new Suppliers(this.sdkConfiguration);
         this.manageData = new ManageData(this.sdkConfiguration);
         this.pushOperations = new PushOperations(this.sdkConfiguration);
-        this.suppliers = new Suppliers(this.sdkConfiguration);
+        this.configuration = new Configuration(this.sdkConfiguration);
+        this.expenses = new Expenses(this.sdkConfiguration);
         this.sync = new Sync(this.sdkConfiguration);
         this.transactionStatus = new TransactionStatus(this.sdkConfiguration);
     }

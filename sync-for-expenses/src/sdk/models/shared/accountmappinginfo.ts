@@ -16,7 +16,7 @@ export enum AccountMappingInfoAccountType {
     Equity = "Equity",
 }
 
-export enum AccountMappingInfoValidTransactionTypes {
+export enum ValidTransactionTypes {
     Payment = "Payment",
     Refund = "Refund",
     Reward = "Reward",
@@ -61,5 +61,5 @@ export class AccountMappingInfo extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "validTransactionTypes" })
-    validTransactionTypes?: AccountMappingInfoValidTransactionTypes[];
+    validTransactionTypes?: ValidTransactionTypes[];
 }

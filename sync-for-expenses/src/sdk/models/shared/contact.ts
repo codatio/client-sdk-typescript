@@ -8,7 +8,7 @@ import { Items } from "./items";
 import { PhoneNumberType } from "./phonenumbertype";
 import { Expose, Type } from "class-transformer";
 
-export class ContactPhone extends SpeakeasyBase {
+export class Phone extends SpeakeasyBase {
     /**
      * A phone number.
      */
@@ -74,10 +74,10 @@ export class Contact extends SpeakeasyBase {
     /**
      * An array of Phone numbers.
      */
-    @SpeakeasyMetadata({ elemType: ContactPhone })
+    @SpeakeasyMetadata({ elemType: Phone })
     @Expose({ name: "phone" })
-    @Type(() => ContactPhone)
-    phone?: ContactPhone[];
+    @Type(() => Phone)
+    phone?: Phone[];
 
     /**
      * Status of customer.

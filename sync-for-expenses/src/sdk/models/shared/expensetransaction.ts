@@ -7,7 +7,7 @@ import { ContactRef } from "./contactref";
 import { ExpenseTransactionLine } from "./expensetransactionline";
 import { Expose, Type } from "class-transformer";
 
-export class ExpenseTransactionBankAccountReference extends SpeakeasyBase {
+export class BankAccountReference extends SpeakeasyBase {
     /**
      * Identifier of the bank account.
      */
@@ -33,8 +33,8 @@ export enum ExpenseTransactionType {
 export class ExpenseTransaction extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "bankAccountRef" })
-    @Type(() => ExpenseTransactionBankAccountReference)
-    bankAccountRef?: ExpenseTransactionBankAccountReference;
+    @Type(() => BankAccountReference)
+    bankAccountRef?: BankAccountReference;
 
     @SpeakeasyMetadata()
     @Expose({ name: "contactRef" })
@@ -136,6 +136,13 @@ export class ExpenseTransaction extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "notes" })
     notes?: string;
+
+    /**
+     * For supported accouting platforms, setting this optional property to true will post the transaction to a drafted state.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "postAsDraft" })
+    postAsDraft?: boolean;
 
     /**
      * The type of transaction.

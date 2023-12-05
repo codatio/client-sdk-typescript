@@ -3,13 +3,12 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { DataType } from "./datatype";
 import { Expose } from "class-transformer";
 
 /**
  * The current status of the pull operation.
  */
-export enum PullOperationStatus {
+export enum Status {
     Initial = "Initial",
     Queued = "Queued",
     Fetching = "Fetching",
@@ -84,11 +83,11 @@ export class PullOperation extends SpeakeasyBase {
     connectionId: string;
 
     /**
-     * Available Data types
+     * The data type you are requesting in a pull operation.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "dataType" })
-    dataType: DataType;
+    dataType: string;
 
     /**
      * A message about a transient or persistent error.
@@ -105,7 +104,7 @@ export class PullOperation extends SpeakeasyBase {
     id: string;
 
     /**
-     * `True` if the pull operation completed successfully.
+     * `True` if the pull operation is completed successfully. The `isCompleted` property is not queryable. To filter failed pull operations, query by `status!=Complete&&status!=NotSupported` instead.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "isCompleted" })
@@ -157,5 +156,12 @@ export class PullOperation extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status: PullOperationStatus;
+    status: Status;
+
+    /**
+     * Additional information about the dataset status.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "statusDescription" })
+    statusDescription?: string;
 }
