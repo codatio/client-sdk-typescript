@@ -4,11 +4,30 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountingPaymentAllocation } from "./accountingpaymentallocation";
-import { ContactRef } from "./contactref";
+import { DataType } from "./datatype";
 import { DirectCostLineItem } from "./directcostlineitem";
 import { Metadata } from "./metadata";
 import { SupplementalData } from "./supplementaldata";
 import { Expose, Type } from "class-transformer";
+
+/**
+ * A customer or supplier associated with the direct cost.
+ */
+export class AccountingDirectCostContactRef extends SpeakeasyBase {
+    /**
+     * Available Data types
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "dataType" })
+    dataType?: DataType;
+
+    /**
+     * Unique identifier for a customer or supplier.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
+}
 
 /**
  * > **Language tip:** Direct costs may also be referred to as **Spend transactions**, **Spend money transactions**, or **Payments** in various accounting platforms.
@@ -31,12 +50,12 @@ import { Expose, Type } from "class-transformer";
  */
 export class AccountingDirectCost extends SpeakeasyBase {
     /**
-     * The customer or supplier for the transfer, if available.
+     * A customer or supplier associated with the direct cost.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "contactRef" })
-    @Type(() => ContactRef)
-    contactRef?: ContactRef;
+    @Type(() => AccountingDirectCostContactRef)
+    contactRef?: AccountingDirectCostContactRef;
 
     /**
      * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.

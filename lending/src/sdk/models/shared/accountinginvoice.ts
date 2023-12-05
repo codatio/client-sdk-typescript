@@ -13,7 +13,7 @@ import { Metadata } from "./metadata";
 import { SupplementalData } from "./supplementaldata";
 import { Expose, Type } from "class-transformer";
 
-export class AccountingInvoiceSalesOrderReference extends SpeakeasyBase {
+export class SalesOrderReference extends SpeakeasyBase {
     /**
      * Available Data types
      */
@@ -274,10 +274,10 @@ export class AccountingInvoice extends SpeakeasyBase {
     /**
      * List of references to related Sales orders.
      */
-    @SpeakeasyMetadata({ elemType: AccountingInvoiceSalesOrderReference })
+    @SpeakeasyMetadata({ elemType: SalesOrderReference })
     @Expose({ name: "salesOrderRefs" })
-    @Type(() => AccountingInvoiceSalesOrderReference)
-    salesOrderRefs?: AccountingInvoiceSalesOrderReference[];
+    @Type(() => SalesOrderReference)
+    salesOrderRefs?: SalesOrderReference[];
 
     @SpeakeasyMetadata()
     @Expose({ name: "sourceModifiedDate" })

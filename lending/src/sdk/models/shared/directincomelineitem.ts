@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountRef } from "./accountref";
-import { ItemRef } from "./itemref";
+import { PropertieItemRef } from "./propertieitemref";
 import { TaxRateRef } from "./taxrateref";
 import { TrackingCategoryRef } from "./trackingcategoryref";
 import { Expose, Type } from "class-transformer";
@@ -44,8 +44,8 @@ export class DirectIncomeLineItem extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "itemRef" })
-    @Type(() => ItemRef)
-    itemRef?: ItemRef;
+    @Type(() => PropertieItemRef)
+    itemRef?: PropertieItemRef;
 
     /**
      * The number of units of goods or services received.

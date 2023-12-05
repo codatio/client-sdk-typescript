@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class GetDataIntegritySummariesRequest extends SpeakeasyBase {
@@ -40,7 +40,7 @@ export class GetDataIntegritySummariesResponse extends SpeakeasyBase {
     dataIntegritySummaries?: shared.DataIntegritySummaries;
 
     /**
-     * Your API request was not properly authorized.
+     * Your `query` parameter was not correctly formed
      */
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
@@ -55,5 +55,5 @@ export class GetDataIntegritySummariesResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 }

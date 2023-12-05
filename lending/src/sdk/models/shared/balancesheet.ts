@@ -4,6 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { ReportLine } from "./reportline";
+import { ReportLineInput } from "./reportlineinput";
 import { Expose, Type } from "class-transformer";
 
 export class BalanceSheet extends SpeakeasyBase {
@@ -41,13 +42,13 @@ export class BalanceSheet extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "equity" })
-    @Type(() => ReportLine)
-    equity?: ReportLine;
+    @Type(() => ReportLineInput)
+    equity?: ReportLineInput;
 
     @SpeakeasyMetadata()
     @Expose({ name: "liabilities" })
-    @Type(() => ReportLine)
-    liabilities?: ReportLine;
+    @Type(() => ReportLineInput)
+    liabilities?: ReportLineInput;
 
     /**
      * Value of net assets for a company in their base currency.
