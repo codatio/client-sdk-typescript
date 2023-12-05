@@ -20,6 +20,5 @@ typescript:
   version: 0.37.0
   author: Codat
   description: Access standardized commerce data from our commerce integrations.
-  flattenGlobalSecurity: false
   maxMethodParams: 0
   packageName: '@codat/commerce'
