@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as shared from "../sdk/models/shared";
 import { Accounts } from "./accounts";
 import { AccountTransactions } from "./accounttransactions";
 import { BankAccounts } from "./bankaccounts";
@@ -16,10 +17,10 @@ import { Customers } from "./customers";
 import { DirectCosts } from "./directcosts";
 import { DirectIncomes } from "./directincomes";
 import { Invoices } from "./invoices";
+import { ItemReceipts } from "./itemreceipts";
 import { Items } from "./items";
 import { JournalEntries } from "./journalentries";
 import { Journals } from "./journals";
-import * as shared from "./models/shared";
 import { PaymentMethods } from "./paymentmethods";
 import { Payments } from "./payments";
 import { PurchaseOrders } from "./purchaseorders";
@@ -78,9 +79,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "3.0.0";
-    sdkVersion = "0.38.0";
-    genVersion = "2.159.2";
-    userAgent = "speakeasy-sdk/typescript 0.38.0 2.159.2 3.0.0 @codat/accounting";
+    sdkVersion = "0.39.0";
+    genVersion = "2.210.3";
+    userAgent = "speakeasy-sdk/typescript 0.39.0 2.210.3 3.0.0 @codat/accounting";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -104,37 +105,17 @@ export class CodatAccounting {
      */
     public accountTransactions: AccountTransactions;
     /**
-     * Accounts
+     * Bank accounts
      */
-    public accounts: Accounts;
+    public bankAccounts: BankAccounts;
     /**
      * Bank transactions for bank accounts
      */
     public bankAccountTransactions: BankAccountTransactions;
     /**
-     * Bank accounts
-     */
-    public bankAccounts: BankAccounts;
-    /**
-     * Bill credit notes
-     */
-    public billCreditNotes: BillCreditNotes;
-    /**
-     * Bill payments
-     */
-    public billPayments: BillPayments;
-    /**
      * Bills
      */
     public bills: Bills;
-    /**
-     * Company info
-     */
-    public companyInfo: CompanyInfo;
-    /**
-     * Credit notes
-     */
-    public creditNotes: CreditNotes;
     /**
      * Customers
      */
@@ -152,6 +133,38 @@ export class CodatAccounting {
      */
     public invoices: Invoices;
     /**
+     * Item receipts
+     */
+    public itemReceipts: ItemReceipts;
+    /**
+     * Purchase orders
+     */
+    public purchaseOrders: PurchaseOrders;
+    /**
+     * Suppliers
+     */
+    public suppliers: Suppliers;
+    /**
+     * Transfers
+     */
+    public transfers: Transfers;
+    /**
+     * Bill credit notes
+     */
+    public billCreditNotes: BillCreditNotes;
+    /**
+     * Bill payments
+     */
+    public billPayments: BillPayments;
+    /**
+     * Accounts
+     */
+    public accounts: Accounts;
+    /**
+     * Credit notes
+     */
+    public creditNotes: CreditNotes;
+    /**
      * Items
      */
     public items: Items;
@@ -164,29 +177,25 @@ export class CodatAccounting {
      */
     public journals: Journals;
     /**
-     * Payment methods
-     */
-    public paymentMethods: PaymentMethods;
-    /**
      * Payments
      */
     public payments: Payments;
-    /**
-     * Purchase orders
-     */
-    public purchaseOrders: PurchaseOrders;
     /**
      * Reports
      */
     public reports: Reports;
     /**
+     * Company info
+     */
+    public companyInfo: CompanyInfo;
+    /**
+     * Payment methods
+     */
+    public paymentMethods: PaymentMethods;
+    /**
      * Sales orders
      */
     public salesOrders: SalesOrders;
-    /**
-     * Suppliers
-     */
-    public suppliers: Suppliers;
     /**
      * Tax rates
      */
@@ -195,10 +204,6 @@ export class CodatAccounting {
      * Tracking categories
      */
     public trackingCategories: TrackingCategories;
-    /**
-     * Transfers
-     */
-    public transfers: Transfers;
 
     private sdkConfiguration: SDKConfiguration;
 
@@ -210,7 +215,7 @@ export class CodatAccounting {
             serverURL = ServerList[serverIdx];
         }
 
-        const defaultClient = props?.defaultClient ?? axios.create({ baseURL: serverURL });
+        const defaultClient = props?.defaultClient ?? axios.create();
         this.sdkConfiguration = new SDKConfiguration({
             defaultClient: defaultClient,
             security: props?.security,
@@ -219,29 +224,30 @@ export class CodatAccounting {
         });
 
         this.accountTransactions = new AccountTransactions(this.sdkConfiguration);
-        this.accounts = new Accounts(this.sdkConfiguration);
-        this.bankAccountTransactions = new BankAccountTransactions(this.sdkConfiguration);
         this.bankAccounts = new BankAccounts(this.sdkConfiguration);
-        this.billCreditNotes = new BillCreditNotes(this.sdkConfiguration);
-        this.billPayments = new BillPayments(this.sdkConfiguration);
+        this.bankAccountTransactions = new BankAccountTransactions(this.sdkConfiguration);
         this.bills = new Bills(this.sdkConfiguration);
-        this.companyInfo = new CompanyInfo(this.sdkConfiguration);
-        this.creditNotes = new CreditNotes(this.sdkConfiguration);
         this.customers = new Customers(this.sdkConfiguration);
         this.directCosts = new DirectCosts(this.sdkConfiguration);
         this.directIncomes = new DirectIncomes(this.sdkConfiguration);
         this.invoices = new Invoices(this.sdkConfiguration);
+        this.itemReceipts = new ItemReceipts(this.sdkConfiguration);
+        this.purchaseOrders = new PurchaseOrders(this.sdkConfiguration);
+        this.suppliers = new Suppliers(this.sdkConfiguration);
+        this.transfers = new Transfers(this.sdkConfiguration);
+        this.billCreditNotes = new BillCreditNotes(this.sdkConfiguration);
+        this.billPayments = new BillPayments(this.sdkConfiguration);
+        this.accounts = new Accounts(this.sdkConfiguration);
+        this.creditNotes = new CreditNotes(this.sdkConfiguration);
         this.items = new Items(this.sdkConfiguration);
         this.journalEntries = new JournalEntries(this.sdkConfiguration);
         this.journals = new Journals(this.sdkConfiguration);
-        this.paymentMethods = new PaymentMethods(this.sdkConfiguration);
         this.payments = new Payments(this.sdkConfiguration);
-        this.purchaseOrders = new PurchaseOrders(this.sdkConfiguration);
         this.reports = new Reports(this.sdkConfiguration);
+        this.companyInfo = new CompanyInfo(this.sdkConfiguration);
+        this.paymentMethods = new PaymentMethods(this.sdkConfiguration);
         this.salesOrders = new SalesOrders(this.sdkConfiguration);
-        this.suppliers = new Suppliers(this.sdkConfiguration);
         this.taxRates = new TaxRates(this.sdkConfiguration);
         this.trackingCategories = new TrackingCategories(this.sdkConfiguration);
-        this.transfers = new Transfers(this.sdkConfiguration);
     }
 }

@@ -3,15 +3,15 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class UploadBillCreditNoteAttachmentRequestBody extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "multipart_form, content=true" })
     content: Uint8Array;
 
-    @SpeakeasyMetadata({ data: "multipart_form, name=requestBody" })
-    requestBody: string;
+    @SpeakeasyMetadata({ data: "multipart_form, name=fileName" })
+    fileName: string;
 }
 
 export class UploadBillCreditNoteAttachmentRequest extends SpeakeasyBase {
@@ -47,7 +47,7 @@ export class UploadBillCreditNoteAttachmentResponse extends SpeakeasyBase {
     contentType: string;
 
     /**
-     * Your API request was not properly authorized.
+     * The request made is not valid.
      */
     @SpeakeasyMetadata()
     errorMessage?: shared.ErrorMessage;
@@ -62,5 +62,5 @@ export class UploadBillCreditNoteAttachmentResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 }

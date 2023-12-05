@@ -4,17 +4,10 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountRef } from "./accountref";
-import { InvoiceTo } from "./invoiceto";
 import { ItemRef } from "./itemref";
+import { PropertieTracking2 } from "./propertietracking2";
 import { TaxRateRef } from "./taxrateref";
 import { Expose, Type } from "class-transformer";
-
-export class SalesOrderLineItemTracking extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: InvoiceTo })
-    @Expose({ name: "recordRefs" })
-    @Type(() => InvoiceTo)
-    recordRefs?: InvoiceTo[];
-}
 
 export class SalesOrderLineItem extends SpeakeasyBase {
     /**
@@ -100,8 +93,8 @@ export class SalesOrderLineItem extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "tracking" })
-    @Type(() => SalesOrderLineItemTracking)
-    tracking?: SalesOrderLineItemTracking;
+    @Type(() => PropertieTracking2)
+    tracking?: PropertieTracking2;
 
     /**
      * Price of each unit.

@@ -3,9 +3,9 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Addressesitems } from "./addressesitems";
 import { Contact } from "./contact";
 import { CustomerStatus } from "./customerstatus";
+import { Items } from "./items";
 import { Metadata } from "./metadata";
 import { SupplementalData } from "./supplementaldata";
 import { Expose, Type } from "class-transformer";
@@ -26,10 +26,10 @@ export class Customer extends SpeakeasyBase {
     /**
      * An array of Addresses.
      */
-    @SpeakeasyMetadata({ elemType: Addressesitems })
+    @SpeakeasyMetadata({ elemType: Items })
     @Expose({ name: "addresses" })
-    @Type(() => Addressesitems)
-    addresses?: Addressesitems[];
+    @Type(() => Items)
+    addresses?: Items[];
 
     /**
      * Name of the main contact for the identified customer.

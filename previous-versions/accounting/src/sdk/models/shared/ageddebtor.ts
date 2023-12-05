@@ -3,17 +3,17 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { AgedCurrencyOutstandingitems } from "./agedcurrencyoutstandingitems";
+import { AgedCurrencyOutstandingItems } from "./agedcurrencyoutstandingitems";
 import { Expose, Type } from "class-transformer";
 
 export class AgedDebtor extends SpeakeasyBase {
     /**
      * Array of aged debtors by currency.
      */
-    @SpeakeasyMetadata({ elemType: AgedCurrencyOutstandingitems })
+    @SpeakeasyMetadata({ elemType: AgedCurrencyOutstandingItems })
     @Expose({ name: "agedCurrencyOutstanding" })
-    @Type(() => AgedCurrencyOutstandingitems)
-    agedCurrencyOutstanding?: AgedCurrencyOutstandingitems[];
+    @Type(() => AgedCurrencyOutstandingItems)
+    agedCurrencyOutstanding?: AgedCurrencyOutstandingItems[];
 
     /**
      * Customer ID of the aged debtor.
