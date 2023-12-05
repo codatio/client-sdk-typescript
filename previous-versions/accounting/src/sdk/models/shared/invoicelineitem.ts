@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountRef } from "./accountref";
 import { ItemRef } from "./itemref";
-import { Propertiestracking1 } from "./propertiestracking1";
+import { PropertieTracking1 } from "./propertietracking1";
 import { TaxRateRef } from "./taxrateref";
 import { TrackingCategoryRef } from "./trackingcategoryref";
 import { Expose, Type } from "class-transformer";
@@ -104,8 +104,8 @@ export class InvoiceLineItem extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "tracking" })
-    @Type(() => Propertiestracking1)
-    tracking?: Propertiestracking1;
+    @Type(() => PropertieTracking1)
+    tracking?: PropertieTracking1;
 
     /**
      * Reference to the tracking categories to which the line item is linked.

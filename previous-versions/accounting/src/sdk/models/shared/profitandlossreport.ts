@@ -3,19 +3,19 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { ReportLine } from "./reportline";
+import { ReportLineInput } from "./reportlineinput";
 import { Expose, Type } from "class-transformer";
 
 export class ProfitAndLossReport extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "costOfSales" })
-    @Type(() => ReportLine)
-    costOfSales?: ReportLine;
+    @Type(() => ReportLineInput)
+    costOfSales?: ReportLineInput;
 
     @SpeakeasyMetadata()
     @Expose({ name: "expenses" })
-    @Type(() => ReportLine)
-    expenses?: ReportLine;
+    @Type(() => ReportLineInput)
+    expenses?: ReportLineInput;
 
     /**
      * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
@@ -53,8 +53,8 @@ export class ProfitAndLossReport extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "income" })
-    @Type(() => ReportLine)
-    income?: ReportLine;
+    @Type(() => ReportLineInput)
+    income?: ReportLineInput;
 
     /**
      * Net operating profit of the company in the given date range.
@@ -79,13 +79,13 @@ export class ProfitAndLossReport extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "otherExpenses" })
-    @Type(() => ReportLine)
-    otherExpenses?: ReportLine;
+    @Type(() => ReportLineInput)
+    otherExpenses?: ReportLineInput;
 
     @SpeakeasyMetadata()
     @Expose({ name: "otherIncome" })
-    @Type(() => ReportLine)
-    otherIncome?: ReportLine;
+    @Type(() => ReportLineInput)
+    otherIncome?: ReportLineInput;
 
     /**
      * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:

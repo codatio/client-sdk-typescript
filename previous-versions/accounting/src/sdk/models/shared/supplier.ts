@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Addressesitems } from "./addressesitems";
+import { Items } from "./items";
 import { Metadata } from "./metadata";
 import { SupplementalData } from "./supplementaldata";
 import { SupplierStatus } from "./supplierstatus";
@@ -22,10 +22,10 @@ export class Supplier extends SpeakeasyBase {
     /**
      * An array of Addresses.
      */
-    @SpeakeasyMetadata({ elemType: Addressesitems })
+    @SpeakeasyMetadata({ elemType: Items })
     @Expose({ name: "addresses" })
-    @Type(() => Addressesitems)
-    addresses?: Addressesitems[];
+    @Type(() => Items)
+    addresses?: Items[];
 
     /**
      * Name of the main contact for the supplier.

@@ -7,7 +7,7 @@ import { DataType } from "./datatype";
 import { Expose } from "class-transformer";
 
 /**
- * The customer or supplier for the transfer, if available.
+ * A customer or supplier associated with the direct cost.
  */
 export class ContactRef extends SpeakeasyBase {
     /**

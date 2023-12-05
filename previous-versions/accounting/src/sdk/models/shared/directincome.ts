@@ -5,8 +5,8 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { ContactRef } from "./contactref";
 import { DirectIncomeLineItem } from "./directincomelineitem";
-import { Items } from "./items";
 import { Metadata } from "./metadata";
+import { PaymentAllocationItems } from "./paymentallocationitems";
 import { SupplementalData } from "./supplementaldata";
 import { Expose, Type } from "class-transformer";
 
@@ -32,7 +32,7 @@ import { Expose, Type } from "class-transformer";
  */
 export class DirectIncome extends SpeakeasyBase {
     /**
-     * The customer or supplier for the transfer, if available.
+     * A customer or supplier associated with the direct cost.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "contactRef" })
@@ -145,10 +145,10 @@ export class DirectIncome extends SpeakeasyBase {
     @Expose({ name: "note" })
     note?: string;
 
-    @SpeakeasyMetadata({ elemType: Items })
+    @SpeakeasyMetadata({ elemType: PaymentAllocationItems })
     @Expose({ name: "paymentAllocations" })
-    @Type(() => Items)
-    paymentAllocations: Items[];
+    @Type(() => PaymentAllocationItems)
+    paymentAllocations: PaymentAllocationItems[];
 
     /**
      * User-friendly reference for the direct income.
