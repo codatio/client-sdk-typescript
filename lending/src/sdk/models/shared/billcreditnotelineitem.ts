@@ -11,7 +11,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * Reference to the item the line is linked to.
  */
-export class BillCreditNoteLineItemItemReference extends SpeakeasyBase {
+export class ItemReference extends SpeakeasyBase {
     /**
      * Unique identifier for the item in the accounting platform.
      */
@@ -41,7 +41,7 @@ export class BillCreditNoteLineItemItemReference extends SpeakeasyBase {
  * - Invoice line items
  * - Items
  */
-export class BillCreditNoteLineItemTaxRateReference extends SpeakeasyBase {
+export class TaxRateReference extends SpeakeasyBase {
     /**
      * Applicable tax rate.
      */
@@ -99,8 +99,8 @@ export class BillCreditNoteLineItem extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "itemRef" })
-    @Type(() => BillCreditNoteLineItemItemReference)
-    itemRef?: BillCreditNoteLineItemItemReference;
+    @Type(() => ItemReference)
+    itemRef?: ItemReference;
 
     /**
      * Number of units of the goods or service for which credit has been received.
@@ -139,8 +139,8 @@ export class BillCreditNoteLineItem extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "taxRateRef" })
-    @Type(() => BillCreditNoteLineItemTaxRateReference)
-    taxRateRef?: BillCreditNoteLineItemTaxRateReference;
+    @Type(() => TaxRateReference)
+    taxRateRef?: TaxRateReference;
 
     /**
      * Total amount of the line item, including discounts and tax.

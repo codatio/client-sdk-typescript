@@ -1,29 +1,25 @@
-<!-- Start SDK Example Usage -->
-
-
+<!-- Start SDK Example Usage [usage] -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
-(async () => {
+async function run() {
     const sdk = new CodatLending({
         security: {
             authHeader: "Basic BASE_64_ENCODED(API_KEY)",
         },
     });
 
-    const res = await sdk.accountingBankData.listTransactions({
-        accountId: "Anchorage Product",
-        companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-        connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-        orderBy: "-modifiedDate",
-        page: 1,
-        pageSize: 100,
+    const res = await sdk.companies.create({
+        description: "Requested early access to the new financing scheme.",
+        name: "Bank of Dave",
     });
 
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->

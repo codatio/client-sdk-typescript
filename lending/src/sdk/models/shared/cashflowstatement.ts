@@ -3,19 +3,19 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { ReportLine } from "./reportline";
+import { ReportLineInput } from "./reportlineinput";
 import { Expose, Type } from "class-transformer";
 
 export class CashFlowStatement extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "cashPayments" })
-    @Type(() => ReportLine)
-    cashPayments?: ReportLine;
+    @Type(() => ReportLineInput)
+    cashPayments?: ReportLineInput;
 
     @SpeakeasyMetadata()
     @Expose({ name: "cashReceipts" })
-    @Type(() => ReportLine)
-    cashReceipts?: ReportLine;
+    @Type(() => ReportLineInput)
+    cashReceipts?: ReportLineInput;
 
     /**
      * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:

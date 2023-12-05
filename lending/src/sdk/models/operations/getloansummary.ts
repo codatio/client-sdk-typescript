@@ -3,13 +3,13 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 /**
  * Data source type.
  */
-export enum GetLoanSummarySourceType {
+export enum GetLoanSummaryQueryParamSourceType {
     Banking = "banking",
     Commerce = "commerce",
     Accounting = "accounting",
@@ -26,7 +26,7 @@ export class GetLoanSummaryRequest extends SpeakeasyBase {
      * Data source type.
      */
     @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=sourceType" })
-    sourceType: GetLoanSummarySourceType;
+    sourceType: GetLoanSummaryQueryParamSourceType;
 }
 
 export class GetLoanSummaryResponse extends SpeakeasyBase {
@@ -58,5 +58,5 @@ export class GetLoanSummaryResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 }

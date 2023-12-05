@@ -10,7 +10,7 @@ import { WebLink } from "./weblink";
 import { Expose, Type } from "class-transformer";
 
 /**
- * In the Codat system, company information includes standard commercial details about
+ * In the Codat system, company profile includes standard commercial details about
  *
  * @remarks
  * a linked company, such as their address, phone number, and company registration.

@@ -4,7 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountRef } from "./accountref";
-import { ItemRef } from "./itemref";
+import { PropertieItemRef } from "./propertieitemref";
 import { TaxRateRef } from "./taxrateref";
 import { Tracking } from "./tracking";
 import { TrackingCategoryRef } from "./trackingcategoryref";
@@ -45,8 +45,8 @@ export class DirectCostLineItem extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "itemRef" })
-    @Type(() => ItemRef)
-    itemRef?: ItemRef;
+    @Type(() => PropertieItemRef)
+    itemRef?: PropertieItemRef;
 
     /**
      * Number of units of goods or services received.
