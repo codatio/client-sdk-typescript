@@ -7,7 +7,7 @@ import { Metadata } from "./metadata";
 import { SupplementalData } from "./supplementaldata";
 import { TaxRateComponent } from "./taxratecomponent";
 import { TaxRateStatus } from "./taxratestatus";
-import { ValidDatatypeLinksitems } from "./validdatatypelinksitems";
+import { ValidDatatypeLinkItems } from "./validdatatypelinkitems";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -112,8 +112,8 @@ export class TaxRate extends SpeakeasyBase {
     @Expose({ name: "totalTaxRate" })
     totalTaxRate?: number;
 
-    @SpeakeasyMetadata({ elemType: ValidDatatypeLinksitems })
+    @SpeakeasyMetadata({ elemType: ValidDatatypeLinkItems })
     @Expose({ name: "validDatatypeLinks" })
-    @Type(() => ValidDatatypeLinksitems)
-    validDatatypeLinks?: ValidDatatypeLinksitems[];
+    @Type(() => ValidDatatypeLinkItems)
+    validDatatypeLinks?: ValidDatatypeLinkItems[];
 }

@@ -4,7 +4,7 @@
 Streamline your customers' accounts payable workflow.
 <!-- End Codat Library Description -->
 
-<!-- Start SDK Installation -->
+<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 ### NPM
@@ -18,71 +18,71 @@ npm add @codat/sync-for-payables
 ```bash
 yarn add @codat/sync-for-payables
 ```
-<!-- End SDK Installation -->
+<!-- End SDK Installation [installation] -->
 
 ## Example Usage
-<!-- Start SDK Example Usage -->
+<!-- Start SDK Example Usage [usage] -->
+## SDK Example Usage
+
+### Example
+
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { AccountStatus, AccountType } from "@codat/sync-for-payables/dist/sdk/models/shared";
 
-(async () => {
+async function run() {
     const sdk = new CodatSyncPayables({
         security: {
             authHeader: "Basic BASE_64_ENCODED(API_KEY)",
         },
     });
 
-    const res = await sdk.accounts.create({
-        account: {
-            currency: "USD",
-            currentBalance: 0,
-            description: "Invoices the business has issued but has not yet collected payment on.",
-            fullyQualifiedCategory: "Asset.Current",
-            fullyQualifiedName: "Cash On Hand",
-            id: "1b6266d1-1e44-46c5-8eb5-a8f98e03124e",
-            metadata: {},
-            modifiedDate: "2022-10-23T00:00:00.000Z",
-            name: "Accounts Receivable",
-            nominalCode: "610",
-            sourceModifiedDate: "2022-10-23T00:00:00.000Z",
-            status: AccountStatus.Active,
-            supplementalData: {
-                content: {
-                    Money: {
-                        blue: "shred",
-                    },
-                },
-            },
-            type: AccountType.Asset,
-            validDatatypeLinks: [
-                {
-                    links: ["abnormally"],
-                },
-            ],
-        },
-        companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-        connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    const res = await sdk.companies.create({
+        description: "Requested early access to the new financing scheme.",
+        name: "Bank of Dave",
     });
 
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
 
-<!-- Start SDK Available Operations -->
+<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
+### [companies](docs/sdks/companies/README.md)
 
-### [accounts](docs/sdks/accounts/README.md)
+* [create](docs/sdks/companies/README.md#create) - Create company
+* [delete](docs/sdks/companies/README.md#delete) - Delete a company
+* [get](docs/sdks/companies/README.md#get) - Get company
+* [list](docs/sdks/companies/README.md#list) - List companies
+* [update](docs/sdks/companies/README.md#update) - Update company
 
-* [create](docs/sdks/accounts/README.md#create) - Create account
-* [get](docs/sdks/accounts/README.md#get) - Get account
-* [getCreateModel](docs/sdks/accounts/README.md#getcreatemodel) - Get create account model
-* [list](docs/sdks/accounts/README.md#list) - List accounts
+### [connections](docs/sdks/connections/README.md)
+
+* [create](docs/sdks/connections/README.md#create) - Create connection
+* [delete](docs/sdks/connections/README.md#delete) - Delete connection
+* [get](docs/sdks/connections/README.md#get) - Get connection
+* [list](docs/sdks/connections/README.md#list) - List connections
+* [unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
+
+### [bills](docs/sdks/bills/README.md)
+
+* [create](docs/sdks/bills/README.md#create) - Create bill
+* [delete](docs/sdks/bills/README.md#delete) - Delete bill
+* [deleteAttachment](docs/sdks/bills/README.md#deleteattachment) - Delete bill attachment
+* [downloadAttachment](docs/sdks/bills/README.md#downloadattachment) - Download bill attachment
+* [get](docs/sdks/bills/README.md#get) - Get bill
+* [getAttachment](docs/sdks/bills/README.md#getattachment) - Get bill attachment
+* [getCreateUpdateModel](docs/sdks/bills/README.md#getcreateupdatemodel) - Get create/update bill model
+* [list](docs/sdks/bills/README.md#list) - List bills
+* [listAttachments](docs/sdks/bills/README.md#listattachments) - List bill attachments
+* [update](docs/sdks/bills/README.md#update) - Update bill
+* [uploadAttachment](docs/sdks/bills/README.md#uploadattachment) - Upload bill attachment
 
 ### [billCreditNotes](docs/sdks/billcreditnotes/README.md)
 
@@ -100,39 +100,12 @@ import { AccountStatus, AccountType } from "@codat/sync-for-payables/dist/sdk/mo
 * [getCreateModel](docs/sdks/billpayments/README.md#getcreatemodel) - Get create bill payment model
 * [list](docs/sdks/billpayments/README.md#list) - List bill payments
 
-### [bills](docs/sdks/bills/README.md)
+### [accounts](docs/sdks/accounts/README.md)
 
-* [create](docs/sdks/bills/README.md#create) - Create bill
-* [delete](docs/sdks/bills/README.md#delete) - Delete bill
-* [deleteAttachment](docs/sdks/bills/README.md#deleteattachment) - Delete bill attachment
-* [downloadAttachment](docs/sdks/bills/README.md#downloadattachment) - Download bill attachment
-* [get](docs/sdks/bills/README.md#get) - Get bill
-* [getAttachment](docs/sdks/bills/README.md#getattachment) - Get bill attachment
-* [getCreateUpdateModel](docs/sdks/bills/README.md#getcreateupdatemodel) - Get create/update bill model
-* [list](docs/sdks/bills/README.md#list) - List bills
-* [listAttachments](docs/sdks/bills/README.md#listattachments) - List bill attachments
-* [update](docs/sdks/bills/README.md#update) - Update bill
-* [uploadAttachment](docs/sdks/bills/README.md#uploadattachment) - Upload bill attachment
-
-### [companies](docs/sdks/companies/README.md)
-
-* [create](docs/sdks/companies/README.md#create) - Create company
-* [delete](docs/sdks/companies/README.md#delete) - Delete a company
-* [get](docs/sdks/companies/README.md#get) - Get company
-* [list](docs/sdks/companies/README.md#list) - List companies
-* [update](docs/sdks/companies/README.md#update) - Update company
-
-### [companyInfo](docs/sdks/companyinfo/README.md)
-
-* [getAccountingProfile](docs/sdks/companyinfo/README.md#getaccountingprofile) - Get company accounting profile
-
-### [connections](docs/sdks/connections/README.md)
-
-* [create](docs/sdks/connections/README.md#create) - Create connection
-* [delete](docs/sdks/connections/README.md#delete) - Delete connection
-* [get](docs/sdks/connections/README.md#get) - Get connection
-* [list](docs/sdks/connections/README.md#list) - List connections
-* [unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
+* [create](docs/sdks/accounts/README.md#create) - Create account
+* [get](docs/sdks/accounts/README.md#get) - Get account
+* [getCreateModel](docs/sdks/accounts/README.md#getcreatemodel) - Get create account model
+* [list](docs/sdks/accounts/README.md#list) - List accounts
 
 ### [journalEntries](docs/sdks/journalentries/README.md)
 
@@ -146,6 +119,14 @@ import { AccountStatus, AccountType } from "@codat/sync-for-payables/dist/sdk/mo
 * [getCreateModel](docs/sdks/journals/README.md#getcreatemodel) - Get create journal model
 * [list](docs/sdks/journals/README.md#list) - List journals
 
+### [suppliers](docs/sdks/suppliers/README.md)
+
+* [create](docs/sdks/suppliers/README.md#create) - Create supplier
+* [get](docs/sdks/suppliers/README.md#get) - Get supplier
+* [getCreateUpdateModel](docs/sdks/suppliers/README.md#getcreateupdatemodel) - Get create/update supplier model
+* [list](docs/sdks/suppliers/README.md#list) - List suppliers
+* [update](docs/sdks/suppliers/README.md#update) - Update supplier
+
 ### [manageData](docs/sdks/managedata/README.md)
 
 * [get](docs/sdks/managedata/README.md#get) - Get data status
@@ -154,23 +135,14 @@ import { AccountStatus, AccountType } from "@codat/sync-for-payables/dist/sdk/mo
 * [refreshAllDataTypes](docs/sdks/managedata/README.md#refreshalldatatypes) - Refresh all data
 * [refreshDataType](docs/sdks/managedata/README.md#refreshdatatype) - Refresh data type
 
+### [companyInfo](docs/sdks/companyinfo/README.md)
+
+* [getAccountingProfile](docs/sdks/companyinfo/README.md#getaccountingprofile) - Get company accounting profile
+
 ### [paymentMethods](docs/sdks/paymentmethods/README.md)
 
 * [get](docs/sdks/paymentmethods/README.md#get) - Get payment method
 * [list](docs/sdks/paymentmethods/README.md#list) - List payment methods
-
-### [pushOperations](docs/sdks/pushoperations/README.md)
-
-* [get](docs/sdks/pushoperations/README.md#get) - Get push operation
-* [list](docs/sdks/pushoperations/README.md#list) - List push operations
-
-### [suppliers](docs/sdks/suppliers/README.md)
-
-* [create](docs/sdks/suppliers/README.md#create) - Create supplier
-* [get](docs/sdks/suppliers/README.md#get) - Get supplier
-* [getCreateUpdateModel](docs/sdks/suppliers/README.md#getcreateupdatemodel) - Get create/update supplier model
-* [list](docs/sdks/suppliers/README.md#list) - List suppliers
-* [update](docs/sdks/suppliers/README.md#update) - Update supplier
 
 ### [taxRates](docs/sdks/taxrates/README.md)
 
@@ -181,27 +153,262 @@ import { AccountStatus, AccountType } from "@codat/sync-for-payables/dist/sdk/mo
 
 * [get](docs/sdks/trackingcategories/README.md#get) - Get tracking categories
 * [list](docs/sdks/trackingcategories/README.md#list) - List tracking categories
-<!-- End SDK Available Operations -->
+
+### [pushOperations](docs/sdks/pushoperations/README.md)
+
+* [get](docs/sdks/pushoperations/README.md#get) - Get push operation
+* [list](docs/sdks/pushoperations/README.md#list) - List push operations
+<!-- End Available Resources and Operations [operations] -->
 
 
 
-<!-- Start Dev Containers -->
-
-<!-- End Dev Containers -->
 
 
+<!-- Start Retries [retries] -->
+## Retries
 
-<!-- Start Pagination -->
-# Pagination
+Some of the endpoints in this SDK support retries.  If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API.  However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
 
-Some of the endpoints in this SDK support pagination. To use pagination, you make your SDK calls as usual, but the
-returned response object will have a `next` method that can be called to pull down the next group of results. If the
-return value of `next` is `null`, then there are no more pages to be fetched.
+To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
 
-Here's an example of one such pagination call:
+async function run() {
+    const sdk = new CodatSyncPayables({
+        security: {
+            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+        },
+    });
+
+    const res = await sdk.companies.create(
+        {
+            description: "Requested early access to the new financing scheme.",
+            name: "Bank of Dave",
+        },
+        {
+            strategy: "backoff",
+            backoff: {
+                initialInterval: 1,
+                maxInterval: 50,
+                exponent: 1.1,
+                maxElapsedTime: 100,
+            },
+            retryConnectionErrors: false,
+        }
+    );
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+}
+
+run();
+
+```
+
+If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+
+async function run() {
+    const sdk = new CodatSyncPayables({
+        retry_config: {
+            strategy: "backoff",
+            backoff: {
+                initialInterval: 1,
+                maxInterval: 50,
+                exponent: 1.1,
+                maxElapsedTime: 100,
+            },
+            retryConnectionErrors: false,
+        },
+        security: {
+            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+        },
+    });
+
+    const res = await sdk.companies.create({
+        description: "Requested early access to the new financing scheme.",
+        name: "Bank of Dave",
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+}
+
+run();
+
+```
+<!-- End Retries [retries] -->
+
+<!-- Start Error Handling [errors] -->
+## Error Handling
+
+Handling errors in this SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
+
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
+
+Example
+
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+
+async function run() {
+    const sdk = new CodatSyncPayables({
+        security: {
+            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+        },
+    });
+
+    let res;
+    try {
+        res = await sdk.companies.create({
+            description: "Requested early access to the new financing scheme.",
+            name: "Bank of Dave",
+        });
+    } catch (err) {
+        if (err instanceof errors.SDKError) {
+            console.error(err); // handle exception
+            throw err;
+        }
+    }
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+}
+
+run();
+
+```
+<!-- End Error Handling [errors] -->
+
+<!-- Start Server Selection [server] -->
+## Server Selection
+
+### Select Server by Index
+
+You can override the default server globally by passing a server index to the `serverIdx: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https://api.codat.io` | None |
+
+#### Example
+
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+
+async function run() {
+    const sdk = new CodatSyncPayables({
+        serverIdx: 0,
+        security: {
+            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+        },
+    });
+
+    const res = await sdk.companies.create({
+        description: "Requested early access to the new financing scheme.",
+        name: "Bank of Dave",
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+}
+
+run();
+
+```
 
 
-<!-- End Pagination -->
+### Override Server URL Per-Client
+
+The default server can also be overridden globally by passing a URL to the `serverURL: str` optional parameter when initializing the SDK client instance. For example:
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+
+async function run() {
+    const sdk = new CodatSyncPayables({
+        serverURL: "https://api.codat.io",
+        security: {
+            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+        },
+    });
+
+    const res = await sdk.companies.create({
+        description: "Requested early access to the new financing scheme.",
+        name: "Bank of Dave",
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+}
+
+run();
+
+```
+<!-- End Server Selection [server] -->
+
+<!-- Start Custom HTTP Client [http-client] -->
+## Custom HTTP Client
+
+The Typescript SDK makes API calls using the [axios](https://axios-http.com/docs/intro) HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `AxiosInstance` object.
+
+For example, you could specify a header for every request that your sdk makes as follows:
+
+```typescript
+import { @codat/sync-for-payables } from "CodatSyncPayables";
+import axios from "axios";
+
+const httpClient = axios.create({
+    headers: {'x-custom-header': 'someValue'}
+})
+
+const sdk = new CodatSyncPayables({defaultClient: httpClient});
+```
+<!-- End Custom HTTP Client [http-client] -->
+
+<!-- Start Authentication [security] -->
+## Authentication
+
+### Per-Client Security Schemes
+
+This SDK supports the following security scheme globally:
+
+| Name         | Type         | Scheme       |
+| ------------ | ------------ | ------------ |
+| `authHeader` | apiKey       | API key      |
+
+You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+
+async function run() {
+    const sdk = new CodatSyncPayables({
+        security: {
+            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+        },
+    });
+
+    const res = await sdk.companies.create({
+        description: "Requested early access to the new financing scheme.",
+        name: "Bank of Dave",
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+}
+
+run();
+
+```
+<!-- End Authentication [security] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

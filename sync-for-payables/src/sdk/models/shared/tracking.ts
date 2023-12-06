@@ -7,7 +7,7 @@ import { BilledToType } from "./billedtotype";
 import { TrackingCategoryRef } from "./trackingcategoryref";
 import { Expose, Type } from "class-transformer";
 
-export class TrackingCustomerRef extends SpeakeasyBase {
+export class CustomerRef extends SpeakeasyBase {
     /**
      * `customerName` from the Customer data type
      */
@@ -23,7 +23,7 @@ export class TrackingCustomerRef extends SpeakeasyBase {
     id: string;
 }
 
-export class TrackingProjectReference extends SpeakeasyBase {
+export class AccountingProjectReference extends SpeakeasyBase {
     /**
      * Unique identifier to the project reference.
      */
@@ -50,8 +50,8 @@ export class Tracking extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "customerRef" })
-    @Type(() => TrackingCustomerRef)
-    customerRef?: TrackingCustomerRef;
+    @Type(() => CustomerRef)
+    customerRef?: CustomerRef;
 
     /**
      * Defines if the invoice or credit note is billed/rebilled to a project or customer.
@@ -69,6 +69,6 @@ export class Tracking extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "projectRef" })
-    @Type(() => TrackingProjectReference)
-    projectRef?: TrackingProjectReference;
+    @Type(() => AccountingProjectReference)
+    projectRef?: AccountingProjectReference;
 }

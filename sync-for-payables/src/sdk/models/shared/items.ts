@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { PaymentAllocationPayment } from "./paymentallocationpayment";
 import { Expose, Type } from "class-transformer";
 
-export class ItemsAllocation extends SpeakeasyBase {
+export class Allocation extends SpeakeasyBase {
     /**
      * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
      *
@@ -93,8 +93,8 @@ export class ItemsAllocation extends SpeakeasyBase {
 export class Items extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "allocation" })
-    @Type(() => ItemsAllocation)
-    allocation: ItemsAllocation;
+    @Type(() => Allocation)
+    allocation: Allocation;
 
     @SpeakeasyMetadata()
     @Expose({ name: "payment" })
