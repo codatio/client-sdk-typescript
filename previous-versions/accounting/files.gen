@@ -231,6 +231,8 @@ src/sdk/models/shared/attachment.ts
 src/sdk/models/shared/bills.ts
 src/sdk/models/shared/attachmentsdataset.ts
 src/sdk/models/shared/updatebillresponse.ts
+src/sdk/models/shared/attachmentupload.ts
+src/sdk/models/shared/codatfile.ts
 src/sdk/models/shared/createcustomerresponse.ts
 src/sdk/models/shared/customer.ts
 src/sdk/models/shared/customerstatus.ts
@@ -410,7 +412,6 @@ docs/sdk/models/operations/listbillattachmentsrequest.md
 docs/sdk/models/operations/listbillattachmentsresponse.md
 docs/sdk/models/operations/updatebillrequest.md
 docs/sdk/models/operations/updatebillresponse.md
-docs/sdk/models/operations/uploadbillattachmentrequestbody.md
 docs/sdk/models/operations/uploadbillattachmentrequest.md
 docs/sdk/models/operations/uploadbillattachmentresponse.md
 docs/sdk/models/operations/createcustomerrequest.md
@@ -443,7 +444,6 @@ docs/sdk/models/operations/listdirectcostsrequest.md
 docs/sdk/models/operations/listdirectcostsresponse.md
 docs/sdk/models/operations/listdirectcostattachmentsrequest.md
 docs/sdk/models/operations/listdirectcostattachmentsresponse.md
-docs/sdk/models/operations/uploaddirectcostattachmentrequestbody.md
 docs/sdk/models/operations/uploaddirectcostattachmentrequest.md
 docs/sdk/models/operations/uploaddirectcostattachmentresponse.md
 docs/sdk/models/operations/createdirectincomerequest.md
@@ -705,6 +705,8 @@ docs/sdk/models/shared/attachment.md
 docs/sdk/models/shared/bills.md
 docs/sdk/models/shared/attachmentsdataset.md
 docs/sdk/models/shared/updatebillresponse.md
+docs/sdk/models/shared/attachmentupload.md
+docs/sdk/models/shared/codatfile.md
 docs/sdk/models/shared/createcustomerresponse.md
 docs/sdk/models/shared/customer.md
 docs/sdk/models/shared/customerstatus.md
