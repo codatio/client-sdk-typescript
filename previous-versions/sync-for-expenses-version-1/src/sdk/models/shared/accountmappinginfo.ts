@@ -8,7 +8,7 @@ import { Expose } from "class-transformer";
 /**
  * Type of the account.
  */
-export enum AccountMappingInfoAccountType {
+export enum AccountType {
     Asset = "Asset",
     Liability = "Liability",
     Income = "Income",
@@ -16,7 +16,7 @@ export enum AccountMappingInfoAccountType {
     Equity = "Equity",
 }
 
-export enum AccountMappingInfoValidTransactionTypes {
+export enum ValidTransactionTypes {
     Payment = "Payment",
     Refund = "Refund",
     Reward = "Reward",
@@ -33,7 +33,7 @@ export class AccountMappingInfo extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "accountType" })
-    accountType?: AccountMappingInfoAccountType;
+    accountType?: AccountType;
 
     /**
      * Currency of the account.
@@ -61,5 +61,5 @@ export class AccountMappingInfo extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "validTransactionTypes" })
-    validTransactionTypes?: AccountMappingInfoValidTransactionTypes[];
+    validTransactionTypes?: ValidTransactionTypes[];
 }
