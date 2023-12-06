@@ -712,9 +712,11 @@ async function run() {
   });
 
   const res = await sdk.bills.uploadAttachment({
-    requestBody: {
-      content: new TextEncoder().encode("0xE3ABc1980E"),
-      fileName: "elegant_producer_electric.jpeg",
+    attachmentUpload: {
+      file: {
+        content: new TextEncoder().encode("0xE3ABc1980E"),
+        fileName: "elegant_producer_electric.jpeg",
+      },
     },
     billId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
