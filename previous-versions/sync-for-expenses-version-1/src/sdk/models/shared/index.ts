@@ -4,7 +4,9 @@
 
 export * from "./accountmappinginfo";
 export * from "./attachment";
+export * from "./attachmentupload";
 export * from "./bankaccount";
+export * from "./codatfile";
 export * from "./companies";
 export * from "./company";
 export * from "./companyconfiguration";
@@ -33,7 +35,6 @@ export * from "./synccompletewebhook";
 export * from "./synccompletewebhookdata";
 export * from "./syncfailedwebhook";
 export * from "./syncfailedwebhookdata";
-export * from "./syncinitiated";
 export * from "./syncstartedwebhook";
 export * from "./taxratemappinginfo";
 export * from "./trackingcategorymappinginfo";
