@@ -1,7 +1,7 @@
 configVersion: 1.0.0
 management:
   docChecksum: b3f9e202c35aee45c28b3926977431b8
-  docVersion: "1.1"
+  docVersion: '1.1'
   speakeasyVersion: 1.100.2
   generationVersion: 2.159.2
 generation:
@@ -20,7 +20,7 @@ features:
 typescript:
   version: 0.3.0
   author: Codat
-  description: Push merchants' data from your ecommerce or point-of-sale (POS) platform into your merchants' accounting platform.
-  flattenGlobalSecurity: false
+  description: Push merchants' data from your ecommerce or point-of-sale (POS) platform
+    into your merchants' accounting platform.
   maxMethodParams: 0
   packageName: '@codat/sync-for-commerce-version-1'

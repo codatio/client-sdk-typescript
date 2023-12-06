@@ -5,11 +5,8 @@ management:
   speakeasyVersion: 1.125.2
   generationVersion: 2.210.6
 generation:
-  comments: {}
   sdkClassName: CodatSyncExpenses
-  repoURL: https://github.com/codatio/client-sdk-typescript.git
-  usageSnippets:
-    optionalPropertyRendering: withExample
+  singleTagPerOp: false
   telemetryEnabled: true
 features:
   typescript:
@@ -23,21 +20,6 @@ features:
 typescript:
   version: 0.4.0
   author: Codat
-  clientServerStatusCodesAsErrors: false
   description: Push expenses to accounting platforms.
-  flattenGlobalSecurity: false
-  imports:
-    option: openapi
-    paths:
-      callbacks: sdk/models/callbacks
-      errors: sdk/models/errors
-      operations: sdk/models/operations
-      shared: sdk/models/shared
-      webhooks: sdk/models/webhooks
-  inputModelSuffix: input
-  installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/previous-versions/sync-for-expenses-version-1
   maxMethodParams: 0
-  outputModelSuffix: output
   packageName: '@codat/sync-for-expenses-version-1'
-  published: true
-  repoSubDirectory: previous-versions/sync-for-expenses-version-1
