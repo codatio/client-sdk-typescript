@@ -20,7 +20,8 @@ features:
 typescript:
   version: 1.2.0
   author: Codat
-  description: Manage the building blocks of Codat, including companies, connections, and more.
+  description: Manage the building blocks of Codat, including companies, connections,
+    and more.
   flattenGlobalSecurity: false
   maxMethodParams: 0
   packageName: '@codat/platform'
