@@ -1,10 +1,8 @@
-<!-- Start SDK Example Usage -->
-
-
+<!-- Start SDK Example Usage [usage] -->
 ```typescript
 import { CodatBanking } from "@codat/banking";
 
-(async () => {
+async function run() {
     const sdk = new CodatBanking({
         security: {
             authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -22,7 +20,9 @@ import { CodatBanking } from "@codat/banking";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
