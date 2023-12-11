@@ -1,25 +1,24 @@
-<!-- Start SDK Example Usage -->
-
-
+<!-- Start SDK Example Usage [usage] -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-(async () => {
+async function run() {
     const sdk = new CodatPlatform({
         security: {
             authHeader: "",
         },
     });
 
-    const res = await sdk.companies.create({
-        description: "Requested early access to the new financing scheme.",
-        name: "Bank of Dave",
+    const res = await sdk.settings.createApiKey({
+        name: "azure-invoice-finance-processor",
     });
 
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->

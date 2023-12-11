@@ -23,9 +23,9 @@ See the *examples* for integration-specific frequently requested properties.
 
 ```typescript
 import { CodatPlatform } from "@codat/platform";
-import { ConfigureSupplementalDataDataType } from "@codat/platform/dist/sdk/models/operations";
+import { DataType } from "@codat/platform/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new CodatPlatform({
     security: {
       authHeader: "",
@@ -35,39 +35,45 @@ import { ConfigureSupplementalDataDataType } from "@codat/platform/dist/sdk/mode
   const res = await sdk.supplementalData.configure({
     supplementalDataConfiguration: {
       supplementalDataConfig: {
-        "Cutler": {
+        "key": {
           pullData: {
-            "North": "transmitter",
+            "key": "string",
           },
           pushData: {
-            "infrastructure": "Northeast",
+            "key": "string",
           },
         },
       },
     },
-    dataType: ConfigureSupplementalDataDataType.Invoices,
+    dataType: DataType.Invoices,
     platformKey: "gbol",
   });
 
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                  | [operations.ConfigureSupplementalDataRequest](../../models/operations/configuresupplementaldatarequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
-| `retries`                                                                                                  | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                     | :heavy_minus_sign:                                                                                         | Configuration to override the default retry behavior of the client.                                        |
-| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
+| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                      | [operations.ConfigureSupplementalDataRequest](../../sdk/models/operations/configuresupplementaldatarequest.md) | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
+| `retries`                                                                                                      | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                       | :heavy_minus_sign:                                                                                             | Configuration to override the default retry behavior of the client.                                            |
+| `config`                                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                   | :heavy_minus_sign:                                                                                             | Available config options for making requests.                                                                  |
 
 
 ### Response
 
-**Promise<[operations.ConfigureSupplementalDataResponse](../../models/operations/configuresupplementaldataresponse.md)>**
+**Promise<[operations.ConfigureSupplementalDataResponse](../../sdk/models/operations/configuresupplementaldataresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getConfiguration
 
@@ -79,9 +85,9 @@ The *Get configuration* endpoint returns supplemental data configuration previou
 
 ```typescript
 import { CodatPlatform } from "@codat/platform";
-import { GetSupplementalDataConfigurationDataType } from "@codat/platform/dist/sdk/models/operations";
+import { PathParamDataType } from "@codat/platform/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new CodatPlatform({
     security: {
       authHeader: "",
@@ -89,26 +95,32 @@ import { GetSupplementalDataConfigurationDataType } from "@codat/platform/dist/s
   });
 
   const res = await sdk.supplementalData.getConfiguration({
-    dataType: GetSupplementalDataConfigurationDataType.Invoices,
+    dataType: PathParamDataType.Invoices,
     platformKey: "gbol",
   });
 
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                | [operations.GetSupplementalDataConfigurationRequest](../../models/operations/getsupplementaldataconfigurationrequest.md) | :heavy_check_mark:                                                                                                       | The request object to use for the request.                                                                               |
-| `retries`                                                                                                                | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                                   | :heavy_minus_sign:                                                                                                       | Configuration to override the default retry behavior of the client.                                                      |
-| `config`                                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                             | :heavy_minus_sign:                                                                                                       | Available config options for making requests.                                                                            |
+| Parameter                                                                                                                    | Type                                                                                                                         | Required                                                                                                                     | Description                                                                                                                  |
+| ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                                    | [operations.GetSupplementalDataConfigurationRequest](../../sdk/models/operations/getsupplementaldataconfigurationrequest.md) | :heavy_check_mark:                                                                                                           | The request object to use for the request.                                                                                   |
+| `retries`                                                                                                                    | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                                     | :heavy_minus_sign:                                                                                                           | Configuration to override the default retry behavior of the client.                                                          |
+| `config`                                                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                 | :heavy_minus_sign:                                                                                                           | Available config options for making requests.                                                                                |
 
 
 ### Response
 
-**Promise<[operations.GetSupplementalDataConfigurationResponse](../../models/operations/getsupplementaldataconfigurationresponse.md)>**
+**Promise<[operations.GetSupplementalDataConfigurationResponse](../../sdk/models/operations/getsupplementaldataconfigurationresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
