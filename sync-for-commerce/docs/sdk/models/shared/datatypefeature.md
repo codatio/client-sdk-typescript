@@ -1,0 +1,11 @@
+# DataTypeFeature
+
+Describes support for a given datatype and associated operations
+
+
+## Fields
+
+| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 | Example                                                                     |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `dataType`                                                                  | [shared.DataTypes](../../../sdk/models/shared/datatypes.md)                 | :heavy_minus_sign:                                                          | Available Data types                                                        | invoices                                                                    |
+| `supportedFeatures`                                                         | [shared.SupportedFeature](../../../sdk/models/shared/supportedfeature.md)[] | :heavy_check_mark:                                                          | N/A                                                                         |                                                                             |

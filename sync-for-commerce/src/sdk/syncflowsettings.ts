@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
@@ -27,14 +27,19 @@ export class SyncFlowSettings {
      * Return preferences set for the text fields on sync flow.
      */
     async getConfigTextSyncFlow(
+        req: operations.GetConfigTextSyncFlowRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
     ): Promise<operations.GetConfigTextSyncFlowResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.GetConfigTextSyncFlowRequest(req);
+        }
+
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/sync/commerce/config/ui/text";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/sync/commerce/config/ui/text";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -45,6 +50,7 @@ export class SyncFlowSettings {
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
         headers["user-agent"] = this.sdkConfiguration.userAgent;
@@ -65,7 +71,7 @@ export class SyncFlowSettings {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl + queryParams,
                 method: "get",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -73,7 +79,7 @@ export class SyncFlowSettings {
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -82,13 +88,13 @@ export class SyncFlowSettings {
         const res: operations.GetConfigTextSyncFlowResponse =
             new operations.GetConfigTextSyncFlowResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.localizationInfo = {};
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.localizationInfo = utils.objectToClass(
@@ -98,7 +104,22 @@ export class SyncFlowSettings {
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case [401, 402, 403, 429, 500, 503].includes(httpRes?.status):
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.errorMessage = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -129,7 +150,7 @@ export class SyncFlowSettings {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/clients/{clientId}/config/ui/accounts/platform/{platformKey}",
             req
@@ -164,7 +185,7 @@ export class SyncFlowSettings {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "get",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -172,7 +193,7 @@ export class SyncFlowSettings {
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -181,20 +202,35 @@ export class SyncFlowSettings {
         const res: operations.GetVisibleAccountsResponse =
             new operations.GetVisibleAccountsResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.visibleAccounts = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.VisibleAccounts
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case [401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.errorMessage = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -213,20 +249,24 @@ export class SyncFlowSettings {
      * Set preferences for the text fields on sync flow.
      */
     async updateConfigTextSyncFlow(
-        req: Record<string, shared.Localization>,
+        req: operations.UpdateConfigTextSyncFlowRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
     ): Promise<operations.UpdateConfigTextSyncFlowResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.UpdateConfigTextSyncFlowRequest(req);
+        }
+
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/sync/commerce/config/ui/text";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/sync/commerce/config/ui/text";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "json");
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -246,6 +286,7 @@ export class SyncFlowSettings {
             ...config?.headers,
             ...properties.headers,
         };
+        const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
         headers["user-agent"] = this.sdkConfiguration.userAgent;
@@ -266,7 +307,7 @@ export class SyncFlowSettings {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl + queryParams,
                 method: "patch",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -275,7 +316,7 @@ export class SyncFlowSettings {
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -284,13 +325,13 @@ export class SyncFlowSettings {
         const res: operations.UpdateConfigTextSyncFlowResponse =
             new operations.UpdateConfigTextSyncFlowResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.localizationInfo = {};
                     const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.localizationInfo = utils.objectToClass(
@@ -300,7 +341,22 @@ export class SyncFlowSettings {
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case [400, 401, 402, 403, 429, 500, 503].includes(httpRes?.status):
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.errorMessage = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes
@@ -331,7 +387,7 @@ export class SyncFlowSettings {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/sync/commerce/config/ui/accounts/platform/{platformKey}",
             req
@@ -380,7 +436,7 @@ export class SyncFlowSettings {
         const httpRes: AxiosResponse = await utils.Retry(() => {
             return client.request({
                 validateStatus: () => true,
-                url: url,
+                url: operationUrl,
                 method: "post",
                 headers: headers,
                 responseType: "arraybuffer",
@@ -389,7 +445,7 @@ export class SyncFlowSettings {
             });
         }, new utils.Retries(retryConfig, ["408", "429", "5XX"]));
 
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+        const responseContentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) {
             throw new Error(`status code not found in response: ${httpRes}`);
@@ -398,20 +454,35 @@ export class SyncFlowSettings {
         const res: operations.UpdateVisibleAccountsSyncFlowResponse =
             new operations.UpdateVisibleAccountsSyncFlowResponse({
                 statusCode: httpRes.status,
-                contentType: contentType,
+                contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
+                if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.visibleAccounts = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.VisibleAccounts
                     );
                 } else {
                     throw new errors.SDKError(
-                        "unknown content-type received: " + contentType,
+                        "unknown content-type received: " + responseContentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+            case [400, 401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
+                if (utils.matchContentType(responseContentType, `application/json`)) {
+                    res.errorMessage = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ErrorMessage
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + responseContentType,
                         httpRes.status,
                         decodedRes,
                         httpRes

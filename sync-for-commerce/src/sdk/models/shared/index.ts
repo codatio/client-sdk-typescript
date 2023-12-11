@@ -35,6 +35,7 @@ export * from "./invoicelevelselection";
 export * from "./invoicelinelevelselection";
 export * from "./invoicestatus";
 export * from "./links";
+export * from "./locale";
 export * from "./localization";
 export * from "./newpayments";
 export * from "./newtaxrates";
