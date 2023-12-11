@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
@@ -11,8 +11,8 @@ export class UploadFilesRequestBody extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "multipart_form, content=true" })
     content: Uint8Array;
 
-    @SpeakeasyMetadata({ data: "multipart_form, name=requestBody" })
-    requestBody: string;
+    @SpeakeasyMetadata({ data: "multipart_form, name=fileName" })
+    fileName: string;
 }
 
 export class UploadFilesRequest extends SpeakeasyBase {
@@ -35,10 +35,7 @@ export class UploadFilesRequest extends SpeakeasyBase {
 }
 
 /**
- * One or more of the resources you referenced could not be found.
- *
- * @remarks
- * This might be because your company or data connection id is wrong, or was already deleted.
+ * You are using an outdated API key or a key not associated with that resource.
  */
 export class UploadFilesErrorMessage extends SpeakeasyBase {
     /**
@@ -92,10 +89,7 @@ export class UploadFilesResponse extends SpeakeasyBase {
     contentType: string;
 
     /**
-     * One or more of the resources you referenced could not be found.
-     *
-     * @remarks
-     * This might be because your company or data connection id is wrong, or was already deleted.
+     * You are using an outdated API key or a key not associated with that resource.
      */
     @SpeakeasyMetadata()
     errorMessage?: UploadFilesErrorMessage;
@@ -110,7 +104,7 @@ export class UploadFilesResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 
     /**
      * The request made is not valid.

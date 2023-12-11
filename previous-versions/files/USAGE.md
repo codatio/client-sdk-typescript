@@ -1,10 +1,8 @@
-<!-- Start SDK Example Usage -->
-
-
+<!-- Start SDK Example Usage [usage] -->
 ```typescript
 import { CodatFiles } from "@codat/files";
 
-(async () => {
+async function run() {
     const sdk = new CodatFiles({
         security: {
             authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -19,7 +17,9 @@ import { CodatFiles } from "@codat/files";
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
