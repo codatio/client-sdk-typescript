@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { CustomerStatus } from "./customerstatus";
 import { Items1 } from "./items1";
-import { PhoneNumbersitems } from "./phonenumbersitems";
+import { PhoneNumberItems } from "./phonenumberitems";
 import { Expose, Type } from "class-transformer";
 
 export class Contact extends SpeakeasyBase {
@@ -58,10 +58,10 @@ export class Contact extends SpeakeasyBase {
     /**
      * An array of Phone numbers.
      */
-    @SpeakeasyMetadata({ elemType: PhoneNumbersitems })
+    @SpeakeasyMetadata({ elemType: PhoneNumberItems })
     @Expose({ name: "phone" })
-    @Type(() => PhoneNumbersitems)
-    phone?: PhoneNumbersitems[];
+    @Type(() => PhoneNumberItems)
+    phone?: PhoneNumberItems[];
 
     /**
      * Status of customer.

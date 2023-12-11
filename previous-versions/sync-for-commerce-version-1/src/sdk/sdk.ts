@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as shared from "../sdk/models/shared";
 import { AccountingAccounts } from "./accountingaccounts";
 import { AccountingBankAccounts } from "./accountingbankaccounts";
 import { AccountingCompanyInfo } from "./accountingcompanyinfo";
@@ -24,7 +25,6 @@ import { CompanyManagement } from "./companymanagement";
 import { Configuration } from "./configuration";
 import { Connections } from "./connections";
 import { Integrations } from "./integrations";
-import * as shared from "./models/shared";
 import { PushData } from "./pushdata";
 import { RefreshData } from "./refreshdata";
 import { Sync } from "./sync";
@@ -78,9 +78,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "1.1";
-    sdkVersion = "0.3.0";
-    genVersion = "2.159.2";
-    userAgent = "speakeasy-sdk/typescript 0.3.0 2.159.2 1.1 @codat/sync-for-commerce-version-1";
+    sdkVersion = "0.4.0";
+    genVersion = "2.210.6";
+    userAgent = "speakeasy-sdk/typescript 0.4.0 2.210.6 1.1 @codat/sync-for-commerce-version-1";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -100,17 +100,53 @@ export class SDKConfiguration {
  */
 export class CodatSyncCommerce {
     /**
-     * Accounts
+     * Configure preferences for any given Sync for Commerce company using sync flow.
      */
-    public accountingAccounts: AccountingAccounts;
+    public syncFlowPreferences: SyncFlowPreferences;
+    /**
+     * Create and manage your Codat companies.
+     */
+    public companies: Companies;
+    /**
+     * Manage your companies' data connections.
+     */
+    public connections: Connections;
     /**
      * Bank accounts
      */
     public accountingBankAccounts: AccountingBankAccounts;
     /**
-     * Company info
+     * Retrieve standardized data from linked commerce platforms.
      */
-    public accountingCompanyInfo: AccountingCompanyInfo;
+    public commerceCustomers: CommerceCustomers;
+    /**
+     * Retrieve standardized data from linked commerce platforms.
+     */
+    public commerceCompanyInfo: CommerceCompanyInfo;
+    /**
+     * Retrieve standardized data from linked commerce platforms.
+     */
+    public commerceLocations: CommerceLocations;
+    /**
+     * Retrieve standardized data from linked commerce platforms.
+     */
+    public commerceOrders: CommerceOrders;
+    /**
+     * Retrieve standardized data from linked commerce platforms.
+     */
+    public commercePayments: CommercePayments;
+    /**
+     * Retrieve standardized data from linked commerce platforms.
+     */
+    public commerceProducts: CommerceProducts;
+    /**
+     * Retrieve standardized data from linked commerce platforms.
+     */
+    public commerceTransactions: CommerceTransactions;
+    /**
+     * Accounts
+     */
+    public accountingAccounts: AccountingAccounts;
     /**
      * Credit notes
      */
@@ -136,69 +172,33 @@ export class CodatSyncCommerce {
      */
     public accountingPayments: AccountingPayments;
     /**
-     * Retrieve standardized data from linked commerce platforms.
+     * Asynchronously retrieve data from an integration to refresh data in Codat.
      */
-    public commerceCompanyInfo: CommerceCompanyInfo;
+    public refreshData: RefreshData;
     /**
-     * Retrieve standardized data from linked commerce platforms.
+     * Company info
      */
-    public commerceCustomers: CommerceCustomers;
-    /**
-     * Retrieve standardized data from linked commerce platforms.
-     */
-    public commerceLocations: CommerceLocations;
-    /**
-     * Retrieve standardized data from linked commerce platforms.
-     */
-    public commerceOrders: CommerceOrders;
-    /**
-     * Retrieve standardized data from linked commerce platforms.
-     */
-    public commercePayments: CommercePayments;
-    /**
-     * Retrieve standardized data from linked commerce platforms.
-     */
-    public commerceProducts: CommerceProducts;
-    /**
-     * Retrieve standardized data from linked commerce platforms.
-     */
-    public commerceTransactions: CommerceTransactions;
-    /**
-     * Create and manage your Codat companies.
-     */
-    public companies: Companies;
-    /**
-     * Create new and manage existing Sync for Commerce companies.
-     */
-    public companyManagement: CompanyManagement;
-    /**
-     * Expressively configure preferences for any given Sync for Commerce company.
-     */
-    public configuration: Configuration;
-    /**
-     * Manage your companies' data connections.
-     */
-    public connections: Connections;
-    /**
-     * View useful information about codat's integrations.
-     */
-    public integrations: Integrations;
+    public accountingCompanyInfo: AccountingCompanyInfo;
     /**
      * View push options and get push statuses.
      */
     public pushData: PushData;
     /**
-     * Asynchronously retrieve data from an integration to refresh data in Codat.
-     */
-    public refreshData: RefreshData;
-    /**
      * Initiate a sync of Sync for Commerce company data into their respective accounting software.
      */
     public sync: Sync;
     /**
-     * Configure preferences for any given Sync for Commerce company using sync flow.
+     * Expressively configure preferences for any given Sync for Commerce company.
      */
-    public syncFlowPreferences: SyncFlowPreferences;
+    public configuration: Configuration;
+    /**
+     * View useful information about codat's integrations.
+     */
+    public integrations: Integrations;
+    /**
+     * Create new and manage existing Sync for Commerce companies.
+     */
+    public companyManagement: CompanyManagement;
 
     private sdkConfiguration: SDKConfiguration;
 
@@ -210,7 +210,7 @@ export class CodatSyncCommerce {
             serverURL = ServerList[serverIdx];
         }
 
-        const defaultClient = props?.defaultClient ?? axios.create({ baseURL: serverURL });
+        const defaultClient = props?.defaultClient ?? axios.create();
         this.sdkConfiguration = new SDKConfiguration({
             defaultClient: defaultClient,
             security: props?.security,
@@ -218,30 +218,30 @@ export class CodatSyncCommerce {
             retryConfig: props?.retryConfig,
         });
 
-        this.accountingAccounts = new AccountingAccounts(this.sdkConfiguration);
+        this.syncFlowPreferences = new SyncFlowPreferences(this.sdkConfiguration);
+        this.companies = new Companies(this.sdkConfiguration);
+        this.connections = new Connections(this.sdkConfiguration);
         this.accountingBankAccounts = new AccountingBankAccounts(this.sdkConfiguration);
-        this.accountingCompanyInfo = new AccountingCompanyInfo(this.sdkConfiguration);
+        this.commerceCustomers = new CommerceCustomers(this.sdkConfiguration);
+        this.commerceCompanyInfo = new CommerceCompanyInfo(this.sdkConfiguration);
+        this.commerceLocations = new CommerceLocations(this.sdkConfiguration);
+        this.commerceOrders = new CommerceOrders(this.sdkConfiguration);
+        this.commercePayments = new CommercePayments(this.sdkConfiguration);
+        this.commerceProducts = new CommerceProducts(this.sdkConfiguration);
+        this.commerceTransactions = new CommerceTransactions(this.sdkConfiguration);
+        this.accountingAccounts = new AccountingAccounts(this.sdkConfiguration);
         this.accountingCreditNotes = new AccountingCreditNotes(this.sdkConfiguration);
         this.accountingCustomers = new AccountingCustomers(this.sdkConfiguration);
         this.accountingDirectIncomes = new AccountingDirectIncomes(this.sdkConfiguration);
         this.accountingInvoices = new AccountingInvoices(this.sdkConfiguration);
         this.accountingJournalEntries = new AccountingJournalEntries(this.sdkConfiguration);
         this.accountingPayments = new AccountingPayments(this.sdkConfiguration);
-        this.commerceCompanyInfo = new CommerceCompanyInfo(this.sdkConfiguration);
-        this.commerceCustomers = new CommerceCustomers(this.sdkConfiguration);
-        this.commerceLocations = new CommerceLocations(this.sdkConfiguration);
-        this.commerceOrders = new CommerceOrders(this.sdkConfiguration);
-        this.commercePayments = new CommercePayments(this.sdkConfiguration);
-        this.commerceProducts = new CommerceProducts(this.sdkConfiguration);
-        this.commerceTransactions = new CommerceTransactions(this.sdkConfiguration);
-        this.companies = new Companies(this.sdkConfiguration);
-        this.companyManagement = new CompanyManagement(this.sdkConfiguration);
-        this.configuration = new Configuration(this.sdkConfiguration);
-        this.connections = new Connections(this.sdkConfiguration);
-        this.integrations = new Integrations(this.sdkConfiguration);
-        this.pushData = new PushData(this.sdkConfiguration);
         this.refreshData = new RefreshData(this.sdkConfiguration);
+        this.accountingCompanyInfo = new AccountingCompanyInfo(this.sdkConfiguration);
+        this.pushData = new PushData(this.sdkConfiguration);
         this.sync = new Sync(this.sdkConfiguration);
-        this.syncFlowPreferences = new SyncFlowPreferences(this.sdkConfiguration);
+        this.configuration = new Configuration(this.sdkConfiguration);
+        this.integrations = new Integrations(this.sdkConfiguration);
+        this.companyManagement = new CompanyManagement(this.sdkConfiguration);
     }
 }

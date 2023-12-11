@@ -28,7 +28,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
 import { BilledToType, DataType, InvoiceStatus } from "@codat/sync-for-commerce-version-1/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncCommerce({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -103,17 +103,17 @@ import { BilledToType, DataType, InvoiceStatus } from "@codat/sync-for-commerce-
       status: InvoiceStatus.PartiallyPaid,
       supplementalData: {
         content: {
-          "Beier": {
-            "boo": "Regional",
+          "key": {
+            "key": "string",
           },
         },
       },
-      totalAmount: 1895.83,
-      totalTaxAmount: 7283.9,
+      totalAmount: 1416.23,
+      totalTaxAmount: 9069.87,
       withholdingTax: [
         {
-          amount: 1357.13,
-          name: "Gasoline Interactions Cisgender",
+          amount: 598.23,
+          name: "string",
         },
       ],
     },
@@ -124,19 +124,25 @@ import { BilledToType, DataType, InvoiceStatus } from "@codat/sync-for-commerce-
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                              | [operations.CreateAccountingInvoiceRequest](../../models/operations/createaccountinginvoicerequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `retries`                                                                                              | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                 | :heavy_minus_sign:                                                                                     | Configuration to override the default retry behavior of the client.                                    |
-| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
+| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                  | [operations.CreateAccountingInvoiceRequest](../../sdk/models/operations/createaccountinginvoicerequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
+| `retries`                                                                                                  | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                   | :heavy_minus_sign:                                                                                         | Configuration to override the default retry behavior of the client.                                        |
+| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
 
 
 ### Response
 
-**Promise<[operations.CreateAccountingInvoiceResponse](../../models/operations/createaccountinginvoiceresponse.md)>**
+**Promise<[operations.CreateAccountingInvoiceResponse](../../sdk/models/operations/createaccountinginvoiceresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

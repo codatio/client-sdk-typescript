@@ -9,10 +9,10 @@ import { BilledToType } from "./billedtotype";
 import { ItemRef } from "./itemref";
 import { RecordRef } from "./recordref";
 import { TaxRateRef } from "./taxrateref";
-import { TrackingCategoryRefsitems } from "./trackingcategoryrefsitems";
+import { TrackingCategoryRefItems } from "./trackingcategoryrefitems";
 import { Expose, Type } from "class-transformer";
 
-export class CreditNoteLineItemTrackingProjectReference extends SpeakeasyBase {
+export class CreditNoteLineItemAccountingProjectReference extends SpeakeasyBase {
     /**
      * Unique identifier to the project reference.
      */
@@ -32,10 +32,10 @@ export class CreditNoteLineItemTrackingProjectReference extends SpeakeasyBase {
  * Categories, and a project and customer, against which the item is tracked.
  */
 export class CreditNoteLineItemTracking extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: TrackingCategoryRefsitems })
+    @SpeakeasyMetadata({ elemType: TrackingCategoryRefItems })
     @Expose({ name: "categoryRefs" })
-    @Type(() => TrackingCategoryRefsitems)
-    categoryRefs: TrackingCategoryRefsitems[];
+    @Type(() => TrackingCategoryRefItems)
+    categoryRefs: TrackingCategoryRefItems[];
 
     @SpeakeasyMetadata()
     @Expose({ name: "customerRef" })
@@ -58,8 +58,8 @@ export class CreditNoteLineItemTracking extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "projectRef" })
-    @Type(() => CreditNoteLineItemTrackingProjectReference)
-    projectRef?: CreditNoteLineItemTrackingProjectReference;
+    @Type(() => CreditNoteLineItemAccountingProjectReference)
+    projectRef?: CreditNoteLineItemAccountingProjectReference;
 
     /**
      * Links the current record to the underlying record or data type that created it.
@@ -168,10 +168,10 @@ export class CreditNoteLineItem extends SpeakeasyBase {
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
-    @SpeakeasyMetadata({ elemType: TrackingCategoryRefsitems })
+    @SpeakeasyMetadata({ elemType: TrackingCategoryRefItems })
     @Expose({ name: "trackingCategoryRefs" })
-    @Type(() => TrackingCategoryRefsitems)
-    trackingCategoryRefs?: TrackingCategoryRefsitems[];
+    @Type(() => TrackingCategoryRefItems)
+    trackingCategoryRefs?: TrackingCategoryRefItems[];
 
     /**
      * Unit price of the goods or service.

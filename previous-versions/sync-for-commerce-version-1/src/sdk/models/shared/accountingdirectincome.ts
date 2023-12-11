@@ -6,14 +6,14 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { DataType } from "./datatype";
 import { DirectIncomeLineItem } from "./directincomelineitem";
 import { Metadata } from "./metadata";
-import { PaymentAllocationsitems } from "./paymentallocationsitems";
+import { PaymentAllocationItems } from "./paymentallocationitems";
 import { SupplementalData } from "./supplementaldata";
 import { Expose, Type } from "class-transformer";
 
 /**
  * A customer or supplier associated with the direct income.
  */
-export class AccountingDirectIncomeContactRef extends SpeakeasyBase {
+export class ContactRef extends SpeakeasyBase {
     /**
      * Available Data types
      */
@@ -55,8 +55,8 @@ export class AccountingDirectIncome extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "contactRef" })
-    @Type(() => AccountingDirectIncomeContactRef)
-    contactRef?: AccountingDirectIncomeContactRef;
+    @Type(() => ContactRef)
+    contactRef?: ContactRef;
 
     /**
      * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
@@ -164,10 +164,10 @@ export class AccountingDirectIncome extends SpeakeasyBase {
     @Expose({ name: "note" })
     note?: string;
 
-    @SpeakeasyMetadata({ elemType: PaymentAllocationsitems })
+    @SpeakeasyMetadata({ elemType: PaymentAllocationItems })
     @Expose({ name: "paymentAllocations" })
-    @Type(() => PaymentAllocationsitems)
-    paymentAllocations: PaymentAllocationsitems[];
+    @Type(() => PaymentAllocationItems)
+    paymentAllocations: PaymentAllocationItems[];
 
     /**
      * User-friendly reference for the direct income.

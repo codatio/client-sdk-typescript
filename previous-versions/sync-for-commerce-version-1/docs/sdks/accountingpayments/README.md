@@ -28,7 +28,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 import { CodatSyncCommerce } from "@codat/sync-for-commerce-version-1";
 import { PaymentLinkType } from "@codat/sync-for-commerce-version-1/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncCommerce({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -62,8 +62,8 @@ import { PaymentLinkType } from "@codat/sync-for-commerce-version-1/dist/sdk/mod
       sourceModifiedDate: "2022-10-23T00:00:00.000Z",
       supplementalData: {
         content: {
-          "Diesel": {
-            "property": "Reduced",
+          "key": {
+            "key": "string",
           },
         },
       },
@@ -75,19 +75,25 @@ import { PaymentLinkType } from "@codat/sync-for-commerce-version-1/dist/sdk/mod
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                              | [operations.CreateAccountingPaymentRequest](../../models/operations/createaccountingpaymentrequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `retries`                                                                                              | [utils.RetryConfig](../../models/utils/retryconfig.md)                                                 | :heavy_minus_sign:                                                                                     | Configuration to override the default retry behavior of the client.                                    |
-| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
+| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                  | [operations.CreateAccountingPaymentRequest](../../sdk/models/operations/createaccountingpaymentrequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
+| `retries`                                                                                                  | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                   | :heavy_minus_sign:                                                                                         | Configuration to override the default retry behavior of the client.                                        |
+| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
 
 
 ### Response
 
-**Promise<[operations.CreateAccountingPaymentResponse](../../models/operations/createaccountingpaymentresponse.md)>**
+**Promise<[operations.CreateAccountingPaymentResponse](../../sdk/models/operations/createaccountingpaymentresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
