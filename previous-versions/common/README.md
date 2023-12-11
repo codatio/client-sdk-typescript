@@ -4,7 +4,7 @@
 Manage the building blocks of Codat, including companies, connections, and more.
 <!-- End Codat Library Description -->
 
-<!-- Start SDK Installation -->
+<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 ### NPM
@@ -18,36 +18,50 @@ npm add @codat/common
 ```bash
 yarn add @codat/common
 ```
-<!-- End SDK Installation -->
+<!-- End SDK Installation [installation] -->
 
 ## Example Usage
-<!-- Start SDK Example Usage -->
+<!-- Start SDK Example Usage [usage] -->
+## SDK Example Usage
+
+### Example
+
 ```typescript
 import { CodatCommon } from "@codat/common";
 
-(async () => {
+async function run() {
     const sdk = new CodatCommon({
         security: {
             authHeader: "",
         },
     });
 
-    const res = await sdk.companies.create({
-        description: "Requested early access to the new financing scheme.",
-        name: "Bank of Dave",
+    const res = await sdk.settings.createApiKey({
+        name: "azure-invoice-finance-processor",
     });
 
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
 
-<!-- Start SDK Available Operations -->
+<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
+### [settings](docs/sdks/settings/README.md)
+
+* [createApiKey](docs/sdks/settings/README.md#createapikey) - Create API key
+* [deleteApiKey](docs/sdks/settings/README.md#deleteapikey) - Delete API key
+* [getProfile](docs/sdks/settings/README.md#getprofile) - Get profile
+* [getSyncSettings](docs/sdks/settings/README.md#getsyncsettings) - Get sync settings
+* [listApiKeys](docs/sdks/settings/README.md#listapikeys) - List API keys
+* [updateProfile](docs/sdks/settings/README.md#updateprofile) - Update profile
+* [updateSyncSettings](docs/sdks/settings/README.md#updatesyncsettings) - Update all sync settings
 
 ### [companies](docs/sdks/companies/README.md)
 
@@ -66,11 +80,12 @@ import { CodatCommon } from "@codat/common";
 * [unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 * [updateAuthorization](docs/sdks/connections/README.md#updateauthorization) - Update authorization
 
-### [integrations](docs/sdks/integrations/README.md)
+### [customDataType](docs/sdks/customdatatype/README.md)
 
-* [get](docs/sdks/integrations/README.md#get) - Get integration
-* [getBranding](docs/sdks/integrations/README.md#getbranding) - Get branding
-* [list](docs/sdks/integrations/README.md#list) - List integrations
+* [configure](docs/sdks/customdatatype/README.md#configure) - Configure custom data type
+* [getConfiguration](docs/sdks/customdatatype/README.md#getconfiguration) - Get custom data configuration
+* [list](docs/sdks/customdatatype/README.md#list) - List custom data type records
+* [refresh](docs/sdks/customdatatype/README.md#refresh) - Refresh custom data type
 
 ### [pushData](docs/sdks/pushdata/README.md)
 
@@ -86,15 +101,11 @@ import { CodatCommon } from "@codat/common";
 * [getPullOperation](docs/sdks/refreshdata/README.md#getpulloperation) - Get pull operation
 * [listPullOperations](docs/sdks/refreshdata/README.md#listpulloperations) - List pull operations
 
-### [settings](docs/sdks/settings/README.md)
+### [integrations](docs/sdks/integrations/README.md)
 
-* [createApiKey](docs/sdks/settings/README.md#createapikey) - Create API key
-* [deleteApiKey](docs/sdks/settings/README.md#deleteapikey) - Delete API key
-* [~~getProfile~~](docs/sdks/settings/README.md#getprofile) - Get profile :warning: **Deprecated**
-* [getSyncSettings](docs/sdks/settings/README.md#getsyncsettings) - Get sync settings
-* [listApiKeys](docs/sdks/settings/README.md#listapikeys) - List API keys
-* [updateProfile](docs/sdks/settings/README.md#updateprofile) - Update profile
-* [updateSyncSettings](docs/sdks/settings/README.md#updatesyncsettings) - Update all sync settings
+* [get](docs/sdks/integrations/README.md#get) - Get integration
+* [getBranding](docs/sdks/integrations/README.md#getbranding) - Get branding
+* [list](docs/sdks/integrations/README.md#list) - List integrations
 
 ### [supplementalData](docs/sdks/supplementaldata/README.md)
 
@@ -106,15 +117,249 @@ import { CodatCommon } from "@codat/common";
 * [create](docs/sdks/webhooks/README.md#create) - Create webhook
 * [get](docs/sdks/webhooks/README.md#get) - Get webhook
 * [list](docs/sdks/webhooks/README.md#list) - List webhooks
-<!-- End SDK Available Operations -->
+<!-- End Available Resources and Operations [operations] -->
 
 
 
-<!-- Start Dev Containers -->
+<!-- Start Retries [retries] -->
+## Retries
+
+Some of the endpoints in this SDK support retries.  If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API.  However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
+
+To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
+```typescript
+import { CodatCommon } from "@codat/common";
+
+async function run() {
+    const sdk = new CodatCommon({
+        security: {
+            authHeader: "",
+        },
+    });
+
+    const res = await sdk.settings.createApiKey(
+        {
+            name: "azure-invoice-finance-processor",
+        },
+        {
+            strategy: "backoff",
+            backoff: {
+                initialInterval: 1,
+                maxInterval: 50,
+                exponent: 1.1,
+                maxElapsedTime: 100,
+            },
+            retryConnectionErrors: false,
+        }
+    );
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+}
+
+run();
+
+```
+
+If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
+```typescript
+import { CodatCommon } from "@codat/common";
+
+async function run() {
+    const sdk = new CodatCommon({
+        retry_config: {
+            strategy: "backoff",
+            backoff: {
+                initialInterval: 1,
+                maxInterval: 50,
+                exponent: 1.1,
+                maxElapsedTime: 100,
+            },
+            retryConnectionErrors: false,
+        },
+        security: {
+            authHeader: "",
+        },
+    });
+
+    const res = await sdk.settings.createApiKey({
+        name: "azure-invoice-finance-processor",
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+}
+
+run();
+
+```
+<!-- End Retries [retries] -->
+
+<!-- Start Error Handling [errors] -->
+## Error Handling
+
+Handling errors in this SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
+
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
+
+Example
+
+```typescript
+import { CodatCommon } from "@codat/common";
+
+async function run() {
+    const sdk = new CodatCommon({
+        security: {
+            authHeader: "",
+        },
+    });
+
+    let res;
+    try {
+        res = await sdk.settings.createApiKey({
+            name: "azure-invoice-finance-processor",
+        });
+    } catch (err) {
+        if (err instanceof errors.SDKError) {
+            console.error(err); // handle exception
+            throw err;
+        }
+    }
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+}
+
+run();
+
+```
+<!-- End Error Handling [errors] -->
+
+<!-- Start Server Selection [server] -->
+## Server Selection
+
+### Select Server by Index
+
+You can override the default server globally by passing a server index to the `serverIdx: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https://api.codat.io` | None |
+
+#### Example
+
+```typescript
+import { CodatCommon } from "@codat/common";
+
+async function run() {
+    const sdk = new CodatCommon({
+        serverIdx: 0,
+        security: {
+            authHeader: "",
+        },
+    });
+
+    const res = await sdk.settings.createApiKey({
+        name: "azure-invoice-finance-processor",
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+}
+
+run();
+
+```
 
 
+### Override Server URL Per-Client
 
-<!-- End Dev Containers -->
+The default server can also be overridden globally by passing a URL to the `serverURL: str` optional parameter when initializing the SDK client instance. For example:
+```typescript
+import { CodatCommon } from "@codat/common";
+
+async function run() {
+    const sdk = new CodatCommon({
+        serverURL: "https://api.codat.io",
+        security: {
+            authHeader: "",
+        },
+    });
+
+    const res = await sdk.settings.createApiKey({
+        name: "azure-invoice-finance-processor",
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+}
+
+run();
+
+```
+<!-- End Server Selection [server] -->
+
+<!-- Start Custom HTTP Client [http-client] -->
+## Custom HTTP Client
+
+The Typescript SDK makes API calls using the [axios](https://axios-http.com/docs/intro) HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `AxiosInstance` object.
+
+For example, you could specify a header for every request that your sdk makes as follows:
+
+```typescript
+import { @codat/common } from "CodatCommon";
+import axios from "axios";
+
+const httpClient = axios.create({
+    headers: {'x-custom-header': 'someValue'}
+})
+
+const sdk = new CodatCommon({defaultClient: httpClient});
+```
+<!-- End Custom HTTP Client [http-client] -->
+
+<!-- Start Authentication [security] -->
+## Authentication
+
+### Per-Client Security Schemes
+
+This SDK supports the following security scheme globally:
+
+| Name         | Type         | Scheme       |
+| ------------ | ------------ | ------------ |
+| `authHeader` | apiKey       | API key      |
+
+You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
+```typescript
+import { CodatCommon } from "@codat/common";
+
+async function run() {
+    const sdk = new CodatCommon({
+        security: {
+            authHeader: "",
+        },
+    });
+
+    const res = await sdk.settings.createApiKey({
+        name: "azure-invoice-finance-processor",
+    });
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+}
+
+run();
+
+```
+<!-- End Authentication [security] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
