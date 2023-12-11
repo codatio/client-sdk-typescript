@@ -31,7 +31,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
 import { AccountStatus, AccountType } from "@codat/sync-for-payroll/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncPayroll({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -39,23 +39,19 @@ import { AccountStatus, AccountType } from "@codat/sync-for-payroll/dist/sdk/mod
   });
 
   const res = await sdk.accounts.create({
-    account: {
+    accountPrototype: {
       currency: "USD",
       currentBalance: 0,
       description: "Invoices the business has issued but has not yet collected payment on.",
       fullyQualifiedCategory: "Asset.Current",
       fullyQualifiedName: "Cash On Hand",
-      id: "1b6266d1-1e44-46c5-8eb5-a8f98e03124e",
-      metadata: {},
-      modifiedDate: "2022-10-23T00:00:00.000Z",
       name: "Accounts Receivable",
       nominalCode: "610",
-      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
       status: AccountStatus.Active,
       supplementalData: {
         content: {
-          "Money": {
-            "blue": "shred",
+          "key": {
+            "key": "string",
           },
         },
       },
@@ -63,7 +59,7 @@ import { AccountStatus, AccountType } from "@codat/sync-for-payroll/dist/sdk/mod
       validDatatypeLinks: [
         {
           links: [
-            "abnormally",
+            "string",
           ],
         },
       ],
@@ -75,22 +71,28 @@ import { AccountStatus, AccountType } from "@codat/sync-for-payroll/dist/sdk/mod
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [operations.CreateAccountRequest](../../models/operations/createaccountrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `retries`                                                                          | [utils.RetryConfig](../../models/utils/retryconfig.md)                             | :heavy_minus_sign:                                                                 | Configuration to override the default retry behavior of the client.                |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.CreateAccountRequest](../../sdk/models/operations/createaccountrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `retries`                                                                              | [utils.RetryConfig](../../internal/utils/retryconfig.md)                               | :heavy_minus_sign:                                                                     | Configuration to override the default retry behavior of the client.                    |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
 
-**Promise<[operations.CreateAccountResponse](../../models/operations/createaccountresponse.md)>**
+**Promise<[operations.CreateAccountResponse](../../sdk/models/operations/createaccountresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## get
 
@@ -108,7 +110,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncPayroll({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -123,22 +125,28 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `request`                                                                    | [operations.GetAccountRequest](../../models/operations/getaccountrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
-| `retries`                                                                    | [utils.RetryConfig](../../models/utils/retryconfig.md)                       | :heavy_minus_sign:                                                           | Configuration to override the default retry behavior of the client.          |
-| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [operations.GetAccountRequest](../../sdk/models/operations/getaccountrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `retries`                                                                        | [utils.RetryConfig](../../internal/utils/retryconfig.md)                         | :heavy_minus_sign:                                                               | Configuration to override the default retry behavior of the client.              |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response
 
-**Promise<[operations.GetAccountResponse](../../models/operations/getaccountresponse.md)>**
+**Promise<[operations.GetAccountResponse](../../sdk/models/operations/getaccountresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getCreateModel
 
@@ -158,7 +166,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncPayroll({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -173,22 +181,28 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [operations.GetCreateAccountsModelRequest](../../models/operations/getcreateaccountsmodelrequest.md) | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `retries`                                                                                            | [utils.RetryConfig](../../models/utils/retryconfig.md)                                               | :heavy_minus_sign:                                                                                   | Configuration to override the default retry behavior of the client.                                  |
-| `config`                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                         | :heavy_minus_sign:                                                                                   | Available config options for making requests.                                                        |
+| Parameter                                                                                                | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                | [operations.GetCreateAccountsModelRequest](../../sdk/models/operations/getcreateaccountsmodelrequest.md) | :heavy_check_mark:                                                                                       | The request object to use for the request.                                                               |
+| `retries`                                                                                                | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                 | :heavy_minus_sign:                                                                                       | Configuration to override the default retry behavior of the client.                                      |
+| `config`                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                             | :heavy_minus_sign:                                                                                       | Available config options for making requests.                                                            |
 
 
 ### Response
 
-**Promise<[operations.GetCreateAccountsModelResponse](../../models/operations/getcreateaccountsmodelresponse.md)>**
+**Promise<[operations.GetCreateAccountsModelResponse](../../sdk/models/operations/getcreateaccountsmodelresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## list
 
@@ -203,7 +217,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
 
-(async() => {
+async function run() {
   const sdk = new CodatSyncPayroll({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -220,19 +234,25 @@ import { CodatSyncPayroll } from "@codat/sync-for-payroll";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.ListAccountsRequest](../../models/operations/listaccountsrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `retries`                                                                        | [utils.RetryConfig](../../models/utils/retryconfig.md)                           | :heavy_minus_sign:                                                               | Configuration to override the default retry behavior of the client.              |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.ListAccountsRequest](../../sdk/models/operations/listaccountsrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `retries`                                                                            | [utils.RetryConfig](../../internal/utils/retryconfig.md)                             | :heavy_minus_sign:                                                                   | Configuration to override the default retry behavior of the client.                  |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
 
-**Promise<[operations.ListAccountsResponse](../../models/operations/listaccountsresponse.md)>**
+**Promise<[operations.ListAccountsResponse](../../sdk/models/operations/listaccountsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
