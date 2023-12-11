@@ -3,9 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as shared from "../sdk/models/shared";
 import { DataIntegrity } from "./dataintegrity";
 import { ExcelReports } from "./excelreports";
-import * as shared from "./models/shared";
 import { Reports } from "./reports";
 import axios from "axios";
 import { AxiosInstance } from "axios";
@@ -56,9 +56,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "1.0";
-    sdkVersion = "0.35.0";
-    genVersion = "2.159.2";
-    userAgent = "speakeasy-sdk/typescript 0.35.0 2.159.2 1.0 @codat/assess";
+    sdkVersion = "0.36.0";
+    genVersion = "2.210.6";
+    userAgent = "speakeasy-sdk/typescript 0.36.0 2.210.6 1.0 @codat/assess";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -77,6 +77,10 @@ export class SDKConfiguration {
  */
 export class CodatAssess {
     /**
+     * Enriched reports and analyses of financial data
+     */
+    public reports: Reports;
+    /**
      * Match mutable accounting data with immutable banking data to increase confidence in financial data
      */
     public dataIntegrity: DataIntegrity;
@@ -84,10 +88,6 @@ export class CodatAssess {
      * Downloadable reports
      */
     public excelReports: ExcelReports;
-    /**
-     * Enriched reports and analyses of financial data
-     */
-    public reports: Reports;
 
     private sdkConfiguration: SDKConfiguration;
 
@@ -99,7 +99,7 @@ export class CodatAssess {
             serverURL = ServerList[serverIdx];
         }
 
-        const defaultClient = props?.defaultClient ?? axios.create({ baseURL: serverURL });
+        const defaultClient = props?.defaultClient ?? axios.create();
         this.sdkConfiguration = new SDKConfiguration({
             defaultClient: defaultClient,
             security: props?.security,
@@ -107,8 +107,8 @@ export class CodatAssess {
             retryConfig: props?.retryConfig,
         });
 
+        this.reports = new Reports(this.sdkConfiguration);
         this.dataIntegrity = new DataIntegrity(this.sdkConfiguration);
         this.excelReports = new ExcelReports(this.sdkConfiguration);
-        this.reports = new Reports(this.sdkConfiguration);
     }
 }
