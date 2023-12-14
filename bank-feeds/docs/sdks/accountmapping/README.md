@@ -25,7 +25,7 @@ This endpoint is only needed if building an account management UI.
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
-(async() => {
+async function run() {
   const sdk = new CodatBankFeeds({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -34,7 +34,7 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
 
   const res = await sdk.accountMapping.create({
     zero: {
-      feedStartDate: "2022-10-23T00:00:00.000Z",
+      feedStartDate: "2022-10-23T00:00:00Z",
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -43,7 +43,9 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -77,7 +79,7 @@ This endpoint is only needed if building an account management UI.
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
-(async() => {
+async function run() {
   const sdk = new CodatBankFeeds({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -92,7 +94,9 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
