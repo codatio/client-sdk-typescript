@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 9401f9bc573bd24555ed14ed9a9edb17
+  docChecksum: e6266a383661405eed15ff8196288875
   docVersion: prealpha
-  speakeasyVersion: 1.125.2
-  generationVersion: 2.210.6
+  speakeasyVersion: 1.126.3
+  generationVersion: 2.214.3
 generation:
   comments: {}
   sdkClassName: CodatSyncExpenses
@@ -11,18 +11,17 @@ generation:
   usageSnippets:
     optionalPropertyRendering: withExample
   telemetryEnabled: true
-  singleTagPerOp: false
 features:
   typescript:
-    core: 3.1.4
+    core: 3.3.3
     deprecations: 2.81.1
     examples: 2.81.3
-    globalSecurity: 2.82.0
+    globalSecurity: 2.82.1
     globalServerURLs: 2.82.1
     nameOverrides: 2.81.1
     retries: 2.82.1
 typescript:
-  version: 0.4.0
+  version: 0.5.0
   author: Codat
   clientServerStatusCodesAsErrors: false
   description: Push expenses to accounting platforms.
@@ -42,3 +41,4 @@ typescript:
   packageName: '@codat/sync-for-expenses-version-1'
   published: true
   repoSubDirectory: previous-versions/sync-for-expenses-version-1
+  templateVersion: v1

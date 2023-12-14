@@ -38,7 +38,7 @@ async function run() {
           },
           currency: "GBP",
           id: "4d7c6929-7770-412b-91bb-44d3bc71d111",
-          issueDate: "2022-10-23T00:00:00.000Z",
+          issueDate: "2022-10-23T00:00:00Z",
           lines: [
             {
               accountRef: {
