@@ -43,11 +43,11 @@ async function run() {
     billPayment: {
       accountRef: {},
       currency: "USD",
-      date: "2022-10-23T00:00:00.000Z",
+      date: "2022-10-23T00:00:00Z",
       id: "3d5a8e00-d108-4045-8823-7f342676cffa",
       lines: [
         {
-          allocatedOnDate: "2022-10-23T00:00:00.000Z",
+          allocatedOnDate: "2022-10-23T00:00:00Z",
           amount: 8592.13,
           links: [
             {
@@ -57,12 +57,12 @@ async function run() {
         },
       ],
       metadata: {},
-      modifiedDate: "2022-10-23T00:00:00.000Z",
+      modifiedDate: "2022-10-23T00:00:00Z",
       note: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
       paymentMethodRef: {
         id: "<ID>",
       },
-      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      sourceModifiedDate: "2022-10-23T00:00:00Z",
       supplementalData: {
         content: {
           "key": {

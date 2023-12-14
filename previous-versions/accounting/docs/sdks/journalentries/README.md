@@ -40,7 +40,7 @@ async function run() {
 
   const res = await sdk.journalEntries.create({
     journalEntry: {
-      createdOn: "2022-10-23T00:00:00.000Z",
+      createdOn: "2022-10-23T00:00:00Z",
       journalLines: [
         {
           accountRef: {},
@@ -58,12 +58,12 @@ async function run() {
         id: "<ID>",
       },
       metadata: {},
-      modifiedDate: "2022-10-23T00:00:00.000Z",
-      postedOn: "2022-10-23T00:00:00.000Z",
+      modifiedDate: "2022-10-23T00:00:00Z",
+      postedOn: "2022-10-23T00:00:00Z",
       recordRef: {
         dataType: "invoice",
       },
-      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      sourceModifiedDate: "2022-10-23T00:00:00Z",
       supplementalData: {
         content: {
           "key": {
@@ -71,7 +71,7 @@ async function run() {
           },
         },
       },
-      updatedOn: "2022-10-23T00:00:00.000Z",
+      updatedOn: "2022-10-23T00:00:00Z",
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",

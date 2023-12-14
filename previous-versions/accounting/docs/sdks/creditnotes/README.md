@@ -41,13 +41,13 @@ async function run() {
 
   const res = await sdk.creditNotes.create({
     creditNote: {
-      allocatedOnDate: "2022-10-23T00:00:00.000Z",
+      allocatedOnDate: "2022-10-23T00:00:00Z",
       currency: "USD",
       customerRef: {
         id: "<ID>",
       },
       discountPercentage: 6384.24,
-      issueDate: "2022-10-23T00:00:00.000Z",
+      issueDate: "2022-10-23T00:00:00Z",
       lineItems: [
         {
           accountRef: {},
@@ -83,22 +83,22 @@ async function run() {
         },
       ],
       metadata: {},
-      modifiedDate: "2022-10-23T00:00:00.000Z",
+      modifiedDate: "2022-10-23T00:00:00Z",
       paymentAllocations: [
         {
           allocation: {
-            allocatedOnDate: "2022-10-23T00:00:00.000Z",
+            allocatedOnDate: "2022-10-23T00:00:00Z",
             currency: "USD",
           },
           payment: {
             accountRef: {},
             currency: "EUR",
-            paidOnDate: "2022-10-23T00:00:00.000Z",
+            paidOnDate: "2022-10-23T00:00:00Z",
           },
         },
       ],
       remainingCredit: 0.86,
-      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      sourceModifiedDate: "2022-10-23T00:00:00Z",
       status: CreditNoteStatus.Draft,
       subTotal: 3015.1,
       supplementalData: {
@@ -340,13 +340,13 @@ async function run() {
 
   const res = await sdk.creditNotes.update({
     creditNote: {
-      allocatedOnDate: "2022-10-23T00:00:00.000Z",
+      allocatedOnDate: "2022-10-23T00:00:00Z",
       currency: "GBP",
       customerRef: {
         id: "<ID>",
       },
       discountPercentage: 5971.29,
-      issueDate: "2022-10-23T00:00:00.000Z",
+      issueDate: "2022-10-23T00:00:00Z",
       lineItems: [
         {
           accountRef: {},
@@ -382,22 +382,22 @@ async function run() {
         },
       ],
       metadata: {},
-      modifiedDate: "2022-10-23T00:00:00.000Z",
+      modifiedDate: "2022-10-23T00:00:00Z",
       paymentAllocations: [
         {
           allocation: {
-            allocatedOnDate: "2022-10-23T00:00:00.000Z",
+            allocatedOnDate: "2022-10-23T00:00:00Z",
             currency: "USD",
           },
           payment: {
             accountRef: {},
             currency: "EUR",
-            paidOnDate: "2022-10-23T00:00:00.000Z",
+            paidOnDate: "2022-10-23T00:00:00Z",
           },
         },
       ],
       remainingCredit: 540.62,
-      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      sourceModifiedDate: "2022-10-23T00:00:00Z",
       status: CreditNoteStatus.PartiallyPaid,
       subTotal: 4995.57,
       supplementalData: {

@@ -52,8 +52,8 @@ async function run() {
       isInvoiceItem: false,
       itemStatus: ItemStatus.Active,
       metadata: {},
-      modifiedDate: "2022-10-23T00:00:00.000Z",
-      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      modifiedDate: "2022-10-23T00:00:00Z",
+      sourceModifiedDate: "2022-10-23T00:00:00Z",
       supplementalData: {
         content: {
           "key": {

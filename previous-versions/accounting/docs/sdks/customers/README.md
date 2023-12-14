@@ -54,7 +54,7 @@ async function run() {
           address: {
             type: AccountingAddressType.Billing,
           },
-          modifiedDate: "2022-10-23T00:00:00.000Z",
+          modifiedDate: "2022-10-23T00:00:00Z",
           phone: [
             {
               number: "01224 658 999",
@@ -66,8 +66,8 @@ async function run() {
       ],
       defaultCurrency: "GBP",
       metadata: {},
-      modifiedDate: "2022-10-23T00:00:00.000Z",
-      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      modifiedDate: "2022-10-23T00:00:00Z",
+      sourceModifiedDate: "2022-10-23T00:00:00Z",
       status: CustomerStatus.Archived,
       supplementalData: {
         content: {
@@ -470,7 +470,7 @@ async function run() {
           address: {
             type: AccountingAddressType.Unknown,
           },
-          modifiedDate: "2022-10-23T00:00:00.000Z",
+          modifiedDate: "2022-10-23T00:00:00Z",
           phone: [
             {
               number: "+44 25691 154789",
@@ -482,8 +482,8 @@ async function run() {
       ],
       defaultCurrency: "EUR",
       metadata: {},
-      modifiedDate: "2022-10-23T00:00:00.000Z",
-      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      modifiedDate: "2022-10-23T00:00:00Z",
+      sourceModifiedDate: "2022-10-23T00:00:00Z",
       status: CustomerStatus.Archived,
       supplementalData: {
         content: {
