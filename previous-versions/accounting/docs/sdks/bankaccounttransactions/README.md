@@ -41,7 +41,7 @@ async function run() {
       accountId: "7110701885",
       transactions: [
         {
-          date: "2022-10-23T00:00:00.000Z",
+          date: "2022-10-23T00:00:00Z",
         },
       ],
     },

@@ -52,8 +52,8 @@ async function run() {
       customerRef: {
         id: "<ID>",
       },
-      dueDate: "2022-10-23T00:00:00.000Z",
-      issueDate: "2022-10-23T00:00:00.000Z",
+      dueDate: "2022-10-23T00:00:00Z",
+      issueDate: "2022-10-23T00:00:00Z",
       lineItems: [
         {
           accountRef: {},
@@ -89,18 +89,18 @@ async function run() {
         },
       ],
       metadata: {},
-      modifiedDate: "2022-10-23T00:00:00.000Z",
-      paidOnDate: "2022-10-23T00:00:00.000Z",
+      modifiedDate: "2022-10-23T00:00:00Z",
+      paidOnDate: "2022-10-23T00:00:00Z",
       paymentAllocations: [
         {
           allocation: {
-            allocatedOnDate: "2022-10-23T00:00:00.000Z",
+            allocatedOnDate: "2022-10-23T00:00:00Z",
             currency: "EUR",
           },
           payment: {
             accountRef: {},
             currency: "EUR",
-            paidOnDate: "2022-10-23T00:00:00.000Z",
+            paidOnDate: "2022-10-23T00:00:00Z",
           },
         },
       ],
@@ -109,7 +109,7 @@ async function run() {
           dataType: DataType.Invoices,
         },
       ],
-      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      sourceModifiedDate: "2022-10-23T00:00:00Z",
       status: InvoiceStatus.Draft,
       supplementalData: {
         content: {
@@ -642,8 +642,8 @@ async function run() {
       customerRef: {
         id: "<ID>",
       },
-      dueDate: "2022-10-23T00:00:00.000Z",
-      issueDate: "2022-10-23T00:00:00.000Z",
+      dueDate: "2022-10-23T00:00:00Z",
+      issueDate: "2022-10-23T00:00:00Z",
       lineItems: [
         {
           accountRef: {},
@@ -679,18 +679,18 @@ async function run() {
         },
       ],
       metadata: {},
-      modifiedDate: "2022-10-23T00:00:00.000Z",
-      paidOnDate: "2022-10-23T00:00:00.000Z",
+      modifiedDate: "2022-10-23T00:00:00Z",
+      paidOnDate: "2022-10-23T00:00:00Z",
       paymentAllocations: [
         {
           allocation: {
-            allocatedOnDate: "2022-10-23T00:00:00.000Z",
+            allocatedOnDate: "2022-10-23T00:00:00Z",
             currency: "EUR",
           },
           payment: {
             accountRef: {},
             currency: "GBP",
-            paidOnDate: "2022-10-23T00:00:00.000Z",
+            paidOnDate: "2022-10-23T00:00:00Z",
           },
         },
       ],
@@ -699,7 +699,7 @@ async function run() {
           dataType: DataType.Invoices,
         },
       ],
-      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      sourceModifiedDate: "2022-10-23T00:00:00Z",
       status: InvoiceStatus.Void,
       supplementalData: {
         content: {
