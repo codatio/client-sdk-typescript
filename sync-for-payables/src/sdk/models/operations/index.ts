@@ -3,6 +3,7 @@
  */
 
 export * from "./createaccount";
+export * from "./createbankaccount";
 export * from "./createbill";
 export * from "./createbillcreditnote";
 export * from "./createbillpayment";
@@ -26,6 +27,7 @@ export * from "./getbillpayments";
 export * from "./getcompany";
 export * from "./getconnection";
 export * from "./getcreateaccountmodel";
+export * from "./getcreatebankaccountsmodel";
 export * from "./getcreatebillpaymentmodel";
 export * from "./getcreatejournalentrymodel";
 export * from "./getcreatejournalmodel";

@@ -84,6 +84,11 @@ run();
 * [update](docs/sdks/bills/README.md#update) - Update bill
 * [uploadAttachment](docs/sdks/bills/README.md#uploadattachment) - Upload bill attachment
 
+### [bankAccounts](docs/sdks/bankaccounts/README.md)
+
+* [create](docs/sdks/bankaccounts/README.md#create) - Create bank account
+* [getCreateModel](docs/sdks/bankaccounts/README.md#getcreatemodel) - Get create/update bank account model
+
 ### [billCreditNotes](docs/sdks/billcreditnotes/README.md)
 
 * [create](docs/sdks/billcreditnotes/README.md#create) - Create bill credit note
