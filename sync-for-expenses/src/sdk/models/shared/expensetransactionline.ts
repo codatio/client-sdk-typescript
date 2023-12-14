@@ -3,7 +3,9 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { InvoiceTo } from "./invoiceto";
 import { RecordRef } from "./recordref";
+import { TrackingRef } from "./trackingref";
 import { Expose, Type } from "class-transformer";
 
 export class ExpenseTransactionLine extends SpeakeasyBase {
@@ -11,6 +13,14 @@ export class ExpenseTransactionLine extends SpeakeasyBase {
     @Expose({ name: "accountRef" })
     @Type(() => RecordRef)
     accountRef: RecordRef;
+
+    /**
+     * Unique identifier of the customer the expense is billable to. The invoiceTo object is currently only supported for QBO.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "invoiceTo" })
+    @Type(() => InvoiceTo)
+    invoiceTo?: InvoiceTo;
 
     /**
      * Amount of the line, exclusive of tax.
@@ -31,8 +41,8 @@ export class ExpenseTransactionLine extends SpeakeasyBase {
     @Type(() => RecordRef)
     taxRateRef?: RecordRef;
 
-    @SpeakeasyMetadata({ elemType: RecordRef })
+    @SpeakeasyMetadata({ elemType: TrackingRef })
     @Expose({ name: "trackingRefs" })
-    @Type(() => RecordRef)
-    trackingRefs?: RecordRef[];
+    @Type(() => TrackingRef)
+    trackingRefs?: TrackingRef[];
 }

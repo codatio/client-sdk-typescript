@@ -132,7 +132,9 @@ src/sdk/models/shared/createexpenseresponse.ts
 src/sdk/models/shared/createexpenserequest.ts
 src/sdk/models/shared/expensetransaction.ts
 src/sdk/models/shared/expensetransactionline.ts
+src/sdk/models/shared/trackingref.ts
 src/sdk/models/shared/recordref.ts
+src/sdk/models/shared/invoiceto.ts
 src/sdk/models/shared/contactref.ts
 src/sdk/models/shared/updateexpenseresponse.ts
 src/sdk/models/shared/updateexpenserequest.ts
@@ -323,7 +325,10 @@ docs/sdk/models/shared/bankaccountreference.md
 docs/sdk/models/shared/expensetransactiontype.md
 docs/sdk/models/shared/expensetransaction.md
 docs/sdk/models/shared/expensetransactionline.md
+docs/sdk/models/shared/trackingrefdatatype.md
+docs/sdk/models/shared/trackingref.md
 docs/sdk/models/shared/recordref.md
+docs/sdk/models/shared/invoiceto.md
 docs/sdk/models/shared/typet.md
 docs/sdk/models/shared/contactref.md
 docs/sdk/models/shared/updateexpenseresponse.md
