@@ -39,10 +39,10 @@ async function run() {
       customerRef: {
         id: "<ID>",
       },
-      date: "2022-10-23T00:00:00.000Z",
+      date: "2022-10-23T00:00:00Z",
       lines: [
         {
-          allocatedOnDate: "2022-10-23T00:00:00.000Z",
+          allocatedOnDate: "2022-10-23T00:00:00Z",
           amount: 8592.13,
           links: [
             {
@@ -52,11 +52,11 @@ async function run() {
         },
       ],
       metadata: {},
-      modifiedDate: "2022-10-23T00:00:00.000Z",
+      modifiedDate: "2022-10-23T00:00:00Z",
       paymentMethodRef: {
         id: "<ID>",
       },
-      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      sourceModifiedDate: "2022-10-23T00:00:00Z",
       supplementalData: {
         content: {
           "key": {
