@@ -6,8 +6,8 @@ import { objectToClass, SpeakeasyBase, SpeakeasyMetadata } from "../../../intern
 import { ConfigAccount } from "./configaccount";
 import { Customer } from "./customer";
 import { Grouping } from "./grouping";
-import { InvoiceStatus1 } from "./invoicestatus1";
 import { NewTaxRates } from "./newtaxrates";
+import { SchemaInvoiceStatus } from "./schemainvoicestatus";
 import { TaxRateAmount } from "./taxrateamount";
 import { Expose, Transform, Type } from "class-transformer";
 
@@ -33,8 +33,8 @@ export class Sales extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "invoiceStatus" })
-    @Type(() => InvoiceStatus1)
-    invoiceStatus?: InvoiceStatus1;
+    @Type(() => SchemaInvoiceStatus)
+    invoiceStatus?: SchemaInvoiceStatus;
 
     @SpeakeasyMetadata()
     @Expose({ name: "newTaxRates" })

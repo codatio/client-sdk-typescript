@@ -6,10 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountingCustomerRef } from "./accountingcustomerref";
 import { BilledToType } from "./billedtotype";
 import { RecordRef } from "./recordref";
-import { TrackingCategoryRefsitems } from "./trackingcategoryrefsitems";
+import { TrackingCategoryRefItems } from "./trackingcategoryrefitems";
 import { Expose, Type } from "class-transformer";
 
-export class TrackingProjectReference extends SpeakeasyBase {
+export class AccountingProjectReference extends SpeakeasyBase {
     /**
      * Unique identifier to the project reference.
      */
@@ -29,10 +29,10 @@ export class TrackingProjectReference extends SpeakeasyBase {
  * Categories, and a project and customer, against which the item is tracked.
  */
 export class Tracking extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: TrackingCategoryRefsitems })
+    @SpeakeasyMetadata({ elemType: TrackingCategoryRefItems })
     @Expose({ name: "categoryRefs" })
-    @Type(() => TrackingCategoryRefsitems)
-    categoryRefs: TrackingCategoryRefsitems[];
+    @Type(() => TrackingCategoryRefItems)
+    categoryRefs: TrackingCategoryRefItems[];
 
     @SpeakeasyMetadata()
     @Expose({ name: "customerRef" })
@@ -55,8 +55,8 @@ export class Tracking extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "projectRef" })
-    @Type(() => TrackingProjectReference)
-    projectRef?: TrackingProjectReference;
+    @Type(() => AccountingProjectReference)
+    projectRef?: AccountingProjectReference;
 
     /**
      * Links the current record to the underlying record or data type that created it.

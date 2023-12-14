@@ -7,9 +7,9 @@ import { AccountingCustomerRef } from "./accountingcustomerref";
 import { CreditNoteLineItem } from "./creditnotelineitem";
 import { CreditNoteStatus } from "./creditnotestatus";
 import { Metadata } from "./metadata";
-import { PaymentAllocationsitems } from "./paymentallocationsitems";
+import { PaymentAllocationItems } from "./paymentallocationitems";
 import { SupplementalData } from "./supplementaldata";
-import { WithholdingTaxitems } from "./withholdingtaxitems";
+import { WithholdingTaxItems } from "./withholdingtaxitems";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -120,6 +120,13 @@ export class AccountingCreditNote extends SpeakeasyBase {
      * | **GBP**          | £20            | 1.277         | $25.54                     |
      * | **EUR**          | €20            | 1.134         | $22.68                     |
      * | **RUB**          | ₽20            | 0.015         | $0.30                      |
+     *
+     *
+     * ### Integration-specific details
+     *
+     * | Integration       | Scenario                                        | System behavior                                                                                                                                                      |
+     * |-------------------|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+     * | QuickBooks Online | Transaction currency differs from base currency | If currency rate value is left `null`, a rate of 1 will be used by QBO by default. To override this, include the required currency rate in the expense transaction.  |
      */
     @SpeakeasyMetadata()
     @Expose({ name: "currencyRate" })
@@ -195,10 +202,10 @@ export class AccountingCreditNote extends SpeakeasyBase {
     /**
      * An array of payment allocations.
      */
-    @SpeakeasyMetadata({ elemType: PaymentAllocationsitems })
+    @SpeakeasyMetadata({ elemType: PaymentAllocationItems })
     @Expose({ name: "paymentAllocations" })
-    @Type(() => PaymentAllocationsitems)
-    paymentAllocations?: PaymentAllocationsitems[];
+    @Type(() => PaymentAllocationItems)
+    paymentAllocations?: PaymentAllocationItems[];
 
     /**
      * Unused balance of totalAmount originally raised.
@@ -258,8 +265,8 @@ export class AccountingCreditNote extends SpeakeasyBase {
     @Expose({ name: "totalTaxAmount" })
     totalTaxAmount: number;
 
-    @SpeakeasyMetadata({ elemType: WithholdingTaxitems })
+    @SpeakeasyMetadata({ elemType: WithholdingTaxItems })
     @Expose({ name: "withholdingTax" })
-    @Type(() => WithholdingTaxitems)
-    withholdingTax?: WithholdingTaxitems[];
+    @Type(() => WithholdingTaxItems)
+    withholdingTax?: WithholdingTaxItems[];
 }

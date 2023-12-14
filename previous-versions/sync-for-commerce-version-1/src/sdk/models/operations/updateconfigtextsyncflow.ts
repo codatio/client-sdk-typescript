@@ -3,8 +3,22 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
+
+export class UpdateConfigTextSyncFlowRequest extends SpeakeasyBase {
+    @SpeakeasyMetadata({
+        data: "request, media_type=application/json",
+        elemType: shared.Localization,
+    })
+    requestBody?: Record<string, shared.Localization>;
+
+    /**
+     * Localization identifier for English (US) or French.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=locale" })
+    locale: shared.Locale;
+}
 
 export class UpdateConfigTextSyncFlowResponse extends SpeakeasyBase {
     /**
@@ -12,6 +26,12 @@ export class UpdateConfigTextSyncFlowResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     contentType: string;
+
+    /**
+     * The request made is not valid.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
 
     /**
      * Success
@@ -29,5 +49,5 @@ export class UpdateConfigTextSyncFlowResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 }

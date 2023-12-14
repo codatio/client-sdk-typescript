@@ -3,8 +3,16 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
+
+export class GetConfigTextSyncFlowRequest extends SpeakeasyBase {
+    /**
+     * Localization identifier for English (US) or French.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=locale" })
+    locale: shared.Locale;
+}
 
 export class GetConfigTextSyncFlowResponse extends SpeakeasyBase {
     /**
@@ -12,6 +20,12 @@ export class GetConfigTextSyncFlowResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     contentType: string;
+
+    /**
+     * Your API request was not properly authorized.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
 
     /**
      * Success
@@ -29,5 +43,5 @@ export class GetConfigTextSyncFlowResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 }

@@ -8,7 +8,7 @@ import { Expose } from "class-transformer";
 /**
  * Status of the Payment Method.
  */
-export enum CommercePaymentMethodStatus {
+export enum Status {
     Unknown = "Unknown",
     Active = "Active",
     Archived = "Archived",
@@ -49,5 +49,5 @@ export class CommercePaymentMethod extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: CommercePaymentMethodStatus;
+    status?: Status;
 }

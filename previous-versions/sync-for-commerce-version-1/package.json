@@ -1,6 +1,6 @@
 {
   "name": "@codat/sync-for-commerce-version-1",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": "Codat",
   "scripts": {
     "prepare": "tsc --build",
