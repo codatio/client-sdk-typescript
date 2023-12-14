@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class GetSyncFlowUrlRequest extends SpeakeasyBase {
@@ -34,6 +34,12 @@ export class GetSyncFlowUrlResponse extends SpeakeasyBase {
     contentType: string;
 
     /**
+     * The request made is not valid.
+     */
+    @SpeakeasyMetadata()
+    errorMessage?: shared.ErrorMessage;
+
+    /**
      * HTTP response status code for this operation
      */
     @SpeakeasyMetadata()
@@ -43,7 +49,7 @@ export class GetSyncFlowUrlResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 
     /**
      * Success

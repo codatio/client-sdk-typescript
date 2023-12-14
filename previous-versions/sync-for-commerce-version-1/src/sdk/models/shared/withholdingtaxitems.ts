@@ -5,7 +5,7 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export class WithholdingTaxitems extends SpeakeasyBase {
+export class WithholdingTaxItems extends SpeakeasyBase {
     /**
      * Amount of tax withheld.
      */

@@ -11,7 +11,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * Links journal entries to the relevant journal in accounting integrations that use multi-book accounting (multiple journals).
  */
-export class AccountingJournalEntryJournalReference extends SpeakeasyBase {
+export class JournalReference extends SpeakeasyBase {
     /**
      * GUID of the underlying journal.
      */
@@ -34,7 +34,7 @@ export class AccountingJournalEntryJournalReference extends SpeakeasyBase {
  *
  * For example, if a journal entry is generated based on an invoice, this property allows you to connect the journal entry to the underlying invoice in our data model.
  */
-export class AccountingJournalEntryRecordReference extends SpeakeasyBase {
+export class RecordReference extends SpeakeasyBase {
     /**
      * Allowed name of the 'dataType'.
      */
@@ -131,8 +131,8 @@ export class AccountingJournalEntry extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "journalRef" })
-    @Type(() => AccountingJournalEntryJournalReference)
-    journalRef?: AccountingJournalEntryJournalReference;
+    @Type(() => JournalReference)
+    journalRef?: JournalReference;
 
     @SpeakeasyMetadata()
     @Expose({ name: "metadata" })
@@ -179,8 +179,8 @@ export class AccountingJournalEntry extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "recordRef" })
-    @Type(() => AccountingJournalEntryRecordReference)
-    recordRef?: AccountingJournalEntryRecordReference;
+    @Type(() => RecordReference)
+    recordRef?: RecordReference;
 
     @SpeakeasyMetadata()
     @Expose({ name: "sourceModifiedDate" })
