@@ -18,32 +18,33 @@ Source accounts act as a bridge to bank accounts in accounting software.
 
 The _Create Source Account_ endpoint allows you to create a representation of a bank account within Codat's domain. The company can then map the source account to an existing or new target account in their accounting software.
 
-#### Account Mapping Variability
+#### Account mapping variability
 
 The method of mapping the source account to the target account varies depending on the accounting package your company uses.
 
-#### Mapping Options:
+#### Mapping options:
 
 1. **API Mapping**: Integrate the mapping journey directly into your application for a seamless user experience.
 2. **Codat UI Mapping**: If you prefer a quicker setup, you can utilize Codat's provided user interface for mapping.
 3. **Accounting Platform Mapping**: For some accounting software, the mapping process must be conducted within the software itself.
 
-### Integration specific behaviour
+### Integration-specific behaviour
 
 | Bank Feed Integration | API Mapping | Codat UI Mapping | Accounting Platform Mapping |
 | --------------------- | ----------- | ---------------- | --------------------------- |
 | Xero                  | ✅          | ✅               |                             |
 | FreeAgent             | ✅          | ✅               |                             |
+| Oracle NetSuite       | ✅          | ✅               |                             |
+| Exact Online (NL)     | ✅          | ✅               |                             |
 | QuickBooks Online     |             |                  | ✅                          |
 | Sage                  |             |                  | ✅                          |
-
 
 ### Example Usage
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
-(async() => {
+async function run() {
   const sdk = new CodatBankFeeds({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -53,9 +54,9 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
   const res = await sdk.sourceAccounts.create({
     sourceAccount: {
       currency: "USD",
-      feedStartDate: "2022-10-23T00:00:00.000Z",
+      feedStartDate: "2022-10-23T00:00:00Z",
       id: "<ID>",
-      modifiedDate: "2022-10-23T00:00:00.000Z",
+      modifiedDate: "2022-10-23T00:00:00Z",
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -64,7 +65,9 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -97,7 +100,7 @@ Removing a source account will also remove any mapping between the source bank f
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
-(async() => {
+async function run() {
   const sdk = new CodatBankFeeds({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -113,7 +116,9 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -145,7 +150,7 @@ In cases where multiple credential sets have been generated, a single API call t
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
-(async() => {
+async function run() {
   const sdk = new CodatBankFeeds({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -160,7 +165,9 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -193,7 +200,7 @@ The old credentials will still be valid until the revoke credentials endpoint is
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
-(async() => {
+async function run() {
   const sdk = new CodatBankFeeds({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -209,7 +216,9 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -242,7 +251,7 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
-(async() => {
+async function run() {
   const sdk = new CodatBankFeeds({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -257,7 +266,9 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -288,7 +299,7 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
-(async() => {
+async function run() {
   const sdk = new CodatBankFeeds({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -298,9 +309,9 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
   const res = await sdk.sourceAccounts.update({
     sourceAccount: {
       currency: "EUR",
-      feedStartDate: "2022-10-23T00:00:00.000Z",
+      feedStartDate: "2022-10-23T00:00:00Z",
       id: "<ID>",
-      modifiedDate: "2022-10-23T00:00:00.000Z",
+      modifiedDate: "2022-10-23T00:00:00Z",
     },
     accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
@@ -310,7 +321,9 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

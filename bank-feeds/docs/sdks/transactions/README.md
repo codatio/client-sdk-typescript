@@ -30,7 +30,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { BankTransactionType } from "@codat/bank-feeds/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new CodatBankFeeds({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -45,7 +45,7 @@ import { BankTransactionType } from "@codat/bank-feeds/dist/sdk/models/shared";
           amount: 999.99,
           balance: -999.99,
           counterparty: "ACME INC",
-          date: "2022-10-23T00:00:00.000Z",
+          date: "2022-10-23T00:00:00Z",
           description: "Debit for Payment Id sdp-1-57379a43-c4b8-49f5-bd7c-699189ee7a60",
           id: "716422529",
           reconciled: false,
@@ -61,7 +61,9 @@ import { BankTransactionType } from "@codat/bank-feeds/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -91,7 +93,7 @@ Retrieve push operation.
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
-(async() => {
+async function run() {
   const sdk = new CodatBankFeeds({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -106,7 +108,9 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -136,7 +140,7 @@ List create operations.
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
-(async() => {
+async function run() {
   const sdk = new CodatBankFeeds({
     security: {
       authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -153,7 +157,9 @@ import { CodatBankFeeds } from "@codat/bank-feeds";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
