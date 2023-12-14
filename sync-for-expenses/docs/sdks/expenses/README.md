@@ -33,7 +33,7 @@ Some accounting platforms support the option of pushing transactions to a draft 
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { ExpenseTransactionType, TypeT } from "@codat/sync-for-expenses/dist/sdk/models/shared";
+import { ExpenseTransactionType, TrackingRefDataType, TypeT } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
 async function run() {
   const sdk = new CodatSyncExpenses({
@@ -55,12 +55,13 @@ async function run() {
           },
           currency: "GBP",
           id: "4d7c6929-7770-412b-91bb-44d3bc71d111",
-          issueDate: "2022-10-23T00:00:00.000Z",
+          issueDate: "2022-10-23T00:00:00Z",
           lines: [
             {
               accountRef: {
                 id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
               },
+              invoiceTo: {},
               netAmount: 110.42,
               taxAmount: 14.43,
               taxRateRef: {
@@ -68,7 +69,8 @@ async function run() {
               },
               trackingRefs: [
                 {
-                  id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+                  dataType: TrackingRefDataType.TrackingCategories,
+                  id: "e9a1b63d-9ff0-40e7-8038-016354b987e6",
                 },
               ],
             },
@@ -123,7 +125,7 @@ At the moment you can update expenses only for Xero ([Payment](https://docs.coda
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { TypeT } from "@codat/sync-for-expenses/dist/sdk/models/shared";
+import { TrackingRefDataType, TypeT } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
 async function run() {
   const sdk = new CodatSyncExpenses({
@@ -148,6 +150,7 @@ async function run() {
           accountRef: {
             id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
           },
+          invoiceTo: {},
           netAmount: 110.42,
           taxAmount: 14.43,
           taxRateRef: {
@@ -155,7 +158,8 @@ async function run() {
           },
           trackingRefs: [
             {
-              id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+              dataType: TrackingRefDataType.TrackingCategories,
+              id: "e9a1b63d-9ff0-40e7-8038-016354b987e6",
             },
           ],
         },
@@ -209,6 +213,7 @@ Each accounting software supports different file formats and sizes.
 | Xero | 4MB  | 7Z, BMP, CSV, DOC, DOCX, EML, GIF, JPEG, JPG, KEYNOTE, MSG, NUMBERS, ODF, ODS, ODT, PAGES, PDF, PNG, PPT, PPTX, RAR, RTF, TIF, TIFF, TXT, XLS, XLSX, ZIP |
 | QuickBooks Online | 100MB | AI, CSV, DOC, DOCX, EPS, GIF, JPEG, JPG, ODS, PAGES, PDF, PNG, RTF, TIF, TXT, XLS, XLSX, XML  |
 | NetSuite | 100MB | BMP, CSV, XLS, XLSX, JSON, PDF, PJPG, PJPEG, PNG, TXT, SVG, TIF, TIFF, DOC, DOCX, ZIP |
+| Dynamics 365 Business Central | 350 MB | Dynamics do not explicitly outline which file types are supported but they do state <a className="external" href="https://learn.microsoft.com/en-gb/dynamics365/business-central/ui-how-add-link-to-record#to-attach-a-file-to-a-purchase-invoice" target="_blank">here</a> that "You can attach any type of file, such as text, image, or video files". |
 
 ### Example Usage
 
