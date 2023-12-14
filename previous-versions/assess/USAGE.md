@@ -1,29 +1,26 @@
-<!-- Start SDK Example Usage -->
-
-
+<!-- Start SDK Example Usage [usage] -->
 ```typescript
 import { CodatAssess } from "@codat/assess";
-import { DataIntegrityDataType } from "@codat/assess/dist/sdk/models/shared";
+import { SourceType } from "@codat/assess/dist/sdk/models/operations";
 
-(async () => {
+async function run() {
     const sdk = new CodatAssess({
         security: {
             authHeader: "Basic BASE_64_ENCODED(API_KEY)",
         },
     });
 
-    const res = await sdk.dataIntegrity.details({
+    const res = await sdk.reports.generateLoanSummary({
         companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-        dataType: DataIntegrityDataType.BankingAccounts,
-        orderBy: "-modifiedDate",
-        page: 1,
-        pageSize: 100,
+        sourceType: SourceType.Accounting,
     });
 
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
