@@ -48,8 +48,8 @@ async function run() {
   const res = await sdk.bills.create({
     bill: {
       currency: "USD",
-      dueDate: "2022-10-23T00:00:00.000Z",
-      issueDate: "2022-10-23T00:00:00.000Z",
+      dueDate: "2022-10-23T00:00:00Z",
+      issueDate: "2022-10-23T00:00:00Z",
       lineItems: [
         {
           accountRef: {},
@@ -83,24 +83,24 @@ async function run() {
         },
       ],
       metadata: {},
-      modifiedDate: "2022-10-23T00:00:00.000Z",
+      modifiedDate: "2022-10-23T00:00:00Z",
       paymentAllocations: [
         {
           allocation: {
-            allocatedOnDate: "2022-10-23T00:00:00.000Z",
+            allocatedOnDate: "2022-10-23T00:00:00Z",
             currency: "EUR",
           },
           payment: {
             accountRef: {},
             currency: "EUR",
-            paidOnDate: "2022-10-23T00:00:00.000Z",
+            paidOnDate: "2022-10-23T00:00:00Z",
           },
         },
       ],
       purchaseOrderRefs: [
         {},
       ],
-      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      sourceModifiedDate: "2022-10-23T00:00:00Z",
       status: BillStatus.Draft,
       subTotal: 0.86,
       supplementalData: {
@@ -651,8 +651,8 @@ async function run() {
   const res = await sdk.bills.update({
     bill: {
       currency: "EUR",
-      dueDate: "2022-10-23T00:00:00.000Z",
-      issueDate: "2022-10-23T00:00:00.000Z",
+      dueDate: "2022-10-23T00:00:00Z",
+      issueDate: "2022-10-23T00:00:00Z",
       lineItems: [
         {
           accountRef: {},
@@ -686,24 +686,24 @@ async function run() {
         },
       ],
       metadata: {},
-      modifiedDate: "2022-10-23T00:00:00.000Z",
+      modifiedDate: "2022-10-23T00:00:00Z",
       paymentAllocations: [
         {
           allocation: {
-            allocatedOnDate: "2022-10-23T00:00:00.000Z",
+            allocatedOnDate: "2022-10-23T00:00:00Z",
             currency: "EUR",
           },
           payment: {
             accountRef: {},
             currency: "USD",
-            paidOnDate: "2022-10-23T00:00:00.000Z",
+            paidOnDate: "2022-10-23T00:00:00Z",
           },
         },
       ],
       purchaseOrderRefs: [
         {},
       ],
-      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      sourceModifiedDate: "2022-10-23T00:00:00Z",
       status: BillStatus.Unknown,
       subTotal: 540.62,
       supplementalData: {

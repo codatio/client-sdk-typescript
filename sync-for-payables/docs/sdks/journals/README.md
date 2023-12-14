@@ -42,7 +42,7 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     journalPrototype: {
-      createdOn: "2022-10-23T00:00:00.000Z",
+      createdOn: "2022-10-23T00:00:00Z",
     },
   });
 

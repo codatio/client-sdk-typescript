@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: c0f1cee560742982fad6b2e5ebe1e3a2
+  docChecksum: 90e818f74893781f7aeb0c8b06b2715f
   docVersion: 3.0.0
-  speakeasyVersion: 1.125.2
-  generationVersion: 2.210.6
+  speakeasyVersion: 1.126.3
+  generationVersion: 2.214.3
 generation:
   comments: {}
   sdkClassName: CodatSyncPayables
@@ -11,20 +11,19 @@ generation:
   usageSnippets:
     optionalPropertyRendering: withExample
   telemetryEnabled: true
-  singleTagPerOp: false
 features:
   typescript:
     acceptHeaders: 2.81.1
-    core: 3.1.4
+    core: 3.3.3
     deprecations: 2.81.1
     examples: 2.81.3
-    globalSecurity: 2.82.0
+    globalSecurity: 2.82.1
     globalServerURLs: 2.82.1
     inputOutputModels: 2.82.0
     nameOverrides: 2.81.1
     retries: 2.82.1
 typescript:
-  version: 2.0.0
+  version: 2.1.0
   author: Codat
   clientServerStatusCodesAsErrors: false
   description: Streamline your customers' accounts payable workflow.
@@ -44,3 +43,4 @@ typescript:
   packageName: '@codat/sync-for-payables'
   published: true
   repoSubDirectory: sync-for-payables
+  templateVersion: v1

@@ -41,12 +41,12 @@ async function run() {
 
   const res = await sdk.billCreditNotes.create({
     billCreditNote: {
-      allocatedOnDate: "2022-10-23T00:00:00.000Z",
+      allocatedOnDate: "2022-10-23T00:00:00Z",
       billCreditNoteNumber: "91fe2a83-e161-4c21-929d-c5c10c4b07e5",
       currency: "USD",
       discountPercentage: 0,
       id: "1509398f-98e2-436d-8a5d-c042e0c74ffc",
-      issueDate: "2022-10-23T00:00:00.000Z",
+      issueDate: "2022-10-23T00:00:00Z",
       lineItems: [
         {
           accountRef: {},
@@ -79,23 +79,23 @@ async function run() {
         },
       ],
       metadata: {},
-      modifiedDate: "2022-10-23T00:00:00.000Z",
+      modifiedDate: "2022-10-23T00:00:00Z",
       note: "Bill Credit Note with 1 line items, totaling 805.78",
       paymentAllocations: [
         {
           allocation: {
-            allocatedOnDate: "2022-10-23T00:00:00.000Z",
+            allocatedOnDate: "2022-10-23T00:00:00Z",
             currency: "EUR",
           },
           payment: {
             accountRef: {},
             currency: "EUR",
-            paidOnDate: "2022-10-23T00:00:00.000Z",
+            paidOnDate: "2022-10-23T00:00:00Z",
           },
         },
       ],
       remainingCredit: 0,
-      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      sourceModifiedDate: "2022-10-23T00:00:00Z",
       status: BillCreditNoteStatus.Paid,
       subTotal: 805.78,
       supplementalData: {
@@ -340,12 +340,12 @@ async function run() {
 
   const res = await sdk.billCreditNotes.update({
     billCreditNote: {
-      allocatedOnDate: "2022-10-23T00:00:00.000Z",
+      allocatedOnDate: "2022-10-23T00:00:00Z",
       billCreditNoteNumber: "91fe2a83-e161-4c21-929d-c5c10c4b07e5",
       currency: "GBP",
       discountPercentage: 0,
       id: "1509398f-98e2-436d-8a5d-c042e0c74ffc",
-      issueDate: "2022-10-23T00:00:00.000Z",
+      issueDate: "2022-10-23T00:00:00Z",
       lineItems: [
         {
           accountRef: {},
@@ -378,23 +378,23 @@ async function run() {
         },
       ],
       metadata: {},
-      modifiedDate: "2022-10-23T00:00:00.000Z",
+      modifiedDate: "2022-10-23T00:00:00Z",
       note: "Bill Credit Note with 1 line items, totaling 805.78",
       paymentAllocations: [
         {
           allocation: {
-            allocatedOnDate: "2022-10-23T00:00:00.000Z",
+            allocatedOnDate: "2022-10-23T00:00:00Z",
             currency: "EUR",
           },
           payment: {
             accountRef: {},
             currency: "USD",
-            paidOnDate: "2022-10-23T00:00:00.000Z",
+            paidOnDate: "2022-10-23T00:00:00Z",
           },
         },
       ],
       remainingCredit: 0,
-      sourceModifiedDate: "2022-10-23T00:00:00.000Z",
+      sourceModifiedDate: "2022-10-23T00:00:00Z",
       status: BillCreditNoteStatus.Paid,
       subTotal: 805.78,
       supplementalData: {

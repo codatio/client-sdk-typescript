@@ -1,6 +1,7 @@
 src/sdk/companies.ts
 src/sdk/connections.ts
 src/sdk/bills.ts
+src/sdk/bankaccounts.ts
 src/sdk/billcreditnotes.ts
 src/sdk/billpayments.ts
 src/sdk/accounts.ts
@@ -54,6 +55,8 @@ src/sdk/models/operations/listbills.ts
 src/sdk/models/operations/listbillattachments.ts
 src/sdk/models/operations/updatebill.ts
 src/sdk/models/operations/uploadbillattachment.ts
+src/sdk/models/operations/createbankaccount.ts
+src/sdk/models/operations/getcreatebankaccountsmodel.ts
 src/sdk/models/operations/createbillcreditnote.ts
 src/sdk/models/operations/getbillcreditnote.ts
 src/sdk/models/operations/getcreateupdatebillcreditnotemodel.ts
@@ -137,6 +140,9 @@ src/sdk/models/shared/attachments.ts
 src/sdk/models/shared/updatebillresponse.ts
 src/sdk/models/shared/attachmentupload.ts
 src/sdk/models/shared/codatfile.ts
+src/sdk/models/shared/bankaccountcreateresponse.ts
+src/sdk/models/shared/bankaccount.ts
+src/sdk/models/shared/bankaccountprototype.ts
 src/sdk/models/shared/createbillcreditnoteresponse.ts
 src/sdk/models/shared/billcreditnote.ts
 src/sdk/models/shared/withholdingtaxitems.ts
@@ -250,6 +256,10 @@ docs/sdk/models/operations/updatebillrequest.md
 docs/sdk/models/operations/updatebillresponse.md
 docs/sdk/models/operations/uploadbillattachmentrequest.md
 docs/sdk/models/operations/uploadbillattachmentresponse.md
+docs/sdk/models/operations/createbankaccountrequest.md
+docs/sdk/models/operations/createbankaccountresponse.md
+docs/sdk/models/operations/getcreatebankaccountsmodelrequest.md
+docs/sdk/models/operations/getcreatebankaccountsmodelresponse.md
 docs/sdk/models/operations/createbillcreditnoterequest.md
 docs/sdk/models/operations/createbillcreditnoteresponse.md
 docs/sdk/models/operations/getbillcreditnoterequest.md
@@ -381,6 +391,11 @@ docs/sdk/models/shared/attachments.md
 docs/sdk/models/shared/updatebillresponse.md
 docs/sdk/models/shared/attachmentupload.md
 docs/sdk/models/shared/codatfile.md
+docs/sdk/models/shared/bankaccountcreateresponse.md
+docs/sdk/models/shared/bankaccountbankaccounttype.md
+docs/sdk/models/shared/bankaccount.md
+docs/sdk/models/shared/bankaccounttype.md
+docs/sdk/models/shared/bankaccountprototype.md
 docs/sdk/models/shared/createbillcreditnoteresponse.md
 docs/sdk/models/shared/billcreditnote.md
 docs/sdk/models/shared/withholdingtaxitems.md
@@ -465,6 +480,7 @@ docs/internal/utils/retryconfig.md
 docs/sdks/companies/README.md
 docs/sdks/connections/README.md
 docs/sdks/bills/README.md
+docs/sdks/bankaccounts/README.md
 docs/sdks/billcreditnotes/README.md
 docs/sdks/billpayments/README.md
 docs/sdks/accounts/README.md

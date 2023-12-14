@@ -5,6 +5,7 @@
 import * as utils from "../internal/utils";
 import * as shared from "../sdk/models/shared";
 import { Accounts } from "./accounts";
+import { BankAccounts } from "./bankaccounts";
 import { BillCreditNotes } from "./billcreditnotes";
 import { BillPayments } from "./billpayments";
 import { Bills } from "./bills";
@@ -68,9 +69,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "3.0.0";
-    sdkVersion = "2.0.0";
-    genVersion = "2.210.6";
-    userAgent = "speakeasy-sdk/typescript 2.0.0 2.210.6 3.0.0 @codat/sync-for-payables";
+    sdkVersion = "2.1.0";
+    genVersion = "2.214.3";
+    userAgent = "speakeasy-sdk/typescript 2.1.0 2.214.3 3.0.0 @codat/sync-for-payables";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -121,6 +122,10 @@ export class CodatSyncPayables {
      * Bills
      */
     public bills: Bills;
+    /**
+     * Bank accounts
+     */
+    public bankAccounts: BankAccounts;
     /**
      * Bill credit notes
      */
@@ -191,6 +196,7 @@ export class CodatSyncPayables {
         this.companies = new Companies(this.sdkConfiguration);
         this.connections = new Connections(this.sdkConfiguration);
         this.bills = new Bills(this.sdkConfiguration);
+        this.bankAccounts = new BankAccounts(this.sdkConfiguration);
         this.billCreditNotes = new BillCreditNotes(this.sdkConfiguration);
         this.billPayments = new BillPayments(this.sdkConfiguration);
         this.accounts = new Accounts(this.sdkConfiguration);
