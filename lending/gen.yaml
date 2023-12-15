@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 6a74810fd57eea3cc5941ff18d1a2430
+  docChecksum: 7cb8227cc55b72607e39c0387a4f6937
   docVersion: 3.0.0
   speakeasyVersion: 1.126.3
   generationVersion: 2.214.3
@@ -24,7 +24,7 @@ features:
     nameOverrides: 2.81.1
     retries: 2.82.1
 typescript:
-  version: 4.1.0
+  version: 4.2.0
   author: Codat
   clientServerStatusCodesAsErrors: false
   description: Make credit decisions backed by enhanced financials, metrics, reports, and data integrity features.

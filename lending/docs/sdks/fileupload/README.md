@@ -127,9 +127,11 @@ async function run() {
   });
 
   const res = await sdk.fileUpload.upload({
-    requestBody: {
-      content: new TextEncoder().encode("0x87cbca97eC"),
-      fileName: "ullam.wav",
+    fileUpload: {
+      file: {
+        content: new TextEncoder().encode("0x87cbca97eC"),
+        fileName: "ullam.wav",
+      },
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
