@@ -895,7 +895,11 @@ export class DirectIncomes {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "multipart");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+                req,
+                "attachmentUpload",
+                "multipart"
+            );
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);

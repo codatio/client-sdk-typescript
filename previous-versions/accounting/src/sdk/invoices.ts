@@ -1246,7 +1246,7 @@ export class Invoices {
     }
 
     /**
-     * Push invoice attachment
+     * Upload invoice attachment
      *
      * @remarks
      * The *Upload invoice attachment* endpoint uploads an attachment and assigns it against a specific `invoiceId`.
@@ -1282,7 +1282,11 @@ export class Invoices {
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
         try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "requestBody", "multipart");
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+                req,
+                "attachmentUpload",
+                "multipart"
+            );
         } catch (e: unknown) {
             if (e instanceof Error) {
                 throw new Error(`Error serializing request body, cause: ${e.message}`);

@@ -479,9 +479,11 @@ async function run() {
   });
 
   const res = await sdk.billCreditNotes.uploadAttachment({
-    requestBody: {
-      content: new TextEncoder().encode("0xE3ABc1980E"),
-      fileName: "elegant_producer_electric.jpeg",
+    attachmentUpload: {
+      file: {
+        content: new TextEncoder().encode("0xE3ABc1980E"),
+        fileName: "elegant_producer_electric.jpeg",
+      },
     },
     billCreditNoteId: "string",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",

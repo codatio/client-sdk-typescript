@@ -460,7 +460,6 @@ docs/sdk/models/operations/listdirectincomesrequest.md
 docs/sdk/models/operations/listdirectincomesresponse.md
 docs/sdk/models/operations/listdirectincomeattachmentsrequest.md
 docs/sdk/models/operations/listdirectincomeattachmentsresponse.md
-docs/sdk/models/operations/uploaddirectincomeattachmentrequestbody.md
 docs/sdk/models/operations/uploaddirectincomeattachmentrequest.md
 docs/sdk/models/operations/uploaddirectincomeattachmentresponse.md
 docs/sdk/models/operations/createinvoicerequest.md
@@ -483,7 +482,6 @@ docs/sdk/models/operations/listinvoiceattachmentsrequest.md
 docs/sdk/models/operations/listinvoiceattachmentsresponse.md
 docs/sdk/models/operations/updateinvoicerequest.md
 docs/sdk/models/operations/updateinvoiceresponse.md
-docs/sdk/models/operations/uploadinvoiceattachmentrequestbody.md
 docs/sdk/models/operations/uploadinvoiceattachmentrequest.md
 docs/sdk/models/operations/uploadinvoiceattachmentresponse.md
 docs/sdk/models/operations/getitemreceiptrequest.md
@@ -532,7 +530,6 @@ docs/sdk/models/operations/getcreatetransfersmodelrequest.md
 docs/sdk/models/operations/getcreatetransfersmodelresponse.md
 docs/sdk/models/operations/listtransfersrequest.md
 docs/sdk/models/operations/listtransfersresponse.md
-docs/sdk/models/operations/uploadtransferattachmentrequestbody.md
 docs/sdk/models/operations/uploadtransferattachmentrequest.md
 docs/sdk/models/operations/uploadtransferattachmentresponse.md
 docs/sdk/models/operations/createbillcreditnoterequest.md
@@ -545,7 +542,6 @@ docs/sdk/models/operations/listbillcreditnotesrequest.md
 docs/sdk/models/operations/listbillcreditnotesresponse.md
 docs/sdk/models/operations/updatebillcreditnoterequest.md
 docs/sdk/models/operations/updatebillcreditnoteresponse.md
-docs/sdk/models/operations/uploadbillcreditnoteattachmentrequestbody.md
 docs/sdk/models/operations/uploadbillcreditnoteattachmentrequest.md
 docs/sdk/models/operations/uploadbillcreditnoteattachmentresponse.md
 docs/sdk/models/operations/createbillpaymentrequest.md
