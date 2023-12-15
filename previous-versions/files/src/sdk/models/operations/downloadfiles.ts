@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 import { Expose } from "class-transformer";
 
@@ -22,10 +22,7 @@ export class DownloadFilesRequest extends SpeakeasyBase {
 }
 
 /**
- * One or more of the resources you referenced could not be found.
- *
- * @remarks
- * This might be because your company or data connection id is wrong, or was already deleted.
+ * You are using an outdated API key or a key not associated with that resource.
  */
 export class DownloadFilesErrorMessage extends SpeakeasyBase {
     /**
@@ -85,10 +82,7 @@ export class DownloadFilesResponse extends SpeakeasyBase {
     data?: Uint8Array;
 
     /**
-     * One or more of the resources you referenced could not be found.
-     *
-     * @remarks
-     * This might be because your company or data connection id is wrong, or was already deleted.
+     * You are using an outdated API key or a key not associated with that resource.
      */
     @SpeakeasyMetadata()
     errorMessage?: DownloadFilesErrorMessage;
@@ -103,7 +97,7 @@ export class DownloadFilesResponse extends SpeakeasyBase {
      * Raw HTTP response; suitable for custom response parsing
      */
     @SpeakeasyMetadata()
-    rawResponse?: AxiosResponse;
+    rawResponse: AxiosResponse;
 
     /**
      * The request made is not valid.
