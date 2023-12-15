@@ -6,19 +6,9 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
-export class UploadFilesRequestBody extends SpeakeasyBase {
-    @SpeakeasyMetadata({ data: "multipart_form, content=true" })
-    content: Uint8Array;
-
-    @SpeakeasyMetadata({ data: "multipart_form, name=fileName" })
-    fileName: string;
-}
-
 export class UploadFilesRequest extends SpeakeasyBase {
-    @SpeakeasyMetadata({
-        data: "multipart_form, file=true, request, media_type=multipart/form-data",
-    })
-    requestBody?: UploadFilesRequestBody;
+    @SpeakeasyMetadata({ data: "request, media_type=multipart/form-data" })
+    fileUpload?: shared.FileUpload;
 
     /**
      * Unique identifier for a company.

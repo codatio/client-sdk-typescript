@@ -405,6 +405,8 @@ src/sdk/models/shared/agedoutstandingamountdetail.ts
 src/sdk/models/shared/accountingageddebtorreport.ts
 src/sdk/models/shared/ageddebtor.ts
 src/sdk/models/shared/file.ts
+src/sdk/models/shared/fileupload.ts
+src/sdk/models/shared/codatfile.ts
 src/sdk/models/shared/accountingcreatebankaccountresponse.ts
 src/sdk/models/shared/validation.ts
 src/sdk/models/shared/validationitem.ts
@@ -696,7 +698,6 @@ docs/sdk/models/operations/downloadfilesrequest.md
 docs/sdk/models/operations/downloadfilesresponse.md
 docs/sdk/models/operations/listfilesrequest.md
 docs/sdk/models/operations/listfilesresponse.md
-docs/sdk/models/operations/uploadfilesrequestbody.md
 docs/sdk/models/operations/uploadfilesrequest.md
 docs/sdk/models/operations/uploadfilesresponse.md
 docs/sdk/models/operations/createbankaccountrequest.md
@@ -981,6 +982,8 @@ docs/sdk/models/shared/agedoutstandingamountdetail.md
 docs/sdk/models/shared/accountingageddebtorreport.md
 docs/sdk/models/shared/ageddebtor.md
 docs/sdk/models/shared/file.md
+docs/sdk/models/shared/fileupload.md
+docs/sdk/models/shared/codatfile.md
 docs/sdk/models/shared/accountingcreatebankaccountresponse.md
 docs/sdk/models/shared/validation.md
 docs/sdk/models/shared/validationitem.md
