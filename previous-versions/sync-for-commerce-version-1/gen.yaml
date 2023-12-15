@@ -1,7 +1,7 @@
 configVersion: 1.0.0
 management:
   docChecksum: 1d7cc7d07be3f391ff109aaa9777a017
-  docVersion: "1.1"
+  docVersion: '1.1'
   speakeasyVersion: 1.126.3
   generationVersion: 2.214.3
 generation:
@@ -11,6 +11,7 @@ generation:
   usageSnippets:
     optionalPropertyRendering: withExample
   telemetryEnabled: true
+  singleTagPerOp: false
 features:
   typescript:
     core: 3.3.3
@@ -24,7 +25,8 @@ typescript:
   version: 0.4.0
   author: Codat
   clientServerStatusCodesAsErrors: false
-  description: Push merchants' data from your ecommerce or point-of-sale (POS) platform into your merchants' accounting platform.
+  description: Push merchants' data from your ecommerce or point-of-sale (POS) platform
+    into your merchants' accounting platform.
   flattenGlobalSecurity: false
   imports:
     option: openapi

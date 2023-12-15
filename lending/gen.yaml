@@ -11,6 +11,7 @@ generation:
   usageSnippets:
     optionalPropertyRendering: withExample
   telemetryEnabled: true
+  singleTagPerOp: false
 features:
   typescript:
     acceptHeaders: 2.81.1
@@ -27,7 +28,8 @@ typescript:
   version: 4.1.0
   author: Codat
   clientServerStatusCodesAsErrors: false
-  description: Make credit decisions backed by enhanced financials, metrics, reports, and data integrity features.
+  description: Make credit decisions backed by enhanced financials, metrics, reports,
+    and data integrity features.
   flattenGlobalSecurity: false
   imports:
     option: openapi
