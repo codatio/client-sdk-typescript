@@ -24,7 +24,8 @@ typescript:
   version: 3.1.0
   author: Codat
   clientServerStatusCodesAsErrors: false
-  description: Set up bank feeds from accounts in your application to supported accounting platforms.
+  description: Set up bank feeds from accounts in your application to supported accounting
+    platforms.
   flattenGlobalSecurity: false
   imports:
     option: openapi
