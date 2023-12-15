@@ -17,7 +17,7 @@ Invoices
 * [list](#list) - List invoices
 * [listAttachments](#listattachments) - List invoice attachments
 * [update](#update) - Update invoice
-* [uploadAttachment](#uploadattachment) - Push invoice attachment
+* [uploadAttachment](#uploadattachment) - Upload invoice attachment
 
 ## create
 
@@ -774,9 +774,11 @@ async function run() {
   });
 
   const res = await sdk.invoices.uploadAttachment({
-    requestBody: {
-      content: new TextEncoder().encode("0xE3ABc1980E"),
-      fileName: "elegant_producer_electric.jpeg",
+    attachmentUpload: {
+      file: {
+        content: new TextEncoder().encode("0xE3ABc1980E"),
+        fileName: "elegant_producer_electric.jpeg",
+      },
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",

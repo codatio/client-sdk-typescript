@@ -135,7 +135,7 @@ run();
 * [list](docs/sdks/invoices/README.md#list) - List invoices
 * [listAttachments](docs/sdks/invoices/README.md#listattachments) - List invoice attachments
 * [update](docs/sdks/invoices/README.md#update) - Update invoice
-* [uploadAttachment](docs/sdks/invoices/README.md#uploadattachment) - Push invoice attachment
+* [uploadAttachment](docs/sdks/invoices/README.md#uploadattachment) - Upload invoice attachment
 
 ### [itemReceipts](docs/sdks/itemreceipts/README.md)
 
@@ -171,7 +171,7 @@ run();
 * [get](docs/sdks/transfers/README.md#get) - Get transfer
 * [getCreateModel](docs/sdks/transfers/README.md#getcreatemodel) - Get create transfer model
 * [list](docs/sdks/transfers/README.md#list) - List transfers
-* [uploadAttachment](docs/sdks/transfers/README.md#uploadattachment) - Push invoice attachment
+* [uploadAttachment](docs/sdks/transfers/README.md#uploadattachment) - Upload invoice attachment
 
 ### [billCreditNotes](docs/sdks/billcreditnotes/README.md)
 
