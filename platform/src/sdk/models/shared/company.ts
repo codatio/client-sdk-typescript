@@ -4,6 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Connection } from "./connection";
+import { GroupRef } from "./groupref";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -61,6 +62,14 @@ export class Company extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "description" })
     description?: string;
+
+    /**
+     * An array of groups the company has been assigned to.
+     */
+    @SpeakeasyMetadata({ elemType: GroupRef })
+    @Expose({ name: "groups" })
+    @Type(() => GroupRef)
+    groups?: GroupRef[];
 
     /**
      * Unique identifier for your SMB in Codat.

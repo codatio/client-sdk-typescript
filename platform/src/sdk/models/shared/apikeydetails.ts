@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 /**
- * Datetime in UTC the API key was created. The created date will be null if the API key created before YYYY-MM-DD.
+ * Details of the API key.
  */
 export class ApiKeyDetails extends SpeakeasyBase {
     /**
