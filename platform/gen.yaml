@@ -27,7 +27,8 @@ typescript:
   version: 2.0.0
   author: Codat
   clientServerStatusCodesAsErrors: false
-  description: Manage the building blocks of Codat, including companies, connections, and more.
+  description: Manage the building blocks of Codat, including companies, connections,
+    and more.
   flattenGlobalSecurity: false
   imports:
     option: openapi
