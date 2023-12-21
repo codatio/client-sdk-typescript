@@ -9,7 +9,8 @@ The type of platform of the connection.
 | ------------ | ------------ |
 | `Accounting` | Accounting   |
 | `Banking`    | Banking      |
-| `Commerce`   | Commerce     |
 | `BankFeed`   | BankFeed     |
+| `Commerce`   | Commerce     |
+| `Expense`    | Expense      |
 | `Other`      | Other        |
 | `Unknown`    | Unknown      |
