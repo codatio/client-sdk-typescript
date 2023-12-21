@@ -10,5 +10,6 @@ The type of platform of the connection.
 | `Accounting` | Accounting   |
 | `Banking`    | Banking      |
 | `Commerce`   | Commerce     |
+| `BankFeed`   | BankFeed     |
 | `Other`      | Other        |
 | `Unknown`    | Unknown      |
