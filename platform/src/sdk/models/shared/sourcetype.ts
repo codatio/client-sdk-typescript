@@ -9,6 +9,7 @@ export enum SourceType {
     Accounting = "Accounting",
     Banking = "Banking",
     Commerce = "Commerce",
+    BankFeed = "BankFeed",
     Other = "Other",
     Unknown = "Unknown",
 }
