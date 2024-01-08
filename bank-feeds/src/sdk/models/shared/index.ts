@@ -22,6 +22,7 @@ export * from "./dataconnectionstatus";
 export * from "./datatype";
 export * from "./errormessage";
 export * from "./halref";
+export * from "./items";
 export * from "./links";
 export * from "./pushchangetype";
 export * from "./pushoperation";

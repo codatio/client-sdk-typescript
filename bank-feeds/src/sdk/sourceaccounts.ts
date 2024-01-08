@@ -579,9 +579,12 @@ export class SourceAccounts {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.sourceAccount = utils.objectToClass(
+                    res.sourceAccounts = [];
+                    const resFieldDepth: number = utils.getResFieldDepth(res);
+                    res.sourceAccounts = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.SourceAccount
+                        shared.SourceAccount,
+                        resFieldDepth
                     );
                 } else {
                     throw new errors.SDKError(
