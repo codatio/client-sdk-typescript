@@ -34,12 +34,6 @@ export class ListSourceAccountsResponse extends SpeakeasyBase {
     errorMessage?: shared.ErrorMessage;
 
     /**
-     * Success
-     */
-    @SpeakeasyMetadata()
-    sourceAccount?: shared.SourceAccount;
-
-    /**
      * HTTP response status code for this operation
      */
     @SpeakeasyMetadata()
@@ -50,4 +44,10 @@ export class ListSourceAccountsResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata({ elemType: shared.SourceAccount })
+    sourceAccounts?: shared.SourceAccount[];
 }
