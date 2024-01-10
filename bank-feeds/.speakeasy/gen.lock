@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 87e6188d-fa80-4f96-a443-9e303956b15f
 management:
-  docChecksum: b095b0a347cf654b362ab0929e984eb2
+  docChecksum: 99eac4e55bd5df1a469607d39fe25481
   docVersion: 3.0.0
   speakeasyVersion: internal
-  generationVersion: 2.228.3
-  releaseVersion: 4.0.0
-  configChecksum: a0ddbc4bc0068a9257bb06f996af4363
+  generationVersion: 2.230.3
+  releaseVersion: 4.0.1
+  configChecksum: ed2a0ac1099612123af27dd22536b3eb
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   repoSubDirectory: bank-feeds
   installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/bank-feeds
   published: true
 features:
   typescript:
-    core: 3.4.2
+    core: 3.4.5
     deprecations: 2.81.1
     examples: 2.81.3
     globalSecurity: 2.82.2
@@ -25,7 +25,9 @@ generatedFiles:
   - src/sdk/connections.ts
   - src/sdk/accountmapping.ts
   - src/sdk/sourceaccounts.ts
+  - src/sdk/bankaccounts.ts
   - src/sdk/transactions.ts
+  - src/sdk/configuration.ts
   - src/sdk/sdk.ts
   - .eslintrc.yml
   - jest.config.js
@@ -64,9 +66,12 @@ generatedFiles:
   - src/sdk/models/operations/generatecredentials.ts
   - src/sdk/models/operations/listsourceaccounts.ts
   - src/sdk/models/operations/updatesourceaccount.ts
+  - src/sdk/models/operations/listbankaccounts.ts
   - src/sdk/models/operations/createbanktransactions.ts
   - src/sdk/models/operations/getcreateoperation.ts
   - src/sdk/models/operations/listcreateoperations.ts
+  - src/sdk/models/operations/getconfiguration.ts
+  - src/sdk/models/operations/setconfiguration.ts
   - src/sdk/models/shared/zero.ts
   - src/sdk/models/shared/errormessage.ts
   - src/sdk/models/shared/company.ts
@@ -84,6 +89,7 @@ generatedFiles:
   - src/sdk/models/shared/targetaccountoption.ts
   - src/sdk/models/shared/sourceaccount.ts
   - src/sdk/models/shared/bankaccountcredentials.ts
+  - src/sdk/models/shared/bankaccounts.ts
   - src/sdk/models/shared/createbanktransactionsresponse.ts
   - src/sdk/models/shared/validation.ts
   - src/sdk/models/shared/validationitem.ts
@@ -96,6 +102,15 @@ generatedFiles:
   - src/sdk/models/shared/pushoperationref.ts
   - src/sdk/models/shared/pushoperation.ts
   - src/sdk/models/shared/pushoperations.ts
+  - src/sdk/models/shared/configuration.ts
+  - src/sdk/models/shared/configurationschedule.ts
+  - src/sdk/models/shared/syncconfiguration.ts
+  - src/sdk/models/shared/syncasexpenses.ts
+  - src/sdk/models/shared/configurationsupplier.ts
+  - src/sdk/models/shared/configurationcontactref.ts
+  - src/sdk/models/shared/configurationcustomer.ts
+  - src/sdk/models/shared/bankaccountoption.ts
+  - src/sdk/models/shared/syncasbankfeeds.ts
   - src/sdk/models/shared/security.ts
   - src/sdk/models/shared/clientratelimitreachedwebhook.ts
   - src/sdk/models/shared/clientratelimitreachedwebhookdata.ts
@@ -144,12 +159,18 @@ generatedFiles:
   - docs/sdk/models/operations/listsourceaccountsresponse.md
   - docs/sdk/models/operations/updatesourceaccountrequest.md
   - docs/sdk/models/operations/updatesourceaccountresponse.md
+  - docs/sdk/models/operations/listbankaccountsrequest.md
+  - docs/sdk/models/operations/listbankaccountsresponse.md
   - docs/sdk/models/operations/createbanktransactionsrequest.md
   - docs/sdk/models/operations/createbanktransactionsresponse.md
   - docs/sdk/models/operations/getcreateoperationrequest.md
   - docs/sdk/models/operations/getcreateoperationresponse.md
   - docs/sdk/models/operations/listcreateoperationsrequest.md
   - docs/sdk/models/operations/listcreateoperationsresponse.md
+  - docs/sdk/models/operations/getconfigurationrequest.md
+  - docs/sdk/models/operations/getconfigurationresponse.md
+  - docs/sdk/models/operations/setconfigurationrequest.md
+  - docs/sdk/models/operations/setconfigurationresponse.md
   - docs/sdk/models/shared/zero.md
   - docs/sdk/models/shared/errormessage.md
   - docs/sdk/models/shared/groupreference.md
@@ -169,6 +190,11 @@ generatedFiles:
   - docs/sdk/models/shared/targetaccountoption.md
   - docs/sdk/models/shared/sourceaccount.md
   - docs/sdk/models/shared/bankaccountcredentials.md
+  - docs/sdk/models/shared/bankaccounttype.md
+  - docs/sdk/models/shared/metadata.md
+  - docs/sdk/models/shared/supplementaldata.md
+  - docs/sdk/models/shared/accountingbankaccount.md
+  - docs/sdk/models/shared/bankaccounts.md
   - docs/sdk/models/shared/createbanktransactionsresponse.md
   - docs/sdk/models/shared/validation.md
   - docs/sdk/models/shared/validationitem.md
@@ -182,6 +208,15 @@ generatedFiles:
   - docs/sdk/models/shared/pushoperationref.md
   - docs/sdk/models/shared/pushoperation.md
   - docs/sdk/models/shared/pushoperations.md
+  - docs/sdk/models/shared/configuration.md
+  - docs/sdk/models/shared/configurationschedule.md
+  - docs/sdk/models/shared/syncconfiguration.md
+  - docs/sdk/models/shared/syncasexpenses.md
+  - docs/sdk/models/shared/configurationsupplier.md
+  - docs/sdk/models/shared/configurationcontactref.md
+  - docs/sdk/models/shared/configurationcustomer.md
+  - docs/sdk/models/shared/bankaccountoption.md
+  - docs/sdk/models/shared/syncasbankfeeds.md
   - docs/sdk/models/shared/security.md
   - docs/sdk/models/shared/clientratelimitreachedwebhook.md
   - docs/sdk/models/shared/clientratelimitreachedwebhookdata.md
@@ -195,6 +230,8 @@ generatedFiles:
   - docs/sdks/connections/README.md
   - docs/sdks/accountmapping/README.md
   - docs/sdks/sourceaccounts/README.md
+  - docs/sdks/bankaccounts/README.md
   - docs/sdks/transactions/README.md
+  - docs/sdks/configuration/README.md
   - USAGE.md
   - .gitattributes

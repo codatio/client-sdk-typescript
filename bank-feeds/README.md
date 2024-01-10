@@ -89,11 +89,20 @@ run();
 * [list](docs/sdks/sourceaccounts/README.md#list) - List source accounts
 * [update](docs/sdks/sourceaccounts/README.md#update) - Update source account
 
+### [bankAccounts](docs/sdks/bankaccounts/README.md)
+
+* [list](docs/sdks/bankaccounts/README.md#list) - List bank accounts
+
 ### [transactions](docs/sdks/transactions/README.md)
 
 * [create](docs/sdks/transactions/README.md#create) - Create bank transactions
 * [getCreateOperation](docs/sdks/transactions/README.md#getcreateoperation) - Get create operation
 * [listCreateOperations](docs/sdks/transactions/README.md#listcreateoperations) - List create operations
+
+### [configuration](docs/sdks/configuration/README.md)
+
+* [get](docs/sdks/configuration/README.md#get) - Get configuration
+* [setConfiguration](docs/sdks/configuration/README.md#setconfiguration) - Set configuration
 <!-- End Available Resources and Operations [operations] -->
 
 
