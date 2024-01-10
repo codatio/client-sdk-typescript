@@ -3,6 +3,8 @@
  */
 
 export * from "./bankaccountcredentials";
+export * from "./bankaccountoption";
+export * from "./bankaccounts";
 export * from "./bankfeedaccountmappingresponse";
 export * from "./bankfeedmapping";
 export * from "./banktransactions";
@@ -13,6 +15,11 @@ export * from "./clientratelimitresetwebhookdata";
 export * from "./companies";
 export * from "./company";
 export * from "./companyrequestbody";
+export * from "./configuration";
+export * from "./configurationcontactref";
+export * from "./configurationcustomer";
+export * from "./configurationschedule";
+export * from "./configurationsupplier";
 export * from "./connection";
 export * from "./connections";
 export * from "./createbanktransactions";
@@ -32,6 +39,9 @@ export * from "./pushoperations";
 export * from "./pushoperationstatus";
 export * from "./security";
 export * from "./sourceaccount";
+export * from "./syncasbankfeeds";
+export * from "./syncasexpenses";
+export * from "./syncconfiguration";
 export * from "./targetaccountoption";
 export * from "./validation";
 export * from "./validationitem";

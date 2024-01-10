@@ -5,7 +5,9 @@
 import * as utils from "../internal/utils";
 import * as shared from "../sdk/models/shared";
 import { AccountMapping } from "./accountmapping";
+import { BankAccounts } from "./bankaccounts";
 import { Companies } from "./companies";
+import { Configuration } from "./configuration";
 import { Connections } from "./connections";
 import { SourceAccounts } from "./sourceaccounts";
 import { Transactions } from "./transactions";
@@ -58,9 +60,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "3.0.0";
-    sdkVersion = "4.0.0";
-    genVersion = "2.228.3";
-    userAgent = "speakeasy-sdk/typescript 4.0.0 2.228.3 3.0.0 @codat/bank-feeds";
+    sdkVersion = "4.0.1";
+    genVersion = "2.230.3";
+    userAgent = "speakeasy-sdk/typescript 4.0.1 2.230.3 3.0.0 @codat/bank-feeds";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -106,9 +108,17 @@ export class CodatBankFeeds {
      */
     public sourceAccounts: SourceAccounts;
     /**
+     * Access bank accounts in an SMBs accounting platform.
+     */
+    public bankAccounts: BankAccounts;
+    /**
      * Transactions represent debits and credits from a source account.
      */
     public transactions: Transactions;
+    /**
+     * Configure bank feeds for a company.
+     */
+    public configuration: Configuration;
 
     private sdkConfiguration: SDKConfiguration;
 
@@ -132,6 +142,8 @@ export class CodatBankFeeds {
         this.connections = new Connections(this.sdkConfiguration);
         this.accountMapping = new AccountMapping(this.sdkConfiguration);
         this.sourceAccounts = new SourceAccounts(this.sdkConfiguration);
+        this.bankAccounts = new BankAccounts(this.sdkConfiguration);
         this.transactions = new Transactions(this.sdkConfiguration);
+        this.configuration = new Configuration(this.sdkConfiguration);
     }
 }
