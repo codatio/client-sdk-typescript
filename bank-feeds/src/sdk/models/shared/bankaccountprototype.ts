@@ -3,8 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Links } from "./links";
-import { Expose, Type } from "class-transformer";
+import { Expose } from "class-transformer";
 
 /**
  * The type of transactions and balances on the account.
@@ -13,55 +12,13 @@ import { Expose, Type } from "class-transformer";
  * For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.
  * For Debit accounts, positive balances are assets, and positive transactions **increase** assets.
  */
-export enum BankAccountsBankAccountType {
+export enum BankAccountType {
     Unknown = "Unknown",
     Credit = "Credit",
     Debit = "Debit",
 }
 
-export class BankAccountsMetadata extends SpeakeasyBase {
-    /**
-     * Indicates whether the record has been deleted in the third-party system this record originated from.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "isDeleted" })
-    isDeleted?: boolean;
-}
-
-/**
- * Supplemental data is additional data you can include in our standard data types.
- *
- * @remarks
- *
- * It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
- */
-export class BankAccountsSupplementalData extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "content" })
-    content?: Record<string, Record<string, any>>;
-}
-
-/**
- * > **Accessing Bank Accounts through Banking API**
- *
- * @remarks
- * >
- * > This datatype was originally used for accessing bank account data both in accounting integrations and open banking aggregators.
- * >
- * > To view bank account data through the Banking API, please refer to the new datatype [here](https://docs.codat.io/bank-feeds-api#/schemas/Account)
- *
- * > View the coverage for bank accounts in the <a className="external" href="https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts" target="_blank">Data coverage explorer</a>.
- *
- * ## Overview
- *
- * A list of bank accounts associated with a company and a specific data connection.
- *
- * Bank accounts data includes:
- * * The name and ID of the account in the accounting platform.
- * * The currency and balance of the account.
- * * The sort code and account number.
- */
-export class BankAccountsAccountingBankAccount extends SpeakeasyBase {
+export class BankAccountPrototype extends SpeakeasyBase {
     /**
      * Name of the bank account in the accounting platform.
      */
@@ -93,7 +50,7 @@ export class BankAccountsAccountingBankAccount extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "accountType" })
-    accountType?: BankAccountsBankAccountType;
+    accountType?: BankAccountType;
 
     /**
      * Total available balance of the bank account as reported by the underlying data source. This may take into account overdrafts or pending transactions for example.
@@ -132,27 +89,11 @@ export class BankAccountsAccountingBankAccount extends SpeakeasyBase {
     iBan?: string;
 
     /**
-     * Identifier for the account, unique for the company in the accounting platform.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "id" })
-    id?: string;
-
-    /**
      * The institution of the bank account.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "institution" })
     institution?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "metadata" })
-    @Type(() => BankAccountsMetadata)
-    metadata?: BankAccountsMetadata;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "modifiedDate" })
-    modifiedDate?: string;
 
     /**
      * Code used to identify each nominal account for a business.
@@ -183,53 +124,4 @@ export class BankAccountsAccountingBankAccount extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "sortCode" })
     sortCode?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "sourceModifiedDate" })
-    sourceModifiedDate?: string;
-
-    /**
-     * Supplemental data is additional data you can include in our standard data types.
-     *
-     * @remarks
-     *
-     * It is referenced as a configured dynamic key value pair that is unique to the accounting platform. [Learn more](https://docs.codat.io/using-the-api/supplemental-data/overview) about supplemental data.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "supplementalData" })
-    @Type(() => BankAccountsSupplementalData)
-    supplementalData?: BankAccountsSupplementalData;
-}
-
-export class BankAccounts extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "_links" })
-    @Type(() => Links)
-    links: Links;
-
-    /**
-     * Current page number.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "pageNumber" })
-    pageNumber: number;
-
-    /**
-     * Number of items to return in results array.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "pageSize" })
-    pageSize: number;
-
-    @SpeakeasyMetadata({ elemType: BankAccountsAccountingBankAccount })
-    @Expose({ name: "results" })
-    @Type(() => BankAccountsAccountingBankAccount)
-    results?: BankAccountsAccountingBankAccount[];
-
-    /**
-     * Total number of items.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "totalResults" })
-    totalResults: number;
 }

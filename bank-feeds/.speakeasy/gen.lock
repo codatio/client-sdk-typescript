@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 87e6188d-fa80-4f96-a443-9e303956b15f
 management:
-  docChecksum: 3a0b899f2dc3766b39e4fd3e931ebe0c
+  docChecksum: d8a3c846c6e6c943937af494c3623e4f
   docVersion: 3.0.0
   speakeasyVersion: internal
-  generationVersion: 2.230.3
-  releaseVersion: 4.0.1
-  configChecksum: ed2a0ac1099612123af27dd22536b3eb
+  generationVersion: 2.231.0
+  releaseVersion: 4.1.0
+  configChecksum: d64d1e2fa2aafde9d9807d7488204066
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   repoSubDirectory: bank-feeds
   installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/bank-feeds
@@ -18,6 +18,7 @@ features:
     examples: 2.81.3
     globalSecurity: 2.82.2
     globalServerURLs: 2.82.1
+    inputOutputModels: 2.83.0
     nameOverrides: 2.81.1
     retries: 2.82.1
 generatedFiles:
@@ -66,6 +67,8 @@ generatedFiles:
   - src/sdk/models/operations/generatecredentials.ts
   - src/sdk/models/operations/listsourceaccounts.ts
   - src/sdk/models/operations/updatesourceaccount.ts
+  - src/sdk/models/operations/createbankaccount.ts
+  - src/sdk/models/operations/getcreatebankaccountsmodel.ts
   - src/sdk/models/operations/listbankaccounts.ts
   - src/sdk/models/operations/createbanktransactions.ts
   - src/sdk/models/operations/getcreateoperation.ts
@@ -89,17 +92,25 @@ generatedFiles:
   - src/sdk/models/shared/targetaccountoption.ts
   - src/sdk/models/shared/sourceaccount.ts
   - src/sdk/models/shared/bankaccountcredentials.ts
-  - src/sdk/models/shared/bankaccounts.ts
-  - src/sdk/models/shared/createbanktransactionsresponse.ts
+  - src/sdk/models/shared/bankaccountcreateresponse.ts
   - src/sdk/models/shared/validation.ts
   - src/sdk/models/shared/validationitem.ts
   - src/sdk/models/shared/pushoperationstatus.ts
   - src/sdk/models/shared/datatype.ts
-  - src/sdk/models/shared/createbanktransactions.ts
-  - src/sdk/models/shared/banktransactions.ts
   - src/sdk/models/shared/pushoperationchange.ts
   - src/sdk/models/shared/pushchangetype.ts
   - src/sdk/models/shared/pushoperationref.ts
+  - src/sdk/models/shared/bankaccountprototype.ts
+  - src/sdk/models/shared/pushoption.ts
+  - src/sdk/models/shared/pushvalidationinfo.ts
+  - src/sdk/models/shared/pushfieldvalidation.ts
+  - src/sdk/models/shared/pushoptiontype.ts
+  - src/sdk/models/shared/pushoptionproperty.ts
+  - src/sdk/models/shared/pushoptionchoice.ts
+  - src/sdk/models/shared/bankaccounts.ts
+  - src/sdk/models/shared/createbanktransactionsresponse.ts
+  - src/sdk/models/shared/createbanktransactions.ts
+  - src/sdk/models/shared/banktransactions.ts
   - src/sdk/models/shared/pushoperation.ts
   - src/sdk/models/shared/pushoperations.ts
   - src/sdk/models/shared/configuration.ts
@@ -159,6 +170,10 @@ generatedFiles:
   - docs/sdk/models/operations/listsourceaccountsresponse.md
   - docs/sdk/models/operations/updatesourceaccountrequest.md
   - docs/sdk/models/operations/updatesourceaccountresponse.md
+  - docs/sdk/models/operations/createbankaccountrequest.md
+  - docs/sdk/models/operations/createbankaccountresponse.md
+  - docs/sdk/models/operations/getcreatebankaccountsmodelrequest.md
+  - docs/sdk/models/operations/getcreatebankaccountsmodelresponse.md
   - docs/sdk/models/operations/listbankaccountsrequest.md
   - docs/sdk/models/operations/listbankaccountsresponse.md
   - docs/sdk/models/operations/createbanktransactionsrequest.md
@@ -190,22 +205,35 @@ generatedFiles:
   - docs/sdk/models/shared/targetaccountoption.md
   - docs/sdk/models/shared/sourceaccount.md
   - docs/sdk/models/shared/bankaccountcredentials.md
-  - docs/sdk/models/shared/bankaccounttype.md
+  - docs/sdk/models/shared/bankaccountcreateresponsebankaccounttype.md
   - docs/sdk/models/shared/metadata.md
   - docs/sdk/models/shared/supplementaldata.md
   - docs/sdk/models/shared/accountingbankaccount.md
-  - docs/sdk/models/shared/bankaccounts.md
-  - docs/sdk/models/shared/createbanktransactionsresponse.md
+  - docs/sdk/models/shared/bankaccountcreateresponse.md
   - docs/sdk/models/shared/validation.md
   - docs/sdk/models/shared/validationitem.md
   - docs/sdk/models/shared/pushoperationstatus.md
   - docs/sdk/models/shared/datatype.md
-  - docs/sdk/models/shared/createbanktransactions.md
-  - docs/sdk/models/shared/banktransactiontype.md
-  - docs/sdk/models/shared/banktransactions.md
   - docs/sdk/models/shared/pushoperationchange.md
   - docs/sdk/models/shared/pushchangetype.md
   - docs/sdk/models/shared/pushoperationref.md
+  - docs/sdk/models/shared/bankaccounttype.md
+  - docs/sdk/models/shared/bankaccountprototype.md
+  - docs/sdk/models/shared/pushoption.md
+  - docs/sdk/models/shared/pushvalidationinfo.md
+  - docs/sdk/models/shared/pushfieldvalidation.md
+  - docs/sdk/models/shared/pushoptiontype.md
+  - docs/sdk/models/shared/pushoptionproperty.md
+  - docs/sdk/models/shared/pushoptionchoice.md
+  - docs/sdk/models/shared/bankaccountsbankaccounttype.md
+  - docs/sdk/models/shared/bankaccountsmetadata.md
+  - docs/sdk/models/shared/bankaccountssupplementaldata.md
+  - docs/sdk/models/shared/bankaccountsaccountingbankaccount.md
+  - docs/sdk/models/shared/bankaccounts.md
+  - docs/sdk/models/shared/createbanktransactionsresponse.md
+  - docs/sdk/models/shared/createbanktransactions.md
+  - docs/sdk/models/shared/banktransactiontype.md
+  - docs/sdk/models/shared/banktransactions.md
   - docs/sdk/models/shared/pushoperation.md
   - docs/sdk/models/shared/pushoperations.md
   - docs/sdk/models/shared/configuration.md
