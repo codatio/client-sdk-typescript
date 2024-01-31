@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 87e6188d-fa80-4f96-a443-9e303956b15f
 management:
-  docChecksum: d8a3c846c6e6c943937af494c3623e4f
+  docChecksum: a7a3c1d1e38f26fd8929ad79f8c66f92
   docVersion: 3.0.0
   speakeasyVersion: internal
-  generationVersion: 2.231.0
-  releaseVersion: 4.1.0
-  configChecksum: d64d1e2fa2aafde9d9807d7488204066
+  generationVersion: 2.239.4
+  releaseVersion: 4.1.1
+  configChecksum: 00d2c0e53c6d7a3ef3dc02dbd5595337
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   repoSubDirectory: bank-feeds
   installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/bank-feeds
   published: true
 features:
   typescript:
-    core: 3.4.5
+    core: 3.4.6
     deprecations: 2.81.1
     examples: 2.81.3
     globalSecurity: 2.82.2
