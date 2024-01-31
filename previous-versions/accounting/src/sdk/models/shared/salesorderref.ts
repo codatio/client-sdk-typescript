@@ -3,16 +3,22 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { DataType } from "./datatype";
 import { Expose } from "class-transformer";
+
+/**
+ * The underlying data type associated to the reference `id`.
+ */
+export enum SalesOrderRefDataType {
+    SalesOrders = "salesOrders",
+}
 
 export class SalesOrderRef extends SpeakeasyBase {
     /**
-     * Available Data types
+     * The underlying data type associated to the reference `id`.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "dataType" })
-    dataType?: DataType;
+    dataType?: SalesOrderRefDataType;
 
     /**
      * Unique identifier to a record in `dataType`.

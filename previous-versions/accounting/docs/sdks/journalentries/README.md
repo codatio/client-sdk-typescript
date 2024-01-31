@@ -30,6 +30,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
+import { JournalEntryRecordRefDataType, TrackingRecordRefDataType } from "@codat/accounting/dist/sdk/models/shared";
 
 async function run() {
   const sdk = new CodatAccounting({
@@ -48,7 +49,7 @@ async function run() {
           tracking: {
             recordRefs: [
               {
-                dataType: "accountTransaction",
+                dataType: TrackingRecordRefDataType.TrackingCategories,
               },
             ],
           },
@@ -61,7 +62,7 @@ async function run() {
       modifiedDate: "2022-10-23T00:00:00Z",
       postedOn: "2022-10-23T00:00:00Z",
       recordRef: {
-        dataType: "invoice",
+        dataType: JournalEntryRecordRefDataType.Transfers,
       },
       sourceModifiedDate: "2022-10-23T00:00:00Z",
       supplementalData: {
@@ -101,7 +102,7 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## delete
 
@@ -181,7 +182,7 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## get
 
@@ -235,7 +236,7 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getCreateModel
 
@@ -291,7 +292,7 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## list
 
@@ -345,4 +346,4 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |

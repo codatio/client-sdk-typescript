@@ -8,6 +8,7 @@ Direct costs
 ### Available Operations
 
 * [create](#create) - Create direct cost
+* [delete](#delete) - Delete direct cost
 * [downloadAttachment](#downloadattachment) - Download direct cost attachment
 * [get](#get) - Get direct cost
 * [getAttachment](#getattachment) - Get direct cost attachment
@@ -33,7 +34,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { DataType } from "@codat/accounting/dist/sdk/models/shared";
+import { DirectCostPrototypeDataType, TrackingRecordRefDataType } from "@codat/accounting/dist/sdk/models/shared";
 
 async function run() {
   const sdk = new CodatAccounting({
@@ -47,7 +48,6 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     directCostPrototype: {
       contactRef: {
-        dataType: DataType.Invoices,
         id: "<ID>",
       },
       currency: "USD",
@@ -66,7 +66,7 @@ async function run() {
             },
             recordRefs: [
               {
-                dataType: "invoice",
+                dataType: TrackingRecordRefDataType.TrackingCategories,
               },
             ],
           },
@@ -75,23 +75,23 @@ async function run() {
               id: "<ID>",
             },
           ],
-          unitAmount: 2884.08,
+          unitAmount: 4174.58,
         },
       ],
       paymentAllocations: [
         {
           allocation: {
             allocatedOnDate: "2022-10-23T00:00:00Z",
-            currency: "EUR",
+            currency: "GBP",
           },
           payment: {
             accountRef: {},
-            currency: "GBP",
+            currency: "EUR",
             paidOnDate: "2022-10-23T00:00:00Z",
           },
         },
       ],
-      subTotal: 7964.74,
+      subTotal: 9967.06,
       supplementalData: {
         content: {
           "key": {
@@ -99,8 +99,8 @@ async function run() {
           },
         },
       },
-      taxAmount: 3768.44,
-      totalAmount: 9510.62,
+      taxAmount: 7964.74,
+      totalAmount: 3768.44,
     },
   });
 
@@ -128,7 +128,80 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
+
+## delete
+
+The *Delete direct cost* endpoint allows you to delete a specified direct cost from an accounting platform. 
+
+[Direct costs](https://docs.codat.io/accounting-api#/schemas/DirectCost) are the expenses associated with a business' operations. For example, purchases of raw materials that are paid off at the point of the purchase and service fees are considered direct costs.
+
+### Process 
+1. Pass the `{directCostId}` to the *Delete direct cost* endpoint and store the `pushOperationKey` returned.
+2. Check the status of the delete operation by checking the status of the push operation either via
+    1. [Push operation webhook](https://docs.codat.io/introduction/webhooks/core-rules-types#push-operation-status-has-changed) (advised),
+    2. [Push operation status endpoint](https://docs.codat.io/codat-api#/operations/get-push-operation).
+
+   A `Success` status indicates that the direct cost object was deleted from the accounting platform.
+3. (Optional) Check that the direct cost was deleted from the accounting platform.
+
+### Effect on related objects
+Be aware that deleting a direct cost from an accounting platform might cause related objects to be modified.
+
+## Integration specifics
+Integrations that support soft delete do not permanently delete the object in the accounting platform.
+
+| Integration        | Soft Delete | Details                                                                                                   |  
+|--------------------|-------------|-----------------------------------------------------------------------------------------------------------|
+| QuickBooks Desktop | No          | - |
+
+> **Supported Integrations**
+> 
+> This functionality is currently supported for our QuickBooks Desktop integration.
+
+### Example Usage
+
+```typescript
+import { CodatAccounting } from "@codat/accounting";
+
+async function run() {
+  const sdk = new CodatAccounting({
+    security: {
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    },
+  });
+
+  const res = await sdk.directCosts.delete({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    directCostId: "string",
+  });
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.DeleteDirectCostRequest](../../sdk/models/operations/deletedirectcostrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `retries`                                                                                    | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                     | :heavy_minus_sign:                                                                           | Configuration to override the default retry behavior of the client.                          |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+
+
+### Response
+
+**Promise<[operations.DeleteDirectCostResponse](../../sdk/models/operations/deletedirectcostresponse.md)>**
+### Errors
+
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## downloadAttachment
 
@@ -182,7 +255,7 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## get
 
@@ -237,7 +310,7 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getAttachment
 
@@ -291,7 +364,7 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getCreateModel
 
@@ -347,7 +420,7 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## list
 
@@ -402,7 +475,7 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## listAttachments
 
@@ -455,7 +528,7 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## uploadAttachment
 
@@ -518,4 +591,4 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |

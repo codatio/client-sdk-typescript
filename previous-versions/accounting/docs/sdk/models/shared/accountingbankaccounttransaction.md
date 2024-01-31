@@ -1,4 +1,4 @@
-# SourceModifiedDate
+# AccountingBankAccountTransaction
 
 > **Accessing Bank Accounts through Banking API**
 > 

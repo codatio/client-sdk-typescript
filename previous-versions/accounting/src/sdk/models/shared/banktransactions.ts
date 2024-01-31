@@ -27,7 +27,7 @@ import { Expose, Type } from "class-transformer";
  * * Current account balance.
  * * Transaction type, for example, credit, debit, or transfer.
  */
-export class SourceModifiedDate extends SpeakeasyBase {
+export class AccountingBankAccountTransaction extends SpeakeasyBase {
     /**
      * Unique identifier to the `accountId` the bank transactions originates from.
      */
@@ -133,10 +133,10 @@ export class BankTransactions extends SpeakeasyBase {
     @Expose({ name: "pageSize" })
     pageSize: number;
 
-    @SpeakeasyMetadata({ elemType: SourceModifiedDate })
+    @SpeakeasyMetadata({ elemType: AccountingBankAccountTransaction })
     @Expose({ name: "results" })
-    @Type(() => SourceModifiedDate)
-    results?: SourceModifiedDate[];
+    @Type(() => AccountingBankAccountTransaction)
+    results?: AccountingBankAccountTransaction[];
 
     /**
      * Total number of items.

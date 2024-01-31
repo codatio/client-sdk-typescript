@@ -22,6 +22,7 @@ export * from "./createsupplier";
 export * from "./createtransfer";
 export * from "./deletebill";
 export * from "./deletebillpayment";
+export * from "./deletedirectcost";
 export * from "./deleteinvoice";
 export * from "./deletejournalentry";
 export * from "./downloadbillattachment";

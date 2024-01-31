@@ -3,12 +3,29 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { CreateBankTransactions } from "./createbanktransactions";
+import { CreateBankAccountTransaction } from "./createbankaccounttransaction";
 import { DataType } from "./datatype";
 import { PushOperationChange } from "./pushoperationchange";
 import { PushOperationStatus } from "./pushoperationstatus";
 import { Validation } from "./validation";
 import { Expose, Type } from "class-transformer";
+
+/**
+ * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
+ */
+export class AccountingCreateBankAccountTransactions extends SpeakeasyBase {
+    /**
+     * Unique identifier for a bank account.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "accountId" })
+    accountId?: string;
+
+    @SpeakeasyMetadata({ elemType: CreateBankAccountTransaction })
+    @Expose({ name: "transactions" })
+    @Type(() => CreateBankAccountTransaction)
+    transactions?: CreateBankAccountTransaction[];
+}
 
 export class CreateBankTransactionsResponse extends SpeakeasyBase {
     /**
@@ -55,8 +72,8 @@ export class CreateBankTransactionsResponse extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "data" })
-    @Type(() => CreateBankTransactions)
-    data?: CreateBankTransactions;
+    @Type(() => AccountingCreateBankAccountTransactions)
+    data?: AccountingCreateBankAccountTransactions;
 
     /**
      * Unique identifier for a company's data connection.

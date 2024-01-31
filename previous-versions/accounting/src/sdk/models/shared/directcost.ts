@@ -3,7 +3,6 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { DataType } from "./datatype";
 import { DirectCostLineItem } from "./directcostlineitem";
 import { Metadata } from "./metadata";
 import { PaymentAllocationPayment } from "./paymentallocationpayment";
@@ -11,15 +10,23 @@ import { SupplementalData } from "./supplementaldata";
 import { Expose, Type } from "class-transformer";
 
 /**
+ * Allowed name of the 'dataType'.
+ */
+export enum DirectCostDataType {
+    Customers = "customers",
+    Suppliers = "suppliers",
+}
+
+/**
  * A customer or supplier associated with the direct cost.
  */
-export class DirectCostContactRef extends SpeakeasyBase {
+export class DirectCostContactReference extends SpeakeasyBase {
     /**
-     * Available Data types
+     * Allowed name of the 'dataType'.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "dataType" })
-    dataType?: DataType;
+    dataType?: DirectCostDataType;
 
     /**
      * Unique identifier for a customer or supplier.
@@ -157,8 +164,8 @@ export class DirectCost extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "contactRef" })
-    @Type(() => DirectCostContactRef)
-    contactRef?: DirectCostContactRef;
+    @Type(() => DirectCostContactReference)
+    contactRef?: DirectCostContactReference;
 
     /**
      * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.

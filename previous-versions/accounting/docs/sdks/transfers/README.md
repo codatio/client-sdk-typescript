@@ -11,7 +11,7 @@ Transfers
 * [get](#get) - Get transfer
 * [getCreateModel](#getcreatemodel) - Get create transfer model
 * [list](#list) - List transfers
-* [uploadAttachment](#uploadattachment) - Upload invoice attachment
+* [uploadAttachment](#uploadattachment) - Upload transfer attachment
 
 ## create
 
@@ -30,7 +30,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatAccounting } from "@codat/accounting";
-import { DataType } from "@codat/accounting/dist/sdk/models/shared";
+import { ContactRefDataType } from "@codat/accounting/dist/sdk/models/shared";
 
 async function run() {
   const sdk = new CodatAccounting({
@@ -42,7 +42,6 @@ async function run() {
   const res = await sdk.transfers.create({
     transfer: {
       contactRef: {
-        dataType: DataType.Invoices,
         id: "<ID>",
       },
       date: "2022-10-23T00:00:00Z",
@@ -103,7 +102,7 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## get
 
@@ -158,7 +157,7 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getCreateModel
 
@@ -214,7 +213,7 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## list
 
@@ -269,7 +268,7 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## uploadAttachment
 
@@ -332,4 +331,4 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |

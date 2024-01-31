@@ -4,8 +4,8 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountRef } from "./accountref";
-import { InvoiceTo } from "./invoiceto";
 import { ItemRef } from "./itemref";
+import { TrackingRecordRef } from "./trackingrecordref";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -42,10 +42,10 @@ export class RecordLineReference extends SpeakeasyBase {
 }
 
 export class ItemReceiptLineItemTracking extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: InvoiceTo })
+    @SpeakeasyMetadata({ elemType: TrackingRecordRef })
     @Expose({ name: "recordRefs" })
-    @Type(() => InvoiceTo)
-    recordRefs?: InvoiceTo[];
+    @Type(() => TrackingRecordRef)
+    recordRefs?: TrackingRecordRef[];
 }
 
 export class ItemReceiptLineItem extends SpeakeasyBase {

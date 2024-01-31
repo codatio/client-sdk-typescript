@@ -499,7 +499,7 @@ export class Transfers {
     }
 
     /**
-     * Upload invoice attachment
+     * Upload transfer attachment
      *
      * @remarks
      * The *Upload transfer attachment* endpoint uploads an attachment and assigns it against a specific `transferId`.
