@@ -3,7 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Expose } from "class-transformer";
+import { GroupItems } from "./groupitems";
+import { Expose, Type } from "class-transformer";
 
 export class CompanyRequestBody extends SpeakeasyBase {
     /**
@@ -12,6 +13,14 @@ export class CompanyRequestBody extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "description" })
     description?: string;
+
+    /**
+     * Reference to the groups that the company is assigned to.
+     */
+    @SpeakeasyMetadata({ elemType: GroupItems })
+    @Expose({ name: "groups" })
+    @Type(() => GroupItems)
+    groups?: GroupItems[];
 
     /**
      * Name of company being connected.
