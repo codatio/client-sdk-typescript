@@ -38,6 +38,11 @@ async function run() {
 
     const res = await sdk.companies.create({
         description: "Requested early access to the new financing scheme.",
+        groups: [
+            {
+                id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+            },
+        ],
         name: "Bank of Dave",
     });
 
@@ -152,6 +157,11 @@ async function run() {
     const res = await sdk.companies.create(
         {
             description: "Requested early access to the new financing scheme.",
+            groups: [
+                {
+                    id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+                },
+            ],
             name: "Bank of Dave",
         },
         {
@@ -198,6 +208,11 @@ async function run() {
 
     const res = await sdk.companies.create({
         description: "Requested early access to the new financing scheme.",
+        groups: [
+            {
+                id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+            },
+        ],
         name: "Bank of Dave",
     });
 
@@ -218,7 +233,7 @@ Handling errors in this SDK should largely match your expectations.  All operati
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 Example
 
@@ -236,6 +251,11 @@ async function run() {
     try {
         res = await sdk.companies.create({
             description: "Requested early access to the new financing scheme.",
+            groups: [
+                {
+                    id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+                },
+            ],
             name: "Bank of Dave",
         });
     } catch (err) {
@@ -281,6 +301,11 @@ async function run() {
 
     const res = await sdk.companies.create({
         description: "Requested early access to the new financing scheme.",
+        groups: [
+            {
+                id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+            },
+        ],
         name: "Bank of Dave",
     });
 
@@ -310,6 +335,11 @@ async function run() {
 
     const res = await sdk.companies.create({
         description: "Requested early access to the new financing scheme.",
+        groups: [
+            {
+                id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+            },
+        ],
         name: "Bank of Dave",
     });
 
@@ -366,6 +396,11 @@ async function run() {
 
     const res = await sdk.companies.create({
         description: "Requested early access to the new financing scheme.",
+        groups: [
+            {
+                id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+            },
+        ],
         name: "Bank of Dave",
     });
 

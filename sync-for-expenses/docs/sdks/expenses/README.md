@@ -33,7 +33,7 @@ Some accounting platforms support the option of pushing transactions to a draft 
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { ExpenseTransactionType, TrackingRefDataType, TypeT } from "@codat/sync-for-expenses/dist/sdk/models/shared";
+import { ExpenseTransactionType, InvoiceToDataType, TrackingRefDataType, TypeT } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
 async function run() {
   const sdk = new CodatSyncExpenses({
@@ -61,7 +61,10 @@ async function run() {
               accountRef: {
                 id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
               },
-              invoiceTo: {},
+              invoiceTo: {
+                dataType: InvoiceToDataType.Customers,
+                id: "80000002-1674552702",
+              },
               netAmount: 110.42,
               taxAmount: 14.43,
               taxRateRef: {
@@ -108,7 +111,7 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## update
 
@@ -125,7 +128,7 @@ At the moment you can update expenses only for Xero ([Payment](https://docs.coda
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { TrackingRefDataType, TypeT } from "@codat/sync-for-expenses/dist/sdk/models/shared";
+import { InvoiceToDataType, TrackingRefDataType, TypeT } from "@codat/sync-for-expenses/dist/sdk/models/shared";
 
 async function run() {
   const sdk = new CodatSyncExpenses({
@@ -150,7 +153,10 @@ async function run() {
           accountRef: {
             id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
           },
-          invoiceTo: {},
+          invoiceTo: {
+            dataType: InvoiceToDataType.Customers,
+            id: "80000002-1674552702",
+          },
           netAmount: 110.42,
           taxAmount: 14.43,
           taxRateRef: {
@@ -196,7 +202,7 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## uploadAttachment
 
@@ -263,4 +269,4 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
