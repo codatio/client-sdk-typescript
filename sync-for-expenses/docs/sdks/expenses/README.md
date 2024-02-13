@@ -54,12 +54,13 @@ async function run() {
             type: TypeT.Supplier,
           },
           currency: "GBP",
-          id: "4d7c6929-7770-412b-91bb-44d3bc71d111",
-          issueDate: "2022-10-23T00:00:00Z",
+          currencyRate: 1.18,
+          id: "a44135b0-6882-489a-83fe-a0c57a4afb19",
+          issueDate: "2021-05-21T00:00:00+00:00",
           lines: [
             {
               accountRef: {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+                id: "a505cb47-0f7d-4e8b-90aa-9f9c2308b7bc",
               },
               invoiceTo: {
                 dataType: InvoiceToDataType.Customers,
@@ -68,9 +69,13 @@ async function run() {
               netAmount: 110.42,
               taxAmount: 14.43,
               taxRateRef: {
-                id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+                id: "7e2ccb60-de1a-4c2b-9bd9-2f98a1c6be3f",
               },
               trackingRefs: [
+                {
+                  dataType: TrackingRefDataType.TrackingCategories,
+                  id: "31a7e93c-4bb2-474c-b26d-10b2b75f7a25",
+                },
                 {
                   dataType: TrackingRefDataType.TrackingCategories,
                   id: "e9a1b63d-9ff0-40e7-8038-016354b987e6",
@@ -79,7 +84,8 @@ async function run() {
             },
           ],
           merchantName: "Amazon UK",
-          notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
+          notes: "amazon purchase",
+          postAsDraft: false,
           type: ExpenseTransactionType.Payment,
         },
       ],

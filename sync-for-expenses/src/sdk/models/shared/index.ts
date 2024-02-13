@@ -38,6 +38,8 @@ export * from "./dataconnectionstatus";
 export * from "./datastatus";
 export * from "./datatype";
 export * from "./errormessage";
+export * from "./errorvalidation";
+export * from "./errorvalidationitem";
 export * from "./expensetransaction";
 export * from "./expensetransactionline";
 export * from "./groupitems";

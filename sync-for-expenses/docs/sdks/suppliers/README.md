@@ -42,21 +42,40 @@ async function run() {
     supplier: {
       addresses: [
         {
+          city: "Bakersfield",
+          country: "USA",
+          line1: "Unit 51",
+          line2: "Bakersfield Industrial Estate",
+          region: "California",
           type: AccountingAddressType.Billing,
         },
       ],
-      metadata: {},
+      contactName: "Kelly's Industrial Supplies",
+      defaultCurrency: "string",
+      emailAddress: "sales@kellysupplies.com",
+      id: "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F",
+      metadata: {
+        isDeleted: true,
+      },
       modifiedDate: "2022-10-23T00:00:00Z",
-      phone: "(877) 492-8687",
+      phone: "07999 999999",
+      registrationNumber: "string",
       sourceModifiedDate: "2022-10-23T00:00:00Z",
-      status: SupplierStatus.Active,
+      status: SupplierStatus.Unknown,
       supplementalData: {
         content: {
-          "key": {
-            "key": "string",
+          "property1": {
+            "property1": null,
+            "property2": null,
+          },
+          "property2": {
+            "property1": null,
+            "property2": null,
           },
         },
       },
+      supplierName: "Kelly's Industrial Supplies",
+      taxNumber: "string",
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -226,25 +245,44 @@ async function run() {
     supplier: {
       addresses: [
         {
-          type: AccountingAddressType.Delivery,
+          city: "Bakersfield",
+          country: "USA",
+          line1: "Unit 51",
+          line2: "Bakersfield Industrial Estate",
+          region: "California",
+          type: AccountingAddressType.Billing,
         },
       ],
-      metadata: {},
+      contactName: "Kelly's Industrial Supplies",
+      defaultCurrency: "string",
+      emailAddress: "sales@kellysupplies.com",
+      id: "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F",
+      metadata: {
+        isDeleted: true,
+      },
       modifiedDate: "2022-10-23T00:00:00Z",
-      phone: "(877) 492-8687",
+      phone: "07999 999999",
+      registrationNumber: "string",
       sourceModifiedDate: "2022-10-23T00:00:00Z",
-      status: SupplierStatus.Active,
+      status: SupplierStatus.Unknown,
       supplementalData: {
         content: {
-          "key": {
-            "key": "string",
+          "property1": {
+            "property1": null,
+            "property2": null,
+          },
+          "property2": {
+            "property1": null,
+            "property2": null,
           },
         },
       },
+      supplierName: "Kelly's Industrial Supplies",
+      taxNumber: "string",
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    supplierId: "7110701885",
+    supplierId: "EILBDVJVNUAGVKRQ",
   });
 
   if (res.statusCode == 200) {
