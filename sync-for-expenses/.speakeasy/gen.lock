@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db99c2c9-4c7c-4123-9b4e-591ea4fb8649
 management:
-  docChecksum: fdc7285c8f3a9d1b51e0ac7f1c98ee14
+  docChecksum: cd6fa6671764b38bed9a8592c0f117ad
   docVersion: prealpha
   speakeasyVersion: internal
-  generationVersion: 2.248.6
-  releaseVersion: 5.0.0
-  configChecksum: 65920fdd14f8a90f5539fe9d314e5b09
+  generationVersion: 2.253.0
+  releaseVersion: 5.0.1
+  configChecksum: e962bfd138723230556c2831ceb4dd43
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   repoSubDirectory: sync-for-expenses
   installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/sync-for-expenses
@@ -95,6 +95,8 @@ generatedFiles:
   - src/sdk/models/operations/getsynctransaction.ts
   - src/sdk/models/operations/listsynctransactions.ts
   - src/sdk/models/shared/errormessage.ts
+  - src/sdk/models/shared/errorvalidation.ts
+  - src/sdk/models/shared/errorvalidationitem.ts
   - src/sdk/models/shared/company.ts
   - src/sdk/models/shared/connection.ts
   - src/sdk/models/shared/dataconnectionstatus.ts
@@ -275,6 +277,8 @@ generatedFiles:
   - docs/sdk/models/operations/listsynctransactionsrequest.md
   - docs/sdk/models/operations/listsynctransactionsresponse.md
   - docs/sdk/models/shared/errormessage.md
+  - docs/sdk/models/shared/errorvalidation.md
+  - docs/sdk/models/shared/errorvalidationitem.md
   - docs/sdk/models/shared/groupreference.md
   - docs/sdk/models/shared/company.md
   - docs/sdk/models/shared/sourcetype.md
