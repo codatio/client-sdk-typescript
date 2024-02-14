@@ -3,7 +3,8 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Expose } from "class-transformer";
+import { ErrorValidation } from "./errorvalidation";
+import { Expose, Type } from "class-transformer";
 
 export class ErrorMessage extends SpeakeasyBase {
     /**
@@ -47,4 +48,12 @@ export class ErrorMessage extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "statusCode" })
     statusCode?: number;
+
+    /**
+     * A human-readable object describing validation decisions Codat has made. If an operation has failed because of validation errors, they will be detailed here.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "validation" })
+    @Type(() => ErrorValidation)
+    validation?: ErrorValidation;
 }

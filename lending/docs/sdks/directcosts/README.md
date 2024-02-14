@@ -23,7 +23,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { DataType } from "@codat/lending/dist/sdk/models/shared";
+import { DirectCostPrototypeDataType, TrackingRecordRefDataType } from "@codat/lending/dist/sdk/models/shared";
 
 async function run() {
   const sdk = new CodatLending({
@@ -37,7 +37,6 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     directCostPrototype: {
       contactRef: {
-        dataType: DataType.Invoices,
         id: "<ID>",
       },
       currency: "USD",
@@ -56,7 +55,7 @@ async function run() {
             },
             recordRefs: [
               {
-                dataType: "invoice",
+                dataType: TrackingRecordRefDataType.TrackingCategories,
               },
             ],
           },
@@ -65,23 +64,23 @@ async function run() {
               id: "<ID>",
             },
           ],
-          unitAmount: 2884.08,
+          unitAmount: 4174.58,
         },
       ],
       paymentAllocations: [
         {
           allocation: {
             allocatedOnDate: "2022-10-23T00:00:00Z",
-            currency: "EUR",
+            currency: "GBP",
           },
           payment: {
             accountRef: {},
-            currency: "GBP",
+            currency: "EUR",
             paidOnDate: "2022-10-23T00:00:00Z",
           },
         },
       ],
-      subTotal: 7964.74,
+      subTotal: 9967.06,
       supplementalData: {
         content: {
           "key": {
@@ -89,8 +88,8 @@ async function run() {
           },
         },
       },
-      taxAmount: 3768.44,
-      totalAmount: 9510.62,
+      taxAmount: 7964.74,
+      totalAmount: 3768.44,
     },
   });
 
@@ -118,7 +117,7 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getCreateModel
 
@@ -174,4 +173,4 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |

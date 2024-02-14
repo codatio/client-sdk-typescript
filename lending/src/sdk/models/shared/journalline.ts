@@ -4,17 +4,17 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AccountRef } from "./accountref";
-import { RecordRef } from "./recordref";
+import { TrackingRecordRef } from "./trackingrecordref";
 import { Expose, Type } from "class-transformer";
 
 /**
  * List of record refs associated with the tracking information for the line (eg to a Tracking Category, or customer etc.)
  */
 export class JournalLineTracking extends SpeakeasyBase {
-    @SpeakeasyMetadata({ elemType: RecordRef })
+    @SpeakeasyMetadata({ elemType: TrackingRecordRef })
     @Expose({ name: "recordRefs" })
-    @Type(() => RecordRef)
-    recordRefs?: RecordRef[];
+    @Type(() => TrackingRecordRef)
+    recordRefs?: TrackingRecordRef[];
 }
 
 export class JournalLine extends SpeakeasyBase {

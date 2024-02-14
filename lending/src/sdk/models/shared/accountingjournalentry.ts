@@ -3,10 +3,10 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { JournalEntryRecordRef } from "./journalentryrecordref";
 import { JournalLine } from "./journalline";
 import { JournalRef } from "./journalref";
 import { Metadata } from "./metadata";
-import { RecordRef } from "./recordref";
 import { SupplementalData } from "./supplementaldata";
 import { Expose, Type } from "class-transformer";
 
@@ -131,16 +131,12 @@ export class AccountingJournalEntry extends SpeakeasyBase {
     postedOn?: string;
 
     /**
-     * Links the current record to the underlying record or data type that created it.
-     *
-     * @remarks
-     *
-     * For example, if a journal entry is generated based on an invoice, this property allows you to connect the journal entry to the underlying invoice in our data model.
+     * Links a journal entry to the underlying record that created it.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "recordRef" })
-    @Type(() => RecordRef)
-    recordRef?: RecordRef;
+    @Type(() => JournalEntryRecordRef)
+    recordRef?: JournalEntryRecordRef;
 
     @SpeakeasyMetadata()
     @Expose({ name: "sourceModifiedDate" })
