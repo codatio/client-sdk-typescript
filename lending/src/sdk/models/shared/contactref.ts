@@ -3,19 +3,26 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { DataType } from "./datatype";
 import { Expose } from "class-transformer";
+
+/**
+ * Allowed name of the 'dataType'.
+ */
+export enum ContactRefDataType {
+    Customers = "customers",
+    Suppliers = "suppliers",
+}
 
 /**
  * A customer or supplier associated with the direct cost.
  */
 export class ContactRef extends SpeakeasyBase {
     /**
-     * Available Data types
+     * Allowed name of the 'dataType'.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "dataType" })
-    dataType?: DataType;
+    dataType?: ContactRefDataType;
 
     /**
      * Unique identifier for a customer or supplier.

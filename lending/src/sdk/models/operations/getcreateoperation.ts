@@ -14,7 +14,7 @@ export class GetCreateOperationRequest extends SpeakeasyBase {
     companyId: string;
 
     /**
-     * Push operation key.
+     * Unique identifier for the push operation.
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=pushOperationKey" })
     pushOperationKey: string;

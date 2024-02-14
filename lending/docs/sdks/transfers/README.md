@@ -23,7 +23,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { DataType } from "@codat/lending/dist/sdk/models/shared";
+import { ContactRefDataType } from "@codat/lending/dist/sdk/models/shared";
 
 async function run() {
   const sdk = new CodatLending({
@@ -35,7 +35,6 @@ async function run() {
   const res = await sdk.loanWriteback.transfers.create({
     accountingTransfer: {
       contactRef: {
-        dataType: DataType.Invoices,
         id: "<ID>",
       },
       date: "2022-10-23T00:00:00Z",
@@ -96,7 +95,7 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getCreateModel
 
@@ -152,4 +151,4 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |

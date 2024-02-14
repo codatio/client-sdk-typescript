@@ -54,7 +54,8 @@ async function run() {
       metadata: {},
       modifiedDate: "2022-10-23T00:00:00Z",
       paymentMethodRef: {
-        id: "<ID>",
+        id: "EILBDVJVNUAGVKRQ",
+        name: "AliPay",
       },
       sourceModifiedDate: "2022-10-23T00:00:00Z",
       supplementalData: {
@@ -93,7 +94,7 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 ## getCreateModel
 
@@ -149,4 +150,4 @@ run();
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |

@@ -3,7 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { RecordRef } from "./recordref";
+import { AccountTransactionLineRecordRef } from "./accounttransactionlinerecordref";
 import { Expose, Type } from "class-transformer";
 
 export class AccountTransactionLine extends SpeakeasyBase {
@@ -22,14 +22,10 @@ export class AccountTransactionLine extends SpeakeasyBase {
     description?: string;
 
     /**
-     * Links the current record to the underlying record or data type that created it.
-     *
-     * @remarks
-     *
-     * For example, if a journal entry is generated based on an invoice, this property allows you to connect the journal entry to the underlying invoice in our data model.
+     * Links an account transaction line to the underlying record that created it.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "recordRef" })
-    @Type(() => RecordRef)
-    recordRef?: RecordRef;
+    @Type(() => AccountTransactionLineRecordRef)
+    recordRef?: AccountTransactionLineRecordRef;
 }
