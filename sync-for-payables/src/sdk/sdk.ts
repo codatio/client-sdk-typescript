@@ -4,22 +4,9 @@
 
 import * as utils from "../internal/utils";
 import * as shared from "../sdk/models/shared";
-import { Accounts } from "./accounts";
-import { BankAccounts } from "./bankaccounts";
-import { BillCreditNotes } from "./billcreditnotes";
-import { BillPayments } from "./billpayments";
 import { Bills } from "./bills";
 import { Companies } from "./companies";
-import { CompanyInfo } from "./companyinfo";
 import { Connections } from "./connections";
-import { JournalEntries } from "./journalentries";
-import { Journals } from "./journals";
-import { ManageData } from "./managedata";
-import { PaymentMethods } from "./paymentmethods";
-import { PushOperations } from "./pushoperations";
-import { Suppliers } from "./suppliers";
-import { TaxRates } from "./taxrates";
-import { TrackingCategories } from "./trackingcategories";
 import axios from "axios";
 import { AxiosInstance } from "axios";
 
@@ -69,9 +56,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "3.0.0";
-    sdkVersion = "2.1.0";
-    genVersion = "2.214.3";
-    userAgent = "speakeasy-sdk/typescript 2.1.0 2.214.3 3.0.0 @codat/sync-for-payables";
+    sdkVersion = "2.2.0";
+    genVersion = "2.253.0";
+    userAgent = "speakeasy-sdk/typescript 2.2.0 2.253.0 3.0.0 @codat/sync-for-payables";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -115,65 +102,13 @@ export class CodatSyncPayables {
      */
     public companies: Companies;
     /**
-     * Manage your companies' data connections.
-     */
-    public connections: Connections;
-    /**
      * Bills
      */
     public bills: Bills;
     /**
-     * Bank accounts
+     * Manage your companies' data connections.
      */
-    public bankAccounts: BankAccounts;
-    /**
-     * Bill credit notes
-     */
-    public billCreditNotes: BillCreditNotes;
-    /**
-     * Bill payments
-     */
-    public billPayments: BillPayments;
-    /**
-     * Accounts
-     */
-    public accounts: Accounts;
-    /**
-     * Journal entries
-     */
-    public journalEntries: JournalEntries;
-    /**
-     * Journals
-     */
-    public journals: Journals;
-    /**
-     * Suppliers
-     */
-    public suppliers: Suppliers;
-    /**
-     * Asynchronously retrieve data from an integration to refresh data in Codat.
-     */
-    public manageData: ManageData;
-    /**
-     * View company information fetched from the source platform.
-     */
-    public companyInfo: CompanyInfo;
-    /**
-     * Payment methods
-     */
-    public paymentMethods: PaymentMethods;
-    /**
-     * Tax rates
-     */
-    public taxRates: TaxRates;
-    /**
-     * Tracking categories
-     */
-    public trackingCategories: TrackingCategories;
-    /**
-     * Access create, update and delete operations made to an SMB's data connection.
-     */
-    public pushOperations: PushOperations;
+    public connections: Connections;
 
     private sdkConfiguration: SDKConfiguration;
 
@@ -194,20 +129,7 @@ export class CodatSyncPayables {
         });
 
         this.companies = new Companies(this.sdkConfiguration);
-        this.connections = new Connections(this.sdkConfiguration);
         this.bills = new Bills(this.sdkConfiguration);
-        this.bankAccounts = new BankAccounts(this.sdkConfiguration);
-        this.billCreditNotes = new BillCreditNotes(this.sdkConfiguration);
-        this.billPayments = new BillPayments(this.sdkConfiguration);
-        this.accounts = new Accounts(this.sdkConfiguration);
-        this.journalEntries = new JournalEntries(this.sdkConfiguration);
-        this.journals = new Journals(this.sdkConfiguration);
-        this.suppliers = new Suppliers(this.sdkConfiguration);
-        this.manageData = new ManageData(this.sdkConfiguration);
-        this.companyInfo = new CompanyInfo(this.sdkConfiguration);
-        this.paymentMethods = new PaymentMethods(this.sdkConfiguration);
-        this.taxRates = new TaxRates(this.sdkConfiguration);
-        this.trackingCategories = new TrackingCategories(this.sdkConfiguration);
-        this.pushOperations = new PushOperations(this.sdkConfiguration);
+        this.connections = new Connections(this.sdkConfiguration);
     }
 }

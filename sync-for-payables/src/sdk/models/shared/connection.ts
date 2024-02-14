@@ -13,7 +13,9 @@ import { Expose, Type } from "class-transformer";
 export enum SourceType {
     Accounting = "Accounting",
     Banking = "Banking",
+    BankFeed = "BankFeed",
     Commerce = "Commerce",
+    Expense = "Expense",
     Other = "Other",
     Unknown = "Unknown",
 }

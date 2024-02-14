@@ -1,0 +1,11 @@
+# BillEventWebhook
+
+
+## Fields
+
+| Field                                                                     | Type                                                                      | Required                                                                  | Description                                                               | Example                                                                   |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `createdDate`                                                             | *string*                                                                  | :heavy_minus_sign:                                                        | The datetime in UTC of when the webhook event was produced by Codat.      | 2022-10-23 11:03:35 +0000 UTC                                             |
+| `id`                                                                      | *string*                                                                  | :heavy_minus_sign:                                                        | Unique identifier of the bill event.                                      |                                                                           |
+| `payload`                                                                 | [shared.BillEventPayload](../../../sdk/models/shared/billeventpayload.md) | :heavy_minus_sign:                                                        | N/A                                                                       |                                                                           |
+| `type`                                                                    | *string*                                                                  | :heavy_minus_sign:                                                        | Type of webhook event.                                                    | payables.bill.created                                                     |

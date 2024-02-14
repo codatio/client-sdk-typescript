@@ -38,6 +38,11 @@ async function run() {
 
     const res = await sdk.companies.create({
         description: "Requested early access to the new financing scheme.",
+        groups: [
+            {
+                id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+            },
+        ],
         name: "Bank of Dave",
     });
 
@@ -62,6 +67,10 @@ run();
 * [list](docs/sdks/companies/README.md#list) - List companies
 * [update](docs/sdks/companies/README.md#update) - Update company
 
+### [bills](docs/sdks/bills/README.md)
+
+* [list](docs/sdks/bills/README.md#list) - List bills
+
 ### [connections](docs/sdks/connections/README.md)
 
 * [create](docs/sdks/connections/README.md#create) - Create connection
@@ -69,100 +78,6 @@ run();
 * [get](docs/sdks/connections/README.md#get) - Get connection
 * [list](docs/sdks/connections/README.md#list) - List connections
 * [unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
-
-### [bills](docs/sdks/bills/README.md)
-
-* [create](docs/sdks/bills/README.md#create) - Create bill
-* [delete](docs/sdks/bills/README.md#delete) - Delete bill
-* [deleteAttachment](docs/sdks/bills/README.md#deleteattachment) - Delete bill attachment
-* [downloadAttachment](docs/sdks/bills/README.md#downloadattachment) - Download bill attachment
-* [get](docs/sdks/bills/README.md#get) - Get bill
-* [getAttachment](docs/sdks/bills/README.md#getattachment) - Get bill attachment
-* [getCreateUpdateModel](docs/sdks/bills/README.md#getcreateupdatemodel) - Get create/update bill model
-* [list](docs/sdks/bills/README.md#list) - List bills
-* [listAttachments](docs/sdks/bills/README.md#listattachments) - List bill attachments
-* [update](docs/sdks/bills/README.md#update) - Update bill
-* [uploadAttachment](docs/sdks/bills/README.md#uploadattachment) - Upload bill attachment
-
-### [bankAccounts](docs/sdks/bankaccounts/README.md)
-
-* [create](docs/sdks/bankaccounts/README.md#create) - Create bank account
-* [getCreateModel](docs/sdks/bankaccounts/README.md#getcreatemodel) - Get create/update bank account model
-
-### [billCreditNotes](docs/sdks/billcreditnotes/README.md)
-
-* [create](docs/sdks/billcreditnotes/README.md#create) - Create bill credit note
-* [get](docs/sdks/billcreditnotes/README.md#get) - Get bill credit note
-* [getCreateUpdateModel](docs/sdks/billcreditnotes/README.md#getcreateupdatemodel) - Get create/update bill credit note model
-* [list](docs/sdks/billcreditnotes/README.md#list) - List bill credit notes
-* [update](docs/sdks/billcreditnotes/README.md#update) - Update bill credit note
-
-### [billPayments](docs/sdks/billpayments/README.md)
-
-* [create](docs/sdks/billpayments/README.md#create) - Create bill payments
-* [delete](docs/sdks/billpayments/README.md#delete) - Delete bill payment
-* [get](docs/sdks/billpayments/README.md#get) - Get bill payment
-* [getCreateModel](docs/sdks/billpayments/README.md#getcreatemodel) - Get create bill payment model
-* [list](docs/sdks/billpayments/README.md#list) - List bill payments
-
-### [accounts](docs/sdks/accounts/README.md)
-
-* [create](docs/sdks/accounts/README.md#create) - Create account
-* [get](docs/sdks/accounts/README.md#get) - Get account
-* [getCreateModel](docs/sdks/accounts/README.md#getcreatemodel) - Get create account model
-* [list](docs/sdks/accounts/README.md#list) - List accounts
-
-### [journalEntries](docs/sdks/journalentries/README.md)
-
-* [create](docs/sdks/journalentries/README.md#create) - Create journal entry
-* [getCreateModel](docs/sdks/journalentries/README.md#getcreatemodel) - Get create journal entry model
-
-### [journals](docs/sdks/journals/README.md)
-
-* [create](docs/sdks/journals/README.md#create) - Create journal
-* [get](docs/sdks/journals/README.md#get) - Get journal
-* [getCreateModel](docs/sdks/journals/README.md#getcreatemodel) - Get create journal model
-* [list](docs/sdks/journals/README.md#list) - List journals
-
-### [suppliers](docs/sdks/suppliers/README.md)
-
-* [create](docs/sdks/suppliers/README.md#create) - Create supplier
-* [get](docs/sdks/suppliers/README.md#get) - Get supplier
-* [getCreateUpdateModel](docs/sdks/suppliers/README.md#getcreateupdatemodel) - Get create/update supplier model
-* [list](docs/sdks/suppliers/README.md#list) - List suppliers
-* [update](docs/sdks/suppliers/README.md#update) - Update supplier
-
-### [manageData](docs/sdks/managedata/README.md)
-
-* [get](docs/sdks/managedata/README.md#get) - Get data status
-* [getPullOperation](docs/sdks/managedata/README.md#getpulloperation) - Get pull operation
-* [listPullOperations](docs/sdks/managedata/README.md#listpulloperations) - List pull operations
-* [refreshAllDataTypes](docs/sdks/managedata/README.md#refreshalldatatypes) - Refresh all data
-* [refreshDataType](docs/sdks/managedata/README.md#refreshdatatype) - Refresh data type
-
-### [companyInfo](docs/sdks/companyinfo/README.md)
-
-* [getAccountingProfile](docs/sdks/companyinfo/README.md#getaccountingprofile) - Get company accounting profile
-
-### [paymentMethods](docs/sdks/paymentmethods/README.md)
-
-* [get](docs/sdks/paymentmethods/README.md#get) - Get payment method
-* [list](docs/sdks/paymentmethods/README.md#list) - List payment methods
-
-### [taxRates](docs/sdks/taxrates/README.md)
-
-* [get](docs/sdks/taxrates/README.md#get) - Get tax rate
-* [list](docs/sdks/taxrates/README.md#list) - List all tax rates
-
-### [trackingCategories](docs/sdks/trackingcategories/README.md)
-
-* [get](docs/sdks/trackingcategories/README.md#get) - Get tracking categories
-* [list](docs/sdks/trackingcategories/README.md#list) - List tracking categories
-
-### [pushOperations](docs/sdks/pushoperations/README.md)
-
-* [get](docs/sdks/pushoperations/README.md#get) - Get push operation
-* [list](docs/sdks/pushoperations/README.md#list) - List push operations
 <!-- End Available Resources and Operations [operations] -->
 
 
@@ -188,6 +103,11 @@ async function run() {
     const res = await sdk.companies.create(
         {
             description: "Requested early access to the new financing scheme.",
+            groups: [
+                {
+                    id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+                },
+            ],
             name: "Bank of Dave",
         },
         {
@@ -234,6 +154,11 @@ async function run() {
 
     const res = await sdk.companies.create({
         description: "Requested early access to the new financing scheme.",
+        groups: [
+            {
+                id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+            },
+        ],
         name: "Bank of Dave",
     });
 
@@ -254,7 +179,7 @@ Handling errors in this SDK should largely match your expectations.  All operati
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4xx-5xx         | */*             |
 
 Example
 
@@ -272,6 +197,11 @@ async function run() {
     try {
         res = await sdk.companies.create({
             description: "Requested early access to the new financing scheme.",
+            groups: [
+                {
+                    id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+                },
+            ],
             name: "Bank of Dave",
         });
     } catch (err) {
@@ -317,6 +247,11 @@ async function run() {
 
     const res = await sdk.companies.create({
         description: "Requested early access to the new financing scheme.",
+        groups: [
+            {
+                id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+            },
+        ],
         name: "Bank of Dave",
     });
 
@@ -346,6 +281,11 @@ async function run() {
 
     const res = await sdk.companies.create({
         description: "Requested early access to the new financing scheme.",
+        groups: [
+            {
+                id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+            },
+        ],
         name: "Bank of Dave",
     });
 
@@ -402,6 +342,11 @@ async function run() {
 
     const res = await sdk.companies.create({
         description: "Requested early access to the new financing scheme.",
+        groups: [
+            {
+                id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+            },
+        ],
         name: "Bank of Dave",
     });
 
