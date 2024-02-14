@@ -278,12 +278,14 @@ async function run() {
   const res = await sdk.settings.updateProfile({
     alertAuthHeader: "Bearer tXEiHiRK7XCtI8TNHbpGs1LI1pumdb4Cl1QIo7B2",
     apiKey: "sartANTjHAkLdbyDfaynoTQb7pkmj6hXHmnQKMrB",
+    confirmCompanyName: true,
     iconUrl: "https://client-images.codat.io/icon/042399f5-d104-4f38-9ce8-cac3524f4e88_3f5623af-d992-4c22-bc08-e58c520a8526.ico",
     logoUrl: "https://client-images.codat.io/logo/042399f5-d104-4f38-9ce8-cac3524f4e88_5806cb1f-7342-4c0e-a0a8-99bfbc47b0ff.png",
     name: "Bob's Burgers",
     redirectUrl: "https://bobs-burgers.{countrySuffix}/{companyId}",
     whiteListUrls: [
       "https://bobs-burgers.com",
+      "https://bobs-burgers.co.uk",
     ],
   });
 
@@ -332,14 +334,16 @@ async function run() {
 
   const res = await sdk.settings.updateSyncSettings({
     clientId: "ce429104-79f0-4085-a720-e2d40fcc800f",
+    overridesDefaults: false,
     settings: [
       {
         dataType: DataType.Invoices,
-        fetchOnFirstLink: false,
+        fetchOnFirstLink: true,
+        isLocked: true,
         monthsToSync: 24,
-        syncFromUtc: "2022-10-23T00:00:00Z",
+        syncFromUtc: "2020-01-01T12:00:00.000Z",
         syncFromWindow: 24,
-        syncOrder: 334238,
+        syncOrder: 0,
         syncSchedule: 24,
       },
     ],

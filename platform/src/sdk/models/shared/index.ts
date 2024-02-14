@@ -36,6 +36,8 @@ export * from "./datasynccompletedwebhookdata";
 export * from "./datatype";
 export * from "./datatypefeature";
 export * from "./errormessage";
+export * from "./errorvalidation";
+export * from "./errorvalidationitem";
 export * from "./featurestate";
 export * from "./featuretype";
 export * from "./group";
