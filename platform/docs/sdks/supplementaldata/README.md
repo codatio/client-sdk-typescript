@@ -35,12 +35,13 @@ async function run() {
   const res = await sdk.supplementalData.configure({
     supplementalDataConfiguration: {
       supplementalDataConfig: {
-        "key": {
+        "orders-supplemental-data": {
+          dataSource: "/orders",
           pullData: {
-            "key": "string",
+            "orderNumber": "order_num",
           },
           pushData: {
-            "key": "string",
+            "orderNumber": "order_num",
           },
         },
       },

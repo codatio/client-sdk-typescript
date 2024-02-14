@@ -1,34 +1,18 @@
-configVersion: 1.0.0
-management:
-  docChecksum: 1573d3af37949ec5c2ba8ed38e783946
-  docVersion: 3.0.0
-  speakeasyVersion: 1.128.1
-  generationVersion: 2.223.0
+configVersion: 2.0.0
 generation:
-  comments: {}
   sdkClassName: CodatPlatform
-  repoURL: https://github.com/codatio/client-sdk-typescript.git
   usageSnippets:
     optionalPropertyRendering: withExample
   fixes:
     nameResolutionDec2023: false
+    parameterOrderingFeb2024: false
+    requestResponseComponentNamesFeb2024: false
   telemetryEnabled: true
-features:
-  typescript:
-    core: 3.3.9
-    deprecations: 2.81.1
-    examples: 2.81.3
-    globalSecurity: 2.82.2
-    globalServerURLs: 2.82.1
-    inputOutputModels: 2.83.0
-    nameOverrides: 2.81.1
-    retries: 2.82.1
 typescript:
-  version: 2.2.0
+  version: 2.3.0
   author: Codat
   clientServerStatusCodesAsErrors: false
-  description: Manage the building blocks of Codat, including companies, connections,
-    and more.
+  description: Manage the building blocks of Codat, including companies, connections, and more.
   flattenGlobalSecurity: false
   imports:
     option: openapi
@@ -39,10 +23,7 @@ typescript:
       shared: sdk/models/shared
       webhooks: sdk/models/webhooks
   inputModelSuffix: input
-  installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/platform
   maxMethodParams: 0
   outputModelSuffix: output
   packageName: '@codat/platform'
-  published: true
-  repoSubDirectory: platform
   templateVersion: v1

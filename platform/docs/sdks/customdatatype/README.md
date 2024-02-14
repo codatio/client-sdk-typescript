@@ -40,14 +40,21 @@ async function run() {
 
   const res = await sdk.customDataType.configure({
     customDataTypeConfiguration: {
+      dataSource: "api/purchaseOrders?$filter=currencyCode eq 'NOK'",
       keyBy: [
-        "string",
+        "$[*].id",
       ],
       requiredData: {
-        "key": "string",
+        "currencyCode": "$[*].currencyCode",
+        "id": "$[*].id",
+        "number": "$[*].number",
+        "orderDate": "$[*].orderDate",
+        "totalAmountExcludingTax": "$[*].totalAmountExcludingTax",
+        "totalTaxAmount": "$[*].totalTaxAmount",
+        "vendorName": "$[*].number",
       },
       sourceModifiedDate: [
-        "string",
+        "$[*].lastModifiedDateTime",
       ],
     },
     customDataIdentifier: "DynamicsPurchaseOrders",
