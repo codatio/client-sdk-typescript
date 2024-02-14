@@ -53,10 +53,16 @@ async function run() {
 
   const res = await sdk.sourceAccounts.create({
     sourceAccount: {
-      currency: "USD",
+      accountName: "account-081",
+      accountNumber: "12345670",
+      accountType: "Credit",
+      balance: 99.99,
+      currency: "GBP",
       feedStartDate: "2022-10-23T00:00:00Z",
-      id: "<ID>",
-      modifiedDate: "2022-10-23T00:00:00Z",
+      id: "acc-002",
+      modifiedDate: "2023-01-09T14:14:14.1057478Z",
+      sortCode: "123456",
+      status: "pending",
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
@@ -308,12 +314,18 @@ async function run() {
 
   const res = await sdk.sourceAccounts.update({
     sourceAccount: {
-      currency: "EUR",
+      accountName: "account-095",
+      accountNumber: "12345671",
+      accountType: "Credit",
+      balance: 0,
+      currency: "USD",
       feedStartDate: "2022-10-23T00:00:00Z",
-      id: "<ID>",
-      modifiedDate: "2022-10-23T00:00:00Z",
+      id: "acc-003",
+      modifiedDate: "2023-01-09T14:14:14.1057478Z",
+      sortCode: "123456",
+      status: "pending",
     },
-    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    accountId: "7110701885",
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });

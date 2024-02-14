@@ -5,13 +5,14 @@ generation:
     optionalPropertyRendering: withExample
   fixes:
     nameResolutionDec2023: false
+    parameterOrderingFeb2024: false
+    requestResponseComponentNamesFeb2024: false
   telemetryEnabled: true
 typescript:
-  version: 4.1.0
+  version: 4.1.1
   author: Codat
   clientServerStatusCodesAsErrors: false
-  description: Set up bank feeds from accounts in your application to supported accounting
-    platforms.
+  description: Set up bank feeds from accounts in your application to supported accounting platforms.
   flattenGlobalSecurity: false
   imports:
     option: openapi

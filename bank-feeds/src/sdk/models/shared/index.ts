@@ -30,6 +30,8 @@ export * from "./dataconnectionerror";
 export * from "./dataconnectionstatus";
 export * from "./datatype";
 export * from "./errormessage";
+export * from "./errorvalidation";
+export * from "./errorvalidationitem";
 export * from "./halref";
 export * from "./items";
 export * from "./links";

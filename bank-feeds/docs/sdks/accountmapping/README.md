@@ -34,7 +34,9 @@ async function run() {
 
   const res = await sdk.accountMapping.create({
     zero: {
-      feedStartDate: "2022-10-23T00:00:00Z",
+      feedStartDate: "2023-01-09T14:14:14.1057478Z",
+      sourceAccountId: "acc-002",
+      targetAccountId: "account-081",
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",

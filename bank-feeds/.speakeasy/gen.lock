@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 87e6188d-fa80-4f96-a443-9e303956b15f
 management:
-  docChecksum: d8a3c846c6e6c943937af494c3623e4f
+  docChecksum: 4dc8263ccdcfe623fbd51a2f54a06f5d
   docVersion: 3.0.0
   speakeasyVersion: internal
-  generationVersion: 2.231.0
-  releaseVersion: 4.1.0
-  configChecksum: d64d1e2fa2aafde9d9807d7488204066
+  generationVersion: 2.253.0
+  releaseVersion: 4.1.1
+  configChecksum: 09de45b05641764f0061b1c819d13072
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   repoSubDirectory: bank-feeds
   installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/bank-feeds
   published: true
 features:
   typescript:
-    core: 3.4.5
+    core: 3.4.6
     deprecations: 2.81.1
     examples: 2.81.3
     globalSecurity: 2.82.2
@@ -77,6 +77,8 @@ generatedFiles:
   - src/sdk/models/operations/setconfiguration.ts
   - src/sdk/models/shared/zero.ts
   - src/sdk/models/shared/errormessage.ts
+  - src/sdk/models/shared/errorvalidation.ts
+  - src/sdk/models/shared/errorvalidationitem.ts
   - src/sdk/models/shared/company.ts
   - src/sdk/models/shared/connection.ts
   - src/sdk/models/shared/dataconnectionstatus.ts
@@ -188,6 +190,8 @@ generatedFiles:
   - docs/sdk/models/operations/setconfigurationresponse.md
   - docs/sdk/models/shared/zero.md
   - docs/sdk/models/shared/errormessage.md
+  - docs/sdk/models/shared/errorvalidation.md
+  - docs/sdk/models/shared/errorvalidationitem.md
   - docs/sdk/models/shared/groupreference.md
   - docs/sdk/models/shared/company.md
   - docs/sdk/models/shared/sourcetype.md
