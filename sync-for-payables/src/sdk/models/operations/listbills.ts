@@ -14,10 +14,10 @@ export class ListBillsRequest extends SpeakeasyBase {
     companyId: string;
 
     /**
-     * Field to order results by. [Read more](https://docs.codat.io/using-the-api/ordering-results).
+     * Unique identifier for a connection.
      */
-    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=orderBy" })
-    orderBy?: string;
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=connectionId" })
+    connectionId: string;
 
     /**
      * Page number. [Read more](https://docs.codat.io/using-the-api/paging).
@@ -32,19 +32,19 @@ export class ListBillsRequest extends SpeakeasyBase {
     pageSize?: number;
 
     /**
-     * Codat query string. [Read more](https://docs.codat.io/using-the-api/querying).
+     * Filter bills by `sourceModifiedDate` to return bills that have changed after a specified date.
      */
-    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=query" })
-    query?: string;
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=sourceModifiedDate" })
+    sourceModifiedDate?: string;
+
+    /**
+     * Filter bills by `status`.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=false;name=status" })
+    status?: shared.BillStatus[];
 }
 
 export class ListBillsResponse extends SpeakeasyBase {
-    /**
-     * Success
-     */
-    @SpeakeasyMetadata()
-    bills?: shared.Bills;
-
     /**
      * HTTP response content type for this operation
      */
@@ -68,4 +68,10 @@ export class ListBillsResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * Success
+     */
+    @SpeakeasyMetadata()
+    bills?: shared.Bills;
 }

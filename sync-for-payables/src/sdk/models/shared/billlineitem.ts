@@ -3,54 +3,61 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { AccountRef } from "./accountref";
-import { ItemRef } from "./itemref";
-import { TaxRateRef } from "./taxrateref";
-import { Tracking } from "./tracking";
-import { TrackingCategoryRef } from "./trackingcategoryref";
 import { Expose, Type } from "class-transformer";
 
 /**
- * Allowed name of the 'dataType'.
+ * Reference to the account to which the line item is linked.
  */
-export enum BillLineItemDataType {
-    PurchaseOrders = "purchaseOrders",
-}
-
-/**
- * Reference to the purchase order line this line was generated from.
- */
-export class RecordLineReference extends SpeakeasyBase {
+export class AccountReference extends SpeakeasyBase {
     /**
-     * Allowed name of the 'dataType'.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "dataType" })
-    dataType?: BillLineItemDataType;
-
-    /**
-     * 'id' of the underlying record.
+     * 'id' from the Accounts data type.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id?: string;
 
     /**
-     * Line number of the underlying record.
+     * 'name' from the Accounts data type.
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "lineNumber" })
-    lineNumber?: string;
+    @Expose({ name: "name" })
+    name?: string;
+}
+
+/**
+ * Reference to the tax rate to which the line item is linked.
+ */
+export class TaxRateReference extends SpeakeasyBase {
+    /**
+     * Applicable tax rate.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "effectiveTaxRate" })
+    effectiveTaxRate?: number;
+
+    /**
+     * Unique identifier for the tax rate in the accounting platform.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id?: string;
+
+    /**
+     * Name of the tax rate in the accounting platform.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 }
 
 export class BillLineItem extends SpeakeasyBase {
     /**
-     * Data types that reference an account, for example bill and invoice line items, use an accountRef that includes the ID and name of the linked account.
+     * Reference to the account to which the line item is linked.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "accountRef" })
-    @Type(() => AccountRef)
-    accountRef?: AccountRef;
+    @Type(() => AccountReference)
+    accountRef?: AccountReference;
 
     /**
      * Friendly name of the goods or services received.
@@ -60,51 +67,6 @@ export class BillLineItem extends SpeakeasyBase {
     description?: string;
 
     /**
-     * Numerical value of any discounts applied.
-     *
-     * @remarks
-     *
-     * Do not use to apply discounts in Oracle NetSuite—see Oracle NetSuite integration reference.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "discountAmount" })
-    discountAmount?: number;
-
-    /**
-     * Percentage rate of any discount applied to the bill.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "discountPercentage" })
-    discountPercentage?: number;
-
-    /**
-     * The bill is a direct cost if `True`.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "isDirectCost" })
-    isDirectCost?: boolean;
-
-    /**
-     * Reference to the item the line is linked to.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "itemRef" })
-    @Type(() => ItemRef)
-    itemRef?: ItemRef;
-
-    /**
-     * The bill line's number.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "lineNumber" })
-    lineNumber?: string;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "purchaseOrderLineRef" })
-    @Type(() => RecordLineReference)
-    purchaseOrderLineRef?: RecordLineReference;
-
-    /**
      * Number of units of goods or services received.
      */
     @SpeakeasyMetadata()
@@ -112,37 +74,19 @@ export class BillLineItem extends SpeakeasyBase {
     quantity: number;
 
     /**
-     * Amount of the line, inclusive of discounts but exclusive of tax.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "subTotal" })
-    subTotal?: number;
-
-    /**
-     * Amount of tax for the line.
+     * Amount of tax applied to the line item.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "taxAmount" })
     taxAmount?: number;
 
     /**
-     * Data types that reference a tax rate, for example invoice and bill line items, use a taxRateRef that includes the ID and name of the linked tax rate.
-     *
-     * @remarks
-     *
-     * Found on:
-     *
-     * - Bill line items
-     * - Bill Credit Note line items
-     * - Credit Note line items
-     * - Direct incomes line items
-     * - Invoice line items
-     * - Items
+     * Reference to the tax rate to which the line item is linked.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "taxRateRef" })
-    @Type(() => TaxRateRef)
-    taxRateRef?: TaxRateRef;
+    @Type(() => TaxRateReference)
+    taxRateRef?: TaxRateReference;
 
     /**
      * Total amount of the line, including tax.
@@ -152,32 +96,9 @@ export class BillLineItem extends SpeakeasyBase {
     totalAmount?: number;
 
     /**
-     * Categories, and a project and customer, against which the item is tracked.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "tracking" })
-    @Type(() => Tracking)
-    tracking?: Tracking;
-
-    /**
-     * Collection of categories against which this item is tracked.
-     */
-    @SpeakeasyMetadata({ elemType: TrackingCategoryRef })
-    @Expose({ name: "trackingCategoryRefs" })
-    @Type(() => TrackingCategoryRef)
-    trackingCategoryRefs?: TrackingCategoryRef[];
-
-    /**
-     * Price of each unit of goods or services.
+     * Unit price of the goods or service.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "unitAmount" })
-    unitAmount: number;
-
-    /**
-     * The measurement which defines a unit for this item (e.g. 'kilogram', 'litre').
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "unitOfMeasurement" })
-    unitOfMeasurement?: string;
+    unitAmount?: number;
 }
