@@ -20,7 +20,7 @@ export class ConfigureCustomDataTypeRequest extends SpeakeasyBase {
     customDataIdentifier: string;
 
     /**
-     * A unique 4-letter key to represent a platform in each integration. View [accounting](https://docs.codat.io/integrations/accounting/overview#platform-keys), [banking](https://docs.codat.io/integrations/banking/overview#platform-keys), and [commerce](https://docs.codat.io/integrations/commerce/overview#platform-keys) platform keys.
+     * A unique 4-letter key to represent a platform in each integration.
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=platformKey" })
     platformKey: string;

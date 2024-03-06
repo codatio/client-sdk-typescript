@@ -7,9 +7,11 @@ generation:
     nameResolutionDec2023: false
     parameterOrderingFeb2024: false
     requestResponseComponentNamesFeb2024: false
+  auth:
+    oAuth2ClientCredentialsEnabled: false
   telemetryEnabled: true
 typescript:
-  version: 2.3.0
+  version: 2.4.0
   author: Codat
   clientServerStatusCodesAsErrors: false
   description: Manage the building blocks of Codat, including companies, connections, and more.

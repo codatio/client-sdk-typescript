@@ -11,7 +11,7 @@ import { Expose } from "class-transformer";
  */
 export class SyncSetting extends SpeakeasyBase {
     /**
-     * Available Data types
+     * Available data types
      */
     @SpeakeasyMetadata()
     @Expose({ name: "dataType" })

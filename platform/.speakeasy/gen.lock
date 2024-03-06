@@ -1,26 +1,27 @@
 lockVersion: 2.0.0
 id: 6a970e30-8d0a-42f0-a8ce-621dfe880a1d
 management:
-  docChecksum: 1c413a5d3d57588774d54236c89a147e
+  docChecksum: 6b9afa35a1ca4d8a1834643e80dd9a19
   docVersion: 3.0.0
   speakeasyVersion: internal
-  generationVersion: 2.253.0
-  releaseVersion: 2.3.0
-  configChecksum: 3f82bc6152c36b22484544a52266b49a
+  generationVersion: 2.277.0
+  releaseVersion: 2.4.0
+  configChecksum: 1fb7d6a671a42e77e4f4e6d10259f3de
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   repoSubDirectory: platform
   installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/platform
   published: true
 features:
   typescript:
-    core: 3.4.6
+    core: 3.4.8
     deprecations: 2.81.1
     examples: 2.81.3
-    globalSecurity: 2.82.2
+    globalSecurity: 2.82.4
     globalServerURLs: 2.82.1
     inputOutputModels: 2.83.0
     nameOverrides: 2.81.1
     retries: 2.82.1
+    webhooks: 1.0.0
 generatedFiles:
   - src/sdk/settings.ts
   - src/sdk/companies.ts
@@ -92,8 +93,11 @@ generatedFiles:
   - src/sdk/models/operations/configuresupplementaldata.ts
   - src/sdk/models/operations/getsupplementaldataconfiguration.ts
   - src/sdk/models/operations/createrule.ts
+  - src/sdk/models/operations/createwebhookconsumer.ts
+  - src/sdk/models/operations/deletewebhookconsumer.ts
   - src/sdk/models/operations/getwebhook.ts
   - src/sdk/models/operations/listrules.ts
+  - src/sdk/models/operations/listwebhookconsumers.ts
   - src/sdk/models/shared/errormessage.ts
   - src/sdk/models/shared/errorvalidation.ts
   - src/sdk/models/shared/errorvalidationitem.ts
@@ -156,7 +160,10 @@ generatedFiles:
   - src/sdk/models/shared/webhook.ts
   - src/sdk/models/shared/webhooknotifier.ts
   - src/sdk/models/shared/createrule.ts
+  - src/sdk/models/shared/webhookconsumer.ts
+  - src/sdk/models/shared/webhookconsumerprototype.ts
   - src/sdk/models/shared/webhooks.ts
+  - src/sdk/models/shared/webhookconsumers.ts
   - src/sdk/models/shared/security.ts
   - src/sdk/models/shared/clientratelimitreachedwebhook.ts
   - src/sdk/models/shared/clientratelimitreachedwebhookdata.ts
@@ -262,10 +269,14 @@ generatedFiles:
   - docs/sdk/models/operations/getsupplementaldataconfigurationrequest.md
   - docs/sdk/models/operations/getsupplementaldataconfigurationresponse.md
   - docs/sdk/models/operations/createruleresponse.md
+  - docs/sdk/models/operations/createwebhookconsumerresponse.md
+  - docs/sdk/models/operations/deletewebhookconsumerrequest.md
+  - docs/sdk/models/operations/deletewebhookconsumerresponse.md
   - docs/sdk/models/operations/getwebhookrequest.md
   - docs/sdk/models/operations/getwebhookresponse.md
   - docs/sdk/models/operations/listrulesrequest.md
   - docs/sdk/models/operations/listrulesresponse.md
+  - docs/sdk/models/operations/listwebhookconsumersresponse.md
   - docs/sdk/models/shared/errormessage.md
   - docs/sdk/models/shared/errorvalidation.md
   - docs/sdk/models/shared/errorvalidationitem.md
@@ -333,7 +344,10 @@ generatedFiles:
   - docs/sdk/models/shared/webhook.md
   - docs/sdk/models/shared/webhooknotifier.md
   - docs/sdk/models/shared/createrule.md
+  - docs/sdk/models/shared/webhookconsumer.md
+  - docs/sdk/models/shared/webhookconsumerprototype.md
   - docs/sdk/models/shared/webhooks.md
+  - docs/sdk/models/shared/webhookconsumers.md
   - docs/sdk/models/shared/security.md
   - docs/sdk/models/shared/clientratelimitreachedwebhook.md
   - docs/sdk/models/shared/clientratelimitreachedwebhookdata.md

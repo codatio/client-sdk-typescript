@@ -8,7 +8,7 @@ import { Expose } from "class-transformer";
 
 export class PushOperationTimedOutWebhookData extends SpeakeasyBase {
     /**
-     * Available Data types
+     * Available data types
      */
     @SpeakeasyMetadata()
     @Expose({ name: "dataType" })

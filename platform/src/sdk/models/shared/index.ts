@@ -81,5 +81,8 @@ export * from "./updateconnectionstatus";
 export * from "./validation";
 export * from "./validationitem";
 export * from "./webhook";
+export * from "./webhookconsumer";
+export * from "./webhookconsumerprototype";
+export * from "./webhookconsumers";
 export * from "./webhooknotifier";
 export * from "./webhooks";

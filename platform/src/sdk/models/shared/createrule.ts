@@ -7,7 +7,7 @@ import { WebhookNotifier } from "./webhooknotifier";
 import { Expose, Type } from "class-transformer";
 
 /**
- * Create an event notification to a URL or list of email addresses based on the given type or condition.
+ * Create a message that notifies a URL of an event based on its given type or condition.
  */
 export class CreateRule extends SpeakeasyBase {
     /**

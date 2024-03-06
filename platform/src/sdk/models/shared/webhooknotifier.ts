@@ -11,7 +11,7 @@ export class WebhookNotifier extends SpeakeasyBase {
     emails?: string[];
 
     /**
-     * The URI the webhook service will POST events.
+     * The URI the webhook service will use to post events.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "webhook" })
