@@ -9,7 +9,7 @@ import { Expose } from "class-transformer";
 
 export class PushOperationStatusChangedWebhookData extends SpeakeasyBase {
     /**
-     * Available Data types
+     * Available data types
      */
     @SpeakeasyMetadata()
     @Expose({ name: "dataType" })

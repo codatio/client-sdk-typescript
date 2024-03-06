@@ -8,7 +8,7 @@ import { Expose, Type } from "class-transformer";
 
 export class DatasetDataChangedWebhookData extends SpeakeasyBase {
     /**
-     * Available Data types
+     * Available data types
      */
     @SpeakeasyMetadata()
     @Expose({ name: "dataType" })
@@ -67,7 +67,7 @@ export class DatasetDataChangedWebhook extends SpeakeasyBase {
     dataConnectionId?: string;
 
     /**
-     * A human readable message about the webhook.
+     * A human-readable message about the webhook.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "Message" })

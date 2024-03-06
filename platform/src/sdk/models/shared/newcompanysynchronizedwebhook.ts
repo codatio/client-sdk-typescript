@@ -51,7 +51,7 @@ export class NewCompanySynchronizedWebhook extends SpeakeasyBase {
     dataConnectionId?: string;
 
     /**
-     * A human readable message about the webhook.
+     * A human-readable message about the webhook.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "Message" })

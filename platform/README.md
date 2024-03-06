@@ -32,7 +32,7 @@ import { CodatPlatform } from "@codat/platform";
 async function run() {
     const sdk = new CodatPlatform({
         security: {
-            authHeader: "<YOUR_API_KEY_HERE>",
+            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
         },
     });
 
@@ -121,9 +121,12 @@ run();
 
 ### [webhooks](docs/sdks/webhooks/README.md)
 
-* [create](docs/sdks/webhooks/README.md#create) - Create webhook
-* [get](docs/sdks/webhooks/README.md#get) - Get webhook
-* [list](docs/sdks/webhooks/README.md#list) - List webhooks
+* [~~create~~](docs/sdks/webhooks/README.md#create) - Create webhook :warning: **Deprecated**
+* [createConsumer](docs/sdks/webhooks/README.md#createconsumer) - Create webhook consumer
+* [deleteConsumer](docs/sdks/webhooks/README.md#deleteconsumer) - Delete webhook consumer
+* [~~get~~](docs/sdks/webhooks/README.md#get) - Get webhook :warning: **Deprecated**
+* [~~list~~](docs/sdks/webhooks/README.md#list) - List webhooks :warning: **Deprecated**
+* [listConsumers](docs/sdks/webhooks/README.md#listconsumers) - List webhook consumers
 <!-- End Available Resources and Operations [operations] -->
 
 
@@ -140,7 +143,7 @@ import { CodatPlatform } from "@codat/platform";
 async function run() {
     const sdk = new CodatPlatform({
         security: {
-            authHeader: "<YOUR_API_KEY_HERE>",
+            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
         },
     });
 
@@ -186,7 +189,7 @@ async function run() {
             retryConnectionErrors: false,
         },
         security: {
-            authHeader: "<YOUR_API_KEY_HERE>",
+            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
         },
     });
 
@@ -221,7 +224,7 @@ import { CodatPlatform } from "@codat/platform";
 async function run() {
     const sdk = new CodatPlatform({
         security: {
-            authHeader: "<YOUR_API_KEY_HERE>",
+            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
         },
     });
 
@@ -267,7 +270,7 @@ async function run() {
     const sdk = new CodatPlatform({
         serverIdx: 0,
         security: {
-            authHeader: "<YOUR_API_KEY_HERE>",
+            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
         },
     });
 
@@ -295,7 +298,7 @@ async function run() {
     const sdk = new CodatPlatform({
         serverURL: "https://api.codat.io",
         security: {
-            authHeader: "<YOUR_API_KEY_HERE>",
+            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
         },
     });
 
@@ -350,7 +353,7 @@ import { CodatPlatform } from "@codat/platform";
 async function run() {
     const sdk = new CodatPlatform({
         security: {
-            authHeader: "<YOUR_API_KEY_HERE>",
+            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
         },
     });
 

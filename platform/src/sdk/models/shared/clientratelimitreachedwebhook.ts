@@ -37,7 +37,7 @@ export class ClientRateLimitReachedWebhook extends SpeakeasyBase {
     data?: ClientRateLimitReachedWebhookData;
 
     /**
-     * A human readable message about the webhook.
+     * A human-readable message about the webhook.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "Message" })

@@ -28,7 +28,7 @@ import { CodatPlatform } from "@codat/platform";
 async function run() {
   const sdk = new CodatPlatform({
     security: {
-      authHeader: "<YOUR_API_KEY_HERE>",
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
   });
 
@@ -78,7 +78,7 @@ import { CodatPlatform } from "@codat/platform";
 async function run() {
   const sdk = new CodatPlatform({
     security: {
-      authHeader: "<YOUR_API_KEY_HERE>",
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
   });
 
@@ -125,7 +125,7 @@ import { CodatPlatform } from "@codat/platform";
 async function run() {
   const sdk = new CodatPlatform({
     security: {
-      authHeader: "<YOUR_API_KEY_HERE>",
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
   });
 
@@ -172,7 +172,7 @@ import { CodatPlatform } from "@codat/platform";
 async function run() {
   const sdk = new CodatPlatform({
     security: {
-      authHeader: "<YOUR_API_KEY_HERE>",
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
   });
 
@@ -222,7 +222,7 @@ import { DataConnectionStatus } from "@codat/platform/dist/sdk/models/shared";
 async function run() {
   const sdk = new CodatPlatform({
     security: {
-      authHeader: "<YOUR_API_KEY_HERE>",
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
   });
 
@@ -270,13 +270,13 @@ import { CodatPlatform } from "@codat/platform";
 async function run() {
   const sdk = new CodatPlatform({
     security: {
-      authHeader: "<YOUR_API_KEY_HERE>",
+      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
     },
   });
 
   const res = await sdk.connections.updateAuthorization({
     requestBody: {
-      "key": "string",
+      "key": "<value>",
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
