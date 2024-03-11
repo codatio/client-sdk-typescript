@@ -12,7 +12,7 @@ typescript:
   version: 2.2.0
   author: Codat
   clientServerStatusCodesAsErrors: false
-  description: Streamline your customers' accounts payable workflow.
+  description: Push expenses to accounting platforms.
   flattenGlobalSecurity: false
   imports:
     option: openapi
@@ -25,5 +25,5 @@ typescript:
   inputModelSuffix: input
   maxMethodParams: 0
   outputModelSuffix: output
-  packageName: '@codat/sync-for-payables'
+  packageName: '@codat/sync-for-payables-version-1'
   templateVersion: v1
