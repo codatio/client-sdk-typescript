@@ -98,9 +98,12 @@ export class TransactionStatus {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.transaction = utils.objectToClass(
+                    res.transactionResponse = [];
+                    const resFieldDepth: number = utils.getResFieldDepth(res);
+                    res.transactionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.Transaction
+                        shared.Transaction,
+                        resFieldDepth
                     );
                 } else {
                     throw new errors.SDKError(

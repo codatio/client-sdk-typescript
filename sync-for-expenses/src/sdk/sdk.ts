@@ -59,9 +59,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "prealpha";
-    sdkVersion = "5.0.1";
-    genVersion = "2.253.0";
-    userAgent = "speakeasy-sdk/typescript 5.0.1 2.253.0 prealpha @codat/sync-for-expenses";
+    sdkVersion = "5.1.0";
+    genVersion = "2.286.2";
+    userAgent = "speakeasy-sdk/typescript 5.1.0 2.286.2 prealpha @codat/sync-for-expenses";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -133,9 +133,12 @@ export class CodatSyncExpenses {
 
     constructor(props?: SDKProps) {
         let serverURL = props?.serverURL;
-        const serverIdx = props?.serverIdx ?? 0;
 
         if (!serverURL) {
+            const serverIdx = props?.serverIdx ?? 0;
+            if (serverIdx < 0 || serverIdx >= ServerList.length) {
+                throw new Error(`Invalid server index ${serverIdx}`);
+            }
             serverURL = ServerList[serverIdx];
         }
 

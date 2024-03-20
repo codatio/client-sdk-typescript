@@ -3,7 +3,7 @@
  */
 
 /**
- * Available Data types
+ * Available data types
  */
 export enum SchemaDataType {
     AccountTransactions = "accountTransactions",

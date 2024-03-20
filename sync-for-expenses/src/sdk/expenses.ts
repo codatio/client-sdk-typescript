@@ -165,7 +165,7 @@ export class Expenses {
     }
 
     /**
-     * Update expense-transactions
+     * Update expense transactions
      *
      * @remarks
      * The *Update expense* endpoint updates an existing [expense transaction](https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction) in the accounting platform for a given company's connection.

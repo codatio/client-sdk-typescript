@@ -68,7 +68,7 @@ async function run() {
       supplementalData: {
         content: {
           "key": {
-            "key": "string",
+            "key": "<value>",
           },
         },
       },
@@ -128,7 +128,7 @@ async function run() {
 
   const res = await sdk.customers.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    customerId: "string",
+    customerId: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -267,14 +267,14 @@ async function run() {
       supplementalData: {
         content: {
           "key": {
-            "key": "string",
+            "key": "<value>",
           },
         },
       },
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    customerId: "string",
+    customerId: "<value>",
   });
 
   if (res.statusCode == 200) {
