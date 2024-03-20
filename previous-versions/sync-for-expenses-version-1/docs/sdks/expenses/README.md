@@ -135,7 +135,7 @@ async function run() {
       ],
       merchantName: "Amazon UK",
       notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
-      type: "string",
+      type: "<value>",
     },
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",

@@ -44,7 +44,7 @@ export class SyncCompleteWebhook extends SpeakeasyBase {
     data?: SyncCompleteWebhookData;
 
     /**
-     * A human readable message about the webhook.
+     * A human-readable message about the webhook.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "Message" })
@@ -52,6 +52,8 @@ export class SyncCompleteWebhook extends SpeakeasyBase {
 
     /**
      * Unique identifier for the rule.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "RuleId" })

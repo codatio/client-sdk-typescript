@@ -1,25 +1,26 @@
 lockVersion: 2.0.0
 id: b710fdb3-7f23-4a95-a23a-31c608902cef
 management:
-  docChecksum: 75aaed17765ec83280aa34007473090b
+  docChecksum: 5223d7169ff7255df94cec4c73389639
   docVersion: prealpha
-  speakeasyVersion: internal
-  generationVersion: 2.253.0
-  releaseVersion: 0.6.0
-  configChecksum: d8a7ed8e6e8fd45d25f71fda6378625d
+  speakeasyVersion: 1.214.0
+  generationVersion: 2.286.2
+  releaseVersion: 0.7.0
+  configChecksum: c23d1f3644061ceb37ea2e5cecdeec27
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   repoSubDirectory: previous-versions/sync-for-expenses-version-1
   installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/previous-versions/sync-for-expenses-version-1
   published: true
 features:
   typescript:
-    core: 3.4.6
+    core: 3.4.8
     deprecations: 2.81.1
     examples: 2.81.3
-    globalSecurity: 2.82.2
-    globalServerURLs: 2.82.1
+    globalSecurity: 2.82.5
+    globalServerURLs: 2.82.2
     nameOverrides: 2.81.1
     retries: 2.82.1
+    webhooks: 1.0.0
 generatedFiles:
   - src/sdk/companies.ts
   - src/sdk/connections.ts
