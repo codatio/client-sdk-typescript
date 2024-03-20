@@ -6,7 +6,7 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 /**
- * Available Data types
+ * Available data types
  */
 export enum DataTypes {
     AccountTransactions = "accountTransactions",
@@ -66,7 +66,7 @@ export class DataStatus extends SpeakeasyBase {
     currentStatus: string;
 
     /**
-     * Available Data types
+     * Available data types
      */
     @SpeakeasyMetadata()
     @Expose({ name: "dataType" })

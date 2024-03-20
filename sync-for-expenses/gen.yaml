@@ -7,9 +7,11 @@ generation:
     nameResolutionDec2023: false
     parameterOrderingFeb2024: false
     requestResponseComponentNamesFeb2024: false
+  auth:
+    oAuth2ClientCredentialsEnabled: false
   telemetryEnabled: true
 typescript:
-  version: 5.0.1
+  version: 5.1.0
   author: Codat
   clientServerStatusCodesAsErrors: false
   description: Push expenses to accounting platforms.

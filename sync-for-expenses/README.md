@@ -117,7 +117,7 @@ run();
 ### [expenses](docs/sdks/expenses/README.md)
 
 * [create](docs/sdks/expenses/README.md#create) - Create expense transaction
-* [update](docs/sdks/expenses/README.md#update) - Update expense-transactions
+* [update](docs/sdks/expenses/README.md#update) - Update expense transactions
 * [uploadAttachment](docs/sdks/expenses/README.md#uploadattachment) - Upload attachment
 
 ### [sync](docs/sdks/sync/README.md)

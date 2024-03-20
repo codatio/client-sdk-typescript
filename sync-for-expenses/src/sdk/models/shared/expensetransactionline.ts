@@ -34,7 +34,7 @@ export class ExpenseTransactionLine extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "taxAmount" })
-    taxAmount: number;
+    taxAmount?: number;
 
     @SpeakeasyMetadata()
     @Expose({ name: "taxRateRef" })

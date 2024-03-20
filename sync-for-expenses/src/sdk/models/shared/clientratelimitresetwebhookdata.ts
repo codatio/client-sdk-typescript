@@ -41,7 +41,7 @@ export class ClientRateLimitResetWebhookData extends SpeakeasyBase {
     expiresUtc?: string;
 
     /**
-     * Total number of request remaining for your client.
+     * Total number of requests remaining for your client.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "QuotaRemaining" })
