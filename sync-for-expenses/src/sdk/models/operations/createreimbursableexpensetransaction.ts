@@ -6,9 +6,9 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
-export class InitiateSyncRequest extends SpeakeasyBase {
+export class CreateReimbursableExpenseTransactionRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    initiateSync?: shared.InitiateSync;
+    createReimbursableExpenseRequest?: shared.CreateReimbursableExpenseRequest;
 
     /**
      * Unique identifier for a company.
@@ -17,12 +17,18 @@ export class InitiateSyncRequest extends SpeakeasyBase {
     companyId: string;
 }
 
-export class InitiateSyncResponse extends SpeakeasyBase {
+export class CreateReimbursableExpenseTransactionResponse extends SpeakeasyBase {
     /**
      * HTTP response content type for this operation
      */
     @SpeakeasyMetadata()
     contentType: string;
+
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    createReimbursableExpenseResponse?: shared.CreateReimbursableExpenseResponse;
 
     /**
      * The request made is not valid.
@@ -41,10 +47,4 @@ export class InitiateSyncResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
-
-    /**
-     * Returns the newly created syncId
-     */
-    @SpeakeasyMetadata()
-    syncInitiated?: shared.SyncInitiated;
 }
