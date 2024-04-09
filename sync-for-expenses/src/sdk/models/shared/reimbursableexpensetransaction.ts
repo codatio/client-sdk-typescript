@@ -4,10 +4,10 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { ContactRef } from "./contactref";
-import { ExpenseTransactionLine } from "./expensetransactionline";
+import { ReimbursableExpenseTransactionLine } from "./reimbursableexpensetransactionline";
 import { Expose, Type } from "class-transformer";
 
-export class ExpenseTransactionBankAccountReference extends SpeakeasyBase {
+export class BankAccountReference extends SpeakeasyBase {
     /**
      * Identifier of the bank account.
      */
@@ -16,30 +16,15 @@ export class ExpenseTransactionBankAccountReference extends SpeakeasyBase {
     id?: string;
 }
 
-/**
- * The type of transaction.
- */
-export enum ExpenseTransactionType {
-    Payment = "Payment",
-    Refund = "Refund",
-    Reward = "Reward",
-    Chargeback = "Chargeback",
-    TransferIn = "TransferIn",
-    TransferOut = "TransferOut",
-    AdjustmentIn = "AdjustmentIn",
-    AdjustmentOut = "AdjustmentOut",
-}
+export class ReimbursableExpenseTransaction extends SpeakeasyBase {
+    @SpeakeasyMetadata()
+    @Expose({ name: "allOf" })
+    allOf?: any;
 
-export class ExpenseTransaction extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "bankAccountRef" })
-    @Type(() => ExpenseTransactionBankAccountReference)
-    bankAccountRef?: ExpenseTransactionBankAccountReference;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "contactRef" })
-    @Type(() => ContactRef)
-    contactRef?: ContactRef;
+    @Type(() => BankAccountReference)
+    bankAccountRef?: BankAccountReference;
 
     /**
      * Currency the transaction was recorded in.
@@ -88,6 +73,10 @@ export class ExpenseTransaction extends SpeakeasyBase {
     @Expose({ name: "currencyRate" })
     currencyRate?: number;
 
+    @SpeakeasyMetadata()
+    @Expose({ name: "dueDate" })
+    dueDate: any;
+
     /**
      * Your unique identifier for the transaction.
      */
@@ -125,17 +114,10 @@ export class ExpenseTransaction extends SpeakeasyBase {
     /**
      * Array of transaction lines.
      */
-    @SpeakeasyMetadata({ elemType: ExpenseTransactionLine })
+    @SpeakeasyMetadata({ elemType: ReimbursableExpenseTransactionLine })
     @Expose({ name: "lines" })
-    @Type(() => ExpenseTransactionLine)
-    lines?: ExpenseTransactionLine[];
-
-    /**
-     * Name of the merchant where the purchase took place
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "merchantName" })
-    merchantName?: string;
+    @Type(() => ReimbursableExpenseTransactionLine)
+    lines?: ReimbursableExpenseTransactionLine[];
 
     /**
      * Any private, company notes about the transaction.
@@ -144,17 +126,15 @@ export class ExpenseTransaction extends SpeakeasyBase {
     @Expose({ name: "notes" })
     notes?: string;
 
-    /**
-     * For supported accouting platforms, setting this optional property to true will post the transaction to a drafted state.
-     */
     @SpeakeasyMetadata()
-    @Expose({ name: "postAsDraft" })
-    postAsDraft?: boolean;
+    @Expose({ name: "recordRef" })
+    @Type(() => ContactRef)
+    recordRef?: ContactRef;
 
     /**
-     * The type of transaction.
+     * User-friendly reference for the reimbursable expense.
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "type" })
-    type: ExpenseTransactionType;
+    @Expose({ name: "reference" })
+    reference?: string;
 }

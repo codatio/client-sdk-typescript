@@ -10,10 +10,10 @@ import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 /**
- * Create expense transactions.
+ * Create reimbursable expense transactions.
  */
 
-export class Expenses {
+export class Reimbursements {
     private sdkConfiguration: SDKConfiguration;
 
     constructor(sdkConfig: SDKConfiguration) {
@@ -21,32 +21,20 @@ export class Expenses {
     }
 
     /**
-     * Create expense transaction
+     * Create reimbursable expense transaction
      *
      * @remarks
-     * The *Create expense* endpoint creates an [expense transaction](https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction) in the accounting platform for a given company's connection.
+     * Use the *Create reimbursable expense* endpoint to create a [reimbursement request](https://docs.codat.io/sync-for-expenses-api#/schemas/Reimburseable-Expense-Transactions) in the accounting platform for a given company's connection.
      *
-     * [Expense transactions](https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction) represent transactions made with a company debit or credit card.
-     *
-     *
-     * **Integration-specific behaviour**
-     *
-     * Some accounting platforms support the option of pushing transactions to a draft state. This can be done by setting the postAsDraft property on the transaction to true. For platforms without this feature, the postAsDraft property should be ignored or set to false.
-     *
-     * | Integration | Draft State | Details                                                                                                      |
-     * |-------------|-------------|--------------------------------------------------------------------------------------------------------------|
-     * | Dynamics 365 Business Central | Yes   | Setting postAsDraft to true will push the transactions to a drafted state rather than posting directly to the ledger. For transactions in a draft state, they can then be approved and posted within the accounting platform. |
-     * | Quickbooks Online | No | -  |
-     * | Xero | No | - |
-     * | NetSuite | No | - |
+     * Employee reimbursement requests are reflected in the accounting system in the form of Bills against an employee, who is a supplier.
      */
     async create(
-        req: operations.CreateExpenseTransactionRequest,
+        req: operations.CreateReimbursableExpenseTransactionRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.CreateExpenseTransactionResponse> {
+    ): Promise<operations.CreateReimbursableExpenseTransactionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateExpenseTransactionRequest(req);
+            req = new operations.CreateReimbursableExpenseTransactionRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -55,7 +43,7 @@ export class Expenses {
         );
         const operationUrl: string = utils.generateURL(
             baseURL,
-            "/companies/{companyId}/sync/expenses/data/expense-transactions",
+            "/companies/{companyId}/sync/expenses/reimbursable-expense-transactions",
             req
         );
 
@@ -64,7 +52,7 @@ export class Expenses {
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
                 req,
-                "createExpenseRequest",
+                "createReimbursableExpenseRequest",
                 "json"
             );
         } catch (e: unknown) {
@@ -121,8 +109,8 @@ export class Expenses {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.CreateExpenseTransactionResponse =
-            new operations.CreateExpenseTransactionResponse({
+        const res: operations.CreateReimbursableExpenseTransactionResponse =
+            new operations.CreateReimbursableExpenseTransactionResponse({
                 statusCode: httpRes.status,
                 contentType: responseContentType,
                 rawResponse: httpRes,
@@ -131,9 +119,9 @@ export class Expenses {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.createExpenseResponse = utils.objectToClass(
+                    res.createReimbursableExpenseResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.CreateExpenseResponse
+                        shared.CreateReimbursableExpenseResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -165,25 +153,20 @@ export class Expenses {
     }
 
     /**
-     * Update expense transactions
+     * Update reimbursable expense transaction
      *
      * @remarks
-     * The *Update expense* endpoint updates an existing [expense transaction](https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction) in the accounting platform for a given company's connection.
+     * The *Update reimbursable expense* endpoint updates an existing [reimbursable expense transaction](https://docs.codat.io/sync-for-expenses-api#/operations/create-reimbursable-expense-transaction) in the accounting platform for a given company's connection.
      *
-     * [Expense transactions](https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction) represent transactions made with a company debit or credit card.
-     *
-     *
-     * **Integration-specific behaviour**
-     *
-     * At the moment you can update expenses only for Xero ([Payment](https://docs.codat.io/expenses/sync-process/expense-transactions#transaction-types) transaction type only).
+     * Employee reimbursement requests are reflected in the accounting system in the form of Bills against an employee, who is a supplier.
      */
     async update(
-        req: operations.UpdateExpenseTransactionRequest,
+        req: operations.UpdateReimbursableExpenseTransactionRequest,
         retries?: utils.RetryConfig,
         config?: AxiosRequestConfig
-    ): Promise<operations.UpdateExpenseTransactionResponse> {
+    ): Promise<operations.UpdateReimbursableExpenseTransactionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.UpdateExpenseTransactionRequest(req);
+            req = new operations.UpdateReimbursableExpenseTransactionRequest(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -192,7 +175,7 @@ export class Expenses {
         );
         const operationUrl: string = utils.generateURL(
             baseURL,
-            "/companies/{companyId}/sync/expenses/expense-transactions/{transactionId}",
+            "/companies/{companyId}/sync/expenses/reimbursable-expense-transactions/{transactionId}",
             req
         );
 
@@ -201,7 +184,7 @@ export class Expenses {
         try {
             [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
                 req,
-                "updateExpenseRequest",
+                "createReimbursableExpenseRequest",
                 "json"
             );
         } catch (e: unknown) {
@@ -258,19 +241,19 @@ export class Expenses {
             throw new Error(`status code not found in response: ${httpRes}`);
         }
 
-        const res: operations.UpdateExpenseTransactionResponse =
-            new operations.UpdateExpenseTransactionResponse({
+        const res: operations.UpdateReimbursableExpenseTransactionResponse =
+            new operations.UpdateReimbursableExpenseTransactionResponse({
                 statusCode: httpRes.status,
                 contentType: responseContentType,
                 rawResponse: httpRes,
             });
         const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
-            case httpRes?.status == 202:
+            case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.updateExpenseResponse = utils.objectToClass(
+                    res.createReimbursableExpenseResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.UpdateExpenseResponse
+                        shared.CreateReimbursableExpenseResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -281,7 +264,7 @@ export class Expenses {
                     );
                 }
                 break;
-            case [400, 401, 402, 403, 404, 422, 429, 500, 503].includes(httpRes?.status):
+            case [400, 401, 402, 403, 404, 429, 500, 503].includes(httpRes?.status):
                 if (utils.matchContentType(responseContentType, `application/json`)) {
                     res.errorMessage = utils.objectToClass(
                         JSON.parse(decodedRes),

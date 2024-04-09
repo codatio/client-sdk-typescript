@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: db99c2c9-4c7c-4123-9b4e-591ea4fb8649
 management:
-  docChecksum: f7909a451d1597b90dec569f16a52c39
+  docChecksum: b84c137b488c9aa6b56fa6e53acdf2cc
   docVersion: prealpha
-  speakeasyVersion: 1.214.0
-  generationVersion: 2.286.2
-  releaseVersion: 5.1.0
-  configChecksum: 6bdc41751e25630d15a3819089c698e5
+  speakeasyVersion: 1.244.2
+  generationVersion: 2.301.3
+  releaseVersion: 5.1.1
+  configChecksum: 30640fd49975745ed0cae486481a9beb
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   repoSubDirectory: sync-for-expenses
   installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/sync-for-expenses
@@ -19,7 +19,7 @@ features:
     globalSecurity: 2.82.5
     globalServerURLs: 2.82.2
     inputOutputModels: 2.83.0
-    nameOverrides: 2.81.1
+    nameOverrides: 2.81.2
     retries: 2.82.1
     webhooks: 1.0.0
 generatedFiles:
@@ -32,8 +32,11 @@ generatedFiles:
   - src/sdk/pushoperations.ts
   - src/sdk/configuration.ts
   - src/sdk/expenses.ts
+  - src/sdk/reimbursements.ts
   - src/sdk/sync.ts
   - src/sdk/transactionstatus.ts
+  - src/sdk/attachments.ts
+  - src/sdk/transfers.ts
   - src/sdk/sdk.ts
   - .eslintrc.yml
   - jest.config.js
@@ -87,7 +90,8 @@ generatedFiles:
   - src/sdk/models/operations/setcompanyconfiguration.ts
   - src/sdk/models/operations/createexpensetransaction.ts
   - src/sdk/models/operations/updateexpensetransaction.ts
-  - src/sdk/models/operations/uploadexpenseattachment.ts
+  - src/sdk/models/operations/createreimbursableexpensetransaction.ts
+  - src/sdk/models/operations/updatereimbursableexpensetransaction.ts
   - src/sdk/models/operations/getsyncbyid.ts
   - src/sdk/models/operations/getlastsuccessfulsync.ts
   - src/sdk/models/operations/getlatestsync.ts
@@ -95,6 +99,8 @@ generatedFiles:
   - src/sdk/models/operations/listsyncs.ts
   - src/sdk/models/operations/getsynctransaction.ts
   - src/sdk/models/operations/listsynctransactions.ts
+  - src/sdk/models/operations/uploadexpenseattachment.ts
+  - src/sdk/models/operations/createtransfertransaction.ts
   - src/sdk/models/shared/errormessage.ts
   - src/sdk/models/shared/errorvalidation.ts
   - src/sdk/models/shared/errorvalidationitem.ts
@@ -165,9 +171,10 @@ generatedFiles:
   - src/sdk/models/shared/contactref.ts
   - src/sdk/models/shared/updateexpenseresponse.ts
   - src/sdk/models/shared/updateexpenserequest.ts
-  - src/sdk/models/shared/attachment.ts
-  - src/sdk/models/shared/attachmentupload.ts
-  - src/sdk/models/shared/codatfile.ts
+  - src/sdk/models/shared/createreimbursableexpenseresponse.ts
+  - src/sdk/models/shared/createreimbursableexpenserequest.ts
+  - src/sdk/models/shared/reimbursableexpensetransaction.ts
+  - src/sdk/models/shared/reimbursableexpensetransactionline.ts
   - src/sdk/models/shared/companysyncstatus.ts
   - src/sdk/models/shared/syncinitiated.ts
   - src/sdk/models/shared/initiatesync.ts
@@ -175,6 +182,13 @@ generatedFiles:
   - src/sdk/models/shared/transactionstatus.ts
   - src/sdk/models/shared/integrationtype.ts
   - src/sdk/models/shared/transactions.ts
+  - src/sdk/models/shared/attachment.ts
+  - src/sdk/models/shared/attachmentupload.ts
+  - src/sdk/models/shared/codatfile.ts
+  - src/sdk/models/shared/createtransferresponse.ts
+  - src/sdk/models/shared/createtransferrequest.ts
+  - src/sdk/models/shared/transferdetails.ts
+  - src/sdk/models/shared/accountref.ts
   - src/sdk/models/shared/security.ts
   - src/sdk/models/shared/clientratelimitreachedwebhook.ts
   - src/sdk/models/shared/clientratelimitreachedwebhookdata.ts
@@ -261,8 +275,10 @@ generatedFiles:
   - docs/sdk/models/operations/createexpensetransactionresponse.md
   - docs/sdk/models/operations/updateexpensetransactionrequest.md
   - docs/sdk/models/operations/updateexpensetransactionresponse.md
-  - docs/sdk/models/operations/uploadexpenseattachmentrequest.md
-  - docs/sdk/models/operations/uploadexpenseattachmentresponse.md
+  - docs/sdk/models/operations/createreimbursableexpensetransactionrequest.md
+  - docs/sdk/models/operations/createreimbursableexpensetransactionresponse.md
+  - docs/sdk/models/operations/updatereimbursableexpensetransactionrequest.md
+  - docs/sdk/models/operations/updatereimbursableexpensetransactionresponse.md
   - docs/sdk/models/operations/getsyncbyidrequest.md
   - docs/sdk/models/operations/getsyncbyidresponse.md
   - docs/sdk/models/operations/getlastsuccessfulsyncrequest.md
@@ -277,6 +293,10 @@ generatedFiles:
   - docs/sdk/models/operations/getsynctransactionresponse.md
   - docs/sdk/models/operations/listsynctransactionsrequest.md
   - docs/sdk/models/operations/listsynctransactionsresponse.md
+  - docs/sdk/models/operations/uploadexpenseattachmentrequest.md
+  - docs/sdk/models/operations/uploadexpenseattachmentresponse.md
+  - docs/sdk/models/operations/createtransfertransactionrequest.md
+  - docs/sdk/models/operations/createtransfertransactionresponse.md
   - docs/sdk/models/shared/errormessage.md
   - docs/sdk/models/shared/errorvalidation.md
   - docs/sdk/models/shared/errorvalidationitem.md
@@ -358,7 +378,7 @@ generatedFiles:
   - docs/sdk/models/shared/accountmappinginfo.md
   - docs/sdk/models/shared/createexpenseresponse.md
   - docs/sdk/models/shared/createexpenserequest.md
-  - docs/sdk/models/shared/bankaccountreference.md
+  - docs/sdk/models/shared/expensetransactionbankaccountreference.md
   - docs/sdk/models/shared/expensetransactiontype.md
   - docs/sdk/models/shared/expensetransaction.md
   - docs/sdk/models/shared/expensetransactionline.md
@@ -372,9 +392,11 @@ generatedFiles:
   - docs/sdk/models/shared/updateexpenseresponse.md
   - docs/sdk/models/shared/updateexpenserequestbankaccountreference.md
   - docs/sdk/models/shared/updateexpenserequest.md
-  - docs/sdk/models/shared/attachment.md
-  - docs/sdk/models/shared/attachmentupload.md
-  - docs/sdk/models/shared/codatfile.md
+  - docs/sdk/models/shared/createreimbursableexpenseresponse.md
+  - docs/sdk/models/shared/createreimbursableexpenserequest.md
+  - docs/sdk/models/shared/bankaccountreference.md
+  - docs/sdk/models/shared/reimbursableexpensetransaction.md
+  - docs/sdk/models/shared/reimbursableexpensetransactionline.md
   - docs/sdk/models/shared/companysyncstatus.md
   - docs/sdk/models/shared/syncinitiated.md
   - docs/sdk/models/shared/initiatesync.md
@@ -382,6 +404,13 @@ generatedFiles:
   - docs/sdk/models/shared/transactionstatus.md
   - docs/sdk/models/shared/integrationtype.md
   - docs/sdk/models/shared/transactions.md
+  - docs/sdk/models/shared/attachment.md
+  - docs/sdk/models/shared/attachmentupload.md
+  - docs/sdk/models/shared/codatfile.md
+  - docs/sdk/models/shared/createtransferresponse.md
+  - docs/sdk/models/shared/createtransferrequest.md
+  - docs/sdk/models/shared/transferdetails.md
+  - docs/sdk/models/shared/accountref.md
   - docs/sdk/models/shared/security.md
   - docs/sdk/models/shared/clientratelimitreachedwebhook.md
   - docs/sdk/models/shared/clientratelimitreachedwebhookdata.md
@@ -409,7 +438,10 @@ generatedFiles:
   - docs/sdks/pushoperations/README.md
   - docs/sdks/configuration/README.md
   - docs/sdks/expenses/README.md
+  - docs/sdks/reimbursements/README.md
   - docs/sdks/sync/README.md
   - docs/sdks/transactionstatus/README.md
+  - docs/sdks/attachments/README.md
+  - docs/sdks/transfers/README.md
   - USAGE.md
   - .gitattributes
