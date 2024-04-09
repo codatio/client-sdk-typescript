@@ -5,11 +5,11 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export class RecordRef extends SpeakeasyBase {
+export class CreateReimbursableExpenseResponse extends SpeakeasyBase {
     /**
-     * Identifier of linked reference from mapping options.
+     * Unique id of sync created
      */
     @SpeakeasyMetadata()
-    @Expose({ name: "id" })
-    id?: string;
+    @Expose({ name: "syncId" })
+    syncId?: string;
 }

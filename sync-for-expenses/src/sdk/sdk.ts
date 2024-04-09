@@ -5,6 +5,7 @@
 import * as utils from "../internal/utils";
 import * as shared from "../sdk/models/shared";
 import { Accounts } from "./accounts";
+import { Attachments } from "./attachments";
 import { Companies } from "./companies";
 import { Configuration } from "./configuration";
 import { Connections } from "./connections";
@@ -12,9 +13,11 @@ import { Customers } from "./customers";
 import { Expenses } from "./expenses";
 import { ManageData } from "./managedata";
 import { PushOperations } from "./pushoperations";
+import { Reimbursements } from "./reimbursements";
 import { Suppliers } from "./suppliers";
 import { Sync } from "./sync";
 import { TransactionStatus } from "./transactionstatus";
+import { Transfers } from "./transfers";
 import axios from "axios";
 import { AxiosInstance } from "axios";
 
@@ -59,9 +62,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "prealpha";
-    sdkVersion = "5.1.0";
-    genVersion = "2.286.2";
-    userAgent = "speakeasy-sdk/typescript 5.1.0 2.286.2 prealpha @codat/sync-for-expenses";
+    sdkVersion = "5.1.1";
+    genVersion = "2.301.2";
+    userAgent = "speakeasy-sdk/typescript 5.1.1 2.301.2 prealpha @codat/sync-for-expenses";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -117,9 +120,13 @@ export class CodatSyncExpenses {
      */
     public configuration: Configuration;
     /**
-     * Create expense datasets and upload receipts.
+     * Create expense transactions.
      */
     public expenses: Expenses;
+    /**
+     * Create reimbursable expense transactions.
+     */
+    public reimbursements: Reimbursements;
     /**
      * Trigger and monitor expense syncs to accounting software.
      */
@@ -128,6 +135,14 @@ export class CodatSyncExpenses {
      * Retrieve the status of transactions within a sync.
      */
     public transactionStatus: TransactionStatus;
+    /**
+     * Upload attachmens to expenses, transfers and reimbursable expense transactions.
+     */
+    public attachments: Attachments;
+    /**
+     * Create transfer transactions.
+     */
+    public transfers: Transfers;
 
     private sdkConfiguration: SDKConfiguration;
 
@@ -159,7 +174,10 @@ export class CodatSyncExpenses {
         this.pushOperations = new PushOperations(this.sdkConfiguration);
         this.configuration = new Configuration(this.sdkConfiguration);
         this.expenses = new Expenses(this.sdkConfiguration);
+        this.reimbursements = new Reimbursements(this.sdkConfiguration);
         this.sync = new Sync(this.sdkConfiguration);
         this.transactionStatus = new TransactionStatus(this.sdkConfiguration);
+        this.attachments = new Attachments(this.sdkConfiguration);
+        this.transfers = new Transfers(this.sdkConfiguration);
     }
 }

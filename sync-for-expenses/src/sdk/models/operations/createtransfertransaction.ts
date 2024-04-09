@@ -6,23 +6,35 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
-export class InitiateSyncRequest extends SpeakeasyBase {
+export class CreateTransferTransactionRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-    initiateSync?: shared.InitiateSync;
+    createTransferRequest?: shared.CreateTransferRequest;
 
     /**
      * Unique identifier for a company.
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=companyId" })
     companyId: string;
+
+    /**
+     * The unique identifier for your SMB's transaction.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=transactionId" })
+    transactionId: string;
 }
 
-export class InitiateSyncResponse extends SpeakeasyBase {
+export class CreateTransferTransactionResponse extends SpeakeasyBase {
     /**
      * HTTP response content type for this operation
      */
     @SpeakeasyMetadata()
     contentType: string;
+
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    createTransferResponse?: shared.CreateTransferResponse;
 
     /**
      * The request made is not valid.
@@ -41,10 +53,4 @@ export class InitiateSyncResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
-
-    /**
-     * Returns the newly created syncId
-     */
-    @SpeakeasyMetadata()
-    syncInitiated?: shared.SyncInitiated;
 }

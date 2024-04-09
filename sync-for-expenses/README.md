@@ -118,7 +118,11 @@ run();
 
 * [create](docs/sdks/expenses/README.md#create) - Create expense transaction
 * [update](docs/sdks/expenses/README.md#update) - Update expense transactions
-* [uploadAttachment](docs/sdks/expenses/README.md#uploadattachment) - Upload attachment
+
+### [reimbursements](docs/sdks/reimbursements/README.md)
+
+* [createReimbursableExpenseTransaction](docs/sdks/reimbursements/README.md#createreimbursableexpensetransaction) - Create reimbursable expense transaction
+* [updateReimbursableExpenseTransaction](docs/sdks/reimbursements/README.md#updatereimbursableexpensetransaction) - Update reimbursable expense transaction
 
 ### [sync](docs/sdks/sync/README.md)
 
@@ -132,6 +136,14 @@ run();
 
 * [get](docs/sdks/transactionstatus/README.md#get) - Get sync transaction
 * [list](docs/sdks/transactionstatus/README.md#list) - List sync transactions
+
+### [attachments](docs/sdks/attachments/README.md)
+
+* [uploadAttachment](docs/sdks/attachments/README.md#uploadattachment) - Upload attachment
+
+### [transfers](docs/sdks/transfers/README.md)
+
+* [createTransfer](docs/sdks/transfers/README.md#createtransfer) - Create transfer transaction
 <!-- End Available Resources and Operations [operations] -->
 
 
