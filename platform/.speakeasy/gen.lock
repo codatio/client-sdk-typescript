@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 6a970e30-8d0a-42f0-a8ce-621dfe880a1d
 management:
-  docChecksum: 6b9afa35a1ca4d8a1834643e80dd9a19
+  docChecksum: 91b86a7707fc536ccbdc7b7345d775a0
   docVersion: 3.0.0
-  speakeasyVersion: internal
-  generationVersion: 2.277.0
-  releaseVersion: 2.4.0
-  configChecksum: 1fb7d6a671a42e77e4f4e6d10259f3de
+  speakeasyVersion: 1.274.1
+  generationVersion: 2.314.0
+  releaseVersion: 2.5.0
+  configChecksum: c4a672dcbfe52dae902773d203aac4e1
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   repoSubDirectory: platform
   installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/platform
@@ -16,15 +16,19 @@ features:
     core: 3.4.8
     deprecations: 2.81.1
     examples: 2.81.3
-    globalSecurity: 2.82.4
-    globalServerURLs: 2.82.1
+    globalSecurity: 2.82.5
+    globalServerURLs: 2.82.2
+    groups: 2.81.2
+    ignores: 2.81.1
     inputOutputModels: 2.83.0
-    nameOverrides: 2.81.1
+    nameOverrides: 2.81.2
     retries: 2.82.1
     webhooks: 1.0.0
 generatedFiles:
   - src/sdk/settings.ts
   - src/sdk/companies.ts
+  - src/sdk/corssettings.ts
+  - src/sdk/connectionmanagement.ts
   - src/sdk/connections.ts
   - src/sdk/customdatatype.ts
   - src/sdk/pushdata.ts
@@ -65,6 +69,9 @@ generatedFiles:
   - src/sdk/models/operations/getcompany.ts
   - src/sdk/models/operations/listcompanies.ts
   - src/sdk/models/operations/updatecompany.ts
+  - src/sdk/models/operations/getconnectionmanagementaccesstoken.ts
+  - src/sdk/models/operations/getconnectionmanagementcorssettings.ts
+  - src/sdk/models/operations/setconnectionmanagementcorssettings.ts
   - src/sdk/models/operations/createconnection.ts
   - src/sdk/models/operations/deleteconnection.ts
   - src/sdk/models/operations/getconnection.ts
@@ -118,6 +125,8 @@ generatedFiles:
   - src/sdk/models/shared/companies.ts
   - src/sdk/models/shared/links.ts
   - src/sdk/models/shared/halref.ts
+  - src/sdk/models/shared/connectionmanagementaccesstoken.ts
+  - src/sdk/models/shared/connectionmanagementallowedorigins.ts
   - src/sdk/models/shared/connections.ts
   - src/sdk/models/shared/updateconnectionstatus.ts
   - src/sdk/models/shared/customdatatypeconfiguration.ts
@@ -139,7 +148,9 @@ generatedFiles:
   - src/sdk/models/shared/pushchangetype.ts
   - src/sdk/models/shared/pushoperationref.ts
   - src/sdk/models/shared/pushoperations.ts
+  - src/sdk/models/shared/datastatuses.ts
   - src/sdk/models/shared/datastatus.ts
+  - src/sdk/models/shared/status.ts
   - src/sdk/models/shared/pulloperations.ts
   - src/sdk/models/shared/companygroupassignment.ts
   - src/sdk/models/shared/group.ts
@@ -213,6 +224,10 @@ generatedFiles:
   - docs/sdk/models/operations/listcompaniesresponse.md
   - docs/sdk/models/operations/updatecompanyrequest.md
   - docs/sdk/models/operations/updatecompanyresponse.md
+  - docs/sdk/models/operations/getconnectionmanagementaccesstokenrequest.md
+  - docs/sdk/models/operations/getconnectionmanagementaccesstokenresponse.md
+  - docs/sdk/models/operations/getconnectionmanagementcorssettingsresponse.md
+  - docs/sdk/models/operations/setconnectionmanagementcorssettingsresponse.md
   - docs/sdk/models/operations/createconnectionrequestbody.md
   - docs/sdk/models/operations/createconnectionrequest.md
   - docs/sdk/models/operations/createconnectionresponse.md
@@ -297,6 +312,8 @@ generatedFiles:
   - docs/sdk/models/shared/companies.md
   - docs/sdk/models/shared/links.md
   - docs/sdk/models/shared/halref.md
+  - docs/sdk/models/shared/connectionmanagementaccesstoken.md
+  - docs/sdk/models/shared/connectionmanagementallowedorigins.md
   - docs/sdk/models/shared/connections.md
   - docs/sdk/models/shared/updateconnectionstatus.md
   - docs/sdk/models/shared/customdatatypeconfiguration.md
@@ -304,7 +321,7 @@ generatedFiles:
   - docs/sdk/models/shared/content.md
   - docs/sdk/models/shared/modifieddate.md
   - docs/sdk/models/shared/customdatatyperecord.md
-  - docs/sdk/models/shared/status.md
+  - docs/sdk/models/shared/datasetstatus.md
   - docs/sdk/models/shared/pulloperation.md
   - docs/sdk/models/shared/pushoption.md
   - docs/sdk/models/shared/pushvalidationinfo.md
@@ -321,8 +338,10 @@ generatedFiles:
   - docs/sdk/models/shared/pushchangetype.md
   - docs/sdk/models/shared/pushoperationref.md
   - docs/sdk/models/shared/pushoperations.md
+  - docs/sdk/models/shared/datastatuses.md
   - docs/sdk/models/shared/datatypes.md
   - docs/sdk/models/shared/datastatus.md
+  - docs/sdk/models/shared/status.md
   - docs/sdk/models/shared/pulloperations.md
   - docs/sdk/models/shared/companygroupassignment.md
   - docs/sdk/models/shared/group.md
@@ -380,6 +399,8 @@ generatedFiles:
   - docs/internal/utils/retryconfig.md
   - docs/sdks/settings/README.md
   - docs/sdks/companies/README.md
+  - docs/sdks/connectionmanagement/README.md
+  - docs/sdks/corssettings/README.md
   - docs/sdks/connections/README.md
   - docs/sdks/customdatatype/README.md
   - docs/sdks/pushdata/README.md

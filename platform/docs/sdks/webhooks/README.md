@@ -3,7 +3,7 @@
 
 ## Overview
 
-Manage webhooks, rules, and events.
+Create and manage webhooks that listen to Codat's events.
 
 ### Available Operations
 
@@ -88,6 +88,7 @@ async function run() {
   });
 
   const res = await sdk.webhooks.createConsumer({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     eventTypes: [
       "<value>",
     ],

@@ -10,7 +10,7 @@ import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 /**
- * Manage your companies' data connections.
+ * Create new and manage existing data connections for a company.
  */
 
 export class Connections {

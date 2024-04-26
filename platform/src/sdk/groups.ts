@@ -10,7 +10,7 @@ import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 /**
- * Create groups and link them to your Codat companies.
+ * Define and manage sets of companies based on a chosen characteristic.
  */
 
 export class Groups {

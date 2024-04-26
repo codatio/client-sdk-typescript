@@ -3,7 +3,7 @@
 
 ## Overview
 
-View and configure supplemental data for supported data types.
+Configure and pull additional data you can include in Codat's standard data types.
 
 ### Available Operations
 

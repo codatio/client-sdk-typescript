@@ -7,6 +7,13 @@ import { Expose } from "class-transformer";
 
 export class WebhookConsumerPrototype extends SpeakeasyBase {
     /**
+     * Unique identifier of the company to indicate company-specific events. The associated webhook consumer will receive events only for the specified ID.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "companyId" })
+    companyId?: string;
+
+    /**
      * Flag that enables or disables the endpoint from receiving events. Disabled when set to `true`.
      */
     @SpeakeasyMetadata()

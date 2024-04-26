@@ -6,9 +6,9 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 /**
- * The current status of the pull operation.
+ * The current status of the dataset.
  */
-export enum Status {
+export enum DatasetStatus {
     Initial = "Initial",
     Queued = "Queued",
     Fetching = "Fetching",
@@ -26,8 +26,6 @@ export enum Status {
     ValidationError = "ValidationError",
     AuthError = "AuthError",
     Cancelled = "Cancelled",
-    Routing = "Routing",
-    RoutingError = "RoutingError",
     NotSupported = "NotSupported",
     RateLimitError = "RateLimitError",
     PermissionsError = "PermissionsError",
@@ -152,11 +150,11 @@ export class PullOperation extends SpeakeasyBase {
     requested: string;
 
     /**
-     * The current status of the pull operation.
+     * The current status of the dataset.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status: Status;
+    status: DatasetStatus;
 
     /**
      * Additional information about the dataset status.
