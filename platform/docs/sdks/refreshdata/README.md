@@ -3,7 +3,7 @@
 
 ## Overview
 
-Asynchronously retrieve data from an integration to refresh data in Codat.
+Initiate data refreshes, view pull status and history.
 
 ### Available Operations
 

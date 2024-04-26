@@ -59,6 +59,8 @@ export class PushOperationStatusChangedWebhook extends SpeakeasyBase {
 
     /**
      * Unique identifier for the rule.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "RuleId" })

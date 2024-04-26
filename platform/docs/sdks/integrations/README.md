@@ -3,7 +3,7 @@
 
 ## Overview
 
-View and manage your available integrations in Codat.
+Get a list of integrations supported by Codat and their logos.
 
 ### Available Operations
 

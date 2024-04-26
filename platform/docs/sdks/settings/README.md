@@ -3,7 +3,7 @@
 
 ## Overview
 
-Manage your Codat instance.
+Manage company profile configuration, sync settings, and API keys.
 
 ### Available Operations
 

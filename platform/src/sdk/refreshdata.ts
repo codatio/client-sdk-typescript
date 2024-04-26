@@ -10,7 +10,7 @@ import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 /**
- * Asynchronously retrieve data from an integration to refresh data in Codat.
+ * Initiate data refreshes, view pull status and history.
  */
 
 export class RefreshData {
@@ -313,12 +313,9 @@ export class RefreshData {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.dataStatuses = {};
-                    const resFieldDepth: number = utils.getResFieldDepth(res);
                     res.dataStatuses = utils.objectToClass(
                         JSON.parse(decodedRes),
-                        shared.DataStatus,
-                        resFieldDepth
+                        shared.DataStatuses
                     );
                 } else {
                     throw new errors.SDKError(

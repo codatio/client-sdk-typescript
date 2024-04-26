@@ -10,7 +10,7 @@ import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 /**
- * View push options and get push statuses.
+ * Initiate and monitor Create, Update, and Delete operations.
  */
 
 export class PushData {

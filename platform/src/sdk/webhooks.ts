@@ -10,7 +10,7 @@ import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 /**
- * Manage webhooks, rules, and events.
+ * Create and manage webhooks that listen to Codat's events.
  */
 
 export class Webhooks {

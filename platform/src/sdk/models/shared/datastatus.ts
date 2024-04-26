@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Status } from "./status";
 import { Expose } from "class-transformer";
 
 /**
@@ -59,11 +60,11 @@ export enum DataTypes {
  */
 export class DataStatus extends SpeakeasyBase {
     /**
-     * The current status of the dataset in Codat's cache.
+     * The current status of the dataset.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "currentStatus" })
-    currentStatus: string;
+    currentStatus: Status;
 
     /**
      * Available data types

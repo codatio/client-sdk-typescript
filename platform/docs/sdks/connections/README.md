@@ -3,7 +3,7 @@
 
 ## Overview
 
-Manage your companies' data connections.
+Create new and manage existing data connections for a company.
 
 ### Available Operations
 
