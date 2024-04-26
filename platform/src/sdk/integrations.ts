@@ -10,7 +10,7 @@ import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 /**
- * View and manage your available integrations in Codat.
+ * Get a list of integrations supported by Codat and their logos.
  */
 
 export class Integrations {

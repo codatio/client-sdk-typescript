@@ -71,6 +71,12 @@ run();
 * [list](docs/sdks/companies/README.md#list) - List companies
 * [update](docs/sdks/companies/README.md#update) - Update company
 
+### [connectionManagement](docs/sdks/connectionmanagement/README.md)
+
+* [connectionManagementCorsSettingsGet](docs/sdks/connectionmanagement/README.md#connectionmanagementcorssettingsget) - Get CORS settings
+* [connectionManagementCorsSettingsSet](docs/sdks/connectionmanagement/README.md#connectionmanagementcorssettingsset) - Set CORS settings
+* [get](docs/sdks/connectionmanagement/README.md#get) - Get access token
+
 ### [connections](docs/sdks/connections/README.md)
 
 * [create](docs/sdks/connections/README.md#create) - Create connection

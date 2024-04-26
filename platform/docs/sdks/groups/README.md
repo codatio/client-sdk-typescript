@@ -3,7 +3,7 @@
 
 ## Overview
 
-Create groups and link them to your Codat companies.
+Define and manage sets of companies based on a chosen characteristic.
 
 ### Available Operations
 

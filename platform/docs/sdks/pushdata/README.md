@@ -3,7 +3,7 @@
 
 ## Overview
 
-View push options and get push statuses.
+Initiate and monitor Create, Update, and Delete operations.
 
 ### Available Operations
 

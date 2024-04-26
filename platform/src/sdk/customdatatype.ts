@@ -10,7 +10,7 @@ import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 /**
- * View and configure custom data types for supported integrations.
+ * Configure and pull additional data types that are not included in Codat's standardized data model.
  */
 
 export class CustomDataType {
