@@ -42,4 +42,4 @@ typescript:
   packageName: '@codat/sync-for-commerce-version-1'
   published: true
   repoSubDirectory: previous-versions/sync-for-commerce-version-1
-  templateVersion: v1
+  templateVersion: v2

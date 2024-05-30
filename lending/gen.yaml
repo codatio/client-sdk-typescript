@@ -12,7 +12,8 @@ typescript:
   version: 4.3.0
   author: Codat
   clientServerStatusCodesAsErrors: false
-  description: Make credit decisions backed by enhanced financials, metrics, reports, and data integrity features.
+  description: Make credit decisions backed by enhanced financials, metrics, reports,
+    and data integrity features.
   flattenGlobalSecurity: false
   imports:
     option: openapi
@@ -26,4 +27,4 @@ typescript:
   maxMethodParams: 0
   outputModelSuffix: output
   packageName: '@codat/lending'
-  templateVersion: v1
+  templateVersion: v2

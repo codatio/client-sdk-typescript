@@ -24,3 +24,4 @@ typescript:
   flattenGlobalSecurity: false
   maxMethodParams: 0
   packageName: '@codat/banking'
+  templateVersion: v2

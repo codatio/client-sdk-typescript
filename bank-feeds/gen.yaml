@@ -12,7 +12,8 @@ typescript:
   version: 4.1.1
   author: Codat
   clientServerStatusCodesAsErrors: false
-  description: Set up bank feeds from accounts in your application to supported accounting platforms.
+  description: Set up bank feeds from accounts in your application to supported accounting
+    platforms.
   flattenGlobalSecurity: false
   imports:
     option: openapi
@@ -26,4 +27,4 @@ typescript:
   maxMethodParams: 0
   outputModelSuffix: output
   packageName: '@codat/bank-feeds'
-  templateVersion: v1
+  templateVersion: v2

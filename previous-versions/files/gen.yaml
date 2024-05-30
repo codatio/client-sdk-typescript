@@ -40,4 +40,4 @@ typescript:
   packageName: '@codat/files'
   published: true
   repoSubDirectory: previous-versions/files
-  templateVersion: v1
+  templateVersion: v2

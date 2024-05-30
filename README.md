@@ -39,7 +39,7 @@ To get your authorization header from the [Codat Portal](https://app.codat.io):
 
 <!-- Start Codat Client Libraries -->
 | Library | Description | npm |
-| :- | :- | :- |
+| :- |:- |:- |
 | **[Platform](https://github.com/codatio/client-sdk-typescript/tree/main/platform)** | Manage the building blocks of Codat, including companies, connections, and more. | [![NPM version](https://img.shields.io/npm/v/@codat/platform.svg)](https://www.npmjs.com/package/@codat/platform) |
 | **[Bank Feeds](https://github.com/codatio/client-sdk-typescript/tree/main/bank-feeds)** | Set up bank feeds from accounts in your application to supported accounting platforms. | [![NPM version](https://img.shields.io/npm/v/@codat/bank-feeds.svg)](https://www.npmjs.com/package/@codat/bank-feeds) |
 | **[Sync for Commerce](https://github.com/codatio/client-sdk-typescript/tree/main/sync-for-commerce)** | Push merchants' data from your ecommerce or point-of-sale (POS) platform into your merchants' accounting platform. | [![NPM version](https://img.shields.io/npm/v/@codat/sync-for-commerce.svg)](https://www.npmjs.com/package/@codat/sync-for-commerce) |
@@ -51,7 +51,7 @@ To get your authorization header from the [Codat Portal](https://app.codat.io):
 ### Alternative products and versions
 
 | Library | Description | npm |
-| :- | :- | :- |
+| :- |:- |:- |
 | **[Common](https://github.com/codatio/client-sdk-typescript/tree/main/previous-versions/common)** | Manage the building blocks of Codat, including companies, connections, and more. | [![NPM version](https://img.shields.io/npm/v/@codat/common.svg)](https://www.npmjs.com/package/@codat/common) |
 | **[Accounting](https://github.com/codatio/client-sdk-typescript/tree/main/previous-versions/accounting)** | Access standardized accounting data from our accounting integrations. | [![NPM version](https://img.shields.io/npm/v/@codat/accounting.svg)](https://www.npmjs.com/package/@codat/accounting) |
 | **[Banking](https://github.com/codatio/client-sdk-typescript/tree/main/previous-versions/banking)** | Access standardized banking data from our banking integrations. | [![NPM version](https://img.shields.io/npm/v/@codat/banking.svg)](https://www.npmjs.com/package/@codat/banking) |
@@ -59,11 +59,12 @@ To get your authorization header from the [Codat Portal](https://app.codat.io):
 | **[Assess](https://github.com/codatio/client-sdk-typescript/tree/main/previous-versions/assess)** | Make credit decisions backed by enhanced financials, metrics, reports, and data integrity features. | [![NPM version](https://img.shields.io/npm/v/@codat/assess.svg)](https://www.npmjs.com/package/@codat/assess) |
 | **[Sync for Commerce version 1](https://github.com/codatio/client-sdk-typescript/tree/main/previous-versions/sync-for-commerce-version-1)** | Push merchants' data from your ecommerce or point-of-sale (POS) platform into your merchants' accounting platform. | [![NPM version](https://img.shields.io/npm/v/@codat/sync-for-commerce-version-1.svg)](https://www.npmjs.com/package/@codat/sync-for-commerce-version-1) |
 | **[Sync for Expenses version 1](https://github.com/codatio/client-sdk-typescript/tree/main/previous-versions/sync-for-expenses-version-1)** | Push expenses to accounting platforms. | [![NPM version](https://img.shields.io/npm/v/@codat/sync-for-expenses-version-1.svg)](https://www.npmjs.com/package/@codat/sync-for-expenses-version-1) |
+| **[Sync for Payables version 1](https://github.com/codatio/client-sdk-typescript/tree/main/previous-versions/sync-for-payables-version-1)** | Push expenses to accounting platforms. | [![NPM version](https://img.shields.io/npm/v/@codat/sync-for-payables-version-1.svg)](https://www.npmjs.com/package/@codat/sync-for-payables-version-1) |
 | **[Files](https://github.com/codatio/client-sdk-typescript/tree/main/previous-versions/files)** | Use Codat's Files API to upload your SMB customers' files. | [![NPM version](https://img.shields.io/npm/v/@codat/files.svg)](https://www.npmjs.com/package/@codat/files) |
 <!-- End Codat Client Libraries -->
 
 <!-- Start Codat Support Notes -->
-### Support
+## Support
 
 If you encounter any challenges while utilizing our SDKs, please don't hesitate to reach out for assistance. 
 You can raise any issues by contacting your dedicated Codat representative or reaching out to our [support team](mailto:support@codat.io).

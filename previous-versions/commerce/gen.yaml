@@ -23,3 +23,4 @@ typescript:
   flattenGlobalSecurity: false
   maxMethodParams: 0
   packageName: '@codat/commerce'
+  templateVersion: v2

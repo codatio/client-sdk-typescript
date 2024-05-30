@@ -43,4 +43,4 @@ typescript:
   packageName: '@codat/accounting'
   published: true
   repoSubDirectory: previous-versions/accounting
-  templateVersion: v1
+  templateVersion: v2
