@@ -13,20 +13,20 @@ generation:
 typescript:
   version: 2.5.0
   author: Codat
-  clientServerStatusCodesAsErrors: false
+#  clientServerStatusCodesAsErrors: false
   description: Manage the building blocks of Codat, including companies, connections,
     and more.
   flattenGlobalSecurity: false
   imports:
     option: openapi
-    paths:
-      callbacks: sdk/models/callbacks
-      errors: sdk/models/errors
-      operations: sdk/models/operations
-      shared: sdk/models/shared
-      webhooks: sdk/models/webhooks
-  inputModelSuffix: input
+#    paths:
+#      callbacks: sdk/models/callbacks
+#      errors: sdk/models/errors
+#      operations: sdk/models/operations
+#      shared: sdk/models/shared
+#      webhooks: sdk/models/webhooks
+#  inputModelSuffix: input
+#  outputModelSuffix: output
   maxMethodParams: 0
-  outputModelSuffix: output
   packageName: '@codat/platform'
   templateVersion: v2
