@@ -1,7 +1,6 @@
 configVersion: 2.0.0
 generation:
   sdkClassName: CodatPlatform
-  telemetryEnabled: true
 typescript:
   version: 2.5.0
   author: Codat
