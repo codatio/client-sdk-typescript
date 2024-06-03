@@ -28,4 +28,4 @@ typescript:
   maxMethodParams: 0
   outputModelSuffix: output
   packageName: '@codat/sync-for-expenses-version-1'
-  templateVersion: v1
+  templateVersion: v2

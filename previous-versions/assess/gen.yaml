@@ -43,4 +43,4 @@ typescript:
   packageName: '@codat/assess'
   published: true
   repoSubDirectory: previous-versions/assess
-  templateVersion: v1
+  templateVersion: v2

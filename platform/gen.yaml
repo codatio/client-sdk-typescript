@@ -1,31 +1,19 @@
 configVersion: 2.0.0
 generation:
   sdkClassName: CodatPlatform
-  usageSnippets:
-    optionalPropertyRendering: withExample
-  fixes:
-    nameResolutionDec2023: false
-    parameterOrderingFeb2024: false
-    requestResponseComponentNamesFeb2024: false
-  auth:
-    oAuth2ClientCredentialsEnabled: false
-  telemetryEnabled: true
 typescript:
   version: 2.5.0
   author: Codat
-  clientServerStatusCodesAsErrors: false
-  description: Manage the building blocks of Codat, including companies, connections, and more.
-  flattenGlobalSecurity: false
+  description: Manage the building blocks of Codat, including companies, connections,
+    and more.
+  maxMethodParams: 0
   imports:
     option: openapi
-    paths:
-      callbacks: sdk/models/callbacks
-      errors: sdk/models/errors
-      operations: sdk/models/operations
-      shared: sdk/models/shared
-      webhooks: sdk/models/webhooks
-  inputModelSuffix: input
-  maxMethodParams: 0
-  outputModelSuffix: output
   packageName: '@codat/platform'
-  templateVersion: v1
+  paths:
+    callbacks: ''
+    errors: ''
+    operations: ''
+    shared: ''
+    webhooks: ''
+  templateVersion: v2

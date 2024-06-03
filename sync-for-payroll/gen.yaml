@@ -26,4 +26,4 @@ typescript:
   maxMethodParams: 0
   outputModelSuffix: output
   packageName: '@codat/sync-for-payroll'
-  templateVersion: v1
+  templateVersion: v2

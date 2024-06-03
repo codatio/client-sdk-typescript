@@ -1,0 +1,115 @@
+workflowVersion: 1.0.0
+sources:
+  common-source:
+    inputs:
+    - https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Platform.yaml
+  platform-source:
+    inputs:
+    - https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Platform.yaml
+  bank-feeds-source:
+    inputs:
+    - https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Bank-Feeds.yaml
+  sync-for-commerce-source:
+    inputs:
+    - https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Commerce.yaml
+  sync-for-expenses-source:
+    inputs:
+    - https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Expenses.yaml
+  lending-source:
+    inputs:
+    - https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Lending.yaml
+  sync-for-payroll-source:
+    inputs:
+    - https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Payroll.yaml
+  sync-for-payables-source:
+    inputs:
+    - https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Payables.yaml
+  accounting-source:
+    inputs:
+    - https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Accounting.yaml
+  banking-source:
+    inputs:
+    - https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Banking.yaml
+  commerce-source:
+    inputs:
+    - https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Commerce.yaml
+  assess-source:
+    inputs:
+    - https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Assess.yaml
+  sync-for-commerce-version-1-source:
+    inputs:
+    - https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Commerce-v1.yaml
+  sync-for-expenses-version-1-source:
+    inputs:
+    - https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Expenses-v1.yaml
+  sync-for-payables-version-1-source:
+    inputs:
+    - https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Payables-v1.yaml
+  files-source:
+    inputs:
+    - https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Files.yaml
+targets:
+  common-library:
+    target: typescript
+    source: common-source
+    output: ./previous-versions/common
+  platform-library:
+    target: typescript
+    source: platform-source
+    output: ./platform
+  bank-feeds-library:
+    target: typescript
+    source: bank-feeds-source
+    output: ./bank-feeds
+  sync-for-commerce-library:
+    target: typescript
+    source: sync-for-commerce-source
+    output: ./sync-for-commerce
+  sync-for-expenses-library:
+    target: typescript
+    source: sync-for-expenses-source
+    output: ./sync-for-expenses
+  lending-library:
+    target: typescript
+    source: lending-source
+    output: ./lending
+  sync-for-payroll-library:
+    target: typescript
+    source: sync-for-payroll-source
+    output: ./sync-for-payroll
+  sync-for-payables-library:
+    target: typescript
+    source: sync-for-payables-source
+    output: ./sync-for-payables
+  accounting-library:
+    target: typescript
+    source: accounting-source
+    output: ./previous-versions/accounting
+  banking-library:
+    target: typescript
+    source: banking-source
+    output: ./previous-versions/banking
+  commerce-library:
+    target: typescript
+    source: commerce-source
+    output: ./previous-versions/commerce
+  assess-library:
+    target: typescript
+    source: assess-source
+    output: ./previous-versions/assess
+  sync-for-commerce-version-1-library:
+    target: typescript
+    source: sync-for-commerce-version-1-source
+    output: ./previous-versions/sync-for-commerce-version-1
+  sync-for-expenses-version-1-library:
+    target: typescript
+    source: sync-for-expenses-version-1-source
+    output: ./previous-versions/sync-for-expenses-version-1
+  sync-for-payables-version-1-library:
+    target: typescript
+    source: sync-for-payables-version-1-source
+    output: ./previous-versions/sync-for-payables-version-1
+  files-library:
+    target: typescript
+    source: files-source
+    output: ./previous-versions/files
