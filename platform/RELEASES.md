@@ -109,3 +109,11 @@ Based on:
 - [typescript v2.5.0] platform
 ### Releases
 - [NPM v2.5.0] https://www.npmjs.com/package/@codat/platform/v/2.5.0 - platform
+
+## 2024-06-03 11:44:52
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.299.5 (2.338.10) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.4.0] ./previous-versions/sync-for-commerce-version-1

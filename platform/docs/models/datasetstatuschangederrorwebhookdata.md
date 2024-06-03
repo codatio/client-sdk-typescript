@@ -1,0 +1,10 @@
+# DatasetStatusChangedErrorWebhookData
+
+
+## Fields
+
+| Field                                                      | Type                                                       | Required                                                   | Description                                                | Example                                                    |
+| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| `dataType`                                                 | [models.DataType](../models/datatype.md)                   | :heavy_minus_sign:                                         | Available data types                                       | invoices                                                   |
+| `datasetId`                                                | *string*                                                   | :heavy_minus_sign:                                         | Unique identifier for the dataset that completed its sync. |                                                            |
+| `datasetStatus`                                            | *string*                                                   | :heavy_minus_sign:                                         | The current status of the dataset's sync.                  |                                                            |

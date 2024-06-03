@@ -1,0 +1,14 @@
+# PushOptionProperty
+
+
+## Fields
+
+| Field                                                                        | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `description`                                                                | *string*                                                                     | :heavy_check_mark:                                                           | A description of the property.                                               |
+| `displayName`                                                                | *string*                                                                     | :heavy_check_mark:                                                           | The property's display name.                                                 |
+| `options`                                                                    | [models.PushOptionChoice](../models/pushoptionchoice.md)[]                   | :heavy_minus_sign:                                                           | N/A                                                                          |
+| `properties`                                                                 | Record<string, [models.PushOptionProperty](../models/pushoptionproperty.md)> | :heavy_minus_sign:                                                           | N/A                                                                          |
+| `required`                                                                   | *boolean*                                                                    | :heavy_check_mark:                                                           | The property is required if `True`.                                          |
+| `type`                                                                       | [models.PushOptionType](../models/pushoptiontype.md)                         | :heavy_check_mark:                                                           | The option type.                                                             |
+| `validation`                                                                 | [models.PushValidationInfo](../models/pushvalidationinfo.md)                 | :heavy_minus_sign:                                                           | N/A                                                                          |
