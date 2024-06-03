@@ -1,2 +1,11 @@
+/models
+/types
+/lib
+/sdk
+/hooks
+/index.*
+/cjs
+/node_modules
+/.tsbuildinfo
 dist/
 node_modules/

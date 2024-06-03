@@ -27,25 +27,21 @@ Codat tries not to limit users to pushing to a very limited number of standard c
 ### Example Usage
 
 ```typescript
-import { CodatPlatform } from "@codat/platform";
-import { SchemaDataType } from "@codat/platform/dist/sdk/models/shared";
+import { CodatPlatform, SchemaDataType } from "@codat/platform";
+
+const codatPlatform = new CodatPlatform({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 async function run() {
-  const sdk = new CodatPlatform({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-    },
-  });
-
-  const res = await sdk.pushData.getModelOptions({
+  const result = await codatPlatform.pushData.getModelOptions({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     dataType: SchemaDataType.Invoices,
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -53,21 +49,22 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                                                              | Type                                                                                                                                   | Required                                                                                                                               | Description                                                                                                                            |
-| -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                              | [operations.GetCreateUpdateModelOptionsByDataTypeRequest](../../sdk/models/operations/getcreateupdatemodeloptionsbydatatyperequest.md) | :heavy_check_mark:                                                                                                                     | The request object to use for the request.                                                                                             |
-| `retries`                                                                                                                              | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                                               | :heavy_minus_sign:                                                                                                                     | Configuration to override the default retry behavior of the client.                                                                    |
-| `config`                                                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                           | :heavy_minus_sign:                                                                                                                     | Available config options for making requests.                                                                                          |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [models.GetCreateUpdateModelOptionsByDataTypeRequest](../../models/getcreateupdatemodeloptionsbydatatyperequest.md)                                                            | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.GetCreateUpdateModelOptionsByDataTypeResponse](../../sdk/models/operations/getcreateupdatemodeloptionsbydatatyperesponse.md)>**
+**Promise\<[models.GetCreateUpdateModelOptionsByDataTypeResponse](../../models/getcreateupdatemodeloptionsbydatatyperesponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| models.SDKError | 4xx-5xx         | */*             |
 
 ## getOperation
 
@@ -78,21 +75,18 @@ Retrieve push operation.
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-async function run() {
-  const sdk = new CodatPlatform({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-    },
-  });
+const codatPlatform = new CodatPlatform({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
-  const res = await sdk.pushData.getOperation({
+async function run() {
+  const result = await codatPlatform.pushData.getOperation({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     pushOperationKey: "59acd79e-29d3-4138-91d3-91d4641bf7ed",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -100,21 +94,22 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.GetPushOperationRequest](../../sdk/models/operations/getpushoperationrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `retries`                                                                                    | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                     | :heavy_minus_sign:                                                                           | Configuration to override the default retry behavior of the client.                          |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [models.GetPushOperationRequest](../../models/getpushoperationrequest.md)                                                                                                      | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.GetPushOperationResponse](../../sdk/models/operations/getpushoperationresponse.md)>**
+**Promise\<[models.GetPushOperationResponse](../../models/getpushoperationresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| models.SDKError | 4xx-5xx         | */*             |
 
 ## listOperations
 
@@ -125,23 +120,21 @@ List push operation records.
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-async function run() {
-  const sdk = new CodatPlatform({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-    },
-  });
+const codatPlatform = new CodatPlatform({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
-  const res = await sdk.pushData.listOperations({
+async function run() {
+  const result = await codatPlatform.pushData.listOperations({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     orderBy: "-modifiedDate",
     page: 1,
     pageSize: 100,
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -149,18 +142,19 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                              | [operations.GetCompanyPushHistoryRequest](../../sdk/models/operations/getcompanypushhistoryrequest.md) | :heavy_check_mark:                                                                                     | The request object to use for the request.                                                             |
-| `retries`                                                                                              | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                               | :heavy_minus_sign:                                                                                     | Configuration to override the default retry behavior of the client.                                    |
-| `config`                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                           | :heavy_minus_sign:                                                                                     | Available config options for making requests.                                                          |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [models.GetCompanyPushHistoryRequest](../../models/getcompanypushhistoryrequest.md)                                                                                            | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.GetCompanyPushHistoryResponse](../../sdk/models/operations/getcompanypushhistoryresponse.md)>**
+**Promise\<[models.GetCompanyPushHistoryResponse](../../models/getcompanypushhistoryresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| models.SDKError | 4xx-5xx         | */*             |

@@ -22,17 +22,14 @@ See the *examples* for integration-specific frequently requested properties.
 ### Example Usage
 
 ```typescript
-import { CodatPlatform } from "@codat/platform";
-import { DataType } from "@codat/platform/dist/sdk/models/operations";
+import { CodatPlatform, ConfigureSupplementalDataPathParamDataType } from "@codat/platform";
+
+const codatPlatform = new CodatPlatform({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 async function run() {
-  const sdk = new CodatPlatform({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-    },
-  });
-
-  const res = await sdk.supplementalData.configure({
+  const result = await codatPlatform.supplementalData.configure({
     supplementalDataConfiguration: {
       supplementalDataConfig: {
         "orders-supplemental-data": {
@@ -46,13 +43,12 @@ async function run() {
         },
       },
     },
-    dataType: DataType.Invoices,
+    dataType: ConfigureSupplementalDataPathParamDataType.Invoices,
     platformKey: "gbol",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -60,21 +56,22 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
-| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                      | [operations.ConfigureSupplementalDataRequest](../../sdk/models/operations/configuresupplementaldatarequest.md) | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
-| `retries`                                                                                                      | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                       | :heavy_minus_sign:                                                                                             | Configuration to override the default retry behavior of the client.                                            |
-| `config`                                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                   | :heavy_minus_sign:                                                                                             | Available config options for making requests.                                                                  |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [models.ConfigureSupplementalDataRequest](../../models/configuresupplementaldatarequest.md)                                                                                    | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.ConfigureSupplementalDataResponse](../../sdk/models/operations/configuresupplementaldataresponse.md)>**
+**Promise\<[models.ErrorMessage](../../models/errormessage.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| models.SDKError | 4xx-5xx         | */*             |
 
 ## getConfiguration
 
@@ -85,24 +82,20 @@ The *Get configuration* endpoint returns supplemental data configuration previou
 ### Example Usage
 
 ```typescript
-import { CodatPlatform } from "@codat/platform";
-import { PathParamDataType } from "@codat/platform/dist/sdk/models/operations";
+import { CodatPlatform, PathParamDataType } from "@codat/platform";
+
+const codatPlatform = new CodatPlatform({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 async function run() {
-  const sdk = new CodatPlatform({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-    },
-  });
-
-  const res = await sdk.supplementalData.getConfiguration({
+  const result = await codatPlatform.supplementalData.getConfiguration({
     dataType: PathParamDataType.Invoices,
     platformKey: "gbol",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -110,18 +103,19 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                                                    | Type                                                                                                                         | Required                                                                                                                     | Description                                                                                                                  |
-| ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                    | [operations.GetSupplementalDataConfigurationRequest](../../sdk/models/operations/getsupplementaldataconfigurationrequest.md) | :heavy_check_mark:                                                                                                           | The request object to use for the request.                                                                                   |
-| `retries`                                                                                                                    | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                                     | :heavy_minus_sign:                                                                                                           | Configuration to override the default retry behavior of the client.                                                          |
-| `config`                                                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                 | :heavy_minus_sign:                                                                                                           | Available config options for making requests.                                                                                |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [models.GetSupplementalDataConfigurationRequest](../../models/getsupplementaldataconfigurationrequest.md)                                                                      | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.GetSupplementalDataConfigurationResponse](../../sdk/models/operations/getsupplementaldataconfigurationresponse.md)>**
+**Promise\<[models.GetSupplementalDataConfigurationResponse](../../models/getsupplementaldataconfigurationresponse.md)\>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| models.SDKError | 4xx-5xx         | */*             |

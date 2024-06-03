@@ -1,0 +1,2 @@
+# SetConnectionManagementCorsSettingsResponse
+
