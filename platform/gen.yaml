@@ -9,11 +9,11 @@ typescript:
   maxMethodParams: 0
   imports:
     option: openapi
+    paths:
+      callbacks: ''
+      errors: ''
+      operations: ''
+      shared: ''
+      webhooks: ''
   packageName: '@codat/platform'
-  paths:
-    callbacks: ''
-    errors: ''
-    operations: ''
-    shared: ''
-    webhooks: ''
   templateVersion: v2
