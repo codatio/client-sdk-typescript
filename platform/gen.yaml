@@ -19,4 +19,3 @@ typescript:
   templateVersion: v2
   enumFormat: union
   responseFormat: flat
-  methodArguments: infer-optional-args
