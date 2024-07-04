@@ -1,0 +1,9 @@
+# DataSyncCompletedWebhookData
+
+
+## Fields
+
+| Field                                                      | Type                                                       | Required                                                   | Description                                                | Example                                                    |
+| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| `dataType`                                                 | [models.PropertieDataType](../models/propertiedatatype.md) | :heavy_minus_sign:                                         | Available data types                                       | invoices                                                   |
+| `datasetId`                                                | *string*                                                   | :heavy_minus_sign:                                         | Unique identifier for the dataset that completed its sync. |                                                            |

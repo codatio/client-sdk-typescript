@@ -12,7 +12,7 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
 typescript:
-  version: 2.5.0
+  version: 2.6.0
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -34,6 +34,7 @@ typescript:
   inputModelSuffix: input
   maxMethodParams: 0
   methodArguments: infer-optional-args
+  moduleFormat: commonjs
   outputModelSuffix: output
   packageName: '@codat/platform'
   responseFormat: flat
