@@ -4,12 +4,12 @@ name: Release Platform library
     paths:
     - platform/RELEASES.md
     branches:
-    - main
+    - main  
 jobs:
   publish:
     uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-publish.yaml@v15
-  secrets:
-    github_access_token: ${{ secrets.GITHUB_TOKEN }}
-    speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
-    slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
-    npm_token: ${{ secrets.NPM_TOKEN }}
+    secrets:
+      github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
+      slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+      npm_token: ${{ secrets.NPM_TOKEN }}
