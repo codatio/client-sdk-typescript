@@ -87,7 +87,9 @@ targets:
     platform-library:
         target: typescript
         source: platform-source
-        output: ./platform
+        publish: 
+            typescript:
+                token: dddd
     sync-for-commerce-library:
         target: typescript
         source: sync-for-commerce-source
