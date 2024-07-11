@@ -89,7 +89,7 @@ targets:
         source: platform-source
         publish: 
             typescript:
-                token: dddd
+                npm_token: $npm_token
     sync-for-commerce-library:
         target: typescript
         source: sync-for-commerce-source
