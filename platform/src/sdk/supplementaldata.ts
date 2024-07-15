@@ -6,7 +6,6 @@ import { SDKHooks } from "../hooks/hooks.js";
 import { SDKOptions, serverURLFromOptions } from "../lib/config.js";
 import { encodeJSON as encodeJSON$, encodeSimple as encodeSimple$ } from "../lib/encodings.js";
 import { HTTPClient } from "../lib/http.js";
-import * as retries$ from "../lib/retries.js";
 import * as schemas$ from "../lib/schemas.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as errors from "./models/errors/index.js";
@@ -54,7 +53,7 @@ export class SupplementalData extends ClientSDK {
      */
     async configure(
         request: operations.ConfigureSupplementalDataRequest,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<void> {
         const input$ = request;
 
@@ -117,28 +116,22 @@ export class SupplementalData extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["401", "402", "403", "404", "429", "4XX", "500", "503", "5XX"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, {
-                    context,
-                    errorCodes: ["401", "402", "403", "404", "429", "4XX", "500", "503", "5XX"],
-                });
-            },
-            { config: retryConfig, statusCodes: ["408", "429", "5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["408", "429", "5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
@@ -165,7 +158,7 @@ export class SupplementalData extends ClientSDK {
      */
     async getConfiguration(
         request: operations.GetSupplementalDataConfigurationRequest,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<shared.SupplementalDataConfiguration> {
         const input$ = request;
 
@@ -226,28 +219,22 @@ export class SupplementalData extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["401", "402", "403", "404", "429", "4XX", "500", "503", "5XX"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, {
-                    context,
-                    errorCodes: ["401", "402", "403", "404", "429", "4XX", "500", "503", "5XX"],
-                });
-            },
-            { config: retryConfig, statusCodes: ["408", "429", "5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["408", "429", "5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },

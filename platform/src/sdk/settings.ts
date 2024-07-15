@@ -6,7 +6,6 @@ import { SDKHooks } from "../hooks/hooks.js";
 import { SDKOptions, serverURLFromOptions } from "../lib/config.js";
 import { encodeJSON as encodeJSON$, encodeSimple as encodeSimple$ } from "../lib/encodings.js";
 import { HTTPClient } from "../lib/http.js";
-import * as retries$ from "../lib/retries.js";
 import * as schemas$ from "../lib/schemas.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as errors from "./models/errors/index.js";
@@ -47,9 +46,7 @@ export class Settings extends ClientSDK {
      * @remarks
      * Fetch your Codat profile.
      */
-    async getProfile(
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
-    ): Promise<shared.Profile> {
+    async getProfile(options?: RequestOptions): Promise<shared.Profile> {
         const path$ = this.templateURLComponent("/profile")();
 
         const query$ = "";
@@ -86,28 +83,22 @@ export class Settings extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["401", "402", "403", "429", "4XX", "500", "503", "5XX"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, {
-                    context,
-                    errorCodes: ["401", "402", "403", "429", "4XX", "500", "503", "5XX"],
-                });
-            },
-            { config: retryConfig, statusCodes: ["408", "429", "5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["408", "429", "5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
@@ -130,7 +121,7 @@ export class Settings extends ClientSDK {
      */
     async updateProfile(
         request?: shared.Profile | undefined,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<shared.Profile> {
         const input$ = request;
 
@@ -180,28 +171,22 @@ export class Settings extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["401", "402", "403", "429", "4XX", "500", "503", "5XX"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, {
-                    context,
-                    errorCodes: ["401", "402", "403", "429", "4XX", "500", "503", "5XX"],
-                });
-            },
-            { config: retryConfig, statusCodes: ["408", "429", "5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["408", "429", "5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
@@ -222,9 +207,7 @@ export class Settings extends ClientSDK {
      * @remarks
      * Retrieve the [sync settings](https://docs.codat.io/knowledge-base/advanced-sync-settings) for your client. This includes how often data types should be queued to be updated, and how much history should be fetched.
      */
-    async getSyncSettings(
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
-    ): Promise<shared.SyncSettings> {
+    async getSyncSettings(options?: RequestOptions): Promise<shared.SyncSettings> {
         const path$ = this.templateURLComponent("/profile/syncSettings")();
 
         const query$ = "";
@@ -261,28 +244,22 @@ export class Settings extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["401", "402", "403", "429", "4XX", "500", "503", "5XX"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, {
-                    context,
-                    errorCodes: ["401", "402", "403", "429", "4XX", "500", "503", "5XX"],
-                });
-            },
-            { config: retryConfig, statusCodes: ["408", "429", "5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["408", "429", "5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
@@ -305,7 +282,7 @@ export class Settings extends ClientSDK {
      */
     async updateSyncSettings(
         request?: operations.UpdateProfileSyncSettingsRequestBody | undefined,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<void> {
         const input$ = request;
 
@@ -358,28 +335,22 @@ export class Settings extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["401", "402", "403", "429", "4XX", "500", "503", "5XX"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, {
-                    context,
-                    errorCodes: ["401", "402", "403", "429", "4XX", "500", "503", "5XX"],
-                });
-            },
-            { config: retryConfig, statusCodes: ["408", "429", "5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["408", "429", "5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
@@ -404,9 +375,7 @@ export class Settings extends ClientSDK {
      *
      * You can [read more](https://docs.codat.io/using-the-api/authentication) about authentication at Codat and managing API keys via the Portal UI or API.
      */
-    async listApiKeys(
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
-    ): Promise<shared.ApiKeys> {
+    async listApiKeys(options?: RequestOptions): Promise<shared.ApiKeys> {
         const path$ = this.templateURLComponent("/apiKeys")();
 
         const query$ = "";
@@ -443,28 +412,22 @@ export class Settings extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["401", "402", "403", "429", "4XX", "500", "503", "5XX"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, {
-                    context,
-                    errorCodes: ["401", "402", "403", "429", "4XX", "500", "503", "5XX"],
-                });
-            },
-            { config: retryConfig, statusCodes: ["408", "429", "5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["408", "429", "5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
@@ -497,7 +460,7 @@ export class Settings extends ClientSDK {
      */
     async createApiKey(
         request?: shared.CreateApiKey | undefined,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<shared.ApiKeyDetails> {
         const input$ = request;
 
@@ -547,39 +510,22 @@ export class Settings extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["400", "401", "402", "403", "409", "429", "4XX", "500", "503", "5XX"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, {
-                    context,
-                    errorCodes: [
-                        "400",
-                        "401",
-                        "402",
-                        "403",
-                        "409",
-                        "429",
-                        "4XX",
-                        "500",
-                        "503",
-                        "5XX",
-                    ],
-                });
-            },
-            { config: retryConfig, statusCodes: ["408", "429", "5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["408", "429", "5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },
@@ -613,7 +559,7 @@ export class Settings extends ClientSDK {
      */
     async deleteApiKey(
         request: operations.DeleteApiKeyRequest,
-        options?: RequestOptions & { retries?: retries$.RetryConfig }
+        options?: RequestOptions
     ): Promise<errors.ErrorMessage> {
         const input$ = request;
 
@@ -667,28 +613,22 @@ export class Settings extends ClientSDK {
             options
         );
 
-        const retryConfig = options?.retries ||
-            this.options$.retryConfig || {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 500,
-                    maxInterval: 60000,
-                    exponent: 1.5,
-                    maxElapsedTime: 3600000,
+        const response = await this.do$(request$, {
+            context,
+            errorCodes: ["401", "402", "403", "404", "429", "4XX", "500", "503", "5XX"],
+            retryConfig: options?.retries ||
+                this.options$.retryConfig || {
+                    strategy: "backoff",
+                    backoff: {
+                        initialInterval: 500,
+                        maxInterval: 60000,
+                        exponent: 1.5,
+                        maxElapsedTime: 3600000,
+                    },
+                    retryConnectionErrors: true,
                 },
-                retryConnectionErrors: true,
-            };
-
-        const response = await retries$.retry(
-            () => {
-                const cloned = request$.clone();
-                return this.do$(cloned, {
-                    context,
-                    errorCodes: ["401", "402", "403", "404", "429", "4XX", "500", "503", "5XX"],
-                });
-            },
-            { config: retryConfig, statusCodes: ["408", "429", "5XX"] }
-        );
+            retryCodes: options?.retryCodes || ["408", "429", "5XX"],
+        });
 
         const responseFields$ = {
             HttpMeta: { Response: response, Request: request$ },

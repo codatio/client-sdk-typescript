@@ -3,10 +3,10 @@ id: 6a970e30-8d0a-42f0-a8ce-621dfe880a1d
 management:
   docChecksum: ced98ff1180e32d5026f7d960a49babc
   docVersion: 3.0.0
-  speakeasyVersion: 1.331.2
-  generationVersion: 2.366.1
-  releaseVersion: 3.0.2
-  configChecksum: b24049153b9330a7ac090f5c5932bd8b
+  speakeasyVersion: 1.335.0
+  generationVersion: 2.370.2
+  releaseVersion: 3.1.0
+  configChecksum: 59c10bbb42aaf2478116ff0936eb9226
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   repoSubDirectory: platform
   installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/platform
@@ -16,6 +16,7 @@ features:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.5
     core: 3.11.6
+    defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     examples: 2.81.4
     globalSecurity: 2.82.9
