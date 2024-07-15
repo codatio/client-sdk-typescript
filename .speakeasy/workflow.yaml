@@ -88,9 +88,9 @@ targets:
         target: typescript
         source: platform-source
         output: platform
-        publish: 
-            typescript:
-                npm_token: $npm_token
+        publish:
+            npm:
+                token: $npm_token
     sync-for-commerce-library:
         target: typescript
         source: sync-for-commerce-source
