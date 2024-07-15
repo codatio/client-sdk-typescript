@@ -1,9 +1,9 @@
-speakeasyVersion: 1.335.0
+speakeasyVersion: 1.335.2
 sources:
     platform-source:
         sourceNamespace: platform-source
-        sourceRevisionDigest: sha256:7fabe5b33ae8cf8a29e7874c451c8174cdb3ef47c24392153fc6f90221f6b039
-        sourceBlobDigest: sha256:5ba00c3df6cfe89a91b936e1005ba7764b4fd5bbe862dc47101d964612819a06
+        sourceRevisionDigest: sha256:7b1eb972ffee87acb3d4deb912394ab72311bb5ccc66bfcc3bc50a056617d6a9
+        sourceBlobDigest: sha256:fb201eeb7199939d740fc18a8a7a2b1f41461cb4e80fee32c838b6818181d175
         tags:
             - latest
             - main
@@ -11,9 +11,9 @@ targets:
     platform-library:
         source: platform-source
         sourceNamespace: platform-source
-        sourceRevisionDigest: sha256:7fabe5b33ae8cf8a29e7874c451c8174cdb3ef47c24392153fc6f90221f6b039
-        sourceBlobDigest: sha256:5ba00c3df6cfe89a91b936e1005ba7764b4fd5bbe862dc47101d964612819a06
-        outLocation: ./platform
+        sourceRevisionDigest: sha256:7b1eb972ffee87acb3d4deb912394ab72311bb5ccc66bfcc3bc50a056617d6a9
+        sourceBlobDigest: sha256:fb201eeb7199939d740fc18a8a7a2b1f41461cb4e80fee32c838b6818181d175
+        outLocation: platform
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -104,7 +104,7 @@ workflow:
         platform-library:
             target: typescript
             source: platform-source
-            output: ./platform
+            output: platform
             publish: {}
         sync-for-commerce-library:
             target: typescript
