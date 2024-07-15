@@ -87,7 +87,7 @@ targets:
     platform-library:
         target: typescript
         source: platform-source
-        output: ./platform
+        output: platform
         publish: 
             typescript:
                 npm_token: $npm_token
