@@ -2,8 +2,8 @@ speakeasyVersion: 1.335.2
 sources:
     platform-source:
         sourceNamespace: platform-source
-        sourceRevisionDigest: sha256:7b1eb972ffee87acb3d4deb912394ab72311bb5ccc66bfcc3bc50a056617d6a9
-        sourceBlobDigest: sha256:fb201eeb7199939d740fc18a8a7a2b1f41461cb4e80fee32c838b6818181d175
+        sourceRevisionDigest: sha256:740f9226ce683d8f68a3eff27fa6da9ed67f99b82a5b063eabe3ecdfa9a140e4
+        sourceBlobDigest: sha256:ce47e7c490d6e9f8eda99ffd9605a4edceafe379441bac0c986a8cbe8d7e6f63
         tags:
             - latest
             - main
@@ -11,8 +11,8 @@ targets:
     platform-library:
         source: platform-source
         sourceNamespace: platform-source
-        sourceRevisionDigest: sha256:7b1eb972ffee87acb3d4deb912394ab72311bb5ccc66bfcc3bc50a056617d6a9
-        sourceBlobDigest: sha256:fb201eeb7199939d740fc18a8a7a2b1f41461cb4e80fee32c838b6818181d175
+        sourceRevisionDigest: sha256:740f9226ce683d8f68a3eff27fa6da9ed67f99b82a5b063eabe3ecdfa9a140e4
+        sourceBlobDigest: sha256:ce47e7c490d6e9f8eda99ffd9605a4edceafe379441bac0c986a8cbe8d7e6f63
         outLocation: platform
 workflow:
     workflowVersion: 1.0.0
@@ -105,7 +105,9 @@ workflow:
             target: typescript
             source: platform-source
             output: platform
-            publish: {}
+            publish:
+                npm:
+                    token: $npm_token
         sync-for-commerce-library:
             target: typescript
             source: sync-for-commerce-source
