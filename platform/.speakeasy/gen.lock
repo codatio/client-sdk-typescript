@@ -5,8 +5,8 @@ management:
   docVersion: 3.0.0
   speakeasyVersion: 1.335.0
   generationVersion: 2.370.2
-  releaseVersion: 3.1.0
-  configChecksum: 59c10bbb42aaf2478116ff0936eb9226
+  releaseVersion: 3.1.1
+  configChecksum: 94238603d56fd033ba06fe671a4b0bdc
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   repoSubDirectory: platform
   installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/platform
