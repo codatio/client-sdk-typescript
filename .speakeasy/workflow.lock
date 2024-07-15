@@ -1,9 +1,9 @@
-speakeasyVersion: 1.331.2
+speakeasyVersion: 1.335.0
 sources:
     platform-source:
         sourceNamespace: platform-source
-        sourceRevisionDigest: sha256:14df481219fad245cca40b9bc118b435d81cf76644db91eb6cd141e1ae052504
-        sourceBlobDigest: sha256:5d647abdc8820166576203f4baf8ce52892bd5e7a527a4d2ddeeb588ec287226
+        sourceRevisionDigest: sha256:1f88ea09cba05cb945981f0185460998a8c63dbd279d10d572fba8649dec3760
+        sourceBlobDigest: sha256:8461db5b6c843570b6ff727124765eb954df06da28d53266341141ed64997942
         tags:
             - latest
             - main
@@ -11,8 +11,8 @@ targets:
     platform-library:
         source: platform-source
         sourceNamespace: platform-source
-        sourceRevisionDigest: sha256:14df481219fad245cca40b9bc118b435d81cf76644db91eb6cd141e1ae052504
-        sourceBlobDigest: sha256:5d647abdc8820166576203f4baf8ce52892bd5e7a527a4d2ddeeb588ec287226
+        sourceRevisionDigest: sha256:1f88ea09cba05cb945981f0185460998a8c63dbd279d10d572fba8649dec3760
+        sourceBlobDigest: sha256:8461db5b6c843570b6ff727124765eb954df06da28d53266341141ed64997942
         outLocation: ./platform
 workflow:
     workflowVersion: 1.0.0
