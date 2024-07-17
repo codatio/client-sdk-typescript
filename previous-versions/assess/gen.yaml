@@ -11,6 +11,14 @@ generation:
   usageSnippets:
     optionalPropertyRendering: withExample
   telemetryEnabled: true
+  maintainOpenAPIOrder: true
+  useClassNamesForArrayFields: true
+  fixes:
+    nameResolutionDec2023: true
+    parameterOrderingFeb2024: true
+    requestResponseComponentNamesFeb2024: true
+  auth:
+    oAuth2ClientCredentialsEnabled: false
 features:
   typescript:
     acceptHeaders: 2.81.1
@@ -24,10 +32,10 @@ features:
 typescript:
   version: 0.36.0
   author: Codat
-  clientServerStatusCodesAsErrors: false
+  clientServerStatusCodesAsErrors: true
   description: Make credit decisions backed by enhanced financials, metrics, reports,
     and data integrity features.
-  flattenGlobalSecurity: false
+  flattenGlobalSecurity: true
   imports:
     option: openapi
     paths:
@@ -44,3 +52,13 @@ typescript:
   published: true
   repoSubDirectory: previous-versions/assess
   templateVersion: v2
+  additionalDependencies:
+    dependencies: {}
+    devDependencies: {}
+    peerDependencies: {}
+  additionalPackageJSON: {}
+  enumFormat: union
+  methodArguments: infer-optional-args
+  moduleFormat: commonjs
+  responseFormat: flat
+  useIndexModules: true
