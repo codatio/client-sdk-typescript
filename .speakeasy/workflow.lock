@@ -9,8 +9,15 @@ sources:
             - main
     platform-source:
         sourceNamespace: platform-source
-        sourceRevisionDigest: sha256:496b4198b72f3dfd6ce6fc079721e0ada3ce0f1bba27a561907be45cdac94fee
-        sourceBlobDigest: sha256:bb36df5a0c16863cee57da7324401c647fd836d2b734f62a3a999d649d35fb20
+        sourceRevisionDigest: sha256:129722ba727e02e06b06f970bf604ad8381b1368043e1df352c45f13bc88dc5f
+        sourceBlobDigest: sha256:58909979e578bc80a3dcaa1b431b86e239f4d287edd6b1181744c52a9cd457c3
+        tags:
+            - latest
+            - main
+    sync-for-commerce-source:
+        sourceNamespace: sync-for-commerce-source
+        sourceRevisionDigest: sha256:b84dfd0a144f6e1f6820d89002c47ef49c1577847dbf847b8084e2878f0d665d
+        sourceBlobDigest: sha256:8d28ab5948234762183d92571ebbc3c5680bbbb4bd74052fad1164eed6d68d14
         tags:
             - latest
             - main
@@ -31,8 +38,8 @@ targets:
     platform-library:
         source: platform-source
         sourceNamespace: platform-source
-        sourceRevisionDigest: sha256:496b4198b72f3dfd6ce6fc079721e0ada3ce0f1bba27a561907be45cdac94fee
-        sourceBlobDigest: sha256:bb36df5a0c16863cee57da7324401c647fd836d2b734f62a3a999d649d35fb20
+        sourceRevisionDigest: sha256:129722ba727e02e06b06f970bf604ad8381b1368043e1df352c45f13bc88dc5f
+        sourceBlobDigest: sha256:58909979e578bc80a3dcaa1b431b86e239f4d287edd6b1181744c52a9cd457c3
         outLocation: platform
     sync-for-payroll-library:
         source: sync-for-payroll-source
@@ -40,6 +47,12 @@ targets:
         sourceRevisionDigest: sha256:95fbbd9d479c192baabe63b6b95494bf55876fb9007df3657fa51660a8c73431
         sourceBlobDigest: sha256:baa2f5f6f0837b11f0c2dd0adb8f51dff8afe272834ddada31ede54d8f3a7103
         outLocation: sync-for-payroll
+    sync-for-commerce-library:
+        source: sync-for-commerce-source
+        sourceNamespace: sync-for-commerce-source
+        sourceRevisionDigest: sha256:b84dfd0a144f6e1f6820d89002c47ef49c1577847dbf847b8084e2878f0d665d
+        sourceBlobDigest: sha256:8d28ab5948234762183d92571ebbc3c5680bbbb4bd74052fad1164eed6d68d14
+        outLocation: sync-for-commerce
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -78,6 +91,8 @@ workflow:
         sync-for-commerce-source:
             inputs:
                 - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Commerce.yaml
+            registry:
+                location: registry.speakeasyapi.dev/codat/codat/sync-for-commerce-source
         sync-for-commerce-version-1-source:
             inputs:
                 - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Commerce-v1.yaml
