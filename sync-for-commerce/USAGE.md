@@ -1,17 +1,15 @@
 <!-- Start SDK Example Usage [usage] -->
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { Locale } from "@codat/sync-for-commerce/sdk/models/shared";
+
+const codatSyncCommerce = new CodatSyncCommerce({
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 async function run() {
-    const sdk = new CodatSyncCommerce({
-        security: {
-            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-        },
-    });
-
-    const result = await sdk.syncFlowSettings.getConfigTextSyncFlow({
-        locale: Locale.EnUs,
+    const result = await codatSyncCommerce.connections.getSyncFlowUrl({
+        commerceKey: "<value>",
+        accountingKey: "<value>",
     });
 
     // Handle the result
