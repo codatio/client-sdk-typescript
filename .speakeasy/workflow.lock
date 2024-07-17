@@ -1,5 +1,12 @@
-speakeasyVersion: 1.336.0
+speakeasyVersion: 1.337.1
 sources:
+    bank-feeds-source:
+        sourceNamespace: bank-feeds-source
+        sourceRevisionDigest: sha256:0f87a6f2907d055333a3ebfa823c2c20b8c78a47c9b32280d3e1de42401e9cb7
+        sourceBlobDigest: sha256:1fb492702331c8f3af91b7d73b45add7b4db2f0ce37567bf1a47c1db18b35575
+        tags:
+            - latest
+            - main
     platform-source:
         sourceNamespace: platform-source
         sourceRevisionDigest: sha256:496b4198b72f3dfd6ce6fc079721e0ada3ce0f1bba27a561907be45cdac94fee
@@ -8,6 +15,12 @@ sources:
             - latest
             - main
 targets:
+    bank-feeds-library:
+        source: bank-feeds-source
+        sourceNamespace: bank-feeds-source
+        sourceRevisionDigest: sha256:0f87a6f2907d055333a3ebfa823c2c20b8c78a47c9b32280d3e1de42401e9cb7
+        sourceBlobDigest: sha256:1fb492702331c8f3af91b7d73b45add7b4db2f0ce37567bf1a47c1db18b35575
+        outLocation: bank-feeds
     platform-library:
         source: platform-source
         sourceNamespace: platform-source
@@ -27,6 +40,8 @@ workflow:
         bank-feeds-source:
             inputs:
                 - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Bank-Feeds.yaml
+            registry:
+                location: registry.speakeasyapi.dev/codat/codat/bank-feeds-source
         banking-source:
             inputs:
                 - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Banking.yaml
@@ -72,35 +87,59 @@ workflow:
         accounting-library:
             target: typescript
             source: accounting-source
-            output: ./previous-versions/accounting
+            output: previous-versions/accounting
+            publish:
+                npm:
+                    token: $npm_token
         assess-library:
             target: typescript
             source: assess-source
-            output: ./previous-versions/assess
+            output: previous-versions/assess
+            publish:
+                npm:
+                    token: $npm_token
         bank-feeds-library:
             target: typescript
             source: bank-feeds-source
-            output: ./bank-feeds
+            output: bank-feeds
+            publish:
+                npm:
+                    token: $npm_token
         banking-library:
             target: typescript
             source: banking-source
-            output: ./previous-versions/banking
+            output: previous-versions/banking
+            publish:
+                npm:
+                    token: $npm_token
         commerce-library:
             target: typescript
             source: commerce-source
-            output: ./previous-versions/commerce
+            output: previous-versions/commerce
+            publish:
+                npm:
+                    token: $npm_token
         common-library:
             target: typescript
             source: common-source
-            output: ./previous-versions/common
+            output: previous-versions/common
+            publish:
+                npm:
+                    token: $npm_token
         files-library:
             target: typescript
             source: files-source
-            output: ./previous-versions/files
+            output: previous-versions/files
+            publish:
+                npm:
+                    token: $npm_token
         lending-library:
             target: typescript
             source: lending-source
-            output: ./lending
+            output: lending
+            publish:
+                npm:
+                    token: $npm_token
         platform-library:
             target: typescript
             source: platform-source
@@ -111,28 +150,49 @@ workflow:
         sync-for-commerce-library:
             target: typescript
             source: sync-for-commerce-source
-            output: ./sync-for-commerce
+            output: sync-for-commerce
+            publish:
+                npm:
+                    token: $npm_token
         sync-for-commerce-version-1-library:
             target: typescript
             source: sync-for-commerce-version-1-source
-            output: ./previous-versions/sync-for-commerce-version-1
+            output: previous-versions/sync-for-commerce-version-1
+            publish:
+                npm:
+                    token: $npm_token
         sync-for-expenses-library:
             target: typescript
             source: sync-for-expenses-source
-            output: ./sync-for-expenses
+            output: sync-for-expenses
+            publish:
+                npm:
+                    token: $npm_token
         sync-for-expenses-version-1-library:
             target: typescript
             source: sync-for-expenses-version-1-source
-            output: ./previous-versions/sync-for-expenses-version-1
+            output: previous-versions/sync-for-expenses-version-1
+            publish:
+                npm:
+                    token: $npm_token
         sync-for-payables-library:
             target: typescript
             source: sync-for-payables-source
-            output: ./sync-for-payables
+            output: sync-for-payables
+            publish:
+                npm:
+                    token: $npm_token
         sync-for-payables-version-1-library:
             target: typescript
             source: sync-for-payables-version-1-source
-            output: ./previous-versions/sync-for-payables-version-1
+            output: previous-versions/sync-for-payables-version-1
+            publish:
+                npm:
+                    token: $npm_token
         sync-for-payroll-library:
             target: typescript
             source: sync-for-payroll-source
-            output: ./sync-for-payroll
+            output: sync-for-payroll
+            publish:
+                npm:
+                    token: $npm_token
