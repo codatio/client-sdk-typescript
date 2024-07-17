@@ -3,10 +3,10 @@ id: 6a970e30-8d0a-42f0-a8ce-621dfe880a1d
 management:
   docChecksum: ced98ff1180e32d5026f7d960a49babc
   docVersion: 3.0.0
-  speakeasyVersion: 1.336.0
-  generationVersion: 2.373.0
-  releaseVersion: 3.2.0
-  configChecksum: a678528d96244b8085aebd6a483c7915
+  speakeasyVersion: 1.338.0
+  generationVersion: 2.374.2
+  releaseVersion: 4.0.0
+  configChecksum: 80110b5f0116394161b4d19be2079e47
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   repoSubDirectory: platform
   installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/platform
@@ -15,7 +15,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.5
-    core: 3.11.6
+    core: 3.11.7
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     examples: 2.81.4
@@ -350,3 +350,4 @@ generatedFiles:
   - src/hooks/hooks.ts
   - src/hooks/types.ts
   - src/hooks/index.ts
+  - CONTRIBUTING.md

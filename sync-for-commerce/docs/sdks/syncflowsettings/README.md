@@ -3,13 +3,13 @@
 
 ## Overview
 
-Configure preferences for any given Sync for Commerce company using sync flow.
+Control text and visibility settings for the Sync Flow.
 
 ### Available Operations
 
 * [getConfigTextSyncFlow](#getconfigtextsyncflow) - Get preferences for text fields
-* [getVisibleAccounts](#getvisibleaccounts) - List visible accounts
 * [updateConfigTextSyncFlow](#updateconfigtextsyncflow) - Update preferences for text fields
+* [getVisibleAccounts](#getvisibleaccounts) - List visible accounts
 * [updateVisibleAccountsSyncFlow](#updatevisibleaccountssyncflow) - Update visible accounts
 
 ## getConfigTextSyncFlow
@@ -20,17 +20,14 @@ Return preferences set for the text fields on sync flow.
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { Locale } from "@codat/sync-for-commerce/sdk/models/shared";
+
+const codatSyncCommerce = new CodatSyncCommerce({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 async function run() {
-  const sdk = new CodatSyncCommerce({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-    },
-  });
-
-  const result = await sdk.syncFlowSettings.getConfigTextSyncFlow({
-    locale: Locale.EnUs,
+  const result = await codatSyncCommerce.syncFlowSettings.getConfigTextSyncFlow({
+    locale: "en-us",
   });
 
   // Handle the result
@@ -52,12 +49,58 @@ run();
 
 ### Response
 
-**Promise<[operations.GetConfigTextSyncFlowResponse](../../sdk/models/operations/getconfigtextsyncflowresponse.md)>**
+**Promise\<[{ [k: string]: shared.Localization }](../../models/.md)\>**
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| Error Object            | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401,402,403,429,500,503 | application/json        |
+| errors.SDKError         | 4xx-5xx                 | */*                     |
+
+## updateConfigTextSyncFlow
+
+Set preferences for the text fields on sync flow.
+
+### Example Usage
+
+```typescript
+import { CodatSyncCommerce } from "@codat/sync-for-commerce";
+
+const codatSyncCommerce = new CodatSyncCommerce({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncCommerce.syncFlowSettings.updateConfigTextSyncFlow({
+    locale: "en-us",
+  });
+
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.UpdateConfigTextSyncFlowRequest](../../sdk/models/operations/updateconfigtextsyncflowrequest.md)                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+
+### Response
+
+**Promise\<[{ [k: string]: shared.Localization }](../../models/.md)\>**
+### Errors
+
+| Error Object                | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ErrorMessage         | 400,401,402,403,429,500,503 | application/json            |
+| errors.SDKError             | 4xx-5xx                     | */*                         |
 
 ## getVisibleAccounts
 
@@ -68,14 +111,12 @@ Return accounts which are visible on sync flow.
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 
-async function run() {
-  const sdk = new CodatSyncCommerce({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-    },
-  });
+const codatSyncCommerce = new CodatSyncCommerce({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
-  const result = await sdk.syncFlowSettings.getVisibleAccounts({
+async function run() {
+  const result = await codatSyncCommerce.syncFlowSettings.getVisibleAccounts({
     clientId: "86fe9741-738d-4f2c-8e96-9c3f84156e91",
     platformKey: "gbol",
   });
@@ -99,62 +140,13 @@ run();
 
 ### Response
 
-**Promise<[operations.GetVisibleAccountsResponse](../../sdk/models/operations/getvisibleaccountsresponse.md)>**
+**Promise\<[shared.VisibleAccounts](../../sdk/models/shared/visibleaccounts.md)\>**
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
-
-## updateConfigTextSyncFlow
-
-Set preferences for the text fields on sync flow.
-
-### Example Usage
-
-```typescript
-import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { Locale } from "@codat/sync-for-commerce/sdk/models/shared";
-
-async function run() {
-  const sdk = new CodatSyncCommerce({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-    },
-  });
-
-  const result = await sdk.syncFlowSettings.updateConfigTextSyncFlow({
-    requestBody: {
-      "key": {},
-    },
-    locale: Locale.EnUs,
-  });
-
-  // Handle the result
-  console.log(result)
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.UpdateConfigTextSyncFlowRequest](../../sdk/models/operations/updateconfigtextsyncflowrequest.md)                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-
-### Response
-
-**Promise<[operations.UpdateConfigTextSyncFlowResponse](../../sdk/models/operations/updateconfigtextsyncflowresponse.md)>**
-### Errors
-
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| Error Object                | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ErrorMessage         | 401,402,403,404,429,500,503 | application/json            |
+| errors.SDKError             | 4xx-5xx                     | */*                         |
 
 ## updateVisibleAccountsSyncFlow
 
@@ -165,19 +157,12 @@ Update which accounts are visible on sync flow.
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
 
-async function run() {
-  const sdk = new CodatSyncCommerce({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-    },
-  });
+const codatSyncCommerce = new CodatSyncCommerce({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
-  const result = await sdk.syncFlowSettings.updateVisibleAccountsSyncFlow({
-    visibleAccounts: {
-      visibleAccounts: [
-        "string",
-      ],
-    },
+async function run() {
+  const result = await codatSyncCommerce.syncFlowSettings.updateVisibleAccountsSyncFlow({
     platformKey: "gbol",
   });
 
@@ -200,9 +185,10 @@ run();
 
 ### Response
 
-**Promise<[operations.UpdateVisibleAccountsSyncFlowResponse](../../sdk/models/operations/updatevisibleaccountssyncflowresponse.md)>**
+**Promise\<[shared.VisibleAccounts](../../sdk/models/shared/visibleaccounts.md)\>**
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| Error Object                    | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ErrorMessage             | 400,401,402,403,404,429,500,503 | application/json                |
+| errors.SDKError                 | 4xx-5xx                         | */*                             |

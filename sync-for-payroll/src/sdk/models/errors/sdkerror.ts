@@ -3,22 +3,23 @@
  */
 
 export class SDKError extends Error {
-  statusCode: number;
-  body: string;
-  rawResponse: Response;
+    public readonly statusCode: number;
+    public readonly contentType: string;
 
-  constructor(message: string, response: Response, body: string = "") {
-    const statusCode = response.status;
+    constructor(
+        message: string,
+        public readonly rawResponse: Response,
+        public readonly body: string = ""
+    ) {
+        const statusCode = rawResponse.status;
+        const contentType = rawResponse.headers.get("content-type") || "";
+        const bodyString = body.length > 0 ? `\n${body}` : "";
 
-    let bodyString = "";
-    if (body.length > 0) {
-      bodyString = `\n${body}`;
+        super(`${message}: Status ${statusCode} Content-Type ${contentType} Body ${bodyString}`);
+
+        this.statusCode = statusCode;
+        this.contentType = contentType;
+
+        this.name = "SDKError";
     }
-
-    super(`${message}: Status ${statusCode}${bodyString}`);
-    this.statusCode = statusCode;
-    this.body = body;
-    this.rawResponse = response;
-    this.name = "SDKError";
-  }
 }

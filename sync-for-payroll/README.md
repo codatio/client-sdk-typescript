@@ -13,10 +13,25 @@ Push payroll to accounting platforms.
 npm add @codat/sync-for-payroll
 ```
 
+### PNPM
+
+```bash
+pnpm add @codat/sync-for-payroll
+```
+
+### Bun
+
+```bash
+bun add @codat/sync-for-payroll
+```
+
 ### Yarn
 
 ```bash
-yarn add @codat/sync-for-payroll
+yarn add @codat/sync-for-payroll zod
+
+# Note that Yarn does not install peer dependencies automatically. You will need
+# to install zod as shown above.
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -29,21 +44,16 @@ yarn add @codat/sync-for-payroll
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
 
-async function run() {
-    const sdk = new CodatSyncPayroll({
-        security: {
-            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-        },
-    });
+const codatSyncPayroll = new CodatSyncPayroll({
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
-    const result = await sdk.companies.create({
-        description: "Requested early access to the new financing scheme.",
-        groups: [
-            {
-                id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-            },
-        ],
-        name: "Bank of Dave",
+async function run() {
+    const result = await codatSyncPayroll.companies.list({
+        page: 1,
+        pageSize: 100,
+        query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+        orderBy: "-modifiedDate",
     });
 
     // Handle the result
@@ -60,60 +70,60 @@ run();
 
 ### [companies](docs/sdks/companies/README.md)
 
+* [list](docs/sdks/companies/README.md#list) - List companies
 * [create](docs/sdks/companies/README.md#create) - Create company
+* [update](docs/sdks/companies/README.md#update) - Update company
 * [delete](docs/sdks/companies/README.md#delete) - Delete a company
 * [get](docs/sdks/companies/README.md#get) - Get company
-* [list](docs/sdks/companies/README.md#list) - List companies
-* [update](docs/sdks/companies/README.md#update) - Update company
 
 ### [connections](docs/sdks/connections/README.md)
 
-* [create](docs/sdks/connections/README.md#create) - Create connection
-* [delete](docs/sdks/connections/README.md#delete) - Delete connection
-* [get](docs/sdks/connections/README.md#get) - Get connection
 * [list](docs/sdks/connections/README.md#list) - List connections
+* [create](docs/sdks/connections/README.md#create) - Create connection
+* [get](docs/sdks/connections/README.md#get) - Get connection
+* [delete](docs/sdks/connections/README.md#delete) - Delete connection
 * [unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
-
-### [accounts](docs/sdks/accounts/README.md)
-
-* [create](docs/sdks/accounts/README.md#create) - Create account
-* [get](docs/sdks/accounts/README.md#get) - Get account
-* [getCreateModel](docs/sdks/accounts/README.md#getcreatemodel) - Get create account model
-* [list](docs/sdks/accounts/README.md#list) - List accounts
-
-### [journalEntries](docs/sdks/journalentries/README.md)
-
-* [create](docs/sdks/journalentries/README.md#create) - Create journal entry
-* [delete](docs/sdks/journalentries/README.md#delete) - Delete journal entry
-* [get](docs/sdks/journalentries/README.md#get) - Get journal entry
-* [getCreateModel](docs/sdks/journalentries/README.md#getcreatemodel) - Get create journal entry model
-* [list](docs/sdks/journalentries/README.md#list) - List journal entries
-
-### [journals](docs/sdks/journals/README.md)
-
-* [create](docs/sdks/journals/README.md#create) - Create journal
-* [get](docs/sdks/journals/README.md#get) - Get journal
-* [getCreateModel](docs/sdks/journals/README.md#getcreatemodel) - Get create journal model
-* [list](docs/sdks/journals/README.md#list) - List journals
 
 ### [manageData](docs/sdks/managedata/README.md)
 
+* [refreshAllDataTypes](docs/sdks/managedata/README.md#refreshalldatatypes) - Refresh all data
 * [getDataStatus](docs/sdks/managedata/README.md#getdatastatus) - Get data status
+* [refreshDataType](docs/sdks/managedata/README.md#refreshdatatype) - Refresh data type
+* [listPullOperations](docs/sdks/managedata/README.md#listpulloperations) - List pull operations
+* [list](docs/sdks/managedata/README.md#list) - List push operations
 * [getPullOperation](docs/sdks/managedata/README.md#getpulloperation) - Get pull operation
 * [getPushOperation](docs/sdks/managedata/README.md#getpushoperation) - Get push operation
-* [list](docs/sdks/managedata/README.md#list) - List push operations
-* [listPullOperations](docs/sdks/managedata/README.md#listpulloperations) - List pull operations
-* [refreshAllDataTypes](docs/sdks/managedata/README.md#refreshalldatatypes) - Refresh all data
-* [refreshDataType](docs/sdks/managedata/README.md#refreshdatatype) - Refresh data type
+
+### [accounts](docs/sdks/accounts/README.md)
+
+* [list](docs/sdks/accounts/README.md#list) - List accounts
+* [get](docs/sdks/accounts/README.md#get) - Get account
+* [getCreateModel](docs/sdks/accounts/README.md#getcreatemodel) - Get create account model
+* [create](docs/sdks/accounts/README.md#create) - Create account
+
+### [journalEntries](docs/sdks/journalentries/README.md)
+
+* [list](docs/sdks/journalentries/README.md#list) - List journal entries
+* [get](docs/sdks/journalentries/README.md#get) - Get journal entry
+* [delete](docs/sdks/journalentries/README.md#delete) - Delete journal entry
+* [getCreateModel](docs/sdks/journalentries/README.md#getcreatemodel) - Get create journal entry model
+* [create](docs/sdks/journalentries/README.md#create) - Create journal entry
+
+### [journals](docs/sdks/journals/README.md)
+
+* [list](docs/sdks/journals/README.md#list) - List journals
+* [get](docs/sdks/journals/README.md#get) - Get journal
+* [getCreateModel](docs/sdks/journals/README.md#getcreatemodel) - Get create journal model
+* [create](docs/sdks/journals/README.md#create) - Create journal
+
+### [trackingCategories](docs/sdks/trackingcategories/README.md)
+
+* [list](docs/sdks/trackingcategories/README.md#list) - List tracking categories
+* [get](docs/sdks/trackingcategories/README.md#get) - Get tracking categories
 
 ### [companyInfo](docs/sdks/companyinfo/README.md)
 
 * [getAccountingProfile](docs/sdks/companyinfo/README.md#getaccountingprofile) - Get company accounting profile
-
-### [trackingCategories](docs/sdks/trackingcategories/README.md)
-
-* [get](docs/sdks/trackingcategories/README.md#get) - Get tracking categories
-* [list](docs/sdks/trackingcategories/README.md#list) - List tracking categories
 <!-- End Available Resources and Operations [operations] -->
 
 
@@ -133,22 +143,17 @@ To change the default retry strategy for a single API call, simply provide a ret
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
 
-async function run() {
-    const sdk = new CodatSyncPayroll({
-        security: {
-            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-        },
-    });
+const codatSyncPayroll = new CodatSyncPayroll({
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
-    const result = await sdk.companies.create(
+async function run() {
+    const result = await codatSyncPayroll.companies.list(
         {
-            description: "Requested early access to the new financing scheme.",
-            groups: [
-                {
-                    id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-                },
-            ],
-            name: "Bank of Dave",
+            page: 1,
+            pageSize: 100,
+            query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+            orderBy: "-modifiedDate",
         },
         {
             retries: {
@@ -176,31 +181,26 @@ If you'd like to override the default retry strategy for all operations that sup
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
 
-async function run() {
-    const sdk = new CodatSyncPayroll({
-        retryConfig: {
-            strategy: "backoff",
-            backoff: {
-                initialInterval: 1,
-                maxInterval: 50,
-                exponent: 1.1,
-                maxElapsedTime: 100,
-            },
-            retryConnectionErrors: false,
+const codatSyncPayroll = new CodatSyncPayroll({
+    retryConfig: {
+        strategy: "backoff",
+        backoff: {
+            initialInterval: 1,
+            maxInterval: 50,
+            exponent: 1.1,
+            maxElapsedTime: 100,
         },
-        security: {
-            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-        },
-    });
+        retryConnectionErrors: false,
+    },
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
-    const result = await sdk.companies.create({
-        description: "Requested early access to the new financing scheme.",
-        groups: [
-            {
-                id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-            },
-        ],
-        name: "Bank of Dave",
+async function run() {
+    const result = await codatSyncPayroll.companies.list({
+        page: 1,
+        pageSize: 100,
+        query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+        orderBy: "-modifiedDate",
     });
 
     // Handle the result
@@ -217,36 +217,48 @@ run();
 
 All SDK methods return a response object or throw an error. If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
 
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| Error Object                    | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ErrorMessage             | 400,401,402,403,404,429,500,503 | application/json                |
+| errors.SDKError                 | 4xx-5xx                         | */*                             |
 
-Example
+Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted string since validation errors can list many issues and the plain error string may be difficult read when debugging. 
+
 
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
+import { SDKValidationError } from "@codat/sync-for-payroll/sdk/models/errors";
+
+const codatSyncPayroll = new CodatSyncPayroll({
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 async function run() {
-    const sdk = new CodatSyncPayroll({
-        security: {
-            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-        },
-    });
-
     let result;
     try {
-        result = await sdk.companies.create({
-            description: "Requested early access to the new financing scheme.",
-            groups: [
-                {
-                    id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-                },
-            ],
-            name: "Bank of Dave",
+        result = await codatSyncPayroll.companies.list({
+            page: 1,
+            pageSize: 100,
+            query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+            orderBy: "-modifiedDate",
         });
     } catch (err) {
-        // Handle errors here
-        throw err;
+        switch (true) {
+            case err instanceof SDKValidationError: {
+                // Validation errors can be pretty-printed
+                console.error(err.pretty());
+                // Raw value may also be inspected
+                console.error(err.rawValue);
+                return;
+            }
+            case err instanceof errors.ErrorMessage: {
+                console.error(err); // handle exception
+                return;
+            }
+            default: {
+                throw err;
+            }
+        }
     }
 
     // Handle the result
@@ -272,22 +284,17 @@ You can override the default server globally by passing a server index to the `s
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
 
-async function run() {
-    const sdk = new CodatSyncPayroll({
-        serverIdx: 0,
-        security: {
-            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-        },
-    });
+const codatSyncPayroll = new CodatSyncPayroll({
+    serverIdx: 0,
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
-    const result = await sdk.companies.create({
-        description: "Requested early access to the new financing scheme.",
-        groups: [
-            {
-                id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-            },
-        ],
-        name: "Bank of Dave",
+async function run() {
+    const result = await codatSyncPayroll.companies.list({
+        page: 1,
+        pageSize: 100,
+        query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+        orderBy: "-modifiedDate",
     });
 
     // Handle the result
@@ -306,22 +313,17 @@ The default server can also be overridden globally by passing a URL to the `serv
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
 
-async function run() {
-    const sdk = new CodatSyncPayroll({
-        serverURL: "https://api.codat.io",
-        security: {
-            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-        },
-    });
+const codatSyncPayroll = new CodatSyncPayroll({
+    serverURL: "https://api.codat.io",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
-    const result = await sdk.companies.create({
-        description: "Requested early access to the new financing scheme.",
-        groups: [
-            {
-                id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-            },
-        ],
-        name: "Bank of Dave",
+async function run() {
+    const result = await codatSyncPayroll.companies.list({
+        page: 1,
+        pageSize: 100,
+        query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+        orderBy: "-modifiedDate",
     });
 
     // Handle the result
@@ -363,7 +365,7 @@ const httpClient = new HTTPClient({
 
 httpClient.addHook("beforeRequest", (request) => {
   const nextRequest = new Request(request, {
-    signal: request.signal || AbortSignal.timeout(5000);
+    signal: request.signal || AbortSignal.timeout(5000)
   });
 
   nextRequest.headers.set("x-custom-header", "custom value");
@@ -393,25 +395,20 @@ This SDK supports the following security scheme globally:
 | ------------ | ------------ | ------------ |
 | `authHeader` | apiKey       | API key      |
 
-You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
+To authenticate with the API the `authHeader` parameter must be set when initializing the SDK client instance. For example:
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
 
-async function run() {
-    const sdk = new CodatSyncPayroll({
-        security: {
-            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-        },
-    });
+const codatSyncPayroll = new CodatSyncPayroll({
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
-    const result = await sdk.companies.create({
-        description: "Requested early access to the new financing scheme.",
-        groups: [
-            {
-                id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-            },
-        ],
-        name: "Bank of Dave",
+async function run() {
+    const result = await codatSyncPayroll.companies.list({
+        page: 1,
+        pageSize: 100,
+        query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+        orderBy: "-modifiedDate",
     });
 
     // Handle the result
