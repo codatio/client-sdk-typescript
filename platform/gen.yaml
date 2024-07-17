@@ -20,7 +20,8 @@ typescript:
   additionalPackageJSON: {}
   author: Codat
   clientServerStatusCodesAsErrors: true
-  description: Manage the building blocks of Codat, including companies, connections, and more.
+  description: Manage the building blocks of Codat, including companies, connections,
+    and more.
   enumFormat: union
   flattenGlobalSecurity: true
   imports:
