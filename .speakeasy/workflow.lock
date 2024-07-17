@@ -1,4 +1,4 @@
-speakeasyVersion: 1.337.1
+speakeasyVersion: 1.338.0
 sources:
     bank-feeds-source:
         sourceNamespace: bank-feeds-source
@@ -11,6 +11,13 @@ sources:
         sourceNamespace: platform-source
         sourceRevisionDigest: sha256:496b4198b72f3dfd6ce6fc079721e0ada3ce0f1bba27a561907be45cdac94fee
         sourceBlobDigest: sha256:bb36df5a0c16863cee57da7324401c647fd836d2b734f62a3a999d649d35fb20
+        tags:
+            - latest
+            - main
+    sync-for-payroll-source:
+        sourceNamespace: sync-for-payroll-source
+        sourceRevisionDigest: sha256:95fbbd9d479c192baabe63b6b95494bf55876fb9007df3657fa51660a8c73431
+        sourceBlobDigest: sha256:baa2f5f6f0837b11f0c2dd0adb8f51dff8afe272834ddada31ede54d8f3a7103
         tags:
             - latest
             - main
@@ -27,6 +34,12 @@ targets:
         sourceRevisionDigest: sha256:496b4198b72f3dfd6ce6fc079721e0ada3ce0f1bba27a561907be45cdac94fee
         sourceBlobDigest: sha256:bb36df5a0c16863cee57da7324401c647fd836d2b734f62a3a999d649d35fb20
         outLocation: platform
+    sync-for-payroll-library:
+        source: sync-for-payroll-source
+        sourceNamespace: sync-for-payroll-source
+        sourceRevisionDigest: sha256:95fbbd9d479c192baabe63b6b95494bf55876fb9007df3657fa51660a8c73431
+        sourceBlobDigest: sha256:baa2f5f6f0837b11f0c2dd0adb8f51dff8afe272834ddada31ede54d8f3a7103
+        outLocation: sync-for-payroll
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -83,6 +96,8 @@ workflow:
         sync-for-payroll-source:
             inputs:
                 - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Payroll.yaml
+            registry:
+                location: registry.speakeasyapi.dev/codat/codat/sync-for-payroll-source
     targets:
         accounting-library:
             target: typescript

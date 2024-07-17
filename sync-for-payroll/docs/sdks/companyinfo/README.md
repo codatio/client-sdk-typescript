@@ -3,7 +3,7 @@
 
 ## Overview
 
-View company information fetched from the source platform.
+View company profile from the source platform.
 
 ### Available Operations
 
@@ -18,14 +18,12 @@ Gets the latest basic info for a company.
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
 
-async function run() {
-  const sdk = new CodatSyncPayroll({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-    },
-  });
+const codatSyncPayroll = new CodatSyncPayroll({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
-  const result = await sdk.companyInfo.getAccountingProfile({
+async function run() {
+  const result = await codatSyncPayroll.companyInfo.getAccountingProfile({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
@@ -48,9 +46,10 @@ run();
 
 ### Response
 
-**Promise<[operations.GetAccountingProfileResponse](../../sdk/models/operations/getaccountingprofileresponse.md)>**
+**Promise\<[shared.CompanyInfo](../../sdk/models/shared/companyinfo.md)\>**
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| Error Object                    | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ErrorMessage             | 401,402,403,404,409,429,500,503 | application/json                |
+| errors.SDKError                 | 4xx-5xx                         | */*                             |

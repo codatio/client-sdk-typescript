@@ -3,70 +3,39 @@
 
 ## Overview
 
-Accounts
+Get, create, and update Accounts.
 
 ### Available Operations
 
-* [create](#create) - Create account
+* [list](#list) - List accounts
 * [get](#get) - Get account
 * [getCreateModel](#getcreatemodel) - Get create account model
-* [list](#list) - List accounts
+* [create](#create) - Create account
 
-## create
+## list
 
-The *Create account* endpoint creates a new [account](https://docs.codat.io/sync-for-payroll-api#/schemas/Account) for a given company's connection.
+﻿The *List accounts* endpoint returns a list of [accounts](https://docs.codat.io/sync-for-payroll-api#/schemas/Account) for a given company's connection.
 
 [Accounts](https://docs.codat.io/sync-for-payroll-api#/schemas/Account) are the categories a business uses to record accounting transactions.
 
-**Integration-specific behaviour**
-
-Required data may vary by integration. To see what data to post, first call [Get create account model](https://docs.codat.io/sync-for-payroll-api#/operations/get-create-chartOfAccounts-model).
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
-
+Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payroll-api#/operations/refresh-company-data).
 
 ### Example Usage
 
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
-import { AccountStatus, AccountType } from "@codat/sync-for-payroll/sdk/models/shared";
-import { Decimal } from "@codat/sync-for-payroll/sdk/types";
+
+const codatSyncPayroll = new CodatSyncPayroll({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 async function run() {
-  const sdk = new CodatSyncPayroll({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-    },
-  });
-
-  const result = await sdk.accounts.create({
-    accountPrototype: {
-      currency: "USD",
-      currentBalance: new Decimal("0"),
-      description: "Invoices the business has issued but has not yet collected payment on.",
-      fullyQualifiedCategory: "Asset.Current",
-      fullyQualifiedName: "Cash On Hand",
-      name: "Accounts Receivable",
-      nominalCode: "610",
-      status: AccountStatus.Active,
-      supplementalData: {
-        content: {
-          "key": {
-            "key": "string",
-          },
-        },
-      },
-      type: AccountType.Asset,
-      validDatatypeLinks: [
-        {
-          links: [
-            "string",
-          ],
-        },
-      ],
-    },
+  const result = await codatSyncPayroll.accounts.list({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    page: 1,
+    pageSize: 100,
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
   });
 
   // Handle the result
@@ -80,7 +49,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.CreateAccountRequest](../../sdk/models/operations/createaccountrequest.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.ListAccountsRequest](../../sdk/models/operations/listaccountsrequest.md)                                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -88,12 +57,13 @@ run();
 
 ### Response
 
-**Promise<[operations.CreateAccountResponse](../../sdk/models/operations/createaccountresponse.md)>**
+**Promise\<[shared.Accounts](../../sdk/models/shared/accounts.md)\>**
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| Error Object                        | Status Code                         | Content Type                        |
+| ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| errors.ErrorMessage                 | 400,401,402,403,404,409,429,500,503 | application/json                    |
+| errors.SDKError                     | 4xx-5xx                             | */*                                 |
 
 ## get
 
@@ -111,16 +81,14 @@ Before using this endpoint, you must have [retrieved data for the company](https
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
 
-async function run() {
-  const sdk = new CodatSyncPayroll({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-    },
-  });
+const codatSyncPayroll = new CodatSyncPayroll({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
-  const result = await sdk.accounts.get({
-    accountId: "7110701885",
+async function run() {
+  const result = await codatSyncPayroll.accounts.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    accountId: "7110701885",
   });
 
   // Handle the result
@@ -142,12 +110,13 @@ run();
 
 ### Response
 
-**Promise<[operations.GetAccountResponse](../../sdk/models/operations/getaccountresponse.md)>**
+**Promise\<[shared.Account](../../sdk/models/shared/account.md)\>**
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| Error Object                    | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ErrorMessage             | 401,402,403,404,409,429,500,503 | application/json                |
+| errors.SDKError                 | 4xx-5xx                         | */*                             |
 
 ## getCreateModel
 
@@ -167,14 +136,12 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
 
-async function run() {
-  const sdk = new CodatSyncPayroll({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-    },
-  });
+const codatSyncPayroll = new CodatSyncPayroll({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
-  const result = await sdk.accounts.getCreateModel({
+async function run() {
+  const result = await codatSyncPayroll.accounts.getCreateModel({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
@@ -198,38 +165,52 @@ run();
 
 ### Response
 
-**Promise<[operations.GetCreateAccountsModelResponse](../../sdk/models/operations/getcreateaccountsmodelresponse.md)>**
+**Promise\<[shared.PushOption](../../sdk/models/shared/pushoption.md)\>**
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| Error Object                | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ErrorMessage         | 401,402,403,404,429,500,503 | application/json            |
+| errors.SDKError             | 4xx-5xx                     | */*                         |
 
-## list
+## create
 
-﻿The *List accounts* endpoint returns a list of [accounts](https://docs.codat.io/sync-for-payroll-api#/schemas/Account) for a given company's connection.
+The *Create account* endpoint creates a new [account](https://docs.codat.io/sync-for-payroll-api#/schemas/Account) for a given company's connection.
 
 [Accounts](https://docs.codat.io/sync-for-payroll-api#/schemas/Account) are the categories a business uses to record accounting transactions.
 
-Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-payroll-api#/operations/refresh-company-data).
+**Integration-specific behaviour**
+
+Required data may vary by integration. To see what data to post, first call [Get create account model](https://docs.codat.io/sync-for-payroll-api#/operations/get-create-chartOfAccounts-model).
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=chartOfAccounts) for integrations that support creating an account.
+
 
 ### Example Usage
 
 ```typescript
 import { CodatSyncPayroll } from "@codat/sync-for-payroll";
+import { Decimal } from "@codat/sync-for-payroll/sdk/types";
+
+const codatSyncPayroll = new CodatSyncPayroll({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 async function run() {
-  const sdk = new CodatSyncPayroll({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-    },
-  });
-
-  const result = await sdk.accounts.list({
+  const result = await codatSyncPayroll.accounts.create({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    orderBy: "-modifiedDate",
-    page: 1,
-    pageSize: 100,
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountPrototype: {
+      nominalCode: "610",
+      name: "Accounts Receivable",
+      description: "Invoices the business has issued but has not yet collected payment on.",
+      fullyQualifiedCategory: "Asset.Current",
+      fullyQualifiedName: "Cash On Hand",
+      currency: "USD",
+      currentBalance: new Decimal("0"),
+      type: "Asset",
+      status: "Active",
+    },
   });
 
   // Handle the result
@@ -243,7 +224,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.ListAccountsRequest](../../sdk/models/operations/listaccountsrequest.md)                                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.CreateAccountRequest](../../sdk/models/operations/createaccountrequest.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -251,9 +232,10 @@ run();
 
 ### Response
 
-**Promise<[operations.ListAccountsResponse](../../sdk/models/operations/listaccountsresponse.md)>**
+**Promise\<[shared.CreateAccountResponse](../../sdk/models/shared/createaccountresponse.md)\>**
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| Error Object                    | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ErrorMessage             | 400,401,402,403,404,429,500,503 | application/json                |
+| errors.SDKError                 | 4xx-5xx                         | */*                             |
