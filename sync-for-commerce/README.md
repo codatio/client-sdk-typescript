@@ -13,10 +13,25 @@
 npm add @codat/sync-for-commerce
 ```
 
+### PNPM
+
+```bash
+pnpm add @codat/sync-for-commerce
+```
+
+### Bun
+
+```bash
+bun add @codat/sync-for-commerce
+```
+
 ### Yarn
 
 ```bash
-yarn add @codat/sync-for-commerce
+yarn add @codat/sync-for-commerce zod
+
+# Note that Yarn does not install peer dependencies automatically. You will need
+# to install zod as shown above.
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -28,17 +43,15 @@ yarn add @codat/sync-for-commerce
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { Locale } from "@codat/sync-for-commerce/sdk/models/shared";
+
+const codatSyncCommerce = new CodatSyncCommerce({
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 async function run() {
-    const sdk = new CodatSyncCommerce({
-        security: {
-            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-        },
-    });
-
-    const result = await sdk.syncFlowSettings.getConfigTextSyncFlow({
-        locale: Locale.EnUs,
+    const result = await codatSyncCommerce.connections.getSyncFlowUrl({
+        commerceKey: "<value>",
+        accountingKey: "<value>",
     });
 
     // Handle the result
@@ -53,42 +66,42 @@ run();
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
-### [syncFlowSettings](docs/sdks/syncflowsettings/README.md)
+### [connections](docs/sdks/connections/README.md)
 
-* [getConfigTextSyncFlow](docs/sdks/syncflowsettings/README.md#getconfigtextsyncflow) - Get preferences for text fields
-* [getVisibleAccounts](docs/sdks/syncflowsettings/README.md#getvisibleaccounts) - List visible accounts
-* [updateConfigTextSyncFlow](docs/sdks/syncflowsettings/README.md#updateconfigtextsyncflow) - Update preferences for text fields
-* [updateVisibleAccountsSyncFlow](docs/sdks/syncflowsettings/README.md#updatevisibleaccountssyncflow) - Update visible accounts
+* [getSyncFlowUrl](docs/sdks/connections/README.md#getsyncflowurl) - Start new sync flow
+* [list](docs/sdks/connections/README.md#list) - List connections
+* [create](docs/sdks/connections/README.md#create) - Create connection
+* [updateConnection](docs/sdks/connections/README.md#updateconnection) - Update connection
+* [updateAuthorization](docs/sdks/connections/README.md#updateauthorization) - Update authorization
 
 ### [advancedControls](docs/sdks/advancedcontrols/README.md)
 
+* [listCompanies](docs/sdks/advancedcontrols/README.md#listcompanies) - List companies
 * [createCompany](docs/sdks/advancedcontrols/README.md#createcompany) - Create company
 * [getConfiguration](docs/sdks/advancedcontrols/README.md#getconfiguration) - Get company configuration
-* [listCompanies](docs/sdks/advancedcontrols/README.md#listcompanies) - List companies
 * [setConfiguration](docs/sdks/advancedcontrols/README.md#setconfiguration) - Set configuration
-
-### [connections](docs/sdks/connections/README.md)
-
-* [create](docs/sdks/connections/README.md#create) - Create connection
-* [getSyncFlowUrl](docs/sdks/connections/README.md#getsyncflowurl) - Start new sync flow
-* [list](docs/sdks/connections/README.md#list) - List connections
-* [updateAuthorization](docs/sdks/connections/README.md#updateauthorization) - Update authorization
-* [updateConnection](docs/sdks/connections/README.md#updateconnection) - Update connection
-
-### [sync](docs/sdks/sync/README.md)
-
-* [get](docs/sdks/sync/README.md#get) - Get sync status
-* [getLastSuccessfulSync](docs/sdks/sync/README.md#getlastsuccessfulsync) - Last successful sync
-* [getLatestSync](docs/sdks/sync/README.md#getlatestsync) - Latest sync status
-* [getStatus](docs/sdks/sync/README.md#getstatus) - Get sync status
-* [list](docs/sdks/sync/README.md#list) - List sync statuses
-* [request](docs/sdks/sync/README.md#request) - Initiate new sync
-* [requestForDateRange](docs/sdks/sync/README.md#requestfordaterange) - Initiate sync for specific range
 
 ### [integrations](docs/sdks/integrations/README.md)
 
-* [getBranding](docs/sdks/integrations/README.md#getbranding) - Get branding for an integration
 * [list](docs/sdks/integrations/README.md#list) - List integrations
+* [getBranding](docs/sdks/integrations/README.md#getbranding) - Get branding for an integration
+
+### [syncFlowSettings](docs/sdks/syncflowsettings/README.md)
+
+* [getConfigTextSyncFlow](docs/sdks/syncflowsettings/README.md#getconfigtextsyncflow) - Get preferences for text fields
+* [updateConfigTextSyncFlow](docs/sdks/syncflowsettings/README.md#updateconfigtextsyncflow) - Update preferences for text fields
+* [getVisibleAccounts](docs/sdks/syncflowsettings/README.md#getvisibleaccounts) - List visible accounts
+* [updateVisibleAccountsSyncFlow](docs/sdks/syncflowsettings/README.md#updatevisibleaccountssyncflow) - Update visible accounts
+
+### [sync](docs/sdks/sync/README.md)
+
+* [request](docs/sdks/sync/README.md#request) - Initiate new sync
+* [requestForDateRange](docs/sdks/sync/README.md#requestfordaterange) - Initiate sync for specific range
+* [getStatus](docs/sdks/sync/README.md#getstatus) - Get sync status
+* [getLastSuccessfulSync](docs/sdks/sync/README.md#getlastsuccessfulsync) - Last successful sync
+* [getLatestSync](docs/sdks/sync/README.md#getlatestsync) - Latest sync status
+* [get](docs/sdks/sync/README.md#get) - Get sync status
+* [list](docs/sdks/sync/README.md#list) - List sync statuses
 <!-- End Available Resources and Operations [operations] -->
 
 
@@ -107,18 +120,16 @@ Some of the endpoints in this SDK support retries.  If you use the SDK without a
 To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { Locale } from "@codat/sync-for-commerce/sdk/models/shared";
+
+const codatSyncCommerce = new CodatSyncCommerce({
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 async function run() {
-    const sdk = new CodatSyncCommerce({
-        security: {
-            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-        },
-    });
-
-    const result = await sdk.syncFlowSettings.getConfigTextSyncFlow(
+    const result = await codatSyncCommerce.connections.getSyncFlowUrl(
         {
-            locale: Locale.EnUs,
+            commerceKey: "<value>",
+            accountingKey: "<value>",
         },
         {
             retries: {
@@ -145,27 +156,25 @@ run();
 If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { Locale } from "@codat/sync-for-commerce/sdk/models/shared";
+
+const codatSyncCommerce = new CodatSyncCommerce({
+    retryConfig: {
+        strategy: "backoff",
+        backoff: {
+            initialInterval: 1,
+            maxInterval: 50,
+            exponent: 1.1,
+            maxElapsedTime: 100,
+        },
+        retryConnectionErrors: false,
+    },
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 async function run() {
-    const sdk = new CodatSyncCommerce({
-        retryConfig: {
-            strategy: "backoff",
-            backoff: {
-                initialInterval: 1,
-                maxInterval: 50,
-                exponent: 1.1,
-                maxElapsedTime: 100,
-            },
-            retryConnectionErrors: false,
-        },
-        security: {
-            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-        },
-    });
-
-    const result = await sdk.syncFlowSettings.getConfigTextSyncFlow({
-        locale: Locale.EnUs,
+    const result = await codatSyncCommerce.connections.getSyncFlowUrl({
+        commerceKey: "<value>",
+        accountingKey: "<value>",
     });
 
     // Handle the result
@@ -182,31 +191,46 @@ run();
 
 All SDK methods return a response object or throw an error. If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
 
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| Error Object                    | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ErrorMessage             | 400,401,402,403,404,429,500,503 | application/json                |
+| errors.SDKError                 | 4xx-5xx                         | */*                             |
 
-Example
+Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted string since validation errors can list many issues and the plain error string may be difficult read when debugging. 
+
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { Locale } from "@codat/sync-for-commerce/sdk/models/shared";
+import { SDKValidationError } from "@codat/sync-for-commerce/sdk/models/errors";
+
+const codatSyncCommerce = new CodatSyncCommerce({
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 async function run() {
-    const sdk = new CodatSyncCommerce({
-        security: {
-            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-        },
-    });
-
     let result;
     try {
-        result = await sdk.syncFlowSettings.getConfigTextSyncFlow({
-            locale: Locale.EnUs,
+        result = await codatSyncCommerce.connections.getSyncFlowUrl({
+            commerceKey: "<value>",
+            accountingKey: "<value>",
         });
     } catch (err) {
-        // Handle errors here
-        throw err;
+        switch (true) {
+            case err instanceof SDKValidationError: {
+                // Validation errors can be pretty-printed
+                console.error(err.pretty());
+                // Raw value may also be inspected
+                console.error(err.rawValue);
+                return;
+            }
+            case err instanceof errors.ErrorMessage: {
+                console.error(err); // handle exception
+                return;
+            }
+            default: {
+                throw err;
+            }
+        }
     }
 
     // Handle the result
@@ -231,18 +255,16 @@ You can override the default server globally by passing a server index to the `s
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { Locale } from "@codat/sync-for-commerce/sdk/models/shared";
+
+const codatSyncCommerce = new CodatSyncCommerce({
+    serverIdx: 0,
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 async function run() {
-    const sdk = new CodatSyncCommerce({
-        serverIdx: 0,
-        security: {
-            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-        },
-    });
-
-    const result = await sdk.syncFlowSettings.getConfigTextSyncFlow({
-        locale: Locale.EnUs,
+    const result = await codatSyncCommerce.connections.getSyncFlowUrl({
+        commerceKey: "<value>",
+        accountingKey: "<value>",
     });
 
     // Handle the result
@@ -260,18 +282,16 @@ The default server can also be overridden globally by passing a URL to the `serv
 
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { Locale } from "@codat/sync-for-commerce/sdk/models/shared";
+
+const codatSyncCommerce = new CodatSyncCommerce({
+    serverURL: "https://api.codat.io",
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 async function run() {
-    const sdk = new CodatSyncCommerce({
-        serverURL: "https://api.codat.io",
-        security: {
-            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-        },
-    });
-
-    const result = await sdk.syncFlowSettings.getConfigTextSyncFlow({
-        locale: Locale.EnUs,
+    const result = await codatSyncCommerce.connections.getSyncFlowUrl({
+        commerceKey: "<value>",
+        accountingKey: "<value>",
     });
 
     // Handle the result
@@ -313,7 +333,7 @@ const httpClient = new HTTPClient({
 
 httpClient.addHook("beforeRequest", (request) => {
   const nextRequest = new Request(request, {
-    signal: request.signal || AbortSignal.timeout(5000);
+    signal: request.signal || AbortSignal.timeout(5000)
   });
 
   nextRequest.headers.set("x-custom-header", "custom value");
@@ -343,20 +363,18 @@ This SDK supports the following security scheme globally:
 | ------------ | ------------ | ------------ |
 | `authHeader` | apiKey       | API key      |
 
-You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. For example:
+To authenticate with the API the `authHeader` parameter must be set when initializing the SDK client instance. For example:
 ```typescript
 import { CodatSyncCommerce } from "@codat/sync-for-commerce";
-import { Locale } from "@codat/sync-for-commerce/sdk/models/shared";
+
+const codatSyncCommerce = new CodatSyncCommerce({
+    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 async function run() {
-    const sdk = new CodatSyncCommerce({
-        security: {
-            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-        },
-    });
-
-    const result = await sdk.syncFlowSettings.getConfigTextSyncFlow({
-        locale: Locale.EnUs,
+    const result = await codatSyncCommerce.connections.getSyncFlowUrl({
+        commerceKey: "<value>",
+        accountingKey: "<value>",
     });
 
     // Handle the result
