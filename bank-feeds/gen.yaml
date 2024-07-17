@@ -1,23 +1,28 @@
 configVersion: 2.0.0
 generation:
   sdkClassName: CodatBankFeeds
+  maintainOpenAPIOrder: true
   usageSnippets:
     optionalPropertyRendering: withExample
+  useClassNamesForArrayFields: true
   fixes:
     nameResolutionDec2023: true
     parameterOrderingFeb2024: true
     requestResponseComponentNamesFeb2024: true
-  telemetryEnabled: true
-  maintainOpenAPIOrder: true
-  useClassNamesForArrayFields: true
   auth:
     oAuth2ClientCredentialsEnabled: false
+  telemetryEnabled: true
 typescript:
-  version: 4.1.1
+  version: 5.0.0
+  additionalDependencies:
+    dependencies: {}
+    devDependencies: {}
+    peerDependencies: {}
+  additionalPackageJSON: {}
   author: Codat
   clientServerStatusCodesAsErrors: true
-  description: Set up bank feeds from accounts in your application to supported accounting
-    platforms.
+  description: Set up bank feeds from accounts in your application to supported accounting platforms.
+  enumFormat: union
   flattenGlobalSecurity: true
   imports:
     option: openapi
@@ -29,16 +34,10 @@ typescript:
       webhooks: sdk/models/webhooks
   inputModelSuffix: input
   maxMethodParams: 0
-  outputModelSuffix: output
-  packageName: '@codat/bank-feeds'
-  templateVersion: v2
-  additionalDependencies:
-    dependencies: {}
-    devDependencies: {}
-    peerDependencies: {}
-  additionalPackageJSON: {}
-  enumFormat: union
   methodArguments: infer-optional-args
   moduleFormat: commonjs
+  outputModelSuffix: output
+  packageName: '@codat/bank-feeds'
   responseFormat: flat
+  templateVersion: v2
   useIndexModules: true
