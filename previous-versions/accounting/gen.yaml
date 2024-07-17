@@ -11,6 +11,14 @@ generation:
   usageSnippets:
     optionalPropertyRendering: withExample
   telemetryEnabled: true
+  maintainOpenAPIOrder: true
+  useClassNamesForArrayFields: true
+  fixes:
+    nameResolutionDec2023: true
+    parameterOrderingFeb2024: true
+    requestResponseComponentNamesFeb2024: true
+  auth:
+    oAuth2ClientCredentialsEnabled: false
 features:
   typescript:
     acceptHeaders: 2.81.1
@@ -25,9 +33,9 @@ features:
 typescript:
   version: 0.42.0
   author: Codat
-  clientServerStatusCodesAsErrors: false
+  clientServerStatusCodesAsErrors: true
   description: Access standardized accounting data from our accounting integrations.
-  flattenGlobalSecurity: false
+  flattenGlobalSecurity: true
   imports:
     option: openapi
     paths:
@@ -44,3 +52,13 @@ typescript:
   published: true
   repoSubDirectory: previous-versions/accounting
   templateVersion: v2
+  additionalDependencies:
+    dependencies: {}
+    devDependencies: {}
+    peerDependencies: {}
+  additionalPackageJSON: {}
+  enumFormat: union
+  methodArguments: infer-optional-args
+  moduleFormat: commonjs
+  responseFormat: flat
+  useIndexModules: true

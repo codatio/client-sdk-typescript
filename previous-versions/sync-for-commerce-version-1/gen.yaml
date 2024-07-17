@@ -11,6 +11,14 @@ generation:
   usageSnippets:
     optionalPropertyRendering: withExample
   telemetryEnabled: true
+  maintainOpenAPIOrder: true
+  useClassNamesForArrayFields: true
+  fixes:
+    nameResolutionDec2023: true
+    parameterOrderingFeb2024: true
+    requestResponseComponentNamesFeb2024: true
+  auth:
+    oAuth2ClientCredentialsEnabled: false
 features:
   typescript:
     core: 3.3.3
@@ -23,10 +31,10 @@ features:
 typescript:
   version: 0.4.0
   author: Codat
-  clientServerStatusCodesAsErrors: false
+  clientServerStatusCodesAsErrors: true
   description: Push merchants' data from your ecommerce or point-of-sale (POS) platform
     into your merchants' accounting platform.
-  flattenGlobalSecurity: false
+  flattenGlobalSecurity: true
   imports:
     option: openapi
     paths:
@@ -43,3 +51,13 @@ typescript:
   published: true
   repoSubDirectory: previous-versions/sync-for-commerce-version-1
   templateVersion: v2
+  additionalDependencies:
+    dependencies: {}
+    devDependencies: {}
+    peerDependencies: {}
+  additionalPackageJSON: {}
+  enumFormat: union
+  methodArguments: infer-optional-args
+  moduleFormat: commonjs
+  responseFormat: flat
+  useIndexModules: true
