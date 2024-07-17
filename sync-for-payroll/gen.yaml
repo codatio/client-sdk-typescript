@@ -1,22 +1,28 @@
 configVersion: 2.0.0
 generation:
   sdkClassName: CodatSyncPayroll
+  maintainOpenAPIOrder: true
   usageSnippets:
     optionalPropertyRendering: withExample
+  useClassNamesForArrayFields: true
   fixes:
     nameResolutionDec2023: true
     parameterOrderingFeb2024: true
     requestResponseComponentNamesFeb2024: true
-  telemetryEnabled: true
-  maintainOpenAPIOrder: true
-  useClassNamesForArrayFields: true
   auth:
     oAuth2ClientCredentialsEnabled: false
+  telemetryEnabled: true
 typescript:
-  version: 2.0.0
+  version: 3.0.0
+  additionalDependencies:
+    dependencies: {}
+    devDependencies: {}
+    peerDependencies: {}
+  additionalPackageJSON: {}
   author: Codat
   clientServerStatusCodesAsErrors: true
   description: Push payroll to accounting platforms.
+  enumFormat: union
   flattenGlobalSecurity: true
   imports:
     option: openapi
@@ -28,16 +34,10 @@ typescript:
       webhooks: sdk/models/webhooks
   inputModelSuffix: input
   maxMethodParams: 0
-  outputModelSuffix: output
-  packageName: '@codat/sync-for-payroll'
-  templateVersion: v2
-  additionalDependencies:
-    dependencies: {}
-    devDependencies: {}
-    peerDependencies: {}
-  additionalPackageJSON: {}
-  enumFormat: union
   methodArguments: infer-optional-args
   moduleFormat: commonjs
+  outputModelSuffix: output
+  packageName: '@codat/sync-for-payroll'
   responseFormat: flat
+  templateVersion: v2
   useIndexModules: true
