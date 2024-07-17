@@ -1,447 +1,422 @@
 lockVersion: 2.0.0
 id: db99c2c9-4c7c-4123-9b4e-591ea4fb8649
 management:
-  docChecksum: b84c137b488c9aa6b56fa6e53acdf2cc
+  docChecksum: 6787582fb12a448db349d9d1a5e7fac7
   docVersion: prealpha
-  speakeasyVersion: 1.244.2
-  generationVersion: 2.301.3
-  releaseVersion: 5.1.1
-  configChecksum: 30640fd49975745ed0cae486481a9beb
+  speakeasyVersion: 1.338.0
+  generationVersion: 2.374.2
+  releaseVersion: 6.0.0
+  configChecksum: 6f9ef12c4466397fa64623549a135652
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   repoSubDirectory: sync-for-expenses
   installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/sync-for-expenses
   published: true
 features:
   typescript:
-    core: 3.4.8
+    additionalDependencies: 0.1.0
+    constsAndDefaults: 0.1.5
+    core: 3.11.7
+    decimal: 0.1.2
+    defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
-    examples: 2.81.3
-    globalSecurity: 2.82.5
-    globalServerURLs: 2.82.2
-    inputOutputModels: 2.83.0
+    examples: 2.81.4
+    globalSecurity: 2.82.9
+    globalSecurityCallbacks: 0.1.0
+    globalSecurityFlattening: 0.1.0
+    globalServerURLs: 2.82.4
     nameOverrides: 2.81.2
-    retries: 2.82.1
+    nullables: 0.1.0
+    responseFormat: 0.2.3
+    retries: 2.83.0
+    sdkHooks: 0.1.0
+    serverEventsSentinels: 0.1.0
     webhooks: 1.0.0
 generatedFiles:
   - src/sdk/companies.ts
   - src/sdk/connections.ts
+  - src/sdk/configuration.ts
+  - src/sdk/mappingoptions.ts
+  - src/sdk/sync.ts
+  - src/sdk/transactionstatus.ts
+  - src/sdk/expenses.ts
+  - src/sdk/transfers.ts
+  - src/sdk/adjustments.ts
+  - src/sdk/reimbursements.ts
+  - src/sdk/attachments.ts
+  - src/sdk/managedata.ts
+  - src/sdk/pushoperations.ts
   - src/sdk/accounts.ts
   - src/sdk/customers.ts
   - src/sdk/suppliers.ts
-  - src/sdk/managedata.ts
-  - src/sdk/pushoperations.ts
-  - src/sdk/configuration.ts
-  - src/sdk/expenses.ts
-  - src/sdk/reimbursements.ts
-  - src/sdk/sync.ts
-  - src/sdk/transactionstatus.ts
-  - src/sdk/attachments.ts
-  - src/sdk/transfers.ts
   - src/sdk/sdk.ts
-  - .eslintrc.yml
-  - jest.config.js
-  - package-lock.json
+  - .eslintrc.cjs
+  - .npmignore
+  - RUNTIMES.md
+  - jsr.json
   - package.json
   - src/index.ts
-  - src/internal/utils/contenttype.ts
-  - src/internal/utils/headers.ts
-  - src/internal/utils/index.ts
-  - src/internal/utils/pathparams.ts
-  - src/internal/utils/queryparams.ts
-  - src/internal/utils/requestbody.ts
-  - src/internal/utils/retries.ts
-  - src/internal/utils/security.ts
-  - src/internal/utils/utils.ts
+  - src/lib/base64.ts
+  - src/lib/config.ts
+  - src/lib/encodings.ts
+  - src/lib/http.ts
+  - src/lib/is-plain-object.ts
+  - src/lib/primitives.ts
+  - src/lib/retries.ts
+  - src/lib/schemas.ts
+  - src/lib/sdks.ts
+  - src/lib/security.ts
+  - src/lib/url.ts
   - src/sdk/index.ts
   - src/sdk/models/errors/sdkerror.ts
+  - src/sdk/models/errors/sdkvalidationerror.ts
+  - src/sdk/types/blobs.ts
+  - src/sdk/types/decimal.ts
+  - src/sdk/types/enums.ts
   - src/sdk/types/index.ts
+  - src/sdk/types/operations.ts
   - src/sdk/types/rfcdate.ts
   - tsconfig.json
-  - src/sdk/models/operations/createcompany.ts
-  - src/sdk/models/operations/deletecompany.ts
-  - src/sdk/models/operations/getcompany.ts
-  - src/sdk/models/operations/listcompanies.ts
-  - src/sdk/models/operations/updatecompany.ts
-  - src/sdk/models/operations/createconnection.ts
-  - src/sdk/models/operations/createpartnerexpenseconnection.ts
-  - src/sdk/models/operations/deleteconnection.ts
-  - src/sdk/models/operations/getconnection.ts
-  - src/sdk/models/operations/listconnections.ts
-  - src/sdk/models/operations/unlinkconnection.ts
-  - src/sdk/models/operations/createaccount.ts
-  - src/sdk/models/operations/getcreatechartofaccountsmodel.ts
-  - src/sdk/models/operations/createcustomer.ts
-  - src/sdk/models/operations/getcustomer.ts
-  - src/sdk/models/operations/listcustomers.ts
-  - src/sdk/models/operations/updatecustomer.ts
-  - src/sdk/models/operations/createsupplier.ts
-  - src/sdk/models/operations/getsupplier.ts
-  - src/sdk/models/operations/listsuppliers.ts
-  - src/sdk/models/operations/updatesupplier.ts
-  - src/sdk/models/operations/getdatastatus.ts
-  - src/sdk/models/operations/getpulloperation.ts
-  - src/sdk/models/operations/listpulloperations.ts
-  - src/sdk/models/operations/refreshalldatatypes.ts
-  - src/sdk/models/operations/refreshdatatype.ts
-  - src/sdk/models/operations/getpushoperation.ts
-  - src/sdk/models/operations/listpushoperations.ts
-  - src/sdk/models/operations/getcompanyconfiguration.ts
-  - src/sdk/models/operations/getmappingoptions.ts
-  - src/sdk/models/operations/setcompanyconfiguration.ts
-  - src/sdk/models/operations/createexpensetransaction.ts
-  - src/sdk/models/operations/updateexpensetransaction.ts
-  - src/sdk/models/operations/createreimbursableexpensetransaction.ts
-  - src/sdk/models/operations/updatereimbursableexpensetransaction.ts
-  - src/sdk/models/operations/getsyncbyid.ts
-  - src/sdk/models/operations/getlastsuccessfulsync.ts
-  - src/sdk/models/operations/getlatestsync.ts
-  - src/sdk/models/operations/initiatesync.ts
-  - src/sdk/models/operations/listsyncs.ts
-  - src/sdk/models/operations/getsynctransaction.ts
-  - src/sdk/models/operations/listsynctransactions.ts
-  - src/sdk/models/operations/uploadexpenseattachment.ts
-  - src/sdk/models/operations/createtransfertransaction.ts
-  - src/sdk/models/shared/errormessage.ts
-  - src/sdk/models/shared/errorvalidation.ts
-  - src/sdk/models/shared/errorvalidationitem.ts
-  - src/sdk/models/shared/company.ts
-  - src/sdk/models/shared/connection.ts
-  - src/sdk/models/shared/dataconnectionstatus.ts
-  - src/sdk/models/shared/dataconnectionerror.ts
-  - src/sdk/models/shared/companyrequestbody.ts
-  - src/sdk/models/shared/groupitems.ts
   - src/sdk/models/shared/companies.ts
   - src/sdk/models/shared/links.ts
   - src/sdk/models/shared/halref.ts
+  - src/sdk/models/shared/company.ts
+  - src/sdk/models/shared/connection.ts
+  - src/sdk/models/shared/dataconnectionerror.ts
+  - src/sdk/models/shared/dataconnectionstatus.ts
+  - src/sdk/models/shared/errorvalidation.ts
+  - src/sdk/models/shared/errorvalidationitem.ts
+  - src/sdk/models/shared/companyrequestbody.ts
+  - src/sdk/models/shared/items.ts
   - src/sdk/models/shared/connections.ts
-  - src/sdk/models/shared/createaccountresponse.ts
+  - src/sdk/models/shared/companyconfiguration.ts
+  - src/sdk/models/shared/customerdetails.ts
+  - src/sdk/models/shared/supplierdetails.ts
+  - src/sdk/models/shared/bankaccount.ts
+  - src/sdk/models/shared/mappingoptions.ts
+  - src/sdk/models/shared/taxratemappinginfo.ts
+  - src/sdk/models/shared/validtransactiontypes.ts
+  - src/sdk/models/shared/trackingcategorymappinginfo.ts
+  - src/sdk/models/shared/accountmappinginfo.ts
+  - src/sdk/models/shared/companysyncstatus.ts
+  - src/sdk/models/shared/transactions.ts
+  - src/sdk/models/shared/transaction.ts
+  - src/sdk/models/shared/integrationtype.ts
+  - src/sdk/models/shared/transactionstatus.ts
+  - src/sdk/models/shared/createexpenseresponse.ts
+  - src/sdk/models/shared/expensetransaction.ts
+  - src/sdk/models/shared/expensetransactionline.ts
+  - src/sdk/models/shared/invoiceto.ts
+  - src/sdk/models/shared/trackingref.ts
+  - src/sdk/models/shared/recordref.ts
+  - src/sdk/models/shared/expensecontactref.ts
+  - src/sdk/models/shared/updateexpenseresponse.ts
+  - src/sdk/models/shared/updateexpenserequest.ts
+  - src/sdk/models/shared/transfertransactionresponse.ts
+  - src/sdk/models/shared/transfertransactionrequest.ts
+  - src/sdk/models/shared/adjustmenttransactionresponse.ts
+  - src/sdk/models/shared/adjustmenttransactionrequest.ts
+  - src/sdk/models/shared/adjustmenttransactionline.ts
+  - src/sdk/models/shared/createreimbursableexpenseresponse.ts
+  - src/sdk/models/shared/reimbursableexpensetransaction.ts
+  - src/sdk/models/shared/reimbursableexpensetransactionline.ts
+  - src/sdk/models/shared/reimbursementcontactref.ts
+  - src/sdk/models/shared/updatereimbursableexpensetransactionrequest.ts
+  - src/sdk/models/shared/attachment.ts
+  - src/sdk/models/shared/attachmentupload.ts
+  - src/sdk/models/shared/codatfile.ts
+  - src/sdk/models/shared/datastatus.ts
+  - src/sdk/models/shared/status.ts
+  - src/sdk/models/shared/pulloperation.ts
+  - src/sdk/models/shared/datatype.ts
+  - src/sdk/models/shared/pulloperations.ts
+  - src/sdk/models/shared/pushoperations.ts
+  - src/sdk/models/shared/pushoperation.ts
   - src/sdk/models/shared/validation.ts
   - src/sdk/models/shared/validationitem.ts
   - src/sdk/models/shared/pushoperationstatus.ts
-  - src/sdk/models/shared/datatype.ts
-  - src/sdk/models/shared/accounttype.ts
+  - src/sdk/models/shared/propertiedatatype.ts
+  - src/sdk/models/shared/pushoperationchange.ts
+  - src/sdk/models/shared/pushoperationref.ts
+  - src/sdk/models/shared/pushchangetype.ts
+  - src/sdk/models/shared/createaccountresponse.ts
   - src/sdk/models/shared/supplementaldata.ts
   - src/sdk/models/shared/accountstatus.ts
-  - src/sdk/models/shared/pushoperationchange.ts
-  - src/sdk/models/shared/pushchangetype.ts
-  - src/sdk/models/shared/pushoperationref.ts
+  - src/sdk/models/shared/accounttype.ts
   - src/sdk/models/shared/accountprototype.ts
   - src/sdk/models/shared/pushoption.ts
   - src/sdk/models/shared/pushvalidationinfo.ts
   - src/sdk/models/shared/pushfieldvalidation.ts
+  - src/sdk/models/shared/pushoptionchoice.ts
   - src/sdk/models/shared/pushoptiontype.ts
   - src/sdk/models/shared/pushoptionproperty.ts
-  - src/sdk/models/shared/pushoptionchoice.ts
-  - src/sdk/models/shared/createcustomerresponse.ts
-  - src/sdk/models/shared/customerstatus.ts
-  - src/sdk/models/shared/metadata.ts
-  - src/sdk/models/shared/contact.ts
-  - src/sdk/models/shared/phonenumbertype.ts
-  - src/sdk/models/shared/items.ts
-  - src/sdk/models/shared/accountingaddresstype.ts
-  - src/sdk/models/shared/customer.ts
   - src/sdk/models/shared/customers.ts
+  - src/sdk/models/shared/customer.ts
+  - src/sdk/models/shared/metadata.ts
+  - src/sdk/models/shared/customerstatus.ts
+  - src/sdk/models/shared/contact.ts
+  - src/sdk/models/shared/addresseitems.ts
+  - src/sdk/models/shared/accountingaddresstype.ts
+  - src/sdk/models/shared/phonenumbertype.ts
+  - src/sdk/models/shared/createcustomerresponse.ts
   - src/sdk/models/shared/updatecustomerresponse.ts
-  - src/sdk/models/shared/createsupplierresponse.ts
-  - src/sdk/models/shared/supplierstatus.ts
-  - src/sdk/models/shared/supplier.ts
   - src/sdk/models/shared/suppliers.ts
+  - src/sdk/models/shared/supplier.ts
+  - src/sdk/models/shared/supplierstatus.ts
+  - src/sdk/models/shared/createsupplierresponse.ts
   - src/sdk/models/shared/updatesupplierresponse.ts
-  - src/sdk/models/shared/datastatus.ts
-  - src/sdk/models/shared/pulloperation.ts
-  - src/sdk/models/shared/pulloperations.ts
-  - src/sdk/models/shared/schemadatatype.ts
-  - src/sdk/models/shared/pushoperation.ts
-  - src/sdk/models/shared/pushoperations.ts
-  - src/sdk/models/shared/companyconfiguration.ts
-  - src/sdk/models/shared/supplierdetails.ts
-  - src/sdk/models/shared/customerdetails.ts
-  - src/sdk/models/shared/bankaccount.ts
-  - src/sdk/models/shared/mappingoptions.ts
-  - src/sdk/models/shared/trackingcategorymappinginfo.ts
-  - src/sdk/models/shared/taxratemappinginfo.ts
-  - src/sdk/models/shared/accountmappinginfo.ts
-  - src/sdk/models/shared/createexpenseresponse.ts
-  - src/sdk/models/shared/createexpenserequest.ts
-  - src/sdk/models/shared/expensetransaction.ts
-  - src/sdk/models/shared/expensetransactionline.ts
-  - src/sdk/models/shared/trackingref.ts
-  - src/sdk/models/shared/recordref.ts
-  - src/sdk/models/shared/invoiceto.ts
-  - src/sdk/models/shared/contactref.ts
-  - src/sdk/models/shared/updateexpenseresponse.ts
-  - src/sdk/models/shared/updateexpenserequest.ts
-  - src/sdk/models/shared/createreimbursableexpenseresponse.ts
-  - src/sdk/models/shared/createreimbursableexpenserequest.ts
-  - src/sdk/models/shared/reimbursableexpensetransaction.ts
-  - src/sdk/models/shared/reimbursableexpensetransactionline.ts
-  - src/sdk/models/shared/companysyncstatus.ts
-  - src/sdk/models/shared/syncinitiated.ts
-  - src/sdk/models/shared/initiatesync.ts
-  - src/sdk/models/shared/transaction.ts
-  - src/sdk/models/shared/transactionstatus.ts
-  - src/sdk/models/shared/integrationtype.ts
-  - src/sdk/models/shared/transactions.ts
-  - src/sdk/models/shared/attachment.ts
-  - src/sdk/models/shared/attachmentupload.ts
-  - src/sdk/models/shared/codatfile.ts
-  - src/sdk/models/shared/createtransferresponse.ts
-  - src/sdk/models/shared/createtransferrequest.ts
-  - src/sdk/models/shared/transferdetails.ts
-  - src/sdk/models/shared/accountref.ts
   - src/sdk/models/shared/security.ts
+  - src/sdk/models/shared/syncstartedwebhook.ts
+  - src/sdk/models/shared/syncfailedwebhook.ts
+  - src/sdk/models/shared/syncfailedwebhookdata.ts
+  - src/sdk/models/shared/synccompletewebhook.ts
+  - src/sdk/models/shared/synccompletewebhookdata.ts
   - src/sdk/models/shared/clientratelimitreachedwebhook.ts
   - src/sdk/models/shared/clientratelimitreachedwebhookdata.ts
   - src/sdk/models/shared/clientratelimitresetwebhook.ts
   - src/sdk/models/shared/clientratelimitresetwebhookdata.ts
-  - src/sdk/models/shared/synccompletewebhook.ts
-  - src/sdk/models/shared/synccompletewebhookdata.ts
-  - src/sdk/models/shared/syncfailedwebhook.ts
-  - src/sdk/models/shared/syncfailedwebhookdata.ts
-  - src/sdk/models/shared/syncstartedwebhook.ts
-  - src/sdk/models/webhooks/clientratelimitreached.ts
-  - src/sdk/models/webhooks/clientratelimitreset.ts
-  - src/sdk/models/webhooks/synccomplete.ts
-  - src/sdk/models/webhooks/syncfailed.ts
-  - src/sdk/models/webhooks/syncstarted.ts
+  - src/sdk/models/errors/errormessage.ts
+  - src/sdk/models/operations/listcompanies.ts
+  - src/sdk/models/operations/updatecompany.ts
+  - src/sdk/models/operations/deletecompany.ts
+  - src/sdk/models/operations/getcompany.ts
+  - src/sdk/models/operations/listconnections.ts
+  - src/sdk/models/operations/createconnection.ts
+  - src/sdk/models/operations/getconnection.ts
+  - src/sdk/models/operations/deleteconnection.ts
+  - src/sdk/models/operations/unlinkconnection.ts
+  - src/sdk/models/operations/createpartnerexpenseconnection.ts
+  - src/sdk/models/operations/getcompanyconfiguration.ts
+  - src/sdk/models/operations/setcompanyconfiguration.ts
+  - src/sdk/models/operations/getmappingoptions.ts
+  - src/sdk/models/operations/getlastsuccessfulsync.ts
+  - src/sdk/models/operations/getlatestsync.ts
+  - src/sdk/models/operations/listsyncs.ts
+  - src/sdk/models/operations/getsyncbyid.ts
+  - src/sdk/models/operations/listsynctransactions.ts
+  - src/sdk/models/operations/getsynctransaction.ts
+  - src/sdk/models/operations/createexpensetransaction.ts
+  - src/sdk/models/operations/updateexpensetransaction.ts
+  - src/sdk/models/operations/createtransfertransaction.ts
+  - src/sdk/models/operations/createadjustmenttransaction.ts
+  - src/sdk/models/operations/createreimbursableexpensetransaction.ts
+  - src/sdk/models/operations/updatereimbursableexpensetransaction.ts
+  - src/sdk/models/operations/uploadexpenseattachment.ts
+  - src/sdk/models/operations/refreshalldatatypes.ts
+  - src/sdk/models/operations/getdatastatus.ts
+  - src/sdk/models/operations/refreshdatatype.ts
+  - src/sdk/models/operations/listpulloperations.ts
+  - src/sdk/models/operations/getpulloperation.ts
+  - src/sdk/models/operations/listpushoperations.ts
+  - src/sdk/models/operations/getpushoperation.ts
+  - src/sdk/models/operations/createaccount.ts
+  - src/sdk/models/operations/getcreatechartofaccountsmodel.ts
+  - src/sdk/models/operations/listcustomers.ts
+  - src/sdk/models/operations/getcustomer.ts
+  - src/sdk/models/operations/createcustomer.ts
+  - src/sdk/models/operations/updatecustomer.ts
+  - src/sdk/models/operations/listsuppliers.ts
+  - src/sdk/models/operations/getsupplier.ts
+  - src/sdk/models/operations/createsupplier.ts
+  - src/sdk/models/operations/updatesupplier.ts
   - src/sdk/models/errors/index.ts
-  - src/sdk/models/operations/index.ts
   - src/sdk/models/shared/index.ts
-  - src/sdk/models/webhooks/index.ts
-  - docs/sdk/models/operations/createcompanyresponse.md
-  - docs/sdk/models/operations/deletecompanyrequest.md
-  - docs/sdk/models/operations/deletecompanyresponse.md
-  - docs/sdk/models/operations/getcompanyrequest.md
-  - docs/sdk/models/operations/getcompanyresponse.md
-  - docs/sdk/models/operations/listcompaniesrequest.md
-  - docs/sdk/models/operations/listcompaniesresponse.md
-  - docs/sdk/models/operations/updatecompanyrequest.md
-  - docs/sdk/models/operations/updatecompanyresponse.md
-  - docs/sdk/models/operations/createconnectionrequestbody.md
-  - docs/sdk/models/operations/createconnectionrequest.md
-  - docs/sdk/models/operations/createconnectionresponse.md
-  - docs/sdk/models/operations/createpartnerexpenseconnectionrequest.md
-  - docs/sdk/models/operations/createpartnerexpenseconnectionresponse.md
-  - docs/sdk/models/operations/deleteconnectionrequest.md
-  - docs/sdk/models/operations/deleteconnectionresponse.md
-  - docs/sdk/models/operations/getconnectionrequest.md
-  - docs/sdk/models/operations/getconnectionresponse.md
-  - docs/sdk/models/operations/listconnectionsrequest.md
-  - docs/sdk/models/operations/listconnectionsresponse.md
-  - docs/sdk/models/operations/unlinkconnectionupdateconnection.md
-  - docs/sdk/models/operations/unlinkconnectionrequest.md
-  - docs/sdk/models/operations/unlinkconnectionresponse.md
-  - docs/sdk/models/operations/createaccountrequest.md
-  - docs/sdk/models/operations/createaccountresponse.md
-  - docs/sdk/models/operations/getcreatechartofaccountsmodelrequest.md
-  - docs/sdk/models/operations/getcreatechartofaccountsmodelresponse.md
-  - docs/sdk/models/operations/createcustomerrequest.md
-  - docs/sdk/models/operations/createcustomerresponse.md
-  - docs/sdk/models/operations/getcustomerrequest.md
-  - docs/sdk/models/operations/getcustomerresponse.md
-  - docs/sdk/models/operations/listcustomersrequest.md
-  - docs/sdk/models/operations/listcustomersresponse.md
-  - docs/sdk/models/operations/updatecustomerrequest.md
-  - docs/sdk/models/operations/updatecustomerresponse.md
-  - docs/sdk/models/operations/createsupplierrequest.md
-  - docs/sdk/models/operations/createsupplierresponse.md
-  - docs/sdk/models/operations/getsupplierrequest.md
-  - docs/sdk/models/operations/getsupplierresponse.md
-  - docs/sdk/models/operations/listsuppliersrequest.md
-  - docs/sdk/models/operations/listsuppliersresponse.md
-  - docs/sdk/models/operations/updatesupplierrequest.md
-  - docs/sdk/models/operations/updatesupplierresponse.md
-  - docs/sdk/models/operations/getdatastatusrequest.md
-  - docs/sdk/models/operations/getdatastatusresponse.md
-  - docs/sdk/models/operations/getpulloperationrequest.md
-  - docs/sdk/models/operations/getpulloperationresponse.md
-  - docs/sdk/models/operations/listpulloperationsrequest.md
-  - docs/sdk/models/operations/listpulloperationsresponse.md
-  - docs/sdk/models/operations/refreshalldatatypesrequest.md
-  - docs/sdk/models/operations/refreshalldatatypesresponse.md
-  - docs/sdk/models/operations/refreshdatatyperequest.md
-  - docs/sdk/models/operations/refreshdatatyperesponse.md
-  - docs/sdk/models/operations/getpushoperationrequest.md
-  - docs/sdk/models/operations/getpushoperationresponse.md
-  - docs/sdk/models/operations/listpushoperationsrequest.md
-  - docs/sdk/models/operations/listpushoperationsresponse.md
-  - docs/sdk/models/operations/getcompanyconfigurationrequest.md
-  - docs/sdk/models/operations/getcompanyconfigurationresponse.md
-  - docs/sdk/models/operations/getmappingoptionsrequest.md
-  - docs/sdk/models/operations/getmappingoptionsresponse.md
-  - docs/sdk/models/operations/setcompanyconfigurationrequest.md
-  - docs/sdk/models/operations/setcompanyconfigurationresponse.md
-  - docs/sdk/models/operations/createexpensetransactionrequest.md
-  - docs/sdk/models/operations/createexpensetransactionresponse.md
-  - docs/sdk/models/operations/updateexpensetransactionrequest.md
-  - docs/sdk/models/operations/updateexpensetransactionresponse.md
-  - docs/sdk/models/operations/createreimbursableexpensetransactionrequest.md
-  - docs/sdk/models/operations/createreimbursableexpensetransactionresponse.md
-  - docs/sdk/models/operations/updatereimbursableexpensetransactionrequest.md
-  - docs/sdk/models/operations/updatereimbursableexpensetransactionresponse.md
-  - docs/sdk/models/operations/getsyncbyidrequest.md
-  - docs/sdk/models/operations/getsyncbyidresponse.md
-  - docs/sdk/models/operations/getlastsuccessfulsyncrequest.md
-  - docs/sdk/models/operations/getlastsuccessfulsyncresponse.md
-  - docs/sdk/models/operations/getlatestsyncrequest.md
-  - docs/sdk/models/operations/getlatestsyncresponse.md
-  - docs/sdk/models/operations/initiatesyncrequest.md
-  - docs/sdk/models/operations/initiatesyncresponse.md
-  - docs/sdk/models/operations/listsyncsrequest.md
-  - docs/sdk/models/operations/listsyncsresponse.md
-  - docs/sdk/models/operations/getsynctransactionrequest.md
-  - docs/sdk/models/operations/getsynctransactionresponse.md
-  - docs/sdk/models/operations/listsynctransactionsrequest.md
-  - docs/sdk/models/operations/listsynctransactionsresponse.md
-  - docs/sdk/models/operations/uploadexpenseattachmentrequest.md
-  - docs/sdk/models/operations/uploadexpenseattachmentresponse.md
-  - docs/sdk/models/operations/createtransfertransactionrequest.md
-  - docs/sdk/models/operations/createtransfertransactionresponse.md
-  - docs/sdk/models/shared/errormessage.md
-  - docs/sdk/models/shared/errorvalidation.md
-  - docs/sdk/models/shared/errorvalidationitem.md
+  - src/sdk/models/operations/index.ts
+  - docs/sdk/models/shared/companies.md
+  - docs/sdk/models/shared/links.md
+  - docs/sdk/models/shared/halref.md
   - docs/sdk/models/shared/groupreference.md
   - docs/sdk/models/shared/company.md
   - docs/sdk/models/shared/sourcetype.md
   - docs/sdk/models/shared/connection.md
-  - docs/sdk/models/shared/dataconnectionstatus.md
+  - docs/sdk/models/shared/errorstatus.md
   - docs/sdk/models/shared/dataconnectionerror.md
+  - docs/sdk/models/shared/dataconnectionstatus.md
+  - docs/sdk/models/shared/errorvalidation.md
+  - docs/sdk/models/shared/errorvalidationitem.md
   - docs/sdk/models/shared/companyrequestbody.md
-  - docs/sdk/models/shared/groupitems.md
-  - docs/sdk/models/shared/companies.md
-  - docs/sdk/models/shared/links.md
-  - docs/sdk/models/shared/halref.md
+  - docs/sdk/models/shared/items.md
   - docs/sdk/models/shared/connections.md
-  - docs/sdk/models/shared/createaccountresponsemetadata.md
-  - docs/sdk/models/shared/createaccountresponsevaliddatatypelinks.md
-  - docs/sdk/models/shared/accountingaccount.md
-  - docs/sdk/models/shared/createaccountresponse.md
+  - docs/sdk/models/shared/companyconfiguration.md
+  - docs/sdk/models/shared/customerdetails.md
+  - docs/sdk/models/shared/supplierdetails.md
+  - docs/sdk/models/shared/bankaccount.md
+  - docs/sdk/models/shared/mappingoptions.md
+  - docs/sdk/models/shared/taxratemappinginfo.md
+  - docs/sdk/models/shared/validtransactiontypes.md
+  - docs/sdk/models/shared/trackingcategorymappinginfo.md
+  - docs/sdk/models/shared/accountmappinginfoaccounttype.md
+  - docs/sdk/models/shared/accountmappinginfo.md
+  - docs/sdk/models/shared/companysyncstatus.md
+  - docs/sdk/models/shared/transactions.md
+  - docs/sdk/models/shared/transaction.md
+  - docs/sdk/models/shared/integrationtype.md
+  - docs/sdk/models/shared/transactionstatus.md
+  - docs/sdk/models/shared/createexpenseresponse.md
+  - docs/sdk/models/shared/type.md
+  - docs/sdk/models/shared/bankaccountreference.md
+  - docs/sdk/models/shared/expensetransaction.md
+  - docs/sdk/models/shared/expensetransactionline.md
+  - docs/sdk/models/shared/invoicetotype.md
+  - docs/sdk/models/shared/invoiceto.md
+  - docs/sdk/models/shared/trackingrefdatatype.md
+  - docs/sdk/models/shared/trackingref.md
+  - docs/sdk/models/shared/recordref.md
+  - docs/sdk/models/shared/expensecontactreftype.md
+  - docs/sdk/models/shared/expensecontactref.md
+  - docs/sdk/models/shared/updateexpenseresponse.md
+  - docs/sdk/models/shared/updateexpenserequesttype.md
+  - docs/sdk/models/shared/updateexpenserequestbankaccountreference.md
+  - docs/sdk/models/shared/updateexpenserequest.md
+  - docs/sdk/models/shared/transfertransactionresponse.md
+  - docs/sdk/models/shared/accountreference.md
+  - docs/sdk/models/shared/from.md
+  - docs/sdk/models/shared/transfertransactionrequestaccountreference.md
+  - docs/sdk/models/shared/to.md
+  - docs/sdk/models/shared/transfertransactionrequest.md
+  - docs/sdk/models/shared/adjustmenttransactionresponse.md
+  - docs/sdk/models/shared/adjustmenttransactionrequest.md
+  - docs/sdk/models/shared/adjustmenttransactionline.md
+  - docs/sdk/models/shared/createreimbursableexpenseresponse.md
+  - docs/sdk/models/shared/reimbursableexpensetransaction.md
+  - docs/sdk/models/shared/reimbursableexpensetransactionline.md
+  - docs/sdk/models/shared/reimbursementcontactref.md
+  - docs/sdk/models/shared/updatereimbursableexpensetransactionrequest.md
+  - docs/sdk/models/shared/attachment.md
+  - docs/sdk/models/shared/attachmentupload.md
+  - docs/sdk/models/shared/codatfile.md
+  - docs/sdk/models/shared/datatypes.md
+  - docs/sdk/models/shared/datastatus.md
+  - docs/sdk/models/shared/status.md
+  - docs/sdk/models/shared/datasetstatus.md
+  - docs/sdk/models/shared/pulloperation.md
+  - docs/sdk/models/shared/datatype.md
+  - docs/sdk/models/shared/pulloperations.md
+  - docs/sdk/models/shared/pushoperations.md
+  - docs/sdk/models/shared/pushoperation.md
   - docs/sdk/models/shared/validation.md
   - docs/sdk/models/shared/validationitem.md
   - docs/sdk/models/shared/pushoperationstatus.md
-  - docs/sdk/models/shared/datatype.md
-  - docs/sdk/models/shared/accounttype.md
+  - docs/sdk/models/shared/propertiedatatype.md
+  - docs/sdk/models/shared/pushoperationchange.md
+  - docs/sdk/models/shared/pushoperationref.md
+  - docs/sdk/models/shared/pushchangetype.md
+  - docs/sdk/models/shared/createaccountresponsevaliddatatypelinks.md
+  - docs/sdk/models/shared/createaccountresponsemetadata.md
+  - docs/sdk/models/shared/accountingaccount.md
+  - docs/sdk/models/shared/createaccountresponse.md
   - docs/sdk/models/shared/supplementaldata.md
   - docs/sdk/models/shared/accountstatus.md
-  - docs/sdk/models/shared/pushoperationchange.md
-  - docs/sdk/models/shared/pushchangetype.md
-  - docs/sdk/models/shared/pushoperationref.md
+  - docs/sdk/models/shared/accounttype.md
   - docs/sdk/models/shared/validdatatypelinks.md
   - docs/sdk/models/shared/accountprototype.md
   - docs/sdk/models/shared/pushoption.md
   - docs/sdk/models/shared/pushvalidationinfo.md
   - docs/sdk/models/shared/pushfieldvalidation.md
+  - docs/sdk/models/shared/pushoptionchoice.md
   - docs/sdk/models/shared/pushoptiontype.md
   - docs/sdk/models/shared/pushoptionproperty.md
-  - docs/sdk/models/shared/pushoptionchoice.md
+  - docs/sdk/models/shared/customers.md
+  - docs/sdk/models/shared/accountingaddress.md
+  - docs/sdk/models/shared/customer.md
+  - docs/sdk/models/shared/metadata.md
+  - docs/sdk/models/shared/customerstatus.md
+  - docs/sdk/models/shared/phone.md
+  - docs/sdk/models/shared/contact.md
+  - docs/sdk/models/shared/addresseitems.md
+  - docs/sdk/models/shared/accountingaddresstype.md
+  - docs/sdk/models/shared/phonenumbertype.md
   - docs/sdk/models/shared/createcustomerresponseaccountingaddress.md
   - docs/sdk/models/shared/accountingcustomer.md
   - docs/sdk/models/shared/createcustomerresponse.md
-  - docs/sdk/models/shared/customerstatus.md
-  - docs/sdk/models/shared/metadata.md
-  - docs/sdk/models/shared/phone.md
-  - docs/sdk/models/shared/contact.md
-  - docs/sdk/models/shared/phonenumbertype.md
-  - docs/sdk/models/shared/items.md
-  - docs/sdk/models/shared/accountingaddresstype.md
-  - docs/sdk/models/shared/accountingaddress.md
-  - docs/sdk/models/shared/customer.md
-  - docs/sdk/models/shared/customers.md
   - docs/sdk/models/shared/updatecustomerresponseaccountingaddress.md
   - docs/sdk/models/shared/updatecustomerresponseaccountingcustomer.md
   - docs/sdk/models/shared/updatecustomerresponse.md
+  - docs/sdk/models/shared/suppliers.md
+  - docs/sdk/models/shared/supplier.md
+  - docs/sdk/models/shared/supplierstatus.md
   - docs/sdk/models/shared/accountingsupplier.md
   - docs/sdk/models/shared/createsupplierresponse.md
-  - docs/sdk/models/shared/supplierstatus.md
-  - docs/sdk/models/shared/supplier.md
-  - docs/sdk/models/shared/suppliers.md
   - docs/sdk/models/shared/updatesupplierresponseaccountingsupplier.md
   - docs/sdk/models/shared/updatesupplierresponse.md
-  - docs/sdk/models/shared/datatypes.md
-  - docs/sdk/models/shared/datastatus.md
-  - docs/sdk/models/shared/status.md
-  - docs/sdk/models/shared/pulloperation.md
-  - docs/sdk/models/shared/pulloperations.md
-  - docs/sdk/models/shared/schemadatatype.md
-  - docs/sdk/models/shared/pushoperation.md
-  - docs/sdk/models/shared/pushoperations.md
-  - docs/sdk/models/shared/companyconfiguration.md
-  - docs/sdk/models/shared/supplierdetails.md
-  - docs/sdk/models/shared/customerdetails.md
-  - docs/sdk/models/shared/bankaccount.md
-  - docs/sdk/models/shared/mappingoptions.md
-  - docs/sdk/models/shared/trackingcategorymappinginfo.md
-  - docs/sdk/models/shared/taxratemappinginfovalidtransactiontypes.md
-  - docs/sdk/models/shared/taxratemappinginfo.md
-  - docs/sdk/models/shared/accountmappinginfoaccounttype.md
-  - docs/sdk/models/shared/validtransactiontypes.md
-  - docs/sdk/models/shared/accountmappinginfo.md
-  - docs/sdk/models/shared/createexpenseresponse.md
-  - docs/sdk/models/shared/createexpenserequest.md
-  - docs/sdk/models/shared/expensetransactionbankaccountreference.md
-  - docs/sdk/models/shared/expensetransactiontype.md
-  - docs/sdk/models/shared/expensetransaction.md
-  - docs/sdk/models/shared/expensetransactionline.md
-  - docs/sdk/models/shared/trackingrefdatatype.md
-  - docs/sdk/models/shared/trackingref.md
-  - docs/sdk/models/shared/recordref.md
-  - docs/sdk/models/shared/invoicetodatatype.md
-  - docs/sdk/models/shared/invoiceto.md
-  - docs/sdk/models/shared/typet.md
-  - docs/sdk/models/shared/contactref.md
-  - docs/sdk/models/shared/updateexpenseresponse.md
-  - docs/sdk/models/shared/updateexpenserequestbankaccountreference.md
-  - docs/sdk/models/shared/updateexpenserequest.md
-  - docs/sdk/models/shared/createreimbursableexpenseresponse.md
-  - docs/sdk/models/shared/createreimbursableexpenserequest.md
-  - docs/sdk/models/shared/bankaccountreference.md
-  - docs/sdk/models/shared/reimbursableexpensetransaction.md
-  - docs/sdk/models/shared/reimbursableexpensetransactionline.md
-  - docs/sdk/models/shared/companysyncstatus.md
-  - docs/sdk/models/shared/syncinitiated.md
-  - docs/sdk/models/shared/initiatesync.md
-  - docs/sdk/models/shared/transaction.md
-  - docs/sdk/models/shared/transactionstatus.md
-  - docs/sdk/models/shared/integrationtype.md
-  - docs/sdk/models/shared/transactions.md
-  - docs/sdk/models/shared/attachment.md
-  - docs/sdk/models/shared/attachmentupload.md
-  - docs/sdk/models/shared/codatfile.md
-  - docs/sdk/models/shared/createtransferresponse.md
-  - docs/sdk/models/shared/createtransferrequest.md
-  - docs/sdk/models/shared/transferdetails.md
-  - docs/sdk/models/shared/accountref.md
   - docs/sdk/models/shared/security.md
+  - docs/sdk/models/shared/data.md
+  - docs/sdk/models/shared/syncstartedwebhook.md
+  - docs/sdk/models/shared/syncfailedwebhook.md
+  - docs/sdk/models/shared/syncfailedwebhookdata.md
+  - docs/sdk/models/shared/synccompletewebhook.md
+  - docs/sdk/models/shared/synccompletewebhookdata.md
   - docs/sdk/models/shared/clientratelimitreachedwebhook.md
   - docs/sdk/models/shared/clientratelimitreachedwebhookdata.md
   - docs/sdk/models/shared/clientratelimitresetwebhook.md
   - docs/sdk/models/shared/clientratelimitresetwebhookdata.md
-  - docs/sdk/models/shared/synccompletewebhook.md
-  - docs/sdk/models/shared/synccompletewebhookdata.md
-  - docs/sdk/models/shared/syncfailedwebhook.md
-  - docs/sdk/models/shared/syncfailedwebhookdata.md
-  - docs/sdk/models/shared/data.md
-  - docs/sdk/models/shared/syncstartedwebhook.md
-  - docs/sdk/models/webhooks/clientratelimitreachedresponse.md
-  - docs/sdk/models/webhooks/clientratelimitresetresponse.md
-  - docs/sdk/models/webhooks/synccompleteresponse.md
-  - docs/sdk/models/webhooks/syncfailedresponse.md
-  - docs/sdk/models/webhooks/syncstartedresponse.md
+  - docs/sdk/models/errors/errormessage.md
+  - docs/sdk/models/operations/listcompaniesrequest.md
+  - docs/sdk/models/operations/updatecompanyrequest.md
+  - docs/sdk/models/operations/deletecompanyrequest.md
+  - docs/sdk/models/operations/getcompanyrequest.md
+  - docs/sdk/models/operations/listconnectionsrequest.md
+  - docs/sdk/models/operations/createconnectionrequestbody.md
+  - docs/sdk/models/operations/createconnectionrequest.md
+  - docs/sdk/models/operations/getconnectionrequest.md
+  - docs/sdk/models/operations/deleteconnectionrequest.md
+  - docs/sdk/models/operations/unlinkconnectionupdateconnection.md
+  - docs/sdk/models/operations/unlinkconnectionrequest.md
+  - docs/sdk/models/operations/createpartnerexpenseconnectionrequest.md
+  - docs/sdk/models/operations/getcompanyconfigurationrequest.md
+  - docs/sdk/models/operations/setcompanyconfigurationrequest.md
+  - docs/sdk/models/operations/getmappingoptionsrequest.md
+  - docs/sdk/models/operations/getlastsuccessfulsyncrequest.md
+  - docs/sdk/models/operations/getlatestsyncrequest.md
+  - docs/sdk/models/operations/listsyncsrequest.md
+  - docs/sdk/models/operations/getsyncbyidrequest.md
+  - docs/sdk/models/operations/listsynctransactionsrequest.md
+  - docs/sdk/models/operations/getsynctransactionrequest.md
+  - docs/sdk/models/operations/createexpensetransactionrequest.md
+  - docs/sdk/models/operations/updateexpensetransactionrequest.md
+  - docs/sdk/models/operations/createtransfertransactionrequest.md
+  - docs/sdk/models/operations/createadjustmenttransactionrequest.md
+  - docs/sdk/models/operations/createreimbursableexpensetransactionrequest.md
+  - docs/sdk/models/operations/updatereimbursableexpensetransactionrequest.md
+  - docs/sdk/models/operations/uploadexpenseattachmentrequest.md
+  - docs/sdk/models/operations/refreshalldatatypesrequest.md
+  - docs/sdk/models/operations/getdatastatusrequest.md
+  - docs/sdk/models/operations/getdatastatusdatastatuses.md
+  - docs/sdk/models/operations/refreshdatatyperequest.md
+  - docs/sdk/models/operations/listpulloperationsrequest.md
+  - docs/sdk/models/operations/getpulloperationrequest.md
+  - docs/sdk/models/operations/listpushoperationsrequest.md
+  - docs/sdk/models/operations/getpushoperationrequest.md
+  - docs/sdk/models/operations/createaccountrequest.md
+  - docs/sdk/models/operations/getcreatechartofaccountsmodelrequest.md
+  - docs/sdk/models/operations/listcustomersrequest.md
+  - docs/sdk/models/operations/getcustomerrequest.md
+  - docs/sdk/models/operations/createcustomerrequest.md
+  - docs/sdk/models/operations/updatecustomerrequest.md
+  - docs/sdk/models/operations/listsuppliersrequest.md
+  - docs/sdk/models/operations/getsupplierrequest.md
+  - docs/sdk/models/operations/createsupplierrequest.md
+  - docs/sdk/models/operations/updatesupplierrequest.md
   - docs/sdks/codatsyncexpenses/README.md
-  - docs/internal/utils/retryconfig.md
+  - docs/lib/utils/retryconfig.md
   - docs/sdks/companies/README.md
   - docs/sdks/connections/README.md
+  - docs/sdks/configuration/README.md
+  - docs/sdks/mappingoptions/README.md
+  - docs/sdks/sync/README.md
+  - docs/sdks/transactionstatus/README.md
+  - docs/sdks/expenses/README.md
+  - docs/sdks/transfers/README.md
+  - docs/sdks/adjustments/README.md
+  - docs/sdks/reimbursements/README.md
+  - docs/sdks/attachments/README.md
+  - docs/sdks/managedata/README.md
+  - docs/sdks/pushoperations/README.md
   - docs/sdks/accounts/README.md
   - docs/sdks/customers/README.md
   - docs/sdks/suppliers/README.md
-  - docs/sdks/managedata/README.md
-  - docs/sdks/pushoperations/README.md
-  - docs/sdks/configuration/README.md
-  - docs/sdks/expenses/README.md
-  - docs/sdks/reimbursements/README.md
-  - docs/sdks/sync/README.md
-  - docs/sdks/transactionstatus/README.md
-  - docs/sdks/attachments/README.md
-  - docs/sdks/transfers/README.md
   - USAGE.md
   - .gitattributes
+  - src/hooks/hooks.ts
+  - src/hooks/types.ts
+  - src/hooks/index.ts
+  - CONTRIBUTING.md

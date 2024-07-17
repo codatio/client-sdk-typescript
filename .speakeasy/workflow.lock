@@ -1,4 +1,4 @@
-speakeasyVersion: 1.337.1
+speakeasyVersion: 1.338.0
 sources:
     bank-feeds-source:
         sourceNamespace: bank-feeds-source
@@ -11,6 +11,13 @@ sources:
         sourceNamespace: platform-source
         sourceRevisionDigest: sha256:496b4198b72f3dfd6ce6fc079721e0ada3ce0f1bba27a561907be45cdac94fee
         sourceBlobDigest: sha256:bb36df5a0c16863cee57da7324401c647fd836d2b734f62a3a999d649d35fb20
+        tags:
+            - latest
+            - main
+    sync-for-expenses-source:
+        sourceNamespace: sync-for-expenses-source
+        sourceRevisionDigest: sha256:71608ee6d0767a972fa4d4141d8238df3b9233a528d8de80cc0a85a9a7e560b8
+        sourceBlobDigest: sha256:9cd169b17ab92228f7ed8dfd8ed0bd29e950c342a6fb989c1d44ab2fbd372fc8
         tags:
             - latest
             - main
@@ -27,6 +34,12 @@ targets:
         sourceRevisionDigest: sha256:496b4198b72f3dfd6ce6fc079721e0ada3ce0f1bba27a561907be45cdac94fee
         sourceBlobDigest: sha256:bb36df5a0c16863cee57da7324401c647fd836d2b734f62a3a999d649d35fb20
         outLocation: platform
+    sync-for-expenses-library:
+        source: sync-for-expenses-source
+        sourceNamespace: sync-for-expenses-source
+        sourceRevisionDigest: sha256:71608ee6d0767a972fa4d4141d8238df3b9233a528d8de80cc0a85a9a7e560b8
+        sourceBlobDigest: sha256:9cd169b17ab92228f7ed8dfd8ed0bd29e950c342a6fb989c1d44ab2fbd372fc8
+        outLocation: sync-for-expenses
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -71,6 +84,8 @@ workflow:
         sync-for-expenses-source:
             inputs:
                 - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Expenses.yaml
+            registry:
+                location: registry.speakeasyapi.dev/codat/codat/sync-for-expenses-source
         sync-for-expenses-version-1-source:
             inputs:
                 - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Expenses-v1.yaml
