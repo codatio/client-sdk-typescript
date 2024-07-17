@@ -4,17 +4,21 @@ generation:
   usageSnippets:
     optionalPropertyRendering: withExample
   fixes:
-    nameResolutionDec2023: false
-    parameterOrderingFeb2024: false
-    requestResponseComponentNamesFeb2024: false
+    nameResolutionDec2023: true
+    parameterOrderingFeb2024: true
+    requestResponseComponentNamesFeb2024: true
   telemetryEnabled: true
+  maintainOpenAPIOrder: true
+  useClassNamesForArrayFields: true
+  auth:
+    oAuth2ClientCredentialsEnabled: false
 typescript:
   version: 4.1.1
   author: Codat
-  clientServerStatusCodesAsErrors: false
+  clientServerStatusCodesAsErrors: true
   description: Set up bank feeds from accounts in your application to supported accounting
     platforms.
-  flattenGlobalSecurity: false
+  flattenGlobalSecurity: true
   imports:
     option: openapi
     paths:
@@ -28,3 +32,13 @@ typescript:
   outputModelSuffix: output
   packageName: '@codat/bank-feeds'
   templateVersion: v2
+  additionalDependencies:
+    dependencies: {}
+    devDependencies: {}
+    peerDependencies: {}
+  additionalPackageJSON: {}
+  enumFormat: union
+  methodArguments: infer-optional-args
+  moduleFormat: commonjs
+  responseFormat: flat
+  useIndexModules: true

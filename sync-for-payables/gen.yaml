@@ -7,6 +7,16 @@ management:
 generation:
   sdkClassName: CodatSyncPayables
   telemetryEnabled: true
+  maintainOpenAPIOrder: true
+  usageSnippets:
+    optionalPropertyRendering: withExample
+  useClassNamesForArrayFields: true
+  fixes:
+    nameResolutionDec2023: true
+    parameterOrderingFeb2024: true
+    requestResponseComponentNamesFeb2024: true
+  auth:
+    oAuth2ClientCredentialsEnabled: false
 typescript:
   version: 0.0.0
   author: Codat
@@ -14,3 +24,25 @@ typescript:
   maxMethodParams: 0
   packageName: '@codat/sync-for-payables'
   templateVersion: v2
+  additionalDependencies:
+    dependencies: {}
+    devDependencies: {}
+    peerDependencies: {}
+  additionalPackageJSON: {}
+  clientServerStatusCodesAsErrors: true
+  enumFormat: union
+  flattenGlobalSecurity: true
+  imports:
+    option: openapi
+    paths:
+      callbacks: sdk/models/callbacks
+      errors: sdk/models/errors
+      operations: sdk/models/operations
+      shared: sdk/models/shared
+      webhooks: sdk/models/webhooks
+  inputModelSuffix: input
+  methodArguments: infer-optional-args
+  moduleFormat: commonjs
+  outputModelSuffix: output
+  responseFormat: flat
+  useIndexModules: true
