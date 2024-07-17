@@ -8,6 +8,16 @@ generation:
   sdkClassName: CodatBanking
   singleTagPerOp: false
   telemetryEnabled: true
+  maintainOpenAPIOrder: true
+  usageSnippets:
+    optionalPropertyRendering: withExample
+  useClassNamesForArrayFields: true
+  fixes:
+    nameResolutionDec2023: true
+    parameterOrderingFeb2024: true
+    requestResponseComponentNamesFeb2024: true
+  auth:
+    oAuth2ClientCredentialsEnabled: false
 features:
   typescript:
     core: 2.90.4
@@ -21,7 +31,28 @@ typescript:
   version: 0.30.0
   author: Codat
   description: Access standardized banking data from our banking integrations.
-  flattenGlobalSecurity: false
+  flattenGlobalSecurity: true
   maxMethodParams: 0
   packageName: '@codat/banking'
   templateVersion: v2
+  additionalDependencies:
+    dependencies: {}
+    devDependencies: {}
+    peerDependencies: {}
+  additionalPackageJSON: {}
+  clientServerStatusCodesAsErrors: true
+  enumFormat: union
+  imports:
+    option: openapi
+    paths:
+      callbacks: sdk/models/callbacks
+      errors: sdk/models/errors
+      operations: sdk/models/operations
+      shared: sdk/models/shared
+      webhooks: sdk/models/webhooks
+  inputModelSuffix: input
+  methodArguments: infer-optional-args
+  moduleFormat: commonjs
+  outputModelSuffix: output
+  responseFormat: flat
+  useIndexModules: true
