@@ -28,6 +28,13 @@ sources:
         tags:
             - latest
             - main
+    sync-for-expenses-source:
+        sourceNamespace: sync-for-expenses-source
+        sourceRevisionDigest: sha256:71608ee6d0767a972fa4d4141d8238df3b9233a528d8de80cc0a85a9a7e560b8
+        sourceBlobDigest: sha256:9cd169b17ab92228f7ed8dfd8ed0bd29e950c342a6fb989c1d44ab2fbd372fc8
+        tags:
+            - latest
+            - main
 targets:
     bank-feeds-library:
         source: bank-feeds-source
@@ -41,6 +48,12 @@ targets:
         sourceRevisionDigest: sha256:129722ba727e02e06b06f970bf604ad8381b1368043e1df352c45f13bc88dc5f
         sourceBlobDigest: sha256:58909979e578bc80a3dcaa1b431b86e239f4d287edd6b1181744c52a9cd457c3
         outLocation: platform
+    sync-for-expenses-library:
+        source: sync-for-expenses-source
+        sourceNamespace: sync-for-expenses-source
+        sourceRevisionDigest: sha256:71608ee6d0767a972fa4d4141d8238df3b9233a528d8de80cc0a85a9a7e560b8
+        sourceBlobDigest: sha256:9cd169b17ab92228f7ed8dfd8ed0bd29e950c342a6fb989c1d44ab2fbd372fc8
+        outLocation: sync-for-expenses
     sync-for-payroll-library:
         source: sync-for-payroll-source
         sourceNamespace: sync-for-payroll-source
@@ -99,6 +112,8 @@ workflow:
         sync-for-expenses-source:
             inputs:
                 - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Expenses.yaml
+            registry:
+                location: registry.speakeasyapi.dev/codat/codat/sync-for-expenses-source
         sync-for-expenses-version-1-source:
             inputs:
                 - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Expenses-v1.yaml

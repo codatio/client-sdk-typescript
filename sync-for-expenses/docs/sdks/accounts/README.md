@@ -3,7 +3,7 @@
 
 ## Overview
 
-Accounts
+Create accounts and view account schemas.
 
 ### Available Operations
 
@@ -27,48 +27,31 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { AccountStatus, AccountType } from "@codat/sync-for-expenses/dist/sdk/models/shared";
+import { Decimal } from "@codat/sync-for-expenses/sdk/types";
+
+const codatSyncExpenses = new CodatSyncExpenses({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 async function run() {
-  const sdk = new CodatSyncExpenses({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-    },
-  });
-
-  const res = await sdk.accounts.create({
+  const result = await codatSyncExpenses.accounts.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     accountPrototype: {
-      currency: "USD",
-      currentBalance: 0,
+      nominalCode: "610",
+      name: "Accounts Receivable",
       description: "Invoices the business has issued but has not yet collected payment on.",
       fullyQualifiedCategory: "Asset.Current",
       fullyQualifiedName: "Cash On Hand",
-      name: "Accounts Receivable",
-      nominalCode: "610",
-      status: AccountStatus.Active,
-      supplementalData: {
-        content: {
-          "key": {
-            "key": "<value>",
-          },
-        },
-      },
-      type: AccountType.Asset,
-      validDatatypeLinks: [
-        {
-          links: [
-            "<value>",
-          ],
-        },
-      ],
+      currency: "USD",
+      currentBalance: new Decimal("0"),
+      type: "Asset",
+      status: "Active",
     },
-    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -76,21 +59,23 @@ run();
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [operations.CreateAccountRequest](../../sdk/models/operations/createaccountrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `retries`                                                                              | [utils.RetryConfig](../../internal/utils/retryconfig.md)                               | :heavy_minus_sign:                                                                     | Configuration to override the default retry behavior of the client.                    |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CreateAccountRequest](../../sdk/models/operations/createaccountrequest.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.CreateAccountResponse](../../sdk/models/operations/createaccountresponse.md)>**
+**Promise\<[shared.CreateAccountResponse](../../sdk/models/shared/createaccountresponse.md)\>**
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| Error Object                    | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ErrorMessage             | 400,401,402,403,404,429,500,503 | application/json                |
+| errors.SDKError                 | 4xx-5xx                         | */*                             |
 
 ## getCreateModel
 
@@ -110,21 +95,18 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
-async function run() {
-  const sdk = new CodatSyncExpenses({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-    },
-  });
+const codatSyncExpenses = new CodatSyncExpenses({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
-  const res = await sdk.accounts.getCreateModel({
+async function run() {
+  const result = await codatSyncExpenses.accounts.getCreateModel({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -132,18 +114,20 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                                              | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
-| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                              | [operations.GetCreateChartOfAccountsModelRequest](../../sdk/models/operations/getcreatechartofaccountsmodelrequest.md) | :heavy_check_mark:                                                                                                     | The request object to use for the request.                                                                             |
-| `retries`                                                                                                              | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                               | :heavy_minus_sign:                                                                                                     | Configuration to override the default retry behavior of the client.                                                    |
-| `config`                                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                           | :heavy_minus_sign:                                                                                                     | Available config options for making requests.                                                                          |
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetCreateChartOfAccountsModelRequest](../../sdk/models/operations/getcreatechartofaccountsmodelrequest.md)                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.GetCreateChartOfAccountsModelResponse](../../sdk/models/operations/getcreatechartofaccountsmodelresponse.md)>**
+**Promise\<[shared.PushOption](../../sdk/models/shared/pushoption.md)\>**
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| Error Object                | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ErrorMessage         | 401,402,403,404,429,500,503 | application/json            |
+| errors.SDKError             | 4xx-5xx                     | */*                         |
