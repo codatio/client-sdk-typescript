@@ -2,6 +2,13 @@
 
 Image reference.
 
+## Example Usage
+
+```typescript
+import { ImageReference } from "@codat/platform/sdk/models/shared";
+
+let value: ImageReference = {};
+```
 
 ## Fields
 

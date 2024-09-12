@@ -2,6 +2,13 @@
 
 The request made is not valid.
 
+## Example Usage
+
+```typescript
+import { ErrorMessage } from "@codat/platform/sdk/models/errors";
+
+// No examples available for this model
+```
 
 ## Fields
 

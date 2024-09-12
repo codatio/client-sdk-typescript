@@ -1,5 +1,12 @@
 # HalRef
 
+## Example Usage
+
+```typescript
+import { HalRef } from "@codat/platform/sdk/models/shared";
+
+let value: HalRef = {};
+```
 
 ## Fields
 

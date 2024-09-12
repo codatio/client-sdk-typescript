@@ -2,16 +2,16 @@
 
 The option type.
 
+## Example Usage
+
+```typescript
+import { PushOptionType } from "@codat/platform/sdk/models/shared";
+
+let value: PushOptionType = "Boolean";
+```
 
 ## Values
 
-| Name        | Value       |
-| ----------- | ----------- |
-| `Array`     | Array       |
-| `Object`    | Object      |
-| `String`    | String      |
-| `Number`    | Number      |
-| `Boolean`   | Boolean     |
-| `DateTime`  | DateTime    |
-| `File`      | File        |
-| `MultiPart` | MultiPart   |
+```typescript
+"Array" | "Object" | "String" | "Number" | "Boolean" | "DateTime" | "File" | "MultiPart"
+```

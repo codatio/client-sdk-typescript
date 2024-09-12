@@ -1,5 +1,15 @@
 # ConnectionStatusChangedWebhookData
 
+## Example Usage
+
+```typescript
+import { ConnectionStatusChangedWebhookData } from "@codat/platform/sdk/models/shared";
+
+let value: ConnectionStatusChangedWebhookData = {
+  dataConnectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  platformKey: "gbol",
+};
+```
 
 ## Fields
 

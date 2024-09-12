@@ -185,3 +185,13 @@ Based on:
 - [typescript v4.0.0] platform
 ### Releases
 - [NPM v4.0.0] https://www.npmjs.com/package/@codat/platform/v/4.0.0 - platform
+
+## 2024-09-12 13:14:00
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.396.2 (2.415.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v4.1.0] platform
+### Releases
+- [NPM v4.1.0] https://www.npmjs.com/package/@codat/platform/v/4.1.0 - platform

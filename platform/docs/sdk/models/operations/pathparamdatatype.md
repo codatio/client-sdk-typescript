@@ -2,29 +2,16 @@
 
 Data types that support supplemental data
 
+## Example Usage
+
+```typescript
+import { PathParamDataType } from "@codat/platform/sdk/models/operations";
+
+let value: PathParamDataType = "invoices";
+```
 
 ## Values
 
-| Name                        | Value                       |
-| --------------------------- | --------------------------- |
-| `ChartOfAccounts`           | chartOfAccounts             |
-| `Bills`                     | bills                       |
-| `Company`                   | company                     |
-| `CreditNotes`               | creditNotes                 |
-| `Customers`                 | customers                   |
-| `Invoices`                  | invoices                    |
-| `Items`                     | items                       |
-| `JournalEntries`            | journalEntries              |
-| `Suppliers`                 | suppliers                   |
-| `TaxRates`                  | taxRates                    |
-| `CommerceCompanyInfo`       | commerce-companyInfo        |
-| `CommerceCustomers`         | commerce-customers          |
-| `CommerceDisputes`          | commerce-disputes           |
-| `CommerceLocations`         | commerce-locations          |
-| `CommerceOrders`            | commerce-orders             |
-| `CommercePayments`          | commerce-payments           |
-| `CommercePaymentMethods`    | commerce-paymentMethods     |
-| `CommerceProducts`          | commerce-products           |
-| `CommerceProductCategories` | commerce-productCategories  |
-| `CommerceTaxComponents`     | commerce-taxComponents      |
-| `CommerceTransactions`      | commerce-transactions       |
+```typescript
+"chartOfAccounts" | "bills" | "company" | "creditNotes" | "customers" | "invoices" | "items" | "journalEntries" | "suppliers" | "taxRates" | "commerce-companyInfo" | "commerce-customers" | "commerce-disputes" | "commerce-locations" | "commerce-orders" | "commerce-payments" | "commerce-paymentMethods" | "commerce-products" | "commerce-productCategories" | "commerce-taxComponents" | "commerce-transactions"
+```

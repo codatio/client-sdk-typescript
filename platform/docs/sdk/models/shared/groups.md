@@ -1,5 +1,19 @@
 # Groups
 
+## Example Usage
+
+```typescript
+import { Groups } from "@codat/platform/sdk/models/shared";
+
+let value: Groups = {
+  results: [
+    {
+      id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+      name: "Invoice finance team",
+    },
+  ],
+};
+```
 
 ## Fields
 

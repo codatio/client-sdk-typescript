@@ -2,6 +2,15 @@
 
 Details about the newly created API key.
 
+## Example Usage
+
+```typescript
+import { CreateApiKey } from "@codat/platform/sdk/models/shared";
+
+let value: CreateApiKey = {
+  name: "azure-invoice-finance-processor",
+};
+```
 
 ## Fields
 

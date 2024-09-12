@@ -4,8 +4,57 @@
 Manage the building blocks of Codat, including companies, connections, and more.
 <!-- End Codat Library Description -->
 
+<!-- Start Summary [summary] -->
+## Summary
+
+Platform API: Platform API
+
+An API for the common components of all of Codat's products.
+
+These end points cover creating and managing your companies, data connections, and integrations.
+
+[Read about the building blocks of Codat...](https://docs.codat.io/core-concepts/companies) | [See our OpenAPI spec](https://github.com/codatio/oas) 
+
+---
+<!-- Start Codat Tags Table -->
+## Endpoints
+
+| Endpoints | Description |
+| :- |:- |
+| Companies | Create and manage your SMB users' companies. |
+| Connections | Create new and manage existing data connections for a company. |
+| Connection management | Configure connection management UI and retrieve access tokens for authentication. |
+| Groups | Define and manage sets of companies based on a chosen characteristic. |
+| Webhooks | Create and manage webhooks that listen to Codat's events. |
+| Integrations | Get a list of integrations supported by Codat and their logos. |
+| Refresh data | Initiate data refreshes, view pull status and history. |
+| Settings | Manage company profile configuration, sync settings, and API keys. |
+| Push data | Initiate and monitor Create, Update, and Delete operations. |
+| Supplemental data | Configure and pull additional data you can include in Codat's standard data types. |
+| Custom data type | Configure and pull additional data types that are not included in Codat's standardized data model. |
+<!-- End Codat Tags Table -->
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+
+* [SDK Installation](#sdk-installation)
+* [Requirements](#requirements)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Standalone functions](#standalone-functions)
+* [Retries](#retries)
+* [Error Handling](#error-handling)
+* [Server Selection](#server-selection)
+* [Custom HTTP Client](#custom-http-client)
+* [Authentication](#authentication)
+* [Debugging](#debugging)
+<!-- End Table of Contents [toc] -->
+
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
+
+The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/), [bun](https://bun.sh/) or [yarn](https://classic.yarnpkg.com/en/) package managers.
 
 ### NPM
 
@@ -45,19 +94,19 @@ yarn add @codat/platform zod
 import { CodatPlatform } from "@codat/platform";
 
 const codatPlatform = new CodatPlatform({
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
 });
 
 async function run() {
-    const result = await codatPlatform.companies.list({
-        page: 1,
-        pageSize: 100,
-        query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-        orderBy: "-modifiedDate",
-    });
+  const result = await codatPlatform.companies.list({
+    page: 1,
+    pageSize: 100,
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -155,6 +204,74 @@ run();
 
 
 
+<!-- Start Standalone functions [standalone-funcs] -->
+## Standalone functions
+
+All the methods listed above are available as standalone functions. These
+functions are ideal for use in applications running in the browser, serverless
+runtimes or other environments where application bundle size is a primary
+concern. When using a bundler to build your application, all unused
+functionality will be either excluded from the final bundle or tree-shaken away.
+
+To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
+
+<details>
+
+<summary>Available standalone functions</summary>
+
+- [companiesCreate](docs/sdks/companies/README.md#create)
+- [companiesDelete](docs/sdks/companies/README.md#delete)
+- [companiesGet](docs/sdks/companies/README.md#get)
+- [companiesList](docs/sdks/companies/README.md#list)
+- [companiesUpdate](docs/sdks/companies/README.md#update)
+- [connectionManagementCorsSettingsGet](docs/sdks/corssettings/README.md#get)
+- [connectionManagementCorsSettingsSet](docs/sdks/corssettings/README.md#set)
+- [connectionManagementGetAccessToken](docs/sdks/connectionmanagement/README.md#getaccesstoken)
+- [connectionsCreate](docs/sdks/connections/README.md#create)
+- [connectionsDelete](docs/sdks/connections/README.md#delete)
+- [connectionsGet](docs/sdks/connections/README.md#get)
+- [connectionsList](docs/sdks/connections/README.md#list)
+- [connectionsUnlink](docs/sdks/connections/README.md#unlink)
+- [connectionsUpdateAuthorization](docs/sdks/connections/README.md#updateauthorization)
+- [customDataTypeConfigure](docs/sdks/customdatatype/README.md#configure)
+- [customDataTypeGetConfiguration](docs/sdks/customdatatype/README.md#getconfiguration)
+- [customDataTypeList](docs/sdks/customdatatype/README.md#list)
+- [customDataTypeRefresh](docs/sdks/customdatatype/README.md#refresh)
+- [groupsAddCompany](docs/sdks/groups/README.md#addcompany)
+- [groupsCreate](docs/sdks/groups/README.md#create)
+- [groupsList](docs/sdks/groups/README.md#list)
+- [groupsRemoveCompany](docs/sdks/groups/README.md#removecompany)
+- [integrationsGetBranding](docs/sdks/integrations/README.md#getbranding)
+- [integrationsGet](docs/sdks/integrations/README.md#get)
+- [integrationsList](docs/sdks/integrations/README.md#list)
+- [pushDataGetModelOptions](docs/sdks/pushdata/README.md#getmodeloptions)
+- [pushDataGetOperation](docs/sdks/pushdata/README.md#getoperation)
+- [pushDataListOperations](docs/sdks/pushdata/README.md#listoperations)
+- [refreshDataAll](docs/sdks/refreshdata/README.md#all)
+- [refreshDataByDataType](docs/sdks/refreshdata/README.md#bydatatype)
+- [refreshDataGetPullOperation](docs/sdks/refreshdata/README.md#getpulloperation)
+- [refreshDataGet](docs/sdks/refreshdata/README.md#get)
+- [refreshDataListPullOperations](docs/sdks/refreshdata/README.md#listpulloperations)
+- [settingsCreateApiKey](docs/sdks/settings/README.md#createapikey)
+- [settingsDeleteApiKey](docs/sdks/settings/README.md#deleteapikey)
+- [settingsGetProfile](docs/sdks/settings/README.md#getprofile)
+- [settingsGetSyncSettings](docs/sdks/settings/README.md#getsyncsettings)
+- [settingsListApiKeys](docs/sdks/settings/README.md#listapikeys)
+- [settingsUpdateProfile](docs/sdks/settings/README.md#updateprofile)
+- [settingsUpdateSyncSettings](docs/sdks/settings/README.md#updatesyncsettings)
+- [supplementalDataConfigure](docs/sdks/supplementaldata/README.md#configure)
+- [supplementalDataGetConfiguration](docs/sdks/supplementaldata/README.md#getconfiguration)
+- [webhooksCreateConsumer](docs/sdks/webhooks/README.md#createconsumer)
+- [webhooksCreate](docs/sdks/webhooks/README.md#create)
+- [webhooksDeleteConsumer](docs/sdks/webhooks/README.md#deleteconsumer)
+- [webhooksGet](docs/sdks/webhooks/README.md#get)
+- [webhooksListConsumers](docs/sdks/webhooks/README.md#listconsumers)
+- [webhooksList](docs/sdks/webhooks/README.md#list)
+
+
+</details>
+<!-- End Standalone functions [standalone-funcs] -->
+
 <!-- Start Retries [retries] -->
 ## Retries
 
@@ -165,33 +282,30 @@ To change the default retry strategy for a single API call, simply provide a ret
 import { CodatPlatform } from "@codat/platform";
 
 const codatPlatform = new CodatPlatform({
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
 });
 
 async function run() {
-    const result = await codatPlatform.companies.list(
-        {
-            page: 1,
-            pageSize: 100,
-            query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-            orderBy: "-modifiedDate",
-        },
-        {
-            retries: {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 1,
-                    maxInterval: 50,
-                    exponent: 1.1,
-                    maxElapsedTime: 100,
-                },
-                retryConnectionErrors: false,
-            },
-        }
-    );
+  const result = await codatPlatform.companies.list({
+    page: 1,
+    pageSize: 100,
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  }, {
+    retries: {
+      strategy: "backoff",
+      backoff: {
+        initialInterval: 1,
+        maxInterval: 50,
+        exponent: 1.1,
+        maxElapsedTime: 100,
+      },
+      retryConnectionErrors: false,
+    },
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -203,29 +317,29 @@ If you'd like to override the default retry strategy for all operations that sup
 import { CodatPlatform } from "@codat/platform";
 
 const codatPlatform = new CodatPlatform({
-    retryConfig: {
-        strategy: "backoff",
-        backoff: {
-            initialInterval: 1,
-            maxInterval: 50,
-            exponent: 1.1,
-            maxElapsedTime: 100,
-        },
-        retryConnectionErrors: false,
+  retryConfig: {
+    strategy: "backoff",
+    backoff: {
+      initialInterval: 1,
+      maxInterval: 50,
+      exponent: 1.1,
+      maxElapsedTime: 100,
     },
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    retryConnectionErrors: false,
+  },
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
 });
 
 async function run() {
-    const result = await codatPlatform.companies.list({
-        page: 1,
-        pageSize: 100,
-        query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-        orderBy: "-modifiedDate",
-    });
+  const result = await codatPlatform.companies.list({
+    page: 1,
+    pageSize: 100,
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -248,42 +362,46 @@ Validation errors can also occur when either method arguments or data returned f
 
 ```typescript
 import { CodatPlatform } from "@codat/platform";
-import { SDKValidationError } from "@codat/platform/sdk/models/errors";
+import {
+  ErrorMessage,
+  SDKValidationError,
+} from "@codat/platform/sdk/models/errors";
 
 const codatPlatform = new CodatPlatform({
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
 });
 
 async function run() {
-    let result;
-    try {
-        result = await codatPlatform.companies.list({
-            page: 1,
-            pageSize: 100,
-            query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-            orderBy: "-modifiedDate",
-        });
-    } catch (err) {
-        switch (true) {
-            case err instanceof SDKValidationError: {
-                // Validation errors can be pretty-printed
-                console.error(err.pretty());
-                // Raw value may also be inspected
-                console.error(err.rawValue);
-                return;
-            }
-            case err instanceof errors.ErrorMessage: {
-                console.error(err); // handle exception
-                return;
-            }
-            default: {
-                throw err;
-            }
-        }
-    }
+  let result;
+  try {
+    result = await codatPlatform.companies.list({
+      page: 1,
+      pageSize: 100,
+      query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+      orderBy: "-modifiedDate",
+    });
 
     // Handle the result
     console.log(result);
+  } catch (err) {
+    switch (true) {
+      case (err instanceof SDKValidationError): {
+        // Validation errors can be pretty-printed
+        console.error(err.pretty());
+        // Raw value may also be inspected
+        console.error(err.rawValue);
+        return;
+      }
+      case (err instanceof ErrorMessage): {
+        // Handle err.data$: ErrorMessageData
+        console.error(err);
+        return;
+      }
+      default: {
+        throw err;
+      }
+    }
+  }
 }
 
 run();
@@ -306,20 +424,20 @@ You can override the default server globally by passing a server index to the `s
 import { CodatPlatform } from "@codat/platform";
 
 const codatPlatform = new CodatPlatform({
-    serverIdx: 0,
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  serverIdx: 0,
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
 });
 
 async function run() {
-    const result = await codatPlatform.companies.list({
-        page: 1,
-        pageSize: 100,
-        query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-        orderBy: "-modifiedDate",
-    });
+  const result = await codatPlatform.companies.list({
+    page: 1,
+    pageSize: 100,
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -335,20 +453,20 @@ The default server can also be overridden globally by passing a URL to the `serv
 import { CodatPlatform } from "@codat/platform";
 
 const codatPlatform = new CodatPlatform({
-    serverURL: "https://api.codat.io",
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  serverURL: "https://api.codat.io",
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
 });
 
 async function run() {
-    const result = await codatPlatform.companies.list({
-        page: 1,
-        pageSize: 100,
-        query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-        orderBy: "-modifiedDate",
-    });
+  const result = await codatPlatform.companies.list({
+    page: 1,
+    pageSize: 100,
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -421,19 +539,19 @@ To authenticate with the API the `authHeader` parameter must be set when initial
 import { CodatPlatform } from "@codat/platform";
 
 const codatPlatform = new CodatPlatform({
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
 });
 
 async function run() {
-    const result = await codatPlatform.companies.list({
-        page: 1,
-        pageSize: 100,
-        query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-        orderBy: "-modifiedDate",
-    });
+  const result = await codatPlatform.companies.list({
+    page: 1,
+    pageSize: 100,
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -446,6 +564,23 @@ run();
 
 For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 <!-- End Requirements [requirements] -->
+
+<!-- Start Debugging [debug] -->
+## Debugging
+
+You can setup your SDK to emit debug logs for SDK requests and responses.
+
+You can pass a logger that matches `console`'s interface as an SDK option.
+
+> [!WARNING]
+> Beware that debug logging will reveal secrets, like API tokens in headers, in log messages printed to a console or files. It's recommended to use this feature only during local development and not in production.
+
+```typescript
+import { CodatPlatform } from "@codat/platform";
+
+const sdk = new CodatPlatform({ debugLogger: console });
+```
+<!-- End Debugging [debug] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

@@ -1,5 +1,25 @@
 # PushOperations
 
+## Example Usage
+
+```typescript
+import { PushOperations } from "@codat/platform/sdk/models/shared";
+
+let value: PushOperations = {
+  results: [],
+  pageNumber: 1,
+  pageSize: 10,
+  totalResults: 1,
+  links: {
+    self: {
+      href: "/companies/{id}/data/{dataType}",
+    },
+    current: {
+      href: "/companies/{id}/data/{dataType}?page=1&pageSize=10",
+    },
+  },
+};
+```
 
 ## Fields
 

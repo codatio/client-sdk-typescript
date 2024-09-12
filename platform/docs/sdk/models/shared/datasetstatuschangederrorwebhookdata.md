@@ -1,5 +1,14 @@
 # DatasetStatusChangedErrorWebhookData
 
+## Example Usage
+
+```typescript
+import { DatasetStatusChangedErrorWebhookData } from "@codat/platform/sdk/models/shared";
+
+let value: DatasetStatusChangedErrorWebhookData = {
+  dataType: "invoices",
+};
+```
 
 ## Fields
 

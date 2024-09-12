@@ -2,6 +2,26 @@
 
 Describes your Codat client instance
 
+## Example Usage
+
+```typescript
+import { Profile } from "@codat/platform/sdk/models/shared";
+
+let value: Profile = {
+  name: "Bob's Burgers",
+  logoUrl:
+    "https://client-images.codat.io/logo/042399f5-d104-4f38-9ce8-cac3524f4e88_5806cb1f-7342-4c0e-a0a8-99bfbc47b0ff.png",
+  iconUrl:
+    "https://client-images.codat.io/icon/042399f5-d104-4f38-9ce8-cac3524f4e88_3f5623af-d992-4c22-bc08-e58c520a8526.ico",
+  redirectUrl: "https://bobs-burgers.{countrySuffix}/{companyId}",
+  whiteListUrls: [
+    "https://bobs-burgers.com",
+    "https://bobs-burgers.co.uk",
+  ],
+  alertAuthHeader: "Bearer tXEiHiRK7XCtI8TNHbpGs1LI1pumdb4Cl1QIo7B2",
+  confirmCompanyName: true,
+};
+```
 
 ## Fields
 

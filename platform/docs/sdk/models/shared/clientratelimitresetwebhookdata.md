@@ -1,5 +1,14 @@
 # ClientRateLimitResetWebhookData
 
+## Example Usage
+
+```typescript
+import { ClientRateLimitResetWebhookData } from "@codat/platform/sdk/models/shared";
+
+let value: ClientRateLimitResetWebhookData = {
+  expiresUtc: "2022-10-23T00:00:00Z",
+};
+```
 
 ## Fields
 

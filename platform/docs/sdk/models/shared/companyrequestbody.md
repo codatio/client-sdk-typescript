@@ -1,5 +1,20 @@
 # CompanyRequestBody
 
+## Example Usage
+
+```typescript
+import { CompanyRequestBody } from "@codat/platform/sdk/models/shared";
+
+let value: CompanyRequestBody = {
+  name: "Bank of Dave",
+  description: "Requested early access to the new financing scheme.",
+  groups: [
+    {
+      id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+    },
+  ],
+};
+```
 
 ## Fields
 

@@ -1,5 +1,14 @@
 # GroupRef
 
+## Example Usage
+
+```typescript
+import { GroupRef } from "@codat/platform/sdk/models/shared";
+
+let value: GroupRef = {
+  id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+};
+```
 
 ## Fields
 

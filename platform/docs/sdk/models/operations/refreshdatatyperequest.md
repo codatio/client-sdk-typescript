@@ -1,5 +1,15 @@
 # RefreshDataTypeRequest
 
+## Example Usage
+
+```typescript
+import { RefreshDataTypeRequest } from "@codat/platform/sdk/models/operations";
+
+let value: RefreshDataTypeRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  dataType: "invoices",
+};
+```
 
 ## Fields
 

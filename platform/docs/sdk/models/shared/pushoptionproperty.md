@@ -1,5 +1,17 @@
 # PushOptionProperty
 
+## Example Usage
+
+```typescript
+import { PushOptionProperty } from "@codat/platform/sdk/models/shared";
+
+let value: PushOptionProperty = {
+  type: "Object",
+  displayName: "Eugene_Brown31",
+  description: "Customer-focused reciprocal complexity",
+  required: false,
+};
+```
 
 ## Fields
 

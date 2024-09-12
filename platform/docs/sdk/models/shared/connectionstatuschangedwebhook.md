@@ -2,6 +2,29 @@
 
 Webhook request body for a company's data connection status changed.
 
+## Example Usage
+
+```typescript
+import { ConnectionStatusChangedWebhook } from "@codat/platform/sdk/models/shared";
+
+let value: ConnectionStatusChangedWebhook = {
+  clientId: "bae71d36-ff47-420a-b4a6-f8c9ddf41140",
+  clientName: "Bank of Dave",
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  dataConnectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  ruleId: "70af3071-65d9-4ec3-b3cb-5283e8d55dac",
+  ruleType: "DataConnectionStatusChanged",
+  alertId: "a9367074-b5c3-42c4-9be4-be129f43577e",
+  message:
+    "Data connection for SandBox status changed from PendingAuth to Linked",
+  data: {
+    dataConnectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    newStatus: "Linked",
+    oldStatus: "PendingAuth",
+    platformKey: "gbol",
+  },
+};
+```
 
 ## Fields
 

@@ -2,6 +2,30 @@
 
 Client's configuration details for a specific custom data type and platform pair.
 
+## Example Usage
+
+```typescript
+import { CustomDataTypeConfiguration } from "@codat/platform/sdk/models/shared";
+
+let value: CustomDataTypeConfiguration = {
+  dataSource: "api/purchaseOrders?$filter=currencyCode eq 'NOK'",
+  requiredData: {
+    "currencyCode": "$[*].currencyCode",
+    "id": "$[*].id",
+    "number": "$[*].number",
+    "orderDate": "$[*].orderDate",
+    "totalAmountExcludingTax": "$[*].totalAmountExcludingTax",
+    "totalTaxAmount": "$[*].totalTaxAmount",
+    "vendorName": "$[*].number",
+  },
+  keyBy: [
+    "$[*].id",
+  ],
+  sourceModifiedDate: [
+    "$[*].lastModifiedDateTime",
+  ],
+};
+```
 
 ## Fields
 

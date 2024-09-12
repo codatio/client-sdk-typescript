@@ -2,6 +2,15 @@
 
 The group template used to create a group.
 
+## Example Usage
+
+```typescript
+import { GroupPrototype } from "@codat/platform/sdk/models/shared";
+
+let value: GroupPrototype = {
+  name: "Invoice finance team",
+};
+```
 
 ## Fields
 

@@ -1,5 +1,14 @@
 # ModifiedDate
 
+## Example Usage
+
+```typescript
+import { ModifiedDate } from "@codat/platform/sdk/models/shared";
+
+let value: ModifiedDate = {
+  modifiedDate: "2022-10-23T00:00:00Z",
+};
+```
 
 ## Fields
 

@@ -5,6 +5,16 @@
 See our documentation for more details on [Codat's webhook service](https://docs.codat.io/using-the-api/webhooks/overview).
 
 
+## Example Usage
+
+```typescript
+import { WebhookConsumer } from "@codat/platform/sdk/models/shared";
+
+let value: WebhookConsumer = {
+  id: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+};
+```
 
 ## Fields
 

@@ -1,5 +1,16 @@
 # ConnectionManagementAllowedOrigins
 
+## Example Usage
+
+```typescript
+import { ConnectionManagementAllowedOrigins } from "@codat/platform/sdk/models/shared";
+
+let value: ConnectionManagementAllowedOrigins = {
+  allowedOrigins: [
+    "https://www.bank-of-dave.com",
+  ],
+};
+```
 
 ## Fields
 

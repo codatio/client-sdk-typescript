@@ -1,5 +1,25 @@
 # SyncSettings
 
+## Example Usage
+
+```typescript
+import { SyncSettings } from "@codat/platform/sdk/models/shared";
+
+let value: SyncSettings = {
+  settings: [
+    {
+      dataType: "invoices",
+      fetchOnFirstLink: true,
+      syncSchedule: 24,
+      syncOrder: 0,
+      syncFromUtc: "2020-01-01T12:00:00.000Z",
+      syncFromWindow: 24,
+      monthsToSync: 24,
+      isLocked: true,
+    },
+  ],
+};
+```
 
 ## Fields
 

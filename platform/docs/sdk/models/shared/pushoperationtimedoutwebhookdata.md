@@ -1,5 +1,14 @@
 # PushOperationTimedOutWebhookData
 
+## Example Usage
+
+```typescript
+import { PushOperationTimedOutWebhookData } from "@codat/platform/sdk/models/shared";
+
+let value: PushOperationTimedOutWebhookData = {
+  dataType: "invoices",
+};
+```
 
 ## Fields
 

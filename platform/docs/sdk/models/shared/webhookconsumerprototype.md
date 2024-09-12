@@ -1,5 +1,14 @@
 # WebhookConsumerPrototype
 
+## Example Usage
+
+```typescript
+import { WebhookConsumerPrototype } from "@codat/platform/sdk/models/shared";
+
+let value: WebhookConsumerPrototype = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+};
+```
 
 ## Fields
 

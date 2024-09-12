@@ -1,5 +1,16 @@
 # PushOption
 
+## Example Usage
+
+```typescript
+import { PushOption } from "@codat/platform/sdk/models/shared";
+
+let value: PushOption = {
+  type: "String",
+  displayName: "Harvey.Konopelski",
+  required: false,
+};
+```
 
 ## Fields
 
