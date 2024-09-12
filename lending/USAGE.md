@@ -2,26 +2,20 @@
 ```typescript
 import { CodatLending } from "@codat/lending";
 
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
 async function run() {
-    const sdk = new CodatLending({
-        security: {
-            authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-        },
-    });
+  const result = await codatLending.companies.list({
+    page: 1,
+    pageSize: 100,
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
 
-    const res = await sdk.companies.create({
-        description: "Requested early access to the new financing scheme.",
-        groups: [
-            {
-                id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-            },
-        ],
-        name: "Bank of Dave",
-    });
-
-    if (res.statusCode == 200) {
-        // handle response
-    }
+  // Handle the result
+  console.log(result);
 }
 
 run();

@@ -1,7 +1,17 @@
 # TaxComponentRef
 
-Taxes rates reference object depending on the rates being available on source commerce package.
+Taxes rates reference object depending on the rates being available on source commerce software.
 
+## Example Usage
+
+```typescript
+import { TaxComponentRef } from "@codat/lending/sdk/models/shared";
+
+let value: TaxComponentRef = {
+  id: "EILBDVJVNUAGVKRQ",
+  name: "<value>",
+};
+```
 
 ## Fields
 

@@ -11,11 +11,18 @@ Found on:
 - Invoice line items
 - Items
 
+## Example Usage
+
+```typescript
+import { TaxRateReference } from "@codat/lending/sdk/models/shared";
+
+let value: TaxRateReference = {};
+```
 
 ## Fields
 
 | Field                                                          | Type                                                           | Required                                                       | Description                                                    |
 | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
-| `effectiveTaxRate`                                             | *number*                                                       | :heavy_minus_sign:                                             | Applicable tax rate.                                           |
-| `id`                                                           | *string*                                                       | :heavy_minus_sign:                                             | Unique identifier for the tax rate in the accounting platform. |
-| `name`                                                         | *string*                                                       | :heavy_minus_sign:                                             | Name of the tax rate in the accounting platform.               |
+| `id`                                                           | *string*                                                       | :heavy_minus_sign:                                             | Unique identifier for the tax rate in the accounting software. |
+| `name`                                                         | *string*                                                       | :heavy_minus_sign:                                             | Name of the tax rate in the accounting software.               |
+| `effectiveTaxRate`                                             | *Decimal*                                                      | :heavy_minus_sign:                                             | Applicable tax rate.                                           |

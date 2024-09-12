@@ -1,5 +1,15 @@
 # TransactionSourceRef
 
+## Example Usage
+
+```typescript
+import { TransactionSourceRef } from "@codat/lending/sdk/models/shared";
+
+let value: TransactionSourceRef = {
+  id: "7110701885",
+  type: "Unknown",
+};
+```
 
 ## Fields
 

@@ -2,6 +2,15 @@
 
 Reference to the supplier the record relates to.
 
+## Example Usage
+
+```typescript
+import { SupplierRef } from "@codat/lending/sdk/models/shared";
+
+let value: SupplierRef = {
+  id: "<id>",
+};
+```
 
 ## Fields
 

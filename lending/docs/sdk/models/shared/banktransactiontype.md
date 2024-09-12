@@ -2,26 +2,16 @@
 
 Type of transaction for the bank statement line.
 
+## Example Usage
+
+```typescript
+import { BankTransactionType } from "@codat/lending/sdk/models/shared";
+
+let value: BankTransactionType = "Int";
+```
 
 ## Values
 
-| Name          | Value         |
-| ------------- | ------------- |
-| `Unknown`     | Unknown       |
-| `Credit`      | Credit        |
-| `Debit`       | Debit         |
-| `Int`         | Int           |
-| `Div`         | Div           |
-| `Fee`         | Fee           |
-| `SerChg`      | SerChg        |
-| `Dep`         | Dep           |
-| `Atm`         | Atm           |
-| `Pos`         | Pos           |
-| `Xfer`        | Xfer          |
-| `Check`       | Check         |
-| `Payment`     | Payment       |
-| `Cash`        | Cash          |
-| `DirectDep`   | DirectDep     |
-| `DirectDebit` | DirectDebit   |
-| `RepeatPmt`   | RepeatPmt     |
-| `Other`       | Other         |
+```typescript
+"Unknown" | "Credit" | "Debit" | "Int" | "Div" | "Fee" | "SerChg" | "Dep" | "Atm" | "Pos" | "Xfer" | "Check" | "Payment" | "Cash" | "DirectDep" | "DirectDebit" | "RepeatPmt" | "Other"
+```

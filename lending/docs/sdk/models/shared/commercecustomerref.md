@@ -2,6 +2,15 @@
 
 Reference to the customer that placed the order.
 
+## Example Usage
+
+```typescript
+import { CommerceCustomerRef } from "@codat/lending/sdk/models/shared";
+
+let value: CommerceCustomerRef = {
+  id: "EILBDVJVNUAGVKRQ",
+};
+```
 
 ## Fields
 

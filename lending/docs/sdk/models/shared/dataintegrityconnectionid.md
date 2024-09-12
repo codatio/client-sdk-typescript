@@ -1,5 +1,12 @@
 # DataIntegrityConnectionId
 
+## Example Usage
+
+```typescript
+import { DataIntegrityConnectionId } from "@codat/lending/sdk/models/shared";
+
+let value: DataIntegrityConnectionId = {};
+```
 
 ## Fields
 

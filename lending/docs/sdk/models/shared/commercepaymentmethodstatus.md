@@ -2,11 +2,16 @@
 
 Status of the Payment Method.
 
+## Example Usage
+
+```typescript
+import { CommercePaymentMethodStatus } from "@codat/lending/sdk/models/shared";
+
+let value: CommercePaymentMethodStatus = "Unknown";
+```
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `Unknown`  | Unknown    |
-| `Active`   | Active     |
-| `Archived` | Archived   |
+```typescript
+"Unknown" | "Active" | "Archived"
+```

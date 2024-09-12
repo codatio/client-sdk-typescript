@@ -1,13 +1,17 @@
 # Status
 
-The status of the account transaction.
+The current status of the dataset.
 
+## Example Usage
+
+```typescript
+import { Status } from "@codat/lending/sdk/models/shared";
+
+let value: Status = "Queued";
+```
 
 ## Values
 
-| Name           | Value          |
-| -------------- | -------------- |
-| `Unknown`      | Unknown        |
-| `Unreconciled` | Unreconciled   |
-| `Reconciled`   | Reconciled     |
-| `Void`         | Void           |
+```typescript
+"Initial" | "Queued" | "Fetching" | "MapQueued" | "Mapping" | "Complete" | "FetchError" | "MapError" | "InternalError" | "ProcessingQueued" | "Processing" | "ProcessingError" | "ValidationQueued" | "Validating" | "ValidationError" | "AuthError" | "Cancelled" | "NotSupported" | "RateLimitError" | "PermissionsError" | "PrerequisiteNotMet"
+```

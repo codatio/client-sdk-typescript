@@ -1,5 +1,19 @@
 # AccountingCreateBankTransactions
 
+## Example Usage
+
+```typescript
+import { AccountingCreateBankTransactions } from "@codat/lending/sdk/models/shared";
+
+let value: AccountingCreateBankTransactions = {
+  accountId: "EILBDVJVNUAGVKRQ",
+  transactions: [
+    {
+      date: "2022-10-23T00:00:00Z",
+    },
+  ],
+};
+```
 
 ## Fields
 

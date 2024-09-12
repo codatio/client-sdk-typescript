@@ -1,5 +1,16 @@
 # GetAccountingDirectCostRequest
 
+## Example Usage
+
+```typescript
+import { GetAccountingDirectCostRequest } from "@codat/lending/sdk/models/operations";
+
+let value: GetAccountingDirectCostRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  directCostId: "<value>",
+};
+```
 
 ## Fields
 

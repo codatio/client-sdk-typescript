@@ -2,13 +2,16 @@
 
 The type of source the transaction arose.
 
+## Example Usage
+
+```typescript
+import { TransactionSourceType } from "@codat/lending/sdk/models/shared";
+
+let value: TransactionSourceType = "ServiceCharge";
+```
 
 ## Values
 
-| Name            | Value           |
-| --------------- | --------------- |
-| `Fee`           | Fee             |
-| `Order`         | Order           |
-| `Payment`       | Payment         |
-| `ServiceCharge` | ServiceCharge   |
-| `Unknown`       | Unknown         |
+```typescript
+"Fee" | "Order" | "Payment" | "ServiceCharge" | "Unknown"
+```

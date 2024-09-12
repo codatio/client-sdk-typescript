@@ -1,5 +1,15 @@
 # DownloadExcelReportRequest
 
+## Example Usage
+
+```typescript
+import { DownloadExcelReportRequest } from "@codat/lending/sdk/models/operations";
+
+let value: DownloadExcelReportRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  reportType: "enhancedCashFlow",
+};
+```
 
 ## Fields
 

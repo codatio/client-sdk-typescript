@@ -1,9 +1,16 @@
-speakeasyVersion: 1.338.0
+speakeasyVersion: 1.396.2
 sources:
     bank-feeds-source:
         sourceNamespace: bank-feeds-source
         sourceRevisionDigest: sha256:0f87a6f2907d055333a3ebfa823c2c20b8c78a47c9b32280d3e1de42401e9cb7
         sourceBlobDigest: sha256:1fb492702331c8f3af91b7d73b45add7b4db2f0ce37567bf1a47c1db18b35575
+        tags:
+            - latest
+            - main
+    lending-source:
+        sourceNamespace: lending-source
+        sourceRevisionDigest: sha256:a447c8ff1c673cb1560fae0f88cc4bc55f02ae38865723cfa7258554c6e00728
+        sourceBlobDigest: sha256:11ae523963780dcf6d5f3e5d617b7d4f809c94c11f59f95202727916e51510f4
         tags:
             - latest
             - main
@@ -21,17 +28,17 @@ sources:
         tags:
             - latest
             - main
-    sync-for-payroll-source:
-        sourceNamespace: sync-for-payroll-source
-        sourceRevisionDigest: sha256:95fbbd9d479c192baabe63b6b95494bf55876fb9007df3657fa51660a8c73431
-        sourceBlobDigest: sha256:baa2f5f6f0837b11f0c2dd0adb8f51dff8afe272834ddada31ede54d8f3a7103
-        tags:
-            - latest
-            - main
     sync-for-expenses-source:
         sourceNamespace: sync-for-expenses-source
         sourceRevisionDigest: sha256:71608ee6d0767a972fa4d4141d8238df3b9233a528d8de80cc0a85a9a7e560b8
         sourceBlobDigest: sha256:9cd169b17ab92228f7ed8dfd8ed0bd29e950c342a6fb989c1d44ab2fbd372fc8
+        tags:
+            - latest
+            - main
+    sync-for-payroll-source:
+        sourceNamespace: sync-for-payroll-source
+        sourceRevisionDigest: sha256:95fbbd9d479c192baabe63b6b95494bf55876fb9007df3657fa51660a8c73431
+        sourceBlobDigest: sha256:baa2f5f6f0837b11f0c2dd0adb8f51dff8afe272834ddada31ede54d8f3a7103
         tags:
             - latest
             - main
@@ -42,12 +49,24 @@ targets:
         sourceRevisionDigest: sha256:0f87a6f2907d055333a3ebfa823c2c20b8c78a47c9b32280d3e1de42401e9cb7
         sourceBlobDigest: sha256:1fb492702331c8f3af91b7d73b45add7b4db2f0ce37567bf1a47c1db18b35575
         outLocation: bank-feeds
+    lending-library:
+        source: lending-source
+        sourceNamespace: lending-source
+        sourceRevisionDigest: sha256:a447c8ff1c673cb1560fae0f88cc4bc55f02ae38865723cfa7258554c6e00728
+        sourceBlobDigest: sha256:11ae523963780dcf6d5f3e5d617b7d4f809c94c11f59f95202727916e51510f4
+        outLocation: lending
     platform-library:
         source: platform-source
         sourceNamespace: platform-source
         sourceRevisionDigest: sha256:129722ba727e02e06b06f970bf604ad8381b1368043e1df352c45f13bc88dc5f
         sourceBlobDigest: sha256:58909979e578bc80a3dcaa1b431b86e239f4d287edd6b1181744c52a9cd457c3
         outLocation: platform
+    sync-for-commerce-library:
+        source: sync-for-commerce-source
+        sourceNamespace: sync-for-commerce-source
+        sourceRevisionDigest: sha256:b84dfd0a144f6e1f6820d89002c47ef49c1577847dbf847b8084e2878f0d665d
+        sourceBlobDigest: sha256:8d28ab5948234762183d92571ebbc3c5680bbbb4bd74052fad1164eed6d68d14
+        outLocation: sync-for-commerce
     sync-for-expenses-library:
         source: sync-for-expenses-source
         sourceNamespace: sync-for-expenses-source
@@ -60,12 +79,6 @@ targets:
         sourceRevisionDigest: sha256:95fbbd9d479c192baabe63b6b95494bf55876fb9007df3657fa51660a8c73431
         sourceBlobDigest: sha256:baa2f5f6f0837b11f0c2dd0adb8f51dff8afe272834ddada31ede54d8f3a7103
         outLocation: sync-for-payroll
-    sync-for-commerce-library:
-        source: sync-for-commerce-source
-        sourceNamespace: sync-for-commerce-source
-        sourceRevisionDigest: sha256:b84dfd0a144f6e1f6820d89002c47ef49c1577847dbf847b8084e2878f0d665d
-        sourceBlobDigest: sha256:8d28ab5948234762183d92571ebbc3c5680bbbb4bd74052fad1164eed6d68d14
-        outLocation: sync-for-commerce
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -96,6 +109,8 @@ workflow:
         lending-source:
             inputs:
                 - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Lending.yaml
+            registry:
+                location: registry.speakeasyapi.dev/codat/codat/lending-source
         platform-source:
             inputs:
                 - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Platform.yaml

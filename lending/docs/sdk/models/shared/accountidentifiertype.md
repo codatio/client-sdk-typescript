@@ -2,15 +2,16 @@
 
 Type of account
 
+## Example Usage
+
+```typescript
+import { AccountIdentifierType } from "@codat/lending/sdk/models/shared";
+
+let value: AccountIdentifierType = "Other";
+```
 
 ## Values
 
-| Name         | Value        |
-| ------------ | ------------ |
-| `Account`    | Account      |
-| `Card`       | Card         |
-| `Credit`     | Credit       |
-| `Depository` | Depository   |
-| `Investment` | Investment   |
-| `Loan`       | Loan         |
-| `Other`      | Other        |
+```typescript
+"Account" | "Card" | "Credit" | "Depository" | "Investment" | "Loan" | "Other"
+```

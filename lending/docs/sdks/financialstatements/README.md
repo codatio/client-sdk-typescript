@@ -1,5 +1,2 @@
 # FinancialStatements
 (*financialStatements*)
-
-### Available Operations
-

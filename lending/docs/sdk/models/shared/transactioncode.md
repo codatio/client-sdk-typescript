@@ -2,23 +2,16 @@
 
 Code to identify the underlying transaction.
 
+## Example Usage
+
+```typescript
+import { TransactionCode } from "@codat/lending/sdk/models/shared";
+
+let value: TransactionCode = "Fee";
+```
 
 ## Values
 
-| Name            | Value           |
-| --------------- | --------------- |
-| `Unknown`       | Unknown         |
-| `Fee`           | Fee             |
-| `Payment`       | Payment         |
-| `Cash`          | Cash            |
-| `Transfer`      | Transfer        |
-| `Interest`      | Interest        |
-| `Cashback`      | Cashback        |
-| `Cheque`        | Cheque          |
-| `DirectDebit`   | DirectDebit     |
-| `Purchase`      | Purchase        |
-| `StandingOrder` | StandingOrder   |
-| `Adjustment`    | Adjustment      |
-| `Credit`        | Credit          |
-| `Other`         | Other           |
-| `NotSupported`  | NotSupported    |
+```typescript
+"Unknown" | "Fee" | "Payment" | "Cash" | "Transfer" | "Interest" | "Cashback" | "Cheque" | "DirectDebit" | "Purchase" | "StandingOrder" | "Adjustment" | "Credit" | "Other" | "NotSupported"
+```

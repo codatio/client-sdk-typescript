@@ -1,52 +1,17 @@
 # DataTypes
 
-Available Data types
+Available data types
 
+## Example Usage
+
+```typescript
+import { DataTypes } from "@codat/lending/sdk/models/shared";
+
+let value: DataTypes = "invoices";
+```
 
 ## Values
 
-| Name                           | Value                          |
-| ------------------------------ | ------------------------------ |
-| `AccountTransactions`          | accountTransactions            |
-| `BalanceSheet`                 | balanceSheet                   |
-| `BankAccounts`                 | bankAccounts                   |
-| `BankTransactions`             | bankTransactions               |
-| `BillCreditNotes`              | billCreditNotes                |
-| `BillPayments`                 | billPayments                   |
-| `Bills`                        | bills                          |
-| `CashFlowStatement`            | cashFlowStatement              |
-| `ChartOfAccounts`              | chartOfAccounts                |
-| `Company`                      | company                        |
-| `CreditNotes`                  | creditNotes                    |
-| `Customers`                    | customers                      |
-| `DirectCosts`                  | directCosts                    |
-| `DirectIncomes`                | directIncomes                  |
-| `Invoices`                     | invoices                       |
-| `ItemReceipts`                 | itemReceipts                   |
-| `Items`                        | items                          |
-| `JournalEntries`               | journalEntries                 |
-| `Journals`                     | journals                       |
-| `PaymentMethods`               | paymentMethods                 |
-| `Payments`                     | payments                       |
-| `ProfitAndLoss`                | profitAndLoss                  |
-| `PurchaseOrders`               | purchaseOrders                 |
-| `SalesOrders`                  | salesOrders                    |
-| `Suppliers`                    | suppliers                      |
-| `TaxRates`                     | taxRates                       |
-| `TrackingCategories`           | trackingCategories             |
-| `Transfers`                    | transfers                      |
-| `BankingAccountBalances`       | banking-accountBalances        |
-| `BankingAccounts`              | banking-accounts               |
-| `BankingTransactionCategories` | banking-transactionCategories  |
-| `BankingTransactions`          | banking-transactions           |
-| `CommerceCompanyInfo`          | commerce-companyInfo           |
-| `CommerceCustomers`            | commerce-customers             |
-| `CommerceDisputes`             | commerce-disputes              |
-| `CommerceLocations`            | commerce-locations             |
-| `CommerceOrders`               | commerce-orders                |
-| `CommercePaymentMethods`       | commerce-paymentMethods        |
-| `CommercePayments`             | commerce-payments              |
-| `CommerceProductCategories`    | commerce-productCategories     |
-| `CommerceProducts`             | commerce-products              |
-| `CommerceTaxComponents`        | commerce-taxComponents         |
-| `CommerceTransactions`         | commerce-transactions          |
+```typescript
+"accountTransactions" | "balanceSheet" | "bankAccounts" | "bankTransactions" | "billCreditNotes" | "billPayments" | "bills" | "cashFlowStatement" | "chartOfAccounts" | "company" | "creditNotes" | "customers" | "directCosts" | "directIncomes" | "invoices" | "itemReceipts" | "items" | "journalEntries" | "journals" | "paymentMethods" | "payments" | "profitAndLoss" | "purchaseOrders" | "salesOrders" | "suppliers" | "taxRates" | "trackingCategories" | "transfers" | "banking-accountBalances" | "banking-accounts" | "banking-transactionCategories" | "banking-transactions" | "commerce-companyInfo" | "commerce-customers" | "commerce-disputes" | "commerce-locations" | "commerce-orders" | "commerce-paymentMethods" | "commerce-payments" | "commerce-productCategories" | "commerce-products" | "commerce-taxComponents" | "commerce-transactions"
+```

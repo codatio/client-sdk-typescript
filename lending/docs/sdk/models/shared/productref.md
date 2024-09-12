@@ -2,6 +2,15 @@
 
 Reference that links the line item to the correct product details.
 
+## Example Usage
+
+```typescript
+import { ProductRef } from "@codat/lending/sdk/models/shared";
+
+let value: ProductRef = {
+  id: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+};
+```
 
 ## Fields
 

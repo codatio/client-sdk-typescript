@@ -10,16 +10,16 @@ The type of the platform transaction:
 - `Refund` — Refunds to a customer's credit or debit card.  
 - `Transfer` — Secure transfer of funds to the seller's bank account.  
 
+## Example Usage
+
+```typescript
+import { TransactionType } from "@codat/lending/sdk/models/shared";
+
+let value: TransactionType = "Payout";
+```
 
 ## Values
 
-| Name               | Value              |
-| ------------------ | ------------------ |
-| `Payment`          | Payment            |
-| `Refund`           | Refund             |
-| `Payout`           | Payout             |
-| `FailedPayout`     | FailedPayout       |
-| `Transfer`         | Transfer           |
-| `PaymentFee`       | PaymentFee         |
-| `PaymentFeeRefund` | PaymentFeeRefund   |
-| `Unknown`          | Unknown            |
+```typescript
+"Payment" | "Refund" | "Payout" | "FailedPayout" | "Transfer" | "PaymentFee" | "PaymentFeeRefund" | "Unknown"
+```

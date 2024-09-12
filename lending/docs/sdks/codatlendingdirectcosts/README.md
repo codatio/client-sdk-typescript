@@ -1,21 +1,24 @@
 # CodatLendingDirectCosts
-(*transactions.directCosts*)
+(*loanWriteback.directCosts*)
+
+## Overview
 
 ### Available Operations
 
-* [downloadAttachment](#downloadattachment) - Download direct cost attachment
-* [get](#get) - Get direct cost
-* [getAttachment](#getattachment) - Get direct cost attachment
-* [list](#list) - List direct costs
-* [listAttachments](#listattachments) - List direct cost attachments
+* [getCreateModel](#getcreatemodel) - Get create direct cost model
+* [create](#create) - Create direct cost
 
-## downloadAttachment
+## getCreateModel
 
-The *Download direct cost attachment* endpoint downloads a specific attachment for a given `directCostId` and `attachmentId`.
+The *Get create direct cost model* endpoint returns the expected data for the request payload when creating a [direct cost](https://docs.codat.io/lending-api#/schemas/DirectCost) for a given company and integration.
 
 [Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
 
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support downloading a direct cost attachment.
+**Integration-specific behaviour**
+
+See the *response examples* for integration-specific indicative models.
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support creating a direct cost.
 
 
 ### Example Usage
@@ -23,23 +26,51 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 ```typescript
 import { CodatLending } from "@codat/lending";
 
-async function run() {
-  const sdk = new CodatLending({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-    },
-  });
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
-  const res = await sdk.transactions.directCosts.downloadAttachment({
-    attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+async function run() {
+  const result = await codatLending.loanWriteback.directCosts.getCreateModel({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directCostId: "string",
+  });
+  
+  // Handle the result
+  console.log(result)
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { loanWritebackDirectCostsGetCreateModel } from "@codat/lending/funcs/loanWritebackDirectCostsGetCreateModel.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await loanWritebackDirectCostsGetCreateModel(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
+  if (!res.ok) {
+    throw res.error;
   }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -47,108 +78,230 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                                                                | Type                                                                                                                                     | Required                                                                                                                                 | Description                                                                                                                              |
-| ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                                | [operations.DownloadAccountingDirectCostAttachmentRequest](../../sdk/models/operations/downloadaccountingdirectcostattachmentrequest.md) | :heavy_check_mark:                                                                                                                       | The request object to use for the request.                                                                                               |
-| `retries`                                                                                                                                | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                                                 | :heavy_minus_sign:                                                                                                                       | Configuration to override the default retry behavior of the client.                                                                      |
-| `config`                                                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                             | :heavy_minus_sign:                                                                                                                       | Available config options for making requests.                                                                                            |
-
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetCreateDirectCostsModelRequest](../../sdk/models/operations/getcreatedirectcostsmodelrequest.md)                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise<[operations.DownloadAccountingDirectCostAttachmentResponse](../../sdk/models/operations/downloadaccountingdirectcostattachmentresponse.md)>**
+**Promise\<[shared.PushOption](../../sdk/models/shared/pushoption.md)\>**
+
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| Error Object                | Status Code                 | Content Type                |
+| --------------------------- | --------------------------- | --------------------------- |
+| errors.ErrorMessage         | 401,402,403,404,429,500,503 | application/json            |
+| errors.SDKError             | 4xx-5xx                     | */*                         |
 
-## get
 
-The *Get direct cost* endpoint returns a single direct cost for a given directCostId.
+## create
 
-[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+The *Create direct cost* endpoint creates a new [direct cost](https://docs.codat.io/lending-api#/schemas/DirectCost) for a given company's connection.
 
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support getting a specific direct cost.
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are the expenses associated with a business' operations. For example, purchases of raw materials that are paid off at the point of the purchase and service fees are considered direct costs.
 
-Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
+**Integration-specific behaviour**
+
+Required data may vary by integration. To see what data to post, first call [Get create direct cost model](https://docs.codat.io/lending-api#/operations/get-create-directCosts-model).
+
+Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support creating an account.
 
 
 ### Example Usage
 
 ```typescript
 import { CodatLending } from "@codat/lending";
+import { Decimal } from "@codat/lending/sdk/types";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 async function run() {
-  const sdk = new CodatLending({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-    },
-  });
-
-  const res = await sdk.transactions.directCosts.get({
+  const result = await codatLending.loanWriteback.directCosts.create({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directCostId: "string",
+    directCostPrototype: {
+      reference: "test ref",
+      note: "directCost 21/03 09.20",
+      contactRef: {
+        id: "80000001-1671793885",
+        dataType: "suppliers",
+      },
+      issueDate: "2023-03-21T10:19:52.223Z",
+      currency: "USD",
+      lineItems: [
+        {
+          description: "test description line 1",
+          unitAmount: new Decimal("7"),
+          quantity: new Decimal("1"),
+          discountAmount: new Decimal("0"),
+          discountPercentage: new Decimal("0"),
+          subTotal: new Decimal("99"),
+          taxAmount: new Decimal("360"),
+          totalAmount: new Decimal("70"),
+          accountRef: {
+            id: "8000000D-1671793811",
+            name: "Purchases - Hardware for Resale",
+          },
+          itemRef: {
+            id: "80000001-1674566705",
+            name: "item test",
+          },
+          trackingCategoryRefs: [
+            {
+              id: "80000001-1674553252",
+              name: "Class 1",
+            },
+          ],
+          tracking: {
+            recordRefs: [
+              {
+                dataType: "trackingCategories",
+              },
+            ],
+            invoiceTo: {
+              dataType: "invoice",
+            },
+          },
+        },
+      ],
+      paymentAllocations: [
+        {
+          payment: {
+            note: "payment allocations note",
+            reference: "payment allocations reference",
+            accountRef: {
+              id: "80000028-1671794219",
+              name: "Bank Account 1",
+            },
+            currency: "USD",
+            paidOnDate: "2023-01-28T10:19:52.223Z",
+            totalAmount: new Decimal("54"),
+          },
+          allocation: {
+            currency: "USD",
+            currencyRate: new Decimal("0"),
+            allocatedOnDate: "2023-01-29T10:19:52.223Z",
+            totalAmount: new Decimal("88"),
+          },
+        },
+      ],
+      subTotal: new Decimal("362"),
+      taxAmount: new Decimal("4"),
+      totalAmount: new Decimal("366"),
+    },
   });
-
-  if (res.statusCode == 200) {
-    // handle response
-  }
+  
+  // Handle the result
+  console.log(result)
 }
 
 run();
 ```
 
-### Parameters
+### Standalone function
 
-| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                  | [operations.GetAccountingDirectCostRequest](../../sdk/models/operations/getaccountingdirectcostrequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
-| `retries`                                                                                                  | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                   | :heavy_minus_sign:                                                                                         | Configuration to override the default retry behavior of the client.                                        |
-| `config`                                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                               | :heavy_minus_sign:                                                                                         | Available config options for making requests.                                                              |
-
-
-### Response
-
-**Promise<[operations.GetAccountingDirectCostResponse](../../sdk/models/operations/getaccountingdirectcostresponse.md)>**
-### Errors
-
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
-
-## getAttachment
-
-The *Get direct cost attachment* endpoint returns a specific attachment for a given `directCostId` and `attachmentId`.
-
-[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support getting a direct cost attachment.
-
-
-### Example Usage
+The standalone function version of this method:
 
 ```typescript
-import { CodatLending } from "@codat/lending";
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { loanWritebackDirectCostsCreate } from "@codat/lending/funcs/loanWritebackDirectCostsCreate.js";
+import { Decimal } from "@codat/lending/sdk/types";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 async function run() {
-  const sdk = new CodatLending({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  const res = await loanWritebackDirectCostsCreate(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    directCostPrototype: {
+      reference: "test ref",
+      note: "directCost 21/03 09.20",
+      contactRef: {
+        id: "80000001-1671793885",
+        dataType: "suppliers",
+      },
+      issueDate: "2023-03-21T10:19:52.223Z",
+      currency: "USD",
+      lineItems: [
+        {
+          description: "test description line 1",
+          unitAmount: new Decimal("7"),
+          quantity: new Decimal("1"),
+          discountAmount: new Decimal("0"),
+          discountPercentage: new Decimal("0"),
+          subTotal: new Decimal("99"),
+          taxAmount: new Decimal("360"),
+          totalAmount: new Decimal("70"),
+          accountRef: {
+            id: "8000000D-1671793811",
+            name: "Purchases - Hardware for Resale",
+          },
+          itemRef: {
+            id: "80000001-1674566705",
+            name: "item test",
+          },
+          trackingCategoryRefs: [
+            {
+              id: "80000001-1674553252",
+              name: "Class 1",
+            },
+          ],
+          tracking: {
+            recordRefs: [
+              {
+                dataType: "trackingCategories",
+              },
+            ],
+            invoiceTo: {
+              dataType: "invoice",
+            },
+          },
+        },
+      ],
+      paymentAllocations: [
+        {
+          payment: {
+            note: "payment allocations note",
+            reference: "payment allocations reference",
+            accountRef: {
+              id: "80000028-1671794219",
+              name: "Bank Account 1",
+            },
+            currency: "USD",
+            paidOnDate: "2023-01-28T10:19:52.223Z",
+            totalAmount: new Decimal("54"),
+          },
+          allocation: {
+            currency: "USD",
+            currencyRate: new Decimal("0"),
+            allocatedOnDate: "2023-01-29T10:19:52.223Z",
+            totalAmount: new Decimal("88"),
+          },
+        },
+      ],
+      subTotal: new Decimal("362"),
+      taxAmount: new Decimal("4"),
+      totalAmount: new Decimal("366"),
     },
   });
 
-  const res = await sdk.transactions.directCosts.getAttachment({
-    attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directCostId: "string",
-  });
-
-  if (res.statusCode == 200) {
-    // handle response
+  if (!res.ok) {
+    throw res.error;
   }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result)
 }
 
 run();
@@ -156,126 +309,20 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                                                      | Type                                                                                                                           | Required                                                                                                                       | Description                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                      | [operations.GetAccountingDirectCostAttachmentRequest](../../sdk/models/operations/getaccountingdirectcostattachmentrequest.md) | :heavy_check_mark:                                                                                                             | The request object to use for the request.                                                                                     |
-| `retries`                                                                                                                      | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                                       | :heavy_minus_sign:                                                                                                             | Configuration to override the default retry behavior of the client.                                                            |
-| `config`                                                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                   | :heavy_minus_sign:                                                                                                             | Available config options for making requests.                                                                                  |
-
-
-### Response
-
-**Promise<[operations.GetAccountingDirectCostAttachmentResponse](../../sdk/models/operations/getaccountingdirectcostattachmentresponse.md)>**
-### Errors
-
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
-
-## list
-
-The *List direct costs* endpoint returns a list of [direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) for a given company's connection.
-
-[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
-
-Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
-    
-
-### Example Usage
-
-```typescript
-import { CodatLending } from "@codat/lending";
-
-async function run() {
-  const sdk = new CodatLending({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-    },
-  });
-
-  const res = await sdk.transactions.directCosts.list({
-    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    orderBy: "-modifiedDate",
-    page: 1,
-    pageSize: 100,
-  });
-
-  if (res.statusCode == 200) {
-    // handle response
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
-| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                      | [operations.ListAccountingDirectCostsRequest](../../sdk/models/operations/listaccountingdirectcostsrequest.md) | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
-| `retries`                                                                                                      | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                       | :heavy_minus_sign:                                                                                             | Configuration to override the default retry behavior of the client.                                            |
-| `config`                                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                   | :heavy_minus_sign:                                                                                             | Available config options for making requests.                                                                  |
-
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CreateDirectCostRequest](../../sdk/models/operations/createdirectcostrequest.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise<[operations.ListAccountingDirectCostsResponse](../../sdk/models/operations/listaccountingdirectcostsresponse.md)>**
+**Promise\<[shared.AccountingCreateDirectCostResponse](../../sdk/models/shared/accountingcreatedirectcostresponse.md)\>**
+
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
-
-## listAttachments
-
-The *List direct cost attachments* endpoint returns a list of attachments available to download for given `directCostId`.
-
-[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=directCosts) for integrations that support listing direct cost attachments.
-
-
-### Example Usage
-
-```typescript
-import { CodatLending } from "@codat/lending";
-
-async function run() {
-  const sdk = new CodatLending({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-    },
-  });
-
-  const res = await sdk.transactions.directCosts.listAttachments({
-    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directCostId: "string",
-  });
-
-  if (res.statusCode == 200) {
-    // handle response
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                          | Type                                                                                                                               | Required                                                                                                                           | Description                                                                                                                        |
-| ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                          | [operations.ListAccountingDirectCostAttachmentsRequest](../../sdk/models/operations/listaccountingdirectcostattachmentsrequest.md) | :heavy_check_mark:                                                                                                                 | The request object to use for the request.                                                                                         |
-| `retries`                                                                                                                          | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                                           | :heavy_minus_sign:                                                                                                                 | Configuration to override the default retry behavior of the client.                                                                |
-| `config`                                                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                       | :heavy_minus_sign:                                                                                                                 | Available config options for making requests.                                                                                      |
-
-
-### Response
-
-**Promise<[operations.ListAccountingDirectCostAttachmentsResponse](../../sdk/models/operations/listaccountingdirectcostattachmentsresponse.md)>**
-### Errors
-
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| Error Object                    | Status Code                     | Content Type                    |
+| ------------------------------- | ------------------------------- | ------------------------------- |
+| errors.ErrorMessage             | 400,401,402,403,404,429,500,503 | application/json                |
+| errors.SDKError                 | 4xx-5xx                         | */*                             |

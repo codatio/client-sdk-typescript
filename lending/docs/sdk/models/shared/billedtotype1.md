@@ -2,11 +2,16 @@
 
 Defines if the bill or bill credit note is billed/rebilled to a project.
 
+## Example Usage
+
+```typescript
+import { BilledToType1 } from "@codat/lending/sdk/models/shared";
+
+let value: BilledToType1 = "Project";
+```
 
 ## Values
 
-| Name            | Value           |
-| --------------- | --------------- |
-| `Unknown`       | Unknown         |
-| `NotApplicable` | NotApplicable   |
-| `Project`       | Project         |
+```typescript
+"Unknown" | "NotApplicable" | "Project"
+```

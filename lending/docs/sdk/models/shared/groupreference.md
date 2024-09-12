@@ -1,5 +1,14 @@
 # GroupReference
 
+## Example Usage
+
+```typescript
+import { GroupReference } from "@codat/lending/sdk/models/shared";
+
+let value: GroupReference = {
+  id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
+};
+```
 
 ## Fields
 

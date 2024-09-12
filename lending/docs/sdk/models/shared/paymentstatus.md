@@ -2,14 +2,16 @@
 
 Status of the payment.
 
+## Example Usage
+
+```typescript
+import { PaymentStatus } from "@codat/lending/sdk/models/shared";
+
+let value: PaymentStatus = "Paid";
+```
 
 ## Values
 
-| Name         | Value        |
-| ------------ | ------------ |
-| `Pending`    | Pending      |
-| `Authorized` | Authorized   |
-| `Paid`       | Paid         |
-| `Failed`     | Failed       |
-| `Cancelled`  | Cancelled    |
-| `Unknown`    | Unknown      |
+```typescript
+"Pending" | "Authorized" | "Paid" | "Failed" | "Cancelled" | "Unknown"
+```

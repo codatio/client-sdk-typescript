@@ -12,18 +12,16 @@ Types of payment line links, either:
 `Manual Journal`  
 `Discount` - ID refers to the payment
 
+## Example Usage
+
+```typescript
+import { PaymentLinkType } from "@codat/lending/sdk/models/shared";
+
+let value: PaymentLinkType = "Payment";
+```
 
 ## Values
 
-| Name               | Value              |
-| ------------------ | ------------------ |
-| `Unknown`          | Unknown            |
-| `Unlinked`         | Unlinked           |
-| `Invoice`          | Invoice            |
-| `CreditNote`       | CreditNote         |
-| `Other`            | Other              |
-| `Refund`           | Refund             |
-| `Payment`          | Payment            |
-| `PaymentOnAccount` | PaymentOnAccount   |
-| `ManualJournal`    | ManualJournal      |
-| `Discount`         | Discount           |
+```typescript
+"Unknown" | "Unlinked" | "Invoice" | "CreditNote" | "Other" | "Refund" | "Payment" | "PaymentOnAccount" | "ManualJournal" | "Discount"
+```

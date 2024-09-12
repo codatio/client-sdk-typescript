@@ -1,5 +1,15 @@
 # GetAccountingPaymentRequest
 
+## Example Usage
+
+```typescript
+import { GetAccountingPaymentRequest } from "@codat/lending/sdk/models/operations";
+
+let value: GetAccountingPaymentRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  paymentId: "<value>",
+};
+```
 
 ## Fields
 

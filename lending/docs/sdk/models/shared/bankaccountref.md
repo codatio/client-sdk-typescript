@@ -2,6 +2,13 @@
 
 Links to the Account transactions data type.
 
+## Example Usage
+
+```typescript
+import { BankAccountRef } from "@codat/lending/sdk/models/shared";
+
+let value: BankAccountRef = {};
+```
 
 ## Fields
 
