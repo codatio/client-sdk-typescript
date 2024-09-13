@@ -1,5 +1,12 @@
 # UnlinkConnectionUpdateConnection
 
+## Example Usage
+
+```typescript
+import { UnlinkConnectionUpdateConnection } from "@codat/sync-for-payables-version-1/sdk/models/operations";
+
+let value: UnlinkConnectionUpdateConnection = {};
+```
 
 ## Fields
 

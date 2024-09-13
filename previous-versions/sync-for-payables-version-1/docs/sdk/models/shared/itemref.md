@@ -1,0 +1,20 @@
+# ItemRef
+
+Reference to the item the line is linked to.
+
+## Example Usage
+
+```typescript
+import { ItemRef } from "@codat/sync-for-payables-version-1/sdk/models/shared";
+
+let value: ItemRef = {
+  id: "<id>",
+};
+```
+
+## Fields
+
+| Field                                                      | Type                                                       | Required                                                   | Description                                                |
+| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
+| `id`                                                       | *string*                                                   | :heavy_check_mark:                                         | Unique identifier for the item in the accounting software. |
+| `name`                                                     | *string*                                                   | :heavy_minus_sign:                                         | Name of the item in the accounting software.               |
