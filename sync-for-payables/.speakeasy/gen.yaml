@@ -1,12 +1,6 @@
-configVersion: 1.0.0
-management:
-  docChecksum: '00000000000000000000000000000000'
-  docVersion: 2.1.0
-  speakeasyVersion: 1.53.0
-  generationVersion: 2.58.0
+configVersion: 2.0.0
 generation:
   sdkClassName: CodatSyncPayables
-  telemetryEnabled: true
   maintainOpenAPIOrder: true
   usageSnippets:
     optionalPropertyRendering: withExample
@@ -17,19 +11,17 @@ generation:
     requestResponseComponentNamesFeb2024: true
   auth:
     oAuth2ClientCredentialsEnabled: false
+  telemetryEnabled: true
 typescript:
-  version: 3.0.0
-  author: Codat
-  description: Streamline your customers' accounts payable workflow.
-  maxMethodParams: 0
-  packageName: '@codat/sync-for-payables'
-  templateVersion: v2
+  version: 4.0.0
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
     peerDependencies: {}
   additionalPackageJSON: {}
+  author: Codat
   clientServerStatusCodesAsErrors: true
+  description: Streamline your customers' accounts payable workflow.
   enumFormat: union
   flattenGlobalSecurity: true
   imports:
@@ -41,8 +33,11 @@ typescript:
       shared: sdk/models/shared
       webhooks: sdk/models/webhooks
   inputModelSuffix: input
+  maxMethodParams: 0
   methodArguments: infer-optional-args
   moduleFormat: commonjs
   outputModelSuffix: output
+  packageName: '@codat/sync-for-payables'
   responseFormat: flat
+  templateVersion: v2
   useIndexModules: true

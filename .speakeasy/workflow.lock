@@ -1,4 +1,4 @@
-speakeasyVersion: 1.338.0
+speakeasyVersion: 1.396.7
 sources:
     bank-feeds-source:
         sourceNamespace: bank-feeds-source
@@ -21,17 +21,24 @@ sources:
         tags:
             - latest
             - main
-    sync-for-payroll-source:
-        sourceNamespace: sync-for-payroll-source
-        sourceRevisionDigest: sha256:95fbbd9d479c192baabe63b6b95494bf55876fb9007df3657fa51660a8c73431
-        sourceBlobDigest: sha256:baa2f5f6f0837b11f0c2dd0adb8f51dff8afe272834ddada31ede54d8f3a7103
-        tags:
-            - latest
-            - main
     sync-for-expenses-source:
         sourceNamespace: sync-for-expenses-source
         sourceRevisionDigest: sha256:71608ee6d0767a972fa4d4141d8238df3b9233a528d8de80cc0a85a9a7e560b8
         sourceBlobDigest: sha256:9cd169b17ab92228f7ed8dfd8ed0bd29e950c342a6fb989c1d44ab2fbd372fc8
+        tags:
+            - latest
+            - main
+    sync-for-payables-source:
+        sourceNamespace: sync-for-payables-source
+        sourceRevisionDigest: sha256:daca0e08a3d44b87bb2242380dfc8be94f2cb83b1ea0a252af7f31f9b0c2c247
+        sourceBlobDigest: sha256:6ed96ad8ecab289621839d0df446a473e3dc8ea83765e3316020a6670b44da0b
+        tags:
+            - latest
+            - main
+    sync-for-payroll-source:
+        sourceNamespace: sync-for-payroll-source
+        sourceRevisionDigest: sha256:95fbbd9d479c192baabe63b6b95494bf55876fb9007df3657fa51660a8c73431
+        sourceBlobDigest: sha256:baa2f5f6f0837b11f0c2dd0adb8f51dff8afe272834ddada31ede54d8f3a7103
         tags:
             - latest
             - main
@@ -41,31 +48,31 @@ targets:
         sourceNamespace: bank-feeds-source
         sourceRevisionDigest: sha256:0f87a6f2907d055333a3ebfa823c2c20b8c78a47c9b32280d3e1de42401e9cb7
         sourceBlobDigest: sha256:1fb492702331c8f3af91b7d73b45add7b4db2f0ce37567bf1a47c1db18b35575
-        outLocation: bank-feeds
     platform-library:
         source: platform-source
         sourceNamespace: platform-source
         sourceRevisionDigest: sha256:129722ba727e02e06b06f970bf604ad8381b1368043e1df352c45f13bc88dc5f
         sourceBlobDigest: sha256:58909979e578bc80a3dcaa1b431b86e239f4d287edd6b1181744c52a9cd457c3
-        outLocation: platform
-    sync-for-expenses-library:
-        source: sync-for-expenses-source
-        sourceNamespace: sync-for-expenses-source
-        sourceRevisionDigest: sha256:71608ee6d0767a972fa4d4141d8238df3b9233a528d8de80cc0a85a9a7e560b8
-        sourceBlobDigest: sha256:9cd169b17ab92228f7ed8dfd8ed0bd29e950c342a6fb989c1d44ab2fbd372fc8
-        outLocation: sync-for-expenses
-    sync-for-payroll-library:
-        source: sync-for-payroll-source
-        sourceNamespace: sync-for-payroll-source
-        sourceRevisionDigest: sha256:95fbbd9d479c192baabe63b6b95494bf55876fb9007df3657fa51660a8c73431
-        sourceBlobDigest: sha256:baa2f5f6f0837b11f0c2dd0adb8f51dff8afe272834ddada31ede54d8f3a7103
-        outLocation: sync-for-payroll
     sync-for-commerce-library:
         source: sync-for-commerce-source
         sourceNamespace: sync-for-commerce-source
         sourceRevisionDigest: sha256:b84dfd0a144f6e1f6820d89002c47ef49c1577847dbf847b8084e2878f0d665d
         sourceBlobDigest: sha256:8d28ab5948234762183d92571ebbc3c5680bbbb4bd74052fad1164eed6d68d14
-        outLocation: sync-for-commerce
+    sync-for-expenses-library:
+        source: sync-for-expenses-source
+        sourceNamespace: sync-for-expenses-source
+        sourceRevisionDigest: sha256:71608ee6d0767a972fa4d4141d8238df3b9233a528d8de80cc0a85a9a7e560b8
+        sourceBlobDigest: sha256:9cd169b17ab92228f7ed8dfd8ed0bd29e950c342a6fb989c1d44ab2fbd372fc8
+    sync-for-payables-library:
+        source: sync-for-payables-source
+        sourceNamespace: sync-for-payables-source
+        sourceRevisionDigest: sha256:daca0e08a3d44b87bb2242380dfc8be94f2cb83b1ea0a252af7f31f9b0c2c247
+        sourceBlobDigest: sha256:6ed96ad8ecab289621839d0df446a473e3dc8ea83765e3316020a6670b44da0b
+    sync-for-payroll-library:
+        source: sync-for-payroll-source
+        sourceNamespace: sync-for-payroll-source
+        sourceRevisionDigest: sha256:95fbbd9d479c192baabe63b6b95494bf55876fb9007df3657fa51660a8c73431
+        sourceBlobDigest: sha256:baa2f5f6f0837b11f0c2dd0adb8f51dff8afe272834ddada31ede54d8f3a7103
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -120,6 +127,8 @@ workflow:
         sync-for-payables-source:
             inputs:
                 - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Payables.yaml
+            registry:
+                location: registry.speakeasyapi.dev/codat/codat/sync-for-payables-source
         sync-for-payables-version-1-source:
             inputs:
                 - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Payables-v1.yaml
