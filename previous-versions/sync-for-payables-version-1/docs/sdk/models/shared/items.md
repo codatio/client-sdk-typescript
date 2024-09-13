@@ -1,8 +1,20 @@
 # Items
 
+## Example Usage
+
+```typescript
+import { Items } from "@codat/sync-for-payables-version-1/sdk/models/shared";
+import { Decimal } from "@codat/sync-for-payables-version-1/sdk/types";
+
+let value: Items = {
+  name: "<value>",
+  amount: new Decimal("8817.36"),
+};
+```
 
 ## Fields
 
-| Field                                | Type                                 | Required                             | Description                          | Example                              |
-| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| `id`                                 | *string*                             | :heavy_minus_sign:                   | Unique identifier for the group.     | 60d2fa12-8a04-11ee-b9d1-0242ac120002 |
+| Field                          | Type                           | Required                       | Description                    |
+| ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ |
+| `name`                         | *string*                       | :heavy_check_mark:             | Name assigned to withheld tax. |
+| `amount`                       | *Decimal*                      | :heavy_check_mark:             | Amount of tax withheld.        |

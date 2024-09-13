@@ -1,5 +1,12 @@
 # ErrorValidationItem
 
+## Example Usage
+
+```typescript
+import { ErrorValidationItem } from "@codat/sync-for-payables-version-1/sdk/models/shared";
+
+let value: ErrorValidationItem = {};
+```
 
 ## Fields
 

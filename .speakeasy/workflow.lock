@@ -35,6 +35,13 @@ sources:
         tags:
             - latest
             - main
+    sync-for-payables-version-1-source:
+        sourceNamespace: sync-for-payables-version-1-source
+        sourceRevisionDigest: sha256:d91d7da27f07044c21e155a8787ef998eab1eb641136347c1287053f8e8087fb
+        sourceBlobDigest: sha256:e1fb1fe0af40cf137b8b320fd75e913c83e54e0a2bb2e80a5af69e0bce409e71
+        tags:
+            - latest
+            - main
     sync-for-payroll-source:
         sourceNamespace: sync-for-payroll-source
         sourceRevisionDigest: sha256:95fbbd9d479c192baabe63b6b95494bf55876fb9007df3657fa51660a8c73431
@@ -68,6 +75,11 @@ targets:
         sourceNamespace: sync-for-payables-source
         sourceRevisionDigest: sha256:daca0e08a3d44b87bb2242380dfc8be94f2cb83b1ea0a252af7f31f9b0c2c247
         sourceBlobDigest: sha256:6ed96ad8ecab289621839d0df446a473e3dc8ea83765e3316020a6670b44da0b
+    sync-for-payables-version-1-library:
+        source: sync-for-payables-version-1-source
+        sourceNamespace: sync-for-payables-version-1-source
+        sourceRevisionDigest: sha256:d91d7da27f07044c21e155a8787ef998eab1eb641136347c1287053f8e8087fb
+        sourceBlobDigest: sha256:e1fb1fe0af40cf137b8b320fd75e913c83e54e0a2bb2e80a5af69e0bce409e71
     sync-for-payroll-library:
         source: sync-for-payroll-source
         sourceNamespace: sync-for-payroll-source
@@ -132,6 +144,8 @@ workflow:
         sync-for-payables-version-1-source:
             inputs:
                 - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Payables-v1.yaml
+            registry:
+                location: registry.speakeasyapi.dev/codat/codat/sync-for-payables-version-1-source
         sync-for-payroll-source:
             inputs:
                 - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Payroll.yaml

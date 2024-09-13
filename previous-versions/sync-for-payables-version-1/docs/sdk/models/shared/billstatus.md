@@ -2,14 +2,16 @@
 
 Current state of the bill.
 
+## Example Usage
+
+```typescript
+import { BillStatus } from "@codat/sync-for-payables-version-1/sdk/models/shared";
+
+let value: BillStatus = "Unknown";
+```
 
 ## Values
 
-| Name            | Value           |
-| --------------- | --------------- |
-| `Unknown`       | Unknown         |
-| `Open`          | Open            |
-| `PartiallyPaid` | PartiallyPaid   |
-| `Paid`          | Paid            |
-| `Void`          | Void            |
-| `Draft`         | Draft           |
+```typescript
+"Unknown" | "Open" | "PartiallyPaid" | "Paid" | "Void" | "Draft"
+```
