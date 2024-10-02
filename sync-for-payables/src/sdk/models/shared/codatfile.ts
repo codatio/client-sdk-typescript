@@ -6,7 +6,7 @@ import * as z from "zod";
 
 export type CodatFile = {
   fileName: string;
-  content: ReadableStream<Uint8Array> | Blob | ArrayBuffer | Buffer;
+  content: ReadableStream<Uint8Array> | Blob | ArrayBuffer | Uint8Array;
 };
 
 /** @internal */
@@ -20,14 +20,14 @@ export const CodatFile$inboundSchema: z.ZodType<
     z.instanceof(ReadableStream<Uint8Array>),
     z.instanceof(Blob),
     z.instanceof(ArrayBuffer),
-    z.instanceof(Buffer),
+    z.instanceof(Uint8Array),
   ]),
 });
 
 /** @internal */
 export type CodatFile$Outbound = {
   fileName: string;
-  content: ReadableStream<Uint8Array> | Blob | ArrayBuffer | Buffer;
+  content: ReadableStream<Uint8Array> | Blob | ArrayBuffer | Uint8Array;
 };
 
 /** @internal */
@@ -41,7 +41,7 @@ export const CodatFile$outboundSchema: z.ZodType<
     z.instanceof(ReadableStream<Uint8Array>),
     z.instanceof(Blob),
     z.instanceof(ArrayBuffer),
-    z.instanceof(Buffer),
+    z.instanceof(Uint8Array),
   ]),
 });
 

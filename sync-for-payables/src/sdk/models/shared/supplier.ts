@@ -11,12 +11,6 @@ import {
   Address$outboundSchema,
 } from "./address.js";
 import {
-  One,
-  One$inboundSchema,
-  One$Outbound,
-  One$outboundSchema,
-} from "./one.js";
-import {
   SupplierStatus,
   SupplierStatus$inboundSchema,
   SupplierStatus$outboundSchema,
@@ -66,7 +60,7 @@ export type Supplier = {
    * Default currency the supplier's transactional data is recorded in.
    */
   defaultCurrency?: string | null | undefined;
-  sourceModifiedDate?: One | null | undefined;
+  sourceModifiedDate?: string | undefined;
 };
 
 /** @internal */
@@ -84,7 +78,7 @@ export const Supplier$inboundSchema: z.ZodType<
   status: SupplierStatus$inboundSchema.optional(),
   balance: z.nullable(z.number().transform(v => new Decimal$(v))).optional(),
   defaultCurrency: z.nullable(z.string()).optional(),
-  sourceModifiedDate: z.nullable(One$inboundSchema).optional(),
+  sourceModifiedDate: z.string().optional(),
 });
 
 /** @internal */
@@ -98,7 +92,7 @@ export type Supplier$Outbound = {
   status?: string | undefined;
   balance?: number | null | undefined;
   defaultCurrency?: string | null | undefined;
-  sourceModifiedDate?: One$Outbound | null | undefined;
+  sourceModifiedDate?: string | undefined;
 };
 
 /** @internal */
@@ -120,7 +114,7 @@ export const Supplier$outboundSchema: z.ZodType<
     ),
   ).optional(),
   defaultCurrency: z.nullable(z.string()).optional(),
-  sourceModifiedDate: z.nullable(One$outboundSchema).optional(),
+  sourceModifiedDate: z.string().optional(),
 });
 
 /**

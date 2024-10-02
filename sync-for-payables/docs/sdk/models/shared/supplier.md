@@ -28,9 +28,7 @@ let value: Supplier = {
   ],
   status: "Active",
   defaultCurrency: "GBP",
-  sourceModifiedDate: {
-    sourceModifiedDate: "2022-10-23T00:00:00Z",
-  },
+  sourceModifiedDate: "2022-10-23T00:00:00Z",
 };
 ```
 
@@ -47,4 +45,4 @@ let value: Supplier = {
 | `status`                                                                               | [shared.SupplierStatus](../../../sdk/models/shared/supplierstatus.md)                  | :heavy_minus_sign:                                                                     | Status of the supplier.                                                                |                                                                                        |
 | `balance`                                                                              | *Decimal*                                                                              | :heavy_minus_sign:                                                                     | Amount outstanding against the supplier.                                               |                                                                                        |
 | `defaultCurrency`                                                                      | *string*                                                                               | :heavy_minus_sign:                                                                     | Default currency the supplier's transactional data is recorded in.                     |                                                                                        |
-| `sourceModifiedDate`                                                                   | [shared.One](../../../sdk/models/shared/one.md)                                        | :heavy_minus_sign:                                                                     | N/A                                                                                    |                                                                                        |
+| `sourceModifiedDate`                                                                   | *string*                                                                               | :heavy_minus_sign:                                                                     | N/A                                                                                    | 2022-10-23 00:00:00 +0000 UTC                                                          |

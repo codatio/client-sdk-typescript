@@ -3,13 +3,12 @@
  */
 
 import * as z from "zod";
-
-export type GroupReference = {
-  /**
-   * Unique identifier for the group.
-   */
-  id?: string | undefined;
-};
+import {
+  Tags,
+  Tags$inboundSchema,
+  Tags$Outbound,
+  Tags$outboundSchema,
+} from "./tags.js";
 
 export type CompanyRequestBody = {
   /**
@@ -21,46 +20,10 @@ export type CompanyRequestBody = {
    */
   description?: string | undefined;
   /**
-   * Reference to the groups that the company is assigned to.
+   * A collection of user-defined key-value pairs that store custom metadata against the company.
    */
-  groups?: Array<GroupReference> | undefined;
+  tags?: Tags | undefined;
 };
-
-/** @internal */
-export const GroupReference$inboundSchema: z.ZodType<
-  GroupReference,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string().optional(),
-});
-
-/** @internal */
-export type GroupReference$Outbound = {
-  id?: string | undefined;
-};
-
-/** @internal */
-export const GroupReference$outboundSchema: z.ZodType<
-  GroupReference$Outbound,
-  z.ZodTypeDef,
-  GroupReference
-> = z.object({
-  id: z.string().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GroupReference$ {
-  /** @deprecated use `GroupReference$inboundSchema` instead. */
-  export const inboundSchema = GroupReference$inboundSchema;
-  /** @deprecated use `GroupReference$outboundSchema` instead. */
-  export const outboundSchema = GroupReference$outboundSchema;
-  /** @deprecated use `GroupReference$Outbound` instead. */
-  export type Outbound = GroupReference$Outbound;
-}
 
 /** @internal */
 export const CompanyRequestBody$inboundSchema: z.ZodType<
@@ -70,14 +33,14 @@ export const CompanyRequestBody$inboundSchema: z.ZodType<
 > = z.object({
   name: z.string(),
   description: z.string().optional(),
-  groups: z.array(z.lazy(() => GroupReference$inboundSchema)).optional(),
+  tags: Tags$inboundSchema.optional(),
 });
 
 /** @internal */
 export type CompanyRequestBody$Outbound = {
   name: string;
   description?: string | undefined;
-  groups?: Array<GroupReference$Outbound> | undefined;
+  tags?: Tags$Outbound | undefined;
 };
 
 /** @internal */
@@ -88,7 +51,7 @@ export const CompanyRequestBody$outboundSchema: z.ZodType<
 > = z.object({
   name: z.string(),
   description: z.string().optional(),
-  groups: z.array(z.lazy(() => GroupReference$outboundSchema)).optional(),
+  tags: Tags$outboundSchema.optional(),
 });
 
 /**

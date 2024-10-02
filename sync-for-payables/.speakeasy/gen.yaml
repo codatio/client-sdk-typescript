@@ -13,7 +13,7 @@ generation:
     oAuth2ClientCredentialsEnabled: false
   telemetryEnabled: true
 typescript:
-  version: 4.0.0
+  version: 5.0.0
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -24,6 +24,7 @@ typescript:
   description: Streamline your customers' accounts payable workflow.
   enumFormat: union
   flattenGlobalSecurity: true
+  flatteningOrder: body-first
   imports:
     option: openapi
     paths:

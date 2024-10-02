@@ -13,7 +13,7 @@ import {
 /**
  * A collection of user-defined key-value pairs that store custom metadata against the company.
  */
-export type Tags = {};
+export type CompanyTags = {};
 
 /**
  * In Codat, a company represents a business sharing access to their data. Each company can have multiple [connections](https://docs.codat.io/sync-for-payables-api#/schemas/Connection) to different data sources such as one connection to [Xero](https://docs.codat.io/integrations/accounting/xero/accounting-xero) for accounting data, two connections to [Plaid](https://docs.codat.io/integrations/banking/plaid/banking-plaid) for two bank accounts and a connection to [Zettle](https://docs.codat.io/integrations/commerce/zettle/commerce-zettle) for POS data.
@@ -90,34 +90,44 @@ export type Company = {
    */
   createdByUserName?: string | null | undefined;
   /**
+   * An array of products that are currently enabled for the company.
+   */
+  products?: Array<string> | undefined;
+  /**
    * A collection of user-defined key-value pairs that store custom metadata against the company.
    */
-  tags?: Tags | undefined;
+  tags?: CompanyTags | undefined;
   dataConnections?: Array<Connection> | undefined;
 };
 
 /** @internal */
-export const Tags$inboundSchema: z.ZodType<Tags, z.ZodTypeDef, unknown> = z
-  .object({});
+export const CompanyTags$inboundSchema: z.ZodType<
+  CompanyTags,
+  z.ZodTypeDef,
+  unknown
+> = z.object({});
 
 /** @internal */
-export type Tags$Outbound = {};
+export type CompanyTags$Outbound = {};
 
 /** @internal */
-export const Tags$outboundSchema: z.ZodType<Tags$Outbound, z.ZodTypeDef, Tags> =
-  z.object({});
+export const CompanyTags$outboundSchema: z.ZodType<
+  CompanyTags$Outbound,
+  z.ZodTypeDef,
+  CompanyTags
+> = z.object({});
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Tags$ {
-  /** @deprecated use `Tags$inboundSchema` instead. */
-  export const inboundSchema = Tags$inboundSchema;
-  /** @deprecated use `Tags$outboundSchema` instead. */
-  export const outboundSchema = Tags$outboundSchema;
-  /** @deprecated use `Tags$Outbound` instead. */
-  export type Outbound = Tags$Outbound;
+export namespace CompanyTags$ {
+  /** @deprecated use `CompanyTags$inboundSchema` instead. */
+  export const inboundSchema = CompanyTags$inboundSchema;
+  /** @deprecated use `CompanyTags$outboundSchema` instead. */
+  export const outboundSchema = CompanyTags$outboundSchema;
+  /** @deprecated use `CompanyTags$Outbound` instead. */
+  export type Outbound = CompanyTags$Outbound;
 }
 
 /** @internal */
@@ -130,7 +140,8 @@ export const Company$inboundSchema: z.ZodType<Company, z.ZodTypeDef, unknown> =
     lastSync: z.string().optional(),
     created: z.string().optional(),
     createdByUserName: z.nullable(z.string()).optional(),
-    tags: z.lazy(() => Tags$inboundSchema).optional(),
+    products: z.array(z.string()).optional(),
+    tags: z.lazy(() => CompanyTags$inboundSchema).optional(),
     dataConnections: z.array(Connection$inboundSchema).optional(),
   });
 
@@ -143,7 +154,8 @@ export type Company$Outbound = {
   lastSync?: string | undefined;
   created?: string | undefined;
   createdByUserName?: string | null | undefined;
-  tags?: Tags$Outbound | undefined;
+  products?: Array<string> | undefined;
+  tags?: CompanyTags$Outbound | undefined;
   dataConnections?: Array<Connection$Outbound> | undefined;
 };
 
@@ -160,7 +172,8 @@ export const Company$outboundSchema: z.ZodType<
   lastSync: z.string().optional(),
   created: z.string().optional(),
   createdByUserName: z.nullable(z.string()).optional(),
-  tags: z.lazy(() => Tags$outboundSchema).optional(),
+  products: z.array(z.string()).optional(),
+  tags: z.lazy(() => CompanyTags$outboundSchema).optional(),
   dataConnections: z.array(Connection$outboundSchema).optional(),
 });
 

@@ -7,12 +7,12 @@ import { ClientRateLimitWebhook } from "@codat/sync-for-payables/sdk/models/shar
 
 let value: ClientRateLimitWebhook = {
   id: "743ec94a-8aa4-44bb-8bd4-e1855ee0e74b",
-  eventType: "client.rateLimit.reset",
+  eventType: "client.rateLimit.reached",
   generatedDate: "2024-09-01T00:00:00Z",
   payload: {
     dailyQuota: 12000,
-    quotaRemaining: 11993,
-    expiryDate: "2024-09-01T23:59:99Z",
+    quotaRemaining: 0,
+    expiryDate: "2024-09-01T12:14:14Z",
   },
 };
 ```

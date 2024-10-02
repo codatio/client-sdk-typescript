@@ -36,9 +36,9 @@ async function run() {
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -73,7 +73,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -94,11 +94,10 @@ run();
 
 ### Errors
 
-| Error Object                    | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorMessage             | 400,401,402,403,404,429,500,503 | application/json                |
-| errors.SDKError                 | 4xx-5xx                         | */*                             |
-
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
+| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
 
 ## create
 
@@ -122,15 +121,10 @@ async function run() {
   const result = await codatSyncPayables.companies.create({
     name: "Technicalium",
     description: "Requested early access to the new financing scheme.",
-    groups: [
-      {
-        id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-      },
-    ],
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -154,11 +148,6 @@ async function run() {
   const res = await companiesCreate(codatSyncPayables, {
     name: "Technicalium",
     description: "Requested early access to the new financing scheme.",
-    groups: [
-      {
-        id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-      },
-    ],
   });
 
   if (!res.ok) {
@@ -168,7 +157,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -189,16 +178,14 @@ run();
 
 ### Errors
 
-| Error Object                | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| errors.ErrorMessage         | 400,401,402,403,429,500,503 | application/json            |
-| errors.SDKError             | 4xx-5xx                     | */*                         |
-
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorMessage               | 400, 401, 402, 403, 429, 500, 503 | application/json                  |
+| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## update
 
 ﻿Use the *Update company* endpoint to update both the name and description of the company. 
-If you use [groups](https://docs.codat.io/sync-for-payables-api#/schemas/Group) to manage a set of companies, use the [Add company](https://docs.codat.io/sync-for-payables-api#/operations/add-company-to-group) or [Remove company](https://docs.codat.io/sync-for-payables-api#/operations/remove-company-from-group) endpoints to add or remove a company from a group.
 
 A [company](https://docs.codat.io/sync-for-payables-api#/schemas/Company) represents a business sharing access to their data.
 Each company can have multiple [connections](https://docs.codat.io/sync-for-payables-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
@@ -218,16 +205,11 @@ async function run() {
     companyRequestBody: {
       name: "New Name",
       description: "Requested early access to the new financing scheme.",
-      groups: [
-        {
-          id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-        },
-      ],
     },
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -253,11 +235,6 @@ async function run() {
     companyRequestBody: {
       name: "New Name",
       description: "Requested early access to the new financing scheme.",
-      groups: [
-        {
-          id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-        },
-      ],
     },
   });
 
@@ -268,7 +245,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -289,11 +266,10 @@ run();
 
 ### Errors
 
-| Error Object                | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| errors.ErrorMessage         | 401,402,403,404,429,500,503 | application/json            |
-| errors.SDKError             | 4xx-5xx                     | */*                         |
-
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
+| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## delete
 
@@ -316,6 +292,8 @@ async function run() {
   await codatSyncPayables.companies.delete({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
+
+
 }
 
 run();
@@ -367,11 +345,10 @@ run();
 
 ### Errors
 
-| Error Object                | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| errors.ErrorMessage         | 401,402,403,404,429,500,503 | application/json            |
-| errors.SDKError             | 4xx-5xx                     | */*                         |
-
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
+| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## get
 
@@ -394,9 +371,9 @@ async function run() {
   const result = await codatSyncPayables.companies.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-  
+
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -428,7 +405,7 @@ async function run() {
   const { value: result } = res;
 
   // Handle the result
-  console.log(result)
+  console.log(result);
 }
 
 run();
@@ -449,7 +426,7 @@ run();
 
 ### Errors
 
-| Error Object                | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| errors.ErrorMessage         | 401,402,403,404,429,500,503 | application/json            |
-| errors.SDKError             | 4xx-5xx                     | */*                         |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
+| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |

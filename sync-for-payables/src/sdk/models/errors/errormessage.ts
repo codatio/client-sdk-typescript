@@ -6,7 +6,7 @@ import * as z from "zod";
 import * as shared from "../shared/index.js";
 
 /**
- * The request made is not valid.
+ * Your `query` parameter was not correctly formed
  */
 export type ErrorMessageData = {
   /**
@@ -40,7 +40,7 @@ export type ErrorMessageData = {
 };
 
 /**
- * The request made is not valid.
+ * Your `query` parameter was not correctly formed
  */
 export class ErrorMessage extends Error {
   /**
