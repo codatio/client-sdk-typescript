@@ -14,36 +14,36 @@ import { Suppliers } from "./suppliers.js";
 export class CodatSyncPayables extends ClientSDK {
   private _companies?: Companies;
   get companies(): Companies {
-    return (this._companies ??= new Companies(this.options$));
+    return (this._companies ??= new Companies(this._options));
   }
 
   private _connections?: Connections;
   get connections(): Connections {
-    return (this._connections ??= new Connections(this.options$));
+    return (this._connections ??= new Connections(this._options));
   }
 
   private _companyInformation?: CompanyInformation;
   get companyInformation(): CompanyInformation {
-    return (this._companyInformation ??= new CompanyInformation(this.options$));
+    return (this._companyInformation ??= new CompanyInformation(this._options));
   }
 
   private _bills?: Bills;
   get bills(): Bills {
-    return (this._bills ??= new Bills(this.options$));
+    return (this._bills ??= new Bills(this._options));
   }
 
   private _billPayments?: BillPayments;
   get billPayments(): BillPayments {
-    return (this._billPayments ??= new BillPayments(this.options$));
+    return (this._billPayments ??= new BillPayments(this._options));
   }
 
   private _suppliers?: Suppliers;
   get suppliers(): Suppliers {
-    return (this._suppliers ??= new Suppliers(this.options$));
+    return (this._suppliers ??= new Suppliers(this._options));
   }
 
   private _bankAccounts?: BankAccounts;
   get bankAccounts(): BankAccounts {
-    return (this._bankAccounts ??= new BankAccounts(this.options$));
+    return (this._bankAccounts ??= new BankAccounts(this._options));
   }
 }

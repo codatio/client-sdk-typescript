@@ -7,7 +7,7 @@ import { BankAccountPrototype } from "@codat/sync-for-payables/sdk/models/shared
 
 let value: BankAccountPrototype = {
   name: "<value>",
-  accountType: "Credit",
+  accountType: "Unknown",
   accountNumber: "<value>",
   currency: "EUR",
 };

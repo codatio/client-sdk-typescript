@@ -3,9 +3,9 @@
  */
 
 import { CodatSyncPayablesCore } from "../core.js";
-import { encodeJSON as encodeJSON$ } from "../lib/encodings.js";
-import * as m$ from "../lib/matchers.js";
-import * as schemas$ from "../lib/schemas.js";
+import { encodeJSON } from "../lib/encodings.js";
+import * as M from "../lib/matchers.js";
+import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
@@ -34,7 +34,7 @@ import { Result } from "../sdk/types/fp.js";
  * If forbidden characters (see `name` pattern) are present in the request, a company will be created with the forbidden characters removed. For example, `Company (Codat[1])` with be created as `Company Codat1`.
  */
 export async function companiesCreate(
-  client$: CodatSyncPayablesCore,
+  client: CodatSyncPayablesCore,
   request?: shared.CompanyRequestBody | undefined,
   options?: RequestOptions,
 ): Promise<
@@ -50,56 +50,53 @@ export async function companiesCreate(
     | ConnectionError
   >
 > {
-  const input$ = request;
-
-  const parsed$ = schemas$.safeParse(
-    input$,
-    (value$) =>
-      shared.CompanyRequestBody$outboundSchema.optional().parse(value$),
+  const parsed = safeParse(
+    request,
+    (value) => shared.CompanyRequestBody$outboundSchema.optional().parse(value),
     "Input validation failed",
   );
-  if (!parsed$.ok) {
-    return parsed$;
+  if (!parsed.ok) {
+    return parsed;
   }
-  const payload$ = parsed$.value;
-  const body$ = payload$ === undefined
+  const payload = parsed.value;
+  const body = payload === undefined
     ? null
-    : encodeJSON$("body", payload$, { explode: true });
+    : encodeJSON("body", payload, { explode: true });
 
-  const path$ = pathToFunc("/companies")();
+  const path = pathToFunc("/companies")();
 
-  const headers$ = new Headers({
+  const headers = new Headers({
     "Content-Type": "application/json",
     Accept: "application/json",
   });
 
-  const authHeader$ = await extractSecurity(client$.options$.authHeader);
-  const security$ = authHeader$ == null ? {} : { authHeader: authHeader$ };
+  const secConfig = await extractSecurity(client._options.authHeader);
+  const securityInput = secConfig == null ? {} : { authHeader: secConfig };
   const context = {
     operationID: "create-company",
     oAuth2Scopes: [],
-    securitySource: client$.options$.authHeader,
+    securitySource: client._options.authHeader,
   };
-  const securitySettings$ = resolveGlobalSecurity(security$);
+  const requestSecurity = resolveGlobalSecurity(securityInput);
 
-  const requestRes = client$.createRequest$(context, {
-    security: securitySettings$,
+  const requestRes = client._createRequest(context, {
+    security: requestSecurity,
     method: "POST",
-    path: path$,
-    headers: headers$,
-    body: body$,
-    timeoutMs: options?.timeoutMs || client$.options$.timeoutMs || -1,
+    path: path,
+    headers: headers,
+    body: body,
+    timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
     return requestRes;
   }
-  const request$ = requestRes.value;
+  const req = requestRes.value;
 
-  const doResult = await client$.do$(request$, {
+  const doResult = await client._do(req, {
     context,
     errorCodes: ["400", "401", "402", "403", "429", "4XX", "500", "503", "5XX"],
     retryConfig: options?.retries
-      || client$.options$.retryConfig
+      || client._options.retryConfig
       || {
         strategy: "backoff",
         backoff: {
@@ -117,11 +114,11 @@ export async function companiesCreate(
   }
   const response = doResult.value;
 
-  const responseFields$ = {
-    HttpMeta: { Response: response, Request: request$ },
+  const responseFields = {
+    HttpMeta: { Response: response, Request: req },
   };
 
-  const [result$] = await m$.match<
+  const [result] = await M.match<
     shared.Company,
     | errors.ErrorMessage
     | SDKError
@@ -132,16 +129,16 @@ export async function companiesCreate(
     | RequestTimeoutError
     | ConnectionError
   >(
-    m$.json(200, shared.Company$inboundSchema),
-    m$.jsonErr(
+    M.json(200, shared.Company$inboundSchema),
+    M.jsonErr(
       [400, 401, 402, 403, 429, 500, 503],
       errors.ErrorMessage$inboundSchema,
     ),
-    m$.fail(["4XX", "5XX"]),
-  )(response, { extraFields: responseFields$ });
-  if (!result$.ok) {
-    return result$;
+    M.fail(["4XX", "5XX"]),
+  )(response, { extraFields: responseFields });
+  if (!result.ok) {
+    return result;
   }
 
-  return result$;
+  return result;
 }

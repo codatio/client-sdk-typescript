@@ -25,9 +25,7 @@ let value: Suppliers = {
       ],
       status: "Active",
       defaultCurrency: "GBP",
-      sourceModifiedDate: {
-        sourceModifiedDate: "2022-10-23T00:00:00Z",
-      },
+      sourceModifiedDate: "2022-10-23T00:00:00Z",
     },
   ],
 };

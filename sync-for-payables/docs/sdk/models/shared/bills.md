@@ -15,9 +15,7 @@ let value: Bills = {
       dueDate: "2022-10-23T00:00:00Z",
       currency: "EUR",
       status: "Open",
-      sourceModifiedDate: {
-        sourceModifiedDate: "2022-10-23T00:00:00Z",
-      },
+      sourceModifiedDate: "2022-10-23T00:00:00Z",
     },
   ],
 };

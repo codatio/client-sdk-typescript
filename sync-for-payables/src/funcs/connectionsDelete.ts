@@ -4,9 +4,9 @@
 
 import * as z from "zod";
 import { CodatSyncPayablesCore } from "../core.js";
-import { encodeSimple as encodeSimple$ } from "../lib/encodings.js";
-import * as m$ from "../lib/matchers.js";
-import * as schemas$ from "../lib/schemas.js";
+import { encodeSimple } from "../lib/encodings.js";
+import * as M from "../lib/matchers.js";
+import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
@@ -31,7 +31,7 @@ import { Result } from "../sdk/types/fp.js";
  * This operation is not reversible. The end user would need to reauthorize a new data connection if you wish to view new data for this company.
  */
 export async function connectionsDelete(
-  client$: CodatSyncPayablesCore,
+  client: CodatSyncPayablesCore,
   request: operations.DeleteConnectionRequest,
   options?: RequestOptions,
 ): Promise<
@@ -47,65 +47,63 @@ export async function connectionsDelete(
     | ConnectionError
   >
 > {
-  const input$ = request;
-
-  const parsed$ = schemas$.safeParse(
-    input$,
-    (value$) => operations.DeleteConnectionRequest$outboundSchema.parse(value$),
+  const parsed = safeParse(
+    request,
+    (value) => operations.DeleteConnectionRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
-  if (!parsed$.ok) {
-    return parsed$;
+  if (!parsed.ok) {
+    return parsed;
   }
-  const payload$ = parsed$.value;
-  const body$ = null;
+  const payload = parsed.value;
+  const body = null;
 
-  const pathParams$ = {
-    companyId: encodeSimple$("companyId", payload$.companyId, {
+  const pathParams = {
+    companyId: encodeSimple("companyId", payload.companyId, {
       explode: false,
       charEncoding: "percent",
     }),
-    connectionId: encodeSimple$("connectionId", payload$.connectionId, {
+    connectionId: encodeSimple("connectionId", payload.connectionId, {
       explode: false,
       charEncoding: "percent",
     }),
   };
 
-  const path$ = pathToFunc("/companies/{companyId}/connections/{connectionId}")(
-    pathParams$,
+  const path = pathToFunc("/companies/{companyId}/connections/{connectionId}")(
+    pathParams,
   );
 
-  const headers$ = new Headers({
+  const headers = new Headers({
     Accept: "application/json",
   });
 
-  const authHeader$ = await extractSecurity(client$.options$.authHeader);
-  const security$ = authHeader$ == null ? {} : { authHeader: authHeader$ };
+  const secConfig = await extractSecurity(client._options.authHeader);
+  const securityInput = secConfig == null ? {} : { authHeader: secConfig };
   const context = {
     operationID: "delete-connection",
     oAuth2Scopes: [],
-    securitySource: client$.options$.authHeader,
+    securitySource: client._options.authHeader,
   };
-  const securitySettings$ = resolveGlobalSecurity(security$);
+  const requestSecurity = resolveGlobalSecurity(securityInput);
 
-  const requestRes = client$.createRequest$(context, {
-    security: securitySettings$,
+  const requestRes = client._createRequest(context, {
+    security: requestSecurity,
     method: "DELETE",
-    path: path$,
-    headers: headers$,
-    body: body$,
-    timeoutMs: options?.timeoutMs || client$.options$.timeoutMs || -1,
+    path: path,
+    headers: headers,
+    body: body,
+    timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
     return requestRes;
   }
-  const request$ = requestRes.value;
+  const req = requestRes.value;
 
-  const doResult = await client$.do$(request$, {
+  const doResult = await client._do(req, {
     context,
     errorCodes: ["401", "402", "403", "404", "429", "4XX", "500", "503", "5XX"],
     retryConfig: options?.retries
-      || client$.options$.retryConfig
+      || client._options.retryConfig
       || {
         strategy: "backoff",
         backoff: {
@@ -123,11 +121,11 @@ export async function connectionsDelete(
   }
   const response = doResult.value;
 
-  const responseFields$ = {
-    HttpMeta: { Response: response, Request: request$ },
+  const responseFields = {
+    HttpMeta: { Response: response, Request: req },
   };
 
-  const [result$] = await m$.match<
+  const [result] = await M.match<
     void,
     | errors.ErrorMessage
     | SDKError
@@ -138,16 +136,16 @@ export async function connectionsDelete(
     | RequestTimeoutError
     | ConnectionError
   >(
-    m$.nil(200, z.void()),
-    m$.jsonErr(
+    M.nil(200, z.void()),
+    M.jsonErr(
       [401, 402, 403, 404, 429, 500, 503],
       errors.ErrorMessage$inboundSchema,
     ),
-    m$.fail(["4XX", "5XX"]),
-  )(response, { extraFields: responseFields$ });
-  if (!result$.ok) {
-    return result$;
+    M.fail(["4XX", "5XX"]),
+  )(response, { extraFields: responseFields });
+  if (!result.ok) {
+    return result;
   }
 
-  return result$;
+  return result;
 }

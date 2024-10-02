@@ -124,9 +124,8 @@ export type Connection = {
    * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
    */
   created: string;
-  dataConnectionErrors?: Array<DataConnectionError> | undefined;
-  connectionInfo?: { [k: string]: string } | undefined;
-  additionalProperties?: any | undefined;
+  dataConnectionErrors?: Array<DataConnectionError> | null | undefined;
+  connectionInfo?: { [k: string]: string } | null | undefined;
 };
 
 /** @internal */
@@ -164,9 +163,9 @@ export const Connection$inboundSchema: z.ZodType<
   status: DataConnectionStatus$inboundSchema,
   lastSync: z.string().optional(),
   created: z.string(),
-  dataConnectionErrors: z.array(DataConnectionError$inboundSchema).optional(),
-  connectionInfo: z.record(z.string()).optional(),
-  additionalProperties: z.any().optional(),
+  dataConnectionErrors: z.nullable(z.array(DataConnectionError$inboundSchema))
+    .optional(),
+  connectionInfo: z.nullable(z.record(z.string())).optional(),
 });
 
 /** @internal */
@@ -181,9 +180,8 @@ export type Connection$Outbound = {
   status: string;
   lastSync?: string | undefined;
   created: string;
-  dataConnectionErrors?: Array<DataConnectionError$Outbound> | undefined;
-  connectionInfo?: { [k: string]: string } | undefined;
-  additionalProperties?: any | undefined;
+  dataConnectionErrors?: Array<DataConnectionError$Outbound> | null | undefined;
+  connectionInfo?: { [k: string]: string } | null | undefined;
 };
 
 /** @internal */
@@ -202,9 +200,9 @@ export const Connection$outboundSchema: z.ZodType<
   status: DataConnectionStatus$outboundSchema,
   lastSync: z.string().optional(),
   created: z.string(),
-  dataConnectionErrors: z.array(DataConnectionError$outboundSchema).optional(),
-  connectionInfo: z.record(z.string()).optional(),
-  additionalProperties: z.any().optional(),
+  dataConnectionErrors: z.nullable(z.array(DataConnectionError$outboundSchema))
+    .optional(),
+  connectionInfo: z.nullable(z.record(z.string())).optional(),
 });
 
 /**

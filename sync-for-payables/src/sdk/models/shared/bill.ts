@@ -16,12 +16,6 @@ import {
   BillStatus$outboundSchema,
 } from "./billstatus.js";
 import {
-  One,
-  One$inboundSchema,
-  One$Outbound,
-  One$outboundSchema,
-} from "./one.js";
-import {
   SupplierRef,
   SupplierRef$inboundSchema,
   SupplierRef$Outbound,
@@ -110,7 +104,7 @@ export type Bill = {
    * Amount outstanding on the bill.
    */
   amountDue?: Decimal$ | number | null | undefined;
-  sourceModifiedDate?: One | null | undefined;
+  sourceModifiedDate?: string | undefined;
 };
 
 /** @internal */
@@ -129,7 +123,7 @@ export const Bill$inboundSchema: z.ZodType<Bill, z.ZodTypeDef, unknown> = z
     totalAmount: z.number().transform(v => new Decimal$(v)).optional(),
     amountDue: z.nullable(z.number().transform(v => new Decimal$(v)))
       .optional(),
-    sourceModifiedDate: z.nullable(One$inboundSchema).optional(),
+    sourceModifiedDate: z.string().optional(),
   });
 
 /** @internal */
@@ -145,7 +139,7 @@ export type Bill$Outbound = {
   status: string;
   totalAmount?: number | undefined;
   amountDue?: number | null | undefined;
-  sourceModifiedDate?: One$Outbound | null | undefined;
+  sourceModifiedDate?: string | undefined;
 };
 
 /** @internal */
@@ -172,7 +166,7 @@ export const Bill$outboundSchema: z.ZodType<Bill$Outbound, z.ZodTypeDef, Bill> =
         typeof v === "number" ? v : v.toNumber()
       ),
     ).optional(),
-    sourceModifiedDate: z.nullable(One$outboundSchema).optional(),
+    sourceModifiedDate: z.string().optional(),
   });
 
 /**

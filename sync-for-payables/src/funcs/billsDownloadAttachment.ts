@@ -4,9 +4,9 @@
 
 import * as z from "zod";
 import { CodatSyncPayablesCore } from "../core.js";
-import { encodeSimple as encodeSimple$ } from "../lib/encodings.js";
-import * as m$ from "../lib/matchers.js";
-import * as schemas$ from "../lib/schemas.js";
+import { encodeSimple } from "../lib/encodings.js";
+import * as M from "../lib/matchers.js";
+import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
@@ -34,7 +34,7 @@ import { Result } from "../sdk/types/fp.js";
  * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support downloading a bill attachment.
  */
 export async function billsDownloadAttachment(
-  client$: CodatSyncPayablesCore,
+  client: CodatSyncPayablesCore,
   request: operations.DownloadBillAttachmentRequest,
   options?: RequestOptions,
 ): Promise<
@@ -50,74 +50,72 @@ export async function billsDownloadAttachment(
     | ConnectionError
   >
 > {
-  const input$ = request;
-
-  const parsed$ = schemas$.safeParse(
-    input$,
-    (value$) =>
-      operations.DownloadBillAttachmentRequest$outboundSchema.parse(value$),
+  const parsed = safeParse(
+    request,
+    (value) =>
+      operations.DownloadBillAttachmentRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
-  if (!parsed$.ok) {
-    return parsed$;
+  if (!parsed.ok) {
+    return parsed;
   }
-  const payload$ = parsed$.value;
-  const body$ = null;
+  const payload = parsed.value;
+  const body = null;
 
-  const pathParams$ = {
-    attachmentId: encodeSimple$("attachmentId", payload$.attachmentId, {
+  const pathParams = {
+    attachmentId: encodeSimple("attachmentId", payload.attachmentId, {
       explode: false,
       charEncoding: "percent",
     }),
-    billId: encodeSimple$("billId", payload$.billId, {
+    billId: encodeSimple("billId", payload.billId, {
       explode: false,
       charEncoding: "percent",
     }),
-    companyId: encodeSimple$("companyId", payload$.companyId, {
+    companyId: encodeSimple("companyId", payload.companyId, {
       explode: false,
       charEncoding: "percent",
     }),
-    connectionId: encodeSimple$("connectionId", payload$.connectionId, {
+    connectionId: encodeSimple("connectionId", payload.connectionId, {
       explode: false,
       charEncoding: "percent",
     }),
   };
 
-  const path$ = pathToFunc(
+  const path = pathToFunc(
     "/companies/{companyId}/connections/{connectionId}/payables/bills/{billId}/attachments/{attachmentId}/download",
-  )(pathParams$);
+  )(pathParams);
 
-  const headers$ = new Headers({
+  const headers = new Headers({
     Accept: "application/octet-stream",
   });
 
-  const authHeader$ = await extractSecurity(client$.options$.authHeader);
-  const security$ = authHeader$ == null ? {} : { authHeader: authHeader$ };
+  const secConfig = await extractSecurity(client._options.authHeader);
+  const securityInput = secConfig == null ? {} : { authHeader: secConfig };
   const context = {
     operationID: "download-bill-attachment",
     oAuth2Scopes: [],
-    securitySource: client$.options$.authHeader,
+    securitySource: client._options.authHeader,
   };
-  const securitySettings$ = resolveGlobalSecurity(security$);
+  const requestSecurity = resolveGlobalSecurity(securityInput);
 
-  const requestRes = client$.createRequest$(context, {
-    security: securitySettings$,
+  const requestRes = client._createRequest(context, {
+    security: requestSecurity,
     method: "GET",
-    path: path$,
-    headers: headers$,
-    body: body$,
-    timeoutMs: options?.timeoutMs || client$.options$.timeoutMs || -1,
+    path: path,
+    headers: headers,
+    body: body,
+    timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
     return requestRes;
   }
-  const request$ = requestRes.value;
+  const req = requestRes.value;
 
-  const doResult = await client$.do$(request$, {
+  const doResult = await client._do(req, {
     context,
     errorCodes: ["401", "402", "403", "404", "429", "4XX", "500", "503", "5XX"],
     retryConfig: options?.retries
-      || client$.options$.retryConfig
+      || client._options.retryConfig
       || {
         strategy: "backoff",
         backoff: {
@@ -135,11 +133,11 @@ export async function billsDownloadAttachment(
   }
   const response = doResult.value;
 
-  const responseFields$ = {
-    HttpMeta: { Response: response, Request: request$ },
+  const responseFields = {
+    HttpMeta: { Response: response, Request: req },
   };
 
-  const [result$] = await m$.match<
+  const [result] = await M.match<
     ReadableStream<Uint8Array>,
     | errors.ErrorMessage
     | SDKError
@@ -150,16 +148,16 @@ export async function billsDownloadAttachment(
     | RequestTimeoutError
     | ConnectionError
   >(
-    m$.stream(200, z.instanceof(ReadableStream<Uint8Array>)),
-    m$.jsonErr(
+    M.stream(200, z.instanceof(ReadableStream<Uint8Array>)),
+    M.jsonErr(
       [401, 402, 403, 404, 429, 500, 503],
       errors.ErrorMessage$inboundSchema,
     ),
-    m$.fail(["4XX", "5XX"]),
-  )(response, { extraFields: responseFields$ });
-  if (!result$.ok) {
-    return result$;
+    M.fail(["4XX", "5XX"]),
+  )(response, { extraFields: responseFields });
+  if (!result.ok) {
+    return result;
   }
 
-  return result$;
+  return result;
 }
