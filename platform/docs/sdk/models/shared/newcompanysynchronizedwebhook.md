@@ -2,6 +2,23 @@
 
 Webhook request body to notify that a new company has successfully synchronized at least one dataType for the first time.
 
+## Example Usage
+
+```typescript
+import { NewCompanySynchronizedWebhook } from "@codat/platform/sdk/models/shared";
+
+let value: NewCompanySynchronizedWebhook = {
+  clientId: "bae71d36-ff47-420a-b4a6-f8c9ddf41140",
+  clientName: "Bank of Dave",
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  dataConnectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  ruleId: "70af3071-65d9-4ec3-b3cb-5283e8d55dac",
+  ruleType: "New company synchronised",
+  alertId: "a9367074-b5c3-42c4-9be4-be129f43577e",
+  message:
+    "Company 8a210b68-6988-11ed-a1eb-0242ac120002 synced for the first time",
+};
+```
 
 ## Fields
 
@@ -15,4 +32,3 @@ Webhook request body to notify that a new company has successfully synchronized 
 | `ruleType`                                                                                                                                               | *string*                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                       | The type of rule.                                                                                                                                        |                                                                                                                                                          |
 | `alertId`                                                                                                                                                | *string*                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                       | Unique identifier of the webhook event.                                                                                                                  |                                                                                                                                                          |
 | `message`                                                                                                                                                | *string*                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                       | A human-readable message about the webhook.                                                                                                              |                                                                                                                                                          |
-| `data`                                                                                                                                                   | [shared.NewCompanySynchronizedWebhookData](../../../sdk/models/shared/newcompanysynchronizedwebhookdata.md)                                              | :heavy_minus_sign:                                                                                                                                       | N/A                                                                                                                                                      |                                                                                                                                                          |

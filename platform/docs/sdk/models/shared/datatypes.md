@@ -1,52 +1,22 @@
 # DataTypes
 
-Available data types
+## Example Usage
 
+```typescript
+import { DataTypes } from "@codat/platform/sdk/models/shared";
 
-## Values
+let value: DataTypes = {
+  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  dataType: "invoices",
+  recordsModified: false,
+};
+```
 
-| Name                           | Value                          |
-| ------------------------------ | ------------------------------ |
-| `AccountTransactions`          | accountTransactions            |
-| `BalanceSheet`                 | balanceSheet                   |
-| `BankAccounts`                 | bankAccounts                   |
-| `BankTransactions`             | bankTransactions               |
-| `BillCreditNotes`              | billCreditNotes                |
-| `BillPayments`                 | billPayments                   |
-| `Bills`                        | bills                          |
-| `CashFlowStatement`            | cashFlowStatement              |
-| `ChartOfAccounts`              | chartOfAccounts                |
-| `Company`                      | company                        |
-| `CreditNotes`                  | creditNotes                    |
-| `Customers`                    | customers                      |
-| `DirectCosts`                  | directCosts                    |
-| `DirectIncomes`                | directIncomes                  |
-| `Invoices`                     | invoices                       |
-| `ItemReceipts`                 | itemReceipts                   |
-| `Items`                        | items                          |
-| `JournalEntries`               | journalEntries                 |
-| `Journals`                     | journals                       |
-| `PaymentMethods`               | paymentMethods                 |
-| `Payments`                     | payments                       |
-| `ProfitAndLoss`                | profitAndLoss                  |
-| `PurchaseOrders`               | purchaseOrders                 |
-| `SalesOrders`                  | salesOrders                    |
-| `Suppliers`                    | suppliers                      |
-| `TaxRates`                     | taxRates                       |
-| `TrackingCategories`           | trackingCategories             |
-| `Transfers`                    | transfers                      |
-| `BankingAccountBalances`       | banking-accountBalances        |
-| `BankingAccounts`              | banking-accounts               |
-| `BankingTransactionCategories` | banking-transactionCategories  |
-| `BankingTransactions`          | banking-transactions           |
-| `CommerceCompanyInfo`          | commerce-companyInfo           |
-| `CommerceCustomers`            | commerce-customers             |
-| `CommerceDisputes`             | commerce-disputes              |
-| `CommerceLocations`            | commerce-locations             |
-| `CommerceOrders`               | commerce-orders                |
-| `CommercePaymentMethods`       | commerce-paymentMethods        |
-| `CommercePayments`             | commerce-payments              |
-| `CommerceProductCategories`    | commerce-productCategories     |
-| `CommerceProducts`             | commerce-products              |
-| `CommerceTaxComponents`        | commerce-taxComponents         |
-| `CommerceTransactions`         | commerce-transactions          |
+## Fields
+
+| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 | Example                                                                     |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `connectionId`                                                              | *string*                                                                    | :heavy_minus_sign:                                                          | Unique identifier for a company's data connection.                          | 2e9d2c44-f675-40ba-8049-353bfcb5e171                                        |
+| `dataType`                                                                  | [shared.PropertieDataType](../../../sdk/models/shared/propertiedatatype.md) | :heavy_minus_sign:                                                          | Available data types                                                        | invoices                                                                    |
+| `recordsModified`                                                           | *boolean*                                                                   | :heavy_minus_sign:                                                          | `True` if records have been created, updated or deleted in Codat's cache.   | false                                                                       |
+| `status`                                                                    | [shared.Status](../../../sdk/models/shared/status.md)                       | :heavy_minus_sign:                                                          | The current status of the dataset.                                          |                                                                             |

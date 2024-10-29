@@ -32,20 +32,41 @@ async function run() {
   await codatPlatform.supplementalData.configure({
     platformKey: "gbol",
     dataType: "invoices",
-    supplementalDataConfiguration: {
-      supplementalDataConfig: {
-        "orders-supplemental-data": {
-          dataSource: "/orders",
-          pullData: {
-            "orderNumber": "order_num",
-          },
-          pushData: {
-            "orderNumber": "order_num",
-          },
-        },
-      },
-    },
+    supplementalDataConfiguration: {},
   });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatPlatformCore } from "@codat/platform/core.js";
+import { supplementalDataConfigure } from "@codat/platform/funcs/supplementalDataConfigure.js";
+
+// Use `CodatPlatformCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatPlatform = new CodatPlatformCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await supplementalDataConfigure(codatPlatform, {
+    platformKey: "gbol",
+    dataType: "invoices",
+    supplementalDataConfiguration: {},
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
 
   
 }
@@ -62,16 +83,16 @@ run();
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
-
 ### Response
 
 **Promise\<void\>**
+
 ### Errors
 
-| Error Object                | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| errors.ErrorMessage         | 401,402,403,404,429,500,503 | application/json            |
-| errors.SDKError             | 4xx-5xx                     | */*                         |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
+| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## getConfiguration
 
@@ -95,7 +116,40 @@ async function run() {
   });
 
   // Handle the result
-  console.log(result)
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatPlatformCore } from "@codat/platform/core.js";
+import { supplementalDataGetConfiguration } from "@codat/platform/funcs/supplementalDataGetConfiguration.js";
+
+// Use `CodatPlatformCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatPlatform = new CodatPlatformCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await supplementalDataGetConfiguration(codatPlatform, {
+    platformKey: "gbol",
+    dataType: "invoices",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -110,13 +164,13 @@ run();
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
-
 ### Response
 
 **Promise\<[shared.SupplementalDataConfiguration](../../sdk/models/shared/supplementaldataconfiguration.md)\>**
+
 ### Errors
 
-| Error Object                | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| errors.ErrorMessage         | 401,402,403,404,429,500,503 | application/json            |
-| errors.SDKError             | 4xx-5xx                     | */*                         |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
+| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |

@@ -2,29 +2,16 @@
 
 The current status of the dataset.
 
+## Example Usage
+
+```typescript
+import { DatasetStatus } from "@codat/platform/sdk/models/shared";
+
+let value: DatasetStatus = "ProcessingError";
+```
 
 ## Values
 
-| Name                 | Value                |
-| -------------------- | -------------------- |
-| `Initial`            | Initial              |
-| `Queued`             | Queued               |
-| `Fetching`           | Fetching             |
-| `MapQueued`          | MapQueued            |
-| `Mapping`            | Mapping              |
-| `Complete`           | Complete             |
-| `FetchError`         | FetchError           |
-| `MapError`           | MapError             |
-| `InternalError`      | InternalError        |
-| `ProcessingQueued`   | ProcessingQueued     |
-| `Processing`         | Processing           |
-| `ProcessingError`    | ProcessingError      |
-| `ValidationQueued`   | ValidationQueued     |
-| `Validating`         | Validating           |
-| `ValidationError`    | ValidationError      |
-| `AuthError`          | AuthError            |
-| `Cancelled`          | Cancelled            |
-| `NotSupported`       | NotSupported         |
-| `RateLimitError`     | RateLimitError       |
-| `PermissionsError`   | PermissionsError     |
-| `PrerequisiteNotMet` | PrerequisiteNotMet   |
+```typescript
+"Initial" | "Queued" | "Fetching" | "MapQueued" | "Mapping" | "Complete" | "FetchError" | "MapError" | "InternalError" | "ProcessingQueued" | "Processing" | "ProcessingError" | "ValidationQueued" | "Validating" | "ValidationError" | "AuthError" | "Cancelled" | "NotSupported" | "RateLimitError" | "PermissionsError" | "PrerequisiteNotMet"
+```

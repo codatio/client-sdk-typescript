@@ -2,6 +2,13 @@
 
 Button branding references.
 
+## Example Usage
+
+```typescript
+import { BrandingButton } from "@codat/platform/sdk/models/shared";
+
+let value: BrandingButton = {};
+```
 
 ## Fields
 

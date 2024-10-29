@@ -1,5 +1,17 @@
 # PushOptionProperty
 
+## Example Usage
+
+```typescript
+import { PushOptionProperty } from "@codat/platform/sdk/models/shared";
+
+let value: PushOptionProperty = {
+  type: "Boolean",
+  displayName: "Verlie_Kassulke1",
+  description: "mouser inject worth uh-huh substitution psst upon er",
+  required: false,
+};
+```
 
 ## Fields
 

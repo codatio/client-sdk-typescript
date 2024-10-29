@@ -1,7 +1,14 @@
 # ErrorMessage
 
-The request made is not valid.
+Your `query` parameter was not correctly formed
 
+## Example Usage
+
+```typescript
+import { ErrorMessage } from "@codat/platform/sdk/models/errors";
+
+// No examples available for this model
+```
 
 ## Fields
 

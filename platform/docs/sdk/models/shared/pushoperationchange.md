@@ -1,5 +1,16 @@
 # PushOperationChange
 
+## Example Usage
+
+```typescript
+import { PushOperationChange } from "@codat/platform/sdk/models/shared";
+
+let value: PushOperationChange = {
+  recordRef: {
+    dataType: "invoices",
+  },
+};
+```
 
 ## Fields
 

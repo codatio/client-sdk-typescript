@@ -1,5 +1,43 @@
 # PushOperations
 
+## Example Usage
+
+```typescript
+import { PushOperations } from "@codat/platform/sdk/models/shared";
+
+let value: PushOperations = {
+  results: [
+    {
+      changes: [
+        {
+          recordRef: {
+            dataType: "invoices",
+          },
+        },
+      ],
+      dataType: "invoices",
+      companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+      pushOperationKey: "989b4632-fb73-4406-b4b6-201a78ef3a40",
+      dataConnectionKey: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+      requestedOnUtc: "2022-10-23T00:00:00Z",
+      completedOnUtc: "2022-10-23T00:00:00Z",
+      status: "Success",
+      statusCode: 506,
+    },
+  ],
+  pageNumber: 1,
+  pageSize: 10,
+  totalResults: 1,
+  links: {
+    self: {
+      href: "/companies/{id}/data/{dataType}",
+    },
+    current: {
+      href: "/companies/{id}/data/{dataType}?page=1&pageSize=10",
+    },
+  },
+};
+```
 
 ## Fields
 

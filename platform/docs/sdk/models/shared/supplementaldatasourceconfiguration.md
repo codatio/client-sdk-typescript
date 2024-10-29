@@ -2,6 +2,13 @@
 
 The client's defined name for the object.
 
+## Example Usage
+
+```typescript
+import { SupplementalDataSourceConfiguration } from "@codat/platform/sdk/models/shared";
+
+let value: SupplementalDataSourceConfiguration = {};
+```
 
 ## Fields
 

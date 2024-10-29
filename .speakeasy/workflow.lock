@@ -9,8 +9,8 @@ sources:
             - main
     platform-source:
         sourceNamespace: platform-source
-        sourceRevisionDigest: sha256:129722ba727e02e06b06f970bf604ad8381b1368043e1df352c45f13bc88dc5f
-        sourceBlobDigest: sha256:58909979e578bc80a3dcaa1b431b86e239f4d287edd6b1181744c52a9cd457c3
+        sourceRevisionDigest: sha256:a1a4c526fcfc87fde0b60e9b93d029b97f71ddefc60ac7e114d8195c03ba60a2
+        sourceBlobDigest: sha256:e4fb24c2ca300a5005adef27857ad9afba70f056e51a84fb38368609c61cafc8
         tags:
             - latest
             - main
@@ -58,8 +58,8 @@ targets:
     platform-library:
         source: platform-source
         sourceNamespace: platform-source
-        sourceRevisionDigest: sha256:129722ba727e02e06b06f970bf604ad8381b1368043e1df352c45f13bc88dc5f
-        sourceBlobDigest: sha256:58909979e578bc80a3dcaa1b431b86e239f4d287edd6b1181744c52a9cd457c3
+        sourceRevisionDigest: sha256:a1a4c526fcfc87fde0b60e9b93d029b97f71ddefc60ac7e114d8195c03ba60a2
+        sourceBlobDigest: sha256:e4fb24c2ca300a5005adef27857ad9afba70f056e51a84fb38368609c61cafc8
     sync-for-commerce-library:
         source: sync-for-commerce-source
         sourceNamespace: sync-for-commerce-source

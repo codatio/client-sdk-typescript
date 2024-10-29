@@ -1,5 +1,14 @@
 # DatasetDataChangedWebhookData
 
+## Example Usage
+
+```typescript
+import { DatasetDataChangedWebhookData } from "@codat/platform/sdk/models/shared";
+
+let value: DatasetDataChangedWebhookData = {
+  dataType: "invoices",
+};
+```
 
 ## Fields
 

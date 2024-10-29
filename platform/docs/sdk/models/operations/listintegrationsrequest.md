@@ -1,5 +1,17 @@
 # ListIntegrationsRequest
 
+## Example Usage
+
+```typescript
+import { ListIntegrationsRequest } from "@codat/platform/sdk/models/operations";
+
+let value: ListIntegrationsRequest = {
+  page: 1,
+  pageSize: 100,
+  query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+  orderBy: "-modifiedDate",
+};
+```
 
 ## Fields
 

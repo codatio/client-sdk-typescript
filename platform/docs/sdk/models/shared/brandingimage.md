@@ -1,5 +1,12 @@
 # BrandingImage
 
+## Example Usage
+
+```typescript
+import { BrandingImage } from "@codat/platform/sdk/models/shared";
+
+let value: BrandingImage = {};
+```
 
 ## Fields
 

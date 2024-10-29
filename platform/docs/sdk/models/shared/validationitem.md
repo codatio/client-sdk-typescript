@@ -1,5 +1,12 @@
 # ValidationItem
 
+## Example Usage
+
+```typescript
+import { ValidationItem } from "@codat/platform/sdk/models/shared";
+
+let value: ValidationItem = {};
+```
 
 ## Fields
 

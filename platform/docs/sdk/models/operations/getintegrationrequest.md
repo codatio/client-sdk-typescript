@@ -1,5 +1,14 @@
 # GetIntegrationRequest
 
+## Example Usage
+
+```typescript
+import { GetIntegrationRequest } from "@codat/platform/sdk/models/operations";
+
+let value: GetIntegrationRequest = {
+  platformKey: "gbol",
+};
+```
 
 ## Fields
 

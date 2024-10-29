@@ -1,5 +1,14 @@
 # DataSyncCompletedWebhookData
 
+## Example Usage
+
+```typescript
+import { DataSyncCompletedWebhookData } from "@codat/platform/sdk/models/shared";
+
+let value: DataSyncCompletedWebhookData = {
+  dataType: "invoices",
+};
+```
 
 ## Fields
 
