@@ -19,7 +19,7 @@ let value: BillMappingOptions = {
       sourceModifiedDate: "2022-10-23T00:00:00Z",
     },
   ],
-  taxRate: [
+  taxRates: [
     {
       id: "d2939064-dd3a-4c0f-9865-a238c2193515",
     },
@@ -32,5 +32,5 @@ let value: BillMappingOptions = {
 | Field                                                                               | Type                                                                                | Required                                                                            | Description                                                                         |
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | `accounts`                                                                          | [shared.AccountMappingOption](../../../sdk/models/shared/accountmappingoption.md)[] | :heavy_minus_sign:                                                                  | N/A                                                                                 |
-| `taxRate`                                                                           | [shared.TaxRateMappingOption](../../../sdk/models/shared/taxratemappingoption.md)[] | :heavy_minus_sign:                                                                  | N/A                                                                                 |
+| `taxRates`                                                                          | [shared.TaxRateMappingOption](../../../sdk/models/shared/taxratemappingoption.md)[] | :heavy_minus_sign:                                                                  | N/A                                                                                 |
 | `pagination`                                                                        | [shared.Pagination](../../../sdk/models/shared/pagination.md)                       | :heavy_minus_sign:                                                                  | N/A                                                                                 |

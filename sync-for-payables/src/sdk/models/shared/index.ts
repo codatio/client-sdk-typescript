@@ -51,5 +51,4 @@ export * from "./supplierprototype.js";
 export * from "./supplierref.js";
 export * from "./suppliers.js";
 export * from "./supplierstatus.js";
-export * from "./tags.js";
 export * from "./taxratemappingoption.js";

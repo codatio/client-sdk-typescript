@@ -260,8 +260,6 @@ async function run() {
         },
       ],
       status: "Open",
-      totalAmount: new Decimal("7267.2"),
-      amountDue: new Decimal("7267.2"),
     },
   });
 
@@ -343,8 +341,6 @@ async function run() {
         },
       ],
       status: "Open",
-      totalAmount: new Decimal("7267.2"),
-      amountDue: new Decimal("7267.2"),
     },
   });
 

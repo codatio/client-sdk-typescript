@@ -1,4 +1,4 @@
-speakeasyVersion: 1.405.9
+speakeasyVersion: 1.423.1
 sources:
     bank-feeds-source:
         sourceNamespace: bank-feeds-source
@@ -30,8 +30,8 @@ sources:
             - main
     sync-for-payables-source:
         sourceNamespace: sync-for-payables-source
-        sourceRevisionDigest: sha256:15cdb98984bf13e095abd0570737564feb6d1c56000e3ff22b3dec5e0616315f
-        sourceBlobDigest: sha256:b2999b2b9b935bfc647fe90125f27429ceca251baba134fe2e1b28ee05204eb6
+        sourceRevisionDigest: sha256:3a9ba731fa4f982186d2b89357bb2752de1c0fbcff5e63d8909146acf91176e9
+        sourceBlobDigest: sha256:f16cfaff947469b23c5b6017dd1069909876cdb15b2ab4ed49cbf9c272a1896b
         tags:
             - latest
             - main
@@ -73,8 +73,8 @@ targets:
     sync-for-payables-library:
         source: sync-for-payables-source
         sourceNamespace: sync-for-payables-source
-        sourceRevisionDigest: sha256:15cdb98984bf13e095abd0570737564feb6d1c56000e3ff22b3dec5e0616315f
-        sourceBlobDigest: sha256:b2999b2b9b935bfc647fe90125f27429ceca251baba134fe2e1b28ee05204eb6
+        sourceRevisionDigest: sha256:3a9ba731fa4f982186d2b89357bb2752de1c0fbcff5e63d8909146acf91176e9
+        sourceBlobDigest: sha256:f16cfaff947469b23c5b6017dd1069909876cdb15b2ab4ed49cbf9c272a1896b
     sync-for-payables-version-1-library:
         source: sync-for-payables-version-1-source
         sourceNamespace: sync-for-payables-version-1-source
@@ -173,6 +173,10 @@ workflow:
             publish:
                 npm:
                     token: $npm_token
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/codat/codat/bank-feeds-source-code-samples
+                blocking: false
         banking-library:
             target: typescript
             source: banking-source
@@ -215,6 +219,10 @@ workflow:
             publish:
                 npm:
                     token: $npm_token
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/codat/codat/platform-source-code-samples
+                blocking: false
         sync-for-commerce-library:
             target: typescript
             source: sync-for-commerce-source
@@ -222,6 +230,10 @@ workflow:
             publish:
                 npm:
                     token: $npm_token
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/codat/codat/sync-for-commerce-source-code-samples
+                blocking: false
         sync-for-commerce-version-1-library:
             target: typescript
             source: sync-for-commerce-version-1-source
@@ -236,6 +248,10 @@ workflow:
             publish:
                 npm:
                     token: $npm_token
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/codat/codat/sync-for-expenses-source-code-samples
+                blocking: false
         sync-for-expenses-version-1-library:
             target: typescript
             source: sync-for-expenses-version-1-source
@@ -250,6 +266,10 @@ workflow:
             publish:
                 npm:
                     token: $npm_token
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/codat/codat/sync-for-payables-source-code-samples
+                blocking: false
         sync-for-payables-version-1-library:
             target: typescript
             source: sync-for-payables-version-1-source
@@ -257,6 +277,10 @@ workflow:
             publish:
                 npm:
                     token: $npm_token
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/codat/codat/sync-for-payables-version-1-source-code-samples
+                blocking: false
         sync-for-payroll-library:
             target: typescript
             source: sync-for-payroll-source
@@ -264,3 +288,7 @@ workflow:
             publish:
                 npm:
                     token: $npm_token
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/codat/codat/sync-for-payroll-source-code-samples
+                blocking: false

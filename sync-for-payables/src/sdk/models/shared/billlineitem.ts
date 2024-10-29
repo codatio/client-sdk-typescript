@@ -45,7 +45,7 @@ export type BillLineItem = {
   /**
    * Reference to the tax rate to which the line item is linked.
    */
-  taxRateRef: BillTaxRateRef;
+  taxRateRef?: BillTaxRateRef | undefined;
 };
 
 /** @internal */
@@ -61,7 +61,7 @@ export const BillLineItem$inboundSchema: z.ZodType<
   accountRef: BillAccountRef$inboundSchema,
   totalAmount: z.nullable(z.number().transform(v => new Decimal$(v)))
     .optional(),
-  taxRateRef: BillTaxRateRef$inboundSchema,
+  taxRateRef: BillTaxRateRef$inboundSchema.optional(),
 });
 
 /** @internal */
@@ -72,7 +72,7 @@ export type BillLineItem$Outbound = {
   taxAmount?: number | undefined;
   accountRef: BillAccountRef$Outbound;
   totalAmount?: number | null | undefined;
-  taxRateRef: BillTaxRateRef$Outbound;
+  taxRateRef?: BillTaxRateRef$Outbound | undefined;
 };
 
 /** @internal */
@@ -97,7 +97,7 @@ export const BillLineItem$outboundSchema: z.ZodType<
       typeof v === "number" ? v : v.toNumber()
     ),
   ).optional(),
-  taxRateRef: BillTaxRateRef$outboundSchema,
+  taxRateRef: BillTaxRateRef$outboundSchema.optional(),
 });
 
 /**

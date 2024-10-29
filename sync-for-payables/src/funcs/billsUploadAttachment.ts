@@ -175,7 +175,7 @@ export async function billsUploadAttachment(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.nil(200, z.void()),
+    M.nil(201, z.void()),
     M.jsonErr(
       [400, 401, 402, 403, 404, 429, 500, 503],
       errors.ErrorMessage$inboundSchema,
