@@ -89,14 +89,6 @@ export type BillPrototype = {
    * Current state of the bill. If creating a bill the status must be `Open`.
    */
   status: BillStatus;
-  /**
-   * Amount of the bill, including tax.
-   */
-  totalAmount?: Decimal$ | number | undefined;
-  /**
-   * Amount outstanding on the bill.
-   */
-  amountDue?: Decimal$ | number | null | undefined;
 };
 
 /** @internal */
@@ -114,8 +106,6 @@ export const BillPrototype$inboundSchema: z.ZodType<
     .optional(),
   lineItems: z.nullable(z.array(BillLineItem$inboundSchema)).optional(),
   status: BillStatus$inboundSchema,
-  totalAmount: z.number().transform(v => new Decimal$(v)).optional(),
-  amountDue: z.nullable(z.number().transform(v => new Decimal$(v))).optional(),
 });
 
 /** @internal */
@@ -128,8 +118,6 @@ export type BillPrototype$Outbound = {
   currencyRate?: number | null | undefined;
   lineItems?: Array<BillLineItem$Outbound> | null | undefined;
   status: string;
-  totalAmount?: number | undefined;
-  amountDue?: number | null | undefined;
 };
 
 /** @internal */
@@ -150,14 +138,6 @@ export const BillPrototype$outboundSchema: z.ZodType<
   ).optional(),
   lineItems: z.nullable(z.array(BillLineItem$outboundSchema)).optional(),
   status: BillStatus$outboundSchema,
-  totalAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  amountDue: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
 });
 
 /**

@@ -130,6 +130,16 @@ The bill pay kit is an API and a set of supporting tools designed to integrate a
 [Explore product](https://docs.codat.io/payables/bill-pay-kit) | [See OpenAPI spec](https://github.com/codatio/oas)
 
 ---
+## Supported Integrations
+
+| Integration                   | Supported |
+|-------------------------------|-----------|
+| FreeAgent                     | Yes       |
+| QuickBooks Online             | Yes       |
+| Oracle NetSuite               | Yes       |
+| Xero                          | Yes       |
+
+---
 <!-- Start Codat Tags Table -->
 ## Endpoints
 
@@ -183,29 +193,28 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
-- [bankAccountsCreate](docs/sdks/bankaccounts/README.md#create)
-- [billPaymentsCreate](docs/sdks/billpayments/README.md#create)
-- [billPaymentsGetPaymentOptions](docs/sdks/billpayments/README.md#getpaymentoptions)
-- [billsCreate](docs/sdks/bills/README.md#create)
-- [billsDownloadAttachment](docs/sdks/bills/README.md#downloadattachment)
-- [billsGetBillOptions](docs/sdks/bills/README.md#getbilloptions)
-- [billsListAttachments](docs/sdks/bills/README.md#listattachments)
-- [billsList](docs/sdks/bills/README.md#list)
-- [billsUploadAttachment](docs/sdks/bills/README.md#uploadattachment)
-- [companiesCreate](docs/sdks/companies/README.md#create)
-- [companiesDelete](docs/sdks/companies/README.md#delete)
-- [companiesGet](docs/sdks/companies/README.md#get)
-- [companiesList](docs/sdks/companies/README.md#list)
-- [companiesUpdate](docs/sdks/companies/README.md#update)
-- [companyInformationGet](docs/sdks/companyinformation/README.md#get)
-- [connectionsCreate](docs/sdks/connections/README.md#create)
-- [connectionsDelete](docs/sdks/connections/README.md#delete)
-- [connectionsGet](docs/sdks/connections/README.md#get)
-- [connectionsList](docs/sdks/connections/README.md#list)
-- [connectionsUnlink](docs/sdks/connections/README.md#unlink)
-- [suppliersCreate](docs/sdks/suppliers/README.md#create)
-- [suppliersList](docs/sdks/suppliers/README.md#list)
-
+- [`bankAccountsCreate`](docs/sdks/bankaccounts/README.md#create) - Create bank account
+- [`billPaymentsCreate`](docs/sdks/billpayments/README.md#create) - Create bill payment
+- [`billPaymentsGetPaymentOptions`](docs/sdks/billpayments/README.md#getpaymentoptions) - Get payment mapping options
+- [`billsCreate`](docs/sdks/bills/README.md#create) - Create bill
+- [`billsDownloadAttachment`](docs/sdks/bills/README.md#downloadattachment) - Download bill attachment
+- [`billsGetBillOptions`](docs/sdks/bills/README.md#getbilloptions) - Get bill mapping options
+- [`billsList`](docs/sdks/bills/README.md#list) - List bills
+- [`billsListAttachments`](docs/sdks/bills/README.md#listattachments) - List bill attachments
+- [`billsUploadAttachment`](docs/sdks/bills/README.md#uploadattachment) - Upload bill attachment
+- [`companiesCreate`](docs/sdks/companies/README.md#create) - Create company
+- [`companiesDelete`](docs/sdks/companies/README.md#delete) - Delete a company
+- [`companiesGet`](docs/sdks/companies/README.md#get) - Get company
+- [`companiesList`](docs/sdks/companies/README.md#list) - List companies
+- [`companiesUpdate`](docs/sdks/companies/README.md#update) - Update company
+- [`companyInformationGet`](docs/sdks/companyinformation/README.md#get) - Get company information
+- [`connectionsCreate`](docs/sdks/connections/README.md#create) - Create connection
+- [`connectionsDelete`](docs/sdks/connections/README.md#delete) - Delete connection
+- [`connectionsGet`](docs/sdks/connections/README.md#get) - Get connection
+- [`connectionsList`](docs/sdks/connections/README.md#list) - List connections
+- [`connectionsUnlink`](docs/sdks/connections/README.md#unlink) - Unlink connection
+- [`suppliersCreate`](docs/sdks/suppliers/README.md#create) - Create supplier
+- [`suppliersList`](docs/sdks/suppliers/README.md#list) - List suppliers
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->

@@ -156,7 +156,7 @@ export async function bankAccountsCreate(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, shared.BankAccount$inboundSchema),
+    M.json(201, shared.BankAccount$inboundSchema),
     M.jsonErr(
       [400, 401, 402, 403, 404, 429, 500, 503],
       errors.ErrorMessage$inboundSchema,

@@ -155,7 +155,7 @@ export async function billsCreate(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, shared.Bill$inboundSchema),
+    M.json(201, shared.Bill$inboundSchema),
     M.jsonErr(
       [400, 401, 402, 403, 404, 409, 429, 500, 503],
       errors.ErrorMessage$inboundSchema,

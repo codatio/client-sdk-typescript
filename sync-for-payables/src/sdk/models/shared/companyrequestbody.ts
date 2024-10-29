@@ -3,12 +3,6 @@
  */
 
 import * as z from "zod";
-import {
-  Tags,
-  Tags$inboundSchema,
-  Tags$Outbound,
-  Tags$outboundSchema,
-} from "./tags.js";
 
 export type CompanyRequestBody = {
   /**
@@ -22,7 +16,7 @@ export type CompanyRequestBody = {
   /**
    * A collection of user-defined key-value pairs that store custom metadata against the company.
    */
-  tags?: Tags | undefined;
+  tags?: { [k: string]: string } | undefined;
 };
 
 /** @internal */
@@ -33,14 +27,14 @@ export const CompanyRequestBody$inboundSchema: z.ZodType<
 > = z.object({
   name: z.string(),
   description: z.string().optional(),
-  tags: Tags$inboundSchema.optional(),
+  tags: z.record(z.string()).optional(),
 });
 
 /** @internal */
 export type CompanyRequestBody$Outbound = {
   name: string;
   description?: string | undefined;
-  tags?: Tags$Outbound | undefined;
+  tags?: { [k: string]: string } | undefined;
 };
 
 /** @internal */
@@ -51,7 +45,7 @@ export const CompanyRequestBody$outboundSchema: z.ZodType<
 > = z.object({
   name: z.string(),
   description: z.string().optional(),
-  tags: Tags$outboundSchema.optional(),
+  tags: z.record(z.string()).optional(),
 });
 
 /**

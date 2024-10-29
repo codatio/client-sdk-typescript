@@ -27,7 +27,7 @@ import {
  */
 export type BillMappingOptions = {
   accounts?: Array<AccountMappingOption> | undefined;
-  taxRate?: Array<TaxRateMappingOption> | undefined;
+  taxRates?: Array<TaxRateMappingOption> | undefined;
   pagination?: Pagination | undefined;
 };
 
@@ -38,14 +38,14 @@ export const BillMappingOptions$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   accounts: z.array(AccountMappingOption$inboundSchema).optional(),
-  taxRate: z.array(TaxRateMappingOption$inboundSchema).optional(),
+  taxRates: z.array(TaxRateMappingOption$inboundSchema).optional(),
   pagination: Pagination$inboundSchema.optional(),
 });
 
 /** @internal */
 export type BillMappingOptions$Outbound = {
   accounts?: Array<AccountMappingOption$Outbound> | undefined;
-  taxRate?: Array<TaxRateMappingOption$Outbound> | undefined;
+  taxRates?: Array<TaxRateMappingOption$Outbound> | undefined;
   pagination?: Pagination$Outbound | undefined;
 };
 
@@ -56,7 +56,7 @@ export const BillMappingOptions$outboundSchema: z.ZodType<
   BillMappingOptions
 > = z.object({
   accounts: z.array(AccountMappingOption$outboundSchema).optional(),
-  taxRate: z.array(TaxRateMappingOption$outboundSchema).optional(),
+  taxRates: z.array(TaxRateMappingOption$outboundSchema).optional(),
   pagination: Pagination$outboundSchema.optional(),
 });
 

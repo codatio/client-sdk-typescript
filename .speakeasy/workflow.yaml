@@ -85,6 +85,10 @@ targets:
         publish:
             npm:
                 token: $npm_token
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/codat/codat/bank-feeds-source-code-samples
+            blocking: false
     banking-library:
         target: typescript
         source: banking-source
@@ -127,6 +131,10 @@ targets:
         publish:
             npm:
                 token: $npm_token
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/codat/codat/platform-source-code-samples
+            blocking: false
     sync-for-commerce-library:
         target: typescript
         source: sync-for-commerce-source
@@ -134,6 +142,10 @@ targets:
         publish:
             npm:
                 token: $npm_token
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/codat/codat/sync-for-commerce-source-code-samples
+            blocking: false
     sync-for-commerce-version-1-library:
         target: typescript
         source: sync-for-commerce-version-1-source
@@ -148,6 +160,10 @@ targets:
         publish:
             npm:
                 token: $npm_token
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/codat/codat/sync-for-expenses-source-code-samples
+            blocking: false
     sync-for-expenses-version-1-library:
         target: typescript
         source: sync-for-expenses-version-1-source
@@ -162,6 +178,10 @@ targets:
         publish:
             npm:
                 token: $npm_token
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/codat/codat/sync-for-payables-source-code-samples
+            blocking: false
     sync-for-payables-version-1-library:
         target: typescript
         source: sync-for-payables-version-1-source
@@ -169,6 +189,10 @@ targets:
         publish:
             npm:
                 token: $npm_token
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/codat/codat/sync-for-payables-version-1-source-code-samples
+            blocking: false
     sync-for-payroll-library:
         target: typescript
         source: sync-for-payroll-source
@@ -176,3 +200,7 @@ targets:
         publish:
             npm:
                 token: $npm_token
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/codat/codat/sync-for-payroll-source-code-samples
+            blocking: false

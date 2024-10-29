@@ -10,7 +10,6 @@ let value: BillLineItem = {
   unitAmount: new Decimal("6399.21"),
   quantity: new Decimal("1433.53"),
   accountRef: {},
-  taxRateRef: {},
 };
 ```
 
@@ -24,4 +23,4 @@ let value: BillLineItem = {
 | `taxAmount`                                                           | *Decimal*                                                             | :heavy_minus_sign:                                                    | Amount of tax applied to the line item.                               |
 | `accountRef`                                                          | [shared.BillAccountRef](../../../sdk/models/shared/billaccountref.md) | :heavy_check_mark:                                                    | Reference to the account to which the line item is linked.            |
 | `totalAmount`                                                         | *Decimal*                                                             | :heavy_minus_sign:                                                    | Total amount of the line, including tax.                              |
-| `taxRateRef`                                                          | [shared.BillTaxRateRef](../../../sdk/models/shared/billtaxrateref.md) | :heavy_check_mark:                                                    | Reference to the tax rate to which the line item is linked.           |
+| `taxRateRef`                                                          | [shared.BillTaxRateRef](../../../sdk/models/shared/billtaxrateref.md) | :heavy_minus_sign:                                                    | Reference to the tax rate to which the line item is linked.           |
