@@ -1,5 +1,14 @@
 # PushOperationStatusChangedWebhookData
 
+## Example Usage
+
+```typescript
+import { PushOperationStatusChangedWebhookData } from "@codat/platform/sdk/models/shared";
+
+let value: PushOperationStatusChangedWebhookData = {
+  dataType: "invoices",
+};
+```
 
 ## Fields
 

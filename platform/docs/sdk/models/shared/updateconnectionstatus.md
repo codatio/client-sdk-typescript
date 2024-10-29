@@ -1,5 +1,12 @@
 # UpdateConnectionStatus
 
+## Example Usage
+
+```typescript
+import { UpdateConnectionStatus } from "@codat/platform/sdk/models/shared";
+
+let value: UpdateConnectionStatus = {};
+```
 
 ## Fields
 

@@ -1,5 +1,15 @@
 # GetSupplementalDataConfigurationRequest
 
+## Example Usage
+
+```typescript
+import { GetSupplementalDataConfigurationRequest } from "@codat/platform/sdk/models/operations";
+
+let value: GetSupplementalDataConfigurationRequest = {
+  platformKey: "gbol",
+  dataType: "invoices",
+};
+```
 
 ## Fields
 

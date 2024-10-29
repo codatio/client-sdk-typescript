@@ -2,6 +2,21 @@
 
 Describes support for a given datatype and associated operations
 
+## Example Usage
+
+```typescript
+import { DataTypeFeature } from "@codat/platform/sdk/models/shared";
+
+let value: DataTypeFeature = {
+  dataType: "invoices",
+  supportedFeatures: [
+    {
+      featureType: "Get",
+      featureState: "Release",
+    },
+  ],
+};
+```
 
 ## Fields
 

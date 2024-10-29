@@ -1,5 +1,15 @@
 # GetCustomDataTypeConfigurationRequest
 
+## Example Usage
+
+```typescript
+import { GetCustomDataTypeConfigurationRequest } from "@codat/platform/sdk/models/operations";
+
+let value: GetCustomDataTypeConfigurationRequest = {
+  platformKey: "gbol",
+  customDataIdentifier: "DynamicsPurchaseOrders",
+};
+```
 
 ## Fields
 

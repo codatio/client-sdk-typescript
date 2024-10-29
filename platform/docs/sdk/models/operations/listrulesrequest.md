@@ -1,5 +1,17 @@
 # ListRulesRequest
 
+## Example Usage
+
+```typescript
+import { ListRulesRequest } from "@codat/platform/sdk/models/operations";
+
+let value: ListRulesRequest = {
+  page: 1,
+  pageSize: 100,
+  query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+  orderBy: "-modifiedDate",
+};
+```
 
 ## Fields
 

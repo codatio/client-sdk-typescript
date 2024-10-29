@@ -2,6 +2,35 @@
 
 An integration that Codat supports
 
+## Example Usage
+
+```typescript
+import { Integration } from "@codat/platform/sdk/models/shared";
+
+let value: Integration = {
+  key: "gbol",
+  logoUrl: "http://example.com",
+  name: "Xero",
+  enabled: true,
+  sourceId: "accounting",
+  sourceType: "Banking",
+  integrationId: "497a18ca-284e-40c0-985d-f72be35d468e",
+  isOfflineConnector: true,
+  isBeta: true,
+  dataProvidedBy: "string",
+  datatypeFeatures: [
+    {
+      dataType: "invoices",
+      supportedFeatures: [
+        {
+          featureType: "UploadAttachment",
+          featureState: "Beta",
+        },
+      ],
+    },
+  ],
+};
+```
 
 ## Fields
 

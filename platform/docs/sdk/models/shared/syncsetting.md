@@ -2,6 +2,22 @@
 
 Describes how often, and how much history, should be fetched for the given data type when a pull operation is queued.
 
+## Example Usage
+
+```typescript
+import { SyncSetting } from "@codat/platform/sdk/models/shared";
+
+let value: SyncSetting = {
+  dataType: "invoices",
+  fetchOnFirstLink: true,
+  syncSchedule: 24,
+  syncOrder: 0,
+  syncFromUtc: "2020-01-01T12:00:00.000Z",
+  syncFromWindow: 24,
+  monthsToSync: 24,
+  isLocked: true,
+};
+```
 
 ## Fields
 

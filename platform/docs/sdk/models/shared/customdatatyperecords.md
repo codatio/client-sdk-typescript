@@ -2,6 +2,21 @@
 
 Resulting records pulled from the source platform for a specific custom data type.
 
+## Example Usage
+
+```typescript
+import { CustomDataTypeRecords } from "@codat/platform/sdk/models/shared";
+
+let value: CustomDataTypeRecords = {
+  results: [
+    {
+      modifiedDate: {
+        modifiedDate: "2022-10-23T00:00:00Z",
+      },
+    },
+  ],
+};
+```
 
 ## Fields
 

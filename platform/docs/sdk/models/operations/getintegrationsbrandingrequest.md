@@ -1,5 +1,14 @@
 # GetIntegrationsBrandingRequest
 
+## Example Usage
+
+```typescript
+import { GetIntegrationsBrandingRequest } from "@codat/platform/sdk/models/operations";
+
+let value: GetIntegrationsBrandingRequest = {
+  platformKey: "gbol",
+};
+```
 
 ## Fields
 

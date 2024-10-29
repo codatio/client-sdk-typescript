@@ -4,8 +4,56 @@
 Manage the building blocks of Codat, including companies, connections, and more.
 <!-- End Codat Library Description -->
 
+<!-- Start Summary [summary] -->
+## Summary
+
+Platform API: Platform API
+
+An API for the common components of all of Codat's products.
+
+These end points cover creating and managing your companies, data connections, and integrations.
+
+[Read about the building blocks of Codat...](https://docs.codat.io/core-concepts/companies) | [See our OpenAPI spec](https://github.com/codatio/oas) 
+
+---
+<!-- Start Codat Tags Table -->
+## Endpoints
+
+| Endpoints | Description |
+| :- |:- |
+| Companies | Create and manage your SMB users' companies. |
+| Connections | Create new and manage existing data connections for a company. |
+| Connection management | Configure connection management UI and retrieve access tokens for authentication. |
+| Webhooks | Create and manage webhooks that listen to Codat's events. |
+| Integrations | Get a list of integrations supported by Codat and their logos. |
+| Refresh data | Initiate data refreshes, view pull status and history. |
+| Settings | Manage company profile configuration, sync settings, and API keys. |
+| Push data | Initiate and monitor Create, Update, and Delete operations. |
+| Supplemental data | Configure and pull additional data you can include in Codat's standard data types. |
+| Custom data type | Configure and pull additional data types that are not included in Codat's standardized data model. |
+<!-- End Codat Tags Table -->
+<!-- End Summary [summary] -->
+
+<!-- Start Table of Contents [toc] -->
+## Table of Contents
+
+* [SDK Installation](#sdk-installation)
+* [Requirements](#requirements)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Standalone functions](#standalone-functions)
+* [Retries](#retries)
+* [Error Handling](#error-handling)
+* [Server Selection](#server-selection)
+* [Custom HTTP Client](#custom-http-client)
+* [Authentication](#authentication)
+* [Debugging](#debugging)
+<!-- End Table of Contents [toc] -->
+
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
+
+The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/), [bun](https://bun.sh/) or [yarn](https://classic.yarnpkg.com/en/) package managers.
 
 ### NPM
 
@@ -45,19 +93,19 @@ yarn add @codat/platform zod
 import { CodatPlatform } from "@codat/platform";
 
 const codatPlatform = new CodatPlatform({
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
 });
 
 async function run() {
-    const result = await codatPlatform.companies.list({
-        page: 1,
-        pageSize: 100,
-        query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-        orderBy: "-modifiedDate",
-    });
+  const result = await codatPlatform.companies.list({
+    page: 1,
+    pageSize: 100,
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -68,6 +116,10 @@ run();
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
+<details open>
+<summary>Available methods</summary>
+
+
 ### [companies](docs/sdks/companies/README.md)
 
 * [list](docs/sdks/companies/README.md#list) - List companies
@@ -75,6 +127,17 @@ run();
 * [get](docs/sdks/companies/README.md#get) - Get company
 * [delete](docs/sdks/companies/README.md#delete) - Delete a company
 * [update](docs/sdks/companies/README.md#update) - Update company
+* [addProduct](docs/sdks/companies/README.md#addproduct) - Add product
+* [removeProduct](docs/sdks/companies/README.md#removeproduct) - Remove product
+
+### [connectionManagement](docs/sdks/connectionmanagement/README.md)
+
+* [getAccessToken](docs/sdks/connectionmanagement/README.md#getaccesstoken) - Get access token
+
+#### [connectionManagement.corsSettings](docs/sdks/corssettings/README.md)
+
+* [get](docs/sdks/corssettings/README.md#get) - Get CORS settings
+* [set](docs/sdks/corssettings/README.md#set) - Set CORS settings
 
 ### [connections](docs/sdks/connections/README.md)
 
@@ -85,14 +148,24 @@ run();
 * [unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 * [updateAuthorization](docs/sdks/connections/README.md#updateauthorization) - Update authorization
 
-### [connectionManagement](docs/sdks/connectionmanagement/README.md)
+### [customDataType](docs/sdks/customdatatype/README.md)
 
-* [getAccessToken](docs/sdks/connectionmanagement/README.md#getaccesstoken) - Get access token
+* [configure](docs/sdks/customdatatype/README.md#configure) - Configure custom data type
+* [getConfiguration](docs/sdks/customdatatype/README.md#getconfiguration) - Get custom data configuration
+* [refresh](docs/sdks/customdatatype/README.md#refresh) - Refresh custom data type
+* [list](docs/sdks/customdatatype/README.md#list) - List custom data type records
 
-### [connectionManagement.corsSettings](docs/sdks/corssettings/README.md)
+### [integrations](docs/sdks/integrations/README.md)
 
-* [get](docs/sdks/corssettings/README.md#get) - Get CORS settings
-* [set](docs/sdks/corssettings/README.md#set) - Set CORS settings
+* [list](docs/sdks/integrations/README.md#list) - List integrations
+* [get](docs/sdks/integrations/README.md#get) - Get integration
+* [getBranding](docs/sdks/integrations/README.md#getbranding) - Get branding
+
+### [pushData](docs/sdks/pushdata/README.md)
+
+* [getModelOptions](docs/sdks/pushdata/README.md#getmodeloptions) - Get push options
+* [listOperations](docs/sdks/pushdata/README.md#listoperations) - List push operations
+* [getOperation](docs/sdks/pushdata/README.md#getoperation) - Get push operation
 
 ### [refreshData](docs/sdks/refreshdata/README.md)
 
@@ -101,28 +174,6 @@ run();
 * [get](docs/sdks/refreshdata/README.md#get) - Get data status
 * [listPullOperations](docs/sdks/refreshdata/README.md#listpulloperations) - List pull operations
 * [getPullOperation](docs/sdks/refreshdata/README.md#getpulloperation) - Get pull operation
-
-### [groups](docs/sdks/groups/README.md)
-
-* [addCompany](docs/sdks/groups/README.md#addcompany) - Add company
-* [removeCompany](docs/sdks/groups/README.md#removecompany) - Remove company
-* [list](docs/sdks/groups/README.md#list) - List groups
-* [create](docs/sdks/groups/README.md#create) - Create group
-
-### [webhooks](docs/sdks/webhooks/README.md)
-
-* [~~list~~](docs/sdks/webhooks/README.md#list) - List webhooks :warning: **Deprecated**
-* [~~create~~](docs/sdks/webhooks/README.md#create) - Create webhook :warning: **Deprecated**
-* [~~get~~](docs/sdks/webhooks/README.md#get) - Get webhook :warning: **Deprecated**
-* [listConsumers](docs/sdks/webhooks/README.md#listconsumers) - List webhook consumers
-* [createConsumer](docs/sdks/webhooks/README.md#createconsumer) - Create webhook consumer
-* [deleteConsumer](docs/sdks/webhooks/README.md#deleteconsumer) - Delete webhook consumer
-
-### [integrations](docs/sdks/integrations/README.md)
-
-* [list](docs/sdks/integrations/README.md#list) - List integrations
-* [get](docs/sdks/integrations/README.md#get) - Get integration
-* [getBranding](docs/sdks/integrations/README.md#getbranding) - Get branding
 
 ### [settings](docs/sdks/settings/README.md)
 
@@ -134,26 +185,89 @@ run();
 * [createApiKey](docs/sdks/settings/README.md#createapikey) - Create API key
 * [deleteApiKey](docs/sdks/settings/README.md#deleteapikey) - Delete API key
 
-### [pushData](docs/sdks/pushdata/README.md)
-
-* [getModelOptions](docs/sdks/pushdata/README.md#getmodeloptions) - Get push options
-* [listOperations](docs/sdks/pushdata/README.md#listoperations) - List push operations
-* [getOperation](docs/sdks/pushdata/README.md#getoperation) - Get push operation
-
 ### [supplementalData](docs/sdks/supplementaldata/README.md)
 
 * [configure](docs/sdks/supplementaldata/README.md#configure) - Configure
 * [getConfiguration](docs/sdks/supplementaldata/README.md#getconfiguration) - Get configuration
 
-### [customDataType](docs/sdks/customdatatype/README.md)
+### [webhooks](docs/sdks/webhooks/README.md)
 
-* [configure](docs/sdks/customdatatype/README.md#configure) - Configure custom data type
-* [getConfiguration](docs/sdks/customdatatype/README.md#getconfiguration) - Get custom data configuration
-* [refresh](docs/sdks/customdatatype/README.md#refresh) - Refresh custom data type
-* [list](docs/sdks/customdatatype/README.md#list) - List custom data type records
+* [~~list~~](docs/sdks/webhooks/README.md#list) - List webhooks (legacy) :warning: **Deprecated**
+* [~~create~~](docs/sdks/webhooks/README.md#create) - Create webhook (legacy) :warning: **Deprecated**
+* [~~get~~](docs/sdks/webhooks/README.md#get) - Get webhook (legacy) :warning: **Deprecated**
+* [listConsumers](docs/sdks/webhooks/README.md#listconsumers) - List webhook consumers
+* [createConsumer](docs/sdks/webhooks/README.md#createconsumer) - Create webhook consumer
+* [deleteConsumer](docs/sdks/webhooks/README.md#deleteconsumer) - Delete webhook consumer
+
+</details>
 <!-- End Available Resources and Operations [operations] -->
 
 
+
+<!-- Start Standalone functions [standalone-funcs] -->
+## Standalone functions
+
+All the methods listed above are available as standalone functions. These
+functions are ideal for use in applications running in the browser, serverless
+runtimes or other environments where application bundle size is a primary
+concern. When using a bundler to build your application, all unused
+functionality will be either excluded from the final bundle or tree-shaken away.
+
+To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
+
+<details>
+
+<summary>Available standalone functions</summary>
+
+- [`companiesAddProduct`](docs/sdks/companies/README.md#addproduct) - Add product
+- [`companiesCreate`](docs/sdks/companies/README.md#create) - Create company
+- [`companiesDelete`](docs/sdks/companies/README.md#delete) - Delete a company
+- [`companiesGet`](docs/sdks/companies/README.md#get) - Get company
+- [`companiesList`](docs/sdks/companies/README.md#list) - List companies
+- [`companiesRemoveProduct`](docs/sdks/companies/README.md#removeproduct) - Remove product
+- [`companiesUpdate`](docs/sdks/companies/README.md#update) - Update company
+- [`connectionManagementCorsSettingsGet`](docs/sdks/corssettings/README.md#get) - Get CORS settings
+- [`connectionManagementCorsSettingsSet`](docs/sdks/corssettings/README.md#set) - Set CORS settings
+- [`connectionManagementGetAccessToken`](docs/sdks/connectionmanagement/README.md#getaccesstoken) - Get access token
+- [`connectionsCreate`](docs/sdks/connections/README.md#create) - Create connection
+- [`connectionsDelete`](docs/sdks/connections/README.md#delete) - Delete connection
+- [`connectionsGet`](docs/sdks/connections/README.md#get) - Get connection
+- [`connectionsList`](docs/sdks/connections/README.md#list) - List connections
+- [`connectionsUnlink`](docs/sdks/connections/README.md#unlink) - Unlink connection
+- [`connectionsUpdateAuthorization`](docs/sdks/connections/README.md#updateauthorization) - Update authorization
+- [`customDataTypeConfigure`](docs/sdks/customdatatype/README.md#configure) - Configure custom data type
+- [`customDataTypeGetConfiguration`](docs/sdks/customdatatype/README.md#getconfiguration) - Get custom data configuration
+- [`customDataTypeList`](docs/sdks/customdatatype/README.md#list) - List custom data type records
+- [`customDataTypeRefresh`](docs/sdks/customdatatype/README.md#refresh) - Refresh custom data type
+- [`integrationsGet`](docs/sdks/integrations/README.md#get) - Get integration
+- [`integrationsGetBranding`](docs/sdks/integrations/README.md#getbranding) - Get branding
+- [`integrationsList`](docs/sdks/integrations/README.md#list) - List integrations
+- [`pushDataGetModelOptions`](docs/sdks/pushdata/README.md#getmodeloptions) - Get push options
+- [`pushDataGetOperation`](docs/sdks/pushdata/README.md#getoperation) - Get push operation
+- [`pushDataListOperations`](docs/sdks/pushdata/README.md#listoperations) - List push operations
+- [`refreshDataAll`](docs/sdks/refreshdata/README.md#all) - Refresh all data
+- [`refreshDataByDataType`](docs/sdks/refreshdata/README.md#bydatatype) - Refresh data type
+- [`refreshDataGet`](docs/sdks/refreshdata/README.md#get) - Get data status
+- [`refreshDataGetPullOperation`](docs/sdks/refreshdata/README.md#getpulloperation) - Get pull operation
+- [`refreshDataListPullOperations`](docs/sdks/refreshdata/README.md#listpulloperations) - List pull operations
+- [`settingsCreateApiKey`](docs/sdks/settings/README.md#createapikey) - Create API key
+- [`settingsDeleteApiKey`](docs/sdks/settings/README.md#deleteapikey) - Delete API key
+- [`settingsGetProfile`](docs/sdks/settings/README.md#getprofile) - Get profile
+- [`settingsGetSyncSettings`](docs/sdks/settings/README.md#getsyncsettings) - Get sync settings
+- [`settingsListApiKeys`](docs/sdks/settings/README.md#listapikeys) - List API keys
+- [`settingsUpdateProfile`](docs/sdks/settings/README.md#updateprofile) - Update profile
+- [`settingsUpdateSyncSettings`](docs/sdks/settings/README.md#updatesyncsettings) - Update all sync settings
+- [`supplementalDataConfigure`](docs/sdks/supplementaldata/README.md#configure) - Configure
+- [`supplementalDataGetConfiguration`](docs/sdks/supplementaldata/README.md#getconfiguration) - Get configuration
+- [`webhooksCreateConsumer`](docs/sdks/webhooks/README.md#createconsumer) - Create webhook consumer
+- [`webhooksDeleteConsumer`](docs/sdks/webhooks/README.md#deleteconsumer) - Delete webhook consumer
+- [`webhooksListConsumers`](docs/sdks/webhooks/README.md#listconsumers) - List webhook consumers
+- ~~[`webhooksCreate`](docs/sdks/webhooks/README.md#create)~~ - Create webhook (legacy) :warning: **Deprecated**
+- ~~[`webhooksGet`](docs/sdks/webhooks/README.md#get)~~ - Get webhook (legacy) :warning: **Deprecated**
+- ~~[`webhooksList`](docs/sdks/webhooks/README.md#list)~~ - List webhooks (legacy) :warning: **Deprecated**
+
+</details>
+<!-- End Standalone functions [standalone-funcs] -->
 
 <!-- Start Retries [retries] -->
 ## Retries
@@ -165,33 +279,30 @@ To change the default retry strategy for a single API call, simply provide a ret
 import { CodatPlatform } from "@codat/platform";
 
 const codatPlatform = new CodatPlatform({
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
 });
 
 async function run() {
-    const result = await codatPlatform.companies.list(
-        {
-            page: 1,
-            pageSize: 100,
-            query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-            orderBy: "-modifiedDate",
-        },
-        {
-            retries: {
-                strategy: "backoff",
-                backoff: {
-                    initialInterval: 1,
-                    maxInterval: 50,
-                    exponent: 1.1,
-                    maxElapsedTime: 100,
-                },
-                retryConnectionErrors: false,
-            },
-        }
-    );
+  const result = await codatPlatform.companies.list({
+    page: 1,
+    pageSize: 100,
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  }, {
+    retries: {
+      strategy: "backoff",
+      backoff: {
+        initialInterval: 1,
+        maxInterval: 50,
+        exponent: 1.1,
+        maxElapsedTime: 100,
+      },
+      retryConnectionErrors: false,
+    },
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -203,29 +314,29 @@ If you'd like to override the default retry strategy for all operations that sup
 import { CodatPlatform } from "@codat/platform";
 
 const codatPlatform = new CodatPlatform({
-    retryConfig: {
-        strategy: "backoff",
-        backoff: {
-            initialInterval: 1,
-            maxInterval: 50,
-            exponent: 1.1,
-            maxElapsedTime: 100,
-        },
-        retryConnectionErrors: false,
+  retryConfig: {
+    strategy: "backoff",
+    backoff: {
+      initialInterval: 1,
+      maxInterval: 50,
+      exponent: 1.1,
+      maxElapsedTime: 100,
     },
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+    retryConnectionErrors: false,
+  },
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
 });
 
 async function run() {
-    const result = await codatPlatform.companies.list({
-        page: 1,
-        pageSize: 100,
-        query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-        orderBy: "-modifiedDate",
-    });
+  const result = await codatPlatform.companies.list({
+    page: 1,
+    pageSize: 100,
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -236,59 +347,74 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-All SDK methods return a response object or throw an error. If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
+All SDK methods return a response object or throw an error. By default, an API error will throw a `errors.SDKError`.
 
-| Error Object                    | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorMessage             | 400,401,402,403,404,429,500,503 | application/json                |
-| errors.SDKError                 | 4xx-5xx                         | */*                             |
+If a HTTP request fails, an operation my also throw an error from the `sdk/models/errors/httpclienterrors.ts` module:
 
-Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted string since validation errors can list many issues and the plain error string may be difficult read when debugging. 
+| HTTP Client Error                                    | Description                                          |
+| ---------------------------------------------------- | ---------------------------------------------------- |
+| RequestAbortedError                                  | HTTP request was aborted by the client               |
+| RequestTimeoutError                                  | HTTP request timed out due to an AbortSignal signal  |
+| ConnectionError                                      | HTTP client was unable to make a request to a server |
+| InvalidRequestError                                  | Any input used to create a request is invalid        |
+| UnexpectedClientError                                | Unrecognised or unexpected error                     |
 
+In addition, when custom error responses are specified for an operation, the SDK may throw their associated Error type. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation. For example, the `list` method may throw the following errors:
+
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
+| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
 
 ```typescript
 import { CodatPlatform } from "@codat/platform";
-import { SDKValidationError } from "@codat/platform/sdk/models/errors";
+import {
+  ErrorMessage,
+  SDKValidationError,
+} from "@codat/platform/sdk/models/errors";
 
 const codatPlatform = new CodatPlatform({
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
 });
 
 async function run() {
-    let result;
-    try {
-        result = await codatPlatform.companies.list({
-            page: 1,
-            pageSize: 100,
-            query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-            orderBy: "-modifiedDate",
-        });
-    } catch (err) {
-        switch (true) {
-            case err instanceof SDKValidationError: {
-                // Validation errors can be pretty-printed
-                console.error(err.pretty());
-                // Raw value may also be inspected
-                console.error(err.rawValue);
-                return;
-            }
-            case err instanceof errors.ErrorMessage: {
-                console.error(err); // handle exception
-                return;
-            }
-            default: {
-                throw err;
-            }
-        }
-    }
+  let result;
+  try {
+    result = await codatPlatform.companies.list({
+      page: 1,
+      pageSize: 100,
+      query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+      orderBy: "-modifiedDate",
+    });
 
     // Handle the result
     console.log(result);
+  } catch (err) {
+    switch (true) {
+      case (err instanceof SDKValidationError): {
+        // Validation errors can be pretty-printed
+        console.error(err.pretty());
+        // Raw value may also be inspected
+        console.error(err.rawValue);
+        return;
+      }
+      case (err instanceof ErrorMessage): {
+        // Handle err.data$: ErrorMessageData
+        console.error(err);
+        return;
+      }
+      default: {
+        throw err;
+      }
+    }
+  }
 }
 
 run();
 
 ```
+
+Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted string since validation errors can list many issues and the plain error string may be difficult read when debugging.
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
@@ -306,20 +432,20 @@ You can override the default server globally by passing a server index to the `s
 import { CodatPlatform } from "@codat/platform";
 
 const codatPlatform = new CodatPlatform({
-    serverIdx: 0,
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  serverIdx: 0,
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
 });
 
 async function run() {
-    const result = await codatPlatform.companies.list({
-        page: 1,
-        pageSize: 100,
-        query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-        orderBy: "-modifiedDate",
-    });
+  const result = await codatPlatform.companies.list({
+    page: 1,
+    pageSize: 100,
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -335,20 +461,20 @@ The default server can also be overridden globally by passing a URL to the `serv
 import { CodatPlatform } from "@codat/platform";
 
 const codatPlatform = new CodatPlatform({
-    serverURL: "https://api.codat.io",
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  serverURL: "https://api.codat.io",
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
 });
 
 async function run() {
-    const result = await codatPlatform.companies.list({
-        page: 1,
-        pageSize: 100,
-        query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-        orderBy: "-modifiedDate",
-    });
+  const result = await codatPlatform.companies.list({
+    page: 1,
+    pageSize: 100,
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -421,19 +547,19 @@ To authenticate with the API the `authHeader` parameter must be set when initial
 import { CodatPlatform } from "@codat/platform";
 
 const codatPlatform = new CodatPlatform({
-    authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
 });
 
 async function run() {
-    const result = await codatPlatform.companies.list({
-        page: 1,
-        pageSize: 100,
-        query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-        orderBy: "-modifiedDate",
-    });
+  const result = await codatPlatform.companies.list({
+    page: 1,
+    pageSize: 100,
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
 
-    // Handle the result
-    console.log(result);
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -446,6 +572,23 @@ run();
 
 For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 <!-- End Requirements [requirements] -->
+
+<!-- Start Debugging [debug] -->
+## Debugging
+
+You can setup your SDK to emit debug logs for SDK requests and responses.
+
+You can pass a logger that matches `console`'s interface as an SDK option.
+
+> [!WARNING]
+> Beware that debug logging will reveal secrets, like API tokens in headers, in log messages printed to a console or files. It's recommended to use this feature only during local development and not in production.
+
+```typescript
+import { CodatPlatform } from "@codat/platform";
+
+const sdk = new CodatPlatform({ debugLogger: console });
+```
+<!-- End Debugging [debug] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

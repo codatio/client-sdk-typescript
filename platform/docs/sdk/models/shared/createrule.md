@@ -2,6 +2,22 @@
 
 Create a message that notifies a URL of an event based on its given type or condition.
 
+## Example Usage
+
+```typescript
+import { CreateRule } from "@codat/platform/sdk/models/shared";
+
+let value: CreateRule = {
+  type: "DataConnectionStatusChanged",
+  companyId: "39b73b17-cc2e-429e-915d-71654e9dcd1e",
+  notifiers: {
+    emails: [
+      "info@client.com",
+    ],
+    webhook: "https://webhook.client.com",
+  },
+};
+```
 
 ## Fields
 

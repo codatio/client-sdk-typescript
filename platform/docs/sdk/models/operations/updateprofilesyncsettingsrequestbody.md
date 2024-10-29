@@ -3,6 +3,27 @@
 Include a `syncSetting` object for each data type.
 `syncFromWindow`, `syncFromUTC` & `monthsToSync` only need to be included if you wish to set a value for them.
 
+## Example Usage
+
+```typescript
+import { UpdateProfileSyncSettingsRequestBody } from "@codat/platform/sdk/models/operations";
+
+let value: UpdateProfileSyncSettingsRequestBody = {
+  clientId: "47ab462c-0bcc-4459-a453-70c1849fa068",
+  settings: [
+    {
+      dataType: "invoices",
+      fetchOnFirstLink: true,
+      syncSchedule: 24,
+      syncOrder: 0,
+      syncFromUtc: "2020-01-01T12:00:00.000Z",
+      syncFromWindow: 24,
+      monthsToSync: 24,
+      isLocked: true,
+    },
+  ],
+};
+```
 
 ## Fields
 
