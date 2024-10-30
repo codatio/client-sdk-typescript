@@ -4,7 +4,6 @@
 
 export * from "./accountmappingoption.js";
 export * from "./accountstatus.js";
-export * from "./accounttype.js";
 export * from "./address.js";
 export * from "./addresstype.js";
 export * from "./attachment.js";
@@ -13,6 +12,7 @@ export * from "./bankaccount.js";
 export * from "./bankaccountmappingoption.js";
 export * from "./bankaccountprototype.js";
 export * from "./bankaccountstatus.js";
+export * from "./bankaccounttype.js";
 export * from "./bill.js";
 export * from "./billaccountref.js";
 export * from "./billlineitem.js";

@@ -10,8 +10,8 @@ let value: CreateSupplierRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   supplierPrototype: {
     supplierName: "<value>",
-    phone: "(877) 492-8687",
-    status: "Unknown",
+    phone: "+44 25691 154789",
+    status: "Active",
   },
 };
 ```

@@ -4,15 +4,15 @@
 
 import * as z from "zod";
 import {
-  AccountType,
-  AccountType$inboundSchema,
-  AccountType$outboundSchema,
-} from "./accounttype.js";
-import {
   BankAccountStatus,
   BankAccountStatus$inboundSchema,
   BankAccountStatus$outboundSchema,
 } from "./bankaccountstatus.js";
+import {
+  BankAccountType,
+  BankAccountType$inboundSchema,
+  BankAccountType$outboundSchema,
+} from "./bankaccounttype.js";
 
 export type BankAccountMappingOption = {
   /**
@@ -60,7 +60,7 @@ export type BankAccountMappingOption = {
    * For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.
    * For Debit accounts, positive balances are assets, and positive transactions **increase** assets.
    */
-  accountType?: AccountType | undefined;
+  accountType?: BankAccountType | undefined;
   sourceModifiedDate?: string | undefined;
 };
 
@@ -77,7 +77,7 @@ export const BankAccountMappingOption$inboundSchema: z.ZodType<
   sortCode: z.nullable(z.string()).optional(),
   currency: z.nullable(z.string()).optional(),
   status: BankAccountStatus$inboundSchema.optional(),
-  accountType: AccountType$inboundSchema.optional(),
+  accountType: BankAccountType$inboundSchema.optional(),
   sourceModifiedDate: z.string().optional(),
 });
 
@@ -107,7 +107,7 @@ export const BankAccountMappingOption$outboundSchema: z.ZodType<
   sortCode: z.nullable(z.string()).optional(),
   currency: z.nullable(z.string()).optional(),
   status: BankAccountStatus$outboundSchema.optional(),
-  accountType: AccountType$outboundSchema.optional(),
+  accountType: BankAccountType$outboundSchema.optional(),
   sourceModifiedDate: z.string().optional(),
 });
 

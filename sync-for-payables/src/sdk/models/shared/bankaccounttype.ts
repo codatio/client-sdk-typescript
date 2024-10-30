@@ -12,7 +12,7 @@ import { ClosedEnum } from "../../types/enums.js";
  * For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.
  * For Debit accounts, positive balances are assets, and positive transactions **increase** assets.
  */
-export const AccountType = {
+export const BankAccountType = {
   Unknown: "Unknown",
   Credit: "Credit",
   Debit: "Debit",
@@ -24,23 +24,25 @@ export const AccountType = {
  * For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.
  * For Debit accounts, positive balances are assets, and positive transactions **increase** assets.
  */
-export type AccountType = ClosedEnum<typeof AccountType>;
+export type BankAccountType = ClosedEnum<typeof BankAccountType>;
 
 /** @internal */
-export const AccountType$inboundSchema: z.ZodNativeEnum<typeof AccountType> = z
-  .nativeEnum(AccountType);
+export const BankAccountType$inboundSchema: z.ZodNativeEnum<
+  typeof BankAccountType
+> = z.nativeEnum(BankAccountType);
 
 /** @internal */
-export const AccountType$outboundSchema: z.ZodNativeEnum<typeof AccountType> =
-  AccountType$inboundSchema;
+export const BankAccountType$outboundSchema: z.ZodNativeEnum<
+  typeof BankAccountType
+> = BankAccountType$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace AccountType$ {
-  /** @deprecated use `AccountType$inboundSchema` instead. */
-  export const inboundSchema = AccountType$inboundSchema;
-  /** @deprecated use `AccountType$outboundSchema` instead. */
-  export const outboundSchema = AccountType$outboundSchema;
+export namespace BankAccountType$ {
+  /** @deprecated use `BankAccountType$inboundSchema` instead. */
+  export const inboundSchema = BankAccountType$inboundSchema;
+  /** @deprecated use `BankAccountType$outboundSchema` instead. */
+  export const outboundSchema = BankAccountType$outboundSchema;
 }
