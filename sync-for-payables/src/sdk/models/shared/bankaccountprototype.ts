@@ -3,11 +3,28 @@
  */
 
 import * as z from "zod";
-import {
-  AccountType,
-  AccountType$inboundSchema,
-  AccountType$outboundSchema,
-} from "./accounttype.js";
+import { ClosedEnum } from "../../types/enums.js";
+
+/**
+ * The type of transactions and balances on the account.
+ *
+ * @remarks
+ * For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.
+ * For Debit accounts, positive balances are assets, and positive transactions **increase** assets.
+ */
+export const BankAccountType = {
+  Unknown: "Unknown",
+  Credit: "Credit",
+  Debit: "Debit",
+} as const;
+/**
+ * The type of transactions and balances on the account.
+ *
+ * @remarks
+ * For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.
+ * For Debit accounts, positive balances are assets, and positive transactions **increase** assets.
+ */
+export type BankAccountType = ClosedEnum<typeof BankAccountType>;
 
 export type BankAccountPrototype = {
   /**
@@ -25,7 +42,7 @@ export type BankAccountPrototype = {
    * For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.
    * For Debit accounts, positive balances are assets, and positive transactions **increase** assets.
    */
-  accountType: AccountType;
+  accountType: BankAccountType;
   /**
    * Account number for the bank account.
    *
@@ -59,6 +76,27 @@ export type BankAccountPrototype = {
 };
 
 /** @internal */
+export const BankAccountType$inboundSchema: z.ZodNativeEnum<
+  typeof BankAccountType
+> = z.nativeEnum(BankAccountType);
+
+/** @internal */
+export const BankAccountType$outboundSchema: z.ZodNativeEnum<
+  typeof BankAccountType
+> = BankAccountType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace BankAccountType$ {
+  /** @deprecated use `BankAccountType$inboundSchema` instead. */
+  export const inboundSchema = BankAccountType$inboundSchema;
+  /** @deprecated use `BankAccountType$outboundSchema` instead. */
+  export const outboundSchema = BankAccountType$outboundSchema;
+}
+
+/** @internal */
 export const BankAccountPrototype$inboundSchema: z.ZodType<
   BankAccountPrototype,
   z.ZodTypeDef,
@@ -66,7 +104,7 @@ export const BankAccountPrototype$inboundSchema: z.ZodType<
 > = z.object({
   nominalCode: z.nullable(z.string()).optional(),
   name: z.nullable(z.string()),
-  accountType: AccountType$inboundSchema,
+  accountType: BankAccountType$inboundSchema,
   accountNumber: z.nullable(z.string()),
   sortCode: z.nullable(z.string()).optional(),
   currency: z.string(),
@@ -90,7 +128,7 @@ export const BankAccountPrototype$outboundSchema: z.ZodType<
 > = z.object({
   nominalCode: z.nullable(z.string()).optional(),
   name: z.nullable(z.string()),
-  accountType: AccountType$outboundSchema,
+  accountType: BankAccountType$outboundSchema,
   accountNumber: z.nullable(z.string()),
   sortCode: z.nullable(z.string()).optional(),
   currency: z.string(),

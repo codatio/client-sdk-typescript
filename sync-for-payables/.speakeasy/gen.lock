@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: fc401bb0-cd17-4863-8f85-003111be4b43
 management:
-  docChecksum: fbf8f2528e5a3e33fc271641da46c916
+  docChecksum: bf52e3dbe78d1a4c650c2fb77aebad64
   docVersion: 3.0.0
-  speakeasyVersion: 1.423.1
+  speakeasyVersion: 1.423.2
   generationVersion: 2.442.11
-  releaseVersion: 6.0.0
-  configChecksum: 84eecb1c34bb82e86e86b55484ed9b7f
+  releaseVersion: 7.0.0
+  configChecksum: 73dc52e1ba65e4f76bf59ca7d42c308a
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   repoSubDirectory: sync-for-payables
   installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/sync-for-payables
