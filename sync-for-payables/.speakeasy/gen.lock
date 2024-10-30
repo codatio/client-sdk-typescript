@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: fc401bb0-cd17-4863-8f85-003111be4b43
 management:
-  docChecksum: fbf8f2528e5a3e33fc271641da46c916
+  docChecksum: 16c2aba5060738f14671556b6526c400
   docVersion: 3.0.0
-  speakeasyVersion: 1.423.1
+  speakeasyVersion: 1.423.3
   generationVersion: 2.442.11
-  releaseVersion: 6.0.0
-  configChecksum: 84eecb1c34bb82e86e86b55484ed9b7f
+  releaseVersion: 7.0.0
+  configChecksum: 73dc52e1ba65e4f76bf59ca7d42c308a
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   repoSubDirectory: sync-for-payables
   installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/sync-for-payables
@@ -72,7 +72,6 @@ generatedFiles:
   - docs/sdk/models/operations/uploadbillattachmentrequest.md
   - docs/sdk/models/shared/accountmappingoption.md
   - docs/sdk/models/shared/accountstatus.md
-  - docs/sdk/models/shared/accounttype.md
   - docs/sdk/models/shared/address.md
   - docs/sdk/models/shared/addresstype.md
   - docs/sdk/models/shared/attachment.md
@@ -212,7 +211,6 @@ generatedFiles:
   - src/sdk/models/operations/uploadbillattachment.ts
   - src/sdk/models/shared/accountmappingoption.ts
   - src/sdk/models/shared/accountstatus.ts
-  - src/sdk/models/shared/accounttype.ts
   - src/sdk/models/shared/address.ts
   - src/sdk/models/shared/addresstype.ts
   - src/sdk/models/shared/attachment.ts
@@ -221,6 +219,7 @@ generatedFiles:
   - src/sdk/models/shared/bankaccountmappingoption.ts
   - src/sdk/models/shared/bankaccountprototype.ts
   - src/sdk/models/shared/bankaccountstatus.ts
+  - src/sdk/models/shared/bankaccounttype.ts
   - src/sdk/models/shared/bill.ts
   - src/sdk/models/shared/billaccountref.ts
   - src/sdk/models/shared/billlineitem.ts

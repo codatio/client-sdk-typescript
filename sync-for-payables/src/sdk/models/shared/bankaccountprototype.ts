@@ -4,10 +4,10 @@
 
 import * as z from "zod";
 import {
-  AccountType,
-  AccountType$inboundSchema,
-  AccountType$outboundSchema,
-} from "./accounttype.js";
+  BankAccountType,
+  BankAccountType$inboundSchema,
+  BankAccountType$outboundSchema,
+} from "./bankaccounttype.js";
 
 export type BankAccountPrototype = {
   /**
@@ -25,7 +25,7 @@ export type BankAccountPrototype = {
    * For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.
    * For Debit accounts, positive balances are assets, and positive transactions **increase** assets.
    */
-  accountType: AccountType;
+  accountType: BankAccountType;
   /**
    * Account number for the bank account.
    *
@@ -66,7 +66,7 @@ export const BankAccountPrototype$inboundSchema: z.ZodType<
 > = z.object({
   nominalCode: z.nullable(z.string()).optional(),
   name: z.nullable(z.string()),
-  accountType: AccountType$inboundSchema,
+  accountType: BankAccountType$inboundSchema,
   accountNumber: z.nullable(z.string()),
   sortCode: z.nullable(z.string()).optional(),
   currency: z.string(),
@@ -90,7 +90,7 @@ export const BankAccountPrototype$outboundSchema: z.ZodType<
 > = z.object({
   nominalCode: z.nullable(z.string()).optional(),
   name: z.nullable(z.string()),
-  accountType: AccountType$outboundSchema,
+  accountType: BankAccountType$outboundSchema,
   accountNumber: z.nullable(z.string()),
   sortCode: z.nullable(z.string()).optional(),
   currency: z.string(),
