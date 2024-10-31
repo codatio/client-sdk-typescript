@@ -86,7 +86,7 @@ export class Bills extends ClientSDK {
   async uploadAttachment(
     request: operations.UploadBillAttachmentRequest,
     options?: RequestOptions,
-  ): Promise<void> {
+  ): Promise<shared.Attachment> {
     return unwrapAsync(billsUploadAttachment(
       this,
       request,
@@ -105,7 +105,7 @@ export class Bills extends ClientSDK {
   async listAttachments(
     request: operations.ListBillAttachmentsRequest,
     options?: RequestOptions,
-  ): Promise<shared.Attachment> {
+  ): Promise<Array<shared.Attachment>> {
     return unwrapAsync(billsListAttachments(
       this,
       request,
