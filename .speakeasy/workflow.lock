@@ -1,4 +1,4 @@
-speakeasyVersion: 1.423.3
+speakeasyVersion: 1.423.5
 sources:
     bank-feeds-source:
         sourceNamespace: bank-feeds-source
@@ -30,8 +30,8 @@ sources:
             - main
     sync-for-payables-source:
         sourceNamespace: sync-for-payables-source
-        sourceRevisionDigest: sha256:3debfab01c0e0453cbf7f64388380b2b1f09f47b46f766da8952a16a47f504a9
-        sourceBlobDigest: sha256:1ffa6da669abbf5bb7fef62b991e1c237af95f876b930288b8ab14994e0ab0b5
+        sourceRevisionDigest: sha256:90365c347508b579c6baebefd52609851095f85e144bccd81e581cb861696613
+        sourceBlobDigest: sha256:f472244dc98845d90f55da060a2cc4acee05c771a89a0ff55bc5db04108e5693
         tags:
             - latest
             - main
@@ -73,8 +73,8 @@ targets:
     sync-for-payables-library:
         source: sync-for-payables-source
         sourceNamespace: sync-for-payables-source
-        sourceRevisionDigest: sha256:3debfab01c0e0453cbf7f64388380b2b1f09f47b46f766da8952a16a47f504a9
-        sourceBlobDigest: sha256:1ffa6da669abbf5bb7fef62b991e1c237af95f876b930288b8ab14994e0ab0b5
+        sourceRevisionDigest: sha256:90365c347508b579c6baebefd52609851095f85e144bccd81e581cb861696613
+        sourceBlobDigest: sha256:f472244dc98845d90f55da060a2cc4acee05c771a89a0ff55bc5db04108e5693
     sync-for-payables-version-1-library:
         source: sync-for-payables-version-1-source
         sourceNamespace: sync-for-payables-version-1-source

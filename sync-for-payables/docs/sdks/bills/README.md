@@ -393,13 +393,14 @@ const codatSyncPayables = new CodatSyncPayables({
 });
 
 async function run() {
-  await codatSyncPayables.bills.uploadAttachment({
+  const result = await codatSyncPayables.bills.uploadAttachment({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     billId: "EILBDVJVNUAGVKRQ",
   });
 
-
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -432,7 +433,8 @@ async function run() {
 
   const { value: result } = res;
 
-  
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -449,7 +451,7 @@ run();
 
 ### Response
 
-**Promise\<void\>**
+**Promise\<[shared.Attachment](../../sdk/models/shared/attachment.md)\>**
 
 ### Errors
 
@@ -532,7 +534,7 @@ run();
 
 ### Response
 
-**Promise\<[shared.Attachment](../../sdk/models/shared/attachment.md)\>**
+**Promise\<[shared.Attachment[]](../../models/.md)\>**
 
 ### Errors
 
