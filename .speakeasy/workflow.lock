@@ -1,9 +1,9 @@
-speakeasyVersion: 1.423.5
+speakeasyVersion: 1.431.0
 sources:
     bank-feeds-source:
         sourceNamespace: bank-feeds-source
-        sourceRevisionDigest: sha256:0f87a6f2907d055333a3ebfa823c2c20b8c78a47c9b32280d3e1de42401e9cb7
-        sourceBlobDigest: sha256:1fb492702331c8f3af91b7d73b45add7b4db2f0ce37567bf1a47c1db18b35575
+        sourceRevisionDigest: sha256:d75c52690ab81c6b279b7460cf7b63d0372d9aaea085e2e577846ad173258706
+        sourceBlobDigest: sha256:a490b555d6f186cd37f72a06e06ba49293a0f371d145db2d9913d5081ecfc5a2
         tags:
             - latest
             - main
@@ -53,8 +53,8 @@ targets:
     bank-feeds-library:
         source: bank-feeds-source
         sourceNamespace: bank-feeds-source
-        sourceRevisionDigest: sha256:0f87a6f2907d055333a3ebfa823c2c20b8c78a47c9b32280d3e1de42401e9cb7
-        sourceBlobDigest: sha256:1fb492702331c8f3af91b7d73b45add7b4db2f0ce37567bf1a47c1db18b35575
+        sourceRevisionDigest: sha256:d75c52690ab81c6b279b7460cf7b63d0372d9aaea085e2e577846ad173258706
+        sourceBlobDigest: sha256:a490b555d6f186cd37f72a06e06ba49293a0f371d145db2d9913d5081ecfc5a2
     platform-library:
         source: platform-source
         sourceNamespace: platform-source

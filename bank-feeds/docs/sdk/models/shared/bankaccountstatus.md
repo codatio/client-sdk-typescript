@@ -2,12 +2,16 @@
 
 Status of the bank account.
 
+## Example Usage
+
+```typescript
+import { BankAccountStatus } from "@codat/bank-feeds/sdk/models/shared";
+
+let value: BankAccountStatus = "Active";
+```
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `Unknown`  | Unknown    |
-| `Active`   | Active     |
-| `Archived` | Archived   |
-| `Pending`  | Pending    |
+```typescript
+"Unknown" | "Active" | "Archived" | "Pending"
+```

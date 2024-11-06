@@ -1,5 +1,12 @@
 # ConfigurationContactRef
 
+## Example Usage
+
+```typescript
+import { ConfigurationContactRef } from "@codat/bank-feeds/sdk/models/shared";
+
+let value: ConfigurationContactRef = {};
+```
 
 ## Fields
 

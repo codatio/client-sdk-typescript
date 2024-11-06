@@ -1,5 +1,32 @@
 # BankAccounts
 
+## Example Usage
+
+```typescript
+import { BankAccounts } from "@codat/bank-feeds/sdk/models/shared";
+
+let value: BankAccounts = {
+  results: [
+    {
+      modifiedDate: "2022-10-23T00:00:00Z",
+      sourceModifiedDate: "2022-10-23T00:00:00Z",
+      currency: "EUR",
+      status: "Active",
+    },
+  ],
+  pageNumber: 1,
+  pageSize: 10,
+  totalResults: 1,
+  links: {
+    self: {
+      href: "/companies/{id}/data/{dataType}",
+    },
+    current: {
+      href: "/companies/{id}/data/{dataType}?page=1&pageSize=10",
+    },
+  },
+};
+```
 
 ## Fields
 

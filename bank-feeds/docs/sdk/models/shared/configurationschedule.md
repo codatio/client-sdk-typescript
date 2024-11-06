@@ -1,5 +1,12 @@
 # ConfigurationSchedule
 
+## Example Usage
+
+```typescript
+import { ConfigurationSchedule } from "@codat/bank-feeds/sdk/models/shared";
+
+let value: ConfigurationSchedule = {};
+```
 
 ## Fields
 

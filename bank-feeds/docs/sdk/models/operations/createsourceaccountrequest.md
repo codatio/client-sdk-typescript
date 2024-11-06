@@ -1,10 +1,42 @@
 # CreateSourceAccountRequest
 
+## Example Usage
+
+```typescript
+import { CreateSourceAccountRequest } from "@codat/bank-feeds/sdk/models/operations";
+import { Decimal } from "@codat/bank-feeds/sdk/types";
+
+let value: CreateSourceAccountRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  requestBody: {
+    id: "acc-002",
+    accountName: "account-083",
+    accountType: "savings",
+    accountNumber: "23456789",
+    routingInfo: {
+      bankCode: "21001088",
+      type: "bankcode",
+    },
+    currency: "GBP",
+    balance: new Decimal("400"),
+    accountInfo: {
+      description: "account description 2",
+      nickname: "account 1290",
+      accountOpenDate: "2023-05-23T00:00:00Z",
+      availableBalance: new Decimal("400"),
+    },
+    modifiedDate: "2024-08-02T00:00:00.000Z",
+    status: "pending",
+    feedStartDate: "2024-05-01T00:00:00Z",
+  },
+};
+```
 
 ## Fields
 
-| Field                                                                                                                                                                                                                                   | Type                                                                                                                                                                                                                                    | Required                                                                                                                                                                                                                                | Description                                                                                                                                                                                                                             | Example                                                                                                                                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `companyId`                                                                                                                                                                                                                             | *string*                                                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                                                      | Unique identifier for a company.                                                                                                                                                                                                        | 8a210b68-6988-11ed-a1eb-0242ac120002                                                                                                                                                                                                    |
-| `connectionId`                                                                                                                                                                                                                          | *string*                                                                                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                                                      | Unique identifier for a connection.                                                                                                                                                                                                     | 2e9d2c44-f675-40ba-8049-353bfcb5e171                                                                                                                                                                                                    |
-| `sourceAccount`                                                                                                                                                                                                                         | [shared.SourceAccount](../../../sdk/models/shared/sourceaccount.md)                                                                                                                                                                     | :heavy_minus_sign:                                                                                                                                                                                                                      | N/A                                                                                                                                                                                                                                     | {<br/>"id": "acc-002",<br/>"accountName": "account-081",<br/>"sortCode": "123456",<br/>"accountType": "Credit",<br/>"accountNumber": "12345670",<br/>"currency": "GBP",<br/>"balance": 99.99,<br/>"modifiedDate": "2023-01-09T14:14:14.1057478Z",<br/>"status": "pending"<br/>} |
+| Field                                       | Type                                        | Required                                    | Description                                 | Example                                     |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| `companyId`                                 | *string*                                    | :heavy_check_mark:                          | Unique identifier for a company.            | 8a210b68-6988-11ed-a1eb-0242ac120002        |
+| `connectionId`                              | *string*                                    | :heavy_check_mark:                          | Unique identifier for a connection.         | 2e9d2c44-f675-40ba-8049-353bfcb5e171        |
+| `requestBody`                               | *operations.CreateSourceAccountRequestBody* | :heavy_minus_sign:                          | N/A                                         |                                             |

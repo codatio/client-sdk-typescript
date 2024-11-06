@@ -1,5 +1,12 @@
 # BankAccountCreateResponseMetadata
 
+## Example Usage
+
+```typescript
+import { BankAccountCreateResponseMetadata } from "@codat/bank-feeds/sdk/models/shared";
+
+let value: BankAccountCreateResponseMetadata = {};
+```
 
 ## Fields
 

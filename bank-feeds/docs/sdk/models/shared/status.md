@@ -2,13 +2,16 @@
 
 Status of the source account.
 
+## Example Usage
+
+```typescript
+import { Status } from "@codat/bank-feeds/sdk/models/shared";
+
+let value: Status = "connecting";
+```
 
 ## Values
 
-| Name           | Value          |
-| -------------- | -------------- |
-| `Pending`      | pending        |
-| `Connected`    | connected      |
-| `Connecting`   | connecting     |
-| `Disconnected` | disconnected   |
-| `Unknown`      | unknown        |
+```typescript
+"pending" | "connected" | "connecting" | "disconnected" | "unknown"
+```

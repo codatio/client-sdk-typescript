@@ -1,5 +1,28 @@
 # BankAccountCreateResponse
 
+## Example Usage
+
+```typescript
+import { BankAccountCreateResponse } from "@codat/bank-feeds/sdk/models/shared";
+
+let value: BankAccountCreateResponse = {
+  changes: [
+    {
+      recordRef: {
+        dataType: "invoices",
+      },
+    },
+  ],
+  dataType: "invoices",
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  pushOperationKey: "5a2b4290-d0a4-4bf3-a999-3f7db4d6e9eb",
+  dataConnectionKey: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  requestedOnUtc: "2022-10-23T00:00:00Z",
+  completedOnUtc: "2022-10-23T00:00:00Z",
+  status: "Success",
+  statusCode: 305,
+};
+```
 
 ## Fields
 

@@ -1,5 +1,16 @@
 # PushOption
 
+## Example Usage
+
+```typescript
+import { PushOption } from "@codat/bank-feeds/sdk/models/shared";
+
+let value: PushOption = {
+  type: "File",
+  displayName: "Jakayla14",
+  required: false,
+};
+```
 
 ## Fields
 

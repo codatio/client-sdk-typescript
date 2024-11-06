@@ -1,5 +1,12 @@
 # ConfigurationCustomer
 
+## Example Usage
+
+```typescript
+import { ConfigurationCustomer } from "@codat/bank-feeds/sdk/models/shared";
+
+let value: ConfigurationCustomer = {};
+```
 
 ## Fields
 
