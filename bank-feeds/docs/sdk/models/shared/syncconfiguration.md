@@ -1,5 +1,12 @@
 # SyncConfiguration
 
+## Example Usage
+
+```typescript
+import { SyncConfiguration } from "@codat/bank-feeds/sdk/models/shared";
+
+let value: SyncConfiguration = {};
+```
 
 ## Fields
 

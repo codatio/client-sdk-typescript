@@ -1,7 +1,17 @@
 # BankFeedAccountMappingResponse
 
-The result from POSTing a Bank Account mapping.
+## Example Usage
 
+```typescript
+import { BankFeedAccountMappingResponse } from "@codat/bank-feeds/sdk/models/shared";
+
+let value: BankFeedAccountMappingResponse = {
+  sourceAccountId: "acc-002",
+  targetAccountId: "account-081",
+  status: "Failed",
+  error: "A feed connection already exists to this account",
+};
+```
 
 ## Fields
 

@@ -1,5 +1,12 @@
 # ConfigurationSupplier
 
+## Example Usage
+
+```typescript
+import { ConfigurationSupplier } from "@codat/bank-feeds/sdk/models/shared";
+
+let value: ConfigurationSupplier = {};
+```
 
 ## Fields
 

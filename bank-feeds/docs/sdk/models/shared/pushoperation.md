@@ -1,5 +1,28 @@
 # PushOperation
 
+## Example Usage
+
+```typescript
+import { PushOperation } from "@codat/bank-feeds/sdk/models/shared";
+
+let value: PushOperation = {
+  changes: [
+    {
+      recordRef: {
+        dataType: "invoices",
+      },
+    },
+  ],
+  dataType: "invoices",
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  pushOperationKey: "993e989b-4632-4fb7-8340-64b6201a78ef",
+  dataConnectionKey: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  requestedOnUtc: "2022-10-23T00:00:00Z",
+  completedOnUtc: "2022-10-23T00:00:00Z",
+  status: "Pending",
+  statusCode: 409,
+};
+```
 
 ## Fields
 

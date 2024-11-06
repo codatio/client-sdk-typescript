@@ -1,5 +1,29 @@
 # UpdateSourceAccountRequest
 
+## Example Usage
+
+```typescript
+import { UpdateSourceAccountRequest } from "@codat/bank-feeds/sdk/models/operations";
+import { Decimal } from "@codat/bank-feeds/sdk/types";
+
+let value: UpdateSourceAccountRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  accountId: "EILBDVJVNUAGVKRQ",
+  sourceAccount: {
+    id: "acc-003",
+    accountName: "account-095",
+    accountType: "Credit",
+    accountNumber: "12345671",
+    sortCode: "123456",
+    currency: "USD",
+    balance: new Decimal("0"),
+    modifiedDate: "2023-01-09T14:14:14.1057478Z",
+    status: "pending",
+    feedStartDate: "2022-10-23T00:00:00Z",
+  },
+};
+```
 
 ## Fields
 

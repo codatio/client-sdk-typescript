@@ -1,5 +1,15 @@
 # BankFeedAccountMapping
 
+## Example Usage
+
+```typescript
+import { BankFeedAccountMapping } from "@codat/bank-feeds/sdk/models/shared";
+
+let value: BankFeedAccountMapping = {
+  sourceAccountId: "acc-002",
+  targetAccountId: "account-081",
+};
+```
 
 ## Fields
 

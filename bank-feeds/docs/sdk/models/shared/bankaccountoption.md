@@ -1,5 +1,12 @@
 # BankAccountOption
 
+## Example Usage
+
+```typescript
+import { BankAccountOption } from "@codat/bank-feeds/sdk/models/shared";
+
+let value: BankAccountOption = {};
+```
 
 ## Fields
 

@@ -1,5 +1,12 @@
 # SyncAsExpenses
 
+## Example Usage
+
+```typescript
+import { SyncAsExpenses } from "@codat/bank-feeds/sdk/models/shared";
+
+let value: SyncAsExpenses = {};
+```
 
 ## Fields
 

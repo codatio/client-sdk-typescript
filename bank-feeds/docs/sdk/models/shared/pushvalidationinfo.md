@@ -1,5 +1,12 @@
 # PushValidationInfo
 
+## Example Usage
+
+```typescript
+import { PushValidationInfo } from "@codat/bank-feeds/sdk/models/shared";
+
+let value: PushValidationInfo = {};
+```
 
 ## Fields
 

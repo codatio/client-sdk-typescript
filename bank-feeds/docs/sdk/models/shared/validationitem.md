@@ -1,5 +1,12 @@
 # ValidationItem
 
+## Example Usage
+
+```typescript
+import { ValidationItem } from "@codat/bank-feeds/sdk/models/shared";
+
+let value: ValidationItem = {};
+```
 
 ## Fields
 
