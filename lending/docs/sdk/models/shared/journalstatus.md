@@ -2,11 +2,16 @@
 
 Current journal status.
 
+## Example Usage
+
+```typescript
+import { JournalStatus } from "@codat/lending/sdk/models/shared";
+
+let value: JournalStatus = "Archived";
+```
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `Unknown`  | Unknown    |
-| `Active`   | Active     |
-| `Archived` | Archived   |
+```typescript
+"Unknown" | "Active" | "Archived"
+```

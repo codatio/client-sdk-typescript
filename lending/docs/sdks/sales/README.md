@@ -1,5 +1,2 @@
 # Sales
 (*sales*)
-
-### Available Operations
-

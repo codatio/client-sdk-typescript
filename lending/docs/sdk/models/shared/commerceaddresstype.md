@@ -2,13 +2,16 @@
 
 The type of the address
 
+## Example Usage
+
+```typescript
+import { CommerceAddressType } from "@codat/lending/sdk/models/shared";
+
+let value: CommerceAddressType = "Inventory";
+```
 
 ## Values
 
-| Name        | Value       |
-| ----------- | ----------- |
-| `Billing`   | Billing     |
-| `Delivery`  | Delivery    |
-| `Order`     | Order       |
-| `Inventory` | Inventory   |
-| `Unknown`   | Unknown     |
+```typescript
+"Billing" | "Delivery" | "Order" | "Inventory" | "Unknown"
+```

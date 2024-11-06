@@ -1,12 +1,45 @@
 # CommerceProductCategories
 
+## Example Usage
+
+```typescript
+import { CommerceProductCategories } from "@codat/lending/sdk/models/shared";
+
+let value: CommerceProductCategories = {
+  results: [
+    {
+      modifiedDate: "2022-10-23T00:00:00Z",
+      sourceModifiedDate: "2022-10-23T00:00:00Z",
+      id: "\"102\"",
+      name: "Entertainment",
+      ancestorRefs: [
+        {
+          id: "EILBDVJVNUAGVKRQ",
+          type: "<value>",
+        },
+      ],
+    },
+  ],
+  pageNumber: 1,
+  pageSize: 10,
+  totalResults: 1,
+  links: {
+    self: {
+      href: "/companies/{id}/data/{dataType}",
+    },
+    current: {
+      href: "/companies/{id}/data/{dataType}?page=1&pageSize=10",
+    },
+  },
+};
+```
 
 ## Fields
 
-| Field                                                                                                                       | Type                                                                                                                        | Required                                                                                                                    | Description                                                                                                                 | Example                                                                                                                     |
-| --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `links`                                                                                                                     | [shared.Links](../../../sdk/models/shared/links.md)                                                                         | :heavy_check_mark:                                                                                                          | N/A                                                                                                                         | {"self":{"href":"/companies/{id}/data/{dataType}"},"current":{"href":"/companies/{id}/data/{dataType}?page=1&pageSize=10"}} |
-| `pageNumber`                                                                                                                | *number*                                                                                                                    | :heavy_check_mark:                                                                                                          | Current page number.                                                                                                        |                                                                                                                             |
-| `pageSize`                                                                                                                  | *number*                                                                                                                    | :heavy_check_mark:                                                                                                          | Number of items to return in results array.                                                                                 |                                                                                                                             |
-| `results`                                                                                                                   | [shared.CommerceProductCategory](../../../sdk/models/shared/commerceproductcategory.md)[]                                   | :heavy_minus_sign:                                                                                                          | N/A                                                                                                                         |                                                                                                                             |
-| `totalResults`                                                                                                              | *number*                                                                                                                    | :heavy_check_mark:                                                                                                          | Total number of items.                                                                                                      |                                                                                                                             |
+| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       | Example                                                                                           |
+| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `results`                                                                                         | [shared.CommerceProductCategory](../../../sdk/models/shared/commerceproductcategory.md)[]         | :heavy_minus_sign:                                                                                | N/A                                                                                               |                                                                                                   |
+| `pageNumber`                                                                                      | *number*                                                                                          | :heavy_check_mark:                                                                                | Current page number.                                                                              |                                                                                                   |
+| `pageSize`                                                                                        | *number*                                                                                          | :heavy_check_mark:                                                                                | Number of items to return in results array.                                                       |                                                                                                   |
+| `totalResults`                                                                                    | *number*                                                                                          | :heavy_check_mark:                                                                                | Total number of items.                                                                            |                                                                                                   |
+| `links`                                                                                           | [shared.Links](../../../sdk/models/shared/links.md)                                               | :heavy_check_mark:                                                                                | N/A                                                                                               | {<br/>"self": {<br/>"href": "/companies"<br/>},<br/>"current": {<br/>"href": "/companies?page=1\u0026pageSize=10"<br/>}<br/>} |

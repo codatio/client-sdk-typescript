@@ -1,5 +1,20 @@
 # Attachments
 
+## Example Usage
+
+```typescript
+import { Attachments } from "@codat/lending/sdk/models/shared";
+
+let value: Attachments = {
+  attachments: [
+    {
+      modifiedDate: "2022-10-23T00:00:00Z",
+      sourceModifiedDate: "2022-10-23T00:00:00Z",
+      dateCreated: "2022-10-23T00:00:00Z",
+    },
+  ],
+};
+```
 
 ## Fields
 

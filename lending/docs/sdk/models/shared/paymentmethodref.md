@@ -1,7 +1,17 @@
 # PaymentMethodRef
 
-The payment method the record is linked to in the accounting or commerce platform.
+The Payment Method to which the payment is linked in the accounting software.
 
+## Example Usage
+
+```typescript
+import { PaymentMethodRef } from "@codat/lending/sdk/models/shared";
+
+let value: PaymentMethodRef = {
+  id: "EILBDVJVNUAGVKRQ",
+  name: "AliPay",
+};
+```
 
 ## Fields
 

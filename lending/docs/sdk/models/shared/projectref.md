@@ -1,5 +1,14 @@
 # ProjectRef
 
+## Example Usage
+
+```typescript
+import { ProjectRef } from "@codat/lending/sdk/models/shared";
+
+let value: ProjectRef = {
+  id: "<id>",
+};
+```
 
 ## Fields
 

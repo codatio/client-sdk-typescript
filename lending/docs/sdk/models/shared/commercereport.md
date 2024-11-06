@@ -42,13 +42,20 @@ Reports can be rendered as follows (ordering is implicit rather than explicit):
 
 ## Dimensions
 
+## Example Usage
+
+```typescript
+import { CommerceReport } from "@codat/lending/sdk/models/shared";
+
+let value: CommerceReport = {};
+```
 
 ## Fields
 
 | Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               |
 | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `reportInfo`                                                                              | Record<string, *string*>                                                                  | :heavy_minus_sign:                                                                        | N/A                                                                                       |
 | `dimensions`                                                                              | [shared.CommerceReportDimension](../../../sdk/models/shared/commercereportdimension.md)[] | :heavy_minus_sign:                                                                        | N/A                                                                                       |
-| `errors`                                                                                  | [shared.CommerceReportError](../../../sdk/models/shared/commercereporterror.md)[]         | :heavy_minus_sign:                                                                        | N/A                                                                                       |
 | `measures`                                                                                | [shared.CommerceReportMeasure](../../../sdk/models/shared/commercereportmeasure.md)[]     | :heavy_minus_sign:                                                                        | N/A                                                                                       |
 | `reportData`                                                                              | [shared.CommerceReportComponent](../../../sdk/models/shared/commercereportcomponent.md)[] | :heavy_minus_sign:                                                                        | N/A                                                                                       |
-| `reportInfo`                                                                              | Record<string, *string*>                                                                  | :heavy_minus_sign:                                                                        | N/A                                                                                       |
+| `errors`                                                                                  | [shared.CommerceReportError](../../../sdk/models/shared/commercereporterror.md)[]         | :heavy_minus_sign:                                                                        | N/A                                                                                       |

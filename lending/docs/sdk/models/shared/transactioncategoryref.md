@@ -2,6 +2,15 @@
 
 An object of bank transaction category reference data.
 
+## Example Usage
+
+```typescript
+import { TransactionCategoryRef } from "@codat/lending/sdk/models/shared";
+
+let value: TransactionCategoryRef = {
+  id: "<id>",
+};
+```
 
 ## Fields
 

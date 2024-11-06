@@ -2,11 +2,16 @@
 
 The status of the transaction category.
 
+## Example Usage
+
+```typescript
+import { TransactionCategoryStatus } from "@codat/lending/sdk/models/shared";
+
+let value: TransactionCategoryStatus = "Active";
+```
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `Unknown`  | Unknown    |
-| `Active`   | Active     |
-| `Archived` | Archived   |
+```typescript
+"Unknown" | "Active" | "Archived"
+```

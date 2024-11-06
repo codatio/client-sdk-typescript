@@ -2,19 +2,16 @@
 
 Current status of the dispute
 
+## Example Usage
+
+```typescript
+import { DisputeStatus } from "@codat/lending/sdk/models/shared";
+
+let value: DisputeStatus = "EvidenceRequired";
+```
 
 ## Values
 
-| Name                      | Value                     |
-| ------------------------- | ------------------------- |
-| `Won`                     | Won                       |
-| `Lost`                    | Lost                      |
-| `Accepted`                | Accepted                  |
-| `Processing`              | Processing                |
-| `ChargeRefunded`          | ChargeRefunded            |
-| `EvidenceRequired`        | EvidenceRequired          |
-| `InquiryEvidenceRequired` | InquiryEvidenceRequired   |
-| `InquiryProcessing`       | InquiryProcessing         |
-| `InquiryClosed`           | InquiryClosed             |
-| `WaitingThirdParty`       | WaitingThirdParty         |
-| `Unknown`                 | Unknown                   |
+```typescript
+"Won" | "Lost" | "Accepted" | "Processing" | "ChargeRefunded" | "EvidenceRequired" | "InquiryEvidenceRequired" | "InquiryProcessing" | "InquiryClosed" | "WaitingThirdParty" | "Unknown"
+```

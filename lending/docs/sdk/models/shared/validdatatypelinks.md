@@ -41,10 +41,17 @@ Codat currently supports `validDatatypeLinks` for some data types on our Xero, Q
 
 If you'd like us to extend support to more data types or integrations, suggest or vote for this on our <a href="https://portal.productboard.com/codat/5-product-roadmap">Product Roadmap</a>.
 
+## Example Usage
+
+```typescript
+import { ValidDataTypeLinks } from "@codat/lending/sdk/models/shared";
+
+let value: ValidDataTypeLinks = {};
+```
 
 ## Fields
 
 | Field                                                   | Type                                                    | Required                                                | Description                                             |
 | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
-| `links`                                                 | *string*[]                                              | :heavy_minus_sign:                                      | Supported `dataTypes` that the record can be linked to. |
 | `property`                                              | *string*                                                | :heavy_minus_sign:                                      | The property from the account that can be linked.       |
+| `links`                                                 | *string*[]                                              | :heavy_minus_sign:                                      | Supported `dataTypes` that the record can be linked to. |

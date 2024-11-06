@@ -2,6 +2,19 @@
 
 List of record refs associated with the tracking information for the line (eg to a Tracking Category, or customer etc.)
 
+## Example Usage
+
+```typescript
+import { JournalLineTracking } from "@codat/lending/sdk/models/shared";
+
+let value: JournalLineTracking = {
+  recordRefs: [
+    {
+      dataType: "trackingCategories",
+    },
+  ],
+};
+```
 
 ## Fields
 

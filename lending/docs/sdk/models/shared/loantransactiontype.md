@@ -2,12 +2,16 @@
 
 The type of loan transaction.
 
+## Example Usage
+
+```typescript
+import { LoanTransactionType } from "@codat/lending/sdk/models/shared";
+
+let value: LoanTransactionType = "Repayment";
+```
 
 ## Values
 
-| Name              | Value             |
-| ----------------- | ----------------- |
-| `Investment`      | Investment        |
-| `Repayment`       | Repayment         |
-| `Interest`        | Interest          |
-| `AccuredInterest` | AccuredInterest   |
+```typescript
+"Investment" | "Repayment" | "Interest" | "AccuredInterest"
+```

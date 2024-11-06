@@ -1,40 +1,96 @@
 # Reports
-(*accountsReceivable.reports*)
+(*sales.reports*)
+
+## Overview
 
 ### Available Operations
 
-* [getAgedCreditors](#getagedcreditors) - Aged creditors report
-* [getAgedDebtors](#getageddebtors) - Aged debtors report
-* [isAgedCreditorsAvailable](#isagedcreditorsavailable) - Aged creditors report available
-* [isAgedDebtorsAvailable](#isageddebtorsavailable) - Aged debtors report available
+* [getOrders](#getorders) - Get orders report
+* [getRefunds](#getrefunds) - Get refunds report
 
-## getAgedCreditors
+## getOrders
 
-Returns aged creditors report for company that shows the total balance owed by a business to its suppliers over time.
+The *Get orders report* endpoint returns the number of orders, total value, and average order value for a specific company's commerce connection over one or more periods of time.
+
+This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. 
+
+[Learn more](https://docs.codat.io/lending/features/sales-overview#metrics) about the formulas used to calculate the order metrics.
+
+#### Response structure
+
+The Orders report's dimensions and measures are:
+
+| Index         | Dimensions     |
+|---------------|----------------|
+|   `index` = 0 | Period         |
+|   `index` = 1 | Order metrics  |
+
+| Index         | Measures   |
+|---------------|------------|
+| `index` = 0   | Count      |
+| `index` = 1   | Value      |
+
+The report data then combines multiple reporting dimensions and measures and outputs the value of each combination.
+
 
 ### Example Usage
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/dist/sdk/types";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 async function run() {
-  const sdk = new CodatLending({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-    },
-  });
-
-  const res = await sdk.accountsReceivable.reports.getAgedCreditors({
+  const result = await codatLending.sales.reports.getOrders({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    numberOfPeriods: 12,
-    periodLengthDays: 30,
-    reportDate: new RFCDate("2022-12-31"),
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    reportDate: "29-09-2020",
+    periodLength: 491586,
+    numberOfPeriods: 393849,
+    periodUnit: "Year",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { salesReportsGetOrders } from "@codat/lending/funcs/salesReportsGetOrders.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await salesReportsGetOrders(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    reportDate: "29-09-2020",
+    periodLength: 491586,
+    numberOfPeriods: 393849,
+    periodUnit: "Year",
+  });
+
+  if (!res.ok) {
+    throw res.error;
   }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -42,49 +98,108 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                                                    | Type                                                                                                                         | Required                                                                                                                     | Description                                                                                                                  |
-| ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                                    | [operations.GetAccountingAgedCreditorsReportRequest](../../sdk/models/operations/getaccountingagedcreditorsreportrequest.md) | :heavy_check_mark:                                                                                                           | The request object to use for the request.                                                                                   |
-| `retries`                                                                                                                    | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                                     | :heavy_minus_sign:                                                                                                           | Configuration to override the default retry behavior of the client.                                                          |
-| `config`                                                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                 | :heavy_minus_sign:                                                                                                           | Available config options for making requests.                                                                                |
-
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetCommerceOrdersReportRequest](../../sdk/models/operations/getcommerceordersreportrequest.md)                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise<[operations.GetAccountingAgedCreditorsReportResponse](../../sdk/models/operations/getaccountingagedcreditorsreportresponse.md)>**
+**Promise\<[shared.CommerceReport](../../sdk/models/shared/commercereport.md)\>**
+
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
+| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
 
-## getAgedDebtors
+## getRefunds
 
-Returns aged debtors report for company that shows the total outstanding balance due from customers to the business over time.
+The *Get refunds report* endpoint returns the number and total value of refunds and the refund rate for a specific company's commerce connection over one or more periods of time.
+
+This detail helps you assess a merchant's health and advise them on performance improvement strategies. It also provides you with key insights you need to assess the credit risk of a company. 
+
+[Learn more](https://docs.codat.io/lending/features/sales-overview#metrics) about the formulas used to calculate the refunds metrics.
+
+#### Response structure
+
+The Refunds report's dimensions and measures are:
+
+| Index          | Dimensions     |
+|----------------|----------------|
+| `index` = 0    | Period         |
+| `index` = 1    | Refund metrics |
+
+| Index          | Measures    |
+|----------------|------------|
+| `index` = 0    | Count      |
+| `index` = 1    | Value      |
+| `index` = 2    | Percentage |
+
+The report data then combines multiple reporting dimensions and measures and outputs the value of each combination.
+
 
 ### Example Usage
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/dist/sdk/types";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 async function run() {
-  const sdk = new CodatLending({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-    },
-  });
-
-  const res = await sdk.accountsReceivable.reports.getAgedDebtors({
+  const result = await codatLending.sales.reports.getRefunds({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    numberOfPeriods: 12,
-    periodLengthDays: 30,
-    reportDate: new RFCDate("2022-12-31"),
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    reportDate: "29-09-2020",
+    periodLength: 277786,
+    numberOfPeriods: 810912,
+    periodUnit: "Month",
   });
 
-  if (res.statusCode == 200) {
-    // handle response
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { salesReportsGetRefunds } from "@codat/lending/funcs/salesReportsGetRefunds.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await salesReportsGetRefunds(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    reportDate: "29-09-2020",
+    periodLength: 277786,
+    numberOfPeriods: 810912,
+    periodUnit: "Month",
+  });
+
+  if (!res.ok) {
+    throw res.error;
   }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -92,110 +207,20 @@ run();
 
 ### Parameters
 
-| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                | [operations.GetAccountingAgedDebtorsReportRequest](../../sdk/models/operations/getaccountingageddebtorsreportrequest.md) | :heavy_check_mark:                                                                                                       | The request object to use for the request.                                                                               |
-| `retries`                                                                                                                | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                                 | :heavy_minus_sign:                                                                                                       | Configuration to override the default retry behavior of the client.                                                      |
-| `config`                                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                             | :heavy_minus_sign:                                                                                                       | Available config options for making requests.                                                                            |
-
-
-### Response
-
-**Promise<[operations.GetAccountingAgedDebtorsReportResponse](../../sdk/models/operations/getaccountingageddebtorsreportresponse.md)>**
-### Errors
-
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
-
-## isAgedCreditorsAvailable
-
-Indicates whether the aged creditor report is available for the company.
-
-### Example Usage
-
-```typescript
-import { CodatLending } from "@codat/lending";
-
-async function run() {
-  const sdk = new CodatLending({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-    },
-  });
-
-  const res = await sdk.accountsReceivable.reports.isAgedCreditorsAvailable({
-    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  });
-
-  if (res.statusCode == 200) {
-    // handle response
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                | [operations.IsAgedCreditorsReportAvailableRequest](../../sdk/models/operations/isagedcreditorsreportavailablerequest.md) | :heavy_check_mark:                                                                                                       | The request object to use for the request.                                                                               |
-| `retries`                                                                                                                | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                                 | :heavy_minus_sign:                                                                                                       | Configuration to override the default retry behavior of the client.                                                      |
-| `config`                                                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                             | :heavy_minus_sign:                                                                                                       | Available config options for making requests.                                                                            |
-
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetCommerceRefundsReportRequest](../../sdk/models/operations/getcommercerefundsreportrequest.md)                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise<[operations.IsAgedCreditorsReportAvailableResponse](../../sdk/models/operations/isagedcreditorsreportavailableresponse.md)>**
+**Promise\<[shared.CommerceReport](../../sdk/models/shared/commercereport.md)\>**
+
 ### Errors
 
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
-
-## isAgedDebtorsAvailable
-
-Indicates whether the aged debtors report is available for the company.
-
-### Example Usage
-
-```typescript
-import { CodatLending } from "@codat/lending";
-
-async function run() {
-  const sdk = new CodatLending({
-    security: {
-      authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-    },
-  });
-
-  const res = await sdk.accountsReceivable.reports.isAgedDebtorsAvailable({
-    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  });
-
-  if (res.statusCode == 200) {
-    // handle response
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                            | Type                                                                                                                 | Required                                                                                                             | Description                                                                                                          |
-| -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                            | [operations.IsAgedDebtorsReportAvailableRequest](../../sdk/models/operations/isageddebtorsreportavailablerequest.md) | :heavy_check_mark:                                                                                                   | The request object to use for the request.                                                                           |
-| `retries`                                                                                                            | [utils.RetryConfig](../../internal/utils/retryconfig.md)                                                             | :heavy_minus_sign:                                                                                                   | Configuration to override the default retry behavior of the client.                                                  |
-| `config`                                                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                         | :heavy_minus_sign:                                                                                                   | Available config options for making requests.                                                                        |
-
-
-### Response
-
-**Promise<[operations.IsAgedDebtorsReportAvailableResponse](../../sdk/models/operations/isageddebtorsreportavailableresponse.md)>**
-### Errors
-
-| Error Object    | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.SDKError | 4xx-5xx         | */*             |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
+| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
