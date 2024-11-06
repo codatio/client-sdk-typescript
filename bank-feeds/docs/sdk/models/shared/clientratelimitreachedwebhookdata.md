@@ -1,5 +1,14 @@
 # ClientRateLimitReachedWebhookData
 
+## Example Usage
+
+```typescript
+import { ClientRateLimitReachedWebhookData } from "@codat/bank-feeds/sdk/models/shared";
+
+let value: ClientRateLimitReachedWebhookData = {
+  expiresUtc: "2022-10-23T00:00:00Z",
+};
+```
 
 ## Fields
 

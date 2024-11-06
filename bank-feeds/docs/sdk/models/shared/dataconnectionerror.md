@@ -1,5 +1,15 @@
 # DataConnectionError
 
+## Example Usage
+
+```typescript
+import { DataConnectionError } from "@codat/bank-feeds/sdk/models/shared";
+
+let value: DataConnectionError = {
+  erroredOnUtc: "2022-10-23T00:00:00Z",
+  resolvedOnUtc: "2022-10-23T00:00:00Z",
+};
+```
 
 ## Fields
 

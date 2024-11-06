@@ -2,6 +2,16 @@
 
 Result of generate credentials
 
+## Example Usage
+
+```typescript
+import { BankAccountCredentials } from "@codat/bank-feeds/sdk/models/shared";
+
+let value: BankAccountCredentials = {
+  username: "S0MW-TR0P-7DS0",
+  password: "cO0ajh0uGyTN0Pwh",
+};
+```
 
 ## Fields
 

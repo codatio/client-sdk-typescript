@@ -1,5 +1,17 @@
 # PushOptionProperty
 
+## Example Usage
+
+```typescript
+import { PushOptionProperty } from "@codat/bank-feeds/sdk/models/shared";
+
+let value: PushOptionProperty = {
+  type: "Number",
+  displayName: "Diego_Klocko",
+  description: "basic minus hence for know gleefully ew",
+  required: false,
+};
+```
 
 ## Fields
 

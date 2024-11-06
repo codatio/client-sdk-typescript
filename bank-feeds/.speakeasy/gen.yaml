@@ -11,9 +11,10 @@ generation:
     requestResponseComponentNamesFeb2024: true
   auth:
     oAuth2ClientCredentialsEnabled: false
+    oAuth2PasswordEnabled: false
   telemetryEnabled: true
 typescript:
-  version: 5.0.0
+  version: 6.0.0
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -24,6 +25,7 @@ typescript:
   description: Set up bank feeds from accounts in your application to supported accounting platforms.
   enumFormat: union
   flattenGlobalSecurity: true
+  flatteningOrder: body-first
   imports:
     option: openapi
     paths:

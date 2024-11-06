@@ -1,5 +1,45 @@
 # CreateBankTransactionsResponse
 
+## Example Usage
+
+```typescript
+import { CreateBankTransactionsResponse } from "@codat/bank-feeds/sdk/models/shared";
+import { Decimal } from "@codat/bank-feeds/sdk/types";
+
+let value: CreateBankTransactionsResponse = {
+  data: {
+    accountId: "7110701885",
+    transactions: [
+      {
+        id: "716422529",
+        date: "2022-10-23T00:00:00Z",
+        description:
+          "Debit for Payment Id sdp-1-57379a43-c4b8-49f5-bd7c-699189ee7a60",
+        counterparty: "ACME INC",
+        reference: "reference for transaction",
+        reconciled: false,
+        amount: new Decimal("999.99"),
+        balance: new Decimal("-999.99"),
+      },
+    ],
+  },
+  changes: [
+    {
+      recordRef: {
+        dataType: "invoices",
+      },
+    },
+  ],
+  dataType: "invoices",
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  pushOperationKey: "56ecb1eb-f2d2-491d-8c96-1b7bdfd05b28",
+  dataConnectionKey: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  requestedOnUtc: "2022-10-23T00:00:00Z",
+  completedOnUtc: "2022-10-23T00:00:00Z",
+  status: "TimedOut",
+  statusCode: 203,
+};
+```
 
 ## Fields
 

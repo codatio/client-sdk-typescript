@@ -1,5 +1,14 @@
 # PushFieldValidation
 
+## Example Usage
+
+```typescript
+import { PushFieldValidation } from "@codat/bank-feeds/sdk/models/shared";
+
+let value: PushFieldValidation = {
+  details: "<value>",
+};
+```
 
 ## Fields
 
