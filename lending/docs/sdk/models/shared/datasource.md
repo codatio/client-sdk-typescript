@@ -1,5 +1,19 @@
 # DataSource
 
+## Example Usage
+
+```typescript
+import { DataSource } from "@codat/lending/sdk/models/shared";
+
+let value: DataSource = {
+  accounts: [
+    {
+      sourceRef: {},
+      currency: "GBP",
+    },
+  ],
+};
+```
 
 ## Fields
 

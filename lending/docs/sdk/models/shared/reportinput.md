@@ -2,11 +2,16 @@
 
 Accounting method used to prepare the cash flow statement.
 
+## Example Usage
+
+```typescript
+import { ReportInput } from "@codat/lending/sdk/models/shared";
+
+let value: ReportInput = "Direct";
+```
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `Unknown`  | Unknown    |
-| `Indirect` | Indirect   |
-| `Direct`   | Direct     |
+```typescript
+"Unknown" | "Indirect" | "Direct"
+```

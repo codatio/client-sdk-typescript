@@ -1,11 +1,15 @@
 # PeriodUnit
 
+## Example Usage
+
+```typescript
+import { PeriodUnit } from "@codat/lending/sdk/models/shared";
+
+let value: PeriodUnit = "Year";
+```
 
 ## Values
 
-| Name    | Value   |
-| ------- | ------- |
-| `Day`   | Day     |
-| `Week`  | Week    |
-| `Month` | Month   |
-| `Year`  | Year    |
+```typescript
+"Day" | "Week" | "Month" | "Year"
+```

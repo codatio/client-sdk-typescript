@@ -7,6 +7,13 @@ sources:
         tags:
             - latest
             - main
+    lending-source:
+        sourceNamespace: lending-source
+        sourceRevisionDigest: sha256:bd7877dd3f3d99abd879a74e4be10c6181664007b1474c4ab8235112a43564e6
+        sourceBlobDigest: sha256:4525ee073b57729cfcb4c57cd3715fd634d44b091eb42b011966d87654980fc2
+        tags:
+            - latest
+            - main
     platform-source:
         sourceNamespace: platform-source
         sourceRevisionDigest: sha256:a1a4c526fcfc87fde0b60e9b93d029b97f71ddefc60ac7e114d8195c03ba60a2
@@ -55,6 +62,11 @@ targets:
         sourceNamespace: bank-feeds-source
         sourceRevisionDigest: sha256:d75c52690ab81c6b279b7460cf7b63d0372d9aaea085e2e577846ad173258706
         sourceBlobDigest: sha256:a490b555d6f186cd37f72a06e06ba49293a0f371d145db2d9913d5081ecfc5a2
+    lending-library:
+        source: lending-source
+        sourceNamespace: lending-source
+        sourceRevisionDigest: sha256:bd7877dd3f3d99abd879a74e4be10c6181664007b1474c4ab8235112a43564e6
+        sourceBlobDigest: sha256:4525ee073b57729cfcb4c57cd3715fd634d44b091eb42b011966d87654980fc2
     platform-library:
         source: platform-source
         sourceNamespace: platform-source
@@ -115,6 +127,8 @@ workflow:
         lending-source:
             inputs:
                 - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Lending.yaml
+            registry:
+                location: registry.speakeasyapi.dev/codat/codat/lending-source
         platform-source:
             inputs:
                 - location: https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Platform.yaml

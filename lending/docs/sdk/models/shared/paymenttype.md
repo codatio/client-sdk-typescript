@@ -2,20 +2,16 @@
 
 Type of payment.
 
+## Example Usage
+
+```typescript
+import { PaymentType } from "@codat/lending/sdk/models/shared";
+
+let value: PaymentType = "Cash";
+```
 
 ## Values
 
-| Name          | Value         |
-| ------------- | ------------- |
-| `Cash`        | Cash          |
-| `Card`        | Card          |
-| `Invoice`     | Invoice       |
-| `OnlineCard`  | OnlineCard    |
-| `Swish`       | Swish         |
-| `Vipps`       | Vipps         |
-| `Mobile`      | Mobile        |
-| `StoreCredit` | StoreCredit   |
-| `Paypal`      | Paypal        |
-| `Custom`      | Custom        |
-| `Prepaid`     | Prepaid       |
-| `Unknown`     | Unknown       |
+```typescript
+"Cash" | "Card" | "Invoice" | "OnlineCard" | "Swish" | "Vipps" | "Mobile" | "StoreCredit" | "Paypal" | "Custom" | "Prepaid" | "Unknown"
+```

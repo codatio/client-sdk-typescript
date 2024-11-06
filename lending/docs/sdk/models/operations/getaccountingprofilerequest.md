@@ -1,5 +1,14 @@
 # GetAccountingProfileRequest
 
+## Example Usage
+
+```typescript
+import { GetAccountingProfileRequest } from "@codat/lending/sdk/models/operations";
+
+let value: GetAccountingProfileRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+};
+```
 
 ## Fields
 

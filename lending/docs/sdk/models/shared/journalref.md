@@ -2,6 +2,15 @@
 
 Links journal entries to the relevant journal in accounting integrations that use multi-book accounting (multiple journals).
 
+## Example Usage
+
+```typescript
+import { JournalRef } from "@codat/lending/sdk/models/shared";
+
+let value: JournalRef = {
+  id: "<id>",
+};
+```
 
 ## Fields
 

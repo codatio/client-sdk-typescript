@@ -2,6 +2,15 @@
 
 Reference that links the line item to the specific version of product that has been ordered.
 
+## Example Usage
+
+```typescript
+import { ProductVariantRef } from "@codat/lending/sdk/models/shared";
+
+let value: ProductVariantRef = {
+  id: "EILBDVJVNUAGVKRQ",
+};
+```
 
 ## Fields
 

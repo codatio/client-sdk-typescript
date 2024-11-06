@@ -2,10 +2,16 @@
 
 Allowed name of the 'dataType'.
 
+## Example Usage
+
+```typescript
+import { ContactRefDataType } from "@codat/lending/sdk/models/shared";
+
+let value: ContactRefDataType = "customers";
+```
 
 ## Values
 
-| Name        | Value       |
-| ----------- | ----------- |
-| `Customers` | customers   |
-| `Suppliers` | suppliers   |
+```typescript
+"customers" | "suppliers"
+```

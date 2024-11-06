@@ -1,5 +1,15 @@
 # GetCreateOperationRequest
 
+## Example Usage
+
+```typescript
+import { GetCreateOperationRequest } from "@codat/lending/sdk/models/operations";
+
+let value: GetCreateOperationRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  pushOperationKey: "40323a01-2544-4cf8-9f61-647a7eeb726b",
+};
+```
 
 ## Fields
 

@@ -2,11 +2,16 @@
 
 Data source type.
 
+## Example Usage
+
+```typescript
+import { QueryParamSourceType } from "@codat/lending/sdk/models/operations";
+
+let value: QueryParamSourceType = "commerce";
+```
 
 ## Values
 
-| Name         | Value        |
-| ------------ | ------------ |
-| `Banking`    | banking      |
-| `Commerce`   | commerce     |
-| `Accounting` | accounting   |
+```typescript
+"banking" | "commerce" | "accounting"
+```

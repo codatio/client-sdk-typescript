@@ -1,9 +1,18 @@
 # PushOperationRef
 
+## Example Usage
+
+```typescript
+import { PushOperationRef } from "@codat/lending/sdk/models/shared";
+
+let value: PushOperationRef = {
+  dataType: "invoices",
+};
+```
 
 ## Fields
 
-| Field                                                     | Type                                                      | Required                                                  | Description                                               | Example                                                   |
-| --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------- |
-| `dataType`                                                | [shared.DataType](../../../sdk/models/shared/datatype.md) | :heavy_minus_sign:                                        | Available Data types                                      | invoices                                                  |
-| `id`                                                      | *string*                                                  | :heavy_minus_sign:                                        | Unique identifier for a push operation.                   |                                                           |
+| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 | Example                                                                     |
+| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| `id`                                                                        | *string*                                                                    | :heavy_minus_sign:                                                          | Unique identifier for a push operation.                                     |                                                                             |
+| `dataType`                                                                  | [shared.PropertieDataType](../../../sdk/models/shared/propertiedatatype.md) | :heavy_minus_sign:                                                          | Available data types                                                        | invoices                                                                    |

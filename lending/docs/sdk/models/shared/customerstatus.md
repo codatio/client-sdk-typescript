@@ -2,11 +2,16 @@
 
 Status of customer.
 
+## Example Usage
+
+```typescript
+import { CustomerStatus } from "@codat/lending/sdk/models/shared";
+
+let value: CustomerStatus = "Archived";
+```
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `Unknown`  | Unknown    |
-| `Active`   | Active     |
-| `Archived` | Archived   |
+```typescript
+"Unknown" | "Active" | "Archived"
+```

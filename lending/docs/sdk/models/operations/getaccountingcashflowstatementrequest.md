@@ -1,5 +1,17 @@
 # GetAccountingCashFlowStatementRequest
 
+## Example Usage
+
+```typescript
+import { GetAccountingCashFlowStatementRequest } from "@codat/lending/sdk/models/operations";
+
+let value: GetAccountingCashFlowStatementRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  periodLength: 4,
+  periodsToCompare: 20,
+  startMonth: "2022-10-23T00:00:00Z",
+};
+```
 
 ## Fields
 

@@ -2,6 +2,13 @@
 
 A source reference containing the `sourceType` object "Banking".
 
+## Example Usage
+
+```typescript
+import { SourceRef } from "@codat/lending/sdk/models/shared";
+
+let value: SourceRef = {};
+```
 
 ## Fields
 
