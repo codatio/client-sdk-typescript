@@ -2,11 +2,16 @@
 
 The datatype being referred to.
 
+## Example Usage
+
+```typescript
+import { LoanSummaryRecordRefType } from "@codat/lending/sdk/models/shared";
+
+let value: LoanSummaryRecordRefType = "accounts";
+```
 
 ## Values
 
-| Name                   | Value                  |
-| ---------------------- | ---------------------- |
-| `Accounts`             | accounts               |
-| `BankingAccounts`      | banking-accounts       |
-| `CommerceTransactions` | commerce-transactions  |
+```typescript
+"accounts" | "banking-accounts" | "commerce-transactions"
+```

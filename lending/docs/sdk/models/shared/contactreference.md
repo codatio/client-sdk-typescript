@@ -1,11 +1,18 @@
 # ContactReference
 
-A customer or supplier associated with the direct cost.
+## Example Usage
 
+```typescript
+import { ContactReference } from "@codat/lending/sdk/models/shared";
+
+let value: ContactReference = {
+  id: "<id>",
+};
+```
 
 ## Fields
 
-| Field                                                                                           | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `dataType`                                                                                      | [shared.DirectCostPrototypeDataType](../../../sdk/models/shared/directcostprototypedatatype.md) | :heavy_minus_sign:                                                                              | Allowed name of the 'dataType'.                                                                 |
-| `id`                                                                                            | *string*                                                                                        | :heavy_check_mark:                                                                              | Unique identifier for a customer or supplier.                                                   |
+| Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `id`                                                                            | *string*                                                                        | :heavy_check_mark:                                                              | Unique identifier for a customer or supplier.                                   |
+| `dataType`                                                                      | [shared.JournalLineDataType](../../../sdk/models/shared/journallinedatatype.md) | :heavy_minus_sign:                                                              | Allowed name of the 'dataType'.                                                 |

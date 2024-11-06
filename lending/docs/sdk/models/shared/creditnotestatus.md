@@ -2,14 +2,16 @@
 
 Current state of the credit note.
 
+## Example Usage
+
+```typescript
+import { CreditNoteStatus } from "@codat/lending/sdk/models/shared";
+
+let value: CreditNoteStatus = "Unknown";
+```
 
 ## Values
 
-| Name            | Value           |
-| --------------- | --------------- |
-| `Unknown`       | Unknown         |
-| `Draft`         | Draft           |
-| `Submitted`     | Submitted       |
-| `Paid`          | Paid            |
-| `Void`          | Void            |
-| `PartiallyPaid` | PartiallyPaid   |
+```typescript
+"Unknown" | "Draft" | "Submitted" | "Paid" | "Void" | "PartiallyPaid"
+```

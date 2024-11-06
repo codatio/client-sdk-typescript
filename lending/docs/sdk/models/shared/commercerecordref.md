@@ -1,5 +1,15 @@
 # CommerceRecordRef
 
+## Example Usage
+
+```typescript
+import { CommerceRecordRef } from "@codat/lending/sdk/models/shared";
+
+let value: CommerceRecordRef = {
+  id: "7110701885",
+  type: "<value>",
+};
+```
 
 ## Fields
 

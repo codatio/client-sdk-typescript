@@ -1,5 +1,2 @@
 # AccountsReceivable
 (*accountsReceivable*)
-
-### Available Operations
-

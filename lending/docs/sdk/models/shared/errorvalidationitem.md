@@ -1,5 +1,12 @@
 # ErrorValidationItem
 
+## Example Usage
+
+```typescript
+import { ErrorValidationItem } from "@codat/lending/sdk/models/shared";
+
+let value: ErrorValidationItem = {};
+```
 
 ## Fields
 

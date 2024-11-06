@@ -1,12 +1,17 @@
 # ReportBasis
 
-Accounting method used when aggregating the report data. In this case, `Cash`.
+The basis of a report.
 
+## Example Usage
+
+```typescript
+import { ReportBasis } from "@codat/lending/sdk/models/shared";
+
+let value: ReportBasis = "Cash";
+```
 
 ## Values
 
-| Name      | Value     |
-| --------- | --------- |
-| `Unknown` | Unknown   |
-| `Accrual` | Accrual   |
-| `Cash`    | Cash      |
+```typescript
+"Unknown" | "Accrual" | "Cash"
+```

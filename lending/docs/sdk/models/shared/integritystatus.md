@@ -2,12 +2,16 @@
 
 The current status of the most recently run matching algorithm.
 
+## Example Usage
+
+```typescript
+import { IntegrityStatus } from "@codat/lending/sdk/models/shared";
+
+let value: IntegrityStatus = "Error";
+```
 
 ## Values
 
-| Name           | Value          |
-| -------------- | -------------- |
-| `Unknown`      | Unknown        |
-| `DoesNotExist` | DoesNotExist   |
-| `Error`        | Error          |
-| `Complete`     | Complete       |
+```typescript
+"Unknown" | "DoesNotExist" | "Error" | "Complete"
+```

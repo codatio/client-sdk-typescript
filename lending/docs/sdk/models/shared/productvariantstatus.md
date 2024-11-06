@@ -2,11 +2,16 @@
 
 The status of the product variant.
 
+## Example Usage
+
+```typescript
+import { ProductVariantStatus } from "@codat/lending/sdk/models/shared";
+
+let value: ProductVariantStatus = "Unknown";
+```
 
 ## Values
 
-| Name          | Value         |
-| ------------- | ------------- |
-| `Unknown`     | Unknown       |
-| `Published`   | Published     |
-| `Unpublished` | Unpublished   |
+```typescript
+"Unknown" | "Published" | "Unpublished"
+```

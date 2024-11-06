@@ -1,5 +1,12 @@
 # CommerceReportDimensionItems
 
+## Example Usage
+
+```typescript
+import { CommerceReportDimensionItems } from "@codat/lending/sdk/models/shared";
+
+let value: CommerceReportDimensionItems = {};
+```
 
 ## Fields
 

@@ -2,12 +2,16 @@
 
 The current authorization status of the data connection.
 
+## Example Usage
+
+```typescript
+import { DataConnectionStatus } from "@codat/lending/sdk/models/shared";
+
+let value: DataConnectionStatus = "Deauthorized";
+```
 
 ## Values
 
-| Name           | Value          |
-| -------------- | -------------- |
-| `PendingAuth`  | PendingAuth    |
-| `Linked`       | Linked         |
-| `Unlinked`     | Unlinked       |
-| `Deauthorized` | Deauthorized   |
+```typescript
+"PendingAuth" | "Linked" | "Unlinked" | "Deauthorized"
+```

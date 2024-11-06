@@ -2,11 +2,16 @@
 
 The integration type begin referred to.
 
+## Example Usage
+
+```typescript
+import { LoanSummaryIntegrationType } from "@codat/lending/sdk/models/shared";
+
+let value: LoanSummaryIntegrationType = "Banking";
+```
 
 ## Values
 
-| Name         | Value        |
-| ------------ | ------------ |
-| `Accounting` | Accounting   |
-| `Banking`    | Banking      |
-| `Commerce`   | Commerce     |
+```typescript
+"Accounting" | "Banking" | "Commerce"
+```

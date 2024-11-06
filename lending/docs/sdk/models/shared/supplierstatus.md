@@ -2,11 +2,16 @@
 
 Status of the supplier.
 
+## Example Usage
+
+```typescript
+import { SupplierStatus } from "@codat/lending/sdk/models/shared";
+
+let value: SupplierStatus = "Active";
+```
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `Unknown`  | Unknown    |
-| `Active`   | Active     |
-| `Archived` | Archived   |
+```typescript
+"Unknown" | "Active" | "Archived"
+```
