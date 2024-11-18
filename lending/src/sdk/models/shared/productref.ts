@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Reference that links the line item to the correct product details.
@@ -55,4 +58,18 @@ export namespace ProductRef$ {
   export const outboundSchema = ProductRef$outboundSchema;
   /** @deprecated use `ProductRef$Outbound` instead. */
   export type Outbound = ProductRef$Outbound;
+}
+
+export function productRefToJSON(productRef: ProductRef): string {
+  return JSON.stringify(ProductRef$outboundSchema.parse(productRef));
+}
+
+export function productRefFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductRef' from JSON`,
+  );
 }

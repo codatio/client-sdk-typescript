@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DataIntegritySummary,
   DataIntegritySummary$inboundSchema,
@@ -48,4 +51,22 @@ export namespace DataIntegritySummaries$ {
   export const outboundSchema = DataIntegritySummaries$outboundSchema;
   /** @deprecated use `DataIntegritySummaries$Outbound` instead. */
   export type Outbound = DataIntegritySummaries$Outbound;
+}
+
+export function dataIntegritySummariesToJSON(
+  dataIntegritySummaries: DataIntegritySummaries,
+): string {
+  return JSON.stringify(
+    DataIntegritySummaries$outboundSchema.parse(dataIntegritySummaries),
+  );
+}
+
+export function dataIntegritySummariesFromJSON(
+  jsonString: string,
+): SafeParseResult<DataIntegritySummaries, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DataIntegritySummaries$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DataIntegritySummaries' from JSON`,
+  );
 }

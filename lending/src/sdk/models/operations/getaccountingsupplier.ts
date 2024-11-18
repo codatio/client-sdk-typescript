@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetAccountingSupplierRequest = {
   /**
@@ -52,4 +55,24 @@ export namespace GetAccountingSupplierRequest$ {
   export const outboundSchema = GetAccountingSupplierRequest$outboundSchema;
   /** @deprecated use `GetAccountingSupplierRequest$Outbound` instead. */
   export type Outbound = GetAccountingSupplierRequest$Outbound;
+}
+
+export function getAccountingSupplierRequestToJSON(
+  getAccountingSupplierRequest: GetAccountingSupplierRequest,
+): string {
+  return JSON.stringify(
+    GetAccountingSupplierRequest$outboundSchema.parse(
+      getAccountingSupplierRequest,
+    ),
+  );
+}
+
+export function getAccountingSupplierRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetAccountingSupplierRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetAccountingSupplierRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetAccountingSupplierRequest' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Taxes rates reference object depending on the rates being available on source commerce software.
@@ -55,4 +58,20 @@ export namespace TaxComponentRef$ {
   export const outboundSchema = TaxComponentRef$outboundSchema;
   /** @deprecated use `TaxComponentRef$Outbound` instead. */
   export type Outbound = TaxComponentRef$Outbound;
+}
+
+export function taxComponentRefToJSON(
+  taxComponentRef: TaxComponentRef,
+): string {
+  return JSON.stringify(TaxComponentRef$outboundSchema.parse(taxComponentRef));
+}
+
+export function taxComponentRefFromJSON(
+  jsonString: string,
+): SafeParseResult<TaxComponentRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => TaxComponentRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TaxComponentRef' from JSON`,
+  );
 }

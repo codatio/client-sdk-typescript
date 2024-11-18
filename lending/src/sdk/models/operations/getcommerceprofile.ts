@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetCommerceProfileRequest = {
   /**
@@ -52,4 +55,22 @@ export namespace GetCommerceProfileRequest$ {
   export const outboundSchema = GetCommerceProfileRequest$outboundSchema;
   /** @deprecated use `GetCommerceProfileRequest$Outbound` instead. */
   export type Outbound = GetCommerceProfileRequest$Outbound;
+}
+
+export function getCommerceProfileRequestToJSON(
+  getCommerceProfileRequest: GetCommerceProfileRequest,
+): string {
+  return JSON.stringify(
+    GetCommerceProfileRequest$outboundSchema.parse(getCommerceProfileRequest),
+  );
+}
+
+export function getCommerceProfileRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetCommerceProfileRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetCommerceProfileRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetCommerceProfileRequest' from JSON`,
+  );
 }

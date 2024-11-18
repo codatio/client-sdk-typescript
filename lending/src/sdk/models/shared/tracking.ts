@@ -3,12 +3,15 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  RecordRef,
-  RecordRef$inboundSchema,
-  RecordRef$Outbound,
-  RecordRef$outboundSchema,
-} from "./recordref.js";
+  AccountingRecordRef,
+  AccountingRecordRef$inboundSchema,
+  AccountingRecordRef$Outbound,
+  AccountingRecordRef$outboundSchema,
+} from "./accountingrecordref.js";
 import {
   TrackingRecordRef,
   TrackingRecordRef$inboundSchema,
@@ -25,7 +28,7 @@ export type Tracking = {
    *
    * For example, if a journal entry is generated based on an invoice, this property allows you to connect the journal entry to the underlying invoice in our data model.
    */
-  invoiceTo?: RecordRef | undefined;
+  invoiceTo?: AccountingRecordRef | undefined;
 };
 
 /** @internal */
@@ -35,13 +38,13 @@ export const Tracking$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   recordRefs: z.array(TrackingRecordRef$inboundSchema),
-  invoiceTo: RecordRef$inboundSchema.optional(),
+  invoiceTo: AccountingRecordRef$inboundSchema.optional(),
 });
 
 /** @internal */
 export type Tracking$Outbound = {
   recordRefs: Array<TrackingRecordRef$Outbound>;
-  invoiceTo?: RecordRef$Outbound | undefined;
+  invoiceTo?: AccountingRecordRef$Outbound | undefined;
 };
 
 /** @internal */
@@ -51,7 +54,7 @@ export const Tracking$outboundSchema: z.ZodType<
   Tracking
 > = z.object({
   recordRefs: z.array(TrackingRecordRef$outboundSchema),
-  invoiceTo: RecordRef$outboundSchema.optional(),
+  invoiceTo: AccountingRecordRef$outboundSchema.optional(),
 });
 
 /**
@@ -65,4 +68,18 @@ export namespace Tracking$ {
   export const outboundSchema = Tracking$outboundSchema;
   /** @deprecated use `Tracking$Outbound` instead. */
   export type Outbound = Tracking$Outbound;
+}
+
+export function trackingToJSON(tracking: Tracking): string {
+  return JSON.stringify(Tracking$outboundSchema.parse(tracking));
+}
+
+export function trackingFromJSON(
+  jsonString: string,
+): SafeParseResult<Tracking, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Tracking$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Tracking' from JSON`,
+  );
 }

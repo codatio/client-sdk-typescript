@@ -97,6 +97,9 @@ export async function excelReportsGenerate(
   const context = {
     operationID: "generate-excel-report",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

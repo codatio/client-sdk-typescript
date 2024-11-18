@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type IsAgedCreditorsReportAvailableRequest = {
   /**
@@ -47,4 +50,25 @@ export namespace IsAgedCreditorsReportAvailableRequest$ {
     IsAgedCreditorsReportAvailableRequest$outboundSchema;
   /** @deprecated use `IsAgedCreditorsReportAvailableRequest$Outbound` instead. */
   export type Outbound = IsAgedCreditorsReportAvailableRequest$Outbound;
+}
+
+export function isAgedCreditorsReportAvailableRequestToJSON(
+  isAgedCreditorsReportAvailableRequest: IsAgedCreditorsReportAvailableRequest,
+): string {
+  return JSON.stringify(
+    IsAgedCreditorsReportAvailableRequest$outboundSchema.parse(
+      isAgedCreditorsReportAvailableRequest,
+    ),
+  );
+}
+
+export function isAgedCreditorsReportAvailableRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<IsAgedCreditorsReportAvailableRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      IsAgedCreditorsReportAvailableRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'IsAgedCreditorsReportAvailableRequest' from JSON`,
+  );
 }

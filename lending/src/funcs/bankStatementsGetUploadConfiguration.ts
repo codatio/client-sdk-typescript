@@ -89,6 +89,9 @@ export async function bankStatementsGetUploadConfiguration(
   const context = {
     operationID: "get-bank-statement-upload-configuration",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

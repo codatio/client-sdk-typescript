@@ -7,7 +7,7 @@ Status of the source account.
 ```typescript
 import { SourceAccountStatus } from "@codat/lending/sdk/models/shared";
 
-let value: SourceAccountStatus = "unknown";
+let value: SourceAccountStatus = "connected";
 ```
 
 ## Values

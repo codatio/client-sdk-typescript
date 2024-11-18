@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingPaymentAllocation,
   AccountingPaymentAllocation$inboundSchema,
@@ -387,6 +390,32 @@ export namespace AccountingCreateDirectCostResponseAccountingDirectCost$ {
     AccountingCreateDirectCostResponseAccountingDirectCost$Outbound;
 }
 
+export function accountingCreateDirectCostResponseAccountingDirectCostToJSON(
+  accountingCreateDirectCostResponseAccountingDirectCost:
+    AccountingCreateDirectCostResponseAccountingDirectCost,
+): string {
+  return JSON.stringify(
+    AccountingCreateDirectCostResponseAccountingDirectCost$outboundSchema.parse(
+      accountingCreateDirectCostResponseAccountingDirectCost,
+    ),
+  );
+}
+
+export function accountingCreateDirectCostResponseAccountingDirectCostFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  AccountingCreateDirectCostResponseAccountingDirectCost,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      AccountingCreateDirectCostResponseAccountingDirectCost$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'AccountingCreateDirectCostResponseAccountingDirectCost' from JSON`,
+  );
+}
+
 /** @internal */
 export const AccountingCreateDirectCostResponse$inboundSchema: z.ZodType<
   AccountingCreateDirectCostResponse,
@@ -472,4 +501,25 @@ export namespace AccountingCreateDirectCostResponse$ {
     AccountingCreateDirectCostResponse$outboundSchema;
   /** @deprecated use `AccountingCreateDirectCostResponse$Outbound` instead. */
   export type Outbound = AccountingCreateDirectCostResponse$Outbound;
+}
+
+export function accountingCreateDirectCostResponseToJSON(
+  accountingCreateDirectCostResponse: AccountingCreateDirectCostResponse,
+): string {
+  return JSON.stringify(
+    AccountingCreateDirectCostResponse$outboundSchema.parse(
+      accountingCreateDirectCostResponse,
+    ),
+  );
+}
+
+export function accountingCreateDirectCostResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountingCreateDirectCostResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      AccountingCreateDirectCostResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountingCreateDirectCostResponse' from JSON`,
+  );
 }

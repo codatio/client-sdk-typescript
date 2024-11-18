@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type EndBankStatementUploadSessionRequest = {
@@ -77,4 +80,25 @@ export namespace EndBankStatementUploadSessionRequest$ {
     EndBankStatementUploadSessionRequest$outboundSchema;
   /** @deprecated use `EndBankStatementUploadSessionRequest$Outbound` instead. */
   export type Outbound = EndBankStatementUploadSessionRequest$Outbound;
+}
+
+export function endBankStatementUploadSessionRequestToJSON(
+  endBankStatementUploadSessionRequest: EndBankStatementUploadSessionRequest,
+): string {
+  return JSON.stringify(
+    EndBankStatementUploadSessionRequest$outboundSchema.parse(
+      endBankStatementUploadSessionRequest,
+    ),
+  );
+}
+
+export function endBankStatementUploadSessionRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<EndBankStatementUploadSessionRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      EndBankStatementUploadSessionRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EndBankStatementUploadSessionRequest' from JSON`,
+  );
 }

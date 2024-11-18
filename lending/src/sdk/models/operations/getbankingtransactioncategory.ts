@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetBankingTransactionCategoryRequest = {
   /**
@@ -61,4 +64,25 @@ export namespace GetBankingTransactionCategoryRequest$ {
     GetBankingTransactionCategoryRequest$outboundSchema;
   /** @deprecated use `GetBankingTransactionCategoryRequest$Outbound` instead. */
   export type Outbound = GetBankingTransactionCategoryRequest$Outbound;
+}
+
+export function getBankingTransactionCategoryRequestToJSON(
+  getBankingTransactionCategoryRequest: GetBankingTransactionCategoryRequest,
+): string {
+  return JSON.stringify(
+    GetBankingTransactionCategoryRequest$outboundSchema.parse(
+      getBankingTransactionCategoryRequest,
+    ),
+  );
+}
+
+export function getBankingTransactionCategoryRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetBankingTransactionCategoryRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetBankingTransactionCategoryRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetBankingTransactionCategoryRequest' from JSON`,
+  );
 }

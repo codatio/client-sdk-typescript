@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CommercePaymentMethod,
   CommercePaymentMethod$inboundSchema,
@@ -88,4 +91,22 @@ export namespace CommercePaymentMethods$ {
   export const outboundSchema = CommercePaymentMethods$outboundSchema;
   /** @deprecated use `CommercePaymentMethods$Outbound` instead. */
   export type Outbound = CommercePaymentMethods$Outbound;
+}
+
+export function commercePaymentMethodsToJSON(
+  commercePaymentMethods: CommercePaymentMethods,
+): string {
+  return JSON.stringify(
+    CommercePaymentMethods$outboundSchema.parse(commercePaymentMethods),
+  );
+}
+
+export function commercePaymentMethodsFromJSON(
+  jsonString: string,
+): SafeParseResult<CommercePaymentMethods, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CommercePaymentMethods$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CommercePaymentMethods' from JSON`,
+  );
 }

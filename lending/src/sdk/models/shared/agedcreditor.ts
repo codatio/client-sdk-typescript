@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AgedCurrencyOutstanding,
   AgedCurrencyOutstanding$inboundSchema,
@@ -67,4 +70,18 @@ export namespace AgedCreditor$ {
   export const outboundSchema = AgedCreditor$outboundSchema;
   /** @deprecated use `AgedCreditor$Outbound` instead. */
   export type Outbound = AgedCreditor$Outbound;
+}
+
+export function agedCreditorToJSON(agedCreditor: AgedCreditor): string {
+  return JSON.stringify(AgedCreditor$outboundSchema.parse(agedCreditor));
+}
+
+export function agedCreditorFromJSON(
+  jsonString: string,
+): SafeParseResult<AgedCreditor, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AgedCreditor$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AgedCreditor' from JSON`,
+  );
 }

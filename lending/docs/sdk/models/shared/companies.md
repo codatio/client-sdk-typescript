@@ -20,6 +20,18 @@ let value: Companies = {
         "region": "us",
         "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c",
       },
+      referenceParentCompany: {
+        id: "8a210b68-6988-11ed-a1eb-0242ac120002",
+        name: "Codat Ltd.",
+        description: "Requested early access to the new financing scheme.",
+      },
+      referenceSubsidiaryCompanies: [
+        {
+          id: "8a210b68-6988-11ed-a1eb-0242ac120002",
+          name: "Codat Ltd.",
+          description: "Requested early access to the new financing scheme.",
+        },
+      ],
       dataConnections: [
         {
           id: "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd",

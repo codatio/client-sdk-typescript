@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingAddressType,
   AccountingAddressType$inboundSchema,
@@ -92,4 +95,22 @@ export namespace AccountingAddress$ {
   export const outboundSchema = AccountingAddress$outboundSchema;
   /** @deprecated use `AccountingAddress$Outbound` instead. */
   export type Outbound = AccountingAddress$Outbound;
+}
+
+export function accountingAddressToJSON(
+  accountingAddress: AccountingAddress,
+): string {
+  return JSON.stringify(
+    AccountingAddress$outboundSchema.parse(accountingAddress),
+  );
+}
+
+export function accountingAddressFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountingAddress, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountingAddress$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountingAddress' from JSON`,
+  );
 }

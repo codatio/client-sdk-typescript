@@ -81,6 +81,9 @@ export async function companiesList(
   const context = {
     operationID: "list-companies",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

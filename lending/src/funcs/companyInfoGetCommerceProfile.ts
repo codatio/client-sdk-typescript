@@ -87,6 +87,9 @@ export async function companyInfoGetCommerceProfile(
   const context = {
     operationID: "get-commerce-profile",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

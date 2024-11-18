@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ClientRateLimitWebhookPayload = {
   /**
@@ -77,4 +80,24 @@ export namespace ClientRateLimitWebhookPayload$ {
   export const outboundSchema = ClientRateLimitWebhookPayload$outboundSchema;
   /** @deprecated use `ClientRateLimitWebhookPayload$Outbound` instead. */
   export type Outbound = ClientRateLimitWebhookPayload$Outbound;
+}
+
+export function clientRateLimitWebhookPayloadToJSON(
+  clientRateLimitWebhookPayload: ClientRateLimitWebhookPayload,
+): string {
+  return JSON.stringify(
+    ClientRateLimitWebhookPayload$outboundSchema.parse(
+      clientRateLimitWebhookPayload,
+    ),
+  );
+}
+
+export function clientRateLimitWebhookPayloadFromJSON(
+  jsonString: string,
+): SafeParseResult<ClientRateLimitWebhookPayload, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ClientRateLimitWebhookPayload$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ClientRateLimitWebhookPayload' from JSON`,
+  );
 }

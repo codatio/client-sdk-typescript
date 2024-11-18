@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Links journal entries to the relevant journal in accounting integrations that use multi-book accounting (multiple journals).
@@ -55,4 +58,18 @@ export namespace JournalRef$ {
   export const outboundSchema = JournalRef$outboundSchema;
   /** @deprecated use `JournalRef$Outbound` instead. */
   export type Outbound = JournalRef$Outbound;
+}
+
+export function journalRefToJSON(journalRef: JournalRef): string {
+  return JSON.stringify(JournalRef$outboundSchema.parse(journalRef));
+}
+
+export function journalRefFromJSON(
+  jsonString: string,
+): SafeParseResult<JournalRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => JournalRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'JournalRef' from JSON`,
+  );
 }

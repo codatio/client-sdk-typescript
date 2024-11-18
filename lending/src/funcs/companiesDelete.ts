@@ -80,6 +80,9 @@ export async function companiesDelete(
   const context = {
     operationID: "delete-company",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

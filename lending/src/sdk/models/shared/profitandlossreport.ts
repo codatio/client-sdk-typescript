@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ReportLine,
   ReportLine$inboundSchema,
@@ -151,4 +154,22 @@ export namespace ProfitAndLossReport$ {
   export const outboundSchema = ProfitAndLossReport$outboundSchema;
   /** @deprecated use `ProfitAndLossReport$Outbound` instead. */
   export type Outbound = ProfitAndLossReport$Outbound;
+}
+
+export function profitAndLossReportToJSON(
+  profitAndLossReport: ProfitAndLossReport,
+): string {
+  return JSON.stringify(
+    ProfitAndLossReport$outboundSchema.parse(profitAndLossReport),
+  );
+}
+
+export function profitAndLossReportFromJSON(
+  jsonString: string,
+): SafeParseResult<ProfitAndLossReport, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProfitAndLossReport$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProfitAndLossReport' from JSON`,
+  );
 }

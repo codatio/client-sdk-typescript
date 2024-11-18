@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DataIntegrityMatch,
   DataIntegrityMatch$inboundSchema,
@@ -126,4 +129,22 @@ export namespace DataIntegrityDetail$ {
   export const outboundSchema = DataIntegrityDetail$outboundSchema;
   /** @deprecated use `DataIntegrityDetail$Outbound` instead. */
   export type Outbound = DataIntegrityDetail$Outbound;
+}
+
+export function dataIntegrityDetailToJSON(
+  dataIntegrityDetail: DataIntegrityDetail,
+): string {
+  return JSON.stringify(
+    DataIntegrityDetail$outboundSchema.parse(dataIntegrityDetail),
+  );
+}
+
+export function dataIntegrityDetailFromJSON(
+  jsonString: string,
+): SafeParseResult<DataIntegrityDetail, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DataIntegrityDetail$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DataIntegrityDetail' from JSON`,
+  );
 }

@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ReportLine = {
   /**
@@ -70,4 +73,18 @@ export namespace ReportLine$ {
   export const outboundSchema = ReportLine$outboundSchema;
   /** @deprecated use `ReportLine$Outbound` instead. */
   export type Outbound = ReportLine$Outbound;
+}
+
+export function reportLineToJSON(reportLine: ReportLine): string {
+  return JSON.stringify(ReportLine$outboundSchema.parse(reportLine));
+}
+
+export function reportLineFromJSON(
+  jsonString: string,
+): SafeParseResult<ReportLine, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ReportLine$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ReportLine' from JSON`,
+  );
 }

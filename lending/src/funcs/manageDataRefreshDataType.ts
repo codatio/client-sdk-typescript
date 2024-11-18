@@ -89,6 +89,9 @@ export async function manageDataRefreshDataType(
   const context = {
     operationID: "refresh-data-type",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingPaymentAllocation,
   AccountingPaymentAllocation$inboundSchema,
@@ -232,6 +235,24 @@ export namespace PurchaseOrderReference$ {
   export type Outbound = PurchaseOrderReference$Outbound;
 }
 
+export function purchaseOrderReferenceToJSON(
+  purchaseOrderReference: PurchaseOrderReference,
+): string {
+  return JSON.stringify(
+    PurchaseOrderReference$outboundSchema.parse(purchaseOrderReference),
+  );
+}
+
+export function purchaseOrderReferenceFromJSON(
+  jsonString: string,
+): SafeParseResult<PurchaseOrderReference, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PurchaseOrderReference$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PurchaseOrderReference' from JSON`,
+  );
+}
+
 /** @internal */
 export const WithholdingTax$inboundSchema: z.ZodType<
   WithholdingTax,
@@ -271,6 +292,20 @@ export namespace WithholdingTax$ {
   export const outboundSchema = WithholdingTax$outboundSchema;
   /** @deprecated use `WithholdingTax$Outbound` instead. */
   export type Outbound = WithholdingTax$Outbound;
+}
+
+export function withholdingTaxToJSON(withholdingTax: WithholdingTax): string {
+  return JSON.stringify(WithholdingTax$outboundSchema.parse(withholdingTax));
+}
+
+export function withholdingTaxFromJSON(
+  jsonString: string,
+): SafeParseResult<WithholdingTax, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => WithholdingTax$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'WithholdingTax' from JSON`,
+  );
 }
 
 /** @internal */
@@ -397,4 +432,18 @@ export namespace AccountingBill$ {
   export const outboundSchema = AccountingBill$outboundSchema;
   /** @deprecated use `AccountingBill$Outbound` instead. */
   export type Outbound = AccountingBill$Outbound;
+}
+
+export function accountingBillToJSON(accountingBill: AccountingBill): string {
+  return JSON.stringify(AccountingBill$outboundSchema.parse(accountingBill));
+}
+
+export function accountingBillFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountingBill, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountingBill$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountingBill' from JSON`,
+  );
 }

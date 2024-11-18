@@ -99,6 +99,9 @@ export async function accountsReceivableDirectIncomesGetAttachment(
   const context = {
     operationID: "get-accounting-direct-income-attachment",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

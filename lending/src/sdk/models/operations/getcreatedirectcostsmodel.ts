@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetCreateDirectCostsModelRequest = {
   /**
@@ -52,4 +55,24 @@ export namespace GetCreateDirectCostsModelRequest$ {
   export const outboundSchema = GetCreateDirectCostsModelRequest$outboundSchema;
   /** @deprecated use `GetCreateDirectCostsModelRequest$Outbound` instead. */
   export type Outbound = GetCreateDirectCostsModelRequest$Outbound;
+}
+
+export function getCreateDirectCostsModelRequestToJSON(
+  getCreateDirectCostsModelRequest: GetCreateDirectCostsModelRequest,
+): string {
+  return JSON.stringify(
+    GetCreateDirectCostsModelRequest$outboundSchema.parse(
+      getCreateDirectCostsModelRequest,
+    ),
+  );
+}
+
+export function getCreateDirectCostsModelRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetCreateDirectCostsModelRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetCreateDirectCostsModelRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetCreateDirectCostsModelRequest' from JSON`,
+  );
 }

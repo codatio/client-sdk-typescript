@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DataSource,
   DataSource$inboundSchema,
@@ -80,4 +83,24 @@ export namespace EnhancedCashFlowTransactions$ {
   export const outboundSchema = EnhancedCashFlowTransactions$outboundSchema;
   /** @deprecated use `EnhancedCashFlowTransactions$Outbound` instead. */
   export type Outbound = EnhancedCashFlowTransactions$Outbound;
+}
+
+export function enhancedCashFlowTransactionsToJSON(
+  enhancedCashFlowTransactions: EnhancedCashFlowTransactions,
+): string {
+  return JSON.stringify(
+    EnhancedCashFlowTransactions$outboundSchema.parse(
+      enhancedCashFlowTransactions,
+    ),
+  );
+}
+
+export function enhancedCashFlowTransactionsFromJSON(
+  jsonString: string,
+): SafeParseResult<EnhancedCashFlowTransactions, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnhancedCashFlowTransactions$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnhancedCashFlowTransactions' from JSON`,
+  );
 }

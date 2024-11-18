@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Report additional information, which is specific to Lending API reports.
@@ -83,4 +86,18 @@ export namespace ReportInfo$ {
   export const outboundSchema = ReportInfo$outboundSchema;
   /** @deprecated use `ReportInfo$Outbound` instead. */
   export type Outbound = ReportInfo$Outbound;
+}
+
+export function reportInfoToJSON(reportInfo: ReportInfo): string {
+  return JSON.stringify(ReportInfo$outboundSchema.parse(reportInfo));
+}
+
+export function reportInfoFromJSON(
+  jsonString: string,
+): SafeParseResult<ReportInfo, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ReportInfo$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ReportInfo' from JSON`,
+  );
 }

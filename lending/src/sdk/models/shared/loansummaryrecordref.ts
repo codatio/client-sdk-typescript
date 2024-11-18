@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   LoanSummaryIntegrationType,
   LoanSummaryIntegrationType$inboundSchema,
@@ -76,4 +79,22 @@ export namespace LoanSummaryRecordRef$ {
   export const outboundSchema = LoanSummaryRecordRef$outboundSchema;
   /** @deprecated use `LoanSummaryRecordRef$Outbound` instead. */
   export type Outbound = LoanSummaryRecordRef$Outbound;
+}
+
+export function loanSummaryRecordRefToJSON(
+  loanSummaryRecordRef: LoanSummaryRecordRef,
+): string {
+  return JSON.stringify(
+    LoanSummaryRecordRef$outboundSchema.parse(loanSummaryRecordRef),
+  );
+}
+
+export function loanSummaryRecordRefFromJSON(
+  jsonString: string,
+): SafeParseResult<LoanSummaryRecordRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => LoanSummaryRecordRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'LoanSummaryRecordRef' from JSON`,
+  );
 }

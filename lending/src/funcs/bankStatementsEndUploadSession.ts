@@ -95,6 +95,9 @@ export async function bankStatementsEndUploadSession(
   const context = {
     operationID: "end-bank-statement-upload-session",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

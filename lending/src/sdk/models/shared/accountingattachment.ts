@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * The Codat API supports pulling and pushing of file attachments for invoices, bills, direct costs, and direct incomes.
@@ -130,4 +133,22 @@ export namespace AccountingAttachment$ {
   export const outboundSchema = AccountingAttachment$outboundSchema;
   /** @deprecated use `AccountingAttachment$Outbound` instead. */
   export type Outbound = AccountingAttachment$Outbound;
+}
+
+export function accountingAttachmentToJSON(
+  accountingAttachment: AccountingAttachment,
+): string {
+  return JSON.stringify(
+    AccountingAttachment$outboundSchema.parse(accountingAttachment),
+  );
+}
+
+export function accountingAttachmentFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountingAttachment, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountingAttachment$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountingAttachment' from JSON`,
+  );
 }

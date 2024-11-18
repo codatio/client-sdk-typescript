@@ -86,6 +86,9 @@ export async function financialStatementsBalanceSheetGet(
   const context = {
     operationID: "get-accounting-balance-sheet",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

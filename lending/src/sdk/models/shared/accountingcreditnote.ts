@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingCustomerRef,
   AccountingCustomerRef$inboundSchema,
@@ -352,4 +355,22 @@ export namespace AccountingCreditNote$ {
   export const outboundSchema = AccountingCreditNote$outboundSchema;
   /** @deprecated use `AccountingCreditNote$Outbound` instead. */
   export type Outbound = AccountingCreditNote$Outbound;
+}
+
+export function accountingCreditNoteToJSON(
+  accountingCreditNote: AccountingCreditNote,
+): string {
+  return JSON.stringify(
+    AccountingCreditNote$outboundSchema.parse(accountingCreditNote),
+  );
+}
+
+export function accountingCreditNoteFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountingCreditNote, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountingCreditNote$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountingCreditNote' from JSON`,
+  );
 }

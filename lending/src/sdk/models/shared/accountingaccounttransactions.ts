@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingAccountTransaction,
   AccountingAccountTransaction$inboundSchema,
@@ -88,4 +91,24 @@ export namespace AccountingAccountTransactions$ {
   export const outboundSchema = AccountingAccountTransactions$outboundSchema;
   /** @deprecated use `AccountingAccountTransactions$Outbound` instead. */
   export type Outbound = AccountingAccountTransactions$Outbound;
+}
+
+export function accountingAccountTransactionsToJSON(
+  accountingAccountTransactions: AccountingAccountTransactions,
+): string {
+  return JSON.stringify(
+    AccountingAccountTransactions$outboundSchema.parse(
+      accountingAccountTransactions,
+    ),
+  );
+}
+
+export function accountingAccountTransactionsFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountingAccountTransactions, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountingAccountTransactions$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountingAccountTransactions' from JSON`,
+  );
 }

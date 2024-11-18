@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CompanyReference,
   CompanyReference$inboundSchema,
@@ -55,4 +58,22 @@ export namespace ReportGenerationPayload$ {
   export const outboundSchema = ReportGenerationPayload$outboundSchema;
   /** @deprecated use `ReportGenerationPayload$Outbound` instead. */
   export type Outbound = ReportGenerationPayload$Outbound;
+}
+
+export function reportGenerationPayloadToJSON(
+  reportGenerationPayload: ReportGenerationPayload,
+): string {
+  return JSON.stringify(
+    ReportGenerationPayload$outboundSchema.parse(reportGenerationPayload),
+  );
+}
+
+export function reportGenerationPayloadFromJSON(
+  jsonString: string,
+): SafeParseResult<ReportGenerationPayload, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ReportGenerationPayload$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ReportGenerationPayload' from JSON`,
+  );
 }

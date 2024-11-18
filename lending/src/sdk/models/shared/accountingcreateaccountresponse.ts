@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountStatus,
   AccountStatus$inboundSchema,
@@ -354,6 +357,33 @@ export namespace AccountingCreateAccountResponseValidDataTypeLinks$ {
     AccountingCreateAccountResponseValidDataTypeLinks$Outbound;
 }
 
+export function accountingCreateAccountResponseValidDataTypeLinksToJSON(
+  accountingCreateAccountResponseValidDataTypeLinks:
+    AccountingCreateAccountResponseValidDataTypeLinks,
+): string {
+  return JSON.stringify(
+    AccountingCreateAccountResponseValidDataTypeLinks$outboundSchema.parse(
+      accountingCreateAccountResponseValidDataTypeLinks,
+    ),
+  );
+}
+
+export function accountingCreateAccountResponseValidDataTypeLinksFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  AccountingCreateAccountResponseValidDataTypeLinks,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      AccountingCreateAccountResponseValidDataTypeLinks$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'AccountingCreateAccountResponseValidDataTypeLinks' from JSON`,
+  );
+}
+
 /** @internal */
 export const AccountingCreateAccountResponseAccountingAccount$inboundSchema:
   z.ZodType<
@@ -456,6 +486,33 @@ export namespace AccountingCreateAccountResponseAccountingAccount$ {
     AccountingCreateAccountResponseAccountingAccount$Outbound;
 }
 
+export function accountingCreateAccountResponseAccountingAccountToJSON(
+  accountingCreateAccountResponseAccountingAccount:
+    AccountingCreateAccountResponseAccountingAccount,
+): string {
+  return JSON.stringify(
+    AccountingCreateAccountResponseAccountingAccount$outboundSchema.parse(
+      accountingCreateAccountResponseAccountingAccount,
+    ),
+  );
+}
+
+export function accountingCreateAccountResponseAccountingAccountFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  AccountingCreateAccountResponseAccountingAccount,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      AccountingCreateAccountResponseAccountingAccount$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'AccountingCreateAccountResponseAccountingAccount' from JSON`,
+  );
+}
+
 /** @internal */
 export const AccountingCreateAccountResponse$inboundSchema: z.ZodType<
   AccountingCreateAccountResponse,
@@ -540,4 +597,24 @@ export namespace AccountingCreateAccountResponse$ {
   export const outboundSchema = AccountingCreateAccountResponse$outboundSchema;
   /** @deprecated use `AccountingCreateAccountResponse$Outbound` instead. */
   export type Outbound = AccountingCreateAccountResponse$Outbound;
+}
+
+export function accountingCreateAccountResponseToJSON(
+  accountingCreateAccountResponse: AccountingCreateAccountResponse,
+): string {
+  return JSON.stringify(
+    AccountingCreateAccountResponse$outboundSchema.parse(
+      accountingCreateAccountResponse,
+    ),
+  );
+}
+
+export function accountingCreateAccountResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountingCreateAccountResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountingCreateAccountResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountingCreateAccountResponse' from JSON`,
+  );
 }

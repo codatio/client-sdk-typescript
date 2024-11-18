@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type PushFieldValidation = {
   /**
@@ -59,4 +62,22 @@ export namespace PushFieldValidation$ {
   export const outboundSchema = PushFieldValidation$outboundSchema;
   /** @deprecated use `PushFieldValidation$Outbound` instead. */
   export type Outbound = PushFieldValidation$Outbound;
+}
+
+export function pushFieldValidationToJSON(
+  pushFieldValidation: PushFieldValidation,
+): string {
+  return JSON.stringify(
+    PushFieldValidation$outboundSchema.parse(pushFieldValidation),
+  );
+}
+
+export function pushFieldValidationFromJSON(
+  jsonString: string,
+): SafeParseResult<PushFieldValidation, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PushFieldValidation$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PushFieldValidation' from JSON`,
+  );
 }

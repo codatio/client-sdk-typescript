@@ -6,7 +6,7 @@
 import { AccountBalance } from "@codat/lending/sdk/models/shared";
 
 let value: AccountBalance = {
-  currency: "GBP",
+  currency: "USD",
 };
 ```
 

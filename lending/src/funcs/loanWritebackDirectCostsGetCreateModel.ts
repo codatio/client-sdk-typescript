@@ -90,6 +90,9 @@ export async function loanWritebackDirectCostsGetCreateModel(
   const context = {
     operationID: "get-create-directCosts-model",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

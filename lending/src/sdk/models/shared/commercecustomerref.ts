@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Reference to the customer that placed the order.
@@ -55,4 +58,22 @@ export namespace CommerceCustomerRef$ {
   export const outboundSchema = CommerceCustomerRef$outboundSchema;
   /** @deprecated use `CommerceCustomerRef$Outbound` instead. */
   export type Outbound = CommerceCustomerRef$Outbound;
+}
+
+export function commerceCustomerRefToJSON(
+  commerceCustomerRef: CommerceCustomerRef,
+): string {
+  return JSON.stringify(
+    CommerceCustomerRef$outboundSchema.parse(commerceCustomerRef),
+  );
+}
+
+export function commerceCustomerRefFromJSON(
+  jsonString: string,
+): SafeParseResult<CommerceCustomerRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CommerceCustomerRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CommerceCustomerRef' from JSON`,
+  );
 }

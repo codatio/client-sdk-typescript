@@ -113,6 +113,9 @@ export async function salesMetricsGetLifetimeValue(
   const context = {
     operationID: "get-commerce-lifetime-value-metrics",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

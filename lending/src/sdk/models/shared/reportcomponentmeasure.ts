@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ReportComponentMeasure = {
   /**
@@ -62,4 +65,22 @@ export namespace ReportComponentMeasure$ {
   export const outboundSchema = ReportComponentMeasure$outboundSchema;
   /** @deprecated use `ReportComponentMeasure$Outbound` instead. */
   export type Outbound = ReportComponentMeasure$Outbound;
+}
+
+export function reportComponentMeasureToJSON(
+  reportComponentMeasure: ReportComponentMeasure,
+): string {
+  return JSON.stringify(
+    ReportComponentMeasure$outboundSchema.parse(reportComponentMeasure),
+  );
+}
+
+export function reportComponentMeasureFromJSON(
+  jsonString: string,
+): SafeParseResult<ReportComponentMeasure, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ReportComponentMeasure$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ReportComponentMeasure' from JSON`,
+  );
 }

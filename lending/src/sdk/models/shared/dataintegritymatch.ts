@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type DataIntegrityMatch = {
   /**
@@ -95,4 +98,22 @@ export namespace DataIntegrityMatch$ {
   export const outboundSchema = DataIntegrityMatch$outboundSchema;
   /** @deprecated use `DataIntegrityMatch$Outbound` instead. */
   export type Outbound = DataIntegrityMatch$Outbound;
+}
+
+export function dataIntegrityMatchToJSON(
+  dataIntegrityMatch: DataIntegrityMatch,
+): string {
+  return JSON.stringify(
+    DataIntegrityMatch$outboundSchema.parse(dataIntegrityMatch),
+  );
+}
+
+export function dataIntegrityMatchFromJSON(
+  jsonString: string,
+): SafeParseResult<DataIntegrityMatch, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DataIntegrityMatch$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DataIntegrityMatch' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetCategorizedBalanceSheetStatementRequest = {
   /**
@@ -60,4 +63,31 @@ export namespace GetCategorizedBalanceSheetStatementRequest$ {
     GetCategorizedBalanceSheetStatementRequest$outboundSchema;
   /** @deprecated use `GetCategorizedBalanceSheetStatementRequest$Outbound` instead. */
   export type Outbound = GetCategorizedBalanceSheetStatementRequest$Outbound;
+}
+
+export function getCategorizedBalanceSheetStatementRequestToJSON(
+  getCategorizedBalanceSheetStatementRequest:
+    GetCategorizedBalanceSheetStatementRequest,
+): string {
+  return JSON.stringify(
+    GetCategorizedBalanceSheetStatementRequest$outboundSchema.parse(
+      getCategorizedBalanceSheetStatementRequest,
+    ),
+  );
+}
+
+export function getCategorizedBalanceSheetStatementRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  GetCategorizedBalanceSheetStatementRequest,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetCategorizedBalanceSheetStatementRequest$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'GetCategorizedBalanceSheetStatementRequest' from JSON`,
+  );
 }

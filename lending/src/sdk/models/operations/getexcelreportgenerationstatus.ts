@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type GetExcelReportGenerationStatusRequest = {
@@ -55,4 +58,25 @@ export namespace GetExcelReportGenerationStatusRequest$ {
     GetExcelReportGenerationStatusRequest$outboundSchema;
   /** @deprecated use `GetExcelReportGenerationStatusRequest$Outbound` instead. */
   export type Outbound = GetExcelReportGenerationStatusRequest$Outbound;
+}
+
+export function getExcelReportGenerationStatusRequestToJSON(
+  getExcelReportGenerationStatusRequest: GetExcelReportGenerationStatusRequest,
+): string {
+  return JSON.stringify(
+    GetExcelReportGenerationStatusRequest$outboundSchema.parse(
+      getExcelReportGenerationStatusRequest,
+    ),
+  );
+}
+
+export function getExcelReportGenerationStatusRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetExcelReportGenerationStatusRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetExcelReportGenerationStatusRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetExcelReportGenerationStatusRequest' from JSON`,
+  );
 }

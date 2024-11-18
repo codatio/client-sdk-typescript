@@ -88,6 +88,9 @@ export async function accountsPayableBillPaymentsGet(
   const context = {
     operationID: "get-accounting-bill-payment",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

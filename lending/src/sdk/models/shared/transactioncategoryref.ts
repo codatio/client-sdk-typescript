@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * An object of bank transaction category reference data.
@@ -55,4 +58,22 @@ export namespace TransactionCategoryRef$ {
   export const outboundSchema = TransactionCategoryRef$outboundSchema;
   /** @deprecated use `TransactionCategoryRef$Outbound` instead. */
   export type Outbound = TransactionCategoryRef$Outbound;
+}
+
+export function transactionCategoryRefToJSON(
+  transactionCategoryRef: TransactionCategoryRef,
+): string {
+  return JSON.stringify(
+    TransactionCategoryRef$outboundSchema.parse(transactionCategoryRef),
+  );
+}
+
+export function transactionCategoryRefFromJSON(
+  jsonString: string,
+): SafeParseResult<TransactionCategoryRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => TransactionCategoryRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TransactionCategoryRef' from JSON`,
+  );
 }

@@ -90,6 +90,9 @@ export async function loanWritebackTransfersGetCreateModel(
   const context = {
     operationID: "get-create-transfers-model",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

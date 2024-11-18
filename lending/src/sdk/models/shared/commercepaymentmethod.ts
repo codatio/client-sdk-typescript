@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Status of the Payment Method.
@@ -107,4 +110,22 @@ export namespace CommercePaymentMethod$ {
   export const outboundSchema = CommercePaymentMethod$outboundSchema;
   /** @deprecated use `CommercePaymentMethod$Outbound` instead. */
   export type Outbound = CommercePaymentMethod$Outbound;
+}
+
+export function commercePaymentMethodToJSON(
+  commercePaymentMethod: CommercePaymentMethod,
+): string {
+  return JSON.stringify(
+    CommercePaymentMethod$outboundSchema.parse(commercePaymentMethod),
+  );
+}
+
+export function commercePaymentMethodFromJSON(
+  jsonString: string,
+): SafeParseResult<CommercePaymentMethod, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CommercePaymentMethod$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CommercePaymentMethod' from JSON`,
+  );
 }

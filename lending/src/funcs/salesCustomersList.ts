@@ -95,6 +95,9 @@ export async function salesCustomersList(
   const context = {
     operationID: "list-commerce-customers",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

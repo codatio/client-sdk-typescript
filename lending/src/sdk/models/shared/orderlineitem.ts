@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   OrderDiscountAllocation,
   OrderDiscountAllocation$inboundSchema,
@@ -145,4 +148,18 @@ export namespace OrderLineItem$ {
   export const outboundSchema = OrderLineItem$outboundSchema;
   /** @deprecated use `OrderLineItem$Outbound` instead. */
   export type Outbound = OrderLineItem$Outbound;
+}
+
+export function orderLineItemToJSON(orderLineItem: OrderLineItem): string {
+  return JSON.stringify(OrderLineItem$outboundSchema.parse(orderLineItem));
+}
+
+export function orderLineItemFromJSON(
+  jsonString: string,
+): SafeParseResult<OrderLineItem, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => OrderLineItem$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OrderLineItem' from JSON`,
+  );
 }

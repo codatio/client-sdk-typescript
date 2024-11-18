@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Only returned for transactions. For accounts, there is nothing returned.
@@ -75,4 +78,22 @@ export namespace DataIntegrityAmounts$ {
   export const outboundSchema = DataIntegrityAmounts$outboundSchema;
   /** @deprecated use `DataIntegrityAmounts$Outbound` instead. */
   export type Outbound = DataIntegrityAmounts$Outbound;
+}
+
+export function dataIntegrityAmountsToJSON(
+  dataIntegrityAmounts: DataIntegrityAmounts,
+): string {
+  return JSON.stringify(
+    DataIntegrityAmounts$outboundSchema.parse(dataIntegrityAmounts),
+  );
+}
+
+export function dataIntegrityAmountsFromJSON(
+  jsonString: string,
+): SafeParseResult<DataIntegrityAmounts, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DataIntegrityAmounts$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DataIntegrityAmounts' from JSON`,
+  );
 }

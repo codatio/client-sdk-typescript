@@ -88,6 +88,9 @@ export async function excelReportsDownload(
   const context = {
     operationID: "download-excel-report",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

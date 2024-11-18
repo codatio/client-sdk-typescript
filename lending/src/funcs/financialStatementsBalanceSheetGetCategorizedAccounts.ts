@@ -88,6 +88,9 @@ export async function financialStatementsBalanceSheetGetCategorizedAccounts(
   const context = {
     operationID: "get-categorized-balance-sheet-statement",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListReconciledInvoicesRequest = {
   /**
@@ -66,4 +69,24 @@ export namespace ListReconciledInvoicesRequest$ {
   export const outboundSchema = ListReconciledInvoicesRequest$outboundSchema;
   /** @deprecated use `ListReconciledInvoicesRequest$Outbound` instead. */
   export type Outbound = ListReconciledInvoicesRequest$Outbound;
+}
+
+export function listReconciledInvoicesRequestToJSON(
+  listReconciledInvoicesRequest: ListReconciledInvoicesRequest,
+): string {
+  return JSON.stringify(
+    ListReconciledInvoicesRequest$outboundSchema.parse(
+      listReconciledInvoicesRequest,
+    ),
+  );
+}
+
+export function listReconciledInvoicesRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<ListReconciledInvoicesRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListReconciledInvoicesRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListReconciledInvoicesRequest' from JSON`,
+  );
 }

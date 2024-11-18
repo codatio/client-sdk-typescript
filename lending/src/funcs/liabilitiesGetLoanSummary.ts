@@ -87,6 +87,9 @@ export async function liabilitiesGetLoanSummary(
   const context = {
     operationID: "get-loan-summary",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * A collection of links for the company.
@@ -73,6 +76,24 @@ export namespace CompanyReferenceLinks$ {
   export type Outbound = CompanyReferenceLinks$Outbound;
 }
 
+export function companyReferenceLinksToJSON(
+  companyReferenceLinks: CompanyReferenceLinks,
+): string {
+  return JSON.stringify(
+    CompanyReferenceLinks$outboundSchema.parse(companyReferenceLinks),
+  );
+}
+
+export function companyReferenceLinksFromJSON(
+  jsonString: string,
+): SafeParseResult<CompanyReferenceLinks, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CompanyReferenceLinks$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CompanyReferenceLinks' from JSON`,
+  );
+}
+
 /** @internal */
 export const CompanyReference$inboundSchema: z.ZodType<
   CompanyReference,
@@ -119,4 +140,22 @@ export namespace CompanyReference$ {
   export const outboundSchema = CompanyReference$outboundSchema;
   /** @deprecated use `CompanyReference$Outbound` instead. */
   export type Outbound = CompanyReference$Outbound;
+}
+
+export function companyReferenceToJSON(
+  companyReference: CompanyReference,
+): string {
+  return JSON.stringify(
+    CompanyReference$outboundSchema.parse(companyReference),
+  );
+}
+
+export function companyReferenceFromJSON(
+  jsonString: string,
+): SafeParseResult<CompanyReference, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CompanyReference$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CompanyReference' from JSON`,
+  );
 }

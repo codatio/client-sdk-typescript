@@ -92,6 +92,9 @@ export async function accountingBankDataAccountsGet(
   const context = {
     operationID: "get-accounting-bank-account",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

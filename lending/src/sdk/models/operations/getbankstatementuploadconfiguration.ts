@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetBankStatementUploadConfigurationRequest = {
   /**
@@ -53,4 +56,31 @@ export namespace GetBankStatementUploadConfigurationRequest$ {
     GetBankStatementUploadConfigurationRequest$outboundSchema;
   /** @deprecated use `GetBankStatementUploadConfigurationRequest$Outbound` instead. */
   export type Outbound = GetBankStatementUploadConfigurationRequest$Outbound;
+}
+
+export function getBankStatementUploadConfigurationRequestToJSON(
+  getBankStatementUploadConfigurationRequest:
+    GetBankStatementUploadConfigurationRequest,
+): string {
+  return JSON.stringify(
+    GetBankStatementUploadConfigurationRequest$outboundSchema.parse(
+      getBankStatementUploadConfigurationRequest,
+    ),
+  );
+}
+
+export function getBankStatementUploadConfigurationRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  GetBankStatementUploadConfigurationRequest,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetBankStatementUploadConfigurationRequest$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'GetBankStatementUploadConfigurationRequest' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * The bank or other financial institution providing the account.
@@ -55,4 +58,22 @@ export namespace AccountInstitution$ {
   export const outboundSchema = AccountInstitution$outboundSchema;
   /** @deprecated use `AccountInstitution$Outbound` instead. */
   export type Outbound = AccountInstitution$Outbound;
+}
+
+export function accountInstitutionToJSON(
+  accountInstitution: AccountInstitution,
+): string {
+  return JSON.stringify(
+    AccountInstitution$outboundSchema.parse(accountInstitution),
+  );
+}
+
+export function accountInstitutionFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountInstitution, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountInstitution$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountInstitution' from JSON`,
+  );
 }

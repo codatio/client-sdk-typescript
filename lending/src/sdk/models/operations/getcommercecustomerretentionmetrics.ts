@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type GetCommerceCustomerRetentionMetricsRequest = {
@@ -89,4 +92,31 @@ export namespace GetCommerceCustomerRetentionMetricsRequest$ {
     GetCommerceCustomerRetentionMetricsRequest$outboundSchema;
   /** @deprecated use `GetCommerceCustomerRetentionMetricsRequest$Outbound` instead. */
   export type Outbound = GetCommerceCustomerRetentionMetricsRequest$Outbound;
+}
+
+export function getCommerceCustomerRetentionMetricsRequestToJSON(
+  getCommerceCustomerRetentionMetricsRequest:
+    GetCommerceCustomerRetentionMetricsRequest,
+): string {
+  return JSON.stringify(
+    GetCommerceCustomerRetentionMetricsRequest$outboundSchema.parse(
+      getCommerceCustomerRetentionMetricsRequest,
+    ),
+  );
+}
+
+export function getCommerceCustomerRetentionMetricsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  GetCommerceCustomerRetentionMetricsRequest,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetCommerceCustomerRetentionMetricsRequest$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'GetCommerceCustomerRetentionMetricsRequest' from JSON`,
+  );
 }

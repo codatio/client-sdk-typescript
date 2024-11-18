@@ -91,6 +91,9 @@ export async function accountsReceivableCreditNotesList(
   const context = {
     operationID: "list-accounting-credit-notes",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

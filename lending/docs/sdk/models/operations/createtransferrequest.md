@@ -13,11 +13,15 @@ let value: CreateTransferRequest = {
     sourceModifiedDate: "2022-10-23T00:00:00Z",
     date: "2022-10-23T00:00:00Z",
     from: {
-      accountRef: {},
+      accountRef: {
+        dataType: "invoice",
+      },
       currency: "GBP",
     },
     to: {
-      accountRef: {},
+      accountRef: {
+        dataType: "invoice",
+      },
       currency: "GBP",
     },
     depositedRecordRefs: [

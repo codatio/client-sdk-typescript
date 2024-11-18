@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Supplemental data is additional data you can include in our standard data types.
@@ -49,4 +52,22 @@ export namespace SupplementalData$ {
   export const outboundSchema = SupplementalData$outboundSchema;
   /** @deprecated use `SupplementalData$Outbound` instead. */
   export type Outbound = SupplementalData$Outbound;
+}
+
+export function supplementalDataToJSON(
+  supplementalData: SupplementalData,
+): string {
+  return JSON.stringify(
+    SupplementalData$outboundSchema.parse(supplementalData),
+  );
+}
+
+export function supplementalDataFromJSON(
+  jsonString: string,
+): SafeParseResult<SupplementalData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SupplementalData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SupplementalData' from JSON`,
+  );
 }

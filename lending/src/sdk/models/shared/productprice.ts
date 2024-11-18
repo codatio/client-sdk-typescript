@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ProductPrice = {
   /**
@@ -63,4 +66,18 @@ export namespace ProductPrice$ {
   export const outboundSchema = ProductPrice$outboundSchema;
   /** @deprecated use `ProductPrice$Outbound` instead. */
   export type Outbound = ProductPrice$Outbound;
+}
+
+export function productPriceToJSON(productPrice: ProductPrice): string {
+  return JSON.stringify(ProductPrice$outboundSchema.parse(productPrice));
+}
+
+export function productPriceFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductPrice, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductPrice$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductPrice' from JSON`,
+  );
 }

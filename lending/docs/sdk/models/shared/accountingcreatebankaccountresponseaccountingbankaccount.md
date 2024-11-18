@@ -25,7 +25,7 @@ import { AccountingCreateBankAccountResponseAccountingBankAccount } from "@codat
 let value: AccountingCreateBankAccountResponseAccountingBankAccount = {
   modifiedDate: "2022-10-23T00:00:00Z",
   sourceModifiedDate: "2022-10-23T00:00:00Z",
-  currency: "GBP",
+  currency: "EUR",
   status: "Active",
 };
 ```

@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Allowed name of the 'dataType'.
@@ -86,4 +89,18 @@ export namespace ContactRef$ {
   export const outboundSchema = ContactRef$outboundSchema;
   /** @deprecated use `ContactRef$Outbound` instead. */
   export type Outbound = ContactRef$Outbound;
+}
+
+export function contactRefToJSON(contactRef: ContactRef): string {
+  return JSON.stringify(ContactRef$outboundSchema.parse(contactRef));
+}
+
+export function contactRefFromJSON(
+  jsonString: string,
+): SafeParseResult<ContactRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ContactRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ContactRef' from JSON`,
+  );
 }

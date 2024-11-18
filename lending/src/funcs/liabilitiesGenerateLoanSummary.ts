@@ -88,6 +88,9 @@ export async function liabilitiesGenerateLoanSummary(
   const context = {
     operationID: "generate-loan-summary",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

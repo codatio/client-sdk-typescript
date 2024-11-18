@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetAccountingProfileRequest = {
   /**
@@ -45,4 +48,24 @@ export namespace GetAccountingProfileRequest$ {
   export const outboundSchema = GetAccountingProfileRequest$outboundSchema;
   /** @deprecated use `GetAccountingProfileRequest$Outbound` instead. */
   export type Outbound = GetAccountingProfileRequest$Outbound;
+}
+
+export function getAccountingProfileRequestToJSON(
+  getAccountingProfileRequest: GetAccountingProfileRequest,
+): string {
+  return JSON.stringify(
+    GetAccountingProfileRequest$outboundSchema.parse(
+      getAccountingProfileRequest,
+    ),
+  );
+}
+
+export function getAccountingProfileRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetAccountingProfileRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetAccountingProfileRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetAccountingProfileRequest' from JSON`,
+  );
 }

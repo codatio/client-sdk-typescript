@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { blobLikeSchema } from "../../types/blobs.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CodatFile,
   CodatFile$inboundSchema,
@@ -52,4 +55,18 @@ export namespace FileUpload$ {
   export const outboundSchema = FileUpload$outboundSchema;
   /** @deprecated use `FileUpload$Outbound` instead. */
   export type Outbound = FileUpload$Outbound;
+}
+
+export function fileUploadToJSON(fileUpload: FileUpload): string {
+  return JSON.stringify(FileUpload$outboundSchema.parse(fileUpload));
+}
+
+export function fileUploadFromJSON(
+  jsonString: string,
+): SafeParseResult<FileUpload, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FileUpload$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FileUpload' from JSON`,
+  );
 }

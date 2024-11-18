@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CommerceReportDimensionItems = {
   /**
@@ -63,6 +66,26 @@ export namespace CommerceReportDimensionItems$ {
   export type Outbound = CommerceReportDimensionItems$Outbound;
 }
 
+export function commerceReportDimensionItemsToJSON(
+  commerceReportDimensionItems: CommerceReportDimensionItems,
+): string {
+  return JSON.stringify(
+    CommerceReportDimensionItems$outboundSchema.parse(
+      commerceReportDimensionItems,
+    ),
+  );
+}
+
+export function commerceReportDimensionItemsFromJSON(
+  jsonString: string,
+): SafeParseResult<CommerceReportDimensionItems, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CommerceReportDimensionItems$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CommerceReportDimensionItems' from JSON`,
+  );
+}
+
 /** @internal */
 export const CommerceReportDimension$inboundSchema: z.ZodType<
   CommerceReportDimension,
@@ -108,4 +131,22 @@ export namespace CommerceReportDimension$ {
   export const outboundSchema = CommerceReportDimension$outboundSchema;
   /** @deprecated use `CommerceReportDimension$Outbound` instead. */
   export type Outbound = CommerceReportDimension$Outbound;
+}
+
+export function commerceReportDimensionToJSON(
+  commerceReportDimension: CommerceReportDimension,
+): string {
+  return JSON.stringify(
+    CommerceReportDimension$outboundSchema.parse(commerceReportDimension),
+  );
+}
+
+export function commerceReportDimensionFromJSON(
+  jsonString: string,
+): SafeParseResult<CommerceReportDimension, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CommerceReportDimension$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CommerceReportDimension' from JSON`,
+  );
 }

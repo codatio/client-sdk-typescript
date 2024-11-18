@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Name of underlying data type.
@@ -102,4 +105,24 @@ export namespace AccountTransactionLineRecordRef$ {
   export const outboundSchema = AccountTransactionLineRecordRef$outboundSchema;
   /** @deprecated use `AccountTransactionLineRecordRef$Outbound` instead. */
   export type Outbound = AccountTransactionLineRecordRef$Outbound;
+}
+
+export function accountTransactionLineRecordRefToJSON(
+  accountTransactionLineRecordRef: AccountTransactionLineRecordRef,
+): string {
+  return JSON.stringify(
+    AccountTransactionLineRecordRef$outboundSchema.parse(
+      accountTransactionLineRecordRef,
+    ),
+  );
+}
+
+export function accountTransactionLineRecordRefFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountTransactionLineRecordRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountTransactionLineRecordRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountTransactionLineRecordRef' from JSON`,
+  );
 }

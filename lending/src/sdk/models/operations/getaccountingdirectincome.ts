@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetAccountingDirectIncomeRequest = {
   /**
@@ -59,4 +62,24 @@ export namespace GetAccountingDirectIncomeRequest$ {
   export const outboundSchema = GetAccountingDirectIncomeRequest$outboundSchema;
   /** @deprecated use `GetAccountingDirectIncomeRequest$Outbound` instead. */
   export type Outbound = GetAccountingDirectIncomeRequest$Outbound;
+}
+
+export function getAccountingDirectIncomeRequestToJSON(
+  getAccountingDirectIncomeRequest: GetAccountingDirectIncomeRequest,
+): string {
+  return JSON.stringify(
+    GetAccountingDirectIncomeRequest$outboundSchema.parse(
+      getAccountingDirectIncomeRequest,
+    ),
+  );
+}
+
+export function getAccountingDirectIncomeRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetAccountingDirectIncomeRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetAccountingDirectIncomeRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetAccountingDirectIncomeRequest' from JSON`,
+  );
 }

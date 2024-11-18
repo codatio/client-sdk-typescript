@@ -92,6 +92,9 @@ export async function accountsReceivableInvoicesListAttachments(
   const context = {
     operationID: "list-accounting-invoice-attachments",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

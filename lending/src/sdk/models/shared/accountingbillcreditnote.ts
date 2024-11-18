@@ -3,13 +3,22 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingPaymentAllocation,
   AccountingPaymentAllocation$inboundSchema,
   AccountingPaymentAllocation$Outbound,
   AccountingPaymentAllocation$outboundSchema,
 } from "./accountingpaymentallocation.js";
+import {
+  AccountingRecordRef,
+  AccountingRecordRef$inboundSchema,
+  AccountingRecordRef$Outbound,
+  AccountingRecordRef$outboundSchema,
+} from "./accountingrecordref.js";
 import {
   BillCreditNoteLineItem,
   BillCreditNoteLineItem$inboundSchema,
@@ -33,12 +42,6 @@ import {
   Metadata$Outbound,
   Metadata$outboundSchema,
 } from "./metadata.js";
-import {
-  RecordRef,
-  RecordRef$inboundSchema,
-  RecordRef$Outbound,
-  RecordRef$outboundSchema,
-} from "./recordref.js";
 import {
   SupplementalData,
   SupplementalData$inboundSchema,
@@ -217,7 +220,7 @@ export type AccountingBillCreditNote = {
   /**
    * An array of records the credit note was created from.
    */
-  createdFromRefs?: Array<RecordRef> | null | undefined;
+  createdFromRefs?: Array<AccountingRecordRef> | null | undefined;
   /**
    * Any additional information about the bill credit note.
    */
@@ -262,7 +265,8 @@ export const AccountingBillCreditNote$inboundSchema: z.ZodType<
   paymentAllocations: z.nullable(
     z.array(AccountingPaymentAllocation$inboundSchema),
   ).optional(),
-  createdFromRefs: z.nullable(z.array(RecordRef$inboundSchema)).optional(),
+  createdFromRefs: z.nullable(z.array(AccountingRecordRef$inboundSchema))
+    .optional(),
   note: z.nullable(z.string()).optional(),
   supplementalData: SupplementalData$inboundSchema.optional(),
   metadata: Metadata$inboundSchema.optional(),
@@ -292,7 +296,7 @@ export type AccountingBillCreditNote$Outbound = {
     | Array<AccountingPaymentAllocation$Outbound>
     | null
     | undefined;
-  createdFromRefs?: Array<RecordRef$Outbound> | null | undefined;
+  createdFromRefs?: Array<AccountingRecordRef$Outbound> | null | undefined;
   note?: string | null | undefined;
   supplementalData?: SupplementalData$Outbound | undefined;
   metadata?: Metadata$Outbound | undefined;
@@ -342,7 +346,8 @@ export const AccountingBillCreditNote$outboundSchema: z.ZodType<
   paymentAllocations: z.nullable(
     z.array(AccountingPaymentAllocation$outboundSchema),
   ).optional(),
-  createdFromRefs: z.nullable(z.array(RecordRef$outboundSchema)).optional(),
+  createdFromRefs: z.nullable(z.array(AccountingRecordRef$outboundSchema))
+    .optional(),
   note: z.nullable(z.string()).optional(),
   supplementalData: SupplementalData$outboundSchema.optional(),
   metadata: Metadata$outboundSchema.optional(),
@@ -359,4 +364,22 @@ export namespace AccountingBillCreditNote$ {
   export const outboundSchema = AccountingBillCreditNote$outboundSchema;
   /** @deprecated use `AccountingBillCreditNote$Outbound` instead. */
   export type Outbound = AccountingBillCreditNote$Outbound;
+}
+
+export function accountingBillCreditNoteToJSON(
+  accountingBillCreditNote: AccountingBillCreditNote,
+): string {
+  return JSON.stringify(
+    AccountingBillCreditNote$outboundSchema.parse(accountingBillCreditNote),
+  );
+}
+
+export function accountingBillCreditNoteFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountingBillCreditNote, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountingBillCreditNote$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountingBillCreditNote' from JSON`,
+  );
 }

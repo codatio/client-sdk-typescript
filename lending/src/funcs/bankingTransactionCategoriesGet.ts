@@ -95,6 +95,9 @@ export async function bankingTransactionCategoriesGet(
   const context = {
     operationID: "get-banking-transaction-category",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

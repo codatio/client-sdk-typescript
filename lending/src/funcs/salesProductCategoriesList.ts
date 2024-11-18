@@ -97,6 +97,9 @@ export async function salesProductCategoriesList(
   const context = {
     operationID: "list-commerce-product-categories",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * The type of the weblink.
@@ -86,4 +89,18 @@ export namespace WebLink$ {
   export const outboundSchema = WebLink$outboundSchema;
   /** @deprecated use `WebLink$Outbound` instead. */
   export type Outbound = WebLink$Outbound;
+}
+
+export function webLinkToJSON(webLink: WebLink): string {
+  return JSON.stringify(WebLink$outboundSchema.parse(webLink));
+}
+
+export function webLinkFromJSON(
+  jsonString: string,
+): SafeParseResult<WebLink, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => WebLink$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'WebLink' from JSON`,
+  );
 }

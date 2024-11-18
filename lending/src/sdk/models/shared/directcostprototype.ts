@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingPaymentAllocation,
   AccountingPaymentAllocation$inboundSchema,
@@ -217,4 +220,22 @@ export namespace DirectCostPrototype$ {
   export const outboundSchema = DirectCostPrototype$outboundSchema;
   /** @deprecated use `DirectCostPrototype$Outbound` instead. */
   export type Outbound = DirectCostPrototype$Outbound;
+}
+
+export function directCostPrototypeToJSON(
+  directCostPrototype: DirectCostPrototype,
+): string {
+  return JSON.stringify(
+    DirectCostPrototype$outboundSchema.parse(directCostPrototype),
+  );
+}
+
+export function directCostPrototypeFromJSON(
+  jsonString: string,
+): SafeParseResult<DirectCostPrototype, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DirectCostPrototype$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DirectCostPrototype' from JSON`,
+  );
 }

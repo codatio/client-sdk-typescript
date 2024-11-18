@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListAccountingDirectCostAttachmentsRequest = {
   /**
@@ -60,4 +63,31 @@ export namespace ListAccountingDirectCostAttachmentsRequest$ {
     ListAccountingDirectCostAttachmentsRequest$outboundSchema;
   /** @deprecated use `ListAccountingDirectCostAttachmentsRequest$Outbound` instead. */
   export type Outbound = ListAccountingDirectCostAttachmentsRequest$Outbound;
+}
+
+export function listAccountingDirectCostAttachmentsRequestToJSON(
+  listAccountingDirectCostAttachmentsRequest:
+    ListAccountingDirectCostAttachmentsRequest,
+): string {
+  return JSON.stringify(
+    ListAccountingDirectCostAttachmentsRequest$outboundSchema.parse(
+      listAccountingDirectCostAttachmentsRequest,
+    ),
+  );
+}
+
+export function listAccountingDirectCostAttachmentsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  ListAccountingDirectCostAttachmentsRequest,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      ListAccountingDirectCostAttachmentsRequest$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'ListAccountingDirectCostAttachmentsRequest' from JSON`,
+  );
 }

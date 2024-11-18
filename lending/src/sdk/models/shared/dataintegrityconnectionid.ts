@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type DataIntegrityConnectionId = {
   /**
@@ -52,4 +55,22 @@ export namespace DataIntegrityConnectionId$ {
   export const outboundSchema = DataIntegrityConnectionId$outboundSchema;
   /** @deprecated use `DataIntegrityConnectionId$Outbound` instead. */
   export type Outbound = DataIntegrityConnectionId$Outbound;
+}
+
+export function dataIntegrityConnectionIdToJSON(
+  dataIntegrityConnectionId: DataIntegrityConnectionId,
+): string {
+  return JSON.stringify(
+    DataIntegrityConnectionId$outboundSchema.parse(dataIntegrityConnectionId),
+  );
+}
+
+export function dataIntegrityConnectionIdFromJSON(
+  jsonString: string,
+): SafeParseResult<DataIntegrityConnectionId, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DataIntegrityConnectionId$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DataIntegrityConnectionId' from JSON`,
+  );
 }

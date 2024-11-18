@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * A key for a Codat data type.
@@ -82,4 +85,22 @@ export namespace StartUploadSessionRequest$ {
   export const outboundSchema = StartUploadSessionRequest$outboundSchema;
   /** @deprecated use `StartUploadSessionRequest$Outbound` instead. */
   export type Outbound = StartUploadSessionRequest$Outbound;
+}
+
+export function startUploadSessionRequestToJSON(
+  startUploadSessionRequest: StartUploadSessionRequest,
+): string {
+  return JSON.stringify(
+    StartUploadSessionRequest$outboundSchema.parse(startUploadSessionRequest),
+  );
+}
+
+export function startUploadSessionRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<StartUploadSessionRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => StartUploadSessionRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'StartUploadSessionRequest' from JSON`,
+  );
 }

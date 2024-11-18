@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetAccountingAgedDebtorsReportRequest = {
   /**
@@ -69,4 +72,25 @@ export namespace GetAccountingAgedDebtorsReportRequest$ {
     GetAccountingAgedDebtorsReportRequest$outboundSchema;
   /** @deprecated use `GetAccountingAgedDebtorsReportRequest$Outbound` instead. */
   export type Outbound = GetAccountingAgedDebtorsReportRequest$Outbound;
+}
+
+export function getAccountingAgedDebtorsReportRequestToJSON(
+  getAccountingAgedDebtorsReportRequest: GetAccountingAgedDebtorsReportRequest,
+): string {
+  return JSON.stringify(
+    GetAccountingAgedDebtorsReportRequest$outboundSchema.parse(
+      getAccountingAgedDebtorsReportRequest,
+    ),
+  );
+}
+
+export function getAccountingAgedDebtorsReportRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetAccountingAgedDebtorsReportRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetAccountingAgedDebtorsReportRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetAccountingAgedDebtorsReportRequest' from JSON`,
+  );
 }

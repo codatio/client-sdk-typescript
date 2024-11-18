@@ -3,8 +3,11 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountRef,
   AccountRef$inboundSchema,
@@ -108,6 +111,24 @@ export namespace JournalLineTracking$ {
   export type Outbound = JournalLineTracking$Outbound;
 }
 
+export function journalLineTrackingToJSON(
+  journalLineTracking: JournalLineTracking,
+): string {
+  return JSON.stringify(
+    JournalLineTracking$outboundSchema.parse(journalLineTracking),
+  );
+}
+
+export function journalLineTrackingFromJSON(
+  jsonString: string,
+): SafeParseResult<JournalLineTracking, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => JournalLineTracking$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'JournalLineTracking' from JSON`,
+  );
+}
+
 /** @internal */
 export const JournalLineDataType$inboundSchema: z.ZodNativeEnum<
   typeof JournalLineDataType
@@ -168,6 +189,24 @@ export namespace ContactReference$ {
   export type Outbound = ContactReference$Outbound;
 }
 
+export function contactReferenceToJSON(
+  contactReference: ContactReference,
+): string {
+  return JSON.stringify(
+    ContactReference$outboundSchema.parse(contactReference),
+  );
+}
+
+export function contactReferenceFromJSON(
+  jsonString: string,
+): SafeParseResult<ContactReference, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ContactReference$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ContactReference' from JSON`,
+  );
+}
+
 /** @internal */
 export const JournalLine$inboundSchema: z.ZodType<
   JournalLine,
@@ -219,4 +258,18 @@ export namespace JournalLine$ {
   export const outboundSchema = JournalLine$outboundSchema;
   /** @deprecated use `JournalLine$Outbound` instead. */
   export type Outbound = JournalLine$Outbound;
+}
+
+export function journalLineToJSON(journalLine: JournalLine): string {
+  return JSON.stringify(JournalLine$outboundSchema.parse(journalLine));
+}
+
+export function journalLineFromJSON(
+  jsonString: string,
+): SafeParseResult<JournalLine, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => JournalLine$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'JournalLine' from JSON`,
+  );
 }

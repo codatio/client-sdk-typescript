@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountBalance,
   AccountBalance$inboundSchema,
@@ -179,4 +182,22 @@ export namespace CommerceCompanyInfo$ {
   export const outboundSchema = CommerceCompanyInfo$outboundSchema;
   /** @deprecated use `CommerceCompanyInfo$Outbound` instead. */
   export type Outbound = CommerceCompanyInfo$Outbound;
+}
+
+export function commerceCompanyInfoToJSON(
+  commerceCompanyInfo: CommerceCompanyInfo,
+): string {
+  return JSON.stringify(
+    CommerceCompanyInfo$outboundSchema.parse(commerceCompanyInfo),
+  );
+}
+
+export function commerceCompanyInfoFromJSON(
+  jsonString: string,
+): SafeParseResult<CommerceCompanyInfo, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CommerceCompanyInfo$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CommerceCompanyInfo' from JSON`,
+  );
 }

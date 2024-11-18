@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListCommercePaymentsRequest = {
   /**
@@ -80,4 +83,24 @@ export namespace ListCommercePaymentsRequest$ {
   export const outboundSchema = ListCommercePaymentsRequest$outboundSchema;
   /** @deprecated use `ListCommercePaymentsRequest$Outbound` instead. */
   export type Outbound = ListCommercePaymentsRequest$Outbound;
+}
+
+export function listCommercePaymentsRequestToJSON(
+  listCommercePaymentsRequest: ListCommercePaymentsRequest,
+): string {
+  return JSON.stringify(
+    ListCommercePaymentsRequest$outboundSchema.parse(
+      listCommercePaymentsRequest,
+    ),
+  );
+}
+
+export function listCommercePaymentsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<ListCommercePaymentsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListCommercePaymentsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListCommercePaymentsRequest' from JSON`,
+  );
 }

@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountRef,
   AccountRef$inboundSchema,
@@ -207,4 +210,20 @@ export namespace InvoiceLineItem$ {
   export const outboundSchema = InvoiceLineItem$outboundSchema;
   /** @deprecated use `InvoiceLineItem$Outbound` instead. */
   export type Outbound = InvoiceLineItem$Outbound;
+}
+
+export function invoiceLineItemToJSON(
+  invoiceLineItem: InvoiceLineItem,
+): string {
+  return JSON.stringify(InvoiceLineItem$outboundSchema.parse(invoiceLineItem));
+}
+
+export function invoiceLineItemFromJSON(
+  jsonString: string,
+): SafeParseResult<InvoiceLineItem, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => InvoiceLineItem$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'InvoiceLineItem' from JSON`,
+  );
 }

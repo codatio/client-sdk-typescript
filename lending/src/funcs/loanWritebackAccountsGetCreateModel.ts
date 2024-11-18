@@ -92,6 +92,9 @@ export async function loanWritebackAccountsGetCreateModel(
   const context = {
     operationID: "get-create-chartOfAccounts-model",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

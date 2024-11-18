@@ -97,6 +97,9 @@ export async function bankingTransactionCategoriesList(
   const context = {
     operationID: "list-banking-transaction-categories",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

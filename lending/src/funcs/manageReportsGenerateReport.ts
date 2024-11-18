@@ -89,6 +89,9 @@ export async function manageReportsGenerateReport(
   const context = {
     operationID: "generate-report",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

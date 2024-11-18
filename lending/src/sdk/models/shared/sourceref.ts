@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * A source reference containing the `sourceType` object "Banking".
@@ -48,4 +51,18 @@ export namespace SourceRef$ {
   export const outboundSchema = SourceRef$outboundSchema;
   /** @deprecated use `SourceRef$Outbound` instead. */
   export type Outbound = SourceRef$Outbound;
+}
+
+export function sourceRefToJSON(sourceRef: SourceRef): string {
+  return JSON.stringify(SourceRef$outboundSchema.parse(sourceRef));
+}
+
+export function sourceRefFromJSON(
+  jsonString: string,
+): SafeParseResult<SourceRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SourceRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SourceRef' from JSON`,
+  );
 }

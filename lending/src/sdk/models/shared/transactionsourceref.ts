@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   TransactionSourceType,
   TransactionSourceType$inboundSchema,
@@ -57,4 +60,22 @@ export namespace TransactionSourceRef$ {
   export const outboundSchema = TransactionSourceRef$outboundSchema;
   /** @deprecated use `TransactionSourceRef$Outbound` instead. */
   export type Outbound = TransactionSourceRef$Outbound;
+}
+
+export function transactionSourceRefToJSON(
+  transactionSourceRef: TransactionSourceRef,
+): string {
+  return JSON.stringify(
+    TransactionSourceRef$outboundSchema.parse(transactionSourceRef),
+  );
+}
+
+export function transactionSourceRefFromJSON(
+  jsonString: string,
+): SafeParseResult<TransactionSourceRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => TransactionSourceRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TransactionSourceRef' from JSON`,
+  );
 }

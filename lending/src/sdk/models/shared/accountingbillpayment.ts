@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountRef,
   AccountRef$inboundSchema,
@@ -354,4 +357,22 @@ export namespace AccountingBillPayment$ {
   export const outboundSchema = AccountingBillPayment$outboundSchema;
   /** @deprecated use `AccountingBillPayment$Outbound` instead. */
   export type Outbound = AccountingBillPayment$Outbound;
+}
+
+export function accountingBillPaymentToJSON(
+  accountingBillPayment: AccountingBillPayment,
+): string {
+  return JSON.stringify(
+    AccountingBillPayment$outboundSchema.parse(accountingBillPayment),
+  );
+}
+
+export function accountingBillPaymentFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountingBillPayment, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountingBillPayment$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountingBillPayment' from JSON`,
+  );
 }

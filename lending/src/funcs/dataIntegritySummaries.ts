@@ -92,6 +92,9 @@ export async function dataIntegritySummaries(
   const context = {
     operationID: "get-data-integrity-summaries",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

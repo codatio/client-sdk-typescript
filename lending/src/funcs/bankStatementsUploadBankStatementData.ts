@@ -95,6 +95,9 @@ export async function bankStatementsUploadBankStatementData(
   const context = {
     operationID: "upload-bank-statement-data",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

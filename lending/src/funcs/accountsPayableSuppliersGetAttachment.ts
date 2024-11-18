@@ -96,6 +96,9 @@ export async function accountsPayableSuppliersGetAttachment(
   const context = {
     operationID: "get-accounting-supplier-attachment",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

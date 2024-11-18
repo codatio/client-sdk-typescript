@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ServiceChargeType,
   ServiceChargeType$inboundSchema,
@@ -105,4 +108,18 @@ export namespace ServiceCharge$ {
   export const outboundSchema = ServiceCharge$outboundSchema;
   /** @deprecated use `ServiceCharge$Outbound` instead. */
   export type Outbound = ServiceCharge$Outbound;
+}
+
+export function serviceChargeToJSON(serviceCharge: ServiceCharge): string {
+  return JSON.stringify(ServiceCharge$outboundSchema.parse(serviceCharge));
+}
+
+export function serviceChargeFromJSON(
+  jsonString: string,
+): SafeParseResult<ServiceCharge, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ServiceCharge$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ServiceCharge' from JSON`,
+  );
 }

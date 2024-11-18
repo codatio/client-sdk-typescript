@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountRef,
   AccountRef$inboundSchema,
@@ -209,4 +212,22 @@ export namespace CreditNoteLineItem$ {
   export const outboundSchema = CreditNoteLineItem$outboundSchema;
   /** @deprecated use `CreditNoteLineItem$Outbound` instead. */
   export type Outbound = CreditNoteLineItem$Outbound;
+}
+
+export function creditNoteLineItemToJSON(
+  creditNoteLineItem: CreditNoteLineItem,
+): string {
+  return JSON.stringify(
+    CreditNoteLineItem$outboundSchema.parse(creditNoteLineItem),
+  );
+}
+
+export function creditNoteLineItemFromJSON(
+  jsonString: string,
+): SafeParseResult<CreditNoteLineItem, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreditNoteLineItem$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreditNoteLineItem' from JSON`,
+  );
 }

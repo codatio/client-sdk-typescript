@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Reference to the geographic location where the order was placed.
@@ -55,4 +58,18 @@ export namespace LocationRef$ {
   export const outboundSchema = LocationRef$outboundSchema;
   /** @deprecated use `LocationRef$Outbound` instead. */
   export type Outbound = LocationRef$Outbound;
+}
+
+export function locationRefToJSON(locationRef: LocationRef): string {
+  return JSON.stringify(LocationRef$outboundSchema.parse(locationRef));
+}
+
+export function locationRefFromJSON(
+  jsonString: string,
+): SafeParseResult<LocationRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => LocationRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'LocationRef' from JSON`,
+  );
 }

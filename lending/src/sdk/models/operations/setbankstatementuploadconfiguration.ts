@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type SetBankStatementUploadConfigurationRequest = {
@@ -73,4 +76,31 @@ export namespace SetBankStatementUploadConfigurationRequest$ {
     SetBankStatementUploadConfigurationRequest$outboundSchema;
   /** @deprecated use `SetBankStatementUploadConfigurationRequest$Outbound` instead. */
   export type Outbound = SetBankStatementUploadConfigurationRequest$Outbound;
+}
+
+export function setBankStatementUploadConfigurationRequestToJSON(
+  setBankStatementUploadConfigurationRequest:
+    SetBankStatementUploadConfigurationRequest,
+): string {
+  return JSON.stringify(
+    SetBankStatementUploadConfigurationRequest$outboundSchema.parse(
+      setBankStatementUploadConfigurationRequest,
+    ),
+  );
+}
+
+export function setBankStatementUploadConfigurationRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  SetBankStatementUploadConfigurationRequest,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      SetBankStatementUploadConfigurationRequest$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'SetBankStatementUploadConfigurationRequest' from JSON`,
+  );
 }

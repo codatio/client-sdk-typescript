@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type ListDataIntegrityDetailsRequest = {
@@ -81,4 +84,24 @@ export namespace ListDataIntegrityDetailsRequest$ {
   export const outboundSchema = ListDataIntegrityDetailsRequest$outboundSchema;
   /** @deprecated use `ListDataIntegrityDetailsRequest$Outbound` instead. */
   export type Outbound = ListDataIntegrityDetailsRequest$Outbound;
+}
+
+export function listDataIntegrityDetailsRequestToJSON(
+  listDataIntegrityDetailsRequest: ListDataIntegrityDetailsRequest,
+): string {
+  return JSON.stringify(
+    ListDataIntegrityDetailsRequest$outboundSchema.parse(
+      listDataIntegrityDetailsRequest,
+    ),
+  );
+}
+
+export function listDataIntegrityDetailsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<ListDataIntegrityDetailsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListDataIntegrityDetailsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListDataIntegrityDetailsRequest' from JSON`,
+  );
 }

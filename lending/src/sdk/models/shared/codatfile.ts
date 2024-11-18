@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CodatFile = {
   fileName: string;
@@ -56,4 +59,18 @@ export namespace CodatFile$ {
   export const outboundSchema = CodatFile$outboundSchema;
   /** @deprecated use `CodatFile$Outbound` instead. */
   export type Outbound = CodatFile$Outbound;
+}
+
+export function codatFileToJSON(codatFile: CodatFile): string {
+  return JSON.stringify(CodatFile$outboundSchema.parse(codatFile));
+}
+
+export function codatFileFromJSON(
+  jsonString: string,
+): SafeParseResult<CodatFile, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CodatFile$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CodatFile' from JSON`,
+  );
 }

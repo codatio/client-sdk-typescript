@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Data types that reference a tax rate, for example invoice and bill line items, use a taxRateRef that includes the ID and name of the linked tax rate.
@@ -76,4 +79,18 @@ export namespace TaxRateRef$ {
   export const outboundSchema = TaxRateRef$outboundSchema;
   /** @deprecated use `TaxRateRef$Outbound` instead. */
   export type Outbound = TaxRateRef$Outbound;
+}
+
+export function taxRateRefToJSON(taxRateRef: TaxRateRef): string {
+  return JSON.stringify(TaxRateRef$outboundSchema.parse(taxRateRef));
+}
+
+export function taxRateRefFromJSON(
+  jsonString: string,
+): SafeParseResult<TaxRateRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => TaxRateRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TaxRateRef' from JSON`,
+  );
 }

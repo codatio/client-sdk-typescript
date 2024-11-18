@@ -3,8 +3,11 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountTransactionLine,
   AccountTransactionLine$inboundSchema,
@@ -262,4 +265,24 @@ export namespace AccountingAccountTransaction$ {
   export const outboundSchema = AccountingAccountTransaction$outboundSchema;
   /** @deprecated use `AccountingAccountTransaction$Outbound` instead. */
   export type Outbound = AccountingAccountTransaction$Outbound;
+}
+
+export function accountingAccountTransactionToJSON(
+  accountingAccountTransaction: AccountingAccountTransaction,
+): string {
+  return JSON.stringify(
+    AccountingAccountTransaction$outboundSchema.parse(
+      accountingAccountTransaction,
+    ),
+  );
+}
+
+export function accountingAccountTransactionFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountingAccountTransaction, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountingAccountTransaction$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountingAccountTransaction' from JSON`,
+  );
 }

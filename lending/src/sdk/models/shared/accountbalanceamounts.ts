@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Depending on the data provided by the underlying bank, not all balances are always available.
@@ -73,4 +76,22 @@ export namespace AccountBalanceAmounts$ {
   export const outboundSchema = AccountBalanceAmounts$outboundSchema;
   /** @deprecated use `AccountBalanceAmounts$Outbound` instead. */
   export type Outbound = AccountBalanceAmounts$Outbound;
+}
+
+export function accountBalanceAmountsToJSON(
+  accountBalanceAmounts: AccountBalanceAmounts,
+): string {
+  return JSON.stringify(
+    AccountBalanceAmounts$outboundSchema.parse(accountBalanceAmounts),
+  );
+}
+
+export function accountBalanceAmountsFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountBalanceAmounts, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountBalanceAmounts$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountBalanceAmounts' from JSON`,
+  );
 }

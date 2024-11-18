@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetCreateUpdateSuppliersModelRequest = {
   /**
@@ -54,4 +57,25 @@ export namespace GetCreateUpdateSuppliersModelRequest$ {
     GetCreateUpdateSuppliersModelRequest$outboundSchema;
   /** @deprecated use `GetCreateUpdateSuppliersModelRequest$Outbound` instead. */
   export type Outbound = GetCreateUpdateSuppliersModelRequest$Outbound;
+}
+
+export function getCreateUpdateSuppliersModelRequestToJSON(
+  getCreateUpdateSuppliersModelRequest: GetCreateUpdateSuppliersModelRequest,
+): string {
+  return JSON.stringify(
+    GetCreateUpdateSuppliersModelRequest$outboundSchema.parse(
+      getCreateUpdateSuppliersModelRequest,
+    ),
+  );
+}
+
+export function getCreateUpdateSuppliersModelRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetCreateUpdateSuppliersModelRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetCreateUpdateSuppliersModelRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetCreateUpdateSuppliersModelRequest' from JSON`,
+  );
 }

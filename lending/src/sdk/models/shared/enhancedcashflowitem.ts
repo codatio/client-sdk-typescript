@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountRef,
   AccountRef$inboundSchema,
@@ -186,6 +189,24 @@ export namespace CashFlowTransaction$ {
   export type Outbound = CashFlowTransaction$Outbound;
 }
 
+export function cashFlowTransactionToJSON(
+  cashFlowTransaction: CashFlowTransaction,
+): string {
+  return JSON.stringify(
+    CashFlowTransaction$outboundSchema.parse(cashFlowTransaction),
+  );
+}
+
+export function cashFlowTransactionFromJSON(
+  jsonString: string,
+): SafeParseResult<CashFlowTransaction, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CashFlowTransaction$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CashFlowTransaction' from JSON`,
+  );
+}
+
 /** @internal */
 export const EnhancedCashFlowItem$inboundSchema: z.ZodType<
   EnhancedCashFlowItem,
@@ -222,4 +243,22 @@ export namespace EnhancedCashFlowItem$ {
   export const outboundSchema = EnhancedCashFlowItem$outboundSchema;
   /** @deprecated use `EnhancedCashFlowItem$Outbound` instead. */
   export type Outbound = EnhancedCashFlowItem$Outbound;
+}
+
+export function enhancedCashFlowItemToJSON(
+  enhancedCashFlowItem: EnhancedCashFlowItem,
+): string {
+  return JSON.stringify(
+    EnhancedCashFlowItem$outboundSchema.parse(enhancedCashFlowItem),
+  );
+}
+
+export function enhancedCashFlowItemFromJSON(
+  jsonString: string,
+): SafeParseResult<EnhancedCashFlowItem, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnhancedCashFlowItem$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnhancedCashFlowItem' from JSON`,
+  );
 }

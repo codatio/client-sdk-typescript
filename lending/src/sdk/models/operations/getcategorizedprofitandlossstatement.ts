@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetCategorizedProfitAndLossStatementRequest = {
   /**
@@ -63,4 +66,31 @@ export namespace GetCategorizedProfitAndLossStatementRequest$ {
     GetCategorizedProfitAndLossStatementRequest$outboundSchema;
   /** @deprecated use `GetCategorizedProfitAndLossStatementRequest$Outbound` instead. */
   export type Outbound = GetCategorizedProfitAndLossStatementRequest$Outbound;
+}
+
+export function getCategorizedProfitAndLossStatementRequestToJSON(
+  getCategorizedProfitAndLossStatementRequest:
+    GetCategorizedProfitAndLossStatementRequest,
+): string {
+  return JSON.stringify(
+    GetCategorizedProfitAndLossStatementRequest$outboundSchema.parse(
+      getCategorizedProfitAndLossStatementRequest,
+    ),
+  );
+}
+
+export function getCategorizedProfitAndLossStatementRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  GetCategorizedProfitAndLossStatementRequest,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetCategorizedProfitAndLossStatementRequest$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'GetCategorizedProfitAndLossStatementRequest' from JSON`,
+  );
 }

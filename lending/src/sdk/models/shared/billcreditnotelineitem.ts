@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountRef,
   AccountRef$inboundSchema,
@@ -196,6 +199,24 @@ export namespace TaxRateReference$ {
   export type Outbound = TaxRateReference$Outbound;
 }
 
+export function taxRateReferenceToJSON(
+  taxRateReference: TaxRateReference,
+): string {
+  return JSON.stringify(
+    TaxRateReference$outboundSchema.parse(taxRateReference),
+  );
+}
+
+export function taxRateReferenceFromJSON(
+  jsonString: string,
+): SafeParseResult<TaxRateReference, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => TaxRateReference$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TaxRateReference' from JSON`,
+  );
+}
+
 /** @internal */
 export const ItemReference$inboundSchema: z.ZodType<
   ItemReference,
@@ -233,6 +254,20 @@ export namespace ItemReference$ {
   export const outboundSchema = ItemReference$outboundSchema;
   /** @deprecated use `ItemReference$Outbound` instead. */
   export type Outbound = ItemReference$Outbound;
+}
+
+export function itemReferenceToJSON(itemReference: ItemReference): string {
+  return JSON.stringify(ItemReference$outboundSchema.parse(itemReference));
+}
+
+export function itemReferenceFromJSON(
+  jsonString: string,
+): SafeParseResult<ItemReference, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ItemReference$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ItemReference' from JSON`,
+  );
 }
 
 /** @internal */
@@ -340,4 +375,22 @@ export namespace BillCreditNoteLineItem$ {
   export const outboundSchema = BillCreditNoteLineItem$outboundSchema;
   /** @deprecated use `BillCreditNoteLineItem$Outbound` instead. */
   export type Outbound = BillCreditNoteLineItem$Outbound;
+}
+
+export function billCreditNoteLineItemToJSON(
+  billCreditNoteLineItem: BillCreditNoteLineItem,
+): string {
+  return JSON.stringify(
+    BillCreditNoteLineItem$outboundSchema.parse(billCreditNoteLineItem),
+  );
+}
+
+export function billCreditNoteLineItemFromJSON(
+  jsonString: string,
+): SafeParseResult<BillCreditNoteLineItem, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BillCreditNoteLineItem$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BillCreditNoteLineItem' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type LoanTransactionsReportInfo = {
   /**
@@ -98,4 +101,22 @@ export namespace LoanTransactionsReportInfo$ {
   export const outboundSchema = LoanTransactionsReportInfo$outboundSchema;
   /** @deprecated use `LoanTransactionsReportInfo$Outbound` instead. */
   export type Outbound = LoanTransactionsReportInfo$Outbound;
+}
+
+export function loanTransactionsReportInfoToJSON(
+  loanTransactionsReportInfo: LoanTransactionsReportInfo,
+): string {
+  return JSON.stringify(
+    LoanTransactionsReportInfo$outboundSchema.parse(loanTransactionsReportInfo),
+  );
+}
+
+export function loanTransactionsReportInfoFromJSON(
+  jsonString: string,
+): SafeParseResult<LoanTransactionsReportInfo, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => LoanTransactionsReportInfo$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'LoanTransactionsReportInfo' from JSON`,
+  );
 }

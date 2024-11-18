@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Allowed name of the 'dataType'.
@@ -92,4 +95,18 @@ export namespace Zero$ {
   export const outboundSchema = Zero$outboundSchema;
   /** @deprecated use `Zero$Outbound` instead. */
   export type Outbound = Zero$Outbound;
+}
+
+export function zeroToJSON(zero: Zero): string {
+  return JSON.stringify(Zero$outboundSchema.parse(zero));
+}
+
+export function zeroFromJSON(
+  jsonString: string,
+): SafeParseResult<Zero, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Zero$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Zero' from JSON`,
+  );
 }

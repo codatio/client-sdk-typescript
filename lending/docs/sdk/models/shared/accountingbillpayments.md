@@ -14,7 +14,7 @@ let value: AccountingBillPayments = {
       id: "3d5a8e00-d108-4045-8823-7f342676cffa",
       accountRef: {},
       totalAmount: new Decimal("1000"),
-      currency: "EUR",
+      currency: "USD",
       date: "2022-10-23T00:00:00Z",
       note: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
       paymentMethodRef: {
@@ -41,7 +41,7 @@ let value: AccountingBillPayments = {
       id: "3d5a8e00-d108-4045-8823-7f342676cffa",
       accountRef: {},
       totalAmount: new Decimal("0"),
-      currency: "USD",
+      currency: "GBP",
       date: "2022-10-23T00:00:00Z",
       note: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
       paymentMethodRef: {
@@ -73,7 +73,7 @@ let value: AccountingBillPayments = {
       id: "3d5a8e00-d108-4045-8823-7f342676cffa",
       accountRef: {},
       totalAmount: new Decimal("2000"),
-      currency: "GBP",
+      currency: "EUR",
       date: "2022-10-23T00:00:00Z",
       note: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
       paymentMethodRef: {
@@ -138,7 +138,7 @@ let value: AccountingBillPayments = {
       id: "3d5a8e00-d108-4045-8823-7f342676cffa",
       accountRef: {},
       totalAmount: new Decimal("-1000"),
-      currency: "USD",
+      currency: "EUR",
       date: "2022-10-23T00:00:00Z",
       note: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
       paymentMethodRef: {
@@ -208,7 +208,7 @@ let value: AccountingBillPayments = {
       id: "3d5a8e00-d108-4045-8823-7f342676cffa",
       accountRef: {},
       totalAmount: new Decimal("1000"),
-      currency: "GBP",
+      currency: "USD",
       date: "2022-10-23T00:00:00Z",
       note: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
       paymentMethodRef: {
@@ -235,7 +235,7 @@ let value: AccountingBillPayments = {
       id: "3d5a8e00-d108-4045-8823-7f342676cffa",
       accountRef: {},
       totalAmount: new Decimal("2000"),
-      currency: "EUR",
+      currency: "USD",
       date: "2022-10-23T00:00:00Z",
       note: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
       paymentMethodRef: {
@@ -305,7 +305,7 @@ let value: AccountingBillPayments = {
       id: "3d5a8e00-d108-4045-8823-7f342676cffa",
       accountRef: {},
       totalAmount: new Decimal("0"),
-      currency: "USD",
+      currency: "EUR",
       date: "2022-10-23T00:00:00Z",
       note: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
       paymentMethodRef: {
@@ -412,7 +412,7 @@ let value: AccountingBillPayments = {
       id: "001",
       accountRef: {},
       totalAmount: new Decimal("5000"),
-      currency: "USD",
+      currency: "GBP",
       date: "1901-01-01",
       note: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
       paymentMethodRef: {
@@ -461,7 +461,7 @@ let value: AccountingBillPayments = {
       id: "3d5a8e00-d108-4045-8823-7f342676cffa",
       accountRef: {},
       totalAmount: new Decimal("500"),
-      currency: "EUR",
+      currency: "USD",
       date: "2022-10-23T00:00:00Z",
       note: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
       paymentMethodRef: {

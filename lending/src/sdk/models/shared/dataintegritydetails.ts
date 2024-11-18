@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DataIntegrityDetail,
   DataIntegrityDetail$inboundSchema,
@@ -88,4 +91,22 @@ export namespace DataIntegrityDetails$ {
   export const outboundSchema = DataIntegrityDetails$outboundSchema;
   /** @deprecated use `DataIntegrityDetails$Outbound` instead. */
   export type Outbound = DataIntegrityDetails$Outbound;
+}
+
+export function dataIntegrityDetailsToJSON(
+  dataIntegrityDetails: DataIntegrityDetails,
+): string {
+  return JSON.stringify(
+    DataIntegrityDetails$outboundSchema.parse(dataIntegrityDetails),
+  );
+}
+
+export function dataIntegrityDetailsFromJSON(
+  jsonString: string,
+): SafeParseResult<DataIntegrityDetails, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DataIntegrityDetails$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DataIntegrityDetails' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   PropertieDataType,
   PropertieDataType$inboundSchema,
@@ -189,4 +192,18 @@ export namespace PushOperation$ {
   export const outboundSchema = PushOperation$outboundSchema;
   /** @deprecated use `PushOperation$Outbound` instead. */
   export type Outbound = PushOperation$Outbound;
+}
+
+export function pushOperationToJSON(pushOperation: PushOperation): string {
+  return JSON.stringify(PushOperation$outboundSchema.parse(pushOperation));
+}
+
+export function pushOperationFromJSON(
+  jsonString: string,
+): SafeParseResult<PushOperation, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PushOperation$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PushOperation' from JSON`,
+  );
 }

@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Name of underlying data type.
@@ -100,4 +103,22 @@ export namespace JournalEntryRecordRef$ {
   export const outboundSchema = JournalEntryRecordRef$outboundSchema;
   /** @deprecated use `JournalEntryRecordRef$Outbound` instead. */
   export type Outbound = JournalEntryRecordRef$Outbound;
+}
+
+export function journalEntryRecordRefToJSON(
+  journalEntryRecordRef: JournalEntryRecordRef,
+): string {
+  return JSON.stringify(
+    JournalEntryRecordRef$outboundSchema.parse(journalEntryRecordRef),
+  );
+}
+
+export function journalEntryRecordRefFromJSON(
+  jsonString: string,
+): SafeParseResult<JournalEntryRecordRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => JournalEntryRecordRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'JournalEntryRecordRef' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type ReportCategorizedBankStatementGenerateSuccessfulReportGenerationWebhook =
@@ -89,4 +92,31 @@ export namespace ReportCategorizedBankStatementGenerateSuccessfulReportGeneratio
   /** @deprecated use `ReportCategorizedBankStatementGenerateSuccessfulReportGenerationWebhook$Outbound` instead. */
   export type Outbound =
     ReportCategorizedBankStatementGenerateSuccessfulReportGenerationWebhook$Outbound;
+}
+
+export function reportCategorizedBankStatementGenerateSuccessfulReportGenerationWebhookToJSON(
+  reportCategorizedBankStatementGenerateSuccessfulReportGenerationWebhook:
+    ReportCategorizedBankStatementGenerateSuccessfulReportGenerationWebhook,
+): string {
+  return JSON.stringify(
+    ReportCategorizedBankStatementGenerateSuccessfulReportGenerationWebhook$outboundSchema
+      .parse(
+        reportCategorizedBankStatementGenerateSuccessfulReportGenerationWebhook,
+      ),
+  );
+}
+
+export function reportCategorizedBankStatementGenerateSuccessfulReportGenerationWebhookFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  ReportCategorizedBankStatementGenerateSuccessfulReportGenerationWebhook,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      ReportCategorizedBankStatementGenerateSuccessfulReportGenerationWebhook$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'ReportCategorizedBankStatementGenerateSuccessfulReportGenerationWebhook' from JSON`,
+  );
 }

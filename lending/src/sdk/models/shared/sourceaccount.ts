@@ -3,8 +3,11 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Status of the source account.
@@ -197,4 +200,18 @@ export namespace SourceAccount$ {
   export const outboundSchema = SourceAccount$outboundSchema;
   /** @deprecated use `SourceAccount$Outbound` instead. */
   export type Outbound = SourceAccount$Outbound;
+}
+
+export function sourceAccountToJSON(sourceAccount: SourceAccount): string {
+  return JSON.stringify(SourceAccount$outboundSchema.parse(sourceAccount));
+}
+
+export function sourceAccountFromJSON(
+  jsonString: string,
+): SafeParseResult<SourceAccount, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SourceAccount$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SourceAccount' from JSON`,
+  );
 }

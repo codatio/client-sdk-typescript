@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetAccountingProfitAndLossRequest = {
   /**
@@ -67,4 +70,24 @@ export namespace GetAccountingProfitAndLossRequest$ {
     GetAccountingProfitAndLossRequest$outboundSchema;
   /** @deprecated use `GetAccountingProfitAndLossRequest$Outbound` instead. */
   export type Outbound = GetAccountingProfitAndLossRequest$Outbound;
+}
+
+export function getAccountingProfitAndLossRequestToJSON(
+  getAccountingProfitAndLossRequest: GetAccountingProfitAndLossRequest,
+): string {
+  return JSON.stringify(
+    GetAccountingProfitAndLossRequest$outboundSchema.parse(
+      getAccountingProfitAndLossRequest,
+    ),
+  );
+}
+
+export function getAccountingProfitAndLossRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetAccountingProfitAndLossRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetAccountingProfitAndLossRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetAccountingProfitAndLossRequest' from JSON`,
+  );
 }
