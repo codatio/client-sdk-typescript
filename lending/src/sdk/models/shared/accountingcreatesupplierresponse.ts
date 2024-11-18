@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingAddress,
   AccountingAddress$inboundSchema,
@@ -286,6 +289,33 @@ export namespace AccountingCreateSupplierResponseAccountingSupplier$ {
     AccountingCreateSupplierResponseAccountingSupplier$Outbound;
 }
 
+export function accountingCreateSupplierResponseAccountingSupplierToJSON(
+  accountingCreateSupplierResponseAccountingSupplier:
+    AccountingCreateSupplierResponseAccountingSupplier,
+): string {
+  return JSON.stringify(
+    AccountingCreateSupplierResponseAccountingSupplier$outboundSchema.parse(
+      accountingCreateSupplierResponseAccountingSupplier,
+    ),
+  );
+}
+
+export function accountingCreateSupplierResponseAccountingSupplierFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  AccountingCreateSupplierResponseAccountingSupplier,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      AccountingCreateSupplierResponseAccountingSupplier$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'AccountingCreateSupplierResponseAccountingSupplier' from JSON`,
+  );
+}
+
 /** @internal */
 export const AccountingCreateSupplierResponse$inboundSchema: z.ZodType<
   AccountingCreateSupplierResponse,
@@ -370,4 +400,24 @@ export namespace AccountingCreateSupplierResponse$ {
   export const outboundSchema = AccountingCreateSupplierResponse$outboundSchema;
   /** @deprecated use `AccountingCreateSupplierResponse$Outbound` instead. */
   export type Outbound = AccountingCreateSupplierResponse$Outbound;
+}
+
+export function accountingCreateSupplierResponseToJSON(
+  accountingCreateSupplierResponse: AccountingCreateSupplierResponse,
+): string {
+  return JSON.stringify(
+    AccountingCreateSupplierResponse$outboundSchema.parse(
+      accountingCreateSupplierResponse,
+    ),
+  );
+}
+
+export function accountingCreateSupplierResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountingCreateSupplierResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountingCreateSupplierResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountingCreateSupplierResponse' from JSON`,
+  );
 }

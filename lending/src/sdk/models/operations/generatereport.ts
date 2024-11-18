@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type GenerateReportRequest = {
@@ -53,4 +56,22 @@ export namespace GenerateReportRequest$ {
   export const outboundSchema = GenerateReportRequest$outboundSchema;
   /** @deprecated use `GenerateReportRequest$Outbound` instead. */
   export type Outbound = GenerateReportRequest$Outbound;
+}
+
+export function generateReportRequestToJSON(
+  generateReportRequest: GenerateReportRequest,
+): string {
+  return JSON.stringify(
+    GenerateReportRequest$outboundSchema.parse(generateReportRequest),
+  );
+}
+
+export function generateReportRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GenerateReportRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GenerateReportRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GenerateReportRequest' from JSON`,
+  );
 }

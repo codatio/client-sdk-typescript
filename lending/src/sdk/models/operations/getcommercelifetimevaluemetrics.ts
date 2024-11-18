@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type GetCommerceLifetimeValueMetricsRequest = {
@@ -90,4 +93,26 @@ export namespace GetCommerceLifetimeValueMetricsRequest$ {
     GetCommerceLifetimeValueMetricsRequest$outboundSchema;
   /** @deprecated use `GetCommerceLifetimeValueMetricsRequest$Outbound` instead. */
   export type Outbound = GetCommerceLifetimeValueMetricsRequest$Outbound;
+}
+
+export function getCommerceLifetimeValueMetricsRequestToJSON(
+  getCommerceLifetimeValueMetricsRequest:
+    GetCommerceLifetimeValueMetricsRequest,
+): string {
+  return JSON.stringify(
+    GetCommerceLifetimeValueMetricsRequest$outboundSchema.parse(
+      getCommerceLifetimeValueMetricsRequest,
+    ),
+  );
+}
+
+export function getCommerceLifetimeValueMetricsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetCommerceLifetimeValueMetricsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetCommerceLifetimeValueMetricsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetCommerceLifetimeValueMetricsRequest' from JSON`,
+  );
 }

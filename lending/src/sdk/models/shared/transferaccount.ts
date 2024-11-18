@@ -3,22 +3,29 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  AccountRef,
-  AccountRef$inboundSchema,
-  AccountRef$Outbound,
-  AccountRef$outboundSchema,
-} from "./accountref.js";
+  AccountingRecordRef,
+  AccountingRecordRef$inboundSchema,
+  AccountingRecordRef$Outbound,
+  AccountingRecordRef$outboundSchema,
+} from "./accountingrecordref.js";
 
 /**
  * Account details of the account sending or receiving the transfer.
  */
 export type TransferAccount = {
   /**
-   * Data types that reference an account, for example bill and invoice line items, use an accountRef that includes the ID and name of the linked account.
+   * Links the current record to the underlying record or data type that created it.
+   *
+   * @remarks
+   *
+   * For example, if a journal entry is generated based on an invoice, this property allows you to connect the journal entry to the underlying invoice in our data model.
    */
-  accountRef?: AccountRef | undefined;
+  accountRef?: AccountingRecordRef | undefined;
   /**
    * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
    *
@@ -43,14 +50,14 @@ export const TransferAccount$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  accountRef: AccountRef$inboundSchema.optional(),
+  accountRef: AccountingRecordRef$inboundSchema.optional(),
   currency: z.string().optional(),
   amount: z.number().transform(v => new Decimal$(v)).optional(),
 });
 
 /** @internal */
 export type TransferAccount$Outbound = {
-  accountRef?: AccountRef$Outbound | undefined;
+  accountRef?: AccountingRecordRef$Outbound | undefined;
   currency?: string | undefined;
   amount?: number | undefined;
 };
@@ -61,7 +68,7 @@ export const TransferAccount$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   TransferAccount
 > = z.object({
-  accountRef: AccountRef$outboundSchema.optional(),
+  accountRef: AccountingRecordRef$outboundSchema.optional(),
   currency: z.string().optional(),
   amount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
     typeof v === "number" ? v : v.toNumber()
@@ -79,4 +86,20 @@ export namespace TransferAccount$ {
   export const outboundSchema = TransferAccount$outboundSchema;
   /** @deprecated use `TransferAccount$Outbound` instead. */
   export type Outbound = TransferAccount$Outbound;
+}
+
+export function transferAccountToJSON(
+  transferAccount: TransferAccount,
+): string {
+  return JSON.stringify(TransferAccount$outboundSchema.parse(transferAccount));
+}
+
+export function transferAccountFromJSON(
+  jsonString: string,
+): SafeParseResult<TransferAccount, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => TransferAccount$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TransferAccount' from JSON`,
+  );
 }

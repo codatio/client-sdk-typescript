@@ -8,7 +8,7 @@ import { GetAccountingInvoiceAttachmentRequest } from "@codat/lending/sdk/models
 let value: GetAccountingInvoiceAttachmentRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  invoiceId: "7110701885",
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 ```

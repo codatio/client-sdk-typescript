@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * An object containing an ordered list of account category levels.
@@ -58,4 +61,22 @@ export namespace AccountCategoryLevel$ {
   export const outboundSchema = AccountCategoryLevel$outboundSchema;
   /** @deprecated use `AccountCategoryLevel$Outbound` instead. */
   export type Outbound = AccountCategoryLevel$Outbound;
+}
+
+export function accountCategoryLevelToJSON(
+  accountCategoryLevel: AccountCategoryLevel,
+): string {
+  return JSON.stringify(
+    AccountCategoryLevel$outboundSchema.parse(accountCategoryLevel),
+  );
+}
+
+export function accountCategoryLevelFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountCategoryLevel, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountCategoryLevel$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountCategoryLevel' from JSON`,
+  );
 }

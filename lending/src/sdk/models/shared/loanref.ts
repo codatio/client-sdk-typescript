@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type LoanRef = {
   /**
@@ -56,4 +59,18 @@ export namespace LoanRef$ {
   export const outboundSchema = LoanRef$outboundSchema;
   /** @deprecated use `LoanRef$Outbound` instead. */
   export type Outbound = LoanRef$Outbound;
+}
+
+export function loanRefToJSON(loanRef: LoanRef): string {
+  return JSON.stringify(LoanRef$outboundSchema.parse(loanRef));
+}
+
+export function loanRefFromJSON(
+  jsonString: string,
+): SafeParseResult<LoanRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => LoanRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'LoanRef' from JSON`,
+  );
 }

@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ProductInventory,
   ProductInventory$inboundSchema,
@@ -173,4 +176,18 @@ export namespace ProductVariant$ {
   export const outboundSchema = ProductVariant$outboundSchema;
   /** @deprecated use `ProductVariant$Outbound` instead. */
   export type Outbound = ProductVariant$Outbound;
+}
+
+export function productVariantToJSON(productVariant: ProductVariant): string {
+  return JSON.stringify(ProductVariant$outboundSchema.parse(productVariant));
+}
+
+export function productVariantFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductVariant, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductVariant$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductVariant' from JSON`,
+  );
 }

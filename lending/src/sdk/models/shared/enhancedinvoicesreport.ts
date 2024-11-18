@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   EnhancedInvoiceReportItem,
   EnhancedInvoiceReportItem$inboundSchema,
@@ -64,4 +67,22 @@ export namespace EnhancedInvoicesReport$ {
   export const outboundSchema = EnhancedInvoicesReport$outboundSchema;
   /** @deprecated use `EnhancedInvoicesReport$Outbound` instead. */
   export type Outbound = EnhancedInvoicesReport$Outbound;
+}
+
+export function enhancedInvoicesReportToJSON(
+  enhancedInvoicesReport: EnhancedInvoicesReport,
+): string {
+  return JSON.stringify(
+    EnhancedInvoicesReport$outboundSchema.parse(enhancedInvoicesReport),
+  );
+}
+
+export function enhancedInvoicesReportFromJSON(
+  jsonString: string,
+): SafeParseResult<EnhancedInvoicesReport, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnhancedInvoicesReport$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnhancedInvoicesReport' from JSON`,
+  );
 }

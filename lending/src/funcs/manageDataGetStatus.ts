@@ -76,6 +76,9 @@ export async function manageDataGetStatus(
   const context = {
     operationID: "get-data-status",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

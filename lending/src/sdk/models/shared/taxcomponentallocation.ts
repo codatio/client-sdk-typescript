@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   TaxComponentRef,
   TaxComponentRef$inboundSchema,
@@ -63,4 +66,22 @@ export namespace TaxComponentAllocation$ {
   export const outboundSchema = TaxComponentAllocation$outboundSchema;
   /** @deprecated use `TaxComponentAllocation$Outbound` instead. */
   export type Outbound = TaxComponentAllocation$Outbound;
+}
+
+export function taxComponentAllocationToJSON(
+  taxComponentAllocation: TaxComponentAllocation,
+): string {
+  return JSON.stringify(
+    TaxComponentAllocation$outboundSchema.parse(taxComponentAllocation),
+  );
+}
+
+export function taxComponentAllocationFromJSON(
+  jsonString: string,
+): SafeParseResult<TaxComponentAllocation, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => TaxComponentAllocation$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TaxComponentAllocation' from JSON`,
+  );
 }

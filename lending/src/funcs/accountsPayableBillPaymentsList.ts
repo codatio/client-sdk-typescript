@@ -91,6 +91,9 @@ export async function accountsPayableBillPaymentsList(
   const context = {
     operationID: "list-accounting-bill-payments",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

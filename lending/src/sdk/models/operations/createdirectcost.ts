@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type CreateDirectCostRequest = {
@@ -71,4 +74,22 @@ export namespace CreateDirectCostRequest$ {
   export const outboundSchema = CreateDirectCostRequest$outboundSchema;
   /** @deprecated use `CreateDirectCostRequest$Outbound` instead. */
   export type Outbound = CreateDirectCostRequest$Outbound;
+}
+
+export function createDirectCostRequestToJSON(
+  createDirectCostRequest: CreateDirectCostRequest,
+): string {
+  return JSON.stringify(
+    CreateDirectCostRequest$outboundSchema.parse(createDirectCostRequest),
+  );
+}
+
+export function createDirectCostRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateDirectCostRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateDirectCostRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateDirectCostRequest' from JSON`,
+  );
 }

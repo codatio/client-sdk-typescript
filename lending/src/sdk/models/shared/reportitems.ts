@@ -3,8 +3,11 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ItemRef,
   ItemRef$inboundSchema,
@@ -143,4 +146,18 @@ export namespace ReportItems$ {
   export const outboundSchema = ReportItems$outboundSchema;
   /** @deprecated use `ReportItems$Outbound` instead. */
   export type Outbound = ReportItems$Outbound;
+}
+
+export function reportItemsToJSON(reportItems: ReportItems): string {
+  return JSON.stringify(ReportItems$outboundSchema.parse(reportItems));
+}
+
+export function reportItemsFromJSON(
+  jsonString: string,
+): SafeParseResult<ReportItems, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ReportItems$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ReportItems' from JSON`,
+  );
 }

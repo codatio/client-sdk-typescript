@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetCreateUpdateBankAccountsModelRequest = {
   /**
@@ -54,4 +57,31 @@ export namespace GetCreateUpdateBankAccountsModelRequest$ {
     GetCreateUpdateBankAccountsModelRequest$outboundSchema;
   /** @deprecated use `GetCreateUpdateBankAccountsModelRequest$Outbound` instead. */
   export type Outbound = GetCreateUpdateBankAccountsModelRequest$Outbound;
+}
+
+export function getCreateUpdateBankAccountsModelRequestToJSON(
+  getCreateUpdateBankAccountsModelRequest:
+    GetCreateUpdateBankAccountsModelRequest,
+): string {
+  return JSON.stringify(
+    GetCreateUpdateBankAccountsModelRequest$outboundSchema.parse(
+      getCreateUpdateBankAccountsModelRequest,
+    ),
+  );
+}
+
+export function getCreateUpdateBankAccountsModelRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  GetCreateUpdateBankAccountsModelRequest,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetCreateUpdateBankAccountsModelRequest$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'GetCreateUpdateBankAccountsModelRequest' from JSON`,
+  );
 }

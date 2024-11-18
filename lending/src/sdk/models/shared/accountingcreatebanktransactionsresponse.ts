@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CreateBankAccountTransaction,
   CreateBankAccountTransaction$inboundSchema,
@@ -178,6 +181,33 @@ export namespace AccountingCreateBankAccountTransactions$ {
   export type Outbound = AccountingCreateBankAccountTransactions$Outbound;
 }
 
+export function accountingCreateBankAccountTransactionsToJSON(
+  accountingCreateBankAccountTransactions:
+    AccountingCreateBankAccountTransactions,
+): string {
+  return JSON.stringify(
+    AccountingCreateBankAccountTransactions$outboundSchema.parse(
+      accountingCreateBankAccountTransactions,
+    ),
+  );
+}
+
+export function accountingCreateBankAccountTransactionsFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  AccountingCreateBankAccountTransactions,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      AccountingCreateBankAccountTransactions$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'AccountingCreateBankAccountTransactions' from JSON`,
+  );
+}
+
 /** @internal */
 export const AccountingCreateBankTransactionsResponse$inboundSchema: z.ZodType<
   AccountingCreateBankTransactionsResponse,
@@ -255,4 +285,31 @@ export namespace AccountingCreateBankTransactionsResponse$ {
     AccountingCreateBankTransactionsResponse$outboundSchema;
   /** @deprecated use `AccountingCreateBankTransactionsResponse$Outbound` instead. */
   export type Outbound = AccountingCreateBankTransactionsResponse$Outbound;
+}
+
+export function accountingCreateBankTransactionsResponseToJSON(
+  accountingCreateBankTransactionsResponse:
+    AccountingCreateBankTransactionsResponse,
+): string {
+  return JSON.stringify(
+    AccountingCreateBankTransactionsResponse$outboundSchema.parse(
+      accountingCreateBankTransactionsResponse,
+    ),
+  );
+}
+
+export function accountingCreateBankTransactionsResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  AccountingCreateBankTransactionsResponse,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      AccountingCreateBankTransactionsResponse$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'AccountingCreateBankTransactionsResponse' from JSON`,
+  );
 }

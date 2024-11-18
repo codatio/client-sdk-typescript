@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CommerceRecordRef,
   CommerceRecordRef$inboundSchema,
@@ -83,4 +86,22 @@ export namespace CommerceProductCategory$ {
   export const outboundSchema = CommerceProductCategory$outboundSchema;
   /** @deprecated use `CommerceProductCategory$Outbound` instead. */
   export type Outbound = CommerceProductCategory$Outbound;
+}
+
+export function commerceProductCategoryToJSON(
+  commerceProductCategory: CommerceProductCategory,
+): string {
+  return JSON.stringify(
+    CommerceProductCategory$outboundSchema.parse(commerceProductCategory),
+  );
+}
+
+export function commerceProductCategoryFromJSON(
+  jsonString: string,
+): SafeParseResult<CommerceProductCategory, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CommerceProductCategory$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CommerceProductCategory' from JSON`,
+  );
 }

@@ -8,7 +8,7 @@ import { Decimal } from "@codat/lending/sdk/types";
 
 let value: WithholdingTax = {
   name: "<value>",
-  amount: new Decimal("3447.18"),
+  amount: new Decimal("4317.60"),
 };
 ```
 

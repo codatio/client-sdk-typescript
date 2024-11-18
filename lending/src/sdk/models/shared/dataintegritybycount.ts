@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type DataIntegrityByCount = {
   /**
@@ -75,4 +78,22 @@ export namespace DataIntegrityByCount$ {
   export const outboundSchema = DataIntegrityByCount$outboundSchema;
   /** @deprecated use `DataIntegrityByCount$Outbound` instead. */
   export type Outbound = DataIntegrityByCount$Outbound;
+}
+
+export function dataIntegrityByCountToJSON(
+  dataIntegrityByCount: DataIntegrityByCount,
+): string {
+  return JSON.stringify(
+    DataIntegrityByCount$outboundSchema.parse(dataIntegrityByCount),
+  );
+}
+
+export function dataIntegrityByCountFromJSON(
+  jsonString: string,
+): SafeParseResult<DataIntegrityByCount, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DataIntegrityByCount$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DataIntegrityByCount' from JSON`,
+  );
 }

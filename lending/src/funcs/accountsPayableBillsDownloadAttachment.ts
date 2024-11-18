@@ -96,6 +96,9 @@ export async function accountsPayableBillsDownloadAttachment(
   const context = {
     operationID: "download-accounting-bill-attachment",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

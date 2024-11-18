@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type GetDataStatusRequest = {
@@ -227,6 +230,24 @@ export namespace GetDataStatusRequest$ {
   export type Outbound = GetDataStatusRequest$Outbound;
 }
 
+export function getDataStatusRequestToJSON(
+  getDataStatusRequest: GetDataStatusRequest,
+): string {
+  return JSON.stringify(
+    GetDataStatusRequest$outboundSchema.parse(getDataStatusRequest),
+  );
+}
+
+export function getDataStatusRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetDataStatusRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetDataStatusRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetDataStatusRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const GetDataStatusDataStatuses$inboundSchema: z.ZodType<
   GetDataStatusDataStatuses,
@@ -423,4 +444,22 @@ export namespace GetDataStatusDataStatuses$ {
   export const outboundSchema = GetDataStatusDataStatuses$outboundSchema;
   /** @deprecated use `GetDataStatusDataStatuses$Outbound` instead. */
   export type Outbound = GetDataStatusDataStatuses$Outbound;
+}
+
+export function getDataStatusDataStatusesToJSON(
+  getDataStatusDataStatuses: GetDataStatusDataStatuses,
+): string {
+  return JSON.stringify(
+    GetDataStatusDataStatuses$outboundSchema.parse(getDataStatusDataStatuses),
+  );
+}
+
+export function getDataStatusDataStatusesFromJSON(
+  jsonString: string,
+): SafeParseResult<GetDataStatusDataStatuses, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetDataStatusDataStatuses$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetDataStatusDataStatuses' from JSON`,
+  );
 }

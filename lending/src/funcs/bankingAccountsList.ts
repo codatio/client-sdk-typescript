@@ -95,6 +95,9 @@ export async function bankingAccountsList(
   const context = {
     operationID: "list-banking-accounts",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

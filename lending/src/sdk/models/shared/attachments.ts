@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingAttachment,
   AccountingAttachment$inboundSchema,
@@ -50,4 +53,18 @@ export namespace Attachments$ {
   export const outboundSchema = Attachments$outboundSchema;
   /** @deprecated use `Attachments$Outbound` instead. */
   export type Outbound = Attachments$Outbound;
+}
+
+export function attachmentsToJSON(attachments: Attachments): string {
+  return JSON.stringify(Attachments$outboundSchema.parse(attachments));
+}
+
+export function attachmentsFromJSON(
+  jsonString: string,
+): SafeParseResult<Attachments, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Attachments$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Attachments' from JSON`,
+  );
 }

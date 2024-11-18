@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * The source of the banking data that determines its format
@@ -93,4 +96,24 @@ export namespace BankStatementUploadConfiguration$ {
   export const outboundSchema = BankStatementUploadConfiguration$outboundSchema;
   /** @deprecated use `BankStatementUploadConfiguration$Outbound` instead. */
   export type Outbound = BankStatementUploadConfiguration$Outbound;
+}
+
+export function bankStatementUploadConfigurationToJSON(
+  bankStatementUploadConfiguration: BankStatementUploadConfiguration,
+): string {
+  return JSON.stringify(
+    BankStatementUploadConfiguration$outboundSchema.parse(
+      bankStatementUploadConfiguration,
+    ),
+  );
+}
+
+export function bankStatementUploadConfigurationFromJSON(
+  jsonString: string,
+): SafeParseResult<BankStatementUploadConfiguration, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BankStatementUploadConfiguration$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BankStatementUploadConfiguration' from JSON`,
+  );
 }

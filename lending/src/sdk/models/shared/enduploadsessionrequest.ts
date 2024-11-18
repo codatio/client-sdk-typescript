@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * An indicator to cancel the dataset processing or trigger ingestion and enrichment of data.
@@ -81,4 +84,22 @@ export namespace EndUploadSessionRequest$ {
   export const outboundSchema = EndUploadSessionRequest$outboundSchema;
   /** @deprecated use `EndUploadSessionRequest$Outbound` instead. */
   export type Outbound = EndUploadSessionRequest$Outbound;
+}
+
+export function endUploadSessionRequestToJSON(
+  endUploadSessionRequest: EndUploadSessionRequest,
+): string {
+  return JSON.stringify(
+    EndUploadSessionRequest$outboundSchema.parse(endUploadSessionRequest),
+  );
+}
+
+export function endUploadSessionRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<EndUploadSessionRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EndUploadSessionRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EndUploadSessionRequest' from JSON`,
+  );
 }

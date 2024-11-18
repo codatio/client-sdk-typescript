@@ -89,6 +89,9 @@ export async function accountsReceivableCustomersList(
   const context = {
     operationID: "list-accounting-customers",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

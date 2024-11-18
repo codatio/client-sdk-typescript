@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * References a category against which the item is tracked.
@@ -57,4 +60,22 @@ export namespace TrackingCategoryRef$ {
   export const outboundSchema = TrackingCategoryRef$outboundSchema;
   /** @deprecated use `TrackingCategoryRef$Outbound` instead. */
   export type Outbound = TrackingCategoryRef$Outbound;
+}
+
+export function trackingCategoryRefToJSON(
+  trackingCategoryRef: TrackingCategoryRef,
+): string {
+  return JSON.stringify(
+    TrackingCategoryRef$outboundSchema.parse(trackingCategoryRef),
+  );
+}
+
+export function trackingCategoryRefFromJSON(
+  jsonString: string,
+): SafeParseResult<TrackingCategoryRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => TrackingCategoryRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TrackingCategoryRef' from JSON`,
+  );
 }

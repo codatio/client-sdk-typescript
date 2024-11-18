@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type DownloadFilesRequest = {
   /**
@@ -52,4 +55,22 @@ export namespace DownloadFilesRequest$ {
   export const outboundSchema = DownloadFilesRequest$outboundSchema;
   /** @deprecated use `DownloadFilesRequest$Outbound` instead. */
   export type Outbound = DownloadFilesRequest$Outbound;
+}
+
+export function downloadFilesRequestToJSON(
+  downloadFilesRequest: DownloadFilesRequest,
+): string {
+  return JSON.stringify(
+    DownloadFilesRequest$outboundSchema.parse(downloadFilesRequest),
+  );
+}
+
+export function downloadFilesRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<DownloadFilesRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DownloadFilesRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DownloadFilesRequest' from JSON`,
+  );
 }

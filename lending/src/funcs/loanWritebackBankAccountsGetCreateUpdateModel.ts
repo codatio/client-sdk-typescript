@@ -92,6 +92,9 @@ export async function loanWritebackBankAccountsGetCreateUpdateModel(
   const context = {
     operationID: "get-create-update-bankAccounts-model",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListCommercePaymentMethodsRequest = {
   /**
@@ -81,4 +84,24 @@ export namespace ListCommercePaymentMethodsRequest$ {
     ListCommercePaymentMethodsRequest$outboundSchema;
   /** @deprecated use `ListCommercePaymentMethodsRequest$Outbound` instead. */
   export type Outbound = ListCommercePaymentMethodsRequest$Outbound;
+}
+
+export function listCommercePaymentMethodsRequestToJSON(
+  listCommercePaymentMethodsRequest: ListCommercePaymentMethodsRequest,
+): string {
+  return JSON.stringify(
+    ListCommercePaymentMethodsRequest$outboundSchema.parse(
+      listCommercePaymentMethodsRequest,
+    ),
+  );
+}
+
+export function listCommercePaymentMethodsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<ListCommercePaymentMethodsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListCommercePaymentMethodsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListCommercePaymentMethodsRequest' from JSON`,
+  );
 }

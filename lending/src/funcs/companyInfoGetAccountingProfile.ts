@@ -78,6 +78,9 @@ export async function companyInfoGetAccountingProfile(
   const context = {
     operationID: "get-accounting-profile",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

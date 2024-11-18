@@ -82,6 +82,9 @@ export async function accountsReceivableReportsIsAgedDebtorsAvailable(
   const context = {
     operationID: "is-aged-debtors-report-available",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

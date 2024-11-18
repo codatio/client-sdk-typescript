@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetCategorizedBankStatementRequest = {
   /**
@@ -67,4 +70,25 @@ export namespace GetCategorizedBankStatementRequest$ {
     GetCategorizedBankStatementRequest$outboundSchema;
   /** @deprecated use `GetCategorizedBankStatementRequest$Outbound` instead. */
   export type Outbound = GetCategorizedBankStatementRequest$Outbound;
+}
+
+export function getCategorizedBankStatementRequestToJSON(
+  getCategorizedBankStatementRequest: GetCategorizedBankStatementRequest,
+): string {
+  return JSON.stringify(
+    GetCategorizedBankStatementRequest$outboundSchema.parse(
+      getCategorizedBankStatementRequest,
+    ),
+  );
+}
+
+export function getCategorizedBankStatementRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetCategorizedBankStatementRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetCategorizedBankStatementRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetCategorizedBankStatementRequest' from JSON`,
+  );
 }

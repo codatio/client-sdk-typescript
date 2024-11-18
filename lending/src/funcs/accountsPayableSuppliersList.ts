@@ -89,6 +89,9 @@ export async function accountsPayableSuppliersList(
   const context = {
     operationID: "list-accounting-suppliers",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CreateConnectionRequestBody = {
   /**
@@ -56,6 +59,26 @@ export namespace CreateConnectionRequestBody$ {
   export type Outbound = CreateConnectionRequestBody$Outbound;
 }
 
+export function createConnectionRequestBodyToJSON(
+  createConnectionRequestBody: CreateConnectionRequestBody,
+): string {
+  return JSON.stringify(
+    CreateConnectionRequestBody$outboundSchema.parse(
+      createConnectionRequestBody,
+    ),
+  );
+}
+
+export function createConnectionRequestBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateConnectionRequestBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateConnectionRequestBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateConnectionRequestBody' from JSON`,
+  );
+}
+
 /** @internal */
 export const CreateConnectionRequest$inboundSchema: z.ZodType<
   CreateConnectionRequest,
@@ -103,4 +126,22 @@ export namespace CreateConnectionRequest$ {
   export const outboundSchema = CreateConnectionRequest$outboundSchema;
   /** @deprecated use `CreateConnectionRequest$Outbound` instead. */
   export type Outbound = CreateConnectionRequest$Outbound;
+}
+
+export function createConnectionRequestToJSON(
+  createConnectionRequest: CreateConnectionRequest,
+): string {
+  return JSON.stringify(
+    CreateConnectionRequest$outboundSchema.parse(createConnectionRequest),
+  );
+}
+
+export function createConnectionRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateConnectionRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateConnectionRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateConnectionRequest' from JSON`,
+  );
 }

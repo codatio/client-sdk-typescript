@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type BankFeedBankAccountMappingResponse = {
   /**
@@ -67,4 +70,25 @@ export namespace BankFeedBankAccountMappingResponse$ {
     BankFeedBankAccountMappingResponse$outboundSchema;
   /** @deprecated use `BankFeedBankAccountMappingResponse$Outbound` instead. */
   export type Outbound = BankFeedBankAccountMappingResponse$Outbound;
+}
+
+export function bankFeedBankAccountMappingResponseToJSON(
+  bankFeedBankAccountMappingResponse: BankFeedBankAccountMappingResponse,
+): string {
+  return JSON.stringify(
+    BankFeedBankAccountMappingResponse$outboundSchema.parse(
+      bankFeedBankAccountMappingResponse,
+    ),
+  );
+}
+
+export function bankFeedBankAccountMappingResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<BankFeedBankAccountMappingResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      BankFeedBankAccountMappingResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BankFeedBankAccountMappingResponse' from JSON`,
+  );
 }

@@ -89,6 +89,9 @@ export async function accountsPayableBillCreditNotesGet(
   const context = {
     operationID: "get-accounting-bill-credit-note",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

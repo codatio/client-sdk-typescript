@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountIdentifierType,
   AccountIdentifierType$inboundSchema,
@@ -102,4 +105,22 @@ export namespace AccountIdentifiers$ {
   export const outboundSchema = AccountIdentifiers$outboundSchema;
   /** @deprecated use `AccountIdentifiers$Outbound` instead. */
   export type Outbound = AccountIdentifiers$Outbound;
+}
+
+export function accountIdentifiersToJSON(
+  accountIdentifiers: AccountIdentifiers,
+): string {
+  return JSON.stringify(
+    AccountIdentifiers$outboundSchema.parse(accountIdentifiers),
+  );
+}
+
+export function accountIdentifiersFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountIdentifiers, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountIdentifiers$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountIdentifiers' from JSON`,
+  );
 }

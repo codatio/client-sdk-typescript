@@ -126,6 +126,10 @@ targets:
         publish:
             npm:
                 token: $npm_token
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/codat/codat/lending-source-code-samples
+            blocking: false
     platform-library:
         target: typescript
         source: platform-source

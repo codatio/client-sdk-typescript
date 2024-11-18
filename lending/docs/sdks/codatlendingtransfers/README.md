@@ -130,6 +130,7 @@ async function run() {
       from: {
         accountRef: {
           id: "80000028-1671794219",
+          dataType: "bankAccounts",
         },
         currency: "USD",
         amount: new Decimal("12"),
@@ -137,6 +138,7 @@ async function run() {
       to: {
         accountRef: {
           id: "80000004-1671793811",
+          dataType: "bankAccounts",
         },
         currency: "GBP",
         amount: new Decimal("12"),
@@ -197,6 +199,7 @@ async function run() {
       from: {
         accountRef: {
           id: "80000028-1671794219",
+          dataType: "bankAccounts",
         },
         currency: "USD",
         amount: new Decimal("12"),
@@ -204,6 +207,7 @@ async function run() {
       to: {
         accountRef: {
           id: "80000004-1671793811",
+          dataType: "bankAccounts",
         },
         currency: "GBP",
         amount: new Decimal("12"),

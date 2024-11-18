@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * The status of the report generation.
@@ -186,4 +189,20 @@ export namespace ReportOperation$ {
   export const outboundSchema = ReportOperation$outboundSchema;
   /** @deprecated use `ReportOperation$Outbound` instead. */
   export type Outbound = ReportOperation$Outbound;
+}
+
+export function reportOperationToJSON(
+  reportOperation: ReportOperation,
+): string {
+  return JSON.stringify(ReportOperation$outboundSchema.parse(reportOperation));
+}
+
+export function reportOperationFromJSON(
+  jsonString: string,
+): SafeParseResult<ReportOperation, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ReportOperation$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ReportOperation' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ExcelReportTypes,
   ExcelReportTypes$inboundSchema,
@@ -117,4 +120,18 @@ export namespace ExcelStatus$ {
   export const outboundSchema = ExcelStatus$outboundSchema;
   /** @deprecated use `ExcelStatus$Outbound` instead. */
   export type Outbound = ExcelStatus$Outbound;
+}
+
+export function excelStatusToJSON(excelStatus: ExcelStatus): string {
+  return JSON.stringify(ExcelStatus$outboundSchema.parse(excelStatus));
+}
+
+export function excelStatusFromJSON(
+  jsonString: string,
+): SafeParseResult<ExcelStatus, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ExcelStatus$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ExcelStatus' from JSON`,
+  );
 }

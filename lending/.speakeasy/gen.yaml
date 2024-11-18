@@ -14,7 +14,7 @@ generation:
     oAuth2PasswordEnabled: false
   telemetryEnabled: true
 typescript:
-  version: 5.0.0
+  version: 6.0.0
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -22,6 +22,7 @@ typescript:
   additionalPackageJSON: {}
   author: Codat
   clientServerStatusCodesAsErrors: true
+  defaultErrorName: SDKError
   description: Make credit decisions backed by enhanced financials, metrics, reports, and data integrity features.
   enumFormat: union
   flattenGlobalSecurity: true

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type GetCommerceRevenueMetricsRequest = {
@@ -88,4 +91,24 @@ export namespace GetCommerceRevenueMetricsRequest$ {
   export const outboundSchema = GetCommerceRevenueMetricsRequest$outboundSchema;
   /** @deprecated use `GetCommerceRevenueMetricsRequest$Outbound` instead. */
   export type Outbound = GetCommerceRevenueMetricsRequest$Outbound;
+}
+
+export function getCommerceRevenueMetricsRequestToJSON(
+  getCommerceRevenueMetricsRequest: GetCommerceRevenueMetricsRequest,
+): string {
+  return JSON.stringify(
+    GetCommerceRevenueMetricsRequest$outboundSchema.parse(
+      getCommerceRevenueMetricsRequest,
+    ),
+  );
+}
+
+export function getCommerceRevenueMetricsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetCommerceRevenueMetricsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetCommerceRevenueMetricsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetCommerceRevenueMetricsRequest' from JSON`,
+  );
 }

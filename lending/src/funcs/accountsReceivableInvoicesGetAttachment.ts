@@ -96,6 +96,9 @@ export async function accountsReceivableInvoicesGetAttachment(
   const context = {
     operationID: "get-accounting-invoice-attachment",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

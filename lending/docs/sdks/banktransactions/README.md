@@ -119,7 +119,7 @@ async function run() {
   const result = await codatLending.loanWriteback.bankTransactions.create({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
     accountingCreateBankTransactions: {
       accountId: "7110701885",
       transactions: [
@@ -158,7 +158,7 @@ async function run() {
   const res = await loanWritebackBankTransactionsCreate(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
     accountingCreateBankTransactions: {
       accountId: "7110701885",
       transactions: [

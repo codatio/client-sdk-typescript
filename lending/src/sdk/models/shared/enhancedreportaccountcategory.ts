@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountCategoryLevel,
   AccountCategoryLevel$inboundSchema,
@@ -55,4 +58,24 @@ export namespace EnhancedReportAccountCategory$ {
   export const outboundSchema = EnhancedReportAccountCategory$outboundSchema;
   /** @deprecated use `EnhancedReportAccountCategory$Outbound` instead. */
   export type Outbound = EnhancedReportAccountCategory$Outbound;
+}
+
+export function enhancedReportAccountCategoryToJSON(
+  enhancedReportAccountCategory: EnhancedReportAccountCategory,
+): string {
+  return JSON.stringify(
+    EnhancedReportAccountCategory$outboundSchema.parse(
+      enhancedReportAccountCategory,
+    ),
+  );
+}
+
+export function enhancedReportAccountCategoryFromJSON(
+  jsonString: string,
+): SafeParseResult<EnhancedReportAccountCategory, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnhancedReportAccountCategory$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnhancedReportAccountCategory' from JSON`,
+  );
 }

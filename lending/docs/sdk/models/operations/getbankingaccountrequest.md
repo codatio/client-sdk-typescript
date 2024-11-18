@@ -8,7 +8,7 @@ import { GetBankingAccountRequest } from "@codat/lending/sdk/models/operations";
 let value: GetBankingAccountRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  accountId: "EILBDVJVNUAGVKRQ",
+  accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
 };
 ```
 

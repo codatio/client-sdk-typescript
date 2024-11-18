@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListAccountingBankAccountTransactionsRequest = {
   /**
@@ -91,4 +94,31 @@ export namespace ListAccountingBankAccountTransactionsRequest$ {
     ListAccountingBankAccountTransactionsRequest$outboundSchema;
   /** @deprecated use `ListAccountingBankAccountTransactionsRequest$Outbound` instead. */
   export type Outbound = ListAccountingBankAccountTransactionsRequest$Outbound;
+}
+
+export function listAccountingBankAccountTransactionsRequestToJSON(
+  listAccountingBankAccountTransactionsRequest:
+    ListAccountingBankAccountTransactionsRequest,
+): string {
+  return JSON.stringify(
+    ListAccountingBankAccountTransactionsRequest$outboundSchema.parse(
+      listAccountingBankAccountTransactionsRequest,
+    ),
+  );
+}
+
+export function listAccountingBankAccountTransactionsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  ListAccountingBankAccountTransactionsRequest,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      ListAccountingBankAccountTransactionsRequest$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'ListAccountingBankAccountTransactionsRequest' from JSON`,
+  );
 }

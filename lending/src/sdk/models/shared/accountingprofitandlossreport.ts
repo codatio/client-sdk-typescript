@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ProfitAndLossReport,
   ProfitAndLossReport$inboundSchema,
@@ -143,4 +146,24 @@ export namespace AccountingProfitAndLossReport$ {
   export const outboundSchema = AccountingProfitAndLossReport$outboundSchema;
   /** @deprecated use `AccountingProfitAndLossReport$Outbound` instead. */
   export type Outbound = AccountingProfitAndLossReport$Outbound;
+}
+
+export function accountingProfitAndLossReportToJSON(
+  accountingProfitAndLossReport: AccountingProfitAndLossReport,
+): string {
+  return JSON.stringify(
+    AccountingProfitAndLossReport$outboundSchema.parse(
+      accountingProfitAndLossReport,
+    ),
+  );
+}
+
+export function accountingProfitAndLossReportFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountingProfitAndLossReport, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountingProfitAndLossReport$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountingProfitAndLossReport' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type GetDataIntegrityStatusRequest = {
@@ -53,4 +56,24 @@ export namespace GetDataIntegrityStatusRequest$ {
   export const outboundSchema = GetDataIntegrityStatusRequest$outboundSchema;
   /** @deprecated use `GetDataIntegrityStatusRequest$Outbound` instead. */
   export type Outbound = GetDataIntegrityStatusRequest$Outbound;
+}
+
+export function getDataIntegrityStatusRequestToJSON(
+  getDataIntegrityStatusRequest: GetDataIntegrityStatusRequest,
+): string {
+  return JSON.stringify(
+    GetDataIntegrityStatusRequest$outboundSchema.parse(
+      getDataIntegrityStatusRequest,
+    ),
+  );
+}
+
+export function getDataIntegrityStatusRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetDataIntegrityStatusRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetDataIntegrityStatusRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetDataIntegrityStatusRequest' from JSON`,
+  );
 }

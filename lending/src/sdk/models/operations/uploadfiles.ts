@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type UploadFilesRequest = {
@@ -66,4 +69,22 @@ export namespace UploadFilesRequest$ {
   export const outboundSchema = UploadFilesRequest$outboundSchema;
   /** @deprecated use `UploadFilesRequest$Outbound` instead. */
   export type Outbound = UploadFilesRequest$Outbound;
+}
+
+export function uploadFilesRequestToJSON(
+  uploadFilesRequest: UploadFilesRequest,
+): string {
+  return JSON.stringify(
+    UploadFilesRequest$outboundSchema.parse(uploadFilesRequest),
+  );
+}
+
+export function uploadFilesRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<UploadFilesRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UploadFilesRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UploadFilesRequest' from JSON`,
+  );
 }

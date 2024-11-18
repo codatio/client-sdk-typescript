@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AgedOutstandingAmountDetail,
   AgedOutstandingAmountDetail$inboundSchema,
@@ -111,4 +114,22 @@ export namespace AgedOutstandingAmount$ {
   export const outboundSchema = AgedOutstandingAmount$outboundSchema;
   /** @deprecated use `AgedOutstandingAmount$Outbound` instead. */
   export type Outbound = AgedOutstandingAmount$Outbound;
+}
+
+export function agedOutstandingAmountToJSON(
+  agedOutstandingAmount: AgedOutstandingAmount,
+): string {
+  return JSON.stringify(
+    AgedOutstandingAmount$outboundSchema.parse(agedOutstandingAmount),
+  );
+}
+
+export function agedOutstandingAmountFromJSON(
+  jsonString: string,
+): SafeParseResult<AgedOutstandingAmount, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AgedOutstandingAmount$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AgedOutstandingAmount' from JSON`,
+  );
 }

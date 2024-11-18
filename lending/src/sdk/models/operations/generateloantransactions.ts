@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Data source type.
@@ -85,4 +88,24 @@ export namespace GenerateLoanTransactionsRequest$ {
   export const outboundSchema = GenerateLoanTransactionsRequest$outboundSchema;
   /** @deprecated use `GenerateLoanTransactionsRequest$Outbound` instead. */
   export type Outbound = GenerateLoanTransactionsRequest$Outbound;
+}
+
+export function generateLoanTransactionsRequestToJSON(
+  generateLoanTransactionsRequest: GenerateLoanTransactionsRequest,
+): string {
+  return JSON.stringify(
+    GenerateLoanTransactionsRequest$outboundSchema.parse(
+      generateLoanTransactionsRequest,
+    ),
+  );
+}
+
+export function generateLoanTransactionsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GenerateLoanTransactionsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GenerateLoanTransactionsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GenerateLoanTransactionsRequest' from JSON`,
+  );
 }

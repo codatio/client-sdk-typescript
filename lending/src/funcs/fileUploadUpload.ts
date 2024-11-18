@@ -111,6 +111,9 @@ export async function fileUploadUpload(
   const context = {
     operationID: "upload-files",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

@@ -92,6 +92,9 @@ export async function transactionsTransfersGet(
   const context = {
     operationID: "get-accounting-transfer",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

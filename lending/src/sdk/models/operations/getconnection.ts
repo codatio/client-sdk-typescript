@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetConnectionRequest = {
   /**
@@ -52,4 +55,22 @@ export namespace GetConnectionRequest$ {
   export const outboundSchema = GetConnectionRequest$outboundSchema;
   /** @deprecated use `GetConnectionRequest$Outbound` instead. */
   export type Outbound = GetConnectionRequest$Outbound;
+}
+
+export function getConnectionRequestToJSON(
+  getConnectionRequest: GetConnectionRequest,
+): string {
+  return JSON.stringify(
+    GetConnectionRequest$outboundSchema.parse(getConnectionRequest),
+  );
+}
+
+export function getConnectionRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetConnectionRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetConnectionRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetConnectionRequest' from JSON`,
+  );
 }

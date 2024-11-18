@@ -3,7 +3,16 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  AccountingRecordRef,
+  AccountingRecordRef$inboundSchema,
+  AccountingRecordRef$Outbound,
+  AccountingRecordRef$outboundSchema,
+} from "./accountingrecordref.js";
 import {
   ContactRef,
   ContactRef$inboundSchema,
@@ -16,12 +25,6 @@ import {
   Metadata$Outbound,
   Metadata$outboundSchema,
 } from "./metadata.js";
-import {
-  RecordRef,
-  RecordRef$inboundSchema,
-  RecordRef$Outbound,
-  RecordRef$outboundSchema,
-} from "./recordref.js";
 import {
   SupplementalData,
   SupplementalData$inboundSchema,
@@ -113,7 +116,7 @@ export type AccountingTransfer = {
   /**
    * List of selected transactions to associate with the transfer. Use this field to include transactions which are posted to the _undeposited funds_ (or other holding) account within the transfer.
    */
-  depositedRecordRefs?: Array<RecordRef> | null | undefined;
+  depositedRecordRefs?: Array<AccountingRecordRef> | null | undefined;
   metadata?: Metadata | undefined;
   /**
    * Supplemental data is additional data you can include in our standard data types.
@@ -163,7 +166,8 @@ export const AccountingTransfer$inboundSchema: z.ZodType<
   status: z.nullable(AccountingTransferStatus$inboundSchema).optional(),
   trackingCategoryRefs: z.nullable(z.array(TrackingCategoryRef$inboundSchema))
     .optional(),
-  depositedRecordRefs: z.nullable(z.array(RecordRef$inboundSchema)).optional(),
+  depositedRecordRefs: z.nullable(z.array(AccountingRecordRef$inboundSchema))
+    .optional(),
   metadata: Metadata$inboundSchema.optional(),
   supplementalData: SupplementalData$inboundSchema.optional(),
 });
@@ -180,7 +184,7 @@ export type AccountingTransfer$Outbound = {
   to?: TransferAccount$Outbound | undefined;
   status?: string | null | undefined;
   trackingCategoryRefs?: Array<TrackingCategoryRef$Outbound> | null | undefined;
-  depositedRecordRefs?: Array<RecordRef$Outbound> | null | undefined;
+  depositedRecordRefs?: Array<AccountingRecordRef$Outbound> | null | undefined;
   metadata?: Metadata$Outbound | undefined;
   supplementalData?: SupplementalData$Outbound | undefined;
 };
@@ -202,7 +206,8 @@ export const AccountingTransfer$outboundSchema: z.ZodType<
   status: z.nullable(AccountingTransferStatus$outboundSchema).optional(),
   trackingCategoryRefs: z.nullable(z.array(TrackingCategoryRef$outboundSchema))
     .optional(),
-  depositedRecordRefs: z.nullable(z.array(RecordRef$outboundSchema)).optional(),
+  depositedRecordRefs: z.nullable(z.array(AccountingRecordRef$outboundSchema))
+    .optional(),
   metadata: Metadata$outboundSchema.optional(),
   supplementalData: SupplementalData$outboundSchema.optional(),
 });
@@ -218,4 +223,22 @@ export namespace AccountingTransfer$ {
   export const outboundSchema = AccountingTransfer$outboundSchema;
   /** @deprecated use `AccountingTransfer$Outbound` instead. */
   export type Outbound = AccountingTransfer$Outbound;
+}
+
+export function accountingTransferToJSON(
+  accountingTransfer: AccountingTransfer,
+): string {
+  return JSON.stringify(
+    AccountingTransfer$outboundSchema.parse(accountingTransfer),
+  );
+}
+
+export function accountingTransferFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountingTransfer, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountingTransfer$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountingTransfer' from JSON`,
+  );
 }

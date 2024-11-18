@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ProductInventoryLocation,
   ProductInventoryLocation$inboundSchema,
@@ -64,4 +67,22 @@ export namespace ProductInventory$ {
   export const outboundSchema = ProductInventory$outboundSchema;
   /** @deprecated use `ProductInventory$Outbound` instead. */
   export type Outbound = ProductInventory$Outbound;
+}
+
+export function productInventoryToJSON(
+  productInventory: ProductInventory,
+): string {
+  return JSON.stringify(
+    ProductInventory$outboundSchema.parse(productInventory),
+  );
+}
+
+export function productInventoryFromJSON(
+  jsonString: string,
+): SafeParseResult<ProductInventory, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ProductInventory$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ProductInventory' from JSON`,
+  );
 }

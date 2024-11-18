@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * The type of routing number.
@@ -100,4 +103,18 @@ export namespace RoutingInfo$ {
   export const outboundSchema = RoutingInfo$outboundSchema;
   /** @deprecated use `RoutingInfo$Outbound` instead. */
   export type Outbound = RoutingInfo$Outbound;
+}
+
+export function routingInfoToJSON(routingInfo: RoutingInfo): string {
+  return JSON.stringify(RoutingInfo$outboundSchema.parse(routingInfo));
+}
+
+export function routingInfoFromJSON(
+  jsonString: string,
+): SafeParseResult<RoutingInfo, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => RoutingInfo$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RoutingInfo' from JSON`,
+  );
 }

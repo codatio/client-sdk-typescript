@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ItemRef = {
   /**
@@ -56,4 +59,18 @@ export namespace ItemRef$ {
   export const outboundSchema = ItemRef$outboundSchema;
   /** @deprecated use `ItemRef$Outbound` instead. */
   export type Outbound = ItemRef$Outbound;
+}
+
+export function itemRefToJSON(itemRef: ItemRef): string {
+  return JSON.stringify(ItemRef$outboundSchema.parse(itemRef));
+}
+
+export function itemRefFromJSON(
+  jsonString: string,
+): SafeParseResult<ItemRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ItemRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ItemRef' from JSON`,
+  );
 }

@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type CreateTransferRequest = {
@@ -82,4 +85,22 @@ export namespace CreateTransferRequest$ {
   export const outboundSchema = CreateTransferRequest$outboundSchema;
   /** @deprecated use `CreateTransferRequest$Outbound` instead. */
   export type Outbound = CreateTransferRequest$Outbound;
+}
+
+export function createTransferRequestToJSON(
+  createTransferRequest: CreateTransferRequest,
+): string {
+  return JSON.stringify(
+    CreateTransferRequest$outboundSchema.parse(createTransferRequest),
+  );
+}
+
+export function createTransferRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateTransferRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateTransferRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateTransferRequest' from JSON`,
+  );
 }

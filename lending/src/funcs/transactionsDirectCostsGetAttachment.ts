@@ -96,6 +96,9 @@ export async function transactionsDirectCostsGetAttachment(
   const context = {
     operationID: "get-accounting-direct-cost-attachment",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

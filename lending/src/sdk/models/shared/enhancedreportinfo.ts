@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type EnhancedReportInfo = {
   /**
@@ -92,4 +95,22 @@ export namespace EnhancedReportInfo$ {
   export const outboundSchema = EnhancedReportInfo$outboundSchema;
   /** @deprecated use `EnhancedReportInfo$Outbound` instead. */
   export type Outbound = EnhancedReportInfo$Outbound;
+}
+
+export function enhancedReportInfoToJSON(
+  enhancedReportInfo: EnhancedReportInfo,
+): string {
+  return JSON.stringify(
+    EnhancedReportInfo$outboundSchema.parse(enhancedReportInfo),
+  );
+}
+
+export function enhancedReportInfoFromJSON(
+  jsonString: string,
+): SafeParseResult<EnhancedReportInfo, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnhancedReportInfo$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnhancedReportInfo' from JSON`,
+  );
 }

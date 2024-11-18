@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   PaymentAllocationPayment,
   PaymentAllocationPayment$inboundSchema,
@@ -145,6 +148,20 @@ export namespace Allocation$ {
   export type Outbound = Allocation$Outbound;
 }
 
+export function allocationToJSON(allocation: Allocation): string {
+  return JSON.stringify(Allocation$outboundSchema.parse(allocation));
+}
+
+export function allocationFromJSON(
+  jsonString: string,
+): SafeParseResult<Allocation, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Allocation$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Allocation' from JSON`,
+  );
+}
+
 /** @internal */
 export const AccountingPaymentAllocation$inboundSchema: z.ZodType<
   AccountingPaymentAllocation,
@@ -182,4 +199,24 @@ export namespace AccountingPaymentAllocation$ {
   export const outboundSchema = AccountingPaymentAllocation$outboundSchema;
   /** @deprecated use `AccountingPaymentAllocation$Outbound` instead. */
   export type Outbound = AccountingPaymentAllocation$Outbound;
+}
+
+export function accountingPaymentAllocationToJSON(
+  accountingPaymentAllocation: AccountingPaymentAllocation,
+): string {
+  return JSON.stringify(
+    AccountingPaymentAllocation$outboundSchema.parse(
+      accountingPaymentAllocation,
+    ),
+  );
+}
+
+export function accountingPaymentAllocationFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountingPaymentAllocation, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountingPaymentAllocation$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountingPaymentAllocation' from JSON`,
+  );
 }

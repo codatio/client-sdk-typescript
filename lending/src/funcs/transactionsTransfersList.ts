@@ -95,6 +95,9 @@ export async function transactionsTransfersList(
   const context = {
     operationID: "list-accounting-transfers",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

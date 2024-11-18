@@ -16,7 +16,7 @@ let value: AccountingJournalEntries = {
       updatedOn: "2022-10-23T00:00:00Z",
       journalLines: [
         {
-          netAmount: new Decimal("78.84"),
+          netAmount: new Decimal("7103.37"),
           accountRef: {},
           tracking: {
             recordRefs: [

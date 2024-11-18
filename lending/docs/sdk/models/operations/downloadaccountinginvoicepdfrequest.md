@@ -7,7 +7,7 @@ import { DownloadAccountingInvoicePdfRequest } from "@codat/lending/sdk/models/o
 
 let value: DownloadAccountingInvoicePdfRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  invoiceId: "EILBDVJVNUAGVKRQ",
+  invoiceId: "7110701885",
 };
 ```
 

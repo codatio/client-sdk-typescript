@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * An account reference containing the account id and name.
@@ -55,4 +58,18 @@ export namespace AccountRef$ {
   export const outboundSchema = AccountRef$outboundSchema;
   /** @deprecated use `AccountRef$Outbound` instead. */
   export type Outbound = AccountRef$Outbound;
+}
+
+export function accountRefToJSON(accountRef: AccountRef): string {
+  return JSON.stringify(AccountRef$outboundSchema.parse(accountRef));
+}
+
+export function accountRefFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountRef' from JSON`,
+  );
 }

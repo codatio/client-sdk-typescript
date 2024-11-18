@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Name of underlying data type.
@@ -92,4 +95,22 @@ export namespace TrackingRecordRef$ {
   export const outboundSchema = TrackingRecordRef$outboundSchema;
   /** @deprecated use `TrackingRecordRef$Outbound` instead. */
   export type Outbound = TrackingRecordRef$Outbound;
+}
+
+export function trackingRecordRefToJSON(
+  trackingRecordRef: TrackingRecordRef,
+): string {
+  return JSON.stringify(
+    TrackingRecordRef$outboundSchema.parse(trackingRecordRef),
+  );
+}
+
+export function trackingRecordRefFromJSON(
+  jsonString: string,
+): SafeParseResult<TrackingRecordRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => TrackingRecordRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TrackingRecordRef' from JSON`,
+  );
 }

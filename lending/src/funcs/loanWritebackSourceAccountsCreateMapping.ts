@@ -95,6 +95,9 @@ export async function loanWritebackSourceAccountsCreateMapping(
   const context = {
     operationID: "create-bank-account-mapping",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

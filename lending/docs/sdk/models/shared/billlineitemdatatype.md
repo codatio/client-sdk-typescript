@@ -7,7 +7,7 @@ Allowed name of the 'dataType'.
 ```typescript
 import { BillLineItemDataType } from "@codat/lending/sdk/models/shared";
 
-let value: BillLineItemDataType = "purchaseOrders";
+let value: BillLineItemDataType = "bills";
 ```
 
 ## Values

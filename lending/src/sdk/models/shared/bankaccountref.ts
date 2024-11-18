@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Links to the Account transactions data type.
@@ -55,4 +58,18 @@ export namespace BankAccountRef$ {
   export const outboundSchema = BankAccountRef$outboundSchema;
   /** @deprecated use `BankAccountRef$Outbound` instead. */
   export type Outbound = BankAccountRef$Outbound;
+}
+
+export function bankAccountRefToJSON(bankAccountRef: BankAccountRef): string {
+  return JSON.stringify(BankAccountRef$outboundSchema.parse(bankAccountRef));
+}
+
+export function bankAccountRefFromJSON(
+  jsonString: string,
+): SafeParseResult<BankAccountRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BankAccountRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BankAccountRef' from JSON`,
+  );
 }

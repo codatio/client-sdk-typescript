@@ -93,6 +93,9 @@ export async function transactionsJournalEntriesList(
   const context = {
     operationID: "list-accounting-journal-entries",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

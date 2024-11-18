@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountStatus,
   AccountStatus$inboundSchema,
@@ -189,6 +192,27 @@ export namespace AccountPrototypeValidDataTypeLinks$ {
   export type Outbound = AccountPrototypeValidDataTypeLinks$Outbound;
 }
 
+export function accountPrototypeValidDataTypeLinksToJSON(
+  accountPrototypeValidDataTypeLinks: AccountPrototypeValidDataTypeLinks,
+): string {
+  return JSON.stringify(
+    AccountPrototypeValidDataTypeLinks$outboundSchema.parse(
+      accountPrototypeValidDataTypeLinks,
+    ),
+  );
+}
+
+export function accountPrototypeValidDataTypeLinksFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountPrototypeValidDataTypeLinks, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      AccountPrototypeValidDataTypeLinks$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountPrototypeValidDataTypeLinks' from JSON`,
+  );
+}
+
 /** @internal */
 export const AccountPrototype$inboundSchema: z.ZodType<
   AccountPrototype,
@@ -268,4 +292,22 @@ export namespace AccountPrototype$ {
   export const outboundSchema = AccountPrototype$outboundSchema;
   /** @deprecated use `AccountPrototype$Outbound` instead. */
   export type Outbound = AccountPrototype$Outbound;
+}
+
+export function accountPrototypeToJSON(
+  accountPrototype: AccountPrototype,
+): string {
+  return JSON.stringify(
+    AccountPrototype$outboundSchema.parse(accountPrototype),
+  );
+}
+
+export function accountPrototypeFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountPrototype, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountPrototype$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountPrototype' from JSON`,
+  );
 }

@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingCustomerRef,
   AccountingCustomerRef$inboundSchema,
@@ -1014,6 +1017,33 @@ export namespace AccountingCreatePaymentResponseAccountingPayment$ {
     AccountingCreatePaymentResponseAccountingPayment$Outbound;
 }
 
+export function accountingCreatePaymentResponseAccountingPaymentToJSON(
+  accountingCreatePaymentResponseAccountingPayment:
+    AccountingCreatePaymentResponseAccountingPayment,
+): string {
+  return JSON.stringify(
+    AccountingCreatePaymentResponseAccountingPayment$outboundSchema.parse(
+      accountingCreatePaymentResponseAccountingPayment,
+    ),
+  );
+}
+
+export function accountingCreatePaymentResponseAccountingPaymentFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  AccountingCreatePaymentResponseAccountingPayment,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      AccountingCreatePaymentResponseAccountingPayment$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'AccountingCreatePaymentResponseAccountingPayment' from JSON`,
+  );
+}
+
 /** @internal */
 export const AccountingCreatePaymentResponse$inboundSchema: z.ZodType<
   AccountingCreatePaymentResponse,
@@ -1098,4 +1128,24 @@ export namespace AccountingCreatePaymentResponse$ {
   export const outboundSchema = AccountingCreatePaymentResponse$outboundSchema;
   /** @deprecated use `AccountingCreatePaymentResponse$Outbound` instead. */
   export type Outbound = AccountingCreatePaymentResponse$Outbound;
+}
+
+export function accountingCreatePaymentResponseToJSON(
+  accountingCreatePaymentResponse: AccountingCreatePaymentResponse,
+): string {
+  return JSON.stringify(
+    AccountingCreatePaymentResponse$outboundSchema.parse(
+      accountingCreatePaymentResponse,
+    ),
+  );
+}
+
+export function accountingCreatePaymentResponseFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountingCreatePaymentResponse, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountingCreatePaymentResponse$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountingCreatePaymentResponse' from JSON`,
+  );
 }

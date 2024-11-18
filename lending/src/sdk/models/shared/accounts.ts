@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * A source reference containing the `sourceType` object "Banking".
@@ -90,6 +93,24 @@ export namespace ReportSourceReference$ {
   export type Outbound = ReportSourceReference$Outbound;
 }
 
+export function reportSourceReferenceToJSON(
+  reportSourceReference: ReportSourceReference,
+): string {
+  return JSON.stringify(
+    ReportSourceReference$outboundSchema.parse(reportSourceReference),
+  );
+}
+
+export function reportSourceReferenceFromJSON(
+  jsonString: string,
+): SafeParseResult<ReportSourceReference, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ReportSourceReference$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ReportSourceReference' from JSON`,
+  );
+}
+
 /** @internal */
 export const Accounts$inboundSchema: z.ZodType<
   Accounts,
@@ -144,4 +165,18 @@ export namespace Accounts$ {
   export const outboundSchema = Accounts$outboundSchema;
   /** @deprecated use `Accounts$Outbound` instead. */
   export type Outbound = Accounts$Outbound;
+}
+
+export function accountsToJSON(accounts: Accounts): string {
+  return JSON.stringify(Accounts$outboundSchema.parse(accounts));
+}
+
+export function accountsFromJSON(
+  jsonString: string,
+): SafeParseResult<Accounts, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Accounts$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Accounts' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   IntegrityStatus,
   IntegrityStatus$inboundSchema,
@@ -82,4 +85,22 @@ export namespace DataIntegrityStatusInfo$ {
   export const outboundSchema = DataIntegrityStatusInfo$outboundSchema;
   /** @deprecated use `DataIntegrityStatusInfo$Outbound` instead. */
   export type Outbound = DataIntegrityStatusInfo$Outbound;
+}
+
+export function dataIntegrityStatusInfoToJSON(
+  dataIntegrityStatusInfo: DataIntegrityStatusInfo,
+): string {
+  return JSON.stringify(
+    DataIntegrityStatusInfo$outboundSchema.parse(dataIntegrityStatusInfo),
+  );
+}
+
+export function dataIntegrityStatusInfoFromJSON(
+  jsonString: string,
+): SafeParseResult<DataIntegrityStatusInfo, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DataIntegrityStatusInfo$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DataIntegrityStatusInfo' from JSON`,
+  );
 }

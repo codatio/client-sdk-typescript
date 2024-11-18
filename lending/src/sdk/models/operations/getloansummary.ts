@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Data source type.
@@ -90,4 +93,22 @@ export namespace GetLoanSummaryRequest$ {
   export const outboundSchema = GetLoanSummaryRequest$outboundSchema;
   /** @deprecated use `GetLoanSummaryRequest$Outbound` instead. */
   export type Outbound = GetLoanSummaryRequest$Outbound;
+}
+
+export function getLoanSummaryRequestToJSON(
+  getLoanSummaryRequest: GetLoanSummaryRequest,
+): string {
+  return JSON.stringify(
+    GetLoanSummaryRequest$outboundSchema.parse(getLoanSummaryRequest),
+  );
+}
+
+export function getLoanSummaryRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetLoanSummaryRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetLoanSummaryRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetLoanSummaryRequest' from JSON`,
+  );
 }

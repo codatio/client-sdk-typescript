@@ -102,6 +102,9 @@ export async function loanWritebackBankTransactionsCreate(
   const context = {
     operationID: "create-bank-transactions",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

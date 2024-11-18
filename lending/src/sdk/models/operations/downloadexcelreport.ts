@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type DownloadExcelReportRequest = {
@@ -53,4 +56,22 @@ export namespace DownloadExcelReportRequest$ {
   export const outboundSchema = DownloadExcelReportRequest$outboundSchema;
   /** @deprecated use `DownloadExcelReportRequest$Outbound` instead. */
   export type Outbound = DownloadExcelReportRequest$Outbound;
+}
+
+export function downloadExcelReportRequestToJSON(
+  downloadExcelReportRequest: DownloadExcelReportRequest,
+): string {
+  return JSON.stringify(
+    DownloadExcelReportRequest$outboundSchema.parse(downloadExcelReportRequest),
+  );
+}
+
+export function downloadExcelReportRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<DownloadExcelReportRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DownloadExcelReportRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DownloadExcelReportRequest' from JSON`,
+  );
 }

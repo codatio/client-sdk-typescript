@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Reference to the item the line is linked to.
@@ -55,4 +58,22 @@ export namespace PropertieItemRef$ {
   export const outboundSchema = PropertieItemRef$outboundSchema;
   /** @deprecated use `PropertieItemRef$Outbound` instead. */
   export type Outbound = PropertieItemRef$Outbound;
+}
+
+export function propertieItemRefToJSON(
+  propertieItemRef: PropertieItemRef,
+): string {
+  return JSON.stringify(
+    PropertieItemRef$outboundSchema.parse(propertieItemRef),
+  );
+}
+
+export function propertieItemRefFromJSON(
+  jsonString: string,
+): SafeParseResult<PropertieItemRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PropertieItemRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PropertieItemRef' from JSON`,
+  );
 }

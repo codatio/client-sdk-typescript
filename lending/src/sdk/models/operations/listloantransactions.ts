@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Data source type.
@@ -87,4 +90,24 @@ export namespace ListLoanTransactionsRequest$ {
   export const outboundSchema = ListLoanTransactionsRequest$outboundSchema;
   /** @deprecated use `ListLoanTransactionsRequest$Outbound` instead. */
   export type Outbound = ListLoanTransactionsRequest$Outbound;
+}
+
+export function listLoanTransactionsRequestToJSON(
+  listLoanTransactionsRequest: ListLoanTransactionsRequest,
+): string {
+  return JSON.stringify(
+    ListLoanTransactionsRequest$outboundSchema.parse(
+      listLoanTransactionsRequest,
+    ),
+  );
+}
+
+export function listLoanTransactionsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<ListLoanTransactionsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListLoanTransactionsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListLoanTransactionsRequest' from JSON`,
+  );
 }

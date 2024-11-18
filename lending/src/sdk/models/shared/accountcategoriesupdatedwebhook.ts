@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountCategoriesUpdatedWebhookData,
   AccountCategoriesUpdatedWebhookData$inboundSchema,
@@ -134,4 +137,24 @@ export namespace AccountCategoriesUpdatedWebhook$ {
   export const outboundSchema = AccountCategoriesUpdatedWebhook$outboundSchema;
   /** @deprecated use `AccountCategoriesUpdatedWebhook$Outbound` instead. */
   export type Outbound = AccountCategoriesUpdatedWebhook$Outbound;
+}
+
+export function accountCategoriesUpdatedWebhookToJSON(
+  accountCategoriesUpdatedWebhook: AccountCategoriesUpdatedWebhook,
+): string {
+  return JSON.stringify(
+    AccountCategoriesUpdatedWebhook$outboundSchema.parse(
+      accountCategoriesUpdatedWebhook,
+    ),
+  );
+}
+
+export function accountCategoriesUpdatedWebhookFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountCategoriesUpdatedWebhook, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountCategoriesUpdatedWebhook$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountCategoriesUpdatedWebhook' from JSON`,
+  );
 }

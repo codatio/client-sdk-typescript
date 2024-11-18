@@ -80,6 +80,9 @@ export async function companiesGet(
   const context = {
     operationID: "get-company",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

@@ -116,7 +116,7 @@ let value: AccountingBillCreditNotes = {
         {
           payment: {
             accountRef: {},
-            currency: "USD",
+            currency: "GBP",
             paidOnDate: "2022-10-23T00:00:00Z",
           },
           allocation: {
@@ -127,7 +127,7 @@ let value: AccountingBillCreditNotes = {
       ],
       createdFromRefs: [
         {
-          dataType: "journalEntry",
+          dataType: "transfer",
         },
       ],
       note: "Track separately",

@@ -3,12 +3,21 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingCustomerRef,
   AccountingCustomerRef$inboundSchema,
   AccountingCustomerRef$Outbound,
   AccountingCustomerRef$outboundSchema,
 } from "./accountingcustomerref.js";
+import {
+  AccountingRecordRef,
+  AccountingRecordRef$inboundSchema,
+  AccountingRecordRef$Outbound,
+  AccountingRecordRef$outboundSchema,
+} from "./accountingrecordref.js";
 import {
   BilledToType1,
   BilledToType1$inboundSchema,
@@ -26,24 +35,6 @@ import {
   TrackingCategoryRef$Outbound,
   TrackingCategoryRef$outboundSchema,
 } from "./trackingcategoryref.js";
-
-/**
- * Links the current record to the underlying record or data type that created it.
- *
- * @remarks
- *
- * For example, if a journal entry is generated based on an invoice, this property allows you to connect the journal entry to the underlying invoice in our data model.
- */
-export type RecordReference = {
-  /**
-   * 'id' of the underlying record or data type.
-   */
-  id?: string | undefined;
-  /**
-   * Allowed name of the 'dataType'.
-   */
-  dataType?: string | undefined;
-};
 
 /**
  * Categories, and a project and customer, against which the item is tracked.
@@ -67,47 +58,8 @@ export type AccountsReceivableTracking = {
    *
    * For example, if a journal entry is generated based on an invoice, this property allows you to connect the journal entry to the underlying invoice in our data model.
    */
-  recordRef?: RecordReference | undefined;
+  recordRef?: AccountingRecordRef | undefined;
 };
-
-/** @internal */
-export const RecordReference$inboundSchema: z.ZodType<
-  RecordReference,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string().optional(),
-  dataType: z.string().optional(),
-});
-
-/** @internal */
-export type RecordReference$Outbound = {
-  id?: string | undefined;
-  dataType?: string | undefined;
-};
-
-/** @internal */
-export const RecordReference$outboundSchema: z.ZodType<
-  RecordReference$Outbound,
-  z.ZodTypeDef,
-  RecordReference
-> = z.object({
-  id: z.string().optional(),
-  dataType: z.string().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace RecordReference$ {
-  /** @deprecated use `RecordReference$inboundSchema` instead. */
-  export const inboundSchema = RecordReference$inboundSchema;
-  /** @deprecated use `RecordReference$outboundSchema` instead. */
-  export const outboundSchema = RecordReference$outboundSchema;
-  /** @deprecated use `RecordReference$Outbound` instead. */
-  export type Outbound = RecordReference$Outbound;
-}
 
 /** @internal */
 export const AccountsReceivableTracking$inboundSchema: z.ZodType<
@@ -120,7 +72,7 @@ export const AccountsReceivableTracking$inboundSchema: z.ZodType<
   projectRef: ProjectRef$inboundSchema.optional(),
   isBilledTo: BilledToType1$inboundSchema,
   isRebilledTo: BilledToType1$inboundSchema,
-  recordRef: z.lazy(() => RecordReference$inboundSchema).optional(),
+  recordRef: AccountingRecordRef$inboundSchema.optional(),
 });
 
 /** @internal */
@@ -130,7 +82,7 @@ export type AccountsReceivableTracking$Outbound = {
   projectRef?: ProjectRef$Outbound | undefined;
   isBilledTo: string;
   isRebilledTo: string;
-  recordRef?: RecordReference$Outbound | undefined;
+  recordRef?: AccountingRecordRef$Outbound | undefined;
 };
 
 /** @internal */
@@ -144,7 +96,7 @@ export const AccountsReceivableTracking$outboundSchema: z.ZodType<
   projectRef: ProjectRef$outboundSchema.optional(),
   isBilledTo: BilledToType1$outboundSchema,
   isRebilledTo: BilledToType1$outboundSchema,
-  recordRef: z.lazy(() => RecordReference$outboundSchema).optional(),
+  recordRef: AccountingRecordRef$outboundSchema.optional(),
 });
 
 /**
@@ -158,4 +110,22 @@ export namespace AccountsReceivableTracking$ {
   export const outboundSchema = AccountsReceivableTracking$outboundSchema;
   /** @deprecated use `AccountsReceivableTracking$Outbound` instead. */
   export type Outbound = AccountsReceivableTracking$Outbound;
+}
+
+export function accountsReceivableTrackingToJSON(
+  accountsReceivableTracking: AccountsReceivableTracking,
+): string {
+  return JSON.stringify(
+    AccountsReceivableTracking$outboundSchema.parse(accountsReceivableTracking),
+  );
+}
+
+export function accountsReceivableTrackingFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountsReceivableTracking, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountsReceivableTracking$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountsReceivableTracking' from JSON`,
+  );
 }

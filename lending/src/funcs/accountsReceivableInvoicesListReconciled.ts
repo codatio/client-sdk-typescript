@@ -86,6 +86,9 @@ export async function accountsReceivableInvoicesListReconciled(
   const context = {
     operationID: "list-reconciled-invoices",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

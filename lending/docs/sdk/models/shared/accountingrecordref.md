@@ -1,4 +1,4 @@
-# RecordReference
+# AccountingRecordRef
 
 Links the current record to the underlying record or data type that created it. 
 
@@ -7,10 +7,10 @@ For example, if a journal entry is generated based on an invoice, this property 
 ## Example Usage
 
 ```typescript
-import { RecordReference } from "@codat/lending/sdk/models/shared";
+import { AccountingRecordRef } from "@codat/lending/sdk/models/shared";
 
-let value: RecordReference = {
-  dataType: "journalEntry",
+let value: AccountingRecordRef = {
+  dataType: "accountTransaction",
 };
 ```
 

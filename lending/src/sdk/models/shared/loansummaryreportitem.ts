@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   LoanSummaryRecordRef,
   LoanSummaryRecordRef$inboundSchema,
@@ -115,4 +118,22 @@ export namespace LoanSummaryReportItem$ {
   export const outboundSchema = LoanSummaryReportItem$outboundSchema;
   /** @deprecated use `LoanSummaryReportItem$Outbound` instead. */
   export type Outbound = LoanSummaryReportItem$Outbound;
+}
+
+export function loanSummaryReportItemToJSON(
+  loanSummaryReportItem: LoanSummaryReportItem,
+): string {
+  return JSON.stringify(
+    LoanSummaryReportItem$outboundSchema.parse(loanSummaryReportItem),
+  );
+}
+
+export function loanSummaryReportItemFromJSON(
+  jsonString: string,
+): SafeParseResult<LoanSummaryReportItem, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => LoanSummaryReportItem$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'LoanSummaryReportItem' from JSON`,
+  );
 }

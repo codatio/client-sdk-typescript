@@ -90,6 +90,9 @@ export async function loanWritebackPaymentsGetCreateModel(
   const context = {
     operationID: "get-create-payment-model",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

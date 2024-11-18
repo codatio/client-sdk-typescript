@@ -92,6 +92,9 @@ export async function salesCustomersGet(
   const context = {
     operationID: "get-commerce-customer",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

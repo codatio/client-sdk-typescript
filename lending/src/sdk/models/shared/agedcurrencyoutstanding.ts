@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AgedOutstandingAmount,
   AgedOutstandingAmount$inboundSchema,
@@ -68,4 +71,22 @@ export namespace AgedCurrencyOutstanding$ {
   export const outboundSchema = AgedCurrencyOutstanding$outboundSchema;
   /** @deprecated use `AgedCurrencyOutstanding$Outbound` instead. */
   export type Outbound = AgedCurrencyOutstanding$Outbound;
+}
+
+export function agedCurrencyOutstandingToJSON(
+  agedCurrencyOutstanding: AgedCurrencyOutstanding,
+): string {
+  return JSON.stringify(
+    AgedCurrencyOutstanding$outboundSchema.parse(agedCurrencyOutstanding),
+  );
+}
+
+export function agedCurrencyOutstandingFromJSON(
+  jsonString: string,
+): SafeParseResult<AgedCurrencyOutstanding, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AgedCurrencyOutstanding$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AgedCurrencyOutstanding' from JSON`,
+  );
 }

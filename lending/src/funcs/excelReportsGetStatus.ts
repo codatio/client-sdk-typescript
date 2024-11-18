@@ -90,6 +90,9 @@ export async function excelReportsGetStatus(
   const context = {
     operationID: "get-excel-report-generation-status",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

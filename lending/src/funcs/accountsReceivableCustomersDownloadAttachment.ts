@@ -95,6 +95,9 @@ export async function accountsReceivableCustomersDownloadAttachment(
   const context = {
     operationID: "download-accounting-customer-attachment",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ReportComponentMeasure,
   ReportComponentMeasure$inboundSchema,
@@ -82,4 +85,22 @@ export namespace CommerceReportComponent$ {
   export const outboundSchema = CommerceReportComponent$outboundSchema;
   /** @deprecated use `CommerceReportComponent$Outbound` instead. */
   export type Outbound = CommerceReportComponent$Outbound;
+}
+
+export function commerceReportComponentToJSON(
+  commerceReportComponent: CommerceReportComponent,
+): string {
+  return JSON.stringify(
+    CommerceReportComponent$outboundSchema.parse(commerceReportComponent),
+  );
+}
+
+export function commerceReportComponentFromJSON(
+  jsonString: string,
+): SafeParseResult<CommerceReportComponent, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CommerceReportComponent$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CommerceReportComponent' from JSON`,
+  );
 }

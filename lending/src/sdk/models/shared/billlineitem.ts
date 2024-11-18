@@ -3,8 +3,11 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountRef,
   AccountRef$inboundSchema,
@@ -212,6 +215,24 @@ export namespace RecordLineReference$ {
   export type Outbound = RecordLineReference$Outbound;
 }
 
+export function recordLineReferenceToJSON(
+  recordLineReference: RecordLineReference,
+): string {
+  return JSON.stringify(
+    RecordLineReference$outboundSchema.parse(recordLineReference),
+  );
+}
+
+export function recordLineReferenceFromJSON(
+  jsonString: string,
+): SafeParseResult<RecordLineReference, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => RecordLineReference$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RecordLineReference' from JSON`,
+  );
+}
+
 /** @internal */
 export const BillLineItem$inboundSchema: z.ZodType<
   BillLineItem,
@@ -325,4 +346,18 @@ export namespace BillLineItem$ {
   export const outboundSchema = BillLineItem$outboundSchema;
   /** @deprecated use `BillLineItem$Outbound` instead. */
   export type Outbound = BillLineItem$Outbound;
+}
+
+export function billLineItemToJSON(billLineItem: BillLineItem): string {
+  return JSON.stringify(BillLineItem$outboundSchema.parse(billLineItem));
+}
+
+export function billLineItemFromJSON(
+  jsonString: string,
+): SafeParseResult<BillLineItem, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BillLineItem$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BillLineItem' from JSON`,
+  );
 }

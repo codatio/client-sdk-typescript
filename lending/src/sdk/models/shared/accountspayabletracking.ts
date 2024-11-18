@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingCustomerRef,
   AccountingCustomerRef$inboundSchema,
@@ -90,4 +93,22 @@ export namespace AccountsPayableTracking$ {
   export const outboundSchema = AccountsPayableTracking$outboundSchema;
   /** @deprecated use `AccountsPayableTracking$Outbound` instead. */
   export type Outbound = AccountsPayableTracking$Outbound;
+}
+
+export function accountsPayableTrackingToJSON(
+  accountsPayableTracking: AccountsPayableTracking,
+): string {
+  return JSON.stringify(
+    AccountsPayableTracking$outboundSchema.parse(accountsPayableTracking),
+  );
+}
+
+export function accountsPayableTrackingFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountsPayableTracking, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountsPayableTracking$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountsPayableTracking' from JSON`,
+  );
 }

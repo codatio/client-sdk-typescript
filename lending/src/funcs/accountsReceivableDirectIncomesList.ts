@@ -95,6 +95,9 @@ export async function accountsReceivableDirectIncomesList(
   const context = {
     operationID: "list-accounting-direct-incomes",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

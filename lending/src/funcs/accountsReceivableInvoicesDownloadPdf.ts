@@ -86,6 +86,9 @@ export async function accountsReceivableInvoicesDownloadPdf(
   const context = {
     operationID: "download-accounting-invoice-pdf",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

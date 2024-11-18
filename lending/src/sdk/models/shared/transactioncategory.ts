@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type TransactionCategory = {
   /**
@@ -66,4 +69,22 @@ export namespace TransactionCategory$ {
   export const outboundSchema = TransactionCategory$outboundSchema;
   /** @deprecated use `TransactionCategory$Outbound` instead. */
   export type Outbound = TransactionCategory$Outbound;
+}
+
+export function transactionCategoryToJSON(
+  transactionCategory: TransactionCategory,
+): string {
+  return JSON.stringify(
+    TransactionCategory$outboundSchema.parse(transactionCategory),
+  );
+}
+
+export function transactionCategoryFromJSON(
+  jsonString: string,
+): SafeParseResult<TransactionCategory, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => TransactionCategory$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TransactionCategory' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CashFlowStatement,
   CashFlowStatement$inboundSchema,
@@ -155,4 +158,24 @@ export namespace AccountingCashFlowStatement$ {
   export const outboundSchema = AccountingCashFlowStatement$outboundSchema;
   /** @deprecated use `AccountingCashFlowStatement$Outbound` instead. */
   export type Outbound = AccountingCashFlowStatement$Outbound;
+}
+
+export function accountingCashFlowStatementToJSON(
+  accountingCashFlowStatement: AccountingCashFlowStatement,
+): string {
+  return JSON.stringify(
+    AccountingCashFlowStatement$outboundSchema.parse(
+      accountingCashFlowStatement,
+    ),
+  );
+}
+
+export function accountingCashFlowStatementFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountingCashFlowStatement, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountingCashFlowStatement$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountingCashFlowStatement' from JSON`,
+  );
 }

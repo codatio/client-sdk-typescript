@@ -16,8 +16,8 @@ let value: CommerceCompanyInfo = {
   companyLegalName: "Codat Limited",
   phoneNumbers: [
     {
-      number: "+44 25691 154789",
-      type: "Mobile",
+      number: "(877) 492-8687",
+      type: "Primary",
     },
   ],
   webLinks: [
@@ -27,7 +27,7 @@ let value: CommerceCompanyInfo = {
     },
   ],
   registrationNumber: "10480375",
-  baseCurrency: "USD",
+  baseCurrency: "GBP",
   accountBalances: [
     {
       currency: "USD",

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   HalRef,
   HalRef$inboundSchema,
@@ -57,4 +60,18 @@ export namespace Links$ {
   export const outboundSchema = Links$outboundSchema;
   /** @deprecated use `Links$Outbound` instead. */
   export type Outbound = Links$Outbound;
+}
+
+export function linksToJSON(links: Links): string {
+  return JSON.stringify(Links$outboundSchema.parse(links));
+}
+
+export function linksFromJSON(
+  jsonString: string,
+): SafeParseResult<Links, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Links$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Links' from JSON`,
+  );
 }

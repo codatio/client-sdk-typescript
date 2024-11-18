@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetCreateBankTransactionsModelRequest = {
   /**
@@ -61,4 +64,25 @@ export namespace GetCreateBankTransactionsModelRequest$ {
     GetCreateBankTransactionsModelRequest$outboundSchema;
   /** @deprecated use `GetCreateBankTransactionsModelRequest$Outbound` instead. */
   export type Outbound = GetCreateBankTransactionsModelRequest$Outbound;
+}
+
+export function getCreateBankTransactionsModelRequestToJSON(
+  getCreateBankTransactionsModelRequest: GetCreateBankTransactionsModelRequest,
+): string {
+  return JSON.stringify(
+    GetCreateBankTransactionsModelRequest$outboundSchema.parse(
+      getCreateBankTransactionsModelRequest,
+    ),
+  );
+}
+
+export function getCreateBankTransactionsModelRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetCreateBankTransactionsModelRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetCreateBankTransactionsModelRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetCreateBankTransactionsModelRequest' from JSON`,
+  );
 }

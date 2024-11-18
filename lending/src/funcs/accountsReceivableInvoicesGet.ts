@@ -92,6 +92,9 @@ export async function accountsReceivableInvoicesGet(
   const context = {
     operationID: "get-accounting-invoice",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

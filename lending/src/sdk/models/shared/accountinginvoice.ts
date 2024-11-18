@@ -3,8 +3,11 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingCustomerRef,
   AccountingCustomerRef$inboundSchema,
@@ -360,6 +363,24 @@ export namespace SalesOrderReference$ {
   export type Outbound = SalesOrderReference$Outbound;
 }
 
+export function salesOrderReferenceToJSON(
+  salesOrderReference: SalesOrderReference,
+): string {
+  return JSON.stringify(
+    SalesOrderReference$outboundSchema.parse(salesOrderReference),
+  );
+}
+
+export function salesOrderReferenceFromJSON(
+  jsonString: string,
+): SafeParseResult<SalesOrderReference, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SalesOrderReference$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SalesOrderReference' from JSON`,
+  );
+}
+
 /** @internal */
 export const AccountingInvoice$inboundSchema: z.ZodType<
   AccountingInvoice,
@@ -509,4 +530,22 @@ export namespace AccountingInvoice$ {
   export const outboundSchema = AccountingInvoice$outboundSchema;
   /** @deprecated use `AccountingInvoice$Outbound` instead. */
   export type Outbound = AccountingInvoice$Outbound;
+}
+
+export function accountingInvoiceToJSON(
+  accountingInvoice: AccountingInvoice,
+): string {
+  return JSON.stringify(
+    AccountingInvoice$outboundSchema.parse(accountingInvoice),
+  );
+}
+
+export function accountingInvoiceFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountingInvoice, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountingInvoice$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountingInvoice' from JSON`,
+  );
 }

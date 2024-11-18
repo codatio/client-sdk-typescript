@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type OrderDiscountAllocation = {
   /**
@@ -55,4 +58,22 @@ export namespace OrderDiscountAllocation$ {
   export const outboundSchema = OrderDiscountAllocation$outboundSchema;
   /** @deprecated use `OrderDiscountAllocation$Outbound` instead. */
   export type Outbound = OrderDiscountAllocation$Outbound;
+}
+
+export function orderDiscountAllocationToJSON(
+  orderDiscountAllocation: OrderDiscountAllocation,
+): string {
+  return JSON.stringify(
+    OrderDiscountAllocation$outboundSchema.parse(orderDiscountAllocation),
+  );
+}
+
+export function orderDiscountAllocationFromJSON(
+  jsonString: string,
+): SafeParseResult<OrderDiscountAllocation, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => OrderDiscountAllocation$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'OrderDiscountAllocation' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Only returned for transactions. For accounts, there is nothing returned.
@@ -141,4 +144,22 @@ export namespace DataIntegrityDates$ {
   export const outboundSchema = DataIntegrityDates$outboundSchema;
   /** @deprecated use `DataIntegrityDates$Outbound` instead. */
   export type Outbound = DataIntegrityDates$Outbound;
+}
+
+export function dataIntegrityDatesToJSON(
+  dataIntegrityDates: DataIntegrityDates,
+): string {
+  return JSON.stringify(
+    DataIntegrityDates$outboundSchema.parse(dataIntegrityDates),
+  );
+}
+
+export function dataIntegrityDatesFromJSON(
+  jsonString: string,
+): SafeParseResult<DataIntegrityDates, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DataIntegrityDates$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DataIntegrityDates' from JSON`,
+  );
 }

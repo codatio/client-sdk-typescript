@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   EnhancedReportAccountCategory,
   EnhancedReportAccountCategory$inboundSchema,
@@ -113,6 +116,20 @@ export namespace ReportItem$ {
   export type Outbound = ReportItem$Outbound;
 }
 
+export function reportItemToJSON(reportItem: ReportItem): string {
+  return JSON.stringify(ReportItem$outboundSchema.parse(reportItem));
+}
+
+export function reportItemFromJSON(
+  jsonString: string,
+): SafeParseResult<ReportItem, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ReportItem$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ReportItem' from JSON`,
+  );
+}
+
 /** @internal */
 export const EnhancedFinancialReport$inboundSchema: z.ZodType<
   EnhancedFinancialReport,
@@ -150,4 +167,22 @@ export namespace EnhancedFinancialReport$ {
   export const outboundSchema = EnhancedFinancialReport$outboundSchema;
   /** @deprecated use `EnhancedFinancialReport$Outbound` instead. */
   export type Outbound = EnhancedFinancialReport$Outbound;
+}
+
+export function enhancedFinancialReportToJSON(
+  enhancedFinancialReport: EnhancedFinancialReport,
+): string {
+  return JSON.stringify(
+    EnhancedFinancialReport$outboundSchema.parse(enhancedFinancialReport),
+  );
+}
+
+export function enhancedFinancialReportFromJSON(
+  jsonString: string,
+): SafeParseResult<EnhancedFinancialReport, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnhancedFinancialReport$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnhancedFinancialReport' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetCreateChartOfAccountsModelRequest = {
   /**
@@ -54,4 +57,25 @@ export namespace GetCreateChartOfAccountsModelRequest$ {
     GetCreateChartOfAccountsModelRequest$outboundSchema;
   /** @deprecated use `GetCreateChartOfAccountsModelRequest$Outbound` instead. */
   export type Outbound = GetCreateChartOfAccountsModelRequest$Outbound;
+}
+
+export function getCreateChartOfAccountsModelRequestToJSON(
+  getCreateChartOfAccountsModelRequest: GetCreateChartOfAccountsModelRequest,
+): string {
+  return JSON.stringify(
+    GetCreateChartOfAccountsModelRequest$outboundSchema.parse(
+      getCreateChartOfAccountsModelRequest,
+    ),
+  );
+}
+
+export function getCreateChartOfAccountsModelRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetCreateChartOfAccountsModelRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetCreateChartOfAccountsModelRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetCreateChartOfAccountsModelRequest' from JSON`,
+  );
 }

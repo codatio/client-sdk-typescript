@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * The Payment Method to which the payment is linked in the accounting software.
@@ -55,4 +58,22 @@ export namespace PaymentMethodRef$ {
   export const outboundSchema = PaymentMethodRef$outboundSchema;
   /** @deprecated use `PaymentMethodRef$Outbound` instead. */
   export type Outbound = PaymentMethodRef$Outbound;
+}
+
+export function paymentMethodRefToJSON(
+  paymentMethodRef: PaymentMethodRef,
+): string {
+  return JSON.stringify(
+    PaymentMethodRef$outboundSchema.parse(paymentMethodRef),
+  );
+}
+
+export function paymentMethodRefFromJSON(
+  jsonString: string,
+): SafeParseResult<PaymentMethodRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PaymentMethodRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PaymentMethodRef' from JSON`,
+  );
 }

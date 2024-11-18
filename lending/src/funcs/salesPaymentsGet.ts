@@ -91,6 +91,9 @@ export async function salesPaymentsGet(
   const context = {
     operationID: "get-commerce-payment",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

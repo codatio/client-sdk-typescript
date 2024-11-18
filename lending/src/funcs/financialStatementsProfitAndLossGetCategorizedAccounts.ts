@@ -88,6 +88,9 @@ export async function financialStatementsProfitAndLossGetCategorizedAccounts(
   const context = {
     operationID: "get-categorized-profit-and-loss-statement",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

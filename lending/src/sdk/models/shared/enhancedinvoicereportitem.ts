@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   InvoiceStatus,
   InvoiceStatus$inboundSchema,
@@ -209,4 +212,22 @@ export namespace EnhancedInvoiceReportItem$ {
   export const outboundSchema = EnhancedInvoiceReportItem$outboundSchema;
   /** @deprecated use `EnhancedInvoiceReportItem$Outbound` instead. */
   export type Outbound = EnhancedInvoiceReportItem$Outbound;
+}
+
+export function enhancedInvoiceReportItemToJSON(
+  enhancedInvoiceReportItem: EnhancedInvoiceReportItem,
+): string {
+  return JSON.stringify(
+    EnhancedInvoiceReportItem$outboundSchema.parse(enhancedInvoiceReportItem),
+  );
+}
+
+export function enhancedInvoiceReportItemFromJSON(
+  jsonString: string,
+): SafeParseResult<EnhancedInvoiceReportItem, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EnhancedInvoiceReportItem$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EnhancedInvoiceReportItem' from JSON`,
+  );
 }

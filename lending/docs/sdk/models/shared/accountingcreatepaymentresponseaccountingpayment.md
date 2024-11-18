@@ -693,11 +693,11 @@ let value: AccountingCreatePaymentResponseAccountingPayment = {
     id: "EILBDVJVNUAGVKRQ",
     name: "AliPay",
   },
-  currency: "EUR",
+  currency: "GBP",
   date: "2022-10-23T00:00:00Z",
   lines: [
     {
-      amount: new Decimal("5580.51"),
+      amount: new Decimal("7151.43"),
       allocatedOnDate: "2022-10-23T00:00:00Z",
     },
   ],

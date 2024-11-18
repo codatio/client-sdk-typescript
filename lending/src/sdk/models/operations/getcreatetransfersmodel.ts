@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetCreateTransfersModelRequest = {
   /**
@@ -52,4 +55,24 @@ export namespace GetCreateTransfersModelRequest$ {
   export const outboundSchema = GetCreateTransfersModelRequest$outboundSchema;
   /** @deprecated use `GetCreateTransfersModelRequest$Outbound` instead. */
   export type Outbound = GetCreateTransfersModelRequest$Outbound;
+}
+
+export function getCreateTransfersModelRequestToJSON(
+  getCreateTransfersModelRequest: GetCreateTransfersModelRequest,
+): string {
+  return JSON.stringify(
+    GetCreateTransfersModelRequest$outboundSchema.parse(
+      getCreateTransfersModelRequest,
+    ),
+  );
+}
+
+export function getCreateTransfersModelRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetCreateTransfersModelRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetCreateTransfersModelRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetCreateTransfersModelRequest' from JSON`,
+  );
 }

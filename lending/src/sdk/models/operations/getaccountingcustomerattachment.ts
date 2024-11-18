@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetAccountingCustomerAttachmentRequest = {
   /**
@@ -68,4 +71,26 @@ export namespace GetAccountingCustomerAttachmentRequest$ {
     GetAccountingCustomerAttachmentRequest$outboundSchema;
   /** @deprecated use `GetAccountingCustomerAttachmentRequest$Outbound` instead. */
   export type Outbound = GetAccountingCustomerAttachmentRequest$Outbound;
+}
+
+export function getAccountingCustomerAttachmentRequestToJSON(
+  getAccountingCustomerAttachmentRequest:
+    GetAccountingCustomerAttachmentRequest,
+): string {
+  return JSON.stringify(
+    GetAccountingCustomerAttachmentRequest$outboundSchema.parse(
+      getAccountingCustomerAttachmentRequest,
+    ),
+  );
+}
+
+export function getAccountingCustomerAttachmentRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetAccountingCustomerAttachmentRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetAccountingCustomerAttachmentRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetAccountingCustomerAttachmentRequest' from JSON`,
+  );
 }

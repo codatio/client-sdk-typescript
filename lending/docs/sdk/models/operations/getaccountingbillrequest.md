@@ -7,7 +7,7 @@ import { GetAccountingBillRequest } from "@codat/lending/sdk/models/operations";
 
 let value: GetAccountingBillRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  billId: "EILBDVJVNUAGVKRQ",
+  billId: "7110701885",
 };
 ```
 

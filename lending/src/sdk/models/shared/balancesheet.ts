@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ReportLine,
   ReportLine$inboundSchema,
@@ -91,4 +94,18 @@ export namespace BalanceSheet$ {
   export const outboundSchema = BalanceSheet$outboundSchema;
   /** @deprecated use `BalanceSheet$Outbound` instead. */
   export type Outbound = BalanceSheet$Outbound;
+}
+
+export function balanceSheetToJSON(balanceSheet: BalanceSheet): string {
+  return JSON.stringify(BalanceSheet$outboundSchema.parse(balanceSheet));
+}
+
+export function balanceSheetFromJSON(
+  jsonString: string,
+): SafeParseResult<BalanceSheet, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BalanceSheet$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BalanceSheet' from JSON`,
+  );
 }
