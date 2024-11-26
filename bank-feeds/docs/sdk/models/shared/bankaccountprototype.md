@@ -6,7 +6,7 @@
 import { BankAccountPrototype } from "@codat/bank-feeds/sdk/models/shared";
 
 let value: BankAccountPrototype = {
-  currency: "GBP",
+  currency: "EUR",
   status: "Active",
 };
 ```

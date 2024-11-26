@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CompanyReference,
   CompanyReference$inboundSchema,
@@ -75,4 +78,24 @@ export namespace SourceAccountWebhookPayload$ {
   export const outboundSchema = SourceAccountWebhookPayload$outboundSchema;
   /** @deprecated use `SourceAccountWebhookPayload$Outbound` instead. */
   export type Outbound = SourceAccountWebhookPayload$Outbound;
+}
+
+export function sourceAccountWebhookPayloadToJSON(
+  sourceAccountWebhookPayload: SourceAccountWebhookPayload,
+): string {
+  return JSON.stringify(
+    SourceAccountWebhookPayload$outboundSchema.parse(
+      sourceAccountWebhookPayload,
+    ),
+  );
+}
+
+export function sourceAccountWebhookPayloadFromJSON(
+  jsonString: string,
+): SafeParseResult<SourceAccountWebhookPayload, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SourceAccountWebhookPayload$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SourceAccountWebhookPayload' from JSON`,
+  );
 }

@@ -4,8 +4,11 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BankAccountStatus,
   BankAccountStatus$inboundSchema,
@@ -246,6 +249,20 @@ export namespace Metadata$ {
   export type Outbound = Metadata$Outbound;
 }
 
+export function metadataToJSON(metadata: Metadata): string {
+  return JSON.stringify(Metadata$outboundSchema.parse(metadata));
+}
+
+export function metadataFromJSON(
+  jsonString: string,
+): SafeParseResult<Metadata, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Metadata$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Metadata' from JSON`,
+  );
+}
+
 /** @internal */
 export const SupplementalData$inboundSchema: z.ZodType<
   SupplementalData,
@@ -280,6 +297,24 @@ export namespace SupplementalData$ {
   export const outboundSchema = SupplementalData$outboundSchema;
   /** @deprecated use `SupplementalData$Outbound` instead. */
   export type Outbound = SupplementalData$Outbound;
+}
+
+export function supplementalDataToJSON(
+  supplementalData: SupplementalData,
+): string {
+  return JSON.stringify(
+    SupplementalData$outboundSchema.parse(supplementalData),
+  );
+}
+
+export function supplementalDataFromJSON(
+  jsonString: string,
+): SafeParseResult<SupplementalData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SupplementalData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SupplementalData' from JSON`,
+  );
 }
 
 /** @internal */
@@ -380,6 +415,24 @@ export namespace AccountingBankAccount$ {
   export type Outbound = AccountingBankAccount$Outbound;
 }
 
+export function accountingBankAccountToJSON(
+  accountingBankAccount: AccountingBankAccount,
+): string {
+  return JSON.stringify(
+    AccountingBankAccount$outboundSchema.parse(accountingBankAccount),
+  );
+}
+
+export function accountingBankAccountFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountingBankAccount, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountingBankAccount$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountingBankAccount' from JSON`,
+  );
+}
+
 /** @internal */
 export const BankAccounts$inboundSchema: z.ZodType<
   BankAccounts,
@@ -436,4 +489,18 @@ export namespace BankAccounts$ {
   export const outboundSchema = BankAccounts$outboundSchema;
   /** @deprecated use `BankAccounts$Outbound` instead. */
   export type Outbound = BankAccounts$Outbound;
+}
+
+export function bankAccountsToJSON(bankAccounts: BankAccounts): string {
+  return JSON.stringify(BankAccounts$outboundSchema.parse(bankAccounts));
+}
+
+export function bankAccountsFromJSON(
+  jsonString: string,
+): SafeParseResult<BankAccounts, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BankAccounts$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BankAccounts' from JSON`,
+  );
 }

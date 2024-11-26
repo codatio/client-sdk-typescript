@@ -15,12 +15,12 @@ let value: PushOperation = {
   ],
   dataType: "invoices",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "993e989b-4632-4fb7-8340-64b6201a78ef",
+  pushOperationKey: "2d291dc9-61b7-4bdf-8d05-b28030c35eb0",
   dataConnectionKey: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   requestedOnUtc: "2022-10-23T00:00:00Z",
   completedOnUtc: "2022-10-23T00:00:00Z",
   status: "Pending",
-  statusCode: 409,
+  statusCode: 506,
 };
 ```
 

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type DeleteSourceAccountRequest = {
   /**
@@ -59,4 +62,22 @@ export namespace DeleteSourceAccountRequest$ {
   export const outboundSchema = DeleteSourceAccountRequest$outboundSchema;
   /** @deprecated use `DeleteSourceAccountRequest$Outbound` instead. */
   export type Outbound = DeleteSourceAccountRequest$Outbound;
+}
+
+export function deleteSourceAccountRequestToJSON(
+  deleteSourceAccountRequest: DeleteSourceAccountRequest,
+): string {
+  return JSON.stringify(
+    DeleteSourceAccountRequest$outboundSchema.parse(deleteSourceAccountRequest),
+  );
+}
+
+export function deleteSourceAccountRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteSourceAccountRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteSourceAccountRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteSourceAccountRequest' from JSON`,
+  );
 }

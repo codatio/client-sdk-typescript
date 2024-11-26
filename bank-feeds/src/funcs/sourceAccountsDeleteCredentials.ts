@@ -86,6 +86,9 @@ export async function sourceAccountsDeleteCredentials(
   const context = {
     operationID: "delete-bank-feed-credentials",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

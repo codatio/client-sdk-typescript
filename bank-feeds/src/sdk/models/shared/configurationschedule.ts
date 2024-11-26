@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ConfigurationSchedule = {
   /**
@@ -73,4 +76,22 @@ export namespace ConfigurationSchedule$ {
   export const outboundSchema = ConfigurationSchedule$outboundSchema;
   /** @deprecated use `ConfigurationSchedule$Outbound` instead. */
   export type Outbound = ConfigurationSchedule$Outbound;
+}
+
+export function configurationScheduleToJSON(
+  configurationSchedule: ConfigurationSchedule,
+): string {
+  return JSON.stringify(
+    ConfigurationSchedule$outboundSchema.parse(configurationSchedule),
+  );
+}
+
+export function configurationScheduleFromJSON(
+  jsonString: string,
+): SafeParseResult<ConfigurationSchedule, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ConfigurationSchedule$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ConfigurationSchedule' from JSON`,
+  );
 }

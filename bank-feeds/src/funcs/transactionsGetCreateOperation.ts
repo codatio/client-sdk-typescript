@@ -88,6 +88,9 @@ export async function transactionsGetCreateOperation(
   const context = {
     operationID: "get-create-operation",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

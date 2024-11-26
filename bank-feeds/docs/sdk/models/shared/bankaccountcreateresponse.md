@@ -15,12 +15,12 @@ let value: BankAccountCreateResponse = {
   ],
   dataType: "invoices",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "5a2b4290-d0a4-4bf3-a999-3f7db4d6e9eb",
+  pushOperationKey: "321a235d-1d1f-47f9-bb04-141561b94819",
   dataConnectionKey: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   requestedOnUtc: "2022-10-23T00:00:00Z",
   completedOnUtc: "2022-10-23T00:00:00Z",
-  status: "Success",
-  statusCode: 305,
+  status: "Pending",
+  statusCode: 408,
 };
 ```
 

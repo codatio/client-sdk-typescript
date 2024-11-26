@@ -6,25 +6,6 @@
 import { PushOperations } from "@codat/bank-feeds/sdk/models/shared";
 
 let value: PushOperations = {
-  results: [
-    {
-      changes: [
-        {
-          recordRef: {
-            dataType: "invoices",
-          },
-        },
-      ],
-      dataType: "invoices",
-      companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-      pushOperationKey: "69dad4c2-fa3f-4b43-8803-65749d182b69",
-      dataConnectionKey: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-      requestedOnUtc: "2022-10-23T00:00:00Z",
-      completedOnUtc: "2022-10-23T00:00:00Z",
-      status: "Failed",
-      statusCode: 508,
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

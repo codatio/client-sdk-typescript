@@ -3,8 +3,11 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BankAccountStatus,
   BankAccountStatus$inboundSchema,
@@ -214,4 +217,22 @@ export namespace BankAccountPrototype$ {
   export const outboundSchema = BankAccountPrototype$outboundSchema;
   /** @deprecated use `BankAccountPrototype$Outbound` instead. */
   export type Outbound = BankAccountPrototype$Outbound;
+}
+
+export function bankAccountPrototypeToJSON(
+  bankAccountPrototype: BankAccountPrototype,
+): string {
+  return JSON.stringify(
+    BankAccountPrototype$outboundSchema.parse(bankAccountPrototype),
+  );
+}
+
+export function bankAccountPrototypeFromJSON(
+  jsonString: string,
+): SafeParseResult<BankAccountPrototype, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BankAccountPrototype$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BankAccountPrototype' from JSON`,
+  );
 }

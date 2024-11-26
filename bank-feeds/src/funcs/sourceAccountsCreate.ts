@@ -23,31 +23,10 @@ import * as operations from "../sdk/models/operations/index.js";
 import { Result } from "../sdk/types/fp.js";
 
 /**
- * Create source account
+ * Create single source account
  *
  * @remarks
  * The _Create Source Account_ endpoint allows you to create a representation of a bank account within Codat's domain. The company can then map the source account to an existing or new target account in their accounting software.
- *
- * #### Account mapping variability
- *
- * The method of mapping the source account to the target account varies depending on the accounting software your company uses.
- *
- * #### Mapping options:
- *
- * 1. **API Mapping**: Integrate the mapping journey directly into your application for a seamless user experience.
- * 2. **Codat UI Mapping**: If you prefer a quicker setup, you can utilize Codat's provided user interface for mapping.
- * 3. **Accounting Platform Mapping**: For some accounting software, the mapping process must be conducted within the software itself.
- *
- * ### Integration-specific behaviour
- *
- * | Bank Feed Integration | API Mapping | Codat UI Mapping | Accounting Platform Mapping |
- * | --------------------- | ----------- | ---------------- | --------------------------- |
- * | Xero                  | ✅          | ✅               |                             |
- * | FreeAgent             | ✅          | ✅               |                             |
- * | Oracle NetSuite       | ✅          | ✅               |                             |
- * | Exact Online (NL)     | ✅          | ✅               |                             |
- * | QuickBooks Online     |             |                  | ✅                          |
- * | Sage                  |             |                  | ✅                          |
  *
  * > ### Versioning
  * > If you are integrating the Bank Feeds API with Codat after August 1, 2024, please use the v2 version of the API, as detailed in the schema below. For integrations completed before August 1, 2024, select the v1 version from the schema dropdown below.
@@ -108,6 +87,9 @@ export async function sourceAccountsCreate(
   const context = {
     operationID: "create-source-account",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

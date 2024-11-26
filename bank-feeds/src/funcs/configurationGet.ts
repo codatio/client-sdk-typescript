@@ -79,6 +79,9 @@ export async function configurationGet(
   const context = {
     operationID: "get-configuration",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

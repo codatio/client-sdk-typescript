@@ -23,7 +23,7 @@ import { AccountingBankAccount } from "@codat/bank-feeds/sdk/models/shared";
 let value: AccountingBankAccount = {
   modifiedDate: "2022-10-23T00:00:00Z",
   sourceModifiedDate: "2022-10-23T00:00:00Z",
-  currency: "EUR",
+  currency: "USD",
   status: "Active",
 };
 ```

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   PushChangeType,
   PushChangeType$inboundSchema,
@@ -67,4 +70,22 @@ export namespace PushOperationChange$ {
   export const outboundSchema = PushOperationChange$outboundSchema;
   /** @deprecated use `PushOperationChange$Outbound` instead. */
   export type Outbound = PushOperationChange$Outbound;
+}
+
+export function pushOperationChangeToJSON(
+  pushOperationChange: PushOperationChange,
+): string {
+  return JSON.stringify(
+    PushOperationChange$outboundSchema.parse(pushOperationChange),
+  );
+}
+
+export function pushOperationChangeFromJSON(
+  jsonString: string,
+): SafeParseResult<PushOperationChange, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PushOperationChange$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PushOperationChange' from JSON`,
+  );
 }

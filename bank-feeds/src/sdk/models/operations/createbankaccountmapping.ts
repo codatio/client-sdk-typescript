@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type CreateBankAccountMappingRequest = {
@@ -68,4 +71,24 @@ export namespace CreateBankAccountMappingRequest$ {
   export const outboundSchema = CreateBankAccountMappingRequest$outboundSchema;
   /** @deprecated use `CreateBankAccountMappingRequest$Outbound` instead. */
   export type Outbound = CreateBankAccountMappingRequest$Outbound;
+}
+
+export function createBankAccountMappingRequestToJSON(
+  createBankAccountMappingRequest: CreateBankAccountMappingRequest,
+): string {
+  return JSON.stringify(
+    CreateBankAccountMappingRequest$outboundSchema.parse(
+      createBankAccountMappingRequest,
+    ),
+  );
+}
+
+export function createBankAccountMappingRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateBankAccountMappingRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateBankAccountMappingRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateBankAccountMappingRequest' from JSON`,
+  );
 }

@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GenerateCredentialsRequest = {
   /**
@@ -75,4 +78,22 @@ export namespace GenerateCredentialsRequest$ {
   export const outboundSchema = GenerateCredentialsRequest$outboundSchema;
   /** @deprecated use `GenerateCredentialsRequest$Outbound` instead. */
   export type Outbound = GenerateCredentialsRequest$Outbound;
+}
+
+export function generateCredentialsRequestToJSON(
+  generateCredentialsRequest: GenerateCredentialsRequest,
+): string {
+  return JSON.stringify(
+    GenerateCredentialsRequest$outboundSchema.parse(generateCredentialsRequest),
+  );
+}
+
+export function generateCredentialsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GenerateCredentialsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GenerateCredentialsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GenerateCredentialsRequest' from JSON`,
+  );
 }

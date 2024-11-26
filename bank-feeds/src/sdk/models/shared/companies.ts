@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Company,
   Company$inboundSchema,
@@ -88,4 +91,18 @@ export namespace Companies$ {
   export const outboundSchema = Companies$outboundSchema;
   /** @deprecated use `Companies$Outbound` instead. */
   export type Outbound = Companies$Outbound;
+}
+
+export function companiesToJSON(companies: Companies): string {
+  return JSON.stringify(Companies$outboundSchema.parse(companies));
+}
+
+export function companiesFromJSON(
+  jsonString: string,
+): SafeParseResult<Companies, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Companies$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Companies' from JSON`,
+  );
 }

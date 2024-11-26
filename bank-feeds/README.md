@@ -131,6 +131,7 @@ run();
 * [get](docs/sdks/companies/README.md#get) - Get company
 * [delete](docs/sdks/companies/README.md#delete) - Delete a company
 * [update](docs/sdks/companies/README.md#update) - Update company
+* [getAccessToken](docs/sdks/companies/README.md#getaccesstoken) - Get company access token
 
 ### [companyInformation](docs/sdks/companyinformation/README.md)
 
@@ -151,7 +152,8 @@ run();
 
 ### [sourceAccounts](docs/sdks/sourceaccounts/README.md)
 
-* [create](docs/sdks/sourceaccounts/README.md#create) - Create source account
+* [createBatch](docs/sdks/sourceaccounts/README.md#createbatch) - Create source accounts
+* [create](docs/sdks/sourceaccounts/README.md#create) - Create single source account
 * [list](docs/sdks/sourceaccounts/README.md#list) - List source accounts
 * [update](docs/sdks/sourceaccounts/README.md#update) - Update source account
 * [delete](docs/sdks/sourceaccounts/README.md#delete) - Delete source account
@@ -165,6 +167,7 @@ run();
 ### [transactions](docs/sdks/transactions/README.md)
 
 * [create](docs/sdks/transactions/README.md#create) - Create bank transactions
+* [getCreateModel](docs/sdks/transactions/README.md#getcreatemodel) - Get create bank transactions model
 * [getCreateOperation](docs/sdks/transactions/README.md#getcreateoperation) - Get create operation
 * [listCreateOperations](docs/sdks/transactions/README.md#listcreateoperations) - List create operations
 
@@ -265,10 +268,10 @@ If a HTTP request fails, an operation my also throw an error from the `sdk/model
 
 In addition, when custom error responses are specified for an operation, the SDK may throw their associated Error type. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation. For example, the `create` method may throw the following errors:
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorMessage               | 400, 401, 402, 403, 429, 500, 503 | application/json                  |
-| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type          | Status Code                       | Content Type     |
+| ------------------- | --------------------------------- | ---------------- |
+| errors.ErrorMessage | 400, 401, 402, 403, 429, 500, 503 | application/json |
+| errors.SDKError     | 4XX, 5XX                          | \*/\*            |
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
@@ -324,41 +327,9 @@ Validation errors can also occur when either method arguments or data returned f
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-### Select Server by Index
-
-You can override the default server globally by passing a server index to the `serverIdx` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
-
-| # | Server | Variables |
-| - | ------ | --------- |
-| 0 | `https://api.codat.io` | None |
-
-```typescript
-import { CodatBankFeeds } from "@codat/bank-feeds";
-
-const codatBankFeeds = new CodatBankFeeds({
-  serverIdx: 0,
-  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-});
-
-async function run() {
-  const result = await codatBankFeeds.companies.create({
-    name: "Technicalium",
-    description: "Requested early access to the new financing scheme.",
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-
-```
-
-
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverURL` optional parameter when initializing the SDK client instance. For example:
-
+The default server can also be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
@@ -442,9 +413,9 @@ const sdk = new CodatBankFeeds({ httpClient });
 
 This SDK supports the following security scheme globally:
 
-| Name         | Type         | Scheme       |
-| ------------ | ------------ | ------------ |
-| `authHeader` | apiKey       | API key      |
+| Name         | Type   | Scheme  |
+| ------------ | ------ | ------- |
+| `authHeader` | apiKey | API key |
 
 To authenticate with the API the `authHeader` parameter must be set when initializing the SDK client instance. For example:
 ```typescript
@@ -498,6 +469,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`companiesCreate`](docs/sdks/companies/README.md#create) - Create company
 - [`companiesDelete`](docs/sdks/companies/README.md#delete) - Delete a company
 - [`companiesGet`](docs/sdks/companies/README.md#get) - Get company
+- [`companiesGetAccessToken`](docs/sdks/companies/README.md#getaccesstoken) - Get company access token
 - [`companiesList`](docs/sdks/companies/README.md#list) - List companies
 - [`companiesUpdate`](docs/sdks/companies/README.md#update) - Update company
 - [`companyInformationGet`](docs/sdks/companyinformation/README.md#get) - Get company information
@@ -508,7 +480,8 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`connectionsGet`](docs/sdks/connections/README.md#get) - Get connection
 - [`connectionsList`](docs/sdks/connections/README.md#list) - List connections
 - [`connectionsUnlink`](docs/sdks/connections/README.md#unlink) - Unlink connection
-- [`sourceAccountsCreate`](docs/sdks/sourceaccounts/README.md#create) - Create source account
+- [`sourceAccountsCreate`](docs/sdks/sourceaccounts/README.md#create) - Create single source account
+- [`sourceAccountsCreateBatch`](docs/sdks/sourceaccounts/README.md#createbatch) - Create source accounts
 - [`sourceAccountsDelete`](docs/sdks/sourceaccounts/README.md#delete) - Delete source account
 - [`sourceAccountsDeleteCredentials`](docs/sdks/sourceaccounts/README.md#deletecredentials) - Delete all source account credentials
 - [`sourceAccountsGenerateCredentials`](docs/sdks/sourceaccounts/README.md#generatecredentials) - Generate source account credentials
@@ -516,6 +489,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`sourceAccountsUpdate`](docs/sdks/sourceaccounts/README.md#update) - Update source account
 - [`syncGetLastSuccessfulSync`](docs/sdks/sync/README.md#getlastsuccessfulsync) - Get last successful sync
 - [`transactionsCreate`](docs/sdks/transactions/README.md#create) - Create bank transactions
+- [`transactionsGetCreateModel`](docs/sdks/transactions/README.md#getcreatemodel) - Get create bank transactions model
 - [`transactionsGetCreateOperation`](docs/sdks/transactions/README.md#getcreateoperation) - Get create operation
 - [`transactionsListCreateOperations`](docs/sdks/transactions/README.md#listcreateoperations) - List create operations
 

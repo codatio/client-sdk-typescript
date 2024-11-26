@@ -3,8 +3,11 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Type of transaction for the bank statement line.
@@ -38,7 +41,7 @@ export type BankTransactions = {
   /**
    * Identifier for the bank account transaction, unique for the company in the accounting software.
    */
-  id: string;
+  id?: string | undefined;
   /**
    * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
    *
@@ -60,7 +63,7 @@ export type BankTransactions = {
    * > Not all dates from Codat will contain information about time zones.
    * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
    */
-  date: string;
+  date?: string | undefined;
   /**
    * Description of the bank transaction.
    */
@@ -80,7 +83,7 @@ export type BankTransactions = {
   /**
    * The amount transacted in the bank transaction.
    */
-  amount: Decimal$ | number;
+  amount?: Decimal$ | number | undefined;
   /**
    * The remaining balance in the account with ID `accountId`. This field is optional for QuickBooks Online but is required for Xero, Sage, NetSuite, Exact, and FreeAgent.
    */
@@ -118,26 +121,26 @@ export const BankTransactions$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string(),
-  date: z.string(),
+  id: z.string().optional(),
+  date: z.string().optional(),
   description: z.nullable(z.string()).optional(),
   counterparty: z.nullable(z.string()).optional(),
   reference: z.nullable(z.string()).optional(),
   reconciled: z.nullable(z.boolean()).optional(),
-  amount: z.number().transform(v => new Decimal$(v)),
+  amount: z.number().transform(v => new Decimal$(v)).optional(),
   balance: z.number().transform(v => new Decimal$(v)).optional(),
   transactionType: z.nullable(BankTransactionType$inboundSchema).optional(),
 });
 
 /** @internal */
 export type BankTransactions$Outbound = {
-  id: string;
-  date: string;
+  id?: string | undefined;
+  date?: string | undefined;
   description?: string | null | undefined;
   counterparty?: string | null | undefined;
   reference?: string | null | undefined;
   reconciled?: boolean | null | undefined;
-  amount: number;
+  amount?: number | undefined;
   balance?: number | undefined;
   transactionType?: string | null | undefined;
 };
@@ -148,15 +151,15 @@ export const BankTransactions$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BankTransactions
 > = z.object({
-  id: z.string(),
-  date: z.string(),
+  id: z.string().optional(),
+  date: z.string().optional(),
   description: z.nullable(z.string()).optional(),
   counterparty: z.nullable(z.string()).optional(),
   reference: z.nullable(z.string()).optional(),
   reconciled: z.nullable(z.boolean()).optional(),
   amount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
     typeof v === "number" ? v : v.toNumber()
-  ),
+  ).optional(),
   balance: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
     typeof v === "number" ? v : v.toNumber()
   ).optional(),
@@ -174,4 +177,22 @@ export namespace BankTransactions$ {
   export const outboundSchema = BankTransactions$outboundSchema;
   /** @deprecated use `BankTransactions$Outbound` instead. */
   export type Outbound = BankTransactions$Outbound;
+}
+
+export function bankTransactionsToJSON(
+  bankTransactions: BankTransactions,
+): string {
+  return JSON.stringify(
+    BankTransactions$outboundSchema.parse(bankTransactions),
+  );
+}
+
+export function bankTransactionsFromJSON(
+  jsonString: string,
+): SafeParseResult<BankTransactions, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BankTransactions$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BankTransactions' from JSON`,
+  );
 }

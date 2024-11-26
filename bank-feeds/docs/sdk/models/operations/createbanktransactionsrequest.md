@@ -9,9 +9,9 @@ import { Decimal } from "@codat/bank-feeds/sdk/types";
 let value: CreateBankTransactionsRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+  accountId: "EILBDVJVNUAGVKRQ",
   createBankTransactions: {
-    accountId: "Checking 0202",
+    accountId: "EILBDVJVNUAGVKRQ",
     transactions: [
       {
         id: "716422529",

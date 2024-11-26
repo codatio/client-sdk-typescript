@@ -25,7 +25,7 @@ import { BankAccountCreateResponseAccountingBankAccount } from "@codat/bank-feed
 let value: BankAccountCreateResponseAccountingBankAccount = {
   modifiedDate: "2022-10-23T00:00:00Z",
   sourceModifiedDate: "2022-10-23T00:00:00Z",
-  currency: "EUR",
+  currency: "USD",
   status: "Active",
 };
 ```

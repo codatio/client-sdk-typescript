@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ConfigurationContactRef,
   ConfigurationContactRef$inboundSchema,
@@ -55,4 +58,22 @@ export namespace ConfigurationSupplier$ {
   export const outboundSchema = ConfigurationSupplier$outboundSchema;
   /** @deprecated use `ConfigurationSupplier$Outbound` instead. */
   export type Outbound = ConfigurationSupplier$Outbound;
+}
+
+export function configurationSupplierToJSON(
+  configurationSupplier: ConfigurationSupplier,
+): string {
+  return JSON.stringify(
+    ConfigurationSupplier$outboundSchema.parse(configurationSupplier),
+  );
+}
+
+export function configurationSupplierFromJSON(
+  jsonString: string,
+): SafeParseResult<ConfigurationSupplier, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ConfigurationSupplier$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ConfigurationSupplier' from JSON`,
+  );
 }

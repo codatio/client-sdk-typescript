@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ConfigurationContactRef = {
   /**
@@ -52,4 +55,22 @@ export namespace ConfigurationContactRef$ {
   export const outboundSchema = ConfigurationContactRef$outboundSchema;
   /** @deprecated use `ConfigurationContactRef$Outbound` instead. */
   export type Outbound = ConfigurationContactRef$Outbound;
+}
+
+export function configurationContactRefToJSON(
+  configurationContactRef: ConfigurationContactRef,
+): string {
+  return JSON.stringify(
+    ConfigurationContactRef$outboundSchema.parse(configurationContactRef),
+  );
+}
+
+export function configurationContactRefFromJSON(
+  jsonString: string,
+): SafeParseResult<ConfigurationContactRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ConfigurationContactRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ConfigurationContactRef' from JSON`,
+  );
 }

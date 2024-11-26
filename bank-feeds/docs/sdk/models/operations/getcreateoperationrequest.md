@@ -7,7 +7,7 @@ import { GetCreateOperationRequest } from "@codat/bank-feeds/sdk/models/operatio
 
 let value: GetCreateOperationRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "052f77a5-2d38-431d-8ffe-c516320b0c21",
+  pushOperationKey: "c2fa3fb4-3803-4657-a49d-182b692275fc",
 };
 ```
 
