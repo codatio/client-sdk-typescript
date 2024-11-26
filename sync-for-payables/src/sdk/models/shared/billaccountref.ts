@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Reference to the account to which the line item is linked.
@@ -48,4 +51,18 @@ export namespace BillAccountRef$ {
   export const outboundSchema = BillAccountRef$outboundSchema;
   /** @deprecated use `BillAccountRef$Outbound` instead. */
   export type Outbound = BillAccountRef$Outbound;
+}
+
+export function billAccountRefToJSON(billAccountRef: BillAccountRef): string {
+  return JSON.stringify(BillAccountRef$outboundSchema.parse(billAccountRef));
+}
+
+export function billAccountRefFromJSON(
+  jsonString: string,
+): SafeParseResult<BillAccountRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BillAccountRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BillAccountRef' from JSON`,
+  );
 }

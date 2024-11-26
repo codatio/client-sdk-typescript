@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DataConnectionError,
   DataConnectionError$inboundSchema,
@@ -216,4 +219,18 @@ export namespace Connection$ {
   export const outboundSchema = Connection$outboundSchema;
   /** @deprecated use `Connection$Outbound` instead. */
   export type Outbound = Connection$Outbound;
+}
+
+export function connectionToJSON(connection: Connection): string {
+  return JSON.stringify(Connection$outboundSchema.parse(connection));
+}
+
+export function connectionFromJSON(
+  jsonString: string,
+): SafeParseResult<Connection, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Connection$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Connection' from JSON`,
+  );
 }

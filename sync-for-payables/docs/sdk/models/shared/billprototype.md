@@ -11,7 +11,7 @@ let value: BillPrototype = {
   },
   issueDate: "2022-10-23T00:00:00Z",
   dueDate: "2022-10-23T00:00:00Z",
-  currency: "USD",
+  currency: "EUR",
   status: "Open",
 };
 ```

@@ -34,6 +34,7 @@ export * from "./codatfile.js";
 export * from "./companies.js";
 export * from "./company.js";
 export * from "./companyinformation.js";
+export * from "./companyreference.js";
 export * from "./companyrequestbody.js";
 export * from "./connection.js";
 export * from "./connections.js";

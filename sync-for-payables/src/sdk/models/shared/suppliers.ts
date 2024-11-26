@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Pagination,
   Pagination$inboundSchema,
@@ -58,4 +61,18 @@ export namespace Suppliers$ {
   export const outboundSchema = Suppliers$outboundSchema;
   /** @deprecated use `Suppliers$Outbound` instead. */
   export type Outbound = Suppliers$Outbound;
+}
+
+export function suppliersToJSON(suppliers: Suppliers): string {
+  return JSON.stringify(Suppliers$outboundSchema.parse(suppliers));
+}
+
+export function suppliersFromJSON(
+  jsonString: string,
+): SafeParseResult<Suppliers, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Suppliers$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Suppliers' from JSON`,
+  );
 }

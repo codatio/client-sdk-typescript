@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetCompanyInformationRequest = {
   /**
@@ -52,4 +55,24 @@ export namespace GetCompanyInformationRequest$ {
   export const outboundSchema = GetCompanyInformationRequest$outboundSchema;
   /** @deprecated use `GetCompanyInformationRequest$Outbound` instead. */
   export type Outbound = GetCompanyInformationRequest$Outbound;
+}
+
+export function getCompanyInformationRequestToJSON(
+  getCompanyInformationRequest: GetCompanyInformationRequest,
+): string {
+  return JSON.stringify(
+    GetCompanyInformationRequest$outboundSchema.parse(
+      getCompanyInformationRequest,
+    ),
+  );
+}
+
+export function getCompanyInformationRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetCompanyInformationRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetCompanyInformationRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetCompanyInformationRequest' from JSON`,
+  );
 }

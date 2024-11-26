@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Reference to the bank account / credit card which you are using to pay the bill.
@@ -48,4 +51,22 @@ export namespace BillPaymentAccountRef$ {
   export const outboundSchema = BillPaymentAccountRef$outboundSchema;
   /** @deprecated use `BillPaymentAccountRef$Outbound` instead. */
   export type Outbound = BillPaymentAccountRef$Outbound;
+}
+
+export function billPaymentAccountRefToJSON(
+  billPaymentAccountRef: BillPaymentAccountRef,
+): string {
+  return JSON.stringify(
+    BillPaymentAccountRef$outboundSchema.parse(billPaymentAccountRef),
+  );
+}
+
+export function billPaymentAccountRefFromJSON(
+  jsonString: string,
+): SafeParseResult<BillPaymentAccountRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BillPaymentAccountRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BillPaymentAccountRef' from JSON`,
+  );
 }

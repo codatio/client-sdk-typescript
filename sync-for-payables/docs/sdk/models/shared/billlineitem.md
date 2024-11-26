@@ -7,8 +7,8 @@ import { BillLineItem } from "@codat/sync-for-payables/sdk/models/shared";
 import { Decimal } from "@codat/sync-for-payables/sdk/types";
 
 let value: BillLineItem = {
-  unitAmount: new Decimal("6399.21"),
-  quantity: new Decimal("1433.53"),
+  unitAmount: new Decimal("8326.20"),
+  quantity: new Decimal("7781.57"),
   accountRef: {},
 };
 ```
