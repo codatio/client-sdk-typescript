@@ -5,8 +5,8 @@ management:
   docVersion: 3.0.0
   speakeasyVersion: 1.447.0
   generationVersion: 2.463.0
-  releaseVersion: 9.0.0
-  configChecksum: c0e736018eb1e1db696f7fffb9158a9d
+  releaseVersion: 9.0.1
+  configChecksum: 55a7dd8d60cc533562b7dc123ee2c801
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   repoSubDirectory: sync-for-payables
   installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/sync-for-payables
