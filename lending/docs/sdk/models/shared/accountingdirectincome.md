@@ -25,11 +25,11 @@ let value: AccountingDirectIncome = {
   modifiedDate: "2022-10-23T00:00:00Z",
   sourceModifiedDate: "2022-10-23T00:00:00Z",
   issueDate: "2022-10-23T00:00:00Z",
-  currency: "USD",
+  currency: "GBP",
   lineItems: [
     {
-      unitAmount: new Decimal("1481.41"),
-      quantity: new Decimal("9818.29"),
+      unitAmount: new Decimal("7936.98"),
+      quantity: new Decimal("2239.25"),
       accountRef: {},
     },
   ],
@@ -41,14 +41,14 @@ let value: AccountingDirectIncome = {
         paidOnDate: "2022-10-23T00:00:00Z",
       },
       allocation: {
-        currency: "USD",
+        currency: "EUR",
         allocatedOnDate: "2022-10-23T00:00:00Z",
       },
     },
   ],
-  subTotal: new Decimal("1369.00"),
-  taxAmount: new Decimal("8221.18"),
-  totalAmount: new Decimal("1898.48"),
+  subTotal: new Decimal("1646.94"),
+  taxAmount: new Decimal("6214.78"),
+  totalAmount: new Decimal("5772.29"),
 };
 ```
 

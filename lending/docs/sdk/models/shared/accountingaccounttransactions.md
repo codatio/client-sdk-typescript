@@ -6,21 +6,6 @@
 import { AccountingAccountTransactions } from "@codat/lending/sdk/models/shared";
 
 let value: AccountingAccountTransactions = {
-  results: [
-    {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
-      date: "2022-10-23T00:00:00Z",
-      currency: "GBP",
-      lines: [
-        {
-          recordRef: {
-            dataType: "transfers",
-          },
-        },
-      ],
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

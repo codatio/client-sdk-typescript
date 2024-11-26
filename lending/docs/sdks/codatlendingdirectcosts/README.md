@@ -151,16 +151,6 @@ async function run() {
               name: "Class 1",
             },
           ],
-          tracking: {
-            recordRefs: [
-              {
-                dataType: "trackingCategories",
-              },
-            ],
-            invoiceTo: {
-              dataType: "accountTransaction",
-            },
-          },
         },
       ],
       paymentAllocations: [
@@ -172,12 +162,10 @@ async function run() {
               id: "80000028-1671794219",
               name: "Bank Account 1",
             },
-            currency: "USD",
             paidOnDate: "2023-01-28T10:19:52.223Z",
             totalAmount: new Decimal("54"),
           },
           allocation: {
-            currency: "GBP",
             currencyRate: new Decimal("0"),
             allocatedOnDate: "2023-01-29T10:19:52.223Z",
             totalAmount: new Decimal("88"),
@@ -249,16 +237,6 @@ async function run() {
               name: "Class 1",
             },
           ],
-          tracking: {
-            recordRefs: [
-              {
-                dataType: "trackingCategories",
-              },
-            ],
-            invoiceTo: {
-              dataType: "accountTransaction",
-            },
-          },
         },
       ],
       paymentAllocations: [
@@ -270,12 +248,10 @@ async function run() {
               id: "80000028-1671794219",
               name: "Bank Account 1",
             },
-            currency: "USD",
             paidOnDate: "2023-01-28T10:19:52.223Z",
             totalAmount: new Decimal("54"),
           },
           allocation: {
-            currency: "GBP",
             currencyRate: new Decimal("0"),
             allocatedOnDate: "2023-01-29T10:19:52.223Z",
             totalAmount: new Decimal("88"),

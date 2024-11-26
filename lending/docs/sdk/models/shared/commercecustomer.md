@@ -8,14 +8,7 @@ When a customer places an order with the connected commerce store their details 
 import { CommerceCustomer } from "@codat/lending/sdk/models/shared";
 
 let value: CommerceCustomer = {
-  modifiedDate: "2022-10-23T00:00:00Z",
-  sourceModifiedDate: "2022-10-23T00:00:00Z",
-  id: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
-  customerName: "Fred Smith",
-  emailAddress: "fred.smith@myCompany.com",
-  phone: "+44 25691 154789",
-  defaultCurrency: "USD",
-  createdDate: "2022-10-23T00:00:00Z",
+  id: "EILBDVJVNUAGVKRQ",
 };
 ```
 

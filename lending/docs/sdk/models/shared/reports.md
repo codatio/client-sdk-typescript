@@ -6,13 +6,6 @@
 import { Reports } from "@codat/lending/sdk/models/shared";
 
 let value: Reports = {
-  results: [
-    {
-      id: "52c0f26b-051a-43ff-b02a-258eec67f5ef",
-      requestedDate: "2022-10-23T00:00:00Z",
-      updatedDate: "2022-10-23T00:00:00Z",
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

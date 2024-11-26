@@ -7,7 +7,7 @@ Types of links to bill payment lines.
 ```typescript
 import { BillPaymentLineLinkType } from "@codat/lending/sdk/models/shared";
 
-let value: BillPaymentLineLinkType = "Unknown";
+let value: BillPaymentLineLinkType = "Unlinked";
 ```
 
 ## Values

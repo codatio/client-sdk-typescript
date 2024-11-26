@@ -7,7 +7,7 @@ import { GetAccountingCustomerRequest } from "@codat/lending/sdk/models/operatio
 
 let value: GetAccountingCustomerRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  customerId: "EILBDVJVNUAGVKRQ",
+  customerId: "7110701885",
 };
 ```
 

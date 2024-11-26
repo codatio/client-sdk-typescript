@@ -7,8 +7,8 @@ import { BillCreditNoteLineItem } from "@codat/lending/sdk/models/shared";
 import { Decimal } from "@codat/lending/sdk/types";
 
 let value: BillCreditNoteLineItem = {
-  unitAmount: new Decimal("9521.43"),
-  quantity: new Decimal("3000.29"),
+  unitAmount: new Decimal("3068.10"),
+  quantity: new Decimal("5775.43"),
   accountRef: {},
 };
 ```

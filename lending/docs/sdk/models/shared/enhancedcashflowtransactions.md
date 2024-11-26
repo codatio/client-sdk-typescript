@@ -53,14 +53,9 @@ let value: EnhancedCashFlowTransactions = {
     {
       transactions: [
         {
-          date: "2022-10-23T00:00:00Z",
-          currency: "EUR",
-          transactionCategory: {},
           sourceRef: {
             sourceType: "Banking",
           },
-          accountRef: {},
-          modifiedDate: "2022-10-23T00:00:00Z",
         },
         {
           id: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
@@ -85,7 +80,6 @@ let value: EnhancedCashFlowTransactions = {
           counterpartyNames: [
             "Counterparty",
           ],
-          sourceRef: {},
           accountRef: {
             id: "4f78a6b0-e9bb-40f2-82fd-f3a2daa1fd0a",
             name: "Business Current Account",
@@ -93,14 +87,9 @@ let value: EnhancedCashFlowTransactions = {
           modifiedDate: "2023-01-25T22:36:05.125Z",
         },
         {
-          date: "2022-10-23T00:00:00Z",
-          currency: "GBP",
-          transactionCategory: {},
           sourceRef: {
             sourceType: "Banking",
           },
-          accountRef: {},
-          modifiedDate: "2022-10-23T00:00:00Z",
         },
         {
           id: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
@@ -113,7 +102,6 @@ let value: EnhancedCashFlowTransactions = {
           counterpartyNames: [
             "<value>",
           ],
-          sourceRef: {},
           accountRef: {
             id: "12345678-1234-1234-1234-123456789012",
             name: "Business Saving Account",

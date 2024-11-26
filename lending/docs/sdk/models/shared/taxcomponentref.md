@@ -8,7 +8,7 @@ Taxes rates reference object depending on the rates being available on source co
 import { TaxComponentRef } from "@codat/lending/sdk/models/shared";
 
 let value: TaxComponentRef = {
-  id: "7110701885",
+  id: "EILBDVJVNUAGVKRQ",
   name: "<value>",
 };
 ```

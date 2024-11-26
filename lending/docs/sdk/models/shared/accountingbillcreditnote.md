@@ -22,8 +22,6 @@ import { AccountingBillCreditNote } from "@codat/lending/sdk/models/shared";
 import { Decimal } from "@codat/lending/sdk/types";
 
 let value: AccountingBillCreditNote = {
-  modifiedDate: "2022-10-23T00:00:00Z",
-  sourceModifiedDate: "2022-10-23T00:00:00Z",
   id: "6a0e9dfb-87b0-47d3-aaaf-9753ae9e757d",
   billCreditNoteNumber: "14763237",
   supplierRef: {
@@ -38,7 +36,6 @@ let value: AccountingBillCreditNote = {
   remainingCredit: new Decimal("693"),
   status: "Submitted",
   issueDate: "2019-02-18T16:03:07.268Z",
-  allocatedOnDate: "2022-10-23T00:00:00Z",
   currency: "USD",
   lineItems: [
     {
@@ -123,24 +120,6 @@ let value: AccountingBillCreditNote = {
       itemRef: {
         id: "075410d4-7edc-4936-ba52-9e1e43cbe300",
       },
-    },
-  ],
-  paymentAllocations: [
-    {
-      payment: {
-        accountRef: {},
-        currency: "EUR",
-        paidOnDate: "2022-10-23T00:00:00Z",
-      },
-      allocation: {
-        currency: "GBP",
-        allocatedOnDate: "2022-10-23T00:00:00Z",
-      },
-    },
-  ],
-  createdFromRefs: [
-    {
-      dataType: "invoice",
     },
   ],
   note: "Track separately",

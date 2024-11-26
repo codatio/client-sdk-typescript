@@ -6,7 +6,7 @@
 import { AccountingCreateBankTransactions } from "@codat/lending/sdk/models/shared";
 
 let value: AccountingCreateBankTransactions = {
-  accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
   transactions: [
     {
       date: "2022-10-23T00:00:00Z",

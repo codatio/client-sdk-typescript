@@ -8,7 +8,7 @@ Reference to the geographic location where the order was placed.
 import { LocationRef } from "@codat/lending/sdk/models/shared";
 
 let value: LocationRef = {
-  id: "7110701885",
+  id: "EILBDVJVNUAGVKRQ",
 };
 ```
 

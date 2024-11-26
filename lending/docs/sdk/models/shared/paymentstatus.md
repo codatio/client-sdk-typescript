@@ -7,7 +7,7 @@ Status of the payment.
 ```typescript
 import { PaymentStatus } from "@codat/lending/sdk/models/shared";
 
-let value: PaymentStatus = "Authorized";
+let value: PaymentStatus = "Paid";
 ```
 
 ## Values

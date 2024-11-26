@@ -13,8 +13,8 @@ let value: AccountsReceivableTracking = {
       id: "<id>",
     },
   ],
-  isBilledTo: "Unknown",
-  isRebilledTo: "Project",
+  isBilledTo: "NotApplicable",
+  isRebilledTo: "Unknown",
   recordRef: {
     dataType: "accountTransaction",
   },

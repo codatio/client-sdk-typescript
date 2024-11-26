@@ -6,23 +6,6 @@
 import { CommerceLocations } from "@codat/lending/sdk/models/shared";
 
 let value: CommerceLocations = {
-  results: [
-    {
-      modifiedDate: "2020-08-12T14:37:37",
-      sourceModifiedDate: "2020-08-12T14:37:37",
-      id: "15",
-      name: "London Warehouse",
-      address: {
-        type: "Inventory",
-        line1: "Warner House",
-        line2: "98 Theobald's Road",
-        city: "London",
-        region: "",
-        country: "United Kingdom",
-        postalCode: "WC1X 8WB",
-      },
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

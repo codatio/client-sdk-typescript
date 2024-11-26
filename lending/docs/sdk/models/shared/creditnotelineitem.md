@@ -7,8 +7,8 @@ import { CreditNoteLineItem } from "@codat/lending/sdk/models/shared";
 import { Decimal } from "@codat/lending/sdk/types";
 
 let value: CreditNoteLineItem = {
-  unitAmount: new Decimal("3741.70"),
-  quantity: new Decimal("4635.75"),
+  unitAmount: new Decimal("1002.27"),
+  quantity: new Decimal("9194.83"),
   accountRef: {},
   tracking: {
     categoryRefs: [
@@ -16,10 +16,10 @@ let value: CreditNoteLineItem = {
         id: "<id>",
       },
     ],
-    isBilledTo: "Unknown",
-    isRebilledTo: "NotApplicable",
+    isBilledTo: "Project",
+    isRebilledTo: "Project",
     recordRef: {
-      dataType: "transfer",
+      dataType: "journalEntry",
     },
   },
 };

@@ -9,10 +9,10 @@ import { Decimal } from "@codat/lending/sdk/types";
 let value: ProfitAndLossReport = {
   fromDate: "2022-10-23T00:00:00Z",
   toDate: "2022-10-23T00:00:00Z",
-  grossProfit: new Decimal("1289.26"),
-  netOperatingProfit: new Decimal("3154.28"),
-  netOtherIncome: new Decimal("3637.11"),
-  netProfit: new Decimal("5701.97"),
+  grossProfit: new Decimal("5684.34"),
+  netOperatingProfit: new Decimal("187.90"),
+  netOtherIncome: new Decimal("6176.35"),
+  netProfit: new Decimal("6120.96"),
 };
 ```
 

@@ -18,50 +18,13 @@ import { AccountingCreditNote } from "@codat/lending/sdk/models/shared";
 import { Decimal } from "@codat/lending/sdk/types";
 
 let value: AccountingCreditNote = {
-  modifiedDate: "2022-10-23T00:00:00Z",
-  sourceModifiedDate: "2022-10-23T00:00:00Z",
-  totalAmount: new Decimal("3834.64"),
-  totalDiscount: new Decimal("5883.17"),
-  subTotal: new Decimal("8310.48"),
-  totalTaxAmount: new Decimal("6289.82"),
-  discountPercentage: new Decimal("8726.51"),
-  remainingCredit: new Decimal("2735.42"),
+  totalAmount: new Decimal("4314.18"),
+  totalDiscount: new Decimal("8965.47"),
+  subTotal: new Decimal("3675.62"),
+  totalTaxAmount: new Decimal("4358.65"),
+  discountPercentage: new Decimal("8919.23"),
+  remainingCredit: new Decimal("8061.94"),
   status: "Void",
-  issueDate: "2022-10-23T00:00:00Z",
-  allocatedOnDate: "2022-10-23T00:00:00Z",
-  currency: "EUR",
-  lineItems: [
-    {
-      unitAmount: new Decimal("2155.08"),
-      quantity: new Decimal("9473.71"),
-      accountRef: {},
-      tracking: {
-        categoryRefs: [
-          {
-            id: "<id>",
-          },
-        ],
-        isBilledTo: "Project",
-        isRebilledTo: "Unknown",
-        recordRef: {
-          dataType: "journalEntry",
-        },
-      },
-    },
-  ],
-  paymentAllocations: [
-    {
-      payment: {
-        accountRef: {},
-        currency: "USD",
-        paidOnDate: "2022-10-23T00:00:00Z",
-      },
-      allocation: {
-        currency: "GBP",
-        allocatedOnDate: "2022-10-23T00:00:00Z",
-      },
-    },
-  ],
 };
 ```
 

@@ -19,9 +19,9 @@ import { AccountingCashFlowStatement } from "@codat/lending/sdk/models/shared";
 
 let value: AccountingCashFlowStatement = {
   reports: [],
-  reportBasis: "Accrual",
-  reportInput: "Direct",
-  currency: "GBP",
+  reportBasis: "Unknown",
+  reportInput: "Unknown",
+  currency: "USD",
   mostRecentAvailableMonth: "2022-10-23T00:00:00Z",
   earliestAvailableMonth: "2022-10-23T00:00:00Z",
 };

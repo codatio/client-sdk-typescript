@@ -35,16 +35,15 @@ const value: shared.SourceAccountV2 = {
 
 ```typescript
 const value: shared.SourceAccount = {
-  id: "acc-003",
-  accountName: "account-095",
+  id: "acc-002",
+  accountName: "account-081",
   accountType: "Credit",
-  accountNumber: "12345671",
+  accountNumber: "12345670",
   sortCode: "123456",
-  currency: "USD",
-  balance: new Decimal("0"),
+  currency: "GBP",
+  balance: new Decimal("99.99"),
   modifiedDate: "2023-01-09T14:14:14.1057478Z",
   status: "pending",
-  feedStartDate: "2022-10-23T00:00:00Z",
 };
 ```
 

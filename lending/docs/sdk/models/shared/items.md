@@ -8,7 +8,7 @@ import { Decimal } from "@codat/lending/sdk/types";
 
 let value: Items = {
   name: "<value>",
-  amount: new Decimal("1716.30"),
+  amount: new Decimal("8137.98"),
 };
 ```
 

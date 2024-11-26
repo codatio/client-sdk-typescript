@@ -4,26 +4,8 @@
 
 ```typescript
 import { AccountingAccounts } from "@codat/lending/sdk/models/shared";
-import { Decimal } from "@codat/lending/sdk/types";
 
 let value: AccountingAccounts = {
-  results: [
-    {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
-      id: "1b6266d1-1e44-46c5-8eb5-a8f98e03124e",
-      nominalCode: "610",
-      name: "Accounts Receivable",
-      description:
-        "Invoices the business has issued but has not yet collected payment on.",
-      fullyQualifiedCategory: "Asset.Current",
-      fullyQualifiedName: "Cash On Hand",
-      currency: "GBP",
-      currentBalance: new Decimal("0"),
-      type: "Asset",
-      status: "Active",
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

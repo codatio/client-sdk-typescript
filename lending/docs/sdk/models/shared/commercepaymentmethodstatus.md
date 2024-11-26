@@ -7,7 +7,7 @@ Status of the Payment Method.
 ```typescript
 import { CommercePaymentMethodStatus } from "@codat/lending/sdk/models/shared";
 
-let value: CommercePaymentMethodStatus = "Archived";
+let value: CommercePaymentMethodStatus = "Active";
 ```
 
 ## Values

@@ -4,25 +4,8 @@
 
 ```typescript
 import { CommercePayments } from "@codat/lending/sdk/models/shared";
-import { Decimal } from "@codat/lending/sdk/types";
 
 let value: CommercePayments = {
-  results: [
-    {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
-      id: "7110701885",
-      amount: new Decimal("-283.56"),
-      currency: "GBP",
-      paymentMethodRef: {
-        id: "EILBDVJVNUAGVKRQ",
-        name: "AliPay",
-      },
-      paymentProvider: "Checkout.com",
-      dueDate: "2022-10-23T00:00:00Z",
-      createdDate: "2022-10-23T00:00:00Z",
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

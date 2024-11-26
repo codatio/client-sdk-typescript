@@ -7,7 +7,7 @@ The type of source the transaction arose.
 ```typescript
 import { TransactionSourceType } from "@codat/lending/sdk/models/shared";
 
-let value: TransactionSourceType = "Order";
+let value: TransactionSourceType = "Unknown";
 ```
 
 ## Values

@@ -157,44 +157,33 @@ import { AccountingBillPayment } from "@codat/lending/sdk/models/shared";
 import { Decimal } from "@codat/lending/sdk/types";
 
 let value: AccountingBillPayment = {
-  modifiedDate: "2022-10-23T00:00:00Z",
-  sourceModifiedDate: "2022-10-23T00:00:00Z",
-  id: "3d5a8e00-d108-4045-8823-7f342676cffa",
-  accountRef: {},
-  totalAmount: new Decimal("0"),
-  currency: "GBP",
+  totalAmount: new Decimal("250"),
   date: "2022-10-23T00:00:00Z",
-  note: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
-  paymentMethodRef: {
-    id: "EILBDVJVNUAGVKRQ",
-    name: "AliPay",
-  },
   lines: [
     {
       amount: new Decimal("0"),
       links: [
         {
           type: "Bill",
-          id: "w",
-          amount: new Decimal("-1000"),
-        },
-        {
-          type: "Bill",
           id: "x",
-          amount: new Decimal("-1000"),
+          amount: new Decimal("-750"),
         },
         {
           type: "CreditNote",
           id: "y",
-          amount: new Decimal("1000"),
-        },
-        {
-          type: "CreditNote",
-          id: "z",
-          amount: new Decimal("1000"),
+          amount: new Decimal("750"),
         },
       ],
-      allocatedOnDate: "2022-10-23T00:00:00Z",
+    },
+    {
+      amount: new Decimal("250"),
+      links: [
+        {
+          type: "Bill",
+          id: "x",
+          amount: new Decimal("-250"),
+        },
+      ],
     },
   ],
 };

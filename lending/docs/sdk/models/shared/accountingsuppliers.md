@@ -6,46 +6,6 @@
 import { AccountingSuppliers } from "@codat/lending/sdk/models/shared";
 
 let value: AccountingSuppliers = {
-  results: [
-    {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
-      id: "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F",
-      supplierName: "Kelly's Industrial Supplies",
-      contactName: "Kelly's Industrial Supplies",
-      emailAddress: "sales@kellysupplies.com",
-      phone: "07999 999999",
-      addresses: [
-        {
-          type: "Billing",
-          line1: "Unit 51",
-          line2: "Bakersfield Industrial Estate",
-          city: "Bakersfield",
-          region: "California",
-          country: "USA",
-        },
-      ],
-      registrationNumber: "string",
-      taxNumber: "string",
-      status: "Unknown",
-      defaultCurrency: "string",
-      metadata: {
-        isDeleted: true,
-      },
-      supplementalData: {
-        content: {
-          "property1": {
-            "property1": null,
-            "property2": null,
-          },
-          "property2": {
-            "property1": null,
-            "property2": null,
-          },
-        },
-      },
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

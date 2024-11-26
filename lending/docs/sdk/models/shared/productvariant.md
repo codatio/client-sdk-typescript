@@ -14,10 +14,10 @@ let value: ProductVariant = {
   sourceModifiedDate: "2022-10-23T00:00:00Z",
   id: "EILBDVJVNUAGVKRQ",
   name: "Large Brown Hat",
-  sku: "Coat-Red-Lrg",
-  barcode: "564158468416486458646886484",
-  unitOfMeasure: "m",
-  vatPercentage: new Decimal("20"),
+  sku: "A725BA2",
+  barcode: "CSE370",
+  unitOfMeasure: "meters",
+  vatPercentage: new Decimal("12.5"),
   prices: [
     {
       currency: "EUR",
@@ -27,7 +27,7 @@ let value: ProductVariant = {
     locations: [
       {
         locationRef: {
-          id: "EILBDVJVNUAGVKRQ",
+          id: "7110701885",
         },
       },
     ],

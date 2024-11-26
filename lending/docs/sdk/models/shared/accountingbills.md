@@ -4,42 +4,8 @@
 
 ```typescript
 import { AccountingBills } from "@codat/lending/sdk/models/shared";
-import { Decimal } from "@codat/lending/sdk/types";
 
 let value: AccountingBills = {
-  results: [
-    {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
-      issueDate: "2022-10-23T00:00:00Z",
-      dueDate: "2022-10-23T00:00:00Z",
-      currency: "USD",
-      lineItems: [
-        {
-          unitAmount: new Decimal("8571.25"),
-          quantity: new Decimal("1173.16"),
-          accountRef: {},
-        },
-      ],
-      status: "Open",
-      subTotal: new Decimal("4037.93"),
-      taxAmount: new Decimal("3998.12"),
-      totalAmount: new Decimal("6713.83"),
-      paymentAllocations: [
-        {
-          payment: {
-            accountRef: {},
-            currency: "USD",
-            paidOnDate: "2022-10-23T00:00:00Z",
-          },
-          allocation: {
-            currency: "USD",
-            allocatedOnDate: "2022-10-23T00:00:00Z",
-          },
-        },
-      ],
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

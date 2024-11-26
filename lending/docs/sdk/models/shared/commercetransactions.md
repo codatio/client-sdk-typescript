@@ -4,25 +4,8 @@
 
 ```typescript
 import { CommerceTransactions } from "@codat/lending/sdk/models/shared";
-import { Decimal } from "@codat/lending/sdk/types";
 
 let value: CommerceTransactions = {
-  results: [
-    {
-      createdDate: "2022-10-23T00:00:00Z",
-      sourceCreatedDate: "2022-10-23T00:00:00Z",
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
-      id: "7110701885",
-      totalAmount: new Decimal("0"),
-      currency: "GBP",
-      subType: "CardPayment",
-      transactionSourceRef: {
-        id: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
-        type: "ServiceCharge",
-      },
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

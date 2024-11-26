@@ -7,7 +7,7 @@ The option type.
 ```typescript
 import { PushOptionType } from "@codat/lending/sdk/models/shared";
 
-let value: PushOptionType = "Array";
+let value: PushOptionType = "MultiPart";
 ```
 
 ## Values

@@ -23,9 +23,9 @@ let value: CommerceTransaction = {
   id: "EILBDVJVNUAGVKRQ",
   totalAmount: new Decimal("194.12"),
   currency: "USD",
-  subType: "Invoice payment",
+  subType: "CardPayment",
   transactionSourceRef: {
-    id: "7110701885",
+    id: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     type: "Unknown",
   },
 };

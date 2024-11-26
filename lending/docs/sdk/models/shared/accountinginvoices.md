@@ -4,55 +4,8 @@
 
 ```typescript
 import { AccountingInvoices } from "@codat/lending/sdk/models/shared";
-import { Decimal } from "@codat/lending/sdk/types";
 
 let value: AccountingInvoices = {
-  results: [
-    {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
-      issueDate: "2022-10-23T00:00:00Z",
-      dueDate: "2022-10-23T00:00:00Z",
-      paidOnDate: "2022-10-23T00:00:00Z",
-      currency: "USD",
-      lineItems: [
-        {
-          unitAmount: new Decimal("6532.01"),
-          quantity: new Decimal("6521.03"),
-          accountRef: {},
-          tracking: {
-            categoryRefs: [
-              {
-                id: "<id>",
-              },
-            ],
-            isBilledTo: "NotApplicable",
-            isRebilledTo: "Project",
-            recordRef: {
-              dataType: "invoice",
-            },
-          },
-        },
-      ],
-      paymentAllocations: [
-        {
-          payment: {
-            accountRef: {},
-            currency: "USD",
-            paidOnDate: "2022-10-23T00:00:00Z",
-          },
-          allocation: {
-            currency: "EUR",
-            allocatedOnDate: "2022-10-23T00:00:00Z",
-          },
-        },
-      ],
-      totalTaxAmount: new Decimal("1002.27"),
-      totalAmount: new Decimal("9194.83"),
-      amountDue: new Decimal("7142.41"),
-      status: "Void",
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

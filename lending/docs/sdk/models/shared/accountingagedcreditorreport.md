@@ -44,8 +44,6 @@ let value: AccountingAgedCreditorReport = {
   reportDate: "2022-10-23T00:00:00Z",
   data: [
     {
-      supplierId: "f594cefb-7750-4c3a-bab2-b5322026dee9",
-      supplierName: "John Doe",
       agedCurrencyOutstanding: [
         {
           currency: "GBP",

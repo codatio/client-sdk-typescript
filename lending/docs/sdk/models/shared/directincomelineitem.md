@@ -7,8 +7,8 @@ import { DirectIncomeLineItem } from "@codat/lending/sdk/models/shared";
 import { Decimal } from "@codat/lending/sdk/types";
 
 let value: DirectIncomeLineItem = {
-  unitAmount: new Decimal("5113.19"),
-  quantity: new Decimal("2243.17"),
+  unitAmount: new Decimal("2378.93"),
+  quantity: new Decimal("9342.14"),
   accountRef: {},
 };
 ```

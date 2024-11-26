@@ -25,7 +25,7 @@ let value: AccountingAccountTransaction = {
   modifiedDate: "2022-10-23T00:00:00Z",
   sourceModifiedDate: "2022-10-23T00:00:00Z",
   date: "2022-10-23T00:00:00Z",
-  currency: "USD",
+  currency: "GBP",
   lines: [
     {
       recordRef: {
