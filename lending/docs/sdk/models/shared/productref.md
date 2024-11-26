@@ -8,7 +8,7 @@ Reference that links the line item to the correct product details.
 import { ProductRef } from "@codat/lending/sdk/models/shared";
 
 let value: ProductRef = {
-  id: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+  id: "7110701885",
 };
 ```
 

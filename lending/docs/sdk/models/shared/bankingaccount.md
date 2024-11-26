@@ -10,16 +10,14 @@ Responses are paged, so you should provide `page` and `pageSize` query parameter
 import { BankingAccount } from "@codat/lending/sdk/models/shared";
 
 let value: BankingAccount = {
-  modifiedDate: "2022-10-23T00:00:00Z",
-  sourceModifiedDate: "2022-10-23T00:00:00Z",
   id: "<id>",
   name: "<value>",
-  type: "Debit",
+  type: "Unknown",
   balance: {},
   identifiers: {
-    type: "Card",
+    type: "Credit",
   },
-  currency: "Solomon Islands Dollar",
+  currency: "Baht",
   institution: {},
 };
 ```

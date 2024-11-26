@@ -7,7 +7,7 @@ import { CashFlowTransaction } from "@codat/lending/sdk/models/shared";
 
 let value: CashFlowTransaction = {
   date: "2022-10-23T00:00:00Z",
-  currency: "GBP",
+  currency: "USD",
   transactionCategory: {},
   sourceRef: {},
   accountRef: {},

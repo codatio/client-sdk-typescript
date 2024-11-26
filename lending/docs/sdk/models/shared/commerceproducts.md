@@ -4,44 +4,8 @@
 
 ```typescript
 import { CommerceProducts } from "@codat/lending/sdk/models/shared";
-import { Decimal } from "@codat/lending/sdk/types";
 
 let value: CommerceProducts = {
-  results: [
-    {
-      id: "13d946f0-c5d5-42bc-b092-97ece17923ab",
-      name: "Hard Drive",
-      description: "Install of Windows 11 (Professional Edition)",
-      categorization: "Hardware",
-      variants: [
-        {
-          modifiedDate: "2022-10-23T00:00:00Z",
-          sourceModifiedDate: "2022-10-23T00:00:00Z",
-          id: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
-          name: "Red Coat",
-          sku: "Coat-Red-Lrg",
-          barcode: "564158468416486458646886484",
-          unitOfMeasure: "m",
-          vatPercentage: new Decimal("20"),
-          prices: [
-            {
-              currency: "EUR",
-            },
-          ],
-          inventory: {
-            locations: [
-              {
-                locationRef: {
-                  id: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
-                },
-              },
-            ],
-          },
-          createdDate: "2022-10-23T00:00:00Z",
-        },
-      ],
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

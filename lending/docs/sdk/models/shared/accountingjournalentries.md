@@ -4,34 +4,8 @@
 
 ```typescript
 import { AccountingJournalEntries } from "@codat/lending/sdk/models/shared";
-import { Decimal } from "@codat/lending/sdk/types";
 
 let value: AccountingJournalEntries = {
-  results: [
-    {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
-      postedOn: "2022-10-23T00:00:00Z",
-      createdOn: "2022-10-23T00:00:00Z",
-      updatedOn: "2022-10-23T00:00:00Z",
-      journalLines: [
-        {
-          netAmount: new Decimal("7103.37"),
-          accountRef: {},
-          tracking: {
-            recordRefs: [
-              {
-                dataType: "trackingCategories",
-              },
-            ],
-          },
-        },
-      ],
-      recordRef: {
-        dataType: "transfers",
-      },
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

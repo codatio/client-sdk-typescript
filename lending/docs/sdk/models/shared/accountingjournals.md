@@ -6,13 +6,6 @@
 import { AccountingJournals } from "@codat/lending/sdk/models/shared";
 
 let value: AccountingJournals = {
-  results: [
-    {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
-      createdOn: "2022-10-23T00:00:00Z",
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

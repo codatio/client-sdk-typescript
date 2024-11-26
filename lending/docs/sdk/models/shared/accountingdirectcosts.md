@@ -4,50 +4,8 @@
 
 ```typescript
 import { AccountingDirectCosts } from "@codat/lending/sdk/models/shared";
-import { Decimal } from "@codat/lending/sdk/types";
 
 let value: AccountingDirectCosts = {
-  results: [
-    {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
-      issueDate: "2022-10-23T00:00:00Z",
-      currency: "USD",
-      lineItems: [
-        {
-          unitAmount: new Decimal("2748.24"),
-          quantity: new Decimal("5922.30"),
-          accountRef: {},
-          tracking: {
-            recordRefs: [
-              {
-                dataType: "trackingCategories",
-              },
-            ],
-            invoiceTo: {
-              dataType: "transfer",
-            },
-          },
-        },
-      ],
-      paymentAllocations: [
-        {
-          payment: {
-            accountRef: {},
-            currency: "USD",
-            paidOnDate: "2022-10-23T00:00:00Z",
-          },
-          allocation: {
-            currency: "GBP",
-            allocatedOnDate: "2022-10-23T00:00:00Z",
-          },
-        },
-      ],
-      subTotal: new Decimal("4017.14"),
-      taxAmount: new Decimal("2484.13"),
-      totalAmount: new Decimal("5058.66"),
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

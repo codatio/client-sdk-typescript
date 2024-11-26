@@ -4,28 +4,8 @@
 
 ```typescript
 import { AccountingPayments } from "@codat/lending/sdk/models/shared";
-import { Decimal } from "@codat/lending/sdk/types";
 
 let value: AccountingPayments = {
-  results: [
-    {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
-      accountRef: {},
-      paymentMethodRef: {
-        id: "EILBDVJVNUAGVKRQ",
-        name: "AliPay",
-      },
-      currency: "EUR",
-      date: "2022-10-23T00:00:00Z",
-      lines: [
-        {
-          amount: new Decimal("7740.47"),
-          allocatedOnDate: "2022-10-23T00:00:00Z",
-        },
-      ],
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

@@ -4,40 +4,8 @@
 
 ```typescript
 import { AccountingDirectIncomes } from "@codat/lending/sdk/models/shared";
-import { Decimal } from "@codat/lending/sdk/types";
 
 let value: AccountingDirectIncomes = {
-  results: [
-    {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
-      issueDate: "2022-10-23T00:00:00Z",
-      currency: "EUR",
-      lineItems: [
-        {
-          unitAmount: new Decimal("3381.59"),
-          quantity: new Decimal("9615.70"),
-          accountRef: {},
-        },
-      ],
-      paymentAllocations: [
-        {
-          payment: {
-            accountRef: {},
-            currency: "GBP",
-            paidOnDate: "2022-10-23T00:00:00Z",
-          },
-          allocation: {
-            currency: "EUR",
-            allocatedOnDate: "2022-10-23T00:00:00Z",
-          },
-        },
-      ],
-      subTotal: new Decimal("6304.48"),
-      taxAmount: new Decimal("8742.88"),
-      totalAmount: new Decimal("2930.20"),
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

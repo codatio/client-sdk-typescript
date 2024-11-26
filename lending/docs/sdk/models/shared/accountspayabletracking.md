@@ -13,8 +13,8 @@ let value: AccountsPayableTracking = {
       id: "<id>",
     },
   ],
-  isBilledTo: "Unknown",
-  isRebilledTo: "Project",
+  isBilledTo: "Project",
+  isRebilledTo: "Customer",
 };
 ```
 

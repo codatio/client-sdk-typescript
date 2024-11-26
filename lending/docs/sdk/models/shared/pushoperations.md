@@ -6,25 +6,6 @@
 import { PushOperations } from "@codat/lending/sdk/models/shared";
 
 let value: PushOperations = {
-  results: [
-    {
-      changes: [
-        {
-          recordRef: {
-            dataType: "invoices",
-          },
-        },
-      ],
-      dataType: "invoices",
-      companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-      pushOperationKey: "f5a4fb5c-163a-4164-985b-0a34cf5d1ac2",
-      dataConnectionKey: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-      requestedOnUtc: "2022-10-23T00:00:00Z",
-      completedOnUtc: "2022-10-23T00:00:00Z",
-      status: "Pending",
-      statusCode: 303,
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

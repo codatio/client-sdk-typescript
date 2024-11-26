@@ -6,26 +6,6 @@
 import { AccountingCustomers } from "@codat/lending/sdk/models/shared";
 
 let value: AccountingCustomers = {
-  results: [
-    {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
-      defaultCurrency: "EUR",
-      contacts: [
-        {
-          phone: [
-            {
-              number: "(877) 492-8687",
-              type: "Mobile",
-            },
-          ],
-          status: "Unknown",
-          modifiedDate: "2022-10-23T00:00:00Z",
-        },
-      ],
-      status: "Active",
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

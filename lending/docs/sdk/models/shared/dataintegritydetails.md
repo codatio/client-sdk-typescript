@@ -6,17 +6,6 @@
 import { DataIntegrityDetails } from "@codat/lending/sdk/models/shared";
 
 let value: DataIntegrityDetails = {
-  results: [
-    {
-      date: "2022-10-23T00:00:00Z",
-      currency: "GBP",
-      matches: [
-        {
-          currency: "EUR",
-        },
-      ],
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

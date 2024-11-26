@@ -6,7 +6,7 @@
 import { EnhancedReportInfo } from "@codat/lending/sdk/models/shared";
 
 let value: EnhancedReportInfo = {
-  currency: "EUR",
+  currency: "GBP",
   generatedDate: "2022-10-23T00:00:00Z",
 };
 ```

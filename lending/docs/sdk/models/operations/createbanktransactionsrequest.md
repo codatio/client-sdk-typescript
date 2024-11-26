@@ -8,9 +8,9 @@ import { CreateBankTransactionsRequest } from "@codat/lending/sdk/models/operati
 let value: CreateBankTransactionsRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  accountId: "EILBDVJVNUAGVKRQ",
+  accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
   accountingCreateBankTransactions: {
-    accountId: "Checking 0202",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     transactions: [
       {
         date: "2022-10-23T00:00:00Z",

@@ -16,8 +16,6 @@ Responses are paged, so you should provide `page` and `pageSize` query parameter
 import { BankingAccountBalance } from "@codat/lending/sdk/models/shared";
 
 let value: BankingAccountBalance = {
-  modifiedDate: "2022-10-23T00:00:00Z",
-  sourceModifiedDate: "2022-10-23T00:00:00Z",
   accountId: "<id>",
   balance: {},
   date: "2022-10-23T00:00:00Z",

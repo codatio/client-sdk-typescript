@@ -8,7 +8,7 @@ An object containing bank account identification information.
 import { AccountIdentifiers } from "@codat/lending/sdk/models/shared";
 
 let value: AccountIdentifiers = {
-  type: "Other",
+  type: "Account",
 };
 ```
 

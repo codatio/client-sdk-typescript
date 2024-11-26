@@ -8,7 +8,7 @@ import { EndBankStatementUploadSessionRequest } from "@codat/lending/sdk/models/
 let value: EndBankStatementUploadSessionRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  datasetId: "c556a5ef-0310-437d-b37e-ac8f90369c6b",
+  datasetId: "27480ed8-df1a-4ff9-a290-3f5a4fb5c163",
 };
 ```
 

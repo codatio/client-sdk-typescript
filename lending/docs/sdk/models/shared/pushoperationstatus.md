@@ -7,7 +7,7 @@ The current status of the push operation.
 ```typescript
 import { PushOperationStatus } from "@codat/lending/sdk/models/shared";
 
-let value: PushOperationStatus = "Success";
+let value: PushOperationStatus = "Failed";
 ```
 
 ## Values

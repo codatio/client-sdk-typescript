@@ -43,8 +43,8 @@ let value: AccountingInvoice = {
   currency: "EUR",
   lineItems: [
     {
-      unitAmount: new Decimal("8073.19"),
-      quantity: new Decimal("5691.01"),
+      unitAmount: new Decimal("2700.08"),
+      quantity: new Decimal("7351.94"),
       accountRef: {},
       tracking: {
         categoryRefs: [
@@ -52,7 +52,7 @@ let value: AccountingInvoice = {
             id: "<id>",
           },
         ],
-        isBilledTo: "NotApplicable",
+        isBilledTo: "Project",
         isRebilledTo: "Unknown",
         recordRef: {
           dataType: "accountTransaction",
@@ -68,15 +68,15 @@ let value: AccountingInvoice = {
         paidOnDate: "2022-10-23T00:00:00Z",
       },
       allocation: {
-        currency: "EUR",
+        currency: "GBP",
         allocatedOnDate: "2022-10-23T00:00:00Z",
       },
     },
   ],
-  totalTaxAmount: new Decimal("8558.03"),
-  totalAmount: new Decimal("117.14"),
-  amountDue: new Decimal("3599.78"),
-  status: "Paid",
+  totalTaxAmount: new Decimal("4471.25"),
+  totalAmount: new Decimal("8464.09"),
+  amountDue: new Decimal("6994.79"),
+  status: "Draft",
 };
 ```
 

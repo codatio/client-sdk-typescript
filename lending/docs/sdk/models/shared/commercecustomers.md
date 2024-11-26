@@ -6,18 +6,6 @@
 import { CommerceCustomers } from "@codat/lending/sdk/models/shared";
 
 let value: CommerceCustomers = {
-  results: [
-    {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
-      id: "EILBDVJVNUAGVKRQ",
-      customerName: "Fred Smith",
-      emailAddress: "fred.smith@myCompany.com",
-      phone: "01224 658 999",
-      defaultCurrency: "GBP",
-      createdDate: "2022-10-23T00:00:00Z",
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

@@ -6,14 +6,6 @@
 import { CommercePaymentMethods } from "@codat/lending/sdk/models/shared";
 
 let value: CommercePaymentMethods = {
-  results: [
-    {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
-      id: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
-      name: "Alipay",
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

@@ -12,8 +12,8 @@ let value: AccountPrototype = {
   description:
     "Invoices the business has issued but has not yet collected payment on.",
   fullyQualifiedCategory: "Asset.Current",
-  fullyQualifiedName: "Fixed Asset",
-  currency: "GBP",
+  fullyQualifiedName: "Cash On Hand",
+  currency: "USD",
   currentBalance: new Decimal("0"),
   type: "Asset",
   status: "Active",

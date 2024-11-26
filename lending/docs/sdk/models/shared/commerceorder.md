@@ -16,7 +16,6 @@ let value: CommerceOrder = {
   orderNumber: "99123956",
   country: "CAN",
   currency: "CAD",
-  closedDate: "2022-10-23T00:00:00Z",
   totalAmount: new Decimal("12"),
   totalRefund: new Decimal("0"),
   totalTaxAmount: new Decimal("2"),
@@ -63,13 +62,11 @@ let value: CommerceOrder = {
   payments: [
     {
       modifiedDate: "2022-02-02T11:02:45",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
       id: "defdceb6-83a3-4b7d-a74e-e9ef947d5f48",
       amount: new Decimal("12"),
       currency: "CAD",
       type: "Paypal",
       status: "Unknown",
-      paymentProvider: "Checkout.com",
       dueDate: "2021-04-04T03:00:14",
       createdDate: "2021-03-28T03:00:14",
     },

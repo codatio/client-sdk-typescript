@@ -8,19 +8,19 @@ import { UploadBankStatementDataRequest } from "@codat/lending/sdk/models/operat
 let value: UploadBankStatementDataRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  datasetId: "d7ee4988-f4fe-47dc-8a53-ad0a7e5782bd",
+  datasetId: "c2fd90be-851c-4e1c-90f9-84e4dfc81773",
   requestBody: {
-    modifiedDate: "2022-10-23T00:00:00Z",
-    sourceModifiedDate: "2022-10-23T00:00:00Z",
-    id: "<id>",
-    name: "<value>",
-    type: "Debit",
-    balance: {},
-    identifiers: {
-      type: "Other",
+    pageNumber: 1,
+    pageSize: 10,
+    totalResults: 1,
+    links: {
+      self: {
+        href: "/companies/{id}/data/{dataType}",
+      },
+      current: {
+        href: "/companies/{id}/data/{dataType}?page=1&pageSize=10",
+      },
     },
-    currency: "Moldovan Leu",
-    institution: {},
   },
 };
 ```

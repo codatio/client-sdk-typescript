@@ -15,12 +15,12 @@ let value: AccountingCreateDirectCostResponse = {
   ],
   dataType: "invoices",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "803f9147-0673-49c3-99af-cd72f271ffb5",
+  pushOperationKey: "6650b19b-af1d-4086-b853-08d531131411",
   dataConnectionKey: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   requestedOnUtc: "2022-10-23T00:00:00Z",
   completedOnUtc: "2022-10-23T00:00:00Z",
-  status: "Success",
-  statusCode: 101,
+  status: "TimedOut",
+  statusCode: 301,
 };
 ```
 

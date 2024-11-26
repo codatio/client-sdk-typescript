@@ -7,7 +7,7 @@ Data source type.
 ```typescript
 import { QueryParamSourceType } from "@codat/lending/sdk/models/operations";
 
-let value: QueryParamSourceType = "accounting";
+let value: QueryParamSourceType = "banking";
 ```
 
 ## Values

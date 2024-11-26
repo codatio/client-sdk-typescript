@@ -8,7 +8,6 @@ import { Decimal } from "@codat/lending/sdk/types";
 
 let value: EnhancedFinancialReport = {
   reportInfo: {
-    currency: "USD",
     reportName: "EnhancedProfitAndLossAccounts",
     companyName: "ABC LTD",
     generatedDate: "2022-01-01",

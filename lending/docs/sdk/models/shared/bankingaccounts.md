@@ -6,21 +6,6 @@
 import { BankingAccounts } from "@codat/lending/sdk/models/shared";
 
 let value: BankingAccounts = {
-  results: [
-    {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
-      id: "<id>",
-      name: "<value>",
-      type: "Unknown",
-      balance: {},
-      identifiers: {
-        type: "Investment",
-      },
-      currency: "Armenian Dram",
-      institution: {},
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

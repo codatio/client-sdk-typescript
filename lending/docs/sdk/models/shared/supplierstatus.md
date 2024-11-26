@@ -7,7 +7,7 @@ Status of the supplier.
 ```typescript
 import { SupplierStatus } from "@codat/lending/sdk/models/shared";
 
-let value: SupplierStatus = "Unknown";
+let value: SupplierStatus = "Active";
 ```
 
 ## Values

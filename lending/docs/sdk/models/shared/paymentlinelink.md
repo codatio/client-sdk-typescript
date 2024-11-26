@@ -6,7 +6,7 @@
 import { PaymentLineLink } from "@codat/lending/sdk/models/shared";
 
 let value: PaymentLineLink = {
-  type: "Unlinked",
+  type: "PaymentOnAccount",
 };
 ```
 

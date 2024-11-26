@@ -6,20 +6,6 @@
 import { CommerceProductCategories } from "@codat/lending/sdk/models/shared";
 
 let value: CommerceProductCategories = {
-  results: [
-    {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
-      id: "\"102\"",
-      name: "Entertainment",
-      ancestorRefs: [
-        {
-          id: "EILBDVJVNUAGVKRQ",
-          type: "<value>",
-        },
-      ],
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

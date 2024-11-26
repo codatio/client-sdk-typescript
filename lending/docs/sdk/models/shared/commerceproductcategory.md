@@ -7,18 +7,7 @@ Product categories are used to classify a group of products together, either by 
 ```typescript
 import { CommerceProductCategory } from "@codat/lending/sdk/models/shared";
 
-let value: CommerceProductCategory = {
-  modifiedDate: "2022-10-23T00:00:00Z",
-  sourceModifiedDate: "2022-10-23T00:00:00Z",
-  id: "\"102\"",
-  name: "Entertainment",
-  ancestorRefs: [
-    {
-      id: "13d946f0-c5d5-42bc-b092-97ece17923ab",
-      type: "<value>",
-    },
-  ],
-};
+let value: CommerceProductCategory = {};
 ```
 
 ## Fields

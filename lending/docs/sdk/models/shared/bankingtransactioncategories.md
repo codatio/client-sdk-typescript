@@ -6,16 +6,6 @@
 import { BankingTransactionCategories } from "@codat/lending/sdk/models/shared";
 
 let value: BankingTransactionCategories = {
-  results: [
-    {
-      modifiedDate: "2022-05-23T16:32:50",
-      sourceModifiedDate: "2021-04-24T07:59:10",
-      id: "auto-and-transport",
-      name: "Auto & Transport",
-      hasChildren: true,
-      status: "Active",
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

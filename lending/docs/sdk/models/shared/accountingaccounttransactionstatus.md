@@ -7,7 +7,7 @@ The status of the account transaction.
 ```typescript
 import { AccountingAccountTransactionStatus } from "@codat/lending/sdk/models/shared";
 
-let value: AccountingAccountTransactionStatus = "Unreconciled";
+let value: AccountingAccountTransactionStatus = "Void";
 ```
 
 ## Values
