@@ -2,18 +2,16 @@
 
 The type of feature.
 
+## Example Usage
+
+```typescript
+import { FeatureType } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: FeatureType = "Get";
+```
 
 ## Values
 
-| Name                 | Value                |
-| -------------------- | -------------------- |
-| `Get`                | Get                  |
-| `Post`               | Post                 |
-| `Categorization`     | Categorization       |
-| `Delete`             | Delete               |
-| `Put`                | Put                  |
-| `GetAsPdf`           | GetAsPdf             |
-| `DownloadAttachment` | DownloadAttachment   |
-| `GetAttachment`      | GetAttachment        |
-| `GetAttachments`     | GetAttachments       |
-| `UploadAttachment`   | UploadAttachment     |
+```typescript
+"Get" | "Post" | "Categorization" | "Delete" | "Put" | "GetAsPdf" | "DownloadAttachment" | "GetAttachment" | "GetAttachments" | "UploadAttachment"
+```

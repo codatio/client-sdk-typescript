@@ -1,5 +1,14 @@
 # SyncToLatestArgs
 
+## Example Usage
+
+```typescript
+import { SyncToLatestArgs } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: SyncToLatestArgs = {
+  syncTo: "2022-10-23T00:00:00Z",
+};
+```
 
 ## Fields
 

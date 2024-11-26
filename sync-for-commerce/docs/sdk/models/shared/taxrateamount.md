@@ -1,5 +1,12 @@
 # TaxRateAmount
 
+## Example Usage
+
+```typescript
+import { TaxRateAmount } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: TaxRateAmount = {};
+```
 
 ## Fields
 

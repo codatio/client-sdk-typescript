@@ -1,5 +1,20 @@
 # RequestSyncForDateRangeRequest
 
+## Example Usage
+
+```typescript
+import { RequestSyncForDateRangeRequest } from "@codat/sync-for-commerce/sdk/models/operations";
+
+let value: RequestSyncForDateRangeRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  syncRange: {
+    dateRange: {
+      start: "2022-10-23T00:00:00Z",
+      finish: "2022-10-23T00:00:00Z",
+    },
+  },
+};
+```
 
 ## Fields
 

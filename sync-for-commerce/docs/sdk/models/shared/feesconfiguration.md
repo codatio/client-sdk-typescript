@@ -1,5 +1,22 @@
 # FeesConfiguration
 
+## Example Usage
+
+```typescript
+import { FeesConfiguration } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: FeesConfiguration = {
+  accounts: {
+    "key": {
+      accountOptions: [
+        {
+          classification: "Bank Nominal",
+        },
+      ],
+    },
+  },
+};
+```
 
 ## Fields
 

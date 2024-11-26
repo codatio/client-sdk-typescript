@@ -1,5 +1,14 @@
 # GetConfigTextSyncFlowRequest
 
+## Example Usage
+
+```typescript
+import { GetConfigTextSyncFlowRequest } from "@codat/sync-for-commerce/sdk/models/operations";
+
+let value: GetConfigTextSyncFlowRequest = {
+  locale: "en-us",
+};
+```
 
 ## Fields
 

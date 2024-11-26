@@ -1,5 +1,15 @@
 # GetSyncFlowUrlRequest
 
+## Example Usage
+
+```typescript
+import { GetSyncFlowUrlRequest } from "@codat/sync-for-commerce/sdk/models/operations";
+
+let value: GetSyncFlowUrlRequest = {
+  commerceKey: "<value>",
+  accountingKey: "<value>",
+};
+```
 
 ## Fields
 

@@ -1,5 +1,15 @@
 # GetVisibleAccountsRequest
 
+## Example Usage
+
+```typescript
+import { GetVisibleAccountsRequest } from "@codat/sync-for-commerce/sdk/models/operations";
+
+let value: GetVisibleAccountsRequest = {
+  clientId: "2f864c79-0999-4fa5-a6b0-aa325597f132",
+  platformKey: "gbol",
+};
+```
 
 ## Fields
 

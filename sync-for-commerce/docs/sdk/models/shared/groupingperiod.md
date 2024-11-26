@@ -1,5 +1,12 @@
 # GroupingPeriod
 
+## Example Usage
+
+```typescript
+import { GroupingPeriod } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: GroupingPeriod = {};
+```
 
 ## Fields
 

@@ -1,5 +1,14 @@
 # InvoiceStatus
 
+## Example Usage
+
+```typescript
+import { InvoiceStatus } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: InvoiceStatus = {
+  selectedInvoiceStatus: "Submitted",
+};
+```
 
 ## Fields
 

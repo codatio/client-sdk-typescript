@@ -1,5 +1,12 @@
 # SalesCustomer
 
+## Example Usage
+
+```typescript
+import { SalesCustomer } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: SalesCustomer = {};
+```
 
 ## Fields
 

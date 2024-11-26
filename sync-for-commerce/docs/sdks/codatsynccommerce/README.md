@@ -1,6 +1,5 @@
 # CodatSyncCommerce SDK
 
-
 ## Overview
 
 Sync for Commerce: The API for Sync for Commerce. 
@@ -26,4 +25,3 @@ Not seeing the endpoints you're expecting? We've [reorganized our products](http
 <!-- End Codat Tags Table -->
 
 ### Available Operations
-

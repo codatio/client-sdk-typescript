@@ -1,5 +1,15 @@
 # DateRange
 
+## Example Usage
+
+```typescript
+import { DateRange } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: DateRange = {
+  start: "2022-10-23T00:00:00Z",
+  finish: "2022-10-23T00:00:00Z",
+};
+```
 
 ## Fields
 
