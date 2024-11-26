@@ -1,5 +1,12 @@
 # Grouping
 
+## Example Usage
+
+```typescript
+import { Grouping } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: Grouping = {};
+```
 
 ## Fields
 

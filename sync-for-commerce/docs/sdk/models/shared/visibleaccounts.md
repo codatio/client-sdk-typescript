@@ -1,5 +1,12 @@
 # VisibleAccounts
 
+## Example Usage
+
+```typescript
+import { VisibleAccounts } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: VisibleAccounts = {};
+```
 
 ## Fields
 

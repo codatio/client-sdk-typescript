@@ -1,5 +1,14 @@
 # GetSyncStatusRequest
 
+## Example Usage
+
+```typescript
+import { GetSyncStatusRequest } from "@codat/sync-for-commerce/sdk/models/operations";
+
+let value: GetSyncStatusRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+};
+```
 
 ## Fields
 

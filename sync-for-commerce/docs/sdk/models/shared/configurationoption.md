@@ -1,5 +1,12 @@
 # ConfigurationOption
 
+## Example Usage
+
+```typescript
+import { ConfigurationOption } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: ConfigurationOption = {};
+```
 
 ## Fields
 

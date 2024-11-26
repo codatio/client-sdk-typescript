@@ -2,6 +2,22 @@
 
 A Sync for Commerce connection is deleted.
 
+## Example Usage
+
+```typescript
+import { SyncConnectionDeletedWebhook } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: SyncConnectionDeletedWebhook = {
+  clientId: "bae71d36-ff47-420a-b4a6-f8c9ddf41140",
+  clientName: "Bank of Dave",
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  ruleId: "70af3071-65d9-4ec3-b3cb-5283e8d55dac",
+  ruleType: "Sync Connection Deleted",
+  alertId: "a9367074-b5c3-42c4-9be4-be129f43577e",
+  message:
+    "Sync connection for company Tesco (8a210b68-6988-11ed-a1eb-0242ac120002) deleted",
+};
+```
 
 ## Fields
 

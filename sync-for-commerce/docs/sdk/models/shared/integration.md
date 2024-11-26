@@ -2,6 +2,34 @@
 
 An integration that Codat supports
 
+## Example Usage
+
+```typescript
+import { Integration } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: Integration = {
+  key: "gbol",
+  logoUrl: "http://example.com",
+  name: "Xero",
+  enabled: true,
+  sourceId: "accounting",
+  sourceType: "Unknown",
+  integrationId: "497a18ca-284e-40c0-985d-f72be35d468e",
+  isOfflineConnector: true,
+  isBeta: true,
+  dataProvidedBy: "string",
+  datatypeFeatures: [
+    {
+      supportedFeatures: [
+        {
+          featureType: "UploadAttachment",
+          featureState: "Beta",
+        },
+      ],
+    },
+  ],
+};
+```
 
 ## Fields
 

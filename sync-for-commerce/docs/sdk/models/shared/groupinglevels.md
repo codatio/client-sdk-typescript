@@ -1,5 +1,12 @@
 # GroupingLevels
 
+## Example Usage
+
+```typescript
+import { GroupingLevels } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: GroupingLevels = {};
+```
 
 ## Fields
 

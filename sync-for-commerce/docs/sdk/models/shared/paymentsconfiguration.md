@@ -1,5 +1,22 @@
 # PaymentsConfiguration
 
+## Example Usage
+
+```typescript
+import { PaymentsConfiguration } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: PaymentsConfiguration = {
+  accounts: {
+    "key": {
+      accountOptions: [
+        {
+          classification: "Bank Nominal",
+        },
+      ],
+    },
+  },
+};
+```
 
 ## Fields
 

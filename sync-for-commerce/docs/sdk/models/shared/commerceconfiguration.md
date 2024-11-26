@@ -1,5 +1,60 @@
 # CommerceConfiguration
 
+## Example Usage
+
+```typescript
+import { CommerceConfiguration } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: CommerceConfiguration = {
+  sales: {
+    accounts: {
+      "key": {
+        accountOptions: [
+          {
+            classification: "Bank Nominal",
+          },
+        ],
+      },
+    },
+    invoiceStatus: {
+      selectedInvoiceStatus: "Submitted",
+    },
+  },
+  payments: {
+    accounts: {
+      "key": {
+        accountOptions: [
+          {
+            classification: "Bank Nominal",
+          },
+        ],
+      },
+    },
+  },
+  newPayments: {
+    accounts: {
+      "key": {
+        accountOptions: [
+          {
+            classification: "Bank Nominal",
+          },
+        ],
+      },
+    },
+  },
+  fees: {
+    accounts: {
+      "key": {
+        accountOptions: [
+          {
+            classification: "Bank Nominal",
+          },
+        ],
+      },
+    },
+  },
+};
+```
 
 ## Fields
 

@@ -1,5 +1,14 @@
 # AccountConfigurationOption
 
+## Example Usage
+
+```typescript
+import { AccountConfigurationOption } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: AccountConfigurationOption = {
+  classification: "Bank Nominal",
+};
+```
 
 ## Fields
 

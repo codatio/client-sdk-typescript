@@ -2,6 +2,13 @@
 
 Logo branding references.
 
+## Example Usage
+
+```typescript
+import { BrandingLogo } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: BrandingLogo = {};
+```
 
 ## Fields
 

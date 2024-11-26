@@ -1,5 +1,14 @@
 # UpdateVisibleAccountsSyncFlowRequest
 
+## Example Usage
+
+```typescript
+import { UpdateVisibleAccountsSyncFlowRequest } from "@codat/sync-for-commerce/sdk/models/operations";
+
+let value: UpdateVisibleAccountsSyncFlowRequest = {
+  platformKey: "gbol",
+};
+```
 
 ## Fields
 

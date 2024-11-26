@@ -1,3 +1,6 @@
+/funcs
+/core.*
+/__tests__
 /hooks
 /esm
 /dist

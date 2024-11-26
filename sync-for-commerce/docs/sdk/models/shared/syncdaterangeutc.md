@@ -1,5 +1,15 @@
 # SyncDateRangeUtc
 
+## Example Usage
+
+```typescript
+import { SyncDateRangeUtc } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: SyncDateRangeUtc = {
+  start: "2022-10-23T00:00:00Z",
+  finish: "2022-10-23T00:00:00Z",
+};
+```
 
 ## Fields
 

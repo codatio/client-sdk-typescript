@@ -1,5 +1,24 @@
 # Integrations
 
+## Example Usage
+
+```typescript
+import { Integrations } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: Integrations = {
+  pageNumber: 1,
+  pageSize: 10,
+  totalResults: 1,
+  links: {
+    self: {
+      href: "/companies/{id}/data/{dataType}",
+    },
+    current: {
+      href: "/companies/{id}/data/{dataType}?page=1&pageSize=10",
+    },
+  },
+};
+```
 
 ## Fields
 

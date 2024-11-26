@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: c5751d63-9e7b-4fbc-9b31-fa9b6b1310e5
 management:
-  docChecksum: d80797fad92b2756b1ad56399993ad16
+  docChecksum: 4dd3691e8d9cbb167c6a1a7bffed41b8
   docVersion: "1.1"
-  speakeasyVersion: 1.338.0
-  generationVersion: 2.374.2
-  releaseVersion: 4.0.0
-  configChecksum: 530f5b0abc005ed259c5916202f2b9ef
+  speakeasyVersion: 1.446.1
+  generationVersion: 2.462.1
+  releaseVersion: 5.0.0
+  configChecksum: 7cfe39d7c87176e5db713cbfb4776633
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   repoSubDirectory: sync-for-commerce
   installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/sync-for-commerce
@@ -14,237 +14,583 @@ management:
 features:
   typescript:
     additionalDependencies: 0.1.0
-    constsAndDefaults: 0.1.5
-    core: 3.11.7
+    constsAndDefaults: 0.1.11
+    core: 3.18.7
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
+    enumUnions: 0.1.0
+    envVarSecurityUsage: 0.1.2
     examples: 2.81.4
-    globalSecurity: 2.82.9
+    globalSecurity: 2.82.11
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.4
+    methodArguments: 0.1.2
     nameOverrides: 2.81.2
     nullables: 0.1.0
     responseFormat: 0.2.3
     retries: 2.83.0
-    sdkHooks: 0.1.0
+    sdkHooks: 0.2.0
     serverEventsSentinels: 0.1.0
     webhooks: 1.0.0
 generatedFiles:
-  - src/sdk/connections.ts
-  - src/sdk/advancedcontrols.ts
-  - src/sdk/integrations.ts
-  - src/sdk/syncflowsettings.ts
-  - src/sdk/sync.ts
-  - src/sdk/sdk.ts
   - .eslintrc.cjs
+  - .gitattributes
   - .npmignore
+  - CONTRIBUTING.md
+  - FUNCTIONS.md
   - RUNTIMES.md
+  - USAGE.md
+  - docs/lib/utils/retryconfig.md
+  - docs/sdk/models/errors/errormessage.md
+  - docs/sdk/models/operations/createconnectionrequest.md
+  - docs/sdk/models/operations/createconnectionrequestbody.md
+  - docs/sdk/models/operations/getconfigtextsyncflowrequest.md
+  - docs/sdk/models/operations/getconfigurationrequest.md
+  - docs/sdk/models/operations/getintegrationbrandingrequest.md
+  - docs/sdk/models/operations/getlastsuccessfulsyncrequest.md
+  - docs/sdk/models/operations/getlatestsyncrequest.md
+  - docs/sdk/models/operations/getsyncbyidrequest.md
+  - docs/sdk/models/operations/getsyncflowurlrequest.md
+  - docs/sdk/models/operations/getsyncstatusrequest.md
+  - docs/sdk/models/operations/getvisibleaccountsrequest.md
+  - docs/sdk/models/operations/listcompaniesrequest.md
+  - docs/sdk/models/operations/listconnectionsrequest.md
+  - docs/sdk/models/operations/listintegrationsrequest.md
+  - docs/sdk/models/operations/listsyncsrequest.md
+  - docs/sdk/models/operations/requestsyncfordaterangerequest.md
+  - docs/sdk/models/operations/requestsyncrequest.md
+  - docs/sdk/models/operations/setconfigurationrequest.md
+  - docs/sdk/models/operations/updateconfigtextsyncflowrequest.md
+  - docs/sdk/models/operations/updateconnectionauthorizationrequest.md
+  - docs/sdk/models/operations/updateconnectionrequest.md
+  - docs/sdk/models/operations/updatevisibleaccountssyncflowrequest.md
+  - docs/sdk/models/shared/accountconfiguration.md
+  - docs/sdk/models/shared/accountconfigurationoption.md
+  - docs/sdk/models/shared/branding.md
+  - docs/sdk/models/shared/brandingbutton.md
+  - docs/sdk/models/shared/brandingimage.md
+  - docs/sdk/models/shared/brandinglogo.md
+  - docs/sdk/models/shared/commerceconfiguration.md
+  - docs/sdk/models/shared/companies.md
+  - docs/sdk/models/shared/company.md
+  - docs/sdk/models/shared/companyreference.md
+  - docs/sdk/models/shared/companyreferencelinks.md
+  - docs/sdk/models/shared/companysyncstatus.md
+  - docs/sdk/models/shared/configuration.md
+  - docs/sdk/models/shared/configurationmapsettings.md
+  - docs/sdk/models/shared/configurationoption.md
+  - docs/sdk/models/shared/connection.md
+  - docs/sdk/models/shared/connections.md
+  - docs/sdk/models/shared/connectionwebhook.md
+  - docs/sdk/models/shared/connectionwebhookpayload.md
+  - docs/sdk/models/shared/createcompany.md
+  - docs/sdk/models/shared/dataconnectionerror.md
+  - docs/sdk/models/shared/dataconnectionstatus.md
+  - docs/sdk/models/shared/datatypefeature.md
+  - docs/sdk/models/shared/datatypes.md
+  - docs/sdk/models/shared/daterange.md
+  - docs/sdk/models/shared/errorstatus.md
+  - docs/sdk/models/shared/errorvalidation.md
+  - docs/sdk/models/shared/errorvalidationitem.md
+  - docs/sdk/models/shared/featurestate.md
+  - docs/sdk/models/shared/featuretype.md
+  - docs/sdk/models/shared/feesconfiguration.md
+  - docs/sdk/models/shared/feessupplier.md
+  - docs/sdk/models/shared/grouping.md
+  - docs/sdk/models/shared/groupinglevels.md
+  - docs/sdk/models/shared/groupingperiod.md
+  - docs/sdk/models/shared/halref.md
+  - docs/sdk/models/shared/imagereference.md
+  - docs/sdk/models/shared/integration.md
+  - docs/sdk/models/shared/integrations.md
+  - docs/sdk/models/shared/invoicelevelselection.md
+  - docs/sdk/models/shared/invoicelinelevelselection.md
+  - docs/sdk/models/shared/invoicestatus.md
+  - docs/sdk/models/shared/links.md
+  - docs/sdk/models/shared/locale.md
+  - docs/sdk/models/shared/localization.md
+  - docs/sdk/models/shared/newpaymentsconfiguration.md
+  - docs/sdk/models/shared/newtaxrates.md
+  - docs/sdk/models/shared/outputformat.md
+  - docs/sdk/models/shared/paymentsconfiguration.md
+  - docs/sdk/models/shared/salesconfiguration.md
+  - docs/sdk/models/shared/salescustomer.md
+  - docs/sdk/models/shared/security.md
+  - docs/sdk/models/shared/sourcetype.md
+  - docs/sdk/models/shared/supportedfeature.md
+  - docs/sdk/models/shared/syncconnectiondeletedwebhook.md
+  - docs/sdk/models/shared/syncdaterangeutc.md
+  - docs/sdk/models/shared/syncflowurl.md
+  - docs/sdk/models/shared/syncfrequency.md
+  - docs/sdk/models/shared/syncrange.md
+  - docs/sdk/models/shared/syncschedule.md
+  - docs/sdk/models/shared/syncstatus.md
+  - docs/sdk/models/shared/syncsummary.md
+  - docs/sdk/models/shared/synctolatestargs.md
+  - docs/sdk/models/shared/taxrateamount.md
+  - docs/sdk/models/shared/taxratemapping.md
+  - docs/sdk/models/shared/updateconnection.md
+  - docs/sdk/models/shared/visibleaccounts.md
+  - docs/sdks/advancedcontrols/README.md
+  - docs/sdks/codatsynccommerce/README.md
+  - docs/sdks/connections/README.md
+  - docs/sdks/integrations/README.md
+  - docs/sdks/sync/README.md
+  - docs/sdks/syncflowsettings/README.md
   - jsr.json
   - package.json
+  - src/core.ts
+  - src/funcs/advancedControlsCreateCompany.ts
+  - src/funcs/advancedControlsGetConfiguration.ts
+  - src/funcs/advancedControlsListCompanies.ts
+  - src/funcs/advancedControlsSetConfiguration.ts
+  - src/funcs/connectionsCreate.ts
+  - src/funcs/connectionsGetSyncFlowUrl.ts
+  - src/funcs/connectionsList.ts
+  - src/funcs/connectionsUpdateAuthorization.ts
+  - src/funcs/connectionsUpdateConnection.ts
+  - src/funcs/integrationsGetBranding.ts
+  - src/funcs/integrationsList.ts
+  - src/funcs/syncFlowSettingsGetConfigTextSyncFlow.ts
+  - src/funcs/syncFlowSettingsGetVisibleAccounts.ts
+  - src/funcs/syncFlowSettingsUpdateConfigTextSyncFlow.ts
+  - src/funcs/syncFlowSettingsUpdateVisibleAccountsSyncFlow.ts
+  - src/funcs/syncGet.ts
+  - src/funcs/syncGetLastSuccessfulSync.ts
+  - src/funcs/syncGetLatestSync.ts
+  - src/funcs/syncGetStatus.ts
+  - src/funcs/syncList.ts
+  - src/funcs/syncRequest.ts
+  - src/funcs/syncRequestForDateRange.ts
+  - src/hooks/hooks.ts
+  - src/hooks/index.ts
+  - src/hooks/types.ts
   - src/index.ts
   - src/lib/base64.ts
   - src/lib/config.ts
+  - src/lib/dlv.ts
   - src/lib/encodings.ts
+  - src/lib/files.ts
   - src/lib/http.ts
   - src/lib/is-plain-object.ts
+  - src/lib/logger.ts
+  - src/lib/matchers.ts
   - src/lib/primitives.ts
   - src/lib/retries.ts
   - src/lib/schemas.ts
   - src/lib/sdks.ts
   - src/lib/security.ts
   - src/lib/url.ts
+  - src/sdk/advancedcontrols.ts
+  - src/sdk/connections.ts
   - src/sdk/index.ts
+  - src/sdk/integrations.ts
+  - src/sdk/models/errors/errormessage.ts
+  - src/sdk/models/errors/httpclienterrors.ts
+  - src/sdk/models/errors/index.ts
   - src/sdk/models/errors/sdkerror.ts
   - src/sdk/models/errors/sdkvalidationerror.ts
-  - src/sdk/types/blobs.ts
-  - src/sdk/types/enums.ts
-  - src/sdk/types/index.ts
-  - src/sdk/types/operations.ts
-  - src/sdk/types/rfcdate.ts
-  - tsconfig.json
-  - src/sdk/models/shared/syncflowurl.ts
-  - src/sdk/models/shared/errorvalidation.ts
-  - src/sdk/models/shared/errorvalidationitem.ts
-  - src/sdk/models/shared/connections.ts
-  - src/sdk/models/shared/links.ts
-  - src/sdk/models/shared/halref.ts
-  - src/sdk/models/shared/connection.ts
-  - src/sdk/models/shared/dataconnectionerror.ts
-  - src/sdk/models/shared/dataconnectionstatus.ts
-  - src/sdk/models/shared/sourcetype.ts
-  - src/sdk/models/shared/updateconnection.ts
-  - src/sdk/models/shared/companies.ts
-  - src/sdk/models/shared/company.ts
-  - src/sdk/models/shared/createcompany.ts
-  - src/sdk/models/shared/items.ts
-  - src/sdk/models/shared/configuration.ts
-  - src/sdk/models/shared/commerceconfiguration.ts
-  - src/sdk/models/shared/feesconfiguration.ts
-  - src/sdk/models/shared/accountconfiguration.ts
-  - src/sdk/models/shared/accountconfigurationoption.ts
-  - src/sdk/models/shared/feessupplier.ts
-  - src/sdk/models/shared/configurationoption.ts
-  - src/sdk/models/shared/newpaymentsconfiguration.ts
-  - src/sdk/models/shared/paymentsconfiguration.ts
-  - src/sdk/models/shared/salesconfiguration.ts
-  - src/sdk/models/shared/grouping.ts
-  - src/sdk/models/shared/groupinglevels.ts
-  - src/sdk/models/shared/invoicelinelevelselection.ts
-  - src/sdk/models/shared/invoicelevelselection.ts
-  - src/sdk/models/shared/groupingperiod.ts
-  - src/sdk/models/shared/newtaxrates.ts
-  - src/sdk/models/shared/taxratemapping.ts
-  - src/sdk/models/shared/taxrateamount.ts
-  - src/sdk/models/shared/salescustomer.ts
-  - src/sdk/models/shared/invoicestatus.ts
-  - src/sdk/models/shared/configurationmapsettings.ts
-  - src/sdk/models/shared/syncschedule.ts
-  - src/sdk/models/shared/syncfrequency.ts
-  - src/sdk/models/shared/integrations.ts
-  - src/sdk/models/shared/integration.ts
-  - src/sdk/models/shared/datatypefeature.ts
-  - src/sdk/models/shared/supportedfeature.ts
-  - src/sdk/models/shared/featurestate.ts
-  - src/sdk/models/shared/featuretype.ts
-  - src/sdk/models/shared/branding.ts
-  - src/sdk/models/shared/brandingbutton.ts
-  - src/sdk/models/shared/brandingimage.ts
-  - src/sdk/models/shared/imagereference.ts
-  - src/sdk/models/shared/brandinglogo.ts
-  - src/sdk/models/shared/localization.ts
-  - src/sdk/models/shared/locale.ts
-  - src/sdk/models/shared/visibleaccounts.ts
-  - src/sdk/models/shared/syncsummary.ts
-  - src/sdk/models/shared/synctolatestargs.ts
-  - src/sdk/models/shared/syncrange.ts
-  - src/sdk/models/shared/syncstatus.ts
-  - src/sdk/models/shared/companysyncstatus.ts
-  - src/sdk/models/shared/security.ts
-  - src/sdk/models/shared/syncconnectiondeletedwebhook.ts
-  - src/sdk/models/errors/errormessage.ts
-  - src/sdk/models/operations/getsyncflowurl.ts
-  - src/sdk/models/operations/listconnections.ts
   - src/sdk/models/operations/createconnection.ts
-  - src/sdk/models/operations/updateconnection.ts
-  - src/sdk/models/operations/updateconnectionauthorization.ts
-  - src/sdk/models/operations/listcompanies.ts
-  - src/sdk/models/operations/getconfiguration.ts
-  - src/sdk/models/operations/setconfiguration.ts
-  - src/sdk/models/operations/listintegrations.ts
-  - src/sdk/models/operations/getintegrationbranding.ts
   - src/sdk/models/operations/getconfigtextsyncflow.ts
-  - src/sdk/models/operations/updateconfigtextsyncflow.ts
-  - src/sdk/models/operations/getvisibleaccounts.ts
-  - src/sdk/models/operations/updatevisibleaccountssyncflow.ts
-  - src/sdk/models/operations/requestsync.ts
-  - src/sdk/models/operations/requestsyncfordaterange.ts
-  - src/sdk/models/operations/getsyncstatus.ts
+  - src/sdk/models/operations/getconfiguration.ts
+  - src/sdk/models/operations/getintegrationbranding.ts
   - src/sdk/models/operations/getlastsuccessfulsync.ts
   - src/sdk/models/operations/getlatestsync.ts
   - src/sdk/models/operations/getsyncbyid.ts
-  - src/sdk/models/operations/listsyncs.ts
-  - src/sdk/models/errors/index.ts
-  - src/sdk/models/shared/index.ts
+  - src/sdk/models/operations/getsyncflowurl.ts
+  - src/sdk/models/operations/getsyncstatus.ts
+  - src/sdk/models/operations/getvisibleaccounts.ts
   - src/sdk/models/operations/index.ts
-  - docs/sdk/models/shared/syncflowurl.md
-  - docs/sdk/models/shared/errorvalidation.md
-  - docs/sdk/models/shared/errorvalidationitem.md
-  - docs/sdk/models/shared/connections.md
-  - docs/sdk/models/shared/links.md
-  - docs/sdk/models/shared/halref.md
-  - docs/sdk/models/shared/connection.md
-  - docs/sdk/models/shared/errorstatus.md
-  - docs/sdk/models/shared/dataconnectionerror.md
-  - docs/sdk/models/shared/dataconnectionstatus.md
-  - docs/sdk/models/shared/sourcetype.md
-  - docs/sdk/models/shared/updateconnection.md
-  - docs/sdk/models/shared/companies.md
-  - docs/sdk/models/shared/groupreference.md
-  - docs/sdk/models/shared/company.md
-  - docs/sdk/models/shared/createcompany.md
-  - docs/sdk/models/shared/items.md
-  - docs/sdk/models/shared/configuration.md
-  - docs/sdk/models/shared/commerceconfiguration.md
-  - docs/sdk/models/shared/feesconfiguration.md
-  - docs/sdk/models/shared/accountconfiguration.md
-  - docs/sdk/models/shared/accountconfigurationoption.md
-  - docs/sdk/models/shared/feessupplier.md
-  - docs/sdk/models/shared/configurationoption.md
-  - docs/sdk/models/shared/newpaymentsconfiguration.md
-  - docs/sdk/models/shared/paymentsconfiguration.md
-  - docs/sdk/models/shared/salesconfiguration.md
-  - docs/sdk/models/shared/grouping.md
-  - docs/sdk/models/shared/groupinglevels.md
-  - docs/sdk/models/shared/invoicelinelevelselection.md
-  - docs/sdk/models/shared/invoicelevelselection.md
-  - docs/sdk/models/shared/groupingperiod.md
-  - docs/sdk/models/shared/newtaxrates.md
-  - docs/sdk/models/shared/taxratemapping.md
-  - docs/sdk/models/shared/taxrateamount.md
-  - docs/sdk/models/shared/salescustomer.md
-  - docs/sdk/models/shared/invoicestatus.md
-  - docs/sdk/models/shared/outputformat.md
-  - docs/sdk/models/shared/configurationmapsettings.md
-  - docs/sdk/models/shared/syncschedule.md
-  - docs/sdk/models/shared/syncfrequency.md
-  - docs/sdk/models/shared/integrations.md
-  - docs/sdk/models/shared/integration.md
-  - docs/sdk/models/shared/datatypes.md
-  - docs/sdk/models/shared/datatypefeature.md
-  - docs/sdk/models/shared/supportedfeature.md
-  - docs/sdk/models/shared/featurestate.md
-  - docs/sdk/models/shared/featuretype.md
-  - docs/sdk/models/shared/branding.md
-  - docs/sdk/models/shared/brandingbutton.md
-  - docs/sdk/models/shared/brandingimage.md
-  - docs/sdk/models/shared/imagereference.md
-  - docs/sdk/models/shared/brandinglogo.md
-  - docs/sdk/models/shared/localization.md
-  - docs/sdk/models/shared/locale.md
-  - docs/sdk/models/shared/visibleaccounts.md
-  - docs/sdk/models/shared/syncdaterangeutc.md
-  - docs/sdk/models/shared/syncsummary.md
-  - docs/sdk/models/shared/synctolatestargs.md
-  - docs/sdk/models/shared/daterange.md
-  - docs/sdk/models/shared/syncrange.md
-  - docs/sdk/models/shared/syncstatus.md
-  - docs/sdk/models/shared/companysyncstatus.md
-  - docs/sdk/models/shared/security.md
-  - docs/sdk/models/shared/syncconnectiondeletedwebhook.md
-  - docs/sdk/models/errors/errormessage.md
-  - docs/sdk/models/operations/getsyncflowurlrequest.md
-  - docs/sdk/models/operations/listconnectionsrequest.md
-  - docs/sdk/models/operations/createconnectionrequestbody.md
-  - docs/sdk/models/operations/createconnectionrequest.md
-  - docs/sdk/models/operations/updateconnectionrequest.md
-  - docs/sdk/models/operations/updateconnectionauthorizationrequest.md
-  - docs/sdk/models/operations/listcompaniesrequest.md
-  - docs/sdk/models/operations/getconfigurationrequest.md
-  - docs/sdk/models/operations/setconfigurationrequest.md
-  - docs/sdk/models/operations/listintegrationsrequest.md
-  - docs/sdk/models/operations/getintegrationbrandingrequest.md
-  - docs/sdk/models/operations/getconfigtextsyncflowrequest.md
-  - docs/sdk/models/operations/updateconfigtextsyncflowrequest.md
-  - docs/sdk/models/operations/getvisibleaccountsrequest.md
-  - docs/sdk/models/operations/updatevisibleaccountssyncflowrequest.md
-  - docs/sdk/models/operations/requestsyncrequest.md
-  - docs/sdk/models/operations/requestsyncfordaterangerequest.md
-  - docs/sdk/models/operations/getsyncstatusrequest.md
-  - docs/sdk/models/operations/getlastsuccessfulsyncrequest.md
-  - docs/sdk/models/operations/getlatestsyncrequest.md
-  - docs/sdk/models/operations/getsyncbyidrequest.md
-  - docs/sdk/models/operations/listsyncsrequest.md
-  - docs/sdks/codatsynccommerce/README.md
-  - docs/lib/utils/retryconfig.md
-  - docs/sdks/connections/README.md
-  - docs/sdks/advancedcontrols/README.md
-  - docs/sdks/integrations/README.md
-  - docs/sdks/syncflowsettings/README.md
-  - docs/sdks/sync/README.md
-  - USAGE.md
-  - .gitattributes
-  - src/hooks/hooks.ts
-  - src/hooks/types.ts
-  - src/hooks/index.ts
-  - CONTRIBUTING.md
+  - src/sdk/models/operations/listcompanies.ts
+  - src/sdk/models/operations/listconnections.ts
+  - src/sdk/models/operations/listintegrations.ts
+  - src/sdk/models/operations/listsyncs.ts
+  - src/sdk/models/operations/requestsync.ts
+  - src/sdk/models/operations/requestsyncfordaterange.ts
+  - src/sdk/models/operations/setconfiguration.ts
+  - src/sdk/models/operations/updateconfigtextsyncflow.ts
+  - src/sdk/models/operations/updateconnection.ts
+  - src/sdk/models/operations/updateconnectionauthorization.ts
+  - src/sdk/models/operations/updatevisibleaccountssyncflow.ts
+  - src/sdk/models/shared/accountconfiguration.ts
+  - src/sdk/models/shared/accountconfigurationoption.ts
+  - src/sdk/models/shared/branding.ts
+  - src/sdk/models/shared/brandingbutton.ts
+  - src/sdk/models/shared/brandingimage.ts
+  - src/sdk/models/shared/brandinglogo.ts
+  - src/sdk/models/shared/commerceconfiguration.ts
+  - src/sdk/models/shared/companies.ts
+  - src/sdk/models/shared/company.ts
+  - src/sdk/models/shared/companyreference.ts
+  - src/sdk/models/shared/companysyncstatus.ts
+  - src/sdk/models/shared/configuration.ts
+  - src/sdk/models/shared/configurationmapsettings.ts
+  - src/sdk/models/shared/configurationoption.ts
+  - src/sdk/models/shared/connection.ts
+  - src/sdk/models/shared/connections.ts
+  - src/sdk/models/shared/connectionwebhook.ts
+  - src/sdk/models/shared/connectionwebhookpayload.ts
+  - src/sdk/models/shared/createcompany.ts
+  - src/sdk/models/shared/dataconnectionerror.ts
+  - src/sdk/models/shared/dataconnectionstatus.ts
+  - src/sdk/models/shared/datatypefeature.ts
+  - src/sdk/models/shared/errorvalidation.ts
+  - src/sdk/models/shared/errorvalidationitem.ts
+  - src/sdk/models/shared/featurestate.ts
+  - src/sdk/models/shared/featuretype.ts
+  - src/sdk/models/shared/feesconfiguration.ts
+  - src/sdk/models/shared/feessupplier.ts
+  - src/sdk/models/shared/grouping.ts
+  - src/sdk/models/shared/groupinglevels.ts
+  - src/sdk/models/shared/groupingperiod.ts
+  - src/sdk/models/shared/halref.ts
+  - src/sdk/models/shared/imagereference.ts
+  - src/sdk/models/shared/index.ts
+  - src/sdk/models/shared/integration.ts
+  - src/sdk/models/shared/integrations.ts
+  - src/sdk/models/shared/invoicelevelselection.ts
+  - src/sdk/models/shared/invoicelinelevelselection.ts
+  - src/sdk/models/shared/invoicestatus.ts
+  - src/sdk/models/shared/links.ts
+  - src/sdk/models/shared/locale.ts
+  - src/sdk/models/shared/localization.ts
+  - src/sdk/models/shared/newpaymentsconfiguration.ts
+  - src/sdk/models/shared/newtaxrates.ts
+  - src/sdk/models/shared/paymentsconfiguration.ts
+  - src/sdk/models/shared/salesconfiguration.ts
+  - src/sdk/models/shared/salescustomer.ts
+  - src/sdk/models/shared/security.ts
+  - src/sdk/models/shared/sourcetype.ts
+  - src/sdk/models/shared/supportedfeature.ts
+  - src/sdk/models/shared/syncconnectiondeletedwebhook.ts
+  - src/sdk/models/shared/syncflowurl.ts
+  - src/sdk/models/shared/syncfrequency.ts
+  - src/sdk/models/shared/syncrange.ts
+  - src/sdk/models/shared/syncschedule.ts
+  - src/sdk/models/shared/syncstatus.ts
+  - src/sdk/models/shared/syncsummary.ts
+  - src/sdk/models/shared/synctolatestargs.ts
+  - src/sdk/models/shared/taxrateamount.ts
+  - src/sdk/models/shared/taxratemapping.ts
+  - src/sdk/models/shared/updateconnection.ts
+  - src/sdk/models/shared/visibleaccounts.ts
+  - src/sdk/sdk.ts
+  - src/sdk/sync.ts
+  - src/sdk/syncflowsettings.ts
+  - src/sdk/types/blobs.ts
+  - src/sdk/types/constdatetime.ts
+  - src/sdk/types/enums.ts
+  - src/sdk/types/fp.ts
+  - src/sdk/types/index.ts
+  - src/sdk/types/operations.ts
+  - src/sdk/types/rfcdate.ts
+  - src/sdk/types/streams.ts
+  - tsconfig.json
+examples:
+  get-sync-flow-url:
+    Malformed query:
+      parameters:
+        path:
+          commerceKey: "<value>"
+          accountingKey: "<value>"
+        query: {}
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  list-connections:
+    "":
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "200":
+          application/json: {"pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
+        "400": {}
+    Connections:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "200":
+          application/json: {"results": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}], "pageNumber": 0, "pageSize": 0, "totalResults": 0, "_links": {"self": {"href": "string"}, "current": {"href": "string"}, "next": {"href": "string"}, "previous": {"href": "string"}}}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    Unresolved property:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  create-connection:
+    Connection:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"platformKey": "gbol"}
+      responses:
+        "200":
+          application/json: {"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"platformKey": "gbol"}
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  update-connection:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  update-connection-authorization:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  list-companies:
+    "":
+      parameters:
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "200":
+          application/json: {"pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
+        "400": {}
+    Malformed query:
+      parameters:
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    Unresolved property:
+      parameters:
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  create-company:
+    "":
+      requestBody:
+        application/json: {"name": "string"}
+      responses:
+        "200":
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
+        "400": {}
+    Malformed query:
+      requestBody:
+        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  get-configuration:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  set-configuration:
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  list-integrations:
+    "":
+      parameters:
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "200":
+          application/json: {"pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
+        "400": {}
+    Malformed query:
+      parameters:
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+    Unresolved property:
+      parameters:
+        query:
+          page: 1
+          pageSize: 100
+          query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
+          orderBy: "-modifiedDate"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  get-integration-branding:
+    Unauthorized:
+      parameters:
+        path:
+          platformKey: "gbol"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  get-config-text-sync-flow:
+    "":
+      parameters:
+        query:
+          locale: "en-us"
+    Unauthorized:
+      parameters:
+        query:
+          locale: "en-us"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  update-config-text-sync-flow:
+    "":
+      parameters:
+        query:
+          locale: "en-us"
+      responses:
+        "200":
+          application/json: {}
+        "400": {}
+    Malformed query:
+      parameters:
+        query:
+          locale: "en-us"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  get-visible-accounts:
+    Unauthorized:
+      parameters:
+        path:
+          clientId: "8f9478fc-e6cf-445e-b122-74136f8fd7ab"
+          platformKey: "gbol"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  update-visible-accounts-sync-flow:
+    Malformed query:
+      parameters:
+        path:
+          platformKey: "gbol"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  request-sync:
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"syncTo": "2022-10-23T00:00:00Z"}
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  request-sync-for-date-range:
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"dateRange": {"start": "2022-10-23T00:00:00Z", "finish": "2022-10-23T00:00:00Z"}}
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  get-sync-status:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  get-last-successful-sync:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  get-latest-sync:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  get-sync-by-id:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  list-syncs:
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+generatedTests: {}

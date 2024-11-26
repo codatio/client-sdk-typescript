@@ -1,10 +1,17 @@
 # OutputFormat
 
-The format commerce transactions are stored in the accounting platform.
+The format commerce transactions are stored in the accounting software.
 
+## Example Usage
+
+```typescript
+import { OutputFormat } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: OutputFormat = "JournalEntry";
+```
 
 ## Values
 
-| Name           | Value          |
-| -------------- | -------------- |
-| `JournalEntry` | JournalEntry   |
+```typescript
+"JournalEntry"
+```

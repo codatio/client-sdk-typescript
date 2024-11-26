@@ -1,5 +1,25 @@
 # SalesConfiguration
 
+## Example Usage
+
+```typescript
+import { SalesConfiguration } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: SalesConfiguration = {
+  accounts: {
+    "key": {
+      accountOptions: [
+        {
+          classification: "Bank Nominal",
+        },
+      ],
+    },
+  },
+  invoiceStatus: {
+    selectedInvoiceStatus: "Submitted",
+  },
+};
+```
 
 ## Fields
 
