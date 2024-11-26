@@ -16,6 +16,7 @@ export * from "./clientratelimitwebhook.js";
 export * from "./clientratelimitwebhookpayload.js";
 export * from "./companies.js";
 export * from "./company.js";
+export * from "./companyaccesstoken.js";
 export * from "./companydetails.js";
 export * from "./companyreference.js";
 export * from "./companyrequestbody.js";

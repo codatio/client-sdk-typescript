@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   PropertieDataType,
   PropertieDataType$inboundSchema,
@@ -71,4 +74,25 @@ export namespace PushOperationStatusChangedWebhookData$ {
     PushOperationStatusChangedWebhookData$outboundSchema;
   /** @deprecated use `PushOperationStatusChangedWebhookData$Outbound` instead. */
   export type Outbound = PushOperationStatusChangedWebhookData$Outbound;
+}
+
+export function pushOperationStatusChangedWebhookDataToJSON(
+  pushOperationStatusChangedWebhookData: PushOperationStatusChangedWebhookData,
+): string {
+  return JSON.stringify(
+    PushOperationStatusChangedWebhookData$outboundSchema.parse(
+      pushOperationStatusChangedWebhookData,
+    ),
+  );
+}
+
+export function pushOperationStatusChangedWebhookDataFromJSON(
+  jsonString: string,
+): SafeParseResult<PushOperationStatusChangedWebhookData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      PushOperationStatusChangedWebhookData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PushOperationStatusChangedWebhookData' from JSON`,
+  );
 }

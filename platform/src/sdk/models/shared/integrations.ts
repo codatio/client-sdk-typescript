@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Integration,
   Integration$inboundSchema,
@@ -88,4 +91,18 @@ export namespace Integrations$ {
   export const outboundSchema = Integrations$outboundSchema;
   /** @deprecated use `Integrations$Outbound` instead. */
   export type Outbound = Integrations$Outbound;
+}
+
+export function integrationsToJSON(integrations: Integrations): string {
+  return JSON.stringify(Integrations$outboundSchema.parse(integrations));
+}
+
+export function integrationsFromJSON(
+  jsonString: string,
+): SafeParseResult<Integrations, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Integrations$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Integrations' from JSON`,
+  );
 }

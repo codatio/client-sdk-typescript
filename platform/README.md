@@ -129,6 +129,7 @@ run();
 * [update](docs/sdks/companies/README.md#update) - Update company
 * [addProduct](docs/sdks/companies/README.md#addproduct) - Add product
 * [removeProduct](docs/sdks/companies/README.md#removeproduct) - Remove product
+* [getAccessToken](docs/sdks/companies/README.md#getaccesstoken) - Get company access token
 
 ### [connectionManagement](docs/sdks/connectionmanagement/README.md)
 
@@ -223,6 +224,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`companiesCreate`](docs/sdks/companies/README.md#create) - Create company
 - [`companiesDelete`](docs/sdks/companies/README.md#delete) - Delete a company
 - [`companiesGet`](docs/sdks/companies/README.md#get) - Get company
+- [`companiesGetAccessToken`](docs/sdks/companies/README.md#getaccesstoken) - Get company access token
 - [`companiesList`](docs/sdks/companies/README.md#list) - List companies
 - [`companiesRemoveProduct`](docs/sdks/companies/README.md#removeproduct) - Remove product
 - [`companiesUpdate`](docs/sdks/companies/README.md#update) - Update company
@@ -361,10 +363,10 @@ If a HTTP request fails, an operation my also throw an error from the `sdk/model
 
 In addition, when custom error responses are specified for an operation, the SDK may throw their associated Error type. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation. For example, the `list` method may throw the following errors:
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type          | Status Code                            | Content Type     |
+| ------------------- | -------------------------------------- | ---------------- |
+| errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503 | application/json |
+| errors.SDKError     | 4XX, 5XX                               | \*/\*            |
 
 ```typescript
 import { CodatPlatform } from "@codat/platform";
@@ -420,43 +422,9 @@ Validation errors can also occur when either method arguments or data returned f
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-### Select Server by Index
-
-You can override the default server globally by passing a server index to the `serverIdx` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
-
-| # | Server | Variables |
-| - | ------ | --------- |
-| 0 | `https://api.codat.io` | None |
-
-```typescript
-import { CodatPlatform } from "@codat/platform";
-
-const codatPlatform = new CodatPlatform({
-  serverIdx: 0,
-  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-});
-
-async function run() {
-  const result = await codatPlatform.companies.list({
-    page: 1,
-    pageSize: 100,
-    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-    orderBy: "-modifiedDate",
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-
-```
-
-
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverURL` optional parameter when initializing the SDK client instance. For example:
-
+The default server can also be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -538,9 +506,9 @@ const sdk = new CodatPlatform({ httpClient });
 
 This SDK supports the following security scheme globally:
 
-| Name         | Type         | Scheme       |
-| ------------ | ------------ | ------------ |
-| `authHeader` | apiKey       | API key      |
+| Name         | Type   | Scheme  |
+| ------------ | ------ | ------- |
+| `authHeader` | apiKey | API key |
 
 To authenticate with the API the `authHeader` parameter must be set when initializing the SDK client instance. For example:
 ```typescript

@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Connection,
   Connection$inboundSchema,
@@ -88,4 +91,18 @@ export namespace Connections$ {
   export const outboundSchema = Connections$outboundSchema;
   /** @deprecated use `Connections$Outbound` instead. */
   export type Outbound = Connections$Outbound;
+}
+
+export function connectionsToJSON(connections: Connections): string {
+  return JSON.stringify(Connections$outboundSchema.parse(connections));
+}
+
+export function connectionsFromJSON(
+  jsonString: string,
+): SafeParseResult<Connections, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Connections$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Connections' from JSON`,
+  );
 }

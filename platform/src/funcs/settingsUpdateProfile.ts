@@ -67,12 +67,30 @@ export async function settingsUpdateProfile(
 
   const secConfig = await extractSecurity(client._options.authHeader);
   const securityInput = secConfig == null ? {} : { authHeader: secConfig };
+  const requestSecurity = resolveGlobalSecurity(securityInput);
+
   const context = {
     operationID: "update-profile",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
+    retryConfig: options?.retries
+      || client._options.retryConfig
+      || {
+        strategy: "backoff",
+        backoff: {
+          initialInterval: 500,
+          maxInterval: 60000,
+          exponent: 1.5,
+          maxElapsedTime: 3600000,
+        },
+        retryConnectionErrors: true,
+      }
+      || { strategy: "none" },
+    retryCodes: options?.retryCodes || ["408", "429", "5XX"],
   };
-  const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
@@ -90,19 +108,8 @@ export async function settingsUpdateProfile(
   const doResult = await client._do(req, {
     context,
     errorCodes: ["401", "402", "403", "429", "4XX", "500", "503", "5XX"],
-    retryConfig: options?.retries
-      || client._options.retryConfig
-      || {
-        strategy: "backoff",
-        backoff: {
-          initialInterval: 500,
-          maxInterval: 60000,
-          exponent: 1.5,
-          maxElapsedTime: 3600000,
-        },
-        retryConnectionErrors: true,
-      },
-    retryCodes: options?.retryCodes || ["408", "429", "5XX"],
+    retryConfig: context.retryConfig,
+    retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
     return doResult;

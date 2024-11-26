@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BrandingImage,
   BrandingImage$inboundSchema,
@@ -55,4 +58,18 @@ export namespace BrandingButton$ {
   export const outboundSchema = BrandingButton$outboundSchema;
   /** @deprecated use `BrandingButton$Outbound` instead. */
   export type Outbound = BrandingButton$Outbound;
+}
+
+export function brandingButtonToJSON(brandingButton: BrandingButton): string {
+  return JSON.stringify(BrandingButton$outboundSchema.parse(brandingButton));
+}
+
+export function brandingButtonFromJSON(
+  jsonString: string,
+): SafeParseResult<BrandingButton, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BrandingButton$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BrandingButton' from JSON`,
+  );
 }

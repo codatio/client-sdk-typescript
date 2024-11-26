@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ClientRateLimitReachedWebhookData,
   ClientRateLimitReachedWebhookData$inboundSchema,
@@ -116,4 +119,24 @@ export namespace ClientRateLimitReachedWebhook$ {
   export const outboundSchema = ClientRateLimitReachedWebhook$outboundSchema;
   /** @deprecated use `ClientRateLimitReachedWebhook$Outbound` instead. */
   export type Outbound = ClientRateLimitReachedWebhook$Outbound;
+}
+
+export function clientRateLimitReachedWebhookToJSON(
+  clientRateLimitReachedWebhook: ClientRateLimitReachedWebhook,
+): string {
+  return JSON.stringify(
+    ClientRateLimitReachedWebhook$outboundSchema.parse(
+      clientRateLimitReachedWebhook,
+    ),
+  );
+}
+
+export function clientRateLimitReachedWebhookFromJSON(
+  jsonString: string,
+): SafeParseResult<ClientRateLimitReachedWebhook, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ClientRateLimitReachedWebhook$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ClientRateLimitReachedWebhook' from JSON`,
+  );
 }

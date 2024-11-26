@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Links,
   Links$inboundSchema,
@@ -88,4 +91,18 @@ export namespace PullOperations$ {
   export const outboundSchema = PullOperations$outboundSchema;
   /** @deprecated use `PullOperations$Outbound` instead. */
   export type Outbound = PullOperations$Outbound;
+}
+
+export function pullOperationsToJSON(pullOperations: PullOperations): string {
+  return JSON.stringify(PullOperations$outboundSchema.parse(pullOperations));
+}
+
+export function pullOperationsFromJSON(
+  jsonString: string,
+): SafeParseResult<PullOperations, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PullOperations$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PullOperations' from JSON`,
+  );
 }

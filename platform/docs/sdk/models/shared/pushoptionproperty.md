@@ -6,9 +6,9 @@
 import { PushOptionProperty } from "@codat/platform/sdk/models/shared";
 
 let value: PushOptionProperty = {
-  type: "Boolean",
-  displayName: "Verlie_Kassulke1",
-  description: "mouser inject worth uh-huh substitution psst upon er",
+  type: "Object",
+  displayName: "Veda29",
+  description: "well-to-do below outrun swat come metal",
   required: false,
 };
 ```

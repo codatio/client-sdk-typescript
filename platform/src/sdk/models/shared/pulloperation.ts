@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * The current status of the dataset.
@@ -217,4 +220,18 @@ export namespace PullOperation$ {
   export const outboundSchema = PullOperation$outboundSchema;
   /** @deprecated use `PullOperation$Outbound` instead. */
   export type Outbound = PullOperation$Outbound;
+}
+
+export function pullOperationToJSON(pullOperation: PullOperation): string {
+  return JSON.stringify(PullOperation$outboundSchema.parse(pullOperation));
+}
+
+export function pullOperationFromJSON(
+  jsonString: string,
+): SafeParseResult<PullOperation, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PullOperation$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PullOperation' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type DeleteApiKeyRequest = {
   /**
@@ -45,4 +48,22 @@ export namespace DeleteApiKeyRequest$ {
   export const outboundSchema = DeleteApiKeyRequest$outboundSchema;
   /** @deprecated use `DeleteApiKeyRequest$Outbound` instead. */
   export type Outbound = DeleteApiKeyRequest$Outbound;
+}
+
+export function deleteApiKeyRequestToJSON(
+  deleteApiKeyRequest: DeleteApiKeyRequest,
+): string {
+  return JSON.stringify(
+    DeleteApiKeyRequest$outboundSchema.parse(deleteApiKeyRequest),
+  );
+}
+
+export function deleteApiKeyRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteApiKeyRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteApiKeyRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteApiKeyRequest' from JSON`,
+  );
 }

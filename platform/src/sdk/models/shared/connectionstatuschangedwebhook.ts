@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ConnectionStatusChangedWebhookData,
   ConnectionStatusChangedWebhookData$inboundSchema,
@@ -134,4 +137,24 @@ export namespace ConnectionStatusChangedWebhook$ {
   export const outboundSchema = ConnectionStatusChangedWebhook$outboundSchema;
   /** @deprecated use `ConnectionStatusChangedWebhook$Outbound` instead. */
   export type Outbound = ConnectionStatusChangedWebhook$Outbound;
+}
+
+export function connectionStatusChangedWebhookToJSON(
+  connectionStatusChangedWebhook: ConnectionStatusChangedWebhook,
+): string {
+  return JSON.stringify(
+    ConnectionStatusChangedWebhook$outboundSchema.parse(
+      connectionStatusChangedWebhook,
+    ),
+  );
+}
+
+export function connectionStatusChangedWebhookFromJSON(
+  jsonString: string,
+): SafeParseResult<ConnectionStatusChangedWebhook, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ConnectionStatusChangedWebhook$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ConnectionStatusChangedWebhook' from JSON`,
+  );
 }

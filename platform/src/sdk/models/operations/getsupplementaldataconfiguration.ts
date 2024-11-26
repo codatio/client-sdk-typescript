@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Data types that support supplemental data
@@ -107,4 +110,31 @@ export namespace GetSupplementalDataConfigurationRequest$ {
     GetSupplementalDataConfigurationRequest$outboundSchema;
   /** @deprecated use `GetSupplementalDataConfigurationRequest$Outbound` instead. */
   export type Outbound = GetSupplementalDataConfigurationRequest$Outbound;
+}
+
+export function getSupplementalDataConfigurationRequestToJSON(
+  getSupplementalDataConfigurationRequest:
+    GetSupplementalDataConfigurationRequest,
+): string {
+  return JSON.stringify(
+    GetSupplementalDataConfigurationRequest$outboundSchema.parse(
+      getSupplementalDataConfigurationRequest,
+    ),
+  );
+}
+
+export function getSupplementalDataConfigurationRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  GetSupplementalDataConfigurationRequest,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetSupplementalDataConfigurationRequest$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'GetSupplementalDataConfigurationRequest' from JSON`,
+  );
 }

@@ -9,7 +9,7 @@ Include a `syncSetting` object for each data type.
 import { UpdateProfileSyncSettingsRequestBody } from "@codat/platform/sdk/models/operations";
 
 let value: UpdateProfileSyncSettingsRequestBody = {
-  clientId: "47ab462c-0bcc-4459-a453-70c1849fa068",
+  clientId: "9f4310ea-c491-47fe-95f3-ffcad4d9052f",
   settings: [
     {
       dataType: "invoices",

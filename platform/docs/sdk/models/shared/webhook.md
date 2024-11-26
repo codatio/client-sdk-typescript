@@ -8,7 +8,6 @@ Configuration to provide an event notification to a URL or list of email address
 import { Webhook } from "@codat/platform/sdk/models/shared";
 
 let value: Webhook = {
-  id: "ff89c50e-a719-4ef5-a182-9917e53927b6",
   type: "DataConnectionStatusChanged",
   companyId: "39b73b17-cc2e-429e-915d-71654e9dcd1e",
   notifiers: {

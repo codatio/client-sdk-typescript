@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type RemoveProductRequest = {
   /**
@@ -52,4 +55,22 @@ export namespace RemoveProductRequest$ {
   export const outboundSchema = RemoveProductRequest$outboundSchema;
   /** @deprecated use `RemoveProductRequest$Outbound` instead. */
   export type Outbound = RemoveProductRequest$Outbound;
+}
+
+export function removeProductRequestToJSON(
+  removeProductRequest: RemoveProductRequest,
+): string {
+  return JSON.stringify(
+    RemoveProductRequest$outboundSchema.parse(removeProductRequest),
+  );
+}
+
+export function removeProductRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<RemoveProductRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => RemoveProductRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RemoveProductRequest' from JSON`,
+  );
 }

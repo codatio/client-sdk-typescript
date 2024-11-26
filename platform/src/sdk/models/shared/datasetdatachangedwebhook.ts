@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   PropertieDataType,
   PropertieDataType$inboundSchema,
@@ -101,6 +104,26 @@ export namespace DatasetDataChangedWebhookData$ {
   export type Outbound = DatasetDataChangedWebhookData$Outbound;
 }
 
+export function datasetDataChangedWebhookDataToJSON(
+  datasetDataChangedWebhookData: DatasetDataChangedWebhookData,
+): string {
+  return JSON.stringify(
+    DatasetDataChangedWebhookData$outboundSchema.parse(
+      datasetDataChangedWebhookData,
+    ),
+  );
+}
+
+export function datasetDataChangedWebhookDataFromJSON(
+  jsonString: string,
+): SafeParseResult<DatasetDataChangedWebhookData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DatasetDataChangedWebhookData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DatasetDataChangedWebhookData' from JSON`,
+  );
+}
+
 /** @internal */
 export const DatasetDataChangedWebhook$inboundSchema: z.ZodType<
   DatasetDataChangedWebhook,
@@ -183,4 +206,22 @@ export namespace DatasetDataChangedWebhook$ {
   export const outboundSchema = DatasetDataChangedWebhook$outboundSchema;
   /** @deprecated use `DatasetDataChangedWebhook$Outbound` instead. */
   export type Outbound = DatasetDataChangedWebhook$Outbound;
+}
+
+export function datasetDataChangedWebhookToJSON(
+  datasetDataChangedWebhook: DatasetDataChangedWebhook,
+): string {
+  return JSON.stringify(
+    DatasetDataChangedWebhook$outboundSchema.parse(datasetDataChangedWebhook),
+  );
+}
+
+export function datasetDataChangedWebhookFromJSON(
+  jsonString: string,
+): SafeParseResult<DatasetDataChangedWebhook, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DatasetDataChangedWebhook$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DatasetDataChangedWebhook' from JSON`,
+  );
 }

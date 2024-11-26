@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type GetCreateUpdateModelOptionsByDataTypeRequest = {
@@ -64,4 +67,31 @@ export namespace GetCreateUpdateModelOptionsByDataTypeRequest$ {
     GetCreateUpdateModelOptionsByDataTypeRequest$outboundSchema;
   /** @deprecated use `GetCreateUpdateModelOptionsByDataTypeRequest$Outbound` instead. */
   export type Outbound = GetCreateUpdateModelOptionsByDataTypeRequest$Outbound;
+}
+
+export function getCreateUpdateModelOptionsByDataTypeRequestToJSON(
+  getCreateUpdateModelOptionsByDataTypeRequest:
+    GetCreateUpdateModelOptionsByDataTypeRequest,
+): string {
+  return JSON.stringify(
+    GetCreateUpdateModelOptionsByDataTypeRequest$outboundSchema.parse(
+      getCreateUpdateModelOptionsByDataTypeRequest,
+    ),
+  );
+}
+
+export function getCreateUpdateModelOptionsByDataTypeRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  GetCreateUpdateModelOptionsByDataTypeRequest,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetCreateUpdateModelOptionsByDataTypeRequest$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'GetCreateUpdateModelOptionsByDataTypeRequest' from JSON`,
+  );
 }

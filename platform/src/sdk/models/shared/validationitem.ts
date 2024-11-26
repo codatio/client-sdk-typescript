@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ValidationItem = {
   /**
@@ -59,4 +62,18 @@ export namespace ValidationItem$ {
   export const outboundSchema = ValidationItem$outboundSchema;
   /** @deprecated use `ValidationItem$Outbound` instead. */
   export type Outbound = ValidationItem$Outbound;
+}
+
+export function validationItemToJSON(validationItem: ValidationItem): string {
+  return JSON.stringify(ValidationItem$outboundSchema.parse(validationItem));
+}
+
+export function validationItemFromJSON(
+  jsonString: string,
+): SafeParseResult<ValidationItem, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ValidationItem$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ValidationItem' from JSON`,
+  );
 }

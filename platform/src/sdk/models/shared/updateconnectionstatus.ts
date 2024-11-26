@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DataConnectionStatus,
   DataConnectionStatus$inboundSchema,
@@ -50,4 +53,22 @@ export namespace UpdateConnectionStatus$ {
   export const outboundSchema = UpdateConnectionStatus$outboundSchema;
   /** @deprecated use `UpdateConnectionStatus$Outbound` instead. */
   export type Outbound = UpdateConnectionStatus$Outbound;
+}
+
+export function updateConnectionStatusToJSON(
+  updateConnectionStatus: UpdateConnectionStatus,
+): string {
+  return JSON.stringify(
+    UpdateConnectionStatus$outboundSchema.parse(updateConnectionStatus),
+  );
+}
+
+export function updateConnectionStatusFromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateConnectionStatus, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UpdateConnectionStatus$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateConnectionStatus' from JSON`,
+  );
 }

@@ -6,30 +6,6 @@
 import { Webhooks } from "@codat/platform/sdk/models/shared";
 
 let value: Webhooks = {
-  results: [
-    {
-      id: "ff89c50e-a719-4ef5-a182-9917e53927b6",
-      type: "DataConnectionStatusChanged",
-      companyId: "39b73b17-cc2e-429e-915d-71654e9dcd1e",
-      notifiers: {
-        emails: [
-          "info@client.com",
-        ],
-        webhook: "https://webhook.client.com",
-      },
-    },
-    {
-      id: "ff89c50e-a719-4ef5-a182-9917e53927b6",
-      type: "DataConnectionStatusChanged",
-      companyId: "39b73b17-cc2e-429e-915d-71654e9dcd1e",
-      notifiers: {
-        emails: [
-          "info@client.com",
-        ],
-        webhook: "https://webhook.client.com",
-      },
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

@@ -11,8 +11,9 @@ generation:
     requestResponseComponentNamesFeb2024: true
   auth:
     oAuth2ClientCredentialsEnabled: false
+    oAuth2PasswordEnabled: false
 typescript:
-  version: 5.0.0
+  version: 6.0.0
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -20,6 +21,7 @@ typescript:
   additionalPackageJSON: {}
   author: Codat
   clientServerStatusCodesAsErrors: true
+  defaultErrorName: SDKError
   description: Manage the building blocks of Codat, including companies, connections, and more.
   enumFormat: union
   flattenGlobalSecurity: true

@@ -17,6 +17,18 @@ let value: CompanyWebhook = {
       "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739",
     lastSync: "2022-10-23T00:00:00Z",
     created: "2022-10-23T00:00:00Z",
+    referenceParentCompany: {
+      id: "8a210b68-6988-11ed-a1eb-0242ac120002",
+      name: "Codat Ltd.",
+      description: "Requested early access to the new financing scheme.",
+    },
+    referenceSubsidiaryCompanies: [
+      {
+        id: "8a210b68-6988-11ed-a1eb-0242ac120002",
+        name: "Codat Ltd.",
+        description: "Requested early access to the new financing scheme.",
+      },
+    ],
   },
 };
 ```

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Image reference.
@@ -55,4 +58,18 @@ export namespace ImageReference$ {
   export const outboundSchema = ImageReference$outboundSchema;
   /** @deprecated use `ImageReference$Outbound` instead. */
   export type Outbound = ImageReference$Outbound;
+}
+
+export function imageReferenceToJSON(imageReference: ImageReference): string {
+  return JSON.stringify(ImageReference$outboundSchema.parse(imageReference));
+}
+
+export function imageReferenceFromJSON(
+  jsonString: string,
+): SafeParseResult<ImageReference, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ImageReference$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ImageReference' from JSON`,
+  );
 }

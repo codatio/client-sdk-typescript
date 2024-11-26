@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ConnectionManagementAccessToken = {
   /**
@@ -45,4 +48,24 @@ export namespace ConnectionManagementAccessToken$ {
   export const outboundSchema = ConnectionManagementAccessToken$outboundSchema;
   /** @deprecated use `ConnectionManagementAccessToken$Outbound` instead. */
   export type Outbound = ConnectionManagementAccessToken$Outbound;
+}
+
+export function connectionManagementAccessTokenToJSON(
+  connectionManagementAccessToken: ConnectionManagementAccessToken,
+): string {
+  return JSON.stringify(
+    ConnectionManagementAccessToken$outboundSchema.parse(
+      connectionManagementAccessToken,
+    ),
+  );
+}
+
+export function connectionManagementAccessTokenFromJSON(
+  jsonString: string,
+): SafeParseResult<ConnectionManagementAccessToken, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ConnectionManagementAccessToken$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ConnectionManagementAccessToken' from JSON`,
+  );
 }

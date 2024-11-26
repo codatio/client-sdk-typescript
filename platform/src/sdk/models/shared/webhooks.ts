@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Links,
   Links$inboundSchema,
@@ -88,4 +91,18 @@ export namespace Webhooks$ {
   export const outboundSchema = Webhooks$outboundSchema;
   /** @deprecated use `Webhooks$Outbound` instead. */
   export type Outbound = Webhooks$Outbound;
+}
+
+export function webhooksToJSON(webhooks: Webhooks): string {
+  return JSON.stringify(Webhooks$outboundSchema.parse(webhooks));
+}
+
+export function webhooksFromJSON(
+  jsonString: string,
+): SafeParseResult<Webhooks, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Webhooks$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Webhooks' from JSON`,
+  );
 }

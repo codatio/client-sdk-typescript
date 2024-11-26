@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type RefreshCustomDataTypeRequest = {
   /**
@@ -59,4 +62,24 @@ export namespace RefreshCustomDataTypeRequest$ {
   export const outboundSchema = RefreshCustomDataTypeRequest$outboundSchema;
   /** @deprecated use `RefreshCustomDataTypeRequest$Outbound` instead. */
   export type Outbound = RefreshCustomDataTypeRequest$Outbound;
+}
+
+export function refreshCustomDataTypeRequestToJSON(
+  refreshCustomDataTypeRequest: RefreshCustomDataTypeRequest,
+): string {
+  return JSON.stringify(
+    RefreshCustomDataTypeRequest$outboundSchema.parse(
+      refreshCustomDataTypeRequest,
+    ),
+  );
+}
+
+export function refreshCustomDataTypeRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<RefreshCustomDataTypeRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => RefreshCustomDataTypeRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RefreshCustomDataTypeRequest' from JSON`,
+  );
 }

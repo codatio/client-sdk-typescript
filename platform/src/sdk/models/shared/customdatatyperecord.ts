@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type Content = {};
 
@@ -49,6 +52,20 @@ export namespace Content$ {
   export type Outbound = Content$Outbound;
 }
 
+export function contentToJSON(content: Content): string {
+  return JSON.stringify(Content$outboundSchema.parse(content));
+}
+
+export function contentFromJSON(
+  jsonString: string,
+): SafeParseResult<Content, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Content$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Content' from JSON`,
+  );
+}
+
 /** @internal */
 export const ModifiedDate$inboundSchema: z.ZodType<
   ModifiedDate,
@@ -83,6 +100,20 @@ export namespace ModifiedDate$ {
   export const outboundSchema = ModifiedDate$outboundSchema;
   /** @deprecated use `ModifiedDate$Outbound` instead. */
   export type Outbound = ModifiedDate$Outbound;
+}
+
+export function modifiedDateToJSON(modifiedDate: ModifiedDate): string {
+  return JSON.stringify(ModifiedDate$outboundSchema.parse(modifiedDate));
+}
+
+export function modifiedDateFromJSON(
+  jsonString: string,
+): SafeParseResult<ModifiedDate, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ModifiedDate$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ModifiedDate' from JSON`,
+  );
 }
 
 /** @internal */
@@ -125,4 +156,22 @@ export namespace CustomDataTypeRecord$ {
   export const outboundSchema = CustomDataTypeRecord$outboundSchema;
   /** @deprecated use `CustomDataTypeRecord$Outbound` instead. */
   export type Outbound = CustomDataTypeRecord$Outbound;
+}
+
+export function customDataTypeRecordToJSON(
+  customDataTypeRecord: CustomDataTypeRecord,
+): string {
+  return JSON.stringify(
+    CustomDataTypeRecord$outboundSchema.parse(customDataTypeRecord),
+  );
+}
+
+export function customDataTypeRecordFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomDataTypeRecord, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomDataTypeRecord$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomDataTypeRecord' from JSON`,
+  );
 }

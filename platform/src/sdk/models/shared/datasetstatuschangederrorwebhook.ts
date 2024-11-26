@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DatasetStatusChangedErrorWebhookData,
   DatasetStatusChangedErrorWebhookData$inboundSchema,
@@ -134,4 +137,24 @@ export namespace DatasetStatusChangedErrorWebhook$ {
   export const outboundSchema = DatasetStatusChangedErrorWebhook$outboundSchema;
   /** @deprecated use `DatasetStatusChangedErrorWebhook$Outbound` instead. */
   export type Outbound = DatasetStatusChangedErrorWebhook$Outbound;
+}
+
+export function datasetStatusChangedErrorWebhookToJSON(
+  datasetStatusChangedErrorWebhook: DatasetStatusChangedErrorWebhook,
+): string {
+  return JSON.stringify(
+    DatasetStatusChangedErrorWebhook$outboundSchema.parse(
+      datasetStatusChangedErrorWebhook,
+    ),
+  );
+}
+
+export function datasetStatusChangedErrorWebhookFromJSON(
+  jsonString: string,
+): SafeParseResult<DatasetStatusChangedErrorWebhook, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DatasetStatusChangedErrorWebhook$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DatasetStatusChangedErrorWebhook' from JSON`,
+  );
 }

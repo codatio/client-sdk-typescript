@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListRulesRequest = {
   /**
@@ -66,4 +69,22 @@ export namespace ListRulesRequest$ {
   export const outboundSchema = ListRulesRequest$outboundSchema;
   /** @deprecated use `ListRulesRequest$Outbound` instead. */
   export type Outbound = ListRulesRequest$Outbound;
+}
+
+export function listRulesRequestToJSON(
+  listRulesRequest: ListRulesRequest,
+): string {
+  return JSON.stringify(
+    ListRulesRequest$outboundSchema.parse(listRulesRequest),
+  );
+}
+
+export function listRulesRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<ListRulesRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListRulesRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListRulesRequest' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetConnectionManagementAccessTokenRequest = {
   /**
@@ -48,4 +51,31 @@ export namespace GetConnectionManagementAccessTokenRequest$ {
     GetConnectionManagementAccessTokenRequest$outboundSchema;
   /** @deprecated use `GetConnectionManagementAccessTokenRequest$Outbound` instead. */
   export type Outbound = GetConnectionManagementAccessTokenRequest$Outbound;
+}
+
+export function getConnectionManagementAccessTokenRequestToJSON(
+  getConnectionManagementAccessTokenRequest:
+    GetConnectionManagementAccessTokenRequest,
+): string {
+  return JSON.stringify(
+    GetConnectionManagementAccessTokenRequest$outboundSchema.parse(
+      getConnectionManagementAccessTokenRequest,
+    ),
+  );
+}
+
+export function getConnectionManagementAccessTokenRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  GetConnectionManagementAccessTokenRequest,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetConnectionManagementAccessTokenRequest$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'GetConnectionManagementAccessTokenRequest' from JSON`,
+  );
 }

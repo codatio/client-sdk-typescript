@@ -20,11 +20,10 @@ let value: Integration = {
   dataProvidedBy: "string",
   datatypeFeatures: [
     {
-      dataType: "invoices",
       supportedFeatures: [
         {
-          featureType: "UploadAttachment",
-          featureState: "Beta",
+          featureType: "GetAsPdf",
+          featureState: "Release",
         },
       ],
     },

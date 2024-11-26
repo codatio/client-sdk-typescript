@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type DeleteConnectionRequest = {
   /**
@@ -52,4 +55,22 @@ export namespace DeleteConnectionRequest$ {
   export const outboundSchema = DeleteConnectionRequest$outboundSchema;
   /** @deprecated use `DeleteConnectionRequest$Outbound` instead. */
   export type Outbound = DeleteConnectionRequest$Outbound;
+}
+
+export function deleteConnectionRequestToJSON(
+  deleteConnectionRequest: DeleteConnectionRequest,
+): string {
+  return JSON.stringify(
+    DeleteConnectionRequest$outboundSchema.parse(deleteConnectionRequest),
+  );
+}
+
+export function deleteConnectionRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteConnectionRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteConnectionRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteConnectionRequest' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   PropertieDataType,
   PropertieDataType$inboundSchema,
@@ -120,4 +123,18 @@ export namespace SyncSetting$ {
   export const outboundSchema = SyncSetting$outboundSchema;
   /** @deprecated use `SyncSetting$Outbound` instead. */
   export type Outbound = SyncSetting$Outbound;
+}
+
+export function syncSettingToJSON(syncSetting: SyncSetting): string {
+  return JSON.stringify(SyncSetting$outboundSchema.parse(syncSetting));
+}
+
+export function syncSettingFromJSON(
+  jsonString: string,
+): SafeParseResult<SyncSetting, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SyncSetting$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SyncSetting' from JSON`,
+  );
 }

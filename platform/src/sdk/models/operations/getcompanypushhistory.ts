@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetCompanyPushHistoryRequest = {
   /**
@@ -73,4 +76,24 @@ export namespace GetCompanyPushHistoryRequest$ {
   export const outboundSchema = GetCompanyPushHistoryRequest$outboundSchema;
   /** @deprecated use `GetCompanyPushHistoryRequest$Outbound` instead. */
   export type Outbound = GetCompanyPushHistoryRequest$Outbound;
+}
+
+export function getCompanyPushHistoryRequestToJSON(
+  getCompanyPushHistoryRequest: GetCompanyPushHistoryRequest,
+): string {
+  return JSON.stringify(
+    GetCompanyPushHistoryRequest$outboundSchema.parse(
+      getCompanyPushHistoryRequest,
+    ),
+  );
+}
+
+export function getCompanyPushHistoryRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetCompanyPushHistoryRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetCompanyPushHistoryRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetCompanyPushHistoryRequest' from JSON`,
+  );
 }

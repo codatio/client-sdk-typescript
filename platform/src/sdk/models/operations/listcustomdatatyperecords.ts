@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListCustomDataTypeRecordsRequest = {
   /**
@@ -73,4 +76,24 @@ export namespace ListCustomDataTypeRecordsRequest$ {
   export const outboundSchema = ListCustomDataTypeRecordsRequest$outboundSchema;
   /** @deprecated use `ListCustomDataTypeRecordsRequest$Outbound` instead. */
   export type Outbound = ListCustomDataTypeRecordsRequest$Outbound;
+}
+
+export function listCustomDataTypeRecordsRequestToJSON(
+  listCustomDataTypeRecordsRequest: ListCustomDataTypeRecordsRequest,
+): string {
+  return JSON.stringify(
+    ListCustomDataTypeRecordsRequest$outboundSchema.parse(
+      listCustomDataTypeRecordsRequest,
+    ),
+  );
+}
+
+export function listCustomDataTypeRecordsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<ListCustomDataTypeRecordsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListCustomDataTypeRecordsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListCustomDataTypeRecordsRequest' from JSON`,
+  );
 }

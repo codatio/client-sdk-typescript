@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * The client's defined name for the object.
@@ -72,6 +75,27 @@ export namespace SupplementalDataSourceConfiguration$ {
   export type Outbound = SupplementalDataSourceConfiguration$Outbound;
 }
 
+export function supplementalDataSourceConfigurationToJSON(
+  supplementalDataSourceConfiguration: SupplementalDataSourceConfiguration,
+): string {
+  return JSON.stringify(
+    SupplementalDataSourceConfiguration$outboundSchema.parse(
+      supplementalDataSourceConfiguration,
+    ),
+  );
+}
+
+export function supplementalDataSourceConfigurationFromJSON(
+  jsonString: string,
+): SafeParseResult<SupplementalDataSourceConfiguration, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      SupplementalDataSourceConfiguration$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SupplementalDataSourceConfiguration' from JSON`,
+  );
+}
+
 /** @internal */
 export const SupplementalDataConfiguration$inboundSchema: z.ZodType<
   SupplementalDataConfiguration,
@@ -112,4 +136,24 @@ export namespace SupplementalDataConfiguration$ {
   export const outboundSchema = SupplementalDataConfiguration$outboundSchema;
   /** @deprecated use `SupplementalDataConfiguration$Outbound` instead. */
   export type Outbound = SupplementalDataConfiguration$Outbound;
+}
+
+export function supplementalDataConfigurationToJSON(
+  supplementalDataConfiguration: SupplementalDataConfiguration,
+): string {
+  return JSON.stringify(
+    SupplementalDataConfiguration$outboundSchema.parse(
+      supplementalDataConfiguration,
+    ),
+  );
+}
+
+export function supplementalDataConfigurationFromJSON(
+  jsonString: string,
+): SafeParseResult<SupplementalDataConfiguration, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SupplementalDataConfiguration$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SupplementalDataConfiguration' from JSON`,
+  );
 }

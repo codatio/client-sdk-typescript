@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   FeatureState,
   FeatureState$inboundSchema,
@@ -62,4 +65,22 @@ export namespace SupportedFeature$ {
   export const outboundSchema = SupportedFeature$outboundSchema;
   /** @deprecated use `SupportedFeature$Outbound` instead. */
   export type Outbound = SupportedFeature$Outbound;
+}
+
+export function supportedFeatureToJSON(
+  supportedFeature: SupportedFeature,
+): string {
+  return JSON.stringify(
+    SupportedFeature$outboundSchema.parse(supportedFeature),
+  );
+}
+
+export function supportedFeatureFromJSON(
+  jsonString: string,
+): SafeParseResult<SupportedFeature, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SupportedFeature$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SupportedFeature' from JSON`,
+  );
 }

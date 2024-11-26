@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * A webhook consumer is an HTTP endpoint that developers can configure to subscribe to Codat's supported event types.
@@ -89,4 +92,20 @@ export namespace WebhookConsumer$ {
   export const outboundSchema = WebhookConsumer$outboundSchema;
   /** @deprecated use `WebhookConsumer$Outbound` instead. */
   export type Outbound = WebhookConsumer$Outbound;
+}
+
+export function webhookConsumerToJSON(
+  webhookConsumer: WebhookConsumer,
+): string {
+  return JSON.stringify(WebhookConsumer$outboundSchema.parse(webhookConsumer));
+}
+
+export function webhookConsumerFromJSON(
+  jsonString: string,
+): SafeParseResult<WebhookConsumer, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => WebhookConsumer$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'WebhookConsumer' from JSON`,
+  );
 }

@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   PushOperationTimedOutWebhookData,
   PushOperationTimedOutWebhookData$inboundSchema,
@@ -134,4 +137,24 @@ export namespace PushOperationTimedOutWebhook$ {
   export const outboundSchema = PushOperationTimedOutWebhook$outboundSchema;
   /** @deprecated use `PushOperationTimedOutWebhook$Outbound` instead. */
   export type Outbound = PushOperationTimedOutWebhook$Outbound;
+}
+
+export function pushOperationTimedOutWebhookToJSON(
+  pushOperationTimedOutWebhook: PushOperationTimedOutWebhook,
+): string {
+  return JSON.stringify(
+    PushOperationTimedOutWebhook$outboundSchema.parse(
+      pushOperationTimedOutWebhook,
+    ),
+  );
+}
+
+export function pushOperationTimedOutWebhookFromJSON(
+  jsonString: string,
+): SafeParseResult<PushOperationTimedOutWebhook, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PushOperationTimedOutWebhook$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PushOperationTimedOutWebhook' from JSON`,
+  );
 }

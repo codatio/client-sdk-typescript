@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ImageReference,
   ImageReference$inboundSchema,
@@ -51,4 +54,18 @@ export namespace BrandingImage$ {
   export const outboundSchema = BrandingImage$outboundSchema;
   /** @deprecated use `BrandingImage$Outbound` instead. */
   export type Outbound = BrandingImage$Outbound;
+}
+
+export function brandingImageToJSON(brandingImage: BrandingImage): string {
+  return JSON.stringify(BrandingImage$outboundSchema.parse(brandingImage));
+}
+
+export function brandingImageFromJSON(
+  jsonString: string,
+): SafeParseResult<BrandingImage, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BrandingImage$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BrandingImage' from JSON`,
+  );
 }
