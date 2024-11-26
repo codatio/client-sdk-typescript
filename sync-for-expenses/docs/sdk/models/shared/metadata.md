@@ -1,5 +1,12 @@
 # Metadata
 
+## Example Usage
+
+```typescript
+import { Metadata } from "@codat/sync-for-expenses/sdk/models/shared";
+
+let value: Metadata = {};
+```
 
 ## Fields
 

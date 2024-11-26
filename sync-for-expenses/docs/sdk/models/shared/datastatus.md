@@ -2,6 +2,19 @@
 
 Describes the state of data in the Codat cache for a company and data type
 
+## Example Usage
+
+```typescript
+import { DataStatus } from "@codat/sync-for-expenses/sdk/models/shared";
+
+let value: DataStatus = {
+  dataType: "chartOfAccounts",
+  lastSuccessfulSync: "2022-01-01T13:00:00.000Z",
+  currentStatus: "MapQueued",
+  latestSyncId: "ad474a37-2003-478e-baee-9af9f1ec2fe3",
+  latestSuccessfulSyncId: "8220fc90-55b6-47bc-9417-48ac6ea93101",
+};
+```
 
 ## Fields
 

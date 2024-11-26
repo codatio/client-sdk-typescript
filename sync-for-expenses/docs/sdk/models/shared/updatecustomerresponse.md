@@ -1,5 +1,28 @@
 # UpdateCustomerResponse
 
+## Example Usage
+
+```typescript
+import { UpdateCustomerResponse } from "@codat/sync-for-expenses/sdk/models/shared";
+
+let value: UpdateCustomerResponse = {
+  changes: [
+    {
+      recordRef: {
+        dataType: "invoices",
+      },
+    },
+  ],
+  dataType: "invoices",
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  pushOperationKey: "368db420-447a-4b46-82c0-bcc45945370c",
+  dataConnectionKey: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  requestedOnUtc: "2022-10-23T00:00:00Z",
+  completedOnUtc: "2022-10-23T00:00:00Z",
+  status: "Success",
+  statusCode: 507,
+};
+```
 
 ## Fields
 

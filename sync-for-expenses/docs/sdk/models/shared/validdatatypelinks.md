@@ -41,6 +41,13 @@ Codat currently supports `validDatatypeLinks` for some data types on our Xero, Q
 
 If you'd like us to extend support to more data types or integrations, suggest or vote for this on our <a href="https://portal.productboard.com/codat/5-product-roadmap">Product Roadmap</a>.
 
+## Example Usage
+
+```typescript
+import { ValidDataTypeLinks } from "@codat/sync-for-expenses/sdk/models/shared";
+
+let value: ValidDataTypeLinks = {};
+```
 
 ## Fields
 

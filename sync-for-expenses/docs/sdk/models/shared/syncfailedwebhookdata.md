@@ -1,5 +1,14 @@
 # SyncFailedWebhookData
 
+## Example Usage
+
+```typescript
+import { SyncFailedWebhookData } from "@codat/sync-for-expenses/sdk/models/shared";
+
+let value: SyncFailedWebhookData = {
+  syncId: "a9367074-b5c3-42c4-9be4-be129f43577e",
+};
+```
 
 ## Fields
 

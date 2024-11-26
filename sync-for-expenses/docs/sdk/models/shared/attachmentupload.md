@@ -1,5 +1,12 @@
 # AttachmentUpload
 
+## Example Usage
+
+```typescript
+import { AttachmentUpload } from "@codat/sync-for-expenses/sdk/models/shared";
+
+// No examples available for this model
+```
 
 ## Fields
 

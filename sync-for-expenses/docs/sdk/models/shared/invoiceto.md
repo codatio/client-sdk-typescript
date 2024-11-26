@@ -1,7 +1,17 @@
 # InvoiceTo
 
-Unique identifier of the customer the expense is billable to. The invoiceTo object is currently only supported for QBO and QBD.
+Unique identifier for the customer billed for the transaction. The `invoiceTo` object is currently supported only for QuickBooks Online and QuickBooks Desktop.
 
+## Example Usage
+
+```typescript
+import { InvoiceTo } from "@codat/sync-for-expenses/sdk/models/shared";
+
+let value: InvoiceTo = {
+  id: "80000002-1674552702",
+  type: "customer",
+};
+```
 
 ## Fields
 

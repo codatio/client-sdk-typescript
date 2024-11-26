@@ -1,5 +1,15 @@
 # Phone
 
+## Example Usage
+
+```typescript
+import { Phone } from "@codat/sync-for-expenses/sdk/models/shared";
+
+let value: Phone = {
+  number: "(877) 492-8687",
+  type: "Mobile",
+};
+```
 
 ## Fields
 

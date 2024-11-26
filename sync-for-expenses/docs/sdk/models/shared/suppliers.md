@@ -1,5 +1,24 @@
 # Suppliers
 
+## Example Usage
+
+```typescript
+import { Suppliers } from "@codat/sync-for-expenses/sdk/models/shared";
+
+let value: Suppliers = {
+  pageNumber: 1,
+  pageSize: 10,
+  totalResults: 1,
+  links: {
+    self: {
+      href: "/companies/{id}/data/{dataType}",
+    },
+    current: {
+      href: "/companies/{id}/data/{dataType}?page=1&pageSize=10",
+    },
+  },
+};
+```
 
 ## Fields
 

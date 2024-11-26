@@ -1,5 +1,17 @@
 # CreateConnectionRequest
 
+## Example Usage
+
+```typescript
+import { CreateConnectionRequest } from "@codat/sync-for-expenses/sdk/models/operations";
+
+let value: CreateConnectionRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  requestBody: {
+    platformKey: "gbol",
+  },
+};
+```
 
 ## Fields
 

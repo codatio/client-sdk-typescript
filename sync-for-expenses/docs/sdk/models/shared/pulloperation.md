@@ -3,6 +3,24 @@
 Information about a queued, in progress or completed pull operation.
 *Formally called `dataset`*
 
+## Example Usage
+
+```typescript
+import { PullOperation } from "@codat/sync-for-expenses/sdk/models/shared";
+
+let value: PullOperation = {
+  id: "97d60846-f07a-4d42-b5a0-0bdcc6ebf56b",
+  companyId: "4645bd78-8988-45bc-ac9e-67ba5df6e4e5",
+  connectionId: "51baa045-4836-4317-a42e-3542e991e581",
+  dataType: "invoices",
+  status: "Initial",
+  statusDescription: "Paused until 2022-10-23T00:00:00.000Z",
+  requested: "2022-11-14T11:18:37.2798351Z",
+  progress: 10,
+  isCompleted: false,
+  isErrored: false,
+};
+```
 
 ## Fields
 

@@ -2,12 +2,16 @@
 
 The type of transaction.
 
+## Example Usage
+
+```typescript
+import { Type } from "@codat/sync-for-expenses/sdk/models/shared";
+
+let value: Type = "Payment";
+```
 
 ## Values
 
-| Name         | Value        |
-| ------------ | ------------ |
-| `Payment`    | Payment      |
-| `Refund`     | Refund       |
-| `Reward`     | Reward       |
-| `Chargeback` | Chargeback   |
+```typescript
+"Payment" | "Refund" | "Reward" | "Chargeback"
+```

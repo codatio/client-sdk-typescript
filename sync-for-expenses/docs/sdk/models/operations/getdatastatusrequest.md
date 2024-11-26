@@ -1,5 +1,14 @@
 # GetDataStatusRequest
 
+## Example Usage
+
+```typescript
+import { GetDataStatusRequest } from "@codat/sync-for-expenses/sdk/models/operations";
+
+let value: GetDataStatusRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+};
+```
 
 ## Fields
 

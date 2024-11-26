@@ -12,9 +12,20 @@ Create and update transactions that represent your customers' spend.
 
 ## create
 
-The *Create expense* endpoint creates an [expense transaction](https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction) in the accounting platform for a given company's connection. 
+The *Create expense* endpoint creates an [expense transaction](https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction) in the accounting software for a given company's connection. 
 
 [Expense transactions](https://docs.codat.io/sync-for-expenses-api#/schemas/ExpenseTransaction) represent transactions made with a company debit or credit card. 
+
+### Supported Integrations
+
+| Integration                   | Supported |
+|-------------------------------|-----------|
+| Dynamics 365 Business Central | Yes       |
+| FreeAgent                     | Yes       |
+| QuickBooks Desktop            | Yes       |
+| QuickBooks Online             | Yes       |
+| Oracle NetSuite               | Yes       |
+| Xero                          | Yes       |
 
 ### Example Usage
 
@@ -31,13 +42,13 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     requestBody: [
       {
-        id: "a44135b0-6882-489a-83fe-a0c57a4afb19",
+        id: "4d7c6929-7770-412b-91bb-44d3bc71d111",
         type: "Payment",
         issueDate: "2024-05-21T00:00:00+00:00",
         currency: "GBP",
         currencyRate: new Decimal("1"),
         contactRef: {
-          id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+          id: "430",
           type: "Supplier",
         },
         bankAccountRef: {
@@ -56,11 +67,7 @@ async function run() {
             },
             trackingRefs: [
               {
-                id: "DEPARTMENT_3",
-                dataType: "trackingCategories",
-              },
-              {
-                id: "e9a1b63d-9ff0-40e7-8038-016354b987e6",
+                id: "DEPARTMENT_5",
                 dataType: "trackingCategories",
               },
             ],
@@ -70,13 +77,86 @@ async function run() {
             },
           },
         ],
-        notes: "amazon purchase",
+        notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
       },
     ],
   });
 
   // Handle the result
-  console.log(result)
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
+import { expensesCreate } from "@codat/sync-for-expenses/funcs/expensesCreate.js";
+import { Decimal } from "@codat/sync-for-expenses/sdk/types";
+
+// Use `CodatSyncExpensesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncExpenses = new CodatSyncExpensesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await expensesCreate(codatSyncExpenses, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    requestBody: [
+      {
+        id: "4d7c6929-7770-412b-91bb-44d3bc71d111",
+        type: "Payment",
+        issueDate: "2024-05-21T00:00:00+00:00",
+        currency: "GBP",
+        currencyRate: new Decimal("1"),
+        contactRef: {
+          id: "430",
+          type: "Supplier",
+        },
+        bankAccountRef: {
+          id: "97",
+        },
+        merchantName: "Amazon UK",
+        lines: [
+          {
+            netAmount: new Decimal("100"),
+            taxAmount: new Decimal("20"),
+            taxRateRef: {
+              id: "23_Bills",
+            },
+            accountRef: {
+              id: "35",
+            },
+            trackingRefs: [
+              {
+                id: "DEPARTMENT_5",
+                dataType: "trackingCategories",
+              },
+            ],
+            invoiceTo: {
+              id: "504",
+              type: "customer",
+            },
+          },
+        ],
+        notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
+      },
+    ],
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -91,27 +171,31 @@ run();
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
-
 ### Response
 
 **Promise\<[shared.CreateExpenseResponse](../../sdk/models/shared/createexpenseresponse.md)\>**
+
 ### Errors
 
-| Error Object                    | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorMessage             | 400,401,402,403,404,429,500,503 | application/json                |
-| errors.SDKError                 | 4xx-5xx                         | */*                             |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
+| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
 
 ## update
 
-The *Update expense* endpoint updates an existing [expense transaction](https://docs.codat.io/sync-for-expenses-api#/schemas/UpdateExpenseRequest) in the accounting platform for a given company's connection. 
+The *Update expense* endpoint updates an existing [expense transaction](https://docs.codat.io/sync-for-expenses-api#/schemas/UpdateExpenseRequest) in the accounting software for a given company's connection. 
 
 [Expense transactions](https://docs.codat.io/sync-for-expenses-api#/schemas/UpdateExpenseRequest) represent transactions made with a company debit or credit card. 
 
-
-**Integration-specific behaviour**
-
-At the moment you can update expenses only for Xero, QuickBooks Online and FreeAgent ([Payment](https://docs.codat.io/expenses/sync-process/expense-transactions#transaction-types) transaction type only).
+### Supported Integrations
+The following integrations are supported for the [Payment](https://docs.codat.io/expenses/sync-process/expense-transactions#transaction-types) transaction `type` only: 
+| Integration           | Supported |
+|-----------------------|-----------|
+| FreeAgent             | Yes       |
+| QuickBooks Online     | Yes       |
+| Oracle NetSuite       | Yes       |
+| Xero                  | Yes       |
 
 ### Example Usage
 
@@ -129,14 +213,15 @@ async function run() {
     transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
     updateExpenseRequest: {
       type: "Payment",
-      issueDate: "2022-06-28T00:00:00.000Z",
+      issueDate: "2024-05-21T00:00:00+00:00",
       currency: "GBP",
+      currencyRate: new Decimal("1"),
       contactRef: {
-        id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+        id: "430",
         type: "Supplier",
       },
       bankAccountRef: {
-        id: "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
+        id: "97",
       },
       merchantName: "Amazon UK",
       lines: [
@@ -144,19 +229,19 @@ async function run() {
           netAmount: new Decimal("100"),
           taxAmount: new Decimal("20"),
           taxRateRef: {
-            id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+            id: "23_Bills",
           },
           accountRef: {
-            id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+            id: "35",
           },
           trackingRefs: [
             {
-              id: "e9a1b63d-9ff0-40e7-8038-016354b987e6",
+              id: "DEPARTMENT_5",
               dataType: "trackingCategories",
             },
           ],
           invoiceTo: {
-            id: "80000002-1674552702",
+            id: "504",
             type: "customer",
           },
         },
@@ -166,7 +251,78 @@ async function run() {
   });
 
   // Handle the result
-  console.log(result)
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
+import { expensesUpdate } from "@codat/sync-for-expenses/funcs/expensesUpdate.js";
+import { Decimal } from "@codat/sync-for-expenses/sdk/types";
+
+// Use `CodatSyncExpensesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncExpenses = new CodatSyncExpensesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await expensesUpdate(codatSyncExpenses, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
+    updateExpenseRequest: {
+      type: "Payment",
+      issueDate: "2024-05-21T00:00:00+00:00",
+      currency: "GBP",
+      currencyRate: new Decimal("1"),
+      contactRef: {
+        id: "430",
+        type: "Supplier",
+      },
+      bankAccountRef: {
+        id: "97",
+      },
+      merchantName: "Amazon UK",
+      lines: [
+        {
+          netAmount: new Decimal("100"),
+          taxAmount: new Decimal("20"),
+          taxRateRef: {
+            id: "23_Bills",
+          },
+          accountRef: {
+            id: "35",
+          },
+          trackingRefs: [
+            {
+              id: "DEPARTMENT_5",
+              dataType: "trackingCategories",
+            },
+          ],
+          invoiceTo: {
+            id: "504",
+            type: "customer",
+          },
+        },
+      ],
+      notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
+    },
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -181,13 +337,13 @@ run();
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
-
 ### Response
 
 **Promise\<[shared.UpdateExpenseResponse](../../sdk/models/shared/updateexpenseresponse.md)\>**
+
 ### Errors
 
-| Error Object                        | Status Code                         | Content Type                        |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| errors.ErrorMessage                 | 400,401,402,403,404,422,429,500,503 | application/json                    |
-| errors.SDKError                     | 4xx-5xx                             | */*                                 |
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| errors.ErrorMessage                         | 400, 401, 402, 403, 404, 422, 429, 500, 503 | application/json                            |
+| errors.SDKError                             | 4XX, 5XX                                    | \*/\*                                       |

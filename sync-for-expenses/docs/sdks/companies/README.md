@@ -15,7 +15,7 @@ Create and manage your SMB users' companies.
 
 ## list
 
-﻿The *List companies* endpoint returns a list of [companies] associated to your instances.
+﻿The *List companies* endpoint returns a list of [companies](https://docs.codat.io/sync-for-expenses-api#/schemas/Company) associated to your instances.
 
 A [company](https://docs.codat.io/sync-for-expenses-api#/schemas/Company) represents a business sharing access to their data.
 Each company can have multiple [connections](https://docs.codat.io/sync-for-expenses-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
@@ -38,7 +38,42 @@ async function run() {
   });
 
   // Handle the result
-  console.log(result)
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
+import { companiesList } from "@codat/sync-for-expenses/funcs/companiesList.js";
+
+// Use `CodatSyncExpensesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncExpenses = new CodatSyncExpensesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await companiesList(codatSyncExpenses, {
+    page: 1,
+    pageSize: 100,
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -53,16 +88,16 @@ run();
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
-
 ### Response
 
 **Promise\<[shared.Companies](../../sdk/models/shared/companies.md)\>**
+
 ### Errors
 
-| Error Object                    | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorMessage             | 400,401,402,403,404,429,500,503 | application/json                |
-| errors.SDKError                 | 4xx-5xx                         | */*                             |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
+| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
 
 ## create
 
@@ -85,16 +120,42 @@ const codatSyncExpenses = new CodatSyncExpenses({
 async function run() {
   const result = await codatSyncExpenses.companies.create({
     name: "Technicalium",
-    description: "Requested early access to the new financing scheme.",
-    groups: [
-      {
-        id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-      },
-    ],
   });
 
   // Handle the result
-  console.log(result)
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
+import { companiesCreate } from "@codat/sync-for-expenses/funcs/companiesCreate.js";
+
+// Use `CodatSyncExpensesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncExpenses = new CodatSyncExpensesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await companiesCreate(codatSyncExpenses, {
+    name: "Technicalium",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -109,21 +170,20 @@ run();
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
-
 ### Response
 
 **Promise\<[shared.Company](../../sdk/models/shared/company.md)\>**
+
 ### Errors
 
-| Error Object                | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| errors.ErrorMessage         | 400,401,402,403,429,500,503 | application/json            |
-| errors.SDKError             | 4xx-5xx                     | */*                         |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorMessage               | 400, 401, 402, 403, 429, 500, 503 | application/json                  |
+| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## update
 
 ﻿Use the *Update company* endpoint to update both the name and description of the company. 
-If you use [groups](https://docs.codat.io/sync-for-expenses-api#/schemas/Group) to manage a set of companies, use the [Add company](https://docs.codat.io/sync-for-expenses-api#/operations/add-company-to-group) or [Remove company](https://docs.codat.io/sync-for-expenses-api#/operations/remove-company-from-group) endpoints to add or remove a company from a group.
 
 A [company](https://docs.codat.io/sync-for-expenses-api#/schemas/Company) represents a business sharing access to their data.
 Each company can have multiple [connections](https://docs.codat.io/sync-for-expenses-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
@@ -141,18 +201,47 @@ async function run() {
   const result = await codatSyncExpenses.companies.update({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     companyRequestBody: {
-      name: "Bank of Dave",
-      description: "Requested early access to the new financing scheme.",
-      groups: [
-        {
-          id: "60d2fa12-8a04-11ee-b9d1-0242ac120002",
-        },
-      ],
+      name: "New Name",
     },
   });
 
   // Handle the result
-  console.log(result)
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
+import { companiesUpdate } from "@codat/sync-for-expenses/funcs/companiesUpdate.js";
+
+// Use `CodatSyncExpensesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncExpenses = new CodatSyncExpensesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await companiesUpdate(codatSyncExpenses, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    companyRequestBody: {
+      name: "New Name",
+    },
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -167,16 +256,16 @@ run();
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
-
 ### Response
 
 **Promise\<[shared.Company](../../sdk/models/shared/company.md)\>**
+
 ### Errors
 
-| Error Object                | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| errors.ErrorMessage         | 401,402,403,404,429,500,503 | application/json            |
-| errors.SDKError             | 4xx-5xx                     | */*                         |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
+| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## delete
 
@@ -200,6 +289,37 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
+import { companiesDelete } from "@codat/sync-for-expenses/funcs/companiesDelete.js";
+
+// Use `CodatSyncExpensesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncExpenses = new CodatSyncExpensesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await companiesDelete(codatSyncExpenses, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
   
 }
 
@@ -215,16 +335,16 @@ run();
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
-
 ### Response
 
 **Promise\<void\>**
+
 ### Errors
 
-| Error Object                | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| errors.ErrorMessage         | 401,402,403,404,429,500,503 | application/json            |
-| errors.SDKError             | 4xx-5xx                     | */*                         |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
+| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## get
 
@@ -249,7 +369,39 @@ async function run() {
   });
 
   // Handle the result
-  console.log(result)
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
+import { companiesGet } from "@codat/sync-for-expenses/funcs/companiesGet.js";
+
+// Use `CodatSyncExpensesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncExpenses = new CodatSyncExpensesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await companiesGet(codatSyncExpenses, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
 }
 
 run();
@@ -264,13 +416,13 @@ run();
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
-
 ### Response
 
 **Promise\<[shared.Company](../../sdk/models/shared/company.md)\>**
+
 ### Errors
 
-| Error Object                | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| errors.ErrorMessage         | 401,402,403,404,429,500,503 | application/json            |
-| errors.SDKError             | 4xx-5xx                     | */*                         |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
+| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |

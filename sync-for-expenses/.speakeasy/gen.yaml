@@ -11,9 +11,10 @@ generation:
     requestResponseComponentNamesFeb2024: true
   auth:
     oAuth2ClientCredentialsEnabled: false
+    oAuth2PasswordEnabled: false
   telemetryEnabled: true
 typescript:
-  version: 6.0.0
+  version: 7.0.0
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -21,9 +22,12 @@ typescript:
   additionalPackageJSON: {}
   author: Codat
   clientServerStatusCodesAsErrors: true
+  defaultErrorName: SDKError
   description: Push expenses to accounting platforms.
+  enableReactQuery: false
   enumFormat: union
   flattenGlobalSecurity: true
+  flatteningOrder: body-first
   imports:
     option: openapi
     paths:

@@ -1,5 +1,28 @@
 # UpdateSupplierResponse
 
+## Example Usage
+
+```typescript
+import { UpdateSupplierResponse } from "@codat/sync-for-expenses/sdk/models/shared";
+
+let value: UpdateSupplierResponse = {
+  changes: [
+    {
+      recordRef: {
+        dataType: "invoices",
+      },
+    },
+  ],
+  dataType: "invoices",
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  pushOperationKey: "a6164d0f-5502-46e1-8fd7-539006143420",
+  dataConnectionKey: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  requestedOnUtc: "2022-10-23T00:00:00Z",
+  completedOnUtc: "2022-10-23T00:00:00Z",
+  status: "TimedOut",
+  statusCode: 301,
+};
+```
 
 ## Fields
 

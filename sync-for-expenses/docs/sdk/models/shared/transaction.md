@@ -1,5 +1,16 @@
 # Transaction
 
+## Example Usage
+
+```typescript
+import { Transaction } from "@codat/sync-for-expenses/sdk/models/shared";
+
+let value: Transaction = {
+  transactionId: "aa02271d-ed5f-47f5-be76-778d5905225a",
+  status: "Completed",
+  integrationType: "expenses",
+};
+```
 
 ## Fields
 

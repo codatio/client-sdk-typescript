@@ -1,5 +1,14 @@
 # CreateConnectionRequestBody
 
+## Example Usage
+
+```typescript
+import { CreateConnectionRequestBody } from "@codat/sync-for-expenses/sdk/models/operations";
+
+let value: CreateConnectionRequestBody = {
+  platformKey: "gbol",
+};
+```
 
 ## Fields
 

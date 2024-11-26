@@ -1,11 +1,15 @@
 # ValidTransactionTypes
 
+## Example Usage
+
+```typescript
+import { ValidTransactionTypes } from "@codat/sync-for-expenses/sdk/models/shared";
+
+let value: ValidTransactionTypes = "Payment";
+```
 
 ## Values
 
-| Name         | Value        |
-| ------------ | ------------ |
-| `Payment`    | Payment      |
-| `Refund`     | Refund       |
-| `Reward`     | Reward       |
-| `Chargeback` | Chargeback   |
+```typescript
+"Payment" | "Refund" | "Reward" | "Chargeback"
+```

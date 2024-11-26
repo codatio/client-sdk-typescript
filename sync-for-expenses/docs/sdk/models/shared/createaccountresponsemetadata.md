@@ -1,5 +1,12 @@
 # CreateAccountResponseMetadata
 
+## Example Usage
+
+```typescript
+import { CreateAccountResponseMetadata } from "@codat/sync-for-expenses/sdk/models/shared";
+
+let value: CreateAccountResponseMetadata = {};
+```
 
 ## Fields
 
