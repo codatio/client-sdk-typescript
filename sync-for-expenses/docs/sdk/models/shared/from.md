@@ -1,5 +1,18 @@
 # From
 
+## Example Usage
+
+```typescript
+import { From } from "@codat/sync-for-expenses/sdk/models/shared";
+import { Decimal } from "@codat/sync-for-expenses/sdk/types";
+
+let value: From = {
+  accountRef: {
+    id: "<id>",
+  },
+  amount: new Decimal("5680.45"),
+};
+```
 
 ## Fields
 

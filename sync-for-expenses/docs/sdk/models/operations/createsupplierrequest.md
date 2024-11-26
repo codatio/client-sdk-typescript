@@ -1,5 +1,53 @@
 # CreateSupplierRequest
 
+## Example Usage
+
+```typescript
+import { CreateSupplierRequest } from "@codat/sync-for-expenses/sdk/models/operations";
+
+let value: CreateSupplierRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  supplier: {
+    modifiedDate: "2022-10-23T00:00:00Z",
+    sourceModifiedDate: "2022-10-23T00:00:00Z",
+    id: "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F",
+    supplierName: "Kelly's Industrial Supplies",
+    contactName: "Kelly's Industrial Supplies",
+    emailAddress: "sales@kellysupplies.com",
+    phone: "07999 999999",
+    addresses: [
+      {
+        type: "Billing",
+        line1: "Unit 51",
+        line2: "Bakersfield Industrial Estate",
+        city: "Bakersfield",
+        region: "California",
+        country: "USA",
+      },
+    ],
+    registrationNumber: "string",
+    taxNumber: "string",
+    status: "Unknown",
+    defaultCurrency: "string",
+    metadata: {
+      isDeleted: true,
+    },
+    supplementalData: {
+      content: {
+        "property1": {
+          "property1": null,
+          "property2": null,
+        },
+        "property2": {
+          "property1": null,
+          "property2": null,
+        },
+      },
+    },
+  },
+};
+```
 
 ## Fields
 

@@ -1,5 +1,16 @@
 # TrackingCategoryMappingInfo
 
+## Example Usage
+
+```typescript
+import { TrackingCategoryMappingInfo } from "@codat/sync-for-expenses/sdk/models/shared";
+
+let value: TrackingCategoryMappingInfo = {
+  id: "DEPARTMENT_2",
+  name: "New York",
+  parentId: "DEPARTMENTS",
+};
+```
 
 ## Fields
 

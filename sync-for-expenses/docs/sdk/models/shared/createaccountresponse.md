@@ -1,5 +1,28 @@
 # CreateAccountResponse
 
+## Example Usage
+
+```typescript
+import { CreateAccountResponse } from "@codat/sync-for-expenses/sdk/models/shared";
+
+let value: CreateAccountResponse = {
+  changes: [
+    {
+      recordRef: {
+        dataType: "invoices",
+      },
+    },
+  ],
+  dataType: "invoices",
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  pushOperationKey: "a4bf3999-3f7d-4b4d-a6e9-ebb8fa6904a4",
+  dataConnectionKey: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  requestedOnUtc: "2022-10-23T00:00:00Z",
+  completedOnUtc: "2022-10-23T00:00:00Z",
+  status: "Failed",
+  statusCode: 305,
+};
+```
 
 ## Fields
 

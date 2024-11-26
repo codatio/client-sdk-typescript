@@ -1,5 +1,16 @@
 # PushOption
 
+## Example Usage
+
+```typescript
+import { PushOption } from "@codat/sync-for-expenses/sdk/models/shared";
+
+let value: PushOption = {
+  type: "DateTime",
+  displayName: "Holden89",
+  required: false,
+};
+```
 
 ## Fields
 

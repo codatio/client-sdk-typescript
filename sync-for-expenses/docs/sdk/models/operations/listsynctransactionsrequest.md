@@ -1,5 +1,17 @@
 # ListSyncTransactionsRequest
 
+## Example Usage
+
+```typescript
+import { ListSyncTransactionsRequest } from "@codat/sync-for-expenses/sdk/models/operations";
+
+let value: ListSyncTransactionsRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
+  page: 1,
+  pageSize: 100,
+};
+```
 
 ## Fields
 

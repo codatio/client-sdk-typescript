@@ -1,6 +1,6 @@
 {
   "name": "@codat/sync-for-expenses",
-  "version": "6.0.0",
+  "version": "7.0.0",
   "author": "Codat",
   "main": "./index.js",
   "sideEffects": false,
@@ -12,9 +12,11 @@
   "scripts": {
     "lint": "eslint --max-warnings=0 src",
     "build": "tsc",
-    "prepare": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
+    "react": "^18 || ^19",
+    "react-dom": "^18 || ^19",
     "zod": ">= 3"
   },
   "devDependencies": {

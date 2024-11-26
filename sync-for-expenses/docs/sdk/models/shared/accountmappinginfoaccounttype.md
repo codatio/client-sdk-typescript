@@ -2,13 +2,16 @@
 
 Type of the account.
 
+## Example Usage
+
+```typescript
+import { AccountMappingInfoAccountType } from "@codat/sync-for-expenses/sdk/models/shared";
+
+let value: AccountMappingInfoAccountType = "Expense";
+```
 
 ## Values
 
-| Name        | Value       |
-| ----------- | ----------- |
-| `Asset`     | Asset       |
-| `Liability` | Liability   |
-| `Income`    | Income      |
-| `Expense`   | Expense     |
-| `Equity`    | Equity      |
+```typescript
+"Asset" | "Liability" | "Income" | "Expense" | "Equity"
+```

@@ -2,6 +2,27 @@
 
 Webhook request body used to notify that a sync has failed.
 
+## Example Usage
+
+```typescript
+import { SyncFailedWebhook } from "@codat/sync-for-expenses/sdk/models/shared";
+
+let value: SyncFailedWebhook = {
+  clientId: "30e0f9d2-52c0-4c9f-a806-bcd98a3bcd7e",
+  clientName: "Expense Sync",
+  companyId: "1f9559e7-8368-48c9-bdf4-f158e16b8b85",
+  ruleId: "289c80dc-2aee-4b71-afff-9acd8d051080",
+  ruleType: "Sync Failed",
+  alertId: "72c1103b-7f17-4a3a-8db5-67c2d360a516",
+  message:
+    "Sync 3bead2a1-1b3d-4d90-8077-cddc5ca68b01 for company 1f9559e7-8368-48c9-bdf4-f158e16b8b85 of type Expense has failed at step Pushing.",
+  data: {
+    syncId: "3bead2a1-1b3d-4d90-8077-cddc5ca68b01",
+    syncType: "Expense",
+    failureStage: "Pushing",
+  },
+};
+```
 
 ## Fields
 

@@ -2,13 +2,16 @@
 
 The type of phone number
 
+## Example Usage
+
+```typescript
+import { PhoneNumberType } from "@codat/sync-for-expenses/sdk/models/shared";
+
+let value: PhoneNumberType = "Unknown";
+```
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `Primary`  | Primary    |
-| `Landline` | Landline   |
-| `Mobile`   | Mobile     |
-| `Fax`      | Fax        |
-| `Unknown`  | Unknown    |
+```typescript
+"Primary" | "Landline" | "Mobile" | "Fax" | "Unknown"
+```

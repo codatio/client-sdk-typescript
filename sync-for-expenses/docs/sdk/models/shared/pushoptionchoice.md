@@ -1,5 +1,12 @@
 # PushOptionChoice
 
+## Example Usage
+
+```typescript
+import { PushOptionChoice } from "@codat/sync-for-expenses/sdk/models/shared";
+
+let value: PushOptionChoice = {};
+```
 
 ## Fields
 

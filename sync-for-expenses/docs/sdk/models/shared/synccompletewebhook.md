@@ -2,6 +2,26 @@
 
 Webhook request body used to notify that a sync has completed.
 
+## Example Usage
+
+```typescript
+import { SyncCompleteWebhook } from "@codat/sync-for-expenses/sdk/models/shared";
+
+let value: SyncCompleteWebhook = {
+  clientId: "30e0f9d2-52c0-4c9f-a806-bcd98a3bcd7e",
+  clientName: "Expense Sync",
+  companyId: "1f9559e7-8368-48c9-bdf4-f158e16b8b85",
+  ruleId: "5c27631d-3b63-4b50-8228-ee502fd113eb",
+  ruleType: "Sync Completed",
+  alertId: "33a4f8e9-09ae-4334-9b00-7bbe83024672",
+  message:
+    "Sync 321363b4-efa9-4fbc-b71c-0b58d62f3248 for company 1f9559e7-8368-48c9-bdf4-f158e16b8b85 of type Expense completed successfully.",
+  data: {
+    syncId: "321363b4-efa9-4fbc-b71c-0b58d62f3248",
+    syncType: "Expense",
+  },
+};
+```
 
 ## Fields
 

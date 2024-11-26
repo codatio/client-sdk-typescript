@@ -1,5 +1,12 @@
 # UploadExpenseAttachmentRequest
 
+## Example Usage
+
+```typescript
+import { UploadExpenseAttachmentRequest } from "@codat/sync-for-expenses/sdk/models/operations";
+
+// No examples available for this model
+```
 
 ## Fields
 

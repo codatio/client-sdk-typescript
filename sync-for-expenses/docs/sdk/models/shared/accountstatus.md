@@ -2,12 +2,16 @@
 
 Status of the account
 
+## Example Usage
+
+```typescript
+import { AccountStatus } from "@codat/sync-for-expenses/sdk/models/shared";
+
+let value: AccountStatus = "Active";
+```
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `Unknown`  | Unknown    |
-| `Active`   | Active     |
-| `Archived` | Archived   |
-| `Pending`  | Pending    |
+```typescript
+"Unknown" | "Active" | "Archived" | "Pending"
+```

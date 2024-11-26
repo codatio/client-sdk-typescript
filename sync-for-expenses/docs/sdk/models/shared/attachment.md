@@ -1,5 +1,12 @@
 # Attachment
 
+## Example Usage
+
+```typescript
+import { Attachment } from "@codat/sync-for-expenses/sdk/models/shared";
+
+let value: Attachment = {};
+```
 
 ## Fields
 

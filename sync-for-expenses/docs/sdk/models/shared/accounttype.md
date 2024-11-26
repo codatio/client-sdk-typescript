@@ -2,14 +2,16 @@
 
 Type of account
 
+## Example Usage
+
+```typescript
+import { AccountType } from "@codat/sync-for-expenses/sdk/models/shared";
+
+let value: AccountType = "Asset";
+```
 
 ## Values
 
-| Name        | Value       |
-| ----------- | ----------- |
-| `Unknown`   | Unknown     |
-| `Asset`     | Asset       |
-| `Expense`   | Expense     |
-| `Income`    | Income      |
-| `Liability` | Liability   |
-| `Equity`    | Equity      |
+```typescript
+"Unknown" | "Asset" | "Expense" | "Income" | "Liability" | "Equity"
+```
