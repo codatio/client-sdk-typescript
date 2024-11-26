@@ -14,7 +14,7 @@ generation:
     oAuth2PasswordEnabled: false
   telemetryEnabled: true
 typescript:
-  version: 9.0.0
+  version: 9.0.1
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
